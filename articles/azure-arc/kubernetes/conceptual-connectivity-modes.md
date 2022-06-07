@@ -32,7 +32,7 @@ The connectivity status of a cluster is determined by the time of the latest hea
 | Connecting | Azure Arc-enabled Kubernetes resource is created in Azure Resource Manager, but service hasn't received the agent heartbeat yet. |
 | Connected | Azure Arc-enabled Kubernetes service received an agent heartbeat sometime within the previous 15 minutes. |
 | Offline | Azure Arc-enabled Kubernetes resource was previously connected, but the service hasn't received any agent heartbeat for 15 minutes. |
-| Expired | Managed identity certificate of the cluster has an expiration window of 90 days after it is issued. Once this certificate expires, the resource is considered `Expired` and all features such as configuration, monitoring, and policy stop working on this cluster. More information on how to address expired Azure Arc-enabled Kubernetes resources can be found [in the FAQ article](./faq.md#how-to-address-expired-azure-arc-enabled-kubernetes-resources). |
+| Expired | Managed identity certificate of the cluster has an expiration window of 90 days after it is issued. Once this certificate expires, the resource is considered `Expired` and all features such as configuration, monitoring, and policy stop working on this cluster. More information on how to address expired Azure Arc-enabled Kubernetes resources can be found [in the FAQ article](./faq.md#how-do-i-address-expired-azure-arc-enabled-kubernetes-resources). |
 
 ## Next steps
 

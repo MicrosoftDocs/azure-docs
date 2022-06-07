@@ -20,4 +20,4 @@ Azure Communication Services provides the ability to leverage Communication Serv
 The following articles might be of interest to you:
 
 - Learn more about [Azure Communication Services firewall configuration](../voice-video-calling/network-requirements.md).
-- Learn about [Microsoft Teams firewall configuration](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide#skype-for-business-online-and-microsoft-teams).
+- Learn about [Microsoft Teams firewall configuration](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#skype-for-business-online-and-microsoft-teams).

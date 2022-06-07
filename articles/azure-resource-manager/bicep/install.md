@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 12/07/2021
+ms.date: 04/05/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -192,17 +192,17 @@ The `bicep install` and `bicep upgrade` commands don't work in an air-gapped env
 - **Linux**
 
     1. Download **bicep-linux-x64** from the [Bicep release page](https://github.com/Azure/bicep/releases/latest/) in a non-air-gapped environment.
-    1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine.
+    1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine. Rename file to **bicep**.
 
 - **macOS**
 
     1. Download **bicep-osx-x64** from the [Bicep release page](https://github.com/Azure/bicep/releases/latest/) in a non-air-gapped environment.
-    1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine.
+    1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine. Rename file to **bicep**.
 
 - **Windows**
 
     1. Download **bicep-win-x64.exe** from the [Bicep release page](https://github.com/Azure/bicep/releases/latest/) in a non-air-gapped environment.
-    1. Copy the executable to the **%UserProfile%/.azure/bin** directory on an air-gapped machine.
+    1. Copy the executable to the **%UserProfile%/.azure/bin** directory on an air-gapped machine. Rename file to **bicep.exe**.
 
 ## Install the nightly builds
 

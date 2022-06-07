@@ -116,7 +116,7 @@ Serverless SQL pool offers mechanisms to secure access to your data.
 
 ### Azure Active Directory integration and multi-factor authentication
 
-Serverless SQL pool enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../../azure-sql/database/authentication-aad-configure.md). This capability simplifies permission management and enhances security. Azure Active Directory (Azure AD) supports [multi-factor authentication](../../azure-sql/database/authentication-mfa-ssms-configure.md) (MFA) to increase data and application security while supporting a single sign-on process.
+Serverless SQL pool enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](/azure/azure-sql/database/authentication-aad-configure). This capability simplifies permission management and enhances security. Azure Active Directory (Azure AD) supports [multi-factor authentication](/azure/azure-sql/database/authentication-mfa-ssms-configure) (MFA) to increase data and application security while supporting a single sign-on process.
 
 #### Authentication
 

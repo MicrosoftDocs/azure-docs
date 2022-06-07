@@ -28,11 +28,11 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 Follow these steps to create a new console application and install the Speech SDK.
 
 1. Open a command prompt where you want the new project, and create a console application with the .NET CLI.
-    ```console
+    ```dotnetcli
     dotnet new console
     ```
 1. Install the Speech SDK in your new project with the .NET CLI.
-    ```console
+    ```dotnetcli
     dotnet add package Microsoft.CognitiveServices.Speech
     ```
 1. Replace the contents of `Program.cs` with the following code. 
@@ -64,7 +64,7 @@ Follow these steps to create a new console application and install the Speech SD
                     {
                         Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
                         Console.WriteLine($"CANCELED: ErrorDetails=[{cancellation.ErrorDetails}]");
-                        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                     }
                     break;
                 default:

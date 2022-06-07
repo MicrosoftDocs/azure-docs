@@ -72,7 +72,7 @@ landingContent:
           - text: Stream data from Event Hubs
             url: event-grid-event-hubs-integration.md
           - text: Route Media Services events
-            url: /media-services/latest/monitoring/job-state-events-cli-how-to
+            url: /azure/media-services/latest/monitoring/job-state-events-cli-how-to
           - text: Route to Hybrid Connections
             url: custom-event-to-hybrid-connection.md
   # Card

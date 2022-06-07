@@ -9,8 +9,6 @@ author: bmansheim
 
 # Protect your web apps and APIs
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 ## Prerequisites
 
 Defender for Cloud is natively integrated with App Service, eliminating the need for deployment and onboarding - the integration is transparent.

@@ -4,6 +4,7 @@ description: Learn about private access networking option in the Flexible Server
 author: Madhusoodanan
 ms.author: dimadhus
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 8/6/2021
 ---
@@ -27,6 +28,9 @@ Azure Database for MySQL - Flexible Server supports client connectivity from:
 * Virtual networks across Azure regions. (Global peered VNets)
 
 Subnets enable you to segment the virtual network into one or more sub-networks and allocate a portion of the virtual network's address space to which you can then deploy Azure resources. Azure Database for MySQL - Flexible Server requires a [delegated subnet](../../virtual-network/subnet-delegation-overview.md). A delegated subnet is an explicit identifier that a subnet can host a only Azure Database for MySQL - Flexible Servers. By delegating the subnet, the service gets explicit permissions to create service-specific resources in the subnet to seamlessly manage your Azure Database for MySQL - Flexible Server.
+
+> [!NOTE]
+> The smallest range you can specify for a subnet is /29, which provides eight IP addresses, of which five will be utilized by Azure internally, whereas a Azure Database for MySQL - Flexible server you would require one IP address per node to be allocated from the delegated subnet when private access is enabled. HA enabled servers would need two and Non-HA server would need one IP address. Recommendation is to reserve at least 2 IP address per flexible server keeping in mind that we can enable high availability options later.
 
 Azure Database for MySQL - Flexible Server integrates with Azure [Private DNS zones](../../dns/private-dns-privatednszone.md) to provide a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. Private DNS zone can be linked to one or more virtual networks by creating [virtual network links](../../dns/private-dns-virtual-network-links.md)
 

@@ -1,18 +1,22 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 08/17/2021
+ms.date: 05/25/2022
 ms.service: virtual-wan
 ms.topic: include
 ---
 
-1. Locate the virtual WAN that you created. On the virtual WAN page, under the **Connectivity** section, select **Hubs**.
+1. Go to the virtual WAN that you created. On the virtual WAN page left pane, under the **Connectivity**, select **Hubs**.
+
 1. On the **Hubs** page, select **+New Hub** to open the **Create virtual hub** page.
 
-   :::image type="content" source="./media/virtual-wan-tutorial-hub-include/basics.png" alt-text="Screenshot shows the Create virtual hub pane with the Basics tab selected.":::
+   :::image type="content" source="./media/virtual-wan-tutorial-hub-include/create-hub.png" alt-text="Screenshot shows the Create virtual hub pane with the Basics tab selected." lightbox="./media/virtual-wan-tutorial-hub-include/create-hub.png":::
 
 1. On the **Create virtual hub** page **Basics** tab, complete the following fields:
 
-   * **Region**: This setting was previously referred to as location. It is the region in which you want to create your virtual hub.
+   * **Region**: Select the region in which you want to deploy the virtual hub.
    * **Name**: The name by which you want the virtual hub to be known.
-   * **Hub private address space**: The minimum address space is /24 to create a hub.
+   * **Hub private address space**: The hub's address range in CIDR notation. The minimum address space is /24 to create a hub.
+   * **Virtual hub capacity**: Select from the dropdown. For more information, see [Virtual hub settings](../articles/virtual-wan/hub-settings.md).
+   * **Hub routing preference**: This field is only available as part of the virtual hub routing preference preview and can only be viewed in the [preview portal](https://portal.azure.com/?feature.customRouterAsn=true&feature.virtualWanRoutingPreference=true#home). See [Virtual hub routing preference](../articles/virtual-wan/about-virtual-hub-routing-preference.md) for more information.
+   * **Router ASN**: Set the Autonomous System Number for the virtual hub router. You can use any ASN number except numbers that are reserved by [Azure or IANA](../articles/vpn-gateway/vpn-gateway-bgp-overview.md#what-asns-autonomous-system-numbers-can-i-use).

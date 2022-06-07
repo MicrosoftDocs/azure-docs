@@ -8,11 +8,9 @@ ms.date: 03/30/2022
 ---
 # Security alerts - a reference guide
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article lists the security alerts you might get from Microsoft Defender for Cloud and any Microsoft Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
 
-At the bottom of this page, there's a table describing the Microsoft Defender for Cloud kill chain aligned with version 7 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/).
+At the bottom of this page, there's a table describing the Microsoft Defender for Cloud kill chain aligned with version 9 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v9/).
 
 [Learn how to respond to these alerts](managing-and-responding-alerts.md).
 
@@ -23,6 +21,8 @@ At the bottom of this page, there's a table describing the Microsoft Defender fo
 
 
 ## <a name="alerts-windows"></a>Alerts for Windows machines
+
+Microsoft Defender for Servers Plan 2 provides unique detections and alerts, in addition to the ones provided by Microsoft Defender for Endpoint. The alerts provided for Windows machines are:
 
 [Further details and notes](defender-for-servers-introduction.md)
 
@@ -135,6 +135,8 @@ At the bottom of this page, there's a table describing the Microsoft Defender fo
 
 
 ## <a name="alerts-linux"></a>Alerts for Linux machines
+
+Microsoft Defender for Servers Plan 2 provides unique detections and alerts, in addition to the ones provided by Microsoft Defender for Endpoint. The alerts provided for Linux machines are:
 
 [Further details and notes](defender-for-servers-introduction.md)
 
@@ -307,6 +309,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 | Alert (alert type) | Description | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |--|--|:-:|--|
+| **Attempt to create a new Linux namespace from a container detected (Preview)**<br>(K8S.NODE_NamespaceCreation) | Analysis of processes running within a container in Kubernetes cluster detected an attempt to create a new Linux namespace. While this behavior might be legitimate, it might indicate that an attacker tries to escape from the container to the node. Some CVE-2022-0185 exploitations use this technique. | PrivilegeEscalation | Medium |
 | **A file was downloaded and executed (Preview)**<br>(K8S.NODE_LinuxSuspiciousActivity) | Analysis of processes running within a container indicates that a file has been downloaded to the container, given execution privileges and then executed. | Execution | Medium |
 | **A history file has been cleared (Preview)**<br>(K8S.NODE_HistoryFileCleared) | Analysis of processes running within a container indicates that the command history log file has been cleared. Attackers may do this to cover their tracks. The operation was performed by the specified user account. | DefenseEvasion | Medium |
 | **Abnormal activity of managed identity associated with Kubernetes (Preview)**<br>(K8S_AbnormalMiAcitivty) | Analysis of Azure Resource Manager operations detected an abnormal behavior of a managed identity used by an AKS addon. The detected activity isn\'t consistent with the behavior of the associated addon. While this activity can be legitimate, such behavior might indicate that the identity was gained by an attacker, possibly from a compromised container in the Kubernetes cluster. | Lateral Movement | Medium |
@@ -328,7 +331,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 | **Detected suspicious use of the useradd command (Preview)**<br>(K8S.NODE_SuspectUserAddition) | Analysis of processes running within a container detected suspicious use of the useradd command. | Persistence | Medium |
 | **Digital currency mining container detected**<br>(K8S_MaliciousContainerImage) <sup>[2](#footnote2)</sup> | Kubernetes audit log analysis detected a container that has an image associated with a digital currency mining tool. | Execution | High |
 | **Digital currency mining related behavior detected (Preview)**<br>(K8S.NODE_DigitalCurrencyMining) | Analysis of host data detected the execution of a process or command normally associated with digital currency mining. | Execution | High |
-| **Docker build operation detected on a Kubernetes node (Preview)**<br>(K8S.NODE_ImageBuildOnNode) | Analysis of processes running within a container indicates a build operation of a container image on a Kubernetes node. While this behavior might be legitimate, attackers might build their malicious images locally to avoid detection. | DefenseEvasion | Low |
+| **Docker build operation detected on a Kubernetes node (Preview)**<br>(K8S.NODE_ImageBuildOnNode) | Analysis of processes running within a container or directly on a Kubernetes node, has detected a build operation of a container image on a Kubernetes node. While this behavior might be legitimate, attackers might build their malicious images locally to avoid detection. | DefenseEvasion | Low |
 | **Excessive role permissions assigned in Kubernetes cluster (Preview)**<br>(K8S_ServiceAcountPermissionAnomaly) <sup>[3](#footnote3)</sup> | Analysis of the Kubernetes audit logs detected an excessive permissions role assignment to your cluster. The listed permissions for the assigned roles are uncommon to the specific service account. This detection considers previous role assignments to the same service account across clusters monitored by Azure, volume per permission, and the impact of the specific permission. The anomaly detection model used for this alert takes into account how this permission is used across all clusters monitored by Microsoft Defender for Cloud. | Privilege Escalation | Low |
 | **Executable found running from a suspicious location (Preview)**<br>(K8S.NODE_SuspectExecutablePath) | Analysis of host data detected an executable file that is running from a location associated with known suspicious files. This executable could either be legitimate activity, or an indication of a compromised host. | Execution | Medium |
 | **Execution of hidden file (Preview)**<br>(K8S.NODE_ExecuteHiddenFile) | Analysis of host data indicates that a hidden file was executed by the specified user account. | Persistence, DefenseEvasion | Informational |
@@ -607,7 +610,7 @@ Understanding the intention of an attack can help you investigate and report the
 
 The series of steps that describe the progression of a cyberattack from reconnaissance to data exfiltration is often referred to as a "kill chain". 
 
-Defender for Cloud's supported kill chain intents are based on [version 7 of the MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/) and described in the table below.
+Defender for Cloud's supported kill chain intents are based on [version 9 of the MITRE ATT&CK matrix](https://attack.mitre.org/versions/v9/) and described in the table below.
 
 | Tactic                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

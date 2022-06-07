@@ -44,7 +44,7 @@ Check the following configurations to ensure that NAT gateway can be used to dir
 [Virtual Network NAT gateway](./nat-overview.md#virtual-network-nat-basics) supports IPv4 UDP and TCP protocols. ICMP is not supported and is expected to fail. 
 
 To validate end-to-end connectivity of NAT gateway, follow these steps: 
-1. Validate that your [NAT gateway public IP address is being used](./tutorial-create-nat-gateway-portal.md#test-nat-gateway).
+1. Validate that your [NAT gateway public IP address is being used](./quickstart-create-nat-gateway-portal.md#test-nat-gateway).
 2. Conduct TCP connection tests and UDP-specific application layer tests.
 3. Look at NSG flow logs to analyze outbound traffic flows from NAT gateway.
 
@@ -98,7 +98,7 @@ The table below describes two common scenarios in which outbound connectivity ma
 
 ### TCP idle timeout timers set higher than the default value
 
-NAT gateway has a configurable TCP idle timeout timer that defaults to 4 minutes.  If this setting is changed to a higher value, NAT gateway will hold on to flows longer and can create [additional pressure on SNAT port inventory](nat-gateway-resource.md#timers). The table below describes a common scenarion in which a high TCP idle timeout may be causing SNAT exhaustion and provides possible mitigation steps to take:
+The NAT gateway TCP idle timeout timer is set to 4 minutes by default but is configurable up to 120 minutes. If this setting is changed to a higher value than the default, NAT gateway will hold on to flows longer and can create [additional pressure on SNAT port inventory](nat-gateway-resource.md#timers). The table below describes a common scenarion in which a high TCP idle timeout may be causing SNAT exhaustion and provides possible mitigation steps to take:
 
 | Scenario | Evidence | Mitigation |
 |---|---|---|
@@ -115,7 +115,7 @@ As described in the [TCP timers](#tcp-idle-timeout-timers-set-higher-than-the-de
 
 ### UDP idle timeout
 
-Unlike TCP idle timeout timers for NAT gateway, UDP idle timeout timers are not configurable. The table below describes a common scenario encountered with connections dropping due to UDP traffic idle timing out and steps to take to mitigate the issue.
+UDP idle timeout timers are set to 4 minutes. Unlike TCP idle timeout timers for NAT gateway, UDP idle timeout timers are not configurable. The table below describes a common scenario encountered with connections dropping due to UDP traffic idle timing out and steps to take to mitigate the issue.
 
 | Scenario | Evidence | Mitigation |
 |---|---|---|
@@ -161,14 +161,14 @@ If you are still having trouble, open a support case for further troubleshooting
 
 ### Virtual appliance UDRs and VPN ExpressRoute override NAT gateway for routing outbound traffic
 
-When forced tunneling with a custom UDR is enabled to direct traffic to a virtual appliance or VPN through ExpressRoute, the UDR or ExpressRoute takes precedence over NAT gateway for directing internet bound traffic. To learn more, see [custom UDRs](/azure/virtual-network/virtual-networks-udr-overview#custom-routes). 
+When forced tunneling with a custom UDR is enabled to direct traffic to a virtual appliance or VPN through ExpressRoute, the UDR or ExpressRoute takes precedence over NAT gateway for directing internet bound traffic. To learn more, see [custom UDRs](../virtual-networks-udr-overview.md#custom-routes). 
 
 The order of precedence for internet routing configurations is as follows: 
 
 Virtual appliance UDR / VPN ExpressRoute >> NAT gateway >> default system 
 
 Test and resolve issues with a virtual appliance UDR or VPN ExpressRoute overriding your NAT gateway by: 
-1. [Testing that the NAT gateway public IP](./tutorial-create-nat-gateway-portal.md#test-nat-gateway) is used for outbound traffic. If a different IP is being used, it could be because of a custom UDR, follow the remaining steps on how to check for and remove custom UDRs.
+1. [Testing that the NAT gateway public IP](./quickstart-create-nat-gateway-portal.md#test-nat-gateway) is used for outbound traffic. If a different IP is being used, it could be because of a custom UDR, follow the remaining steps on how to check for and remove custom UDRs.
 2. Check for UDRs in the virtual network’s route table, refer to [view route tables](../manage-route-table.md#view-route-tables).
 3. Remove the UDR from the route table by following [create, change, or delete an Azure route table](../manage-route-table.md#change-a-route-table).
 

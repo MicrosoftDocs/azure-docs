@@ -4,6 +4,7 @@ description: This topic gives guidance on troubleshooting common issues with Azu
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: troubleshooting
 ms.date: 08/24/2021
 ---

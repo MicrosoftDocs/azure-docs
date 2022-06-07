@@ -92,7 +92,7 @@ Each dataset in the `FailedSOPSequence` will have the following elements (if the
 | Tag          | Name                     | Description |
 | :----------- | :----------------------- | :---------- |
 | (0008, 1150) | ReferencedSOPClassUID    | The SOP class unique identifier of the instance that failed to store. |
-| (0008, 1150) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
+| (0008, 1155) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
 | (0008, 1197) | FailureReason            | The reason code why this instance failed to store. |
 
 Each dataset in the `ReferencedSOPSequence` will have the following elements:
@@ -100,7 +100,7 @@ Each dataset in the `ReferencedSOPSequence` will have the following elements:
 | Tag          | Name                     | Description |
 | :----------- | :----------------------- | :---------- |
 | (0008, 1150) | ReferencedSOPClassUID    | The SOP class unique identifier of the instance that failed to store. |
-| (0008, 1150) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
+| (0008, 1155) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
 | (0008, 1190) | RetrieveURL              | The retrieve URL of this instance on the DICOM server. |
 
 Below is an example response with `Accept` header `application/dicom+json`:

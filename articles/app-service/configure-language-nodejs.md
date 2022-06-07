@@ -28,7 +28,7 @@ az webapp config appsettings list --name <app-name> --resource-group <resource-g
 To show all supported Node.js versions, navigate to `https://<sitename>.scm.azurewebsites.net/api/diagnostics/runtime` or run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp list-runtimes --os windows | grep node
+az webapp list-runtimes --os windows | grep NODE
 ```
 
 ::: zone-end

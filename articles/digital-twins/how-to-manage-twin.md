@@ -232,7 +232,9 @@ The patch for this situation needs to update both the model and the twin's tempe
 
 You may optionally decide to use the `sourceTime` field on twin properties to record timestamps for when property updates are observed in the real world. Azure Digital Twins natively supports `sourceTime` in the metadata for each twin property. For more information about this field and other fields on digital twins, see [Digital twin JSON format](concepts-twins-graph.md#digital-twin-json-format).
 
-This property can only be written using the latest version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md). The value must comply to ISO 8601 date and time format.
+The minimum REST API version to support this field is the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version. To work with this field using the [Azure Digital Twins SDKs](concepts-apis-sdks.md), we recommend using the latest version of the SDK to make sure this field is included (keep in mind that the latest version of an SDK may be in beta or preview).
+
+The `sourceTime` value must comply to ISO 8601 date and time format.
 
 Here's an example of a JSON Patch document that updates both the value and the `sourceTime` field of a `Temperature` property:
 

@@ -483,7 +483,7 @@ The following types are supported for `out` parameters and return types:
 
 You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
 
-# [Table API extension (preview)](#tab/table-api/in-process)
+# [Table API extension](#tab/table-api/in-process)
 
 The following types are supported for `out` parameters and return types:
 

@@ -1,6 +1,5 @@
 ---
-title: Move a protected web API to production | Azure
-titleSuffix: Microsoft identity platform
+title: Move a protected web API to production
 description: Learn how to build a protected web API (move to production).
 services: active-directory
 author: jmprieur

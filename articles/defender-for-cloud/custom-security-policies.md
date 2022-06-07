@@ -10,11 +10,9 @@ zone_pivot_groups: manage-asc-initiatives
 
 # Create custom security initiatives and policies
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 To help secure your systems and environment, Microsoft Defender for Cloud generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Defender for Cloud's knowledge of industry and regulatory standards.
 
-With this feature, you can add your own *custom* initiatives. Although custom initiatives are not included in the secure score, you'll receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create are shown in the list of all recommendations and you can filter by initiative to see the recommendations for your initiative. They are also shonw with the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](regulatory-compliance-dashboard.md).
+With this feature, you can add your own *custom* initiatives. Although custom initiatives are not included in the secure score, you'll receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create are shown in the list of all recommendations and you can filter by initiative to see the recommendations for your initiative. They are also shown with the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](regulatory-compliance-dashboard.md).
 
 As discussed in [the Azure Policy documentation](../governance/policy/concepts/definition-structure.md#definition-location), when you specify a location for your custom initiative, it must be a management group or a subscription. 
 
@@ -165,66 +163,69 @@ This example shows you how to assign the built-in Defender for Cloud initiative 
  ```
 
 This example shows you how to assign a custom Defender for Cloud initiative on a subscription or management group:
+
+> [!NOTE]
+> Make sure you include `"ASC":"true"` in the request body as shown here. The `ASC` field onboards the initiative to Microsoft Defender for Cloud.
  
- ```
-    PUT  
-    PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}?api-version=2021-06-01
+```
+  PUT  
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}?api-version=2021-06-01
 
-    Request Body (JSON) 
+  Request Body (JSON) 
 
-    {
-      "properties": {
-        "displayName": "Cost Management",
-        "description": "Policies to enforce low cost storage SKUs",
-        "metadata": {
-          "category": "Cost Management"
-          "ASC":"true"
-        },
-        "parameters": {
-          "namePrefix": {
-            "type": "String",
-            "defaultValue": "myPrefix",
-            "metadata": {
-              "displayName": "Prefix to enforce on resource names"
+  {
+    "properties": {
+      "displayName": "Cost Management",
+      "description": "Policies to enforce low cost storage SKUs",
+      "metadata": {
+        "category": "Cost Management"
+        "ASC":"true"
+      },
+      "parameters": {
+        "namePrefix": {
+          "type": "String",
+          "defaultValue": "myPrefix",
+          "metadata": {
+            "displayName": "Prefix to enforce on resource names"
+          }
+        }
+      },
+      "policyDefinitions": [
+        {
+          "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+          "policyDefinitionReferenceId": "Limit_Skus",
+          "parameters": {
+            "listOfAllowedSKUs": {
+              "value": [
+                "Standard_GRS",
+                "Standard_LRS"
+              ]
             }
           }
         },
-        "policyDefinitions": [
-          {
-            "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
-            "policyDefinitionReferenceId": "Limit_Skus",
-            "parameters": {
-              "listOfAllowedSKUs": {
-                "value": [
-                  "Standard_GRS",
-                  "Standard_LRS"
-                ]
-              }
-            }
-          },
-          {
-            "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
-            "policyDefinitionReferenceId": "Resource_Naming",
-            "parameters": {
-              "prefix": {
-                "value": "[parameters('namePrefix')]"
-              },
-              "suffix": {
-                "value": "-LC"
-              }
+        {
+          "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+          "policyDefinitionReferenceId": "Resource_Naming",
+          "parameters": {
+            "prefix": {
+              "value": "[parameters('namePrefix')]"
+            },
+            "suffix": {
+              "value": "-LC"
             }
           }
-        ]
-      }
+        }
+      ]
     }
- ```
+  }
+```
 
 This example shows you how to remove an assignment:
 
- ```
-    DELETE   
-    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
- ```
+```
+  DELETE   
+  https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+```
 
 ::: zone-end
 

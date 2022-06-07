@@ -120,7 +120,7 @@ The following table contains estimated costs per month for a basic Event Hub in 
 
 
 
-To review costs related to managing the Azure Monitor logs, see [Manage cost by controlling data volume and retention in Azure Monitor logs](../../azure-monitor/logs/manage-cost-storage.md).
+To review costs related to managing the Azure Monitor logs, see [Azure Monitor Logs pricing details](../../azure-monitor/logs/cost-logs.md).
 
 ## Frequently asked questions
 

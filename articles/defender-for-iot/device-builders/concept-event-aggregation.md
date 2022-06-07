@@ -23,7 +23,7 @@ Triggered based collectors are collectors that are triggered in a scheduled mann
 
 Defender for IoT agents aggregate events for the interval period, or time window. Once the interval period has passed, the agent sends the aggregated events to the Azure cloud for further analysis. The aggregated events are stored in memory until being sent to the Azure cloud.
 
-The agent collects identical events to the ones that are already stored in memory. This collection causes the agent increases the hit count of this specific event to reduce the memory footprint of the agent. When the aggregation time window passes, the agent sends the hit count of each type of event that occurred. Event aggregation is simply the aggregation of the hit counts of each collected type of event.
+The agent collects identical events to the ones that are already stored in memory. This collection causes the agent to increase the hit count of this specific event to reduce the memory footprint of the agent. When the aggregation time window passes, the agent sends the hit count of each type of event that occurred. Event aggregation is simply the aggregation of the hit counts of each collected type of event.
 
 ## Process events (event based)
 
@@ -105,7 +105,7 @@ The data collected for each event is:
 | **os_version** | The version of the operating system. For example, `Windows 10`, or `Ubuntu 20.04.1`. |
 | **os_platform** | The OS of the device. |
 | **os_arch** | The architecture of the OS. For example, `x86_64`. |
-| **nics** | The network interface controller. The full list of properties are listed below. |
+| **nics** | The network interface controller. The full list of properties is listed below. |
 
 The **nics** properties are composed of the following;
 

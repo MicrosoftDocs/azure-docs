@@ -7,7 +7,7 @@ ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: [mvc, iot-central-frontdoor]
 
 # This article applies to administrators.
 ---
@@ -19,9 +19,7 @@ An IoT Central application lets you monitor and manage millions of devices throu
 IoT Central application administration includes the following tasks:
 
 - Create applications
-- Manage users and roles in the application.
-- Create and manage organizations.
-- Manage security such as device authentication.
+- Manage security
 - Configure application settings.
 - Upgrade applications.
 - Export and share applications.
@@ -53,33 +51,16 @@ Azure IoT Central is an industry agnostic application platform. Application temp
 
 To learn more, see [Create a retail application](../retail/tutorial-in-store-analytics-create-app.md) as an example.
 
-## Users and roles
+## Manage security
 
-IoT Central uses a role-based access control system to manage user permissions within an application. An administrator is responsible for adding users to an application and assigning them to roles. IoT Central has three built-in roles for app administrators, app builders, and app operators. An administrator can create custom roles with specific sets of permissions.
+In IoT Central, you can configure and manage security in the following areas:
 
-To learn more, see [Manage users and roles in your IoT Central application](howto-manage-users-roles.md).
+- User access to your application.
+- Device access to your application.
+- Programmatic access to your application.
+- Authentication to other services from your application.
 
-## Organizations
-
-To manage which users see which devices in your IoT Central application, use an _organization_ hierarchy. When you define an organization in your application, there are three new built-in roles: _organization administrators_, _organization operators_ and _organization viewers_. The user's role in application determines their permissions over the devices they can see.
-
-To learn more, see [Create an IoT Central organization](howto-create-organizations.md).
-
-## Application security
-
-Devices that connect to your IoT Central application typically use X.509 certificates or shared access signatures (SAS) as credentials. An administrator manages the group certificates or keys that these device credentials are derived from. To learn more, see:
-
-- [X.509 group enrollment](concepts-device-authentication.md#x509-enrollment-group)
-- [SAS group enrollment](concepts-device-authentication.md#sas-enrollment-group)
-- [How to roll X.509 device certificates](how-to-connect-devices-x509.md).
-
-An administrator can also create and manage the API tokens that a client application uses to authenticate with your IoT Central application. Client applications use the REST API to interact with IoT Central. To learn more, see:
-
-- [Get an API token](howto-authorize-rest-api.md#get-an-api-token)
-
-For data exports, an administrator can configure [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to secure the connections to the [export destinations](howto-export-data.md). To learn more, see:
-
-- [Configure a managed identity](howto-manage-iot-central-from-portal.md#configure-a-managed-identity)
+To learn more, see the [IoT Central security guide](overview-iot-central-security.md).
 
 ## Configure an application
 
@@ -104,12 +85,6 @@ An administrator can:
 
 To learn more, see [Create and use a custom application template](howto-create-iot-central-application.md#create-and-use-a-custom-application-template) .
 
-## Migrate to a new version
-
-An administrator can migrate an application to a newer version. Currently, all newly created applications are V3 applications. Depending on when it was created, it may be V2. An administrator is responsible for migrating a V2 application to a V3 application.
-
-To learn more, see [Migrate your V2 IoT Central application to V3](howto-migrate.md).
-
 ## Monitor application health
 
 An administrator can use IoT Central metrics to assess the health of connected devices and the health of running data exports.
@@ -124,11 +99,11 @@ To learn how to monitor your IoT Edge fleet remotely by using Azure Monitor and 
 
 ## Tools
 
-Many of the tools you use as an administrator are available in the **Administration** section of each IoT Central application. You can also use the following tools to complete some administrative tasks:
+Many of the tools you use as an administrator are available in the **Security** and **Settings** sections of each IoT Central application. You can also use the following tools to complete some administrative tasks:
 
 - [Azure Command-Line Interface (CLI) or PowerShell](howto-manage-iot-central-from-cli.md)
 - [Azure portal](howto-manage-iot-central-from-portal.md)
 
 ## Next steps
 
-Now that you've learned about how to administer your Azure IoT Central application, the suggested next step is to learn about [Manage users and roles](howto-manage-users-roles.md) in Azure IoT Central.
+Now that you've learned about how to administer your Azure IoT Central application, the suggested next step is to learn about [Security in Azure IoT Central](overview-iot-central-security.md).

@@ -1,5 +1,5 @@
 ---
-title: How to manage settings? - Custom Translator
+title: "Legacy: How to manage settings? - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: How to manage settings, create workspace, share workspace, and manage key in Custom Translator.
 author: laujan
@@ -30,7 +30,7 @@ You need to have a Translator key associated with your workspace to train or dep
 
 If you don't have a subscription, follow the steps below:
 
-1. Subscribe to create a Translator resource. Follow [How to sign up for Translator](../translator-how-to-signup.md) to subscribe and acquire a Translator key.
+1. Subscribe to create a Translator resource. Follow [How to sign up for Translator](../how-to-create-translator-resource.md) to subscribe and acquire a Translator key.
 2. Note the key for your Translator subscription. Either Key1 or Key2 is acceptable.
 
 3. Navigate back to the Custom Translator portal.
@@ -82,7 +82,7 @@ In Custom Translator you can share your workspace with others, if different part
 
     ![Share workspace dialog](media/how-to/share-workspace-dialog.png)
 
-4. If your workspace still has the default name "My workspace", you will be required to change it before sharing your workspace.
+4. If your workspace still has the default name "My workspace", you'll be required to change it before sharing your workspace.
 5. Select **Save**.
 
 ## Sharing permissions
@@ -97,7 +97,7 @@ In Custom Translator you can share your workspace with others, if different part
 
 When a workspace is shared, the **Sharing settings** section shows all email addresses that this workspace is shared with. You can change existing sharing permission for each email address if you have owner access to the workspace.
 
-1. In the **Sharing settings** section, for each email a dropdown menu shows the current permission level.
+1. In the **Sharing settings** section, for each email, a dropdown menu shows the current permission level.
 
 2. Choose the dropdown menu and select the new permission level you want to assign to that email address.
 

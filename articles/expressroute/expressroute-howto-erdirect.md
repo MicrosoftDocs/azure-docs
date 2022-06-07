@@ -3,7 +3,6 @@ title: 'Azure ExpressRoute: Configure ExpressRoute Direct'
 description: Learn how to use Azure PowerShell to configure Azure ExpressRoute Direct to connect directly to the Microsoft global network.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/14/2020
@@ -26,7 +25,7 @@ Before using ExpressRoute Direct, you must first enroll your subscription. To en
     Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
     ```
 
-2. Register your subscription for Public Preview using the following command:
+2. Register your subscription using the following command:
     ```azurepowershell-interactive
     Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
     ```
@@ -103,6 +102,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
                           }
                         ]
    ```
+   > [!NOTE]
+   > If bandwidth is unavailable in the target location, open a [support request in the Azure Portal](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) and select the ExpressRoute Direct Support Topic. 
+   >
 5. Create an ExpressRoute Direct resource based on the location chosen above
 
    ExpressRoute Direct supports both QinQ and Dot1Q encapsulation. If QinQ is selected, each ExpressRoute circuit will be dynamically assigned an S-Tag and will be unique throughout the ExpressRoute Direct resource. Each C-Tag on the circuit must be unique on the circuit, but not across the ExpressRoute Direct.  
@@ -174,6 +176,8 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
 
 Reference the recently created ExpressRoute Direct resource, input a customer name to write the LOA to and (optionally) define a file location to store the document. If a file path is not referenced, the document will download to the current directory.
 
+### Azure PowerShell
+
   ```powershell 
    New-AzExpressRoutePortLOA -ExpressRoutePort $ERDirect -CustomerName TestCustomerName -Destination "C:\Users\SampleUser\Downloads" 
    ```
@@ -182,6 +186,18 @@ Reference the recently created ExpressRoute Direct resource, input a customer na
    ```powershell
    Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
    ```
+
+### Cloud Shell
+
+1.  Replace the `<USERNAME>` with the username displayed in the prompt, then run the command to generate the Letter of Authorization. Use the exact path define in the command.
+
+    ```azurepowershell-interactive
+    New-AzExpressRoutePortLOA -ExpressRoutePort $ERDirect -CustomerName TestCustomerName -Destination /home/USERNAME/loa.pdf
+    ```
+
+1. Select the **Upload/Download** button and then select **Download**. Select the `loa.pdf` file and select Download.
+
+    :::image type="content" source="./media/expressroute-howto-erdirect/download.png" alt-text="Screenshot of download button from Azure Cloud Shell.":::
 
 ## <a name="state"></a>Change Admin State of links
    

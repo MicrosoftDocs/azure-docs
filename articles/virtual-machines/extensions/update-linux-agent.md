@@ -251,7 +251,7 @@ AutoUpdate.Enabled=y
 To enable run:
 
 ```bash
-sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/AutoUpdate.Enabled=n.*/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 Restart the waagent service
@@ -322,14 +322,14 @@ AutoUpdate.Enabled=y
 To enable run:
 
 ```bash
-sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/AutoUpdate.Enabled=n.*/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 Restart the waagent service
 sudo systemctl restart walinuxagent.service
 ```
 
 ## Oracle Linux 6 and Oracle Linux 7
 
-For Oracle Linux, make sure that the `Addons` repository is enabled. Choose to edit the file `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
+For Oracle Linux, make sure that the `Addons` repository is enabled. Choose to edit the file `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repos.d/oracle-linux-o17.repo`(Oracle Linux), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
 
 Then, to install the latest version of the Azure Linux Agent, type:
 
@@ -379,15 +379,15 @@ Open [the release of Azure Linux Agent in GitHub](https://github.com/Azure/WALin
 
 For version 2.2.x or later, type:
 ```bash
-wget https://github.com/Azure/WALinuxAgent/archive/v2.2.x.zip
+wget https://github.com/Azure/WALinuxAgent/archive/refs/tags/v2.2.x.zip 
 unzip v2.2.x.zip
 cd WALinuxAgent-2.2.x
 ```
 
-The following line uses version 2.2.0 as an example:
+The following line uses version 2.2.14 as an example:
 
 ```bash
-wget https://github.com/Azure/WALinuxAgent/archive/v2.2.14.zip
+wget https://github.com/Azure/WALinuxAgent/archive/refs/tags/v2.2.14.zip
 unzip v2.2.14.zip  
 cd WALinuxAgent-2.2.14
 ```

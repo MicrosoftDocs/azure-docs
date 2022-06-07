@@ -119,7 +119,7 @@ The following comparison matrix shows basic functionality, and comparison of mig
 
 ## Next steps
 
-- [Azure File Migration Program](https://www.microsoft.com/us-partner-blog/2022/02/23/new-azure-file-migration-program-streamlines-unstructured-data-migration/)
+- [Azure File Migration Program](https://www.microsoft.com/en-us/us-partner-blog/2022/02/23/new-azure-file-migration-program-streamlines-unstructured-data-migration/)
 - [Storage migration overview](../../../common/storage-migration-overview.md)
 - [Choose an Azure solution for data transfer](../../../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Migrate to Azure file shares](../../../files/storage-files-migration-overview.md)
