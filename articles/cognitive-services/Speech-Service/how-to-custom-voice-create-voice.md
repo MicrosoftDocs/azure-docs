@@ -227,7 +227,7 @@ Enter the new name on the **Clone voice model** window, then click **Submit**. T
 
 After you've trained your voice model, you can test the model on the model details page. Select **DefaultTests** under **Testing** to listen to the sample audios. The default test samples include 100 sample audios generated automatically during training to help you test the model. In addition to these 100 audios provided by default, your own test script (at most 100 utterances) provided during training are also added to **DefaultTests** set. You're not charged for the testing with **DefaultTests**.
 
-:::image type="content" source="media/custom-voice/cnv-model-default-test.png" alt-text="This is a screenshot of selecting DefaultTests under Testing.":::
+:::image type="content" source="media/custom-voice/cnv-model-default-test.png" alt-text="Screenshot of selecting DefaultTests under Testing.":::
 
 If you want to upload your own test scripts to further test your model, select **Add test scripts** to upload your own test script.
 
