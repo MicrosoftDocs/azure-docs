@@ -108,7 +108,7 @@ To activate an application through the Azure portal, use the following steps.
 
 ## Automate provisioning
 
-You can also run a provisioning automation pipeline using Terraform or an Azure Resource Manager template (ARM template). This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
+You can also run a provisioning automation pipeline using Terraform, Bicep, or Azure Resource Manager template (ARM template). This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
 
 ### Automate provisioning using Terraform
 
