@@ -1,6 +1,6 @@
 ---
 title: Manage packet captures in Virtual machine scale sets with Azure Network Watcher- REST API | Microsoft Docs
-description: This page explains how to manage the packet capture feature of vmss in Network Watcher using Azure REST API
+description: This page explains how to manage the packet capture feature of virtual machine scale set in Network Watcher using Azure REST API
 services: network-watcher
 documentationcenter: na
 author: shijaiswal
@@ -39,7 +39,7 @@ This article takes you through the different management tasks that are currently
 
 ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
+This scenario assumes you've already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
 
 > Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
@@ -294,4 +294,4 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 
 ## Next steps
 
-For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
+For instructions on downloading files from Azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)

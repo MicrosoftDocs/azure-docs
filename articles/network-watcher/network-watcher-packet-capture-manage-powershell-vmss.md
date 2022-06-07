@@ -1,7 +1,7 @@
 ---
 title: Manage packet captures in Virtual machine scale sets - Azure PowerShell
 titleSuffix: Azure Network Watcher
-description: This page explains how to manage the packet capture feature of Network Watcher in vmss using PowerShell
+description: This page explains how to manage the packet capture feature of Network Watcher in virtual machine scale set using PowerShell
 services: network-watcher
 documentationcenter: na
 author: shijaiswal
@@ -43,7 +43,7 @@ This article assumes you have the following resources:
 > [!IMPORTANT]
 > Packet capture requires a virtual machine scale set extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
-## Install VMSS extension
+## Install virtual machine scale set extension
 
 ### Step 1
 
@@ -53,7 +53,7 @@ $vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScale
 
 ### Step 2
 
-Install networkWatcherAgent on Vmss and Vmss Instances
+Install networkWatcherAgent on virtual machine scale set/ virtual machine scale set instance/(s)
 
 
 ```powershell
@@ -170,7 +170,7 @@ PacketCaptureError      : []
 
 ## Stop a packet capture
 
-By running the `Stop-AzNetworkWatcherPacketCapture` cmdlet, if a capture session is in progress it is stopped.
+By running the `Stop-AzNetworkWatcherPacketCapture` cmdlet, if a capture session is in progress it's stopped.
 
 ```powershell
 Stop-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"

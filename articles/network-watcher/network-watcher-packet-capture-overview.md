@@ -15,7 +15,7 @@ ms.author: damendo
 
 # Introduction to variable packet capture in Azure Network Watcher
 
-[Manage packet capture in the Azure portal for VMSS](network-watcher-packet-capture-manage-portal-vmss.md)
+[Manage packet capture in the Azure portal for virtual machine scale set](network-watcher-packet-capture-manage-portal-vmss.md)
 > [!NEW]
 > Packet capture ia now also available for `Virtual Machine Scale Sets`. To checkout please visit [Manage packet capture in the Azure portal for VMSS](network-watcher-packet-capture-manage-portal-vmss.md)
 
@@ -26,7 +26,7 @@ Packet capture is an extension that is remotely started through Network Watcher.
 > [!IMPORTANT]
 > Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
-To reduce the information you capture to only the information you want, the following options are available for a packet capture session:
+To reduce the information inorder to capture only required information, following options are available for a packet capture session:
 
 **Capture configuration**
 
@@ -48,11 +48,11 @@ To reduce the information you capture to only the information you want, the foll
 
 
 ## Considerations
-There is a limit of 10,000 parallel packet capture sessions per region per subscription. This limit applies only to the sessions and does not apply to the saved packet capture files either locally on the VM or in a storage account. See the [Network Watcher service limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#network-watcher-limits) for a full list of limits. 
+There's is a limit of 10,000 parallel packet capture sessions per region per subscription. This limit applies only to the sessions and doesn't apply to the saved packet capture files either locally on the VM or in a storage account. See the [Network Watcher service limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#network-watcher-limits) for a full list of limits. 
 
 ### Next steps
 
-Learn how you can manage packet captures through the portal by visiting [Manage packet capture in the Azure portal for VM](network-watcher-packet-capture-manage-portal.md)and [Manage packet capture in the Azure portal for VMSS](network-watcher-packet-capture-manage-portal-vmss.md) or with PowerShell by visiting [Manage Packet Capture with PowerShell for VM](network-watcher-packet-capture-manage-powershell.md)and [Manage Packet Capture with PowerShel for VMSS](network-watcher-packet-capture-manage-powershell-vmss.md) 
+Learn how you can manage packet captures through the portal by visiting [Manage packet capture in the Azure portal for VM](network-watcher-packet-capture-manage-portal.md)and [Manage packet capture in the Azure portal for virtual machine scale set](network-watcher-packet-capture-manage-portal-vmss.md) or with PowerShell by visiting [Manage Packet Capture with PowerShell for VM](network-watcher-packet-capture-manage-powershell.md)and [Manage Packet Capture with PowerShel for virtual machine scale set](network-watcher-packet-capture-manage-powershell-vmss.md) 
 
 Learn how to create proactive packet captures based on virtual machine alerts by visiting [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
 

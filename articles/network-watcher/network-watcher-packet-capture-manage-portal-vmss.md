@@ -1,7 +1,7 @@
 ---
 title: Manage packet captures in Virtual machine scale sets with Azure Network Watcher - Azure portal
 titleSuffix: Azure Network Watcher
-description: Learn how to manage the packet capture feature of Network Watcher in VMSS using the Azure portal.
+description: Learn how to manage the packet capture feature of Network Watcher in virtual machine scale set using the Azure portal.
 services: network-watcher
 documentationcenter: na
 author: shijaiswal
@@ -30,7 +30,7 @@ Packet capture requires the following outbound TCP connectivity:
 > The ports mentioned in the latter two cases above are common across all Network Watcher features that involve the Network Watcher extension and might occasionally change.
 
 
-If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist that allow the previous ports. Similarly, adding user-defined traffic routes to your network may prevent connectivity to the above mentioned IPs and ports. Please ensure they are reachable. 
+If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist that allow the previous ports. Similarly, adding user-defined traffic routes to your network may prevent connectivity to the above mentioned IPs and ports. Ensure they're reachable. 
 
 ## Start a packet capture
 
@@ -39,12 +39,12 @@ If a network security group is associated to the network interface, or subnet th
 3. Select **Add** to create a packet capture. You can select values for the following properties:
    - **Subscription**: The subscription that the virtual machine scale set you want to create the packet capture for is in.
    - **Resource group**: The resource group of the virtual machine scale set.
-   - **Target Type**: Choose Virtual Machine Scale Set from the drop down.
-   - **Target Instance**: The specific instance/(s) where you want to run captures on , you can choose Select all, if you wish to run captures on all the instances
-   - **Packet capture name**: Name gets autopoulated and can be overwritten as per the users convenience
+   - **Target Type**: Choose Virtual Machine Scale Set from the drop-down.
+   - **Target Instance**: The specific instance/(s) where you want to run captures on. You can choose Select all, if you wish to run captures on all the instances.
+   - **Packet capture name**: Name gets autopoulated and can be overwritten as per the user's convenience
    - **Storage account or file**: Select **Storage account**, **File**, or both. Recommended option is to choose storage account option. If you select **File**, the capture is written to a path within the virtual machine instance.
    - **Storage accounts**: Select an existing storage account, if you selected *Storage account*. This option is only available if you selected **Storage**.
-   - **Local file path**: The local path on the virtual machine where the packet capture will be saved (valid only when *File* is selected). The path must be a valid path. If you are using a Linux virtual machine scale set, the path must start with */var/captures*.
+   - **Local file path**: The local path on the virtual machine where the packet capture will be saved (valid only when *File* is selected). The path must be a valid path. If you're using a Linux virtual machine scale set, the path must start with */var/captures*.
    
    
      > [!NOTE]
@@ -75,7 +75,7 @@ After the time limit set on the packet capture has expired, the packet capture i
 ## Delete a packet capture
 
 1. In the packet capture view, select **...** on the right-side of the packet capture, or right-click an existing packet capture, and select **Delete**.
-2. You are asked to confirm you want to delete the packet capture. Select **Yes**.
+2. You're asked to confirm you want to delete the packet capture. Select **Yes**.
 
 > [!NOTE]
 > Deleting a packet capture does not delete the capture file in the storage account or on the virtual machine scale set instance/(s).
