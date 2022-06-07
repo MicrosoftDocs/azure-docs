@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 04/11/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
 ---
@@ -19,18 +19,44 @@ In this quickstart, you learn to use the Translator service to [translate text](
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+To get started, you'll need an active Azure subscription. If you don't have an Azure subscription, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* Once you have your Azure subscription, create a [Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal to retrieve your key and endpoint. After it deploys, select **Go to resource**.
-  * You need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code below later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
+* Once you have your Azure subscription, create a [Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal.
+
+* After your resource deploys, select **Go to resource** and retrieve your key and endpoint.
+
+  * You need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
 
     :::image type="content" source="media/quickstarts/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
-* You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+* Use the free pricing tier (F0) to try the service and upgrade later to a paid tier for production.
 
-## Platform setup
+## Headers
+
+To call the Translator service via the [REST API](reference/rest-api-guide.md), you'll need to include the following headers with each request. Don't worry, we'll include the headers for you in the sample code for each programming language. 
+
+For more information on Translator authentication options, *see* the [Translator v3 reference](/azure/cognitive-services/translator/reference/v3-0-reference#authentication) guide.
+
+|Header|Value| Condition  |
+|--- |:--- |:---|
+|**Ocp-Apim-Subscription-Key** |Your Translator service key from the Azure portal.|<ul><li>***Required***</li></ul> |
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |<ul><li>***Required*** when using a multi-service Cognitive Services Resource.</li><li> ***Optional*** when using a single-service Translator Resource.</li></ul>|
+|**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|<ul><li>***Required***</li></ul>|
+|**Content-Length**|The **length of the request** body.|<ul><li>***Required***</li></ul> |
+|**X-ClientTraceId**|A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named ClientTraceId.|<ul><li>***Optional***</li></ul>
+|||
+
+> [!IMPORTANT]
+>
+> Remember to remove the key from your code when you're done, and **never** post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../cognitive-services/cognitive-services-security.md).
+
+## Translate text
+
+The core operation of the Translator service is translating text. In this quickstart, you'll build a request using a programming language of your choice that takes a single source (`from`) and provides two outputs (`to`). Then we'll review some parameters that can be used to adjust both the request and the response.
 
 ### [C#: Visual Studio](#tab/csharp)
+
+### Set up
 
 1. Make sure you have the current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
 
@@ -44,15 +70,38 @@ In this quickstart, you learn to use the Translator service to [translate text](
 
     :::image type="content" source="media/quickstarts/create-new-project.png" alt-text="Screenshot: Visual Studio's create new project page.":::
 
-1. In the **Configure your new project** dialog window, enter `translator_quickstart` in the Project name box. Then choose Next.
+1. In the **Configure your new project** dialog window, enter `translator_quickstart` in the Project name box. Leave the "Place solution and project in the same directory" checkbox **unchecked** and select **Next**.
 
     :::image type="content" source="media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studio's configure new project dialog window.":::
 
+1. In the **Additional information** dialog window, make sure **.NET 6.0 (Long-term support)** is selected. Leave the "Do not use top-level statements" checkbox **unchecked** and select **Create**.
+
+    :::image type="content" source="media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio's additional information dialog window.":::
+
+### Build your application
+
+### Run your application
 
 ### [Go](#tab/go)
 
-* Create a new Go project in your favorite code editor.
-* Add the code provided below.
+### Set up your Go environment
+
+* You can use any text editor to write Go applications. We recommend using the latest version of [Visual Studio Code and the Go extension](/azure/developer/go/configure-visual-studio-code) or you can use the [Go Playground](https://play.golang.org/).
+
+> [!TIP]
+>
+> If you're new to Go, try the [**Get started with Go**](/learn/modules/go-get-started/) learning module.
+
+
+* Create a new Go project:
+  * In Visual Studio Code, open the folder where you'll create the root directory of your Go application.
+  * Create the root directory for your Go application named translator-app.
+  * Select New File and name it translation.go.
+  * open a terminal, Terminal > New Terminal, then run the command go mod init translator-app to initialize your sample Go app.
+
+[TODO]
+
+* Copy and paste the code below.
 * Replace the `key` value with an access key valid for your subscription.
 * Save the file with a '.go' extension.
 * Open a command prompt on a computer with Go installed.
@@ -159,38 +208,7 @@ In this quickstart, you learn to use the Translator service to [translate text](
 
 ---
 
-## Headers 
 
-When calling the Translator service via REST, you'll need to make sure the following headers are included with each request. Don't worry, we'll include the headers in the sample code in the following sections. 
-
-<table width="100%">
-  <th width="20%">Headers</th>
-  <th>Description</th>
-  <tr>
-    <td>Authentication header(s)</td>
-    <td><em>Required request header</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Required request header if using a Cognitive Services Resource. Optional if using a Translator Resource</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>See <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td><em>Required request header</em>.<br/>Specifies the content type of the payload.<br/> Accepted value is <code>application/json; charset=UTF-8</code>.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td><em>Required request header</em>.<br/>The length of the request body.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td><em>Optional</em>.<br/>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named <code>ClientTraceId</code>.</td>
-  </tr>
-</table> 
-
-## Keys and endpoints
-
-The samples on this page use hard-coded keys and endpoints for simplicity. Remember to **remove the key from your code when you're done**, and **never post it publicly**. For production, consider using a secure way of storing and accessing your credentials. For more information, *see [Cognitive Services security](../cognitive-services-security.md).
-
-## Translate text 
-
-The core operation of the Translator service is to translate text. In this section, you'll build a request that takes a single source (`from`) and provides two outputs (`to`). Then we'll review some parameters that can be used to adjust both the request and the response. 
 
 # [C#](#tab/csharp)
 
@@ -201,6 +219,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
+[TODO]Newtonsoft.Json latest stable
+
 class Program
 {
     private static readonly string key = "YOUR-KEY";
@@ -209,7 +229,7 @@ class Program
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     private static readonly string location = "YOUR_RESOURCE_LOCATION";
-    
+
     static async Task Main(string[] args)
     {
         // Input and output languages are defined as parameters.
@@ -217,7 +237,7 @@ class Program
         string textToTranslate = "Hello, world!";
         object[] body = new object[] { new { Text = textToTranslate } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -227,7 +247,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -284,7 +304,7 @@ func main() {
     }
     // Add required headers to the request
     req.Header.Add("Ocp-Apim-Subscription-Key", key)
-    req.Header.Add("Ocp-Apim-Subscription-Region", location)
+    req.Header.Add("Ocp-Apim-Subscription-Region", region)
     req.Header.Add("Content-Type", "application/json")
 
     // Call the Translator API
@@ -452,7 +472,7 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ---
 
-After a successful call, you should see the following response: 
+After a successful call, you should see the following response:
 
 ```JSON
 [
@@ -473,7 +493,7 @@ After a successful call, you should see the following response:
 
 ## Detect language
 
-If you know that you'll need translation, but don't know the language of the text that will be sent to the Translator service, you can use the language detection operation. There's more than one way to identify the source text language. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `detect` endpoint. 
+If you know that you'll need translation, but don't know the language of the text that will be sent to the Translator service, you can use the language detection operation. There's more than one way to identify the source text language. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `detect` endpoint.
 
 ### Detect source language during translation
 
@@ -496,7 +516,7 @@ class Program
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     private static readonly string location = "YOUR_RESOURCE_LOCATION";
-    
+
     static async Task Main(string[] args)
     {
         // Output languages are defined as parameters, input language detected.
@@ -504,7 +524,7 @@ class Program
         string textToTranslate = "Hello, world!";
         object[] body = new object[] { new { Text = textToTranslate } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -514,7 +534,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -737,7 +757,7 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ---
 
-After a successful call, you should see the following response: 
+After a successful call, you should see the following response:
 
 ```json
 [
@@ -762,7 +782,7 @@ After a successful call, you should see the following response:
 
 ### Detect source language without translation
 
-It's possible to use the Translator service to detect the language of source text without performing a translation. To do so, you'll use the [`/detect`](./reference/v3-0-detect.md) endpoint. 
+It's possible to use the Translator service to detect the language of source text without performing a translation. To do so, you'll use the [`/detect`](./reference/v3-0-detect.md) endpoint.
 
 # [C#](#tab/csharp)
 
@@ -780,8 +800,8 @@ class Program
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";    
-    
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";
+
     static async Task Main(string[] args)
     {
         // Just detect language
@@ -789,7 +809,7 @@ class Program
         string textToLangDetect = "Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal.";
         object[] body = new object[] { new { Text = textToLangDetect } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -799,7 +819,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -830,7 +850,7 @@ func main() {
     key := "YOUR-KEY"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";   
+    location := "YOUR_RESOURCE_LOCATION";
 
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/detect?api-version=3.0"
@@ -1013,7 +1033,7 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ---
 
-When you use the `/detect` endpoint, the response will include alternate detections, and will let you know if translation and transliteration are supported for all of the detected languages. After a successful call, you should see the following response: 
+When you use the `/detect` endpoint, the response will include alternate detections, and will let you know if translation and transliteration are supported for all of the detected languages. After a successful call, you should see the following response:
 
 ```json
 [
@@ -1033,9 +1053,9 @@ When you use the `/detect` endpoint, the response will include alternate detecti
 ]
 ```
 
-## Transliterate text 
+## Transliterate text
 
-Transliteration is the process of converting a word or phrase from the script (alphabet) of one language to another based on phonetic similarity. For example, you could use transliteration to convert "สวัสดี" (`thai`) to "sawatdi" (`latn`). There's more than one way to perform transliteration. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `transliterate` endpoint. 
+Transliteration is the process of converting a word or phrase from the script (alphabet) of one language to another based on phonetic similarity. For example, you could use transliteration to convert "สวัสดี" (`thai`) to "sawatdi" (`latn`). There's more than one way to perform transliteration. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `transliterate` endpoint.
 
 ### Transliterate during translation
 
@@ -1062,8 +1082,8 @@ class Program
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";    
-    
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";
+
     static async Task Main(string[] args)
     {
         // Output language defined as parameter, with toScript set to latn
@@ -1071,7 +1091,7 @@ class Program
         string textToTransliterate = "Hello";
         object[] body = new object[] { new { Text = textToTransliterate } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -1081,7 +1101,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -1111,7 +1131,7 @@ func main() {
     key := "YOUR-KEY"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";   
+    location := "YOUR_RESOURCE_LOCATION";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -1325,7 +1345,7 @@ After a successful call, you should see the following response. Keep in mind tha
 
 ### Transliterate without translation
 
-You can also use the `transliterate` endpoint to get a transliteration. When using the transliteration endpoint, you must provide the source language (`language`), the source script/alphabet (`fromScript`), and the output script/alphabet (`toScript`) as parameters. In this example, we're going to get the transliteration for สวัสดี. 
+You can also use the `transliterate` endpoint to get a transliteration. When using the transliteration endpoint, you must provide the source language (`language`), the source script/alphabet (`fromScript`), and the output script/alphabet (`toScript`) as parameters. In this example, we're going to get the transliteration for สวัสดี.
 
 > [!NOTE]
 > For a complete list of available languages and transliteration options, see [language support](language-support.md).
@@ -1346,8 +1366,8 @@ class Program
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
-    
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";
+
     static async Task Main(string[] args)
     {
         // For a complete list of options, see API reference.
@@ -1356,7 +1376,7 @@ class Program
         string textToTransliterate = "Hello";
         object[] body = new object[] { new { Text = textToTransliterate } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -1366,7 +1386,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -1591,7 +1611,7 @@ print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 
 ---
 
-After a successful call, you should see the following response. Unlike the call to the `translate` endpoint, `transliterate` only returns the `script` and the output `text`. 
+After a successful call, you should see the following response. Unlike the call to the `translate` endpoint, `transliterate` only returns the `script` and the output `text`.
 
 ```json
 [
@@ -1626,17 +1646,17 @@ class Program
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
-    
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";
+
     static async Task Main(string[] args)
     {
         // Include sentence length details.
         string route = "/translate?api-version=3.0&to=es&includeSentenceLength=true";
-        string sentencesToCount = 
+        string sentencesToCount =
                 "Can you tell me how to get to Penn Station? Oh, you aren't sure? That's fine.";
         object[] body = new object[] { new { Text = sentencesToCount } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -1646,7 +1666,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -1899,7 +1919,7 @@ After a successful call, you should see the following response. In addition to t
 
 ### Get sentence length without translation
 
-The Translator service also lets you request sentence length without translation using the `breaksentence` endpoint. 
+The Translator service also lets you request sentence length without translation using the `breaksentence` endpoint.
 
 # [C#](#tab/csharp)
 
@@ -1917,17 +1937,17 @@ class Program
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
-    
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";
+
     static async Task Main(string[] args)
     {
         // Only include sentence length details.
         string route = "/breaksentence?api-version=3.0";
-        string sentencesToCount = 
+        string sentencesToCount =
                 "Can you tell me how to get to Penn Station? Oh, you aren't sure? That's fine.";
         object[] body = new object[] { new { Text = sentencesToCount } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -1937,7 +1957,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -2151,7 +2171,7 @@ print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 
 ---
 
-After a successful call, you should see the following response. Unlike the call to the `translate` endpoint, `breaksentence` only returns the character counts for the source text in an array called `sentLen`. 
+After a successful call, you should see the following response. Unlike the call to the `translate` endpoint, `breaksentence` only returns the character counts for the source text in an array called `sentLen`.
 
 ```json
 [
@@ -2189,8 +2209,8 @@ class Program
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION"; 
-    
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";
+
     static async Task Main(string[] args)
     {
         // See many translation options
@@ -2198,7 +2218,7 @@ class Program
         string wordToTranslate = "shark";
         object[] body = new object[] { new { Text = wordToTranslate } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -2208,7 +2228,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -2473,7 +2493,7 @@ After a successful call, you should see the following response. Let's dive deepe
 
 ## Dictionary examples (translations in context)
 
-After you've performed a dictionary lookup, you can pass the source text and translation to the `dictionary/examples` endpoint to get a list of examples that show both terms in the context of a sentence or phrase. Building on the previous example, you'll use the `normalizedText` and `normalizedTarget` from the dictionary lookup response as `text` and `translation` respectively. The source language (`from`) and output target (`to`) parameters are required. 
+After you've performed a dictionary lookup, you can pass the source text and translation to the `dictionary/examples` endpoint to get a list of examples that show both terms in the context of a sentence or phrase. Building on the previous example, you'll use the `normalizedText` and `normalizedTarget` from the dictionary lookup response as `text` and `translation` respectively. The source language (`from`) and output target (`to`) parameters are required.
 
 # [C#](#tab/csharp)
 
@@ -2491,15 +2511,15 @@ class Program
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION"; 
-    
+    private static readonly string location = "YOUR_RESOURCE_LOCATION";
+
     static async Task Main(string[] args)
     {
         // See examples of terms in context
         string route = "/dictionary/examples?api-version=3.0&from=en&to=es";
         object[] body = new object[] { new { Text = "Shark",  Translation = "tiburón" } } ;
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -2509,7 +2529,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
