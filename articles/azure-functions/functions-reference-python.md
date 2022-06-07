@@ -194,7 +194,7 @@ Output can be expressed in the return value and in output parameters. If there's
 
 To use the return value of a function as the value of an output binding, set the `name` property of the binding to `$return` in *function.json*.
 
-To produce multiple outputs, use the `set()` method provided by the [azure.functions.Out](/python/api/azure-functions/azure.functions.out) interface to assign a value to the binding. For example, the following function can push a message to a queue and also return an HTTP response:
+To produce multiple outputs, use the `set()` method provided by the [azure.functions.Out](/python/api/azure-functions/azure.functions.out) interface to assign a value to the binding. For example, the following function can push a message to a queue and return an HTTP response:
 
 ```json
 {
@@ -349,7 +349,7 @@ Likewise, you can set the `status_code` and `headers` information for the respon
 
 You can use WSGI and ASGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. This section shows how to modify your functions to support these frameworks.
 
-First, the *function.json* file must be updated to include a `route` in the HTTP trigger, as shown in the following example:
+First, the *function.json* file must be updated to include `route` in the HTTP trigger, as shown in the following example:
 
 ```json
 {
@@ -489,7 +489,7 @@ def main(req):
 
 ## Environment variables
 
-In Azure Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. There are two main ways to access these settings in your code. 
+In Azure Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. There are two main ways to access these settings in your code: 
 
 | Method | Description |
 | --- | --- |
@@ -524,7 +524,7 @@ Azure Functions supports the following Python versions. These are official Pytho
 | 3.x | 3.9<br/> 3.8<br/>3.7<br/>3.6 |
 | 2.x | 3.7<br/>3.6 |
 
-To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. The Azure Functions runtime version is set by the `--functions-version` option. The Python version is set when the function app is created and can't be changed.
+To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. The `--functions-version` option sets the Azure Functions runtime version. The Python version is set when the function app is created and can't be changed.
 
 The runtime uses the available Python version, when you run it locally.
 
@@ -534,7 +534,7 @@ To set a Python function app to a specific language version, you need to specify
 
 To learn more about the Azure Functions runtime support policy, see [Language runtime support policy](./language-support-policy.md).
 
-To see the full list of supported Python versions functions apps, see this [Supported languages in Azure Functions](./supported-languages.md).
+To see the full list of supported Python versions for function apps, see [Supported languages in Azure Functions](./supported-languages.md).
 
 # [Azure CLI](#tab/azurecli-linux)
 
@@ -598,9 +598,9 @@ pip install -r requirements.txt
 
 ## Publishing to Azure
 
-When you're ready to publish, make sure that all your publicly available dependencies are listed in the *requirements.txt* file. You can locate this file at the root of your project directory.
+When you're ready to publish, make sure that all your publicly available dependencies are listed in the *requirements.txt* file. This file is at the root of your project directory.
 
-You can find project files and folders that are excluded from publishing, including the virtual environment folder, in the root directory of your project.
+You can also find project files and folders that are excluded from publishing, including the virtual environment folder, in the root directory of your project.
 
 Three build actions are supported for publishing your Python project to Azure: remote build, local build, and builds that use custom dependencies.
 
@@ -626,7 +626,7 @@ Dependencies are obtained locally based on the contents of the *requirements.txt
 func azure functionapp publish <APP_NAME> --build local
 ```
 
-When you use the `--build local` option, project dependencies are read from the *requirements.txt* file. Those dependent packages are downloaded and installed locally. Project files and dependencies are deployed from your local computer to Azure. This results in a larger deployment package being uploaded to Azure. If you can't get the *requirements.txt* file by using Core Tools, you must use the custom dependencies option for publishing.
+When you use the `--build local` option, project dependencies are read from the *requirements.txt* file. Those dependent packages are downloaded and installed locally. Project files and dependencies are deployed from your local computer to Azure. This results in the upload of a larger deployment package to Azure. If you can't get the *requirements.txt* file by using Core Tools, you must use the custom dependencies option for publishing.
 
 We don't recommend using local builds when you're developing locally on Windows.
 
@@ -634,7 +634,7 @@ We don't recommend using local builds when you're developing locally on Windows.
 
 When your project has dependencies not found in the [Python Package Index](https://pypi.org/), there are two ways to build the project.
 
-#### Remote build with extra index URL
+#### Remote build with an extra index URL
 
 When your packages are available from an accessible custom package index, use a remote build. Before publishing, make sure to [create an app setting](functions-how-to-use-azure-function-app-settings.md#settings) named `PIP_EXTRA_INDEX_URL`. The value for this setting is the URL of your custom package index. Using this setting tells the remote build to run `pip install` with the `--extra-index-url` option. To learn more, see the [Python pip install documentation](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).
 
@@ -656,7 +656,7 @@ func azure functionapp publish <APP_NAME> --no-build
 
 ## Unit testing
 
-Functions written in Python can be tested like other Python code--through standard testing frameworks. For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package. Because the [azure.functions](https://pypi.org/project/azure-functions/) package isn't immediately available, be sure to install it via your *requirements.txt* file as described in the earlier [Package management](#package-management) section.
+You can test functions written in Python the same way that you test other Python code: through standard testing frameworks. For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class from the [azure.functions](https://pypi.org/project/azure-functions/) package. Because the `azure.functions` package isn't immediately available, be sure to install it via your *requirements.txt* file as described in the earlier [Package management](#package-management) section.
 
 Take *my_second_function* as an example. Following is a mock test of an HTTP triggered function.
 
@@ -750,7 +750,7 @@ class TestFunction(unittest.TestCase):
         )
 ```
 
-Inside your `.venv` Python virtual environment, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
+Inside your *.venv* Python virtual environment, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
 
 ## Temporary files
 
