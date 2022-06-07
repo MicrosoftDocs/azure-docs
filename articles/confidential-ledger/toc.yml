@@ -29,7 +29,7 @@
 - name: References
   items:
   - name: FAQ
-    href: faq.md
+    href: faq.yml
   - name: .NET client library
     href: /dotnet/api/overview/azure/storage.confidentialledger-readme-pre 
   - name: Java preview client library

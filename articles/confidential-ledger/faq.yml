@@ -1,18 +1,17 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions - Azure Key Vault certificate import
-  description: Get answers to frequently asked questions about importing Azure Key Vault certificates.
-  services: key-vault
+  title: Frequently asked questions - Azure confidential ledger 
+  description: Get answers to frequently asked questions about Azure confidential ledger
+  services: confidential-ledger
   author: msmbaldwin
   tags: azure-resource-manager
   
-  ms.service: key-vault
-  ms.subservice: certificates
+  ms.service: confidential-ledger
   ms.topic: faq
-  ms.date: 07/20/2020
-  ms.author: sebansal
-title: Importing Azure Key Vault certificates FAQ
-summary: This article answers frequently asked questions about importing Azure Key Vault certificates.
+  ms.date: 06/05/2022
+  ms.author: mbaldwin
+title: Azure confidential ledger FAQ
+summary: This article answers frequently asked questions about Azure confidential ledger
 
 
 sections:
