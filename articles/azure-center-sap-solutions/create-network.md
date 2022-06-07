@@ -4,6 +4,8 @@ description: Learn how to create a network for use with an S/4HANA infrastructur
 ms.service: virtual-machines-sap
 ms.topic: quickstart
 ms.date: 07/01/2022
+author: lauradolan
+ms.author: ladolan
 ---
 
 # Create network for infrastructure deployment (preview)
