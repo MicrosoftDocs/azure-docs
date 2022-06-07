@@ -14,7 +14,7 @@ Azure Remote Rendering is available in two server configurations: `Standard` and
 
 ## Primitive limits
 
-A primitive is either a single triangle (in triangular meshes) or a single point (in point cloud meshes). Triangular meshes can be loaded together with point clouds, in which case the sum of all points and triangles in the session are counted against the limit.
+A primitive is either a single triangle (in triangular meshes) or a single point (in point cloud meshes). Triangular meshes can be instantiated together with point clouds, in which case the sum of all points and triangles in the session are counted against the limit.
 
 Remote Rendering with `Standard` size server has a maximum scene size of 20 million primitives. Remote Rendering with `Premium` size doesn't enforce a hard maximum, but performance may be degraded if your content exceeds the rendering capabilities of the service.
 

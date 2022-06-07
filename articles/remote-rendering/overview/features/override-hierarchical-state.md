@@ -20,7 +20,7 @@ As an example, consider the model of a car and you want to switch the whole car 
 * The second component is assigned to the root node of the engine and overrides the state again by explicitly turning off see-through mode.
 
 > [!NOTE]
-> Point clouds do not expose a full scene graph, so assigning a hierarchical override to the root entity of a point cloud model will apply the state to the full point cloud. Furthermore, some state override features are not supported for point clouds, as mentioned in the respective section.
+> Point clouds do not expose a full scene graph (see [mesh type differences](../../concepts/meshes.md#mesh-types)), so assigning a hierarchical override to the root entity of a point cloud model will apply the state to the full point cloud. Furthermore, some state override features are not supported for point clouds, as mentioned in the respective section.
 
 ## Features
 

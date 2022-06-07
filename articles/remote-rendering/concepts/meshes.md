@@ -9,13 +9,17 @@ ms.topic: conceptual
 
 # Meshes
 
-Meshes are an immutable [shared resource](../concepts/lifetime.md) that can only be created through [model conversion](../how-tos/conversion/model-conversion.md). Meshes are used for rendering but also to provide a physics representation for [ray cast queries](../overview/features/spatial-queries.md). To place a mesh in 3D space, add a [MeshComponent](#meshcomponent) to an [Entity](entities.md).
+Meshes are immutable [shared resources](../concepts/lifetime.md) that can only be created through [model conversion](../how-tos/conversion/model-conversion.md). Meshes are used for rendering but also to provide a physics representation for [ray cast queries](../overview/features/spatial-queries.md). To place a mesh in 3D space, add a [MeshComponent](#meshcomponent) to an [Entity](entities.md).
 
 ## Mesh types
 
-There are two distinct types of mesh resources in ARR: Triangular meshes and point clouds. Both types are represented by the same API class `Mesh`, because their usage is mostly transparent to the user. The target conversion type is defined by file extension of the source file. For example, an FBX file is always converted as a triangular mesh, whereas PLY is treated as a point cloud. For the complete list of supported file formats, refer to the list of [source file formats](../how-tos/conversion/model-conversion.md#supported-source-formats).
+There are two distinct types of mesh resources in ARR: **Triangular meshes** and **point clouds**. Both types are represented by the same API class `Mesh`. Except for minor differences in behavior for the distinct mesh types, the exposed API functionality is identical.
 
-The most significant user-facing difference between point clouds and triangular meshes is that point clouds don't expose any materials. The visual appearance of points is solely defined by their per-point color. Another difference is that point clouds don't expose a scene graph. Instead, all points are attached to the root node entity.
+The conversion service automatically determines the appropriate mesh type by source file extension. For example, an FBX file is always converted as a triangular mesh, whereas PLY is treated as a point cloud. For the complete list of supported file formats, refer to the list of [source file formats](../how-tos/conversion/model-conversion.md#supported-source-formats).
+
+There are two significant user-facing differences between point cloud- and triangular mesh conversions:
+* Point cloud meshes don't expose any materials. The visual appearance of points is solely defined by their per-point color,
+* point clouds don't expose a scene graph. Instead, all points are attached to the root node entity.
 
 ### Mesh resource properties
 

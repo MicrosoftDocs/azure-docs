@@ -10,9 +10,12 @@ ms.custom: devx-track-csharp
 
 # Materials
 
-Materials are [shared resources](../concepts/lifetime.md) that define how triangular [meshes](meshes.md) are rendered. Point clouds on the other hand don't expose materials whatsoever.
+Materials are [shared resources](../concepts/lifetime.md) that define how **triangular [meshes](meshes.md)** are rendered. **Point clouds** on the other hand don't expose materials whatsoever.
 
-Materials are used to specify which [textures](textures.md) to apply, whether to make objects transparent and how lighting will be calculated.
+Materials are used to specify
+* which [textures](textures.md) to apply,
+* whether to make objects transparent,
+* how lighting interacts with the surface.
 
 Materials are automatically created during [model conversion](../how-tos/conversion/model-conversion.md) and are accessible at runtime. You can also create custom materials from code and replace existing ones. This scenario makes especially sense if you want to share the same material across many meshes. Since modifications of a material are visible on every mesh that references it, this method can be used to easily apply changes.
 

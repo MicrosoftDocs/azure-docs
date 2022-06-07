@@ -219,7 +219,7 @@ For a list of potential mitigations, see the [guidelines for network connectivit
 
 ## Local content (UIs, ...) on HoloLens 2 renders with significantly more distortion artifacts than without ARR
 
-This artifact is due a default setting that trades local content projection quality for runtime performance. Refer to the chapter about the [reprojection pose modes](../overview/features/late-stage-reprojection.md#reprojection-pose-modes) to see how the projection mode can be changed so that local content is rendered at the same reprojection quality level as without ARR.
+This artifact is due to a default setting that trades local content projection quality for runtime performance. Refer to the chapter about the [reprojection pose modes](../overview/features/late-stage-reprojection.md#reprojection-pose-modes) to see how the projection mode can be changed so that local content is rendered at the same reprojection quality level as without ARR.
 
 ## Z-fighting
 

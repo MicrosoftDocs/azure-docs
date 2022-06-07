@@ -15,31 +15,31 @@ ms.custom: devx-track-csharp
 
 ARR supports rendering of point clouds as an alternative to triangular meshes. Point cloud rendering enables additional use cases where converting point clouds to triangular meshes as a preprocessing step is either impractical (turnaround times, complexity) or if the conversion process drops important detail.
 
-Point cloud conversion doesn't decimate the input data.
+Similar to triangular mesh conversion, point cloud conversion doesn't decimate the input data.
 
 ## Point cloud conversion
 
-Conversion of point cloud assets works fully analog to converting triangular meshes: A single point cloud input file is converted to an `.arrAsset` file, which in turn can be consumed by the runtime API for loading.
+Conversion of point cloud assets works fully analogously to converting triangular meshes: A single point cloud input file is converted to an `.arrAsset` file, which in turn can be consumed by the runtime API for loading.
 
 The list of supported point cloud file formats can be found in the [model conversion](../../how-tos/conversion/model-conversion.md#point-clouds) section.
 
-The dedicated conversion settings for point cloud files are explained in the [conversion settings](../../how-tos/conversion/configure-model-conversion.md#settings-for-point-clouds) paragraph.
+Conversion settings specifically for point cloud files are explained in the [conversion settings](../../how-tos/conversion/configure-model-conversion.md#settings-for-point-clouds) paragraph.
 
 ## Size limitations
 
-For maximum number of allowable points, there's the same kind of distinction between a `standard` and `premium` rendering session, as described in paragraph about [server size limits](../../reference/limits.md#overall-number-of-primitives).
+For the maximum number of allowed points, the same kind of distinctions between a `standard` and `premium` rendering session applies, as described in paragraph about [server size limits](../../reference/limits.md#overall-number-of-primitives).
 
 ## Global rendering properties
 
-There's a single API to access global rendering settings for point clouds. The `_Experimental` suffix is to indicate that the API is currently in public preview and might be subject to change.
+There's a single API to access global rendering settings for point clouds. The `_Experimental` suffix has been added to indicate that the API is currently in public preview and might be subject to change.
 
 ```cs
 void ChangeGlobalPointCloudSettings(RenderingSession session)
 {
     PointCloudSettings settings = session.Connection.PointCloudSettings_Experimental;
 
-    // scale all point sizes so point clouds appear denser
-    settings.PointSizeScale = 1.5f;
+    // Make all points bigger (default = 1.0)
+    settings.PointSizeScale = 1.25f;
 }
 ```
 
@@ -48,8 +48,8 @@ void ChangeGlobalPointCloudSettings(ApiHandle<RenderingSession> session)
 {
     ApiHandle<PointCloudSettings> settings = session->Connection()->PointCloudSettings_Experimental();
 
-    // scale all point sizes so point clouds appear denser
-    settings->SetPointSizeScale(1.5f);
+    // Make all points bigger (default = 1.0)
+    settings->SetPointSizeScale(1.25f);
 }
 ```
 
