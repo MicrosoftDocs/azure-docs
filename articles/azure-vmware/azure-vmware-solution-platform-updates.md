@@ -3,6 +3,7 @@ title: Platform updates for Azure VMware Solution
 description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: references_regions
+ms.service: azure-vmware
 ms.date: 12/22/2021
 ---
 

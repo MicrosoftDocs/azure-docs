@@ -2,6 +2,7 @@
 title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts (Preview)
 description: Learn how to create Azure NetApp Files-based NSF datastores for Azure VMware Solution hosts.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 05/10/2022
 ms.custom: references_regions
 ---
