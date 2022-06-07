@@ -36,6 +36,10 @@ In this quickstart, you'll learn how to use the Azure Communication Services SDK
 [!INCLUDE [Java](./includes/access-tokens/access-token-java.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-azcli"
+[!INCLUDE [Azure CLI](./includes/access-tokens/access-token-azcli.md)]
+::: zone-end
+
 The app's output describes each completed action:
 
 <!---cSpell:disable --->
