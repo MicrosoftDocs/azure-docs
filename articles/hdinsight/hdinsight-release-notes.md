@@ -32,7 +32,7 @@ For more information, see [Apache Spark & Hive - Hive Warehouse Connector - Azur
 * Scaling and provisioning improvement changes
 * HDI hive is now compatible with OSS version 3.1.2
 
-HDI Hive 3.1 version is fully compatible with OSS Hive 3.1.2. All the fixes and features available in open-source HIVE 3.1.2 version is available in HDI Hive 3.1 version.
+HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version have all fixes and features available in open source Hive 3.1.2 version.
 
 > [!NOTE]
 > **Spark**
