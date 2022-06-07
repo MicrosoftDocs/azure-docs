@@ -50,7 +50,7 @@ $resource | Set-AzResource -Force
 
 ## Scale-in behaviors
 
-The scale controller automatically reduces capacity when demand for your functions is reduced. It does this by shutting down worker instances of your function app. Before an instance is shut down, new events stop being sent to the instance. Also, functions that are currently executing are given time to finish executing. This behavior is logged as drain mode. This shut-down period can extend up to 10 minutes for Consumption plan apps and up to 60 minutes for Premium plan apps. Dynamic scaling doesn't apply to Dedicated plan apps. 
+Event-driven scaling automatically reduces capacity when demand for your functions is reduced. It does this by shutting down worker instances of your function app. Before an instance is shut down, new events stop being sent to the instance. Also, functions that are currently executing are given time to finish executing. This behavior is logged as drain mode. This shut-down period can extend up to 10 minutes for Consumption plan apps and up to 60 minutes for Premium plan apps. Event-driven scaling and this behavior don't apply to Dedicated plan apps. 
 
 The following considerations apply for scale-in behaviors: 
 
