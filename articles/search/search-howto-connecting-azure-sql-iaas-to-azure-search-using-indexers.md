@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/19/2021
+ms.date: 06/07/2022
 ---
 
 # Indexer connections to SQL Server on an Azure virtual machine
@@ -21,6 +21,9 @@ A connection from Azure Cognitive Search to SQL Server on a virtual machine is a
 + Obtain a certificate from a [Certificate Authority provider](https://en.wikipedia.org/wiki/Certificate_authority#Providers) for the fully qualified domain name of the SQL Server instance on the virtual machine
 
 + Install the certificate on the virtual machine, and then enable and configure encrypted connections on the VM using the instructions in this article.
+
+> [!NOTE]
+> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
 
 ## Enable encrypted connections
 
@@ -91,15 +94,6 @@ To get the portal IP address, ping `stamp2.ext.search.windows.net`, which is the
 
 Clusters in different regions connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
 
-
 ## Next steps
 
 With configuration out of the way, you can now specify a SQL Server on Azure VM as the data source for an Azure Cognitive Search indexer. For more information, see [Connecting Azure SQL Database to Azure Cognitive Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
-
-
-## FAQ
-
-**Q: Can I use Always Encrypted feature when indexing from SQL Server?
-
-[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
-
