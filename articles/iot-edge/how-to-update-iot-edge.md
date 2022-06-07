@@ -17,7 +17,7 @@ services: iot-edge
 
 As the IoT Edge service releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available.
 
-Two components of an IoT Edge device need to be updated if you want to move to a newer version. The first component runs on the device and starts the runtime modules when the device starts. Currently, the runtime modules can only be updated from the device itself. The second component is the runtime, made up of the IoT Edge hub and IoT Edge agent modules. Depending on how you structure your deployment, the runtime can be updated from the device or remotely.
+Two logical components of an IoT Edge device need to be updated if you want to move to a newer version. The first is the security subsystem. Although the architecture of the security subsystem [changed between version 1.1 and 1.2](iot-edge-security-manager#changes-in-version-12), its overall responsibilities remained the same. It runs on the device, handles security-based tasks, and starts the modules when the device starts. Currently, the security subsystem can only be updated from the device itself. The second component is the runtime, made up of the IoT Edge hub and IoT Edge agent modules. Depending on how you structure your deployment, the runtime can be updated from the device or remotely.
 
 To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
