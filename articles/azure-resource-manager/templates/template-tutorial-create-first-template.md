@@ -201,7 +201,7 @@ You can verify the deployment by exploring the resource group from the Azure por
 
 1. Notice in the middle of the overview, in the **Essentials** section, the page displays the deployment status next to **Deployments**. Choose **1 Succeeded**.
 
-   ![See deployment status](./media/template-tutorial-create-first-template/deployment-status.png)
+ :::image type="content" alt-text="View Deployment Summary" source="./media/template-tutorial-create-first-template/view-deployment-summary.png":::
 
 1. You see a history of deployment for the resource group. Check the box to the left of **blanktemplate** and then select **blanktemplate**.
 
