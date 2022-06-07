@@ -2,7 +2,7 @@
 title: Tutorial - Create and deploy template
 description: Create your first Azure Resource Manager template (ARM template). In the tutorial, you learn about the template file syntax and how to deploy a storage account.
 author: sheila
-ms.date: 06/01/2022
+ms.date: 06/07/2022
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
