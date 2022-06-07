@@ -1,5 +1,5 @@
 ---
-title: Authoring and publishing data owner access policies
+title: Authoring and publishing data owner access policies (preview)
 description: Step-by-step guide on how a data owner can author and publish access policies in Microsoft Purview
 author: inward-eye
 ms.author: vlrodrig
@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 4/18/2022
+ms.date: 05/27/2022
 ---
 
 # Authoring and publishing data owner access policies (Preview)

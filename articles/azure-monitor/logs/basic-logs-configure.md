@@ -27,6 +27,27 @@ You can currently configure the following tables for Basic Logs:
 
 
 ## Set table configuration
+
+# [Portal](#tab/portal-1)
+
+To configure a table for Basic Logs or Analytics Logs in the Azure portal:
+
+1. From the **Log Analytics workspaces** menu, select **Tables (preview)**.
+
+    The **Tables (preview)** screen lists all of the tables in the workspace.
+
+1. Select the context menu for the table you want to configure and select **Manage table**.
+
+    :::image type="content" source="media/basic-logs-configure/log-analytics-table-configuration.png" lightbox="media/basic-logs-configure/log-analytics-table-configuration.png" alt-text="Screenshot showing the Manage table button for one of the tables in a workspace."::: 
+
+1. From the **Table plan** dropdown on the table configuration screen, select **Basic** or **Analytics**.
+
+    The **Table plan** dropdown is enabled only for [tables that support Basic Logs](#which-tables-support-basic-logs).
+
+    :::image type="content" source="media/basic-logs-configure/log-analytics-configure-table-plan.png" lightbox="media/basic-logs-configure/log-analytics-configure-table-plan.png" alt-text="Screenshot showing the Table plan dropdown on the table configuration screen."::: 
+
+1. Select **Save**.
+
 # [API](#tab/api-1)
 
 To configure a table for Basic Logs or Analytics Logs, call the **Tables - Update** API:
@@ -45,12 +66,14 @@ PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups
 
 **Example**
 
-This example configures the `ContainerLog` table for Basic Logs.
+This example configures the `ContainerLogV2` table for Basic Logs.
+
+Container Insights uses ContainerLog by default, to switch to using ContainerLogV2, please follow these [instructions](../containers/container-insights-logging-v2.md) before attempting to convert the table to Basic Logs.
 
 **Sample request**
 
 ```http
-PATCH https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLog?api-version=2021-12-01-preview
+PATCH https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLogV2?api-version=2021-12-01-preview
 ```
 
 Use this request body to change to Basic Logs:
@@ -90,7 +113,7 @@ Status code: 200
         "schema": {...}        
     },
     "id": "subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace",
-    "name": "ContainerLog"
+    "name": "ContainerLogV2"
 }
 ```
 
@@ -103,21 +126,23 @@ For example:
 - To set Basic Logs:
 
     ```azurecli
-    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLog  --plan Basic
+    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLogV2  --plan Basic
     ```
 
 - To set Analytics Logs:
 
     ```azurecli
-    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLog  --plan Analytics
+    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLogV2  --plan Analytics
     ```
    
 ---
 
 ## Check table configuration
-# [Portal](#tab/portal-1)
+# [Portal](#tab/portal-2)
 
-To check the configuration of a table in the Azure portal: 
+To check table configuration in the Azure portal, you can open the table configuration screen, as described in [Set table configuration](#set-table-configuration). 
+
+Alternatively: 
 
 1. From the **Azure Monitor** menu, select **Logs** and select your workspace for the [scope](scope.md). See [Log Analytics tutorial](log-analytics-tutorial.md#view-table-information) for a walkthrough.
 1. Open the **Tables** tab, which lists all tables in the workspace. 
@@ -126,7 +151,7 @@ To check the configuration of a table in the Azure portal:
     
     ![Screenshot of the Basic Logs table icon in the table list.](./media/basic-logs-configure/table-icon.png#lightbox)
 
-    You can also hover over a table name for the table information view. This will specify that the table is configured as Basic Logs:
+    You can also hover over a table name for the table information view, which indicates whether the table is configured as Basic Logs:
     
     ![Screenshot of the Basic Logs table indicator in the table details.](./media/basic-logs-configure/table-info.png#lightbox)
 
@@ -151,7 +176,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 **Sample Request**
 
 ```http
-GET https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLog?api-version=2021-12-01-preview
+GET https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLogV2?api-version=2021-12-01-preview
 ```
 
 
@@ -170,7 +195,7 @@ Status code: 200
         "provisioningState": "Succeeded"        
     },
     "id": "subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace",
-    "name": "ContainerLog"
+    "name": "ContainerLogV2"
 }
 ```
 
