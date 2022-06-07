@@ -1,6 +1,7 @@
 ---
 author: Juliako
 ms.topic: include
+ms.service: azure-video-indexer
 ms.date: 06/02/2022
 ms.author: juliako
 ---
