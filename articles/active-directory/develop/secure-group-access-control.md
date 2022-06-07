@@ -1,5 +1,5 @@
 ---
-title: Secure access control using groups in Azure AD - Microsoft identity platform
+title: Secure access control using groups in Azure AD
 description: Learn about how groups are used to securely control access to resources in Azure AD.
 services: active-directory
 author: chrischiedo

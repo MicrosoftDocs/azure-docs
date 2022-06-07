@@ -12,13 +12,30 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 04/12/2022
+ms.date: 06/02/2022
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+## June 2022
+
+* [Azure Policy built-in definitions for Azure NetApp](azure-policy-definitions.md#built-in-policy-definitions)  
+
+    Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to the per-resource, per-policy granularity. It also helps to bring your resources to compliance through bulk remediation for existing resources and automatic remediation for new resources. Azure NetApp Files already supports Azure Policy via custom policy definitions. Azure NetApp Files now also provides built-in policy to enable organization admins to restrict creation of unsecure NFS volumes or audit existing volumes more easily. 
+
+## May 2022
+
+* [LDAP signing](create-active-directory-connections.md#ldap-signing) now generally available (GA)   
+
+    The LDAP signing feature is now generally available. You no longer need to register the feature before using it.
+
+* [SMB Continuous Availability (CA) shares support for Citrix App Layering](enable-continuous-availability-existing-smb.md) (Preview)
+
+    [Citrix App Layering](https://docs.citrix.com/en-us/citrix-app-layering/4.html) radically reduces the time it takes to manage Windows applications and images. App Layering separates the management of your OS and apps from your infrastructure. You can install each app and OS patch once, update the associated templates, and redeploy your images. You can publish layered images as open standard virtual disks, usable in any environment. App Layering can be used to provide dynamic access application layer virtual disks stored on SMB shared networked storage, including Azure NetApp Files. To enhance App Layering resiliency to events of storage service maintenance, Azure NetApp Files has extended support for [SMB Transparent Failover via SMB Continuous Availability (CA) shares on Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#continuous-availability) for App Layering virtual disks. For more information, see [Azure NetApp Files Azure Virtual Desktop Infrastructure solutions | Citrix](azure-netapp-files-solution-architectures.md#citrix).
+
 
 ## April 2022
 
