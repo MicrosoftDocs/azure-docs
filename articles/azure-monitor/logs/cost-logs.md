@@ -4,6 +4,7 @@ description: Cost details for data stored in a Log Analytics workspace in Azure 
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 03/24/2022
+ms.reviwer: dalek git 
 ---
  
 # Azure Monitor Logs pricing details
