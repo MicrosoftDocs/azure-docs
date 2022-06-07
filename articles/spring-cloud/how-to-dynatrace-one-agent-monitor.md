@@ -114,7 +114,7 @@ environment_variables = {
 
 ### Automate provisioning using an Bicep file
 
-To configure the environment variables in a Bicep file, add the following code to the file, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
+To configure the environment variables in a Bicep file, add the following code to the file, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
 
 ```bicep
 environmentVariables: {
@@ -129,7 +129,7 @@ environmentVariables: {
 
 To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
-```ARM template
+```json
 "environmentVariables": {
   "DT_TENANT": "<your-environment-ID>",
   "DT_TENANTTOKEN": "<your-tenant-token>",
