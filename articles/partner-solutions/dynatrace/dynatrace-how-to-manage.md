@@ -47,7 +47,7 @@ The columns in the table denote important information for your resource:
 
 To change the configuration rules for logs, select **Metrics and logs** in the Resource menu on the left.
 
-:::image type="content" source="media/dynatrace-how-to-manage/dynatrace-metrics-and-logs.png" alt-text="Screenshot showing options for metrics and logs":::
+:::image type="content" source="media/dynatrace-how-to-manage/dynatrace-metrics-and-logs.png" alt-text="Screenshot showing options for metrics and logs.":::
 
 For more information, see [Configure metrics and logs](dynatrace-create.md#configure-metrics-and-logs).
 
