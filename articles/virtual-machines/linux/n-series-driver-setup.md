@@ -48,7 +48,7 @@ Then run installation commands specific for your distribution.
     > [!NOTE]
    >  The example below shows the CUDA package path for Ubuntu 16.04. Replace the path specific to the version you plan to use. 
    >  
-   >  Visit the [Nvidia Download Center] (https://developer.download.nvidia.com/compute/cuda/repos/) for the full path specific to each version. 
+   >  Visit the [Nvidia Download Center](https://developer.download.nvidia.com/compute/cuda/repos/) for the full path specific to each version. 
    > 
    ```bash
    CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
