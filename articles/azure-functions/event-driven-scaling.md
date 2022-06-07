@@ -48,18 +48,14 @@ $resource.Properties.functionAppScaleLimit = <SCALE_LIMIT>
 $resource | Set-AzResource -Force
 ```
 
-## Scale In Behavior
+## Scale-in behaviors
 
-As the Azure Functions platform scales compute resources automatically based on demand, currently executing functions should be allowed to shut down gracefully during scale in scenarios.
+Event-driven scaling automatically reduces capacity when demand for your functions is reduced. It does this by shutting down worker instances of your function app. Before an instance is shut down, new events stop being sent to the instance. Also, functions that are currently executing are given time to finish executing. This behavior is logged as drain mode. This shut-down period can extend up to 10 minutes for Consumption plan apps and up to 60 minutes for Premium plan apps. Event-driven scaling and this behavior don't apply to Dedicated plan apps. 
 
-Azure Functions Consumption and Premium plans for Linux and Windows have an internal feature called drain mode that enables graceful scale-in of workers with minimal impact to executing function invocations. This feature isn't implemented on the Dedicated (App Service) plan.
+The following considerations apply for scale-in behaviors: 
 
-When the platform decides to scale in your function app, and before workers are taken away, it will stop sending events to the workers and allow ongoing function executions to finish running up to 10 minutes on the Consumption plan and up to 60 minutes on the Premium plan.
-
-Limitations:
-
-* For Windows Consumption, only function apps created after May 2021 have the feature enabled by default.
-* Functions using the Service Bus trigger require Service Bus Extension version 4.2.0 or higher to work with Drain Mode.
+* For Consumption plan function apps running on Windows, only apps created after May 2021 have drain mode behaviors enabled by default.
+* To enable graceful shutdown for functions using the Service Bus trigger, use version 4.2.0 or a later version of the [Service Bus Extension](functions-bindings-service-bus.md).
 
 ## Event Hubs trigger
 
