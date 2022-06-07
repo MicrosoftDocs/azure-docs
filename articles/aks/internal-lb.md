@@ -96,7 +96,7 @@ For more information on configuring your load balancer in a different subnet, se
 
 ## Connect Azure Private Link service to internal load balancer (Preview)
 
-To attach an Azure Private Link Service to an internal load balancer, create a service manifest named `internal-lb-pls.yaml` with the service type *LoadBalancer* and the *azure-load-balancer-internal* and *azure-pls-create* annotation as shown in the following example:
+To attach an Azure Private Link Service to an internal load balancer, create a service manifest named `internal-lb-pls.yaml` with the service type *LoadBalancer* and the *azure-load-balancer-internal* and *azure-pls-create* annotation as shown in the example below.  For additional options please refer to the [Azure Private Link Service Integration](https://kubernetes-sigs.github.io/cloud-provider-azure/development/design-docs/pls-integration/) design document
 
 ```yaml
 apiVersion: v1
@@ -130,6 +130,33 @@ $ kubectl get service internal-app
 NAME           TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
 internal-app   LoadBalancer   10.125.17.53  10.125.0.66   80:30430/TCP   64m
 ```
+
+Additionally, a Private Link Service object will also be created that connects to the Frontend IP configuration of the Load Balancer associated with the Kubernetes service. Details of the Private Link Service object can be retrieved as shown in the following example:
+```
+$ AKS_MC_RG=$(az aks show -g myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+$ az network private-link-service list -g ${AKS_MC_RG} --query "[].{Name:name,Alias:alias}" -o table
+
+Name      Alias
+--------  -------------------------------------------------------------------------
+pls-xyz   pls-xyz.abc123-defg-4hij-56kl-789mnop.eastus2.azure.privatelinkservice
+
+```
+
+### Create a Private Endpoint to the Private Link Service
+
+A Private Endpoint allows you to privately connect to your Kubernetes service object via the Private Link Service created above. To do so, follow the example shown below:
+
+```azurecli
+$ AKS_PLS_ID=$(az network private-link-service list -g ${AKS_MC_RG} --query "[].id" -o tsv)
+$ az network private-endpoint create \
+    -g myOtherResourceGroup \
+    --name myAKSServicePE \
+    --vnet-name myOtherVNET \
+    --subnet pe-subnet \
+    --private-connection-resource-id ${AKS_PLS_ID} \
+    --connection-name connectToMyK8sService
+```
+
 ## Use private networks
 
 When you create your AKS cluster, you can specify advanced networking settings. This approach lets you deploy the cluster into an existing Azure virtual network and subnets. One scenario is to deploy your AKS cluster into a private network connected to your on-premises environment and run services only accessible internally. For more information, see configure your own virtual network subnets with [Kubenet][use-kubenet] or [Azure CNI][advanced-networking].
