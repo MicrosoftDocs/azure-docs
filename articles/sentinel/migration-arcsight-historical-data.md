@@ -39,7 +39,7 @@ Use the lacat utility to export data from ArcSight Logger. lacat exports CEF rec
 
 To export data with the lacat utility:
 
-1. [Download the lacat utility](https://github.com/hpsec/lacat). For large volumes of data, Microsoft suggests modifications to the script to be more performant. You can find these modifications [here](http://aka.ms/lacatmicrosoft). 
+1. [Download the lacat utility](https://github.com/hpsec/lacat). For large volumes of data, we suggest that you modify the script for better performance. [Use the modified version](http://aka.ms/lacatmicrosoft). 
 1. Follow the examples in the lacat repository on how to run the script.
 
 ## Next steps
