@@ -34,13 +34,13 @@ The following system properties are set by IoT Hub on each event. System propert
 
 | Property | Type |Description |
 | -------- | ---- | ---------- |
-| content_encoding | string | utf-8 |
-| content_type | string |application/json |
-| correlation_id | string | A unique ID that identifies the event. NEED MORE DEFINITION! Is this something that can be used to identify events routed to different services? Sometimes it's a GUID and sometime it isn't. |
-| user_id | string | The name of IoT Hub that generated the event. |
+| content-encoding | string | utf-8 |
+| content-type | string |application/json |
+| correlation-id | string | A unique ID that identifies the event. NEED MORE DEFINITION! Is this something that can be used to identify events routed to different services? Sometimes it's a GUID and sometime it isn't. |
+| user-id | string | The name of IoT Hub that generated the event. |
 | iothub-connection-device-id | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`.  |
 | iothub-connection-module-id | string | The unique identifier of the module. This property is output only for module life cycle and twin events. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| iothub-enqueuedtime | number | DESCRIPTION NEEDED. 1653677358153 |
+| iothub-enqueuedtime | number | Date and time the event was received by IoT Hub. DESCRIPTION NEEDED as this is a number not a UTC string. 1653677358153 |
 | iothub-message-source | string | A value corresponding to the event category that identifies the message source; for example, *deviceLifecycleEvents*. |
 
 ### Application properties
