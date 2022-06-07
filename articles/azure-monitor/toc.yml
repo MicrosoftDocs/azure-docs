@@ -1364,7 +1364,7 @@ items:
         - name: Getting Started with workbooks
           href: visualize/workbooks-getting-started.md
         - name: Data sources
-          href: visualize/workbooks-data-sources.md
+          href: visualize/workbooks-data-sources.md         
         - name: Visualizations
           items:
           - name: Overview
@@ -1387,6 +1387,8 @@ items:
             href: visualize/workbooks-honey-comb.md
           - name: Composite bar
             href: visualize/workbooks-composite-bar.md
+        - name: Limits
+          href: visualize/workbooks-limits.md
     - name: Creating a new workbook
       items:
         - name: Create a new workbook

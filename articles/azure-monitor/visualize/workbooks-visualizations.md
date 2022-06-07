@@ -21,14 +21,14 @@ Workbooks support these kinds of visual components:
     * [Grids](workbooks-grid-visualizations.md)
     * [Tiles](workbooks-tile-visualizations.md)
     * [Trees](workbooks-tree-visualizations.md)
-    * [Honey comb](workbooks-honey-comb-visualizations.md)
+    * [Honey comb](workbooks-honey-comb.md)
     * [Graphs](workbooks-graph-visualizations.md)
     * [Maps](workbooks-map-visualizations.md)
     * [Text](workbooks-text-visualizations.md)
 
 Use the links to learn more about each type of visualization.
 
-Note: Each visualization and data source may have its own [limits](../DataSources/Limits.md).
+Note: Each visualization and data source may have its own [Limits](workbooks-limits.md).
 
 ## Examples
 ### Text Parameter
@@ -52,8 +52,8 @@ Note: Each visualization and data source may have its own [limits](../DataSource
 :::image type="content" source="media/workbooks-visualizations/TreeExample.png" alt-text="Example image of an Azure workbooks tree visualization.":::
 
 ### Honey comb
-[Honey comb](workbooks-honey-comb-visualizations.md)
-:::image type="content" source="media/workbooks-visualizations/HoneyCombCpuExample.png.png" alt-text="Example image of an Azure workbooks honey comb visualization.":::
+[Honey comb](workbooks-honey-comb.md)
+:::image type="content" source="media/workbooks-visualizations/HoneyCombCpuExample.png" alt-text="Example image of an Azure workbooks honey comb visualization.":::
 
 ### Graph
 [Graphs](workbooks-graph-visualizations.md)
