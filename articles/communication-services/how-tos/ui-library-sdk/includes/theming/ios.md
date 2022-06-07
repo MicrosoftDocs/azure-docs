@@ -31,7 +31,7 @@ You can customize the theme by changing the primary color and its associated tin
 
 #### Implementation
 
-Contoso developers can create a custom theme options that implements the `ThemeOptions` protocol. They'll need to include an instance of that new class in your `CallCompositeOptions`.
+Contoso developers can create custom theme options that implement the `ThemeOptions` protocol. They'll need to include an instance of that new class in your `CallCompositeOptions`.
 
 ```swift
 class CustomThemeOptions: ThemeOptions {
