@@ -14,7 +14,8 @@ ms.custom: references_regions
 
 Learn what's new in the service. Bookmark this page to keep up to date with service updates. 
 
-Check out the [**Preview feature list**](search-api-preview.md) for an itemized list of features that are not yet approved for production workloads. See [**Previous versions**](/previous-versions/azure/search/) for archived feature announcements.
+* [**Preview features**](search-api-preview.md) is a list of current features that haven't been approved for production workloads.
+* [**Previous versions**](/previous-versions/azure/search/) is an archive of earlier feature announcements.
 
 ## May 2022
 
