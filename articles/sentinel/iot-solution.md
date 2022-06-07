@@ -104,11 +104,11 @@ View Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
 
     SecurityAlert
     | where ProductName == "Azure Security Center for IoT"
-    | where ProductComponentName == " PROTOCOL_VIOLATION"
+    | where ProductComponentName == "PROTOCOL_VIOLATION"
 
     SecurityAlert
     | where ProductName == "Azure Security Center for IoT"
-    | where ProductComponentName == " POLICY_VIOLATION"
+    | where ProductComponentName == "POLICY_VIOLATION"
 
     SecurityAlert
     | where ProductName == "Azure Security Center for IoT"
