@@ -98,17 +98,17 @@ After the new child DNS zone `subdomain.contoso.com` created, verify that the de
 
 1. Retrieve the name servers from the DNS zone **Overview** page. In this example, the zone `subdomain.contoso.com` has been assigned name servers `ns1-05.azure-dns.com.`, `ns2-05.azure-dns.net.`, `ns3-05.azure-dns.org.`, and `ns4-05.azure-dns.info.`:
 
-      :::image type="content" source="./media/tutorial-public-dns-zones-child/child-zone-nameservers-inline.png" alt-text="Screenshot of child D N S zone Overview page showing its nameservers." lightbox="./media/tutorial-public-dns-zones-child/child-zone-nameservers-expanded.png":::
+      :::image type="content" source="./media/tutorial-public-dns-zones-child/child-zone-name-servers-inline.png" alt-text="Screenshot of child D N S zone Overview page showing its name servers." lightbox="./media/tutorial-public-dns-zones-child/child-zone-name-servers-expanded.png":::
 
 ### Check the NS record set in parent DNS zone
 
-After retrieving the name servers from the child DNS zone, check that the parent DNS zone `contoso.com` has the NS record set entry for its child zone nameservers.
+After retrieving the name servers from the child DNS zone, check that the parent DNS zone `contoso.com` has the NS record set entry for its child zone name servers.
 
 1. In the Azure portal, enter *contoso.com* in the search box at the top of the portal and then select **contoso.com** DNS zone from the search results.
 1.	Check the record sets in **Overview** page of **contoso.com** DNS zone.
 1.	You'll find a record set of type **NS** and name **subdomain** created in the parent DNS zone. Compare the name servers in this record set with the ones you retrieved from the **Overview** page of the child DNS zone.
 
-     :::image type="content" source="./media/tutorial-public-dns-zones-child/parent-zone-nameservers-inline.png" alt-text="Screenshot of child zone name servers validation in the parent D N S zone Overview page." lightbox="./media/tutorial-public-dns-zones-child/parent-zone-nameservers-expanded.png":::
+     :::image type="content" source="./media/tutorial-public-dns-zones-child/parent-zone-name-servers-inline.png" alt-text="Screenshot of child zone name servers validation in the parent D N S zone Overview page." lightbox="./media/tutorial-public-dns-zones-child/parent-zone-name-servers-expanded.png":::
 
 ## Clean up resources
 
