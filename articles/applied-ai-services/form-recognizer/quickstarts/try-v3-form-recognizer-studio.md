@@ -39,7 +39,11 @@ Prebuilt models help you add Form Recognizer features to your apps without havin
 * [**ID document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): extract text and key information from driver licenses and international passports.
 * [**Business card**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): extract text and key information from business cards.
 
-After you've completed the prerequisites, navigate to the [Form Recognizer Studio General Documents preview](https://formrecognizer.appliedai.azure.com). In the following example, we use the General Documents feature. The steps to use other pre-trained features like [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2), [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), and [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument) models are similar.
+After you've completed the prerequisites, navigate to the [Form Recognizer Studio General Documents preview](https://formrecognizer.appliedai.azure.com). 
+
+In the following example, we use the General Documents feature. The steps to use other pre-trained features like [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2), [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), and [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument) models are similar.
+
+:::image border="true" type="content" source="../media/quickstarts/form-recognizer-general-document-demo-preview3.gif" alt-text="Form Recognizer General Document demo":::
 
 1. Select a Form Recognizer service feature from the Studio home page.
 
@@ -47,15 +51,13 @@ After you've completed the prerequisites, navigate to the [Form Recognizer Studi
 
 1. Select the Analyze command to run analysis on the sample document or try your document by using the Add command.
 
-1. Observe the highlighted extracted content in the document view. Hover your move over the keys and values to see details.
-
 1. Use the controls at the bottom of the screen to zoom in and out and rotate the document view.
 
-1. Show and hide the text, tables, and selection marks layers to focus on each one of them at a time.
+1. Observe the highlighted extracted content in the document view. Hover your move over the keys and values to see details.
 
-1. In the output section's Result tab, browse the JSON output to understand the service response format. Copy and download to jumpstart integration.
+1. In the output section's Result tab, browse the JSON output to understand the service response format.
 
-:::image border="true" type="content" source="../media/quickstarts/layout-get-started-v2.gif" alt-text="Form Recognizer Layout example":::
+1. In the Code tab, browse the sample code for integration. Copy and download to get started.
 
 ## Additional prerequisites for custom projects
 
