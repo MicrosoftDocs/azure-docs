@@ -49,7 +49,7 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 ---
 
-## Functions
+## Operations
 
 Before running any commands, you will need to first [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can do this through the terminal using the ```az login``` command and providing your credentials.
 

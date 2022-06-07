@@ -1204,6 +1204,20 @@ groups:
     title: Swift
   - id: programming-language-android
     title: Android
+- id: acs-js-csharp-java-python-azcli
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-azcli
+    title: Azure CLI
 - id: acs-web-ios-android
   title: Platform
   prompt: Choose a platform
@@ -1332,7 +1346,7 @@ groups:
     title: Go
   - id: platform-powershell
     title: PowerShell
-- id: acs-azp-java-net-python-csharp-js
+- id: acs-azp-java-net-python-csharp-js-azcli
   title: Platform
   prompt: Choose a platform
   pivots:
@@ -1346,6 +1360,8 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+  - id: programming-language-azcli
+    title: Azure CLI
 # Owner: memildin
 - id: non-azure-machines
   title: Non-Azure machines

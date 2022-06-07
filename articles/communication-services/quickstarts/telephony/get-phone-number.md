@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
 ms.custom: references_regions, mode-other
-zone_pivot_groups: acs-azp-java-net-python-csharp-js
+zone_pivot_groups: acs-azp-java-net-python-csharp-js-azcli
 ---
 
 # Quickstart: Get and manage phone numbers

@@ -10,7 +10,7 @@ ms.date: 11/17/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
-zone_pivot_groups: acs-js-csharp-java-python
+zone_pivot_groups: acs-js-csharp-java-python-azcli
 ms.custom: mode-other
 ---
 
