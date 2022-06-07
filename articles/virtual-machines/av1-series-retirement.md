@@ -1,12 +1,12 @@
 ---
 title: Av1-series retirement
 description: Retirement information for the Av1 series virtual machine sizes. Before retirement, migrate your workloads to Av2-series virtual machines.
-author: mimckitt
+author: rishabv90
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: how-to
 ms.date: 06/08/2022
-ms.author: mimckitt
+ms.author: risverma
 ms.custom: kr2b-contr-experiment
 ---
 
