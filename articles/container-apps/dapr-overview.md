@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/10/2022
+ms.date: 06/07/2022
 ---
 
 # Dapr integration with Azure Container Apps
@@ -45,7 +45,7 @@ The following Pub/sub example demonstrates how Dapr works alongside your contain
 
 ### Enable Dapr
 
-You can define the Dapr configuration for a container app through the Azure CLI or using Infrastructure as Code templates like a bicep or an Azure Resource Manager (ARM) template.  You enable Dapr on your app with the following settings:
+You can define the Dapr configuration for a container app through the Azure CLI or using Infrastructure as Code templates like a bicep or an Azure Resource Manager (ARM) template.  You can enable Dapr in your app with the following settings:
 
 | CLI Parameter | Template field | Description |
 | ----- | ----------- | ----------- |
@@ -53,7 +53,7 @@ You can define the Dapr configuration for a container app through the Azure CLI 
 | `--dapr-app-port` | `dapr.appPort` | Identifies which port your application is listening. |
 | `--dapr-app-protocol` | `dapr.appProtocol` | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`. |
 | `--dapr-app-id` | `dapr.appId` | The unique ID of the application. Used for service discovery, state encapsulation, and the pub/sub consumer ID. |
-|`--env-vars 'APP_PORT=<port number>`|`env: [{name: APP_PORT value: <port number>}]`| Defines the Dapr port number environment variable for a container. This is added to the `template.containers` section in a template.|
+|`--env-vars 'APP_PORT=<port number>`|`env: [{name: APP_PORT value: <port number>}]`| Defines the Dapr port number environment variable for a container. In a template, this parameter is added to the `template.containers` section for each container using dapr.|
 
 The following example adds the Dapr configuration to your `properties.configuration` section of your container apps resource declaration.
 
@@ -80,7 +80,7 @@ The following example adds the Dapr configuration to your `properties.configurat
  
 ```
 
----
+-----
 
 For each container accessing the Dapr components, you must configure the `APP_PORT` environment variable in the `template.container` section of your container app resource declaration.  Here's an example of the `template.containers` section with the `APP_PORT` environment variable configured:
 
@@ -121,7 +121,7 @@ For each container accessing the Dapr components, you must configure the `APP_PO
 
 ```
 
----
+-----
 
 Since Dapr settings are considered application-scope changes, new revisions aren't created when you change Dapr setting. However, when changing Dapr settings, the container app revisions and replicas are automatically restarted.
 
@@ -237,7 +237,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM. The `dapr-p
 }
 ```
 
----
+-----
 
 For comparison, a Dapr OSS `pubsub.yaml` file would include: 
 
