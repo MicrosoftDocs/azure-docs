@@ -132,9 +132,10 @@ For example, CentOS 8 and RHEL 8 will need the following steps.
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
    sudo yum install dkms
    
-   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo /etc/yum.repos.d/cuda-rhel8.repo
-
-   sudo yum install cuda-drivers
+   sudo yum-config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo
+   sudo yum clean all
+   sudo yum -y install nvidia-driver-latest-dkms
+   sudo yum -y install cuda-drivers
    ```
 
 4. To optionally install the complete CUDA toolkit, type:
