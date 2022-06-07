@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 04/04/2022
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Migrate data from Oracle to Azure Cosmos DB Cassandra API account using Arcion
