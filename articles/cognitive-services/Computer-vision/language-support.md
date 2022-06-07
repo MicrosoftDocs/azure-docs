@@ -25,7 +25,7 @@ The Computer Vision [Read API](./overview-ocr.md#read-api) supports many languag
 >
 > `Read` OCR's deep-learning-based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 
-See [How to specify the `Read` model](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the new languages.
+See [How to specify the `Read` model](./how-to/call-read-api.md#determine-how-to-process-the-data-optional) to use the new languages.
 
 ### Handwritten text
 

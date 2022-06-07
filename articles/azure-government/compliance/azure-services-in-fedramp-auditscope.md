@@ -113,7 +113,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Cognitive Services: Content Moderator](../../cognitive-services/content-moderator/index.yml) | &#x2705; | &#x2705; |
 | [Cognitive Services Containers](../../cognitive-services/cognitive-services-container-support.md) | &#x2705; | &#x2705; |
 | [Cognitive Services: Custom Vision](../../cognitive-services/custom-vision-service/index.yml) | &#x2705; | &#x2705; |
-| [Cognitive Services: Face](../../cognitive-services/face/index.yml) | &#x2705; | &#x2705; |
+| [Cognitive Services: Face](../../cognitive-services/computer-vision/index-identity.yml) | &#x2705; | &#x2705; |
 | [Cognitive Services: Language Understanding (LUIS)](../../cognitive-services/luis/index.yml) </br> (part of [Cognitive Services for Language](../../cognitive-services/language-service/index.yml)) | &#x2705; | &#x2705; |
 | [Cognitive Services: Personalizer](../../cognitive-services/personalizer/index.yml) | &#x2705; | &#x2705; |
 | [Cognitive Services: QnA Maker](../../cognitive-services/qnamaker/index.yml) </br> (part of [Cognitive Services for Language](../../cognitive-services/language-service/index.yml)) | &#x2705; | &#x2705; |
@@ -313,7 +313,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Cognitive Services: Content Moderator](../../cognitive-services/content-moderator/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services Containers](../../cognitive-services/cognitive-services-container-support.md) | &#x2705; | &#x2705; | | | |
 | [Cognitive Services: Custom Vision](../../cognitive-services/custom-vision-service/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Cognitive Services: Face](../../cognitive-services/face/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Cognitive Services: Face](../../cognitive-services/computer-vision/index-identity.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: LUIS](../../cognitive-services/luis/index.yml) </br> (part of [Cognitive Services for Language](../../cognitive-services/language-service/index.yml)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Personalizer](../../cognitive-services/personalizer/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: QnA Maker](../../cognitive-services/qnamaker/index.yml) </br> (part of [Cognitive Services for Language](../../cognitive-services/language-service/index.yml)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
