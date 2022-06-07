@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: tutorial
-author: lgayhardt 
+author: lgayhardt
 ms.author: lagayhar
 ms.date: 01/28/2022
 ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
