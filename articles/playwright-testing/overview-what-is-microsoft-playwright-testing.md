@@ -1,6 +1,6 @@
 ---
 title: What is Microsoft Playwright Testing?
-description: 'Azure Load Testing is a fully managed load-testing service for generating high-scale loads and identifying performance bottlenecks. Quickly create a load test based on a URL or by using existing JMeter scripts.'
+description: 'Microsoft Playwright Testing is a fully managed end-to-end testing service.'
 services: load-testing
 ms.service: load-testing
 ms.topic: overview
@@ -44,7 +44,7 @@ Azure Load Testing automatically incorporates best practices for Azure networkin
 
 Data stored in your Azure Load Testing resource is automatically encrypted with keys managed by Microsoft (service-managed keys). This data includes, for example, your Apache JMeter script.
 
-:::image type="content" source="./media/overview-what-is-microsoft-playwright-testing/azure-load-testing-architecture.svg" lightbox="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.svg" alt-text="Diagram that shows the Azure Load Testing architecture.":::
+:::image type="content" source="./media/overview-what-is-microsoft-playwright-testing/azure-load-testing-architecture.svg" lightbox="./media/overview-what-is-microsoft-playwright-testing/azure-load-testing-architecture.svg" alt-text="Diagram that shows the Microsoft Playwright Testing architecture.":::
 
 ## Next steps
 
