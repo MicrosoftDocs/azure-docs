@@ -224,6 +224,8 @@ _pom.xml_
 ```
 
 ```java
+import com.azure.identity.DefaultAzureCredentialBuilder;
+
 DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
         .managedIdentityClientId("<Client ID of User-assigned identity>")
         .build();
