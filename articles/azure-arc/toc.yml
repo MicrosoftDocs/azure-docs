@@ -19,7 +19,7 @@
   - name: Security overview
     href: ./resource-bridge/security-overview.md
   - name: Troubleshoot
-    href: ./resource-bridge/troubleshoot-resource-bridge.md 
+    href: ./resource-bridge/troubleshoot-resource-bridge.md
 - name: Azure Arc-enabled servers >
   href: ./servers/overview.md
 - name: Azure Arc-enabled Kubernetes >
@@ -28,6 +28,8 @@
   href: ./data/overview.md
 - name: Azure Arc-enabled VMware vSphere >
   href: ./vmware-vsphere/overview.md
+- name: Azure Arc-enabled System Center Virtual Machine Manager (preview)  >
+  href: ./system-center-virtual-machine-manager/overview.md
 - name: Azure Arc-enabled VMs on Azure Stack HCI >
   href: /azure-stack/hci/manage/azure-arc-enabled-virtual-machines
 - name: SQL Server on Azure Arc-enabled servers >

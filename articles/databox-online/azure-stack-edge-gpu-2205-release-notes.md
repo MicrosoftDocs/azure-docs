@@ -19,7 +19,7 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2205** release, which maps to software version number **2.2.1981.5086**. This software can be applied to your device if you're running at least Azure Stack Edge 2106 (2.2.1636.3457) software.
+This article applies to the **Azure Stack Edge 2205** release, which maps to software version number **2.2.1983.5094**. This software can be applied to your device if you're running at least Azure Stack Edge 2106 (2.2.1636.3457) software.
 
 ## What's new
 
