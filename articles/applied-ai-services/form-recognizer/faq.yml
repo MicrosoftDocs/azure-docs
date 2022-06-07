@@ -243,12 +243,12 @@ sections:
 
           - When you submit a document for analysis, all pages are analyzed unless you specify a page range with the `pages` parameter in your request.
 
-          - When analyzing Microsoft Word and HTML files with the new Read OCR model, pages are counted in blocks of 3,000 characters each. For example, if your document contains 7,000 characters, it will be counted as two pages.
+          - When analyzing Microsoft Word and HTML files with the new Read OCR model, pages are counted in blocks of 3,000 characters each. For example, if your document contains 7,000 characters, it will be counted as three pages as in two pages of 3000 characters each and a 3rd page of 1000 characters.
+
+          - In addition, if your Microsoft Word, Excel, and PowerPoint documents have embedded images, each image will be analyzed for text extraction and counted as a page. Therefore, the total analyzed pages for Microsoft Office documents will be equal to the sum of total text pages and total images analyzed. In the previous example if the doccument contains 2 embedded images, the total page count in the service output will be 3 + 2 equaling five pages.
 
           - When analyzing Microsoft Excel and PowerPoint documents with the new Read OCR model, each worksheet and slide is counted as one page respectively.
-
-          - In addition, if your Microsoft Word, Excel, and PowerPoint documents have embedded images, each image will be analyzed for text extraction and counted as a page. Therefore, the total analyzed pages for Microsoft Office documents will be equal to the sum of total pages and total images analyzed.
-
+          
           - Training a custom model is always free with Form Recognizer. You’re only charged when a model is used to analyze a document.
 
           - Container pricing is the same as cloud service pricing.
