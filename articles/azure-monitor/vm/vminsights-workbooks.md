@@ -41,7 +41,7 @@ VM insights includes the following workbooks. You can use these workbooks or use
 | Failed Connections | Display the count of failed connections on your monitored VMs, the failure trend, and if the percentage of failures is increasing over time. |
 | Security and Audit | An analysis of your TCP/IP traffic that reports on overall connections, malicious connections, where the IP endpoints reside globally.  To enable all features, you will need to enable Security Detection. |
 | TCP Traffic | A ranked report for your monitored VMs and their sent, received, and total network traffic in a grid and displayed as a trend line. |
-| Traffic Comparison | This workbooks lets you compare network traffic trends for a single machine or a group of machines. |
+| Traffic Comparison | This workbook lets you compare network traffic trends for a single machine or a group of machines. |
 
 ## Creating a new workbook
 
