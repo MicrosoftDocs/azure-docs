@@ -32,7 +32,7 @@ Push installation is an integral part of the job that's run from the Azure porta
 
 - Ensure that all push installation [prerequisites](vmware-azure-install-mobility-service.md) are met.
 - Ensure that all server configurations meet the criteria in the [Support matrix for disaster recovery of VMware VMs and physical servers to Azure](vmware-physical-azure-support-matrix.md).
-- From 9.36 version onwards, ensure the latest installer for SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4, RHEL 5, CentOS 5, Debian 7, Debian 8, Ubunut 14.04 is [available on the configuration server and scale-out process server](#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-oracle-linux-6-and-ubuntu-14.04-server).
+- From 9.36 version onwards, ensure the latest installer for SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4, RHEL 5, CentOS 5, Debian 7, Debian 8, Ubunut 14.04 is [available on the configuration server and scale-out process server](#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-oracle-linux-6-and-ubuntu-1404-server).
 
 The push installation workflow is described in the following sections:
 

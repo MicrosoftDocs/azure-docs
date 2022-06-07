@@ -33,8 +33,8 @@ Site Recovery contributes to application-level protection and recovery as follow
 
 Site Recovery can replicate any app running on a supported machine. We've partnered with product teams to do additional testing for the apps specified in the following table.
 
-| **Workload** |**Replicate Azure VMs to Azure** |**Replicate Hyper-V VMs to a secondary site** | **Replicate Hyper-V VMs to Azure** | **Replicate VMware VMs to Azure**  ||
-| --- | --- | --- | --- | --- |---|
+|**Workload** |**Replicate Azure VMs to Azure** |**Replicate Hyper-V VMs to a secondary site** |**Replicate Hyper-V VMs to Azure** |**Replicate VMware VMs to Azure** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | Active Directory, DNS |Yes |Yes |Yes |Yes|
 | Web apps (IIS, SQL) |Yes |Yes |Yes |Yes|
 | System Center Operations Manager |Yes |Yes |Yes |Yes|
