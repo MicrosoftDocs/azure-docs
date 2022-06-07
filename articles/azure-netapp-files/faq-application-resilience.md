@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 10/11/2021
+ms.date: 06/07/2022
 ---
 # Application resilience FAQs for Azure NetApp Files
 
@@ -18,7 +18,10 @@ Azure NetApp Files might undergo occasional planned maintenance (for example, pl
 
 ## Do I need to take special precautions for SMB-based applications?
 
-Yes, certain SMB-based applications require SMB Transparent Failover. SMB Transparent Failover enables maintenance operations on the Azure NetApp Files service without interrupting connectivity to server applications storing and accessing data on SMB volumes. To support SMB Transparent Failover for specific applications, Azure NetApp Files now supports the [SMB Continuous Availability shares option](azure-netapp-files-create-volumes-smb.md#continuous-availability). 
+Yes, certain SMB-based applications require SMB Transparent Failover. SMB Transparent Failover enables maintenance operations on the Azure NetApp Files service without interrupting connectivity to server applications storing and accessing data on SMB volumes. To support SMB Transparent Failover for specific applications, Azure NetApp Files now supports the [SMB Continuous Availability shares option](azure-netapp-files-create-volumes-smb.md#continuous-availability). Using SMB Continuous Availability is only supported for workloads on:
+* Citrix App Laying
+* [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md)
+* Microsoft SQL Server (not Linux SQL Server)
 
 ## I am running IBM MQ on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events despite using the NFS protocol?
 
