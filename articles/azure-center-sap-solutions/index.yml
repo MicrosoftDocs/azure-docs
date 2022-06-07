@@ -31,3 +31,5 @@ landingContent:
             url: install-software.md
           - text: Configure Virtual Instance for SAP
             url: configure-virtual-instance.md
+          - text: Deploy S/4 HANA infrastructure
+            url: deploy-s4hana.md
