@@ -32,7 +32,7 @@ OSM provides the following capabilities and features:
 - Define and execute fine grained access control policies for services.
 - Monitor and debug services using observability and insights into application metrics.
 - Integrate with external certificate management.
-- Integrates with existing ingress solutions such as the [Azure Gateway Ingress Controller][agic], [NGINX][nginx], and [Contour][contour]. For more details on how ingress works with OSM, see [Using Ingress to manage external access to services within the cluster][osm-ingress]. For an example on integrating OSM with Contour for ingress, see [Ingress with Contour][osm-contour]. For an example on integrating OSM with ingress controllers that use the `networking.k8s.io/v1` API, such as NGINX, see [Ingress with Kubernetes Nginx Ingress Controller][osm-nginx].
+- Integrates with existing ingress solutions such as [NGINX][nginx], [Contour][contour], and [Web Application Routing][web-app-routing]. For more details on how ingress works with OSM, see [Using Ingress to manage external access to services within the cluster][osm-ingress]. For an example on integrating OSM with Contour for ingress, see [Ingress with Contour][osm-contour]. For an example on integrating OSM with ingress controllers that use the `networking.k8s.io/v1` API, such as NGINX, see [Ingress with Kubernetes Nginx Ingress Controller][osm-nginx]. For more details on using Web Application Routing, which automatically integrates with OSM, see [Web Application Routing][web-app-routing].
 
 ## Example scenarios
 
@@ -64,9 +64,9 @@ After enabling the OSM add-on using the [Azure CLI][osm-azure-cli] or a [Bicep t
 [osm-onboard-app]: https://release-v1-0.docs.openservicemesh.io/docs/guides/app_onboarding/
 [ip-tables-redirection]: https://docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/
 [global-exclusion]: https://docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/#global-outbound-ip-range-exclusions
-[agic]: ../application-gateway/ingress-controller-overview.md
 [nginx]: https://github.com/kubernetes/ingress-nginx
 [contour]: https://projectcontour.io/
 [osm-ingress]: https://release-v1-0.docs.openservicemesh.io/docs/guides/traffic_management/ingress/
 [osm-contour]: https://release-v1-0.docs.openservicemesh.io/docs/demos/ingress_contour
 [osm-nginx]: https://release-v1-0.docs.openservicemesh.io/docs/demos/ingress_k8s_nginx
+[web-app-routing]: web-app-routing.md

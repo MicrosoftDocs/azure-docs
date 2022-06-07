@@ -2,7 +2,7 @@
 title: Reports in Container insights
 description: Describes reports available to analyze data collected by Container insights.
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 05/24/2022
 ---
 
 # Reports in Container insights

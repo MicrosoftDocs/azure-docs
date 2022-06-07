@@ -36,7 +36,7 @@ As you create a custom VNET, keep in mind the following situations:
   - Each [revision](revisions.md) is assigned an IP address in the subnet.
   - You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as [internal](vnet-custom-internal.md).
 
-As you begin to design the network around your container app, refer to [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm) for important concerns surrounding running virtual networks on Azure.
+As you begin to design the network around your container app, refer to [Plan virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md) for important concerns surrounding running virtual networks on Azure.
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Diagram of how Azure Container Apps environments use an existing V NET, or you can provide your own.":::
 

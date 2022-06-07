@@ -7,9 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
-ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -17,6 +16,21 @@ ms.custom: ignite-fall-2021
 # What's new in Azure Form Recognizer
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
+
+## June 2022
+
+### Form Recognizer v3.0 preview release (beta.3)
+
+The **2022-06-30-preview** release is the latest update to the Form Recognizer service for v3.0 capabilities. There are considerable updates across the feature APIs:
+
+* [🆕 **Layout extends structure extraction**](concept-layout.md). Layout now includes added structure elements including sections, section headers, and paragraphs. This update enables finer grain document segmentation scenarios. For a complete list of structure elements identified, _see_ [enhanced structure](concept-layout.md#data-extraction).
+* [🆕 **Custom neural model tabular fields support**](concept-custom-neural.md). Custom document models now support tabular fields. Tabular fields by default are also multi page. To learn more about tabular fields in custom neural models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields).
+* [🆕 **Custom template model tabular fields support for cross page tables**](concept-custom-template.md). Custom form models now support tabular fields across pages. To learn more about tabular fields in custom template models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields).
+* [🆕 **Invoice model output now includes general document key-value pairs**](concept-invoice.md). Where invoices contain required fields beyond the fields included in the prebuilt model, the general document model supplements the output with key-value pairs. _See_ [key value pairs](concept-invoice.md#key-value-pairs-preview).
+* [🆕 **Invoice language expansion**](concept-invoice.md). The invoice model includes expanded language support. _See_ [supported languages](concept-invoice.md#supported-languages-and-locales).
+* [🆕 **Prebuilt business card**](concept-business-card.md) now includes Japanese language support. _See_ [supported languages](concept-business-card.md#supported-languages-and-locales).
+* [🆕 **Prebuilt ID document model**](concept-id-document.md). The ID document model now extracts DateOfIssue, Height, Weight, EyeColor, HairColor, and DocumentDiscriminator from US driver's licenses. _See_ [field extraction](concept-id-document.md#id-document-preview-field-extraction).
+* [🆕 **Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [page extraction](concept-read.md#pages).
 
 ## February 2022
 
@@ -30,22 +44,23 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 * [**General document**](concept-general-document.md) pre-trained model is now updated to support selection marks in addition to API  text, tables, structure, key-value pairs, and named entities from forms and documents.
 * [**Invoice API**](language-support.md#invoice-model) Invoice prebuilt model expands support to Spanish invoices.
 * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
-* [**Language Expansion**](language-support.md) Form Recognizer Read, Layout, and Custom Form add support for 42 new languages including Arabic, Hindi, and other languages using Arabic and Devanagari scripts to expand the coverage to 164 languages. Handwritten support for the same features expands to Japanese and Korean in addition to English, Chinese Simplified, French, German, Italian, Portuguese, and Spanish languages.
+* [**Language Expansion**](language-support.md) Form Recognizer Read, Layout, and Custom Form add support for 42 new languages including Arabic, Hindi, and other languages using Arabic and Devanagari scripts to expand the coverage to 164 languages. Handwritten language support expands to Japanese and Korean.
 
 Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/try-v3-python-sdk.md), or [.NET](quickstarts/try-v3-csharp-sdk.md) SDK for the v3.0 preview API.
 
 #### Form Recognizer model data extraction
 
-  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
+  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |**Signatures**|
   | --- | :---: |:---:| :---: | :---: |:---: |
-  |🆕Read | ✓  |   |   |   |   |
-  |🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
-  | Layout  | ✓  |   | ✓  | ✓  |   |
-  | Invoice  | ✓ | ✓  | ✓  | ✓ ||
-  |Receipt  | ✓  |   ✓ |   |  ||
-  | ID document | ✓  |   ✓  |   |   ||
-  | Business card    | ✓  |   ✓ |   |   ||
-  | Custom             |✓  |  ✓ | ✓  | ✓  | ✓  |
+  |🆕Read | ✓  |   |   |   |   | |
+  |🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  | |
+  | Layout  | ✓  |   | ✓  | ✓  |   | |
+  | Invoice  | ✓ | ✓  | ✓  | ✓ || |
+  |Receipt  | ✓  |   ✓ |   |  || |
+  | ID document | ✓  |   ✓  |   |   || |
+  | Business card    | ✓  |   ✓ |   |   || |
+  | Custom template  |✓  |  ✓ | ✓  | ✓  |   | ✓ |
+  | Custom neural    |✓  |  ✓ | ✓  | ✓  |   | |
 
 #### Form Recognizer SDK beta preview release
 
@@ -562,7 +577,7 @@ pip package version 3.1.0b4
 
 **Form Recognizer v2.1 public preview 3 is now available.** v2.1-preview.3 has been released, including the following features:
 
-* **New prebuilt ID model** The new prebuilt ID model enables customers to take IDs and return structured data to automate processing. It combines our powerful Optical Character Recognition (OCR) capabilities with ID understanding models to extract key information from passports and U.S. driver licenses, such as name, date of birth, issue date, expiration date, and more.
+* **New prebuilt ID model** The new prebuilt ID model enables customers to take IDs and return structured data to automate processing. It combines our powerful Optical Character Recognition (OCR) capabilities with ID understanding models to extract key information from passports and U.S. driver licenses.
 
   [Learn more about the prebuilt ID model](./concept-id-document.md)
 
@@ -576,7 +591,7 @@ pip package version 3.1.0b4
 
     :::image type="content" source="./media/table-labeling.png" alt-text="Table labeling" lightbox="./media/table-labeling.png":::
 
-    In addition to labeling tables, you can now label empty values and regions; if some documents in your training set don't have values for certain fields, you can label them so that your model will know to extract values properly  from analyzed documents.
+    In addition to labeling tables, you can now label empty values and regions. If some documents in your training set don't have values for certain fields, you can label them so that your model will know to extract values properly from analyzed documents.
 
 * **Support for 66 new languages** - The Layout API and Custom Models for Form Recognizer now support 73 languages.
 
@@ -615,7 +630,7 @@ pip package version 3.1.0b4
   ![Screenshot: Sample Labeling tool.](./media/ui-preview.jpg)
 
 * **Feedback Loop** - When Analyzing files via the Sample Labeling tool you can now also add it to the training set and adjust the labels if necessary and train to improve the model.
-* **Auto Label Documents** - Automatically labels additional documents based on previous labeled documents in the project.
+* **Auto Label Documents** - Automatically labels added documents based on previous labeled documents in the project.
 
 ## August 2020
 
@@ -661,7 +676,7 @@ pip package version 3.1.0b4
 
 * **CopyModel API added to client SDKs** - You can now use the client SDKs to copy models from one subscription to another. See [Back up and recover models](./disaster-recovery.md) for general information on this feature.
 * **Azure Active Directory integration** - You can now use your Azure AD credentials to authenticate your Form Recognizer client objects in the SDKs.
-* **SDK-specific changes** - This change includes both minor feature additions and breaking changes. For more information, *see* the SDK changelogs for more information.
+* **SDK-specific changes** - This change includes both minor feature additions and breaking changes. For more information, _see_ the SDK changelogs.
   * [C# SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
   * [Python SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
   * [Java SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
@@ -677,9 +692,9 @@ pip package version 3.1.0b4
   * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
   * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme)
 
-  The new SDK supports all the features of the v2.0 REST API for Form Recognizer. For example, you can train a model with or without labels and extract text, key-value pairs and tables from your forms, extract data from receipts with the pre-built receipts service and extract text and tables with the layout service from your documents. You can share your feedback on the SDKs through the [SDK Feedback form](https://aka.ms/FR_SDK_v1_feedback).
+  The new SDK supports all the features of the v2.0 REST API for Form Recognizer. You can share your feedback on the SDKs through the [SDK Feedback form](https://aka.ms/FR_SDK_v1_feedback).
 
-* **Copy Custom Model** You can now copy models between regions and subscriptions using the new Copy Custom Model feature. Before invoking the Copy Custom Model API, you must first obtain authorization to copy into the target resource by calling the Copy Authorization operation against the target resource endpoint.
+* **Copy Custom Model** You can now copy models between regions and subscriptions using the new Copy Custom Model feature. Before invoking the Copy Custom Model API, you must first obtain authorization to copy into the target resource. This authorization is secured by calling the Copy Authorization operation against the target resource endpoint.
 
   * [Generate a copy authorization](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModelAuthorization) REST API
   * [Copy a custom model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModel) REST API

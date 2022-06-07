@@ -157,7 +157,8 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 "tags": {},
                 "properties": {
                     "ApplicationId": "[parameters('appName')]",
-                    "retentionInDays": "[parameters('retentionInDays')]"
+                    "retentionInDays": "[parameters('retentionInDays')]",
+                    "ImmediatePurgeDataOn30Days": "[parameters('ImmediatePurgeDataOn30Days')]"
                 },
                 "dependsOn": []
             },
