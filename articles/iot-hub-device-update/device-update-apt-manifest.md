@@ -101,7 +101,7 @@ If version is omitted, the latest available version of specified package will be
 > APT package manager ignores versioning requirements given by a package when the dependent packages to install are being automatically resolved. Unless explicit versions of dependent packages are given they will use the latest, even though the package itself may specify a strict requirement (=) on a given
 version. This automatic resolution can lead to errors regarding an unmet dependency. [Learn More](https://unix.stackexchange.com/questions/350192/apt-get-not-properly-resolving-a-dependency-on-a-fixed-version-in-a-debian-ubunt)
 
-If you're updating a specific version of the Azure IoT Edge security daemon, then you should include the desired version of the `iotedge` package and its dependent `libiothsm-std` package in your APT manifest.
+If you're updating a specific version of the Azure IoT Edge security daemon, then you should include the desired version of the `aziot-edge` package and its dependent `aziot-identity-service` package in your APT manifest.
 [Learn More](../iot-edge/how-to-update-iot-edge.md#update-the-security-subsystem)
 
 > [!NOTE]
