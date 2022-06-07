@@ -12,7 +12,7 @@ ms.custom: kr2b-contr-experiment
 
 # Av1-series retirement
 
-On 31 August 2024, we retire Basic and Standard A-series virtual machines (VMs). Before that date, migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
+On August 31, 2024, we retire Basic and Standard A-series virtual machines (VMs). Before that date, migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
 
 > [!NOTE]
 > In some cases, you must deallocate the VM prior to resizing. This can happen if the new size is not available on the hardware cluster that is currently hosting the VM.
@@ -58,15 +58,17 @@ You can resize your virtual machines to the Av2-series using the [Azure portal, 
 
 ## Help and support
 
-If you have questions, ask community experts in [Microsoft Q&A](/answers/topics/azure-virtual-machines.html). If you have a support plan and need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+If you have questions, ask community experts in [Microsoft Q&A](/answers/topics/azure-virtual-machines.html). If you have a support plan and need technical help, create a support request:
 
-1. For **Issue type**, select **Technical**.
-1. For **Subscription**, select your subscription.
-1. For **Service**, select **My services**.
-1. For **Service type**, select **Virtual Machine running Windows/Linux**.
-1. For **Summary**, enter a summary of your request.
-1. For **Problem type**, select **Assistance with resizing my VM**.
-1. For **Problem subtype**, select the option that applies to you.
+1. In the [Help + support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) page, select **Create a support request**. Follow the **New support request** page instructions. Use the following values:
+   * For **Issue type**, select **Technical**.
+   * For **Service**, select **My services**.
+   * For **Service type**, select **Virtual Machine running Windows/Linux**.
+   * For **Resource**, select your VM.
+   * For **Problem type**, select **Assistance with resizing my VM**.
+   * For **Problem subtype**, select the option that applies to you.
+
+Follow instructions in the **Solutions** and **Details** tabs, as applicable, and then **Review + create**.
 
 ## Next steps
 
