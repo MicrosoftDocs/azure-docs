@@ -16,3 +16,5 @@ items:
     href: configure-virtual-instance.md
   - name: Deploy S/4HANA infrastructure
     href: deploy-s4hana.md
+  - name: Register existing SAP system
+    href: register-existing-system.md

@@ -33,3 +33,5 @@ landingContent:
             url: configure-virtual-instance.md
           - text: Deploy S/4 HANA infrastructure
             url: deploy-s4hana.md
+          - text: Register existing SAP system
+            url: register-existing-system.md
