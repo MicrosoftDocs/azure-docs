@@ -153,7 +153,7 @@ Or
 ```output
 info: edgelet_docker::runtime -- Starting module edgeHub...
 warn: edgelet_utils::logging -- Could not start module edgeHub
-warn: edgelet_utils::logging -- 	caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:  
+warn: edgelet_utils::logging --     caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:  
         The process cannot access the file because it is being used by another process. (0x20)
 ```
 
@@ -317,6 +317,27 @@ Windows Registry Editor Version 5.00
 "TypesSupported"=dword:00000007
 ```
 
+## DPS client error
+
+**Observed behavior:**
+
+IoT Edge fails to start with error message `failed to provision with IoT Hub, and no valid device backup was found dps client error.`
+
+**Root cause:**
+
+A group enrollment is used to provision an IoT Edge device to an IoT Hub. The IoT Edge device is moved to a different hub. The registration is deleted in DPS. A new registration is created in DPS for the new hub. The device is not reprovisioned.
+
+**Resolution:**
+
+1. Verify your DPS credentials are correct.
+1. Apply your configuration using `sudo iotedge apply config`.
+1. If the device isn't reprovisioned, restart the device using `sudo iotedge system restart`.
+1. If the device isn't reprovisioned, force reprovisioning using `sudo iotedge system reprovision`.
+
+To automatically reprovision, set `dynamic_reprovisioning: true` in the device configuration file. Setting this flag to true opts in to the dynamic re-provisioning feature. IoT Edge detects situations where the device appears to have been reprovisioned in the cloud by monitoring its own IoT Hub connection for certain errors. IoT Edge responds by shutting itself and all Edge modules down. The next time the daemon starts up, it will attempt to reprovision this device with Azure to receive the new IoT Hub provisioning information.
+
+When using external provisioning, the daemon will also notify the external provisioning endpoint about the re-provisioning event before shutting down. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+
 :::moniker-end
 <!-- end 1.1 -->
 
@@ -421,7 +442,7 @@ On Windows:
 
    1. If the parameter exists, set the value of the parameter to **1**.
 
-   1. If the paramter doesn't exist, add it as a new parameter with the following settings:
+   1. If the parameter doesn't exist, add it as a new parameter with the following settings:
 
       | Setting | Value |
       | ------- | ----- |

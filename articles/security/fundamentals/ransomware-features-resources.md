@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 Microsoft has invested in Azure native security capabilities that organizations can leverage to defeat ransomware attack techniques found in both high-volume, everyday attacks, and sophisticated targeted attacks.
 
 Key capabilities include:
-- **Native Threat Detection**: Microsoft Defender for Cloud provides high-0quality threat detection and response capabilities, also called Extended Detection and Response (XDR). This helps you:
+- **Native Threat Detection**: Microsoft Defender for Cloud provides high-quality threat detection and response capabilities, also called Extended Detection and Response (XDR). This helps you:
   - Avoid wasting time and talent of scarce security resources to build custom alerts using raw activity logs.
   - Ensure effective security monitoring, which often enables security teams to rapidly approve use of Azure services.
 - **Passwordless and Multi-factor authentication**: Azure Active Directory MFA, Azure AD Authenticator App, and Windows Hello provide these capabilities. This helps protect accounts against commonly seen password attacks (which account for 99.9% of the volume of identity attacks we see in Azure AD). While no security is perfect, eliminating password-only attack vectors dramatically lowers the ransomware attack risk to Azure resources. 

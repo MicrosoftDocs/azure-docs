@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/my-apps-deployment-plan.md",
+      "redirect_url": "/azure/active-directory/manage-apps/myapps-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/authentication/cloud-native-certificate-based-authentication-faq.yml",
       "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-faq",
       "redirect_document_id": false

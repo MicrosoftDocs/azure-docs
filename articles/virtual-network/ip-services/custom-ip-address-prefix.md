@@ -16,9 +16,9 @@ A custom IP address prefix is a contiguous range of IP addresses owned by an ext
 
 ## Benefits
 
-* Customers can retain their IP ranges (BYOIP) to maintain established reputation and continue to pass through externally controlled allowlists
+* Customers can retain their IP ranges (BYOIP) to maintain established reputation and continue to pass through externally controlled allowlists.
 
-* Public IP address prefixes and standard SKU public IPs can be derived from custom IP address prefixes. These IPs can be used in the same way as Azure owned public IPs
+* Public IP address prefixes and standard SKU public IPs can be derived from custom IP address prefixes. These IPs can be used in the same way as Azure owned public IPs.
 
 ## Bring an IP prefix to Azure
 
@@ -38,7 +38,7 @@ A public IP address range that's brought to Azure must be owned by you and regis
 
 ### Provision
 
-After the previous steps are completed, the public IP range can complete the **Provisioning** phase. The range will be created as a custom IP prefix resource in your subscription. Public IP prefixes and public IPs can be derived from your range and associated to Azure resources. The IPs won't be advertised at this point and not reachable.
+After the previous steps are completed, the public IP range can complete the **Provisioning** phase. The range will be created as a custom IP prefix resource in your subscription. Public IP prefixes and public IPs can be derived from your range and associated to any Azure resource that supports Standard SKU Public IPs (IPs derived from a custom IP prefix can also be safeguarded with [DDoS Protection Standard](../../ddos-protection/ddos-protection-overview.md). The IPs won't be advertised at this point and not reachable.
 
 ### Commission
 
@@ -46,30 +46,32 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 ## Limitations
 
-* A custom IP prefix must be associated with a single Azure region
+* A custom IP prefix must be associated with a single Azure region.
 
-* The minimum size of an IP range is /24
+* The minimum size of an IP range is /24.
 
-* IPv6 is currently not supported for custom IP prefixes
+* IPv6 is currently not supported for custom IP prefixes.
 
-* In regions with [availability zones](../../availability-zones/az-overview.md), a custom IP prefix must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties
+* In regions with [availability zones](../../availability-zones/az-overview.md), a custom IP prefix must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
 
-* The advertisements of IPs from a custom IP prefix over Azure ExpressRoute aren't currently supported
+* The advertisements of IPs from a custom IP prefix over Azure ExpressRoute aren't currently supported.
 
-* Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It's possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions
+* Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It's possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions.
 
-* Any IP addresses utilized from a custom IP prefix currently count against the standard public IP quota for a subscription and region. Contact Azure support to have quotas increased when required
+* Any IP addresses utilized from a custom IP prefix currently count against the standard public IP quota for a subscription and region. Contact Azure support to have quotas increased when required.
+
+* IPs brought to Azure cannot currently be used for Windows Server Activation.
 
 ## Pricing
 
-* There is no charge to provision or use custom IP prefixes. Similarly, there is no charge for any public IP prefixes and public IP addresses that are derived from custom IP prefixes.
+* There is no charge to provision or use custom IP prefixes. There is no charge for any public IP prefixes and public IP addresses that are derived from custom IP prefixes.
 
-* All traffic destined to a custom IP prefix range is charged the [internet egress rate](https://azure.microsoft.com/pricing/details/bandwidth/). Customers traffic to a custom IP prefix address from within Azure are charged internet egress for the source region of their traffic. Egress traffic from a custom IP address prefix range is charged the equivalent rate as an Azure public IP from the same region
+* All traffic destined to a custom IP prefix range is charged the [internet egress rate](https://azure.microsoft.com/pricing/details/bandwidth/). Customers traffic to a custom IP prefix address from within Azure are charged internet egress for the source region of their traffic. Egress traffic from a custom IP address prefix range is charged the equivalent rate as an Azure public IP from the same region.
 
 ## Next steps
 
-- To create a custom IP address prefix using the Azure portal, see [Create custom IP address prefix using the Azure portal](create-custom-ip-address-prefix-portal.md)
+- To create a custom IP address prefix using the Azure portal, see [Create custom IP address prefix using the Azure portal](create-custom-ip-address-prefix-portal.md).
 
-- To create a custom IP address prefix using PowerShell, see [Create a custom IP address prefix using Azure PowerShell](create-custom-ip-address-prefix-powershell.md)
+- To create a custom IP address prefix using PowerShell, see [Create a custom IP address prefix using Azure PowerShell](create-custom-ip-address-prefix-powershell.md).
 
-- For more information about the management of a custom IP address prefix, see [Manage a custom IP address prefix](create-custom-ip-address-prefix-powershell.md)
+- For more information about the management of a custom IP address prefix, see [Manage a custom IP address prefix](create-custom-ip-address-prefix-powershell.md).

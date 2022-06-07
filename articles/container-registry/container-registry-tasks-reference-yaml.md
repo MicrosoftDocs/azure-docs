@@ -573,10 +573,10 @@ Each of the following aliases points to a stable image in Microsoft Container Re
 
 | Alias | Image |
 | ----- | ----- |
-| `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
-| `az` | `mcr.microsoft.com/acr/azure-cli:a80af84` |
-| `bash` | `mcr.microsoft.com/acr/bash:a80af84` |
-| `curl` | `mcr.microsoft.com/acr/curl:a80af84` |
+| `acr` | `mcr.microsoft.com/acr/acr-cli:0.4` |
+| `az` | `mcr.microsoft.com/acr/azure-cli:f75cfff` |
+| `bash` | `mcr.microsoft.com/acr/bash:f75cfff` |
+| `curl` | `mcr.microsoft.com/acr/curl:f75cfff` |
 
 The following example task uses several aliases to [purge](container-registry-auto-purge.md) image tags older than 7 days in the repo `samples/hello-world` in the run registry:
 

@@ -15,20 +15,20 @@ services: iot-central
 
 You can connect your devices to your IoT Central application by using a private endpoint in an Azure Virtual Network.
 
-Private endpoints use private IP addresses from a virtual network address space to connect your devices privately to your IoT Central application. Network traffic between devices on the virtual network and the IoT platform traverses the virtual network and a private link on the [Microsoft backbone network](/azure/networking/microsoft-global-network), eliminating exposure on the public internet. This article shows you how to create a private endpoint for your IoT Central application.
+Private endpoints use private IP addresses from a virtual network address space to connect your devices privately to your IoT Central application. Network traffic between devices on the virtual network and the IoT platform traverses the virtual network and a private link on the [Microsoft backbone network](../../networking/microsoft-global-network.md), eliminating exposure on the public internet. This article shows you how to create a private endpoint for your IoT Central application.
 
 ## Prerequisites
 
 - An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
 - An IoT Central application. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
-- A virtual network in your Azure subscription. To learn more, see [Create a virtual network](/azure/virtual-network/quick-create-portal).
+- A virtual network in your Azure subscription. To learn more, see [Create a virtual network](../../virtual-network/quick-create-portal.md).
 
 ## Create a private endpoint
 
 There are several ways to create a private endpoint for IoT Central application:
 
-- [Use the Azure portal to create a private endpoint resource directly](/azure/private-link/create-private-endpoint-portal). Use this option if you don't have access to the IoT Central application that needs the private endpoint.
+- [Use the Azure portal to create a private endpoint resource directly](../../private-link/create-private-endpoint-portal.md). Use this option if you don't have access to the IoT Central application that needs the private endpoint.
 - Create private endpoint on an existing IoT Central application
 
 To create a private endpoint on an existing IoT Central application:
@@ -230,7 +230,7 @@ DNS configuration can be overwritten if you create or delete multiple private en
 
 ### Other troubleshooting tips
 
-If after trying all these checks you're still experiencing an issue, try the [private endpoint troubleshooting guide](/azure/private-link/troubleshoot-private-endpoint-connectivity).
+If after trying all these checks you're still experiencing an issue, try the [private endpoint troubleshooting guide](../../private-link/troubleshoot-private-endpoint-connectivity.md).
 
 If all the checks are successful and your devices still can't establish a connection to IoT Central, contact the corporate security team responsible for firewalls and networking in general. Potential reasons for failure include:
 

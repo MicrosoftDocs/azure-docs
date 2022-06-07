@@ -4,7 +4,7 @@ description: Learn how to add additional Azure Storage accounts to an existing H
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/27/2020
+ms.date: 04/05/2022
 ---
 
 # Add additional storage accounts to HDInsight

@@ -70,7 +70,7 @@ When you __use a customer-managed key__, these resources are _in your Azure subs
 These Microsoft-managed resources are located in a new Azure resource group is created in your subscription. This group is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure Machine Learning workspace resource group name><GUID>`.
 
 > [!TIP]
-> * The [__Request Units__](/azure/cosmos-db/request-units) for the Azure Cosmos DB automatically scale as needed.
+> * The [__Request Units__](../cosmos-db/request-units.md) for the Azure Cosmos DB automatically scale as needed.
 > * If your Azure Machine Learning workspace uses a private endpoint, this resource group will also contain a Microsoft-managed Azure Virtual Network. This VNet is used to secure communications between the managed services and the workspace. You __cannot provide your own VNet for use with the Microsoft-managed resources__. You also __cannot modify the virtual network__. For example, you cannot change the IP address range that it uses.
 
 > [!IMPORTANT]
@@ -86,7 +86,7 @@ Azure Machine Learning uses compute resources to train and deploy machine learni
 | Compute | Encryption |
 | ----- | ----- |
 | Azure Container Instance | Data is encrypted by a Microsoft-managed key or a customer-managed key.</br>For more information, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md). |
-| Azure Kubernetes Service | Data is encrypted by a Microsoft-managed key or a customer-managed key.</br>For more information, see [Bring your own keys with Azure disks in Azure Kubernetes Services](/azure/aks/azure-disk-customer-managed-keys). |
+| Azure Kubernetes Service | Data is encrypted by a Microsoft-managed key or a customer-managed key.</br>For more information, see [Bring your own keys with Azure disks in Azure Kubernetes Services](../aks/azure-disk-customer-managed-keys.md). |
 | Azure Machine Learning compute instance | Local scratch disk is encrypted if the `hbi_workspace` flag is enabled for the workspace. |
 | Azure Machine Learning compute cluster | OS disk encrypted in Azure Storage with Microsoft-managed keys. Temporary disk is encrypted if the `hbi_workspace` flag is enabled for the workspace. |
 

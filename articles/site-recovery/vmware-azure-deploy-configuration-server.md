@@ -104,6 +104,16 @@ If you want to add an additional NIC to the configuration server, add it before 
 7. The tool performs some configuration tasks, and then reboots.
 8. Sign in to the machine again. The configuration server management wizard starts automatically in a few seconds.
 
+### Verify connectivity
+Make sure the machine can access these URLs based on your environment:
+
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
+
+IP address-based firewall rules should allow communication to all of the Azure URLs that are listed above over HTTPS (443) port. To simplify and limit the IP Ranges, it is recommended that URL filtering be done.
+
+- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the AAD, Backup, Replication, and Storage URLs.  
+- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support AAD, Backup, Replication, and Storage URLs.  
+
 ### Configure settings
 
 1. In the configuration server management wizard, select **Setup connectivity**. From the drop-down boxes, first select the NIC that the in-built process server uses for discovery and push installation of mobility service on source machines. Then select the NIC that the configuration server uses for connectivity with Azure. Select **Save**. You can't change this setting after it's configured. Don't change the IP address of a configuration server. Ensure that the IP assigned to the configuration server is a static IP and not a DHCP IP.

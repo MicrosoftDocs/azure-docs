@@ -25,9 +25,9 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-* A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>.
+* A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2022</a>.
 * <a href="https://git-scm.com" target="_blank">Git for Windows</a>.
-* The <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1">.NET Core 3.1 SDK</a>.
+* The <a href="https://dotnet.microsoft.com/download/dotnet/6.0">.NET 6.0 SDK</a>.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

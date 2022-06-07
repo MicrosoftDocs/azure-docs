@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Investigate sensor detections in the Device map
 
-The Device map provides a graphical representation of network devices detected, as well as the connections between them. Use the map to:
+The Device map provides a graphical representation of network devices detected, and the connections between them. Use the map to:
 
   - Retrieve, analyze, and manage device information.
 
@@ -24,7 +24,7 @@ The Device map provides a graphical representation of network devices detected, 
 
 ## Map search and layout tools
 
-A variety of map tools  help you gain insight into devices and connections of interest to you.  
+A variety of map tools help you gain insight into devices and connections of interest to you.  
 - [Basic search tools](#basic-search-tools)
 - [Group highlight and filters tools](#group-highlight-and-filters-tools)
 - [Map display tools](#map-display-tools)
@@ -48,8 +48,8 @@ When you search by IP or MAC address, the map displays the device that you searc
 
 Filter or highlight the map based on default and custom device groups.
 
-- Filtering omits the devices that are not in the selected group.
-- Highlights displays all devices and highlights the selected items in the group in blue.
+- Filtering omits the devices that aren't in the selected group.
+- Highlights display all devices and highlights the selected items in the group in blue.
 
      :::image type="content" source="media/how-to-work-with-maps/group-highlight-and-filters-v2.png" alt-text="Screenshot of the group highlights and filters."::: 
 
@@ -65,7 +65,7 @@ The following predefined groups are available:
 | Group name | Description |
 |--|--|
 | **Known applications** | Devices that use reserved ports, such as TCP.  |
-| **non-standard ports (default)** | Devices that use non-standard ports or ports that have not been assigned an alias. |
+| **non-standard ports (default)** | Devices that use non-standard ports or ports that haven't been assigned an alias. |
 | **OT protocols (default)** | Devices that handle known OT traffic. |
 | **Authorization (default)** | Devices that were discovered in the network during the learning process or were officially authorized on the network. |
 | **Device inventory filters** | Devices grouped according to the filters save in the Device Inventory table. |
@@ -76,7 +76,7 @@ The following predefined groups are available:
 | **Cross subnet connections** | Devices that communicate from one subnet to another subnet. |
 | **Attack vector simulations** | Vulnerable devices detected in attack vector reports. To view these devices on the map, select the **Display on Device Map** checkbox when generating the Attack Vector. :::image type="content" source="media/how-to-work-with-maps/add-attack-v3.png" alt-text="Screenshot of the Add Attack Vector Simulations":::|
 | **Last seen** | Devices grouped by the time frame they were last seen, for example: One hour, six hours, one day, seven days. |
-| **Not In Active Directory** | All non-PLC devices that are not communicating with the Active Directory. |
+| **Not In Active Directory** | All non-PLC devices that aren't communicating with the Active Directory. |
 
 For information about creating custom groups, see [Define custom groups](#define-custom-groups).
 
@@ -131,7 +131,7 @@ Overall connections are displayed.
 **To view specific connections:**
 
 1. Select a device in the map.
-1. Specific connections between devices are displayed in blue. In addition, you will see connections that cross various Purdue levels.
+1. Specific connections between devices are displayed in blue. In addition, you'll see connections that cross various Purdue levels.
 
     :::image type="content" source="media/how-to-work-with-maps/connections-purdue-level.png" alt-text="Screenshot of the detailed map view." lightbox="media/how-to-work-with-maps/connections-purdue-level.png" :::
 
@@ -142,8 +142,8 @@ By default, IT devices are automatically aggregated by subnet, so that the map v
 Each subnet is presented as a single entity on the Device map. Options are available to expand subnets to see details; and collapse subnets or hide them.
 
 **To expand an IT subnet:**
-1. Right-click the icon on the map the represents the IT network and select **Expand Network**.
-1. A confirmation box appears, notifying you that the layout change cannot be redone.
+1. Right-click the icon on the map that represents the IT network and select **Expand Network**.
+1. A confirmation box appears, notifying you that the layout change can't be redone.
 1. Select **OK**. The IT subnet elements appear on the map.
 
 **To collapse an IT subnet:**
@@ -214,7 +214,7 @@ The following labels and indicators may appear on devices on the map:
 | :::image type="content" source="media/how-to-work-with-maps/amount-alerts-v2.png" alt-text="Screenshot of the number of alerts"::: | Number of alerts associated with the device |
 | :::image type="icon" source="media/how-to-work-with-maps/type-v2.png" border="false"::: | Device type icon, for example storage, PLC or historian. |
 | :::image type="content" source="media/how-to-work-with-maps/grouped-v2.png" alt-text="Screenshot of devices grouped together."::: | Number of devices grouped in a subnet in an IT network. In this example 8. |
-| :::image type="content" source="media/how-to-work-with-maps/not-authorized-v2.png" alt-text="Screenshot of the device learning period"::: | A device that was detected after the Learning period and was not authorized as a network device. |
+| :::image type="content" source="media/how-to-work-with-maps/not-authorized-v2.png" alt-text="Screenshot of the device learning period"::: | A device that was detected after the Learning period and wasn't authorized as a network device. |
 | Solid line | Logical connection between devices |
 | :::image type="content" source="media/how-to-work-with-maps/new-v2.png" alt-text="Screenshot of a new device discovered after learning is complete."::: | New device discovered after Learning is complete. |
 
@@ -248,10 +248,10 @@ This section describes device details.
 | Location | The Purdue layer identified by the sensor for this device, including: <br /> - Automatic <br /> - Process Control <br /> - Supervisory <br /> - Enterprise |
 | Description | A free text field. <br /> Add more information about the device. |
 | Attributes | Additional information  was discovered on the device. For example, view the PLC Run and Key state, the secure status of the PLC, or information on when the state changed.  <br /> The information is read only and cannot be updated from the Attributes section. |
-| Scanner or Programming device | **Scanner**: Enable this option if you know that this device is known as scanner and there is no need to alert you about it. <br /> **Programming Device**: Enable this option if you know that this device is known as a programming device and is used to make programming changes. Identifying it as a programming device will prevent alerts for programming changes originating from this asset. |
+| Scanner or Programming device | **Scanner**: Enable this option if you know that this device is known as a scanner and there's no need to alert you about it. <br /> **Programming Device**: Enable this option if you know that this device is known as a programming device and is used to make programming changes. Identifying it as a programming device will prevent alerts for programming changes originating from this asset. |
 | Network Interfaces | The device interfaces. A RO field. |
 | Protocols | The protocols used by the device. A RO field. |
-| Firmware | If Backplane information is available, firmware information will not be displayed. |
+| Firmware | If Backplane information is available, firmware information won't be displayed. |
 | Address | The device IP address. |
 | Serial | The device serial number. |
 | Module Address | The device model and slot number or ID. |
@@ -346,13 +346,13 @@ This table lists device types you can manually assign to a device.
 
 ### Delete devices
 
-You may want to delete a device if the information learned is not relevant. For example,
+You may want to delete a device if the information learned isn't relevant. For example,
 
   - A partner contractor at an engineering workstation connects temporarily to perform configuration updates. After the task is completed, the device is removed.
 
   - Due to changes in the network, some devices are no longer connected.
 
-If you do not delete the device, the sensor will continue monitoring it. After 60 days, a notification will appear, recommending that you delete.
+If you don't delete the device, the sensor will continue monitoring it. After 60 days, a notification will appear, recommending that you delete.
 
 You may receive an alert indicating that the device is unresponsive if another device tries to access it. In this case, your network may be misconfigured.
 
@@ -382,7 +382,7 @@ The event timeline presents the merge event.
 
 :::image type="content" source="media/how-to-work-with-maps/events-time.png" alt-text="Screenshot of an event timeline with merged events.":::
 
-You cannot undo a device merge. If you mistakenly merged two devices, delete the device and wait for the sensor to rediscover both.
+You can't undo a device merge. If you mistakenly merged two devices, delete the device and wait for the sensor to rediscover both.
 
 **To merge devices:**
 
@@ -398,7 +398,7 @@ You cannot undo a device merge. If you mistakenly merged two devices, delete the
 
 ### Authorize and unauthorize devices
 
-During the Learning period, all the devices discovered in the network are identified as authorized devices. The **Authorized** label does not appear on these devices in the Device map.
+During the Learning period, all the devices discovered in the network are identified as authorized devices. The **Authorized** label doesn't appear on these devices in the Device map.
 
 When a device is discovered after the Learning period, it appears as an unauthorized device. In addition to seeing unauthorized devices in the map, you can also see them in the Device Inventory.
 

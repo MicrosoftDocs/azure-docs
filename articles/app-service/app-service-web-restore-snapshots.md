@@ -112,6 +112,6 @@ The following table shows which app configuration is restored:
     az webapp config snapshot restore --name <target-app-name> --resource-group <target-group-name> --source-name <source-app-name> --source-resource-group <source-group-name> --time <source-snapshot-timestamp>
     ```
 
-    To restore app content only and not the app configuration, use the `--restore-content-only` parameter. For more information, see [az webapp config snapshot restore](/cli/webapp/config/snapshot#az-webapp-config-snapshot-restore).
+    To restore app content only and not the app configuration, use the `--restore-content-only` parameter. For more information, see [az webapp config snapshot restore](/cli/azure/webapp/config/snapshot#az-webapp-config-snapshot-restore).
 
 -----

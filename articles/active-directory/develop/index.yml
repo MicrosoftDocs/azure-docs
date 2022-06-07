@@ -194,7 +194,7 @@ additionalContent:
           Sign in users from partner organizations in a business-to-business (B2B) scenario or create custom sign-up and sign-in experiences for your customers
           in a business-to-customer (B2C) scenario.
         links:
-          - url: /azure/active-directory/external-identities/
+          - url: ../external-identities/index.yml
             text: External Identities documentation
       ## CARD 2 ######################
       - title: Connect to Microsoft Graph
@@ -210,12 +210,12 @@ additionalContent:
           Make existing SaaS applications like Dropbox, Salesforce, and ServiceNow available to your organization's users, configure SSO, and manage security.
           Or, become an independent software vendor (ISV) by publishing your own SaaS application for use by _other_ organizations that use Azure AD.
         links:
-        - url: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-management
+        - url: ../manage-apps/what-is-application-management.md
           text: Application management documentation
       ## CARD 4 ####################
       - title: Manage application users and their access
         summary: Automatically create user identities and their roles in your organization's installed SaaS applications. HR-driven provisioning, System for Cross-domain Identity Management (SCIM), and more.
         links:
-          - url: https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning
+          - url: ../app-provisioning/user-provisioning.md
             text: Application user and role provisioning documentation
 ## BAND 5 - ADDITIONAL CONTENT END ##########################################################################################################################

@@ -12,11 +12,9 @@ ms.author: irenehua
 # Upgrade Azure Internal Load Balancer- No Outbound Connection Required
 [Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](./skus.md#skus).
 
-This article introduces a PowerShell script which creates a Standard Load Balancer with the same configuration as the Basic Load Balancer along with migrating traffic from Basic Load Balancer to Standard Load Balancer.
+This article introduces a PowerShell script that creates a Standard Load Balancer with the same configuration as the Basic Load Balancer along with migrating traffic from Basic Load Balancer to Standard Load Balancer.
 
 ## Upgrade overview
-
-An Azure PowerShell script is available that does the following:
 
 * Creates a Standard Internal SKU Load Balancer in the location that you specify. Note that [outbound connection](./load-balancer-outbound-connections.md) will not be provided by the Standard Internal Load Balancer.
 * Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly created Standard Load Balancer.
@@ -29,6 +27,7 @@ An Azure PowerShell script is available that does the following:
 * The Basic Load Balancer needs to be in the same resource group as the backend VMs and NICs.
 * If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
 * If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Make sure they are not empty.
+* The script cannot migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. We recommend manually creating a Standard Load Balancer and follow [Update or delete a load balancer used by virtual machine scale sets](./update-load-balancer-with-vm-scale-set.md) to complete the migration.
 
 ## Change IP allocation method to Static for frontend IP Configuration (Ignore this step if it's already static)
 
@@ -75,10 +74,10 @@ To run the script:
 
 1. Examine the required parameters:
 
-   * **rgName: [String]: Required** – This is the resource group for your existing Basic Load Balancer and new Standard Load Balancer. To find this string value, navigate to Azure portal, select your Basic Load Balancer source, and click the **Overview** for the load balancer. The Resource Group is located on that page.
-   * **oldLBName: [String]: Required** – This is the name of your existing Basic Balancer you want to upgrade. 
-   * **newlocation: [String]: Required** – This is the location in which the Standard Load Balancer will be created. It is recommended to inherit the same location of the chosen Basic Load Balancer to the Standard Load Balancer for better association with other existing resources.
-   * **newLBName: [String]: Required** – This is the name for the Standard Load Balancer to be created.
+   * **rgName: [String]: Required** – This parameter is the resource group for your existing Basic Load Balancer and new Standard Load Balancer. To find this string value, navigate to Azure portal, select your Basic Load Balancer source, and click the **Overview** for the load balancer. The Resource Group is located on that page.
+   * **oldLBName: [String]: Required** – This parameter is the name of your existing Basic Balancer you want to upgrade. 
+   * **newlocation: [String]: Required** – This parameter is the location in which the Standard Load Balancer will be created. It is recommended to inherit the same location of the chosen Basic Load Balancer to the Standard Load Balancer for better association with other existing resources.
+   * **newLBName: [String]: Required** – This parameter is the name for the Standard Load Balancer to be created.
 1. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
 
     **Example**

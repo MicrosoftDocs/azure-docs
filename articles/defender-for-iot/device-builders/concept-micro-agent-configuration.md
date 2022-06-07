@@ -13,9 +13,6 @@ The micro agent's behavior is configured by a set of module twin properties. You
 
 After any change in configuration, the collector will immediately send all unsent event data. After the data is sent, the changes will be applied, and all the collectors will restart.
 
-> [!Note]
-> Aggregation mode is supported, but it is not configurable.
-
 ## General configuration
 
 Define the frequency in which messages are sent for each priority level. All values are required.
@@ -56,7 +53,7 @@ These configurations include process, and network activity collectors.
 |--|--|--|--|
 | **Interval** | `High` <br>`Medium`<br>`Low` | Determines the sending frequency.  | `Medium` |
 | **Aggregation mode** | `True` <br>`False` | Determines whether to process event aggregation for an identical event.  | `True` |
-| **Cache size** | cycle FIFO | Defines the number of events collected in between the the times that data is sent. | `256` |
+| **Cache size** | cycle FIFO | Defines the number of events collected in between the times that data is sent. | `256` |
 | **Disable collector** | `True` <br> `False` | Determines whether or not the collector is operational. | `False` |
 | | | | |
 
@@ -70,7 +67,7 @@ These configurations include process, and network activity collectors.
 
 | Setting Name | Setting options | Description | Default |
 |--|--|--|--|
-| **Devices** | A list of the network devices separated by a comma. <br><br>For example `eth0,eth1` | Defines the list of network devices (interfaces) that the agent will use to monitor the traffic. <br><br>If a network device is not listed, the Network Raw events will not be recorded for the missing device.| `eth0` |
+| **Devices** | A list of the network devices separated by a comma. <br><br>For example `eth0,eth1` | Defines the list of network devices (interfaces) that the agent will use to monitor the traffic. <br><br>If a network device isn't listed, the Network Raw events won't be recorded for the missing device.| `eth0` |
 | | | | |
 
 ## Process collector specific-settings

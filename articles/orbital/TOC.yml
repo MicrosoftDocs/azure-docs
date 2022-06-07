@@ -13,20 +13,26 @@ items:
     items:
     - name: Onboard to the Azure Orbital Preview
       href: orbital-preview.md
-    - name: Register Spacecraft
+    - name: Register a Spacecraft
       href: register-spacecraft.md
     - name: Configure a Contact Profile
       href: contact-profile.md
-- name: How-to guides
+    - name: Schedule a Contact
+      href: schedule-contact.md
+- name: Tutorials
   items:
   - name: Earth Observation
     items:
-    - name: Schedule a Contact
-      href: schedule-contact.md
     - name: Update the Spacecraft TLE
       href: update-tle.md
     - name: Cancel a Contact
       href: delete-contact.md
+- name: How-to guides
+  items:
+  - name: Earth Observation
+    items:
+    - name: Schedule a contact with NASA's AQUA public satellite
+      href: howto-downlink-aqua.md 
 - name: Concepts
   items:
   - name: Geospatial Reference Architecture

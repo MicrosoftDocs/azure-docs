@@ -30,6 +30,11 @@ landingContent:
             url: https://azure.microsoft.com/documentation/videos/index/?services=cdn
           - text: How to use HTTP overrides on Azure CDN from Microsoft
             url: /shows/Azure-Friday/How-to-use-HTTP-overrides-on-Azure-CDN-from-Microsoft
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Content Delivery Network (CDN)
+            url: /learn/modules/intro-to-azure-content-delivery-network
+      
 
   # Card (optional)
   - title: Get started

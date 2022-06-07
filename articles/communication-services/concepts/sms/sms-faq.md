@@ -33,6 +33,22 @@ Yes, you can make one request with multiple recipients. Follow this [quickstart]
 
 The 202 returned by the service means that your message has been queued to be sent and not delivered. Use this [quickstart](../../quickstarts/sms/handle-sms-events.md) to subscribe to delivery report events and troubleshoot. Once the events are configured, inspect the "deliveryStatus" field of your delivery report to verify delivery success/failure.
 
+### How to send shortened URLs in messages?
+Shortened URLs are a good way to keep messages short and readable. However, US carriers prohibit the use of free publicly available URL shortener services. This is because the ‘free-public’ URL shorteners are used by bad-actors to evade detection and get their SPAM messages passed through text messaging platforms. When sending messages in US, we encourage using custom URL shorteners to create URLs with dedicated domain that belongs to your brand. Many US carriers block SMS traffic if they contain publicly available URL shorteners.
+
+Below is a list with examples of common URL shorteners you should avoid to maximize deliverability:
+- bit.ly
+- goo.gl
+- tinyurl.com
+- Tiny.cc
+- lc.chat
+- is.gd
+- soo.gd
+- s2r.co
+- Clicky.me
+- budurl.com
+- bc.vc
+
 ## Opt-out handling
 ### How does Azure Communication Services handle opt-outs for toll-free numbers?
 
@@ -92,7 +108,7 @@ Rate Limits for SMS:
 
 ## Carrier Fees 
 ### What are the carrier fees for SMS?
-In July 2021, US carriers started charging an added fee for SMS messages sent and/or received from toll-free numbers and short codes. Carrier fees for SMS are charged per message segment based on the destination. Azure Communication Services charges a standard carrier fee per message segment. Carrier fees are subject to change by mobile carriers. Please refer to [SMS pricing](../sms-pricing.md) for more details. 
+US and CA carriers charge an added fee for SMS messages sent and/or received from toll-free numbers and short codes. The carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages. Azure Communication Services charges a standard carrier fee per message segment. Carrier fees are subject to change by mobile carriers. Please refer to [SMS pricing](../sms-pricing.md) for more details. 
 
 ### When will we come to know of changes to these surcharges?
 As with similar Azure services, customers will be notified at least 30 days prior to the implementation of any price changes. These charges will be reflected on our SMS pricing page along with the effective dates. 

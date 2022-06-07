@@ -32,17 +32,26 @@ For information on provisioning an IP address, see [Create a custom IP address p
 
 When a custom IP prefix is in **Provisioned**, **Commissioning**, or **Commissioned** state, a linked public IP prefix can be created. Either as a subset of the custom IP prefix range or the entire range.
 
-> [!NOTE]
-> A public IP prefix can be derived from a custom IP prefix in another subscription with the appropriate permissions.
-
-:::image type="content" source="./media/manage-custom-ip-address-prefix/custom-public-ip-prefix.png" alt-text="Diagram of custom IP prefix showing derived public IP prefixes across multiple subscriptions.":::
-
 Use the following CLI and PowerShell commands to create public IP prefixes with the `--custom-ip-prefix-name` (CLI) and `-CustomIpPrefix` (PowerShell) parameters that point to an existing custom IP prefix.
 
 |Tool|Command|
 |---|---|
 |CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
+
+> [!NOTE]
+> A public IP prefix can be derived from a custom IP prefix in another subscription with the appropriate permissions using Azure PowerShell or Azure portal.
+
+:::image type="content" source="./media/manage-custom-ip-address-prefix/custom-public-ip-prefix.png" alt-text="Diagram of custom IP prefix showing derived public IP prefixes across multiple subscriptions.":::
+
+An example derivation of a public IP prefix from a custom IP prefix using PowerShell is shown below:
+
+ ```azurepowershell-interactive
+Set-AzContext -Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+$customprefix = Get-AzCustomIpPrefix -Name myBYOIPPrefix -ResourceGroupName myResourceGroup
+Set-AzContext -Subscription yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy
+New-AzPublicIpPrefix -Name myPublicIpPrefix -ResourceGroupName myResourceGroup2 -Location eastus -PrefixLength 30 -CustomIpPrefix $customprefix
+```
 
 Once created, the IPs in the child public IP prefix can be associated with resources like any other standard SKU static public IPs.  To learn more about using IPs from a public IP prefix, including selection of a specific IP from the range, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix).
 
@@ -146,8 +155,8 @@ To migrate a custom IP prefix, it must first be deprovisioned from one region. A
 
 ## Next steps
 
-- To learn about scenarios and benefits of using a custom IP prefix, see [Custom IP address prefix (BYOIP)](custom-ip-address-prefix.md)
+- To learn about scenarios and benefits of using a custom IP prefix, see [Custom IP address prefix (BYOIP)](custom-ip-address-prefix.md).
 
-- To create a custom IP address prefix using the Azure portal, see [Create custom IP address prefix using the Azure portal](create-custom-ip-address-prefix-portal.md)
+- To create a custom IP address prefix using the Azure portal, see [Create custom IP address prefix using the Azure portal](create-custom-ip-address-prefix-portal.md).
 
-- To create a custom IP address prefix using PowerShell, see [Create a custom IP address prefix using Azure PowerShell](create-custom-ip-address-prefix-powershell.md)
+- To create a custom IP address prefix using PowerShell, see [Create a custom IP address prefix using Azure PowerShell](create-custom-ip-address-prefix-powershell.md).

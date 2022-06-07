@@ -1,11 +1,8 @@
 ---
 title: New York City Safety Data
-titleSuffix: Azure Open Datasets
 description: Learn how to use the New York City Safety dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 

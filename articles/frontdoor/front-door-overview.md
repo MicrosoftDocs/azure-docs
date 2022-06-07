@@ -68,7 +68,7 @@ Modernize your internet first applications on Azure with Cloud Native experience
 
 * Unified static and dynamic delivery offered in a single tier to accelerate and scale your application through caching, SSL offload, and layer 3-4 DDoS protection.
 
-* Free, autorotation managed SSL certificates that save time and quickly secure apps and content.
+* Free, [autorotation managed SSL certificates](end-to-end-tls.md) that save time and quickly secure apps and content.
 
 * Low entry fee and a simplified cost model that reduces billing complexity by having fewer meters needed to plan for.
 
@@ -88,6 +88,10 @@ Modernize your internet first applications on Azure with Cloud Native experience
 ## How to choose between Azure Front Door tiers?
 
 For a comparison of supported features in Azure Front Door, see [Tier comparison](standard-premium/tier-comparison.md).
+
+## Where is the service available?
+
+Azure Front Door Classic/Standard/Premium SKUs are available in Microsoft Azure (Commercial) and Azure Front Door Classic SKU is available in Microsoft Azure Government (US).
 
 ## Pricing
 

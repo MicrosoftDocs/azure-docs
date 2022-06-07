@@ -17,13 +17,13 @@ Learn how to diagnose and resolve issues you might encounter when Azure App Serv
 
 ## Overview
 
-In this article, you'll learn how to troubleshoot the following issues, as described in more detail in Architecture Center: [Preserve the original HTTP host name between a reverse proxy and its backend web application](/azure/architecture/best-practices/host-name-preservation.md#potential-issues)
+In this article, you'll learn how to troubleshoot the following issues, as described in more detail in Architecture Center: [Preserve the original HTTP host name between a reverse proxy and its backend web application](/azure/architecture/best-practices/host-name-preservation#potential-issues)
 
-* [Incorrect absolute URLs](/azure/architecture/best-practices/host-name-preservation.md#incorrect-absolute-urls) 
-* [Incorrect redirect URLs](/azure/architecture/best-practices/host-name-preservation.md#incorrect-redirect-urls)  
+* [Incorrect absolute URLs](/azure/architecture/best-practices/host-name-preservation#incorrect-absolute-urls) 
+* [Incorrect redirect URLs](/azure/architecture/best-practices/host-name-preservation#incorrect-redirect-urls)  
   * the app service URL is exposed in the browser when there's a redirection
   * an example of this: an OIDC authentication flow is broken because of a redirect with wrong hostname; this includes the use of [App Service Authentication and Authorization](../app-service/overview-authentication-authorization.md)
-* [Broken cookies](/azure/architecture/best-practices/host-name-preservation.md#broken-cookies)
+* [Broken cookies](/azure/architecture/best-practices/host-name-preservation#broken-cookies)
   * cookies are not propagated between the browser and the App Service
   * an example of this: the app service ARRAffinity cookie domain is set to the app service host name and is tied to "example.azurewebsites.net", instead of the original host.  As a result, session affinity is broken.
 

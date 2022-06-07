@@ -104,11 +104,11 @@ View Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
 
     SecurityAlert
     | where ProductName == "Azure Security Center for IoT"
-    | where ProductComponentName == " PROTOCOL_VIOLATION"
+    | where ProductComponentName == "PROTOCOL_VIOLATION"
 
     SecurityAlert
     | where ProductName == "Azure Security Center for IoT"
-    | where ProductComponentName == " POLICY_VIOLATION"
+    | where ProductComponentName == "POLICY_VIOLATION"
 
     SecurityAlert
     | where ProductName == "Azure Security Center for IoT"
@@ -267,7 +267,7 @@ To use this playbook, create a watchlist that maps between the sensor names and 
 
 Typically, the entity authorized to program a PLC is the Engineering Workstation. Therefore, attackers might create new Engineering Workstations in order to create malicious PLC programming.
 
-This playbook opens a ticket in SerivceNow each time a new Engineering Workstation is detected, explicitly parsing the IoT device entity fields.
+This playbook opens a ticket in ServiceNow each time a new Engineering Workstation is detected, explicitly parsing the IoT device entity fields.
 
 ## Next steps
 

@@ -27,6 +27,8 @@ You can create a Synapse notebook activity directly from the Synapse pipeline ca
 
 Drag and drop **Synapse notebook** under **Activities** onto the Synapse pipeline canvas. Select on the Synapse notebook activity box and config the notebook content for current activity in the **settings**. You can select an existing notebook from the current workspace or add a new one. 
 
+You can also select an Apache Spark pool in the settings. It should be noted that the Apache spark pool set here will replace the Apache spark pool used in the notebook. If Apache spark pool is not selected in the settings of notebook content for current activity, the Apache spark pool selected in that notebook will be used to run.
+
 ![screenshot-showing-create-notebook-activity](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
 
 > [!NOTE]
@@ -102,12 +104,16 @@ You can reference other notebooks in a Synapse notebook activity via calling [%r
 Go to **Pipeline runs** under the **Monitor** tab, you'll see the pipeline you have triggered. Open the pipeline that contains notebook activity to see the run history. 
 
 You can see the latest notebook run snapshot including both cells input and output by selecting the **open notebook** button. 
-![see-notebook-activity-history](./media/synapse-notebook-activity/input-output-open-notebook.png)
 
+![Screenshot that shows the notebook activity history.](./media/synapse-notebook-activity/input-output-open-notebook.png)
+
+Open notebook snapshot:
+
+![Screenshot that shows an open notebook snapshot.](./media/synapse-notebook-activity/open-notebook-snapshot.png)
 
 You can see the notebook activity input or output by selecting the **input** or **Output** button. If your pipeline failed with a user error, select the **output** to check the **result** field to see the detailed user error traceback.
 
-![screenshot-showing-see-output-user-error](./media/synapse-notebook-activity/notebook-output-user-error.png)
+![Screenshot that shows the user error details.](./media/synapse-notebook-activity/notebook-output-user-error.png)
 
 
 ## Synapse notebook activity definition

@@ -2,7 +2,7 @@
 title: Module setting for Bicep config
 description: Describes how to customize configuration values for modules in Bicep deployments.
 ms.topic: conceptual
-ms.date: 01/03/2022
+ms.date: 04/08/2022
 ---
 
 # Add module settings in the Bicep config file
@@ -97,6 +97,27 @@ For a template spec, use:
 
 ```bicep
 module stgModule  'ts/CoreSpecs:storage:v1' = {
+```
+
+An alias has been predefined for the [public module registry](./modules.md#path-to-module). To reference a public module, you can use the format:
+
+```bicep
+br/public:<file>:<tag>
+```
+
+You can override the public module registry alias definition in the bicepconfig.json file:
+
+```json
+{
+  "moduleAliases": {
+    "br": {
+      "public": {
+        "registry": "<your_module_registry>",
+        "modulePath": "<optional_module_path>"
+      }
+    }
+  }
+}
 ```
 
 ## Credentials for publishing/restoring modules

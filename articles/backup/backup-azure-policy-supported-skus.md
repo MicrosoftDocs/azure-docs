@@ -2,7 +2,7 @@
 title: Supported VM SKUs for Azure Policy
 description: 'An article describing the supported VM SKUs (by Publisher, Image Offer and Image SKU) which are supported for the built-in Azure Policies provided by Backup'
 ms.topic: conceptual
-ms.date: 03/15/2022
+ms.date: 04/08/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -28,6 +28,7 @@ MicrosoftWindowsServer | WindowsServer | Windows Server 2016 Datacenter (2016-Da
 MicrosoftWindowsServer | WindowsServer | Windows Server 2016 Datacenter - Server Core (2016-Datacenter-Server-Core)
 MicrosoftWindowsServer | WindowsServer | [smalldisk] Windows Server 2016 Datacenter - Server Core (2016-Datacenter-Server-Core-smalldisk)
 MicrosoftWindowsServer | WindowsServer | [smalldisk] Windows Server 2016 Datacenter (2016-Datacenter-smalldisk)
+MicrosoftWindowsServer | WindowsServer | Windows Server 2016 Datacenter - Gen 2 (2016-Datacenter-gensecond)
 MicrosoftWindowsServer | WindowsServer | Windows Server 2019 Datacenter Server Core with Containers (2016-Datacenter-with-Containers)
 MicrosoftWindowsServer | WindowsServer | Windows Server 2016 Remote Desktop Session Host 2016 (2016-Datacenter-with-RDSH)
 MicrosoftWindowsServer | WindowsServer | Windows Server 2019 Datacenter (2019-Datacenter)
@@ -42,19 +43,19 @@ MicrosoftWindowsServer | WindowsServer | Windows Server 2019 Datacenter (zh-cn) 
 MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1709-smalldisk
 MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1709-with-Containers-smalldisk
 MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1803-with-Containers-smalldisk
-MicrosoftWindowsServer | WindowsServer | Windows Server 2019 Datacenter gen2(2019-Datacenter- gensecond)
-MicrosoftWindowsServer | WindowsServer | Windows Server 2022 Datacenter - Gen 2(2022-datacenter-g2)
+MicrosoftWindowsServer | WindowsServer | Windows Server 2019 Datacenter - Gen 2 (2019-Datacenter-gensecond)
+MicrosoftWindowsServer | WindowsServer | Windows Server 2022 Datacenter - Gen 2 (2022-datacenter-g2)
 MicrosoftWindowsServer | WindowsServer | Windows Server 2022 Datacenter(2022-datacenter)
 MicrosoftWindowsServer | WindowsServer | Windows Server 2022 Datacenter: Azure Edition - Gen 2 (2022-datacenter-azure-edition)
-MicrosoftWindowsServer | WindowsServer | [smalldisk] Windows Server 2022 Datacenter: Azure Edition - Gen 2(2022-datacenter-azure-edition-smalldisk)
+MicrosoftWindowsServer | WindowsServer | [smalldisk] Windows Server 2022 Datacenter: Azure Edition - Gen 2 (2022-datacenter-azure-edition-smalldisk)
 MicrosoftWindowsServer | WindowsServer | Windows Server 2022 Datacenter: Azure Edition Core- Gen 2 (2022-datacenter-azure-edition-core)
-MicrosoftWindowsServer | WindowsServer | [smalldisk] Windows Server 2022 Datacenter: Azure Edition Core-Gen 2 (2022-datacenter-azure-edition-core-smalldisk)
-MicrosoftWindowsServer | WindowsServer | [smalldisk] Windows Server 2022 Datacenter-Gen 2 (2022-datacenter-smalldisk-g2)
-MicrosoftWindowsServer | WindowsServer | [smalldisk] Windows Server 2022 Datacenter-Gen 1 (2022-datacenter-smalldisk)
+MicrosoftWindowsServer | WindowsServer | [smalldisk] Windows Server 2022 Datacenter: Azure Edition Core - Gen 2 (2022-datacenter-azure-edition-core-smalldisk)
+MicrosoftWindowsServer | WindowsServer | [smalldisk] Windows Server 2022 Datacenter -Gen 2 (2022-datacenter-smalldisk-g2)
+MicrosoftWindowsServer | WindowsServer | [smalldisk] Windows Server 2022 Datacenter -Gen 1 (2022-datacenter-smalldisk)
 MicrosoftWindowsServer | WindowsServer | Windows Server 2022 Datacenter Server Core -Gen 2 (2022-datacenter-core-g2)
 MicrosoftWindowsServer | WindowsServer | Windows Server 2022 Datacenter Server Core -Gen 1 (2022-datacenter-core)
 MicrosoftWindowsServer | WindowsServer | [smalldisk]Windows Server 2022 Datacenter Server Core -Gen 2 (2022-datacenter-core-smalldisk-g2)
-MicrosoftWindowsServer | WindowsServer | [smalldisk]Windows Server 2022 Datacenter Server Core -Gen 1(2022-datacenter-core-smalldisk)
+MicrosoftWindowsServer | WindowsServer | [smalldisk]Windows Server 2022 Datacenter Server Core -Gen 1 (2022-datacenter-core-smalldisk)
 MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | All Image SKUs
 MicrosoftSQLServer | SQL2016SP1-WS2016 | All Image SKUs
 MicrosoftSQLServer | SQL2016-WS2016 | All Image SKUs
