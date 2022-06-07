@@ -67,7 +67,7 @@ To attach an Azure NetApp Files volume to your private cloud using Portal, follo
 1. Search for **Microsoft.AVS** and select it.
 1. Select **Register**.
 1. Under **Settings**, select **Preview features**.
-	1. Verify you're registered for both the `CloudSanExperience` and `AfnDatstoreExperience` features.
+	1. Verify you're registered for both the `CloudSanExperience` and `AnfDatstoreExperience` features.
 1. Navigate to your Azure VMware Solution.
 Under **Manage**, select **Storage (preview)**.
 1. Select **Connect Azure NetApp Files volume**.
