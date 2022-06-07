@@ -221,9 +221,43 @@
     - name: Create a proximity placement group
       href: proximity-placement-groups.md
   - name: Flexible orchestration
-    items:
-    - name: PLACEHOLDER
-      href: PLACEHOLDER
+    items: 
+    - name: Learn about scale set templates
+      href: virtual-machine-scale-sets-mvss-start.md
+    - name: Use an existing virtual network
+      href: virtual-machine-scale-sets-mvss-existing-vnet.md
+    - name: Use a custom image
+      href: virtual-machine-scale-sets-mvss-custom-image.md
+    - name: Use guest-based autoscaling with a Linux scale set template
+      href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
+    - name: Create with Visual Studio
+      href: virtual-machine-scale-sets-vs-create.md
+    - name: Use Availability Zones
+      href: virtual-machine-scale-sets-use-availability-zones.md
+    - name: Applications on scale sets
+      href: virtual-machine-scale-sets-deploy-app.md
+    - name: Extensions on scale sets
+      items:
+      - name: Extension sequencing on scale sets
+        href: virtual-machine-scale-sets-extension-sequencing.md
+      - name: Application Health extension
+        href: virtual-machine-scale-sets-health-extension.md
+    - name: Use data disks with scale sets
+      href: virtual-machine-scale-sets-attached-disks.md
+    - name: Encrypt disks in scale sets
+      items:
+      - name: Use PowerShell
+        href: disk-encryption-powershell.md
+      - name: Use the Azure CLI
+        href: disk-encryption-cli.md
+      - name: Use Azure Resource Manager templates
+        href: disk-encryption-azure-resource-manager.md
+      - name: Extension sequencing
+        href: disk-encryption-extension-sequencing.md
+      - name: Key vault for Azure Disk Encryption
+        href: disk-encryption-key-vault.md
+    - name: Create a proximity placement group
+      href: proximity-placement-groups.md
 - name: Scale and performance
   items:
   - name: Design considerations
