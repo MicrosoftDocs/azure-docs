@@ -3,6 +3,7 @@ title: Enable Profiler for Azure App Service apps | Microsoft Docs
 description: Profile live apps on Azure App Service with Application Insights Profiler.
 ms.topic: conceptual
 ms.date: 05/11/2022
+ms.reviewer: jogrima
 ---
 
 # Enable Profiler for Azure App Service apps
