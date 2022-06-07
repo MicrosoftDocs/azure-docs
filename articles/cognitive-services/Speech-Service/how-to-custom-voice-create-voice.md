@@ -231,7 +231,7 @@ After you've trained your voice model, you can test the model on the model detai
 
 If you want to upload your own test scripts to further test your model, select **Add test scripts** to upload your own test script.
 
-:::image type="content" source="media/custom-voice/cnv-model-add-testscripts.png" alt-text="This is a screenshot of adding your own test scripts.":::
+:::image type="content" source="media/custom-voice/cnv-model-add-testscripts.png" alt-text="Screenshot of adding model test scripts.":::
 
 Before uploading test script, check the [test script requirements](#train-your-custom-neural-voice-model). You'll be charged for the additional testing with the batch synthesis based on the number of billable characters. See [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
