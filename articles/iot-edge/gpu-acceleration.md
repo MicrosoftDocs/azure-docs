@@ -79,7 +79,7 @@ Once system setup is complete, you are ready to [create your deployment of Azure
 
 For example, the command below creates a virtual machine with an NVIDIA A2 GPU assigned.
       ```powershell
-   >   Deploy-Eflow -gpuPassthroughType "DirectDeviceAssignment" -gpuCount 1 -gpuName "NVIDIA A2"
+      Deploy-Eflow -gpuPassthroughType "DirectDeviceAssignment" -gpuCount 1 -gpuName "NVIDIA A2"
    >   ```
 
 Once installation is complete, you are ready to deploy and run GPU-accelerated Linux modules through Azure IoT Edge for Linux on Windows. 
