@@ -6,7 +6,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 06/07/2021
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
@@ -86,10 +86,10 @@ You can also activate this agent from portal with the following procedure.
    [ ![App summary page](media/new-relic-monitoring/app-summary-page.png) ](media/new-relic-monitoring/app-summary-page.png)
 
 6. View the application customers-service **Summary** page from the New Relic dashboard.
- 
-   [ ![Customers-service page](media/new-relic-monitoring/customers-service.png) ](media/new-relic-monitoring/customers-service.png)  
 
-7. View the **Service Map** page from the New Relic dashboard.  
+   [ ![Customers-service page](media/new-relic-monitoring/customers-service.png) ](media/new-relic-monitoring/customers-service.png)
+
+7. View the **Service Map** page from the New Relic dashboard.
 
    [ ![Service map page](media/new-relic-monitoring/service-map.png) ](media/new-relic-monitoring/service-map.png)
 
@@ -103,7 +103,7 @@ You can also activate this agent from portal with the following procedure.
 
 ## Automate provisioning
 
-You can also run a provisioning automation pipeline using Terraform or an Azure Resource Manager template (ARM template). This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
+You can also run a provisioning automation pipeline using Terraform, Bicep, or an Azure Resource Manager template (ARM template). This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
 
 ### Automate provisioning using Terraform
 
@@ -121,11 +121,26 @@ resource "azurerm_spring_cloud_java_deployment" "example" {
 }
 ```
 
+### Automate provisioning using a Bicep file
+
+To configure the environment variables in a Bicep file, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
+
+```bicep
+deploymentSettings: {
+  environmentVariables: {
+    NEW_RELIC_APP_NAME : '<app-name>',
+    NEW_RELIC_LICENSE_KEY : '<new-relic-license-key>'
+  },
+  jvmOptions: '-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar',
+  ...
+}
+```
+
 ### Automate provisioning using an ARM template
 
 To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
-```ARM template
+```json
 "deploymentSettings": {
   "environmentVariables": {
     "NEW_RELIC_APP_NAME" : "<app-name>",
