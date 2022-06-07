@@ -103,7 +103,7 @@ Select **Columns** to the right of the results pane to open the **Columns** side
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-group-columns.png" alt-text="Screenshot that shows the Column link to the right of the results pane, which you select to open the Columns sidebar." lightbox="media/log-analytics-tutorial/query-results-group-columns.png":::
 
-In the sidebar, you'll see a list of all available columns. Drag the **Url** column into the **Row Group** section. Results are now organized by that column, and you can collapse each group to help you with your analysis. This action is similar to adding a filter condition to the query, but instead of refetching data from the server, you're processing the data your original query returned. When you run the query again, Log Analytics retrieves data based on your original query. Use this method if you want to quickly analyze a set of records as part of interactive analysis.
+In the sidebar, you'll see a list of all available columns. Drag the **Url** column into the **Row Groups** section. Results are now organized by that column, and you can collapse each group to help you with your analysis. This action is similar to adding a filter condition to the query, but instead of refetching data from the server, you're processing the data your original query returned. When you run the query again, Log Analytics retrieves data based on your original query. Use this method if you want to quickly analyze a set of records as part of interactive analysis.
 
 :::image type="content" source="media/log-analytics-tutorial/query-results-grouped.png" alt-text="Screenshot that shows query results grouped by URL." lightbox="media/log-analytics-tutorial/query-results-grouped.png":::
 
