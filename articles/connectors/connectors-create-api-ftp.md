@@ -82,7 +82,7 @@ For other connector limitations, review [FTP managed connector reference](/conne
 
 ## Add an FTP trigger
 
-The FTP managed connector and built-in connector each have only one trigger available:
+A Consumption logic app workflow has only the FTP managed connector. However, a Standard logic app workflow can use the FTP managed connector *and* the FTP built-in connector. The FTP managed connector and built-in connector each have only one trigger available:
 
 * Managed connector trigger: The **When a file is added or modified (properties only)** trigger starts a Consumption or Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file properties or metadata, not the file content. However, to get the content, your workflow can follow this trigger with other FTP actions to get the file content. For more information about this trigger, review [When a file is added or modified (properties only)](/connectors/ftp/#when-a-file-is-added-or-modified-(properties-only)).
 
@@ -190,7 +190,7 @@ When you save your workflow, this step automatically publishes your updates to y
 
 ## Add an FTP action
 
-The FTP managed connector and built-in connector each have multiple actions.
+A Consumption logic app workflow has only the FTP managed connector. However, a Standard logic app workflow can use the FTP managed connector and the FTP built-in connector. Each version has multiple actions.
 
 * Managed connector actions: These actions run in a Consumption or Standard logic app workflow.
 
@@ -277,7 +277,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. Find and select the FTP action that you want to use.
 
-   This example continues with selecting either the FTP built-in action named **Get the file metadata** or the FTP managed connector action named **Get file metadata**.
+   If you used the FTP managed connector trigger, and you want to get the content from a newly added or modified file, you have to use both the FTP actions that get the file's metadata first and then get the file content. However, if you used the FTP built-in trigger, you only need to use the **Get File Content** action.
 
    1. On the designer, under the trigger or any other actions, select the plus sign (**+**) > **Add an action**.
 
@@ -309,13 +309,27 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
      ![Screenshot shows Standard workflow designer, FTP managed connector action, and connection profile.](./media/connectors-create-api-ftp/ftp-action-connection-azure-standard.png)
 
-1. After the **Get file metadata** action information box appears, in the **Folder** box, select the folder icon so that a list appears. To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
+1. After the **Get file metadata** action information box appears, complete the following steps:
+
+   1. Click in the **File** box so that the dynamic content list appears.
+   
+      You can now select outputs from the preceding trigger.
+
+   1. From the dynamic content list, under **When a file is added or modified**, select **List of Files Id**.
+
+      * **Built-in**
+
+        ![Screenshot shows Standard workflow designer, "Get the file metadata" action, dynamic content list opened, and "List of Files Id" selected.](./media/connectors-create-api-ftp/ftp-get-the-file-metadata-list-files-id-standard.png)
+
+      * **Azure**
+
+        ![Screenshot shows Standard workflow designer, "Get file metadata" action, dynamic content list opened, and "List of Files Id" selected.](./media/connectors-create-api-ftp/ftp-get-file-metadata-list-files-id-standard.png)
+
+1. In the designer, under the **Get file metadata** action, select the plus sign (**+**) > **Add an action**.
 
    * **Built-in**
 
      ![Screenshot shows Standard workflow designer, FTP built-in trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-built-in-select-folder-standard.png)
-
-     Your selected folder appears in the **Folder** box.
 
      ![Screenshot shows Standard workflow designer, FTP built-in trigger, and "Folder" property with selected folder.](./media/connectors-create-api-ftp/ftp-trigger-built-in-selected-folder-standard.png)
 
