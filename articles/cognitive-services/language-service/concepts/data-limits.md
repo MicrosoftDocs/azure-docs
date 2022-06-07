@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 02/25/2022
+ms.date: 06/02/2022
 ms.author: aahi
 ---
 
@@ -82,7 +82,7 @@ Exceeding the following document limits will generate an HTTP 400 error code.
 | Key Phrase Extraction | 10 |
 | Named Entity Recognition (NER) | 5 |
 | Personally Identifying Information (PII) detection | 5 |
-| Text summarization | 25 |
+| Document summarization | 25 |
 | Entity Linking | 5 |
 | Text Analytics for health  | 10 for the web-based API, 1000 for the container. |
 

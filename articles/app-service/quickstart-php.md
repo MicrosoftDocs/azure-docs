@@ -59,15 +59,12 @@ Azure CLI has a command [`az webapp up`](/cli/azure/webapp#az_webapp_up) that wi
 In the terminal, deploy the code in your local folder using the  [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
 
 ```azurecli
-az webapp up \
-    --sku F1 \
-    --logs
+az webapp up --runtime "php|8.0" --os-type=linux
 ```
 
 - If the `az` command isn't recognized, be sure you have <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> installed.
-
-- The `--sku F1` argument creates the web app on the Free pricing tier, which incurs a no cost.
-- The `--logs` flag configures default logging required to enable viewing the log stream immediately after launching the webapp.
+- The `--runtime "php|8.0"` argument creates the web app with PHP version 8.0.
+- The `--os-type=linux` argument creates the web app on App Service on Linux.
 - You can optionally specify a name with the argument `--name <app-name>`. If you don't provide one, then a name will be automatically generated.
 - You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations) command.
 - If you see the error, "Could not auto-detect the runtime stack of your app," make sure you're running the command in the code directory (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)).
@@ -81,7 +78,7 @@ Resource group creation complete
 Creating AppServicePlan '&lt;app-service-plan-name>' ...
 Creating webapp '&lt;app-name>' ...
 Configuring default logging for the app, if not already enabled
-Creating zip with contents of dir /home/cephas/myExpressApp ...
+Creating zip with contents of dir /home/msangapu/myPhpApp ...
 Getting scm site credentials for zip deployment
 Starting zip deployment. This operation can take a while to complete ...
 Deployment endpoint responded with status code 202
@@ -116,10 +113,10 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
     echo "Hello Azure!";
     ```
 
-1. Save your changes, then redeploy the app using the [az webapp up](/cli/azure/webapp#az-webapp-up) command again with no arguments:
+1. Save your changes, then redeploy the app using the [az webapp up](/cli/azure/webapp#az-webapp-up) command again with these arguments:
 
     ```azurecli
-    az webapp up
+    az webapp up --runtime "php|8.0" --os-type=linux
     ```
 
 1. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.

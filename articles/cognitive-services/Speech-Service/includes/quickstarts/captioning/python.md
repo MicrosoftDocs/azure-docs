@@ -33,7 +33,7 @@ The Speech SDK for Python is available as a [Python Package Index (PyPI) module]
 
 Follow these steps to create a new console application.
 
-1. Download or copy the [scenarios/python/console/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/python/console/captioning/) sample files from GitHub into a local directory. 
+1. Download or copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/python/console/captioning/"  title="Copy the samples"  target="_blank">scenarios/python/console/captioning/</a> sample files from GitHub into a local directory. 
 1. Open a command prompt in the same directory as `captioning.py`.
 1. Run this command to install the Speech SDK:  
     ```console
@@ -43,7 +43,7 @@ Follow these steps to create a new console application.
     ```console
     python captioning.py --key YourSubscriptionKey --region YourServiceRegion --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jessie;Rehaan"
     ```
-    Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. Make sure that the specified arguments for `--input` file and `--output` path exist. Otherwise you must change the path.
+    Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource [region](~/articles/cognitive-services/speech-service/regions.md), such as `westus` or `northeurope`. Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
 
     The output file with complete captions is written to `caption.output.txt`. Intermediate results are shown in the console:
     ```console
