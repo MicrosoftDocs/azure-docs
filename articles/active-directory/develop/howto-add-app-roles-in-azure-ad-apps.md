@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/06/2021
+ms.date: 06/07/2022
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
@@ -19,27 +19,27 @@ ms.custom: aaddev
 
 Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an administrator grants permissions to roles, and not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to what content and functionality.
 
-Using RBAC with Application Roles and Role Claims, developers can securely enforce authorization in their apps with less effort.
+Using RBAC with Application role and Role Claims, developers can securely enforce authorization in their apps with less effort.
 
-Another approach is to use Azure AD Groups and Group Claims as shown in the [active-directory-aspnetcore-webapp-openidconnect-v2](https://aka.ms/groupssample) code sample on GitHub. Azure AD Groups and Application Roles are not mutually exclusive; they can be used in tandem to provide even finer-grained access control.
+Another approach is to use Azure Active Directory (Azure AD) Groups and Group Claims as shown in the [active-directory-aspnetcore-webapp-openidconnect-v2](https://aka.ms/groupssample) code sample on GitHub. Azure AD Groups and Application Roles are not mutually exclusive; they can be used in tandem to provide even finer-grained access control.
 
 ## Declare roles for an application
 
 You define app roles by using the [Azure portal](https://portal.azure.com) during the [app registration process](quickstart-register-app.md). App roles are defined on an application registration representing a service, app or API. When a user signs in to the application, Azure AD emits a `roles` claim for each role that the user or service principal has been granted individually to the user and the user's group memberships. This can be used to implement claim-based authorization. App roles can be assigned [to a user or a group of users](../manage-apps/add-application-portal-assign-users.md). App roles can also be assigned to the service principal for another application, or [to the service principal for a managed identity](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
 
 > [!IMPORTANT]
-> Currently if you add a service principal to a group, and then assign an app role to that group, Azure AD does not add the `roles` claim to tokens it issues.
+> Currently if you add a service principal to a group, and then assign an app role to that group, Azure AD doesn't add the `roles` claim to tokens it issues.
 
 App roles are declared using the app roles by using[App roles UI](#app-roles-ui) in the Azure portal:
 
-The number of roles you add counts toward application manifest limits enforced by Azure Active Directory. For information about these limits, see the [Manifest limits](./reference-app-manifest.md#manifest-limits) section of [Azure Active Directory app manifest reference](reference-app-manifest.md).
+The number of roles you add counts toward application manifest limits enforced by Azure AD. For information about these limits, see the [Manifest limits](./reference-app-manifest.md#manifest-limits) section of [Azure Active Directory app manifest reference](reference-app-manifest.md).
 
 ### App roles UI
 
 To create an app role by using the Azure portal's user interface:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. Select the **Directory + subscription** filter in top menu, and then choose the Azure Active Directory tenant that contains the app registration to which you want to add an app role.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant that contains the app registration to which you want to add an app role.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**, and then select the application you want to define app roles in.
 1. Select **App roles**, and then select **Create app role**.
@@ -110,9 +110,10 @@ Because these are _application permissions_, not delegated permissions, an admin
 The **Status** column should reflect that consent has been **Granted for \<tenant name\>**.
 
 <a name="use-app-roles-in-your-web-api"></a>
+
 ## Usage scenario of app roles
 
-If you're implementing app role business logic that signs in the users in your application scenario, first define the app roles in **App registration**. Then, an admin assigns them to users and groups in the **Enterprise applications** pane. These assigned app roles are included with any token that's issued for your application, either access tokens when your app is the API being called by an app or ID tokens when your app is signing in a user.
+If you're implementing app role business logic that signs in the users in your application scenario, first define the app roles in **App registrations**. Then, an admin assigns them to users and groups in the **Enterprise applications** pane. These assigned app roles are included with any token that's issued for your application, either access tokens when your app is the API being called by an app or ID tokens when your app is signing in a user.
 
 If you're implementing app role business logic in an app-calling-API scenario, you have two app registrations. One app registration is for the app, and a second app registration is for the API. In this case, define the app roles and assign them to the user or group in the app registration of the API. When the user authenticates with the app and requests an access token to call the API, a roles claim is included in the access token. Your next step is to add code to your web API to check for those roles when the API is called.
 
