@@ -85,9 +85,9 @@ The Azure Image Builder Service is available in the following regions: regions.
 - USGov Virginia (Public Preview)
 
 >[!IMPROTANT]
-> Register the feature flag "Microsoft.VirtualMachineImages/FairfaxPublicPreview" to access the Azure Image Builder public preview in Fairfax regions (USGov Arizona and USGov Virginia).
+> Register the feature "Microsoft.VirtualMachineImages/FairfaxPublicPreview" to access the Azure Image Builder public preview in Fairfax regions (USGov Arizona and USGov Virginia).
 
-Use the following command to register the feature flag for Azure Image Builder in Fairfax regions (USGov Arizona and USGov Virginia).
+Use the following command to register the feature for Azure Image Builder in Fairfax regions (USGov Arizona and USGov Virginia).
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPublicPreview
 ```
