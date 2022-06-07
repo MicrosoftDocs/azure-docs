@@ -168,7 +168,7 @@ The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version 
 
 If you use rolling tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.1**) then you need to force the container runtime on your device to pull the latest version of the image.
 
-Delete the local version of the image from your IoT Edge device. On Windows machines, uninstalling the runtime module also removes the runtime images, so you don't need to take this step again.
+Delete the local version of the image from your IoT Edge device. On Windows machines, uninstalling the security subsystem also removes the runtime images, so you don't need to take this step again.
 
 ```bash
 docker rmi mcr.microsoft.com/azureiotedge-hub:1.1
