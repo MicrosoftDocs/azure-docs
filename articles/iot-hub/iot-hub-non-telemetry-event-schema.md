@@ -73,7 +73,7 @@ Connection state events are emitted whenever a device or module connects or disc
 | ---- | ----------- |
 | iothub-message-source |  deviceConnectionStateEvents |
 
-**Payload**: The payload contains a sequence number. The sequence number is a string representation of a hexadecimal number. You can use string compare to identify the larger number. If you're converting the string to hex, then the number will be a 256-bit number. The sequence number is strictly increasing, and the latest event will have a higher number than other events. This is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action.
+**Body**: The body contains a sequence number. The sequence number is a string representation of a hexadecimal number. You can use string compare to identify the larger number. If you're converting the string to hex, then the number will be a 256-bit number. The sequence number is strictly increasing, and the latest event will have a higher number than other events. This is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action.
 
 ### Example
 
@@ -133,11 +133,11 @@ Device lifecycle events are emitted whenever a device or module is created or de
 | ---- | ----------- |
 | iothub-message-source |  deviceLifecycleEvents |
 
-**Payload**: The payload contains the device ID and module ID, the twin etag, the version property, and the tags, properties and associated metadata of the device or module twin.
+**Body**: The body contains a representation of the device twin or module twin. It includes the device ID and module ID, the twin etag, the version property, and the tags, properties and associated metadata of the twin.
 
 ### Example
 
-The following JSON shows a device lifecycle event emitted when a module is created.
+The following JSON shows a device lifecycle event emitted when a module is created. The event is captured using the `az iot hub monitor-events` Azure CLI command.
 
 ```json
 {
@@ -212,11 +212,11 @@ Device twin change events are emitted whenever a device twin or a module twin is
 | ---- | ----------- |
 | iothub-message-source |  twinChangeEvents |
 
-**Payload**: On an update, the payload contains the version property of the twin and the updated tags and properties and their associated metadata. On replace, the payload contains the device ID and module ID, the twin etag, the version property, and all the tags, properties and associated metadata of the device or module twin.
+**Body**: On an update, the body contains the version property of the twin and the updated tags and properties and their associated metadata. On a replace, the body contains the device ID and module ID, the twin etag, the version property, and all the tags, properties and associated metadata of the device or module twin.
 
 ### Example
 
-The following JSON shows a twin change event emitted for an update of a desired property and a tag on a module twin.
+The following JSON shows a twin change event emitted for an update of a desired property and a tag on a module twin. The event is captured using the `az iot hub monitor-events` Azure CLI command.
 
 ```json
 {
