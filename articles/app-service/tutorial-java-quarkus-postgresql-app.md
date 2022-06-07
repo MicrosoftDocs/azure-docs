@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Linux Java app with Quarkus and PostgreSQL'
 description: Learn how to get a data-driven Linux Quarkus app working in Azure App Service, with connection to a PostgreSQL running in Azure.
-author: jamesfalkner
-ms.author: jamesfalkner
+author: dbrittain
+ms.author: dbrittain
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 5/27/2022
@@ -234,7 +234,7 @@ mvn clean package
 
 The final result will be a JAR file in the `target/` subfolder.
 
-To deploy applications to Azure App Service, developers can use the [Maven Plugin for App Service](https://docs.microsoft.com/en-us/learn/modules/publish-web-app-with-maven-plugin-for-azure-app-service/), [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), or the Azure CLI to deploy apps. Use the following command to deploy our app to the App Service:
+To deploy applications to Azure App Service, developers can use the [Maven Plugin for App Service](/learn/modules/publish-web-app-with-maven-plugin-for-azure-app-service/), [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), or the Azure CLI to deploy apps. Use the following command to deploy our app to the App Service:
 
 ```azurecli
 az webapp deploy \
