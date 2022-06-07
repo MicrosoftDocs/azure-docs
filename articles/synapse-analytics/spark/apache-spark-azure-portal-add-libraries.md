@@ -28,7 +28,7 @@ To make third party or locally built code available to your applications, instal
 
 Apache Spark in Azure Synapse Analytics has a full Anaconda install plus extra libraries. The full libraries list can be found at [Apache Spark version support](apache-spark-version-support.md).
 
-When a Spark instance starts up, these libraries are included automatically. More packages can be added at the Spark pool level or session level.
+When a Spark instance starts, these libraries are included automatically. More packages can be added at the Spark pool level or session level.
 
 ## Workspace packages
 
@@ -36,7 +36,7 @@ When your team develops custom applications or models, you might develop various
 
 In Synapse, workspace packages can be custom or private *.whl* or *.jar* files. You can upload these packages to your workspace and later assign them to a specific Spark pool. Once assigned, these workspace packages are installed automatically on all Spark pool sessions.
 
-To learn more about how to manage workspace libraries, visit the following how-to guides:
+To learn more about how to manage workspace libraries, see the following articles:
 
 - [Python workspace packages: ](./apache-spark-manage-python-packages.md#install-wheel-files) Upload Python *.whl* files as a workspace package and later add these packages to specific serverless Apache Spark pools.
 - [Scala/Java workspace packages: ](./apache-spark-manage-scala-packages.md#workspace-packages) Upload Scala and Java *.jar* files as a workspace package and later add these packages to specific serverless Apache Spark pools.
@@ -47,7 +47,7 @@ In some cases, you might want to standardize the packages that are used on an Ap
 
 Using the Azure Synapse Analytics pool management capabilities, you can configure the default set of libraries to install on a given serverless Apache Spark pool. These libraries are installed on top of the [base runtime](./apache-spark-version-support.md).
 
-Currently, pool management is only supported for Python. For Python, Synapse Spark pools use Conda to install and manage Python package dependencies. When specifying your pool-level libraries, you can now provide a *requirements.txt* or an *environment.yml*. This environment configuration file is used every time a Spark instance is created from that Spark pool.
+Currently, pool management is only supported for Python. For Python, Synapse Spark pools use Conda to install and manage Python package dependencies. When specifying your pool-level libraries, you can now provide a *requirements.txt* or an *environment.yml* file. This environment configuration file is used every time a Spark instance is created from that Spark pool.
 
 To learn more about these capabilities, see [Python pool management](./apache-spark-manage-python-packages.md#pool-libraries).
 
@@ -59,11 +59,11 @@ To learn more about these capabilities, see [Python pool management](./apache-sp
 
 ## Session-scoped packages
 
-Often, when doing interactive data analysis or machine learning, you might try out newer packages or you might need packages that are currently unavailable on your Apache Spark pool. Instead of updating the pool configuration, users can now use session-scoped packages to add, manage, and update session dependencies.
+Often, when doing interactive data analysis or machine learning, you might try newer packages or you might need packages that are currently unavailable on your Apache Spark pool. Instead of updating the pool configuration, users can now use session-scoped packages to add, manage, and update session dependencies.
 
 Session-scoped packages allow users to define package dependencies at the start of their session. When you install a session-scoped package, only the current session has access to the specified packages. As a result, these session-scoped packages don't affect other sessions or jobs using the same Apache Spark pool. In addition, these libraries are installed on top of the base runtime and pool level packages.
 
-To learn more about how to manage session-scoped packages, see the following how-to guides:
+To learn more about how to manage session-scoped packages, see the following articles:
 
 - [Python session packages: ](./apache-spark-manage-python-packages.md) At the start of a session, provide a Conda *environment.yml* to install more Python packages from popular repositories. 
 - [Scala/Java session packages: ](./apache-spark-manage-scala-packages.md) At the start of your session, provide a list of *.jar* files to install using `%%configure`.
