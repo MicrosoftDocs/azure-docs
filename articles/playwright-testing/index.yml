@@ -1,0 +1,26 @@
+### YamlMime:Landing
+
+title: Microsoft Playwright Testing documentation
+summary: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub Actions, Azure Pipelines, and more. 
+
+metadata:
+  title: Azure Load Testing documentation
+  description: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub Actions, Azure Pipelines, and more. 
+  services: load-testing
+  ms.service: load-testing
+  ms.topic: landing-page
+  ms.collection: collection
+  ms.author: nicktrog
+  author: ntrogh
+  ms.date: 06/07/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure Load Testing
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Microsoft Playwright Testing?
+            url: overview-what-is-microsoft-playwright-testing.md
