@@ -3,6 +3,7 @@ title: Monitoring cost for Container insights | Microsoft Docs
 description: This article describes the monitoring cost for metrics & inventory data collected by Container insights to help customers manage their usage and associated costs. 
 ms.topic: conceptual
 ms.date: 05/29/2020
+ms.reviewer: aul
 
 ---
 # Understand monitoring costs for Container insights
