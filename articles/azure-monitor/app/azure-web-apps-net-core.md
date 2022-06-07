@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 08/05/2021
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
+ms.reviewer: abinetabate
 ---
 
 # Application Monitoring for Azure App Service and ASP.NET Core 
