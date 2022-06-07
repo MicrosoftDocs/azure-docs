@@ -21,7 +21,7 @@ You can easily bring AzureML capabilities to your Kubernetes cluster from cloud 
 - For Kubernetes clusters on-premises or from other cloud providers, connect the cluster with Azure Arc first, then deploy AzureML extension to Azure Arc-enabled Kubernetes. For more information, see [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
 
 In this article, you can learn about steps to configure and attach an existing Kubernetes cluster anywhere for Azure Machine Learning:
-* [Deploy AzureML extension to Kubernetes cluster](#deploy-azureml-extension---example-scenarios)
+* [Deploy AzureML extension to Kubernetes cluster](#deploy-azureml-extension)
 * [Attach a Kubernetes cluster to AzureML workspace](#attach-a-kubernetes-cluster-to-an-azureml-workspace)
 
 ## Why use Azure Machine Learning Kubernetes?
@@ -70,7 +70,7 @@ AzureML extension allows you to specify configuration settings needed for differ
 For a complete list of configuration settings available to choose at AzureML deployment time, see [Review AzureML extension config settings](#review-azureml-extension-configuration-settings)
 
 ## Deploy AzureML extension
-### [CLI](#tab/cli)
+### [CLI](#tab/deploy-extension-with-cli)
 To deploy AzureML extension with CLI, use `az k8s-extension create` command passing in values for the mandatory parameters.
 
 We list 4 typical extension deployment scenarios for reference. To deploy extension for your production usage, please carefully read the complete list of [configuration settings](#review-azureml-extension-configuration-settings).
@@ -112,18 +112,18 @@ The UI experience to deploy extension is only available for **Azure Arc-enabled 
 
 1. From the list of available extensions, select **Azure Machine Learning extension** to deploy the latest version of the extension.
 
-   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-extension-list.png" alt-text="Screenshot of adding new extension to the Arc-enabled Kubernetes cluster from Azure Portal.":::
+   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-extension-list.png" alt-text="Screenshot of selecting AzureML extension from Azure Portal.":::
 
-1. Follow the prompts to deploy the extension. You can customize the installation by configuring the installtion in the tab of **Basics**, **Configurations** and **Advanced**.  For a detailed list of AzureML extension configuration settings, see [AzureML extension configuration settings]((#review-azureml-extension-configuration-settings)).
+1. Follow the prompts to deploy the extension. You can customize the installation by configuring the installtion in the tab of **Basics**, **Configurations** and **Advanced**.  For a detailed list of AzureML extension configuration settings, see [AzureML extension configuration settings](#review-azureml-extension-configuration-settings).
 
-   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-settings.png" alt-text="Screenshot of deploying new extension to the Arc-enabled Kubernetes cluster from Azure Portal.":::
+   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-settings.png" alt-text="Screenshot of configuring AzureML extension settings from Azure Portal.":::
 1. On the **Review + create** tab, select **Create**.
    
    :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-create.png" alt-text="Screenshot of deploying new extension to the Arc-enabled Kubernetes cluster from Azure Portal.":::
 
 1. After the deployment completes, you are able to see the AzureML extension in **Extension** page.  If the extension installation succeeds, you can see **Installed** for the **Install status**.
 
-   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-extension-detail.png" alt-text="Screenshot of deploying new extension to the Arc-enabled Kubernetes cluster from Azure Portal.":::
+   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-extension-detail.png" alt-text="Screenshot of installed AzureML extensions listing in Azure Portal.":::
 
 ### Verify AzureML extension deployment
 
