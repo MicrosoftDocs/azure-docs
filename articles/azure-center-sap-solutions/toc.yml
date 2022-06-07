@@ -8,3 +8,5 @@ items:
   items:
   - name: Create network infrastructure
     href: create-network.md
+  - name: Monitor SAP system in Azure portal
+    href: monitor-portal.md

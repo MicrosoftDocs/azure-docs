@@ -25,3 +25,5 @@ landingContent:
         links:
           - text: Create network infrastructure
             url: create-network.md
+          - text: Monitor SAP system in Azure portal
+            url: monitor-portal.md
