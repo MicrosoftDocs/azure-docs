@@ -33,7 +33,7 @@ A multi-value parameter allows the user to set one or more arbitrary text values
    :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-third-value.png" alt-text="Image showing the user adding a 3rd value in workbooks.":::
 
 
-A multi-value parameter behaves similarly to a multi-select [Drop Down](./DropDown.md) parameter. As such, it is commonly used in an "in" like scenario
+A multi-value parameter behaves similarly to a multi-select [drop down parameter](workbooks-dropdowns.md). As such, it is commonly used in an "in" like scenario
 
 ```
     let computerFilter = dynamic([{Computer}]);

@@ -16,7 +16,6 @@ Workbooks can extract data from these data sources:
 * [Logs](../visualize/workbooks-data-sources.md#logs)
 * [Metrics](../visualize/workbooks-data-sources.md#metrics)
 * [Azure Resource Graph](../visualize/workbooks-data-sources.md#azure-resource-graph)
-* [Alerts (Preview)](../visualize/workbooks-data-sources.md#alerts-preview)
 * [Workload Health](../visualize/workbooks-data-sources.md#workload-health)
 * [Azure Resource Health](../visualize/workbooks-data-sources.md#azure-resource-health)
 * [Azure Data Explorer](../visualize/workbooks-data-sources.md#azure-data-explorer)

@@ -63,6 +63,6 @@ Standard Azure roles that provide the access to workbooks are:
 
 For custom roles, you must add `microsoft.insights/workbooks/write` to the user's permissions in order to be able to edit and save a workbook. For more details, see the [Workbook Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role.
 
-## Next step
+## Next steps
 
-* [Control](../visualize/workbooks-access-control.md) and share access to your workbook resources.
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md).

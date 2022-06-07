@@ -1,6 +1,6 @@
 ---
 title: Workbook visualizations
-description: Learn how workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal.
+description: Learn about the types of visualizations you can use to create rich visual reports with Azure workbooks.
 services: azure-monitor
 author: AbbyMSFT
 ms.author: abbyweisberg
@@ -15,16 +15,16 @@ ms.reviewer: gardnerjr
 Workbooks provide a rich set of capabilities for visualizing Azure Monitor data. The exact set of capability depends on the data source and result set, but authors can expect them to converge over time. These controls allow authors to present their analysis in rich, interactive reports. 
 
 Workbooks support these kinds of visual components:
-* [Text Step](Text.md)
-* In Query / Metrics steps
-    * [Charts](Chart.md)
-    * [Grids](Grid.md)
-    * [Tiles](Tiles.md)
-    * [Trees](Tree.md)
-    * [Honey Comb](HoneyComb.md)
-    * [Graphs](Graph.md)
-    * [Map](Map.md)
-    * [Text](TextVisualization.md)
+* [Workbook text parameters](workbooks-text.md)
+* Using queries:
+    * [Chart](workbooks-chart-visualizations.md)
+    * [Grids](workbooks-grid-visualizations.md)
+    * [Tiles](workbooks-tile-visualizations.md)
+    * [Trees](workbooks-tree-visualizations.md)
+    * [Honey Comb](workbooks-honey-comb-visualizations.md)
+    * [Graphs](workbooks-graph-visualizations.md)
+    * [Map](workbooks-map-visualizations.md)
+    * [Text](workbooks-text-visualizations.md)
 
 Use the links to learn more about each type of visualization.
 
@@ -65,4 +65,7 @@ Note: Each visualization and data source may have its own [limits](../DataSource
 
 ### Text
 [Text Visualization](TextVisualization.md)
-:::image type="content" source="media/workbooks-visualizations/TextVisualizationExample.png" alt-text="Example image of an Azure workbooks chart visualization.":::
+:::image type="content" source="media/workbooks-visualizations/TextVisualizationExample.png" alt-text="Example image of an Azure workbooks text visualization.":::
+## Next steps
+
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md).

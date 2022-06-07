@@ -104,5 +104,4 @@ Values from resource pickers can come from the workbook context, static list or 
 
 ## Next steps
 
-* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](./workbooks-access-control.md) and share access to your workbook resources.
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md).

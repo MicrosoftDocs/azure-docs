@@ -143,5 +143,4 @@ U2FtcGxlIHRleHQgdG8gdGVzdCBiYXNlNjQgZW5jb2Rpbmc=
 ```
 ## Next steps
 
-* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](./workbooks-access-control.md) and share access to your workbook resources.
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md).
