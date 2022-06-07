@@ -33,7 +33,7 @@ To train a neural voice, you must create a voice talent profile with an audio fi
 
 Upload this audio file to the Speech Studio as shown in the following screenshot. You create a voice talent profile, which is used to verify against your training data when you create a voice model. For more information, see [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
-:::image type="content" source="media/custom-voice/upload-verbal-statement.png" alt-text="Screenshot that shows the upload voice talent statement.":::
+:::image type="content" source="media/custom-voice/upload-verbal-statement.png" alt-text="This is a screenshot of showing the upload voice talent statement.":::
  
 > [!NOTE]
 > Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext), and then [apply for access](https://aka.ms/customneural). 
@@ -186,7 +186,7 @@ After you validate your data files, you can use them to build your Custom Neural
 
    When the model is training, you can select **Cancel training** to cancel your voice model. You're not charged for this canceled training.
 
-   :::image type="content" source="media/custom-voice/cnv-cancel-training.png" alt-text="Screenshot of canceling training":::
+   :::image type="content" source="media/custom-voice/cnv-cancel-training.png" alt-text="This is a screenshot of canceling the training for one model.":::
 
    The table displays the status: processing, succeeded, failed, and canceled. The status reflects the process of converting your data to a voice model, as shown in this table:
 
@@ -217,27 +217,27 @@ The quality of the voice depends on many factors, such as:
 
 If you want to rename the model you built, you can select **Clone model** to create a clone of the model with a new name in the current project.
 
-:::image type="content" source="media/custom-voice/cnv-clone-model.png" alt-text="Screenshot of cloning model":::
+:::image type="content" source="media/custom-voice/cnv-clone-model.png" alt-text="This is a screenshot of selecting the Clone model button.":::
 
 Enter the new name on the **Clone voice model** window, then click **Submit**. The text 'Neural' will be automatically added as a suffix to your new model name.
 
-:::image type="content" source="media/custom-voice/cnv-clone-model-rename.png" alt-text="Screenshot of renaming model":::
+:::image type="content" source="media/custom-voice/cnv-clone-model-rename.png" alt-text="This is a screenshot of cloning model with a new name.":::
 
 ### Test your voice model
 
 After you've trained your voice model, you can test the model on the model details page. Select **DefaultTests** under **Testing** to listen to the sample audios. The default test samples include 100 sample audios generated automatically during training to help you test the model. In addition to these 100 audios provided by default, your own test script (at most 100 utterances) provided during training are also added to **DefaultTests** set. You're not charged for the testing with **DefaultTests**.
 
-:::image type="content" source="media/custom-voice/cnv-model-default-test.png" alt-text="Screenshot of default tests":::
+:::image type="content" source="media/custom-voice/cnv-model-default-test.png" alt-text="This is a screenshot of selecting DefaultTests under Testing.":::
 
 If you want to upload your own test scripts to further test your model, select **Add test scripts** to upload your own test script.
 
-:::image type="content" source="media/custom-voice/cnv-model-add-testscripts.png" alt-text="Screenshot of adding test scripts":::
+:::image type="content" source="media/custom-voice/cnv-model-add-testscripts.png" alt-text="This is a screenshot of adding your own test scripts.":::
 
 Before uploading test script, check the [test script requirements](#train-your-custom-neural-voice-model). You'll be charged for the additional testing with the batch synthesis based on the number of billable characters. See [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 On **Add test scripts** window, click **Browse for a file** to select your own script, then select **Add** to upload it.
 
-:::image type="content" source="media/custom-voice/cnv-model-upload-testscripts.png" alt-text="Screenshot of uploading test script":::
+:::image type="content" source="media/custom-voice/cnv-model-upload-testscripts.png" alt-text="This is a screenshot of uploading your own test scripts.":::
 
 For more information, [learn more about the capabilities and limits of this feature, and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
