@@ -57,7 +57,7 @@ You can define the Dapr configuration for a container app through the Azure CLI 
 
 The following example adds the Dapr configuration to your `properties.configuration` section of your container apps resource declaration.
 
-# [Bicep](#tab/bicep)
+# [Bicep](#biceptabbicep-2)
 
 ```bicep
  dapr: {
@@ -68,7 +68,7 @@ The following example adds the Dapr configuration to your `properties.configurat
  }
 ```
 
-# [ARM](#tab/arm)
+# [ARM](#armtab)
 
 ```json
   "dapr": {
@@ -84,7 +84,7 @@ The following example adds the Dapr configuration to your `properties.configurat
 
 For each container accessing the Dapr components, you must configure the `APP_PORT` environment variable in the `template.container` section of your container app resource declaration.  Here's an example of the `template.containers` section with the `APP_PORT` environment variable configured:
 
-# [Bicep](#tab/bicep)
+# [Bicep](#biceptabbicep-2)
 
 ```Bicep
   containers: [
@@ -102,7 +102,7 @@ For each container accessing the Dapr components, you must configure the `APP_PO
   ]
 ```
 
-# [ARM](#tab/arm)
+# [ARM](#armtab)
 
 ```jason
   "containers": [
