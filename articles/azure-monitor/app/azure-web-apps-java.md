@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 08/05/2021
 ms.devlang: java
 ms.custom: "devx-track-java"
+ms.reviewer: abinetabate
 ---
 
 # Application Monitoring for Azure App Service and Java

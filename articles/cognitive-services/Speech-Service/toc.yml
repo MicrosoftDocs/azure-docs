@@ -56,8 +56,6 @@ items:
       href: get-started-speech-to-text.md
     - name: How to recognize speech
       href: how-to-recognize-speech.md
-    - name: Set recognition source language
-      href: how-to-specify-source-language.md
     - name: Get speech recognition results
       href: get-speech-recognition-results.md
     - name: How to use batch transcription
@@ -68,8 +66,8 @@ items:
           href: custom-speech-overview.md
         - name: Create a Custom Speech model 
           items:
-          - name: Choose a model
-            href: how-to-custom-speech-choose-model.md
+          - name: Create a project
+            href: how-to-custom-speech-create-project.md
           - name: Upload training and testing datasets
             href: how-to-custom-speech-upload-data.md
           - name: Test recognition quality

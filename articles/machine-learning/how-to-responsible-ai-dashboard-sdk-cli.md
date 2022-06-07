@@ -87,6 +87,16 @@ The ` RAI Insights Dashboard Constructor` and `Gather RAI Insights Dashboard ` c
 
 Below are specifications of the Responsible AI components and examples of code snippets in YAML and Python. To view the full code, see [sample YAML and Python notebook](https://aka.ms/RAIsamplesProgrammer)
 
+### Limitations
+The current set of components have a number of limitations on their use:
+
+- All models must be in registered in AzureML in MLFlow format with a sklearn flavor.
+- The models must be loadable in the component environment.
+- The models must be pickleable.
+- The models must be supplied to the RAI components using the 'Fetch Registered Model' component which we provide.
+- The dataset inputs must be `pandas` DataFrames in Parquet format. 
+- A model must still be supplied even if only a causal analysis of the data is performed. The `DummyClassifier` and `DummyRegressor` estimators from SciKit-Learn can be used for this purpose.
+
 ### RAI Insights Dashboard Constructor
 
 This component has three input ports:
@@ -504,3 +514,6 @@ The supplied datasets should be file datasets (uri_file type) in Parquet format.
 - Learn more about the  [concepts and techniques behind the Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - Learn more about how to [collect data responsibly](concept-sourcing-human-data.md)
 - View [sample YAML and Python notebooks](https://aka.ms/RAIsamples) to generate a Responsible AI dashboard with YAML or Python.
+- Learn more about how the Responsible AI Dashboard and Scorecard can be used to debug data and models and inform better decision making in this [tech community blog post](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)
+- Learn about how the Responsible AI Dashboard and Scorecard were used by the NHS in a [real life customer story](https://aka.ms/NHSCustomerStory)
+- Explore the features of the Responsible AI Dashboard through this [interactive AI Lab web demo](https://www.microsoft.com/ai/ai-lab-responsible-ai-dashboard)

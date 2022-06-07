@@ -21,16 +21,20 @@ Microsoft Purview, formally known as Azure Purview, provides a single pane of gl
 
 ## Factors impacting Azure Pricing 
 
+
 There are **direct** and **indirect** costs that need to be considered while planning budgeting and cost management.
 
-### Direct costs
 
-Direct costs impacting pricing are based on the following three dimensions:
-- **Elastic data map**
-- **Automated scanning & classification**
-- **Advanced resource sets**
+## Direct costs
 
-#### Elastic data map
+
+Direct costs impacting Microsoft Purview pricing are based on the following three dimensions:
+- [**Elastic data map**](#elastic-data-map)
+- [**Automated scanning & classification**](#automated-scanning-classification-and-ingestion)
+- [**Advanced resource sets**](#advanced-resource-sets)
+
+
+### Elastic data map
 
 - The **Data map** is the foundation of the Microsoft Purview governance portal architecture and so needs to be up to date with asset information in the data estate at any given point
 
@@ -40,7 +44,7 @@ Direct costs impacting pricing are based on the following three dimensions:
 
 - However, the data map scales automatically between the minimal and maximal limits of that elasticity window, to cater to changes in the data map with respect to two key factors - **operation throughput** and **metadata storage**
 
-##### Operation throughput
+#### Operation throughput
 
 - An event driven factor based on the Create, Read, Update, Delete operations performed on the data map
 - Some examples of the data map operations would be:
@@ -60,11 +64,11 @@ Direct costs impacting pricing are based on the following three dimensions:
         - The **burst duration** is the percentage of the month that such bursts (in elasticity) are expected because of growing metadata or higher number of operations on the data map
 
 
-##### Metadata storage
+#### Metadata storage
 
 - If the number of assets reduces in the data estate, and are then removed in the data map through subsequent incremental scans, the storage component automatically reduces and so the data map scales down
 
-#### Automated scanning, classification and ingestion
+### Automated scanning, classification, and ingestion
 
 There are two major automated processes that can trigger ingestion of metadata into the Microsoft Purview Data Map:
 1. Automatic scans using native [connectors](azure-purview-connector-overview.md). This process includes three main steps:
@@ -75,7 +79,8 @@ There are two major automated processes that can trigger ingestion of metadata i
 2. Automated ingestion using Azure Data Factory and/or Azure Synapse pipelines. This process includes:
    - Ingestion of metadata and lineage into the Microsoft Purview Data Map if the account is connected to any Azure Data Factory or Azure Synapse pipelines.
 
-##### 1. Automatic scans using native connectors
+
+#### 1. Automatic scans using native connectors
 
 - A **full scan** processes all assets within a selected scope of a data source whereas an **incremental scan** detects and processes assets, which have been created, modified, or deleted since the previous successful scan 
 
@@ -99,11 +104,11 @@ There are two major automated processes that can trigger ingestion of metadata i
 
 - Align your scan schedules with Self-Hosted Integration Runtime (SHIR) VMs (Virtual Machines) size to avoid extra costs linked to virtual machines
 
-##### 2. Automated ingestion using Azure Data Factory and/or Azure Synapse pipelines
+#### 2. Automated ingestion using Azure Data Factory and/or Azure Synapse pipelines
 
 - metadata and lineage are ingested from Azure Data Factory or Azure Synapse pipelines every time the pipelines run in the source system.
 
-#### Advanced resource sets
+### Advanced resource sets
 
 - The Microsoft Purview Data Map uses **resource sets** to address the challenge of mapping large numbers of data assets to a single logical resource by providing the ability to scan all the files in the data lake and find patterns (GUID, localization patterns, etc.) to group them as a single asset in the data map
 
@@ -118,7 +123,7 @@ There are two major automated processes that can trigger ingestion of metadata i
 - It's important to note that billing for Advanced Resource Sets is based on the compute used by the offline tier to aggregate resource set information and is dependent on the size/number of resource sets in your catalog
 
 
-### Indirect costs   
+## Indirect costs   
 
 Indirect costs impacting Microsoft Purview (formerly Azure Purview) pricing to be considered are:
 

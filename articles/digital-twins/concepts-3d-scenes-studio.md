@@ -54,10 +54,10 @@ To work with 3D Scenes Studio, you'll need the following required resources:
     * You'll need *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance
     * The instance should be populated with [models](concepts-models.md) and [twins](concepts-twins-graph.md)
 
-* An [Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal), and a [private container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in the storage account
+* An [Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal), and a [private container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in the storage account
     * To **view** 3D scenes, you'll need at least *Storage Blob Data Reader* access to these storage resources. To **build** 3D scenes, you'll need *Storage Blob Data Contributor* or *Storage Blob Data Owner* access. 
 
-        You can grant required roles at either the storage account level or the container level. For more information about Azure storage permissions, see [Assign an Azure role](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal#assign-an-azure-role).
+        You can grant required roles at either the storage account level or the container level. For more information about Azure storage permissions, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
     * You should also configure [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. For complete CORS setting information, see [Use 3D Scenes Studio (preview)](how-to-use-3d-scenes-studio.md#prerequisites).
 
 Then, you can access 3D Scenes Studio at this link: [3D Scenes Studio](https://dev.explorer.azuredigitaltwins-test.net/3dscenes).
@@ -114,11 +114,7 @@ You can use the **Elements** list to explore all the elements and active alerts 
 
 3D Scenes Studio is extensible to support additional viewing needs. The [viewer component](#viewer) can be embedded into custom applications, and can work in conjunction with 3rd party components.
 
-Here's an example of what the embedded viewer might look like in an independent application:
-
-:::image type="content" source="media/concepts-3d-scenes-studio/embedded-view.png" alt-text="Screenshot of 3D Scenes Studio in embedded view." lightbox="media/concepts-3d-scenes-studio/embedded-view.png":::
-
-The 3D visualization components are available in GitHub, in the [iot-cardboard-js](https://github.com/microsoft/iot-cardboard-js) repository. For instructions on how to use the components to embed 3D experiences into custom applications, see the repository's wiki, [Embedding 3D Scenes](https://github.com/microsoft/iot-cardboard-js/wiki/Embedding-3D-Scenes).
+[!INCLUDE [digital-twins-3d-embed.md](../../includes/digital-twins-3d-embed.md)]
 
 ## Recommended limits
 
