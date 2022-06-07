@@ -102,6 +102,8 @@ If blob versioning and blob soft delete are both enabled for a storage account, 
 Enabling soft delete and versioning together protects blob versions from deletion. When soft delete is enabled, deleting a version creates a soft-deleted version. You can use the **Undelete Blob** operation to restore soft-deleted versions during the soft delete retention period. The **Undelete Blob** operation always restores all soft-deleted versions of the blob. It isn't possible to restore only a single soft-deleted version.
 
 After the soft-delete retention period has elapsed, any soft-deleted blob versions are permanently deleted.
+This statement "After the soft-delete retention period has elapsed, any soft-deleted blob versions are permanently deleted." is either unclear or NOT true.
+According to test result, after deletion of a blob that has both versioning and soft-delete enabled, the "deleted blob" will NOT being removed after soft-deleted retention period elapse. As this document mentioned : "When you call the Delete Blob operation without specifying a version ID, the current version becomes a previous version, and there is no longer a current version. All existing previous versions of the blob are preserved. "   https://docs.microsoft.com/en-us/azure/storage/blobs/versioning-overview#versioning-on-delete-operations
 
 > [!NOTE]
 > Calling the **Undelete Blob** operation on a deleted blob when versioning is enabled restores any soft-deleted versions or snapshots, but does not restore the current version. To restore the current version, promote a previous version by copying it to the current version.
