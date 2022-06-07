@@ -227,7 +227,7 @@ Provide the details of the private offer using the ISV to Customer private offer
 
 If you're using absolute pricing instead of percentage-based discounting, you can create a new resource above the private offer resource that defines the absolute pricing, then include that newly created resource as an additional object in the resources list of the configure schema.
 
-Use this method to obtain the pricing resource for your existing public plan and then edit the prices and use the edited resource for your private offer. 
+Use this method to obtain the pricing resource for your existing public plan, edit the prices, and then use the edited resource for your private offer. 
 
 `GET https://graph.microsoft.com/rp/product-ingestion/price-and-availability-private-offer-plan/{productId}?plan={planId}`
 
