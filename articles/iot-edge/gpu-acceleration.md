@@ -14,7 +14,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-GPUs are a popular choice for artificial intelligence computations, because they offer parallel processing capabilities and can often execute vision-based inferencing faster than CPUs. To better support artificial intelligence and machine learning applications, Azure IoT Edge for Linux on Windows can expose a GPU to the virtual machine's Linux module.
+GPUs are a popular choice for artificial intelligence computations, because they offer parallel processing capabilities and can often execute vision-based inferencing faster than CPUs. To better support artificial intelligence and machine learning applications, Azure IoT Edge for Linux on Windows (EFLOW) can expose a GPU to the virtual machine's Linux module.
 
 Azure IoT Edge for Linux on Windows supports several GPU passthrough technologies, including:
 
@@ -47,6 +47,8 @@ The supported GPUs and required Windows versions are listed below:
 >Windows Server 2019 users must use minimum build 17763 with all current cumulative updates installed.
 >
 >Windows 10 users must use the [November 2021 update](https://blogs.windows.com/windowsexperience/2021/11/16/how-to-get-the-windows-10-november-2021-update/) build 19044.1620 or higher. After installation, you can verify your build version by running `winver` at the command prompt.
+>
+> GPU Passthrough is not supported with nested virtualization, such as running EFLOW in a Windows virtual machine.
 
 
 ## System setup and installation
