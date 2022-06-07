@@ -39,7 +39,7 @@ The following workflow describes the high level steps in developing a custom ASI
 
 1. Identify the schemas or schemas that the events sent from the source represent. For more information, see [Schema overview](normalization-about-schemas.md).
 
-1. [Map](#mapping) the source event fields to the identified schema or schemas. 
+1. [Map](#planning-mapping) the source event fields to the identified schema or schemas. 
 
 1. [Develop](#developing-parsers) one or more ASIM parsers for your source. You'll need to develop a filtering parser and a parameter-less parser for each schema relevant to the source.
 
