@@ -200,6 +200,9 @@ You can verify the deployment by exploring the resource group from the Azure por
 1. Choose the resource group you created in the earlier procedure. The default name is **myResourceGroup**. The resource group doesn't have any resources yet because you deployed a blank template.
 
 1. Notice in the middle of the overview, in the **Essentials** section, the page displays the deployment status next to **Deployments**. Choose **1 Succeeded**.
+:::image type="content" source="./media/template-tutorial-create-first-template/view-deployment-summary.png":::
+
+
 
  :::image type="content" alt-text="View Deployment Summary" source="./media/template-tutorial-create-first-template/view-deployment-summary.png":::
 
