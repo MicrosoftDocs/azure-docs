@@ -132,3 +132,7 @@ The below claims will appear only in the attestation token generated for Intel®
   "x-ms-ver": "1.0" 
 } 
 ```
+
+## Next steps
+
+- [View examples of an attestation policy](policy-examples.md)
