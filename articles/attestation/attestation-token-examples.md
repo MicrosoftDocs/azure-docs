@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 Attestation policy is used to process the attestation evidence and determine whether Azure Attestation will issue an attestation token. Attestation token generation can be controlled with custom policies. Below are some examples of an attestation policy. 
 
-## Sample JWT generated for SGX attestation:
+## Sample JWT generated for SGX attestation
 
 ```
 {
@@ -83,7 +83,7 @@ The below claims will appear only in the attestation token generated for Intel®
 
 **x-ms-sgx-isv-family-id**
 
-## Sample JWT generated for SEV-SNP attestation:
+## Sample JWT generated for SEV-SNP attestation
 
 ```
 { 
