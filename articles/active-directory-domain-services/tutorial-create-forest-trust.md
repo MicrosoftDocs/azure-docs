@@ -17,7 +17,10 @@ ms.author: justinha
 
 # Tutorial: Create an outbound forest trust to an on-premises domain in Azure Active Directory Domain Services
 
-You can create a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. 
+You can create a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. A forest trust can help users access resources in scenarios such:
+
+- Using a resource forest in environments where you can't synchronize password hashes, or where users exclusively sign in using smart cards and don't know their password.
+- Using a user forest to provide access to another on-premises domain that is not used to synchronize users and groups to Azure AD DS.   
 
 ![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/tutorial-create-forest-trust/forest-trust-relationship.png)
 
