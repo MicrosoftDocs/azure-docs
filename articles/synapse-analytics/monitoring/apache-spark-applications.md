@@ -22,7 +22,7 @@ This article explains how to monitor your Apache Spark applications, allowing yo
 
 You can view all Apache Spark applications from **Monitor** -> **Apache Spark applications**.
 
-   ![Screenshot of Apache Spark applications.](./media/how-to-monitor-spark-applications/apache-spark-applications.png)
+  ![Screenshot of Apache Spark applications.](./media/how-to-monitor-spark-applications/apache-spark-applications.png)
 
 ## View completed Apache Spark applications
 
@@ -52,7 +52,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 11. Use scroll bar to zoom in and zoom out the job graph, you can also select **Zoom to Fit** to make it fit the screen.
 
-   [![Screenshot of completed job.](./media/how-to-monitor-spark-applications/view-completed-job.png)](./media/how-to-monitor-spark-applications/view-completed-job.png#lightbox)
+  [![Screenshot of completed job.](./media/how-to-monitor-spark-applications/view-completed-job.png)](./media/how-to-monitor-spark-applications/view-completed-job.png#lightbox)
 
 12. The job graph node displays the following information of each stage:
 
@@ -95,7 +95,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 Open **Monitor**, then select **Apache Spark applications**. To view the details about the Apache Spark applications that are running, select the submitted Apache Spark application. If the Apache Spark application is still running, you can monitor the progress.
 
-   ![Screenshot of selected running job](./media/how-to-monitor-spark-applications/select-running-job.png)
+  ![Screenshot of selected running job](./media/how-to-monitor-spark-applications/select-running-job.png)
 
 1. Check the **Completed tasks**, **Status**, and **Total duration**.
 
@@ -107,13 +107,13 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 5. For **Job graph**, **Summary**, **Diagnostics**, **Logs**. You can see an overview of your job in the generated job graph. Refer to steps 5 - 15 of [View completed Apache Spark applications](#view-completed-apache-spark-applications). 
 
-    [![Screenshot of running job.](./media/how-to-monitor-spark-applications/view-running-job.png)](./media/how-to-monitor-spark-applications/view-running-job.png#lightbox)
+  [![Screenshot of running job.](./media/how-to-monitor-spark-applications/view-running-job.png)](./media/how-to-monitor-spark-applications/view-running-job.png#lightbox)
 
 ## View canceled Apache Spark applications
 
 Open **Monitor**, then select **Apache Spark applications**. To view the details about the canceled Apache Spark applications, select the Apache Spark application.
 
- ![Screenshot of canceled job.](./media/how-to-monitor-spark-applications/select-cancelled-job.png) 
+  ![Screenshot of canceled job.](./media/how-to-monitor-spark-applications/select-cancelled-job.png) 
 
 1. Check the **Completed tasks**, **Status**, and **Total duration**.
 
@@ -131,7 +131,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 Open **Monitor**, then select **Apache Spark applications**. To view the details about the failed Apache Spark applications, select the Apache Spark application.
 
-![Screenshot of failed job.](./media/how-to-monitor-spark-applications/select-failed-job.png)
+  ![Screenshot of failed job.](./media/how-to-monitor-spark-applications/select-failed-job.png)
 
 1. Check the **Completed tasks**, **Status**, and **Total duration**.
 
@@ -143,7 +143,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 5. View the graph. You can see an overview of your job in the generated job graph. Refer to steps 5 - 15 of [View completed Apache Spark applications](#view-completed-apache-spark-applications).
 
-   [![Screenshot of failed job details.](./media/how-to-monitor-spark-applications/failed-job-info.png)](./media/how-to-monitor-spark-applications/failed-job-info.png#lightbox)
+  [![Screenshot of failed job details.](./media/how-to-monitor-spark-applications/failed-job-info.png)](./media/how-to-monitor-spark-applications/failed-job-info.png#lightbox)
 
 
 ## View input data/output data
@@ -162,7 +162,7 @@ Select an Apache Spark application, and click on **Input data/Output data tab** 
 
 5. Use the mouse to hover over an input file, the icon of the **Download/Copy path/More** button will appear.
 
-   ![Screenshot of input tab.](./media/how-to-monitor-spark-applications/input-tab.png)
+  ![Screenshot of input tab.](./media/how-to-monitor-spark-applications/input-tab.png)
 
 6. Click on **More** button. The **Copy path/Show in explorer/Properties** will appear in the context menu.
       
