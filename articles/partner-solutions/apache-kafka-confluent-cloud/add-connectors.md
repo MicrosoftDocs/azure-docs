@@ -19,6 +19,8 @@ To set up your connector, see [Azure Cosmos DB Sink Connector for Confluent Clou
 
 **Azure Cosmos DB Self Managed connector** must be installed manually. First download an uber JAR from the [Cosmos DB Releases page](https://github.com/microsoft/kafka-connect-cosmosdb/releases). Or, you can [build your own uber JAR directly from the source code](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/README_Sink.md#install-sink-connector). Complete the installation by following the guidance described in the Confluent documentation for [installing connectors manually](https://docs.confluent.io/home/connect/install.html#install-connector-manually).  
 
+**Azure Functions Kafka Trigger extension** You can use the Apache Kafka trigger in Azure Functions to run your function code in response to messages in Kafka topics. You can also use a Kafka output binding to write from your function to a topic. For information on setup and configuration details, see Apache Kafka bindings for Azure Functions overview.
+
 ## Next steps
 
 For help with troubleshooting, see [Troubleshooting Apache Kafka for Confluent Cloud solutions](troubleshoot.md).
