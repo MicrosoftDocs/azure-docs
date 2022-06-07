@@ -78,7 +78,7 @@ Windows 10 users must also [install WSL](/windows/wsl/install) because some of t
 Once system setup is complete, you are ready to [create your deployment of Azure IoT Edge for Linux on Windows](how-to-install-iot-edge-on-windows.md). During this process, you must [enable GPU](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow) as part of EFLOW deployment.
 
 For example, the command below creates a virtual machine with an NVIDIA A2 GPU assigned.
-   >   ```powershell
+      ```powershell
    >   Deploy-Eflow -gpuPassthroughType "DirectDeviceAssignment" -gpuCount 1 -gpuName "NVIDIA A2"
    >   ```
 
