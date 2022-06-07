@@ -6,7 +6,7 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/13/2022
+ms.date: 06/07/2022
 ms.author: mikaelw
 ---
 
@@ -18,6 +18,17 @@ ms.author: mikaelw
 >For more information about Azure Health Data Services Service Level Agreements, see [SLA for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
+
+## May 2022
+
+### FHIR service
+
+### **Bug fixes**
+
+|Bug fixes |Related information |
+| :----------------------------------- | ---------------: |
+|Removes SQL retry on upsert  |Removes retry on SQL command for upsert. The error still occurs, but data is saved correctly in success cases. For more information, see [#2571](https://github.com/microsoft/fhir-server/pull/2571). |
+|Added handling for SqlTruncate errors  |Added a check for SqlTruncate exceptions and tests. In particular, this will catch SqlTruncate exceptions for Decimal type based on the specified precision and scale. For more information, see [#2553](https://github.com/microsoft/fhir-server/pull/2553). |
 
 ## April 2022
 
@@ -271,3 +282,5 @@ For information about the features and bug fixes in Azure API for FHIR, see
 
 >[!div class="nextstepaction"]
 >[Release notes: Azure API for FHIR](./azure-api-for-fhir/release-notes.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
