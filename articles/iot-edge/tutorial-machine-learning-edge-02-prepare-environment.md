@@ -193,7 +193,7 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. Expand the **Storage** section:
 
-   :::image type="content" source="./media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png" alt-text="Screenshot of the storage called turbofanDeviceStorage in the custom endpoints list in the IoT Hub portal." lightbox="media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png":::
+   :::image type="content" source="./media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png" alt-text="Screenshot of the storage called turbofanDeviceStorage in the custom endpoints list in the I o T Hub portal." lightbox="media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png":::
 
    We see **turbofanDeviceStorage** is in the custom endpoints list. Note the following characteristics about this endpoint:
 
