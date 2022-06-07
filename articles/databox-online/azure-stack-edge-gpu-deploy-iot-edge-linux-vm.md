@@ -45,9 +45,9 @@ Before you begin, make sure you have:
 
 To connect your device to IoT Hub without Azure IoT Device Provisioning Service, the process in this section will walk you through to prepare a cloud-init script that would be used during the VM creation advance page to deploy the IoT Edge runtime and Nvidia’s container runtime (if applicable).  
 
-1. Use existing IoT Hub or create a new Hub. Use these steps to [create the IoT Hub](Need best target URL here...).
+1. Use an existing IoT Hub or create a new Hub. Use these steps to [create the IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 
-1. Use these steps to [register your Azure Stack Edge device in IoT Hub](https://docs.microsoft.com/azure/iot-edge/how-to-provision-single-device-linux-symmetric?view=iotedge-2020-11&tabs=azure-portal%2Cubuntu%22%20%5Cl%20%22register-your-device#register-your-device). 
+1. Use these steps to [register your Azure Stack Edge device in IoT Hub](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&tabs=azure-portal%2Cubuntu#register-your-device).
 
 1. Retrieve the primary connection string from IoT Hub for your device, and then paste it into the appropriate location below.
 
@@ -139,7 +139,7 @@ Use steps in this section to connect your device to Device Provisioning Service/
 
 1. Use the existing IoT Hub and Device Provisioning Service, or create a new IoT Hub. 
 
-   - [Create the IoT Hub]() and [create Device Provisioning Service]().
+   - [Create the IoT Hub](../iot-hub/iot-hub-create-through-portal.md)) and [create Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md).
    - [Link the IoT Hub to the Device Provisioning Service scope](https://docs.microsoft.com/azure/iot-dps/quick-setup-auto-provision).
 
 1. Go to the Device Provisioning Service resource and create an individual enrollment.  
@@ -228,15 +228,14 @@ Begin by deploying IoT Edge runtime. Follow these high-level steps to deploy IoT
 1. Create an Ubuntu VM using the VM image created in the previous step. Depending on whether you're creating a GPU-enabled VM or a non-GPU VM, you would need to follow a different set of steps.
  
 > [!IMPORTANT]
-> **DO NOT** create the VM until you read through the steps to auto-deploy the IoT Edge runtime. If the advance page step is missed, which allows you to apply a *cloud-init* script, you will have to manually deploy the IoT Edge runtime by SSH into the VM after the VM is created. To manually install the container engine in the Ubuntu VM, use the steps in [Create and provision an IoT Edge device on Linux using symmetric keys](https://docs.microsoft.com/azure/iot-edge/how-to-provision-single-device-linux-symmetric?view=iotedge-2020-11&tabs=azure-portal%2Cubuntu%22%20%5Cl%20%22install-a-container-engine) or [Quickstart - Set up IoT Hub Device Provisioning Service with the Microsoft Azure portal](https://docs.microsoft.com/azure/iot-dps/quick-setup-auto-provision).
+> **DO NOT** create the VM until you read through the steps to auto-deploy the IoT Edge runtime. If the advance page step is missed, which allows you to apply a *cloud-init* script, you will have to manually deploy the IoT Edge runtime by SSH into the VM after the VM is created. To manually install the container engine in the Ubuntu VM, use the steps in [Create and provision an IoT Edge device on Linux using symmetric keys](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&tabs=azure-portal%2Cubuntu%22%20%5Cl%20%22install-a-container-engine) or [Quickstart - Set up IoT Hub Device Provisioning Service with the Microsoft Azure portal](../iot-dps/quick-setup-auto-provision.md).
 
-       
-    |VM type       |Deployment procedure                                                                      |
-    |--------------|------------------------------------------------------------------------------------------|
-    |Non-GPU VM    | [Deploy via Azure portal (preview)](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)                                                                                                       |
-    |Non-GPU VM    | [Deploy via VM templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md)                                                                                                       |
-    |GPU VM        | [Deploy via Azure portal](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=portal&preserve-view=true)                                                                                       |
-    |GPU VM        | [Deploy VM via VM templates](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=templates&preserve-view=true)                                                                                       | 
+|VM type  |Deployment procedure|
+|----------|-----------|------------|
+|Non-GPU VM  | [Deploy via Azure portal (preview)](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)  |
+|Non-GPU VM  | [Deploy via VM templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md)  |
+| GPU VM  | [Deploy via Azure portal](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=portal&preserve-view=true)  |
+| GPU VM  | [Deploy VM via VM templates](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=templates&preserve-view=true)  |
 
 For ease of deployment, we recommend that you use the following step to deploy the VM via the Azure portal.
 
