@@ -12,6 +12,9 @@
       href: orchestration-modes-api-comparison.md
     - name: Flexible orchestration
       href: flexible-virtual-machine-scale-sets.md
+  - name: Scale Set FAQ
+    href: virtual-machine-scale-sets-faq.yml
+  expanded: true
 - name: Quickstarts
   items:
   - name: Create in the Azure portal
@@ -302,6 +305,20 @@
     href: virtual-machine-scale-sets-terminate-notification.md
 - name: Reference
   items:
+  - name: Common management tasks
+    items:
+    - name: Use the Azure CLI
+      href: virtual-machine-scale-sets-manage-cli.md
+    - name: Use Azure PowerShell
+      href: virtual-machine-scale-sets-manage-powershell.md
+    - name: Modify a scale set
+      href: virtual-machine-scale-sets-upgrade-scale-set.md
+    - name: Networking for scale sets
+      href: virtual-machine-scale-sets-networking.md
+    - name: Using DSC and scale sets
+      href: virtual-machine-scale-sets-dsc.md
+    - name: Convert a template to managed disks
+      href: virtual-machine-scale-sets-convert-template-to-md.md
   - name: Azure CLI
     href: /cli/azure/vmss
   - name: Azure PowerShell
@@ -351,19 +368,3 @@
       href: ../virtual-machines/windows/faq.yml
 - name: Support and troubleshooting
   href: vmss-support-help.md
-- name: Scale Set FAQ
-  href: virtual-machine-scale-sets-faq.yml
-- name: Common management tasks
-  items:
-  - name: Use the Azure CLI
-    href: virtual-machine-scale-sets-manage-cli.md
-  - name: Use Azure PowerShell
-    href: virtual-machine-scale-sets-manage-powershell.md
-  - name: Modify a scale set
-    href: virtual-machine-scale-sets-upgrade-scale-set.md
-  - name: Networking for scale sets
-    href: virtual-machine-scale-sets-networking.md
-  - name: Using DSC and scale sets
-    href: virtual-machine-scale-sets-dsc.md
-  - name: Convert a template to managed disks
-    href: virtual-machine-scale-sets-convert-template-to-md.md
