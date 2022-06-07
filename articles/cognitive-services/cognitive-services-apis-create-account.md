@@ -111,10 +111,11 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
     :::image type="content" source="media/cognitive-services-apis-create-account/cognitive-services-resource-deployed.png" alt-text="Get resource keys screen":::
 
 1. From the quickstart pane that opens, you can access the resource endpoint and manage keys.
-
+<!--
 1. If you missed the previous steps or need to find your resource later, go to the [Azure services](https://ms.portal.azure.com/#home) home page. From here you can view recent resources, select **My resources**, or use the search box to find your resource by name.
 
     :::image type="content" source="media/cognitive-services-apis-create-account/home-my-resources.png" alt-text="Find resource keys from home screen":::
+-->
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
