@@ -50,7 +50,7 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
 
     # [Azure CLI](#tab/azure-cli)
 
-    Get the Private Cloud resource id and save it to a variable. You will need this value in the next step to update resource with system assigned identity.
+    Get the private cloud resource id and save it to a variable. You will need this value in the next step to update resource with system assigned identity.
     
     `privateCloudId=$(az vmware private-cloud show --name $privateCloudName --resource-group $resourceGroupName --query id | tr -d '"')`
      
@@ -69,8 +69,8 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
     1. From the left navigation, under **Settings**, select **Access policies**.
     1. In **Access policies**, select **Add Access Policy**.
         1. From the Key Permissions drop-down, check **Select all**, **Unwrap Key**, and **Wrap key**.
-        1. Under Select principal, click on **None selected**. This will pull up a **Principal** window with a search box.
-        1. In the search box, paste the **Object ID** from the previous step or search the private cloud name you want to use. Choose **Select** when you're done.
+        1. Under Select principal, click on **None selected**. This will pull up the **Principal** window with a search box.
+        1. In the search box, paste the **Object ID** from the previous step, or search the private cloud name you want to use. Choose **Select** when you're done.
         1. Select **ADD**.
         1. Verify the new policy appears under the current policy's Application section.
         1. Select **Save** to commit changes.
@@ -107,7 +107,7 @@ Navigate to your **Azure Key Vault** and provide access to the SDDC on Azure Key
 
     1. Under **Encryption key**, choose the **select from Key Vault** button.
     1. Select the encryption type, then the **Select Key Vault and key** option.
-    1. Select the Key Vault and key from the drop-down, click **Select**.
+    1. Select the **Key Vault and key** from the drop-down, then click **Select**.
     
     **Option 2**
 
@@ -115,13 +115,13 @@ Navigate to your **Azure Key Vault** and provide access to the SDDC on Azure Key
       1. Enter a specific Key URI in the **Key URI** box.
 
     > [!IMPORTANT]
-    > If you'd like to select a specific key version instead of the auto selected latest version, you'll need to specify the key URI with key version. This will affect the CMK key version life cycle.
+    > If you want to select a specific key version instead of the auto selected latest version, you'll need to specify the key URI with key version. This will affect the CMK key version life cycle.
 
 1. Select **Save** to grant access to the resource.
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure customer-managed keys for a Azure VMware Solution Private Cloud with automatic updating of the key version, call [az vmware private-cloud add-cmk-encryption](https://docs.microsoft.com/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-add-cmk-encryption). Option 1  as shown in the following example without providing specific key version. Supply key version as argument to use customer-managed keys with specific key version as mentioned in option 2.
+To configure customer-managed keys for an Azure VMware Solution private cloud with automatic updating of the key version, call [az vmware private-cloud add-cmk-encryption](https://docs.microsoft.com/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-add-cmk-encryption). Option 1  as shown in the following example without providing specific key version. Supply key version as argument to use customer-managed keys with specific key version as mentioned in option 2.
 
 `keyVaultUrl =$(az keyvault show --name <keyvault_name> --resource-group <resource_group_name> --query properties.vaultUri --output tsv)`
 
