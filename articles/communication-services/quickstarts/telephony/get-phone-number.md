@@ -39,8 +39,8 @@ zone_pivot_groups: acs-azp-java-net-python-csharp-js-azcli
 [!INCLUDE [JavaScript](./includes/phone-numbers-js.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-azurecli"
-[!INCLUDE [Azure CLI](./includes/phone-numbers-azurecli.md)]
+::: zone pivot="programming-language-azcli"
+[!INCLUDE [Azure CLI](./includes/phone-numbers-azcli.md)]
 ::: zone-end
 
 ## Troubleshooting
