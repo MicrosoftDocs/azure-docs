@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Linux Java app with Quarkus and PostgreSQL'
 description: Learn how to get a data-driven Linux Quarkus app working in Azure App Service, with connection to a PostgreSQL running in Azure.
-author: dbrittain
+author: denvermb
 ms.author: dbrittain
 ms.devlang: java
 ms.topic: tutorial
@@ -251,8 +251,8 @@ az webapp browse \
     --name $WEBAPP_NAME
 ```
 
-> [!TIP] You can also manually open the location in your browser at `http://<webapp-name>.azurewebsites.net`.
-It may take a minute or so to upload the app and restart the App Service.
+> [!TIP]
+> You can also manually open the location in your browser at `http://<webapp-name>.azurewebsites.net`. It may take a minute or so to upload the app and restart the App Service.
 
 You should see the app running with the remote URL in the address bar:
 
