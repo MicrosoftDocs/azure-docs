@@ -18,7 +18,7 @@ The network controls align with the Australian Cyber Security Centre (ACSC) Cons
 
 ## Requirements
 
-The overall security requirements for Commonwealth systems are defined in the ISM. To assist Commonwealth entities in implementing network security, the ACSC has published [ACSC Protect: Implementing Network Segmentation and Segregation](https://www.acsc.gov.au/publications/protect/network_segmentation_segregation.htm), and to assist with securing systems in Cloud environments the ACSC has published [Cloud Computing Security for Tenants](https://www.cyber.gov.au/publications/cloud-computing-security-for-tenants).
+The overall security requirements for Commonwealth systems are defined in the ISM. To assist Commonwealth entities in implementing network security, the ACSC has published [ACSC Protect: Implementing Network Segmentation and Segregation](https://www.cyber.gov.au/acsc/view-all-content/publications/implementing-network-segmentation-and-segregation), and to assist with securing systems in Cloud environments the ACSC has published [Cloud Computing Security for Tenants](https://www.cyber.gov.au/publications/cloud-computing-security-for-tenants).
 
 These guides outline the context for implementing network security and controlling traffic and include practical recommendations for network design and configuration.
 
@@ -118,8 +118,8 @@ To design and build secure solutions within Azure, it is critical to understand 
 |---|---|
 |Australian Regulatory and Policy Compliance Documents including Consumer Guidance|[https://aka.ms/au-irap](https://aka.ms/au-irap)|
 |Azure Virtual Data Center|[https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter](/azure/architecture/vdc/networking-virtual-datacenter)|
-|ACSC Network Segmentation|[https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm](https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm)|
-|ACSC Cloud Security for Tenants| [https://acsc.gov.au/publications/protect/cloud-security-tenants.htm](https://acsc.gov.au/publications/protect/cloud-security-tenants.htm)|
+|ACSC Network Segmentation|[https://www.cyber.gov.au/acsc/view-all-content/publications/implementing-network-segmentation-and-segregation](https://www.cyber.gov.au/acsc/view-all-content/publications/implementing-network-segmentation-and-segregation)|
+|ACSC Cloud Security for Tenants| [https://www.cyber.gov.au/acsc/view-all-content/publications/cloud-computing-security-tenants](https://www.cyber.gov.au/acsc/view-all-content/publications/cloud-computing-security-tenants)|
 |ACSC Information Security Manual|[https://acsc.gov.au/infosec/ism/index.htm](https://acsc.gov.au/infosec/ism/index.htm)|
 
 ## Component guidance
