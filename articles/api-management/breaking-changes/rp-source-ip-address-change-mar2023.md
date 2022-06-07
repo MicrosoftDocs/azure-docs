@@ -85,5 +85,5 @@ Finally, check for any other systems that may impact the communication from the 
 <!-- Links -->
 [Configure NSG Rules]: ../api-management-using-with-internal-vnet.md#configure-nsg-rules
 [Virtual Network]: ../../virtual-network/index.yml
-[Force tunneling traffic]: ../api-management-using-with-internal-vnet.md#force-tunneling-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance
+[Force tunneling traffic]: ../api-management-using-with-internal-vnet.md#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance
 [Create, change, or delete a network security group]: ../../virtual-network/manage-network-security-group.md
