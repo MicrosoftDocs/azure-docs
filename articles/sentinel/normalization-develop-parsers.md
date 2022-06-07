@@ -314,7 +314,7 @@ The following KQL operators are used to select fields in your results set:
 |**project-away**     |      Removes fields.   | Use `project-away` for specific fields that you want to remove from the result set. We recommend not removing the original fields that are not normalized from the result set, unless they create confusion or are very large and may have performance implications.   |
 |**project**     |  Selects fields that existed before, or were created as part of the statement, and removes all other fields.       | Not recommended for use in a parser, as the parser should not remove any other fields that are not normalized. <br><br>If you need to remove specific fields, such as temporary values used during parsing, use `project-away` to remove them from the results.      |
 
-For example, when parsing a custom log table, use the following to remove the remaining original fields that sill have a type descriptor:
+For example, when parsing a custom log table, use the following to remove the remaining original fields that still have a type descriptor:
 
 ```KQL
     | project-away
