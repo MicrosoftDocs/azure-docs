@@ -148,4 +148,4 @@ For most resources in Azure, platform metrics are stored for 93 days. There are 
 
 - Learn more about the [Azure Monitor data platform](../data-platform.md).
 - Learn about [log data in Azure Monitor](../logs/data-platform-logs.md).
-- Learn about the [monitoring data available](../agents/data-sources.md) for various resources in Azure.
+- Learn about the [monitoring data available](../data-sources.md) for various resources in Azure.

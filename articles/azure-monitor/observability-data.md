@@ -57,4 +57,4 @@ Read more about distributed tracing at [What is Distributed Tracing?](app/distri
 
 - Read more about [Metrics in Azure Monitor](essentials/data-platform-metrics.md).
 - Read more about [Logs in Azure Monitor](logs/data-platform-logs.md).
-- Learn about the [monitoring data available](agents/data-sources.md) for different resources in Azure.
+- Learn about the [monitoring data available](data-sources.md) for different resources in Azure.

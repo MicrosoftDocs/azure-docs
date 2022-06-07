@@ -4,13 +4,13 @@ description: Use data collection endpoints to uniquely configure ingestion setti
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 3/16/2022
+ms.date: 06/06/2022
 ms.custom: references_region
 
 ---
 
 # Using data collection endpoints with Azure Monitor agent
-[Data Collection Endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md) allow you to uniquely configure ingestion settings for your machines, giving you greater control over your networking requirements. 
+[Data Collection Endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md) allow you to uniquely configure ingestion settings for your machines, giving you greater control over your networking requirements. If you don't specify a DCE for an agent, then it will connect to a 
 
 ## Create data collection endpoint
 See [Data collection endpoints in Azure Monitor](../essentials/data-collection-endpoint-overview.md) for details on data collection endpoints and how to create them.

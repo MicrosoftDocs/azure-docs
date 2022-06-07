@@ -38,7 +38,7 @@ Azure Monitor collects data from a variety of sources using legacy methods. This
 
 
 ## Collect monitoring data
-Different [sources of data for Azure Monitor](agents/data-sources.md) will write to either a Log Analytics workspace (Logs) or the Azure Monitor metrics database (Metrics) or both. Some sources will write directly to these data stores, while others may write to another location such as Azure storage and require some configuration to populate logs or metrics. 
+Different [sources of data for Azure Monitor](data-sources.md) will write to either a Log Analytics workspace (Logs) or the Azure Monitor metrics database (Metrics) or both. Some sources will write directly to these data stores, while others may write to another location such as Azure storage and require some configuration to populate logs or metrics. 
 
 See [Metrics in Azure Monitor](essentials/data-platform-metrics.md) and [Logs in Azure Monitor](logs/data-platform-logs.md) for a listing of different data sources that populate each type.
 
@@ -55,4 +55,4 @@ Azure Monitor is in the process of implementing a new data flow pipeline for col
 
 - Read more about [Metrics in Azure Monitor](essentials/data-platform-metrics.md).
 - Read more about [Logs in Azure Monitor](logs/data-platform-logs.md).
-- Learn about the [monitoring data available](agents/data-sources.md) for different resources in Azure.
+- Learn about the [monitoring data available](data-sources.md) for different resources in Azure.
