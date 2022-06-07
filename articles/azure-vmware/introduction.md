@@ -2,6 +2,7 @@
 title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure. Azure VMware Solution SLA guarantees that Azure VMware management tools (vCenter Server and NSX Manager) will be available at least 99.9% of the time.
 ms.topic: overview
+ms.service: azure-vmware
 ms.date: 04/20/2021
 ---
 
