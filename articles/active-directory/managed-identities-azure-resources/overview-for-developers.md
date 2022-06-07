@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a developer, I'd like to securely manage the credentials that my application uses for authenticating to cloud services without having the credentials in my code or checked into source control.
 ---
 
-# How can I connect to Azure resources in my application without handling credentials?
+# Connecting from applications to Azure resources without handling credentials
 
 This page explains how developers can use Managed identities so that Azure resources can connect to resources that support authentication with Azure Active Directory, without needing to handle or store any credentials. This is the recommended approach for Azure resources that support the ability to authentiate using a managed identity.
 
