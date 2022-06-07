@@ -22,7 +22,7 @@ You can create a one-way outbound trust from Azure AD DS to one or more on-premi
 - Environments where you can't synchronize password hashes, or where users exclusively sign in using smart cards and don't know their password.
 - Hybrid scenarios that still require access to on-premises domains.
 
-Trusts can be created in both resource forest and user forest domain types. The resource forest domain type will automatically block sync for any user accounts that were synchronized to Azure AD DS from an on-premises domain. This is the safest domain type to use for trusts as it ensures that there will be no UPN collisions when users are authenticating. Trusts created in a user forest will are not inherently safe but allow you more flexibility in what gets synchronized from Azure AD.
+Trusts can be created in both resource forest and user forest domain types. The resource forest domain type will automatically block sync for any user accounts that were synchronized to Azure AD DS from an on-premises domain. This is the safest domain type to use for trusts as it ensures that there will be no UPN collisions when users are authenticating. Trusts created in a user forest are not inherently safe but allow you more flexibility in what gets synchronized from Azure AD.
 
 ![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/tutorial-create-forest-trust/forest-trust-relationship.png)
 

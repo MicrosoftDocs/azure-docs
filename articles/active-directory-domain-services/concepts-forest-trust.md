@@ -13,7 +13,7 @@ ms.date: 06/07/2021
 ms.author: justinha
 ---
 
-# How trust relationships work for forests in Azure Active Directory Domain Services
+# How trust relationships work for forests in Active Directory 
 
 Active Directory Domain Services (AD DS) provides security across multiple domains or forests through domain and forest trust relationships. Before authentication can occur across trusts, Windows must first check if the domain being requested by a user, computer, or service has a trust relationship with the domain of the requesting account.
 
@@ -21,7 +21,10 @@ To check for this trust relationship, the Windows security system computes a tru
 
 The access control mechanisms provided by AD DS and the Windows distributed security model provide an environment for the operation of domain and forest trusts. For these trusts to work properly, every resource or computer must have a direct trust path to a DC in the domain in which it is located.
 
-The trust path is implemented by the Net Logon service using  an authenticated remote procedure call (RPC) connection to the trusted domain authority. A secured channel also extends to other AD DS domains through interdomain trust relationships. This secured channel is used to obtain and verify security information, including security identifiers (SIDs) for users and groups.
+The trust path is implemented by the Net Logon service using an authenticated remote procedure call (RPC) connection to the trusted domain authority. A secured channel also extends to other AD DS domains through interdomain trust relationships. This secured channel is used to obtain and verify security information, including security identifiers (SIDs) for users and groups.
+
+>[!NOTE]
+>Azure AD DS only supports one-way transitive trusts where the managed domain will trust other domains, but no other directions or trust types are supported.
 
 For an overview of how trusts apply to Azure AD DS, see [Forest concepts and features][create-forest-trust].
 
