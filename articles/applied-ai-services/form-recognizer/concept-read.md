@@ -50,7 +50,7 @@ Try extracting text from forms and documents using the Form Recognizer Studio. Y
 ### Form Recognizer Studio (preview)
 
 > [!NOTE]
-> Form Recognizer studio currently does'nt support Microsoft Word, Excel, PowerPoint, and HTML file formats in the Read preview.
+> Form Recognizer studio currently doesn't support Microsoft Word, Excel, PowerPoint, and HTML file formats in the Read preview.
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/read)***
 
