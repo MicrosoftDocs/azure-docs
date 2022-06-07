@@ -28,7 +28,7 @@
   href: ./data/overview.md
 - name: Azure Arc-enabled VMware vSphere >
   href: ./vmware-vsphere/overview.md
-- name: Azure Arc-enabled System Center Virtual Machine Manager  >
+- name: Azure Arc-enabled System Center Virtual Machine Manager (preview)  >
   href: ./system-center-virtual-machine-manager/overview.md
 - name: Azure Arc-enabled VMs on Azure Stack HCI >
   href: /azure-stack/hci/manage/azure-arc-enabled-virtual-machines

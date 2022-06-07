@@ -4,6 +4,7 @@ description: This article provides guidance on how to enable Azure Monitor on ap
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.devlang: csharp, javascript, python
+ms.reviewer: mmcc
 ---
 
 # Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)

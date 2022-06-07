@@ -52,12 +52,9 @@ However, these external scalers aren't supported as part of the add-on and rely 
 
 <!-- LINKS - internal -->
 [aks-support-policy]: support-policies.md
-[azure-monitor]: ../azure-monitor/overview.md
-[azure-monitor-container-insights]: ../azure-monitor/containers/container-insights-onboard.md
 [keda-arm]: keda-deploy-add-on-arm.md
 
 <!-- LINKS - external -->
-[keda-scalers]: https://keda.sh/docs/scalers/
-[keda-metrics]: https://keda.sh/docs/latest/operate/prometheus/
-[keda-event-docs]: https://keda.sh/docs/2.7/operate/events/
+[keda-scalers]: https://keda.sh/docs/latest/scalers/
+[keda-event-docs]: https://keda.sh/docs/latest/operate/events/
 [keda-sample]: https://github.com/kedacore/sample-dotnet-worker-servicebus-queue

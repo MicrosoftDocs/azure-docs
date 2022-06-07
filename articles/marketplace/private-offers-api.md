@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.topic: article
 author: rigonzales
 ms.author: rigonzales
-ms.date: 06/03/2022
+ms.date: 06/07/2022
 ---
 
 # Create and manage private offers via API (preview)
@@ -227,6 +227,10 @@ Provide the details of the private offer using the ISV to Customer private offer
 
 If you're using absolute pricing instead of percentage-based discounting, you can create a new resource above the private offer resource that defines the absolute pricing, then include that newly created resource as an additional object in the resources list of the configure schema.
 
+Use this method to obtain the pricing resource for your existing public plan, edit the prices, and then use the edited resource for your private offer. 
+
+`GET https://graph.microsoft.com/rp/product-ingestion/price-and-availability-private-offer-plan/{productId}?plan={planId}`
+
 Sample absolute pricing resource:
 
 ```json
@@ -434,6 +438,7 @@ There are no parameters for this method.
         {
             "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2",
             "id": "private-offer/456e-a345-c457-1234",
+            "name": "privateOffercustomer1705",
             "state": "deleted"
         }
     ]
@@ -492,6 +497,7 @@ There are no parameters for this method.
          {
             "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2",
             "id": "private-offer/456e-a345-c457-1234",
+            "name": "privateOffercustomer1705", 
             "state": "withdrawn"
         }
     ]
