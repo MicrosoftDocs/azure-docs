@@ -43,7 +43,7 @@ With this configuration, only files 1 through 4 would be stored in the local cac
 |File 3    | 1 year ago | 200 GiB | Server and Azure file share
 |File 4    | 1 year, 2 days ago | 120 GiB | Azure file share, tiered locally
 
-**Change 3:** Let's say you updated the policies so that the date-based tiering policy is 60 days and the volume free space policy is 70%. Now, only up to 150 GiB can be stored in the local cache. Although File 2 has been accessed less than 60 days ago, the volume free space policy will override the date policy, and file 2 is tiered to maintain the 70% local free space.
+**Change 3:** Imagine you updated the policies so that the date-based tiering policy is 60 days and the volume free space policy is 70%. Now, only up to 150 GiB can be stored in the local cache. Although File 2 has been accessed less than 60 days ago, the volume free space policy will override the date policy, and file 2 is tiered to maintain the 70% local free space.
 
 **Change 4:** If you changed the volume free space policy to 20% and then used `Invoke-StorageSyncFileRecall` to recall all the files that fit on the local drive while adhering to the cloud tiering policies, the table would look like this:
 
