@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: Create an Azure Maps account secured with SAS token authentication.
 author: stack111
 ms.author: dstack
-ms.date: 06/01/2022
+ms.date: 06/08/2022
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -41,7 +41,7 @@ The following example scenario uses two Azure Resource Manager (ARM) template de
 1. Create a key vault.
 1. Create a user-assigned managed identity.
 1. Assign Azure role-based access control (RBAC) **Azure Maps Data Reader** role to the user-assigned managed identity.
-1. Create an Azure Maps account with a Cross Origin Resource Sharing (CORS) configuration, and attach the user-assigned managed identity.
+1. Create an Azure Maps account with a [Cross Origin Resource Sharing (CORS) configuration](azure-maps-authentication.md#cross-origin-resource-sharing-cors), and attach the user-assigned managed identity.
 1. Create and save a SAS token in the Azure key vault.
 1. Retrieve the SAS token secret from the key vault.
 1. Create an Azure Maps REST API request that uses the SAS token.
@@ -163,11 +163,11 @@ The following steps describe how to create and configure an Azure Maps account w
     
     ```
 
-1. Deploy the prerequisite resources you created in the previous step. Make sure to use the same location as the Azure Maps account.
+1. Deploy the prerequisite resources you created in the previous step. Supply your own value for `<group-name>`. Make sure to use the same `location` as the Azure Maps account.
 
    ```azurecli
-   az group create --name {group-name} --location "East US"
-   $outputs = $(az deployment group create --name ExampleDeployment --resource-group {group-name} --template-file "./prereq.azuredeploy.json" --parameters objectId=$id --query "[properties.outputs.keyVaultName.value, properties.outputs.userAssignedIdentityPrincipalId.value, properties.outputs.userIdentityResourceId.value]" --output tsv)
+   az group create --name <group-name> --location "East US"
+   $outputs = $(az deployment group create --name ExampleDeployment --resource-group <group-name> --template-file "./prereq.azuredeploy.json" --parameters objectId=$id --query "[properties.outputs.keyVaultName.value, properties.outputs.userAssignedIdentityPrincipalId.value, properties.outputs.userIdentityResourceId.value]" --output tsv)
    ```
 
 1. Create a template file *azuredeploy.json* to provision the Azure Maps account, role assignment, and SAS token.
@@ -360,13 +360,13 @@ The following steps describe how to create and configure an Azure Maps account w
     }
     ```
 
-1. Deploy the template with the ID parameters from the Key Vault and managed identity resources you created in the previous step. When creating the SAS token, you set the `allowedRegions` parameter to `eastus`, `westus2`, and `westcentralus`. You can then use these locations to make HTTP requests to the `us.atlas.microsoft.com` endpoint.
+1. Deploy the template with the ID parameters from the Key Vault and managed identity resources you created in the previous step. Supply your own value for `<group-name>`. When creating the SAS token, you set the `allowedRegions` parameter to `eastus`, `westus2`, and `westcentralus`. You can then use these locations to make HTTP requests to the `us.atlas.microsoft.com` endpoint.
 
    > [!IMPORTANT]
    > You save the SAS token in the key vault to prevent its credentials from appearing in the Azure deployment logs. The SAS token secret's `tags` also contain the start, expiry, and signing key name, to show when the SAS token will expire.
 
    ```azurecli
-    az deployment group create --name ExampleDeployment --resource-group {group-name} --template-file "./azuredeploy.json" --parameters keyVaultName="$($outputs[0])" userAssignedIdentityPrincipalId="$($outputs[1])" userAssignedIdentityResourceId="$($outputs[2])" allowedOrigins="['http://localhost']" allowedRegions="['eastus', 'westus2', 'westcentralus']" maxRatePerSecond="10"
+    az deployment group create --name ExampleDeployment --resource-group <group-name> --template-file "./azuredeploy.json" --parameters keyVaultName="$($outputs[0])" userAssignedIdentityPrincipalId="$($outputs[1])" userAssignedIdentityResourceId="$($outputs[2])" allowedOrigins="['http://localhost']" allowedRegions="['eastus', 'westus2', 'westcentralus']" maxRatePerSecond="10"
    ```
 
 1. Locate and save a copy of the single SAS token secret from Key Vault.
@@ -384,7 +384,7 @@ The following steps describe how to create and configure an Azure Maps account w
 
 ## Complete script example
 
-To run the complete example, the following template files must be in the directory of the current PowerShell session:
+To run the complete example, the following template files must be in the same directory as the current PowerShell session:
 
 - *prereq.azuredeploy.json* to create the key vault and managed identity.
 - *azuredeploy.json* to create the Azure Maps account, configure the role assignment and managed identity, and store the SAS token in the key vault.
@@ -396,18 +396,22 @@ az provider register --namespace Microsoft.ManagedIdentity
 az provider register --namespace Microsoft.Maps
 
 $id = $(az rest --method GET --url 'https://graph.microsoft.com/v1.0/me?$select=id' --headers 'Content-Type=application/json' --query "id")
-az group create --name {group-name} --location "East US"
-$outputs = $(az deployment group create --name ExampleDeployment --resource-group {group-name} --template-file "./prereq.azuredeploy.json" --parameters objectId=$id --query "[properties.outputs.keyVaultName.value, properties.outputs.userAssignedIdentityPrincipalId.value, properties.outputs.userIdentityResourceId.value]" --output tsv)
-az deployment group create --name ExampleDeployment --resource-group {group-name} --template-file "./azuredeploy.json" --parameters keyVaultName="$($outputs[0])" userAssignedIdentityPrincipalId="$($outputs[1])" userAssignedIdentityResourceId="$($outputs[2])" allowedOrigins="['http://localhost']" allowedRegions="['eastus', 'westus2', 'westcentralus']" maxRatePerSecond="10"
+az group create --name <group-name> --location "East US"
+$outputs = $(az deployment group create --name ExampleDeployment --resource-group <group-name> --template-file "./prereq.azuredeploy.json" --parameters objectId=$id --query "[properties.outputs.keyVaultName.value, properties.outputs.userAssignedIdentityPrincipalId.value, properties.outputs.userIdentityResourceId.value]" --output tsv)
+az deployment group create --name ExampleDeployment --resource-group <group-name> --template-file "./azuredeploy.json" --parameters keyVaultName="$($outputs[0])" userAssignedIdentityPrincipalId="$($outputs[1])" userAssignedIdentityResourceId="$($outputs[2])" allowedOrigins="['http://localhost']" allowedRegions="['eastus', 'westus2', 'westcentralus']" maxRatePerSecond="10"
 $secretId = $(az keyvault secret list --vault-name $outputs[0] --query "[? contains(name,'map')].id" --output tsv)
 $sasToken = $(az keyvault secret show --id "$secretId" --query "value" --output tsv)
 
 az rest --method GET --url 'https://us.atlas.microsoft.com/search/address/json?api-version=1.0&query=1 Microsoft Way, Redmond, WA 98052' --headers "Authorization=jwt-sas $($sasToken)" --query "results[].address"
 ```
 
-## Real-world JavaScript example
+## Real-world example
 
-The following small example shows how you could use your SAS token with the JavaScript [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options) to get and return Azure Maps information:
+You can run requests to Azure Maps APIs from most clients, like C#, Java, or JavaScript. [Postman](https://learning.postman.com/docs/sending-requests/generate-code-snippets) converts an API request into a basic client code snippet in almost any programming language or framework you choose. You can use this generated code snippet in your front-end applications.
+
+The following small JavaScript code example shows how you could use your SAS token with the JavaScript [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options) to get and return Azure Maps information. The example uses the Azure Maps [Get Search Address](/rest/api/maps/search/get-search-address) API version 1.0. Supply your own value for `<your SAS token>`.
+
+For this sample to work, make sure to run it from within the same origin as the `allowedOrigins` for the API call. For example, if you provide `https://contoso.com` as the `allowedOrigins` in the API call, the HTML page that hosts the JavaScript script should be `https://contoso.com`.
 
 ```javascript
 async function getData(url = 'https://us.atlas.microsoft.com/search/address/json?api-version=1.0&query=1 Microsoft Way, Redmond, WA 98052') {
@@ -437,6 +441,10 @@ az group delete --name {group-name}
 ```
 
 ## Next steps
+
+Deploy a quickstart ARM template to create an Azure Maps account that uses a SAS token:
+> [!div class="nextstepaction"]
+> [Create an Azure Maps account](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.maps/maps-use-sas)
 
 For more detailed examples, see:
 > [!div class="nextstepaction"]
