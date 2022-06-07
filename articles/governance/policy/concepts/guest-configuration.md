@@ -280,7 +280,7 @@ Management Groups.
 
 The guest configuration extension writes log files to the following locations:
 
-Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+Windows: `C:\ProgramData\GuestConfig\arc_policy_logs\gc_agent.log`
 
 Linux
 
@@ -303,7 +303,7 @@ following example PowerShell script can be helpful.
 ```powershell
 $linesToIncludeBeforeMatch = 0
 $linesToIncludeAfterMatch = 10
-$logPath = 'C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log'
+$logPath = 'C:\ProgramData\GuestConfig\arc_policy_logs\gc_agent.log'
 Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
 ```
 
