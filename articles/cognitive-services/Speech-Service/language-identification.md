@@ -565,7 +565,7 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 ### Using Speech-to-text custom models
 
 ::: zone pivot="programming-language-csharp"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```csharp
 var sourceLanguageConfigs = new SourceLanguageConfig[]
@@ -581,7 +581,7 @@ var autoDetectSourceLanguageConfig =
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```cpp
 std::vector<std::shared_ptr<SourceLanguageConfig>> sourceLanguageConfigs;
@@ -598,7 +598,7 @@ auto autoDetectSourceLanguageConfig =
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```java
 List sourceLanguageConfigs = new ArrayList<SourceLanguageConfig>();
@@ -615,7 +615,7 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```Python
  en_language_config = speechsdk.languageconfig.SourceLanguageConfig("en-US")
@@ -627,7 +627,7 @@ This sample shows how to use language detection with a custom endpoint. If the d
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```Objective-C
 SPXSourceLanguageConfiguration* enLanguageConfig = [[SPXSourceLanguageConfiguration alloc]init:@"en-US"];

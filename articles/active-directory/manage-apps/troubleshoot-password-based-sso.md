@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot password-based single sign-on
 description: Troubleshoot issues with an Azure AD app that's configured for password-based single sign-on.
-titleSuffix: Azure AD
 author: AllisonAm
 manager: CelesteDG
 ms.service: active-directory

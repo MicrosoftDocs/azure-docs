@@ -51,7 +51,7 @@ If you're setting up network monitoring for enterprise IoT systems, you can skip
 
 - To deploy Defender for IoT, you'll need network switches that support traffic monitoring via a SPAN port and hardware appliances for NTA sensors.
 
-   For on-premises machines, including network sensors and on-premises management consoles for air-gapped environments, you'll need administrative user permissions for activities such as activation, managing SSL/TLS certificates, managing passwords, and so on.
+   For on-premises machines, including network sensors, on-premises management consoles and for air-gapped environments you'll need administrative user permissions for activities. These include activation, managing SSL/TLS certificates, managing passwords, and so on.
 
 - Research your own network architecture and monitor bandwidth. Check requirements for creating certificates and other network details, and clarify the sensor appliances you'll need for your own network load.
 

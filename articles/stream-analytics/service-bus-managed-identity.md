@@ -37,7 +37,7 @@ First, you create a managed identity for your Azure Stream Analytics job. 
 
 ## Grant the Stream Analytics job permissions to access Azure Service Bus
 
-For the Stream Analytics job to access your Service Bus using managed identity, the service principal you created must have special permissions to your Azure Service Bus resource. In this step, you can assign a role to your stream analytics job's system-assigned managed identity. Azure provides the below Azure built-in roles for authorizing access to a Service Bus namespace:
+For the Stream Analytics job to access your Service Bus using managed identity, the service principal you created must have special permissions to your Azure Service Bus resource. In this step, you can assign a role to your stream analytics job's system-assigned managed identity. Azure provides the below Azure built-in roles for authorizing access to a Service Bus namespace. For Azure Stream Analytics you would need these:
 
 - [Azure Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): Enables data access to Service Bus namespace and its entities (queues, topics, subscriptions, and filters)
 - [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Use this role to give send access to Service Bus namespace and its entities.

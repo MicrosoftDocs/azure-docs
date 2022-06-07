@@ -1,11 +1,11 @@
 ---
 title: Move an Azure external load balancer to another Azure region by using the Azure portal
 description: Use an Azure Resource Manager template to move an external load balancer from one Azure region to another by using the Azure portal.
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
-ms.author: allensu
+ms.author: greglin
 ---
 
 # Move an external load balancer to another region by using the Azure portal

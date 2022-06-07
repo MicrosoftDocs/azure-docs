@@ -1,13 +1,14 @@
 ---
 title: Microsoft Defender for Kubernetes - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Kubernetes.
-ms.date: 03/10/2022
+ms.date: 05/08/2022
 ms.topic: overview
 ms.author: benmansheim
 author: bmansheim
 ---
 
 # Introduction to Microsoft Defender for Kubernetes (deprecated)
+
 
 Defender for Cloud provides real-time threat protection for your Azure Kubernetes Service (AKS) containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
@@ -25,7 +26,7 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 >
 > :::image type="content" source="media/defender-for-containers/enable-defender-for-containers.png" alt-text="Enable Microsoft Defender for Containers from the Defender plans page.":::
 >
-> Learn more about this change in [the release note](release-notes.md#microsoft-defender-for-containers-plan-released-for-general-availability-ga).
+> Learn more about this change in [the release note](release-notes-archive.md#microsoft-defender-for-containers-plan-released-for-general-availability-ga).
 
 
 |Aspect|Details|
@@ -48,7 +49,7 @@ Examples of security events that Microsoft Defender for Kubernetes monitors incl
 - Creation of high privileged roles
 - Creation of sensitive mounts.
 
-For a full list of the cluster level alerts, see alerts with "K8S.NODE_" prefix in the alert type in the [reference table of alerts](alerts-reference.md#alerts-k8scluster).
+For a full list of the cluster level alerts, see alerts with "K8S_" prefix in the alert type in the [reference table of alerts](alerts-reference.md#alerts-k8scluster).
 
 ## FAQ - Microsoft Defender for Kubernetes
 
