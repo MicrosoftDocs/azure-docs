@@ -14,7 +14,7 @@ The Azure Blob storage Container Storage Interface (CSI) driver (preview) is a [
 
 The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
 
-To create an AKS cluster with CSI driver support, see [CSI drivers on AKS][csi-drivers-aks].
+To create an AKS cluster with CSI drivers support, see [CSI drivers on AKS][csi-drivers-aks].
 
 > [!NOTE]
 > *In-tree driver* refers to the current storage driver that are part of the core Kubernetes code versus the new CSI driver, which is a plug-in.
@@ -98,7 +98,7 @@ A storage class is used to define how an Azure Blob storage container is created
 * **Standard_GRS**: Standard geo-redundant storage
 * **Standard_RAGRS**: Standard read-access geo-redundant storage
 
-When you use storage CSI drivers on AKS, there are two additional built-in StorageClasses that use the Azure Blob CSI storage drivers. The additional CSI storage classes are created with the cluster alongside the in-tree default storage classes.
+When you use storage CSI drivers on AKS, there are two additional built-in StorageClasses that use the Azure Blob CSI storage driver. The additional CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
 The reclaim policy on both storage classes ensures that the underlying Azure Blob storage is deleted when the respective PV is deleted. The storage classes also configure the container to be expandable, you just need to edit the persistent volume claim (PVC) with the new size.
 

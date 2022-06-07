@@ -4,19 +4,113 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/02/2022
+ms.date: 06/06/2022
 
 ---
 
 # Dynamically create and use a persistent volume with Azure Blob storage in Azure Kubernetes Service (AKS)
 
-Container-based applications often need to access and persist data in an external data volume. If multiple pods need concurrent access to the same storage volume, you can use Azure Blob storage to connect using [blobfuse][blobfuse-overview] or [Network File System][nfs-overview] (NFS). This article shows you how to dynamically create an Azure Blob storage container and attach it to a pod in AKS.
+Container-based applications often need to access and persist data in an external data volume. If multiple pods need concurrent access to the same storage volume, you can use Azure Blob storage to connect using [blobfuse][blobfuse-overview] or [Network File System][nfs-overview] (NFS). This article shows you how to install the Container Storage Interface (CSI) driver and dynamically create an Azure Blob storage container to attach to a pod in AKS.
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster running version 1.21 or higher. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster running version 1.21 or higher. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal]. 
+
+If you don't have a storage account that supports the NFS v3 protocol, see [Mount Blob Storage by using the Network File System (NFS) 3.0 protocol][mount-blob-storage-nfs] to create one for your AKS cluster.
+
+## Create a storage class
+
+A storage class is used to define how an Azure Blob storage container is created. A storage account is automatically created in the node resource group for use with the storage class to hold the Azure Blob storage container.
+
+1. Create a file named azure-blob-nfs-sc.yaml and copy in the following example manifest:
+
+    ```yml
+    apiVersion: storage.k8s.io/v1
+    kind: StorageClass
+    metadata:
+      name: blob-nfs
+    provisioner: blob.csi.azure.com
+    parameters:
+      protocol: nfs
+    mountOptions:
+        - nconnect=8  # only supported on linux kernel version >= 5.3
+    ```
+
+2. Create the storage class with the [kubectl create][kubectl-create] command:
+
+    ```bash
+    kubectl create -f azure-blob--nfs-sc.yaml
+    ```
+
+## Create a persistent volume claim
+
+A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure Blob storage container. The following YAML can be used to create a persistent volume claim 100 GB in size with ReadWriteMany access. For more information on access modes, see the [Kubernetes persistent volume][kubernetes-volumes] documentation.
+
+1. Create a file named azure-blob-nfs-pvc.yaml and copy in the following YAML. Make sure that the *storageClassName* matches the storage class created in the last step:
+
+    ```yml
+    apiVersion: apps/v1
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    - metadata:
+        name: persistent-storage
+        annotations:
+          volume.beta.kubernetes.io/storage-class: blob-nfs
+      spec:
+        accessModes: ["ReadWriteMany"]
+        storageClassName: my-blobstorage
+        resources:
+          requests:
+            storage: 100Gi
+    ```
+
+2. Create the persistent volume claim with the kubectl create command:
+
+    ```bash
+    kubectl create -f azure-blob-nfs-pvc.yaml
+    ```
+
+Once completed, the Blob storage container will be created. You can use the [kubectl exec][kubectl-exec] command to view the status of the PVC:
+
+```bash
+kubectl exec -it statefulset-blob-0 -- df -h
+```
+
+## Use the persistent volume
+
+The following YAML creates a pod that uses the persistent volume claim my-blobstorage to mount the Azure Blob storage at the `*`/mnt/blob' path.
+
+1. Create a file named azure-pvc-blob.yaml, and copy in the following YAML. Make sure that the claimName matches the PVC created in the previous step.
+
+    ```yml
+    kind: Pod
+    apiVersion: v1
+    metadata:
+      name: mypod
+    spec:
+      containers:
+      - name: persistent-storage
+        image: mcr.microsoft.com/oss/nginx/nginx:1.17.3-alpine
+        command:
+            - "/bin/sh"
+            - "-c"
+            - while true; do echo $(date) >> /mnt/blob/outfile; sleep 1; done
+        volumeMounts:
+        - mountPath: "/mnt/blob"
+          name: persistent-storage
+      volumes:
+        - name: volume
+          persistentVolumeClaim:
+            claimName: my-blobstorage
+    ```
+
+2. Create the pod with the [kubectl apply][kubectl-apply] command:
+
+   ```bash
+   kubectl apply -f azure-pvc-blob.yaml
+   ```
 
 ## Next steps
 
@@ -25,6 +119,7 @@ This article assumes that you have an existing AKS cluster running version 1.21 
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
@@ -44,3 +139,4 @@ This article assumes that you have an existing AKS cluster running version 1.21 
 [use-managed-identity]: use-managed-identity.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [sas-tokens]: ../storage/common/storage-sas-overview.md
+[mount-blob-storage-nfs]: ../storage/blobs/network-file-system-protocol-support-how-to.md

@@ -3,7 +3,7 @@ title: Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AK
 description: Learn how to enable the Container Storage Interface (CSI) drivers for Azure disks and Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 05/23/2022
+ms.date: 06/07/2022
 author: palma21
 
 ---
@@ -16,7 +16,7 @@ The CSI storage driver support on AKS allows you to natively use:
 
 - [**Azure disks**](azure-disk-csi.md) can be used to create a Kubernetes *DataDisk* resource. Disks can use Azure Premium Storage, backed by high-performance SSDs, or Azure Standard Storage, backed by regular HDDs or Standard SSDs. For most production and development workloads, use Premium Storage. Azure disks are mounted as *ReadWriteOnce* and are only available to a single pod. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
 - [**Azure Files**](azure-files-csi.md) can be used to mount an SMB 3.0/3.1 share backed by an Azure storage account to pods. With Azure Files, you can share data across multiple nodes and pods. Azure Files can use Azure Standard storage backed by regular HDDs or Azure Premium storage backed by high-performance SSDs.
-- [**Azure Blob storage](azure-blob-csi.md) can be used to mount Blob Storage (or object storage) as a file system into a container or pod. Using blob storage enables your cluster to support  applications that work with large unstructured datasets like log file data, images or documents, HPC, and others. Additionally, if you ingest data into [Azure Data Lake storage](../storage/blobs/data-lake-storage-introduction.md), you can directly mount and use it in AKS without configuring another interim filesystem.
+- [**Azure Blob storage](azure-blob-csi.md) can be used to mount Blob storage (or object storage) as a file system into a container or pod. Using Blob storage enables your cluster to support  applications that work with large unstructured datasets like log file data, images or documents, HPC, and others. Additionally, if you ingest data into [Azure Data Lake storage](../storage/blobs/data-lake-storage-introduction.md), you can directly mount and use it in AKS without configuring another interim filesystem.
 
 > [!IMPORTANT]
 > Starting with Kubernetes version 1.21, AKS only uses CSI drivers by default and CSI migration is enabled. Existing in-tree persistent volumes will continue to function. However, internally Kubernetes hands control of all storage management operations (previously targeting in-tree drivers) to CSI drivers.
@@ -87,6 +87,7 @@ If you have in-tree Azure File persistent volumes, get `secretName`, `shareName`
 
 - To use the CSI driver for Azure disks, see [Use Azure disks with CSI drivers](azure-disk-csi.md).
 - To use the CSI driver for Azure Files, see [Use Azure Files with CSI drivers](azure-files-csi.md).
+- To use the CSI driver for Azure Blob storage, see [Use Azure Blob  storage with CSI drivers](azure-blob-csi.md)
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 - For more information on CSI migration, see [Kubernetes In-Tree to CSI Volume Migration][csi-migration-community].
 
