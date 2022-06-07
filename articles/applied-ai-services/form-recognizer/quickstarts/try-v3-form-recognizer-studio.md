@@ -19,7 +19,7 @@ ms.custom: ignite-fall-2021, mode-ui
 
 [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. Get started with exploring the pre-trained models with sample documents or your own. Create projects to build custom template models and reference the models in your applications using the [Python SDK preview](try-v3-python-sdk.md) and other quickstarts.
 
-:::image border="true" type="content" source="../media/quickstarts/form-recognizer-demo-v3p2.gif" alt-text="Form Recognizer Studio demo":::
+:::image border="true" type="content" source="../media/quickstarts/form-recognizer-demo-preview3.gif" alt-text="Form Recognizer Studio demo":::
 
 ## Prerequisites for new users
 
