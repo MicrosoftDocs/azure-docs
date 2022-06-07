@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/03/2021
 ms.author: thvankra
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Secondary indexing in Azure Cosmos DB Cassandra API

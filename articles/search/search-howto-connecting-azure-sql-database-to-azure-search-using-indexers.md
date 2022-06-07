@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 06/07/2022
 ---
 
 # Index data from Azure SQL
@@ -16,6 +16,9 @@ ms.date: 05/03/2022
 In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure SQL Database or an Azure SQL managed instance and makes it searchable in Azure Cognitive Search. 
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Azure SQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
+
+> [!NOTE]
+> [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
 
 ## Prerequisites
 
@@ -25,7 +28,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer. 
 
-+ If you're using the [Azure portal](https://portal.azure.com/) to create the data source, make sure that access to all public networks is enabled in the Azure SQL firewall while going through the instructions below. Otherwise, you need to enable access to all public networks during this setup and then disable it again, or instead, you must use REST API from a device with an authorized IP in the firewall rules, to perform these operations. If the Azure SQL firewall has public networks access disabled, there will be errors when connecting from the portal to it.
++ If you're using the [Azure portal](https://portal.azure.com/) to create the data source, make sure that access to all public networks is enabled in the Azure SQL firewall. Alternatively, you can use REST API from a device with an authorized IP in the firewall rules to perform these operations. If the Azure SQL firewall has public networks access disabled, there will be errors when connecting from the portal to it.
 
 <!-- Real-time data synchronization must not be an application requirement. An indexer can reindex your table at most every five minutes. If your data changes frequently, and those changes need to be reflected in the index within seconds or single minutes, we recommend using the [REST API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or [.NET SDK](search-get-started-dotnet.md) to push updated rows directly.
 
@@ -361,7 +364,7 @@ Yes. However, you need to allow your search service to connect to your database.
 
 **Q: Can I use Azure SQL indexer with SQL databases running on-premises?**
 
-Not directly. We do not recommend or support a direct connection, as doing so would require you to open your databases to Internet traffic. Customers have succeeded with this scenario using bridge technologies like Azure Data Factory. For more information, see [Push data to an Azure Cognitive Search index using Azure Data Factory](../data-factory/v1/data-factory-azure-search-connector.md).
+Not directly. We don't recommend or support a direct connection, as doing so would require you to open your databases to Internet traffic. Customers have succeeded with this scenario using bridge technologies like Azure Data Factory. For more information, see [Push data to an Azure Cognitive Search index using Azure Data Factory](../data-factory/v1/data-factory-azure-search-connector.md).
 
 **Q: Can I use a secondary replica in a [failover cluster](/azure/azure-sql/database/auto-failover-group-overview) as a data source?**
 
