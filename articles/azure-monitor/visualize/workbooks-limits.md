@@ -21,9 +21,9 @@ This table lists the limits of specific data sources.
 
 |Data Source|Limits |
 |---------|---------|
-|Log based Queries|Log Analytics [has limits](https://docs.microsoft.com/en-us/azure/azure-monitor/service-limits#log-queries-and-language) for the number of resources, workspaces, and regions involved in queries.|
+|Log based Queries|Log Analytics [has limits](../service-limits.md#log-queries-and-language) for the number of resources, workspaces, and regions involved in queries.|
 |Metrics|Metrics grids are limited to querying 200 resources at a time. |
-|Azure Resource Graph|Resource Graph queries [are limited](https://docs.microsoft.com/en-us/azure/governance/resource-graph/troubleshoot/general#toomanysubscription) to 1000 subscriptions at a time.|
+|Azure Resource Graph|Resource Graph limits queries  to 1000 subscriptions at a time.|
 
 ## Visualization limits
 
@@ -44,7 +44,7 @@ This table lists the limits of specific data parameters.
 
 |Parameter|Limits |
 |---------|---------|
-|Drop Down|Drop down based parameters are limited to 1000 items. Any items after that returned by a query are ignored.<br>When based on a query, only the [first 4 columns](../Parameters/DropDown.md#parameter-value-label-selection-and-group) of data produced by the query are used, any other columns are ignored.|
+|Drop Down|Drop down based parameters are limited to 1000 items. Any items after that returned by a query are ignored.<br>When based on a query, only the first four columns of data produced by the query are used, any other columns are ignored.|
 |Multi-value|Multi-value parameters are limited to 100 items. Any items after that returned by a query are ignored.<br>When based on a query, only the first column of data produced by the query is used, any other columns are ignored. |
 |Options Group|Options group parameters are limited to 1000 items. Any items after that returned by a query are ignored. <br>When based on a query, only the first column of data produced by the query is used, any other columns are ignored.|
 |Text|Text parameters that retrieve their value based on a query will only display the first cell returned by the query (row 1, column 1). Any other data is ignored.|
