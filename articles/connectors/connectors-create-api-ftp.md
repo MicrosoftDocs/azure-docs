@@ -62,7 +62,7 @@ For other connector requirements, review [FTP managed connector reference](/conn
 
     By default, FTP actions can read or write files that are *200 MB or smaller*. Currently, the FTP built-in connector doesn't support chunking.
 
-* FTP triggers no longer return file content. To get file content, use the pattern described in the [FTP managed connector reference trigger limits](/connectors/ftp/#trigger-limits).
+* FTP triggers no longer return file content. To get file content, use the pattern described in the [FTP managed connector reference trigger's limits](/connectors/ftp/#trigger-limits).
 
 * If you have an on-premises FTP server, consider the following options:
 
@@ -70,9 +70,9 @@ For other connector requirements, review [FTP managed connector reference](/conn
 
   * Standard workflows: Use the FTP built-in connector operations, which work without an on-premises data gateway.
 
-* FTP triggers don't fire if a file is added or updated in a subfolder. If your workflow requires the trigger to work on a subfolder, create nested workflows with triggers. For more information, review [FTP managed connector reference trigger limits](/connectors/ftp/#trigger-limits).
+* FTP triggers don't fire if a file is added or updated in a subfolder. If your workflow requires the trigger to work on a subfolder, create nested workflows with triggers. For more information, review [FTP managed connector reference - Trigger limits](/connectors/ftp/#trigger-limits).
 
-* FTP triggers work by checking the FTP file system and looking for any file that's changed since the last poll. The trigger uses the last modified time on a file. If an external client or other tool creates the file and preserves the timestamp when the files change, disable the preservation feature so that your trigger can work. For more information, review [FTP managed connector reference trigger limits](/connectors/ftp/#trigger-limits).
+* FTP triggers work by checking the FTP file system and looking for any file that's changed since the last poll. The trigger uses the last modified time on a file. If an external client or other tool creates the file and preserves the timestamp when the files change, disable the preservation feature so that your trigger can work. For more information, review [FTP managed connector reference - Trigger limits](/connectors/ftp/#trigger-limits).
 
 * The FTP managed connector requires that the FTP server enables specific commands and support folder names with whitespace. For more information, review [FTP managed connector reference - Trigger limits](/connectors/ftp/#trigger-limits) and [requirements](/connectors/ftp/#requirements).
 
@@ -84,11 +84,11 @@ For other connector limitations, review [FTP managed connector reference](/conne
 
 The FTP managed connector and built-in connector each have only one trigger available:
 
-* Managed connector trigger: The **When a file is added or modified (properties only)** trigger starts a Consumption or Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file metadata, not the file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action. For more information about this trigger, review [When a file is added or updated (properties only)](/connectors/ftp/#when-a-file-is-added-or-modified-(properties-only)).
+* Managed connector trigger: The **When a file is added or modified (properties only)** trigger starts a Consumption or Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file properties or metadata, not the file content. However, to get the content, your workflow can follow this trigger with the [**Get file content** action](/connectors/ftp/#get-file-content). For more information about this trigger, review [When a file is added or modified (properties only)](/connectors/ftp/#when-a-file-is-added-or-modified-(properties-only)).
 
-* Built-in connector trigger: The **When a file is added or modified** trigger starts a Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file metadata, not the file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action. For more information about this trigger, review [When a file is added or updated](#when-file-added-updated).
+* Built-in connector trigger: The **When a file is added or modified** trigger starts a Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file properties or metadata, not the file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action. For more information about this trigger, review [When a file is added or updated](#when-file-added-updated).
 
-For example, you can use this trigger to monitor an FTP folder for new files that describe customer orders. You can then use the FTP action named **Get file metadata** to get the properties for that new file, and then use **Get file content** to get the content from that file for further processing and store that order in an orders database. You might also use a condition to check that file's content against specific criteria and get that content only if that content meets the criteria.
+For example, you can use this trigger to monitor an FTP folder for new files that describe customer orders. If a new file exists, the trigger returns the file properties or metadata. You can then the **Get file content** with the returned values to get the content from that file for further processing and store that order in an orders database. You might also use a condition to check that file's content against specific criteria and get that content only if that content meets the criteria.
 
 The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
 
@@ -114,7 +114,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. Provide the [information for your connection](/connectors/ftp/#creating-a-connection). When you're done, select **Create**.
 
-   By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, select **Enable Binary Transport**.
+   By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, turn on the **Binary Transport** option named **Enable Binary Transport**.
 
    ![Screenshot shows Consumption workflow designer and FTP connection profile.](./media/connectors-create-api-ftp/ftp-trigger-connection-consumption.png)
 
@@ -152,7 +152,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. Provide the [information for your connection](/connectors/ftp/#creating-a-connection). When you're done, select **Create**.
 
-   By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, select **Enable Binary Transport**.
+   By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, turn on the **Binary Transport** option named **Enable Binary Transport**.
 
    * **Built-in**
 
@@ -190,10 +190,13 @@ When you save your workflow, this step automatically publishes your updates to y
 
 ## Add an FTP action
 
-The FTP managed connector and built-in connector each have multiple actions. For example, both connector types have the [**Get file content**](#get-file-content) action. You can use this action to get the content from a file for further processing and store that order in an orders database. You might also use a condition to check that file's content against specific criteria and get that content only if that content meets the criteria.
+The FTP managed connector and built-in connector each have multiple actions.
 
+* Managed connector actions: These actions run in a Consumption or Standard logic app workflow.
 
-For more information about this trigger, review [Get file content](/connectors/ftp/#get-file-content).
+* Built-in connector trigger: These actions run only in a Standard logic app workflow.
+
+For example, both connector types have their version for the **Get file content** action. You can use this action with the FTP trigger that gets the properties or metadata for a newly added file. With this information, you can get the content from a file for further processing and store that order in an orders database. You might also use a condition to check that file's content against specific criteria and get that content only if that content meets the criteria. For more information about this action, review [Get file content - managed connector version](/connectors/ftp/#get-file-content) and [Get file content - built-in connector version](#get-file-content).
 
 The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
 
@@ -209,27 +212,31 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. Find and select the [FTP action](/connectors/ftp/) that you want to use.
 
+   This example continues with the action named **Get file content**
+
    1. On the designer, under the **Choose an operation** search box, select **All**.
 
-   1. In the search box, enter **ftp**.
+   1. In the search box, enter **ftp get file content**.
 
    1. From the actions list, select the action named **Get file content**.
 
-   ![Screenshot shows the Azure portal, Consumption workflow designer, search box with "ftp" entered, and "Get file content" action selected.](./media/connectors-create-api-ftp/get-file-content-action-consumption.png)
+   ![Screenshot shows the Azure portal, Consumption workflow designer, search box with "ftp get file content" entered, and "Get file content" action selected.](./media/connectors-create-api-ftp/ftp-select-action-consumption.png)
 
 1. Provide the [information for your connection](/connectors/ftp/#creating-a-connection). When you're done, select **Create**.
 
-   By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, select **Enable Binary Transport**.
+   By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, turn on the **Binary Transport** option named **Enable Binary Transport**.
 
-   ![Screenshot shows Consumption workflow designer and FTP connection profile for an action.](./media/connectors-create-api-ftp/create-ftp-action-connection-standard.png)
+   ![Screenshot shows Consumption workflow designer and FTP connection profile for an action.](./media/connectors-create-api-ftp/ftp-action-create-connection-consumption.png)
 
-1. After the **Get file metadata** action appears, click inside the **File** box so that the dynamic content list appears. You can now select properties for the outputs from previous steps. In the dynamic content list, under **Get file metadata**, select the **List of Files Id** property, which references the collection where the file was added or updated.
+1. After the FTP action information box appears, complete the following steps:
 
-   ![Find and select "List of Files Id" property](./media/connectors-create-api-ftp/select-list-of-files-id-output.png)
+   1. Click in the **File** box so that the dynamic content list appears.
+   
+      You can now select outputs from the preceding trigger and any other actions.
 
-   The **List of Files Id** property now appears in the **File** box.
+   1. From the dynamic content list, under **When a file is added or modified**, select **File name**.
 
-   ![Selected "List of Files Id" property](./media/connectors-create-api-ftp/selected-list-file-ids-ftp-action.png)
+      ![Find and select "List of Files Id" property](./media/connectors-create-api-ftp/select-list-of-files-id-output.png)
 
 1. Now add this FTP action: **Get file content**
 
