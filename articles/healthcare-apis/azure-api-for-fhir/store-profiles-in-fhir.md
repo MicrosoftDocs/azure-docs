@@ -5,13 +5,13 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 06/03/2022
 ms.author: mikaelw
 ---
 
 # Store profiles in Azure API for FHIR
 
-HL7 FHIR defines a standard and interoperable way to store and exchange healthcare data. Even within the base FHIR specification, it can be helpful to define other rules or extensions based on the context that FHIR is being used. For such context-specific uses of FHIR, **FHIR profiles** are used for the extra layer of specifications.
+HL7 Fast Healthcare Interoperability Resources (FHIR&#174;) defines a standard and interoperable way to store and exchange healthcare data. Even within the base FHIR specification, it can be helpful to define other rules or extensions based on the context that FHIR is being used. For such context-specific uses of FHIR, **FHIR profiles** are used for the extra layer of specifications.
 [FHIR profile](https://www.hl7.org/fhir/profiling.html) allows you to narrow down and customize resource definitions using constraints and extensions.
 
 Azure API for FHIR allows validating resources against profiles to see if the resources conform to the profiles. This article guides you through the basics of FHIR profiles and how to store them. For more information about FHIR profiles outside of this article, visit [HL7.org](https://www.hl7.org/fhir/profiling.html).
@@ -207,3 +207,5 @@ In this article, you've learned about FHIR profiles. Next, you'll learn how you 
 
 >[!div class="nextstepaction"]
 >[Validate FHIR resources against profiles](validation-against-profiles.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
