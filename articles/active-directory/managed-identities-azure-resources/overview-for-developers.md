@@ -224,7 +224,12 @@ _pom.xml_
 ```
 
 ```java
+import com.azure.identity.DefaultAzureCredential;
 import com.azure.identity.DefaultAzureCredentialBuilder;
+import com.azure.storage.blob.BlobClient;
+import com.azure.storage.blob.BlobContainerClient;
+import com.azure.storage.blob.BlobServiceClient;
+import com.azure.storage.blob.BlobServiceClientBuilder;
 
 DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
         .managedIdentityClientId("<Client ID of User-assigned identity>")
