@@ -73,12 +73,12 @@ These rule collections are described in more detail in [What are some Azure Fire
     | Service tag | Protocol | Port |
     | ----- |:-----:|:-----:|
     | AzureActiveDirectory | TCP | 80, 443 |
-    | AzureMachineLearning | TCP | 443 |
+    | AzureMachineLearning | TCP | 443, 8787, 18881 |
     | AzureResourceManager | TCP | 443 |
     | Storage.region       | TCP | 443 |
     | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | TCP | 443 | 
     | AzureContainerRegistry.region  | TCP | 443 |
-    | MicrosoftContainerRegistry.region | TCP | 443 |
+    | MicrosoftContainerRegistry.region</br>**Note** that this  tag has a dependency on the **AzureFrontDoor.FirstParty** tag | TCP | 443 |
     | AzureKeyVault.region | TCP | 443 |
 
     > [!TIP]
