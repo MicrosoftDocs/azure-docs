@@ -301,7 +301,7 @@ To check the versions that are available for your cluster, use the [Get-AzAksUpg
 ```azurepowershell-interactive
 Get-AzAksUpgradeProfile -ResourceGroupName myResourceGroup -ClusterName myAKSCluster |
  Select-Object -Property Name, ControlPlaneProfileKubernetesVersion -ExpandProperty ControlPlaneProfileUpgrade |
- Format-Table *
+ Format-Table -Property *
 ```
 
 You can then upgrade your AKS cluster using the [Set-AzAksCluster][set-azakscluster] command. The upgrade process safely:
