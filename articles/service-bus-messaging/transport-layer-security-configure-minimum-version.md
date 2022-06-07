@@ -20,11 +20,11 @@ You can configure the minimum TLS version using the Azure portal or Azure Resour
 ## Specify the minimum TLS version in the Azure portal
 You can specify the minimum TLS version when creating a Service Bus namespace in the Azure portal on the **Advanced** tab. 
 
-:::image type="content" source="./media/transport-layer-security-configure-minimum-version/create-namespace-tls.png" alt-text="Setting the minimum TLS version when creating a namespace.":::
+:::image type="content" source="./media/transport-layer-security-configure-minimum-version/create-namespace-tls.png" alt-text="Screenshot showing the page to set the minimum TLS version when creating a namespace.":::
 
-You can also specify the minium TLS version for an existing namespace on the **Configuration** page.
+You can also specify the minimum TLS version for an existing namespace on the **Configuration** page.
 
-:::image type="content" source="./media/transport-layer-security-configure-minimum-version/existing-namespace-tls.png" alt-text="Setting the minimum TLS version for an existing namespace.":::
+:::image type="content" source="./media/transport-layer-security-configure-minimum-version/existing-namespace-tls.png" alt-text="Screenshot showing the page to set the minimum TLS version for an existing namespace.":::
 
 ## Create a template to configure the minimum TLS version
 To configure the minimum TLS version for a Service Bus namespace, set the  `MinimumTlsVersion`  version property to 1.0, 1.1, or 1.2. When you create a Service Bus namespace with an Azure Resource Manager template, the `MinimumTlsVersion` property is set to 1.2 by default, unless explicitly set to another version.
