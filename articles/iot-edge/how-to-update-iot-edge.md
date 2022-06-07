@@ -264,7 +264,7 @@ The IoT Edge agent and hub modules have RC versions that are tagged with the sam
 
 As previews, release candidate versions aren't included as the latest version that the regular installers target. Instead, you need to manually target the assets for the RC version that you want to test. For the most part, installing or updating to an RC version is the same as targeting any other specific version of IoT Edge.
 
-Use the sections in this article to learn how to update an IoT Edge device to a specific version of runtime modules.
+Use the sections in this article to learn how to update an IoT Edge device to a specific version of the security subsystem or runtime modules.
 
 If you're installing IoT Edge, rather than upgrading an existing installation, use the steps in [Offline or specific version installation](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
