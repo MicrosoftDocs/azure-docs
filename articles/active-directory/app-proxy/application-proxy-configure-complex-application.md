@@ -3,7 +3,7 @@ title: Complex applications for Azure Active Directory Application Proxy
 description: Provides an understanding of complex application in Azure Active Directory Application Proxy, and how to configure one. 
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -50,7 +50,7 @@ This article provides you with the information you need to configure wildcard ap
     - Note - Regular application will always take precedence over a complex app (wildcard application).
 
 ## Pre-requisites
-Before you get started with single sign-on for header-based authentication apps, make sure your environment is ready with the following settings and configurations:
+Before you get started with Application Proxy Complex application scenario apps, make sure your environment is ready with the following settings and configurations:
 - You need to enable Application Proxy and install a connector that has line of site to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector.
 
 

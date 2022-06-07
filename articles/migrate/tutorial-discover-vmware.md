@@ -46,7 +46,7 @@ To create a project and register the Azure Migrate appliance, you must have an A
 
 - Contributor or Owner permissions in the Azure subscription.
 - Permissions to register Azure Active Directory (Azure AD) apps.
-- Owner or Contributor and User Access Administrator permissions in the Azure subscription to create an instance of Azure Key Vault, which is used during agentless server migration.
+- Owner or Contributor and User Access Administrator permissions at subscription level to create an instance of Azure Key Vault, which is used during agentless server migration.
 
 If you created a free Azure account, by default, you're the owner of the Azure subscription. If you're not the subscription owner, work with the owner to assign permissions.
 

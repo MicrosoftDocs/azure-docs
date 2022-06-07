@@ -19,6 +19,7 @@ More information about policies:
 
 ## [Access restriction policies](api-management-access-restriction-policies.md)
 -   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) - Enforces existence and/or value of an HTTP Header.
+- [Get authorization context](api-management-access-restriction-policies.md#GetAuthorizationContext) - Gets the authorization context of a specified [authorization](authorizations-overview.md) configured in the API Management instance.
 -   [Limit call rate by subscription](api-management-access-restriction-policies.md#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.
 -   [Limit call rate by key](api-management-access-restriction-policies.md#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.
 -   [Restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
@@ -67,8 +68,9 @@ More information about policies:
 -  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub) - uses Dapr runtime to publish a message to a Publish/Subscribe topic.
 -  [Trigger output binding](api-management-dapr-policies.md#bind) - uses Dapr runtime to invoke an external system via output binding.
 
-## [GraphQL validation policy](graphql-validation-policies.md)
-- [Validate GraphQL request](graphql-validation-policies.md#validate-graphql-request) - Validates and authorizes a request to a GraphQL API.
+## [GraphQL API policies](graphql-policies.md)
+- [Validate GraphQL request](graphql-policies.md#validate-graphql-request) - Validates and authorizes a request to a GraphQL API.
+- [Set GraphQL resolver](graphql-policies.md#set-graphql-resolver) - Retrieves or sets data for a GraphQL field in an object type specified in a GraphQL schema.
 
 ##  [Transformation policies](api-management-transformation-policies.md)
 -   [Convert JSON to XML](api-management-transformation-policies.md#ConvertJSONtoXML) - Converts request or response body from JSON to XML.
