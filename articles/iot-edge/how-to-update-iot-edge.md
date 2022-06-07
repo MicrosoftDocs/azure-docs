@@ -25,7 +25,7 @@ To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](http
 
 The IoT Edge security subsystem includes a set of native components that need to be updated using the package manager on the IoT Edge device.
 
-Check the version of the runtime module running on your device by using the command `iotedge version`. If you're using IoT Edge for Linux on Windows, you need to SSH into the Linux virtual machine to check the version.
+Check the version of the security subsystem running on your device by using the command `iotedge version`. If you're using IoT Edge for Linux on Windows, you need to SSH into the Linux virtual machine to check the version.
 
 # [Linux](#tab/linux)
 
