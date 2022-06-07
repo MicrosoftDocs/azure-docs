@@ -23,19 +23,19 @@ import os, requests, uuid, json
 > [!NOTE]
 > If you haven't used these modules you'll need to install them before running your program. To install these packages, run: `pip install requests uuid`.
 
-The first comment tells your Python interpreter to use UTF-8 encoding. Then required modules are imported to read your subscription key from an environment variable, construct the http request, create a unique identifier, and handle the JSON response returned by the Translator.
+The first comment tells your Python interpreter to use UTF-8 encoding. Then required modules are imported to read your key from an environment variable, construct the http request, create a unique identifier, and handle the JSON response returned by the Translator.
 
-## Set the subscription key, endpoint, and path
+## Set the key, endpoint, and path
 
-This sample will try to read your Translator subscription key and endpoint from the environment variables: `TRANSLATOR_TEXT_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscription_key` and `endpoint` as a strings and comment out the conditional statements.
+This sample will try to read your Translator key and endpoint from the environment variables: `TRANSLATOR_TEXT_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `key` and `endpoint` as a strings and comment out the conditional statements.
 
 Copy this code into your project:
 
 ```python
-key_var_name = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
+key_var_name = 'TRANSLATOR_TEXT_KEY'
 if not key_var_name in os.environ:
     raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
-subscription_key = os.environ[key_var_name]
+key = os.environ[key_var_name]
 
 endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
 if not endpoint_var_name in os.environ:
@@ -58,14 +58,14 @@ constructed_url = endpoint + path + params
 
 ## Add headers
 
-The easiest way to authenticate a request is to pass in your subscription key as an
-`Ocp-Apim-Subscription-Key` header, which is what we use in this sample. As an alternative, you can exchange your subscription key for an access token, and pass the access token along as an `Authorization` header to validate your request. For more information, see [Authentication](../reference/v3-0-reference.md#authentication).
+The easiest way to authenticate a request is to pass in your key as an
+`Ocp-Apim-Subscription-Key` header, which is what we use in this sample. As an alternative, you can exchange your key for an access token, and pass the access token along as an `Authorization` header to validate your request. For more information, see [Authentication](../reference/v3-0-reference.md#authentication).
 
 Copy this code snippet into your project:
 
 ```python
 headers = {
-    'Ocp-Apim-Subscription-Key': subscription_key,
+    'Ocp-Apim-Subscription-Key': key,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
@@ -134,7 +134,7 @@ If you'd like to compare your code against ours, the complete sample is availabl
 
 ## Clean up resources
 
-If you've hardcoded your subscription key into your program, make sure to remove the subscription key when you're finished with this quickstart.
+If you've hardcoded your key into your program, make sure to remove the key when you're finished with this quickstart.
 
 ## Next steps
 

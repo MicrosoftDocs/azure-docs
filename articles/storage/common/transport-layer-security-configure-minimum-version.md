@@ -11,7 +11,8 @@ ms.date: 07/07/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account
@@ -234,6 +235,9 @@ To test that the minimum required TLS version for a storage account forbids call
 
 When a client accesses a storage account using a TLS version that does not meet the minimum TLS version configured for the account, Azure Storage returns error code 400 error (Bad Request) and a message indicating that the TLS version that was used is not permitted for making requests against this storage account.
 
+> [!NOTE]
+> When you configure a minimum TLS version for a storage account, that minimum version is enforced at the application layer. Tools that attempt to determine TLS support at the protocol layer may return TLS versions in addition to the minimum required version when run directly against the storage account endpoint.
+
 ## Use Azure Policy to audit for compliance
 
 If you have a large number of storage accounts, you may want to perform an audit to make sure that all accounts are configured for the minimum version of TLS that your organization requires. To audit a set of storage accounts for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../../governance/policy/overview.md).
@@ -261,10 +265,16 @@ To create a policy with an Audit effect for the minimum TLS version with the Azu
               "equals": "Microsoft.Storage/storageAccounts"
             },
             {
-              "not": {
-                "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
-                "equals": "TLS1_2"
-              }
+                "anyOf": [
+                  {
+                    "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                    "notEquals": "TLS1_2"
+                  },
+                  {
+                    "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                    "exists": "false"
+                  }
+                ]
             }
           ]
         },
@@ -325,10 +335,16 @@ To create a policy with a Deny effect for a minimum TLS version that is less tha
           "equals": "Microsoft.Storage/storageAccounts"
         },
         {
-          "not": {
-            "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
-            "equals": "TLS1_2"
-          }
+            "anyOf": [
+              {
+                "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                "notEquals": "TLS1_2"
+              },
+              {
+                "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                "exists": "false"
+              }
+            ]
         }
       ]
     },

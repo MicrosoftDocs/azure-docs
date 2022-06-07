@@ -2,12 +2,13 @@
 title: 'Quickstart: Create and configure Route Server using Azure CLI'
 description: In this quickstart, you learn how to create and configure a Route Server using Azure CLI.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/01/2021
-ms.author: duau
-ms.custom: mode-api
+ms.author: halkazwini
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Create and configure Route Server using Azure CLI 
@@ -50,7 +51,7 @@ az account set \
 
 ### Create a resource group
 
-Before you can create an Azure Route Server, you have to create a resource group to host the Route Server. Create a resource group with [az group create](/cli/azure/group#az_group_create). This example creates a resource group named **myRouteServerRG** in the **westus** location:
+Before you can create an Azure Route Server, you have to create a resource group to host the Route Server. Create a resource group with [az group create](/cli/azure/group#az-group-create). This example creates a resource group named **myRouteServerRG** in the **westus** location:
 
 ```azurecli-interactive
 az group create \
@@ -60,7 +61,7 @@ az group create \
 
 ### Create a virtual network
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). This example creates a default virtual network named **myVirtualNetwork**. If you already have a virtual network, you can skip to the next section.
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates a default virtual network named **myVirtualNetwork**. If you already have a virtual network, you can skip to the next section.
 
 ```azurecli-interactive
 az network vnet create \
@@ -71,9 +72,9 @@ az network vnet create \
 
 ### Add a dedicated subnet 
 
-Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or short prefix (such as /26 or /25) or you'll receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create):
+Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or short prefix (such as /26 or /25) or you'll receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
 
-1. Run the follow command to add the *RouteServerSubnet* to your virtual network.
+1. Run the following command to add the *RouteServerSubnet* to your virtual network.
 
     ```azurecli-interactive 
     az network vnet subnet create \
@@ -83,7 +84,7 @@ Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The su
         --address-prefix 10.0.0.0/24
     ``` 
 
-1. Make note of the RouteServerSubnet ID. To obtain and store the resource ID of the *RouteServerSubnet* to the `subnet_id` variable, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_show):
+1. Make note of the RouteServerSubnet ID. To obtain and store the resource ID of the *RouteServerSubnet* to the `subnet_id` variable, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show):
 
     ```azurecli-interactive 
     subnet_id=$(az network vnet subnet show \
@@ -97,7 +98,7 @@ Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The su
 
 ## Create the Route Server 
 
-1. To ensure connectivity to the backend service that manages Route Server configuration, assigning a public IP address is required. Create a Standard Public IP named **RouteServerIP** with [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create):
+1. To ensure connectivity to the backend service that manages Route Server configuration, assigning a public IP address is required. Create a Standard Public IP named **RouteServerIP** with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create):
 
     ```azurecli-interactive
     az network public-ip create \
@@ -107,7 +108,7 @@ Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The su
         --sku Standard
     ```
 
-2. Create the Azure Route Server with [az network routeserver create](/cli/azure/network/routeserver#az_network_routeserver_create). This example creates an Azure Route Server named **myRouteServer**. The *hosted-subnet* is the resource ID of the RouteServerSubnet created in the previous section.
+2. Create the Azure Route Server with [az network routeserver create](/cli/azure/network/routeserver#az-network-routeserver-create). This example creates an Azure Route Server named **myRouteServer**. The *hosted-subnet* is the resource ID of the RouteServerSubnet created in the previous section.
 
     ```azurecli-interactive
     az network routeserver create \
@@ -119,7 +120,7 @@ Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The su
 
 ## Create BGP peering with an NVA 
 
-Use [az network routeserver peering create](/cli/azure/network/routeserver/peering#az_network_routeserver_peering_create) to establish BGP peering between the Route Server and the NVA: 
+Use [az network routeserver peering create](/cli/azure/network/routeserver/peering#az-network-routeserver-peering-create) to establish BGP peering between the Route Server and the NVA: 
 
 The `peer-ip` is the virtual network IP assigned to the NVA. The `peer-asn` is the Autonomous System Number (ASN) configured in the NVA. The ASN can be any 16-bit number other than the ones in the range of 65515-65520. This range of ASNs are reserved by Microsoft.
 
@@ -136,7 +137,7 @@ To set up peering with a different NVA or another instance of the same NVA for r
 
 ## Complete the configuration on the NVA 
 
-To complete the configuration on the NVA and enable the BGP sessions, you need the IP and the ASN of Azure Route Server. You can get this information by using [az network routeserver show](/cli/azure/network/routeserver#az_network_routeserver_show):
+To complete the configuration on the NVA and enable the BGP sessions, you need the IP and the ASN of Azure Route Server. You can get this information by using [az network routeserver show](/cli/azure/network/routeserver#az-network-routeserver-show):
 
 ```azurecli-interactive 
 az network routeserver show \
@@ -169,7 +170,7 @@ If you have an ExpressRoute and an Azure VPN gateway in the same virtual network
 > For greenfield deployments make sure to create the Azure VPN gateway before creating Azure Route Server; otherwise the deployment of Azure VPN Gateway will fail.
 > 
 
-1. To enable route exchange between Azure Route Server and the gateway(s) use [az network routerserver update](/cli/azure/network/routeserver#az_network_routeserver_update) with the `--allow-b2b-traffic`` flag set to **true**:
+1. To enable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic`` flag set to **true**:
 
     ```azurecli-interactive 
     az network routeserver update \
@@ -178,7 +179,7 @@ If you have an ExpressRoute and an Azure VPN gateway in the same virtual network
         --allow-b2b-traffic true 
     ``` 
 
-2. To disable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az_network_routeserver_update) with the `--allow-b2b-traffic`` flag set to **false**:
+2. To disable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az-network-routeserver-update) with the `--allow-b2b-traffic`` flag set to **false**:
 
     ```azurecli-interactive
     az network routeserver update \
@@ -189,7 +190,7 @@ If you have an ExpressRoute and an Azure VPN gateway in the same virtual network
 
 ## Troubleshooting 
 
-Use the [az network routeserver peering list-advertised-routes](/cli/azure/network/routeserver/peering#az_network_routeserver_peering_list_advertised_routes) to view routes advertised by the Azure Route Server:
+Use the [az network routeserver peering list-advertised-routes](/cli/azure/network/routeserver/peering#az-network-routeserver-peering-list-advertised-routes) to view routes advertised by the Azure Route Server:
 
 ```azurecli-interactive 
 az network routeserver peering list-advertised-routes \
@@ -198,7 +199,7 @@ az network routeserver peering list-advertised-routes \
     --resource-group myRouteServerRG
 ```
 
-Use the [az network routeserver peering list-learned-routes](/cli/azure/network/routeserver/peering#az_network_routeserver_peering_list_learned_routes) to view routes learned by the Azure Route Server:
+Use the [az network routeserver peering list-learned-routes](/cli/azure/network/routeserver/peering#az-network-routeserver-peering-list-learned-routes) to view routes learned by the Azure Route Server:
 
 ```azurecli-interactive
 az network routeserver peering list-learned-routes \
@@ -211,7 +212,7 @@ az network routeserver peering list-learned-routes \
 
 If you no longer need the Azure Route Server, use the first command to remove the BGP peering and then the second command to remove the Route Server. 
 
-1. Remove the BGP peering between Azure Route Server and an NVA with [az network routeserver peering delete](/cli/azure/network/routeserver/peering#az_network_routeserver_peering_delete):
+1. Remove the BGP peering between Azure Route Server and an NVA with [az network routeserver peering delete](/cli/azure/network/routeserver/peering#az-network-routeserver-peering-delete):
 
     ```azurecli-interactive
     az network routeserver peering delete \
@@ -220,7 +221,7 @@ If you no longer need the Azure Route Server, use the first command to remove th
         --resource-group myRouteServerRG
     ``` 
 
-2. Remove the Azure Route Server with [az network routeserver delete](/cli/azure/network/routeserver#az_network_routeserver_delete): 
+2. Remove the Azure Route Server with [az network routeserver delete](/cli/azure/network/routeserver#az-network-routeserver-delete): 
 
     ```azurecli-interactive 
     az network routeserver delete \

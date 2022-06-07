@@ -11,16 +11,22 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.author: b-hchen
+ms.date: 03/01/2022
+ms.author: anfdocs
 ---
 # Delete backups of a volume 
 
 You can delete individual backups that you no longer need to keep for a volume. Deleting backups will delete the associated objects in your Azure Storage account, resulting in space saving.  
 
-You cannot delete the latest backup.  
+By design, Azure NetApp Files prevents you from deleting the latest backup. If the latest backup consists of multiple snapshots taken at the same time (for example, the same daily and weekly schedule configuration), they are all considered as the latest snapshot, and deleting those is prevented.
+
+Deleting the latest backup is permitted only when both of the following conditions are met:
+
+*    The volume has been deleted.
+*    The latest backup is the only remaining backup for the deleted volume.
+
+If you need to delete backups to free up space, select an older backup from the **Backups** list to delete.
 
 ## Steps
 

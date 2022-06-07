@@ -9,7 +9,7 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a public IP address prefix using the Azure portal

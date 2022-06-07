@@ -5,8 +5,8 @@ author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
-ms.date: 10/30/2020
-ms.custom: mode-portal
+ms.date: 01/03/2022
+ms.custom: mode-ui
 ---
 # Quickstart: Share data using Azure Data Share in the Azure portal
 
@@ -71,7 +71,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
 1. Select the dataset type that you would like to add. You will see a different list of dataset types depending on the share type (snapshot or in-place) you have selected in the previous step. 
 
-   ![AddDatasets](./media/add-datasets.png "Add Datasets")    
+   ![AddDatasets](./media/add-datasets-updated.png "Add Datasets")    
 
 1. Navigate to the object you would like to share and select 'Add Datasets'. 
 

@@ -107,15 +107,15 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 
     *getting-started\STMicroelectronics\B-L475E-IOT01A\tools\rebuild.bat*
 
-2. After the build completes, confirm that the binary file was created in the following path::
+2. After the build completes, confirm that the binary file was created in the following path:
 
     *getting-started\STMicroelectronics\B-L475E-IOT01A\build\app\stm32l475_azure_iot.bin*
 
 ### Flash the image
 
-1. On the STM DevKit MCU, locate the **Reset** button, the Micro USB port, which is labeled **USB STLink**, and the board part number. You will refer to these items in the next steps. All of them are highlighted in the following picture:
+1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You will refer to these items in the next steps. All of them are highlighted in the following picture:
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/stm-devkit-board.png" alt-text="Locate key components on the STM DevKit board":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/stm-devkit-board-475.png" alt-text="Locate key components on the STM DevKit board":::
 
 1. Connect the Micro USB cable to the **USB STLINK** port on the STM DevKit, and then connect it to your computer.
 
@@ -239,6 +239,9 @@ You can view the device information from IoT Central.
 Select **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-stm-b-l475e/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
+
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
 
 ## Troubleshoot and debug
 

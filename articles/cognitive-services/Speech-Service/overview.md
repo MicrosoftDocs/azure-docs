@@ -1,153 +1,119 @@
 ---
 title: What is the Speech service?
 titleSuffix: Azure Cognitive Services
-description: The Speech service is the unification of speech-to-text, text-to-speech, and speech translation into a single Azure subscription. Add speech to your applications, tools, and devices with the Speech SDK, Speech Devices SDK, or REST APIs.
+description: The Speech service provides speech-to-text, text-to-speech, and speech translation capabilities with an Azure resource. Add speech to your applications, tools, and devices with the Speech SDK, Speech Studio, or REST APIs.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 04/21/2022
 ms.author: eur
 ---
 
 # What is the Speech service?
 
-The Speech service is the unification of Speech-to-Text, Text-to-Speech, and Speech-Translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Devices SDK](./speech-devices-sdk-quickstart.md?pivots=platform-android), [Speech Studio](speech-studio-overview.md), or [REST APIs](#reference-docs).
+The Speech service provides speech-to-text and text-to-speech capabilities with an [Azure Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource). You can transcribe speech to text with high accuracy, produce natural-sounding text-to-speech voices, translate spoken audio, and use speaker recognition during conversations. 
 
-> [!IMPORTANT]
-> The Speech service has replaced Bing Speech API and Translator Speech. See the _Migration_ section for migration instructions.
+:::image type="content" border="false" source="media/overview/speech-features-highlight.png" alt-text="Image of tiles that highlight some Speech service features.":::
 
-The following features are part of the Speech service. Use the links in this table to learn more about common use-cases for each feature, or browse the API reference.
+Create custom voices, add specific words to your base vocabulary, or build your own models. Run Speech anywhere, in the cloud or at the edge in containers. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Studio](speech-studio-overview.md), or [REST APIs](./rest-speech-to-text.md).
 
-| Service | Feature | Description | SDK | REST |
-|---------|---------|-------------|-----|------|
-| [Speech-to-Text](speech-to-text.md) | Real-time Speech-to-text | Speech-to-text transcribes or translates audio streams or local files to text in real time that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. | [Yes](./speech-sdk.md) | [Yes](#reference-docs) |
-| | [Batch Speech-to-Text](batch-transcription.md) | Batch Speech-to-text enables asynchronous speech-to-text transcription of large volumes of speech audio data stored in Azure Blob Storage. In addition to converting speech audio to text, Batch Speech-to-text also allows for diarization and sentiment-analysis. | No | [Yes](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
-| | [Multi-device Conversation](multi-device-conversation.md) | Connect multiple devices or clients in a conversation to send speech- or text-based messages, with easy support for transcription and translation| Yes | No |
-| | [Conversation Transcription](./conversation-transcription.md) | Enables real-time speech recognition, speaker identification, and diarization. It's perfect for transcribing in-person meetings with the ability to distinguish speakers. | Yes | No |
-| | [Create Custom Speech Models](#customize-your-speech-experience) | If you are using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. | No | [Yes](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
-| | [Pronunciation Assessment](./how-to-pronunciation-assessment.md) | Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence. | [Yes](./how-to-pronunciation-assessment.md) | [Yes](./rest-speech-to-text.md#pronunciation-assessment-parameters) |
-| [Text-to-Speech](text-to-speech.md) | Prebuilt neural voices | Text-to-Speech converts input text into human-like synthesized speech using [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). Use neural voices, which are human-like voices powered by deep neural networks. See [Language support](language-support.md). | [Yes](./speech-sdk.md) | [Yes](#reference-docs) |
-| | [Custom neural voices](#customize-your-speech-experience) | Create custom neural voice fonts unique to your brand or product. | No | [Yes](#reference-docs) |
-| [Speech Translation](speech-translation.md) | Speech translation | Speech translation enables real-time, multi-language translation of speech to your applications, tools, and devices. Use this service for speech-to-speech and speech-to-text translation. | [Yes](./speech-sdk.md) | No |
-| [Voice assistants](voice-assistants.md) | Voice assistants | Voice assistants using the Speech service empower developers to create natural, human-like conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands service for task completion. | [Yes](voice-assistants.md) | No |
-| [Speaker Recognition](speaker-recognition-overview.md) | Speaker verification & identification | The Speaker Recognition service provides algorithms that verify and identify speakers by their unique voice characteristics. Speaker Recognition is used to answer the question “who is speaking?”. | Yes | [Yes](/rest/api/speakerrecognition/) |
+Speech is available for many [languages](language-support.md), [regions](regions.md), and [price points](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
 
-## Try the Speech service for free
+## Speech scenarios
 
-For the following steps, you need both a Microsoft account and an Azure account. If you do not have a Microsoft account, you can sign up for one free of charge at the [Microsoft account portal](https://account.microsoft.com/account). Select **Sign in with Microsoft** and then, when asked to sign in, select **Create a Microsoft account**. Follow the steps to create and verify your new Microsoft account.
+Common scenarios for speech include:
+- [Captioning](./captioning-concepts.md): Learn how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.
+- [Audio Content Creation](text-to-speech.md#more-about-neural-text-to-speech-features): You can use neural voices to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems.
+- [Call center transcription](call-center-transcription.md): Transcribe calls in real-time or process a batch of calls, redact personally identifying information, and extract insights such as sentiment to help with your call center use case.
+- [Voice assistants](voice-assistants.md): Create natural, humanlike conversational interfaces for their applications and experiences. The voice assistant feature provides fast, reliable interaction between a device and an assistant implementation.
 
-Once you have a Microsoft account, go to the [Azure sign-up page](https://azure.microsoft.com/free/ai/), select **Start free**, and create a new Azure account using a Microsoft account. Here is a video of [how to sign up for Azure free account](https://www.youtube.com/watch?v=GWT2R1C_uUU).
+Microsoft uses Speech for many scenarios, such as captioning in Teams, dictation in Office 365, and Read Aloud in the Edge browser. 
 
-> [!NOTE]
-> When you sign up for a free Azure account, it comes with $200 in service credit that you can apply toward a paid Speech service subscription, valid for up to 30 days. Your Azure services are disabled when your credit runs out or expires at the end of the 30 days. To continue using Azure services, you must upgrade your account. For more information, see [How to upgrade your Azure free account](../../cost-management-billing/manage/upgrade-azure-subscription.md). 
->
-> The Speech service has two service tiers: free(f0) and subscription(s0), which have different limitations and benefits. If you use the free, low-volume Speech service tier you can keep this free subscription even after your free trial or service credit expires. For more information, see [Cognitive Services pricing - Speech service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+:::image type="content" border="false" source="media/overview/microsoft-uses-speech.png" alt-text="Image showing logos of Microsoft products where Speech service is used.":::
 
-### Create the Azure resource
+## Speech capabilities
 
-To add a Speech service resource (free or paid tier) to your Azure account:
+Speech feature summaries are provided below with links for more information.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft account.
+### Speech-to-text
 
-1. Select **Create a resource** at the top left of the portal. If you do not see **Create a resource**, you can always find it by selecting the collapsed menu in the upper left corner of the screen.
+Use [speech-to-text](speech-to-text.md) to transcribe audio into text, either in real time or asynchronously. 
 
-1. In the **New** window, type "speech" in the search box and press ENTER.
+Convert audio to text from a range of sources, including microphones, audio files, and blob storage. Use speaker diarisation to determine who said what and when. Get readable transcripts with automatic formatting and punctuation. 
 
-1. In the search results, select **Speech**.
-   
-   :::image type="content" source="media/index/speech-search.png" alt-text="Create Speech resource in Azure portal.":::
+The base model may not be sufficient if the audio contains ambient noise or includes a lot of industry and domain-specific jargon. In these cases, you can create and train [custom speech models](custom-speech-overview.md) with acoustic, language, and pronunciation data. Custom speech models are private and can offer a competitive advantage. 
 
-1. Select **Create**,  then:
+You can try speech to text with [this demo web app](https://azure.microsoft.com/services/cognitive-services/speech-to-text/#features) or in the [Speech Studio](https://aka.ms/speechstudio/speechtotexttool).
 
-   - Give a unique name for your new resource. The name helps you distinguish among multiple subscriptions tied to the same service.
-   - Choose the Azure subscription that the new resource is associated with to determine how the fees are billed. Here is the introduction for [how to create an Azure subscription](../../cost-management-billing/manage/create-subscription.md#create-a-subscription-in-the-azure-portal) in the Azure portal.
-   - Choose the [region](regions.md) where the resource will be used. Azure is a global cloud platform that is generally available in many regions worldwide. To get the best performance, select a region that’s closest to you or where your application runs. The Speech service availabilities vary from different regions. Make sure that you create your resource in a supported region. See [region support for Speech services](./regions.md#speech-to-text-text-to-speech-and-translation).
-   - Choose either a free (F0) or paid (S0) pricing tier. For complete information about pricing and usage quotas for each tier, select **View full pricing details** or see [speech services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). For limits on resources, see [Azure Cognitive Services Limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
-   - Create a new resource group for this Speech subscription or assign the subscription to an existing resource group. Resource groups help you keep your various Azure subscriptions organized.
-   - Select **Create**. This will take you to the deployment overview and display deployment progress messages.  
-<!--
-> [!NOTE]
-> You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
--->
-It takes a few moments to deploy your new Speech resource. 
+### Text-to-speech
 
-### Find keys and location/region
+With [text to speech](text-to-speech.md), you can convert input text into humanlike synthesized speech. Use neural voices, which are humanlike voices powered by deep neural networks. Use the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) to fine-tune the pitch, pronunciation, speaking rate, volume, and more.
 
-To find the keys and location/region of a completed deployment, follow these steps:
+- Prebuilt neural voice: Highly natural out-of-the-box voices. Check the prebuilt neural voice samples [here](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) and determine the right voice for your business needs.
+- Custom neural voice: Besides the pre-built neural voices that come out of the box, you can also create a [custom neural voice](custom-neural-voice.md) that is recognizable and unique to your brand or product. Custom neural voices are private and can offer a competitive advantage. Check the custom neural voice samples [here](https://aka.ms/customvoice).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft account.
+### Speech translation
 
-2. Select **All resources**, and select the name of your Cognitive Services resource.
+[Speech translation](speech-translation.md) enables real-time, multilingual translation of speech to your applications, tools, and devices. Use this feature for speech-to-speech and speech-to-text translation.
 
-3. On the left pane, under **RESOURCE MANAGEMENT**, select **Keys and Endpoint**.
+### Language identification
 
-Each subscription has two keys; you can use either key in your application. To copy/paste a key to your code editor or other location, select the copy button next to each key, switch windows to paste the clipboard contents to the desired location.
+[Language identification](language-identification.md) is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md). Use language identification by itself, with speech-to-text recognition, or with speech translation.
 
-Additionally, copy the `LOCATION` value, which is your region ID (ex. `westus`, `westeurope`) for SDK calls.
+### Speaker recognition
+[Speaker recognition](speaker-recognition-overview.md) provides algorithms that verify and identify speakers by their unique voice characteristics. Speaker recognition is used to answer the question, "Who is speaking?". 
 
-> [!IMPORTANT]
-> These subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely– for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
+### Pronunciation assessment
 
-## Complete a quickstart
+[Pronunciation assessment](./how-to-pronunciation-assessment.md) evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence.
 
-We offer quickstarts in most popular programming languages, each designed to teach you basic design patterns, and have you running code in less than 10 minutes. See the following list for the quickstart for each feature.
+### Intent recognition
 
-* [Speech-to-Text quickstart](get-started-speech-to-text.md)
-* [Text-to-Speech quickstart](get-started-text-to-speech.md)
+[Intent recognition](./intent-recognition.md): Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. 
+
+## Delivery and presence
+
+You can deploy Azure Cognitive Services Speech features in the cloud or on-premises. 
+
+With [containers](speech-container-howto.md), you can bring the service closer to your data for compliance, security, or other operational reasons. 
+
+Speech service deployment in sovereign clouds is available for some government entities and their partners. For example, the Azure Government cloud is available to US government entities and their partners. Azure China cloud is available to organizations with a business presence in China. For more information, see [sovereign clouds](sovereign-clouds.md). 
+
+:::image type="content" border="false" source="media/overview/speech-delivery-presence.png" alt-text="Diagram showing where Speech service can be deployed and accessed.":::
+
+## Use Speech in your application
+
+The [Speech Studio](speech-studio-overview.md) is a set of UI-based tools for building and integrating features from Azure Cognitive Services Speech service in your applications. You create projects in Speech Studio by using a no-code approach, and then reference those assets in your applications by using the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), or the REST APIs.
+
+The [Speech CLI](spx-overview.md) is a command-line tool for using Speech service without having to write any code. Most features in the Speech SDK are available in the Speech CLI, and some advanced features and customizations are simplified in the Speech CLI. 
+
+The [Speech SDK](./speech-sdk.md) exposes many of the Speech service capabilities you can use to develop speech-enabled applications. The Speech SDK is available in many programming languages and across all platforms.
+
+In some cases, you can't or shouldn't use the [Speech SDK](speech-sdk.md). In those cases, you can use REST APIs to access the Speech service. For example, use REST APIs for [batch transcription](batch-transcription.md) and [speaker recognition](/rest/api/speakerrecognition/) REST APIs.
+
+## Get started
+
+We offer quickstarts in many popular programming languages. Each quickstart is designed to teach you basic design patterns and have you running code in less than 10 minutes. See the following list for the quickstart for each feature:
+
+* [Speech-to-text quickstart](get-started-speech-to-text.md)
+* [Text-to-speech quickstart](get-started-text-to-speech.md)
 * [Speech translation quickstart](./get-started-speech-translation.md)
 * [Intent recognition quickstart](./get-started-intent-recognition.md)
 * [Speaker recognition quickstart](./get-started-speaker-recognition.md)
 
-After you've had a chance to get started with the Speech service, try our tutorials that show you how to solve various scenarios.
+## Code samples
 
-- [Tutorial: Recognize intents from speech with the Speech SDK and LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
-- [Tutorial: Voice enable your bot with the Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-- [Tutorial: Build a Flask app to translate text, analyze sentiment, and synthesize translated text to speech, REST](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json%252c%2fen-us%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json%252c%2fen-us%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json)
+Sample code for the Speech service is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models. Use these links to view SDK and REST samples:
 
-## Get sample code
-
-Sample code is available on GitHub for the Speech service. These samples cover common scenarios like reading audio from a file or stream, continuous and at-start recognition, and working with custom models. Use these links to view SDK and REST samples:
-
-- [Speech-to-Text, Text-to-Speech, and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+- [Speech-to-text, text-to-speech, and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
-- [Text-to-Speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+- [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 - [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples)
-
-## Customize your speech experience
-
-The Speech service works well with built-in models, however, you may want to further customize and tune the experience for your product or environment. Customization options range from acoustic model tuning to unique voice fonts for your brand.
-
-Other products offer speech models tuned for specific purposes like healthcare or insurance, but are available to everyone equally. Customization in Azure Speech becomes part of *your unique* competitive advantage that is unavailable to any other user or customer. In other words, your models are private and custom-tuned for your use-case only.
-
-| Speech Service | Platform | Description |
-| -------------- | -------- | ----------- |
-| Speech-to-Text | [Custom Speech](./custom-speech-overview.md) | Customize speech recognition models to your needs and available data. Overcome speech recognition barriers such as speaking style, vocabulary and background noise. |
-| Text-to-Speech | [Custom Voice](https://aka.ms/customvoice) | Build a recognizable, one-of-a-kind neural voice for your Text-to-Speech apps with your speaking data available. You can further fine-tune the neural voice outputs by adjusting a set of neural voice parameters. |
-
-## Deploy on premises using Docker containers
-
-[Use Speech service containers](speech-container-howto.md) to deploy API features on-premises. These Docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. The Speech service offers the following containers:
-
-* Standard Speech-to-Text
-* Custom Speech-to-Text
-* Prebuilt Neural Text-to-Speech
-* Custom Neural Text-to-Speech (preview)
-* Speech Language Identification (preview)
-
-## Reference docs
-
-- [Speech SDK](./speech-sdk.md)
-- [Speech Devices SDK](speech-devices-sdk.md)
-- [REST API: Speech-to-Text](rest-speech-to-text.md)
-- [REST API: Text-to-Speech](rest-text-to-speech.md)
-- [REST API: Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
-
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Get started with Speech-to-Text](./get-started-speech-to-text.md)
-> [Get started with Text-to-Speech](get-started-text-to-speech.md)
+* [Get started with speech-to-text](get-started-speech-to-text.md)
+* [Get started with text-to-speech](get-started-text-to-speech.md)

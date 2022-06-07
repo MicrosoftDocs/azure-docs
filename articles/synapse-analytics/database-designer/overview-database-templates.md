@@ -18,12 +18,12 @@ These information blueprints can be used by organizations to plan, architect, an
 
 For example, if you're building a product recommendation solution for your retail customers, you'll need a basic blue-print to understand what the customer purchased and the transaction that led to the purchase. You may also need information about the store where the purchase was made. You also need to understand whether the customer is part of a loyalty program. Just to accomplish this use case we need the following schemas: 
 
- - Product 
- - Transaction 
- - TransactionLineItem 
- - Customer 
- - CustomerLoyalty 
- - Store 
+* Product 
+* Transaction 
+* TransactionLineItem 
+* Customer 
+* CustomerLoyalty 
+* Store 
 
 You can set up this use case by selecting the six tables in the retail database template. 
 
@@ -31,23 +31,36 @@ You can set up this use case by selecting the six tables in the retail database 
 
 A typical database template addresses the core requirements of a specific industry and consists of: 
 
- - A supporting set of [business area templates](concepts-database-templates.md#business-area-templates).
- - One or more [enterprise templates](concepts-database-templates.md#enterprise-templates).  
+* One or more [enterprise templates](concepts-database-templates.md#enterprise-templates).
+* Tables grouped by **business areas**.   
 
 ## Available database templates 
 
-Currently there are six database templates available within Azure Synapse Studio that customers can use to start creating their lake database. 
+Currently, you can choose from the following database templates in Azure Synapse Studio to start creating your lake database: 
 
- - **Banking** - for companies who are analyzing banking data.
- - **Consumer Goods** - for manufacturers or producers of goods bought and used by consumers.
- - **Fund Management** - for companies managing investment funds for investors.
- - **Life Insurance & Annuities** - for companies who provide life insurance, sell annuities, or both.
- - **Property & Casualty Insurance** - for companies who provide insurance against risks to property and various forms of liability coverage.
- - **Retail** - for sellers of consumer goods or services to customers through multiple channels.
-
+* **Agriculture** - For companies engaged in growing crops, raising livestock, and dairy production.
+* **Automotive** - For companies manufacturing automobiles, heavy vehicles, tires, and other automotive components.
+* **Banking** - For companies providing a wide range of banking and related financial services.
+* **Consumer Goods** - For manufacturers or producers of goods bought and used by consumers.
+* **Energy & Commodity Trading** - For traders of energy, commodities, or carbon credits.
+* **Freight & Logistics** - For companies that provide freight and logistics services.
+* **Fund Management** - For companies that manage investment funds for investors.
+* **Genomics** - For companies acquiring and analyzing genomic data about human beings or other species.
+* **Healthcare Insurance** - For organizations providing insurance to cover healthcare needs (sometimes know as Payors).
+* **Healthcare Provider** - For organizations providing healthcare services.
+* **Life Insurance & Annuities** - For companies that provide life insurance, sell annuities, or both.
+* **Manufacturing** - For companies engaged in discrete manufacturing of a wide range of products.
+* **Oil & Gas** - For companies that are involved in various phases of the Oil & Gas value chain.
+* **Pharmaceuticals** - For companies engaged in creating, manufacturing, and marketing pharmaceutical and bio-pharmaceutical products and medical devices.
+* **Property & Casualty Insurance** - For companies that provide insurance against risks to property and various forms of liability coverage.
+* **R&D and Clinical Trials** - For companies involved in research and development and clinical trials of pharmaceutical products or devices.
+* **Retail** - For sellers of consumer goods or services to customers through multiple channels.
+* **Utilities** - For gas, electric, and water utilities; power generators; and water desalinators.
+ 
 As emission and carbon management is an important discussion in all industries, we've included those components in all the available database templates. These components make it easy for companies who need to track and report their direct and indirect greenhouse gas emissions.
 
 ## Next steps
+
 Continue to explore the capabilities of the database designer using the links below.
-- [Database templates concept](concepts-database-templates.md)
-- [Quick start](quick-start-create-lake-database.md)
+* [Database templates concept](concepts-database-templates.md)
+* [Quick start](quick-start-create-lake-database.md)

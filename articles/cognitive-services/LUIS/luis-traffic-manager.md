@@ -4,6 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) offers the ability to increase the endpoint request quota beyond a single key's quota. This is done by creating more keys for LUIS and adding them to the LUIS application on the **Publish** page in the **Resources and Keys** section.
 
 manager: nitinme
+ms.devlang: javascript
 ms.custom: seodec18, devx-track-js, devx-track-azurepowershell
 services: cognitive-services
 ms.service: cognitive-services
@@ -26,7 +27,7 @@ This article explains how to manage the traffic across keys with Azure [Traffic 
 ## Connect to PowerShell in the Azure portal
 In the [Azure][azure-portal] portal, open the PowerShell window. The icon for the PowerShell window is the **>_** in the top navigation bar. By using PowerShell from the portal, you get the latest PowerShell version and you are authenticated. PowerShell in the portal requires an [Azure Storage](https://azure.microsoft.com/services/storage/) account.
 
-![Screenshot of Azure portal with Powershell window open](./media/traffic-manager/azure-portal-powershell.png)
+![Screenshot of Azure portal with PowerShell window open](./media/traffic-manager/azure-portal-powershell.png)
 
 The following sections use [Traffic Manager PowerShell cmdlets](/powershell/module/az.trafficmanager/#traffic_manager).
 

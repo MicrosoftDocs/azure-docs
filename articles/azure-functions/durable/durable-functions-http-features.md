@@ -5,6 +5,7 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: azfuncdf
+ms.devlang: csharp, javascript, powershell, python
 ---
 
 # HTTP Features
@@ -279,7 +280,7 @@ The "call HTTP" API can automatically implement the client side of the polling c
 
 Durable Functions natively supports calls to APIs that accept Azure Active Directory (Azure AD) tokens for authorization. This support uses [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to acquire these tokens.
 
-The following code is an example of a .NET orchestrator function. The function makes authenticated calls to restart a virtual machine by using the Azure Resource Manager [virtual machines REST API](/rest/api/compute/virtualmachines).
+The following code is an example of an orchestrator function. The function makes authenticated calls to restart a virtual machine by using the Azure Resource Manager [virtual machines REST API](/rest/api/compute/virtualmachines).
 
 # [C#](#tab/csharp)
 

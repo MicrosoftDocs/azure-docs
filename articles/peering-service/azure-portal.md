@@ -4,7 +4,6 @@ description: Learn how to create Azure Peering Service by using the Azure portal
 services: peering-service
 author: gthareja
 ms.service: peering-service
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services

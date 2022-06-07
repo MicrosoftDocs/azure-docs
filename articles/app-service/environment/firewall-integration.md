@@ -4,7 +4,7 @@ description: Learn how to integrate with Azure Firewall to secure outbound traff
 author: madsd
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 09/16/2021
+ms.date: 03/29/2022
 ms.author: madsd
 ms.custom: seodec18, references_regions
 
@@ -12,8 +12,9 @@ ms.custom: seodec18, references_regions
 
 # Locking down an App Service Environment
 
-> [!NOTE]
-> This article is about the App Service Environment v2, which is used with Isolated App Service plans.
+> [!IMPORTANT]
+> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+>
 
 The App Service Environment (ASE) has many external dependencies that it requires access to in order to function properly. The ASE lives in the customer Azure Virtual Network. Customers must allow the ASE dependency traffic, which is a problem for customers that want to lock down all egress from their virtual network.
 
@@ -245,6 +246,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 | \*.ctldl.windowsupdate.com:443 |
 | \*.prod.microsoftmetrics.com:443 |
 | \*.dsms.core.windows.net:443 |
+| \*.prod.warm.ingest.monitor.core.windows.net:443 |
 
 ### Linux dependencies
 
@@ -445,6 +447,7 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |\*.management.usgovcloudapi.net:443 |
 |\*.update.microsoft.com:443 |
 |\*.prod.microsoftmetrics.com:443 |
+| \*.prod.warm.ingest.monitor.core.usgovcloudapi.net:443 |
 
 <!--Image references-->
 [1]: ./media/firewall-integration/firewall-apprule.png

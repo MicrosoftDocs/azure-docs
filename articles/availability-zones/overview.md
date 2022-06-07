@@ -1,10 +1,10 @@
 ---
 title: Resiliency in Azure
 description: Learn about resiliency in Azure.
-author: prsandhu
+author: awysza
 ms.service: azure
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 02/08/2022
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: 
@@ -50,10 +50,20 @@ Microsoft Azure services support availability zones and are enabled to drive you
 
 Building resilient systems on Azure is a shared responsibility. Microsoft is responsible for the reliability of the cloud platform, which includes its global network and datacenters. Azure customers and partners are responsible for the resilience of their cloud applications, using architectural best practices based on the requirements of each workload. See [Business continuity management program in Azure](business-continuity-management-program.md) for more information. 
 
+## Azure service dependencies
+
+Microsoft Azure services are available globally to drive your cloud operations at an optimal level. You can choose the best region for your needs based on technical and regulatory considerations: service capabilities, data residency, compliance requirements, and latency.
+
+Azure services deployed to Azure regions are listed on the [Azure global infrastructure products](https://azure.microsoft.com/global-infrastructure/services/?products=all) page. To better understand regions and Availability Zones in Azure, see [Regions and Availability Zones in Azure](az-overview.md).
+
+Azure services are built for resiliency including high availability and disaster recovery. There are no services that are dependent on a single logical data center (to avoid single points of failure). Non-regional services listed on [Azure global infrastructure products](https://azure.microsoft.com/global-infrastructure/services/?products=all) are services for which there is no dependency on a specific Azure region. Non-regional services are deployed to two or more regions and if there is a regional failure, the instance of the service in another region continues servicing customers. Certain non-regional services enable customers to specify the region where the underlying virtual machine (VM) on which service runs will be deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) enables customers to specify the region location where the VM resides. All Azure services that store customer data allow the customer to specify the specific regions in which their data will be stored. The exception is [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/), which has geo placement (such as Europe or North America). For more information about data storage residency, see the [Data residency map](https://azure.microsoft.com/global-infrastructure/data-residency/).
+
+If you need to understand dependencies between Azure services to help better architect your applications and services, you can request the **Azure service dependency documentation** by contacting your Microsoft sales or customer representative. This document lists the dependencies for Azure services, including dependencies on any common major internal services such as control plane services. To obtain this documentation, you must be a Microsoft customer and have the appropriate non-disclosure agreement (NDA) with Microsoft.
+
 ## Next steps
 
 - [Regions and availability zones in Azure](az-overview.md)
 - [Azure services that support availability zones](az-region.md)
-- [Resilience in Azure whitepaper](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/Resilience%20in%20Azure.pdf)
+- [Azure Resiliency whitepaper](https://azure.microsoft.com/resources/resilience-in-azure-whitepaper/)
 - [Azure Well-Architected Framework](https://www.aka.ms/WellArchitected/Framework)
 - [Azure architecture guidance](/azure/architecture/high-availability/building-solutions-for-high-availability)

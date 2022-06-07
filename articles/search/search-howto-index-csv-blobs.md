@@ -12,9 +12,11 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ---
 
-# How to index CSV blobs using delimitedText parsing mode and Blob indexers in Azure Cognitive Search
+# How to index CSV blobs and files using delimitedText parsing mode
 
-The Azure Cognitive Search [blob indexer](search-howto-indexing-azure-blob-storage.md) provides a `delimitedText` parsing mode for CSV files that treats each line in the CSV as a separate search document. For example, given the following comma-delimited text, `delimitedText` would result in two documents in the search index: 
+**Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
+
+In Azure Cognitive Search, both blob indexers and file indexers support a `delimitedText` parsing mode for CSV files that treats each line in the CSV as a separate search document. For example, given the following comma-delimited text, `delimitedText` would result in two documents in the search index: 
 
 ```text
 id, datePublished, tags

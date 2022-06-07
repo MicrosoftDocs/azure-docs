@@ -2,6 +2,8 @@
 title: Azure Lab Services vs. Azure DevTest Labs
 description: Compare features, scenarios, and use cases for Azure DevTest Labs and Azure Lab Services.
 ms.topic: overview
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 11/15/2021
 ---
 
@@ -9,13 +11,13 @@ ms.date: 11/15/2021
 
 You can use two different Azure services to set up lab environments in the cloud:
 
-- [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) provides development or test cloud environments for your team.
+- [Azure DevTest Labs](devtest-lab-overview.md) provides development or test cloud environments for your team.
 
   In DevTest Labs, a lab owner [creates a lab](devtest-lab-create-lab.md) and makes it available to lab users. The owner provisions the lab with Windows or Linux virtual machines (VMs) that have all necessary software and tools. Lab users connect to lab VMs for daily work and short-term projects. Lab administrators can analyze resource usage and costs across multiple labs, and set overarching policies to optimize organization or team costs.
 
-- [Azure Lab Services](https://azure.microsoft.com/services/lab-services) provides managed classroom labs.
+- [Azure Lab Services](../lab-services/lab-services-overview.md) provides managed classroom labs.
 
-  Lab Services does all infrastructure management, from spinning up VMs and scaling infrastructure to handling errors. After an IT administrator creates a Lab Services lab account, instructors can [create classroom labs](/azure/lab-services/how-to-manage-classroom-labs#create-a-classroom-lab) in the account. An instructor specifies the number and type of VMs they need for the class, and adds users to the class. Once users register in the class, they can access the VMs to do class exercises and homework.
+  Lab Services does all infrastructure management, from spinning up VMs and scaling infrastructure to handling errors. After an IT administrator creates a Lab Services lab account, instructors can [create labs](../lab-services/quick-create-lab-portal.md) in the account. An instructor specifies the number and type of VMs they need for the class, and adds users to the class. Once users register in the class, they can access the VMs to do class exercises and homework.
 
 ## Key capabilities
 
@@ -95,17 +97,11 @@ Here are some use cases for DevTest Labs:
 
 The following table compares the two types of Azure lab environments: 
 
-| Feature | Lab Services | DevTest Labs |
-| -------- | ----------------- | ---------- |
-| Azure infrastructure management. | Service automatically manages. | You manage.  |
-| Infrastructure resiliency. | Service automatically handles. | You handle.  |
-| Subscription management. | Service handles resource allocation in internal subscriptions. | You manage in your own Azure subscription. |
-| Autoscaling. | Service automatically handles. | No autoscaling. |
-| Azure Resource Manager deployments. | Not available. | Available. |
+| Feature | Azure Lab Services | Azure DevTest Labs
+| -------- | ----------- | ----------- |
+| Management of Azure infrastructure | Automatically infrastructure management | You manage the infrastructure manually |
+| Built-in resiliency | Automatic handling of resiliency | You handle resiliency manually |
+| Subscription management | The service handles allocation of resources within Microsoft subscriptions that back the service. | You manage the subscription within your own Azure subscription.  |
+| Autoscaling. | Service automatically scales | No subscription autoscaling |
+| Azure Resource Manager deployment within the lab | Not available | Available |
 
-## Next steps
-
-See the following articles: 
-
-- [About Classroom Labs](../lab-services/classroom-labs-overview.md)
-- [About DevTest Labs](devtest-lab-overview.md)

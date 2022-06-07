@@ -6,24 +6,24 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 03/22/2022
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
 # Features and licenses for Azure AD Multi-Factor Authentication
 
-To protect user accounts in your organization, multi-factor authentication should be used. This feature is especially important for accounts that have privileged access to resources. Basic multi-factor authentication features are available to Microsoft 365 and Azure Active Directory (Azure AD) global administrators for no extra cost. If you want to upgrade the features for your admins or extend multi-factor authentication to the rest of your users, you can purchase Azure AD Multi-Factor Authentication in several ways.
+To protect user accounts in your organization, multi-factor authentication should be used. This feature is especially important for accounts that have privileged access to resources. Basic multi-factor authentication features are available to Microsoft 365 and Azure Active Directory (Azure AD) users and global administrators for no extra cost. If you want to upgrade the features for your admins or extend multi-factor authentication to the rest of your users with more authentication methods and greater control, you can purchase Azure AD Multi-Factor Authentication in several ways.
 
 > [!IMPORTANT]
 > This article details the different ways that Azure AD Multi-Factor Authentication can be licensed and used. For specific details about pricing and billing, see the [Azure AD pricing page](https://www.microsoft.com/en-us/security/business/identity-access-management/azure-ad-pricing).
 
 ## Available versions of Azure AD Multi-Factor Authentication
 
-Azure AD Multi-Factor Authentication can be used, and licensed, in a few different ways depending on your organization's needs. You may already be entitled to use Azure AD Multi-Factor Authentication depending on the Azure AD, EMS, or Microsoft 365 license you currently have. For example, the first 50,000 monthly active users in Azure AD External Identities can use MFA and other Premium P1 or P2 features for free. For more information, see [Azure Active Directory External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
+Azure AD Multi-Factor Authentication can be used, and licensed, in a few different ways depending on your organization's needs. All tenants are entitled to basic multifactor authentication features via Security Defaults. You may already be entitled to use advanced Azure AD Multi-Factor Authentication depending on the Azure AD, EMS, or Microsoft 365 license you currently have. For example, the first 50,000 monthly active users in Azure AD External Identities can use MFA and other Premium P1 or P2 features for free. For more information, see [Azure Active Directory External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
 The following table details the different ways to get Azure AD Multi-Factor Authentication and some of the features and use cases for each.
 
@@ -39,20 +39,26 @@ The following table details the different ways to get Azure AD Multi-Factor Auth
 
 The following table provides a list of the features that are available in the various versions of Azure AD Multi-Factor Authentication. Plan out your needs for securing user authentication, then determine which approach meets those requirements. For example, although Azure AD Free provides security defaults that provide Azure AD Multi-Factor Authentication, only the mobile authenticator app can be used for the authentication prompt, not a phone call or SMS. This approach may be a limitation if you can't ensure the mobile authentication app is installed on a user's personal device. See [Azure AD Free tier](#azure-ad-free-tier) later in this topic for more details. 
 
-| Feature | Azure AD Free - Security defaults (enabled for all users) | Azure AD Free - Global Administrators only | Office 365 | Azure AD Premium P1 or P2 |
-| --- |:---:|:---:|:---:|:---:|
-| Protect Azure AD tenant admin accounts with MFA | ● | ● (*Azure AD Global Administrator* accounts only) | ● | ● |
-| Mobile app as a second factor | ● | ● | ● | ● |
-| Phone call as a second factor | | ● | ● | ● |
-| SMS as a second factor | | ● | ● | ● |
-| Admin control over verification methods | | ● | ● | ● |
-| Fraud alert | | | | ● |
-| MFA Reports | | | | ● |
-| Custom greetings for phone calls | | | | ● |
-| Custom caller ID for phone calls | | | | ● |
-| Trusted IPs | | | | ● |
-| Remember MFA for trusted devices | | ● | ● | ● |
-| MFA for on-premises applications | | | | ● |
+| Feature | Azure AD Free - Security defaults (enabled for all users) | Azure AD Free - Global Administrators only | Office 365 | Azure AD Premium P1 | Azure AD Premium P2 | 
+| --- |:---:|:---:|:---:|:---:|:---:|
+| Protect Azure AD tenant admin accounts with MFA | ● | ● (*Azure AD Global Administrator* accounts only) | ● | ● | ● |
+| Mobile app as a second factor | ● | ● | ● | ● | ● |
+| Phone call as a second factor | | ● | ● | ● | ● |
+| SMS as a second factor | | ● | ● | ● | ● |
+| Admin control over verification methods | | ● | ● | ● | ● |
+| Fraud alert | | | | ● | ● |
+| MFA Reports | | | | ● | ● |
+| Custom greetings for phone calls | | | | ● | ● |
+| Custom caller ID for phone calls | | | | ● | ● |
+| Trusted IPs | | | | ● | ● |
+| Remember MFA for trusted devices | | ● | ● | ● | ● |
+| MFA for on-premises applications | | | | ● | ● |
+| Conditional access | | | | ● | ● |
+| Risk-based conditional access | | | | | ● |
+| Identity Protection (Risky sign-ins, risky users) | | | | | ● |
+| Access Reviews | | | | | ● |
+| Entitlements Management | | | | | ● |
+| Privileged Identity Management (PIM), just-in-time access | | | | | ● |
 
 ## Compare multi-factor authentication policies
 
@@ -105,5 +111,6 @@ If you don't want to enable Azure AD Multi-Factor Authentication for all users, 
 
 * For more information on costs, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 * [What is Conditional Access](../conditional-access/overview.md)
+* [What is Identity Protection?](../identity-protection/overview-identity-protection.md)
 * MFA can also be [enabled on a per-user basis](howto-mfa-userstates.md)
 

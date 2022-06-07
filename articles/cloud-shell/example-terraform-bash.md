@@ -10,10 +10,10 @@ tags: azure-cloud-shell
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
+ms.tool: terraform
 ms.custom: devx-track-terraform
 ---
 

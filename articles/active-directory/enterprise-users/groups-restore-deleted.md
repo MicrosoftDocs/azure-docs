@@ -3,7 +3,7 @@ title: Restore a deleted Microsoft 365 group - Azure AD | Microsoft Docs
 description: How to restore a deleted group, view restorable groups, and permanently delete a group in Azure Active Directory
 services: active-directory
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -42,7 +42,7 @@ User | Can restore any deleted Microsoft 365 group that they own
    - Restore the deleted group and its contents by selecting **Restore group**.
    - Permanently remove the deleted group by selecting **Delete permanently**. To permanently remove a group, you must be an administrator.
 
-## View the deleted Microsoft 365 groups that are available to restore using Powershell
+## View the deleted Microsoft 365 groups that are available to restore using PowerShell
 
 The following cmdlets can be used to view the deleted groups to verify that the one or ones you're interested in have not yet been permanently purged. These cmdlets are part of the [Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/). More information about this module can be found in the [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2) article.
 
@@ -59,7 +59,7 @@ The following cmdlets can be used to view the deleted groups to verify that the 
     Get-AzureADMSDeletedGroup –Id <objectId>
     ```
 
-## How to restore your deleted Microsoft 365 group using Powershell
+## How to restore your deleted Microsoft 365 group using 
 
 Once you have verified that the group is still available to restore, restore the deleted group with one of the following steps. If the group contains documents, SP sites, or other persistent objects, it might take up to 24 hours to fully restore a group and its contents.
 

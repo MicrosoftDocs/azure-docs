@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 05/04/2022
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.collection: M365-identity-device-management
 ---
@@ -23,14 +23,13 @@ To improve security, iOS devices can use certificate-based authentication (CBA) 
 
 Using certificates eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device.
 
-This article details the requirements and the supported scenarios for configuring CBA on an iOS device. CBA for iOS is available across Azure public clouds, Microsoft Government Cloud, Microsoft Cloud Germany, and Microsoft Azure China 21Vianet.
 
 ## Microsoft mobile applications support
 
 | Apps | Support |
 | --- | --- |
 | Azure Information Protection app |![Check mark signifying support for this application][1] |
-| Intune Company Portal |![Check mark signifying support for this application][1] |
+| Company Portal |![Check mark signifying support for this application][1] |
 | Microsoft Teams |![Check mark signifying support for this application][1] |
 | Office (mobile) |![Check mark signifying support for this application][1] |
 | OneNote |![Check mark signifying support for this application][1] |

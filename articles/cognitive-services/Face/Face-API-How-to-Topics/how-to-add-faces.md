@@ -8,9 +8,10 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: sample
+ms.topic: how-to
 ms.date: 04/10/2019
 ms.author: sbowles
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -57,7 +58,7 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## Step 2: Authorize the API call
 
-When you use a client library, you must pass your subscription key to the constructor of the **FaceClient** class. For example:
+When you use a client library, you must pass your key to the constructor of the **FaceClient** class. For example:
 
 ```csharp
 private readonly IFaceClient faceClient = new FaceClient(
@@ -65,7 +66,7 @@ private readonly IFaceClient faceClient = new FaceClient(
     new System.Net.Http.DelegatingHandler[] { });
 ```
 
-To get the subscription key, go to the Azure Marketplace from the Azure portal. For more information, see [Subscriptions](https://www.microsoft.com/cognitive-services/sign-up).
+To get the key, go to the Azure Marketplace from the Azure portal. For more information, see [Subscriptions](https://www.microsoft.com/cognitive-services/sign-up).
 
 ## Step 3: Create the PersonGroup
 

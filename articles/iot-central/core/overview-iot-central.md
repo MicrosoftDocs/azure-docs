@@ -1,9 +1,9 @@
 ---
 title: What is Azure IoT Central | Microsoft Docs
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions and helps to reduce the burden and cost of IoT management operations, and development. This article provides an overview of the features of Azure IoT Central.
+description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. It helps to reduce the burden and cost of IoT management operations, and development. This article provides an overview of the features of Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/05/2021
+ms.date: 12/22/2021
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -12,39 +12,38 @@ ms.custom: mvc, contperf-fy21q2, contperf-fy22q1, contperf-fy22q2
 
 # What is Azure IoT Central?
 
-IoT Central is an IoT application platform that reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions. Choosing to build with IoT Central gives you the opportunity to focus time, money, and energy on transforming your business with IoT data, rather than just maintaining and updating a complex and continually evolving IoT infrastructure.
+IoT Central is an IoT [application platform as a service (aPaaS)](../../iot-fundamentals/iot-solution-apaas-paas.md) that reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions. If you choose to build with IoT Central, you'll have the opportunity to focus time, money, and energy on transforming your business with IoT data, rather than just maintaining and updating a complex and continually evolving IoT infrastructure.
 
 The web UI lets you quickly connect devices, monitor device conditions, create rules, and manage millions of devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications.
 
-This article outlines, for IoT Central:
+This article provides an overview of the features of Azure IoT Central.
 
-- How to create your application.
-- How to connect your devices to your application.
-- How to integrate your application with other services.
-- How to administer your application.
-- The typical user roles associated with a project.
-- Pricing options.
+## Create an IoT Central application
 
-## Create your IoT Central application
+You can quickly deploy a new IoT Central application and then customize it to your specific requirements. Application templates in Azure IoT Central are a tool to help you kickstart your IoT solution development. You can use application templates for everything from getting a feel for what is possible, to fully customizing your application to resell to your customers.
 
-[Quickly deploy a new IoT Central application](quick-deploy-iot-central.md) and then customize it to your specific requirements. Start with a generic _application template_ or with one of the industry-focused application templates:
+Start with a generic _application template_ or with one of the industry-focused application templates:
 
-- [Retail](../retail/overview-iot-central-retail.md)
-- [Energy](../energy/overview-iot-central-energy.md)
-- [Government](../government/overview-iot-central-government.md)
-- [Healthcare](../healthcare/overview-iot-central-healthcare.md).
+- [Retail](../retail/tutorial-in-store-analytics-create-app.md)
+- [Energy](../energy/tutorial-smart-meter-app.md)
+- [Government](../government/tutorial-connected-waste-management.md)
+- [Healthcare](../healthcare/tutorial-continuous-patient-monitoring.md)
 
-See the [Create a new application](quick-deploy-iot-central.md) quickstart for a walk-through of how to create your first application.
+See the [Use your smartphone as a device to send telemetry to an IoT Central application](quick-deploy-iot-central.md) quickstart to learn how to create your first application and connect a device.
 
 ## Connect devices
 
-After creating your application, the first step is to create and connect devices. Every device connected to IoT Central uses a _device template_. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
+After you create your application, the next step is to create and connect devices. The following video walks you through the process of connecting a device to an IoT Central application:
+
+> [!VIDEO https://aka.ms/docs/player?id=66834fbb-7006-4f2b-b73f-540239fd2784]
+
+Every device connected to IoT Central uses a _device template_. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
 
 - Telemetry it sends. Examples include temperature and humidity. Telemetry is streaming data.
 - Business properties that an operator can modify. Examples include a customer address and a last serviced date.
 - Device properties that are set by a device and are read-only in the application. For example, the state of a valve as either open or shut.
-- Properties, that an operator sets, that determine the behavior of the device. For example, a target temperature for the device.
-- Commands, that an operator can call, that run on a device. For example, a command to remotely reboot a device.
+- Properties that an operator sets, that determine the behavior of the device. For example, a target temperature for the device.
+- Commands that an operator can call, that run on a device. For example, a command to remotely reboot a device.
 
 Every [device template](howto-set-up-template.md) includes:
 
@@ -64,7 +63,9 @@ You have several options for creating device templates:
 - Create a device model using Visual Studio code and publish the model to a repository. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device model from the repository and creates a simple device template for you.
 - Create a device model using Visual Studio code. Implement your device code from the model. Manually import the device model into your IoT Central application and then add any cloud properties, customizations, and views your IoT Central application needs.
 
-### Customize the UI
+If the telemetry from your devices is too complex, you can [map telemetry on ingress to IoT Central](howto-map-data.md) to simplify or normalize it.
+
+## Customize the UI
 
 Customize the IoT Central application UI for the operators who are responsible for the day-to-day use of the application. Customizations you can make include:
 
@@ -98,7 +99,7 @@ Build [custom rules](tutorial-create-telemetry-rules.md) based on device state a
 
 ## Integrate with other services
 
-As an application platform, IoT Central lets you transform your IoT data into the business insights that drive actionable outcomes. [Rules](./tutorial-create-telemetry-rules.md), [data export](./howto-export-data.md), and the [public REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) are examples of how you can integrate IoT Central with line-of-business applications:
+As an application platform, IoT Central lets you transform your IoT data into the business insights that drive actionable outcomes. [Rules](./tutorial-create-telemetry-rules.md), [data export](./howto-export-to-blob-storage.md), and the [public REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) are examples of how you can integrate IoT Central with line-of-business applications:
 
 ![How IoT Central can transform your IoT data](media/overview-iot-central/transform.png)
 

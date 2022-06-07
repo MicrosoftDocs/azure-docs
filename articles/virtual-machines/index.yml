@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page # Required
   author: cynthn #Required; your GitHub user alias, with correct capitalization.
   ms.author: cynthn #Required; microsoft alias of author; optional team alias.
-  ms.date: 11/05/2020 #Required; mm/dd/yyyy format.
+  ms.date: 12/13/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -23,16 +23,12 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Spot VMs
-            url: spot-vms.md
-          - text: Dedicated hosts
-            url: dedicated-hosts.md
-          - text: Proximity placement groups
-            url: co-location.md
-          - text: Virtual Machine Scale Sets Orchestration modes 
-            url: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
-          - text: Flexible orchestration for virtual machine scale sets 
+          - text: Flexible Virtual Machine Scale Sets Orchestration
             url: flexible-virtual-machine-scale-sets.md
+          - text: Trusted Launch
+            url: trusted-launch.md
+          - text: VM applications in Azure Compute Gallery 
+            url: vm-applications.md
 
   # Card (optional)
   - title: Linux quickstarts

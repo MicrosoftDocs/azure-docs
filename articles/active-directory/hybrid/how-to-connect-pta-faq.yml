@@ -6,18 +6,16 @@ metadata:
   keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
   documentationcenter: ''
   author: billmath
-  manager: daveba
+  manager: karenhoran
   ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
   ms.service: active-directory
   ms.workload: identity
   ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: how-to
+  ms.topic: faq
   ms.date: 06/09/2020
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-    
 title: "Azure Active Directory Pass-through Authentication: Frequently asked questions"
 summary: This article addresses frequently asked questions about Azure Active Directory (Azure AD) Pass-through Authentication. Keep checking back for updated content.
 
@@ -26,7 +24,7 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          Which of the methods to sign in to Azure AD, Pass-through Authentication, password hash synchronization, and Active Directory Federation Services (AD FS), should I choose?
+          Which of the methods to sign in to Azure AD, Pass-through Authentication, password hash synchronization, and Active Directory Federation Services (AD FS) should I choose?
         answer: |
           Review [this guide](./choose-ad-authn.md) for a comparison of the various Azure AD sign-in methods and how to choose the right sign-in method for your organization.
           
@@ -64,6 +62,21 @@ sections:
           What versions of Azure AD Connect and Pass-through Authentication Agent do you need?
         answer: |
           For this feature to work, you need version 1.1.750.0 or later for Azure AD Connect and 1.5.193.0 or later for the Pass-through Authentication Agent. Install all the software on servers with Windows Server 2012 R2 or later.
+       
+      - question: |
+          Why is my connector still using an older version and not auto-upgraded to latest version?
+        answer: |
+          This may be due to either the updater service not working correctly or if there are no new updates available that the service can install.
+          The updater service is healthy if it’s running and there are no errors recorded in the event log (Applications and Services logs -> Microsoft -> AzureADConnect-Agent -> Updater -> Admin). 
+         
+         
+          Only major versions are released for auto-upgrade. We recommend updating your Agent manually only if it's necessary. For example, you cannot wait for a major release, because you must fix a known problem or you want to use a new feature. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Azure AD Pass-through Authentication agent: Version release history](./reference-connect-pta-version-history.md).
+
+          To manually upgrade a connector:
+
+          - Download the latest version of the Agent. (You will find it under Azure AD connect Pass-through Authentication on the Azure portal. You can also find the link at Azure AD Pass-through Authentication: Version release history | Microsoft Docs..
+          - The installer restarts the Microsoft Azure AD Connect Authentication Agent services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
+          - Run the installer. The upgrade process is quick and does not require providing any credentials and the Agent will not be re-registered.
 
       - question: |
           What happens if my user's password has expired and they try to sign in by using Pass-through Authentication?
@@ -72,6 +85,15 @@ sections:
           
           If you have not configured password writeback for a specific user or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password, even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator must reset their password in on-premises Active Directory.
           
+      - question: |
+          The user logs on to Azure AD with his credentials (username, password). In the meantime the user’s password expires, but the user can still access Azure AD resources. Why does this happen?
+        answer: |
+          The password expiry does not trigger the revocation of authentication tokens or cookies. Until the tokens or cookies are valid, the user will be able to use them. This applies regardless of the authentication type (PTA, PHS and federated scenarios).
+
+          For more details please check the documentation below:
+          [Microsoft identity platform access tokens - Microsoft identity platform | Microsoft Docs](../develop/access-tokens.md#revocation)
+
+     
       - question: |
           How does Pass-through Authentication protect you against brute-force password attacks?
         answer: |
@@ -172,20 +194,34 @@ sections:
           If you uninstall a Pass-through Authentication Agent from a server, it causes the server to stop accepting sign-in requests. To avoid breaking the user sign-in capability on your tenant, ensure that you have another Authentication Agent running before you uninstall a Pass-through Authentication Agent.
 
       - question: |
-          I have an older tenant that was originally setup using AD FS.  We recently migrated to PTA but now are not seeing our UPN changes synchronizing to Azure AD.  Why are our UPN changes not being synchronized?
+          I have an older tenant that was originally setup using AD FS. We recently migrated to PTA, but now are not seeing our UPN changes synchronizing to Azure AD. Why are our UPN changes not being synchronized?
         answer: |
-          A: Under the following circumstances your on-premises UPN changes may not synchronize if:
+          Under the following circumstances your on-premises UPN changes might not synchronize if:
           
-          - Your Azure AD tenant was created prior to June 15th 2015
-          - You initially were federated with your Azure AD tenant using AD FS for authentication
-          - You switched to having managed users using PTA as authentication
+          - Your Azure AD tenant was created prior to June 15, 2015.
+          - You initially were federated with your Azure AD tenant using AD FS for authentication.
+          - You switched to having managed users using PTA as authentication.
           
-          This is because the default behavior of tenants created prior to June 15th 2015 was to block UPN changes.  If you need to un-block UPN changes you need to run the following PowerShell cmdlt:  
+          This is because the default behavior of tenants created prior to June 15, 2015 was to block UPN changes. If you need to un-block UPN changes you need to run the following PowerShell cmdlet:  
           
           `Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $True`
           
-          Tenants created after June 15th 2015 have the default behavior of synchronizing UPN changes.   
+          Tenants created after June 15, 2015 have the default behavior of synchronizing UPN changes.   
           
+      - question: |
+          How do I capture the PTA Agent ID from Azure AD sign-in logs and the PTA server to validate which PTA server was used for a sign-in event?
+        answer: |
+          To validate which local server or authentication agent was used for a specific sign-in event:
+
+          1. In the Azure portal, go to the sign-in event.
+          2. Select **Authentication Details**. In the **Authentication Method Detail** column, Agent ID details are shown in the format "Pass-through Authentication; PTA AgentId: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX".
+          3. To get Agent ID details for the agent that's installed on your local server, log in to your local server and run following cmdlet: 
+          
+              `Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Azure AD Connect Agents\Azure AD Connect Authentication Agent' | Select *Instance*`
+          
+              The GUID value that's returned is the Agent ID of the authentication agent that's installed on that specific server. If you have multiple agents in your environment, you can run this cmdlet on each agent server and capture the Agent ID details.
+          4. Correlate the Agent ID that you get from the local server and from the Azure AD sign-in logs to validate which agent or server acknowledged the sign-request.
+            
 additionalContent: |
 
   ## Next steps

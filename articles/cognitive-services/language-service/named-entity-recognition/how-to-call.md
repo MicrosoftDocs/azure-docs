@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 12/03/2021
+ms.topic: how-to
+ms.date: 03/01/2022
 ms.author: aahi
 ms.custom: language-service-ner, ignite-fall-2021
 ---
@@ -22,11 +22,7 @@ The NER feature can evaluate unstructured text, and extract named entities from 
 
 ### Specify the NER model
 
-By default, this feature will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform NER operations.
-
-| Supported Versions | latest version |
-|--|--|
-| `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`,`2021-06-01`  | `2021-06-01`   |
+By default, this feature will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../concepts/model-lifecycle.md).
 
 
 ### Input languages
@@ -35,9 +31,7 @@ When you submit documents to be processed, you can specify which of [the support
 
 ## Submitting data
 
-Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the data limits section below.
-
-Using the NER feature synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
+Analysis is performed upon receipt of the request. Using the NER feature synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
 
 [!INCLUDE [asynchronous-result-availability](../includes/async-result-availability.md)]
 
@@ -47,36 +41,9 @@ The API will attempt to detect the [defined entity categories](concepts/named-en
 
 When you get results from NER, you can stream the results to an application or save the output to a file on the local system. The API response will include [recognized entities](concepts/named-entity-categories.md), including their categories and sub-categories, and confidence scores. 
 
-## Data limits
+## Service and data limits
 
-> [!NOTE]
-> * If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
-> * A document is a single string of text characters.  
-
-| Limit | Value |
-|------------------------|---------------|
-| Maximum size of a single document (synchronous) | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  |
-| Maximum number of characters per request (asynchronous)  | 125K characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  |
-| Maximum size of entire request | 1 MB. |
-| Max documents per request | 5 |
-
-If a document exceeds the character limit, the API will behave differently depending on the feature you're using:
-
-* Asynchronous:
-  * The API will reject the entire request and return a `400 bad request` error if any document within it exceeds the maximum size.
-* Synchronous:  
-  * The API won't process a document that exceeds the maximum size, and will return an invalid document error for it. If an API request has multiple documents, the API will continue processing them if they are within the character limit.
-
-Exceeding the maximum number of documents you can send in a single request will generate an HTTP 400 error code.
-
-### Rate limits
-
-Your rate limit will vary with your [pricing tier](https://aka.ms/unifiedLanguagePricing).
-
-| Tier          | Requests per second | Requests per minute |
-|---------------|---------------------|---------------------|
-| S / Multi-service | 1000                | 1000                |
-| S0 / F0         | 100                 | 300                 |
+[!INCLUDE [service limits article](../includes/service-limits-link.md)]
 
 ## Next steps
 

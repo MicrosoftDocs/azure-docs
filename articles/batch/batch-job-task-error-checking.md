@@ -1,10 +1,8 @@
 ---
 title: Check for job and task errors
 description: Learn about errors to check for and how to troubleshoot jobs and tasks.
-author: mscurrell
 ms.topic: how-to
 ms.date: 09/08/2021
-ms.author: markscu
 ---
 
 # Job and task error checking

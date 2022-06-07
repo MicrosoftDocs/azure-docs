@@ -7,7 +7,7 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 11/16/2021
-ms.custom: mode-other
+ms.custom: mode-other, contperf-fy22q3
 zone_pivot_groups: iot-develop-nxp-toolset
 
 # Owner: timlt
@@ -15,13 +15,8 @@ zone_pivot_groups: iot-develop-nxp-toolset
 #   title: IoT Devices
 #   prompt: Choose a build environment
 #   pivots:
-#   - id: iot-toolset-cmake
-#     title: CMake
-#   - id: iot-toolset-iar-ewarm
-#     title: IAR EWARM
 #   - id: iot-toolset-mcuxpresso
 #     title: MCUXpresso
-
 #Customer intent: As a device builder, I want to see a working IoT device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
@@ -37,9 +32,9 @@ zone_pivot_groups: iot-develop-nxp-toolset
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/samples/)
 :::zone-end
 
-In this quickstart, you use Azure RTOS to connect the NXP MIMXRT1060-EVK Evaluation kit (hereafter, the NXP EVK) to Azure IoT.
+In this quickstart, you use Azure RTOS to connect the NXP MIMXRT1060-EVK Evaluation kit (from now on, the NXP EVK) to Azure IoT.
 
-You will complete the following tasks:
+You'll complete the following tasks:
 
 * Install a set of embedded development tools for programming an NXP EVK in C
 * Build an image and flash it onto the NXP EVK
@@ -212,13 +207,13 @@ Keep Termite open to monitor device output in the following steps.
 
 * IAR Embedded Workbench for ARM (IAR EW). You can download and install a [14-day free trial of IAR EW for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
 
-* Download the [Azure_RTOS_6.1_MIMXRT1060_IAR_Samples_2021_11_03.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_MIMXRT1060_IAR_Samples_2021_11_03.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the NXP MIMXRT1060-EVK IAR sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
 ## Prepare the device
 
-In this section you use IAR EW IDE to modify a configuration file for Azure IoT settings, build the sample client application, then download and run it on the device.
+In this section, you use IAR EW IDE to modify a configuration file for Azure IoT settings, build the sample client application, download and then run it on the device.
 
 ### Connect the device
 
@@ -261,7 +256,7 @@ In this section you use IAR EW IDE to modify a configuration file for Azure IoT 
 
 1. Save the file.
 
-1. Select **Project > Batch Build**. Then select **build_all** and **Make** to build all projects. You will see build output in the **Build** pane. Confirm the successful compilation and linking of all sample projects.
+1. Select **Project > Batch Build**. Then select **build_all** and **Make** to build all projects. You'll see build output in the **Build** pane. Confirm the successful compilation and linking of all sample projects.
 
 1. Select the green **Download and Debug** button in the toolbar to download the program.
 
@@ -315,13 +310,13 @@ Keep the terminal open to monitor device output in the following steps.
 
 * Download the [MIMXRT1060-EVK SDK 2.9.0 or later](https://mcuxpresso.nxp.com/en/builder). After you sign in, the website lets you build a custom SDK archive to download. After you select the EVK MIMXRT1060 board and click the option to build the SDK, you can download the zip archive.  The only SDK component to include is the preselected **SDMMC Stack**.
 
-* Download the [Azure_RTOS_6.1_MIMXRT1060_IAR_Samples_2021_11_03.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_MIMXRT1060_IAR_Samples_2021_11_03.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the NXP MIMXRT1060-EVK MCUXpresso sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
 ## Prepare the environment
 
-In this section you prepare your environment, and use MCUXpresso to build and run the sample application on the device.
+In this section, you prepare your environment, and use MCUXpresso to build and run the sample application on the device.
 
 ### Install the device SDK
 
@@ -464,7 +459,7 @@ To call a method in IoT Central portal:
 :::zone pivot="iot-toolset-cmake"
 
 1. Select the **Command** tab from the device page.
-1. In the **State** dropdown, select **True**, and then select **Run**. There will be no change on the device as there isn't an available LED to toggle; however, you can view the output in Termite to monitor the status of the methods.
+1. In the **State** dropdown, select **True**, and then select **Run**. There will be no change on the device as there isn't an available LED to toggle. However, you can view the output in Termite to monitor the status of the methods.
 
     :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central.":::
 
@@ -502,6 +497,9 @@ Select **About** tab from the device page.
 :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-device-about-iar.png" alt-text="Screenshot of NXP device information in IoT Central.":::
 :::zone-end
 
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
+
 ## Troubleshoot and debug
 
 If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
@@ -510,10 +508,10 @@ If you experience issues building the device code, flashing the device, or conne
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
-For help debugging the application, see the selections under **Help** in **IAR EW for ARM**.  
+If you need help debugging the application, see the selections under **Help** in **IAR EW for ARM**.  
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
-For help debugging the application, in MCUXpresso open the **Help > MCUXPresso IDE User Guide** and see the content on Azure RTOS debugging. 
+If you need help debugging the application, in MCUXpresso open the **Help > MCUXPresso IDE User Guide** and see the content on Azure RTOS debugging. 
 :::zone-end
 
 ## Clean up resources

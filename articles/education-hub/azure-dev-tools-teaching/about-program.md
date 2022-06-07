@@ -11,11 +11,12 @@ ms.subservice: education-hub
 
 # What is Azure Dev Tools for Teaching?
 
-Microsoft Azure Dev Tools for Teaching puts professional developer tools, software, and services
-from Microsoft in the hands of faculty and students with low-cost subscriptions. Students
-receive developer tools at no cost--everything needed to create apps, games, and websites--so 
-they can chase their dreams, create the next big breakthrough in technology, or get a head 
-start on their career.
+Microsoft Azure Dev Tools for Teaching puts professional developer tools, 
+software, and services from Microsoft in the hands of faculty and students 
+with plans that come as a part of various Academic Volume Licensing Agreements. 
+Students receive developer tools at no cost--everything needed to create apps, games, 
+and websites--so they can chase their dreams, create the next big breakthrough in technology, 
+or get a head start on their career.
 
 As an administrator of the Azure Dev Tools for Teaching subscription, you'll be able to:
 
@@ -26,10 +27,7 @@ need to maintain a WebStore or an internal site.
 Azure cloud platform through the same online portal.
 
 ## Program details
-
-We designed Azure Dev Tools for Teaching for STEM-focused instruction. Any course curriculum 
-focused on science, technology, engineering, or mathematics is eligible to
-use Azure Dev Tools for Teaching to help professors teach and students learn more effectively. 
+We designed Azure Dev Tools for Teaching to help professors teach and students learn more effectively.
 
 Your Microsoft Azure Dev Tools for Teaching subscription provides you with access to certain software 
 developer tools. These tools are available to download for free. If you're a faculty member is enrolled 

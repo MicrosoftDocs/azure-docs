@@ -1,14 +1,15 @@
 ---
-title: Create tasks to prepare & complete jobs on compute nodes
-description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
+title: Create tasks to prepare and complete jobs on compute nodes
+description: Make job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
 ms.topic: how-to
-ms.date: 09/10/2021
+ms.date: 01/12/2021
+ms.devlang: csharp
 ms.custom: "seodec18, devx-track-csharp"
 
 ---
-# Run job preparation and job release tasks on Batch compute nodes
+# Create tasks to prepare and complete jobs on Batch compute nodes
 
- An Azure Batch job often requires some form of setup before its tasks are executed. It also may require post-job maintenance when its tasks are completed. For example, you might need to download common task input data to your compute nodes, or upload task output data to Azure Storage after the job completes. You can use **job preparation** and **job release** tasks to perform these operations.
+An Azure Batch job often requires some form of setup before its tasks are executed. It also may require post-job maintenance when its tasks are completed. For example, you might need to download common task input data to your compute nodes, or upload task output data to Azure Storage after the job completes. You can use **job preparation** and **job release** tasks to perform these operations.
 
 ## What are job preparation and release tasks?
 
@@ -164,4 +165,4 @@ The screenshot below shows the **Preparation tasks blade** in the Azure portal. 
 - Learn about [error checking for jobs and tasks](batch-job-task-error-checking.md).
 - Learn how to use [application packages](batch-application-packages.md) to prepare Batch compute nodes for task execution.
 - Explore different ways to [copy data and application to Batch compute nodes](batch-applications-to-pool-nodes.md).
-- Learn about using the [Azure Batch File Conventions library](batch-task-output.md#use-the-batch-file-conventions-library-for-net) to persist logs and other job and task output data.
+- Learn about using the [Azure Batch File Conventions library](batch-task-output.md#batch-file-conventions-library) to persist logs and other job and task output data.

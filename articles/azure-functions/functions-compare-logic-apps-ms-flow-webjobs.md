@@ -19,13 +19,15 @@ All of these services can solve integration problems and automate business proce
 
 If you're looking for a more general comparison between Azure Functions and other Azure compute options, see [Criteria for choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) and [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options).
 
+For a good summary and comparison of automation service options in Azure, see [Choose the Automation services in Azure](../automation/automation-services.md). 
+
 ## Compare Microsoft Power Automate and Azure Logic Apps
 
 Power Automate and Logic Apps are both *designer-first* integration services that can create workflows. Both services integrate with various SaaS and enterprise applications. 
 
 Power Automate is built on top of Logic Apps. They share the same workflow designer and the same [connectors](../connectors/apis-list.md). 
 
-Power Automate empowers any office worker to perform simple integrations (for example, an approval process on a SharePoint Document Library) without going through developers or IT. Logic Apps can also enable advanced integrations (for example, B2B processes) where enterprise-level Azure DevOps and security practices are required. It's typical for a business workflow to grow in complexity over time. Accordingly, you can start with a flow at first, and then convert it to a logic app as needed.
+Power Automate empowers any office worker to perform simple integrations (for example, an approval process on a SharePoint Document Library) without going through developers or IT. Logic Apps can also enable advanced integrations (for example, B2B processes) where enterprise-level Azure DevOps and security practices are required. It's typical for a business workflow to grow in complexity over time.
 
 The following table helps you determine whether Power Automate or Logic Apps is best for a particular integration:
 
@@ -33,7 +35,7 @@ The following table helps you determine whether Power Automate or Logic Apps is 
 | --- | --- | --- |
 | **Users** |Office workers, business users, SharePoint administrators |Pro integrators and developers, IT pros |
 | **Scenarios** |Self-service |Advanced integrations |
-| **Design tool** |In-browser and mobile app, UI only |In-browser and [Visual Studio](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), [Code view](../logic-apps/logic-apps-author-definitions.md) available |
+| **Design tool** |In-browser and mobile app, UI only |In-browser, [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md), and [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) with code view available |
 | **Application lifecycle management (ALM)** |Design and test in non-production environments, promote to production when ready |Azure DevOps: source control, testing, support, automation, and manageability in [Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) |
 | **Admin experience** |Manage Power Automate environments and data loss prevention (DLP) policies, track licensing: [Admin center](https://admin.flow.microsoft.com) |Manage resource groups, connections, access management, and logging: [Azure portal](https://portal.azure.com) |
 | **Security** |Microsoft 365 security audit logs, DLP, [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data |Security assurance of Azure: [Azure security](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
@@ -49,9 +51,9 @@ You can mix and match services when you build an orchestration, calling function
 |  | Durable Functions | Logic Apps |
 | --- | --- | --- |
 | **Development** | Code-first (imperative) | Designer-first (declarative) |
-| **Connectivity** | [About a dozen built-in binding types](functions-triggers-bindings.md#supported-bindings), write code for custom bindings | [Large collection of connectors](../connectors/apis-list.md), [Enterprise Integration Pack for B2B scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md), [build custom connectors](../logic-apps/custom-connector-overview.md) |
-| **Actions** | Each activity is an Azure function; write code for activity functions |[Large collection of ready-made actions](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| **Monitoring** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure Monitor logs](../logic-apps/monitor-logic-apps.md)|
+| **Connectivity** | [About a dozen built-in binding types](functions-triggers-bindings.md#supported-bindings), write code for custom bindings | [Large collection of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors), [Enterprise Integration Pack for B2B scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md), [build custom connectors](/connectors/custom-connectors/) |
+| **Actions** | Each activity is an Azure function; write code for activity functions |[Large collection of ready-made actions](/connectors/connector-reference/connector-reference-logicapps-connectors)|
+| **Monitoring** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure Monitor logs](../logic-apps/monitor-logic-apps-log-analytics.md), [Microsoft Defender for Cloud](../logic-apps/healthy-unhealthy-resource.md) |
 | **Management** | [REST API](durable/durable-functions-http-api.md), [Visual Studio](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](/rest/api/logic/), [PowerShell](/powershell/module/az.logicapp), [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
 | **Execution context** | Can run [locally](./functions-kubernetes-keda.md) or in the cloud | Runs only in the cloud|
 

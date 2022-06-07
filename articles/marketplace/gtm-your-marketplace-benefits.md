@@ -4,9 +4,9 @@ description: Go-To-Market Services - Describes Microsoft resources that publishe
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/05/2021
-author: keferna
-ms.author: keferna
+ms.date: 05/11/2022
+author: vivekmohanms
+ms.author: vivekmo
 ---
 
 # Your commercial marketplace benefits
@@ -28,7 +28,7 @@ Your benefits are differentiated based on whether your offer is [List, Trial, or
 
 Based on your eligibility, you will be contacted by a member of the Rewards team when your offer goes live, based on your eligibility.
 
-List and trial offers receive one-time use benefits. Transact offers are eligible for evergreen benefit engagement. As transacting partners, as you grow your billed sales through the commercial marketplace, you unlock greater benefits per per billed sales (or seats sold)  tier.
+List and trial offers receive one-time use benefits. Transact offers are eligible for evergreen benefit engagement. As transacting partners, as you grow your billed sales through the commercial marketplace, you unlock greater benefits per billed sales (or seats sold)  tier.
 
 The minimum requirement to publish in the online stores is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Every partner is empowered to grow your business through the commercial marketplace as a platform.
 

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 02/04/2022
 ms.author: absinh
 ms.reviewer: rolyon
 ms.custom: it-pro
@@ -93,23 +93,24 @@ Follow these instructions to assign a role using the Microsoft Graph API in [Gra
 
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 
-1. Use [List user](/graph/api/user-list) API to get the user.
+1. Use [List users](/graph/api/user-list) API to get the user.
 
-    ```HTTP
-    GET https://graph.microsoft.com/beta/users?$filter=userPrincipalName eq 'alice@contoso.com'
+    ```http
+    GET https://graph.microsoft.com/v1.0/users?$filter=userPrincipalName eq 'alice@contoso.com'
     ```
     
-1. Use the [List roleDefinitions](/graph/api/rbacapplication-list-roledefinitions) API to get the role you want to assign.
+1. Use the [List unifiedRoleDefinitions](/graph/api/rbacapplication-list-roledefinitions) API to get the role you want to assign.
 
-    ```HTTP
-    GET https://graph.microsoft.com/beta/rolemanagement/directory/roleDefinitions?$filter=displayName eq 'Billing Administrator'
+    ```http
+    GET https://graph.microsoft.com/v1.0/rolemanagement/directory/roleDefinitions?$filter=displayName eq 'Billing Administrator'
     ```
     
-1. Use the [Create roleAssignments](/graph/api/rbacapplication-post-roleassignments) API to assign the role.\
+1. Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign the role.
 
-    ```HTTP
-    POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+    ```http
+    POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
     {
+        "@odata.type": "#microsoft.graph.unifiedRoleAssignment",
         "principalId": "<provide objectId of the user obtained above>",
         "roleDefinitionId": "<provide templateId of the role obtained above>",
         "directoryScopeId": "/"
@@ -190,29 +191,30 @@ Follow these instructions to assign a role at administrative unit scope using th
 
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 
-1. Use [List user](/graph/api/user-list) API to get the user.
+1. Use [List users](/graph/api/user-list) API to get the user.
 
-    ```HTTP
-    GET https://graph.microsoft.com/beta/users?$filter=userPrincipalName eq 'alice@contoso.com'
+    ```http
+    GET https://graph.microsoft.com/v1.0/users?$filter=userPrincipalName eq 'alice@contoso.com'
     ```
     
-1. Use the [List roleDefinitions](/graph/api/rbacapplication-list-roledefinitions) API to get the role you want to assign.
+1. Use the [List unifiedRoleDefinitions](/graph/api/rbacapplication-list-roledefinitions) API to get the role you want to assign.
 
-    ```HTTP
-    GET https://graph.microsoft.com/beta/rolemanagement/directory/roleDefinitions?$filter=displayName eq 'User Administrator'
+    ```http
+    GET https://graph.microsoft.com/v1.0/rolemanagement/directory/roleDefinitions?$filter=displayName eq 'User Administrator'
     ```
     
 1. Use the [List administrativeUnits](/graph/api/administrativeunit-list) API to get the administrative unit you want the role assignment to be scoped to.
 
-    ```HTTP
-    GET https://graph.microsoft.com/beta/administrativeUnits?$filter=displayName eq 'Seattle Admin Unit'
+    ```http
+    GET https://graph.microsoft.com/v1.0/directory/administrativeUnits?$filter=displayName eq 'Seattle Admin Unit'
     ```
 
-1. Use the [Create roleAssignments](/graph/api/rbacapplication-post-roleassignments) API to assign the role.
+1. Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign the role.
 
-    ```HTTP
-    POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+    ```http
+    POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
     {
+        "@odata.type": "#microsoft.graph.unifiedRoleAssignment",
         "principalId": "<provide objectId of the user obtained above>",
         "roleDefinitionId": "<provide templateId of the role obtained above>",
         "directoryScopeId": "/administrativeUnits/<provide objectId of the admin unit obtained above>"
@@ -304,29 +306,31 @@ Follow these instructions to assign a role at application scope using the Micros
 
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 
-1. Use [List user](/graph/api/user-list) API to get the user.
+1. Use [List users](/graph/api/user-list) API to get the user.
 
-    ```HTTP
-    GET https://graph.microsoft.com/beta/users?$filter=userPrincipalName eq 'alice@contoso.com'
+    ```http
+    GET https://graph.microsoft.com/v1.0/users?$filter=userPrincipalName eq 'alice@contoso.com'
     ```
     
-1. Use the [List roleDefinitions](/graph/api/rbacapplication-list-roledefinitions) API to get the role you want to assign.
+1. Use the [List unifiedRoleDefinitions](/graph/api/rbacapplication-list-roledefinitions) API to get the role you want to assign.
 
-    ```HTTP
-    GET https://graph.microsoft.com/beta/rolemanagement/directory/roleDefinitions?$filter=displayName eq 'Application Administrator'
+    ```http
+    GET https://graph.microsoft.com/v1.0/rolemanagement/directory/roleDefinitions?$filter=displayName eq 'Application Administrator'
     ```
     
 1. Use the [List applications](/graph/api/application-list) API to get the administrative unit you want the role assignment to be scoped to.
 
-    ```HTTP
-    GET https://graph.microsoft.com/beta/applications?$filter=displayName eq 'f/128 Filter Photos'
+    ```http
+    GET https://graph.microsoft.com/v1.0/applications?$filter=displayName eq 'f/128 Filter Photos'
     ```
 
-1. Use the [Create roleAssignments](/graph/api/rbacapplication-post-roleassignments) API to assign the role.
+1. Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign the role.
 
-    ```HTTP
-    POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+    ```http
+    POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
+
     {
+        "@odata.type": "#microsoft.graph.unifiedRoleAssignment",
         "principalId": "<provide objectId of the user obtained above>",
         "roleDefinitionId": "<provide templateId of the role obtained above>",
         "directoryScopeId": "/<provide objectId of the app registration obtained above>"

@@ -4,28 +4,27 @@ description: Test and submit an Azure virtual machine offer in Azure Marketplace
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: ebolton-cyber
-ms.author: edewebolton
-ms.date: 03/10/2021
+author: mathapli
+ms.author: mathapli
+ms.reviewer: edewebolton
+ms.date: 04/25/2022
 ---
 
 # Test a virtual machine image
 
-This topic will cover the steps to test a virtual machine (VM) image for deployment on Azure Marketplace.
+This article describes how to test a virtual machine (VM) image to ensure it meets the latest Azure Marketplace publishing requirements.
 
 ## Deploy an Azure VM
 
 To deploy a VM from the Azure Compute Gallery (formerly know as Shared Image Gallery) image:
 
-1. Navigate to the Azure Compute Gallery image version.
+1. Open the Azure Compute Gallery image version.
 1. Select **Create VM**.
-1. Provide a Virtual Machine Name and select a VM Size.
+1. Provide a Virtual Machine **Name** and select a **VM Size**.
 1. Select **Review + create**. Once validation is passed, select **Create**.
 
 > [!NOTE]
-> If you need to create a VM from a vhd file, follow the instructions in the following articles, [Prepare an Azure Resource Manager template](#connect-the-certification-tool-to-a-vm-image) or [Deploy an Azure VM using PowerShell](#how-to-use-powershell-to-consume-the-self-test-api).
-
-This article describes how to test and submit a virtual machine (VM) image in the commercial marketplace to ensure it meets the latest Azure Marketplace publishing requirements.
+> To create a VM from a vhd file, follow the instructions below under [Connect the certification tool to a VM image](#connect-the-certification-tool-to-a-vm-image) or [Using PowerShell to consume the Self-Test API](#using-powershell-to-consume-the-self-test-api).
 
 Complete these steps before submitting your VM offer:
 
@@ -38,6 +37,9 @@ There are two ways to run validations on the deployed image.
 
 ### Use Certification Test Tool for Azure Certified
 
+> [!IMPORTANT]
+> To run the certification test tool, the Windows Remote Management service must be running and configured on Windows. This enables access to port 5986. For information, see [Installation and configuration for Windows Remote Management](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management).
+
 #### Download and run the certification test tool
 
 The Certification Test Tool for Azure Certified runs on a local Windows machine but tests an Azure-based Windows or Linux VM. It certifies that your user VM image can be used with Microsoft Azure and that the guidance and requirements around preparing your VHD have been met.
@@ -45,7 +47,7 @@ The Certification Test Tool for Azure Certified runs on a local Windows machine 
 1. Download and install the most recent [Certification Test Tool for Azure Certified](https://www.microsoft.com/download/details.aspx?id=44299).
 2. Open the certification tool, then select **Start New Test**.
 3. From the Test Information screen, enter a **Test Name** for the test run.
-4. Select the Platform for your VM, either **Windows Server** or **Linux**. Your platform choice affects the remaining options.
+4. Select the Platform for your VM, either **Windows Server** (allow port 5986 for Windows) or **Linux** (allow port 22 for Linux). Your platform choice affects the remaining options.
 5. If your VM is using this database service, select the **Test for Azure SQL Database** check box.
 
 #### Connect the certification tool to a VM image
@@ -73,19 +75,32 @@ The last screen lets you provide more information, such as SSH access informatio
 
 Finally, select Generate Report to download the test results and log files for the executed test cases along with your answers to the questionnaire.
 > [!Note]
-> Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here and submit the report at Partner Center [support](https://aka.ms/marketplacepublishersupport).
+> Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here and submit the report at Partner Center [support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
-## How to use PowerShell to consume the Self-Test API
+## Using PowerShell to consume the Self-Test API
 
 ### On Linux OS
 
 Call the API in PowerShell:
 
+1. Generate the access token.
 1. Use the Invoke-WebRequest command to call the API.
-2. The method is Post and content type is JSON, as shown in the following code example and screen capture.
-3. Specify the body parameters in JSON format.
+1. The method is Post and content type is JSON, as shown in the following code example and screen capture.
+1. Specify the body parameters in JSON format.
 
-This following example shows a PowerShell call to the API:
+The following commands generate an access token:
+
+```powershell
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers.Add("Content-Type", "application/x-www-form-urlencoded")
+$body = "grant_type=client_credentials&client_id=$clientId&client_secret=$clientSecret&resource=https%3A%2F%2Fmanagement.core.windows.net"
+$response = Invoke-RestMethod "https://login.microsoftonline.com/$tenantId/oauth2/token" -Method 'POST' -Headers $headers -Body $body
+$accessToken = $response.access_token
+```
+
+:::image type="content" source="media/vm/generate-access-token.png" lightbox="media/vm/generate-access-token.png" alt-text="Shows a screen example for generating an access token in PowerShell.":::
+
+This example shows a PowerShell call to the API (allow port 22 during VM creation):
 
 ```POWERSHELL
 $accesstoken = "token"
@@ -112,7 +127,7 @@ $body = @{
 
 $body
 
-$uri = "URL"
+$uri = "https://isvapp.azurewebsites.net/selftest-vm"
 
 $res = (Invoke-WebRequest -Method "Post" -Uri $uri -Body $body -ContentType "application/json" -Headers $headers).Content
 ```
@@ -156,7 +171,7 @@ Call the API in PowerShell:
 2. The method is Post and content type is JSON, as shown in the following code example and sample screen.
 3. Create the body parameters in JSON format.
 
-This code sample shows a PowerShell call to the API:
+This code sample shows a PowerShell call to the API (allow port 5986 during VM creation):
 
 ```PowerShell
 $accesstoken = "Get token for your Client AAD App"
@@ -176,7 +191,7 @@ $res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "appl
 $Content = $res | ConvertFrom-Json
 ```
 
-These sample screens show example for calling the API in PowerShell:
+These sample screens show examples for calling the API in PowerShell:
 
 **With SSH key**:
 
@@ -213,7 +228,7 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
 
 ![Test results in an online JSON viewer.](media/vm/test-results-json-viewer-2.png)
 
-## How to use CURL to consume the Self-Test API on Linux OS
+## Using CURL to consume the Self-Test API on Linux OS
 
 In this example, curl will be used to to make a POST API call to Azure Active Directory and the Self-Host VM.
 
@@ -264,7 +279,7 @@ In this example, curl will be used to to make a POST API call to Azure Active Di
    }'
    ```
 
-   Example response from the self-test VM api call
+   Example response from the self-test VM api call:
 
    ```JSON
    {

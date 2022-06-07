@@ -2,11 +2,9 @@
 title: Microsoft Defender for Cloud troubleshooting guide | Microsoft Docs
 description: This guide is for IT professionals, security analysts, and cloud admins who need to troubleshoot Microsoft Defender for Cloud related issues.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 12/26/2021
 ---
 # Microsoft Defender for Cloud Troubleshooting Guide
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This guide is for information technology (IT) professionals, information security analysts, and cloud administrators whose organizations need to troubleshoot Defender for Cloud related issues.
 
@@ -15,7 +13,7 @@ Defender for Cloud uses the Log Analytics agent to collect and store data. See [
 > [!TIP]
 > A dedicated area of the Defender for Cloud pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Defender for Cloud.
 >
-> When you're facing an issue, or are seeking advice from our support team, **Diagnose and solve problems*- is good place to look for solutions:
+> When you're facing an issue, or are seeking advice from our support team, **Diagnose and solve problems** is good place to look for solutions:
 >
 > :::image type="content" source="media/release-notes/solve-problems.png" alt-text="Defender for Cloud's 'Diagnose and solve problems' page":::
 
@@ -75,24 +73,6 @@ There are two installation scenarios that can produce different results when ins
 > [!NOTE]
 > To avoid the behavior explained in the second scenario, make sure you download the latest version of the agent.
 
-<a name="mon-agent"></a>
-
-## Monitoring agent health issues
-
-**Monitoring state** defines the reason Defender for Cloud is unable to successfully monitor VMs and computers initialized for automatic provisioning. The following table shows the **Monitoring state** values, descriptions, and resolution steps.
-
-| Monitoring state | Description | Resolution steps |
-|---|---|---|
-| Pending agent installation | The Log Analytics agent installation is still running.  Installation can take up to a few hours. | Wait until automatic installation is complete. |
-| Power state off | The VM is stopped.  The Log Analytics agent can only be installed on a VM that is running. | Restart the VM. |
-| Missing or invalid Azure VM agent | The Log Analytics agent is not installed yet.  For Defender for Cloud to install the extension a valid Azure VM agent is required. | Install, reinstall or upgrade the Azure VM agent on the VM. |
-| VM state not ready for installation  | The Log Analytics agent is not installed yet because the VM is not ready for installation. The VM is not ready for installation due to a problem with the VM agent or VM provisioning. | Check the status of your VM. Return to **Virtual Machines** in the portal and select the VM for status information. |
-|Installation failed - general error | The Log Analytics agent was installed but failed due to an error. | [Manually install the extension](../azure-monitor/vm/monitor-virtual-machine.md#agents) or uninstall the extension so Defender for Cloud will try to install again. |
-| Installation failed -  local agent already installed | Log Analytics agent install failed. Defender for Cloud identified a local agent (Log Analytics or System Center Operations Manager) already installed on the VM. To avoid multi-homing configuration, where the VM is reporting to two separate workspaces, the Log Analytics agent installation stopped. | There are two ways to resolve: [manually install the extension](../azure-monitor/vm/monitor-virtual-machine.md#agents) and connect it to your desired workspace. Or, set your desired workspace as your default workspace and enable automatic provisioning of the agent.  See [enable automatic provisioning](enable-data-collection.md). |
-| Agent cannot connect to workspace | Log Analytics agent installed but failed due to network connectivity.  Check that there is  internet access or that a valid HTTP proxy has been configured for the agent. | See monitoring agent network requirements. |
-| Agent connected to missing or unknown workspace | Defender for Cloud identified that the Log Analytics agent installed on the VM is connected to a workspace which it doesn't have access to. | This can happen in two cases. The workspace was deleted and no longer exists. Reinstall the agent with the correct workspace or uninstall the agent and allow Defender for Cloud to complete its automatic provisioning installation. The second case is where the workspace is part of a subscription that Defender for Cloud does not have permissions to. Defender for Cloud requires subscriptions to allow the Microsoft Security Resource Provider to access them. To enable, register the subscription to the Microsoft Security Resource Provider. This can be done by API, PowerShell, portal or by simply filtering on the subscription in the Defender for Cloud **Overview** dashboard. See [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) for more information. |
-| Agent not responsive or missing ID | Defender for Cloud is unable to retrieve security data scanned from the VM, even though the agent is installed. | The agent is not reporting any data, including heartbeat. The agent might be damaged or something is blocking traffic. Or, the agent is reporting data but is missing an Azure resource ID so it's impossible to match the data to the Azure VM. To troubleshoot Linux, see [Troubleshooting Guide for Log Analytics Agent for Linux](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). To troubleshoot Windows, see [Troubleshooting Windows Virtual Machines](../virtual-machines/extensions/oms-windows.md#troubleshoot-and-support). |
-| Agent not installed | Data collection is disabled. | Turn on data collection in the security policy or manually install the Log Analytics agent. |
 
 <a name="mon-network-req"></a>
 
@@ -130,7 +110,7 @@ By default the Microsoft Antimalware User Interface is disabled, read [Enabling 
 
 ## Troubleshooting problems loading the dashboard
 
-If you experience issues loading the workload protection dashboard, ensure that the user that registers the subscription to Defender for Cloud (i.e. the first user one who opened Defender for Cloud with the subscription) and the user who would like to turn on data collection should be *Owner* or *Contributor* on the subscription. From that moment on also users with *Reader* on the subscription can see the dashboard/alerts/recommendation/policy.
+If you experience issues loading the workload protection dashboard, ensure that the user that registers the subscription to Defender for Cloud (i.e. the first user one who opened Defender for Cloud with the subscription) and the user who would like to turn on data collection should be *Owner* or *Contributor* on the subscription. From that moment on also users with *Reader* on the subscription can see the dashboard/alerts/recommendation/policy.
 
 ## Contacting Microsoft Support
 

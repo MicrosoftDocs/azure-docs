@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/12/2021
+ms.date: 01/07/2022
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: librown
 
 ms.collection: M365-identity-device-management
@@ -97,7 +97,7 @@ The user is then presented with a number. The app prompts the user to authentica
 
 After the user has utilized passwordless phone sign-in, the app continues to guide the user through this method. However, the user will see the option to choose another method.
 
-:::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png" alt-text="Example of a browser sign-in using the Microsoft Authenticator app.":::
+:::image type="content" border="true" source="./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png" alt-text="Example of a browser sign-in using the Microsoft Authenticator app.":::
 
 ## Known Issues
 
@@ -130,7 +130,7 @@ If the user attempts to upgrade multiple installations (5+) of the Microsoft Aut
 
 Before you can create this new strong credential, there are prerequisites. One prerequisite is that the device on which the Microsoft Authenticator app is installed must be registered within the Azure AD tenant to an individual user.
 
-Currently, a device can only be registered in a single tenant. This limit means that only one work or school account in the Microsoft Authenticator app can be enabled for phone sign-in.
+Currently, a device can only be enabled for passwordless sign-in in a single tenant. This limit means that only one work or school account in the Microsoft Authenticator app can be enabled for phone sign-in.
 
 > [!NOTE]
 > Device registration is not the same as device management or mobile device management (MDM). Device registration only associates a device ID and a user ID together, in the Azure AD directory.

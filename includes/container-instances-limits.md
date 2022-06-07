@@ -27,4 +27,4 @@ ms.author: danlep
 <sup>2</sup>Default limit for [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. Limit may differ for other category types.<br/>
 
 <!-- LINKS - External -->
-[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

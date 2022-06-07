@@ -13,7 +13,20 @@ services: azure-maps
 
 You can manage your Azure Maps account through the Azure portal. After you have an account, you can implement the APIs in your website or mobile application.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
+
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you continue.
+- For picking account location and you're unfamiliar with managed identities for Azure resources, check out the [overview section](../active-directory/managed-identities-azure-resources/overview.md).
+
+## Account location
+
+Picking a location for your Azure Maps account that aligns with other resources in your subscription, like managed identities, may help to improve the level of service for [control-plane](../azure-resource-manager/management/control-plane-and-data-plane.md) operations. 
+
+As an example, the managed identity infrastructure will communicate and notify the Azure Maps management services for changes to the identity resource such as credential renewal or deletion. Sharing the same Azure location enables a consistent infrastructure provisioning for all resources.
+
+Any Azure Maps REST API on endpoint `atlas.microsoft.com`, `*.atlas.microsoft.com`, or other endpoints belonging to the Azure data-plane are not affected by the choice of the Azure Maps account location. 
+
+Read more about data-plane service coverage for Azure Maps services on [geographic coverage](./geographic-coverage.md).
 
 ## Create a new account
 

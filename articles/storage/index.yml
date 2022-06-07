@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page
   author: tamram
   ms.author: tamram
-  ms.date: 04/14/2021
+  ms.date: 03/09/2022
 
 
 highlightedContent:
@@ -20,19 +20,19 @@ highlightedContent:
     # Card
     - title: Review options for storage in Azure
       itemType: concept
-      url: /azure/cloud-adoption-framework/ready/considerations/storage-options.md
-    - title: Introduction to the core Azure Storage services
+      url: /azure/cloud-adoption-framework/ready/considerations/storage-options
+    - title: Introduction to Azure Storage
       itemType: concept
       url: ./common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - title: Learn about storage account types
+    - title: Learn about types of storage accounts
       itemType: concept
       url: ./common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - title: Create a storage account
       itemType: how-to-guide
       url: ./common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - title: Learn about data redundancy
-      itemType: concept
-      url: ./common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - title: Build new Azure Storage skills with Microsoft Learn
+      itemType: learn
+      url: /users/henryyan-8971/collections/d2zmi3jdje144m
     - title: Migrate data to Azure Storage
       itemType: concept
       url: ./common/storage-migration-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -46,7 +46,7 @@ additionalContent:
     - title: Cloud storage solutions
       items:
         # Card
-        - title: Object storage for your apps
+        - title: Object storage for your applicationss
           links:
           - url: ./blobs/storage-blobs-introduction.md
             text: Learn about storage for unstructured data (Blob storage)

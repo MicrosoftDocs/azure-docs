@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions - Custom Translator
+title: "Legacy: Frequently asked questions - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: This article contains answers to frequently asked questions about the Azure Cognitive Services Custom Translator.
 author: laujan
@@ -21,15 +21,15 @@ This article contains answers to frequently asked questions about [Custom Transl
 There are restrictions and limits with respect to file size, model training, and model deployment. Keep these restrictions in mind when setting up your training to build a model in Custom Translator.
 
 - Submitted files must be less than 100 MB in size.
-- Monolingual data is not supported.
+- Monolingual data isn't supported.
 
 ## When should I request deployment for a translation system that has been trained?
 
-It may take several trainings to create the optimal translation system for your project. You may want to try using more training data or more carefully filtered data, if the BLEU score and/ or the test results are not satisfactory. You should
+It may take several trainings to create the optimal translation system for your project. You may want to try using more training data or more carefully filtered data, if the BLEU score and/ or the test results aren't satisfactory. You should
 be strict and careful in designing your tuning set and your test set, to be
 fully representative of the terminology and style of material you want to
 translate. You can be more liberal in composing your training data, and
-experiment with different options. Request a system deployment when you are
+experiment with different options. Request a system deployment when you're
 satisfied with the translations in your system test results, have no more data to add to the training to
 improve your trained system, and you want to access the trained model via APIs.
 
@@ -62,7 +62,7 @@ an option to skip Custom Translator's sentence breaking and alignment process fo
 files that are perfectly aligned, and need no further processing. We recommend
 using `.align` extension only for files that are perfectly aligned.
 
-If the number of extracted sentences does not match the two files with the same
+If the number of extracted sentences doesn't match the two files with the same
 base name, Custom Translator will still run the sentence aligner on `.align`
 files.
 

@@ -11,7 +11,6 @@ ms.subservice: security-develop
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ---
@@ -125,10 +124,12 @@ architects, developers, and testers who build and deploy secure Azure
 solutions.
 
 [Security and Compliance Blueprints on
-Azure](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) –
+Azure](../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md) –
 Azure Security and Compliance Blueprints are resources that can help you
 build and launch cloud-powered applications that comply with stringent
 regulations and standards.
+
+
 
 ## Next steps
 In the following articles, we recommend security controls and activities that can help you design, develop, and deploy secure applications.

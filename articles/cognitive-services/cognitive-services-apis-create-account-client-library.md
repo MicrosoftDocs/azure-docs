@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 06/04/2021
 ms.author: pafarley
 zone_pivot_groups: programming-languages-set-ten
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a Cognitive Services resource using the Azure Management client library

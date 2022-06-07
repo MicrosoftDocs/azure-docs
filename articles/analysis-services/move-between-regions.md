@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.custom: references_regions , devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurepowershell
 #Customer intent: As an Azure service administrator, I want to move Analysis Services server resources to different Azure region.
 ---
 

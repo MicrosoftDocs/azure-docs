@@ -1,8 +1,8 @@
 ---
 title: Connect to Azure Percept DK over Ethernet
 description: This guide shows users how to connect to the Azure Percept DK setup experience when connected over an Ethernet connection.
-author: WendyAnn0079
-ms.author: amiyouss
+author: nkhuyent
+ms.author: wendyowen
 ms.service: azure-percept
 ms.topic: how-to 
 ms.date: 06/01/2021

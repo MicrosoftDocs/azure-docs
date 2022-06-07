@@ -7,7 +7,8 @@ ms.topic: how-to
 ms.date: 10/14/2020
 author: manishmsfte
 ms.author: mansha
-ms.custom: devx-track-js
+ms.devlang: csharp, java
+ms.custom: devx-track-csharp, devx-track-java
 ---
 # Find the request unit charge for operations executed in Azure Cosmos DB Gremlin API
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]

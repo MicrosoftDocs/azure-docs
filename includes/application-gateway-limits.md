@@ -31,16 +31,20 @@ ms.author: victorh
 | Number of Header or URL configuration per rewrite rule set|40| |
 | Number of conditions per rewrite rule set|40| |
 | Concurrent WebSocket connections |Medium gateways 20k<sup>2</sup><br> Large gateways 50k<sup>2</sup>| |
-| Maximum URL length|32KB| |
-| Maximum header size|32KB| |
-| Maximum header field size for HTTP/2|8KB| |
-| Maximum header size for HTTP/2|16KB| |
-| Maximum file upload size (Standard SKU) |V2 - 4 GB<br>V1 - 2GB | |
-| Maximum file upload size (WAF SKU) |V1 Medium - 100 MB<br>V1 Large - 500 MB<br>V2 - 750 MB<br>V2 (with CRS 3.2 or newer) - 4GB| |
-| WAF body size limit (without files)|V1 or V2 (with CRS 3.1 and older) - 128KB<br>V2 (with CRS 3.2 or newer) - 2MB| |
+| Maximum URL length|32 KB| |
+| Maximum header size|32 KB| |
+| Maximum header field size for HTTP/2|8 KB| |
+| Maximum header size for HTTP/2|16 KB| |
+| Maximum file upload size (Standard SKU) |V2 - 4 GB<br>V1 - 2 GB | |
+| Maximum file upload size (WAF SKU) |V1 Medium - 100 MB<br>V1 Large - 500 MB<br>V2 - 750 MB<br>V2 (with CRS 3.2 or newer) - 4 GB<sup>3</sup>| |
+| WAF body size limit (without files)|V1 or V2 (with CRS 3.1 and older) - 128 KB<br>V2 (with CRS 3.2 or newer) - 2 MB<sup>3</sup>| |
+| Maximum Private Link Configurations| 2 | 1 for public IP, 1 for private IP |
+| Maximum Private Link IP Configurations| 8 | |
 | Maximum WAF custom rules|100||
 | Maximum WAF exclusions per Application Gateway|40||
 
 <sup>1</sup> In case of WAF-enabled SKUs, you must limit the number of resources to 40.
 
 <sup>2</sup> Limit is per Application Gateway instance not per Application Gateway resource.
+
+<sup>3</sup> Must define the value via WAF Policy for Application Gateway

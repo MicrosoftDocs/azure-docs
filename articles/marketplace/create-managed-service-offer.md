@@ -7,7 +7,7 @@ ms.reviewer: anbene
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 03/28/2022
 ---
 
 # Create a Managed Service offer for the commercial marketplace
@@ -17,10 +17,6 @@ This article explains how to create a Managed Service offer for the Microsoft co
 To publish a Managed Service offer, you must have earned a Gold or Silver Microsoft Competency in Cloud Platform. If you haven’t already done so, read [Plan a Managed Service offer for the commercial marketplace](./plan-managed-service-offer.md). It will help you prepare the assets you need when you create the offer in Partner Center.
 
 ## Create a new offer
-
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
 
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 
@@ -39,26 +35,13 @@ To publish a Managed Service offer, you must have earned a Gold or Silver Micros
     - The Offer ID can't be changed after you select **Create**.
 
 1. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
+
+1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
+
+    > [!NOTE]
+    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
+
 1. To generate the offer and continue, select **Create**.
-
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
-1. On the Overview tab, select **+ New offer** > **Managed Service**.
-
-    :::image type="content" source="./media/new-offer-managed-service.png" alt-text="Illustrates the left-navigation menu.":::
-
-1. In the **New offer** dialog box, enter an **Offer ID**. This is a unique identifier for each offer in your account. This ID is visible in the URL of the commercial marketplace listing and Azure Resource Manager templates, if applicable. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-
-    - Each offer in your account must have a unique offer ID.
-    - Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters.
-    - The Offer ID can't be changed after you select **Create**.
-
-1. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
-1. To generate the offer and continue, select **Create**.
-
----
 
 ## Setup details
 

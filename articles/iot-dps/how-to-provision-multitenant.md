@@ -1,8 +1,8 @@
 ---
 title: How to provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
 description: How to provision devices for multitenancy with your Device Provisioning Service (DPS) instance
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.topic: how-to
 ms.date: 10/02/2021
 ms.service: iot-dps
@@ -46,13 +46,13 @@ In this section, you'll create an Azure resource group, and two new regional IoT
 >[!IMPORTANT]
 >It's recommended that you use the same resource group for all resources created in this article. This will make clean up easier after you are finished.
 
-1. In the Azure Cloud Shell, create a resource group with the following [az group create](/cli/azure/group#az_group_create) command:
+1. In the Azure Cloud Shell, create a resource group with the following [az group create](/cli/azure/group#az-group-create) command:
 
     ```azurecli-interactive
     az group create --name contoso-us-resource-group --location eastus
     ```
 
-2. Create an IoT hub in the *eastus* location, and add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command(replace `{unique-hub-name}` with your own unique name):
+2. Create an IoT hub in the *eastus* location, and add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command(replace `{unique-hub-name}` with your own unique name):
 
     ```azurecli-interactive
     az iot hub create --name {unique-hub-name} --resource-group contoso-us-resource-group --location eastus --sku S1
@@ -60,7 +60,7 @@ In this section, you'll create an Azure resource group, and two new regional IoT
 
     This command may take a few minutes to complete.
 
-3. Now, create an IoT hub in the *westus2* location, and add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command(replace `{unique-hub-name}` with your own unique name):
+3. Now, create an IoT hub in the *westus2* location, and add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command(replace `{unique-hub-name}` with your own unique name):
 
     ```azurecli-interactive
     az iot hub create --name {unique-hub-name} --resource-group contoso-us-resource-group --location westus2 --sku S1
@@ -82,7 +82,7 @@ For simplicity, this article uses [Symmetric key attestation](concepts-symmetric
 
 4. On the **Add Enrollment Group** page, enter the following information:
 
-    **Group name**: Enter *contoso-us-devices*.
+    **Group name**: Enter *contoso-us-devices*. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
     **Attestation Type**: Select *Symmetric Key*.
 
@@ -108,7 +108,7 @@ For simplicity, this article uses [Symmetric key attestation](concepts-symmetric
 
 8. Repeat Steps 5 through 7 for the second IoT hub that you created for the *westgus* location.
 
-9. Select the two IoT Hubs you created in the **Select the IoT hubs this group c an be assigned to** drop down.
+9. Select the two IoT Hubs you created in the **Select the IoT hubs this group can be assigned to** drop down.
 
     :::image type="content" source="./media/how-to-provision-multitenant/enrollment-regional-hub-group.png" alt-text="Select the linked IoT hubs.":::
 
@@ -263,7 +263,7 @@ In this part of the tutorial, you'll generate a device key from the you group ma
 
 For **both** *eastus* and *westus 2* devices:
 
-1. Generate your unique key using **openssl**. You'll use the following Bash shell script (replace `{primary-key}` with the enrollment group's **Primary Key** that you copied earlier and replace `{contoso-simdevice-east}`with your own unique registration ID for each device. Use lowercase alphanumeric and dash ('-') characters to define both IDs):
+1. Generate your unique key using **openssl**. You'll use the following Bash shell script (replace `{primary-key}` with the enrollment group's **Primary Key** that you copied earlier and replace `{contoso-simdevice}`with your own unique registration ID for each device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
     ```bash
     KEY={primary-key}

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 12/03/2021
+ms.date: 05/27/2022
 ms.author: aahi
 ---
 
@@ -18,13 +18,16 @@ The Language service enables you to send API requests asynchronously, using eith
 
 Currently, the following features are available to be used asynchronously:
 * Entity linking
-* Extractive summarization
+* Document summarization
+* Conversation summarization
 * Key phrase extraction
 * Language detection
 * Named Entity Recognition (NER)
-* Personally Identifiable Information (PII) detection
+* Customer content detection
 * Sentiment analysis and opinion mining
 * Text Analytics for health
+
+When you send asynchronous requests, you will incur charges based on number of text records you include in your request, for each feature use. For example, if you send a text record for sentiment analysis and NER, it will be counted as sending two text records, and you will be charged for both according to your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/). 
 
 ## Send asynchronous API requests using the REST API
 

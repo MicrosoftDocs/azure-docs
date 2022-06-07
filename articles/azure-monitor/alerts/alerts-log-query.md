@@ -4,14 +4,14 @@ description:  Recommendations for writing efficient alert queries
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 2/23/2022
 ---
 # Optimizing log alert queries
 This article describes how to write and convert [Log Alert](./alerts-unified-log.md) queries to achieve optimal performance. Optimized queries reduce latency and load of alerts, which run frequently.
 
 ## How to start writing an alert log query
 
-Alert queries start from [querying the log data in Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) that indicates the issue. You can use the [alert query examples topic](../logs/queries.md) to understand what you can discover. You may also [get started on writing your own query](../logs/log-analytics-tutorial.md). 
+Alert queries start from [querying the log data in Log Analytics](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal) that indicates the issue. You can use the [alert query examples topic](../logs/queries.md) to understand what you can discover. You may also [get started on writing your own query](../logs/log-analytics-tutorial.md). 
 
 ### Queries that indicate the issue and not the alert
 
@@ -60,7 +60,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
-> [Cross-resource queries](../logs/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules). If you still use the [legacy Log Analytics Alert API](./api-alerts.md) for creating log alerts, you can learn about switching [here](../alerts/alerts-log-api-switch.md).
+> [Cross-resource queries](../logs/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules). If you still use the [legacy Log Analytics Alert API](./api-alerts.md) for creating log alerts, you can learn about switching [here](../alerts/alerts-log-api-switch.md).
 
 ## Examples
 The following examples include log queries that use `search` and `union` and provide steps you can use to modify these queries for use in alert rules.

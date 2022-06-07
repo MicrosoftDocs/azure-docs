@@ -1,7 +1,7 @@
 ---
 title: How to use Azure Service Bus topics with PHP
 description: In this article, you learn how to use Azure Service Bus topics and subscriptions from a PHP application. 
-ms.devlang: PHP
+ms.devlang: php
 ms.topic: how-to
 ms.date: 07/27/2021
 ---

@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/12/2021
+ms.date: 12/12/2021
 ---
 
 # Power Query activity in Azure Data Factory
@@ -60,6 +60,10 @@ To achieve scale with your Power Query activity, Azure Data Factory translates y
 ## Sink
 
 Choose the dataset you wish to use for landing your transformed data once the Power Query M script has been executed on Spark. For more details on configuring sinks, visit the documentation for [data flow sinks](data-flow-sink.md).
+
+You have the option to sink your output to multiple destinations. Click on the plus (+) button to add more sinks to your query. You can also direct each individual query output from your wrangling Power Query activity to different destinations.
+
+![Screenshot that shows Power Query multiple sinks.](media/data-flow/pq-multi-output.png)
 
 ## Mapping
 

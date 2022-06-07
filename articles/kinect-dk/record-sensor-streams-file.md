@@ -7,8 +7,8 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: azure, kinect, record, play back, reader, matroska, mkv, streams, depth, rgb, camera, color, imu, audio, sensor
-#Customer intent: As an Azure Kinect DK developer, I want to record Azure Kinect sensor streams to a file.
 ms.custom: mode-other
+#Customer intent: As an Azure Kinect DK developer, I want to record Azure Kinect sensor streams to a file.
 ---
 
 # Quickstart: Record Azure Kinect sensor streams to a file

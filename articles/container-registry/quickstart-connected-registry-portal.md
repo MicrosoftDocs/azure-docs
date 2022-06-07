@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
-ms.custom: ignite-fall-2021, mode-portal
+ms.custom: ignite-fall-2021, mode-ui
 ---
 
 # Quickstart: Create a connected registry using the Azure portal

@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title:  Flexible Server documentation
+title: Flexible Server documentation
 summary: "Azure Database for MySQL - Flexible Server is a fully managed MySQL database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MySQL leveraging the open-source tools and platform of your choice. Learn how to use Azure Database for MySQL with our quickstarts, tutorials, and samples."
 metadata:
   description: "Azure Database for MySQL - Flexible Server is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition."
@@ -62,10 +62,10 @@ landingContent:
             url: how-to-manage-server-portal.md
           - text: Stop/Start server
             url: how-to-stop-start-server-portal.md
-          - text: Configure and access logs
-            url: how-to-configure-slow-query-logs-portal.md
           - text: Schedule maintenance
             url: how-to-maintenance-portal.md
+          - text: Move servers between regions
+            url: how-to-move-regions.md
 
 # Card
   - title: Business continuity

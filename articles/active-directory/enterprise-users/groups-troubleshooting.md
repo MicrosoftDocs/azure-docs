@@ -3,7 +3,7 @@ title: Fix problems with dynamic group memberships - Azure AD | Microsoft Docs
 description: Troubleshooting tips for dynamic group membership in Azure Active Directory
 services: active-directory
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: enterprise-users
@@ -19,10 +19,10 @@ ms.collection: M365-identity-device-management
 
 ## Troubleshooting group creation issues
 
-**I disabled security group creation in the Azure portal but groups can still be created via Powershell**  
-The **User can create security groups in Azure portals** setting in the Azure portal controls whether or not non-admin users can create security groups in the Access panel or the Azure portal. It does not control security group creation via Powershell.
+**I disabled security group creation in the Azure portal but groups can still be created via PowerShell**  
+The **User can create security groups in Azure portals** setting in the Azure portal controls whether or not non-admin users can create security groups in the Access panel or the Azure portal. It does not control security group creation via PowerShell.
 
-To disable group creation for non-admin users in Powershell:
+To disable group creation for non-admin users in PowerShell:
 1. Verify that non-admin users are allowed to create groups:
 
    ```powershell
@@ -35,8 +35,8 @@ To disable group creation for non-admin users in Powershell:
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
    ```
 
-**I received a max groups allowed error when trying to create a Dynamic Group in Powershell**  
-If you receive a message in Powershell indicating _Dynamic group policies max allowed groups count reached_, this means you have reached the max limit for Dynamic groups in your organization. The max number of Dynamic groups per organization is 5,000.
+**I received a max groups allowed error when trying to create a Dynamic Group in PowerShell**  
+If you receive a message in PowerShell indicating _Dynamic group policies max allowed groups count reached_, this means you have reached the max limit for Dynamic groups in your organization. The max number of Dynamic groups per organization is 5,000.
 
 To create any new Dynamic groups, you'll first need to delete some existing Dynamic groups. There's no way to increase the limit.
 

@@ -11,26 +11,27 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/20/2021
-ms.author: b-hchen
+ms.date: 03/17/2022
+ms.author: anfdocs
 ms.custom: references_regions
 ---
 # Cross-region replication of Azure NetApp Files volumes
 
-The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  This capability enables you to failover your critical application in case of a region-wide outage or disaster.
+The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  This capability enables you to fail over your critical application if a region-wide outage or disaster happens.
 
 ## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
-Azure NetApp Files volume replication is supported between various [Azure regional pairs](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) and non-pairs. Azure NetApp Files volume replication is currently available between the following regions:  
+Azure NetApp Files volume replication is supported between various [Azure regional pairs](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) and non-standard pairs. Azure NetApp Files volume replication is currently available between the following regions. You can replicate Azure NetApp Files volumes from Regional Pair A to Regional Pair B, and vice versa.  
 
 ### Azure regional pairs
 
 | Geography | Regional Pair A | Regional Pair B  |
 |:--- |:--- |:--- |
+| Australia | Australia Central | Australia Central 2 |
 | Australia | Australia East | Australia Southeast |
-| Asia-Pacific | East Asia | Southeast Asia |
+| Asia-Pacific | East Asia | Southeast Asia | 
+| Brazil/North America | Brazil South | South Central US |
 | Canada | Canada Central | Canada East |
 | Europe | North Europe | West Europe |
 | Germany | Germany West Central | Germany North |
@@ -39,6 +40,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | North America | East US | West US |
 | North America | East US 2 | Central US |
 | North America | North Central US | South Central US|
+| North America | West US 3 | East US |
 | Norway | Norway East | Norway West |
 | Switzerland | Switzerland North | Switzerland West |
 | UK | UK South | UK West |
@@ -51,6 +53,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | Geography | Regional Pair A | Regional Pair B  |
 |:--- |:--- |:--- |
 | Australia/Southeast Asia | Australia East | Southeast Asia |
+| France/Europe | France Central | West Europe |
 | Germany/UK | Germany West Central | UK South |
 | Germany/Europe | Germany West Central | West Europe | 
 | Germany/France | Germany West Central | France Central |
@@ -74,7 +77,7 @@ Recovery Time Objective (RTO), or the maximum tolerable business application dow
 
 ## Cost model for cross-region replication  
 
-With Azure NetApp Files cross-region replication, you pay only for the amount of data you replicate. There is no setup charges or minimum usage fee. The replication price is based on the replication frequency and the region of the *destination* volume you choose during the initial replication configuration. See the [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/) page for more information.  
+With Azure NetApp Files cross-region replication, you pay only for the amount of data you replicate. There's no setup charge or minimum usage fee. The replication price is based on the replication frequency and the region of the *destination* volume you choose during the initial replication configuration. For more information, see the [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/) page.  
 
 Regular Azure NetApp Files storage capacity charge applies to the replication destination volume (also called the *data protection* volume). 
 
@@ -89,7 +92,7 @@ Assume the following situations:
 * Your *source* volume is from the Azure NetApp Files *Premium* service level. It has a volume quota size of 1000 GiB and a volume consumed size of 500 GiB at the beginning of the first day of a month. The volume is in the *US South Central* region.
 * Your *destination* volume is from the Azure NetApp Files *Standard* service level. It is in the *US East 2* region.
 * You’ve configured an *hourly* based cross-region replication between the two volumes above. Therefore, the price of replication is $0.12 per GiB.
-* For simplicity, assume your source volume has a constant 0.5-GiB data change every hour, but the total volume consumed size does not grow (remains at 500 GiB). 
+* For simplicity, assume your source volume has a constant 0.5-GiB data change every hour, but the total volume consumed size doesn't grow (remains at 500 GiB). 
 
 After the initial setup, the baseline replication happens immediately.  
 
@@ -109,7 +112,7 @@ Regular Azure NetApp Files storage capacity charge applies to the destination vo
 
 #### Example 2: Month 2 incremental replications and resync replications  
 
-Assume you have a source volume, a destination volume, and a replication relationship between the two set up as described in Example 1. For 29 days of the second month (a 30-day month), the hourly replications occurred as expected.
+Assume you have a source volume, a destination volume, and a replication relationship between the two setups as described in Example 1. For 29 days of the second month (a 30-day month), the hourly replications occurred as expected.
 
 * Sum of data amount replicated across incremental replications for 29 days: `0.5 GiB * 24 hours * 29 days = 348 GiB`
 

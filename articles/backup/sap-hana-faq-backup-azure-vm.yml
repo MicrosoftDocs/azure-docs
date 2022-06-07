@@ -1,11 +1,12 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQ - Back up SAP HANA databases on Azure VMs
-  description: In this article, discover answers to common questions about backing up SAP HANA databases using the Azure Backup service.
-  ms.topic: article
+  title: FAQ — Back up SAP HANA databases on Azure VMs
+  description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
+  ms.topic: faq
   ms.service: backup
-  ms.date: 09/27/2021
-    
+  ms.date: 03/18/2022
+  author: v-amallick
+  ms.author: v-amallick
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
 summary: This article answers common questions about backing up SAP HANA databases using the Azure Backup service.
 
@@ -14,7 +15,7 @@ sections:
   - name: Backup
     questions:
       - question: |
-          How many full backups are supported per day?
+          How many backups are supported per day?
         answer: |
           You can have one schedule full backup and multiple on-demand backups in a day.
 
@@ -63,6 +64,14 @@ sections:
         answer: |
           Azure Backup doesn’t set an explicit retention period on the Auto-heal full backups. This backup is retained till the time you retain the dependent Delta (differential or incremental) and Log backups. Once you delete the last dependent backup on this Auto-heal backup, the Auto-heal backup is also deleted.
 
+      - question: | 
+          Can a full backup and a log backup run parallelly?
+        answer: |
+          Yes, a full backup and a log backup can run parallelly. This instance occurs in one of the following ways:
+
+          - **Full backup is in progress and a log backup is triggered**: The log backup should succeed irrespective of an ongoing full backup. Unless, the full backup triggered was a remedial full to handle any LSN chain break.
+          - **Log backup is in progress, and a full backup is triggered**: Both backups should run parallelly and succeed.
+
       - question: |
           Are future databases automatically added for backup?
         answer: |
@@ -105,22 +114,34 @@ sections:
           Currently we don't have the capability to set up the solution against a virtual IP or Proxy. We need a virtual machine to execute the solution.
 
       - question: |
-          How can I move an on-demand backup to the local file system instead of the Azure vault?
+          How can I move on-demand backups (triggered from HANA native clients) to the local file system instead of the Azure vault?
         answer: |
           1. Wait for the currently running backup to complete on the desired database (check from studio for completion).
-          1. Disable log backups and set the catalog backup to **Filesystem** for the desired DB using the following steps:
+          1. Disable log backups and set the catalog backup to **Filesystem** for the desired database using the following steps:
           1. Double-click **SYSTEMDB** -> **configuration** -> **Select Database** -> **Filter (log)**
               1. Set enable_auto_log_backup to **no**.
               1. Set catalog_backup_using_backint to **false**.
           1. Take an on-demand backup (full / differential/ incremental) on the desired database, and wait for the backup and catalog backup to complete.
-          1. If you want to also move the log backups to the Filesystem, set enable_auto_log_backup to **yes**.
+          1. If you want to also move the log backups to the Filesystem, set enable_auto_log_backup to **yes** and log_backup_using_backint to **false**.
           1. Revert to the previous settings to allow backups to flow to the Azure vault:
               1. Set enable_auto_log_backup to **yes**.
               1. Set catalog_backup_using_backint to **true**.
+              1. Set log_backup_using_backint to **true**, if it's set to **false**.
           
           > [!NOTE]
           > Moving backups to the local Filesystem and switching back again to the Azure vault may cause a log chain break of the log backups in the vault. This will trigger a full backup, which once successfully completed will start backing up the logs.
-          
+
+      - question: |
+          How can I manage or clean-up the HANA catalog for database with Azure Backup enabled?
+        answer: |
+          - SAP recommends the catalog retention should be determined by your business need (retention policy). The most common is _30 days_ retention.
+          - You can trigger clean-up/pruning of HANA catalog through HANA native clients (such as cockpit or studio) or through SQL commands.
+          - This clean-up task generates a catalog backup that's not moved to the Azure Backup vault (as there is no associated data backup).
+          - The catalog backup is therefore shown as a failure in the Cockpit/Studio. However, note that this catalog backup failure doesn't mean  the catalog clean-up activity has failed.
+          - Note that this **catalog backup failure also doesn't affect your point-in-time recoverability**.
+          - The catalog clean-up activity may cause the log backups triggered at the same time to be queued. These logs are then moved to the vault after the catalog backup (triggered by catalog clean-up) fails.
+          - Manually check the success of the catalog clean-up activity.
+
       - question: |
           How can I use SAP HANA Backup with my HANA Replication set-up?
         answer: |
@@ -185,6 +206,12 @@ sections:
 
   - name: Restore
     questions:
+
+      - question: |
+          How many restores are supported per day?
+        answer: |
+          You can perform a maximum of 10 restores per HANA system or instance in a day. Note that if a restore is cancelled or fails, it's also considered as a restore attempt.
+           
       - question: |
           Why can't I see the HANA system I want my database to be restored to?
         answer: |

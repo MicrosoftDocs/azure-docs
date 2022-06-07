@@ -1,12 +1,12 @@
 ---
 title: Third-party data modeling tools for Azure Cosmos DB graph data
 description: This article describes various tools to  design the Graph data model.
-author: mansha
+author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/25/2021
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 
 ---
 # Third-party data modeling tools for Azure Cosmos DB graph data

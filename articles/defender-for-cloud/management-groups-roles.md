@@ -8,8 +8,6 @@ ms.custom: subject-rbac-steps
 
 # Organize subscriptions into management groups and assign roles to users
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This page explains how to manage your organization’s security posture at scale by applying security policies to all Azure subscriptions linked to your Azure Active Directory tenant.
 
 For visibility into the security posture of all subscriptions linked to an Azure AD tenant, you'll need an Azure role with sufficient read permissions assigned on the root management group.

@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 01/28/2022
 ms.author: banders
 ---
 
@@ -19,7 +19,7 @@ Azure portal supports the following type of billing accounts:
 
 - **Microsoft Online Services Program**: A billing account for a Microsoft Online Services Program is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-- **Enterprise Agreement**: A billing account for an Enterprise Agreement is created when your organization signs an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) to use Azure. You can have a maximum of 2000 subscriptions in an Enterprise Agreement.
+- **Enterprise Agreement**: A billing account for an Enterprise Agreement is created when your organization signs an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) to use Azure. You can have a maximum of 5000 subscriptions in an Enterprise Agreement. You can also have an unlimited number of enrollment accounts, effectively allowing an unlimited number of subscriptions.
 
 - **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization works with a Microsoft representative to sign a Microsoft Customer Agreement. Some customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) may have a billing account for a Microsoft Customer Agreement as well. You can have a maximum of 20 subscriptions in a Microsoft Customer Agreement for an individual. A Microsoft Customer Agreement for an enterprise doesn't have a limit on the number of subscriptions. For more information, see [Get started with your billing account for Microsoft Customer Agreement](../understand/mca-overview.md).
 

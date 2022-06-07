@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Quickstart: Use the call automation APIs

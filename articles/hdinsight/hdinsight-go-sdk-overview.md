@@ -4,6 +4,7 @@ description: Reference material for using Azure HDInsight SDK for Go and Apache 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18, devx-track-azurecli
+ms.devlang: golang
 ms.date: 01/03/2020
 ---
 
@@ -20,7 +21,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 * A [`go get` tool](https://github.com/golang/go/wiki/GoGetTools).
-* [Go](https://golang.org/dl/).
+* [Go](https://go.dev/dl/).
 
 ## SDK installation
 
@@ -73,7 +74,7 @@ az account set -s <name or ID of subscription>
 Next, choose a name for your service principal and create it with the following command:
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name <Service Principal Name> --sdk-auth --role Contributor
+az ad sp create-for-rbac --name <Service Principal Name> --sdk-auth --role Contributor --scopes /subscriptions/<subscription id>
 ```
 
 The service principal information is displayed as JSON.

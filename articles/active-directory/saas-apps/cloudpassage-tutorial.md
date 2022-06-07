@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![Screenshot shows the CloudPassage portal with the S S O Setup Documentation link called out.](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Reply URL. Contact [CloudPassage Client support team](https://www.cloudpassage.com/company/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-On URL and Reply URL. Contact [CloudPassage Client support team](https://fidelissecurity.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. CloudPassage application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 02/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -36,11 +36,9 @@ In the technical profile, map the claim resolver to the claim type. Azure AD B2C
 <InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
-## Claim resolver types
+## Culture
 
-The following sections list available claim resolvers.
-
-### Culture
+The following table lists the claim resolvers with information about the language used in the authorization request:
 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
@@ -49,7 +47,11 @@ The following sections list available claim resolvers.
 | {Culture:RegionName} | The two letter ISO code for the region. | US |
 | {Culture:RFC5646} | The RFC5646 language code. | en-US |
 
-### Policy
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#culture) of the culture claim resolvers.
+
+## Policy
+
+The following table lists the claim resolvers with information about the policy used in the authorization request:
 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
@@ -58,7 +60,35 @@ The following sections list available claim resolvers.
 | {Policy:TenantObjectId} | The tenant object ID of the relying party policy. | 00000000-0000-0000-0000-000000000000 |
 | {Policy:TrustFrameworkTenantId} | The tenant ID of the trust framework. | your-tenant.onmicrosoft.com |
 
-### OpenID Connect
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#policy) of the policy claim resolvers.
+
+## Context
+
+The following table lists the contextual claim resolvers of the authorization request:
+
+| Claim | Description | Example |
+| ----- | ----------- | --------|
+| {Context:BuildNumber} | The Identity Experience Framework version (build number).  | 1.0.507.0 |
+| {Context:CorrelationId} | The correlation ID.  | 00000000-0000-0000-0000-000000000000 |
+| {Context:DateTimeInUtc} |The date time in UTC.  | 10/10/2021 12:00:00 PM |
+| {Context:DeploymentMode} |The policy deployment mode.  | Production |
+| {Context:HostName} | The host name of the current request.  | contoso.b2clogin.com |
+| {Context:IPAddress} | The user IP address. | 11.111.111.11 |
+| {Context:KMSI} | Indicates whether [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) checkbox is selected. |  true |
+
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#context) of the context claim resolvers.
+
+## Claims 
+
+This section describes how to get a claim value as a claim resolver.
+
+| Claim | Description | Example |
+| ----- | ----------- | --------|
+| {Claim:claim type} | An identifier of a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy file or parent policy file.  For example: `{Claim:displayName}`, or `{Claim:objectId}`. | A claim type value.|
+
+## OpenID Connect
+
+The following table lists the claim resolvers with information about the OpenID Connect authorization request:
 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
@@ -73,28 +103,11 @@ The following sections list available claim resolvers.
 | {OIDC:RedirectUri} |The `redirect_uri`  query string parameter. | https://jwt.ms |
 | {OIDC:Resource} |The `resource`  query string parameter. | N/A |
 | {OIDC:Scope} |The `scope`  query string parameter. | openid |
-| {OIDC:Username}| The [resource owner password credentials flow](add-ropc-policy.md) user's username.| emily@contoso.com| 
+| {OIDC:Username}| The [resource owner password credentials flow](add-ropc-policy.md) user's username.| emily@contoso.com|
 
-### Context
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#openid-connect-relying-party-application) of the OpenID Connect claim resolvers.
 
-| Claim | Description | Example |
-| ----- | ----------- | --------|
-| {Context:BuildNumber} | The Identity Experience Framework version (build number).  | 1.0.507.0 |
-| {Context:CorrelationId} | The correlation ID.  | 00000000-0000-0000-0000-000000000000 |
-| {Context:DateTimeInUtc} |The date time in UTC.  | 10/10/2018 12:00:00 PM |
-| {Context:DeploymentMode} |The policy deployment mode.  | Production |
-| {Context:HostName} | The host name of the current request.  | contoso.b2clogin.com |
-| {Context:IPAddress} | The user IP address. | 11.111.111.11 |
-| {Context:KMSI} | Indicates whether [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) checkbox is selected. |  true |
-
-### Claims 
-
-| Claim | Description | Example |
-| ----- | ----------- | --------|
-| {Claim:claim type} | An identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file.  For example: `{Claim:displayName}`, or `{Claim:objectId}`. | A claim type value.|
-
-
-### OAuth2 key-value parameters
+## OAuth2 key-value parameters
 
 Any parameter name included as part of an OIDC or OAuth2 request can be mapped to a claim in the user journey. For example, the request from the application might include a query string parameter with a name of `app_session`, `loyalty_number`, or any custom query string.
 
@@ -105,15 +118,9 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | {OAUTH-KV:loyalty_number} | A query string parameter. | 1234 |
 | {OAUTH-KV:any custom query string} | A query string parameter. | N/A |
 
-### OAuth2
+## SAML
 
-| Claim | Description | Example |
-| ----- | ----------------------- | --------|
-| {oauth2:access_token} | The access token. | N/A |
-| {oauth2:refresh_token} | The refresh token. | N/A |
-
-
-### SAML
+The following table lists the claim resolvers  with information about the SAML authorization request:
 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
@@ -125,6 +132,39 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | {SAML:ProviderName} | The `ProviderName` attribute value, from the `AuthnRequest` element of the SAML request.| Contoso.com |
 | {SAML:RelayState} | The `RelayState` query string parameter.| 
 | {SAML:Subject} | The `Subject` from the NameId element of the SAML AuthN request.| 
+| {SAML:Binding} | The `ProtocolBinding` attribute value, from the `AuthnRequest` element of the SAML request. | urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST |
+
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver#saml-service-provider) of the SAML claim resolvers.
+
+## OAuth2 identity provider
+
+The following table lists the [OAuth2 identity provider](oauth2-technical-profile.md) claim resolvers:
+
+| Claim | Description | Example |
+| ----- | ----------------------- | --------|
+| {oauth2:access_token} | The OAuth2 identity provider access token. The `access_token` attribute. | `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni...` |
+| {oauth2:token_type}   | The type of the access token. The `token_type` attribute. | Bearer  |
+| {oauth2:expires_in}   | The length of time that the access token is valid in seconds. The `expires_in` attribute. The output claim [DataType](claimsschema.md#datatype) must be `int` or `long`. | 960000 |
+| {oauth2:refresh_token} | The OAuth2 identity provider refresh token. The `refresh_token` attribute. | `eyJraWQiOiJacW9pQlp2TW5pYVc2MUY...` |
+
+To use the OAuth2 identity provider claim resolvers, set the output claim's `PartnerClaimType` attribute to the claim resolver.  The following example demonstrates how the get the external identity provider claims:
+
+```xml
+<ClaimsProvider>
+  <DisplayName>Contoso</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="Contoso-OAUTH">
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="identityProviderAccessToken" PartnerClaimType="{oauth2:access_token}" />
+        <OutputClaim ClaimTypeReferenceId="identityProviderAccessTokenType" PartnerClaimType="{oauth2:token_type}" />
+        <OutputClaim ClaimTypeReferenceId="identityProviderAccessTokenExpiresIn" PartnerClaimType="{oauth2:expires_in}" />
+        <OutputClaim ClaimTypeReferenceId="identityProviderRefreshToken" PartnerClaimType="{oauth2:refresh_token}" />
+      </OutputClaims>
+      ...
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
 
 ## Using claim resolvers
 
@@ -255,3 +295,7 @@ In a [Relying party](relyingparty.md) policy technical profile, you may want to 
     </TechnicalProfile>
   </RelyingParty>
 ```
+
+## Next steps
+
+- Find more [claims resolvers samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver) on the Azure AD B2C community GitHub repo

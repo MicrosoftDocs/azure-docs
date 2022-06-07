@@ -19,9 +19,9 @@ The Azure Cosmos DB API for MongoDB makes it easy to use Cosmos DB as if it were
 The API for MongoDB has numerous added benefits of being built on [Azure Cosmos DB](../introduction.md) when compared to service offerings such as MongoDB Atlas:
 
 * **Instantaneous scalability**: By enabling the [Autoscale](../provision-throughput-autoscale.md) feature, your database can scale up/down with zero warmup period.
-* **Automatic and transparent sharding**: The API for MongoDB manages all of the infrastructure for you. This includes sharding and the number of shards, unlike other MongoDB offerings such as MongoDB Atlas, which require your to specify and manage sharding to horizontally scale. This gives you more time to focus on developing applications for your users.
+* **Automatic and transparent sharding**: The API for MongoDB manages all of the infrastructure for you. This includes sharding and the number of shards, unlike other MongoDB offerings such as MongoDB Atlas, which require you to specify and manage sharding to horizontally scale. This gives you more time to focus on developing applications for your users.
 * **Five 9's of availability**: [99.999% availability](../high-availability.md) is easily configurable to ensure your data is always there for you.  
-* **Cost efficient, granular, unlimited scalability**: Sharded collections can scale to any size, unlike other MongoDB service offerings. API for MongoDB users are running databases with over 600TB of storage today. Scaling is done in a cost-efficient manner, since unlike other MongoDB service offering, the Cosmos DB platform can scale in increments as small as 1/100th of a VM due to economies of scale and resource governance.
+* **Cost efficient, granular, unlimited scalability**: Sharded collections can scale to any size, unlike other MongoDB service offerings. APIs for MongoDB users are running databases with over 600TB of storage today. Scaling is done in a cost-efficient manner, since unlike other MongoDB service offering, the Cosmos DB platform can scale in increments as small as 1/100th of a VM due to economies of scale and resource governance.
 * **Serverless deployments**: Unlike MongoDB Atlas, the API for MongoDB is a cloud native database that offers a [serverless capacity mode](../serverless.md). With [Serverless](../serverless.md), you are only charged per operation, and don't pay for the database when you don't use it.
 * **Free Tier**: With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of storage in your account for free forever, applied at the account level.
 * **Upgrades take seconds**: All API versions are contained within one codebase, making version changes as simple as [flipping a switch](upgrade-mongodb-version.md), with zero downtime.
@@ -38,11 +38,12 @@ Azure Cosmos DB API for MongoDB implements the wire protocol for MongoDB. This i
 MongoDB feature compatibility:
 
 Azure Cosmos DB API for MongoDB is compatible with the following MongoDB server versions:
+- [Version 4.2](feature-support-42.md)
 - [Version 4.0](feature-support-40.md)
 - [Version 3.6](feature-support-36.md)
 - [Version 3.2](feature-support-32.md)
 
-All the API for MongoDB versions run on the same codebase, making upgrades a simple task that can be completed in seconds with zero downtime. Azure Cosmos DB simply flips a few feature flags to go from one version to another.  The feature flags also enable continued support for older API versions such as 3.2 and 3.6. You can choose the server version that works best for you.
+All the APIs for MongoDB versions run on the same codebase, making upgrades a simple task that can be completed in seconds with zero downtime. Azure Cosmos DB simply flips a few feature flags to go from one version to another.  The feature flags also enable continued support for older API versions such as 3.2 and 3.6. You can choose the server version that works best for you.
 
 :::image type="content" source="./media/mongodb-introduction/cosmosdb-mongodb.png" alt-text="Azure Cosmos DB's API for MongoDB" border="false":::
 
@@ -82,6 +83,7 @@ Trying to do capacity planning for a migration to Azure Cosmos DB? You can use i
 * Connect to a Cosmos account using [Robo 3T](connect-using-robomongo.md).
 * Learn how to [Configure read preferences for globally distributed apps](tutorial-global-distribution-mongodb.md).
 * Find the solutions to commonly found errors in our [Troubleshooting guide](error-codes-solutions.md)
+* Configure near real time analytics with [Azure Synapse Link for Azure Cosmos DB](../configure-synapse-link.md)
 
 
 <sup>Note: This article describes a feature of Azure Cosmos DB that provides wire protocol compatibility with MongoDB databases. Microsoft does not run MongoDB databases to provide this service. Azure Cosmos DB is not affiliated with MongoDB, Inc.</sup>

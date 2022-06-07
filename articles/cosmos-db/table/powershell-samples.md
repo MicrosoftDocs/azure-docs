@@ -1,12 +1,13 @@
 ---
 title: Azure PowerShell samples for Azure Cosmos DB Table API
 description:  Get the Azure PowerShell samples to perform common tasks in Azure Cosmos DB Table API
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 01/20/2021
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Azure PowerShell samples for Azure Cosmos DB Table API
@@ -32,6 +33,6 @@ The following table includes links to commonly used Azure PowerShell scripts for
 |[Create an account and table](../scripts/powershell/table/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account and table. |
 |[Create an account and table with autoscale](../scripts/powershell/table/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account and table autoscale. |
 |[List or get tables](../scripts/powershell/table/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| List or get tables. |
-|[Throughput operations](../scripts/powershell/table/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Throughput operations for a table including get, update and migrate between autoscale and standard throughput. |
+|[Perform throughput operations](../scripts/powershell/table/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Perform throughput operations for a table including get, update and migrate between autoscale and standard throughput. |
 |[Lock resources from deletion](../scripts/powershell/table/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Prevent resources from being deleted with resource locks. |
 |||

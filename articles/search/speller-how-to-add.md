@@ -9,14 +9,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/29/2021
-ms.custom: references_regions
+
 ---
 # Add spell check to queries in Cognitive Search
 
 > [!IMPORTANT]
 > Spell correction is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal and preview REST API only.
 
-You can improve recall by spell-correcting individual search query terms before they reach the search engine. The **speller** parameter is supported for all query types: [simple](query-simple-syntax.md), [full](query-lucene-syntax.md), and the new [semantic](semantic-how-to-query-request.md) option currently in public preview.
+You can improve recall by spell-correcting individual search query terms before they reach the search engine. The **speller** parameter is supported for all query types: [simple](query-simple-syntax.md), [full](query-lucene-syntax.md), and the [semantic](semantic-how-to-query-request.md) option currently in public preview.
 
 Speller was released in tandem with the [semantic search preview](semantic-search-overview.md) and shares the queryLanguage parameter, but is otherwise an independent feature with it's own prerequisites. There is no sign-up or additional charges for using this feature.
 

@@ -1,9 +1,9 @@
 ---
 title: Migrate from VNet injection caches to Private Link caches
 description: Learn how to migrate your Azure Cache for Redis Virtual Network (VNet) caches to Private Link caches.
-author: curib
+author: flang-msft
 
-ms.author: cauribeg
+ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/19/2021

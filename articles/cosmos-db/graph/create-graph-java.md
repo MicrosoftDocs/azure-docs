@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 author: manishmsfte
 ms.author: mansha
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-other
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
 # Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Gremlin API
@@ -30,7 +30,7 @@ In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API
 - [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
 - A [Maven binary archive](https://maven.apache.org/download.cgi). 
 - [Git](https://www.git-scm.com/downloads). 
-- [Gremlin-driver 3.4.0](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver/3.4.0), this dependency is mentioned in the quickstart sample's pom.xml
+- [Gremlin-driver 3.4.13](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver/3.4.13), this dependency is mentioned in the quickstart sample's pom.xml
 
 ## Create a database account
 

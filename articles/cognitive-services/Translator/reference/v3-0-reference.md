@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 09/09/2021
+ms.date: 12/06/2021
 ms.author: lajanuar
 ---
 
@@ -37,7 +37,7 @@ To force the request to be handled within a specific geography, use the desired 
 |Europe|    api-eur.cognitive.microsofttranslator.com|North Europe, West Europe|
 |United States|    api-nam.cognitive.microsofttranslator.com|East US, South Central US, West Central US, and West US 2|
 
-<sup>1</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the ‘Resource region’ ‘Switzerland North’ or ‘Switzerland West’, then use the resource’s custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with ‘Resource region’ as ‘Switzerland North’ and your resource name is ‘my-ch-n’, then your custom endpoint is “https://my-ch-n.cognitiveservices.azure.com”. And a sample request to translate is:
+<sup>1</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the 'Resource region' 'Switzerland North' or 'Switzerland West', then use the resource's custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with 'Resource region' as 'Switzerland North' and your resource name is 'my-ch-n', then your custom endpoint is "https://my-ch-n.cognitiveservices.azure.com". And a sample request to translate is:
 ```curl
 // Pass secret key and region using headers to a custom endpoint
 curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
@@ -46,11 +46,11 @@ curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translat
 -H "Content-Type: application/json" \
 -d "[{'Text':'Hello'}]" -v
 ```
-<sup>2</sup> Custom Translator is not currently available in Switzerland.
+<sup>2</sup> Custom Translator isn't currently available in Switzerland.
 
 ## Authentication
 
-Subscribe to Translator or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your subscription key (available in the Azure portal) to authenticate.
+Subscribe to Translator or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your key (available in the Azure portal) to authenticate.
 
 There are three headers that you can use to authenticate your subscription. This table describes how each is used:
 
@@ -65,7 +65,7 @@ The first option is to authenticate using the `Ocp-Apim-Subscription-Key` header
 
 #### Authenticating with a global resource
 
-When you use a [global translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation), you need to include one header to call the Translator.
+When you use a [global translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation), you need to include one header to call the Translator.
 
 |Headers|Description|
 |:-----|:----|
@@ -83,7 +83,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 #### Authenticating with a regional resource
 
-When you use a [regional translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
+When you use a [regional translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
 There are two headers that you need to call the Translator.
 
 |Headers|Description|
@@ -104,7 +104,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 #### Authenticating with a Multi-service resource
 
-When you use a Cognitive Service’s multi-service resource. This allows you to use a single secret key to authenticate requests for multiple services.
+A Cognitive Service multi-service resource allows you to use a single API key to authenticate requests for multiple services.
 
 When you use a multi-service secret key, you must include two authentication headers with your request. There are two headers that you need to call the Translator.
 
@@ -113,7 +113,7 @@ When you use a multi-service secret key, you must include two authentication hea
 |Ocp-Apim-Subscription-Key| The value is the Azure secret key for your multi-service resource.|
 |Ocp-Apim-Subscription-Region| The value is the region of the multi-service resource. |
 
-Region is required for the multi-service Text API subscription. The region you select is the only region that you can use for text translation when using the multi-service subscription key, and must be the same region you selected when you signed up for your multi-service subscription through the Azure portal.
+Region is required for the multi-service Text API subscription. The region you select is the only region that you can use for text translation when using the multi-service key, and must be the same region you selected when you signed up for your multi-service subscription through the Azure portal.
 
 If you pass the secret key in the query string with the parameter `Subscription-Key`, then you must specify the region with query parameter `Subscription-Region`.
 
@@ -126,7 +126,7 @@ Alternatively, you can exchange your secret key for an access token. This token 
 | Global          | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 | Regional or Multi-Service | `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
-Here are example requests to obtain a token given a secret key:
+Here are example requests to obtain a token given a secret key for a global resource:
 
 ```curl
 // Pass secret key using header
@@ -134,6 +134,16 @@ curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cog
 
 // Pass secret key using query string parameter
 curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
+```
+
+And here are example requests to obtain a token given a secret key for a regional resource located in Central US:
+
+```curl
+// Pass secret key using header
+curl --header "Ocp-Apim-Subscription-Key: <your-key>" --data "" "https://centralus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+
+// Pass secret key using query string parameter
+curl --data "" "https://centralus.api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>"
 ```
 
 A successful request returns the encoded access token as plain text in the response body. The valid token is passed to the Translator service as a bearer token in the Authorization.
@@ -146,7 +156,7 @@ An authentication token is valid for 10 minutes. The token should be reused when
 
 ## Authentication with Azure Active Directory (Azure AD)
 
- Translator v3.0 supports Azure AD authentication, Microsoft’s cloud-based identity and access management solution.  Authorization headers enable the Translator service to validate that the requesting client is authorized to use the resource and to complete the request.
+ Translator v3.0 supports Azure AD authentication, Microsoft's cloud-based identity and access management solution.  Authorization headers enable the Translator service to validate that the requesting client is authorized to use the resource and to complete the request.
 
 ### **Prerequisites**
 
@@ -160,7 +170,7 @@ An authentication token is valid for 10 minutes. The token should be reused when
 |:-----|:----|
 |Authorization| The value is an access **bearer token** generated by Azure AD.</br><ul><li> The bearer token provides proof of authentication and validates the client's authorization to use the resource.</li><li> An authentication token is valid for 10 minutes and should be reused when making multiple calls to Translator.</br></li>*See* [Authenticating with an access token](#authenticating-with-an-access-token), above. </ul>|
 |Ocp-Apim-Subscription-Region| The value is the region of the **translator resource**.</br><ul><li> This value is optional if the resource is global.</li></ul>|
-|Ocp-Apim-ResourceId| The value is the the Resource ID for your Translator resource instance.</br><ul><li>You'll find the Resource ID in the Azure portal at **Translator Resource  → Properties**. </li><li>Resource ID format: </br>/subscriptions/<**subscriptionId**>/resourceGroups/<**resourceGroupName**>/providers/Microsoft.CognitiveServices/accounts/<**resourceName**>/</li></ul>|
+|Ocp-Apim-ResourceId| The value is the Resource ID for your Translator resource instance.</br><ul><li>You'll find the Resource ID in the Azure portal at **Translator Resource  → Properties**. </li><li>Resource ID format: </br>/subscriptions/<**subscriptionId**>/resourceGroups/<**resourceGroupName**>/providers/Microsoft.CognitiveServices/accounts/<**resourceName**>/</li></ul>|
 
 ##### **Translator property page—Azure portal**
 
@@ -173,7 +183,7 @@ An authentication token is valid for 10 minutes. The token should be reused when
 ```curl
  // Using headers, pass a bearer token generated by Azure AD, resource ID, and the region.
 
-curl -X POST "https://api.cognitive.microsofttranslator.com/translator/text/v3.0/translate?api-version=3.0&to=es" \
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=es" \
      -H "Authorization: Bearer <Base64-access_token>"\
      -H "Ocp-Apim-ResourceId: <Resource ID>" \
      -H "Ocp-Apim-Subscription-Region: <your-region>" \
@@ -201,7 +211,7 @@ Translator v3.0 also supports authorizing access to managed identities. If a man
 ```curl
 // Using headers, pass a bearer token generated either by Azure AD or Managed Identities, resource ID, and the region.
 
-curl -X POST https://api.cognitive.microsofttranslator.com/translator/text/v3.0/translate?api-version=3.0&to=es \
+curl -X POST https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=es \
      -H "Authorization: Bearer <Base64-access_token>"\
      -H "Ocp-Apim-ResourceId: <Resource ID>" \
      -H "Ocp-Apim-Subscription-Region: <your-region>" \
@@ -224,9 +234,9 @@ curl -X POST https://<your-custom-domain>.cognitiveservices.azure.com/translator
 
 The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, *See* [Configuring Azure Cognitive Services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal).
 
-Once you turn on this capability, you must use the custom endpoint to call the Translator. You cannot use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you cannot authenticate with an access token.
+Once you turn on this capability, you must use the custom endpoint to call the Translator. You can't use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you can't authenticate with an access token.
 
-You can find the custom endpoint after you create a [translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) and allow access from selected networks and private endpoints.
+You can find the custom endpoint after you create a [translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) and allow access from selected networks and private endpoints.
 
 |Headers|Description|
 |:-----|:----|
@@ -257,7 +267,7 @@ For example, a customer with a free trial subscription would receive the followi
 {
   "error": {
     "code":403001,
-    "message":"The operation is not allowed because the subscription has exceeded its free quota."
+    "message":"The operation isn't allowed because the subscription has exceeded its free quota."
     }
 }
 ```
@@ -266,38 +276,38 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 
 | Code | Description |
 |:----|:-----|
-| 400000| One of the request inputs is not valid.|
+| 400000| One of the request inputs isn't valid.|
 | 400001| The "scope" parameter is invalid.|
 | 400002| The "category" parameter is invalid.|
 | 400003| A language specifier is missing or invalid.|
 | 400004| A target script specifier ("To script") is missing or invalid.|
 | 400005| An input text is missing or invalid.|
-| 400006| The combination of language and script is not valid.|
+| 400006| The combination of language and script isn't valid.|
 | 400018| A source script specifier ("From script") is missing or invalid.|
-| 400019| One of the specified languages is not supported.|
-| 400020| One of the elements in the array of input text is not valid.|
+| 400019| One of the specified languages isn't supported.|
+| 400020| One of the elements in the array of input text isn't valid.|
 | 400021| The API version parameter is missing or invalid.|
-| 400023| One of the specified language pair is not valid.|
-| 400035| The source language ("From" field) is not valid.|
+| 400023| One of the specified language pair isn't valid.|
+| 400035| The source language ("From" field) isn't valid.|
 | 400036| The target language ("To" field) is missing or invalid.|
-| 400042| One of the options specified ("Options" field) is not valid.|
+| 400042| One of the options specified ("Options" field) isn't valid.|
 | 400043| The client trace ID (ClientTraceId field or X-ClientTranceId header) is missing or invalid.|
 | 400050| The input text is too long. View [request limits](../request-limits.md).|
 | 400064| The "translation" parameter is missing or invalid.|
 | 400070| The number of target scripts (ToScript parameter) does not match the number of target languages (To parameter).|
-| 400071| The value is not valid for TextType.|
+| 400071| The value isn't valid for TextType.|
 | 400072| The array of input text has too many elements.|
-| 400073| The script parameter is not valid.|
-| 400074| The body of the request is not valid JSON.|
-| 400075| The language pair and category combination is not valid.|
+| 400073| The script parameter isn't valid.|
+| 400074| The body of the request isn't valid JSON.|
+| 400075| The language pair and category combination isn't valid.|
 | 400077| The maximum request size has been exceeded. View [request limits](../request-limits.md).|
 | 400079| The custom system requested for translation between from and to language does not exist.|
-| 400080| Transliteration is not supported for the language or script.|
-| 401000| The request is not authorized because credentials are missing or invalid.|
+| 400080| Transliteration isn't supported for the language or script.|
+| 401000| The request isn't authorized because credentials are missing or invalid.|
 | 401015| "The credentials provided are for the Speech API. This request requires credentials for the Text API. Use a subscription to Translator."|
-| 403000| The operation is not allowed.|
-| 403001| The operation is not allowed because the subscription has exceeded its free quota.|
-| 405000| The request method is not supported for the requested resource.|
+| 403000| The operation isn't allowed.|
+| 403001| The operation isn't allowed because the subscription has exceeded its free quota.|
+| 405000| The request method isn't supported for the requested resource.|
 | 408001| The translation system requested is being prepared. Retry in a few minutes.|
 | 408002| Request timed out waiting on incoming stream. The client did not produce a request within the time that the server was prepared to wait. The client may repeat the request without modifications at any later time.|
 | 415000| The Content-Type header is missing or invalid.|

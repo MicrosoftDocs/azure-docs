@@ -1,5 +1,5 @@
 ---
-title: Azure Video Analyzer release notes
+title: Release notes
 description: This topic provides release notes of Azure Video Analyzer releases, improvements, bug fixes, and known issues.
 ms.topic: conceptual
 ms.date: 11/04/2021
@@ -17,6 +17,12 @@ This article provides you with information about:
 * Deprecated functionality
 
 <hr width=100%>
+
+## April 29, 2022
+
+We’re retiring the Video Analyzer preview service, you're advised to **transition your applications off of Video Analyzer by 01 December 2022.**  To minimize disruption to your workloads, transition your application from Video Analyzer per suggestions described in this [guide](./transition-from-video-analyzer.md) before December 01, 2022. After December 1, 2022 your Video Analyzer account will no longer function.
+
+Starting May 2, 2022 you will not be able to create new Video Analyzer accounts.
 
 ## November 2, 2021
 
@@ -40,7 +46,7 @@ The ARM API version of the Video Analyzer service is:
 * When using Video Analyzer with [Computer Vision for spatial analysis](edge/computer-vision-for-spatial-analysis.md) AI service from Cognitive Services, you can generate and view new insights such as the speed, orientation, trail of persons in the live video.
 * You can [discover ONVIF-capable devices](edge/camera-discovery.md) in the local subnet of your edge device.
 * You can [capture and record live video directly in the cloud](cloud/connect-cameras-to-cloud.md).
-  * You can use [low latency streaming](playback-recordings-how-to.md#low-latency-streaming) to view the live video from the RTSP camera with end-to-end latencies of around 2 seconds
+  * You can use [low latency streaming](viewing-videos-how-to.md#low-latency-streaming) to view the live video from the RTSP camera with end-to-end latencies of around 2 seconds.
   * You can implement the [Video Analyzer IoT PnP contract](cloud/connect-devices.md) on your RTSP camera to enable video capture from your device to the Video Analyzer service.
 * You can [export the desired portion of your recorded video](cloud/export-portion-of-video-as-mp4.md) to an MP4 file.
 * You can specify a retention policy for any of your recorded videos, where the service would periodically trim content older than the specified number of days.

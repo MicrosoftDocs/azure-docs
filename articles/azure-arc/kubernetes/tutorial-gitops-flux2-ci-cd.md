@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Implement CI/CD with GitOps (Flux v2) in Azure Arc-enabled Kubernetes clusters'
-description: This tutorial walks through setting up a CI/CD solution using GitOps (Flux v2) in Azure Arc-enabled Kubernetes clusters. For a conceptual take on this workflow, see the CI/CD Workflow using GitOps - Azure Arc-enabled Kubernetes article.
-keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, ci/cd, devops"
+title: 'Tutorial: Implement CI/CD with GitOps (Flux v2)'
+description: This tutorial walks through setting up a CI/CD solution using GitOps (Flux v2) in Azure Arc-enabled Kubernetes or Azure Kubernetes Service clusters. For a conceptual take on this workflow, see the CI/CD Workflow using GitOps article.
+keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, ci/cd, devops"
 author: eedorenko
 ms.author: iefedore
 ms.service: azure-arc
 ms.topic: tutorial
-ms.date: 12/01/2021
+ms.date: 05/24/2022
 ms.custom: template-tutorial, devx-track-azurecli
 ---
-# Tutorial: Implement CI/CD with GitOps (Flux v2) using Azure Arc-enabled Kubernetes clusters
+# Tutorial: Implement CI/CD with GitOps (Flux v2)
 
-In this tutorial, you'll set up a CI/CD solution using GitOps (Flux v2) and Azure Arc-enabled Kubernetes clusters. Using the sample Azure Vote app, you'll:
+In this tutorial, you'll set up a CI/CD solution using GitOps with Flux v2 and Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters. Using the sample Azure Vote app, you'll:
 
 > [!div class="checklist"]
-> * Create an Azure Arc-enabled Kubernetes cluster.
+> * Create an Azure Arc-enabled Kubernetes or AKS cluster.
 > * Connect your application and GitOps repositories to Azure Repos or Git Hub.
 > * Implement CI/CD flow with either Azure Pipelines or GitHub.
 > * Connect your Azure Container Registry to Azure DevOps and Kubernetes.
@@ -22,10 +22,8 @@ In this tutorial, you'll set up a CI/CD solution using GitOps (Flux v2) and Azur
 > * Deploy the `dev` and `stage` environments.
 > * Test the application environments.
 
-General Availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both Azure Arc-enabled Kubernetes and AKS. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
-
 > [!NOTE]
-> We are currently in the process of making GitOps with Flux v2 experiences available to all users in the Azure portal, so you may not be able to complete all of these steps in Azure portal at this time. We’ll remove this note once the functionality is available to all users.
+> Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,9 +34,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * Complete the [previous tutorial](./tutorial-use-gitops-flux2.md) to learn how to deploy GitOps for your CI/CD environment.
 * Understand the [benefits and architecture](./conceptual-gitops-flux2.md) of this feature.
 * Verify you have:
-  * A [connected Azure Arc-enabled Kubernetes cluster](./quickstart-connect-cluster.md#3-connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
+  * A [connected Azure Arc-enabled Kubernetes cluster](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
   * A connected Azure Container Registry with either [AKS integration](../../aks/cluster-container-registry-integration.md) or [non-AKS cluster authentication](../../container-registry/container-registry-auth-kubernetes.md).
-* Install the latest versions of these Azure Arc-enabled Kubernetes CLI extensions:
+* Install the latest versions of these Azure Arc-enabled Kubernetes and Kubernetes Configuration CLI extensions:
 
   ```azurecli
   az extension add --name connectedk8s
@@ -95,8 +93,6 @@ Import an [application repository](./conceptual-gitops-ci-cd.md#application-repo
 * **arc-cicd-demo-src** application repository
    * URL: https://github.com/Azure/arc-cicd-demo-src
    * Contains the example Azure Vote App that you will deploy using GitOps.
-> [!NOTE]
-> Until Flux V2 integration is in Public Preview, work with [FluxV2 branch](https://github.com/Azure/arc-cicd-demo-src/tree/FluxV2) of the application repository. Once Flux V2 integration is in Public Preview, FluxV2 branch will be merged into the default branch.
 
 * **arc-cicd-demo-gitops** GitOps repository
    * URL: https://github.com/Azure/arc-cicd-demo-gitops
@@ -122,7 +118,7 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
 
 1. [Create a new GitOps connection](./tutorial-use-gitops-flux2.md) to your newly imported **arc-cicd-demo-gitops** repository in Azure Repos.
 
-   ```console
+   ```azurecli
    az k8s-configuration flux create \
       --name cluster-config \
       --cluster-name arc-cicd-cluster \
@@ -148,9 +144,9 @@ The application repository contains a `.pipeline` folder with the pipelines you'
 
 | Pipeline file name | Description |
 | ------------- | ------------- |
-| [`.pipelines/az-vote-pr-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/.pipelines/az-vote-pr-pipeline.yaml)  | The application PR pipeline, named **arc-cicd-demo-src PR** |
-| [`.pipelines/az-vote-ci-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/.pipelines/az-vote-ci-pipeline.yaml) | The application CI pipeline, named **arc-cicd-demo-src CI** |
-| [`.pipelines/az-vote-cd-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/.pipelines/az-vote-cd-pipeline.yaml) | The application CD pipeline, named **arc-cicd-demo-src CD** |
+| [`.pipelines/az-vote-pr-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-pr-pipeline.yaml)  | The application PR pipeline, named **arc-cicd-demo-src PR** |
+| [`.pipelines/az-vote-ci-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-cd-pipeline.yaml) | The application CI pipeline, named **arc-cicd-demo-src CI** |
+| [`.pipelines/az-vote-cd-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-cd-pipeline.yaml) | The application CD pipeline, named **arc-cicd-demo-src CD** |
 
 ### Connect Azure Container Registry to Azure DevOps
 During the CI process, you'll deploy your application containers to a registry. Start by creating an Azure service connection:
@@ -394,7 +390,7 @@ A successful CI pipeline run triggers the CD pipeline to complete the deployment
    * View the Azure Vote app in your browser at `http://localhost:8080/` and verify the voting choices have changed to Tabs vs Spaces.
 1. Repeat steps 1-7 for the `stage` environment.
 
-Your deployment is now complete. This ends the CI/CD workflow. Refer to the [Azure DevOps GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/docs/azdo-gitops.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD pipelines used in this tutorial. 
+Your deployment is now complete. This ends the CI/CD workflow. Refer to the [Azure DevOps GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/master/docs/azdo-gitops.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD pipelines used in this tutorial. 
 
 ## Implement CI/CD with GitHub
 
@@ -407,8 +403,6 @@ Fork an [application repository](./conceptual-gitops-ci-cd.md#application-repo) 
 * **arc-cicd-demo-src** application repository
    * URL: https://github.com/Azure/arc-cicd-demo-src
    * Contains the example Azure Vote App that you will deploy using GitOps.
-> [!NOTE]
-> Until Flux V2 integration is in Public Preview, work with [FluxV2 branch](https://github.com/Azure/arc-cicd-demo-src/tree/FluxV2) of the application repository. Once Flux V2 integration is in Public Preview, FluxV2 branch will be merged into the default branch.
 
 * **arc-cicd-demo-gitops** GitOps repository
    * URL: https://github.com/Azure/arc-cicd-demo-gitops
@@ -428,7 +422,7 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
 
 1. [Create a new GitOps connection](./tutorial-use-gitops-flux2.md) to your newly forked **arc-cicd-demo-gitops** repository in GitHub.
 
-   ```console
+   ```azurecli
    az k8s-configuration flux create \
       --name cluster-config \
       --cluster-name arc-cicd-cluster \
@@ -506,7 +500,7 @@ For the details on installation, refer to the [GitOps Connector](https://github.
 | AZURE_VOTE_IMAGE_REPO | The full path to the Azure Vote App repository, for example azurearctest.azurecr.io/azvote |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_FOLDER | `arc-cicd-cluster` |
-| MANIFESTS_REPO | https://github.com/your-organization/arc-cicd-demo-gitops |
+| MANIFESTS_REPO | `https://github.com/your-organization/arc-cicd-demo-gitops` |
 | VOTE_APP_TITLE | Voting Application |
 | AKS_RESOURCE_GROUP | AKS Resource group. Needed for automated testing. |
 | AKS_NAME | AKS Name. Needed for automated testing. |
@@ -572,7 +566,7 @@ The CD Stage workflow:
 
 Once the manifests PR to the Stage environment is merged and Flux successfully applied all the changes, it updates Git commit status in the GitOps repository.
 
-Your deployment is now complete. This ends the CI/CD workflow. Refer to the [GitHub GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/docs/azdo-gitops-githubfluxv2.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD workflows used in this tutorial. 
+Your deployment is now complete. This ends the CI/CD workflow. Refer to the [GitHub GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/master/docs/azdo-gitops-githubfluxv2.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD workflows used in this tutorial. 
 
 ## Clean up resources
 
@@ -580,7 +574,7 @@ If you're not going to continue to use this application, delete any resources wi
 
 1. Delete the Azure Arc GitOps configuration connection:
 
-   ```console
+   ```azurecli
    az k8s-configuration flux delete \
          --name cluster-config \
          --cluster-name arc-cicd-cluster \

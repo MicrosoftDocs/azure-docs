@@ -7,7 +7,8 @@ ms.date: 06/21/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: mode-other
+ms.devlang: cpp
+ms.custom: mode-api
 ---
 
 # Quickstart: Azure Blob Storage client library v12 for C++

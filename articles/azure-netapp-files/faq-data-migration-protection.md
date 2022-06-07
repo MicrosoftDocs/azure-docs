@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
-ms.author: b-hchen
+ms.author: anfdocs
 ms.date: 10/11/2021
 ---
 # Data migration and protection FAQs for Azure NetApp Files

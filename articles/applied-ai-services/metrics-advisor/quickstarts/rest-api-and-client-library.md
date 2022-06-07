@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 07/06/2021
 ms.author: mbullwin
 zone_pivot_groups: programming-languages-metrics-monitor
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Quickstart: Use the client libraries or REST APIs to customize your solution

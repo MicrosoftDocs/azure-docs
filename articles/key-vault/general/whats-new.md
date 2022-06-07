@@ -19,6 +19,43 @@ ms.author: mbaldwin
 
 Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
+## April 2022
+
+Automated encryption key rotation in Key Vault is now generally available.
+
+For more information, see [Configure key auto-rotation in Key Vault](../keys/how-to-configure-key-rotation.md)
+
+## January 2022
+
+Azure Key Vault service throughput limits have been increased to serve double its previous quota for each vault to help ensure high performance for applications. That is, for secret GET and RSA 2,048-bit software keys, you'll receive 4,000 GET transactions per 10 seconds vs 2,000 per 10 seconds previously. The service quotas are specific to operation type and the entire list can be accessed in [Azure Key Vault Service Limits](./service-limits.md). 
+
+For Azure update announcement, see [General availability: Azure Key Vault increased service limits for all its customers] (https://azure.microsoft.com/updates/azurekeyvaultincreasedservicelimits/)
+
+
+## December 2021
+
+Automated encryption key rotation in Key Vault is now in preview. You can set a rotation policy on a key to schedule automated rotation and configure expiry notifications through Event Grid integration. 
+
+For more information, see [Configure key auto-rotation in Key Vault](../keys/how-to-configure-key-rotation.md)
+
+## October 2021
+
+Integration of Azure Key Vault with Azure Policy has reached general availability and is now ready for production use. This capability is a step towards our commitment to simplifying secure secrets management in Azure, while also enhancing policy enforcements that you can define on Key Vault, keys, secrets and certificates. Azure Policy provides the ability to place guardrails on Key Vault and its objects to ensure they are compliant with your organizations security recommendations and compliance regulations. It allows you to perform real time policy-based enforcement and on-demand compliance assessment of existing secrets in your Azure environment. The results of audits performed by policy will be available to you in a compliance dashboard where you will be able to see a drill down of which resources and components are compliant and which are not. Azure policy for Key Vault will provide you with a full suite of built-in policies offering governance of your keys, secrets, and certificates.  
+
+You can learn more about how to [Integrate Azure Key Vault with Azure Policy](./azure-policy.md?tabs=certificates) and assign a new policy. Announcement is linked [here](https://azure.microsoft.com/updates/gaazurepolicyforkeyvault).
+
+## June 2021
+
+Azure Key Vault Managed HSM is generally available. Managed HSM offers a fully managed, highly available, single-tenant, high-throughput, standards-compliant cloud service to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. 
+
+For more information, see [Azure Key Vault Managed HSM Overview](../managed-hsm/overview.md)
+
+## February 2021
+
+Azure role-based access control (RBAC) for Azure Key Vault data plane authorization is now generally available. With this capability, you can now manage RBAC for Key Vault keys, certificates, and secrets with roles assignment scope available from management group to individual key, certificate, and secret. 
+
+For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](rbac-guide.md)
+
 ## October 2020
 
 > [!WARNING]

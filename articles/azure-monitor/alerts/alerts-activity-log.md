@@ -3,7 +3,7 @@ title: Create, view, and manage activity log alerts in Azure Monitor
 description: Create activity log alerts by using the Azure portal, an Azure Resource Manager template, and Azure PowerShell.
 ms.topic: conceptual
 ms.subservice: alerts
-ms.date: 08/12/2021
+ms.date: 2/23/2022
 
 ---
 
@@ -34,24 +34,23 @@ Here's how to create an activity log alert rule in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), select **Monitor**. The Monitor pane consolidates all your monitoring settings and data in one view.
 
-2. Select **Alerts** > **+ New alert rule**.
+2. Select **Alerts** > **+ Create** > **Alert rule**.
 
-    :::image type="content" source="media/alerts-activity-log/create-alert-rule-button-new.png" alt-text="Screenshot that shows the new alert rule button.":::
     > [!TIP]
-    > Most resource panes also have **Alerts** in their resource menu, under **Monitoring**. You can also create alerts from there.
+    > Most resource panes also have **Alerts** in their resource menu, under **Monitoring**. You can also create alert rules from there.
 
-3. Choose **Select target**, and then select a target resource on which you want to alert. To find the resource you want to monitor, use the lists in **Subscription** and **Resource type**. You can also use the search bar to find your resource.
+3. In the **Scope** tab, click **Select scope**. Then, in the context pane that loads, select the target resource(s) that you want to alert on. Use **Filter by subscription**, **Filter by resource type**, and **Filter by location** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
     
     > [!NOTE]
-    > As a target, you can select an entire subscription, a resource group, or a specific resource. If you choose a subscription or a resource group as a target, and you also select a resource type, the rule will apply to all resources of that type within the selected subscription or a resource group. If you choose a specific target resource, the rule will apply only to that resource. You can't explicitly select multiple subscriptions, resource groups, or resources by using the target selector. 
+    > As a target, you can select an entire subscription, a resource group, or one or more a specific resources from the same subscription. If you choose a subscription or a resource group as a target, and you also select a resource type, the rule will apply to all resources of that type within the selected subscription or a resource group. If you choose a specific target resource, the rule will apply only to that resource. You can't select multiple subscriptions, or multiple resources from different subscriptions. 
 
-4. If the selected resource has activity log operations that you can create alerts on, you'll see that **Available signal types** lists **Activity Log**. You can view the full list of resource types supported for activity log alerts in [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md).
+4. If the selected resource has activity log operations that you can create alert rules on, you'll see that **Available signal types** lists **Activity Log**. You can view the full list of resource types supported for activity log alerts in [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md).
 
     :::image type="content" source="media/alerts-activity-log/select-target-new.png" alt-text="Screenshot of the target selection pane." lightbox="media/alerts-activity-log/select-target-new.png":::
 
-5. After you have selected a target resource, select **Add condition**.
+5. Once you have selected a target resource, click **Done**.
 
-6. You will see a list of signals supported for the resource, which includes those from various categories of **Activity Log**. Select the activity log signal or operation you want to create an alert on.
+6. Proceed to the **Condition** tab. Then, in the context pane that loads, you will see a list of signals supported for the resource, which includes those from various categories of **Activity Log**. Select the activity log signal or operation you want to create an alert rule on.
 
 7. You will see a chart for the activity log operation for the last six hours. Use the **Chart period** dropdown list to see a longer history for the operation.
 
@@ -63,19 +62,19 @@ Here's how to create an activity log alert rule in the Azure portal:
 
     > [!NOTE]
     > Defining at least one of these criteria helps you achieve more effective rules. For example, if the alert scope is an entire subscription, and the selected signal is `All Administrative Operations`, your rule will be more specific if you provide the event level, status, or initiation information.
-        
-9. Select **Done**.
 
     :::image type="content" source="media/alerts-activity-log/condition-selected-new.png" alt-text="Screenshot of the condition selection pane." lightbox="media/alerts-activity-log/condition-selected-new.png":::
 
-10. Fill in alert details, like **Alert rule name**, **Description**, and **Severity**.
+9. Proceed to the **Actions** tab, where you can define what actions and notifications are triggered when the alert rule generates an alert. You can add an action group to the alert rule either by selecting an existing action group or by creating a new action group.
+
+10. Proceed to the **Details** tab. Under **Project details**, select the resource group in which the alert rule resource will be saved. Under **Alert rule details**, specify the **Alert rule name**. You can also provide an **Alert rule description**.
 
     > [!NOTE]
     > The alert severity for activity log alerts can't currently be configured by the user. The severity level always defaults to **Sev4**.
 
-11. Add an action group to the alert, either by selecting an existing action group or by creating a new action group.
 
-12. Select **Done** to save the activity log alert rule.
+11. Proceed to the **Tags**, where you can set tags on the alert rule you're creating.
+12. Proceed to the **Review + create** tab, where you can review your selections before creating the alert rule. A quick automatic validation will also be performed, notifying you in case any information or missing or needs to be correct. Once you're ready to create the alert rule, Click **Create**.
      
      
 ### Create an alert rule from the Azure Monitor activity log pane
@@ -86,17 +85,15 @@ An alternative way to create an activity log alert is to start with an activity 
 
     :::image type="content" source="media/alerts-activity-log/create-alert-rule-from-activity-log-event-new.png" alt-text="Screenshot of alert rule creation from an activity log event." lightbox="media/alerts-activity-log/create-alert-rule-from-activity-log-event-new.png":::
 
-2. The **Alert rule creation** pane opens, with the alert rule scope and condition already provided according to the previously selected activity log event. If necessary, you can edit and modify the scope and condition at this stage. Note that by default, the exact scope and condition for the new rule are copied from the original event attributes. For example, the exact resource on which the event occurred, and the specific user or service name who initiated the event, are both included by default in the new alert rule. If you want to make the alert rule more general, modify the scope and condition accordingly (see steps 3-9 in the section "Create an alert rule from the Azure Monitor alerts pane"). 
+2. The **Create alert rule** wizard opens, with the scope and condition already provided according to the previously selected activity log event. If necessary, you can edit and modify the scope and condition at this stage. Note that by default, the exact scope and condition for the new rule are copied from the original event attributes. For example, the exact resource on which the event occurred, and the specific user or service name who initiated the event, are both included by default in the new alert rule. If you want to make the alert rule more general, modify the scope and condition accordingly (see steps 3-9 in the section "Create an alert rule from the Azure Monitor alerts pane"). 
 
-3. Then follow steps 10-12 from the section, "Create an alert rule from the Azure Monitor alerts pane."
+3. Then follow steps 9-12 from the section, "Create an alert rule from the Azure Monitor alerts pane."
     
 ### View and manage in the Azure portal
 
-1. In the Azure portal, select **Monitor** > **Alerts**. Then select **Manage alert rules**.
-
-    :::image type="content" source="media/alerts-activity-log/manage-alert-rules-button-new.png" alt-text="Screenshot of the manage alert rules button.":::
+1. In the Azure portal, select **Monitor** > **Alerts**. Then select **Alert rules**.
     
-    The list of available rules appears.
+    The list of available alert rules appears.
 
 2. Filter or search for the activity log rule to modify.
 
@@ -104,7 +101,7 @@ An alternative way to create an activity log alert is to start with an activity 
 
     You can use the available filters, _Subscription_, _Resource group_,  _Resource_, _Signal type_, or _Status_, to find the activity rule that you want to edit.
  
-3. Select the rule, and double-click to edit the rule options. Make the required changes, and then select **Save**. 
+3. Select the alert rule to open it for editing. Make the required changes, and then select **Save**. 
 
 ## Azure Resource Manager template
 To create an activity log alert rule by using an Azure Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log alert rule:
@@ -187,7 +184,7 @@ The following fields are the options that you can use in the Azure Resource Mana
 1. `level`: Level of the activity in the activity log event that the alert should be generated on. For example: `Critical`, `Error`, `Warning`, `Informational`, or `Verbose`.
 1. `operationName`: The name of the operation in the activity log event. For example: `Microsoft.Resources/deployments/write`.
 1. `resourceGroup`: Name of the resource group for the impacted resource in the activity log event.
-1. `resourceProvider`: For more information, see [Azure resource providers and types](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fresource-providers-and-types&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373543634&sdata=4RjpTkO5jsdOgPdt%2F%2FDOlYjIFE2%2B%2BuoHq5%2F7lHpCwQw%3D&reserved=0). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fazure-services-resource-providers&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373553639&sdata=0ZgJPK7BYuJsRifBKFytqphMOxMrkfkEwDqgVH1g8lw%3D&reserved=0).
+1. `resourceProvider`: For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](../../azure-resource-manager/management/resource-providers-and-types.md).
 1. `status`: String describing the status of the operation in the activity event. For example: `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, or `Resolved`.
 1. `subStatus`: Usually, this field is the HTTP status code of the corresponding REST call. But it can also include other strings describing a substatus. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.
 1. `resourceType`: The type of the resource that was affected by the event. For example: `Microsoft.Resources/deployments`.
@@ -210,7 +207,7 @@ For example:
 
 ```
 
-For more information about the activity log fields, see [Azure activity log event schema](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-monitor%2Fplatform%2Factivity-log-schema&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373563632&sdata=6QXLswwZgUHFXCuF%2FgOSowLzA8iOALVgvL3GMVhkYJY%3D&reserved=0).
+For more information about the activity log fields, see [Azure activity log event schema](../essentials/activity-log-schema.md).
 
 > [!NOTE]
 > It might take up to 5 minutes for the new activity log alert rule to become active.

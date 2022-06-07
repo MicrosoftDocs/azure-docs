@@ -3,7 +3,7 @@ title: Quickstart - Create registry in portal
 description: Quickly learn to create a private Azure container registry using the Azure portal.
 ms.date: 06/23/2021
 ms.topic: quickstart
-ms.custom: mvc, mode-portal, contperf-fy21q4
+ms.custom: mvc, contperf-fy21q4, mode-ui
 ---
 # Quickstart: Create an Azure container registry using the Azure portal
 

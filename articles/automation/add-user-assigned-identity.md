@@ -12,7 +12,7 @@ ms.topic: conceptual
 This article shows you how to add a user-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities).
 
 > [!NOTE]
-> User-assigned managed identities are supported for cloud jobs only.  
+> User-assigned managed identities are supported for Azure jobs only.  
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -24,16 +24,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - A user-assigned managed identity. For instructions, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
-- The user-assigned managed identity and the target Azure resources that your runbook manages using that identity must be in the same Azure subscription.
+- The user-assigned managed identity and the target Azure resources that your runbook manages using that identity can be in different Azure subscriptions.
 
 - The latest version of Azure Account modules. Currently this is 2.2.8. (See [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/) for details about this version.)
 
 - An Azure resource that you want to access from your Automation runbook. This resource needs to have a role defined for the user-assigned managed identity, which helps the Automation runbook authenticate access to the resource. To add roles, you need to be an owner for the resource in the corresponding Azure AD tenant.
 
-- If you want to execute hybrid jobs using a user-assigned managed identity, update the Hybrid Runbook Worker to the latest version. The minimum required versions are:
-
-  - Windows Hybrid Runbook Worker: version 7.3.1125.0
-  - Linux Hybrid Runbook Worker: version 1.7.4.0
+- To assign an Azure role, you must have ```Microsoft.Authorization/roleAssignments/write``` permissions, such as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
 
 ## Add user-assigned managed identity for Azure Automation account
 
@@ -292,7 +289,7 @@ Perform the following steps.
 
     The output will look similar to the output shown for the REST API example, above.
 
-## Give identity access to Azure resources by obtaining a token
+## Assign a role to a user-assigned managed identity
 
 An Automation account can use its user-assigned managed identity to obtain tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens don't represent any specific user of the application. Instead, they represent the application that is accessing the resource. In this case, for example, the token represents an Automation account.
 
@@ -308,6 +305,32 @@ New-AzRoleAssignment `
     -Scope "/subscriptions/<subscription-id>" `
     -RoleDefinitionName "Contributor"
 ```
+
+## Verify role assignment to a user-managed identity
+
+To verify a role to a user-assigned managed identity of the Automation account, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Go to your Automation account.
+1. Under **Account Settings**, select **Identity**, **User assigned**.
+1. Click **User assigned identity name**.
+
+    :::image type="content" source="media/add-user-assigned-identity/user-assigned-main-screen-inline.png" alt-text="Assigning role in user-assigned identity in Azure portal." lightbox="media/add-user-assigned-identity/user-assigned-main-screen-expanded.png":::
+
+   If the roles are already assigned to the selected user-assigned managed identity, you can see a list of role assignments. This list includes all the role-assignments you have permission to read.
+
+    :::image type="content" source="media/add-user-assigned-identity/user-assigned-role-assignments-inline.png" alt-text="View role-assignments that you have permission in Azure portal." lightbox="media/add-user-assigned-identity/user-assigned-role-assignments-expanded.png":::
+
+1. To change the subscription, click the **Subscription** drop-down list and select the appropriate subscription.
+1. Click **Add role assignment (Preview)**
+1. In the drop-down list, select the set of resources that the role assignment applies - **Subscription**, **Resource group**, **Role**, and **Scope**. </br> If you don't have the role assignment, you can view the write permissions for the selected scope as an inline message.
+1. In the **Role** drop-down list, select a role as *Virtual Machine Contributor*.
+1. Click **Save**.
+
+    :::image type="content" source="media/managed-identity/add-role-assignment-inline.png" alt-text="Add a role assignment in Azure portal." lightbox="media/managed-identity/add-role-assignment-expanded.png":::
+
+After a few minutes, the managed identity is assigned the role at the selected scope.
+
 
 ## Authenticate access with user-assigned managed identity
 
@@ -329,6 +352,7 @@ $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -Defa
 For HTTP Endpoints make sure of the following.
 - The metadata header must be present and should be set to "true".
 - A resource must be passed along with the request, as a query parameter for a GET request and as form data for a POST request.
+- Set the value of the environment variable IDENTITY_HEADER to X-IDENTITY-HEADER.
 - Content Type for the Post request must be `application/x-www-form-urlencoded`.
 
 ### Get Access token for user-assigned managed identity using HTTP Get  
@@ -339,6 +363,7 @@ $client_id="&client_id=<ClientId of USI>"
 $url = $env:IDENTITY_ENDPOINT + $resource + $client_id 
 $Headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"  
 $Headers.Add("Metadata", "True")
+$headers.Add("X-IDENTITY-HEADER", $env:IDENTITY_HEADER) 
 $accessToken = Invoke-RestMethod -Uri $url -Method 'GET' -Headers $Headers
 Write-Output $accessToken.access_token 
 ```
@@ -349,6 +374,7 @@ Write-Output $accessToken.access_token
 $url = $env:IDENTITY_ENDPOINT
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Metadata", "True")
+$headers.Add("X-IDENTITY-HEADER", $env:IDENTITY_HEADER) 
 $body = @{'resource'='https://management.azure.com/' 
 'client_id'='<ClientId of USI>'}
 $accessToken = Invoke-RestMethod $url -Method 'POST' -Headers $headers -ContentType 'application/x-www-form-urlencoded' -Body $body
@@ -382,9 +408,11 @@ import requests  
 resource = "?resource=https://management.azure.com/" 
 client_id = "&client_id=<ClientId of USI>" 
 endPoint = os.getenv('IDENTITY_ENDPOINT')+ resource +client_id 
+identityHeader = os.getenv('IDENTITY_HEADER') 
 payload={}  
 headers = {  
-  'Metadata': 'True'  
+  'X-IDENTITY-HEADER': identityHeader,
+  'Metadata': 'True' 
 }  
 response = requests.request("GET", endPoint, headers=headers, data=payload)  
 print(response.text) 

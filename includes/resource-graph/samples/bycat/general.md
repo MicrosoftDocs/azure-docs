@@ -1,9 +1,9 @@
 ---
-author: georgewallace
+author: timwarner-msft
 ms.service: resource-graph
 ms.topic: include
-ms.date: 10/12/2021
-ms.author: gwallace
+ms.date: 03/08/2022
+ms.author: timwarner
 ms.custom: generated
 ---
 
@@ -144,7 +144,7 @@ Search-AzGraph -Query "Resources | summarize resourceCount=count() by subscripti
 
 ### Show resource types and API versions
 
-Resource Graph primarily uses the most recent non-preview version of a Resource Provider API to `GET` resource properties during an update. In some cases, the API version used has been overridden to provide more current or widely used properties in the results. The following query details the API version used for gathering properties on each resource type:
+Resource Graph primarily uses the most recent non-preview version of a Resource Provider's API to `GET` resource properties during an update. In some cases, the API version used has been overridden to provide more current or widely used properties in the results. The following query details the API version used for gathering properties on each resource type:
 
 ```kusto
 Resources

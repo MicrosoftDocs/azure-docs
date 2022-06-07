@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Troubleshooting deployments documentation
+title: Deployment troubleshooting documentation
 summary: Troubleshoot Azure deployments for Azure Resource Manager templates and Bicep files.
 
 metadata:
-  title: Troubleshooting deployments documentation
+  title: Deployment troubleshooting documentation
   description: "Learn how to troubleshoot deployments for Azure Resource Manager templates and Bicep files."
   services: azure-resource-manager
   ms.service: azure-resource-manager
@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 11/01/2021
+  ms.date: 12/08/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -31,10 +31,10 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Troubleshoot ARM template deployment
-            url: quickstart-troubleshoot-arm-deployment.md
-          - text: Troubleshoot Bicep file deployment
+          - text: Troubleshoot Bicep file
             url: quickstart-troubleshoot-bicep-deployment.md
+          - text: Troubleshoot ARM template JSON
+            url: quickstart-troubleshoot-arm-deployment.md
 
   # Card
   - title: Troubleshoot deployments

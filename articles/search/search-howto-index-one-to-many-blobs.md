@@ -12,9 +12,11 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ---
 
-# Indexing blobs to produce multiple search documents
+# Indexing blobs and files to produce multiple search documents
 
-By default, a blob indexer will treat the contents of a blob as a single search document. If you want a more granular representation of the blob in a search index, you can set **parsingMode** values to create multiple search documents from one blob. The **parsingMode** values that result in many search documents include `delimitedText` (for [CSV](search-howto-index-csv-blobs.md)), and `jsonArray` or `jsonLines` (for [JSON](search-howto-index-json-blobs.md)).
+**Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
+
+By default, an indexer will treat the contents of a blob or file as a single search document. If you want a more granular representation in a search index, you can set **parsingMode** values to create multiple search documents from one blob or file. The **parsingMode** values that result in many search documents include `delimitedText` (for [CSV](search-howto-index-csv-blobs.md)), and `jsonArray` or `jsonLines` (for [JSON](search-howto-index-json-blobs.md)).
 
 When you use any of these parsing modes, the new search documents that emerge must have unique document keys, and a problem arises in determining where that value comes from. The parent blob has at least one unique value in the form of `metadata_storage_path property`, but if it contributes that value to more than one search document, the key is no longer unique in the index.
 

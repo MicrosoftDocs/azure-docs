@@ -7,11 +7,11 @@ ms.author: danlep
 ---
 ## Import images to your cloud registry
 
-Import the following container images to your cloud registry using the [az acr import](/cli/azure/acr#az_acr_import) command. Skip this step if you already imported these images.
+Import the following container images to your cloud registry using the [az acr import](/cli/azure/acr#az-acr-import) command. Skip this step if you already imported these images.
 
 ### Connected registry image
 
-To support nested IoT Edge scenarios, the container image for the connected registry runtime must be available in your private Azure container registry. Use the [az acr import](/cli/azure/acr#az_acr_import) command to import the connected registry image into your private registry. 
+To support nested IoT Edge scenarios, the container image for the connected registry runtime must be available in your private Azure container registry. Use the [az acr import](/cli/azure/acr#az-acr-import) command to import the connected registry image into your private registry. 
 
 ```azurecli
 # Use the REGISTRY_NAME variable in the following Azure CLI commands to identify the registry

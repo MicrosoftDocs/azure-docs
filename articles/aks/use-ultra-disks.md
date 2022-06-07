@@ -3,7 +3,7 @@ title: Enable Ultra Disk support on Azure Kubernetes Service (AKS)
 description: Learn how to enable and configure Ultra Disks in an Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 10/12/2021
+ms.date: 1/9/2022
 
 ---
 
@@ -67,12 +67,12 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: ultra-disk-sc
-provisioner: kubernetes.io/azure-disk
+provisioner: disk.csi.azure.com # replace with "kubernetes.io/azure-disk" if aks version is less than 1.21
 volumeBindingMode: WaitForFirstConsumer # optional, but recommended if you want to wait until the pod that will use this disk is created 
 parameters:
   skuname: UltraSSD_LRS
   kind: managed
-  cachingmode: None
+  cachingMode: None
   diskIopsReadWrite: "2000"  # minimum value: 2 IOPS/GiB 
   diskMbpsReadWrite: "320"   # minimum value: 0.032/GiB
 ```
@@ -178,6 +178,9 @@ Events:
 [...]
 ```
 
+## Using Azure tags
+
+For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Next steps
 
@@ -211,3 +214,4 @@ Events:
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[use-tags]: use-tags.md

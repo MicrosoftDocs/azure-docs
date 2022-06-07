@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -111,5 +112,4 @@ int offset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Correct spelling mistakes with this tutorial](luis-tutorial-bing-spellcheck.md)
+[Correct spelling mistakes with this tutorial](luis-tutorial-bing-spellcheck.md)

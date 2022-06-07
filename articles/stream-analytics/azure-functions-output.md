@@ -29,7 +29,7 @@ Azure Stream Analytics expects HTTP status 200 from the Functions app for batche
 When Azure Stream Analytics receives a 413 ("http Request Entity Too Large") exception from an Azure function, it reduces the size of the batches that it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn't send oversized batches. Also, make sure that the maximum batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
 
 > [!NOTE]
-> During test connection, Stream Analytics sends an empty batch to Azure Functions to test if the connection between the two works. Make sure that your Functions app handles empty batch requests to make sure test connection passes.
+> During test connection, Stream Analytics sends (POST) an empty batch to Azure Functions to test if the connection between the two works. Make sure that your Functions app handles empty batch requests to make sure test connection passes.
 
 Also, in a situation where there's no event landing in a time window, no output is generated. As a result, the **computeResult** function isn't called. This behavior is consistent with the built-in windowed aggregate functions.
 
@@ -45,6 +45,9 @@ The default batch size is 262,144 bytes (256 KB). The default event count per ba
 
 Azure Functions should complete its request in under 100 seconds as the HTTP client times out after 100 seconds. If it takes more than 100 seconds for Azure  Functions to process a batch of data,  there is a timeout that will trigger a retry. This retry can result in duplicate data because Azure Functions will process the data again and potentially produce the same output since it may have been outputted partially in the previous request
 
+## Code samples
+
+The Azure Functions output can be used to relay messages into unsupported databases, [like Redis](stream-analytics-with-azure-functions.md), or update tables [in Azure SQL](sql-database-upsert.md).
 
 ## Next steps
 

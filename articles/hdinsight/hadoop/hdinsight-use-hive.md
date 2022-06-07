@@ -4,7 +4,7 @@ description: Apache Hive is a data warehouse system for Apache Hadoop. You can q
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/28/2020
+ms.date: 03/31/2022
 ---
 
 # What is Apache Hive and HiveQL on Azure HDInsight?
@@ -198,6 +198,9 @@ For more information, see the [Azure Feature Pack](/sql/integration-services/azu
 ### Apache Oozie
 
 Apache Oozie is a workflow and coordination system that manages Hadoop jobs. For more information on using Oozie with Hive, see the [Use Apache Oozie to define and run a workflow](../hdinsight-use-oozie-linux-mac.md) document.
+
+> [!NOTE]  
+> [Phoenix Storage Handler for Hive](https://phoenix.apache.org/hive_storage_handler.html) is not supported in HDInsight
 
 ## Next steps
 

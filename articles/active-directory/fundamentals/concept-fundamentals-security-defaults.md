@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 04/07/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,44 +17,55 @@ ms.collection: M365-identity-device-management
 
 ms.custom: contperf-fy20q4
 ---
-# What are security defaults?
+# Security defaults in Azure AD
 
-Managing security can be difficult with common identity-related attacks like password spray, replay, and phishing becoming more popular. Security defaults make it easier to help protect your organization from these attacks with preconfigured security settings:
+Microsoft is making security defaults available to everyone, because managing security can be difficult. Identity-related attacks like password spray, replay, and phishing are common in today's environment. More than 99.9% of these identity-related attacks are stopped by using multi-factor authentication (MFA) and blocking legacy authentication. The goal is to ensure that all organizations have at least a basic level of security enabled at no extra cost.
 
-- Requiring all users to register for Azure AD Multi-Factor Authentication.
-- Requiring administrators to do multi-factor authentication.
-- Blocking legacy authentication protocols.
-- Requiring users to do multi-factor authentication when necessary.
-- Protecting privileged activities like access to the Azure portal.
+Security defaults make it easier to help protect your organization from these identity-related attacks with preconfigured security settings:
 
-![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
- 
-More details on why security defaults are being made available can be found in Alex Weinert's blog post, [Introducing security defaults](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414).
+- [Requiring all users to register for Azure AD Multi-Factor Authentication](#require-all-users-to-register-for-azure-ad-multi-factor-authentication).
+- [Requiring administrators to do multi-factor authentication](#require-administrators-to-do-multi-factor-authentication).
+- [Requiring users to do multi-factor authentication when necessary](#require-users-to-do-multi-factor-authentication-when-necessary).
+- [Blocking legacy authentication protocols](#block-legacy-authentication-protocols).
+- [Protecting privileged activities like access to the Azure portal](#protect-privileged-activities-like-access-to-the-azure-portal).
 
-## Availability
+## Who's it for?
 
-Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost. You turn on security defaults in the Azure portal. If your tenant was created on or after October 22, 2019, security defaults may be enabled in your tenant. To protect all of our users, security defaults are being rolled out to new tenants at creation.
-
-### Who's it for?
-
-- If you're an organization that wants to increase your security posture but you don't know how or where to start, security defaults are for you.
-- If you're an organization using the free tier of Azure Active Directory licensing, security defaults are for you.
+- Organizations who want to increase their security posture, but don't know how or where to start.
+- Organizations using the free tier of Azure Active Directory licensing.
 
 ### Who should use Conditional Access?
 
-- If you're an organization currently using Conditional Access policies to bring signals together, to make decisions, and enforce organizational policies, security defaults are probably not right for you. 
+- If you're an organization currently using Conditional Access policies, security defaults are probably not right for you. 
 - If you're an organization with Azure Active Directory Premium licenses, security defaults are probably not right for you.
-- If your organization has complex security requirements, you should consider Conditional Access.
+- If your organization has complex security requirements, you should consider [Conditional Access](#conditional-access).
 
-## Policies enforced
+## Enabling security defaults
 
-### Unified Multi-Factor Authentication registration
+If your tenant was created on or after October 22, 2019, security defaults may be enabled in your tenant. To protect all of our users, security defaults are being rolled out to all new tenants at creation.
+
+To enable security defaults in your directory:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
+1. Browse to **Azure Active Directory** > **Properties**.
+1. Select **Manage security defaults**.
+1. Set the **Enable security defaults** toggle to **Yes**.
+1. Select **Save**.
+
+![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
+
+## Enforced security policies
+
+### Require all users to register for Azure AD Multi-Factor Authentication
 
 All users in your tenant must register for multi-factor authentication (MFA) in the form of the Azure AD Multi-Factor Authentication. Users have 14 days to register for Azure AD Multi-Factor Authentication by using the Microsoft Authenticator app. After the 14 days have passed, the user can't sign in until registration is completed. A user's 14-day period begins after their first successful interactive sign-in after enabling security defaults.
 
-### Protecting administrators
+### Require administrators to do multi-factor authentication
 
-Users with privileged access have increased access to your environment. Because of the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification for sign-in. In Azure AD, you can get a stronger account verification by requiring multi-factor authentication.
+Administrators have increased access to your environment. Because of the power these highly privileged accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification for sign-in. In Azure AD, you can get a stronger account verification by requiring multi-factor authentication. 
+
+> [!TIP]
+> We recommend having separate accounts for administration and standard productivity tasks to significantly reduce the number of times your admins are prompted for MFA.
 
 After registration with Azure AD Multi-Factor Authentication is finished, the following Azure AD administrator roles will be required to do extra authentication every time they sign in:
 
@@ -72,18 +83,15 @@ After registration with Azure AD Multi-Factor Authentication is finished, the fo
 - SharePoint administrator
 - User administrator
 
-> [!WARNING]
-> Ensure your directory has at least two accounts with global administrator privileges assigned to them. This will help in the case that one global administrator is locked out. For more detail see the article, [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
-
-### Protecting all users
+### Require users to do multi-factor authentication when necessary
 
 We tend to think that administrator accounts are the only accounts that need extra layers of authentication. Administrators have broad access to sensitive information and can make changes to subscription-wide settings. But attackers frequently target end users. 
 
 After these attackers gain access, they can request access to privileged information for the original account holder. They can even download the entire directory to do a phishing attack on your whole organization. 
 
-One common method to improve protection for all users is to require a stronger form of account verification, such as Multi-Factor Authentication, for everyone. After users complete Multi-Factor Authentication registration, they'll be prompted for another authentication whenever necessary. Users will be prompted primarily when they authenticate using a new device or application, or when doing critical roles and tasks. This functionality protects all applications registered with Azure AD including SaaS applications.
+One common method to improve protection for all users is to require a stronger form of account verification, such as Multi-Factor Authentication, for everyone. After users complete Multi-Factor Authentication registration, they'll be prompted for another authentication whenever necessary. Azure AD decides when a user will be prompted for Multi-Factor Authentication, based on factors such as location, device, role and task. This functionality protects all applications registered with Azure AD including SaaS applications.
 
-### Blocking legacy authentication
+### Block legacy authentication protocols
 
 To give your users easy access to your cloud apps, Azure AD supports various authentication protocols, including legacy authentication. *Legacy authentication* is a term that refers to an authentication request made by:
 
@@ -99,7 +107,7 @@ After security defaults are enabled in your tenant, all authentication requests 
 
 - [How to set up a multifunction device or application to send email using Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
-### Protecting privileged actions
+### Protect privileged activities like access to the Azure portal
 
 Organizations use various Azure services managed through the Azure Resource Manager API, including:
 
@@ -111,7 +119,13 @@ Using Azure Resource Manager to manage your services is a highly privileged acti
 
 It's important to verify the identity of users who want to access Azure Resource Manager and update configurations. You verify their identity by requiring more authentication before you allow access.
 
-After you enable security defaults in your tenant, any user who's accessing the Azure portal, Azure PowerShell, or the Azure CLI will need to complete more authentication. This policy applies to all users who are accessing Azure Resource Manager, whether they're an administrator or a user. 
+After you enable security defaults in your tenant, any user accessing the following services must complete multi-factor authentication: 
+
+- Azure portal
+- Azure PowerShell 
+- Azure CLI 
+
+This policy applies to all users who are accessing Azure Resource Manager services, whether they're an administrator or a user. 
 
 > [!NOTE]
 > Pre-2017 Exchange Online tenants have modern authentication disabled by default. In order to avoid the possibility of a login loop while authenticating through these tenants, you must [enable modern authentication](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
@@ -121,11 +135,9 @@ After you enable security defaults in your tenant, any user who's accessing the 
 
 ## Deployment considerations
 
-The following extra considerations are related to deployment of security defaults.
-
 ### Authentication methods
 
-These free security defaults allow registration and use of Azure AD Multi-Factor Authentication **using only the Microsoft Authenticator app using notifications**. Conditional Access allows the use of any authentication method the administrator chooses to enable.
+Security defaults allow registration and use of Azure AD Multi-Factor Authentication **using only the Microsoft Authenticator app using notifications**. Conditional Access allows the use of any authentication method the administrator chooses to enable.
 
 | Method | Security defaults | Conditional Access |
 | --- | --- | --- |
@@ -139,7 +151,38 @@ These free security defaults allow registration and use of Azure AD Multi-Factor
 - *** App passwords are only available in per-user MFA with legacy authentication scenarios only if enabled by administrators.
 
 > [!WARNING]
-> Do not disable methods for your organization if you are using Security Defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).
+> Do not disable methods for your organization if you are using security defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).
+
+### Backup administrator accounts
+
+Every organization should have at least two backup administrator accounts configured. We call these emergency access accounts.
+
+These accounts may be used in scenarios where your normal administrator accounts can't be used. For example: The person with the most recent Global Administrator access has left the organization. Azure AD prevents the last Global Administrator account from being deleted, but it doesn't prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
+
+Emergency access accounts are:
+
+- Assigned Global Administrator rights in Azure AD.
+- Aren't used on a daily basis.
+- Are protected with a long complex password.
+ 
+The credentials for these emergency access accounts should be stored offline in a secure location such as a fireproof safe. Only authorized individuals should have access to these credentials. 
+
+To create an emergency access account: 
+
+1. Sign in to the **Azure portal** as an existing Global Administrator.
+1. Browse to **Azure Active Directory** > **Users**.
+1. Select **New user**.
+1. Select **Create user**.
+1. Give the account a **User name**.
+1. Give the account a **Name**.
+1. Create a long and complex password for the account.
+1. Under **Roles**, assign the **Global Administrator** role.
+1. Under **Usage location**, select the appropriate location.
+1. Select **Create**.
+
+You may choose to [disable password expiration](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) for these accounts using Azure AD PowerShell.
+
+For more detailed information about emergency access accounts, see the article [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
 
 ### Disabled MFA status
 
@@ -147,28 +190,18 @@ If your organization is a previous user of per-user based Azure AD Multi-Factor 
 
 ### Conditional Access
 
-You can use Conditional Access to configure policies similar to security defaults, but with more granularity including user exclusions, which aren't available in security defaults. If you're using Conditional Access and have Conditional Access policies enabled in your environment, security defaults won't be available to you. If you have a license that provides Conditional Access but don't have any Conditional Access policies enabled in your environment, you're welcome to use security defaults until you enable Conditional Access policies. More information about Azure AD licensing can be found on the [Azure AD pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+You can use Conditional Access to configure policies similar to security defaults, but with more granularity including user exclusions, which aren't available in security defaults. If you're using Conditional Access in your environment today, security defaults won't be available to you. 
 
 ![Warning message that you can have security defaults or Conditional Access not both](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 
-Here are step-by-step guides on how you can use Conditional Access to configure a set of policies, which form a good starting point for protecting your identities:
+If you want to enable Conditional Access to configure a set of policies, which form a good starting point for protecting your identities:
 
 - [Require MFA for administrators](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 - [Require MFA for Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md)
 - [Block legacy authentication](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Require MFA for all users](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 
-## Enabling security defaults
-
-To enable security defaults in your directory:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
-1. Browse to **Azure Active Directory** > **Properties**.
-1. Select **Manage security defaults**.
-1. Set the **Enable security defaults** toggle to **Yes**.
-1. Select **Save**.
-
-## Disabling security defaults
+### Disabling security defaults
 
 Organizations that choose to implement Conditional Access policies that replace security defaults must disable security defaults. 
 
@@ -184,4 +217,6 @@ To disable security defaults in your directory:
 
 ## Next steps
 
-[Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md)
+- [Blog: Introducing security defaults](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414)
+- [Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md)
+- More information about Azure AD licensing can be found on the [Azure AD pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).

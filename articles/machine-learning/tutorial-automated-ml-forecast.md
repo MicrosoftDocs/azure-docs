@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: tutorial
-ms.author: sacartac
+ms.author: larryfr
 ms.reviewer: nibaccam
-author: cartacioS
+author: blackmist
 ms.date: 10/21/2021
 ms.custom: automl
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
 
-# Tutorial: Forecast demand with automated machine learning
+# Tutorial: Forecast demand with no-code automated machine learning in the Azure Machine Learning studio
 
 Learn how to create a [time-series forecasting model](concept-automated-ml.md#time-series-forecasting) without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This model will predict rental demand for a bike sharing service.  
 
@@ -64,7 +64,7 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. On the **Datastore and file selection** form, select the default datastore that was automatically set up during your workspace creation, **workspaceblobstore (Azure Blob Storage)**. This is the storage location where you'll upload your data file. 
 
-    1. Select **Browse**. 
+    1. Select **Upload files** from the **Upload** drop-down.. 
     
     1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv).
 
@@ -79,7 +79,7 @@ Before you configure your experiment, upload your data file to your workspace in
         File format|Defines the layout and type of data stored in a file.| Delimited
         Delimiter|One or more characters for specifying the boundary between&nbsp; separate, independent regions in plain text or other data streams. |Comma
         Encoding|Identifies what bit to character schema table to use to read your dataset.| UTF-8
-        Column headers| Indicates how the headers of the dataset, if any, will be treated.| Use headers from the first file
+        Column headers| Indicates how the headers of the dataset, if any, will be treated.| Only first file has headers
         Skip rows | Indicates how many, if any, rows are skipped in the dataset.| None
 
     1. The **Schema** form allows for further configuration of your data for this experiment. 
@@ -115,7 +115,7 @@ After you load and configure your data, set up your remote compute target and se
 
             Field | Description | Value for tutorial
             ----|---|---
-            Virtual&nbsp;machine&nbsp;priority |Select what priority your experiment should have| Dedicated
+            Virtual&nbsp;machine&nbsp;tier |Select what priority your experiment should have| Dedicated
             Virtual&nbsp;machine&nbsp;type| Select the virtual machine type for your compute.|CPU (Central Processing Unit)
             Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute. A list of recommended sizes is provided based on your data and experiment type. |Standard_DS12_V2
         
@@ -144,7 +144,9 @@ Complete the setup for your automated ML experiment by specifying the machine le
 
 1. Select **date** as your **Time column** and leave **Time series identifiers** blank. 
 
-1. The **forecast horizon** is the length of time into the future you want to predict.  Deselect Autodetect and type 14 in the field. 
+1. The **Frequency** is how often your historic data is collected. Keep **Autodetect** selected. 
+1.
+1. The **forecast horizon** is the length of time into the future you want to predict.  Deselect **Autodetect** and type 14 in the field. 
 
 1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job and specify settings for your forecast. Otherwise, defaults are applied based on experiment selection and data.
 
@@ -155,10 +157,15 @@ Complete the setup for your automated ML experiment by specifying the machine le
     Blocked algorithms | Algorithms you want to exclude from the training job| Extreme Random Trees
     Additional forecasting settings| These settings help improve the accuracy of your model. <br><br> _**Forecast target lags:**_ how far back you want to construct the lags of the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. | <br><br>Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
     Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 3 <br> Metric&nbsp;score&nbsp;threshold: None
-    Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 5
     Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 6
     
     Select **Save**.
+
+1. Select **Next**.
+    
+1. On the **[Optional] Validate and test** form, 
+    1. Select k-fold cross-validation as your **Validation type**.
+    1.  Select 5 as your **Number of cross validations**.
 
 ## Run experiment
 
@@ -187,11 +194,11 @@ For this experiment, deployment to a web service means that the bike share compa
 
 Once the run is complete, navigate back to parent run page by selecting **Run 1** at the top of your screen.
 
-In the **Best model summary** section, **StackEnsemble** is considered the best model in the context of this experiment, based on the **Normalized root mean squared error** metric.  
+In the **Best model summary** section, the best model in the context of this experiment, is selected based on the **Normalized root mean squared error metric.** 
 
 We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
 
-1. Select **StackEnsemble** to open the model-specific page.
+1. Select **the best model** to open the model-specific page.
 
 1. Select the **Deploy** button located in the top-left area of the screen.
 

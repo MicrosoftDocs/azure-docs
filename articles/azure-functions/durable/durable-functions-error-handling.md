@@ -4,6 +4,7 @@ description: Learn how to handle errors in the Durable Functions extension for A
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
+ms.devlang: csharp, javascript, powershell, python
 ---
 
 # Handling errors in Durable Functions (Azure Functions)

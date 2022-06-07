@@ -3,17 +3,47 @@ title: "Immersive Reader SDK Release Notes"
 titleSuffix: Azure Applied AI Services
 description: Learn more about what's new in the Immersive Reader JavaScript SDK.
 services: cognitive-services
-author: dylankil
+author: rwallerms
 manager: guillasi
 
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
-ms.topic: reference
-ms.date: 10/12/2020
-ms.author: dylankil
+ms.topic: conceptual
+ms.date: 11/15/2021
+ms.author: rwaller
 ---
 
 # Immersive Reader JavaScript SDK Release Notes
+
+## Version 1.2.0
+
+This release contains new features, security vulnerability fixes, bug fixes, updates to code samples, and configuration options.
+
+#### New Features
+
+* Add option to set the theme to light or dark
+* Add option to set the parent node where the iframe/webview container is placed
+* Add option to disable the Grammar experience
+* Add option to disable the Translation experience
+* Add option to disable Language Detection
+
+#### Improvements
+
+* Add title and aria modal attributes to the iframe
+* Set isLoading to false when exiting
+* Update code samples to use v1.2.0
+* Adds React code sample
+* Adds Ember code sample
+* Adds Azure function code sample
+* Adds C# code sample demonstrating how to call the Azure Function for authentication
+* Adds Android Kotlin code sample demonstrating how to call the Azure Function for authentication
+* Updates the Swift code sample to be Objective C compliant
+* Updates Advanced C# code sample to demonstrate the usage of new options: parent node, disableGrammar, disableTranslation, and disableLanguageDetection
+
+#### Fixes
+
+* Fixes multiple security vulnerabilities by upgrading TypeScript packages
+* Fixes bug where renderButton rendered a duplicate icon and label in the button
 
 ## Version 1.1.0
 
@@ -60,7 +90,7 @@ This release contains breaking changes, new features, code sample improvements, 
 * Add support to enable or disable cookies
 * Add Android Kotlin quick start code sample
 * Add Android Java quick start code sample
-* Add Node.js quick start code sample
+* Add Node quick start code sample
 
 #### Improvements
 

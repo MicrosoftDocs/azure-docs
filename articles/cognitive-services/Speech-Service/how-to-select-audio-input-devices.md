@@ -1,21 +1,22 @@
 ---
-title: How to select an audio input device with the Speech SDK
+title: Select an audio input device with the Speech SDK
 titleSuffix: Azure Cognitive Services
-description: 'Learn about selecting audio input devices in the Speech SDK (C++, C#, Python, Objective-C, Java, JavaScript) by obtaining the IDs of the audio devices connected to a system.'
+description: 'Learn about selecting audio input devices in the Speech SDK (C++, C#, Python, Objective-C, Java, and JavaScript) by obtaining the IDs of the audio devices connected to a system.'
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/05/2019
 ms.author: chlandsi
+ms.devlang: cpp, csharp, java, javascript, objective-c, python
 ms.custom: devx-track-js, ignite-fall-2021
 ---
 
-# How to: Select an audio input device with the Speech SDK
+# Select an audio input device with the Speech SDK
 
-Version 1.3.0 of the Speech SDK introduces an API to select the audio input. This article describes how to obtain the IDs of the audio devices connected to a system. These can then be used in the Speech SDK by configuring the audio device through the `AudioConfig` object:
+This article describes how to obtain the IDs of the audio devices connected to a system. These IDs can then be used in the Speech SDK to select the audio input. You configure the audio device through the `AudioConfig` object:
 
 ```C++
 audioConfig = AudioConfig.FromMicrophoneInput("<device id>");
@@ -42,11 +43,11 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
 > [!Note]
-> Microphone usage is not available for JavaScript running in Node.js
+> Microphone use isn't available for JavaScript running in Node.js.
 
-## Audio device IDs on Windows for Desktop applications
+## Audio device IDs on Windows for desktop applications
 
-Audio device [endpoint ID strings](/windows/desktop/CoreAudio/endpoint-id-strings) can be retrieved from the [`IMMDevice`](/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice) object in Windows for Desktop applications.
+Audio device [endpoint ID strings](/windows/desktop/CoreAudio/endpoint-id-strings) can be retrieved from the [`IMMDevice`](/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice) object in Windows for desktop applications.
 
 The following code sample illustrates how to use it to enumerate audio devices in C++:
 
@@ -109,7 +110,7 @@ void ListEndpoints()
     PROPVARIANT varName;
     for (ULONG i = 0; i < count; i++)
     {
-        // Get pointer to endpoint number i.
+        // Get the pointer to endpoint number i.
         hr = pCollection->Item(i, &pEndpoint);
         EXIT_ON_ERROR(hr);
 
@@ -121,14 +122,14 @@ void ListEndpoints()
             STGM_READ, &pProps);
         EXIT_ON_ERROR(hr);
 
-        // Initialize container for property value.
+        // Initialize the container for property value.
         PropVariantInit(&varName);
 
         // Get the endpoint's friendly-name property.
         hr = pProps->GetValue(PKEY_Device_FriendlyName, &varName);
         EXIT_ON_ERROR(hr);
 
-        // Print endpoint friendly name and endpoint ID.
+        // Print the endpoint friendly name and endpoint ID.
         printf("Endpoint %d: \"%S\" (%S)\n", i, varName.pwszVal, pwszID);
 
         CoTaskMemFree(pwszID);
@@ -147,7 +148,7 @@ Exit:
 }
 ```
 
-In C#, the [NAudio](https://github.com/naudio/NAudio) library can be used to access the CoreAudio API and enumerate devices as follows:
+In C#, you can use the [NAudio](https://github.com/naudio/NAudio) library to access the CoreAudio API and enumerate devices as follows:
 
 ```cs
 using System;
@@ -175,9 +176,9 @@ A sample device ID is `{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}`.
 
 ## Audio device IDs on UWP
 
-On the Universal Windows Platform (UWP), audio input devices can be obtained using the `Id()` property of the corresponding [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) object.
+On the Universal Windows Platform (UWP), you can obtain audio input devices by using the `Id()` property of the corresponding [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) object.
 
-The following code samples show how to do this in C++ and C#:
+The following code samples show how to do this step in C++ and C#:
 
 ```cpp
 #include <winrt/Windows.Foundation.h>
@@ -226,10 +227,10 @@ A sample device ID is `\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23ab69-6181-4f4a-
 
 ## Audio device IDs on Linux
 
-The device IDs are selected using standard ALSA device IDs.
+The device IDs are selected by using standard ALSA device IDs.
 
 The IDs of the inputs attached to the system are contained in the output of the command `arecord -L`.
-Alternatively, they can be obtained using the [ALSA C library](https://www.alsa-project.org/alsa-doc/alsa-lib/).
+Alternatively, they can be obtained by using the [ALSA C library](https://www.alsa-project.org/alsa-doc/alsa-lib/).
 
 Sample IDs are `hw:1,0` and `hw:CARD=CC,DEV=0`.
 
@@ -365,7 +366,7 @@ For example, the UID for the built-in microphone is `BuiltInMicrophoneDevice`.
 
 ## Audio device IDs on iOS
 
-Audio device selection with the Speech SDK is not supported on iOS. However, apps using the SDK can influence audio routing through the [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) Framework.
+Audio device selection with the Speech SDK isn't supported on iOS. Apps that use the SDK can influence audio routing through the [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) Framework.
 
 For example, the instruction
 
@@ -374,18 +375,15 @@ For example, the instruction
     withOptions:AVAudioSessionCategoryOptionAllowBluetooth error:NULL];
 ```
 
-enables the use of a Bluetooth headset for a speech-enabled app.
+Enables the use of a Bluetooth headset for a speech-enabled app.
 
 ## Audio device IDs in JavaScript
 
-In JavaScript the [MediaDevices.enumerateDevices()](https://developer.mozilla.org/docs/Web/API/MediaDevices/enumerateDevices) method can be used to enumerate the media devices and find a device ID to pass to `fromMicrophone(...)`.
+In JavaScript, the [MediaDevices.enumerateDevices()](https://developer.mozilla.org/docs/Web/API/MediaDevices/enumerateDevices) method can be used to enumerate the media devices and find a device ID to pass to `fromMicrophone(...)`.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
-
-## See also
+- [Explore samples on GitHub](https://aka.ms/csspeech/samples)
 
 - [Customize acoustic models](./how-to-custom-speech-train-model.md)
 - [Customize language models](./how-to-custom-speech-train-model.md)

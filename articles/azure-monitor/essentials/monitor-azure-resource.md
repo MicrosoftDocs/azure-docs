@@ -16,7 +16,7 @@ In this tutorial, you learn:
 > [!div class="checklist"]
 > * What Azure Monitor is and how it's integrated into the portal for other Azure services
 > * The types of data collected by Azure Monitor for Azure resources
-> * Azure Monitor tools used to used to collect and analyze data
+> * Azure Monitor tools used to collect and analyze data
 
 > [!NOTE]
 > This tutorial describes Azure Monitor concepts and walks you through different menu items. To jump right into using Azure Monitor features, start with [Tutorial: Analyze metrics for an Azure resource](../essentials/tutorial-metrics.md).
@@ -27,13 +27,13 @@ In this tutorial, you learn:
 ### Azure Monitor data collection
 As soon as you create an Azure resource, Azure Monitor is enabled and starts collecting metrics and activity logs. With some configuration, you can gather additional monitoring data and enable additional features. The Azure Monitor data platform is made up of Metrics and Logs. Each collects different kinds of data and enables different Azure Monitor features.
 
-- [Azure Monitor Metrics](../essentials/data-platform-metrics.md) stores numeric data from monitored resources into a time series database. The metric database is automatically created for each Azure subscription. Use [metrics explorer](../essentials/tutorial-metrics.md) to analyze data from Azure Monitor Logs.
+- [Azure Monitor Metrics](../essentials/data-platform-metrics.md) stores numeric data from monitored resources into a time series database. The metric database is automatically created for each Azure subscription. Use [metrics explorer](../essentials/tutorial-metrics.md) to analyze data from Azure Monitor Metrics.
 - [Azure Monitor Logs](../logs/data-platform-logs.md) collects logs and performance data where they can be retrieved and analyzed in a different ways using log queries. You must create a Log Analytics workspace to collect log data. Use [Log Analytics](../logs/log-analytics-tutorial.md) to analyze data from Azure Monitor Logs.
 
-### Monitoring data from Azure resources
+### <a id="monitoring-data-from-azure-resources"></a> Monitor data from Azure resources
 While resources from different Azure services have different monitoring requirements, they generate monitoring data in the same formats so that you can use the same Azure Monitor tools to analyze all Azure resources.
 
-Azure resources generate the following monitoring data:
+Diagnostic settings define where resource logs and metrics for a particular resource should be sent. Possible destinations are:
 
 - [Activity log](./platform-logs-overview.md) - Subscription level events that track operations for each Azure resource, for example creating a new resource or starting a virtual machine. Activity log events are automatically generated and collected for viewing in the Azure portal. You can create a diagnostic setting to send the Activity log to Azure Monitor Logs.
 - [Platform metrics](../essentials/data-platform-metrics.md) - Numerical values that are automatically collected at regular intervals and describe some aspect of a resource at a particular time. Platform metrics are automatically generated and collected in Azure Monitor Metrics.
@@ -42,7 +42,7 @@ Azure resources generate the following monitoring data:
 
 
 ## Menu options
-While you can access Azure Monitor features from the **Monitor** menu in the Azure portal, Azure Monitor features can be access directly from the menu for different Azure services. While different Azure services may have slightly different experiences, they share a common set of monitoring options in the Azure portal. This includes **Overview** and **Activity log** and multiple options in the **Monitoring** section of the menu. 
+While you can access Azure Monitor features from the **Monitor** menu in the Azure portal, Azure Monitor features can be accessed directly from the menu for different Azure services. While different Azure services may have slightly different experiences, they share a common set of monitoring options in the Azure portal. This includes **Overview** and **Activity log** and multiple options in the **Monitoring** section of the menu. 
 
 :::image type="content" source="media/monitor-azure-resource/menu-01.png" lightbox="media/monitor-azure-resource/menu-01.png" alt-text="Monitor menu 1":::
 

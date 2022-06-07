@@ -1,6 +1,5 @@
 ---
-title: Build a daemon app that calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Build a daemon app that calls web APIs
 description: Learn how to build a daemon app that calls web APIs
 services: active-directory
 author: jmprieur
@@ -33,6 +32,14 @@ Here are some examples of use cases for daemon apps:
 - Web APIs that need to manipulate directories, not specific users
 
 There's another common case where non-daemon applications use client credentials: even when they act on behalf of users, they need to access a web API or a resource under their own identity for technical reasons. An example is access to secrets in Azure Key Vault or Azure SQL Database for a cache.
+
+> [!NOTE]
+> You can't deploy a daemon application to a regular user's device, and a regular user can't access a daemon application. Only a limited set of IT administrators can access devices that have daemon applications running, so a bad actor can't access a client secret or token from device traffic and act on behalf of the daemon application. The daemon application scenario doesn't replace device authentication.
+>
+> Examples of non-daemon applications:
+> - A mobile application that accesses a web service on behalf of an application, but not on behalf of a user.
+> - An IoT device that accesses a web service on behalf of a device, but not on behalf of a user.
+>
 
 Applications that acquire a token for their own identities:
 

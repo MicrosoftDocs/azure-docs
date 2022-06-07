@@ -6,9 +6,9 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: matjazl
-ms.author: cavoeg
-author: modillon
-ms.date: 11/29/2021
+ms.author: mikaelw
+author: mikaelweave
+ms.date: 06/03/2022
 ---
 
 # Da Vinci Plan Net for Azure API for FHIR
@@ -37,7 +37,7 @@ The rest of the search parameters needed for the Da Vinci Plan-Net IG are define
 
 ## Store profiles
 
-Outside of defining search parameters, you need to load the [required profiles and extensions](./validation-against-profiles.md#storing-profiles) to pass this test. There are nine profiles used as part of the Da Vinci Plan-Net IG:
+Outside of defining search parameters, you need to load the [required profiles and extensions](./store-profiles-in-fhir.md#accessing-profiles-and-storing-profiles) to pass this test. There are nine profiles used as part of the Da Vinci Plan-Net IG:
 
 * [Plan-Net Endpoint](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/StructureDefinition-plannet-Endpoint.html)
 * [Plan-Net Healthcare Service](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/StructureDefinition-plannet-HealthcareService.html)
@@ -78,3 +78,5 @@ In this tutorial, we walked through setting up Azure API for FHIR to pass the To
 
 >[!div class="nextstepaction"]
 >[Supported features](fhir-features-supported.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

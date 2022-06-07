@@ -4,13 +4,13 @@ description: Learn how to use a Resource Manager template to create a log alert
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 2/23/2022
 ---
 # Create a log alert with a Resource Manager template
 
 Log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](./alerts-unified-log.md).
 
-This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to configure [log alerts](./alerts-unified-log.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Log alerts are created in the `Microsoft.Insights/scheduledQueryRules` resource provider. See API reference for [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules).
+This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to configure [log alerts](./alerts-unified-log.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Log alerts are created in the `Microsoft.Insights/scheduledQueryRules` resource provider. See API reference for [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules).
 
 The basic steps are as follows:
 
@@ -26,7 +26,7 @@ The basic steps are as follows:
 
 ## Template for all resource types (from API version 2021-08-01)
 
-[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules/create-or-update) template for all resource types (sample data set as variables):
+[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update) template for all resource types (sample data set as variables):
 
 ```json
 {
@@ -273,7 +273,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
 
 ## Simple template (up to API version 2018-04-16)
 
-[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules/create-or-update) template based on [number of results log alert](./alerts-unified-log.md#count-of-the-results-table-rows) (sample data set as variables):
+[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update) template based on [number of results log alert](./alerts-unified-log.md#result-count) (sample data set as variables):
 
 ```json
 {
@@ -348,7 +348,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
 
 ## Template with cross-resource query (up to API version 2018-04-16)
 
-[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules/create-or-update) template based on [metric measurement](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) that queries [cross-resources](../logs/cross-workspace-query.md) (sample data set as variables):
+[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update) template based on [metric measurement](./alerts-unified-log.md#calculation-of-a-value) that queries [cross-resources](../logs/cross-workspace-query.md) (sample data set as variables):
 
 ```json
 {
@@ -436,7 +436,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
 ```
 
 > [!IMPORTANT]
-> When using cross-resource query in log alert, the usage of [authorizedResources](/rest/api/monitor/scheduledqueryrule-2021-02-01-preview/scheduled-query-rules/create-or-update#source) is mandatory and user must have access to the list of resources stated
+> When using cross-resource query in log alert, the usage of [authorizedResources](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules/create-or-update#source) is mandatory and user must have access to the list of resources stated
 
 This JSON can be saved and deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 

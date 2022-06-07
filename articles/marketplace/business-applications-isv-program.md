@@ -73,7 +73,7 @@ The final step for enrollment in the Business Applications ISV Connect program i
 
 ## Next steps
 
-Ask your Account Manager or contact [Microsoft Partner Support](https://aka.ms/marketplacepublishersupport) for assistance with your account. For general information on the Business Applications ISV Connect Program, see:
+Ask your Account Manager or contact [Microsoft Partner Support](https://go.microsoft.com/fwlink/?linkid=2165533) for assistance with your account. For general information on the Business Applications ISV Connect Program, see:
 
 - [Business Applications partner information](https://aka.ms/bizappsisvWeb) (website)
 - [ISV Connect program guide](https://aka.ms/bizappsisvProgram) (PDF)

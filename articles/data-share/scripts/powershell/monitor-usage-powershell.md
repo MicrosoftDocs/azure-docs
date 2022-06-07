@@ -4,7 +4,7 @@ description: This PowerShell script retrieves usage metrics of a sent data share
 author: joannapea
 ms.service: data-share
 ms.topic: article
-ms.date: 07/07/2019
+ms.date: 01/03/2022
 ms.author: joanpo 
 ms.custom: devx-track-azurepowershell
 ---

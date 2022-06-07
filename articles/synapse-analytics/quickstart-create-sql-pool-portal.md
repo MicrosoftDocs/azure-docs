@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Create a dedicated SQL pool using the Azure portal'
 description: Create a new dedicated SQL pool using the Azure portal by following the steps in this guide.
-services: synapse-analytics
 author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: wiassaf
-ms.reviewer: jrasnick
-ms.custom: mode-portal
+ms.reviewer: sngun
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a dedicated SQL pool using the Azure portal
@@ -51,7 +50,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     ![Dedicated SQL pool create flow - basics tab.](media/quickstart-create-sql-pool/create-sql-pool-portal-02.png)
 
     > [!IMPORTANT]
-    > Note that there are specific limitations for the names that dedicated SQL pools can use. Names can't contain special characters, must be 15 or less characters, not contain reserved words, and be unique in the workspace.
+    > Note that there are specific limitations for the names that dedicated SQL pools can use. Names can't contain special characters, must be 60 or less characters, not contain reserved words, and be unique in the workspace.
 
 3. Select **Next: Additional settings**.
 4. Select **None** to provision the dedicated SQL pool without data. Leave the default collation selected.

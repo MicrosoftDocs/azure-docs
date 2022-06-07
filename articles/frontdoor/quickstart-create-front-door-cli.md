@@ -4,15 +4,15 @@ description: This quickstart will show you how to use Azure Front Door to create
 services: front-door
 author: duongau
 manager: KumudD
-# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/19/2021
 ms.author: duau
-ms.custom: mode-other
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
+#Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create a Front Door for a highly available global web application using Azure CLI
@@ -43,7 +43,7 @@ In Azure, you allocate related resources to a resource group. You can either use
 
 For this quickstart, you need two resource groups. One in *Central US* and the second in *South Central US*.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create):
+Create a resource group with [az group create](/cli/azure/group#az-group-create):
 
 ```azurecli-interactive
 az group create \
@@ -65,7 +65,7 @@ If you don't already have a web app, use the following script to set up two exam
 
 Before you can create the web apps you will need two app service plans, one in *Central US* and the second in *East US*.
 
-Create app service plans with [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create&preserve-view=true):
+Create app service plans with [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create&preserve-view=true):
 
 ```azurecli-interactive
 az appservice plan create \
@@ -81,7 +81,7 @@ az appservice plan create \
 
 Running the following commands will create a web app in each of the app service plans in the previous step. Web app names have to be globally unique.
 
-Create web app with [az webapp create](/cli/azure/webapp#az_webapp_create&preserve-view=true):
+Create web app with [az webapp create](/cli/azure/webapp#az-webapp-create&preserve-view=true):
 
 ```azurecli-interactive
 az webapp create \
@@ -101,7 +101,7 @@ Make note of the default host name of each web app so you can define the backend
 
 Create a basic Front Door with default load balancing settings, health probe, and routing rules by running to follow:
 
-Create Front Door with [az network front-door create](/cli/azure/network/front-door#az_network_front_door_create&preserve-view=true):
+Create Front Door with [az network front-door create](/cli/azure/network/front-door#az-network-front-door-create&preserve-view=true):
 
 ```azurecli-interactive
 az network front-door create \
@@ -131,7 +131,7 @@ Open a web browser and enter the hostname obtain from the commands. The Front Do
 
 When you no longer need the resources that you created with the Front Door, delete both resource groups. When you delete the resource group, you also delete the Front Door and all its related resources. 
 
-To delete the resource group use [az group delete](/cli/azure/group#az_group_delete&preserve-view=true):
+To delete the resource group use [az group delete](/cli/azure/group#az-group-delete&preserve-view=true):
 
 ```azurecli-interactive
 az group delete \

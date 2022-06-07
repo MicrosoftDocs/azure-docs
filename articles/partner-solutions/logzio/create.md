@@ -1,11 +1,10 @@
 ---
 title: Create a Logz.io resource - Azure partner solutions
 description: Quickstart article that describes how to create a Logz.io resource in Azure.
-author: tfitzmac
 ms.topic: conceptual
-ms.service: partner-services
 ms.date: 10/25/2021
-ms.author: tomfitz
+author: davidsmatlak
+ms.author: davidsmatlak
 ms.custom: references_regions
 ---
 
@@ -97,7 +96,7 @@ Single sign-on (SSO) is an optional feature:
 - To opt out of SSO, skip this step.
 - To opt in to SSO, see [Set up Logz.io single sign-on](setup-sso.md).
 
-After AAD is configured, from the **Single sign-on** tab, select your Logz.io SSO application.
+After Azure AD is configured, from the **Single sign-on** tab, select your Logz.io SSO application.
 
 :::image type="content" source="./media/create/sso.png" alt-text="Configure single sign-on.":::
 

@@ -1,11 +1,10 @@
 ---
 title: Specify the Request Service REST API issuance request (preview)
-titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to issue a verifiable credential that you've issued.
 documentationCenter: ''
 author: barclayn
-manager: karenh444
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials
 ms.date: 10/08/2021
@@ -15,6 +14,8 @@ ms.author: barclayn
 ---
 
 # Request Service REST API issuance specification (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 Azure Active Directory (Azure AD) Verifiable Credentials includes the Request Service REST API. This API allows you to issue and verify a credential. This article specifies the Request Service REST API for an issuance request.
 
@@ -106,7 +107,7 @@ The payload contains the following properties:
 | `authority` | string|  The issuer's decentralized identifier (DID). For more information, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md).|
 | `registration` | [RequestRegistration](#requestregistration-type)|  Provides information about the issuer that can be displayed in the authenticator app. |
 | `issuance` | [RequestIssuance](#requestissuance-type)| Provides information about the issuance request.  |
-|`callback`|  [Callback](#callback-type)| Allows the developer to asynchronously get information on the flow during the verifiable credential issuance process. For example, the developer might want a call when the user has scanned the QR code.|
+|`callback`|  [Callback](#callback-type)| Mandatory. Allows the developer to asynchronously get information on the flow during the verifiable credential issuance process. For example, the developer might want a call when the user has scanned the QR code or if the issuance request succeeds or fails.|
 
 ### RequestRegistration type
 
@@ -159,9 +160,9 @@ The Request Service REST API generates several events to the callback endpoint. 
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `url` | string| URI to the callback endpoint of your application. |
+| `url` | string| URI to the callback endpoint of your application. The URI must point to a reachable endpoint on the internet otherwise the service will throw callback URL unreadable error. Accepted formats IPv4, IPv6 or DNS resolvable hostname |
 | `state` | string| Associates with the state passed in the original payload. |
-| `headers` | string| Optional. You can include a collection of HTTP headers required by the receiving end of the POST message. The headers should only include the `api-key` or any header required for authorization.|
+| `headers` | string| Optional. You can include a collection of HTTP headers required by the receiving end of the POST message. The current supported header values are the `api-key` or the `Authorization` headers. Any other header will throw an invalid callback header error|
 
 ## Successful response
 
@@ -219,7 +220,7 @@ The callback endpoint is called when a user scans the QR code, uses the deep lin
 |Property |Type |Description |
 |---------|---------|---------|
 | `requestId`| string | Mapped to the original request when the payload was posted to the Verifiable Credentials service.|
-| `code` |string |The code returned when the request was retrieved by the authenticator app. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the issuance flow.</li><li>`issuance_successful`: The issuance of the verifiable credentials was successful.</li><li>`Issuance_error`: There was an error during issuance. For details, see the `error` property.</li></ul>    |
+| `code` |string |The code returned when the request has an error. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the issuance flow.</li><li>`issuance_successful`: The issuance of the verifiable credentials was successful.</li><li>`Issuance_error`: There was an error during issuance. For details, see the `error` property.</li></ul>    |
 | `state` |string| Returns the state value that you passed in the original payload.   |
 | `error`| error | When the `code` property value is `Issuance_error`, this property contains information about the error.| 
 | `error.code` | string| The return error code. |

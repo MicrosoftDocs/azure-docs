@@ -1,15 +1,17 @@
 ---
-title: Get started with Azure Video Analyzer - Azure
+title: Get started
 description: This quickstart walks you through the steps to get started with Azure Video Analyzer. It uses an Azure VM as an IoT Edge device and a simulated live video stream.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-arm
 ---
 
 # Quickstart: Get started with Azure Video Analyzer
 
 [!INCLUDE [header](includes/edge-env.md)]
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 This quickstart walks you through the steps to get started with Azure Video Analyzer. It uses an Azure VM as an IoT Edge device and a simulated live video stream.
 
@@ -667,6 +669,6 @@ You can try to invoke `pipelineTopologyList` and observe that the module contain
 
 ## Next steps
 
-* Try the [quickstart for recording videos to the cloud when motion is detected](detect-motion-record-video-clips-cloud.md)
-* Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md)
+* Try [Quickstart: Detect motion in a (simulated) live video, record the video to the Video Analyzer account](detect-motion-record-video-clips-cloud.md)
+* Try [Quickstart: analyze a live video feed from a (simulated) IP camera using your own HTTP model](analyze-live-video-use-your-model-http.md)
 * Learn more about [diagnostic messages](monitor-log-edge.md) 

@@ -4,11 +4,10 @@ description: With Conditional Access control, Azure AD checks the specific condi
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity

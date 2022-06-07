@@ -7,7 +7,7 @@ manager: shahen
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 11/30/2021
+ms.date: 2/15/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
@@ -68,26 +68,47 @@ This field captures the time duration in days until full production volume is re
 Short Code programs that solicit political donations are subject to [additional best practices](https://www.ctia.org/the-wireless-industry/industry-commitments/guidelines-for-federal-political-campaign-contributions-via-wireless-carriers-bill). 
 
 ### Privacy Policy and Terms and Conditions URL
-Message Senders are required to maintain a privacy policy and terms and conditions for all short code programs and make it accessible to customers from the initial call-to-action. 
+Message Senders are required to maintain a privacy policy and terms and conditions that are specific to all short code programs and make it accessible to customers from the initial call-to-action. 
 
-In this field, you can provide a URL of the privacy policy and terms and conditions where customers can access it. If you don’t have the privacy policy URL yet, you can provide the URL of screenshots of what the policy will look like (a design mockup of the website that will go live once the campaign is launched).
+In this field, you can provide a URL of the privacy policy and terms and conditions where customers can access it. If you don’t have the short code program specific privacy policy or terms of service URL yet, you can provide the URL of screenshots of what the short code program policies will look like (a design mockup of the website that will go live once the campaign is launched).
+
+Your terms of service must include terms specific to the short code program brief and must contain ALL of the following:
+- Program Name and Description
+- Message Frequency, it can be either listed as Message Frequency Varies or the accurate frequency, it also needs to match with what is listed in the call-to-action
+- The disclaimer: "Message and data rates may apply" written verbatim
+- Customer care information, for example: "For help call [phone number] or send an email to [email]"
+- Opt-Out message: "Text STOP to cancel"
+- A link to the Privacy Policy or the whole Privacy policy
+
+##### Example:
+**Terms of Service** 
+
+:::image type="content" source= "../media/short-code-terms.png" alt-text="Screenshot showing the terms of service mock up.":::
+
+Your terms of service must contain ALL of the following:
+- Program Name and Description
+- Message Frequency, it can be either listed as Message Frequency Varies or the accurate frequency, it also needs to match with what is listed in the CTA (Call-To-Action)
+- The disclaimer: "Message and data rates may apply" written verbatim
+- Customer care information, for example: "For help call [phone number] or send an email to [email]"
+- Opt-Out message: "Text STOP to cancel"
+- A link to the Privacy Policy or the whole Privacy policy. 
 
 > [!Note]
-> If you don’t have a URL of the website, mockups, or design, please send the screenshots to phone@microsoft.com.
+> If you don’t have a URL of the website, mockups, or design, please send an email with the screenshots to phone@microsoft.com with "[CompanyName - ProgramName] Short Code Request".
 
 ### Program Sign up type and URL 
-This field captures the call to action (CTA), an instruction for the customers to take action for ensuring that the customer consents to receive text messages, and understands the nature of the program. Call to action can be over SMS, Interactive Voice Response (IVR), website, or point of sale. Carriers require that all short code program brief applications are submitted with mock ups for the call to action.
+This field captures the call-to-action, an instruction for the customers to take action for ensuring that the customer consents to receive text messages, and understands the nature of the program. Call-to-action can be over SMS, Interactive Voice Response (IVR), website, or point of sale. Carriers require that all short code program brief applications are submitted with mock ups for the call-to-action.
 
-In these fields, you must provide a URL of the website where customers will discover the program, URL for screenshots of the website, URL of mockup of the website, or URL with the design.
+In these fields, you must provide a URL of the website where customers will discover the program, URL for screenshots of the website, URL of mockup of the website, or URL with the design. If the program sign up type is SMS, then you must provide the keywords the customer will send to the short code for opting in. 
 
 > [!Note]
-> If you don’t have a URL of the website, mockups, or design, please send the screenshots to phone@microsoft.com.
+> If you don’t have a URL of the website, mockups, or design, please send the screenshots to phone@microsoft.com with Subject "[CompanyName - ProgramName] Short Code Request".
 
-#### Guidelines for designing the call to action (CTA):
-1. The CTA needs to be clear as to what program the customer is joining or agreeing to.
+#### Guidelines for designing the call-to-action:
+1. The call-to-action needs to be clear as to what program the customer is joining or agreeing to.
    - Call-to-action must be clear and accurate; consent must not be obtained through deceptive means
    - Enrolling a user in multiple programs based on a single opt-in is prohibited, even when all programs operate on the same short code. Please refer to the [CTIA monitoring handbook](https://www.wmcglobal.com/hubfs/CTIA%20Short%20Code%20Monitoring%20Handbook%20-%20v1.8.pdf) for best practices.
-2. The CTA needs to include the abbreviated terms and conditions, which include:
+2. The call-to-action needs to include the abbreviated terms and conditions, which include:
    -	Program Name – as described above
    -	Message frequency (recurring message/subscriptions)
    -	Message and Data rates may apply
@@ -104,9 +125,9 @@ Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Cont
 
 **Web opt-in**
 
-:::image type="content" source= "../media/short-code-web-optin.png" alt-text="Screenshot showing web opt-in mock up.":::
+:::image type="content" source= "../media/short-code-web-optin.png" alt-text="Screenshot showing the web opt-in mock up.":::
 
-**Point of sale (hardcopy leaflet)**
+**Point of sale (hardcopy leaflet) with SMS keyword call-to-action**
 
 :::image type="content" source= "../media/print-opt-in-mock.png" alt-text="Screenshot showing print opt-in mock up.":::
 

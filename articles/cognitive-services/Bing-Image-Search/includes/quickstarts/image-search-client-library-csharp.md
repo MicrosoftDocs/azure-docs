@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/21/2020
+ms.date: 01/05/2022
 ms.author: aahi
 ---
 
@@ -16,15 +16,11 @@ The client search library is a wrapper for the REST API and contains the same fe
 
 You'll create a C# application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) with additional error handling and annotations.
-
 ## Prerequisites
 
 * If you're using Windows, any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/vs/whatsnew/)
 * If you're using macOS or Linux, [VS Code](https://code.visualstudio.com) with [.NET Core installed](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install)
 * [A free Azure subscription](https://azure.microsoft.com/free/dotnet)
-
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 

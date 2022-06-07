@@ -6,7 +6,6 @@ documentationcenter: na
 author: rohinkoul
 manager: kumudD
 ms.service: dns
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

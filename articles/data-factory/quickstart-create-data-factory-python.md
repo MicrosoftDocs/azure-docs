@@ -9,7 +9,7 @@ ms.subservice: tutorials
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/27/2021
-ms.custom: seo-python-october2019, devx-track-python, mode-other
+ms.custom: seo-python-october2019, devx-track-python, mode-api
 ---
 
 # Quickstart: Create a data factory and pipeline using Python
@@ -71,7 +71,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
     ```
     > [!NOTE] 
     > The "azure-identity" package might have conflicts with "azure-cli" on some common dependencies. If you meet any authentication issue, remove "azure-cli" and its dependencies, or use a clean machine without installing "azure-cli" package to make it work.
-    > For Sovereign clouds, you must use the appropriate cloud-specific constants.  Please refer to [Connect to all regions using Azure libraries for Python Multi-cloud | Microsoft Docs for instructions to connect with Python in Sovereign clouds.](/azure/developer/python/azure-sdk-sovereign-domain)
+    > For Sovereign clouds, you must use the appropriate cloud-specific constants.  Please refer to [Connect to all regions using Azure libraries for Python Multi-cloud | Microsoft Docs for instructions to connect with Python in Sovereign clouds.](/azure/developer/python/sdk/azure-sdk-sovereign-domain)
     
     
 ## Create a data factory client

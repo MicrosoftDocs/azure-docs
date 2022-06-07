@@ -12,7 +12,8 @@ Kudu is the engine behind a number of features in [Azure App Service](overview.m
 Anytime you create an app, App Service creates a companion app for it that's secured by HTTPS. This Kudu app is accessible at:
 
 - App not in Isolated tier: `https://<app-name>.scm.azurewebsites.net`
-- App in Isolated tier (App Service Environment): `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
+- Internet-facing app in Isolated tier (App Service Environment): `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
+- Internal app in Isolated tier (ILB App Service Environment): `https://<app-name>.scm.<ase-name>.appserviceenvironment.net`
 
 For more information, see [Accessing the kudu service](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service).
 
@@ -31,10 +32,16 @@ It also provides other features, such as:
 - Run commands in the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console).
 - Download IIS diagnostic dumps or Docker logs.
 - Manage IIS processes and site extensions.
-- Add deployment webhooks for Windows aps.
+- Add deployment webhooks for Windows apps.
 - Allow ZIP deployment UI with `/ZipDeploy`.
 - Generates [custom deployment scripts](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 - Allows access with [REST API](https://github.com/projectkudu/kudu/wiki/REST-API).
+
+## RBAC permissions required to access Kudu
+To access Kudu in the browser with Azure Active Directory authentication, you need to be a member of a built-in or custom role.
+
+- If using a built-in role, you must be a member of Website Contributor, Contributor, or Owner.
+- If using a custom role, you need the resource provider operation: `Microsoft.Web/sites/publish/Action`.
 
 ## More Resources
 

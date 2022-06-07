@@ -4,11 +4,10 @@ description: This topic describes attribute behavior of the msExchUserHoldPolici
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 09/15/2020
 ms.subservice: hybrid

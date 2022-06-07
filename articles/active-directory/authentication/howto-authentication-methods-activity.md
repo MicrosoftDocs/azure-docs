@@ -10,7 +10,7 @@ ms.date: 07/13/2021
 
 ms.author: justinha
 author: sopand
-manager: daveba
+manager: karenhoran
 ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
@@ -33,6 +33,8 @@ The following roles have the required permissions:
 - Reports Reader
 - Security Reader
 - Global Reader
+- Application Administrator
+- Cloud Application Administrator
 - Security Operator
 - Security Administrator
 - Global Administrator

@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Automation?
+  - name: What is Azure Automation?
     href: overview.md
+  - name: What are the various Automation services in Azure?
+    href: automation-services.md
   - name: FAQ
     href: automation-faq.md
   - name: What's new?
@@ -38,7 +40,7 @@
     - name: Automation runbook types
       href: automation-runbook-types.md
     - name: PowerShell DSC
-      href: /powershell/scripting/dsc/overview/overview
+      href: /powershell/dsc/overview
     - name: Automation network configuration details
       href: automation-network-configuration.md
     - name: Security
@@ -46,8 +48,10 @@
       - name: Security controls by Azure Policy
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
-      - name: Security baseline
+      - name: Azure security baseline for Automation
         href: /security/benchmark/azure/baselines/automation-security-baseline?toc=/azure/automation/TOC.json
+      - name: Best practices for security in Azure Automation
+        href: automation-security-guidelines.md  
     - name: Data security
       items:
         - name: Encryption of secure assets
@@ -96,8 +100,8 @@
           href: automation-role-based-access-control.md
         - name: Move Automation account to another subscription
           href: how-to/move-account.md
-        - name: Delete Automation account
-          href: delete-account.md
+        - name: Manage Automation account
+          href: delete-account.md 
         - name: Migrate from Orchestrator to Azure Automation (Beta)
           href: automation-orchestrator-migration.md
     - name: Shared resources
@@ -156,7 +160,7 @@
               href: automation-runbook-output-and-messages.md
             - name: Handle errors in graphical runbooks
               href: automation-runbook-graphical-error-handling.md
-            - name: Forward job data to Azure Monitor Logs
+            - name: Forward Azure Automation diagnostic logs to Azure Monitor
               href: automation-manage-send-joblogs-log-analytics.md
         - name: Troubleshoot runbooks
           items:
@@ -319,7 +323,7 @@
         - name: Work with scope configurations
           href: update-management/scope-configuration.md
         - name: Disable
-          items: 
+          items:
             - name: Remove Update Management
               href: update-management/remove-feature.md
             - name: Remove machines

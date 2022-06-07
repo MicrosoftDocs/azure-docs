@@ -5,7 +5,11 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/29/2021
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, language-service-question-answering, ignite-fall-2021, mode-other
+author: jboback
+ms.author: jboback
+recommendations: false
+ms.devlang: csharp, python
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, language-service-question-answering, ignite-fall-2021, mode-api
 zone_pivot_groups: custom-qna-quickstart
 ---
 
@@ -42,6 +46,7 @@ To learn about automating your question answering pipeline consult the REST API 
 
 * [Authoring API reference](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
 * [Authoring API cURL examples](../how-to/authoring.md)
+* [Runtime API reference](/rest/api/cognitiveservices/questionanswering/question-answering)
 
 ## Next steps
 

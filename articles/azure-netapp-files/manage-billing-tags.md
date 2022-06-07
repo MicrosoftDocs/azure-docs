@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 05/06/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Manage billing by using capacity pool billing tags
 

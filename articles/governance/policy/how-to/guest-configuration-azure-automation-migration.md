@@ -39,10 +39,10 @@ migrate machines. The expected steps for migration are outlined.
 - Unregister servers from Azure Automation State Configuration
 - Assign configurations to servers using guest configuration
 
-Guest configuration uses DSC version 3 with PowerShell version 7. 
+Guest configuration uses DSC version 3 with PowerShell version 7.
 DSC version 3 can coexist with older versions of DSC in
-[Windows](/powershell/scripting/dsc/getting-started/wingettingstarted) and
-[Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
+[Windows](/powershell/dsc/getting-started/wingettingstarted) and
+[Linux](/powershell/dsc/getting-started/lnxgettingstarted).
 The implementations are separate. However, there's no conflict detection.
 
 Guest configuration doesn't require publishing modules or configurations in to

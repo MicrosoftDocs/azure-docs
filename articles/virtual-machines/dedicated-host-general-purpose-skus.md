@@ -19,6 +19,79 @@ This document goes through the hardware specifications and VM packings for all g
 
 The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
+## Dadsv5
+### Dadsv5-Type1
+
+The Dadsv5-Type1 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Dadsv5-Type1 runs [Dadsv5-series](dasv5-dadsv5-series.md#dadsv5-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Dadsv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size   | # VMs |
+|----------------|-----------------|---------------|-----------|-------|
+| 64             | 112             | 768 GiB       | D2ads v5  | 32    |
+|                |                 |               | D4ads v5  | 27    |
+|                |                 |               | D8ads v5  | 14    |
+|                |                 |               | D16ads v5 | 7     |
+|                |                 |               | D32ads v5 | 3     |
+|                |                 |               | D48ads v5 | 2     |
+|                |                 |               | D64ads v5 | 1     |
+|                |                 |               | D96ads v5 | 1     |
+
+
+## Dasv5
+### Dasv5-Type1
+
+The Dasv5-Type1 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Dasv5-Type1 runs [Dasv5-series](dasv5-dadsv5-series.md#dasv5-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Dasv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
+|----------------|-----------------|---------------|----------|-------|
+| 64             | 112             | 768 GiB       | D2as v5  | 32    |
+|                |                 |               | D4as v5  | 28    |
+|                |                 |               | D8as v5  | 14    |
+|                |                 |               | D16as v5 | 7     |
+|                |                 |               | D32as v5 | 3     |
+|                |                 |               | D48as v5 | 2     |
+|                |                 |               | D64as v5 | 1     |
+|                |                 |               | D96as v5 | 1     |
+
+## Ddsv5
+### Ddsv5-Type1
+
+The Ddsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Ddsv5-Type1 runs [Ddsv5-series](ddv5-ddsv5-series.md#ddsv5-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Ddsv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
+|----------------|-----------------|---------------|----------|-------|
+| 64             | 119             | 768 GiB       | D2ds v5  | 32    |
+|                |                 |               | D4ds v5  | 22    |
+|                |                 |               | D8ds v5  | 11    |
+|                |                 |               | D16ds v5 | 5     |
+|                |                 |               | D32ds v5 | 2     |
+|                |                 |               | D48ds v5 | 1     |
+|                |                 |               | D64ds v5 | 1     |
+|                |                 |               | D96ds v5 | 1     |
+
+## Dsv5
+### Dsv5-Type1
+
+The Dsv5-Type1 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Dsv5-Type1 runs [Dsv5-series](dv5-dsv5-series.md#dsv5-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Dsv5-Type1 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
+|----------------|-----------------|---------------|---------|-------|
+| 64             | 119             | 768 GiB       | D2s v5  | 32    |
+|                |                 |               | D4s v5  | 25    |
+|                |                 |               | D8s v5  | 12    |
+|                |                 |               | D16s v5 | 6     |
+|                |                 |               | D32s v5 | 3     |
+|                |                 |               | D48s v5 | 2     |
+|                |                 |               | D64s v5 | 1     |
+|                |                 |               | D96s v5 | 1     |
+
 ## Dasv4
 ### Dasv4-Type1
 The Dasv4-Type1 is a Dedicated Host SKU utilizing AMD's 2.35 GHz EPYC™ 7452 processor. It offers 64 physical cores, 96 vCPUs, and 672 GiB of RAM. The Dasv4-Type1 runs [Dasv4-series](dav4-dasv4-series.md#dasv4-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
@@ -59,17 +132,17 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 ## Ddsv4
 ### Ddsv4-Type1
-The Ddsv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 68 vCPUs, and 504 GiB of RAM. The Ddsv4-Type1 runs [Ddsv4-series](ddv4-ddsv4-series.md#ddsv4-series) VMs.
+The Ddsv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Ddsv4-Type1 runs [Ddsv4-series](ddv4-ddsv4-series.md#ddsv4-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Ddsv4-Type1 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
 |----------------|-----------------|---------------|----------|-------|
-| 52             | 68              | 504 GiB       | D2ds v4  | 32    |
+| 52             | 80              | 504 GiB       | D2ds v4  | 32    |
 |                |                 |               | D4ds v4  | 17    |
 |                |                 |               | D8ds v4  | 8     |
 |                |                 |               | D16ds v4 | 4     |
-|                |                 |               | D32ds v4 | 1     |
+|                |                 |               | D32ds v4 | 2     |
 |                |                 |               | D48ds v4 | 1     |
 |                |                 |               | D64ds v4 | 1     |
 
@@ -141,7 +214,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
 | 40             | 64              | 256 GiB       | D2s v3  | 32    |
-|                |                 |               | D4s v3  | 16    |
+|                |                 |               | D4s v3  | 17    |
 |                |                 |               | D8s v3  | 8     |
 |                |                 |               | D16s v3 | 4     |
 |                |                 |               | D32s v3 | 2     |
@@ -162,9 +235,9 @@ The following packing configuration outlines the max packing of uniform VMs you 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
 | 48             | 76              | 504 GiB       | D2s v3  | 32    |
-|                |                 |               | D4s v3  | 18    |
-|                |                 |               | D8s v3  | 9     |
-|                |                 |               | D16s v3 | 4     |
+|                |                 |               | D4s v3  | 20    |
+|                |                 |               | D8s v3  | 10    |
+|                |                 |               | D16s v3 | 5     |
 |                |                 |               | D32s v3 | 2     |
 |                |                 |               | D48s v3 | 1     |
 |                |                 |               | D64s v3 | 1     |
@@ -183,7 +256,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
 | 52             | 80              | 504 GiB       | D2s v3  | 32    |
-|                |                 |               | D4s v3  | 20    |
+|                |                 |               | D4s v3  | 21    |
 |                |                 |               | D8s v3  | 10    |
 |                |                 |               | D16s v3 | 5     |
 |                |                 |               | D32s v3 | 2     |
@@ -204,7 +277,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
 | 64             | 119             | 768 GiB       | D2s v3  | 32    |
-|                |                 |               | D4s v3  | 25    |
+|                |                 |               | D4s v3  | 24    |
 |                |                 |               | D8s v3  | 12    |
 |                |                 |               | D16s v3 | 6     |
 |                |                 |               | D32s v3 | 3     |
@@ -220,7 +293,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
-| 8              | 8               | 64 GiB        | DC8 v2 | 1     |
+| 8              | 8               | 64 GiB        | DC8 v2  | 1     |
 
 ## Next steps
 

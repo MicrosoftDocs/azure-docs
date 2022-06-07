@@ -1,70 +1,70 @@
 ---
-title: App Service Environment Networking
+title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 11/15/2021
+ms.date: 02/17/2022
 ms.author: madsd
 ---
 
 # App Service Environment networking
 
-> [!NOTE]
-> This article is about the App Service Environment v3 which is used with Isolated v2 App Service plans
-> 
+App Service Environment is a single-tenant deployment of Azure App Service that hosts Windows and Linux containers, web apps, API apps, logic apps, and function apps. When you install an App Service Environment, you pick the Azure virtual network that you want it to be deployed in. All of the inbound and outbound application traffic is inside the virtual network you specify. You deploy into a single subnet in your virtual network, and nothing else can be deployed into that subnet.
 
-The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that hosts Windows and Linux containers, web apps, api apps, logic apps, and function apps. When you install an ASE, you pick the Azure Virtual Network that you want it to be deployed in. All of the inbound and outbound application traffic will be inside the virtual network you specify. The ASE is deployed into a single subnet in your virtual network. Nothing else can be deployed into that same subnet.
+> [!NOTE]
+> This article is about App Service Environment v3, which is used with isolated v2 App Service plans.
 
 ## Subnet requirements
 
-The subnet must be delegated to Microsoft.Web/hostingEnvironments and must be empty.
+You must delegate the subnet to `Microsoft.Web/hostingEnvironments`, and the subnet must be empty.
 
-The size of the subnet can affect the scaling limits of the App Service plan instances within the ASE. We recommend using a `/24` address space (256 addresses) for your subnet to ensure enough addresses to support production scale.
+The size of the subnet can affect the scaling limits of the App Service plan instances within the App Service Environment. It's a good idea to use a `/24` address space (256 addresses) for your subnet, to ensure enough addresses to support production scale.
 
-To use a smaller subnet, you should be aware of the following details of the ASE and network setup.
+If you use a smaller subnet, be aware of the following:
 
-Any given subnet has five addresses reserved for management purposes. On top of the management addresses, ASE will dynamically scale the supporting infrastructure and will use between 4 and 27 addresses depending on configuration and load. The remaining addresses can be used for instances in the App Service plan. The minimal size of your subnet is a `/27` address space (32 addresses).
+- Any particular subnet has five addresses reserved for management purposes. In addition to the management addresses, App Service Environment dynamically scales the supporting infrastructure, and uses between 4 and 27 addresses, depending on the configuration and load. You can use the remaining addresses for instances in the App Service plan. The minimal size of your subnet is a `/27` address space (32 addresses).
 
-If you run out of addresses within your subnet, you can be restricted from scaling out your App Service plans in the ASE or you can experience increased latency during intensive traffic load if we are not able scale the supporting infrastructure.
+- If you run out of addresses within your subnet, you can be restricted from scaling out your App Service plans in the App Service Environment. Another possibility is that you can experience increased latency during intensive traffic load, if Microsoft isn't able to scale the supporting infrastructure.
 
 ## Addresses
 
-The ASE has the following network information at creation:
+App Service Environment has the following network information at creation:
 
-| Address type | description |
+| Address type | Description |
 |--------------|-------------|
-| ASE virtual network | The virtual network the ASE is deployed into |
-| ASE subnet | The subnet that the ASE is deployed into |
-| Domain suffix | The domain suffix that is used by the apps made in this ASE |
-| Virtual IP | This setting is the VIP type used by the ASE. The two possible values are internal and external |
-| Inbound address | The inbound address is the address your apps on this ASE are reached at. If you have an internal VIP, it is an address in your ASE subnet. If the address is external, it will be a public facing address |
-| Default outbound addresses | The apps in this ASE will use this address, by default, when making outbound calls to the internet. |
+| App Service Environment virtual network | The virtual network deployed into. |
+| App Service Environment subnet | The subnet deployed into. |
+| Domain suffix | The domain suffix that is used by the apps made. |
+| Virtual IP (VIP) | The VIP type used. The two possible values are internal and external. |
+| Inbound address | The inbound address is the address at which your apps are reached. If you have an internal VIP, it's an address in your App Service Environment subnet. If the address is external, it's a public-facing address. |
+| Default outbound addresses | The apps use this address, by default, when making outbound calls to the internet. |
 
-The ASEv3 has details on the addresses used by the ASE in the **IP Addresses** portion of the ASE portal.
+You can find details in the **IP Addresses** portion of the portal, as shown in the following screenshot:
 
-![ASE addresses UI](./media/networking/networking-ip-addresses.png)
+![Screenshot that shows details about IP addresses.](./media/networking/networking-ip-addresses.png)
 
-As you scale your App Service plans in your ASE, you'll use more addresses out of your ASE subnet. The number of addresses used will vary based on the number of App Service plan instances you have, and how much traffic your ASE is receiving. Apps in the ASE don't have dedicated addresses in the ASE subnet. The specific addresses used by an app in the ASE subnet by an app will change over time.
+As you scale your App Service plans in your App Service Environment, you'll use more addresses out of your subnet. The number of addresses you use varies, based on the number of App Service plan instances you have, and how much traffic there is. Apps in the App Service Environment don't have dedicated addresses in the subnet. The specific addresses used by an app in the subnet will change over time.
 
 ## Ports and network restrictions
 
-For your app to receive traffic, you need to ensure that inbound Network Security Groups (NSGs) rules allow the ASE subnet to receive traffic from the required ports. In addition to any ports you'd like to receive traffic on, you should ensure the AzureLoadBalancer is able to connect to the ASE subnet on port 80. This is used for internal VM health checks. You can still control port 80 traffic from the virtual network to you ASE subnet.
+For your app to receive traffic, ensure that inbound network security group (NSG) rules allow the App Service Environment subnet to receive traffic from the required ports. In addition to any ports you'd like to receive traffic on, you should ensure that Azure Load Balancer is able to connect to the subnet on port 80. This is used for health checks of the internal virtual machine. You can still control port 80 traffic from the virtual network to your subnet.
 
-The general recommendation is to configure the following inbound NSG rule:
+It's a good idea to configure the following inbound NSG rule:
 
-|Port|Source|Destination|
-|-|-|-|
-|80,443|VirtualNetwork|ASE subnet range|
+|Source / Destination Port(s)|Direction|Source|Destination|Purpose|
+|-|-|-|-|-|
+|* / 80,443|Inbound|VirtualNetwork|App Service Environment subnet range|Allow app traffic and internal health ping traffic|
 
-The minimal requirement for ASE to be operational is:
+The minimal requirement for App Service Environment to be operational is:
 
-|Port|Source|Destination|
-|-|-|-|
-|80|AzureLoadBalancer|ASE subnet range|
+|Source / Destination Port(s)|Direction|Source|Destination|Purpose|
+|-|-|-|-|-|
+|* / 80|Inbound|AzureLoadBalancer|App Service Environment subnet range|Allow internal health ping traffic|
 
-If you use the minimum required rule you may need one or more rules for your application traffic, and if you are using any of the deployment or debugging options, you will also have to allow this traffic to the ASE subnet. The source of these rules can be VirtualNetwork or one or more specific client IPs or IP ranges. The destination will always be the ASE subnet range.
+If you use the minimum required rule, you might need one or more rules for your application traffic. If you're using any of the deployment or debugging options, you must also allow this traffic to the App Service Environment subnet. The source of these rules can be the virtual network, or one or more specific client IPs or IP ranges. The destination is always the App Service Environment subnet range.
+The internal health ping traffic on port 80 is isolated between the Load balancer and the internal servers. No outside traffic can reach the health ping endpoint.
 
-The normal app access ports are:
+The normal app access ports inbound are as follows:
 
 |Use|Ports|
 |-|-|
@@ -75,44 +75,75 @@ The normal app access ports are:
 
 ## Network routing
 
-You can set Route Tables (UDRs) without restriction. You can force tunnel all of the outbound application traffic from your ASE to an egress firewall device, such as the Azure Firewall, and not have to worry about anything other than your application dependencies. You can put WAF devices, such as the Application Gateway, in front of inbound traffic to your ASE to expose specific apps on that ASE. If you'd like to customize the outbound address of your applications on an ASE, you can add a NAT Gateway to your ASE subnet.
+You can set route tables without restriction. You can tunnel all of the outbound application traffic from your App Service Environment to an egress firewall device, such as Azure Firewall. In this scenario, the only thing you have to worry about is your application dependencies.
+
+You can put your web application firewall devices, such as Azure Application Gateway, in front of inbound traffic. Doing so allows you to expose specific apps on that App Service Environment.
+
+Your application will use one of the default outbound addresses for egress traffic to public endpoints. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
+
+## Private endpoint
+
+In order to enable Private Endpoints for apps hosted in your App Service Environment, you must first enable this feature at the App Service Environment level.
+
+You can activate it through the Azure portal: in the App Service Environment configuration pane turn **on** the setting `Allow new private endpoints`.
+Alternatively the following CLI can enable it:
+
+```azurecli-interactive
+az appservice ase update --name myasename --allow-new-private-endpoint-connections true
+```
+
+For more information about Private Endpoint and Web App, see [Azure Web App Private Endpoint][privateendpoint] 
+
 
 ## DNS
 
-The following sections describe the DNS considerations and configuration inbound to your ASE and outbound from your ASE.
+The following sections describe the DNS considerations and configuration that apply inbound to and outbound from your App Service Environment.
 
-### DNS configuration to your ASE
+### DNS configuration to your App Service Environment
 
-If your ASE is made with an external VIP, your apps are automatically put into public DNS. If your ASE is made with an internal VIP, you may need to configure DNS for it. If you selected having Azure DNS private zones configured automatically during ASE creation, then DNS is configured in your ASE virtual network. If you selected Manually configuring DNS, you need to either use your own DNS server or configure Azure DNS private zones. To find the inbound address of your ASE, go to the **ASE portal > IP Addresses** UI. 
+If your App Service Environment is made with an external VIP, your apps are automatically put into public DNS. If your App Service Environment is made with an internal VIP, you might need to configure DNS for it. When you created your App Service Environment, if you selected having Azure DNS private zones configured automatically, then DNS is configured in your virtual network. If you chose to configure DNS manually, you need to either use your own DNS server or configure Azure DNS private zones. To find the inbound address, go to the App Service Environment portal, and select **IP Addresses**. 
 
-If you want to use your own DNS server, you need to add the following records:
+If you want to use your own DNS server, add the following records:
 
-1. create a zone for `<ASE-name>.appserviceenvironment.net`
-1. create an A record in that zone that points * to the inbound IP address used by your ASE
-1. create an A record in that zone that points @ to the inbound IP address used by your ASE
-1. create a zone in `<ASE-name>.appserviceenvironment.net` named scm
-1. create an A record in the scm zone that points * to the IP address used by your ASE private endpoint
+1. Create a zone for `<App Service Environment-name>.appserviceenvironment.net`.
+1. Create an A record in that zone that points * to the inbound IP address used by your App Service Environment.
+1. Create an A record in that zone that points @ to the inbound IP address used by your App Service Environment.
+1. Create a zone in `<App Service Environment-name>.appserviceenvironment.net` named `scm`.
+1. Create an A record in the `scm` zone that points * to the IP address used by the private endpoint of your App Service Environment.
 
-To configure DNS in Azure DNS Private zones:
+To configure DNS in Azure DNS private zones:
 
-1. create an Azure DNS private zone named `<ASE-name>.appserviceenvironment.net`
-1. create an A record in that zone that points * to the inbound IP address
-1. create an A record in that zone that points @ to the inbound IP address
-1. create an A record in that zone that points *.scm to the inbound IP address
+1. Create an Azure DNS private zone named `<App Service Environment-name>.appserviceenvironment.net`.
+1. Create an A record in that zone that points * to the inbound IP address.
+1. Create an A record in that zone that points @ to the inbound IP address.
+1. Create an A record in that zone that points *.scm to the inbound IP address.
 
-In addition to the default domain provided when an app is created, you can also add a custom domain to your app. You can set a custom domain name without any validation on your apps in an ILB ASE. If you are using custom domains, you will need to ensure they have DNS records configured. You can follow the guidance above to configure DNS zones and records for a custom domain name by replacing the default domain name with the custom domain name. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*.
+In addition to the default domain provided when an app is created, you can also add a custom domain to your app. You can set a custom domain name without any validation on your apps. If you're using custom domains, you need to ensure they have DNS records configured. You can follow the preceding guidance to configure DNS zones and records for a custom domain name (simply replace the default domain name with the custom domain name). The custom domain name works for app requests, but doesn't work for the `scm` site. The `scm` site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*.
 
-### DNS configuration from your ASE
+### DNS configuration for FTP access
 
-The apps in your ASE will use the DNS that your virtual network is configured with. If you want some apps to use a different DNS server than what your virtual network is configured with, you can manually set it on a per app basis with the app settings WEBSITE_DNS_SERVER and WEBSITE_DNS_ALT_SERVER. The app setting WEBSITE_DNS_ALT_SERVER configures the secondary DNS server. The secondary DNS server is only used when there is no response from the primary DNS server.
+For FTP access to Internal Load balancer (ILB) App Service Environment v3 specifically, you need to ensure DNS is configured. Configure an Azure DNS private zone or equivalent custom DNS with the following settings:
+
+1. Create an Azure DNS private zone named `ftp.appserviceenvironment.net`.
+1. Create an A record in that zone that points `<App Service Environment-name>` to the inbound IP address.
+
+In addition to setting up DNS, you also need to enable it in the [App Service Environment configuration](./configure-network-settings.md#ftp-access) as well as at the [app level](../deploy-ftp.md?tabs=cli#enforce-ftps).
+
+### DNS configuration from your App Service Environment
+
+The apps in your App Service Environment will use the DNS that your virtual network is configured with. If you want some apps to use a different DNS server, you can manually set it on a per app basis, with the app settings `WEBSITE_DNS_SERVER` and `WEBSITE_DNS_ALT_SERVER`. `WEBSITE_DNS_ALT_SERVER` configures the secondary DNS server. The secondary DNS server is only used when there is no response from the primary DNS server.
 
 ## Limitations
 
-While the ASE does deploy into a customer virtual network, there are a few networking features that aren't available with ASE:
+While App Service Environment does deploy into your virtual network, there are a few networking features that aren't available:
 
-* Send SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25
-* Use of Network Watcher or NSG Flow to monitor outbound traffic
+* Sending SMTP traffic. Although you can still have email-triggered alerts, your app can't send outbound traffic on port 25.
+* Using Azure Network Watcher or NSG flow to monitor outbound traffic.
 
 ## More resources
 
 - [Environment variables and app settings reference](../reference-app-settings.md)
+
+<!--Links-->
+[privateendpoint]: ../networking/private-endpoint.md
+ 

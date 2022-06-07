@@ -12,7 +12,7 @@ ms.topic: conceptual
 # Azure Automation State Configuration overview
 
 Azure Automation State Configuration is an Azure configuration management service that allows you to write, manage, and
-compile PowerShell Desired State Configuration (DSC) [configurations](/powershell/scripting/dsc/configurations/configurations) for nodes in any cloud or on-premises datacenter. The service also imports [DSC Resources](/powershell/scripting/dsc/resources/resources), and assigns configurations to target nodes, all in the cloud. You can access Azure Automation State Configuration in the Azure portal by selecting **State configuration (DSC)** under **Configuration Management**.
+compile PowerShell Desired State Configuration (DSC) [configurations](/powershell/dsc/configurations/configurations) for nodes in any cloud or on-premises datacenter. The service also imports [DSC Resources](/powershell/dsc/resources/resources), and assigns configurations to target nodes, all in the cloud. You can access Azure Automation State Configuration in the Azure portal by selecting **State configuration (DSC)** under **Configuration Management**.
 
 > [!NOTE]
 > Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../governance/policy/concepts/guest-configuration.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
@@ -37,13 +37,13 @@ The Azure Automation State Configuration service is to DSC what Azure Automation
 
 ### Built-in pull server
 
-Azure Automation State Configuration provides a DSC pull server similar to the [Windows Feature DSC-Service](/powershell/scripting/dsc/pull-server/pullserver). Target nodes can automatically receive
+Azure Automation State Configuration provides a DSC pull server similar to the [Windows Feature DSC-Service](/powershell/dsc/pull-server/pullserver). Target nodes can automatically receive
 configurations, conform to the desired state, and report on their compliance. The built-in pull server in Azure Automation eliminates the need to set up and maintain your own pull server. Azure
 Automation can target virtual or physical Windows or Linux machines, in the cloud or on-premises.
 
 ### Management of all your DSC artifacts
 
-Azure Automation State Configuration brings the same management layer to [PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) as it offers for PowerShell scripting. From the Azure portal or from PowerShell, you can manage all your DSC configurations, resources, and target nodes.
+Azure Automation State Configuration brings the same management layer to [PowerShell Desired State Configuration](/powershell/dsc/overview) as it offers for PowerShell scripting. From the Azure portal or from PowerShell, you can manage all your DSC configurations, resources, and target nodes.
 
 ![Screenshot of the Azure Automation page](./media/automation-dsc-overview/azure-automation-blade.png)
 
@@ -72,14 +72,14 @@ For nodes running Windows, the following versions are supported:
 >[!NOTE]
 >The [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) standalone product SKU does not contain an implementation of DSC. Thus it can't be managed by PowerShell DSC or Azure Automation State Configuration.
 
-For nodes running Linux, the DSC Linux extension supports all the Linux distributions listed in the [PowerShell DSC documentation](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
+For nodes running Linux, the DSC Linux extension supports all the Linux distributions listed in the [PowerShell DSC documentation](/powershell/dsc/getting-started/lnxgettingstarted).
 
 ### DSC requirements
 
 For all Windows nodes running in Azure,
 [WMF 5.1](/powershell/scripting/wmf/setup/install-configure)
 is installed when machines are enabled. For nodes running Windows Server 2012 and Windows 7,
-[WinRM](/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) is enabled.
+[WinRM](/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency) is enabled.
 
 For all Linux nodes running in Azure,
 [PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux)
@@ -91,7 +91,7 @@ Check [Azure Automation Network Configuration](automation-network-configuration.
 
 #### Proxy support
 
-Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` properties in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)
+Proxy support for the DSC agent is available in Windows release 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` properties in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)
 used to register nodes.
 
 >[!NOTE]

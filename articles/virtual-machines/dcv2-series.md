@@ -1,12 +1,12 @@
 ---
 title: DCsv2-series - Azure Virtual Machines
 description: Specifications for the DCsv2-series VMs.
-author: mmcrey
+author: linuxelf001
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.author: jushiman
+ms.author: raginjup
 ms.custom: ignite-fall-2021
 ---
 
@@ -19,7 +19,7 @@ The DCsv2-series virtual machines help protect the confidentiality and integrity
 These machines are backed by 3.7 GHz Intel® Xeon E-2288G (Coffee Lake) with SGX technology. With Intel® Turbo Boost Max Technology 3.0 these machines can go up to 5.0 GHz. 
 
 > [!NOTE]
-> Hyperthreading is disabled for added security posture. Pricing is based on the superior performance of physical vs virtual cores, as well as the unique security capabilities of DC-series.
+> Hyperthreading is disabled for added security posture. Pricing is the same as Dv5 and Dsv5-series per physical core.
 
 Example confidential use cases include: databases, blockchain, multiparty data analytics, fraud detection, anti-money laundering, usage analytics, intelligence analysis and machine learning.
 
@@ -34,6 +34,8 @@ Example confidential use cases include: databases, blockchain, multiparty data a
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
+<br>
 
 ## Technical specifications
 

@@ -24,7 +24,7 @@ Currently, the following Azure Arc-enabled data services are available:
 
 For an introduction to how Azure Arc-enabled data services supports your hybrid work environment, see this introductory video:
 
-> [!VIDEO https://channel9.msdn.com/Shows//Inside-Azure-for-IT/Choose-the-right-data-solution-for-your-hybrid-environment/player?format=ny]
+> [!VIDEO https://docs.microsoft.com/Shows//Inside-Azure-for-IT/Choose-the-right-data-solution-for-your-hybrid-environment/player?format=ny]
 
 ## Always current
 
@@ -68,7 +68,6 @@ The following table describes the scenarios that are currently supported for Azu
 |North Europe|Available|Available
 |Japan East|Available|Available
 |Korea Central|Available|Available
-|East Asia|Available|Available
 |Southeast Asia|Available|Available
 |Australia East|Available|Available
 

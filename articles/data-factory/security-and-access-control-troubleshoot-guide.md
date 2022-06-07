@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 02/07/2022
 ms.author: lle
 ---
 
@@ -18,7 +18,7 @@ ms.author: lle
 This article explores common troubleshooting methods for security and access control in Azure Data Factory and Synapse Analytics pipelines.
 
 ## Common errors and messages
-
+ 
 ### Connectivity issue in the copy activity of the cloud datastore
 
 #### Symptoms
@@ -61,7 +61,7 @@ If none of the preceding methods works, contact Microsoft for help.
 
 #### Symptoms
 
-After you disable public network access for the service, the self-hosted integration runtime throws the following error: “The Authentication key is invalid or empty.”
+After you disable public network access for the service, the self-hosted integration runtime throws following errors: `The Authentication key is invalid or empty.` or `Cannot connect to the data factory. Please check whether the factory has enabled public network access or the machine is hosted in a approved private endpoint Virtual Network.`
 
 #### Cause
 
@@ -186,7 +186,7 @@ For example: The Azure Blob Storage sink was using Azure IR (public, not Managed
 
 #### Cause
 
-The service may still use Managed VNet IR, but you could encounter such error because the public endpoint to Azure Blob Storage in Managed VNet is not reliable based on the testing result, and Azure Blob Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from the service's Managed Virtual Network according to [Managed virtual network & managed private endpoints](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+The service may still use Managed VNet IR, but you could encounter such error because the public endpoint to Azure Blob Storage in Managed VNet is not reliable based on the testing result, and Azure Blob Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from the service's Managed Virtual Network according to [Managed virtual network & managed private endpoints](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-a-data-factory-managed-virtual-network).
 
 #### Solution
 

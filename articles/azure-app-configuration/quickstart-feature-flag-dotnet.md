@@ -49,7 +49,7 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 ## Connect to an App Configuration store
 
-1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
+1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project.
 
     ```
     Microsoft.Extensions.DependencyInjection

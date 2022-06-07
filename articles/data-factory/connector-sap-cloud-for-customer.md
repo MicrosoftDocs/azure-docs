@@ -2,16 +2,16 @@
 title: Copy data from/to SAP Cloud for Customer
 description: Learn how to copy data from SAP Cloud for Customer to supported sink data stores (or) from supported source data stores to SAP Cloud for Customer using an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: ulrichchrist
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 01/25/2022
 ---
 
-# Copy data from SAP Cloud for Customer (C4C) using Azure Data Factory or Synapse Analytics
+# Copy data from or to SAP Cloud for Customer (C4C) using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

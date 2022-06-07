@@ -3,8 +3,8 @@ title: "Quickstart: Deploy an ASP.NET web app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 11/08/2021
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, mode-other
+ms.date: 02/08/2022
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, devdivchpfy22
 zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -33,15 +33,6 @@ target cross-platform with .NET 6.0.
 
 In this quickstart, you'll learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. ASP.NET web apps are cross-platform and can be hosted on Linux or Windows. When you're finished, you'll have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
 
-<!-- markdownlint-disable MD044 -->
-:::zone target="docs" pivot="development-environment-ps"
-<!-- markdownlint-enable MD044 -->
-
-> [!NOTE]
-> Azure PowerShell is recommended for creating apps on the Windows hosting platform. To create apps on Linux, use a different tool, such as [Azure CLI](quickstart-dotnetcore.md?pivots=development-environment-cli)
-
-:::zone-end
-
 ## Prerequisites
 
 :::zone target="docs" pivot="development-environment-vs"
@@ -54,7 +45,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 ### [.NET Framework 4.8](#tab/netframework48)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** workload (make sure the optional checkbox **.NET Framework project and item templates** is selected).
+- <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** workload (ensure the optional checkbox **.NET Framework project and item templates** is selected).
 
 -----
 
@@ -84,7 +75,7 @@ If you've already installed Visual Studio 2022:
 </a>
 
 > [!NOTE]
-> Visual Studio Code is cross-platform, however; .NET Framework is not. If you're developing .NET Framework apps with Visual Studio Code, consider using a Windows machine to satisfy the build dependencies.
+> Visual Studio Code is cross-platform code editor, however; .NET Framework is not. If you're developing .NET Framework apps with Visual Studio Code, consider using a Windows machine to satisfy the build dependencies.
 
 ---
 
@@ -155,13 +146,13 @@ If you've already installed Visual Studio 2022:
 ### [.NET 6.0](#tab/net60)
 
 1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find, and choose **ASP.NET Core Web App**, then select **Next**.
+1. In **Create a new project**, find, and select **ASP.NET Core Web App**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
 
    :::image type="content" source="./media/quickstart-dotnet/configure-webapp-net.png" alt-text="Visual Studio - Configure ASP.NET 6.0 web app." lightbox="media/quickstart-dotnet/configure-webapp-net.png" border="true":::
 
 1. Select **.NET Core 6.0 (Long-term support)**.
-1. Make sure **Authentication Type** is set to **None**. Select **Create**.
+1. Ensure **Authentication Type** is set to **None**. Select **Create**.
 
    :::image type="content" source="media/quickstart-dotnet/vs-additional-info-net60.png" alt-text="Visual Studio - Additional info when selecting .NET Core 6.0." lightbox="media/quickstart-dotnet/vs-additional-info-net60.png" border="true":::
 
@@ -172,13 +163,13 @@ If you've already installed Visual Studio 2022:
 ### [.NET Framework 4.8](#tab/netframework48)
 
 1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find, and choose **ASP.NET Web Application (.NET Framework)**, then select **Next**.
+1. In **Create a new project**, find, and select **ASP.NET Web Application (.NET Framework)**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Create**.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-netframework48.png" alt-text="Visual Studio - Configure ASP.NET Framework 4.8 web app." lightbox="media/quickstart-dotnet/configure-webapp-netframework48.png" border="true":::
 
 1. Select the **MVC** template.
-1. Make sure **Authentication** is set to **No Authentication**. Select **Create**.
+1. Ensure **Authentication** is set to **No Authentication**. Select **Create**.
 
    :::image type="content" source="media/quickstart-dotnet/vs-mvc-no-auth-netframework48.png" alt-text="Visual Studio - Select the MVC template." lightbox="media/quickstart-dotnet/vs-mvc-no-auth-netframework48.png" border="true":::
 
@@ -201,7 +192,7 @@ If you've already installed Visual Studio 2022:
 
 1. In Visual Studio Code, open the <a href="https://code.visualstudio.com/docs/editor/integrated-terminal" target="_blank">Terminal</a> window by typing `Ctrl` + `` ` ``.
 
-1. In the terminal in Visual Studio Code, create a new .NET web app using the [`dotnet new webapp`](/dotnet/core/tools/dotnet-new#web-options) command.
+1. In Visual Studio Code terminal, create a new .NET web app using the [`dotnet new webapp`](/dotnet/core/tools/dotnet-new#web-options) command.
 
     ### [.NET 6.0](#tab/net60)
     
@@ -313,7 +304,7 @@ Follow these steps to create your App Service resources and publish your project
 
     :::image type="content" source="media/quickstart-dotnet/vs-publish-target-Azure.png" alt-text="Visual Studio - Publish the web app and target Azure." lightbox="media/quickstart-dotnet/vs-publish-target-Azure.png" border="true":::
 
-1. Choose the **Specific target**, either **Azure App Service (Linux)** or **Azure App Service (Windows)**. Then, click **Next**.
+1. Choose the **Specific target**, either **Azure App Service (Linux)** or **Azure App Service (Windows)**. Then, select **Next**.
 
     > [!IMPORTANT]
     > When targeting ASP.NET Framework 4.8, use **Azure App Service (Windows)**.
@@ -344,10 +335,10 @@ Follow these steps to create your App Service resources and publish your project
 
     :::image type="content" source="media/quickstart-dotnet/web-app-name.png" border="true" alt-text="Visual Studio - Create app resources dialog." lightbox="media/quickstart-dotnet/web-app-name.png" :::
 
-   Once the wizard completes, the Azure resources are created for you and you are ready to publish your ASP.NET Core project.
+   Once the wizard completes, the Azure resources are created for you and you're ready to publish your ASP.NET Core project.
 
-1. In the **Publish** dialog, make sure your new App Service app is selected in **App Service instance**, then select **Finish**. Visual Studio creates a publish profile for you for the selected App Service app.
-1. In the **Publish** page, select **Publish**. If you see a warning message, click **Continue**.
+1. In the **Publish** dialog, ensure your new App Service app is selected in **App Service instance**, then select **Finish**. Visual Studio creates a publish profile for you for the selected App Service app.
+1. In the **Publish** page, select **Publish**. If you see a warning message, select **Continue**.
 
     Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.
 
@@ -391,7 +382,7 @@ Follow these steps to create your App Service resources and publish your project
     1. Select **Create a new App Service plan**, provide a name, and select the **F1 Free** [pricing tier][app-service-pricing-tier].
     1. Select **Skip for now** for the Application Insights resource.
 
-1. In the popup **Always deploy the workspace "MyFirstAzureWebApp" to \<app-name>"**, select **Yes**. This way, as long as you're in the same workspace, Visual Studio Code deploys to the same App Service app each time.
+1. In the popup **Always deploy the workspace "MyFirstAzureWebApp" to \<app-name>"**, select **Yes** so that Visual Studio Code deploys to the same App Service app every time you're in that workspace.
 1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
 
     ### [.NET 6.0](#tab/net60)
@@ -414,25 +405,25 @@ Follow these steps to create your App Service resources and publish your project
 :::zone target="docs" pivot="development-environment-cli"
 <!-- markdownlint-enable MD044 -->
 
-1. Sign into your Azure account by using the [`az login`](/cli/azure/reference-index#az_login) command and following the prompt:
+1. Sign into your Azure account by using the [`az login`](/cli/azure/reference-index#az-login) command and following the prompt:
 
     ```azurecli
     az login
     ```
     
-1. Deploy the code in your local *MyFirstAzureWebApp* directory using the [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
+1. Deploy the code in your local *MyFirstAzureWebApp* directory using the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command:
 
     ```azurecli
     az webapp up --sku F1 --name <app-name> --os-type <os>
     ```
 
-    - If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Prerequisites](#prerequisites).
+    - If the `az` command isn't recognized, ensure you have the Azure CLI installed as described in [Prerequisites](#prerequisites).
     - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
     - The `--sku F1` argument creates the web app on the **Free** [pricing tier][app-service-pricing-tier]. Omit this argument to use a faster premium tier, which incurs an hourly cost.
     - Replace `<os>` with either `linux` or `windows`. You must use `windows` when targeting *ASP.NET Framework 4.8*.
-    - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations) command.
+    - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
     
-    The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. It then outputs a message with the app's URL:
+    The command might take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. Then it shows a message with the app's URL:
     
     ```azurecli
     You can launch the app at http://<app-name>.azurewebsites.net
@@ -477,10 +468,10 @@ Follow these steps to create your App Service resources and publish your project
     New-AzWebApp -Name <app-name> -Location westeurope
     ```
 
-    - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
+    - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A combination of your company name and an app identifier is a good pattern.
     - You can optionally include the parameter `-Location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`Get-AzLocation`](/powershell/module/az.resources/get-azlocation) command.
 
-    The command may take a few minutes to complete. While running, it creates a resource group, an App Service plan, and the App Service resource.
+    The command might take a few minutes to complete. While running, it creates a resource group, an App Service plan, and the App Service resource.
 
     <!-- ### [Deploy to Linux](#tab/linux)
     
@@ -606,7 +597,7 @@ Follow these steps to update and redeploy your web app:
    Save your changes.
 
 1. In Visual Studio Code, open the [**Command Palette**](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
-1. Search for and select "Azure App Service: Deploy to Web App". Remember that your told Visual Studio Code to remember the app to deploy your workspace to in an earlier step.
+1. Search for and select "Azure App Service: Deploy to Web App".
 1. Select **Deploy** when prompted.
 1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
 

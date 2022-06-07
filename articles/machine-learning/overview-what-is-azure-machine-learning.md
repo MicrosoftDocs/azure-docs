@@ -5,10 +5,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
-ms.author: cgronlun
-author: cjgronlund
+ms.author: sgilley
+author: sdgilley
 ms.date: 08/03/2021
-ms.custom: devx-track-python
+ms.custom: devx-track-python, event-tier1-build-2022
 adobe-target: true
 ---
 
@@ -43,7 +43,7 @@ Developers find familiar interfaces in Azure Machine Learning, such as:
 
 - [Python SDK](/python/api/overview/azure/ml/)
 - [Azure Resource Manager REST APIs (preview)](/rest/api/azureml/)
-- [CLI v2 (preview)](/cli/azure/ml)
+- [CLI v2 ](/cli/azure/ml)
 
 ### Studio UI 
 
@@ -83,6 +83,10 @@ Other integrations with Azure services support a machine learning project from e
 - Azure Arc, where you can run Azure services in a Kubernetes environment
 - Storage and database options, such as Azure SQL Database, Azure Storage Blobs, and so on
 - Azure App Service allowing you to deploy and manage ML-powered apps
+
+> [!Important]
+> Azure Machine Learning doesn't store or process your data outside of the region where you deploy.
+>
 
 
 ## Machine learning project workflow

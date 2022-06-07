@@ -1,18 +1,17 @@
 ---
-title: Get started with Azure Video Analyzer live pipelines - Azure portal
+title: Get started with live pipelines using the portal
 description: This quickstart walks you through the steps to capture and record video from an RTSP camera using live pipelines in Azure Video Analyzer service.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 12/07/2021
-ms.custom: ignite-fall-2021, mode-portal
+ms.custom: ignite-fall-2021, mode-ui
 ---
 
 # Quickstart: Get started with Video Analyzer live pipelines in the Azure portal
 
-![cloud icon](media/env-icon/cloud.png)  
-Alternatively, check out [get started with Video Analyzer on the edge using portal](../edge/get-started-detect-motion-emit-events-portal.md).
+[!INCLUDE [header](includes/cloud-env.md)]
 
----
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 This quickstart walks you through the steps to capture and record video from a Real Time Streaming Protocol (RTSP) camera using live pipelines in Azure Video Analyzer service.
 You will create a Video Analyzer account and its accompanying resources by using the Azure portal. You will deploy an RTSP camera simulator, if you don’t have access to an actual RTSP camera (that can be made accessible over the internet). You’ll then deploy the relevant Video Analyzer resources to record video to your Video Analyzer account.
@@ -123,7 +122,7 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
     - Select **Create** and you will see a pipeline is created in the pipeline grid on the portal.
     - Select the live pipeline created in the grid, select **Activate** option available towards the right of the pane to activate the live pipeline. This will start your live pipeline and start recording the video
 1. Now you would be able to see the video resource under Video Analyzer account-> **Videos** pane in the portal. Its status will indicate **Recording** as pipeline is active and recording the live video stream.
-1. After a few seconds, select the video and you will be able to see the [low latency stream](../playback-recordings-how-to.md).
+1. After a few seconds, select the video and you will be able to see the [low latency stream](../viewing-videos-how-to.md).
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/camera-1800s-mkv.png" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
@@ -160,7 +159,7 @@ In this tab, learn how to deploy live pipeline using using Video Analyzer’s [C
 | ResourceGroup | Provide resource group name |
 | AccountName | Provide Video Analyzer account name |
 | TenantId | Provide tenant ID |
-| ClientId | Provide app registration client id |
+| ClientId | Provide app registration client ID |
 | Secret | Provide app registration client secret |
 | AuthenticationEndpoint | Provide authentication end point (example: https://login.microsoftonline.com) |
 | ArmEndPoint | Provide ARM end point (example: https://management.azure.com) |

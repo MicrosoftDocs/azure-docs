@@ -1,12 +1,16 @@
 ---
 description: In this tutorial, you learn how to use the Calling composite on Android
-author: pprystinka
+author: pavelprystinka
 
 ms.author: pprystinka
 ms.date: 10/10/2021
 ms.topic: include
 ms.service: azure-communication-services
 ---
+
+[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
+
+Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start)
 
 
 ## Prerequisites
@@ -16,9 +20,8 @@ ms.service: azure-communication-services
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
 - Azure Communication Services Token. See [example](../../../identity/quick-create-identity.md) 
 
-## Setting up
 
-### Sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/ui-library-quickstart/ui-library-quick-start).
+## Setting up
 
 ### Creating an Android app with an empty activity
 
@@ -26,22 +29,15 @@ In Android Studio, create a new project and select the `Empty Activity`.
 
 ![Start a new Android Studio Project](../../media/composite-android-new-project.png)
 
-Click the `Next` button and name the project `UILibraryQuickStart`, set language to `Java/Kotlin` and select Minimum SDK "API 23: Android 6.0 (Marshmallow)" or greater.
+Click the `Next` button and name the project `UILibraryQuickStart`, set language to `Java/Kotlin` and select Minimum SDK `API 21: Android 5.0 (Lollipop)` or greater.
 
 ![Screenshot showing the 'Finish' button selected in Android Studio.](../../media/composite-android-new-project-finish.png)
 
 Click `Finish`.
 
-## Maven repository credentials
-
-- You need to provide your personal access token(PAT) that has `read:packages` scope selected.
-- You might need to have `SSO enabled` for that PAT.
-- Also make sure your GitHub user has access to https://github.com/Azure/communication-preview
-- Personal access token can be generated: [here](https://github.com/settings/tokens
-
 ## Install the packages
 
-In your app level (**app folder**) `build.gradle`, add the following lines to the dependencies and android sections.
+In your app level (**app folder**) `UILibraryQuickStart/app/build.gradle`, add the following lines to the android and dependencies sections.
 
 ```groovy
 android {
@@ -56,29 +52,25 @@ android {
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-ui:1.0.0-alpha.2'
+    implementation 'com.azure.android:azure-communication-ui-calling:+'
     ...
 }
 ```
 
-In your project gradle scripts add following lines to `repositories`. For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`. If you are using old versions of `Android Studio (4.*)` then the `repositories` will be in project level `build.gradle` `allprojects{}`.
+In your project gradle scripts add following lines to `repositories`.  
+For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  
+If you are using old versions of `Android Studio (4.*)` then the `repositories` will be in project level `build.gradle` `allprojects{}`.  
 
 ```groovy
+// dependencyResolutionManagement
 repositories {
-        ...
-        maven {
-            url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
-        }
-        maven {
-            name='github'
-            url = 'https://maven.pkg.github.com/Azure/communication-preview'
-            credentials {
-                username '<your GitHub user name>'
-                password '<your personal access token>'
-            }
-        }
-        ...
+    ...
+    mavenCentral()
+    maven {
+        url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
     }
+    ...
+}
 ```
 Sync project with gradle files. (Android Studio -> File -> Sync Project With Gradle Files)
 
@@ -122,9 +114,9 @@ import android.os.Bundle
 import android.widget.Button
 import com.azure.android.communication.common.CommunicationTokenCredential
 import com.azure.android.communication.common.CommunicationTokenRefreshOptions
-import com.azure.android.communication.ui.CallCompositeBuilder
-import com.azure.android.communication.ui.CallComposite
-import com.azure.android.communication.ui.GroupCallOptions
+import com.azure.android.communication.ui.calling.CallCompositeBuilder
+import com.azure.android.communication.ui.calling.CallComposite
+import com.azure.android.communication.ui.calling.models.GroupCallOptions
 import java.util.UUID
 
 class MainActivity : AppCompatActivity() {
@@ -139,15 +131,15 @@ class MainActivity : AppCompatActivity() {
     private fun startCallComposite() {
         val communicationTokenRefreshOptions = CommunicationTokenRefreshOptions({ fetchToken() }, true)
         val communicationTokenCredential = CommunicationTokenCredential(communicationTokenRefreshOptions)
+
         val options = GroupCallOptions(
-            this,
             communicationTokenCredential,
             UUID.fromString("GROUP_CALL_ID"),
             "DISPLAY_NAME",
         )
 
         val callComposite: CallComposite = CallCompositeBuilder().build()
-        callComposite.launch(options)
+        callComposite.launch(this, options)
     }
 
     private fun fetchToken(): String? {
@@ -166,9 +158,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import com.azure.android.communication.common.CommunicationTokenCredential;
 import com.azure.android.communication.common.CommunicationTokenRefreshOptions;
-import com.azure.android.communication.ui.CallCompositeBuilder;
-import com.azure.android.communication.ui.CallComposite;
-import com.azure.android.communication.ui.GroupCallOptions;
+import com.azure.android.communication.ui.calling.CallCompositeBuilder;
+import com.azure.android.communication.ui.calling.CallComposite;
+import com.azure.android.communication.ui.calling.models.GroupCallOptions;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
@@ -186,18 +178,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startCallComposite() {
-        CallComposite callComposite = new CallCompositeBuilder().build();
-
         CommunicationTokenRefreshOptions communicationTokenRefreshOptions =
                 new CommunicationTokenRefreshOptions(this::fetchToken, true);
-        CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(communicationTokenRefreshOptions);
 
-        GroupCallOptions options = new GroupCallOptions(this,
+        CommunicationTokenCredential communicationTokenCredential = 
+                new CommunicationTokenCredential(communicationTokenRefreshOptions);
+
+        GroupCallOptions options = new GroupCallOptions(
                 communicationTokenCredential,
                 UUID.fromString("GROUP_CALL_ID"),
                 "DISPLAY_NAME");
 
-        callComposite.launch(options);
+        CallComposite callComposite = new CallCompositeBuilder().build();
+        callComposite.launch(this, options);
     }
 
     private String fetchToken() {
@@ -226,8 +219,9 @@ The following classes and interfaces handle some of the major features of the Az
 | [CallComposite](#create-call-composite)                            | Composite component that renders a call experience with participant gallery and controls.    |
 | [CallCompositeBuilder](#create-call-composite)                     | Builder to build CallComposite with options.                                                 |
 | [GroupCallOptions](#group-call)                                    | Passed in CallComposite launch to start group call.                                          |
-| [TeamsMeetingOptions](#teams-meeting)                              | Passed to CallComposite launch to join Teams meeting meeting.                                |
+| [TeamsMeetingOptions](#teams-meeting)                              | Passed to CallComposite launch to join Teams meeting.                                        |
 | [ThemeConfiguration](#apply-theme-configuration)                   | Injected as optional in CallCompositeBuilder to change primary color of composite.           |
+| [LocalizationConfiguration](#apply-localization-configuration)     | Injected as optional in CallCompositeBuilder to set language of composite.       |
 
 ## UI Library functionality
 
@@ -267,9 +261,10 @@ val communicationTokenCredential = CommunicationTokenCredential(communicationTok
 CallComposite callComposite = new CallCompositeBuilder().build();
 
 CommunicationTokenRefreshOptions communicationTokenRefreshOptions =
-                new CommunicationTokenRefreshOptions(this::fetchToken, true);
+        new CommunicationTokenRefreshOptions(this::fetchToken, true);
 
-CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(communicationTokenRefreshOptions);
+CommunicationTokenCredential communicationTokenCredential = 
+        new CommunicationTokenCredential(communicationTokenRefreshOptions);
 
 ```
 
@@ -278,7 +273,7 @@ Refer to the [user access token](../../../identity/quick-create-identity.md) doc
 -----
 ### Setup Group Call or Teams Meeting Options
 
-Depending on what type of Call/Meeting you would like to setup, use the appropriate options object.
+Depending on what type of Call/Meeting you would like to set up, use the appropriate options object.
 
 ### Group Call
 
@@ -290,7 +285,6 @@ Replace `"DISPLAY_NAME"` with your name.
 
 ```kotlin
 val options = GroupCallOptions(
-            this,
             communicationTokenCredential,
             UUID.fromString("GROUP_CALL_ID"),
             "DISPLAY_NAME",
@@ -301,7 +295,6 @@ val options = GroupCallOptions(
 
 ```java
 GroupCallOptions options = new GroupCallOptions(
-    this,
     communicationTokenCredential,
     UUID.fromString("GROUP_CALL_ID"),
     "DISPLAY_NAME"
@@ -318,7 +311,6 @@ Replace `"DISPLAY_NAME"` with your name.
 
 ```kotlin
 val options = TeamsMeetingOptions(
-            this,
             communicationTokenCredential,
             "TEAMS_MEETING_LINK",
             "DISPLAY_NAME",
@@ -329,7 +321,6 @@ val options = TeamsMeetingOptions(
 
 ```java
 TeamsMeetingOptions options = new TeamsMeetingOptions(
-    this,
     communicationTokenCredential,
     "TEAMS_MEETING_LINK",
     "DISPLAY_NAME"
@@ -351,59 +342,56 @@ Call `launch` on the `CallComposite` instance inside the `startCallComposite` fu
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-callComposite.launch(options)
+callComposite.launch(context, options)
 ```
 
 #### [Java](#tab/java)
 
 ```java
-callComposite.launch(options);
+callComposite.launch(context, options);
 ```
 
 -----
+### Subscribe to error events from `CallComposite`
 
-### Subscribe to events from `CallComposite`
-
-To receive events, inject a handler to the `CallCompositeBuilder`.
+To receive error events, inject a handler to the `CallCompositeBuilder`.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val callComposite: CallComposite =
-            CallCompositeBuilder()
-                .onException { 
-                    //...
-                }
-                .build()
+val callComposite: CallComposite = CallCompositeBuilder().build()
+callComposite.setOnErrorHandler { communicationUIErrorEvent ->
+    println(communicationUIErrorEvent.errorCode)
+}
 ```
 
 #### [Java](#tab/java)
 
 ```java
-CallComposite callComposite =
-                new CallCompositeBuilder()
-                        .onException(eventArgs -> {
-                            //...
-                        })
-                        .build();
+CallComposite callComposite = new CallCompositeBuilder().build();
+callComposite.setOnErrorHandler(communicationUIErrorEvent -> {
+    System.out.println(communicationUIErrorEvent.getErrorCode());
+});
 ```
 
 -----
-
 ### Apply theme configuration
 
-To change the primary color of composite, create a new theme style in `src/main/res/values/themes.xml` and `src/main/res/values-night/themes.xml` by considering `AzureCommunicationUI.Theme.Calling` as parent theme. To apply theme, inject the theme ID in `CallCompositeBuilder`.
+To change the primary color of composite, create a new theme style in `src/main/res/values/themes.xml` and `src/main/res/values-night/themes.xml` by considering `AzureCommunicationUICalling.Theme` as parent theme. To apply theme, inject the theme ID in `CallCompositeBuilder`.
 
 ```xml
-<style name="MyCompany.CallComposite" parent="AzureCommunicationUI.Theme.Calling">
-    <item name="azure_communication_ui_calling_primary_color">@color/purple_500</item>
+<style name="MyCompany.CallComposite" parent="AzureCommunicationUICalling.Theme">
+    <item name="azure_communication_ui_calling_primary_color">#27AC22</item>
+    <item name="azure_communication_ui_calling_primary_color_tint10">#5EC65A</item>
+    <item name="azure_communication_ui_calling_primary_color_tint20">#A7E3A5</item>
+    <item name="azure_communication_ui_calling_primary_color_tint30">#CEF0CD</item>
 </style>
 ```
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-import com.azure.android.communication.ui.configuration.ThemeConfiguration
+import ccom.azure.android.communication.ui.calling.models.ThemeConfiguration
 
 val callComposite: CallComposite =
         CallCompositeBuilder()
@@ -414,10 +402,49 @@ val callComposite: CallComposite =
 #### [Java](#tab/java)
 
 ```java
-import com.azure.android.communication.ui.configuration.ThemeConfiguration;
+import com.azure.android.communication.ui.calling.models.ThemeConfiguration;
 
 CallComposite callComposite = 
     new CallCompositeBuilder()
         .theme(new ThemeConfiguration(R.style.MyCompany_CallComposite))
         .build();
 ```
+
+-----
+### Apply localization configuration
+
+To change the language of composite, create a `LocalizationConfiguration` with `Locale` from `CommunicationUISupportedLocale`. To apply language, inject the localization configuration in `CallCompositeBuilder`. By default, all text labels use English (`en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components. `CommunicationUISupportedLocale` provides the supported Locales. For example, to access English Locale, `CommunicationUISupportedLocale.EN` can be used. `CommunicationUISupportedLocale.getSupportedLocales()` provides list of supported language's Locale objects.
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+import com.azure.android.communication.ui.calling.models.LocalizationConfiguration
+
+// CommunicationUISupportedLocale provides list of supported locale
+val callComposite: CallComposite =
+            CallCompositeBuilder().localization(
+                LocalizationConfiguration(Locale(CommunicationUISupportedLocale.EN))
+            ).build()
+```
+
+#### [Java](#tab/java)
+
+```java
+import com.azure.android.communication.ui.calling.models.LocalizationConfiguration;
+
+// CommunicationUISupportedLocale provides list of supported locale
+CallComposite callComposite = 
+    new CallCompositeBuilder()
+        .localization(new LocalizationConfiguration(CommunicationUISupportedLocale.EN))
+        .build();
+```
+
+-----
+### Additional Features
+
+The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information of additional features.
+
+-----
+### Add notifications into your mobile app
+
+The push notifications allow you to send information from your application to users' mobile devices. You can use push notifications to show a dialog, play a sound, or display incoming call UI. Azure Communication Services provides integrations with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md) that enable you to add push notifications to your apps [follow the link.](../../../../concepts/notifications.md)

@@ -1,5 +1,5 @@
 ---
-title: The Azure Video Analyzer player widget sample
+title: The Video Analyzer player widget sample
 description: This reference article gives a brief overview of the Video Analyzer player widget sample application
 ms.service: azure-video-analyzer
 ms.topic: how-to
@@ -8,6 +8,8 @@ ms.custom: ignite-fall-2021
 ---
 
 # Azure Video Analyzer player widget sample
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 This sample application shows the integration of Video Analyzer's player widget with video playback, zone drawing and video clip generation features.
 

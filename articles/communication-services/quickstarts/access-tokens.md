@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create and manage access tokens
 titleSuffix: An Azure Communication Services quickstart
-description: Learn how to manage identities and access tokens using the Azure Communication Services Identity SDK.
+description: Learn how to manage identities and access tokens by using the Azure Communication Services Identity SDK.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -16,11 +16,9 @@ ms.custom: mode-other
 
 # Quickstart: Create and manage access tokens
 
-Access tokens let ACS SDKs [authenticate](../concepts/authentication.md) directly against Azure Communication Services as a particular identity. You'll need to create some if you want your users to join a call or chat thread within your application. 
+Access tokens let Azure Communication Services SDKs [authenticate](../concepts/authentication.md) directly against Azure Communication Services as a particular identity. You'll need to create access tokens if you want your users to join a call or chat thread within your application. 
 
-You can also use the ACS SDKs to create identities and manage your access tokens and in this quickstart we'll be learning how to do this. For production use cases we recommend generating access tokens on a [server-side service](../concepts/client-and-server-architecture.md).
-
-Any prices seen in images throughout this tutorial are for demonstration purposes only.
+In this quickstart, you'll learn how to use the Azure Communication Services SDKs to create identities and manage your access tokens. For production use cases, we recommend that you generate access tokens on a [server-side service](../concepts/client-and-server-architecture.md).
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/access-tokens/access-token-net.md)]
@@ -38,7 +36,8 @@ Any prices seen in images throughout this tutorial are for demonstration purpose
 [!INCLUDE [Java](./includes/access-tokens/access-token-java.md)]
 ::: zone-end
 
-The output of the app describes each action that is completed:
+The app's output describes each completed action:
+
 <!---cSpell:disable --->
 ```console
 Azure Communication Services - Access Tokens Quickstart
@@ -59,15 +58,17 @@ Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_0000000
 ```
 <!---cSpell:enable --->
 
-## Using identity for monitoring and metrics
+## Use identity for monitoring and metrics
 
-The user ID is intended to act as a primary key for logs and metrics collected through Azure Monitor. If you'd like to get a view of all of a specific user's calls, for example, you should set up your authentication in a way that maps a specific Azure Communication Services identity (or identities) to a singular user. Learn more about [authentication concepts](../concepts/authentication.md), call diagnostics through [log analytics](../concepts/analytics/log-analytics.md), and [metrics](../concepts/metrics.md) available to you.
+The user ID is intended to act as a primary key for logs and metrics that are collected through Azure Monitor. To view all of a user's calls, for example, you can set up your authentication in a way that maps a specific Azure Communication Services identity (or identities) to a single user. 
+
+Learn more about [authentication concepts](../concepts/authentication.md), call diagnostics through [log analytics](../concepts/analytics/log-analytics.md), and [metrics](../concepts/metrics.md) that are available to you.
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](./create-communication-resource.md#clean-up-resources).
+To clean up and remove a Communication Services subscription, delete the resource or resource group. Deleting a resource group also deletes any other resources that are associated with it. For more information, see the "Clean up resources" section of [Create and manage Communication Services resources](./create-communication-resource.md#clean-up-resources).
 
-## Next Steps
+## Next steps
 
 In this quickstart, you learned how to:
 
@@ -80,8 +81,9 @@ In this quickstart, you learned how to:
 > [!div class="nextstepaction"]
 > [Add voice calling to your app](./voice-video-calling/getting-started-with-calling.md)
 
-You may also want to:
+You might also want to:
 
  - [Learn about authentication](../concepts/authentication.md)
  - [Add chat to your app](./chat/get-started.md)
  - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
+ - [Deploy trusted authentication service hero sample](../samples/trusted-auth-sample.md)

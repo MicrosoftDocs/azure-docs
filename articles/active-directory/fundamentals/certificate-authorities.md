@@ -3,7 +3,7 @@ title: Azure Active Directory certificate authorities
 description: Listing of trusted certificates used in Azure
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 
 ms.service: active-directory
 ms.workload: identity

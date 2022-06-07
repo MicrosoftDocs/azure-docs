@@ -41,13 +41,15 @@ The following JSON shows the schema for the Application Health extension. The ex
   "location": "<location>",  
   "properties": {
     "publisher": "Microsoft.ManagedServices",
-    "type": "< ApplicationHealthLinux or ApplicationHealthWindows>",
+    "type": "<ApplicationHealthLinux or ApplicationHealthWindows>",
     "autoUpgradeMinorVersion": true,
     "typeHandlerVersion": "1.0",
     "settings": {
       "protocol": "<protocol>",
       "port": "<port>",
-      "requestPath": "</requestPath>"
+      "requestPath": "</requestPath>",
+      "intervalInSeconds": "5.0",
+      "numberOfProbes": "1.0"
     }
   }
 }  
@@ -85,8 +87,8 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 {
   "name": "myHealthExtension",
   "properties": {
-    "publisher": " Microsoft.ManagedServices",
-    "type": "< ApplicationHealthWindows>",
+    "publisher": "Microsoft.ManagedServices",
+    "type": "ApplicationHealthWindows",
     "autoUpgradeMinorVersion": true,
     "typeHandlerVersion": "1.0",
     "settings": {
@@ -139,7 +141,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 
 ### Azure CLI 2.0
 
-Use [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) to add the Application Health extension to the scale set model definition.
+Use [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) to add the Application Health extension to the scale set model definition.
 
 The following example adds the Application Health extension to the scale set model of a Linux-based scale set.
 

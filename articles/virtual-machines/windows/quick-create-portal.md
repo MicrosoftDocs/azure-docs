@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 03/15/2021
 ms.author: cynthn
-ms.custom: mvc, mode-portal
+ms.custom: mvc, mode-ui
 ---
 
 # Quickstart: Create a Windows virtual machine in the Azure portal
@@ -25,16 +25,21 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create virtual machine
 
-1. Type **virtual machines** in the search.
+1. Enter *virtual machines* in the search.
 1. Under **Services**, select **Virtual machines**.
-1. In the **Virtual machines** page, select **Create** then **Virtual machine**. 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name. 
+1. In the **Virtual machines** page, select **Create** and then **Virtual machine**. The **Create a virtual machine** page opens.
+
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Enter *myResourceGroup* for the name. 
 
     ![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine](./media/quick-create-portal/project-details.png)
 
-1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *East US* for your **Region**. Choose *Windows Server 2019 Datacenter* for the **Image** and *Standard_DS1_v2* for the **Size**. Leave the other defaults.
+1. Under **Instance details**, enter *myVM* for the **Virtual machine name** and choose *Windows Server 2019 Datacenter - Gen2* for the **Image**. Leave the other defaults.
 
-    ![Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size](./media/quick-create-portal/instance-details.png)
+    :::image type="content" source="media/quick-create-portal/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size.":::
+
+    > [!NOTE]
+    > Some users will now see the option to create VMs in multiple zones. To learn more about this new capability, see [Create virtual machines in an availability zone](../create-portal-availability-zone.md).
+    > :::image type="content" source="../media/create-portal-availability-zone/preview.png" alt-text="Screenshot showing that you have the option to create virtual machines in multiple availability zones.":::
 
 1. Under **Administrator account**,  provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
@@ -54,13 +59,12 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     ![Screenshot showing the next step of going to the resource](./media/quick-create-portal/next-steps.png)
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Connect to virtual machine
 
 Create a remote desktop connection to the virtual machine. These directions tell you how to connect to your VM from a Windows computer. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) from the Mac App Store.
 
-1. On the overview page for your virtual machine, select the **Connect** button then select **RDP**. 
+1. On the overview page for your virtual machine, select the **Connect** > **RDP**. 
 
     ![Screenshot of the virtual machine overview page showing the location of the connect button](./media/quick-create-portal/portal-quick-start-9.png)
     
@@ -91,9 +95,11 @@ In the portal, select the VM and in the overview of the VM, hover over the IP ad
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, virtual machine, and all related resources. 
+When no longer needed, you can delete the resource group, virtual machine, and all related resources.
 
-Go to the resource group for the virtual machine, then select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
+1. On the Overview page for the VM, select the **Resource group** link.
+1. At the top of the page for the resource group, select **Delete resource group**. 
+1. A page will open warning you that you are about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
 
 ## Next steps
 

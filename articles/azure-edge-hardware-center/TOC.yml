@@ -1,0 +1,41 @@
+- name: Azure Edge Hardware Center Documentation 
+  href: ./index.yml
+  expanded: true
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Edge Hardware Center?
+      href: azure-edge-hardware-center-overview.md
+  - name: Tutorials
+    items:
+    - name: Create order
+      href: azure-edge-hardware-center-create-order.md
+  - name: Concepts
+    items:
+    - name: FAQ
+      href: azure-edge-hardware-center-faq.yml
+  - name: How to
+    items:
+    - name: Track, cancel, return order
+      href: azure-edge-hardware-center-manage-order.md
+    - name: Move order resource
+      href: azure-edge-hardware-center-resource-move-subscription-resource-group.md
+    - name: Troubleshoot orders
+      href: azure-edge-hardware-center-troubleshoot-order.md
+    - name: Open Support ticket
+      href: azure-edge-hardware-center-contact-microsoft-support.md
+  - name: References
+    items:
+    - name: .NET APIs
+      href: /dotnet/api/overview/azure/edgeorder
+    - name: REST API
+      href: /rest/api/edgehardwarecenter/
+    - name: Python SDK
+      href: https://pypi.org/project/azure-mgmt-edgeorder/1.0.0/
+    - name: Azure PowerShell
+      href: /powershell/module/az.edgeorder/
+  - name: Resources
+    items:
+    - name: Azure Stack Edge product  
+      href: https://azure.microsoft.com/services/storage/databox/edge/
+

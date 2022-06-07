@@ -47,7 +47,6 @@ To configure the integration of Cloud Academy into Azure AD, you need to add Clo
 1. In the **Add from the gallery** section, enter **Cloud Academy** in the search box.
 1. Select **Cloud Academy** in the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD SSO for Cloud Academy
 
 You'll configure and test Azure AD SSO with Cloud Academy by using a test user named **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding user in Cloud Academy.
@@ -71,32 +70,43 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
    ![Screenshot that shows the pencil button for editing the basic SAML configuration.](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** section, perform the following steps:
-
-    a. In the **Sign-on URL** text box, type one of the following URLs:
-    
-    | Sign-on URL |
+1. In the **Basic SAML Configuration** section, update the **Identifier** text box, type the following URLs and proceed:
+  
+    | Identifier |
     |--------------|
-    | `https://cloudacademy.com/login/enterprise/` |
-    | `https://app.qa.com/login/enterprise/` |
-    |
-    
-    b. In the **Reply URL** text box, type one of the following URLs:
-    
+    | `urn:federation:cloudacademy` |
+  
+1. In the **Basic SAML Configuration** section, update the **Reply URL** text box, type one of the following URLs and proceed:
+  
     | Reply URL |
     |--------------|
     | `https://cloudacademy.com/labs/social/complete/saml/` |
     | `https://app.qa.com/labs/social/complete/saml/` |
-    |
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the copy button to copy the **App Federation Metadata Url**. Save the URL.
+  
+1. In the **Basic SAML Configuration** section, update the **Sign-on URL** text box, type one of the following URLs and save it:
+  
+    | Sign-on URL |
+    |--------------|
+    | `https://cloudacademy.com/login/enterprise/` |
+    | `https://app.qa.com/login/enterprise/` |
+  
+1. Select the pencil button for **SAML Signing Certificate** to edit the settings:
 
-	![Screenshot that shows the copy button for the app federation metadata URL.](common/copy-metadataurl.png)
+   ![Screenshot that shows how to edit the certificate.](common/edit-certificate.png)
+
+1. Download the **PEM certificate**:
+
+   ![Screenshot that shows how to download the P E M certificate.](common/certificate-base64-download.png)
+  
+1. On the **Set up Cloud Academy** section, copy the **Login URL**:
+
+   ![Screenshot that shows the copy button for the login U R L.](common/copy_configuration_urls.png)
 
 ### Create an Azure AD test user
 
 In this section, you'll create a test user called B.Simon in the Azure portal.
 
-1. In the left pane of the Azure portal, select **Azure Active Directory**. Select **Users**, and then select **All users**.
+1. In the left menu of the Azure portal, select **Azure Active Directory**. Select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, complete these steps:
    1. In the **Name** box, enter **B.Simon**.  
@@ -120,58 +130,87 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
 1. In a different browser window, sign in to your Cloud Academy company site as administrator.
 
-1. On the home page, click the **Azure Integration Team** icon and then select **Settings** in the left menu.
+1. On the home page, click the **Azure Integration Team** icon, and then select **Settings** in the left menu.
 
 1. On the **INTEGRATIONS** tab, select the **SSO** card.
 
     ![Screenshot that shows the Settings & Integrations option.](./media/cloud-academy-sso-tutorial/integrations.png)
 
-1. Click on **Start Configuring** to set up SSO.
+1. Select **Start Configuring** to set up SSO.
 
-    ![Screenshot that shows the Integrations > SSO page.](./media/cloud-academy-sso-tutorial/start-configuring.png)
+    ![Screenshot that shows the Integrations and S S O page.](./media/cloud-academy-sso-tutorial/start-configuring.png)
 
-1. Complete the following steps in General Settings page:
+1. On the **General Settings** page, complete the following steps:
 
-    ![Screenshot that shows the Integrations in general settings.](./media/cloud-academy-sso-tutorial/general-settings.png)
+    ![Screenshot that shows integrations in general settings.](./media/cloud-academy-sso-tutorial/general-settings.png)
 
-    a. In the **SSO URL(Location)** box, paste the login URL value that you copied from the Azure portal.
+    1. In the **SSO URL (Location)** box, paste the login URL value that you copied from the Azure portal, in step 9 of [Configure Azure AD SSO](#configure-azure-ad-sso).
 
-    c. Open the downloaded Base64 certificate from the Azure portal in Notepad. Paste its contents into the **Certificate** box.
+    1. Open the downloaded Base64 certificate from the Azure portal in Notepad. Paste its contents into the **Certificate** box.
 
-    d. In the **Email Domains** box, enter all the domain values your company uses for user emails.
+    1. In the **Email Domains** box, enter all the domain values your company uses for user emails.
 
 1. Perform the following steps in the below page:
 
     ![Screenshot that shows the Integrations in additional settings.](./media/cloud-academy-sso-tutorial/additional-settings.png)
 
-    a. In the **SAML Attributes Mapping** section, fill the required fields with the source attribute values.
+    1. In the **SAML Attributes Mapping** section, fill in the required fields with the source attribute values:
+  
+       `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
+       `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+       `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+       `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    b. In the **Security Settings** section, select the **Authentication Requests Signed?** check box to set this value to **True**.
+    1. In the **Security Settings** section, select the **Authentication Requests Signed?** check box to set this value to **True**.
 
-    c. In the **Extra Settings(Optional)** section, fill the **Logout URL** box with the logout URL value that you copied from the Azure portal.
+    1. In the **Extra Settings(Optional)** section, fill the **Logout URL** box with the logout URL value that you copied from the Azure portal, in step 9 of [Configure Azure AD SSO](#configure-azure-ad-sso).
 
-1. Click **Save and Test**.
+1. Select **Save and Test**.
+
+1. Next, a dialog shows the service provider information. Download the XML file:
+
+    :::image type="content" source="./media/cloud-academy-sso-tutorial/set-up-provider-information.png" alt-text="Screenshot that shows downloading the metadata configuration file.":::
+
+1. Now that you have the XML file of the service provider, go back to the application you created in the Azure portal. In the **Single sign-on** section, upload the metadata file:
+
+    :::image type="content" source="./media/cloud-academy-sso-tutorial/upload-metadata.png" alt-text="Screenshot that shows uploading the metadata in the Azure application.":::
+
+1. Now that you've updated the service provider metadata, you can go back to the SSO panel of your Cloud Academy company site and proceed with the test and activation. In the service provider dialog, select **Continue**:
+
+   :::image type="content" source="./media/cloud-academy-sso-tutorial/continue-sso-activation.png" alt-text="Screenshot that shows the service provider dialog.":::
+
+1. Select **Test SSO connection** to start the test flow:
+
+    :::image type="content" source="./media/cloud-academy-sso-tutorial/test-sso-connection.png" alt-text="Screenshot that shows the Test S S O connection button.":::
+
+    > [!NOTE]
+    > If you're signed in to Cloud Academy by using the test user account you created, proceed with the test flow. Otherwise, close the dialog, scroll up to **General Settings**, copy and paste the subdomain URL in a private or incognito browser tab, and then sign in as the test user. If sign-in is successful, you can close the browser tab and select **Save and Test**. A browser tab will reopen the service provider dialog. Select **continue**, and then select **Test SSO connection** again. Finally, select **Test was successful** because you've already tested sign-in by using a private or incognito tab.
+    >
+    > Continue to the next step.
+
+1. If sign-in is successful, you can activate SSO integration for the entire organization:
+
+    :::image type="content" source="./media/cloud-academy-sso-tutorial/test-successful.png" alt-text="Screenshot that shows S S O activation is successful..":::
 
 > [!NOTE]
-> For more information on how to configure the Cloud Academy, see [Setting Up Single Sign-On](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
+> For more information about how to configure Cloud Academy, see [Setting Up Single Sign-On](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
 
 ### Create a Cloud Academy test user
 
-In this section, a user called Britta Simon is created in Cloud Academy. Cloud Academy supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Cloud Academy, a new one is created after authentication.
+In this section, a user called B.Simon is created in Cloud Academy. Cloud Academy supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Cloud Academy, a new one is created after authentication.
 
-Cloud Academy also supports automatic user provisioning, you can find more details [here](./cloud-academy-sso-provisioning-tutorial.md) on how to configure automatic user provisioning.
+Cloud Academy also supports automatic user provisioning. For more information, see the [Cloud Academy SSO provisioning tutorial](./cloud-academy-sso-provisioning-tutorial.md).
 
-## Test SSO 
+## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD SSO configuration by using one of the following options:
 
-* Click on **Test this application** in Azure portal. This will redirect to Cloud Academy Sign-on URL where you can initiate the login flow. 
+* In the Azure portal, select **Test this application**. You're redirected to the Cloud Academy sign-on URL and you can initiate the sign-in flow.
 
-* Go to Cloud Academy Sign-on URL directly and initiate the login flow from there.
+* Go to Cloud Academy sign-on URL directly and initiate the sign-in flow from there.
 
-* You can use Microsoft My Apps. When you click the Cloud Academy tile in the My Apps, this will redirect to Cloud Academy Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
-
+* You can use Microsoft My Apps. When you click the Cloud Academy tile in the My Apps portal, this will redirect to Cloud Academy sign-on URL. For more information about the My Apps portal, see [Introduction to My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Cloud Academy you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+After you configure Cloud Academy, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

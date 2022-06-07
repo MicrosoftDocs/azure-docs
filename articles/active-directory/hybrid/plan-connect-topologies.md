@@ -4,15 +4,14 @@ description: This topic details supported and unsupported topologies for Azure A
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 01/14/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -135,54 +134,30 @@ You can also use this method to replace the active sync server. Prepare the new 
 It's possible to have more than one staging server when you want to have multiple backups in different datacenters.
 
 ## Multiple Azure AD tenants
-We recommend having a single tenant in Azure AD for an organization.
-Before you plan to use multiple Azure AD tenants, see the article [Administrative units management in Azure AD](../roles/administrative-units.md). It covers common scenarios where you can use a single tenant.
+We recommend having a single tenant in Azure AD for an organization. Before you plan to use multiple Azure AD tenants, see the article [Administrative units management in Azure AD](../roles/administrative-units.md). It covers common scenarios where you can use a single tenant.
 
-![Topology for multiple forests and multiple tenants](./media/plan-connect-topologies/multiforestmultidirectory.png)
+### Sync AD objects to multiple Azure AD tenants
 
-There's a 1:1 relationship between an Azure AD Connect sync server and an Azure AD tenant. For each Azure AD tenant, you need one Azure AD Connect sync server installation. The Azure AD tenant instances are isolated by design. That is, users in one tenant can't see users in the other tenant. If you want this separation, this is a supported configuration. Otherwise, you should use the single Azure AD tenant model.
+![Diagram that shows a topology of multiple Azure A D tenants.](./media/plan-connect-topologies/multi-tenant-2.png)
 
-### Each object only once in an Azure AD tenant
-![Filtered topology for a single forest](./media/plan-connect-topologies/singleforestfiltered.png)
+This topology implements the following use cases:
 
-In this topology, one Azure AD Connect sync server is connected to each Azure AD tenant. The Azure AD Connect sync servers must be configured for filtering so that each has a mutually exclusive set of objects to operate on. You can, for example, scope each server to a particular domain or organizational unit.
-
-A DNS domain can be registered in only a single Azure AD tenant. The UPNs of the users in the on-premises Active Directory instance must also use separate namespaces. For example, in the preceding picture, three separate UPN suffixes are registered in the on-premises Active Directory instance: contoso.com, fabrikam.com, and wingtiptoys.com. The users in each on-premises Active Directory domain use a different namespace.
+* AADConnect can synchronize the same users, groups, and contacts from a single Active Directory to multiple Azure AD tenants. These tenants can be in different Azure environments, such as the Azure China environment or the Azure Government environment, but they could also be in the same Azure environment, such as two tenants that are both in Azure Commercial. 
+*	The same Source Anchor can be used for a single object in separate tenants (but not for multiple objects in the same tenant)
+*	You will need to deploy an AADConnect server for every Azure AD tenant you want to synchronize to - one AADConnect server cannot synchronize to more than one Azure AD tenant.
+*	It is supported to have different sync scopes and different sync rules for different tenants.
+*	Only one Azure AD tenant sync can be configured to write back to Active Directory for the same object. This includes device and group writeback as well as Hybrid Exchange configurations – these features can only be configured in one tenant. The only exception here is Password Writeback – see below.
+*	It is supported to configure Password Hash Sync from Active Directory to multiple Azure AD tenants for the same user object. If Password Hash Sync is enabled for a tenant, then Password Writeback may be enabled as well, and this can be done on multiple tenants: if the password is changed on one tenant, then password writeback will update it in Active Directory, and Password Hash Sync will update the password in the other tenants.
+*	It is not supported to add and verify the same custom domain name in more than one Azure AD tenant, even if these tenants are in different Azure environments.
+*	It is not supported to configure hybrid experiences that utilize forest level configuration in AD, such as Seamless SSO and Hybrid Azure AD Join (non-targeted approach), with more than one tenant.  Doing so would overwrite the configuration of the other tenant, making it no longer usable.  You can find additional information in [Plan your hybrid Azure Active Directory join deployment](../devices/hybrid-azuread-join-plan.md#hybrid-azure-ad-join-for-single-forest-multiple-azure-ad-tenants). 
+*	You can synchronize device objects to more than one tenant but a device can be Hybrid Azure AD Joined to only one tenant.
+* Each Azure AD Connect instance should be running on a domain-joined machine.
 
 >[!NOTE]
 >Global Address List Synchronization (GalSync) is not done automatically in this topology and requires an additional custom MIM implementation to ensure each tenant has a complete Global Address List (GAL) in Exchange Online and Skype for Business Online.
 
-
-This topology has the following restrictions on otherwise supported scenarios:
-
-* A maximum of 5 Azure Active Directory tenants can have Exchange Hybrid with the on-premises Active Directory instance. This scenario is described in [September 2020 Hybrid Configuration Wizard Update](https://techcommunity.microsoft.com/t5/exchange-team-blog/september-2020-hybrid-configuration-wizard-update/ba-p/1687698).
-* Exchange Server running Hybrid Configuration Wizard should be either 2016 CU18 or 2019 CU7 or later.
-* Each Azure AD Connect instance should be running on a domain-joined machine.
-* Azure AD Connect must be configured by using the Domain/OU filtering option to filter users from your on-premises directory. Using this option ensures that users appear only in a single online Exchange tenant.
-* Windows 10 devices can be associated with only one Azure AD tenant.
-* The single sign-on (SSO) option for password hash synchronization and pass-through authentication can be used with only one Azure AD tenant.
-
-The requirement for a mutually exclusive set of objects also applies to writeback. Some writeback features are not supported with this topology because they assume a single on-premises configuration. These features include:
-
-* Group writeback with default configuration.
-* Device writeback.
-
-### Each object multiple times in an Azure AD tenant
-![Unsupported topology for a single forest and multiple tenants](./media/plan-connect-topologies/singleforestmultidirectoryunsupported.png) ![Unsupported topology for a single forest and multiple connectors](./media/plan-connect-topologies/singleforestmulticonnectorsunsupported.png)
-
-These tasks are unsupported:
-
-* Sync the same user to multiple Azure AD tenants.
-* Make a configuration change so that users in one Azure AD tenant appear as contacts in another Azure AD tenant.
-* Modify Azure AD Connect sync to connect to multiple Azure AD tenants.
-
 ### GALSync by using writeback
 ![Unsupported topology for multiple forests and multiple directories, with GALSync focusing on Azure AD](./media/plan-connect-topologies/multiforestmultidirectorygalsync1unsupported.png) ![Unsupported topology for multiple forests and multiple directories, with GALSync focusing on on-premises Active Directory](./media/plan-connect-topologies/multiforestmultidirectorygalsync2unsupported.png)
-
-Azure AD tenants are isolated by design. These tasks are unsupported:
-
-* Change the configuration of Azure AD Connect sync to read data from another Azure AD tenant.
-* Export users as contacts to another on-premises Active Directory instance by using Azure AD Connect sync.
 
 ### GALSync with on-premises sync server
 ![GALSync in a topology for multiple forests and multiple directories](./media/plan-connect-topologies/multiforestmultidirectorygalsync.png)

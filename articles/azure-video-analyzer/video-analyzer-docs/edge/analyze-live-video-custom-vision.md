@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Video Analyzer
+title: Analyze live video with Video Analyzer on IoT Edge and Azure Custom Vision
 description: This tutorial walks you through the steps to analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision.
 ms.topic: tutorial
 ms.date: 06/01/2021
@@ -10,6 +10,8 @@ ms.custom: ignite-fall-2021
 # Tutorial: Analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision
 
 [!INCLUDE [header](includes/edge-env.md)]
+
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
 
 In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to build a containerized model that can detect a toy truck and use the [AI extensibility capability](../analyze-live-video-without-recording.md#analyzing-video-using-a-custom-vision-model) of Azure Video Analyzer on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
 

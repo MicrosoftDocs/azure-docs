@@ -7,7 +7,7 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: syclebsc
-
+ms.devlang: fsharp
 ---
 # Azure Functions F# Developer Reference
 

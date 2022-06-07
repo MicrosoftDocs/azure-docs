@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/09/2021
+ms.date: 02/07/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # What is a device identity?
 
-A [device identity](/graph/api/resources/device?view=graph-rest-1.0&preserve-view=true) is an object in Azure Active Directory (Azure AD). This device object is similar to users, groups, or applications. A device identity gives administrators information they can use when making access or configuration decisions.
+A [device identity](/graph/api/resources/device) is an object in Azure Active Directory (Azure AD). This device object is similar to users, groups, or applications. A device identity gives administrators information they can use when making access or configuration decisions.
 
 ![Devices displayed in Azure AD Devices blade](./media/overview/azure-active-directory-devices-all-devices.png)
 
@@ -37,7 +37,7 @@ The modern device scenario focuses on two of these methods:
    - Bring your own device (BYOD)
    - Mobile device (cell phone and tablet)
 - [Azure AD join](concept-azure-ad-join.md)
-   - Windows 10 devices owned by your organization
+   - Windows 11 and Windows 10 devices owned by your organization
    - [Windows Server 2019 and newer servers in your organization running as VMs in Azure](howto-vm-sign-in-azure-ad-windows.md)
 
 [Hybrid Azure AD join](concept-azure-ad-join-hybrid.md) is seen as an interim step on the road to Azure AD join. Hybrid Azure AD join provides organizations support for downlevel Windows versions back to Windows 7 and Server 2008. All three scenarios can coexist in a single organization.

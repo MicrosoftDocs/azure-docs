@@ -2,20 +2,21 @@
 title: Azure DDoS Protection reference architectures
 description: Learn Azure DDoS protection reference architectures.
 services: ddos-protection
-documentationcenter: na
-author: aletheatoh
+author: AbdullahBell
 ms.service: ddos-protection
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
-ms.author: yitoh
+ms.date: 04/29/2022
+ms.author: abell
+ms.custom: fasttrack-edit
 ---
 
 # DDoS Protection reference architectures
 
-DDoS Protection Standard is designed [for services that are deployed in a virtual network](../virtual-network/virtual-network-for-azure-services.md). For other services, the default DDoS Protection Basic service applies. The following reference architectures are arranged by scenarios, with architecture patterns grouped together.
+DDoS Protection Standard is designed [for services that are deployed in a virtual network](../virtual-network/virtual-network-for-azure-services.md). The following reference architectures are arranged by scenarios, with architecture patterns grouped together.
+
+> [!NOTE]
+> Protected resources include public IPs attached to an IaaS VM (except for single VM running behind a public IP), Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric or an IaaS based Network Virtual Appliance (NVA). Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs). PaaS services (multi-tenant), which includes Azure App Service Environment for Power Apps or API management in a virtual network with a public IP, are not supported at present.
 
 ## Virtual machine (Windows/Linux) workloads
 
@@ -37,10 +38,10 @@ There are many ways to implement an N-tier architecture. The following diagram s
 ![Diagram of the reference architecture for an application running on Windows N-tier](./media/ddos-best-practices/image-10.png)
 
 In this architecture, DDoS Protection Standard is enabled on the virtual network. All public IPs in the virtual network get DDoS protection for Layer 3 and 4. For Layer 7 protection, deploy Application Gateway in the WAF SKU. For more information on this reference architecture, see 
-[this article](/azure/architecture/reference-architectures/virtual-machines-windows/n-tier).
+[Windows N-tier application on Azure](/azure/architecture/reference-architectures/virtual-machines-windows/n-tier).
 
 > [!NOTE]
-> Scenarios in which a single VM is running behind a public IP are not supported.
+> Scenarios in which a single VM is running behind a public IP are not supported. DDoS mitigation may not initiate instantaneously when a DDoS attack is detected. As a result a single VM deployment that can’t scale out will go down in such cases.
 
 ### PaaS web application
 
@@ -51,25 +52,11 @@ A standby region is set up for failover scenarios.
 
 Azure Traffic Manager routes incoming requests to Application Gateway in one of the regions. During normal operations, it routes requests to Application Gateway in the active region. If that region becomes unavailable, Traffic Manager fails over to Application Gateway in the standby region.
 
-All traffic from the internet destined to the web application is routed to the [Application Gateway public IP address](../application-gateway/application-gateway-web-app-overview.md) via Traffic Manager. In this scenario, the app service (web app) itself is not directly externally facing and is protected by Application Gateway. 
+All traffic from the internet destined to the web application is routed to the [Application Gateway public IP address](../application-gateway/configure-web-app.md) via Traffic Manager. In this scenario, the app service (web app) itself is not directly externally facing and is protected by Application Gateway.
 
 We recommend that you configure the Application Gateway WAF SKU (prevent mode) to help protect against Layer 7 (HTTP/HTTPS/WebSocket) attacks. Additionally, web apps are configured to [accept only traffic from the Application Gateway](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/) IP address.
 
-For more information about this reference architecture, see [this article](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
-
-## Protecting on-premises resources
-
-You can leverage the scale, capacity, and efficiency of Azure DDoS Protection Standard to protect your on-premises resources, by hosting a public IP address in Azure and redirecting the traffic to the backend origin to your on-premises environment.
-
-![Protecting on-prem resources](./media/reference-architectures/ddos-on-prem.png)
-
-If you have a web application that receives traffic from the Internet, you can host the web application behind Application Gateway, then protect it with WAF against Layer 7 web attacks such as SQL injection. The backend origins of your application will be in your on-premises environment, which is connected over the VPN. 
-
-The backend resources in the on-premises environment will not be exposed to the public internet. Only the AppGW/WAF public IP is exposed to the internet and the DNS name of your application maps to that public IP address. 
-
-When DDoS Protection Standard is enabled on the virtual network which contains the AppGW/WAF, DDoS Protection Standard will defend your application by mitigating bad traffic and routing the supposed clean traffic to your application. 
-
-This [article](../azure-vmware/protect-azure-vmware-solution-with-application-gateway.md) shows you how you can use DDoS Protection Standard alongside Application Gateway to protect a web app running on Azure VMware Solution.
+For more information about this reference architecture, see [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 ## Mitigation for non-web PaaS services
 
@@ -89,6 +76,22 @@ documentation.
 
 > [!NOTE]
 > Azure App Service Environment for Power Apps or API management in a virtual network with a public IP are both not natively supported.
+
+## Hub-and-spoke network topology with Azure Firewall and Azure Bastion
+
+This reference architecture details a hub-and-spoke topology with Azure Firewall inside the hub as a DMZ for scenarios that require central control over security aspects. Azure Firewall is a managed firewall as a service and is placed in its own subnet. Azure Bastion is deployed and placed in its own subnet.
+
+There are two spokes that are connected to the hub using VNet peering and there is no spoke-to-spoke connectivity. If you require spoke-to-spoke connectivity, then you need to create routes to forward traffic from one spoke to the firewall, which can then route it to the other spoke.
+
+:::image type="content" source="./media/ddos-best-practices/image-14.png" alt-text="Screenshot showing Hub-and-spoke architecture with firewall, bastion, and DDoS Protection Standard" lightbox="./media/ddos-best-practices/image-14.png":::
+
+Azure DDoS Protection Standard is enabled on the hub virtual network. Therefore, all the Public IPs that are inside the hub are protected by the DDoS Standard plan. In this scenario, the firewall in the hub helps control the ingress traffic from the internet, while the firewall's public IP is being protected. Azure DDoS Protection Standard also protects the public IP of the bastion.
+
+DDoS Protection Standard is designed for services that are deployed in a virtual network. For more information, see [Deploy dedicated Azure service into virtual networks](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
+
+> [!NOTE]
+> DDoS Protection Standard protects the Public IPs of Azure resource. DDoS Protection Basic, which requires no configuration and is enabled by default, only protects the Azure underlying platform infrastructure (e.g. Azure DNS). For more information, see [Azure DDoS Protection Standard overview](ddos-protection-overview.md).
+For more information about hub-and-spoke topology, see [Hub-spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli).
 
 ## Next steps
 

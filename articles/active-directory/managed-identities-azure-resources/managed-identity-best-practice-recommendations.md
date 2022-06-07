@@ -4,7 +4,7 @@ description: Recommendations on when to use user-assigned versus system-assigned
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenh444
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.subservice: msi
@@ -75,7 +75,7 @@ In the example below, “Virtual Machine 4” has both a user-assigned identity,
 
 ## Limits 
 
-View the limits for [managed identities](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits)
+View the limits for [managed identities](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits)
 and for [custom roles and role assignments](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
 
 ## Follow the principle of least privilege when granting access
@@ -106,10 +106,18 @@ will be displayed with “Identity not found” when viewed in the portal. [Read
 
 :::image type="content" source="media/managed-identity-best-practice-recommendations/identity-not-found.png" alt-text="Identity not found for role assignment.":::
 
-## Limitation of using Azure AD Groups with managed identities for authorization
+Role assignments which are no longer associated with a user or service principal will appear with an `ObjectType` value of `Unknown`. In order to remove them, you can pipe several Azure PowerShell commands together to first get all the role assignments, filter to only those with an `ObjectType` value of `Unknown` and then remove those role assignments from Azure.
 
-Using Azure AD Groups for granting access to services is a great way to simplify the authorization process. The idea is simple – grant permissions to a group and add identities to the group so that they inherit the same permissions. This is a well-established pattern from various on-premises systems and works well when the identities represent users. However, for non-human identities, such as Azure AD Applications and Managed identities, the exact mechanism is not well suited today. Today’s implementation with Azure AD and Azure Role Based Access Control (Azure RBAC), uses access tokens issued by Azure AD for authentication of each identity. However, if the identity is added to a group, its group membership is expressed as a claim in the access token issued by Azure AD. Azure RBAC uses this claim to further evaluate the authorization rules for allowing or denying access.  
+```azurepowershell
+Get-AzRoleAssignment | Where-Object {$_.ObjectType -eq "Unknown"} | Remove-AzRoleAssignment 
+```
 
-As the group membership is a claim in the access token, group membership changes do not take effect until the token is refreshed. A human user can acquire a new access token by logging out and in again. Managed identity tokens are cached by the underlying Azure infrastructure for performance and resiliency purposes. This means that it can take several hours for changes to a managed identity’s group membership to take effect. Today, it is not possible to force a managed identity’s token to be refreshed before its expiry. If you change a managed identity’s group membership to add or remove permissions, you may therefore need to wait several hours for the Azure resource using the identity to have the correct access, compared to just a few minutes if you were to add or remove permissions directly on the identity.
+## Limitation of using managed identities for authorization
 
-To ensure that changes to permissions for managed identities take effect quickly, we recommend that you group Azure resources using a [user-assigned managed identity](how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azcli) with permissions applied directly to the identity, instead of adding to or removing managed identities from an Azure AD group that has permissions. A user-assigned managed identity can be used like a group because it can be assigned to one or more Azure resources to use it. The assignment operation can be controlled using the [Managed identity contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) and [Managed identity operator role](../../role-based-access-control/built-in-roles.md#managed-identity-operator).
+Using Azure AD **groups** for granting access to services is a great way to simplify the authorization process. The idea is simple – grant permissions to a group and add identities to the group so that they inherit the same permissions. This is a well-established pattern from various on-premises systems and works well when the identities represent users. Another option to control authorization in Azure AD is by using [App Roles](../develop/howto-add-app-roles-in-azure-ad-apps.md), which allows you to declare **roles** that are specific to an app (rather than groups, which are a global concept in the directory). You can then [assign app roles to managed identities](how-to-assign-app-role-managed-identity-powershell.md) (as well as users or groups).
+
+In both cases, for non-human identities such as Azure AD Applications and Managed identities, the exact mechanism of how this authorization information is presented to the application is not ideally suited today. Today's implementation with Azure AD and Azure Role Based Access Control (Azure RBAC) uses access tokens issued by Azure AD for authentication of each identity. If the identity is added to a group or role, this is expressed as claims in the access token issued by Azure AD. Azure RBAC uses these claims to further evaluate the authorization rules for allowing or denying access.
+
+Given that the identity's groups and roles are claims in the access token, any authorization changes do not take effect until the token is refreshed. For a human user that's typically not a problem, because a user can acquire a new access token by logging out and in again (or waiting for the token lifetime to expire, which is 1 hour by default). Managed identity tokens on the other hand are cached by the underlying Azure infrastructure for performance and resiliency purposes: the back-end services for managed identities maintain a cache per resource URI for around 24 hours. This means that it can take several hours for changes to a managed identity's group or role membership to take effect. Today, it is not possible to force a managed identity's token to be refreshed before its expiry. If you change a managed identity’s group or role membership to add or remove permissions, you may therefore need to wait several hours for the Azure resource using the identity to have the correct access.
+
+If this delay is not acceptable for your requirements, consider alternatives to using groups or roles in the token. To ensure that changes to permissions for managed identities take effect quickly, we recommend that you group Azure resources using a [user-assigned managed identity](how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azcli) with permissions applied directly to the identity, instead of adding to or removing managed identities from an Azure AD group that has permissions. A user-assigned managed identity can be used like a group because it can be assigned to one or more Azure resources to use it. The assignment operation can be controlled using the [Managed identity contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) and [Managed identity operator role](../../role-based-access-control/built-in-roles.md#managed-identity-operator).

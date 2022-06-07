@@ -15,22 +15,22 @@ ms.author: cynthn
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-There are several ways to create a virtual machine (VM) in Azure: 
+There are several ways to create a virtual machine (VM) in Azure:
 
-- If you already have a virtual hard disk (VHD) to use or you want to copy the VHD from an existing VM to use, you can create a new VM by *attaching* the VHD to the new VM as an OS disk. 
+- If you already have a virtual hard disk (VHD) to use or you want to copy the VHD from an existing VM to use, you can create a new VM by *attaching* the VHD to the new VM as an OS disk.
 
 - You can create a new VM from the VHD of a VM that has been deleted. For example, if you have an Azure VM that isn't working correctly, you can delete the VM and use its VHD to create a new VM. You can either reuse the same VHD or create a copy of the VHD by creating a snapshot and then creating a new managed disk from the snapshot. Although creating a snapshot takes a few more steps, it preserves the original VHD and provides you with a fallback.
 
 - Take a classic VM and use the VHD to create a new VM that uses the Resource Manager deployment model and managed disks. For the best results, **Stop** the classic VM in the Azure portal before creating the snapshot.
- 
-- You can create an Azure VM from an on-premises VHD by uploading the on-premises VHD and attaching it to a new VM. You use PowerShell or another tool to upload the VHD to a storage account, and then you create a managed disk from the VHD. For more information, see [Upload a specialized VHD](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
+
+- You can create an Azure VM from an on-premises VHD by uploading the on-premises VHD and attaching it to a new VM. You use PowerShell or another tool to upload the VHD to a storage account, and then you create a managed disk from the VHD. For more information, see [Upload a specialized VHD](create-vm-specialized.md#option-2-upload-a-specialized-vhd).
 
 > [!IMPORTANT]
-> 
+>
 > When you use a specialized disk to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information (e.g. CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
 > Thus, don't use a specialized disk if you want to create multiple VMs. Instead, for larger deployments, [create an image](capture-image-resource.md) and then [use that image to create multiple VMs](create-vm-generalized-managed.md).
 
-We recommend that you limit the number of concurrent deployments to 20 VMs from a single snapshot or VHD. 
+We recommend that you limit the number of concurrent deployments to 20 VMs from a single snapshot or VHD.
 
 ## Copy a disk
 
@@ -39,7 +39,7 @@ Create a snapshot and then create a disk from the snapshot. This strategy allows
 1. From the [Azure portal](https://portal.azure.com), on the left menu, select **All services**.
 2. In the **All services** search box, enter **disks** and then select **Disks** to display the list of available disks.
 3. Select the disk that you would like to use. The **Disk** page for that disk appears.
-4. From the menu at the top, select **Create snapshot**. 
+4. From the menu at the top, select **Create snapshot**.
 5. Choose a **Resource group** for the snapshot. You can use either an existing resource group or create a new one.
 6. Enter a **Name** for the snapshot.
 7. For **Snapshot type**, choose either **Full** or **Incremental**.
@@ -67,15 +67,14 @@ After you have the managed disk VHD that you want to use, you can create the VM 
 5. On the **Basics** page for the new VM, enter a **Virtual machine name** and either select an existing **Resource group** or create a new one.
 6. For **Size**, select **Change size** to access the **Size** page.
 7. Select a VM size row and then choose **Select**.
-8. On the **Networking** page, you can either let the portal create all new resources or you can select an existing **Virtual network** and **Network security group**. The portal always creates a new network interface and public IP address for the new VM. 
-9. On the **Management** page, make any changes to the monitoring options.
-10. On the **Guest config** page, add any extensions as needed.
-11. When you're done, select **Review + create**. 
-12. If the VM configuration passes validation, select **Create** to start the deployment.
+8. On the **Disks** page, you may notice that the "OS Disk Type" cannot be changed. This preselected value is configured at the point of Snapshot or VHD creation and will carry over to the new VM. If you need to modify disk type take a new snapshot from an existing VM or disk. 
+9. On the **Networking** page, you can either let the portal create all new resources or you can select an existing **Virtual network** and **Network security group**. The portal always creates a new network interface and public IP address for the new VM.
+10. On the **Management** page, make any changes to the monitoring options.
+11. On the **Guest config** page, add any extensions as needed.
+12. When you're done, select **Review + create**.
+13. If the VM configuration passes validation, select **Create** to start the deployment.
 
 
 ## Next steps
 
 You can also use PowerShell to [upload a VHD to Azure and create a specialized VM](create-vm-specialized.md).
-
-

@@ -1,11 +1,13 @@
 ---
 title: Azure Pipelines task Azure Database for PostgreSQL Flexible Server
 description: Enable  Azure Database for PostgreSQL Flexible Server CLI  task for using with Azure Pipelines
-ms.topic: quickstart
-ms.custom: seodec18, devx-track-azurecli, mode-other
-ms.author: sumuth
-author: mksuni
 ms.service: postgresql
+ms.subservice: flexible-server
+ms.topic: quickstart
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
+ms.custom: seodec18, devx-track-azurecli, mode-other
 ms.date: 11/30/2021
 ---
 
@@ -80,7 +82,7 @@ You can see the full list of all the task inputs when using Azure CLI task with 
 | arguments| (Optional) Provide all the arguments passed to the script. For examples ```-SERVERNAME mydemoserver```. |
 |powerShellErrorActionPreference| (Optional) Prepends the line <b>$ErrorActionPreference = 'VALUE'</b> at the top of your PowerShell/PowerShell Core script. The default value is stop. Supported values are stop, continue, and silentlyContinue. |
 |addSpnToEnvironment|(Optional) Adds service principal ID and key of the Azure endpoint you chose to the script's execution environment. You can use these variables: <b>$env:servicePrincipalId, $env:servicePrincipalKey and $env:tenantId</b> in your script. This is honored only when the Azure endpoint has Service Principal authentication scheme. The default value is false.|
-|useGlobalConfig|(Optional) If this is false, this task will use its own separate <a href= "/cli/azure/azure-cli-configuration?preserve-view=true&view=azure-cli-latest#cli-configuration-file">Azure CLI configuration directory</a>. This can be used to run Azure CLI tasks in <b>parallel</b> releases" <br/>Default value: false</td>
+|useGlobalConfig|(Optional) If this is false, this task will use its own separate <a href= "/cli/azure/azure-cli-configuration#cli-configuration-file">Azure CLI configuration directory</a>. This can be used to run Azure CLI tasks in <b>parallel</b> releases" <br/>Default value: false</td>
 |workingDirectory| (Optional) Current working directory where the script is run.  Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory). |
 |failOnStandardError|(Optional) If this is true, this task will fail when any errors are written to the StandardError stream. Unselect the checkbox to ignore standard errors and rely on exit codes to determine the status. The default value is false.|
 |powerShellIgnoreLASTEXITCODE| (Optional) If this is false, the line <code>if ((Test-Path -LiteralPath variable:\\LASTEXITCODE)) { exit $LASTEXITCODE }</code> is appended to the end of your script. This will cause the last exit code from an external command to be propagated as the exit code of PowerShell. Otherwise the line is not appended to the end of your script. The default value is false. |

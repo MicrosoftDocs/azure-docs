@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Create a NetApp account
 Creating a NetApp account enables you to set up a capacity pool and subsequently create a volume. You use the Azure NetApp Files blade to create a new NetApp account.
@@ -52,9 +51,9 @@ You must have registered your subscription for using the NetApp Resource Provide
    The NetApp account you created now appears in the Azure NetApp Files blade. 
 
 > [!NOTE] 
-> If you have not been granted access to the Azure NetApp Files service, you will receive the following error when you try to create the first NetApp account:  
+> If you haven't registered your subscription for using the NetApp Resource Provider, you will receive the following error when you try to create the first NetApp account:  
 >
-> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
+> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '20xx-xx-xx'.\"\r\n }\r\n}"}]}`
 
 ## Next steps  
 

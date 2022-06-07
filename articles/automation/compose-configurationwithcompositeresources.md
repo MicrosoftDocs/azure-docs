@@ -9,7 +9,7 @@ ms.topic: conceptual
 ---
 # Compose DSC configurations
 
-When you need to manage resource with more than a single desired state configuration (DSC), the best path is to use [composite resources](/powershell/scripting/dsc/resources/authoringresourcecomposite). A composite resource is a nested and parameterized configuration being used as a DSC resource within another configuration. Use of composite resources allows you to create complex configurations while allowing the underlying composite resources to be individually managed and built.
+When you need to manage resource with more than a single desired state configuration (DSC), the best path is to use [composite resources](/powershell/dsc/resources/authoringresourcecomposite). A composite resource is a nested and parameterized configuration being used as a DSC resource within another configuration. Use of composite resources allows you to create complex configurations while allowing the underlying composite resources to be individually managed and built.
 
 Azure Automation enables the [import and compilation of composite resources](automation-dsc-compile.md). Once you've imported composite resources into your Automation account, you can use Azure Automation State Configuration through the **State Configuration (DSC)** feature in the Azure portal.
 

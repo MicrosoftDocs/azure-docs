@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp
 Before you get started:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
 > * Make sure that you have access to a microphone for audio capture
 
@@ -41,7 +41,9 @@ Let's add some code that works as a skeleton for our project.
 
 4. Replace the code with the following base code:
 
-   [!code-csharp[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=6-50,55-56,94-154)]
+    :::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs" id="skeleton_1":::
+    :::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs" id="skeleton_2":::
+    :::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs" id="skeleton_3":::
 
 ## Create a Speech configuration
 
@@ -49,24 +51,27 @@ Before you can initialize a `SpeechRecognizer` object, you need to create a conf
 
 > [!NOTE]
 > This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](/dotnet/api/)
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=51-53)]
+
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs" id="create_speech_configuration":::
 
 ## Initialize a SpeechRecognizer
 
 Now, let's create a `SpeechRecognizer`. This object is created inside of a using statement to ensure the proper release of unmanaged resources. Insert this code in the `SpeechRecognitionFromMicrophone_ButtonClicked()` method, right below your Speech configuration.
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=58,59,93)]
+
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs" id="create_speech_recognizer_1":::
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs" id="create_speech_recognizer_2":::
 
 ## Recognize a phrase
 
 From the `SpeechRecognizer` object, you call the `RecognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified, to stop recognizing speech.
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=66)]
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs" id="recognize_phrase":::
 
 ## Display the recognition results (or errors)
 
 When the recognition result is returned by the Speech service, you'll want to do something with it. We're going to keep it simple and print the result to the status panel.
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=68-93)]
+:::code language="csharp" source="~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs" id="print_results":::
 
 ## Build and run the application
 

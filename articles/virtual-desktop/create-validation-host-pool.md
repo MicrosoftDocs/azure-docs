@@ -77,7 +77,7 @@ If you haven't already done so, prepare your environment for the Azure CLI and s
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-To define the new host pool as a validation host pool, use the [az desktopvirtualization hostpool update](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_update) command:
+To define the new host pool as a validation host pool, use the [az desktopvirtualization hostpool update](/cli/azure/desktopvirtualization#az-desktopvirtualization-hostpool-update) command:
 
 ```azurecli
 az desktopvirtualization hostpool update --name "MyHostPool" \
@@ -97,7 +97,7 @@ az desktopvirtualization hostpool show --name "MyHostPool" \
 
 Service updates happen monthly. If there are major issues, critical updates will be provided at a more frequent pace.
 
-If there are any service updates, make sure you have at least a couple of users sign in each day to validate the environment. We recommend you regularly visit our [TechCommunity site](https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=wvdupdate&location=forum-board:WindowsVirtualDesktop&sort_by=-topicPostDate&collapse_discussion=true) and follow any posts with WVDUPdate to stay informed about service updates.
+If there are any service updates, make sure you have at least a couple of users sign in each day to validate the environment. We recommend you regularly visit our [TechCommunity site](https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=wvdupdate&location=forum-board:WindowsVirtualDesktop&sort_by=-topicPostDate&collapse_discussion=true) and follow any posts with WVDUPdate or AVDUpdate to stay informed about service updates.
 
 ## Next steps
 

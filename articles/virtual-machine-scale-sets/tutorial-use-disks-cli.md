@@ -227,7 +227,7 @@ Information on the disk size, storage tier, and LUN (Logical Unit Number) is sho
     "lun": 0,
     "managedDisk": {
       "additionalProperties": {},
-      "storageAccountType": "Standard_LRS"
+      "storageAccountType": "StandardSSD_LRS"
     },
     "name": null
   },
@@ -239,7 +239,7 @@ Information on the disk size, storage tier, and LUN (Logical Unit Number) is sho
     "lun": 1,
     "managedDisk": {
       "additionalProperties": {},
-      "storageAccountType": "Standard_LRS"
+      "storageAccountType": "StandardSSD_LRS"
     },
     "name": null
   },
@@ -251,7 +251,7 @@ Information on the disk size, storage tier, and LUN (Logical Unit Number) is sho
     "lun": 2,
     "managedDisk": {
       "additionalProperties": {},
-      "storageAccountType": "Standard_LRS"
+      "storageAccountType": "StandardSSD_LRS"
     },
     "name": null
   }

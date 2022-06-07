@@ -2,7 +2,7 @@
 title: Troubleshoot Bad Gateway errors - Azure Application Gateway
 description: 'Learn how to troubleshoot Application Gateway Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server.'
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/16/2019
@@ -87,10 +87,12 @@ The following table lists the values associated with the default health probe:
 
 ### Solution
 
-* Ensure that a default site is configured and is listening at 127.0.0.1.
+* Host value of the request will be set to 127.0.0.1. Ensure that a default site is configured and is listening at 127.0.0.1.
+* Protocol of the request is determined by the BackendHttpSetting protocol.
+* URI Path will be set to */*.
 * If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port.
-* The call to `http://127.0.0.1:port` should return an HTTP result code of 200. This should be returned within the 30-second timeout period.
-* Ensure that the port configured is open and that there are no firewall rules or Azure Network Security Groups, which block incoming or outgoing traffic on the port configured.
+* The call to `protocol://127.0.0.1:port` should return an HTTP result code of 200. This should be returned within the 30-second timeout period.
+* Ensure the configured port is open and there are no firewall rules or Azure Network Security Groups blocking incoming or outgoing traffic on the port configured.
 * If Azure classic VMs or Cloud Service is used with a FQDN or a public IP, ensure that the corresponding [endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
 * If the VM is configured via Azure Resource Manager and is outside the VNet where the application gateway is deployed, a [Network Security Group](../virtual-network/network-security-groups-overview.md) must be configured to allow access on the desired port.
 

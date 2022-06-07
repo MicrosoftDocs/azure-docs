@@ -1,5 +1,5 @@
 ---
-title: Azure Video Analyzer event-based video recording 
+title: Event-based video recording 
 description: Event-based video recording (EVR) refers to the process of recording video when triggered by an event. The event in question could originate due to processing of the video signal itself (for example, when motion is detected) or could be from an independent source (for example, a door sensor signals that the door has been opened). A few use cases related to EVR are described in this article.
 ms.topic: conceptual
 ms.date: 11/04/2021
@@ -7,9 +7,11 @@ ms.custom: ignite-fall-2021
 ---
 # Event-based video recording  
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 Event-based video recording (EVR) refers to the process of recording video triggered by an event. The event in question could originate due to processing of the video signal itself (for example, when motion is detected) or could be from an independent source (for example, a door sensor signals that the door has been opened). A few use cases related to EVR are described in this article.
 
-The timestamps for the recordings are stored in UTC. Recorded video can be played back using the streaming capabilities of Video Analyzer. See [Playback of video recordings](playback-recordings-how-to.md) for more details.
+The timestamps for the recordings are stored in UTC. Recorded video can be played back using the streaming capabilities of Video Analyzer. See [Recorded and live videos](viewing-videos-how-to.md) for more details.
 
 ## Suggested pre-reading  
 
@@ -65,4 +67,4 @@ See the [note on resilient recording](continuous-video-recording.md#resilient-re
 ## Next steps
 
 * [Tutorial: event-based video recording](record-event-based-live-video.md)
-* [Playback of recorded content](playback-recordings-how-to.md)
+* [Recorded and live videos](viewing-videos-how-to.md)

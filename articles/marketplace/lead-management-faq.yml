@@ -1,14 +1,13 @@
 ### YamlMime:FAQ
 metadata:
-  title: "Lead management questions and troubleshooting - Microsoft Partner Center"
+  title: "Common questions and troubleshooting for lead configuration - Microsoft Partner Center"
   description: Read about common errors and questions when configuring commercial marketplace leads in Partner Center 
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
-  ms.topic: conceptual
-  author: keferna
-  ms.author: keferna
+  ms.topic: faq
+  author: durior1
+  ms.author: uridor
   ms.date: 12/03/2021
-    
 title: Common questions and troubleshooting for lead configuration
 summary: |
   This article answers some common questions about lead management for your commercial marketplace offers. It also addresses errors you might encounter when configuring leads to your customer relationship management (CRM) system in Partner Center.
@@ -41,7 +40,6 @@ sections:
           | Managed Service | Yes |
           | Power BI App | No |
           | Power BI Visual | No |
-          |||
 
       - question: |
           How can I find the test lead?
@@ -108,7 +106,7 @@ sections:
         answer: |
           Lead generation data is low. It's less than 1 GB for almost all publishers. The cost depends on the number of leads received. For example, if 1,000 leads are received in a month, the cost is around 50 cents. For more information about storage pricing, see [Azure Storage overview pricing](https://azure.microsoft.com/pricing/details/storage/).
           
-          If your question isn't answered, contact Microsoft Support through [Partner Center Help and support](https://aka.ms/marketplacepublishersupport). Then select **Offer creation** > **Your type of offer** > **Lead management configuration**.
+          If your question isn't answered, contact Microsoft Support through [Partner Center Help and support](https://go.microsoft.com/fwlink/?linkid=2165533). Then select **Offer creation** > **Your type of offer** > **Lead management configuration**.
           
       - question: |
           I'm receiving email notifications when new customer leads are received. How can I configure someone else to receive these emails?

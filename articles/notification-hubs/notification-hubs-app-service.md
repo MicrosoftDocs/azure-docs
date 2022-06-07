@@ -8,7 +8,6 @@ services: notification-hubs
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: multiple
-ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
 ms.date: 08/06/2020

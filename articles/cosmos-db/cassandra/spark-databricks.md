@@ -3,11 +3,12 @@ title: Access Azure Cosmos DB Cassandra API from Azure Databricks
 description: This article covers how to work with Azure Cosmos DB Cassandra API from Azure Databricks.
 author: TheovanKraay
 ms.author: thvankra
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
+ms.devlang: scala
 ---
 
 # Access Azure Cosmos DB Cassandra API data from Azure Databricks
@@ -48,7 +49,10 @@ This article details how to work with Azure Cosmos DB Cassandra API from Spark o
 * **Azure Cosmos DB Cassandra API-specific library:** - If you are using Spark 2.x, a custom connection factory is required to configure the retry policy from the Cassandra Spark connector to Azure Cosmos DB Cassandra API. Add the `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.2.0`[maven coordinates](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.2.0/jar) to attach the library to the cluster.
 
 > [!NOTE]
-> If you are using Spark 3.0 or higher, you do not need to install the Cosmos DB Cassandra API-specific library mentioned above.
+> If you are using Spark 3.0, you do not need to install the Cosmos DB Cassandra API-specific library mentioned above.
+
+> [!WARNING]
+> The Spark 3 samples shown in this article have been tested with Spark **version 3.0.1** and the corresponding Cassandra Spark Connector **com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0**. Later versions of Spark and/or the Cassandra connector may not function as expected.
 
 ## Sample notebooks
 

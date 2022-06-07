@@ -3,7 +3,8 @@ title: Connect functions to Azure Storage using Visual Studio
 description: "Learn how to add an output binding to connect your C# class library functions to an Azure Storage queue using Visual Studio."
 ms.date: 05/30/2021
 ms.topic: quickstart
-ms.custom: mvc, mode-other
+ms.devlang: csharp
+ms.custom: mvc, mode-ui
 #Customer intent: "As an Azure Functions developer, I want to connect my C# class library function to Azure Storage so that I can easily write data to a storage queue."
 ---
 
@@ -51,7 +52,7 @@ Because you're using a Queue storage output binding, you need the Storage bindin
     ```
     # [Isolated process](#tab/isolated-process)
     ```bash
-    Install-Package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues -IncludePrerelease
+    Install-Package /dotnet/api/microsoft.azure.webjobs.blobattribute.Queues -IncludePrerelease
     ```
     ---
 

@@ -7,8 +7,8 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
-#Customer intent: As an Azure Kinect DK developer, I want to create a new Azure Kinect DK application.
 ms.custom: mode-other
+#Customer intent: As an Azure Kinect DK developer, I want to create a new Azure Kinect DK application.
 ---
 
 # Quickstart: Build your first Azure Kinect application

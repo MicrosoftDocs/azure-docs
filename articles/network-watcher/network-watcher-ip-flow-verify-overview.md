@@ -5,7 +5,6 @@ services: network-watcher
 documentationcenter: na
 author: damendo
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
@@ -17,7 +16,7 @@ ms.author: damendo
 
 IP flow verify checks if a packet is allowed or denied to or from a virtual machine. The information consists of direction, protocol, local IP, remote IP, local port, and remote port. If the packet is denied by a security group, the name of the rule that denied the packet is returned. While any source or destination IP can be chosen, IP flow verify helps administrators quickly diagnose connectivity issues from or to the internet and from or to the on-premises environment.
 
-IP flow verify looks at the rules for all Network Security Groups (NSGs) applied to the network interface, such as a subnet or virtual machine NIC. Traffic flow is then verified based on the configured settings to or from that network interface. IP flow verify is useful in confirming if a rule in a Network Security Group is blocking ingress or egress traffic to or from a virtual machine.Now along with the NSG rules evaluation, the Azure Virtual Network Manager rules will also be evaluated.
+IP flow verify looks at the rules for all Network Security Groups (NSGs) applied to the network interface, such as a subnet or virtual machine NIC. Traffic flow is then verified based on the configured settings to or from that network interface. IP flow verify is useful in confirming if a rule in a Network Security Group is blocking ingress or egress traffic to or from a virtual machine. Now along with the NSG rules evaluation, the Azure Virtual Network Manager rules will also be evaluated.
 
 [Azure Virtual Network Manager (AVNM)](../virtual-network-manager/overview.md) is a management service that enables users to group, configure, deploy, and manage Virtual Networks globally across subscriptions. AVNM security configuration allows users to define a collection of rules that can be applied to one or more network security groups at the global level. These security rules have a higher priority than network security group (NSG) rules. An important difference to note here is that admin rules are a resource delivered by ANM in a central location controlled by governance and security teams, which bubble down to each vnet. NSGs are a resource controlled by the vnet owners, which apply at each subnet or NIC level.
 

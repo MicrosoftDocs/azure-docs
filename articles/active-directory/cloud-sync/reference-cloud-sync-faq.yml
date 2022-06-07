@@ -4,15 +4,14 @@ metadata:
   description: This document describes frequently asked questions for cloud sync.
   services: active-directory
   author: billmath
-  manager: daveba
+  manager: karenhoran
   ms.service: active-directory
   ms.workload: identity
-  ms.topic: reference
-  ms.date: 10/18/2021
+  ms.topic: faq
+  ms.date: 12/13/2021
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-    
 title: Azure Active Directory Connect cloud sync FAQ
 summary: |
   Read about frequently asked questions for Azure Active Directory (Azure AD) Connect cloud sync.
@@ -28,7 +27,7 @@ sections:
       - question: |
           Seeing password hash sync failures on the first run. Why?
         answer: |
-          This is expected. The failures are due to the user object not present in Azure AD. Once the user is provisioned to Azure AD, password hashes should provisioning in the subsequent run. Wait for a couple of runs and confirm that password hash sync no longer has the errors.
+          This behavior is expected. The failures are due to the user object not present in Azure AD. Once the user is provisioned, wait for a couple of runs and confirm that password hash sync no longer has the errors.
 
       - question: |
           What happens if the Active Directory instance has attributes that are not supported by cloud sync (for instance, directory extensions)?
@@ -96,9 +95,9 @@ sections:
           No, staging servers are not supported.
 
       - question: |
-          Can I synchronize Guest user accounts?
+          Can I synchronize a Guest user account?
         answer: |
-          No, synchronizing guest user accounts is not supported.
+          No, synchronizing a guest user account is not supported.
 
       - question: |
           If I move a user from an OU that is scoped for cloud sync to an OU that is scoped for Azure AD Connect, what happens?
@@ -115,9 +114,17 @@ sections:
         answer: |
           Yes. Today we support up to 50K group members synchronized using the OU scope filtering. 
       - question: |
+          Does Azure AD Connect cloud sync support nested groups with group scoping?
+        answer: |
+          No. Nested objects beyond the first level will not be included when scoping using security groups. Only use group scope filtering for pilot scenarios, there are limitations to syncing large groups. 
+      - question: |
           Does the cloud provisioning agent load balance if I have multiple agents installed?
         answer: |
           No. Only one agent is ever active. 
+      - question: |
+          Does the cloud provisioning agent require a preferred domain controller list be set?
+        answer: |
+          No. The preferred domain controller list is specified during [agent installation](how-to-install.md) but it is optional.  If no preferred DCs are configured, then the agent will use any available DC in the domain.
 additionalContent: |
 
   ## Next steps 

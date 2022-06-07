@@ -8,7 +8,7 @@ ms.author: lajanuar
 ms.custom: ignite-fall-2021
 ---
 
-Go to the Azure portal and <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a new Form Recognizer resource" target="_blank">create a new Form Recognizer resource </a>. In the **Create** pane, provide the following information:
+Go to the Azure portal and <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a new Form Recognizer resource" target="_blank">create a new Form Recognizer resource </a>. In the **Create** pane, provide the following information:
 
 | Project details   | Description   |
 |--|--|

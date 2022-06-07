@@ -1,12 +1,12 @@
 ---
 title: Manage security alerts in Microsoft Defender for Cloud | Microsoft Docs
 description: This document helps you to use Microsoft Defender for Cloud capabilities to manage and respond to security alerts.
+author: bmansheim
+ms.author: benmansheim
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 04/24/2022
 ---
 # Manage and respond to security alerts in Microsoft Defender for Cloud
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This topic shows you how to view and process Defender for Cloud's alerts and protect your resources.
 
@@ -22,7 +22,7 @@ For an overview of how Defender for Cloud generates alerts, see [How Microsoft D
 
 ## Manage your security alerts
 
-1. From Defender for Cloud's overview page, select the **Security alerts** tile at the top of the page, or the link from the sidebar..
+1. From Defender for Cloud's overview page, select the **Security alerts** tile at the top of the page, or the link from the sidebar.
 
     :::image type="content" source="media/managing-and-responding-alerts/overview-page-alerts-links.png" alt-text="Getting to the security alerts page from Microsoft Defender for Cloud's overview page":::
 
@@ -52,18 +52,39 @@ For an overview of how Defender for Cloud generates alerts, see [How Microsoft D
 
     The right pane includes the **Alert details** tab containing further details of the alert to help you investigate the issue: IP addresses, files, processes, and more.
      
-    ![Suggestions for what to do about security alerts.](./media/managing-and-responding-alerts/security-center-alert-remediate.png)
+    :::image type="content" source="./media/managing-and-responding-alerts/security-center-alert-remediate.png" alt-text="Suggestions for what to do about security alerts.":::
 
     Also in the right pane is the **Take action** tab. Use this tab to take further actions regarding the security alert. Actions such as:
+    - *Inspect resource context* - sends you to the resource's activity logs that support the security alert
     - *Mitigate the threat* - provides manual remediation steps for this security alert
     - *Prevent future attacks* - provides security recommendations to help reduce the attack surface, increase security posture, and thus prevent future attacks
     - *Trigger automated response* - provides the option to trigger a logic app as a response to this security alert
     - *Suppress similar alerts* - provides the option to suppress future alerts with similar characteristics if the alert isn’t relevant for your organization
 
-    ![Take action tab.](./media/managing-and-responding-alerts/alert-take-action.png)
+    :::image type="content" source="./media/managing-and-responding-alerts/alert-take-action.png" alt-text="Take action tab.":::
 
+## Change the status of multiple security alerts at once
 
+The alerts list includes checkboxes so you can handle multiple alerts at once. For example, for triaging purposes you might decide to dismiss all informational alerts for a specific resource.
 
+1. Filter according to the alerts you want to handle in bulk.
+
+    In this example, we've selected all alerts with severity of 'Informational' for the resource 'ASC-AKS-CLOUD-TALK'. 
+
+    :::image type="content" source="media/managing-and-responding-alerts/processing-alerts-bulk-filter.png" alt-text="Screenshot of filtering the alerts to the list of those to handle together.":::
+
+1. Use the checkboxes to select the alerts to be processed - or use the checkbox at the top of the list to select them all. 
+
+    In this example, we've selected all alerts. Notice that the **Change status** button is now available. 
+
+    :::image type="content" source="media/managing-and-responding-alerts/processing-alerts-bulk-select.png" alt-text="Screenshot of selecting all alerts to handle in bulk.":::
+
+1. Use the **Change status** options to set the desired status.
+
+    :::image type="icon" source="media/managing-and-responding-alerts/processing-alerts-bulk-change-status.png" border="false":::
+
+The alerts shown in the current page will have their status changed to the selected value. 
+ 
 
 ## See also
 

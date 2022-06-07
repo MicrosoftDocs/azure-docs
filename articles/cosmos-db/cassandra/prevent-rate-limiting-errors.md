@@ -12,14 +12,9 @@ ms.author: turao
 # Prevent rate-limiting errors for Azure Cosmos DB API for Cassandra operations
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-> [!IMPORTANT]
-> Preventing rate-limiting errors by enabling Server Side Retries for Cosmos DB API for Cassandra is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (RU). Request unit is a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB.
 
-Azure Cosmos DB Cassandra API operations may fail with rate-limiting (OverloadedException/429) errors if they exceed a table’s throughput limit (RUs). This can be handled by client side as described in the retry policy in the [Cassandra API recommendations document](https://devblogs.microsoft.com/cosmosdb/cassandra-api-java/#retry-policy). If the client retry policy cannot be implemented to handle the failure due to rate limiting error, then we can make use of the Server-side retry (SSR) feature where operations that exceed a table’s throughput limit will be retried automatically after a short delay. This is an account level setting and applies to all Key spaces and Tables in the account.
+Azure Cosmos DB Cassandra API operations may fail with rate-limiting (OverloadedException/429) errors if they exceed a table’s throughput limit (RUs). This can be handled by client side as described [here](scale-account-throughput.md#handling-rate-limiting-429-errors). If the client retry policy cannot be implemented to handle the failure due to rate limiting error, then we can make use of the Server-side retry (SSR) feature where operations that exceed a table’s throughput limit will be retried automatically after a short delay. This is an account level setting and applies to all Key spaces and Tables in the account.
 
 ## Use the Azure portal
 

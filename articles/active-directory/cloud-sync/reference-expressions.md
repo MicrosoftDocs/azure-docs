@@ -3,7 +3,7 @@ title: Azure AD Connect cloud sync expressions and function reference
 description: reference
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference

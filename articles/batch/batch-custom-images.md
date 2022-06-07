@@ -3,6 +3,7 @@ title: Use a managed image to create a custom image pool
 description: Create a Batch custom image pool from a managed image to provision compute nodes with the software and data for your application.
 ms.topic: conceptual
 ms.date: 11/18/2020
+ms.devlang: csharp
 ---
 
 # Use a managed image to create a custom image pool
@@ -126,7 +127,7 @@ If you plan to create a pool with hundreds of VMs or more using a custom image, 
 
 Also note the following considerations:
 
-- **Size limits** - Batch limits the pool size to 2500 dedicated compute nodes, or 1000 low-priority nodes, when you use a custom image.
+- **Size limits** - Batch limits the pool size to 2500 dedicated compute nodes, or 1000 [Spot nodes](batch-spot-vms.md), when you use a custom image.
 
   If you use the same image (or multiple images based on the same underlying snapshot) to create multiple pools, the total compute nodes in the pools can't exceed the preceding limits. We don't recommend using an image or its underlying snapshot for more than a single pool.
 

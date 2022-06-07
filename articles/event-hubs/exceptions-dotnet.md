@@ -6,7 +6,7 @@ documentationcenter: na
 author: spelluru
 
 ms.service: event-hubs
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -39,7 +39,7 @@ try
 {
     // Read events using the consumer client
 }
-catch (EventHubsException ex) where 
+catch (EventHubsException ex) when 
     (ex.Reason == EventHubsException.FailureReason.ConsumerDisconnected)
 {
     // Take action based on a consumer being disconnected

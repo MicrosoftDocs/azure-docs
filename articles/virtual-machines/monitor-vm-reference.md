@@ -17,16 +17,16 @@ This section lists the platform metrics that are collected for Azure virtual mac
 
 | Metric type | Resource provider / type namespace<br/> and link to individual metrics |
 |-------|-----|
-| Virtual machines | [Microsoft.Compute/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) |
-| Virtual machine scale sets | [Microsoft.Compute/virtualMachineScaleSets](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)|
-| Virtual machine scale sets and virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
+| Virtual machines | [Microsoft.Compute/virtualMachines](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
+| Virtual machine scale sets | [Microsoft.Compute/virtualMachineScaleSets](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
+| Virtual machine scale sets and virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
 | | |
 
 For more information, see a list of [platform metrics that are supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 ## Metric dimensions
 
-For more information about metric dimensions, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+For more information about metric dimensions, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 Azure virtual machines and virtual machine scale sets have the following dimensions that are associated with their metrics.
 
@@ -50,7 +50,7 @@ For reference documentation about Azure Monitor Logs and Log Analytics tables, s
 
 ## Activity log
 
-The following table lists a few example operations that relate to creating virtual machines in the activity log. For a complete list of possible log entries, see [Microsoft.Compute Resource Provider options](/azure/role-based-access-control/resource-provider-operations#compute).
+The following table lists a few example operations that relate to creating virtual machines in the activity log. For a complete list of possible log entries, see [Microsoft.Compute Resource Provider options](../role-based-access-control/resource-provider-operations.md#compute).
 
 | Operation | Description |
 |:---|:---|
@@ -62,7 +62,7 @@ The following table lists a few example operations that relate to creating virtu
 | Microsoft.Compute/virtualMachineScaleSets/write | Starts the instances of the virtual machine scale set |
 | | |
 
-For more information about the schema of activity log entries, see [Activity log schema](/azure/azure-monitor/essentials/activity-log-schema). 
+For more information about the schema of activity log entries, see [Activity log schema](../azure-monitor/essentials/activity-log-schema.md). 
 
 
 ## See also

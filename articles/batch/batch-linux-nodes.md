@@ -2,7 +2,8 @@
 title: Run Linux on virtual machine compute nodes
 description: Learn how to process parallel compute workloads on pools of Linux virtual machines in Azure Batch.
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 12/13/2021
+ms.devlang: csharp, python
 ms.custom: "H1Hack27Feb2017, devx-track-python, devx-track-csharp"
 ---
 # Provision Linux compute nodes in Batch pools
@@ -35,11 +36,13 @@ Not all Marketplace images are compatible with the currently available Batch nod
 
 ### Node agent SKU
 
-The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. Essentially, when you create a Virtual Machine Configuration, you first specify the virtual machine image reference, and then you specify the node agent to install on the image. Typically, each node agent SKU is compatible with multiple virtual machine images. Here are a few examples of node agent SKUs:
+The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. Essentially, when you create a Virtual Machine Configuration, you first specify the virtual machine image reference, and then you specify the node agent to install on the image. Typically, each node agent SKU is compatible with multiple virtual machine images. To view the supported node agent SKUs and virtual machine image compatibilities, you can use the [Azure Batch CLI command](/cli/azure/batch/pool#supported-images):
 
-- batch.node.ubuntu 18.04
-- batch.node.centos 7
-- batch.node.windows amd64
+```azurecli-interactive
+az batch pool supported-images list
+```
+
+For more information, you can refer to [Account - List Supported Images - REST API (Azure Batch Service) | Microsoft Docs](/rest/api/batchservice/account/list-supported-images).
 
 ## Create a Linux pool: Batch Python
 
@@ -268,4 +271,4 @@ If you deploy applications to your Batch nodes using [application packages](batc
 ## Next steps
 
 - Explore the [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch) in the [azure-batch-samples GitHub repository](https://github.com/Azure/azure-batch-samples) to see how to perform common Batch operations, such as pool, job, and task creation. The [README](https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md) that accompanies the Python samples has details about how to install the required packages.
-- Learn about using [low-priority VMs](batch-low-pri-vms.md) with Batch.
+- Learn about using [Azure Spot VMs](batch-spot-vms.md) with Batch.

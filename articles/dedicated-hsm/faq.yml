@@ -10,13 +10,10 @@ metadata:
   ms.service: key-vault
   ms.workload: identity
   ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 03/25/2021
   ms.author: keithp
-  #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
-  
-    
+#Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 title: Frequently asked questions (FAQ)
 summary: Find answers to common questions about Microsoft Azure Dedicated HSM.
 

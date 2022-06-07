@@ -1,10 +1,10 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure SignalR
 description: Lists Azure Policy Regulatory Compliance controls available for Azure SignalR. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 09/17/2021
+ms.date: 05/10/2022
 ms.topic: sample
-author: sffamily
-ms.author: zhshang
+author: vicancy
+ms.author: lianwei
 ms.service: signalr
 ms.custom: subject-policy-compliancecontrols
 ---

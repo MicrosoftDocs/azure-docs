@@ -2,7 +2,7 @@
 title: Define multiple instances of a property
 description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a property on a resource.
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 12/20/2021
 ---
 
 # Property iteration in ARM templates
@@ -12,6 +12,9 @@ This article shows you how to create more than one instance of a property in you
 You can only use copy loop with top-level resources, even when applying copy loop to a property. To learn about changing a child resource to a top-level resource, see [Iteration for a child resource](copy-resources.md#iteration-for-a-child-resource).
 
 You can also use copy loop with [resources](copy-resources.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [loops](../bicep/loops.md).
 
 ## Syntax
 
@@ -93,7 +96,7 @@ The following example shows how to apply copy loop to the `dataDisks` property o
 }
 ```
 
-Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. Property iteration also supports an offset argument. The offset must come after the name of the iteration, such as `copyIndex('dataDisks', 1)`.
+Notice that when using [copyIndex](template-functions-numeric.md#copyindex) inside a property iteration, you must provide the name of the iteration. Property iteration also supports an offset argument. The offset must come after the name of the iteration, such as `copyIndex('dataDisks', 1)`.
 
 The deployed template becomes:
 
@@ -124,7 +127,7 @@ The deployed template becomes:
       ...
 ```
 
-The copy operation is helpful when working with arrays because you can iterate through each element in the array. Use the `length` function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array.
+The copy operation is helpful when working with arrays because you can iterate through each element in the array. Use the [length](template-functions-array.md#length) function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array.
 
 The following example template creates a failover group for databases that are passed in as an array.
 
@@ -212,36 +215,7 @@ The `copy` element is an array so you can specify more than one property for the
 }
 ```
 
-The deployed template becomes:
-
-```json
-{
-  "name": "examplevm",
-  "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2020-06-01",
-  "properties": {
-    "storageProfile": {
-      "dataDisks": [
-        {
-          "lun": 0,
-          "createOption": "Empty",
-          "diskSizeGB": 1023
-        },
-        {
-          "lun": 1,
-          "createOption": "Empty",
-          "diskSizeGB": 1023
-        },
-        {
-          "lun": 2,
-          "createOption": "Empty",
-          "diskSizeGB": 1023
-        }
-      ],
-      ...
-```
-
-You can use resource and property iteration together. Reference the property iteration by name.
+You can use resource and property iterations together. Reference the property iteration by name.
 
 ```json
 {

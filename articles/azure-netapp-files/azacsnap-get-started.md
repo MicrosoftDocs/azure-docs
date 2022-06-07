@@ -11,9 +11,8 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 03/03/2022
 ms.author: phjensen
 ---
 
@@ -23,18 +22,17 @@ This article provides a guide for installing the Azure Application Consistent Sn
 
 ## Getting the snapshot tools
 
-It is recommended customers get the most recent version of the [AzAcSnap Installer](https://aka.ms/azacsnapdownload) from Microsoft.
+It's recommended customers get the most recent version of the [AzAcSnap Installer](https://aka.ms/azacsnapinstaller) from Microsoft.
 
-The self-installation file has an associated [AzAcSnap Installer signature file](https://aka.ms/azacsnapdownloadsignature) which is signed with Microsoft's public key to allow for GPG verification of the downloaded installer.
+The self-installation file has an associated [AzAcSnap Installer signature file](https://aka.ms/azacsnapdownloadsignature).  This file is signed with Microsoft's public key to allow for GPG verification of the downloaded installer.
 
 Once these downloads are completed, then follow the steps in this guide to install.
 
 ### Verifying the download
 
-The installer, which is downloadable per above, has an associated PGP signature file with an `.asc`
-filename extension. This file can be used to ensure the installer downloaded is a verified
-Microsoft provided file. The Microsoft PGP Public Key used for signing Linux packages is available here
-(<https://packages.microsoft.com/keys/microsoft.asc>) and has been used to sign the signature file.
+The installer has an associated PGP signature file with an `.asc` filename extension. This file can be used to ensure the installer downloaded is a verified
+Microsoft provided file. The Microsoft PGP Public Key used for signing Linux packages is available here (<https://packages.microsoft.com/keys/microsoft.asc>)
+and has been used to sign the signature file.
 
 The Microsoft PGP Public Key can be imported to a user's local as follows:
 
@@ -47,7 +45,7 @@ The following commands trust the Microsoft PGP Public Key:
 
 1. List the keys in the store.
 2. Edit the Microsoft key.
-3. Check the fingerprint with `fpr`
+3. Check the fingerprint with `fpr`.
 4. Sign the key to trust it.
 
 ```bash
@@ -108,36 +106,26 @@ gpg: Good signature from "Microsoft (Release signing)
 <gpgsecurity@microsoft.com>" [full]
 ```
 
-For more details about using GPG, see [The GNU Privacy Handbook](https://www.gnupg.org/gph/en/manual/book1.html).
+For more information about using GPG, see [The GNU Privacy Handbook](https://www.gnupg.org/gph/en/manual/book1.html).
 
 ## Supported scenarios
 
-The snapshot tools can be used in the following scenarios.
-
-- Single SID
-- Multiple SID
-- HSR
-- Scale-out
-- MDC (Only single tenant supported)
-- Single Container
-- SUSE Operating System
-- RHEL Operating System
-- SKU TYPE I
-- SKU TYPE II
-
-See [Supported scenarios for HANA Large Instances](../virtual-machines/workloads/sap/hana-supported-scenario.md)
+The snapshot tools can be used in the following [Supported scenarios for HANA Large Instances](../virtual-machines/workloads/sap/hana-supported-scenario.md) and 
+[SAP HANA with Azure NetApp Files](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md).
 
 ## Snapshot Support Matrix from SAP
 
 The following matrix is provided as a guideline on which versions of SAP HANA
 are supported by SAP for Storage Snapshot Backups.
 
-| Database Versions       |1.0 SPS12|2.0 SPS0|2.0 SPS1|2.0 SPS2|2.0 SPS3|2.0 SPS4|
-|-------------------------|---------|--------|--------|--------|--------|--------|
-|Single Container Database| √       | √      | -      | -      | -      | -      |
-|MDC Single Tenant        | -       | -      | √      | √      | √      | √      |
-|MDC Multiple Tenants     | -       | -      | -      | -      | -      | √      |
-> √ = <small>supported by SAP for Storage Snapshots</small>
+ 
+|  Database type            | Minimum database versions | Notes                                                                                   |
+|---------------------------|---------------------------|-----------------------------------------------------------------------------------------|
+| Single Container Database | 1.0 SPS 12, 2.0 SPS 00    |                                                                                         |
+| MDC Single Tenant	        | 2.0 SPS 01                | or later versions where MDC Single Tenant supported by SAP for storage/data snapshots.* |
+| MDC Multiple Tenants      | 2.0 SPS 04                | or later where MDC Multiple Tenants supported by SAP for data snapshots.                |
+> \* SAP changed terminology from Storage Snapshots to Data Snapshots from 2.0 SPS 02
+
 
 ## Important things to remember
 
@@ -145,40 +133,29 @@ are supported by SAP for Storage Snapshot Backups.
     necessary, delete the old snapshots on a regular basis to avoid storage fill out.
 - Always use the latest snapshot tools.
 - Use the same version of the snapshot tools across the landscape.
-- Test the snapshot tools and get comfortable with the parameters required and output of the
-    command before using in the production system.
-- When setting up the HANA user for backup (details below in this document), you need to
-    set up the user for each HANA instance. Create an SAP HANA user account to access HANA
-    instance under the SYSTEMDB (and not in the SID database) for MDC. In the single container
-    environment, it can be set up under the tenant database.
-- Customers must provide the SSH public key for storage access. This action must be done once per
-    node and for each user under which the command is executed.
+- Test the snapshot tools to understand the parameters required and their behavior, along with the log files, before deployment into production.
+- When setting up the HANA user for backup, you need to set up the user for each HANA instance. Create an SAP HANA user account to access HANA
+    instance under the SYSTEMDB (and not in the SID database) for MDC. In the single container environment, it can be set up under the tenant database.
+- Customers must provide the SSH public key for storage access. This action must be done once per node and for each user under which the command is executed.
 - The number of snapshots per volume is limited to 250.
-- If manually editing the configuration file, always use a Linux text editor such as "vi" and not
-    Windows editors like Notepad. Using Windows editor may corrupt the file format.
-  - Set up `hdbuserstore` for the SAP HANA user to communicate with SAP HANA.
+- If manually editing the configuration file, always use a Linux text editor such as "vi" and not Windows editors like Notepad. Using Windows editor may corrupt the file format.
+- Set up `hdbuserstore` for the SAP HANA user to communicate with SAP HANA.
 - For DR: The snapshot tools must be tested on DR node before DR is set up.
-- Monitor disk space regularly, automated log deletion is managed with the `--trim` option of the
-    `azacsnap -c backup` for SAP HANA 2 and later releases.
-- **Risk of snapshots not being taken** - The snapshot tools only interact with the node of the SAP HANA
-system specified in the configuration file.  If this node becomes unavailable, there is no mechanism to
-automatically start communicating with another node.  
-  - For an **SAP HANA Scale-Out with Standby** scenario it is typical to install and configure the snapshot
- tools on the master node. But, if the master node becomes unavailable, the standby node will take over
-the master node role. In this case, the implementation team should configure the snapshot tools on both
-nodes (Master and Stand-By) to avoid any missed snapshots. In the normal state, the master node will take
-HANA snapshots initiated by crontab, but after master node failover those snapshots will have to be
-executed from another node such as the new master node (former standby). To achieve this outcome, the standby
-node would need the snapshot tool installed, storage communication enabled, hdbuserstore configured,
-`azacsnap.json` configured, and crontab commands staged in advance of the failover.
-  - For an **SAP HANA HSR HA** scenario, it is recommended to install, configure, and schedule the
-snapshot tools on both (Primary and Secondary) nodes. Then, if the Primary node becomes unavailable,
-the Secondary node will take over with snapshots being taken on the Secondary. In the normal state, the
-Primary node will take HANA snapshots initiated by crontab and the Secondary node would attempt to take
-snapshots but fail as the Primary is functioning correctly.  But after Primary node failover, those
-snapshots will be executed from the Secondary node. To achieve this outcome, the Secondary node needs the
-snapshot tool installed, storage communication enabled, `hdbuserstore` configured, azacsnap.json
-configured, and crontab enabled in advance of the failover.
+- Monitor disk space regularly
+  - Automated log deletion is managed with the `--trim` option of the `azacsnap -c backup` for SAP HANA 2 and later releases.
+- **Risk of snapshots not being taken** - The snapshot tools only interact with the node of the SAP HANA system specified in the configuration file.  If this 
+    node becomes unavailable, there's no mechanism to automatically start communicating with another node.  
+  - For an **SAP HANA Scale-Out with Standby** scenario it's typical to install and configure the snapshot tools on the primary node. But, if the primary node becomes
+      unavailable, the standby node will take over the primary node role. In this case, the implementation team should configure the snapshot tools on both
+      nodes (Primary and Stand-By) to avoid any missed snapshots. In the normal state, the primary node will take HANA snapshots initiated by crontab.  If the primary 
+      node fails over those snapshots will have to be executed from another node, such as the new primary node (former standby). To achieve this outcome, the standby
+      node would need the snapshot tool installed, storage communication enabled, hdbuserstore configured, `azacsnap.json` configured, and crontab commands staged 
+      in advance of the failover.
+  - For an **SAP HANA HSR HA** scenario, it's recommended to install, configure, and schedule the snapshot tools on both (Primary and Secondary) nodes. Then, if 
+      the Primary node becomes unavailable, the Secondary node will take over with snapshots being taken on the Secondary. In the normal state, the Primary node 
+      will take HANA snapshots initiated by crontab.  The Secondary node would attempt to take snapshots but fail as the Primary is functioning correctly.  But, 
+      after Primary node failover, those snapshots will be executed from the Secondary node. To achieve this outcome, the Secondary node needs the snapshot tool 
+      installed, storage communication enabled, `hdbuserstore` configured, `azacsnap.json` configured, and crontab enabled in advance of the failover.
 
 ## Guidance provided in this document
 

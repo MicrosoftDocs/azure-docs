@@ -4,7 +4,7 @@ description: How to set up expiration for Microsoft 365 groups in Azure Active D
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
@@ -39,7 +39,7 @@ For information on how to download and install the Azure AD PowerShell cmdlets, 
 
 ## Activity-based automatic renewal
 
-With Azure AD intelligence, groups are now automatically renewed based on whether they have been recently used. This feature eliminates the need for manual action by group owners, because it's based on user activity in groups across Microsoft 365 services like Outlook, SharePoint, or Teams. For example, if an owner or a group member does something like upload a document to SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed around 35 days before the group expires and the owner does not get any renewal notifications. The "All Company" group converted in Yammer Native Mode to a Microsoft 365 Group doesn't currently support this type of automatic renewal, and Yammer activities for that group aren't counted as activities.
+With Azure AD intelligence, groups are now automatically renewed based on whether they have been recently used. This feature eliminates the need for manual action by group owners, because it's based on user activity in groups across Microsoft 365 services like Outlook, SharePoint, Teams, or Yammer. For example, if an owner or a group member does something like upload a document to SharePoint, visit a Teams channel, send an email to the group in Outlook, or view a post in Yammer, the group is automatically renewed around 35 days before the group expires and the owner does not get any renewal notifications. 
 
 For example, consider an expiration policy that is set so that a group expires after 30 days of inactivity. However, to keep from sending an expiration email the day that group expiration is enabled (because there's no record activity yet), Azure AD first waits five days. If there is activity in those five days, the expiration policy works as expected. If there is no activity within five days, we send an expiration/renewal email. Of course, if the group was inactive for five days, an email was sent, and then the group was active, we will autorenew it and start the expiration period again.
 
@@ -50,6 +50,7 @@ The following user actions cause automatic group renewal:
 - SharePoint: View, edit, download, move, share, or upload files
 - Outlook: Join group, read/write group message from group space, Like a message (in Outlook Web Access)
 - Teams: Visit a Teams channel
+- Yammer: View a post within a Yammer community or an interactive email in Outlook 
 
 ### Auditing and reporting
 

@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 03/22/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli
+ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli, sdkv1, event-tier1-build-2022
 ---
 
 # Set up a Python development environment for Azure Machine Learning
@@ -56,13 +56,15 @@ Create a workspace configuration file in one of the following methods:
 
 * Azure portal
 
-    **Download the file**: In the [Azure portal](https://ms.portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
+    **Download the file**: In the [Azure portal](https://portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
 
     ![Azure portal](./media/how-to-configure-environment/configure.png)
 
 * Azure Machine Learning Python SDK
 
     Create a script to connect to your Azure Machine Learning workspace and use the [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace#write-config-path-none--file-name-none-) method to generate your file and save it as *.azureml/config.json*. Make sure to replace `subscription_id`,`resource_group`, and `workspace_name` with your own.
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core import Workspace
@@ -118,9 +120,7 @@ When running a local Jupyter Notebook server, it's recommended that you create a
 1. Launch the Jupyter Notebook server
 
 See the [Azure Machine Learning notebooks repository](https://github.com/Azure/MachineLearningNotebooks) to get started with Azure Machine Learning and Jupyter Notebooks.
-
-> [!NOTE]
-> A community-driven repository of examples can be found at https://github.com/Azure/azureml-examples.
+Also see the community-driven repository, [AzureML-Examples](https://github.com/Azure/azureml-examples).
 
 ### <a id="vscode"></a>Visual Studio Code
 
@@ -216,5 +216,5 @@ For more information, see [Data Science Virtual Machines](https://azure.microsof
 
 ## Next steps
 
-- [Train a model](tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset.
+- [Train and deploy a model](tutorial-train-deploy-notebook.md) on Azure Machine Learning with the MNIST dataset.
 - See the [Azure Machine Learning SDK for Python reference](/python/api/overview/azure/ml/intro). 
