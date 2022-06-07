@@ -48,7 +48,7 @@ The supported GPUs and required Windows versions are listed below:
 >
 >Windows 10 users must use the [November 2021 update](https://blogs.windows.com/windowsexperience/2021/11/16/how-to-get-the-windows-10-november-2021-update/) build 19044.1620 or higher. After installation, you can verify your build version by running `winver` at the command prompt.
 >
-> GPU Passthrough is not supported with nested virtualization, such as running EFLOW in a Windows virtual machine.
+> GPU passthrough is not supported with nested virtualization, such as running EFLOW in a Windows virtual machine.
 
 
 ## System setup and installation
