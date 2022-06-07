@@ -35,7 +35,7 @@ While it is possible to create custom VM images by hand or by other tools, the p
 ### Infrastructure As Code
 
 - There is no need to manage long-term infrastructure (*like Storage Accounts to hold customization data*) or transient infrastructure (*like temporary Virtual Machine to build the image*). 
-- Image Builder stores your VM image build specification and customization artifacts as Azure resources removing the need of maintaining offline definitions and the risk of environment drifts caused by accidental deletions or updates.
+- Image Builder stores your VM image build artifacts as Azure resources which removes the need to maintain offline definitions and the risk of environment drifts caused by accidental deletions or updates.
 
 ### Security
 
