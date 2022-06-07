@@ -2,7 +2,7 @@
 title: Collect text and IIS logs with Azure Monitor agent (preview)
 description: Configure collection of filed-based text logs using a data collection rule on virtual machines with the Azure Monitor agent.
 ms.topic: conceptual
-ms.date: 04/15/2022
+ms.date: 06/06/2022
 
 ---
 
@@ -583,12 +583,12 @@ This directory should correspond to the location of the IIS logs on the agent ma
 ### Verify that the IIS logs are W3C formatted
 Open IIS Manager and verify that the logs are being written in W3C format.
 
-:::image type="content" source="media/data-collection-text-log/iis-log-format.png" lightbox="media/data-collection-text-log/iis-log-format.png" alt-text="Screenshot of I I S log on agent machine showing the header specifies W3C format.":::
-
+:::image type="content" source="media/data-collection-text-log/iis-log-format-setting.png" lightbox="media/data-collection-text-log/iis-log-format-setting.png" alt-text="Screenshot of I I S logging configuration dialog box on agent machine.":::
 
 Open IIS log on the agent machine to verify logs are in W3C format.
 
-:::image type="content" source="media/data-collection-text-log/iis-log-format-setting.png" lightbox="media/data-collection-text-log/iis-log-format-setting.png" alt-text="Screenshot of I I S logging configuration dialog box on agent machine.":::
+:::image type="content" source="media/data-collection-text-log/iis-log-format.png" lightbox="media/data-collection-text-log/iis-log-format.png" alt-text="Screenshot of I I S log on agent machine showing the header specifies W3C format.":::
+
 
 
 ### Share logs with Microsoft
