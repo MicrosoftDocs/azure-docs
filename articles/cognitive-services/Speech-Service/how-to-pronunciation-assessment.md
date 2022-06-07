@@ -49,7 +49,7 @@ You must create a `PronunciationAssessmentConfig` object with the reference text
 
 ```csharp
 var pronunciationAssessmentConfig = new PronunciationAssessmentConfig(
-    referenceText: "Evaluate speech with this text",
+    referenceText: "good morning",
     gradingSystem: GradingSystem.HundredMark, 
     granularity: Granularity.Phoneme, 
     enableMiscue: true);
@@ -93,7 +93,7 @@ var pronunciationAssessmentConfig = SpeechSDK.PronunciationAssessmentConfig.from
 
 ```ObjectiveC
 SPXPronunciationAssessmentConfiguration *pronunciationAssessmentConfig =
-[[SPXPronunciationAssessmentConfiguration alloc] init:@"Hello world! Today is a nice day!"
+[[SPXPronunciationAssessmentConfiguration alloc] init:@"good morning"
                             gradingSystem:SPXPronunciationAssessmentGradingSystem_HundredMark
                             granularity:SPXPronunciationAssessmentGranularity_Phoneme
                             enableMiscue:true];
