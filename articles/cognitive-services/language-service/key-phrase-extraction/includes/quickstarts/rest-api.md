@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 06/07/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -36,6 +36,9 @@ To call the API, you need the following information:
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Key-phrase-extraction&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Key phrase extraction
 
@@ -47,6 +50,9 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1/key
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
 -d '{ documents: [{ id: "1", language:"en", text: "I had a wonderful trip to Seattle last week."}]}'
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Key-phrase-extraction&Page=quickstart&Section=Key-phrase-extraction" target="_target">I ran into an issue</a>
 
 ### JSON response
 
