@@ -1,6 +1,6 @@
 ---
-title: Quick Start for Azure Arc-enabled System Center Virtual Machine Manager
-description: In this QuickStart, you will learn how to use the helper script to connect your System Center Virtual Machine Manager management server to Azure Arc.
+title: Quick Start for Azure Arc-enabled System Center Virtual Machine Manager (preview)
+description: In this QuickStart, you will learn how to use the helper script to connect your System Center Virtual Machine Manager management server to Azure Arc (preview).
 author: jyothisuri
 ms.author: jsuri
 ms.topic: quickstart
@@ -8,7 +8,7 @@ ms.date: 05/25/2022
 ms.custom: references_regions
 ---
 
-# QuickStart: Connect your System Center Virtual Machine Manager management server to Azure Arc
+# QuickStart: Connect your System Center Virtual Machine Manager management server to Azure Arc (preview)
 
 Before you can start using the Azure Arc-enabled SCVMM features, you need to connect your VMM management server to Azure Arc.
 

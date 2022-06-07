@@ -1,6 +1,6 @@
 ---
-title: Enable SCVMM inventory resources in Azure Arc center
-description: This article helps you enable SCVMM inventory resources from Azure portal
+title: Enable SCVMM inventory resources in Azure Arc center (preview)
+description: This article helps you enable SCVMM inventory resources from Azure portal (preview)
 ms.service: azure-arc
 author: jyothisuri
 ms.reviewer: jsuri
@@ -9,7 +9,7 @@ ms.topic: how-to
 keywords: "VMM, Arc, Azure"
 ---
 
-# Enable SCVMM inventory resources from Azure portal
+# Enable SCVMM inventory resources from Azure portal (preview)
 
 The article describes how you can view SCVMM management servers and enable SCVMM inventory from Azure portal, after connecting to the SCVMM management server.
 

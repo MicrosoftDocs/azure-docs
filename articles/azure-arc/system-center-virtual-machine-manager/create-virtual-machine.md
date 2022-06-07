@@ -1,6 +1,6 @@
 ---
-title:  Create a virtual machine on System Center Virtual Machine Manager using Azure Arc
-description: This article helps you create a virtual machine using Azure portal.
+title:  Create a virtual machine on System Center Virtual Machine Manager using Azure Arc (preview)
+description: This article helps you create a virtual machine using Azure portal (preview). 
 ms.date: 05/25/2022
 ms.topic: conceptual
 ms.services: azure-arc
@@ -10,7 +10,7 @@ keywords: "VMM, Arc, Azure"
 ---
 
 
-# Create a virtual machine on System Center Virtual Machine Manager using Azure Arc
+# Create a virtual machine on System Center Virtual Machine Manager using Azure Arc (preview)
 
 Once your administrator has connected an SCVMM management server to Azure, represented VMM resources such as private clouds, VM templates in Azure, and provided you the required permissions on those resources, you'll be able to create a virtual machine in Azure.
 
