@@ -70,21 +70,21 @@ The following diagram illustrates the flow when email one-time passcode authenti
 
 ## Conditional Access for external users
 
-Organizations can enforce Conditional Access policies for external B2B collaboration and B2B direct connect users in the same way that they’re enabled for full-time employees and members of the organization. This section describes important considerations for applying Conditional Access to users outside of your organization.
+Organizations can enforce Conditional Access policies for external B2B collaboration and B2B direct connect users in the same way that they’re enabled for full-time employees and members of the organization. With the introduction of cross-tenant access settings, you can also trust MFA and device claims from external Azure AD organizations. This section describes important considerations for applying Conditional Access to users outside of your organization.
 
 ### MFA for Azure AD external users
 
-In an Azure AD cross-tenant scenario, the resource organization can create Conditional Access policies that require MFA or device compliance for all guest and external users. Generally, an external user accessing a resource is then required to set up their Azure AD MFA with the resource tenant. However, Azure AD now offers the ability to trust MFA claims from other Azure AD tenants. Enabling MFA trust with another tenant streamlines the sign-in process for B2B collaboration users and enables access for B2B direct connect users.
+In an Azure AD cross-tenant scenario, the resource organization can create Conditional Access policies that require MFA or device compliance for all guest and external users. Generally, a B2B collaboration user accessing a resource is then required to set up their Azure AD MFA with the resource tenant. However, Azure AD now offers the ability to trust MFA claims from other Azure AD tenants. Enabling MFA trust with another tenant streamlines the sign-in process for B2B collaboration users and enables access for B2B direct connect users.
 
-If you've configured your inbound trust settings to accept MFA claims from a B2B collaboration or B2B direct connect user's home tenant, Azure AD checks the user's credentials during authentication. If the credentials contain an claim indicating that MFA policies have already been met in the user's home tenant, the user is granted seamless sign-on to your shared resource.
+If you've configured your inbound trust settings to accept MFA claims from a B2B collaboration or B2B direct connect user's home tenant, Azure AD checks the user's credentials during authentication. If the credentials contain a claim indicating that MFA policies have already been met in the user's home tenant, the user is granted seamless sign-on to your shared resource.
 
-If MFA trust isn't enabled, the user experience is different for B2B collaboration users and B2B direct connect users.
+If MFA trust isn't enabled, the user experience is different for B2B collaboration users and B2B direct connect users:
 
-- **B2B collaboration users:** If the resource organization hasn't enabled MFA trust with the B2B collaboration user's home tenant, the external user is presented with an MFA challenge. The flow is the same as the [MFA flow for non-Azure AD external users](#mfa-for-non-azure-ad-external-users).
+- **B2B collaboration users**: If the resource organization hasn't enabled MFA trust with the user's home tenant, the user is presented with an MFA challenge from the resource organization. (The flow is the same as the [MFA flow for non-Azure AD external users](#mfa-for-non-azure-ad-external-users).)
 
-- **B2B direct connect users:** If the resource organization hasn't enabled MFA trust with the B2B direct connect user's home tenant, the user is blocked from accessing resources. If you want to allow B2B direct connect with an external organization and your Conditional Access policies require MFA, you *must* configure your inbound trust settings to accept MFA claims from the organization.
+- **B2B direct connect users**: If the resource organization hasn't enabled MFA trust with the user's home tenant, the user is blocked from accessing resources. If you want to allow B2B direct connect with an external organization and your Conditional Access policies require MFA, you *must* configure your inbound trust settings to accept MFA claims from the organization.
 
-For details, see [Configuring cross-tenant access settings for B2B collaboration](cross-tenant-access-settings-b2b-collaboration.md).
+Learn more about how to [configure inbound trust settings for MFA](cross-tenant-access-settings-b2b-collaboration.md#to-change-inbound-trust-settings-for-mfa-and-device-claims).
 
 ### MFA for non-Azure AD external users
 
@@ -154,7 +154,7 @@ Device filters can be used together with cross-tenant access settings to base po
 - Assign the device attribute you want to use for filtering to one of the [supported device extension attributes](../conditional-access/concept-condition-filters-for-devices.md#supported-operators-and-device-properties-for-filters).
 - Create a Conditional Access policy with a device filter that blocks access to devices containing that attribute.
 
-For more information, see  [Conditional Access: Filter for devices](../conditional-access/concept-condition-filters-for-devices.md).
+Learn more about [filtering for devices with Conditional Access](../conditional-access/concept-condition-filters-for-devices.md).
 ### Mobile application management policies
 
 We don't recommend requiring an app protection policy for external users. Conditional Access grant controls such as **Require approved client apps** and **Require app protection policies** require the device to be registered in the resource tenant. These controls can only be applied to [iOS and Android devices](../conditional-access/concept-conditional-access-conditions.md#device-platforms). However, because a user’s device can only be managed by their home tenant, these controls can't be applied to external guest users.
