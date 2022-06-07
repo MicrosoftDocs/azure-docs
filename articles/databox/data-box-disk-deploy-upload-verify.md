@@ -40,9 +40,13 @@ The data automatically gets copied once the disks are connected to a server in t
 
 Once the copy is complete, order status updates to **Completed**. The **DATA COPY DETAILS** show the path to the copy log, which reports any errors during the data copy. 
 
-You can choose **View by Storage Account(s)** or **View by Managed Disk(s)** to display the data copy details.
+As of March 2022, you can choose **View by Storage Account(s)** or **View by Managed Disk(s)** to display the data copy details.
 
 [![Screenshot of the Data Copy Details.](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)](media/data-box-disk-deploy-picked-up/data-box-portal-completed-inline.png#lightbox)
+
+If you have an order from before March 2022, the data copy details will be shown as below:
+
+:::image type="content" source="media/data-box-disk-deploy-picked-up/data-box-portal-completed-old.png" alt-text="Screenshot of the Data Copy Details prior to March 2022.":::
 
 If the copy completes with errors, see [troubleshoot upload errors](data-box-disk-troubleshoot-upload.md).
 
