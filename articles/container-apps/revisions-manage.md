@@ -13,7 +13,7 @@ ms.author: cshoe
 
 Supporting multiple revisions in Azure Container Apps allows you to manage the versioning of your container app.  With revisions you can activate and deactivate revisions, and control amount of [traffic sent to each revision](#traffic-splitting).  To learn more about revisions, see [Revisions in Azure Container Apps](revisions.md)
 
-A revision is created when you first deploy your application.  New revisions are created when you [update](#revision-update) your application with [revision-scope changes](revisions.md#revision-scope-changes).  You can also update your container app based on a specific revision.  
+A revision is created when you first deploy your application.  New revisions are created when you [update](#updating-your-container-app) your application with [revision-scope changes](revisions.md#revision-scope-changes).  You can also update your container app based on a specific revision.  
 
 
 This article described the commands to manage your container app's revisions. For more information about Container Apps commands, see [`az containerapp`](/cli/azure/containerapp).  For more information about commands to manage revisions, see [`az containerapp revision`](/cli/azure/containerapp/revision).
@@ -129,7 +129,7 @@ az containerapp revision copy `
 
 ## Revision activate
 
-Activate a revision by using `az containerapp revision activate`.  For more information about this command, see [`az containerapp revision activate`](cli/azure/containerapp/revision#az-containerapp-revision-activate).
+Activate a revision by using `az containerapp revision activate`.  For more information about this command, see [`az containerapp revision activate`](/cli/azure/containerapp/revision#az-containerapp-revision-activate).
 
 Example: (Replace the \<placeholders\> with your values.)
 
@@ -153,7 +153,7 @@ az containerapp revision activate `
 
 ## Revision deactivate
 
-Deactivate revisions that are no longer in use with `az containerapp revision deactivate`. Deactivation stops all running replicas of a revision.  For more information, see [`az containerapp revision deactivate`](cli/azure/containerapp/revision#az-containerapp-revision-deactivate).
+Deactivate revisions that are no longer in use with `az containerapp revision deactivate`. Deactivation stops all running replicas of a revision.  For more information, see [`az containerapp revision deactivate`](/cli/azure/containerapp/revision#az-containerapp-revision-deactivate).
 
 Example: (Replace the \<placeholders\> with your values.)
 
@@ -291,7 +291,7 @@ az containerapp revision set-mode `
 
 ---
 
-## Traffic splitting between revisions
+## Traffic splitting
 
 Applied by assigning percentage values, you can decide how to balance traffic among different revisions. Traffic splitting rules are assigned by setting weights to different revisions.
 
@@ -329,7 +329,7 @@ Each revision gets traffic based on the following rules:
 
 The sum total of all revision weights must equal 100.
 
-In this example, replace the `<REVISION*_NAME>` placeholders with revision names in your container app. You access revision names via the [list](#list) command.
+In this example, replace the `<REVISION*_NAME>` placeholders with revision names in your container app. You access revision names via the [revision list](#revision-list) command.
 
 ## Next steps
 

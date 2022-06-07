@@ -2,11 +2,11 @@
 title: Revisions in Azure Container Apps
 description: Learn how revisions are created in Azure Container Apps
 services: container-apps
-author: v-bcatherine
+author: cebundy
 ms.service: container-apps
 ms.topic: conceptual
 ms.date: 06/07/2022
-ms.author: cebundy
+ms.author: v-bcatherine
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
@@ -22,9 +22,6 @@ Azure Container Apps implements container app versioning by creating revisions. 
 - You can split external HTTP traffic between active revisions.
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions.png" alt-text="Azure Container Apps: Containers":::
-
-
-
 
 ## Use cases
 
