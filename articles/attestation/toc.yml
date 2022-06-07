@@ -78,7 +78,7 @@
     href: https://search.maven.org/artifact/com.azure/azure-security-attestation/1.1.2/jar
   - name: Python data-plane SDK
     href: https://pypi.org/project/azure-security-attestation/
-  - name: Javascript/ Typescript SDK
+  - name: Javascript SDK
     href: https://www.npmjs.com/package/@azure/attestation/v/1.0.0
   - name: Azure PowerShell
     href: /powershell/module/az.attestation/#attestation
