@@ -46,7 +46,7 @@ Azure Database for MySQL Flexible Server has three available templates:
     * List top 5 longest queries
     * Summarize slow queries by minimum, maximum, average, and standard deviation query time
 
-You can also edit and customize these templates according to your requirements. For more information, see the [Azure workbooks overview](../../azure-monitor/visualize/workbooks-overview).
+You can also edit and customize these templates according to your requirements. For more information, see [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 
  ## Access the workbook templates
 
