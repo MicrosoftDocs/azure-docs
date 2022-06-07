@@ -8,6 +8,7 @@ ms.subservice: logs
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 05/11/2022
+ms.reviewer: aul
 ---
 
 # Enable ContainerLogV2 schema (preview)
