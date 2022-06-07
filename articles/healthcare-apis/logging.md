@@ -5,7 +5,7 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 03/22/2022
+ms.date: 06/06/2022
 ms.author: ginle
 ---
 
@@ -63,5 +63,7 @@ For more information about service logs and metrics for the DICOM service and Me
 
 >[!div class="nextstepaction"]
 >[How to display MedTech service metrics](./../healthcare-apis/iot/how-to-display-metrics.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 
 

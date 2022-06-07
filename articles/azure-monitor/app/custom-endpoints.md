@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 07/26/2019
 ms.devlang: csharp, java, javascript, python
 ms.custom: references_regions, devx-track-js
+ms.reviewer: newylie
 ---
 
 # Application Insights overriding default endpoints
