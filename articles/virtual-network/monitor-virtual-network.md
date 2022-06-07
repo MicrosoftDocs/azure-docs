@@ -51,7 +51,7 @@ Azure virtual network doesn't support resource logs.
 
 For a list of the types of resource logs collected for resources in a virtual network, see [Monitoring virtual network data reference](monitor-virtual-network-reference.md#resource-logs)   
 
-The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of platform login Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of platform sign-in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 ## Alerts
 
@@ -61,8 +61,8 @@ The following table lists common and recommended activity alert rules for Azure 
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| Create or Update Virtual Network | Event Level: All selected, Status: All selected, Event initiated by: All services and users | When a user creates or make configuration changes to the virtual network. |
-| Delete Virtual Network | Event Level: All selected, Status: Started | When a user delete a virtual network. |
+| Create or Update Virtual Network | Event Level: All selected, Status: All selected, Event initiated by: All services and users | When a user creates or makes configuration changes to the virtual network. |
+| Delete Virtual Network | Event Level: All selected, Status: Started | When a user deletes a virtual network. |
 
 ## Next steps
 
