@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/25/2021
+ms.date: 06/07/2022
 ms.author: dmwendia
 ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
@@ -78,7 +78,7 @@ catch (MsalUiRequiredException) // no change in the pattern
 }
 ```
 
-Call `.WithBroker(true)`. If a broker isn't present (for example, Win8.1, Mac, or Linux), then MSAL will fall back to a browser! Redirect URI rules apply to the browser.
+Call `.WithBroker(true)`. If a broker isn't present (for example, Win8.1, Mac, or Linux), then MSAL will fall back to a browser. Redirect URI rules apply to the browser.
 
 ## Redirect URI
 
@@ -127,7 +127,7 @@ Applications cannot remove accounts from Windows!
 
 ## RemoveAsync
 
-- Removes all account information from MSAL's token cache (this includes MSA - that is, personal accounts - account info and other account information copied by MSAL into its cache).
+- Removes all account information from MSAL's token cache (this includes MSA, that is, personal accounts information copied by MSAL into its cache).
 - Removes app-only (not OS-wide) accounts.
 
 >[!NOTE]
@@ -135,7 +135,7 @@ Applications cannot remove accounts from Windows!
 
 ## Other considerations
 
-- WAM's interactive operations require being on the UI thread. MSAL throws a meaningful exception when not on UI thread. This does NOT apply to console apps.
+- WAM's interactive operations require being on the UI thread. MSAL throws a meaningful exception when not on UI thread. This doesn't apply to console apps.
 - `WithAccount` provides an accelerated authentication experience if the MSAL account was originally obtained via WAM, or, WAM can find a work and school account in Windows.
 - WAM isn't able to pre-populate the username field with a login hint, unless a Work and School account with the same username is found in Windows.
 - If WAM is unable to offer an accelerated authentication experience, it will show an account picker. Users can add new accounts.
@@ -150,7 +150,7 @@ Applications cannot remove accounts from Windows!
 
 When an app that uses MSAL is run as an elevated process, some of these calls within WAM may fail due to different process security levels. Internally MSAL.NET uses native Windows methods ([COM](/windows/win32/com/the-component-object-model)) to integrate with WAM. Starting with version 4.32.0, MSAL will display a descriptive error message when it detects that the app process is elevated and WAM returned no accounts.
 
-One solution is to not run the app as elevated, if possible. Another solution is for the app developer to call `WindowsNativeUtils.InitializeProcessSecurity` method when the app starts up. This will set the security of the processes used by WAM to the same levels. See [this sample app](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/master/tests/devapps/WAM/NetCoreWinFormsWam/Program.cs#L18-L21) for an example. However, note, that this solution isn't guaranteed to succeed to due external factors like the underlying CLR behavior. In that case, an `MsalClientException` will be thrown. See issue [#2560](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/2560) for additional information.
+One solution is to not run the app as elevated, if possible. Another solution is for the app developer to call `WindowsNativeUtils.InitializeProcessSecurity` method when the app starts up. This will set the security of the processes used by WAM to the same levels. See [this sample app](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/master/tests/devapps/WAM/NetCoreWinFormsWam/Program.cs#L18-L21) for an example. However, note, that this solution isn't guaranteed to succeed to due external factors like the underlying CLR behavior. In that case, an `MsalClientException` will be thrown. For more information, see issue [#2560](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/2560).
 
 ### "WAM Account Picker did not return an account" error message
 
