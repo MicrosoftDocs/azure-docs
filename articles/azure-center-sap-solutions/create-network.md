@@ -90,7 +90,7 @@ There are multiple options to allow access to these storage accounts:
 
 ### Allowlist Key Vault
 
-ACSS creates a key vault to store and access the secret keys during software installation. This key vault also stores the SAP system password. To allow access to this key vault:
+ACSS creates a key vault to store and access the secret keys during software installation. This key vault also stores the SAP system password. To allow access to this key vault, you can:
 
 - Allow internet connectivity
 - Configure a [**AzureKeyVault** service tag](../virtual-network/service-tags-overview.md#available-service-tags)
@@ -98,14 +98,14 @@ ACSS creates a key vault to store and access the secret keys during software ins
 
 ### Allowlist Azure AD
 
-ACSS uses Azure AD to get the authentication token for obtaining secrets from a managed key vault during SAP installation. To allow access to Azure AD:
+ACSS uses Azure AD to get the authentication token for obtaining secrets from a managed key vault during SAP installation. To allow access to Azure AD, you can:
 
 - Allow internet connectivity
 - Configure an [**AzureActiveDirectory** service tag](../virtual-network/service-tags-overview.md#available-service-tags).
 
 ### Allowlist Azure Resource Manager
 
-ACSS uses a managed identity for software installation. Managed identity authentication requires a call to the Azure Resource Manager endpoint. To allow access to this endpoint:
+ACSS uses a managed identity for software installation. Managed identity authentication requires a call to the Azure Resource Manager endpoint. To allow access to this endpoint, you can:
 
 - Allow internet connectivity
 - Configure an [**AzureResourceManager** service tag](../virtual-network/service-tags-overview.md#available-service-tags).
@@ -122,7 +122,7 @@ Before you begin, make sure  you know the SAP Application Performance Standard (
 - A single or cluster of Database VMs, which make up a single Database instance in the VIS.
 - A single Application Server VM, which makes up a single Application instance in the VIS. Depending on the number of Application Servers being deployed or registered, there can be multiple application instances.
 
-Open the SAP ports listed in the following table. Replace the placeholder values (`xx`) in applicable ports with your SAP instance number. For example, if your SAP instance number is `01` `32xx` becomes `3201`.
+Open the SAP ports listed in the following table. Replace the placeholder values (`xx`) in applicable ports with your SAP instance number. For example, if your SAP instance number is `01`, then `32xx` becomes `3201`.
 
 | SAP service | Port range | Allow incoming traffic | Allow outgoing traffic | Purpose |
 | ---------------- | ---------- | ---------------------- | ---------------------- | ----------- |
@@ -160,9 +160,9 @@ The configuration process for an example network might include:
 
     1. Attach the firewall to the VNet.
 
-    1. Create a rule to allowlist RHEL or SUSE endpoints. Make sure to allow all source IP addresses (**\***), set the source port to **Any**, allow the destination IP addresses for RHEL or SUSE, and set the destination port to **Any**.
+    1. Create a rule to allowlist RHEL or SUSE endpoints. Make sure to allow all source IP addresses (`*`), set the source port to **Any**, allow the destination IP addresses for RHEL or SUSE, and set the destination port to **Any**.
 
-    1. Create a rule to allow service tags. Make sure to allow all source IP addresses (**\***), set the destination type to **Service tag**. Then, allow the tags **Microsoft.Storage**, **Microsoft.KeyVault**, **AzureResourceManager** and **Microsoft.AzureActiveDirectory**.
+    1. Create a rule to allow service tags. Make sure to allow all source IP addresses (`*`), set the destination type to **Service tag**. Then, allow the tags **Microsoft.Storage**, **Microsoft.KeyVault**, **AzureResourceManager** and **Microsoft.AzureActiveDirectory**.
 
 1. Create a route table resource:
 
@@ -174,21 +174,21 @@ The configuration process for an example network might include:
 
 1. If you're using a network security group with the VNet, add the following inbound rule. This rule provides connectivity between the subnets for the application and database tiers.
 
-| Priority | Port | Protocol | Source | Destination | Action |
-| -------- | ---- | -------- | ------ | ----------- | ------ |
-| 100 | Any | Any | VNet | VNet | Allow |
+    | Priority | Port | Protocol | Source | Destination | Action |
+    | -------- | ---- | -------- | ------ | ----------- | ------ |
+    | 100 | Any | Any | VNet | VNet | Allow |
 
 1. If you're using a network security group instead of a firewall, add outbound rules to allow installation.
 
-| Priority | Port | Protocol | Source | Destination | Action |
-| -------- | ---- | -------- | ------ | ----------- | ------ |
-| 110 | Any | Any | Any | SUSE or Red Hat endpoints | Allow |
-| 115 | Any | Any | Any | Azure Resource Manager  | Allow |
-| 116 | Any | Any | Any | Azure AD | Allow |
-| 117 | Any | Any | Any | Storage accounts | Allow |
-| 118 | 8080 | Any | Any | Key vault | Allow |
-| 119 | Any | Any | Any | VNet | Allow |
-
+    | Priority | Port | Protocol | Source | Destination | Action |
+    | -------- | ---- | -------- | ------ | ----------- | ------ |
+    | 110 | Any | Any | Any | SUSE or Red Hat endpoints | Allow |
+    | 115 | Any | Any | Any | Azure Resource Manager  | Allow |
+    | 116 | Any | Any | Any | Azure AD | Allow |
+    | 117 | Any | Any | Any | Storage accounts | Allow |
+    | 118 | 8080 | Any | Any | Key vault | Allow |
+    | 119 | Any | Any | Any | VNet | Allow |
+    
 ## Next steps
 
 - [Learn more about ACSS and VIS resources](overview.md)
