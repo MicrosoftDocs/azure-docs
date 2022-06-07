@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: tutorial
-author: lgayhardt
+author: lgayhardt 
 ms.author: lagayhar
 ms.date: 01/28/2022
 ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
@@ -174,7 +174,7 @@ The code that you've executed so far has create and controlled Azure resources. 
 
 If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
 
-If you're working from scratch, create a subdirectory called `kera-mnist-fashion/`. Create a new file, add the following code to it, and name the file `prepare.py`. 
+If you're working from scratch, create a subdirectory called `keras-mnist-fashion/`. Create a new file, add the following code to it, and name the file `prepare.py`. 
 
 ```python
 # prepare.py
