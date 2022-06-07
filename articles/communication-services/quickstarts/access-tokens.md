@@ -40,28 +40,6 @@ In this quickstart, you'll learn how to use the Azure Communication Services SDK
 [!INCLUDE [Azure CLI](./includes/access-tokens/access-token-azcli.md)]
 ::: zone-end
 
-The app's output describes each completed action:
-
-<!---cSpell:disable --->
-```console
-Azure Communication Services - Access Tokens Quickstart
-
-Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
-
-Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
-<token signature here>
-
-Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-1ce9-31b4-54b7-a43a0d006a52
-
-Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
-<token signature here>
-
-Successfully revoked all access tokens for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
-
-Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
-```
-<!---cSpell:enable --->
-
 ## Use identity for monitoring and metrics
 
 The user ID is intended to act as a primary key for logs and metrics that are collected through Azure Monitor. To view all of a user's calls, for example, you can set up your authentication in a way that maps a specific Azure Communication Services identity (or identities) to a single user. 
