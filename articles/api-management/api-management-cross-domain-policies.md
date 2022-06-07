@@ -69,24 +69,29 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 
 [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) is an HTTP header-based mechanism that allows a browser and a server to interact and determine whether or not to allow specific cross-origin requests (such as `XMLHttpRequest` calls made from JavaScript on a web page to other domains). This allows for more flexibility than only allowing same-origin requests, but is more secure than allowing all cross-origin requests.
 
-When enabled, the CORS policy supports two kinds of requests:
+CORS specifies two kinds of [requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#specifications):
 
-1. **Preflighted requests** - The browser first sends an HTTP request using the `OPTIONS` method to the server, to determine if the actual request method and headers are safe to send. If the server approves the preflighted request and origin, the browser follows with the actual request.
+1. **Preflighted (also called preflight) requests** - The browser first sends an HTTP request using the `OPTIONS` method to the server, to determine if the actual request is safe to send. If the server approves the preflight request and origin, the browser follows with the actual request.
     > [!NOTE]
-    > Only the CORS policy is executed on a preflighted request. Any remaining policies in the policy configuration execute only on the approved request.
+    > Only the CORS policy is executed on a preflight request. Any remaining policies in the policy configuration execute only on the approved request.
 
-1. **Simple requests** - These requests include extra `Origin` headers but don't trigger a CORS preflight. Only the `GET`, `HEAD`, and `POST` methods and a limited set of request headers are allowed. 
+1. **Simple requests** - These requests include extra `Origin` headers but don't trigger a CORS preflight. Only the `GET`, `HEAD`, and `POST` methods and a limited set of request headers are allowed. Normal policy execution takes place.
 
-For details, see the [CORS specification](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#specifications).
+### CORS policy scenarios
 
 Apply the CORS policy in API Management for the following scenarios:
 
 * Enable the interactive console in the developer portal. Refer to the [developer portal documentation](./developer-portal-faq.md#cors) for details.
-* Enable API Management to reply to preflighted requests (using the `OPTIONS` method) or to pass through simple CORS requests when the backends don't provide their own CORS support.
+* Enable API Management to reply to preflight requests (using the `OPTIONS` method) or to pass through simple CORS requests when the backends don't provide their own CORS support.
 
 > [!NOTE]
 > If a request matches an operation with an `OPTIONS` method defined in the API, preflight request processing logic associated with CORS policies will not be executed. Therefore, such operations can be used to implement custom preflight processing logic. 
 
+### Preflight limitations
+
+Because preflight requests Preflighted requests containing the following headers such as `Api Version` 
+
+* The following 
 
 ### Policy statement
 
