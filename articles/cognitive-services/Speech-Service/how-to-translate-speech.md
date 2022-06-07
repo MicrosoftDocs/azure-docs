@@ -1,20 +1,19 @@
 ---
-title: Speech translation quickstart - Speech service
+title: "How to translate speech - Speech service"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you translate speech to text. 
+description: Learn how to recognize and translate speech, including object construction and supported audio input formats.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/07/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services
-keywords: speech translation
 ---
 
-# Quickstart: Recognize and translate speech to text
+# How to recognize and translate speech
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/how-to/translate-speech/csharp.md)]
@@ -56,8 +55,9 @@ keywords: speech translation
 [!INCLUDE [CLI include](includes/how-to/translate-speech/cli.md)]
 ::: zone-end
 
-
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn about language identification](language-identification.md)
+* [Try the speech to text quickstart](get-started-speech-to-text.md)
+* [Try the speech translation quickstart](get-started-speech-translation.md)
+* [Improve recognition accuracy with custom speech](custom-speech-overview.md)
+
