@@ -36,7 +36,7 @@ The IoT Central REST API lets you:
 Use the following request to create a new device.
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=1.0
+PUT https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
 ```
 
 The following example shows a request body that adds a device for a device template. You can get the `template` details from the device templates page in IoT Central application UI. 
@@ -77,7 +77,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a device from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
 ```
 
 >[!NOTE]
@@ -102,7 +102,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve credentials of a device from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices/{deviceId}/credentials?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/devices/{deviceId}/credentials?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example:
@@ -121,7 +121,7 @@ The response to this request looks like the following example:
 ### Update a device
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=1.0
+PATCH https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
 ```
 
 >[!NOTE]
@@ -158,7 +158,7 @@ The response to this request looks like the following example:
 Use the following request to delete a device:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=1.0
+DELETE https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
 ```
 
 ### List devices
@@ -166,7 +166,7 @@ DELETE https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=1.0
 Use the following request to retrieve a list of devices from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/devices?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example: 

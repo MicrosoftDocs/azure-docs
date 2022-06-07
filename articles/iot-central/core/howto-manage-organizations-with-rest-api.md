@@ -37,7 +37,7 @@ The IoT Central REST API lets you:
 The REST API lets you create organizations in your IoT Central application. Use the following request to create an organization in your application:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=1.0
+PUT https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=2022-05-31
 ```
 
 * organizationId - Unique ID of the organization
@@ -97,7 +97,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of an individual organization from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example:
@@ -115,7 +115,7 @@ The response to this request looks like the following example:
 Use the following request to update details of an organization in your application:
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=1.0
+PATCH https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=2022-05-31
 ```
 
 The following example shows a request body that updates an organization.
@@ -143,7 +143,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve a list of organizations from your application:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/organizations?api-version=1.0
+GET https://{your app subdomain}.azureiotcentral.com/api/organizations?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example.
@@ -184,7 +184,7 @@ The response to this request looks like the following example.
 Use the following request to delete an organization:
 
 ```http
-DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=1.0
+DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-05-31
 ```
 
 ## Next steps
