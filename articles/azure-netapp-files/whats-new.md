@@ -12,13 +12,19 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 05/25/2022
+ms.date: 06/02/2022
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+## June 2022
+
+* [Azure Policy built-in definitions for Azure NetApp](azure-policy-definitions.md#built-in-policy-definitions)  
+
+    Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to the per-resource, per-policy granularity. It also helps to bring your resources to compliance through bulk remediation for existing resources and automatic remediation for new resources. Azure NetApp Files already supports Azure Policy via custom policy definitions. Azure NetApp Files now also provides built-in policy to enable organization admins to restrict creation of unsecure NFS volumes or audit existing volumes more easily. 
 
 ## May 2022
 
