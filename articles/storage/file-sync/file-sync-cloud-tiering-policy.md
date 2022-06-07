@@ -19,7 +19,7 @@ The **date policy** tiers files last accessed x days ago or later. The volume fr
 
 ## How both policies work together
 
-We'll use an example to illustrate how these policies work: Let's say you configured Azure File Sync on a 500 GiB local volume, and cloud tiering was never enabled. These are the files in your file share:
+We'll use an example to illustrate how these policies work: Let's say you configured Azure File Sync on a 500-GiB local volume, and cloud tiering was never enabled. These are the files in your file share:
 
 |File Name |Last Access Time  |File Size  |Stored In |
 |----------|------------------|-----------|----------|
@@ -31,9 +31,9 @@ We'll use an example to illustrate how these policies work: Let's say you config
 
 **Change 1:** You enabled cloud tiering, set a volume free space policy of 20%, and kept the date policy disabled. With that configuration, cloud tiering ensures 20% (in this case 100 GiB) of space is kept free and available on the local machine. As a result, the total capacity of the local cache is 400 GiB. That 400 GiB will store the most recently and frequently accessed files on the local volume.
 
-With this configuration, only files 1 through 4 would be stored in the local cache, and file 5 would be tiered. This only accounts for 360 GiB out of the 400 GiB that could be used. File 5 is 140 GiB and would exceed the 400 GiB limit if it was locally cached.
+With this configuration, only files 1 through 4 would be stored in the local cache, and file 5 would be tiered. This only accounts for 360 GiB out of the 400 GiB that could be used. File 5 is 140 GiB and would exceed the 400-GiB limit if it was locally cached.
 
-**Change 2:** Say a user accesses file 5. This makes file 5 the most recently accessed file in the share. As a result, File 5 would be stored in the local cache and to fit under the 400 GiB limit, file 4 would be tiered. The following table shows where the files are stored, with these updates:
+**Change 2:** Say a user accesses file 5. This makes file 5 the most recently accessed file in the share. As a result, File 5 would be stored in the local cache and to fit under the 400-GiB limit, file 4 would be tiered. The following table shows where the files are stored, with these updates:
 
 |File Name |Last Access Time  |File Size  |Stored In |
 |----------|------------------|-----------|----------|
