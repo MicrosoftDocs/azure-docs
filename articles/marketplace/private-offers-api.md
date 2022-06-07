@@ -438,6 +438,7 @@ There are no parameters for this method.
         {
             "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2",
             "id": "private-offer/456e-a345-c457-1234",
+            "name": "privateOffercustomer1705",
             "state": "deleted"
         }
     ]
