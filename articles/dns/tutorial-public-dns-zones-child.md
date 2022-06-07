@@ -82,7 +82,7 @@ You'll create a new child DNS zone and delegate it to the parent DNS zone using 
     | Name | Enter your child zone name. In this tutorial, *subdomain* is used. Notice that the parent DNS zone name `contoso.com` is automatically added as a suffix to **Name** after you selected parent zone from the previous step. |
     | Resource group location | The resource group location is selected for you if you selected an existing resource group for the child zone. </br> Select the resource group location if you created a new resource group for the child zone. </br> The resource group location doesn't affect your DNS zone service, which is global and not bound to a location. |
 
-    :::image type="content" source="./media/tutorial-public-dns-zones-child/child-zone-via-create-dns-zone-page.png" alt-text="Screenshot of Create D N S zone page accessed via the Create D N S zone page.":::
+    :::image type="content" source="./media/tutorial-public-dns-zones-child/child-zone-via-create-dns-zone-page.png" alt-text="Screenshot of Create D N S zone page accessed via the Create button of D N S zone page.":::
 
 1. Select **Review + create** button.
 1. Select **Create** button. It may take a few minutes to create the zone.
@@ -108,7 +108,7 @@ After retrieving the name servers from the child DNS zone, check that the parent
 1.	Check the record sets in **Overview** page of **contoso.com** DNS zone.
 1.	You'll find a record set of type **NS** and name **subdomain** created in the parent DNS zone. Compare the name servers in this record set with the ones you retrieved from the **Overview** page of the child DNS zone.
 
-     :::image type="content" source="./media/tutorial-public-dns-zones-child/parent-zone-nameservers-inline.png" alt-text="Screenshot of Child zone nameservers validation." lightbox="./media/tutorial-public-dns-zones-child/parent-zone-nameservers-expanded.png":::
+     :::image type="content" source="./media/tutorial-public-dns-zones-child/parent-zone-nameservers-inline.png" alt-text="Screenshot of child zone name servers validation in the parent D N S zone Overview page." lightbox="./media/tutorial-public-dns-zones-child/parent-zone-nameservers-expanded.png":::
 
 ## Clean up resources
 
