@@ -23,8 +23,6 @@ Refer to the table below to find details about resolution dates or possible work
 | :------------------------------------- | :------------ | :------------- | :------------- |
 |Using [token type](https://www.hl7.org/fhir/search.html#token) fields of length more than 128 characters can result in undesired behavior on create, search, update, and delete operations.  | May 2022  |No workaround  | Not resolved |
 |The SQL provider will cause the `RawResource` column in the database to save incorrectly. This occurs in a small number of cases when a transient exception occurs that causes the provider to use its retry logic. |April 2022 |Resolved [#2571](https://github.com/microsoft/fhir-server/pull/2571)|May 2022 |
-|The SQL Provider will cause the `RawResource` column in the database to save incorrectly. This issue occurs in a few cases when a transient exception occurs that causes the provider to use its retry logic. |April 2022 |No workaround.  |Not resolved  |
-
 
 ## Next steps
 
