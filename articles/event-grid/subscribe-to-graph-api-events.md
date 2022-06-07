@@ -44,6 +44,9 @@ The common steps to subscribe to events published by any partner, including Grap
 
 ### **Enable Microsoft Graph API events to flow to your partner topic**
 
+> [!IMPORTANT]
+> In the following steps, you will follow instructions from [Wehbook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=) to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask.graph.and.grid@service.microsoft.com?subject=Please whitelist my application ID">mailto:ask.graph.and.grid@service.microsoft.com?subject=Please whitelist my application ID</a> so that the Microsoft Graph API team can whitelist your application ID to use this new capability.
+
 You request Microsoft Graph API to send events by creating a Graph API subscription. 
 
 When you create a Graph API subscription, the http request looks like the following sample:
