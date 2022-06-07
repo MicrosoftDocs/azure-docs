@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 06/03/2022
 ---
 
 # Azure HDInsight release notes
@@ -32,7 +32,7 @@ For more information, see [Apache Spark & Hive - Hive Warehouse Connector - Azur
 * Scaling and provisioning improvement changes
 * HDI hive is now compatible with OSS version 3.1.2
 
-HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version have all fixes and features available in open source Hive 3.1.2 version.
+HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes and features available in open source Hive 3.1.2 version.
 
 > [!NOTE]
 > **Spark**
@@ -116,11 +116,3 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version have all fixes 
 | Provide a fallback authorizer when no other authorizer is in use|[HIVE-20420](https://issues.apache.org/jira/browse/HIVE-20420)|
 | Some alterPartitions invocations throw 'NumberFormatException: null'|[HIVE-18767](https://issues.apache.org/jira/browse/HIVE-18767)|
 | HiveServer2: Preauthenticated subject for http transport isn't retained for entire duration of http communication in some cases|[HIVE-20555](https://issues.apache.org/jira/browse/HIVE-20555)|
-
-## HDInsight 3.6 end of support extension
-
-HDInsight 3.6 end of support is extended until September 30, 2022.
-
-Starting from September 30, 2022, customers can't create new HDInsight 3.6 clusters. Existing clusters will run as is without the support from Microsoft. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
-
-Customers who are on Azure HDInsight 3.6 clusters will continue to get [Basic support](./hdinsight-component-versioning.md#support-options-for-hdinsight-versions) until September 30, 2022.
