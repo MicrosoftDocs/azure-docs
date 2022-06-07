@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Manage revisions in Azure Container Apps
 
-Supporting multiple revisions in Azure Container Apps allows you to manage the versioning of your container app.  With revisions you can activate and deactivate revisions, and control amount of [traffic sent to each revision](#traffic-splitting).  To learn more about revisions, see [Revisions in Azure Container Apps](revisions.md)
+Supporting multiple revisions in Azure Container Apps allows you to manage the versioning of your container app.  With this feature, you can activate and deactivate revisions, and control the amount of [traffic sent to each revision](#traffic-splitting).  To learn more about revisions, see [Revisions in Azure Container Apps](revisions.md)
 
 A revision is created when you first deploy your application.  New revisions are created when you [update](#updating-your-container-app) your application with [revision-scope changes](revisions.md#revision-scope-changes).  You can also update your container app based on a specific revision.  
 
@@ -21,9 +21,9 @@ This article described the commands to manage your container app's revisions. Fo
 
 ## Updating your container app
 
-To update a container app, use `az containerapp update`.   With this command you can modify environment variables, compute resources, scale parameters, and deploy a different image.  If your container app update includes [revision-scope changes](revisions.md#revision-scope-changes), a new revision will be generated.
+To update a container app, use the `az containerapp update` command.   With this command you can modify environment variables, compute resources, scale parameters, and deploy a different image.  If your container app update includes [revision-scope changes](revisions.md#revision-scope-changes), a new revision will be generated.
 
-You may also use a YAML file to define these and other configuration options and parameters.  For more information regarding this command, see [`az containerapp revision copy`](/cli/azure/containerapp#az-containerapp-update).
+You may also use a YAML file to define these and other configuration options and parameters.  For more information regarding this command, see [`az containerapp revision copy`](/cli/azure/containerapp#az-containerapp-update).  
 
 This example updates the container image.  (Replace the \<placeholders\> with your values.)
 
@@ -101,9 +101,9 @@ az containerapp revision show `
 
 To create a new revision based on an existing revision, use the `az containerapp revision copy`. Container Apps will use the configuration of the existing revision, which you then may modify.  
 
- With this command you can modify environment variables, compute resources, scale parameters, and deploy a different image.  You may also use a YAML file to define these and other configuration options and parameters.  For more information regarding this command, see [`az containerapp revision copy`](/cli/azure/containerapp/revision#az-containerapp-revision-copy).
+With this command, you can modify environment variables, compute resources, scale parameters, and deploy a different image.  You may also use a YAML file to define these and other configuration options and parameters.  For more information regarding this command, see [`az containerapp revision copy`](/cli/azure/containerapp/revision#az-containerapp-revision-copy).
 
- This example copies the latest revision and sets the compute resource parameters.  (Replace the \<placeholders\> with your values.)
+This example copies the latest revision and sets the compute resource parameters.  (Replace the \<placeholders\> with your values.)
 
 # [Bash](#tab/bash)
 
@@ -233,7 +233,7 @@ az containerapp revision set-mode `
 
 ## Revision labels
 
-Labels provide a unique URL that you can use to direct traffic to a revision.  You can move a label between revisions to reroute traffic directed to the label's URL to different revision.  For more information about revision labels, see [Revision Labels](revisions.md#revision-labels).
+Labels provide a unique URL that you can use to direct traffic to a revision.  You can move a label between revisions to reroute traffic directed to the label's URL to a different revision.  For more information about revision labels, see [Revision Labels](revisions.md#revision-labels).
 
 You can add and remove a label from a revision.  For more information about the label commands, see [`az containerapp revision label`](/cli/azure/containerapp/revision/label)
 
@@ -327,7 +327,7 @@ Each revision gets traffic based on the following rules:
 - 30% of the requests go to REVISION2
 - 20% of the requests go to the latest revision
 
-The sum total of all revision weights must equal 100.
+The sum of all revision weights must equal 100.
 
 In this example, replace the `<REVISION*_NAME>` placeholders with revision names in your container app. You access revision names via the [revision list](#revision-list) command.
 
