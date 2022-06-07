@@ -214,7 +214,7 @@ callComposite?.events.onError = { error in
 
 ### Apply theme options
 
-You can customize the theme by creating a custom theme options that implements the ThemeOptions protocol. You then include an instance of that new class in your CallCompositeOptions.
+You can customize the theme by creating custom theme options that implement the ThemeOptions protocol. You then include an instance of that new class in your CallCompositeOptions.
 
 ```swift
 class CustomThemeOptions: ThemeOptions {
@@ -230,7 +230,7 @@ let callCompositeOptions = CallCompositeOptions(theme: CustomThemeOptions())
 
 ### Apply localization options
 
-You can change the language by creating a custom localization options and include it to your `CallCompositeOptions`.  By default, all text labels use our English (`SupportedLocale.en`) strings. If desired, `LocalizationOptions` can be used to set a different `locale`. Out of the box, the UI library includes a set of `locale` usable with the UI components. `SupportedLocale.values` provides a list of all supported languages. 
+You can change the language by creating custom localization options and include it to your `CallCompositeOptions`.  By default, all text labels use our English (`SupportedLocale.en`) strings. If desired, `LocalizationOptions` can be used to set a different `locale`. Out of the box, the UI library includes a set of `locale` usable with the UI components. `SupportedLocale.values` provides a list of all supported languages. 
 
 For the example below, the composite will be localized to French (`fr`). 
 
