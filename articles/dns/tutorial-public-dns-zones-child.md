@@ -65,8 +65,8 @@ You'll create a new child DNS zone and delegate it to the parent DNS zone using 
 
 You'll create a new child DNS zone and delegate it to the parent DNS zone using the **Create DNS zone** page.
 
-1.	On the Azure portal menu or from the **Home** page, select **Create a resource**.
-1.	Select **Networking**, then select **DNS zone** and then select **Create** button.
+1.	On the Azure portal menu or from the **Home** page, select **Create a resource** and then select **Networking**.
+1.	Select **DNS zone** and then select the **Create** button.
 
 1.	In **Create DNS zone**, enter or select this information in the **Basics** tab:
 
@@ -90,7 +90,7 @@ You'll create a new child DNS zone and delegate it to the parent DNS zone using 
 
 ## Verify the child DNS zone
 
-After the new child DNS zone `subdomain.contoso.com` created, verify that the delegation configured correctly. You'll need to check the name server (NS) records for your child zone are in the parent zone as described below.  
+After the new child DNS zone `subdomain.contoso.com` created, verify that the delegation configured correctly. You'll need to check that your child zone name server (NS) records are in the parent zone as described below.  
 
 ### Retrieve name servers of child DNS zone
 
