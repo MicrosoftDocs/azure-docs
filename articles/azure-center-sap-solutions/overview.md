@@ -37,7 +37,7 @@ Each VIS consists of:
 - A database instance
 - One or more SAP Application Server instances
 
-:::image type="complex" source="./media/overview/virtual-instance-for-sap.png" alt-text="Diagram of a VIS containing a SID with ASCS, Application Server and database instances.":::
+:::image type="complex" source="./media/overview/virtual-instance-for-sap.png" alt-text="Diagram of a Virtual Instance for SAP containing a SAP system identifier with A S C S, Application Server and Database instances.":::
    This diagram shows a VIS that contains an SAP system. The SAP system contains an ASCS instance, an Application Server instance, and a database instance. Each instance connects to a virtual machine (VM) resource outside of the VIS. 
 :::image-end:::
 
