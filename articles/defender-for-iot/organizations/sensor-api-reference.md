@@ -1180,7 +1180,7 @@ This endpoint does not use a regular access token for authorization. Instead, it
 
 |Name  |Description  |Example  |
 |---------|---------|---------|
-|**id**     |   The Xsense Alert ID      |   `/api/v2/alerts/pcap/<id>      |
+|**id**     |   The Xsense Alert ID      |   `/api/v2/alerts/pcap/<id>`      |
 
 
 # [Response](#tab/pcap-response)

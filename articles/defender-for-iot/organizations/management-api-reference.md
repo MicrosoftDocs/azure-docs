@@ -661,7 +661,7 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 ### GET
 
 
-# [Request](#tab/alerts-request)
+# [Request](#tab/alerts-get-request)
 
 **Query parameters**:
 
