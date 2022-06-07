@@ -723,7 +723,7 @@ items:
     - name: Alert user interface
       items:
       - name: View and manage alert instances
-        href: alerts/alerts-managing-alert-instances.md
+        href: alerts/alerts-page.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves
@@ -906,6 +906,8 @@ items:
         href: app/api-custom-events-metrics.md
       - name: Remove Application Insights
         href: app/remove-application-insights.md
+      - name: SDK support policy
+        href: app/sdk-support-guidance.md
     - name: OpenTelemetry-based instrumentation
       items:
       - name: Overview
