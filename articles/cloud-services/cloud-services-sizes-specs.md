@@ -188,7 +188,7 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 \*RDMA capable
 
 >[!IMPORTANT]
-> Microsoft Azure has introduced newer generations of high-performance computing (HPC), general purpose, and memory-optimized virtual machines (VMs). For this reason, we recommend that you migrate workloads from the original H-series and H-series Promo VMs to our newer offerings by August 31, 2022. Azure [HC](hc-series.md), [HBv2](hbv2-series.md), [HBv3](hbv3-series.md), [Dv4](dv4-dsv4-series.md), [Dav4](dav4-dasv4-series.md), [Ev4](ev4-esv4-series.md), and [Eav4](eav4-easv4-series.md) VMs have greater memory bandwidth, improved networking capabilities, and better cost and performance across various HPC workloads.
+> Microsoft Azure has introduced newer generations of high-performance computing (HPC), general purpose, and memory-optimized virtual machines (VMs). For this reason, we recommend that you migrate workloads from the original H-series and H-series Promo VMs to our newer offerings by August 31, 2022. Azure [HC](../virtual-machines/hc-series.md), [HBv2](../virtual-machines/hbv2-series.md), [HBv3](../virtual-machines/hbv3-series.md), [Dv4](../virtual-machines/dv4-dsv4-series.md), [Dav4](../virtual-machines/dav4-dasv4-series.md), [Ev4](../virtual-machines/ev4-esv4-series.md), and [Eav4](../virtual-machines/eav4-easv4-series.md) VMs have greater memory bandwidth, improved networking capabilities, and better cost and performance across various HPC workloads.
 
  On August 31, 2022, we're retiring the following H-series Azure VM sizes:
 
