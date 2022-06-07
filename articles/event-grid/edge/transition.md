@@ -16,7 +16,7 @@ There's one major reason to retire Event Grid on IoT Edge, which is currently in
 
 | Event Grid on IoT Edge | IoT Edge hub |
 | ---------------------------- | ----------------------------- | 
-| - Publish and subscribe to events locally/in the cloud<br/>- Forward events to Event Grid<br/>- Forward events to IoT Hub<br/>- React to Azure Blob Storage events locally | - Connect to IoT Hub<br/>- Route messages between modules or devices locally<br/>- Offline support<br/>- Filter messages | 
+| - Publish and subscribe to events locally/in the cloud<br/>- Forward events to Event Grid<br/>- Forward events to Azure IoT Hub<br/>- React to Azure Blob Storage events locally | - Connect to IoT Hub<br/>- Route messages between modules or devices locally<br/>- Offline support<br/>- Filter messages | 
 
 ## How to transition to IoT Edge features
 
