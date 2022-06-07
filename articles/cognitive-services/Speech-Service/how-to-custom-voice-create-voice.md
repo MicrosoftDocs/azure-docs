@@ -237,7 +237,7 @@ Before uploading test script, check the [test script requirements](#train-your-c
 
 On **Add test scripts** window, click **Browse for a file** to select your own script, then select **Add** to upload it.
 
-:::image type="content" source="media/custom-voice/cnv-model-upload-testscripts.png" alt-text="This is a screenshot of uploading your own test scripts.":::
+:::image type="content" source="media/custom-voice/cnv-model-upload-testscripts.png" alt-text="Screenshot of uploading model test scripts.":::
 
 For more information, [learn more about the capabilities and limits of this feature, and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
