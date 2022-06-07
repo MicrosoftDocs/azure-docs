@@ -186,6 +186,11 @@ Read more about the Azure Identity libraries below:
 #### [.NET](#tab/dotnet)
 
 ```csharp
+using Azure.Identity;
+using Azure.Storage.Blobs;
+
+// code omitted for brevity
+
 var credentialOptions = new DefaultAzureCredentialOptions
 {
     ManagedIdentityClientId = "<Client ID of User-assigned identity>"
