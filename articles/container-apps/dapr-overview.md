@@ -57,7 +57,7 @@ You can define the Dapr configuration for a container app through the Azure CLI 
 
 The following example adds the Dapr configuration to your `properties.configuration` section of your container apps resource declaration.
 
-# [Bicep](#biceptabbicep-2)
+# [Bicep](#tab/bicep1)
 
 ```bicep
  dapr: {
@@ -68,7 +68,7 @@ The following example adds the Dapr configuration to your `properties.configurat
  }
 ```
 
-# [ARM](#armtab)
+# [ARM](#tab/arm1)
 
 ```json
   "dapr": {
@@ -80,11 +80,11 @@ The following example adds the Dapr configuration to your `properties.configurat
  
 ```
 
------
+---
 
 For each container accessing the Dapr components, you must configure the `APP_PORT` environment variable in the `template.container` section of your container app resource declaration.  Here's an example of the `template.containers` section with the `APP_PORT` environment variable configured:
 
-# [Bicep](#biceptabbicep-2)
+# [Bicep](#tab/bicep1)
 
 ```Bicep
   containers: [
@@ -102,7 +102,7 @@ For each container accessing the Dapr components, you must configure the `APP_PO
   ]
 ```
 
-# [ARM](#armtab)
+# [ARM](#tab/arm1)
 
 ```jason
   "containers": [
@@ -121,7 +121,7 @@ For each container accessing the Dapr components, you must configure the `APP_PO
 
 ```
 
------
+---
 
 Since Dapr settings are considered application-scope changes, new revisions aren't created when you change Dapr setting. However, when changing Dapr settings, the container app revisions and replicas are automatically restarted.
 
@@ -237,7 +237,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM. The `dapr-p
 }
 ```
 
------
+---
 
 For comparison, a Dapr OSS `pubsub.yaml` file would include: 
 
