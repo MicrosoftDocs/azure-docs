@@ -39,7 +39,7 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes a
 > 
 > * If you are using Azure User Interface to create Spark Cluster for HDInsight, you will see from the dropdown list an additional version Spark 3.1.(HDI 5.0) along with the older versions.  This version is a renamed version of Spark 3.1.(HDI 4.0). This is only an UI level change, which doesn’t impact anything for the existing users and users who are already using the ARM template.
 
-![Image showing spark 3.1 for HDI 5.0.](media/hdinsight-release-notes/spark-3-1-for-hdi-5-0.png)
+![Screenshot_of spark 3.1 for HDI 5.0.](media/hdinsight-release-notes/spark-3-1-for-hdi-5-0.png)
 
 > [!NOTE]
 > **Interactive Query**
@@ -47,16 +47,16 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes a
 > * If you are creating an Interactive Query Cluster, you will see from the dropdown list an additional version as Interactive Query 3.1 (HDI 5.0).
 > * If you are going to use Spark 3.1 version along with Hive which require ACID support, you need to select this version Interactive Query 3.1 (HDI 5.0).
 
-![Image showing interactive query 3.1 for HDI 5.0.](media/hdinsight-release-notes/interactive-query-3-1-for-hdi-5-0.png)
+![Screenshot_of interactive query 3.1 for HDI 5.0.](media/hdinsight-release-notes/interactive-query-3-1-for-hdi-5-0.png)
 
-## TEZ Bug Fixes
+## TEZ bug fixes
 
 | Bug Fixes|Apache JIRA|
 |---|---|
 |TezUtils.createConfFromByteString on Configuration larger than 32 MB throws com.google.protobuf.CodedInputStream exception |[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
-|TezUtils::createByteStringFromConf should use snappy instead of DeflaterOutputStream|[TEZ-4113](https://microsoft-my.sharepoint.com/:w:/p/v-sreiyer/Ed6qhemsT4BLi0y42cclUMUB0AUZ05VFE_B7b9gyjBfIrQ)|
+|Provide an option to disable DAG graph (.dot) generation for latency jobs|[TEZ-4113](https://issues.apache.org/jira/browse/TEZ-4143)|
 
-## HBase Bug Fixes
+## HBase bug fixes
 
 | Bug Fixes|Apache JIRA|
 |---|---|
@@ -64,7 +64,7 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes a
 |Add option to disable scanMetrics in TableSnapshotInputFormat |[HBASE-26330](https://issues.apache.org/jira/browse/HBASE-26330)|
 |Fix for ArrayIndexOutOfBoundsException when balancer is executed |[HBASE-22739](https://issues.apache.org/jira/browse/HBASE-22739)|
 
-## Hive Bug Fixes
+## Hive bug fixes
 
 |Bug Fixes|Apache JIRA|
 |---|---|
