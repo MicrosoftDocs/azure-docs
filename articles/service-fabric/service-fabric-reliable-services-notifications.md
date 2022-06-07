@@ -210,7 +210,7 @@ Here are some things to keep in mind:
 * Because notifications are fired as part of the applying operations, clients see only notifications for locally committed operations. And because operations are guaranteed only to be locally committed (in other words, logged), they might or might not be undone in the future.
 * On the redo path, a single notification is fired for each applied operation. This means that if transaction T1 includes Create(X), Delete(X), and Create(X), you'll get one notification for the creation of X, one for the deletion, and one for the creation again, in that order.
 * For transactions that contain multiple operations, operations are applied in the order in which they were received on the primary replica from the user.
-* As part of processing false progress, some operations might be undone. Notifications are raised for such undo operations, rolling the state of the replica back to a stable point. One important difference of undo notifications is that events that have duplicate keys are aggregated. For example, if transaction T1 is being undone, you'll see a single notification to Delete(X).
+* As part of processing false progress, some operations might be undone on secondary replicas. Notifications are raised for such undo operations, rolling the state of the replica back to a stable point. One important difference of undo notifications is that events that have duplicate keys are aggregated. For example, if transaction T1 is being undone, you'll see a single notification to Delete(X).
 
 ## Next steps
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
