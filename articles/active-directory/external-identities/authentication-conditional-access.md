@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 06/07/2022
 
 ms.author: mimart
 author: msmimart
@@ -134,9 +134,11 @@ The following PowerShell cmdlets are available to *proof up* or request MFA regi
 
 ### Device compliance and hybrid Azure AD joined device policies
 
-If your organization uses Microsoft Intune, you can set a Conditional Access policy to require a user's device to be compliant or hybrid Azure AD joined. However, devices can only be managed by a user's home tenant, which means an external user won't be able to register and enroll their device in the resource organization. To prevent the external user from being blocked, you can configure your cross-tenant access settings to trust claims from the external user's home tenant indicating whether the device meets their device compliance policies or is [hybrid Azure AD joined](../conditional-access/howto-conditional-access-policy-compliant-device.md). Trust settings can apply to all Azure AD organizations, or to individual Azure AD organizations.
+Organizations can use Conditional Access policies to require users' devices to be managed by Microsoft Intune. Such policies can block external user access, because an external user can't register their unmanaged device with the resource organization. Devices can only be managed by a user's home tenant.
 
-When these trust settings are enabled, Azure AD will check a user's credentials during authentication for a device ID to determine if the policies have already been met in their home tenant. If so, the external user will be granted seamless sign-on to your shared resource.
+However, you can use device trust settings to unblock external users while still requiring managed devices. In your cross-tenant access settings, you can choose to trust claims from an external user's home tenant about whether the user's device meets their device compliance policies or is [hybrid Azure AD joined](../conditional-access/howto-conditional-access-policy-compliant-device.md). You can set device trust settings for all Azure AD organizations or individual organizations.
+
+When device trust settings are enabled, Azure AD checks a user's credentials during authentication for a device ID to determine if the policies have already been met in the user's home tenant. If so, the external user is granted seamless sign-on to your shared resource.
 
 >[!Important]
 >
@@ -144,8 +146,15 @@ When these trust settings are enabled, Azure AD will check a user's credentials 
 
 ### Device filters
 
-When creating Conditional Access policies for external users, you can evaluate a policy based on the device attributes of a registered device in Azure AD. By using the *filter for devices* condition, you can target specific devices using the [supported operators and properties](../conditional-access/concept-condition-filters-for-devices.md#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies. For more information, see [Conditional Access: Filter for devices](../conditional-access/concept-condition-filters-for-devices.md).
+When creating Conditional Access policies for external users, you can evaluate a policy based on the device attributes of a registered device in Azure AD. By using the *filter for devices* condition, you can target specific devices using the [supported operators and properties](../conditional-access/concept-condition-filters-for-devices.md#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies.
 
+Device filters can be used together with cross-tenant access settings to base policies on devices that are managed in other organizations. For example, say you want to block devices from an external Azure AD tenant based on a specific device attribute. You can set up a device attribute-based policy by doing the following:
+
+- Configure your cross-tenant access settings to trust device claims from that organization.
+- Assign the device attribute you want to use for filtering to one of the [supported device extension attributes](../conditional-access/concept-condition-filters-for-devices.md#supported-operators-and-device-properties-for-filters).
+- Create a Conditional Access policy with a device filter that blocks access to devices containing that attribute.
+
+For more information, see  [Conditional Access: Filter for devices](../conditional-access/concept-condition-filters-for-devices.md).
 ### Mobile application management policies
 
 We don't recommend requiring an app protection policy for external users. Conditional Access grant controls such as **Require approved client apps** and **Require app protection policies** require the device to be registered in the resource tenant. These controls can only be applied to [iOS and Android devices](../conditional-access/concept-conditional-access-conditions.md#device-platforms). However, because a user’s device can only be managed by their home tenant, these controls can't be applied to external guest users.
