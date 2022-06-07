@@ -6,7 +6,7 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/06/2022
+ms.date: 06/07/2022
 ms.author: mikaelw
 ---
 
@@ -16,23 +16,14 @@ This article describes the currently known issues with Azure Health Data Service
 
 Refer to the table below to find details about resolution dates or possible workarounds. For more information about the different feature enhancements and bug fixes in Azure Health Data Services, see [Release notes: Azure Health Data Services](release-notes.md).
 
-## May 2022
 
-### Azure Health Data Services
+## FHIR service
 
 |Issue | Date discovered | Status | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
-|Using [token type](https://www.hl7.org/fhir/search.html#token) fields of length more than 128 characters can result in undesired behavior on create, search, update, and delete operations.  | May 2022  |Doesn't have a workaround  | Not resolved |
-|The SQL provider will cause the `RawResource` column in the database to save incorrectly. This occurs in a small number of cases when a transient exception occurs that causes the provider to use its retry logic. |April 2022 |This is resolved with a workaround. Removes SQL retry on upsert. For more information, see [#2571](https://github.com/microsoft/fhir-server/pull/2571).|May 2022 |
-
-
-## April 2022
-
-### FHIR service
- 
-|Issue | Date discovered | Status | Date resolved |
-| :------------------------------------- | :------------ | :------------- | :------------- |
-|The SQL Provider will cause the `RawResource` column in the database to save incorrectly. This issue occurs in a few cases when a transient exception occurs that causes the provider to use its retry logic. |April 2022 |Doesn't have a workaround.  |Not resolved  |
+|Using [token type](https://www.hl7.org/fhir/search.html#token) fields of length more than 128 characters can result in undesired behavior on create, search, update, and delete operations.  | May 2022  |No workaround  | Not resolved |
+|The SQL provider will cause the `RawResource` column in the database to save incorrectly. This occurs in a small number of cases when a transient exception occurs that causes the provider to use its retry logic. |April 2022 |Resolved [#2571](https://github.com/microsoft/fhir-server/pull/2571)|May 2022 |
+|The SQL Provider will cause the `RawResource` column in the database to save incorrectly. This issue occurs in a few cases when a transient exception occurs that causes the provider to use its retry logic. |April 2022 |No workaround.  |Not resolved  |
 
 
 ## Next steps
