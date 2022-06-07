@@ -4,7 +4,6 @@ description: Learn about the virtual appliances packed by Bitnami to deploy in y
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 04/11/2022
-
 ---
 
 # Bitnami appliance deployment

@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 04/11/2022
 ---
+
 # Security solutions for Azure VMware Solution
 
 A fundamental part of Azure VMware Solution is security. It allows customers to run their VMware-based workloads in a safe and trustable environment.

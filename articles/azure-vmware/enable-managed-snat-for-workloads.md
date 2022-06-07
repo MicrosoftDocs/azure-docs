@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 05/12/2022
 ---
+
 # Enable Managed SNAT for Azure VMware Solution workloads 
 
 In this article, you'll learn how to enable Azure VMware Solution’s Managed Source NAT (SNAT) to connect to the Internet outbound. A SNAT service translates from RFC1918 space to the public Internet for simple outbound Internet access.  The SNAT service won't work when you have a default route from Azure.  

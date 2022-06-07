@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 05/12/2022
 ---
+
 # Enable Public IP to the NSX Edge for Azure VMware Solution (Preview)
 
 In this article, you'll learn how to enable Public IP to the NSX Edge for your Azure VMware Solution. 
