@@ -33,7 +33,6 @@ In a managed domain *resource* forest, users also authenticate over a one-way fo
 
 Resource forests also provide the capability to lift-and-shift your applications one component at a time. Many legacy on-premises applications are multi-tiered, often using a web server or front end and many database-related components. These tiers make it hard to lift-and-shift the entire application to the cloud in one step. With resource forests, you can lift your application to the cloud in a phased approach, which makes it easier to move your application to Azure.
 
-Users in additional on-premises AD DS domains can also users authenticate over a one-way forest trust with a managed user forest in Azure AD DS
 
 ## What are trusts?
 
