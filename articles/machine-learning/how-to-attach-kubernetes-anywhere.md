@@ -69,33 +69,61 @@ AzureML extension allows you to specify configuration settings needed for differ
 
 For a complete list of configuration settings available to choose at AzureML deployment time, see [Review AzureML extension config settings](#review-azureml-extension-configuration-settings)
 
-## Deploy AzureML extension - example scenarios
+## Deploy AzureML extension
+### [CLI](#tab/cli)
+To deploy AzureML extension with CLI, use `az k8s-extension create` command passing in values for the mandatory parameters.
 
-### Use AKS in Azure for a quick Proof of Concept, both training and inference workloads support
+We list 4 typical extension deployment scenarios for reference. To deploy extension for your production usage, please carefully read the complete list of [configuration settings](#review-azureml-extension-configuration-settings).
 
-Ensure you have fulfilled [prerequisites](#prerequisites). For AzureML extension deployment on AKS, make sure to specify ```managedClusters``` value for ```--cluster-type``` parameter. Run the following Azure CLI command to deploy AzureML extension:
-```azurecli
-   az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=LoadBalancer allowInsecureConnections=True inferenceLoadBalancerHA=False --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
-```
+- **Use AKS in Azure for a quick Proof of Concept, both training and inference workloads support**
 
-### Use Minikube on your desktop for a quick POC, training workload support only
+   Ensure you have fulfilled [prerequisites](#prerequisites). For AzureML extension deployment on AKS, make sure to specify ```managedClusters``` value for ```--cluster-type``` parameter. Run the following Azure CLI command to deploy AzureML extension:
+   ```azurecli
+      az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=LoadBalancer allowInsecureConnections=True inferenceLoadBalancerHA=False --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
+   ```
 
-Ensure you have fulfilled [prerequisites](#prerequisites). Since the following steps would create AzureML extension on an Azure Arc connected cluster, you would need to specify ```connectedClusters``` value for ```--cluster-type``` parameter. Run following simple Azure CLI command to deploy AzureML extension:
-```azurecli
-   az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-RG-name> --scope cluster
-```
+- **Use Kubernetes at your lab for a quick Proof of Concept, training workload support only**
 
-### Enable an AKS cluster in Azure for production training and inference workload
-Ensure you have fulfilled [prerequisites](#prerequisites). For AzureML extension deployment on AKS, make sure to specify ```managedClusters``` value for ```--cluster-type``` parameter. Assuming your cluster has more than 3 nodes, and you will use an Azure public load balancer and HTTPS for inference workload support, run following Azure CLI command to deploy AzureML extension:
-```azurecli
-   az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=LoadBalancer sslCname=<ssl cname> --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslKeyPemFile=<file-path-to-cert-KEY> --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
-```
-### Enable an Azure Arc connected cluster anywhere for production training and inference workload using NVIDIA GPUs
+   Ensure you have fulfilled [prerequisites](#prerequisites). For AzureML extension deployment on Azure Arc connected cluster, you would need to specify ```connectedClusters``` value for ```--cluster-type``` parameter. Run following simple Azure CLI command to deploy AzureML extension:
+   ```azurecli
+      az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-RG-name> --scope cluster
+   ```
 
-Ensure you have fulfilled [prerequisites](#prerequisites). For AzureML extension deployment on Azure Arc connected cluster, make sure to specify ```connectedClusters``` value for ```--cluster-type``` parameter. Assuming your cluster has more than 3 nodes, you will use a NodePort service type and HTTPS for inference workload support, run following Azure CLI command to deploy AzureML extension:
-```azurecli
-   az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=NodePort sslCname=<ssl cname> installNvidiaDevicePlugin=True installDcgmExporter=True --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslKeyPemFile=<file-path-to-cert-KEY> --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-RG-name> --scope cluster
-```
+- **Enable an AKS cluster in Azure for production training and inference workload**
+   Ensure you have fulfilled [prerequisites](#prerequisites). For AzureML extension deployment on AKS, make sure to specify ```managedClusters``` value for ```--cluster-type``` parameter. Assuming your cluster has more than 3 nodes, and you will use an Azure public load balancer and HTTPS for inference workload support, run following Azure CLI command to deploy AzureML extension:
+   ```azurecli
+      az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=LoadBalancer sslCname=<ssl cname> --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslKeyPemFile=<file-path-to-cert-KEY> --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
+   ```
+- **Enable an Azure Arc connected cluster anywhere for production training and inference workload using NVIDIA GPUs**
+
+   Ensure you have fulfilled [prerequisites](#prerequisites). For AzureML extension deployment on Azure Arc connected cluster, make sure to specify ```connectedClusters``` value for ```--cluster-type``` parameter. Assuming your cluster has more than 3 nodes, you will use a NodePort service type and HTTPS for inference workload support, run following Azure CLI command to deploy AzureML extension:
+   ```azurecli
+      az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=NodePort sslCname=<ssl cname> installNvidiaDevicePlugin=True installDcgmExporter=True --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslKeyPemFile=<file-path-to-cert-KEY> --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-RG-name> --scope cluster
+   ```
+
+### [Portal](#tab/portal)
+
+The UI experience to deploy extension is only available for **Azure Arc-enabled Kubernetes**. If you have an AKS cluster without Azure Arc connected, you need to use CLI to deploy AzureML extension.
+
+1. In the [Azure portal](https://ms.portal.azure.com/#home), navigate to **Kubernetes - Azure Arc** and select your cluster.
+1. Select **Extensions** (under **Settings**), and then select **+ Add**.
+
+   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui.png" alt-text="Screenshot of adding new extension to the Arc-enabled Kubernetes cluster from Azure Portal.":::
+
+1. From the list of available extensions, select **Azure Machine Learning extension** to deploy the latest version of the extension.
+
+   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-extension-list.png" alt-text="Screenshot of adding new extension to the Arc-enabled Kubernetes cluster from Azure Portal.":::
+
+1. Follow the prompts to deploy the extension. You can customize the installation by configuring the installtion in the tab of **Basics**, **Configurations** and **Advanced**.  For a detailed list of AzureML extension configuration settings, see [AzureML extension configuration settings]((#review-azureml-extension-configuration-settings)).
+
+   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-settings.png" alt-text="Screenshot of deploying new extension to the Arc-enabled Kubernetes cluster from Azure Portal.":::
+1. On the **Review + create** tab, select **Create**.
+   
+   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-create.png" alt-text="Screenshot of deploying new extension to the Arc-enabled Kubernetes cluster from Azure Portal.":::
+
+1. After the deployment completes, you are able to see the AzureML extension in **Extension** page.  If the extension installation succeeds, you can see **Installed** for the **Install status**.
+
+   :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-extension-detail.png" alt-text="Screenshot of deploying new extension to the Arc-enabled Kubernetes cluster from Azure Portal.":::
 
 ### Verify AzureML extension deployment
 
@@ -112,6 +140,13 @@ Ensure you have fulfilled [prerequisites](#prerequisites). For AzureML extension
    ```bash
     kubectl get pods -n azureml
    ```
+
+### Manage AzureML extension
+
+Update, list, show and delete an AzureML extension.
+
+- For AKS cluster without Azure Arc connected, refer to  [Usage of AKS extensions](../aks/cluster-extensions.md#usage-of-cluster-extensions).
+- For Azure Arc-enabled Kubernetes, refer to [Usage of cluster extensions](../azure-arc/kubernetes/extensions.md#usage-of-cluster-extensions).
 
 ## Review AzureML extension configuration settings
 
@@ -234,11 +269,11 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 
 ## Next steps
 
+- [Create and use instance types for efficient compute resource usage](./reference-kubernetes.md#create-and-use-instance-types-for-efficient-compute-resource-usage)
 - [Train models with CLI v2](how-to-train-cli.md)
 - [Train models with Python SDK](how-to-set-up-training-targets.md)
 - [Deploy model with an online endpoint (CLI v2)](./how-to-deploy-managed-online-endpoints.md)
 - [Use batch endpoint for batch scoring (CLI v2)](./how-to-use-batch-endpoint.md)
-- [Create and use instance types for efficient compute resource usage](./reference-kubernetes.md#create-and-use-instance-types-for-efficient-compute-resource-usage)
 
 ### Examples
 
