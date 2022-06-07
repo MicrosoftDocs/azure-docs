@@ -18,3 +18,10 @@ landingContent:
         links:
           - text: What is Azure Center for SAP Solutions?
             url: overview.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Create network infrastructure
+            url: create-network.md
