@@ -34,6 +34,7 @@ The Form Recognizer Layout API extracts text, tables, selection marks, and struc
 | Layout  | ✓  | ✓  | ✓  | ✓  | ✓  |
 
 **Supported paragraph roles**:
+The paragraph roles are best used with unstructured documents. not suructured documents and forms.  They help to understand the structure of the extracted content for better semantic search and analysis.
 
 * title
 * sectionHeading
@@ -41,8 +42,6 @@ The Form Recognizer Layout API extracts text, tables, selection marks, and struc
 * pageHeader
 * pageFooter
 * pageNumber
-
-For a richer semantic analysis, paragraph roles are best used with unstructured documents to better understand the layout of the extracted content.
 
 ## Development options
 
