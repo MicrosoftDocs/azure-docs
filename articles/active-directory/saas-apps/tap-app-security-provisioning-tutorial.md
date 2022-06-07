@@ -45,7 +45,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure TAP App Security to support provisioning with Azure AD
 
-1. Login to [TAP App Security back-end control panel](https://app.tapappsecurity.com/).
+1. Log in to [TAP App Security back-end control panel](https://app.tapappsecurity.com/).
 1. Navigate to **Single Sign On > Active Directory**.
 1. Click on the **Integrate Active Directory app** button. Then enter the domain of your organization and click **Save** button.
 	[![Screenshot on how to add domain.](media/tap-app-security-provisioning-tutorial/add-domain.png)](media/tap-app-security-provisioning-tutorial/add-domain.png#lightbox)
