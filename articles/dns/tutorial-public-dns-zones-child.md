@@ -41,7 +41,7 @@ You'll create a new child DNS zone and delegate it to the parent DNS zone using 
 
       :::image type="content" source="./media/tutorial-public-dns-zones-child/child-zone-button.png" alt-text="Screenshot of D N S zone showing the child zone button.":::
 
-1.	In the **Create DNS zone**, enter or select this information:
+1.	In the **Create DNS zone**, enter or select this information in the **Basics** tab:
 
     | Setting | Value |
     | ------- | ----- |
