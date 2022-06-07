@@ -240,6 +240,7 @@ Once you have completed the movement of the data, it is a good idea to refresh t
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
+Finally, in the case of a one-time partition switch to move data, you could drop the tables created for the partition switch, `FactInternetSales_20000101_20010101` and `FactInternetSales_20000101`. Alternatively, you may want to keep empty tables for regular, automated partition switches.
 
 ### Load new data into partitions that contain data in one step
 
