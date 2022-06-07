@@ -10,14 +10,12 @@ manager: femila
 ---
 # Data locations for Azure Virtual Desktop
 
-Azure Virtual Desktop is available in many Azure regions, which are grouped by geography. When Azure Virtual Desktop resources are deployed, you have to enter the Azure region they'll be created in. The location of the resource determines where its information will be stored and the geography where related information will be stored. Azure Virtual Desktop itself is a non-regional service where there's no dependency on a specific Azure region. Learn more about [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/#overview) and [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
+Azure Virtual Desktop is available in many Azure regions, which are grouped by geography. When Azure Virtual Desktop resources are deployed, you have to specify the Azure region they'll be created in. The location of the resource determines where its information will be stored and the geography where related information will be stored. Azure Virtual Desktop itself is a non-regional service where there's no dependency on a specific Azure region. Learn more about [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/#overview) and [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 Azure Virtual Desktop stores various information for service objects, such as host pool names, application group names, workspace names, and user principal names. Data is categorized into different types, such as customer input, customer data, diagnostic data, and service-generated data. For more information about data category definitions, see [How Microsoft categorizes data for online services](https://www.microsoft.com/trust-center/privacy/customer-data-definitions).
 
 > [!NOTE]
 > Microsoft doesn't control or limit the regions where you or your users can access your user and app-specific data.
-
-This article describes which information the Azure Virtual Desktop service stores.
 
 ## Customer input
 
