@@ -54,7 +54,7 @@ HDI Hive 3.1 version is upgraded to OSS Hive 3.1.2. This version has all fixes a
 | Bug Fixes|Apache JIRA|
 |---|---|
 |TezUtils.createConfFromByteString on Configuration larger than 32 MB throws com.google.protobuf.CodedInputStream exception |[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
-|Provide an option to disable DAG graph (.dot) generation for latency jobs|[TEZ-4113](https://issues.apache.org/jira/browse/TEZ-4143)|
+|TezUtils createByteStringFromConf should use snappy instead of DeflaterOutputStream|[TEZ-4113](https://issues.apache.org/jira/browse/TEZ-4113)|
 
 ## HBase bug fixes
 
