@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 03/31/2022
+ms.date: 06/06/2022
 ms.author: alkohli
 ---
 
@@ -91,7 +91,7 @@ When you place a Data Box order, you can choose the self-managed shipping option
 
     ![An order in Picked up state](media\data-box-portal-customer-managed-shipping\data-box-portal-picked-up-boxed-01.png)
 
-9. After the device is picked up, copy data to the Data Box at your site. After the data copy is complete, you can prepare to ship the Data Box. For more information, see [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
+9. After the device is picked up, copy data to the Data Box at your site. After the data copy is complete, you can prepare to ship the Data Box. For more information, see [Prepare to ship](data-box-deploy-prepare-to-ship.md#prepare-to-ship).
 
    The **Prepare to ship** step needs to complete without any critical errors. Otherwise, you'll need to run this step again after making the necessary fixes. After the **Prepare to ship** step completes successfully, you can view the authorization code for the drop-off on the device local user interface.
 
