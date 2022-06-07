@@ -25,51 +25,70 @@ This article describes how to use the user management enhancements in the Azure 
 
 Enhancements include:
 
-- More visible user properties including object ID, directory sync status, creation type, and identity issuer
-- Search allows substring search and combined search of names, emails, and object IDs
-- Enhanced filtering by user type (member, guest, none), directory sync status, creation type, company name, and domain name
-- Sorting capabilities on properties like name and user principal name
-- Total users count that updates with searches or filters
+- Infinite scroll so you no longer have to select ‘Load more’ to view more users 
+- More user properties can be added as columns including city, country, employee ID, employee type, and external user state
+- More user properties can be filtered on including custom security attributes, on-premises extension attributes, and manager 
+- More ways to customize your view, like using drag-and-drop to reorder columns 
+- Copy and share your customized All Users view with others 
+- An enhanced User Profile experience that gives you quick insights about a user and lets you view and edit more properties 
 
 > [!NOTE]
 > These enhancements are not currently available for Azure AD B2C tenants.
 
-## User properties enhanced
+## All users page
 
-We’ve made some changes to the columns available on the **All users** and **Deleted users** pages. In addition to the existing columns we provide for managing your list of users, we've added a few more columns.
-
-### All users page
-
-The following are the displayed user properties on the **All users** page:
-
-- Name: The display name of the user.
-- User principal name: The user principal name (UPN) of the user.
-- User Type: Member, guest, none.
-- Creation time: The date and time the user was created.
-- Job title: The job title of the user.
-- Department: The department the user works in.
-- Directory synced: Indicates whether the user is synced from an on-premises directory.
-- Identity issuer: The issuers of the identity used to sign into a user account.
-- Object ID: The object ID of the user.
-- Creation type: Indicates how the user account was created.
-- Company name: The company name which the user is associated.
-- Invitation state: The status of the invitation for a guest user.
-- Mail: The email of the user.
+We’ve made some changes to the columns and filters available on the **All users** page. In addition to the existing columns for managing your list of users, we've added the option to add more user properties as columns and filters including employee ID, employee hire date, on premises attributes, and more. 
 
 ![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
 
-### Deleted users page
+### Re-order columns
 
-The **Deleted users** page includes all the columns that are available on the **All users** page, and a few additional columns, namely:
+You can customize your list view by re-ordering the columns on the page in one of two ways. One way is to directly drag and drop the columns on the page. Another way is by opening the column picker and drag and dropping the three vertical dots next to any given column. ### Deleted users page
 
-- Deletion date: The date the user was first deleted from the organization (the user is restorable).
-- Permanent deletion date: The date after which the process of permanently deleting the user from the organization automatically begins.
-- Original user principal name: The original UPN of the user before their object ID was added as a prefix to their deleted UPN.
+![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
 
-> [!NOTE]
-> Deletion dates are displayed in Coordinated Universal Time ‎(UTC)‎.
+### Share views
 
-Some columns are displayed by default. To add other columns, select **Columns** on the page, select the column names you’d like to add, and select **OK** to save your preferences.
+If you want to share your customized list view with another person, you can select the Copy and share current view option in the upper right corner to get a shareable link. 
+
+![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
+
+## User Profile enhancements
+
+The user profile page has been updated to surface three tabs: Overview, Monitoring and Properties.  
+
+### Overview tab 
+
+The overview tab surfaces key properties and insights about a user, such as: 
+
+- Properties like user principal name, object ID, created date/time and user type 
+- Selectable aggregate values such as  how many groups the user is a member of, how many applications they have access to, and how many licenses are assigned to them 
+- Quick alerts and insights about a user such as their current account enabled status, the last time they signed in, whether they can use multifactor authentication, and B2B collaboration options
+
+[New screen shot of user profile overview tab] 
+
+> [!NOTE] 
+> Some insights about a user may not be visible to you unless you have sufficient role permissions.  
+
+### Monitoring tab 
+
+The monitoring tab is the new home for the chart showing user sign-ins over the past 30 days.  
+
+### Properties tab 
+
+The properties tab now surfaces more properties about a user. Properties are broken up into categories including Identity, Job information, Contact information, Parental controls, Settings, and On premises.  
+
+[New screenshot of user profile properties tab] 
+
+You can edit properties by selecting the pencil icon next to any category which will redirect you to a new editing experience. Here, you can search for specific properties or scroll through property categories. You can edit one or many properties, across categories, before selecting save. 
+
+[New screenshot of user profile properties editor tab] 
+
+> [!NOTE] 
+> Some properties will not be visible or editable if they are read-only or if you don’t have the right role permissions to edit them. 
+
+ 
+## More search and filtering
 
 ### Identity issuers
 
