@@ -82,7 +82,7 @@ Defender for Containers provides real-time threat protection for your containeri
 
 In addition, our threat detection goes beyond the Kubernetes management layer. Defender for Containers includes **host-level threat detection** with over 60 Kubernetes-aware analytics, AI, and anomaly detections based on your runtime workload. Our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered.
 
-This solution monitors the growing attack surface of multi-cloud Kubernetes deployments and tracks the [MITRE ATT&CK® matrix for Containers](https://www.microsoft.com/security/blog/2021/04/29/center-for-threat-informed-defense-teams-up-with-microsoft-partners-to-build-the-attck-for-containers-matrix/), a framework that was developed by the [Center for Threat-Informed Defense](https://mitre-engenuity.org/ctid/) in close partnership with Microsoft and others.
+This solution monitors the growing attack surface of multicloud Kubernetes deployments and tracks the [MITRE ATT&CK® matrix for Containers](https://www.microsoft.com/security/blog/2021/04/29/center-for-threat-informed-defense-teams-up-with-microsoft-partners-to-build-the-attck-for-containers-matrix/), a framework that was developed by the [Center for Threat-Informed Defense](https://mitre-engenuity.org/ctid/) in close partnership with Microsoft and others.
 
 The full list of available alerts can be found in the [Reference table of alerts](alerts-reference.md#alerts-k8scluster).
 
@@ -90,10 +90,23 @@ The full list of available alerts can be found in the [Reference table of alerts
 
 ## FAQ - Defender for Containers
 
-- [What are the options to enable the new plan at scale?](#what-are-the-options-to-enable-the-new-plan-at-scale)
-- [Does Microsoft Defender for Containers support AKS clusters with virtual machines scale sets?](#does-microsoft-defender-for-containers-support-aks-clusters-with-virtual-machines-scale-sets)
-- [Does Microsoft Defender for Containers support AKS without scale set (default)?](#does-microsoft-defender-for-containers-support-aks-without-scale-set-default)
-- [Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?](#do-i-need-to-install-the-log-analytics-vm-extension-on-my-aks-nodes-for-security-protection)
+- [Overview of Microsoft Defender for Containers](#overview-of-microsoft-defender-for-containers)
+  - [Microsoft Defender for Containers plan availability](#microsoft-defender-for-containers-plan-availability)
+  - [What are the benefits of Microsoft Defender for Containers?](#what-are-the-benefits-of-microsoft-defender-for-containers)
+  - [Hardening](#hardening)
+    - [Continuous monitoring of your Kubernetes clusters - wherever they're hosted](#continuous-monitoring-of-your-kubernetes-clusters---wherever-theyre-hosted)
+    - [Kubernetes data plane hardening](#kubernetes-data-plane-hardening)
+  - [Vulnerability assessment](#vulnerability-assessment)
+    - [Scanning images in ACR registries](#scanning-images-in-acr-registries)
+    - [View vulnerabilities for running images](#view-vulnerabilities-for-running-images)
+  - [Run-time protection for Kubernetes nodes and clusters](#run-time-protection-for-kubernetes-nodes-and-clusters)
+  - [FAQ - Defender for Containers](#faq---defender-for-containers)
+    - [What are the options to enable the new plan at scale?](#what-are-the-options-to-enable-the-new-plan-at-scale)
+    - [Does Microsoft Defender for Containers support AKS clusters with virtual machines scale sets?](#does-microsoft-defender-for-containers-support-aks-clusters-with-virtual-machines-scale-sets)
+    - [Does Microsoft Defender for Containers support AKS without scale set (default)?](#does-microsoft-defender-for-containers-support-aks-without-scale-set-default)
+    - [Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?](#do-i-need-to-install-the-log-analytics-vm-extension-on-my-aks-nodes-for-security-protection)
+  - [Learn More](#learn-more)
+  - [Next steps](#next-steps)
 
 ### What are the options to enable the new plan at scale?
 
