@@ -186,7 +186,7 @@ After you validate your data files, you can use them to build your Custom Neural
 
    When the model is training, you can select **Cancel training** to cancel your voice model. You're not charged for this canceled training.
 
-   :::image type="content" source="media/custom-voice/cnv-cancel-training.png" alt-text="This is a screenshot of canceling the training for one model.":::
+   :::image type="content" source="media/custom-voice/cnv-cancel-training.png" alt-text="Screenshot that shows how to cancel training for a model.":::
 
    The table displays the status: processing, succeeded, failed, and canceled. The status reflects the process of converting your data to a voice model, as shown in this table:
 
