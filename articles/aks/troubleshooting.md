@@ -272,7 +272,7 @@ spec:
 ```yaml
 initContainers:
 - name: volume-mount
-  image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+  image: mcr.microsoft.com/dotnet/runtime-deps:6.0
   command: ["sh", "-c", "chown -R 100:100 /data"]
   volumeMounts:
   - name: <your data volume>
