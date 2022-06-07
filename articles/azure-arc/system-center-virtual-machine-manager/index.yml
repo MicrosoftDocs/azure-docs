@@ -1,10 +1,10 @@
 ### YamlMime:Landing
-title: Azure Arc-enabled System Center Virtual Machine Manager
-summary: Learn how to manage  Hybrid environment with Azure Arc-enabled System Center Virtual Machine Manager
+title: Azure Arc-enabled System Center Virtual Machine Manager (preview)
+summary: Learn how to manage  Hybrid environment with Azure Arc-enabled System Center Virtual Machine Manager (preview)
 
 metadata:
-  title: Azure Arc-enabled System Center Virtual Machine Manager
-  description: Learn about how to manage Hybrid environment with Azure Arc-enabled System Center Virtual Machine Manager
+  title: Azure Arc-enabled System Center Virtual Machine Manager (preview)
+  description: Learn about how to manage Hybrid environment with Azure Arc-enabled System Center Virtual Machine Manager (preview)
   author: jyothisuri
   ms.service: azure-arc
   ms.topic: landing-page
@@ -12,30 +12,30 @@ metadata:
   ms.author: jsuri
 
 landingContent:
-  - title: About Azure Arc-enabled System Center Virtual Machine Manager
+  - title: About Azure Arc-enabled System Center Virtual Machine Manager (preview)
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Arc-enabled System Center Virtual Machine Manager?
+          - text: What is Azure Arc-enabled System Center Virtual Machine Manager (preview)? 
             url: overview.md
       
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Connect a System Center Virtual Machine Manager management server to Azure Arc 
+          - text: Connect a System Center Virtual Machine Manager management server to Azure Arc (preview)
             url: quickstart-connect-system-center-virtual-machine-manager-to-arc.md
           
   - title: Create Virtual Machine
     linkLists:
       - linkListType: how-to-guide
         links:  
-          - text: Create a virtual machine 
+          - text: Create a virtual machine (preview)
             url: create-virtual-machine.md
 
-  - title: Enable SCVMM inventory in Azure
+  - title: Enable SCVMM inventory in Azure (preview)
     linkLists:
       - linkListType: how-to-guide
         links:  
-          - text: Enable SCVMM inventory in Azure
+          - text: Enable SCVMM inventory in Azure (preview)
             url: enable-scvmm-inventory-resources.md     
