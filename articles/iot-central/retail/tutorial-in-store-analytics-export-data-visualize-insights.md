@@ -166,7 +166,7 @@ Before you create the logic app, you need the device IDs of the two RuuviTag sen
 1. Select **Devices** in the left pane. Then select **RuuviTag**.
 1. Make a note of the **Device IDs**. In the following screenshot, the IDs are **p7g7h8qqax** and **2ngij10dibe**:
 
-:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/device-ids.png" alt-text="Screenshot that shows the device IDs in the device list in an IoT Central application.":::
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/device-ids.png" alt-text="Screenshot that shows the device IDs in the device list in an I O T Central application.":::
 
 The following steps show you how to create the logic app in the Azure portal:
 
