@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 06/06/2022
+ms.date: 06/07/2022
 ms.author: alkohli
 ---
 
@@ -38,6 +38,7 @@ The following table lists the issues that were release noted in previous release
 | No. | Feature | Issue | 
 | --- | --- | --- |
 |**1.**|GPU Extension installation | In the previous releases, there were issues that caused the GPU extension installation to fail. These issues are described in [Troubleshooting GPU extension issues](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md). These are fixed in the 2205 release and both the Windows and Linux installation packages are updated. More information on 2205 specific installation changes is covered in [Install GPU extension on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).  |
+|**2.**|HPN VMs  | In the previous release, the Standard_F12_HPN could only support one network interface and couldn't be used for Multi-Access Edge Computing (MEC) deployments. This issue is fixed in this release. |
 
 ## Known issues in 2205 release
 
@@ -46,8 +47,6 @@ The following table provides a summary of known issues in this release.
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
 |**1.**|Preview features |For this release, the following features are available in preview: <br> - Clustering and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU devices only.  <br> - VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R only. <br> - Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, and Multi-process service (MPS) for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R. |These features will be generally available in later releases. |
-|**2.**|HPN VMs |For this release, the Standard_F12_HPN can only support one network interface and can't be used for Multi-Access Edge Computing (MEC) deployments. | |
-
 
 ## Known issues from previous releases
 
