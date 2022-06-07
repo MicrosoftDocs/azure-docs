@@ -110,22 +110,22 @@ Compute resources in Azure, in other clouds, and on-premises have a guest operat
 ![Azure compute resource collection](media/data-sources/compute-resources-updated.png)
 
 ### Azure Monitor agent 
-[Install the Azure Monitor agent](./azure-monitor-agent-manage.md) for comprehensive monitoring and management of your Windows or Linux virtual machines, scale sets and Arc-enabled servers (resources in other clouds or on-premises with Azure Arc installed, at no additional cost).
+[Install the Azure Monitor agent](agents/azure-monitor-agent-manage.md) for comprehensive monitoring and management of your Windows or Linux virtual machines, scale sets and Arc-enabled servers (resources in other clouds or on-premises with Azure Arc installed, at no additional cost).
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | The Azure Monitor agent allows you to collect logs from data sources that you configure using [data collection rules](./data-collection-rule-azure-monitor-agent.md) or from monitoring solutions that provide additional insights into applications running on the machine. These can be sent to one or more Log Analytics workspaces. | [Data sources and destinations](./azure-monitor-agent-overview.md#data-sources-and-destinations) |
-| Azure Monitor Metrics (preview) | The Azure Monitor agent allows you to collect performance counters and send them to Azure Monitor metrics database  | [Data sources and destinations](./azure-monitor-agent-overview.md#data-sources-and-destinations) |
+| Azure Monitor Logs | The Azure Monitor agent allows you to collect logs from data sources that you configure using [data collection rules](agents/data-collection-rule-azure-monitor-agent.md) or from monitoring solutions that provide additional insights into applications running on the machine. These can be sent to one or more Log Analytics workspaces. | [Data sources and destinations](agents/azure-monitor-agent-overview.md#data-sources-and-destinations) |
+| Azure Monitor Metrics (preview) | The Azure Monitor agent allows you to collect performance counters and send them to Azure Monitor metrics database  | [Data sources and destinations](agents/azure-monitor-agent-overview.md#data-sources-and-destinations) |
 
 ### Azure Diagnostic extension
 Enabling the Azure Diagnostics extension for Azure Virtual machines allows you to collect logs and metrics from the guest operating system of Azure compute resources including Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, virtual machine scale sets, and Service Fabric.
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Storage | Azure diagnostics extension always writes to an Azure Storage account. | [Install and configure Windows Azure diagnostics extension (WAD)](./diagnostics-extension-windows-install.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) |
+| Storage | Azure diagnostics extension always writes to an Azure Storage account. | [Install and configure Windows Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) |
 | Azure Monitor Metrics (preview) | When you configure the Diagnostics Extension to collect performance counters, they are written to the Azure Monitor metrics database. | [Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine](essentials/collect-custom-metrics-guestos-resource-manager-vm.md) |
-| Event Hubs | Configure the Diagnostics Extension to stream the data to other locations using Event Hubs.  | [Streaming Azure Diagnostics data by using Event Hubs](./diagnostics-extension-stream-event-hubs.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) |
-| Application Insights Logs | Collect logs and performance counters from the compute resource supporting your application to be analyzed with other application data. | [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](./diagnostics-extension-to-application-insights.md) |
+| Event Hubs | Configure the Diagnostics Extension to stream the data to other locations using Event Hubs.  | [Streaming Azure Diagnostics data by using Event Hubs](agents/diagnostics-extension-stream-event-hubs.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) |
+| Application Insights Logs | Collect logs and performance counters from the compute resource supporting your application to be analyzed with other application data. | [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](agents/diagnostics-extension-to-application-insights.md) |
 
 
 ### VM insights 
