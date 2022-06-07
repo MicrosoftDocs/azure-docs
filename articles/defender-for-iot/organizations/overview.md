@@ -40,14 +40,6 @@ Agentless monitoring in Defender for IoT provides visibility and security into n
 
 A centralized user experience lets the security team visualize and secure all their IT, IoT, and OT devices regardless of where the devices are located.
 
-### Active discovery monitoring
-
-Defender for IoT's default agentless, passive monitoring provides data about real device interactions, with efficient deployment options and minimal impact on production environments.
-
-However, sometimes your organization may need more options to scan OT devices that are inaccessible by passive monitoring. In such cases use active discovery options to gain device insights from more devices and dive deeper into each device detected. 
-
-For example, configure an active discovery scan, Windows endpoint monitoring, or reverse DNS lookup resolutions. For more information, see [Active and passive OT monitoring in Defender for IoT](best-practices/passive-active-monitoring.md).
-
 
 ## Support for cloud, on-premises, and hybrid networks
 

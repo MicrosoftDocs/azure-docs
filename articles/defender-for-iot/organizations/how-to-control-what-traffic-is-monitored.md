@@ -188,7 +188,6 @@ The sensor console presents the most current IP address associated with the devi
 
 For more information, see:
 
-- [Active and passive OT monitoring in Defender for IoT](best-practices/passive-active-monitoring.md)
 - [Configure active monitoring for OT networks](configure-active-monitoring.md)
 - [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 - [Investigate sensor detections in the device map](how-to-work-with-the-sensor-device-map.md)

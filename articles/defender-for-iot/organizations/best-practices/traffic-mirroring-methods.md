@@ -181,4 +181,3 @@ After you've [understood your own network's OT architecture](understand-network-
 For more information, see:
 
 - [Sample OT network connectivity models](sample-connectivity-models.md)
-- [Active and passive OT monitoring in Defender for IoT](passive-active-monitoring.md)

@@ -36,4 +36,3 @@ After you've [understood your own network's OT architecture](understand-network-
 For more information, see:
 
 - [Traffic mirroring methods for OT monitoring](traffic-mirroring-methods.md)
-- [Active and passive OT monitoring in Defender for IoT](passive-active-monitoring.md)

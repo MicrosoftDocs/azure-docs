@@ -82,5 +82,4 @@ For more information, see:
 
 - [Traffic mirroring methods for OT monitoring](traffic-mirroring-methods.md)
 - [Sample OT network connectivity models](sample-connectivity-models.md)
-- [Active and passive OT monitoring in Defender for IoT](passive-active-monitoring.md)
 

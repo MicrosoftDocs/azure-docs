@@ -35,8 +35,6 @@
         href: best-practices/traffic-mirroring-methods.md
       - name: Sample connectivity models
         href: best-practices/sample-connectivity-models.md
-      - name: Passive vs active monitoring
-        href: best-practices/passive-active-monitoring.md
     - name: OT threat monitoring in enterprise SOCs
       href: concept-sentinel-integration.md
     - name: OT security system architecture

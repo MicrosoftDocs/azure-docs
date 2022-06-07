@@ -9,8 +9,6 @@ ms.topic: how-to
 
 This article describes how to configure active monitoring on OT networks with Microsoft Defender for IoT, including methods for Windows Event monitoring and reverse DNS lookup.
 
-For more information, see [Active and passive OT monitoring in Defender for IoT](best-practices/passive-active-monitoring.md).
-
 ## Plan your active monitoring
 
 > [!IMPORTANT]

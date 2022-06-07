@@ -46,6 +46,5 @@ Use a test device to verify that the reverse DNS lookup settings you'd defined w
 
 Learn more about active monitoring options. For more information, see:
 
-- [Active and passive OT monitoring in Defender for IoT](best-practices/passive-active-monitoring.md)
 - [Configure active monitoring for OT networks](configure-active-monitoring.md)
 - [Configure Windows Endpoint monitoring](configure-windows-endpoint-monitoring.md)

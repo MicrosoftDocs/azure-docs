@@ -15,13 +15,10 @@ WEM can provide more focused and accurate information about your Windows devices
 
 Currently the only protocol supported for Windows Endpoint Monitoring with Defender for IoT is WMI, Microsoft's standard scripting language for managing Windows systems.
 
-For more information, see [Supported protocols for active monitoring](best-practices/passive-active-monitoring.md#supported-protocols-for-active-monitoring).
-
 ## Prerequisites
 
 Make sure that you've completed the prerequisites listed in [Configure active monitoring for OT networks](configure-active-monitoring.md), and have confirmed that active monitoring is right for your network.
 
-For more information, see [Active and passive OT monitoring in Defender for IoT](best-practices/passive-active-monitoring.md).
 
 Before you can configure a WEM scan from your OT sensor console, you'll also need to configure a firewall rule, and WMI domain scanning on your Windows machine.
 
@@ -175,6 +172,5 @@ If you'll be using a non-admin account to run your WEM scans, this procedure is 
 
 Learn more about active monitoring options. For more information, see:
 
-- [Active and passive OT monitoring in Defender for IoT](best-practices/passive-active-monitoring.md)
 - [Configure active monitoring for OT networks](configure-active-monitoring.md)
 - [Configure DNS servers for reverse lookup resolution for OT monitoring](configure-reverse-dns-lookup.md)
