@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 06/07/2022
 ms.author: alkohli
 ---
 
@@ -30,22 +30,22 @@ To help facilitate the deployment of the IoT Edge runtime onto the Ubuntu VM, yo
 
 ## Migrating workloads from IoT Edge on Kubernetes to IoT Edge on an Ubuntu VM
 
-To migrate your existing workloads from IoT Edge on Kubernetes to a newly deployed IoT edge on Ubuntu VM on Azure Stack Edge, connect the IoT Edge device from your IoT Hub to the Ubuntu VM. Use the connection string from the IoT Edge device from IoT Hub. You will use this later to connect.  
+To migrate your existing workloads from IoT Edge on Kubernetes to a newly deployed IoT Edge on Ubuntu VM on Azure Stack Edge, connect the IoT Edge device from your IoT Hub to the Ubuntu VM. Use the connection string from the IoT Edge device from IoT Hub. You'll use this later to connect.  
 
 ## Prerequisites
 
 Before you begin, make sure you have:
 
 - An Azure Stack Edge device that you've activated. For detailed steps, see [Activate Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-activate.md).
-- Access to the latest Ubuntu 20.04 VM image. This could be an image from Azure Marketplace or a custom image that you're bringing.
+- Access to the latest Ubuntu 20.04 VM image, either an image from Azure Marketplace or a custom image that you're bringing.
 
 ## Prepare the custom script
 
 ### Provision using symmetric keys
 
-To connect your device to IoT Hub without DPS, the process in this section will walk you through to prepare a cloud-init script that would be used during the VM creation advance page to deploy the IoT Edge runtime and Nvidia’s container runtime (if applicable).  
+To connect your device to IoT Hub without Azure IoT Device Provisioning Service, the process in this section will walk you through to prepare a cloud-init script that would be used during the VM creation advance page to deploy the IoT Edge runtime and Nvidia’s container runtime (if applicable).  
 
-1. Use existing IoT Hub or create a new Hub. Use these steps to [create the IoT Hub](Need target URL here...).
+1. Use existing IoT Hub or create a new Hub. Use these steps to [create the IoT Hub](Need best target URL here...).
 
 1. Use these steps to [register your Azure Stack Edge device in IoT Hub](https://docs.microsoft.com/azure/iot-edge/how-to-provision-single-device-linux-symmetric?view=iotedge-2020-11&tabs=azure-portal%2Cubuntu%22%20%5Cl%20%22register-your-device#register-your-device). 
 
@@ -133,24 +133,24 @@ write_files:
       ExecStart= 
       ExecStart=/usr/bin/dockerd --host=fd:// --add-runtime=nvidia=/usr/bin/nvidia-container-runtime --log-driver local 
 ```
-### Device Provisioning Service
+### Connect your device to IoT Hub Device Provisioning Service
 
-Use steps in this section to connect your device to DPS/IoT Central. You will prepare a script.sh file to deploy the IoT Edge runtime as you create the VM.
+Use steps in this section to connect your device to Device Provisioning Service/IoT Central. You'll prepare a script.sh file to deploy the IoT Edge runtime as you create the VM.
 
-1. Use the existing IoT Hub and DPS, or create a new IoT Hub. 
+1. Use the existing IoT Hub and Device Provisioning Service, or create a new IoT Hub. 
 
-   - [Create the IoT Hub]() and [create DPS]().
-   - [Link the IoT Hub to the DPS scope](https://docs.microsoft.com/azure/iot-dps/quick-setup-auto-provision).
+   - [Create the IoT Hub]() and [create Device Provisioning Service]().
+   - [Link the IoT Hub to the Device Provisioning Service scope](https://docs.microsoft.com/azure/iot-dps/quick-setup-auto-provision).
 
-1. Go to the DPS resource and create an individual enrollment.  
+1. Go to the Device Provisioning Service resource and create an individual enrollment.  
 
-   1. Go to **DPS** > **Manage enrollments** > **Add individual enrollment**.
+   1. Go to **Device Provisioning Service** > **Manage enrollments** > **Add individual enrollment**.
    1. Make sure that the selection for **Symmetric Key for attestation type and IoT Edge device** is **True**. The default selection is **False**.
-   1. Retrieve the following information from the DPS resource page
+   1. Retrieve the following information from the Device Provisioning Service resource page:
       - **Registration ID**. We recommend that you use the same ID as the **Device ID** for your IoT Hub.
       - **ID Scope** which is available in the [Overview menu](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key?pivots=programming-language-ansi-c#run-the-provisioning-code-for-the-device).
       - **Primary SAS Key** from the Individual Enrollment menu.
-1. Copy and paste values from IoTHub (IDScope) and DPS (RegistrationID, Symetric Key) into the script arguments.
+1. Copy and paste values from IoT Hub (IDScope) and Device Provisioning Service (RegistrationID, Symetric Key) into the script arguments.
 
 **Cloud-init script**
 
@@ -223,22 +223,20 @@ Begin by deploying IoT Edge runtime. Follow these high-level steps to deploy IoT
     1. Create a new managed disk from the Marketplace image.
     1. Export a VHD from the managed disk to an Azure Storage account.
 
-    For detailed steps, follow the instructions in [Use Azure marketplace image to create VM image for your Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md).
+    For detailed steps, follow the instructions in [Use Azure Marketplace image to create VM image for your Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md).
 
 1. Create an Ubuntu VM using the VM image created in the previous step. Depending on whether you're creating a GPU-enabled VM or a non-GPU VM, you would need to follow a different set of steps.
  
-DO NOT create the VM just yet until you read through the next steps which can help auto deploy the IoT Edge runtime. If the advance page step is missed (which allow you to apply a cloud-init script), you will have to manually deploy the IoT Edge runtime by SSH into the VM post VM creation. Refer to Create and provision an IoT Edge device on Linux using symmetric keys - Azure IoT Edge | Microsoft Docs  or Quickstart - Set up IoT Hub Device Provisioning Service in the Microsoft Azure portal | Microsoft Docs for manually install the container engine in the Ubuntu VM.
-
 > [!IMPORTANT]
 > **DO NOT** create the VM until you read through the steps to auto-deploy the IoT Edge runtime. If the advance page step is missed, which allows you to apply a *cloud-init* script, you will have to manually deploy the IoT Edge runtime by SSH into the VM after the VM is created. To manually install the container engine in the Ubuntu VM, use the steps in [Create and provision an IoT Edge device on Linux using symmetric keys](https://docs.microsoft.com/azure/iot-edge/how-to-provision-single-device-linux-symmetric?view=iotedge-2020-11&tabs=azure-portal%2Cubuntu%22%20%5Cl%20%22install-a-container-engine) or [Quickstart - Set up IoT Hub Device Provisioning Service with the Microsoft Azure portal](https://docs.microsoft.com/azure/iot-dps/quick-setup-auto-provision).
 
        
-    |VM type       |Deployment procedure  |
-    |--------------|----------------------|
-    |Non-GPU VM    | [Deploy via Azure portal (preview)](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)                         |
-    |Non-GPU VM    | [Deploy via VM templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md)                                |
-    |GPU VM        | [Deploy via Azure portal](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=portal&preserve-view=true)       |
-    |GPU VM        | [Deploy VM via VM templates](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=templates&preserve-view=true) | 
+    |VM type       |Deployment procedure                                                                      |
+    |--------------|------------------------------------------------------------------------------------------|
+    |Non-GPU VM    | [Deploy via Azure portal (preview)](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)                                                                                                       |
+    |Non-GPU VM    | [Deploy via VM templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md)                                                                                                       |
+    |GPU VM        | [Deploy via Azure portal](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=portal&preserve-view=true)                                                                                       |
+    |GPU VM        | [Deploy VM via VM templates](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=templates&preserve-view=true)                                                                                       | 
 
 For ease of deployment, we recommend that you use the following step to deploy the VM via the Azure portal.
 
@@ -251,7 +249,7 @@ On the **Advanced** page, use the cloud-init configuration script from earlier i
 
 ## Deploying the Nvidia DeepStream module 
 
-This section walks you through deploying Nvidia’s DeepStream module. This section only applies to GPU environments. Please ensure the VM was set up for GPU during VM creation.
+This section walks you through deploying Nvidia’s DeepStream module. This section only applies to GPU environments. Ensure that the VM was set up for GPU during VM creation.
 
 1. From **IoT Hub** > **set modules**.
 
@@ -284,7 +282,7 @@ This section walks you through deploying Nvidia’s DeepStream module. This sect
 
     ![Screenshot of the Azure portal, NVIDIADeepStreamSDK module runtime status with error condition.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-add-iot-edge-module-error.png)
 
-## Update IoT Edge runtime
+## Update the IoT Edge runtime
 
 If a new version of IoT Edge is available and you need to update the VM that you created in the earlier step, follow the instructions in [Update IoT Edge](../iot-edge/how-to-update-iot-edge.md?view=iotedge-2020-11&tabs=linux&preserve-view=true). To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](../iot-edge/how-to-update-iot-edge.md?view=iotedge-2020-11&tabs=linux&preserve-view=true).
     
