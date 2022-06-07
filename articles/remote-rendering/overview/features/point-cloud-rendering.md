@@ -11,7 +11,9 @@ ms.custom: devx-track-csharp
 # Point cloud rendering
 
 > [!NOTE]
-> The ARR point cloud rendering feature is currently in public preview.
+> **The ARR point cloud rendering feature is currently in public preview.**
+>
+> This feature is being actively developed, and may not be complete. It's made available on a “Preview” basis. You can test and use this feature in production environments and scenarios, and [provide feedback](../../resources/support.md).
 
 ARR supports rendering of point clouds as an alternative to triangular meshes. Point cloud rendering enables additional use cases where converting point clouds to triangular meshes as a preprocessing step is either impractical (turnaround times, complexity) or if the conversion process drops important detail.
 
