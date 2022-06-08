@@ -52,7 +52,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |-----|-----|-----|-----|-----|
 |HPe|1.20.0|v1.6.0_2022-05-02|16.0.41.7337|12.3 (Ubuntu 12.3-1)
 
-### Kubler
+### Kublr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
