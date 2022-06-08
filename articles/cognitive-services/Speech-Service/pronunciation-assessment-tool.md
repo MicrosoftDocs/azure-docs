@@ -36,9 +36,9 @@ Follow these steps to assess your pronunciation of the reference text:
 
 1. Choose a supported [language](language-support.md#pronunciation-assessment) that you want to evaluate the pronunciation.
 
-1. Record the sample script directly, or your own script.
+1. Choose from the provisioned text samples, or under the **Enter your own script** label, enter your own reference text.
 
-   When reading the reference text, you should be close to microphone to make sure the recorded voice isn't too low. 
+   When reading the text, you should be close to microphone to make sure the recorded voice isn't too low. 
 
    :::image type="content" source="media/pronunciation-assessment/pa-record.png" alt-text="Screenshot of recording":::
 
@@ -222,4 +222,4 @@ The complete transcription is shown in the `text` attribute. You can see accurac
 ## Next steps
 
 - Use [pronunciation assessment with the Speech SDK](how-to-pronunciation-assessment.md)
-- Learn more about released [use cases](https://techcommunity.microsoft.com/t5/azure-ai-blog/speech-service-update-pronunciation-assessment-is-generally/ba-p/2505501)
+- Read the blog about [use cases](https://techcommunity.microsoft.com/t5/azure-ai-blog/speech-service-update-pronunciation-assessment-is-generally/ba-p/2505501)
