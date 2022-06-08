@@ -1,12 +1,13 @@
 ---
 title: Write stored procedures, triggers, and UDFs in Azure Cosmos DB
 description: Learn how to define stored procedures, triggers, and user-defined functions in Azure Cosmos DB
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/05/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.devlang: javascript
 ms.custom: devx-track-js
 ---
