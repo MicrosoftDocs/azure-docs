@@ -24,12 +24,15 @@ Connection Monitor now supports Azure Monitor Agent extension, thus eliminating 
 With Azure Monitor Agent, we aim to serve a single agent that will consolidate all the features necessary to address all connectivity logs and metrics data collection needs across Azure and On-premises machines as compared to running various monitoring agents. 
 Azure Monitor Agent provides enhanced security and performance capabilities, effective cost savings with efficient data collection & ease of troubleshooting with simpler management of data collection with respect to Log Analytics agent. Learn more about [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md).
 
+![Diagram showing how Connection Monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations.](./media/connection-monitor-2-preview/hero-graphic-new.png)
+
 This article provides detailed instructions and guidance for installing the Azure Monitor Agent and using it for connectivity monitoring with Connection Monitor. It also explains how to enable Azure ARC for on-premises endpoints for faster and smoother troubleshooting. 
 To start using Connection Monitor for monitoring, do the following:
-•	Install monitoring agents
-•	Create a connection monitor
-•	Analyze monitoring data and set alerts
-•	Diagnose issues in your network
+* Install monitoring agents
+* Create a connection monitor
+* Analyze monitoring data and set alerts
+* Diagnose issues in your network
+
 The following sections provide details for the steps involving the installation of Azure Monitor Agent. 
 Rest of the details can be found in the existing document of [Connection Monitor](./connection-monitor-overview.md)
 
