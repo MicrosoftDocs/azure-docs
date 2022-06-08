@@ -13,7 +13,7 @@ To protect machines in hybrid and multicloud environments, Defender for Cloud us
 - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 
 > [!TIP]
-> For details of which Defender for Servers features are relevant for machines running on other cloud environments, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers-).
+> For details of which Defender for Servers features are relevant for machines running on other cloud environments, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers).
 
 ## What are the Microsoft Defender for server plans?
 

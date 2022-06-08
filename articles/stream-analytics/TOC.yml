@@ -15,6 +15,9 @@
       href: stream-analytics-quick-create-portal.md
     - name: Azure CLI
       href: quick-create-azure-cli.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quick-create-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: quick-create-azure-resource-manager.md

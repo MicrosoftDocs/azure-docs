@@ -27,6 +27,10 @@ Before you add a plan or services, we recommend that you have a sense of how man
 
 Users can also work with a trial subscription, which supports monitoring a limited number of devices for 30 days. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
+### What's a device?
+
+[!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
+
 ## Prerequisites
 
 Before you onboard a subscription, verify that:
@@ -40,12 +44,29 @@ To get started with Microsoft Defender for IoT, you must have a Microsoft Azure 
 
 If you do not have a subscription, you can sign up for a free account. For more information, see https://azure.microsoft.com/free/.
 
-If you already have access to an Azure subscription, but it isn't listed when subscribing to Defender for IoT, check your account details and confirm your permissions with the subscription owner. See https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade.
+If you already have access to an Azure subscription, but it isn't listed when subscribing to Defender for IoT, check your account details and confirm your permissions with the subscription owner. For more information, see https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade.
 
 ### User permission requirements
 
 Azure subscription **Owners** and subscription **Contributors** can onboard, update, and remove Defender for IoT. For more information on user permissions, see [Defender for IoT user permissions](getting-started.md#permissions).
 
+### Calculate the number of devices you need to monitor
+
+When onboarding or editing your Defender for IoT plan, you'll need to know how many devices you want to monitor.
+
+**To calculate the number of devices you need to monitor**:
+
+Collect the total number of devices in your network and remove:
+
+- **Duplicate devices that have the same IP or MAC address**. When detected, the duplicates are automatically removed by Defender for IoT.
+
+- **Duplicate devices that have the same ID**. These are the same devices, seen by the same sensor, with different field values. For such devices, check the last time each device had activity and use the latest device only.
+
+- **Inactive devices**, with no traffic for more than 60 days.
+
+- **Broadcast / multicast devices**. These represent unique addresses but not unique devices.
+
+For more information, see [What's a device?](#whats-a-device)
 
 ## Onboard Defender for IoT to a subscription
 
@@ -138,15 +159,18 @@ Remove all sensors that are associated with the subscription prior to removing D
 1.  In the confirmation popup, select **Accept** to confirm you would like to remove Defender for IoT from the subscription.
 
 
-## Apply Defender for IoT to a different subscription
+## Move existing sensors to a different subscription
 
-Business considerations may require that you apply Defender for IoT to a different subscription than the one currently being used. 
+Business considerations may require that you apply your existing IoT sensors to a different subscription than the one you’re currently using. To do this, you will need to onboard a new plan and register the sensors under the new subscription, and then remove them from the old subscription. This process may include some downtime, and historic data is not migrated.
 
 **To switch to a new subscription**: 
 
-1. [Remove your plans from the current subscription](#remove-defender-for-iot-from-a-subscription).
-1. [Onboard Defender for IoT to the new subscription](#onboard-defender-for-iot-to-a-subscription)
-1. For an on-premises management console, [upload a new activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
+1. [Onboard a new plan to the new subscription you want to use](#onboard-defender-for-iot-to-a-subscription). To avoid double billing, onboard the new plan as a [trial](#about-defender-for-iot-trials) until you have removed the sensors from the old subscription. 
+1. Register your sensors under the new subscription. For more information, see [Set up an Enterprise IoT sensor](tutorial-getting-started-eiot-sensor.md#set-up-an-enterprise-iot-sensor).
+1. Upload a new activation file for your sensors, see [Upload new activation files](how-to-manage-individual-sensors.md#upload-new-activation-files).
+1. Remove the sensor identities from the old subscription. For more information, see [Manage on-boarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
+1. If relevant, [remove the plan](#remove-defender-for-iot-from-a-subscription) from the old subscription.
+
 
 ## Next steps
 

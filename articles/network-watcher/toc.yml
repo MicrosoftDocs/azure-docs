@@ -22,6 +22,8 @@
     href: diagnose-vm-network-routing-problem.md
   - name: Monitor communication between VMs
     href: connection-monitor.md
+  - name: Monitor communication with virtual machine scale set  
+    href: connection-monitor-virtual-machine-scale-set.md
   - name: Diagnose a communication problem between networks
     href: diagnose-communication-problem-between-networks.md
   - name: Log VM network traffic
@@ -126,14 +128,20 @@
       items:
       - name: Manage a packet capture
         items:
-        - name: Azure portal
+        - name: Azure portal VM
           href: network-watcher-packet-capture-manage-portal.md
-        - name: Azure PowerShell
+        - name: Azure portal virtual machine scale set
+          href: network-watcher-packet-capture-manage-portal-vmss.md
+        - name: Azure PowerShell VM
           href: network-watcher-packet-capture-manage-powershell.md
+        - name: Azure PowerShell virtual machine scale set
+          href: network-watcher-packet-capture-manage-powershell-vmss.md
         - name: Azure CLI
           href: network-watcher-packet-capture-manage-cli.md
-        - name: REST
+        - name: REST VM
           href: network-watcher-packet-capture-manage-rest.md
+        - name: REST virtual machine scale set
+          href: network-watcher-packet-capture-manage-rest-vmss.md
       - name: Analyze a packet capture
         items:
         - name: Find anomalies

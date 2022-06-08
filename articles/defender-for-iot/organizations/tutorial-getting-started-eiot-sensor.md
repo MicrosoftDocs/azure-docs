@@ -125,7 +125,7 @@ A sensor is needed to discover and continuously monitor Enterprise IoT devices. 
 
 1. Enter a zone name. If no name is entered, the name `default` will be applied.
 
-1. Select **Set up**.
+1. Select **Register**.
 
 1. Save the command provided to you.
 
