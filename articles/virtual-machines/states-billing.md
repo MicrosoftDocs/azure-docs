@@ -41,12 +41,12 @@ The following table provides a description of each instance state and indicates 
 
 | Power state | Description | Billing |  
 |---|---|---|
-| Starting| Virtual Machine is powering up. | Billed |
-| Running | Virtual Machine is fully up. This state is the standard working state. | Billed |
+| Starting| Virtual machine is powering up. | Billed |
+| Running | Virtual machine is fully up. This state is the standard working state. | Billed |
 | Stopping | This state is transitional between running and stopped. | Billed |
-| Stopped | The Virtual Machine is allocated on a host but not running. Also called *PoweredOff* state or *Stopped (Allocated)*. This state can be result of invoking the PowerOff API operation or invoking shutdown from within the guest OS. The *Stopped* state may also be observed briefly during VM creation or while starting a VM from Deallocated state.  | Billed |
+| Stopped | The virtual machine is allocated on a host but not running. Also called *PoweredOff* state or *Stopped (Allocated)*. This state can be result of invoking the `PowerOff` API operation or invoking shutdown from within the guest OS. The *Stopped* state may also be observed briefly during VM creation or while starting a VM from *Deallocated* state.  | Billed |
 | Deallocating | This state is transitional between *Running* and *Deallocated*. | Not billed* |
-| Deallocated | The Virtual Machine has released the lease on the underlying hardware and is powered off. This state is also referred to as *Stopped (Deallocated)*. | Not billed* |
+| Deallocated | The virtual machine has released the lease on the underlying hardware and is powered off. This state is also referred to as *Stopped (Deallocated)*. | Not billed* |
 
 \* Some Azure resources, such as [Disks](https://azure.microsoft.com/pricing/details/managed-disks) and [Networking](https://azure.microsoft.com/pricing/details/bandwidth/) continue to incur charges.
 
