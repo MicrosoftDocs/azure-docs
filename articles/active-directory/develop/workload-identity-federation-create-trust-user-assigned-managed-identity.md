@@ -9,35 +9,25 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/30/2022
+ms.date: 06/08/2022
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: dastruck, udayh, vakarand
+ms.reviewer: shkhalide, udayh, vakarand
 zone_pivot_groups: identity-mi-methods
 #Customer intent: As an application developer, I want to configure a federated credential on an user-assigned managed identity so I can create a trust relationship with an external identity provider and use workload identity federation to access Azure AD protected resources without managing secrets.
 ---
 
 # Configure a user-assigned managed identity to trust an external identity provider (preview)
 
-This article describes how to create a trust relationship between a user-assigned managed identity in Azure Active Directory (Azure AD) and an external identity provider (IdP).  
+This article describes how to manage a federated identity credential.  The federated identity credential creates a trust relationship between a user-assigned managed identity in Azure Active Directory (Azure AD) and an external identity provider (IdP).  
 
 After you configure your user-assigned managed identity to trust an external IdP, configure your external software workload to exchange a token from the external IdP for an access token from Microsoft identity platform. Using that access token, the external workload accesses Azure AD protected resources without needing to manage secrets (in supported scenarios).  To learn more about the token exchange workflow, read about [workload identity federation](workload-identity-federation.md).  
 
-::: zone pivot="identity-mi-methods-azp"
-In this article, you learn how to create, list, and delete federated identity credentials on a user-assigned managed identity by using the Azure portal.
+In this article, you learn how to create, list, and delete federated identity credentials on a user-assigned managed identity.
 
-## Prerequisites
+## Important properties of federated identity credential
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](/azure/active-directory/managed-identities-azure-resources/overview). Be sure to review the [difference between a system-assigned and user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
-- Get the information for your external IdP and software workload, which you need in the following steps.
-- To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
-- [Create a user-assigned manged identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity)
-- Find the object ID of the user-assigned managed identity, which you need in the following steps.
-
-## Configure a federated identity credential on a user-assigned managed identity
-
-When you configure a federated identity credential on a user-assigned managed identity, there are several important pieces of information to provide.
+When you configure a federated identity credential, there are several important pieces of information to provide.
 
 *issuer* and *subject* are the key pieces of information needed to set up the trust relationship. *issuer* is the URL of the external identity provider and must match the `issuer` claim of the external token being exchanged.  *subject* is the identifier of the external software workload and must match the `sub` (`subject`) claim of the external token being exchanged. *subject* has no fixed format, as each IdP uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings. The combination of `issuer` and `subject` must be unique on the app.  When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the *issuer* and *subject* values of the federated identity credential are checked against the `issuer` and `subject` claims provided in the external token. If that validation check passes, Microsoft identity platform issues an access token to the external software workload.
 
@@ -50,6 +40,19 @@ When you configure a federated identity credential on a user-assigned managed id
 
 *description* is the un-validated, user-provided description of the federated identity credential.
 
+::: zone pivot="identity-mi-methods-azp"
+
+## Prerequisites
+
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](/azure/active-directory/managed-identities-azure-resources/overview). Be sure to review the [difference between a system-assigned and user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
+- Get the information for your external IdP and software workload, which you need in the following steps.
+- To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+- [Create a user-assigned manged identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity)
+- Find the object ID of the user-assigned managed identity, which you need in the following steps.
+
+## Configure a federated identity credential on a user-assigned managed identity
+
 ## List federated identity credentials on a user-assigned managed identity
 
 ## Get a federated identity credential on a user-assigned managed identity
@@ -59,7 +62,6 @@ When you configure a federated identity credential on a user-assigned managed id
 ::: zone-end
 
 ::: zone pivot="identity-mi-methods-azcli"
-In this article, you learn how to create, list, and delete federated identity credentials on a user-assigned managed identity by using the Azure CLI.
 
 ## Prerequisites
 
@@ -73,19 +75,6 @@ In this article, you learn how to create, list, and delete federated identity cr
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Configure a federated identity credential on a user-assigned managed identity
-
-When you configure a federated identity credential on a user-assigned managed identity, there are several important pieces of information to provide.
-
-*issuer* and *subject* are the key pieces of information needed to set up the trust relationship. *issuer* is the URL of the external identity provider and must match the `issuer` claim of the external token being exchanged.  *subject* is the identifier of the external software workload and must match the `sub` (`subject`) claim of the external token being exchanged. *subject* has no fixed format, as each IdP uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings. The combination of `issuer` and `subject` must be unique on the app.  When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the *issuer* and *subject* values of the federated identity credential are checked against the `issuer` and `subject` claims provided in the external token. If that validation check passes, Microsoft identity platform issues an access token to the external software workload.
-
-> [!IMPORTANT]
-> If you accidentally add the incorrect external workload information in the *subject* setting the federated identity credential is created successfully without error.  The error does not become apparent until the token exchange fails.
-
-*audiences* lists the audiences that can appear in the external token.  This field is mandatory, and defaults to "api://AzureADTokenExchange". It says what Microsoft identity platform must accept in the `aud` claim in the incoming token.  This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your IdP to serve as the audience of this token.
-
-*name* is the unique identifier for the federated identity credential, which has a character limit of 120 characters and must be URL friendly. It is immutable once created.
-
-*description* is the un-validated, user-provided description of the federated identity credential.
 
 Run the az rest command to create a new federated identity credential on your user-assigned managed identity (specified by the object ID of the app).  Specify the *name*, *issuer*, *subject*, and other parameters.
 
@@ -174,7 +163,6 @@ az rest --method delete --url "/subscriptions/$($subscription)/resourceGroups/$(
 ::: zone-end
 
 ::: zone pivot="identity-mi-methods-powershell"
-In this article, you learn how to create, list, and delete federated identity credentials on a user-assigned managed identity by using Azure PowerShell.
 
 ## Prerequisites
 
@@ -216,18 +204,6 @@ To use Azure PowerShell locally for this article instead of using Cloud Shell:
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
-When you configure a federated identity credential on a user-assigned managed identity, there are several important pieces of information to provide.
-
-*issuer* and *subject* are the key pieces of information needed to set up the trust relationship. *issuer* is the URL of the external identity provider and must match the `issuer` claim of the external token being exchanged.  *subject* is the identifier of the external software workload and must match the `sub` (`subject`) claim of the external token being exchanged. *subject* has no fixed format, as each IdP uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings. The combination of `issuer` and `subject` must be unique on the app.  When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the *issuer* and *subject* values of the federated identity credential are checked against the `issuer` and `subject` claims provided in the external token. If that validation check passes, Microsoft identity platform issues an access token to the external software workload.
-
-> [!IMPORTANT]
-> If you accidentally add the incorrect external workload information in the *subject* setting the federated identity credential is created successfully without error.  The error does not become apparent until the token exchange fails.
-
-*audiences* lists the audiences that can appear in the external token.  This field is mandatory, and defaults to "api://AzureADTokenExchange". It says what Microsoft identity platform must accept in the `aud` claim in the incoming token.  This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your IdP to serve as the audience of this token.
-
-*name* is the unique identifier for the federated identity credential, which has a character limit of 120 characters and must be URL friendly. It is immutable once created.
-
-*description* is the un-validated, user-provided description of the federated identity credential.
 
 ## List federated identity credentials on a user-assigned managed identity
 
@@ -238,7 +214,6 @@ When you configure a federated identity credential on a user-assigned managed id
 ::: zone-end
 
 ::: zone pivot="identity-mi-methods-arm"
-In this article, you learn how to create a federated identity credentials on a user-assigned managed identity by using an Azure Resource Manager (ARM) template.
 
 ## Prerequisites
 
@@ -258,21 +233,7 @@ Resource Manager templates help you deploy new or modified resources defined by 
 - Use a local [JSON editor (such as VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), and then upload and deploy by using PowerShell or the Azure CLI.
 - Use the Visual Studio [Azure Resource Group project](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) to create and deploy a template. 
 
-
 ## Configure a federated identity credential on a user-assigned managed identity
-
-When you configure a federated identity credential on a user-assigned managed identity, there are several important pieces of information to provide.
-
-*issuer* and *subject* are the key pieces of information needed to set up the trust relationship. *issuer* is the URL of the external identity provider and must match the `issuer` claim of the external token being exchanged.  *subject* is the identifier of the external software workload and must match the `sub` (`subject`) claim of the external token being exchanged. *subject* has no fixed format, as each IdP uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings. The combination of `issuer` and `subject` must be unique on the app.  When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the *issuer* and *subject* values of the federated identity credential are checked against the `issuer` and `subject` claims provided in the external token. If that validation check passes, Microsoft identity platform issues an access token to the external software workload.
-
-> [!IMPORTANT]
-> If you accidentally add the incorrect external workload information in the *subject* setting the federated identity credential is created successfully without error.  The error does not become apparent until the token exchange fails.
-
-*audiences* lists the audiences that can appear in the external token.  This field is mandatory, and defaults to "api://AzureADTokenExchange". It says what Microsoft identity platform must accept in the `aud` claim in the incoming token.  This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your IdP to serve as the audience of this token.
-
-*name* is the unique identifier for the federated identity credential, which has a character limit of 120 characters and must be URL friendly. It is immutable once created.
-
-*description* is the un-validated, user-provided description of the federated identity credential.
 
 Federated identity credential and parent user assigned identity can be created or updated be means of template below.  You can [deploy ARM templates](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal) from Azure Portal.
 
@@ -330,7 +291,7 @@ List, Get, and Delete operations are not available with template. Please refer t
             "type": "string", 
             "defaultValue": " api://AzureADTokenExchange", 
             "metadata": { 
-                "description": "Federated Identity Credential audience. Sigle value is only supported." 
+                "description": "Federated Identity Credential audience. Single value is only supported." 
             } 
         } 
     }, 
@@ -368,7 +329,6 @@ List, Get, and Delete operations are not available with template. Please refer t
 ::: zone-end
 
 ::: zone pivot="identity-mi-methods-rest"
-In this article, you learn how to create, list, and delete federated identity credentials on a user-assigned managed identity by using REST.
 
 ## Prerequisites
 
@@ -398,19 +358,6 @@ In this article, you learn how to create, list, and delete federated identity cr
 
 
 ## Configure a federated identity credential on a user-assigned managed identity
-
-When you configure a federated identity credential on a user-assigned managed identity, there are several important pieces of information to provide.
-
-*issuer* and *subject* are the key pieces of information needed to set up the trust relationship. *issuer* is the URL of the external identity provider and must match the `issuer` claim of the external token being exchanged.  *subject* is the identifier of the external software workload and must match the `sub` (`subject`) claim of the external token being exchanged. *subject* has no fixed format, as each IdP uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings. The combination of `issuer` and `subject` must be unique on the app.  When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the *issuer* and *subject* values of the federated identity credential are checked against the `issuer` and `subject` claims provided in the external token. If that validation check passes, Microsoft identity platform issues an access token to the external software workload.
-
-> [!IMPORTANT]
-> If you accidentally add the incorrect external workload information in the *subject* setting the federated identity credential is created successfully without error.  The error does not become apparent until the token exchange fails.
-
-*audiences* lists the audiences that can appear in the external token.  This field is mandatory, and defaults to "api://AzureADTokenExchange". It says what Microsoft identity platform must accept in the `aud` claim in the incoming token.  This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your IdP to serve as the audience of this token.
-
-*name* is the unique identifier for the federated identity credential, which has a character limit of 120 characters and must be URL friendly. It is immutable once created.
-
-*description* is the un-validated, user-provided description of the federated identity credential.
 
 [Create or update a federated identity credential]() on the specified user-assigned managed identity.
 
@@ -511,4 +458,5 @@ https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RES
 ::: zone-end
 
 ## Next steps
+
 - For information about the required format of JWTs created by external identity providers, read about the [assertion format](active-directory-certificate-credentials.md#assertion-format).
