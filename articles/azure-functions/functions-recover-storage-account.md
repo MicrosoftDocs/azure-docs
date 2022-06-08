@@ -91,7 +91,7 @@ For more information about inbound rule configuration, see the "Network Security
 
 For Linux function apps that run from a container, the "Azure Functions runtime is unreachable" error can occur when the container image being referenced is unavailable or fails to start correctly.
 
-To verify if this is the case:
+To confirm that the error is caused for this reason:
 
 1. Navigate to the Kudu Services for the function app.
 
