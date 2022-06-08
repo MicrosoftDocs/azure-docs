@@ -1,6 +1,6 @@
 ---
-title: Deploy Start/Stop VMs v2 (preview)
-description: This article tells how to deploy the Start/Stop VMs v2 (preview) feature for your Azure VMs in your Azure subscription.
+title: Deploy Start/Stop VMs v2
+description: This article tells how to deploy the Start/Stop VMs v2 feature for your Azure VMs in your Azure subscription.
 services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.custon: subject-rbac-steps
 ---
 
-# Deploy Start/Stop VMs v2 (preview)
+# Deploy Start/Stop VMs v2
 
-Perform the steps in this topic in sequence to install the Start/Stop VMs v2 (preview) feature. After completing the setup process, configure the schedules to customize it to your requirements.
+Perform the steps in this topic in sequence to install the Start/Stop VMs v2 feature. After completing the setup process, configure the schedules to customize it to your requirements.
 
 ## Permissions considerations
 Please keep the following in mind before and during deployment:
@@ -21,10 +21,10 @@ Please keep the following in mind before and during deployment:
 
 The deployment is initiated from the Start/Stop VMs v2 GitHub organization [here](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md). While this feature is intended to manage all of your VMs in your subscription across all resource groups from a single deployment within the subscription, you can install another instance of it based on the operations model or requirements of your organization. It also can be configured to centrally manage VMs across multiple subscriptions.
 
-To simplify management and removal, we recommend you deploy Start/Stop VMs v2 (preview) to a dedicated resource group.
+To simplify management and removal, we recommend you deploy Start/Stop VMs v2 to a dedicated resource group.
 
 > [!NOTE]
-> Currently this preview does not support specifying an existing Storage account or Application Insights resource.
+> Currently this does not support specifying an existing Storage account or Application Insights resource.
 
 
 > [!NOTE]
@@ -79,7 +79,7 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 (p
 
 ## Enable multiple subscriptions
 
-After the Start/Stop deployment completes, perform the following steps to enable Start/Stop VMs v2 (preview) to take action across multiple subscriptions.
+After the Start/Stop deployment completes, perform the following steps to enable Start/Stop VMs v2 to take action across multiple subscriptions.
 
 1. Copy the value for the Azure Function App name that you specified during the deployment.
 
@@ -293,7 +293,7 @@ In an environment that includes two or more components on multiple Azure Resourc
 
 ## Auto stop scenario
 
-Start/Stop VMs v2 (preview) can help manage the cost of running Azure Resource Manager and classic VMs in your subscription by evaluating machines that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
+Start/Stop VMs v2 can help manage the cost of running Azure Resource Manager and classic VMs in your subscription by evaluating machines that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
 
 The following metric alert properties in the request body support customization:
 
@@ -392,4 +392,4 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
 
 ## Next steps
 
-To learn how to monitor status of your Azure VMs managed by the Start/Stop VMs v2 (preview) feature and perform other management tasks, see the [Manage Start/Stop VMs](manage.md) article.
+To learn how to monitor status of your Azure VMs managed by the Start/Stop VMs v2 feature and perform other management tasks, see the [Manage Start/Stop VMs](manage.md) article.
