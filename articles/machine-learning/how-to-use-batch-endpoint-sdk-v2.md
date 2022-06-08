@@ -204,7 +204,7 @@ Using the `MLClient` created earlier, we'll get a handle to the endpoint. The en
     # invoke the endpoint for batch scoring job
     job = ml_client.batch_endpoints.invoke(
         endpoint_name=batch_endpoint_name,
-        input_data=input,
+        input=input,
         deployment_name="non-mlflow-deployment",  # name is required as default deployment is not set
         params_override=[{"mini_batch_size": "20"}, {"compute.instance_count": "4"}],
     )
