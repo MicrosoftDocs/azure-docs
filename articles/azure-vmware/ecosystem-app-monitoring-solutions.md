@@ -2,6 +2,7 @@
 title: Application performance monitoring and troubleshooting solutions for Azure VMware Solution
 description: Learn about leading application monitoring and troubleshooting solutions for your Azure VMware Solution private cloud.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 04/11/2022
 ---
 

@@ -4,7 +4,7 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 06/07/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -23,19 +23,19 @@ Shared managed disks offer shared block storage that can be accessed from multip
 
 Shared managed disks don't natively offer a fully managed file system that can be accessed using SMB/NFS. You need to use a cluster manager, like Windows Server Failover Cluster (WSFC), or Pacemaker, that handles cluster node communication and write locking.
 
-## Billing implications
+## Limitations
+
+[!INCLUDE [virtual-machines-disks-shared-limitations](../../includes/virtual-machines-disks-shared-limitations.md)]
+
+## Pricing implications
 
 When using shared disks, your billing could be impacted in two different ways, depending on the type of disk you're sharing.
 
-For shared premium SSDs, there's an extra charge that increases with each VM the SSD is mounted to. See [managed disks pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/) for details.
+For shared premium SSDs, in addition to cost of the disk's tier, there's an extra charge that increases with each VM the SSD is mounted to. See [managed disks pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/) for details.
 
 Ultra disks don't have an extra charge for each VM that they're mounted to. They're billed on the total IOPS and MBps that the disk is configured for. Originally, an ultra disk only has two performance throttles that determine its total IOPS/MBps. However, when configured as a shared ultra disk, two more performance throttles are exposed, for a total of four. These two extra meters allow for increased performance at an extra expense and each meter has a default value, which raises the performance and cost of the disk.
 
 The four performance throttles a shared ultra disk has are diskMBpsReadWrite, diskIOPSReadOnly, diskMBpsReadWrite, and diskMBpsReadOnly. Each performance throttle can be configured to change the performance of your disk. The performance for shared ultra disk is calculated in the following ways: total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and for total provisioned throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly). The total provisioned IOPS and total provisioned throughput are what you would use in the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=managed-disks) to determine the cost of an ultra shared disk.
-
-## Limitations
-
-[!INCLUDE [virtual-machines-disks-shared-limitations](../../includes/virtual-machines-disks-shared-limitations.md)]
 
 ### Operating system requirements
 
@@ -65,8 +65,9 @@ Some popular applications running on WSFC include:
 Azure shared disks are supported on:
 - [SUSE SLE HA 15 SP1 and above](https://www.suse.com/c/azure-shared-disks-excercise-w-sles-for-sap-or-sle-ha/)
 - [Ubuntu 18.04 and above](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
-- [RHEL 8.3 and above](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index?lb_target=production#azure-configuring-shared-block-storage-configuring-rhel-high-availability-on-azure)
-    - It may be possible to use RHEL 7 or an older version of RHEL 8 with shared disks, contact SharedDiskFeedback @microsoft.com
+- Red Hat Enterprise Linux (RHEL) ([support policy](https://access.redhat.com/articles/3444601))
+    - [RHEL 7.9](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content)
+    - [RHEL 8.3 and above](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content)
 - [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/)
 
 Linux clusters can use cluster managers such as [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker builds on [Corosync](http://corosync.github.io/corosync/), enabling cluster communications for applications deployed in highly available environments. Some common clustered filesystems include [ocfs2](https://oss.oracle.com/projects/ocfs2/) and [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). You can use SCSI Persistent Reservation (SCSI PR) and/or STONITH Block Device (SBD) based clustering models for arbitrating access to the disk. When using SCSI PR, you can manipulate reservations and registrations using utilities such as [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) and [sg_persist](https://linux.die.net/man/8/sg_persist).
