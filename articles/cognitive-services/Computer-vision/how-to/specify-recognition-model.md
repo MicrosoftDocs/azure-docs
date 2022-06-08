@@ -6,7 +6,7 @@ services: cognitive-services
 author: longli0
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: face-api
+ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: longl

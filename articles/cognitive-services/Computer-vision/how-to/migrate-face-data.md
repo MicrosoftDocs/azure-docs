@@ -7,7 +7,7 @@ author: nitinme
 manager: nitinme
 
 ms.service: cognitive-services
-ms.subservice: face-api
+ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: nitinme
