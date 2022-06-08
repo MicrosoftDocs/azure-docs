@@ -69,7 +69,7 @@ Generally, yes. Resources like workspace, compute, and datastore work across v1 
 We recommend creating a new workspace for using v2 to keep v1/v2 entities separate and avoid backward/forward compatibility considerations.
 
 > [!IMPORTANT]
-> If you workspace uses a private endpoint, it will automatically have the `v1_legacy_mode` flag enabled, preventing usage of v2 APIs. See [how to configure network isolation with v2](how-to-configure-network-isolation-with-v2.md) for details.
+> If your workspace uses a private endpoint, it will automatically have the `v1_legacy_mode` flag enabled, preventing usage of v2 APIs. See [how to configure network isolation with v2](how-to-configure-network-isolation-with-v2.md) for details.
 
 ## Migrating resources and assets
 
@@ -82,7 +82,7 @@ Workspaces don't need to be migrated with v2. You can use the same workspace, re
 Do consider migrating the code for deploying a workspace to v2. Typically Azure resources are managed via Azure Resource Manager (and Bicep) or similar resource provisioning tools. Alternatively, you can use the CLI (v2) and YAML files.
 
 > [!IMPORTANT]
-> If you workspace uses a private endpoint, it will automatically have the `v1_legacy_mode` flag enabled, preventing usage of v2 APIs. See [how to configure network isolation with v2](how-to-configure-network-isolation-with-v2.md) for details.
+> If your workspace uses a private endpoint, it will automatically have the `v1_legacy_mode` flag enabled, preventing usage of v2 APIs. See [how to configure network isolation with v2](how-to-configure-network-isolation-with-v2.md) for details.
 
 ### Connection (workspace connection in v1)
 
@@ -104,19 +104,15 @@ We recommend migrating the code for creating compute to v2.
 
 ### Endpoint and deployment (endpoint or web service in v1)
 
-TODO: reword and finish
+You can continue using your existing v1 model deployments. For new model deployments, we recommend migrating to v2. In v2, we offer managed endpoints or Kubernetes endpoints. The following table guides our recommendation:
 
-You can continue using your existing v1 model deployments to web services.
-
-For new model deployments, recommend MOE.
-
-For existing ACI web services, you can migrate to managed online endpoints.
-
-For existing AKS web services in v1, we recommend new Kubernetes compute target. Or if you don't want to maintain AKS cluster, consider migrating to managed online endpoint.
-
-Generally, you need to redeploy your model with v2 APIs to migrate endpoints and deployments. The deploy button in the studio for a model uses the v2 APIs for online and batch endpoints.
-
-We recommend using managed endpoints in v2 for online (near real-time) and batch (massively parallel) scenarios.
+|Endpoint type in v2|Migrate from|Notes|
+|-|-|-|
+|Local|ACI|Quick test of model deployment locally; not for production.|
+|Managed online endpoint|ACI, AKS|Enterprise-grade managed model deployment infrastructure with near real-time responses and massive scaling for production.|
+|Managed batch endpoint|ParallelRunStep in a pipeline for batch scoring|Enterprise-grade managed model deployment infrastructure with massively-parallel batch processing for production.|
+|Azure Kubernetes Service (AKS)|ACI, AKS|Manage your own AKS cluster(s) for model deployment, giving flexibility and granular control at the cost of IT overhead.|
+|Azure Arc Kubernetes|N/A|Manage your own Kubernetes cluster(s) in other clouds or on-prem, giving flexibility and granular control at the cost of IT overhead.|
 
 ### Jobs (experiments, runs, pipelines in v1)
 
