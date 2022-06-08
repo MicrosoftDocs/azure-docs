@@ -34,7 +34,7 @@ You can execute the search query using one of these methods.
 
 To execute the search query:
 
-1. Log in to the system from which you will download the historical data. Ensure that this system has access to the QRadar Console and QRadar API on TCP/443 via HTTPS. 
+1. Log in to the system from which you'll download the historical data. Ensure that this system has access to the QRadar Console and QRadar API on TCP/443 via HTTPS. 
 1. To execute the search query that retrieves the historical data, open a command prompt and run one of these commands:
     
     - For the QRadar Console user interface method, run: 
@@ -42,20 +42,19 @@ To execute the search query:
         ```
         curl -s -X POST -u <enter_qradar_console_username> -H 'Version: 12.0' -H 'Accept: application/json' 'https://<enter_qradar_console_ip_or_hostname>/api/ariel/searches?query_expression=<enter_encoded_AQL_from_previous_step>'
         ```
-    - For the API token method, we recommended that you run the query in small time ranges, and to query only the data you need for the export.
-        1. Run:
+    - For the API token method, run:
         
             ```
             curl -s -X POST -H 'SEC: <enter_api_token>' -H 'Version: 12.0' -H 'Accept: application/json' 'https://<enter_qradar_console_ip_or_hostname>/api/ariel/searches?query_expression=<enter_encoded_AQL_from_previous_step> 
             ```
             
-            The search job execution time may vary, depending on the AQL time range and amount of queried data.   
+        The search job execution time may vary, depending on the AQL time range and amount of queried data. We recommended that you run the query in small time ranges, and to query only the data you need for the export.   
 
         The output should return a status, such as `COMPLETED`, `EXECUTE`, `WAIT`, a `progress` value, and a `search_id` value. For example:
 
-        :::image type="content" source="media/migration-qradar-historical-data/export-output.png" alt-text="Screenshot of the output of the search query command." border="false":::
+        :::image type="content" source="media/migration-qradar-historical-data/export-output.png" alt-text="Screenshot of the output of the search query command." lightbox="media/migration-qradar-historical-data/export-output.png" border="false":::
 
-1. Copy the value in the `search_id` field. You will use this ID to download the results after you finish the search. 
+1. Copy the value in the `search_id` field. You'll use this ID to download the results after you finish the search. 
 1. To check the status and the progress of the search, run one of these commands:
     - For the QRadar Console user interface method, run: 
 
@@ -69,7 +68,7 @@ To execute the search query:
         curl -s -X POST -H 'SEC: <enter_api_token>' -H 'Version: 12.0' -H 'Accept: application/json' 'https:// <enter_qradar_console_ip_or_hostname>/api/ariel/searches/<enter_search_id_from_previous_step>' 
         ```
 
-1. Review the output. If the value in the `status` field is `COMPLETED`, continue to the next step. If the status is not `COMPLETED`, check the value in the `progress` field, and after 5-10 minutes, run the command you ran in step 4. 
+1. Review the output. If the value in the `status` field is `COMPLETED`, continue to the next step. If the status isn't `COMPLETED`, check the value in the `progress` field, and after 5-10 minutes, run the command you ran in step 4. 
 1. Review the output and ensure that the status is `COMPELETED`. 
 1. Run one of these commands to download the results or returned data from the JSON file to a folder on the current system:
     - For the QRadar Console user interface method, run:
@@ -84,7 +83,7 @@ To execute the search query:
         curl -s -X GET -H 'SEC: <enter_api_token>' -H 'Version: 12.0' -H 'Accept: application/json' 'https:// <enter_qradar_console_ip_or_hostname>/api/ariel/searches/<enter_search_id_from_previous_step>/results' > <enter_path_to_file>.json 
         ```
 
-1. To retrieve the data that you need to export, [create the AQL query](#create-aql-query) (steps 1-4) and execute the query (steps 1-7) again. Adjust the time range and search queries to get the data you need. 
+1. To retrieve the data that you need to export, [create the AQL query](#create-aql-query) (steps 1-4) and [execute the query](#execute-search-query) (steps 1-7) again. Adjust the time range and search queries to get the data you need. 
 
 ## Next steps
 
