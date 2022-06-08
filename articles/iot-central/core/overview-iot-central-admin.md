@@ -92,7 +92,7 @@ Continuous integration and continuous delivery (CI/CD) refers to the process of 
 
 Just as IoT Central is a part of your larger IoT solution, make IoT Central a part of your CI/CD pipeline.
 
-To learn more, see [Integrate IoT Central into your Azure DevOps CI/CD pipeline](howto-integrate-iotc-with-devops.md).
+To learn more, see [Integrate IoT Central into your Azure DevOps CI/CD pipeline](howto-integrate-with-devops.md).
 
 ## Monitor application health
 

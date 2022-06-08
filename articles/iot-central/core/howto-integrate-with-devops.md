@@ -1,13 +1,13 @@
 ---
 title: Integrate Azure IoT Central with CI/CD | Microsoft Docs
-description: Describes how to integrate IoT Central into your Azure DevOps CI/CD pipeline
+description: Describes how to integrate IoT Central into a pipeline created with Azure Pipelines.
 author: troyhopwood
 ms.author: troyhop
 ms.date: 05/27/2022
 ms.topic: how-to
 ms.service: iot-central
 ---
-# Integrate IoT Central into your Azure DevOps CI/CD pipeline
+# Integrate IoT Central with Azure Pipelines for CI/CD
 
 ## Overview
 
@@ -17,7 +17,7 @@ Continuous integration starts with a commit of your code to a branch in a source
 
 Just as IoT Central is a part of your larger IoT solution, IoT Central is a part of your CI/CD pipeline. Your CI/CD pipeline should deploy your entire IoT solution and all configurations to each environment from development through to production:
 
-![DevOps flow](media/howto-integrate-iotc-with-devops/devops.png)
+:::image type="content" source="media/howto-integrate-with-devops/pipeline.png" alt-text="Diagram that shows the stages of a typical C I C D pipeline." border="false":::
 
 IoT Central is an *application platform as a service* that has different deployment requirements from *platform as a service* components. For IoT Central, you deploy configurations and device templates. These configurations and device templates are managed and integrated into your release pipeline by using APIs.
 
@@ -25,9 +25,9 @@ While it's possible to automate IoT Central app creation, you should create an a
 
 By using the Azure IoT Central REST API, you can integrate IoT Central app configurations into your release pipeline.
 
-This guide walks you through the creation of a new DevOps pipeline that updates an IoT Central application based on configuration files managed in GitHub. This guide has specific instructions for integrating with Azure DevOps, but could be adapted to include IoT Central in any release pipeline built using tools such as Tekton, Jenkins, GitLab, or GitHub Actions.
+This guide walks you through the creation of a new pipeline that updates an IoT Central application based on configuration files managed in GitHub. This guide has specific instructions for integrating with [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops&preserve-view=true), but could be adapted to include IoT Central in any release pipeline built using tools such as Tekton, Jenkins, GitLab, or GitHub Actions.
 
-In this guide, you create a DevOps pipeline that only applies an IoT Central configuration to a single instance of an IoT Central application. You should integrate the steps into a larger DevOps pipeline that deploys your entire solution and promotes it from *development* to *QA* to *pre-production* to *production*, performing all necessary testing along the way.
+In this guide, you create a pipeline that only applies an IoT Central configuration to a single instance of an IoT Central application. You should integrate the steps into a larger pipeline that deploys your entire solution and promotes it from *development* to *QA* to *pre-production* to *production*, performing all necessary testing along the way.
 
 The scripts currently don't transfer the following settings between IoT Central instances: dashboards, views, custom settings in device templates, pricing plan, UX customizations, application image, rules, scheduled jobs, saved jobs, and enrollment groups.
 
@@ -56,14 +56,13 @@ To get started, fork the IoT Central CI/CD GitHub repository and then clone your
 
 1. Clone your fork of the repository to your local machine by opening a console or bash window and running the following command.
 
-```cmd\bash
-
-git clone https://github.com/{your GitHub username}/iot-central-CICD-sample
-```
+    ```cmd\bash
+    git clone https://github.com/{your GitHub username}/iot-central-CICD-sample
+    ```
 
 ## Create a service principal
 
-While Azure DevOps can integrate directly with a key vault, DevOps needs a service principal for some of the dynamic key vault interactions such as fetching secrets for data export destinations.
+While Azure Pipelines can integrate directly with a key vault, your pipeline needs a service principal for some of the dynamic key vault interactions such as fetching secrets for data export destinations.
 
 To create a service principal scoped to your subscription:
 
@@ -89,7 +88,7 @@ To create a service principal scoped to your subscription:
 
 ## Generate IoT Central API tokens
 
-In this guide, your Azure DevOps pipeline uses API tokens to interact with your IoT Central applications. It's also possible to use a service principal.
+In this guide, your pipeline uses API tokens to interact with your IoT Central applications. It's also possible to use a service principal.
 
 > [!NOTE]
 > IoT Central API tokens expire after one year.
@@ -278,9 +277,9 @@ Now that you have a configuration file that represents the settings for your dev
     git push
    ```
 
-## Create an Azure DevOps pipeline
+## Create a pipeline
 
-1. Open your DevOps organization in a web browser by going to `https://dev.azure.com/{your DevOps organization}`
+1. Open your Azure DevOps organization in a web browser by going to `https://dev.azure.com/{your DevOps organization}`
 1. Select **New project** to create a new project.
 1. Give your project a name and optional description and then select **Create**.
 1. On the **Welcome to the project** page, select **Pipelines** and then **Create Pipeline**.
@@ -290,7 +289,7 @@ Now that you have a configuration file that represents the settings for your dev
 1. When prompted to log into GitHub and provide permission for Azure Pipelines to access the repository, select **Approve & install**.
 1. On the **Configure your pipeline** page, select **Starter pipeline** to get started. The *azure-pipelines.yml* is displayed for you to edit.
 
-## Create a variable group in Azure DevOps
+## Create a variable group
 
 An easy way to integrate key vault secrets into a pipeline is through variable groups. Use a variable group to ensure the right secrets are available to your deployment script. To create a variable group:
 
@@ -310,7 +309,7 @@ An easy way to integrate key vault secrets into a pipeline is through variable g
 
 ## Configure your pipeline
 
-Now configure the DevOps pipeline to push configuration changes to your IoT Central application:
+Now configure the pipeline to push configuration changes to your IoT Central application:
 
 1. Select **Pipelines** in the **Pipelines** section of the menu on the left.
 1. Replace the contents of your pipeline YAML with the following YAML. The configuration assumes your production key vault contains:
