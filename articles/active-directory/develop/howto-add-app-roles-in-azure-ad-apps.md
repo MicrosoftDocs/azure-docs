@@ -139,12 +139,6 @@ Learn more about app roles with the following resources.
 
 - Code samples on GitHub
   - [Add authorization using app roles & roles claims to an ASP\.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-1-Roles/README.md)
-  - [Add authorization using groups and group claims to an ASP.NET Core web app](https://aka.ms/groupssample)
-  - [Angular single-page application (SPA) calling a .NET Core web API and using app roles and security groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/5-AccessControl)
-  - [React single-page application (SPA) calling a Node.js web API and using app roles and security groups](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/5-AccessControl)
 - Reference documentation
   - [Azure AD app manifest](./reference-app-manifest.md)
-  - [Azure AD access tokens](access-tokens.md)
-  - [Azure AD ID tokens](id-tokens.md)
-  - [Provide optional claims to your app](active-directory-optional-claims.md)
 - Video: [Implement authorization in your applications with Microsoft identity platform](https://www.youtube.com/watch?v=LRoc-na27l0) (1:01:15)
