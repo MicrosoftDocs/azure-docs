@@ -1199,7 +1199,6 @@
         "source_path_from_root": "articles/hdinsight/r-server/r-server/quickstart-resource-manager-template.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
-    }
  },
  {
         "source_path_from_root": "articles/hdinsight/r-server/r-server/ml-services-tutorial-spark-compute.md",
