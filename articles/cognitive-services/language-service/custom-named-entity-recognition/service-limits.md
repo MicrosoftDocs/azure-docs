@@ -47,9 +47,7 @@ Custom named entity recognition is only available in some Azure regions. To use 
 * West Europe
 * North Europe
 * UK south
-* Southeast Asia
 * Australia East
-* Sweden Central 
 
 
 ## API limits

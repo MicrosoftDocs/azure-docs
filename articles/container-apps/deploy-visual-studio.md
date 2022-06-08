@@ -19,7 +19,7 @@ In this tutorial, you'll deploy a containerized ASP.NET Core 6.0 application to 
 ## Prerequisites
 
 - An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Visual Studio 2022 3 or higher, available as a [free download](https://visualstudio.microsoft.com/vs/preview/).  
+- Visual Studio 2022 version 17.2 or higher, available as a [free download](https://visualstudio.microsoft.com).  
 - [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows) for Windows. Visual Studio uses Docker Desktop for various containerization features.
 
 ## Create the project

@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
 ms.date: 05/10/2022
-ms.author: bidishac
-ms.custom:
+ms.author: aahi
+ms.reviewer: bidishac
 ---
 
 
@@ -25,9 +25,13 @@ For transcripts, the API also enables redaction of audio segments, which contain
 
 By default, this feature will use the latest available AI model on your input. You can also configure your API requests to use a specific [model version](../concepts/model-lifecycle.md).
 
-### Input languages
+### Language support
 
-Currently the conversational PII preview API only supports English language and is available in the following three regions East US, North Europe and UK south.
+Currently the conversational PII preview API only supports English language.
+
+### Region support
+
+Currently the conversational PII preview API supports the following regions: East US, North Europe and UK south.
 
 ## Submitting data
 
@@ -41,9 +45,242 @@ The API will attempt to detect all the [defined entity categories](concepts/conv
 
 For spoken transcripts, the entities detected will be returned on the `redactionSource` parameter value provided. Currently, the supported values for `redactionSource` are `text`, `lexical`, `itn`, and `maskedItn` (which maps to Microsoft Speech to Text API's `display`\\`displayText`, `lexical`, `itn` and `maskedItn` format respectively). Additionally, for the spoken transcript input, this API will also provide audio timing information to empower audio redaction. For using the audioRedaction feature, use the optional `includeAudioRedaction` flag with `true` value. The audio redaction is performed based on the lexical input format.
 
+
 ## Getting PII results
 
 When you get results from PII detection, you can stream the results to an application or save the output to a file on the local system. The API response will include [recognized entities](concepts/conversations-entity-categories.md), including their categories and subcategories, and confidence scores. The text string with the PII entities redacted will also be returned.
+
+## Examples
+
+# [Client libraries (Azure SDK)](#tab/client-libraries)
+
+1. Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
+
+2. From the menu on the left side, select **Keys and Endpoint**. You will need one of the keys and the endpoint to authenticate your API requests.
+
+3. Download and install the client library package for your language of choice:
+    
+    |Language  |Package version  |
+    |---------|---------|
+    |.NET     | [5.2.0-beta.2](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.2)        |
+    |Python     | [5.2.0b2](https://pypi.org/project/azure-ai-textanalytics/5.2.0b2/)         |
+    
+4. After you've installed the client library, use the following samples on GitHub to start calling the API.
+    
+    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample9_RecognizeCustomEntities.md)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/RecognizeCustomEntities.java)
+    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_custom_entities.py)
+    
+5. See the following reference documentation for more information on the client, and return object:
+    
+    * [C#](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)
+    * [Java](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)
+    * [JavaScript](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)
+    * [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true)
+    
+# [REST API](#tab/rest-api)
+
+## Submit transcripts using speech-to-text
+
+Use the following example if you have conversations transcribed using the Speech service's [speech-to-text](../../Speech-Service/speech-to-text.md) feature:
+
+```bash
+curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations?api-version=2022-05-15-preview \
+-H "Content-Type: application/json" \
+-H "Ocp-Apim-Subscription-Key: your-key-here" \
+-d \
+' 
+{
+    "displayName": "Analyze conversations from xxx",
+    "analysisInput": {
+        "conversations": [
+            {
+                "id": "23611680-c4eb-4705-adef-4aa1c17507b5",
+                "language": "en",
+                "modality": "transcript",
+                "conversationItems": [
+                    {
+                        "participantId": "agent_1",
+                        "id": "8074caf7-97e8-4492-ace3-d284821adacd",
+                        "text": "Good morning.",
+                        "lexical": "good morning",
+                        "itn": "good morning",
+                        "maskedItn": "good morning",
+                        "audioTimings": [
+                            {
+                                "word": "good",
+                                "offset": 11700000,
+                                "duration": 2100000
+                            },
+                            {
+                                "word": "morning",
+                                "offset": 13900000,
+                                "duration": 3100000
+                            }
+                        ]
+                    },
+                    {
+                        "participantId": "agent_1",
+                        "id": "0d67d52b-693f-4e34-9881-754a14eec887",
+                        "text": "Can I have your name?",
+                        "lexical": "can i have your name",
+                        "itn": "can i have your name",
+                        "maskedItn": "can i have your name",
+                        "audioTimings": [
+                            {
+                                "word": "can",
+                                "offset": 44200000,
+                                "duration": 2200000
+                            },
+                            {
+                                "word": "i",
+                                "offset": 46500000,
+                                "duration": 800000
+                            },
+                            {
+                                "word": "have",
+                                "offset": 47400000,
+                                "duration": 1500000
+                            },
+                            {
+                                "word": "your",
+                                "offset": 49000000,
+                                "duration": 1500000
+                            },
+                            {
+                                "word": "name",
+                                "offset": 50600000,
+                                "duration": 2100000
+                            }
+                        ]
+                    },
+                    {
+                        "participantId": "customer_1",
+                        "id": "08684a7a-5433-4658-a3f1-c6114fcfed51",
+                        "text": "Sure that is John Doe.",
+                        "lexical": "sure that is john doe",
+                        "itn": "sure that is john doe",
+                        "maskedItn": "sure that is john doe",
+                        "audioTimings": [
+                            {
+                                "word": "sure",
+                                "offset": 5400000,
+                                "duration": 6300000
+                            },
+                            {
+                                "word": "that",
+                                "offset": 13600000,
+                                "duration": 2300000
+                            },
+                            {
+                                "word": "is",
+                                "offset": 16000000,
+                                "duration": 1300000
+                            },
+                            {
+                                "word": "john",
+                                "offset": 17400000,
+                                "duration": 2500000
+                            },
+                            {
+                                "word": "doe",
+                                "offset": 20000000,
+                                "duration": 2700000
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "tasks": [
+        {
+            "taskName": "analyze 1",
+            "kind": "ConversationalPIITask",
+            "parameters": {
+                "modelVersion": "2022-05-15-preview",
+                "redactionSource": "text",
+                "includeAudioRedaction": true,
+                "piiCategories": [
+                    "all"
+                ]
+            }
+        }
+    ]
+}
+`
+```
+
+## Submit text chats
+
+Use the following example if you have conversations that originated in text. For example, conversations through a text-based chat client.
+
+```bash
+curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations?api-version=2022-05-15-preview \
+-H "Content-Type: application/json" \
+-H "Ocp-Apim-Subscription-Key: your-key-here" \
+-d \
+' 
+{
+    "displayName": "Analyze conversations from xxx",
+    "analysisInput": {
+        "conversations": [
+            {
+                "id": "23611680-c4eb-4705-adef-4aa1c17507b5",
+                "language": "en",
+                "modality": "text",
+                "conversationItems": [
+                    {
+                        "participantId": "agent_1",
+                        "id": "8074caf7-97e8-4492-ace3-d284821adacd",
+                        "text": "Good morning."
+                    },
+                    {
+                        "participantId": "agent_1",
+                        "id": "0d67d52b-693f-4e34-9881-754a14eec887",
+                        "text": "Can I have your name?"
+                    },
+                    {
+                        "participantId": "customer_1",
+                        "id": "08684a7a-5433-4658-a3f1-c6114fcfed51",
+                        "text": "Sure that is John Doe."
+                    }
+                ]
+            }
+        ]
+    },
+    "tasks": [
+        {
+            "taskName": "analyze 1",
+            "kind": "ConversationalPIITask",
+            "parameters": {
+                "modelVersion": "2022-05-15-preview"
+            }
+        }
+    ]
+}
+`
+```
+
+
+## Get the result
+
+Get the `operation-location` from the response header. The value will look similar to the following URL:
+
+```rest
+https://your-language-endpoint/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678
+```
+
+To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value you received from the previous `operation-location` response header:
+
+```bash
+curl -X GET    https://your-language-endpoint/language/analyze-conversations/jobs/my-job-id \
+-H "Content-Type: application/json" \
+-H "Ocp-Apim-Subscription-Key: your-key-here"
+```
+
+---
 
 ## Service and data limits
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ms.devlang: csharp, python
 ms.custom: language-service-custom-ner, event-tier1-build-2022
@@ -17,11 +17,11 @@ ms.custom: language-service-custom-ner, event-tier1-build-2022
 # Query deployment to extract entities
 
 After the deployment is added successfully, you can query the deployment to extract entities from your text based on the model you assigned to the deployment.
-You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-swagger) or through the [Client libraries (Azure SDK)](#get-task-results). 
+You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-api) or through the [Client libraries (Azure SDK)](#get-task-results). 
 
 ## Test deployed model
 
-You can use the Language Studio to submit the custom entity recognition task and visualize the results. 
+You can use Language Studio to submit the custom entity recognition task and visualize the results. 
 
 [!INCLUDE [Test model](../includes/language-studio/test-model.md)]
 
@@ -57,10 +57,10 @@ First you will need to get your resource key and endpoint:
     
     |Language  |Package version  |
     |---------|---------|
-    |.NET     | [5.2.0-beta.2](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.2)        |
-    |Java     | [5.2.0-beta.2](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0-beta.2)        |
-    |JavaScript     |  [5.2.0-beta.2](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.2.0-beta.2)       |
-    |Python     | [5.2.0b2](https://pypi.org/project/azure-ai-textanalytics/5.2.0b2/)         |
+    |.NET     | [5.2.0-beta.3](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.3)        |
+    |Java     | [5.2.0-beta.3](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0-beta.3)        |
+    |JavaScript     |  [6.0.0-beta.1](https://www.npmjs.com/package/@azure/ai-text-analytics/v/6.0.0-beta.1)       |
+    |Python     | [5.2.0b4](https://pypi.org/project/azure-ai-textanalytics/5.2.0b4/)         |
     
 4. After you've installed the client library, use the following samples on GitHub to start calling the API.
     
@@ -80,4 +80,7 @@ First you will need to get your resource key and endpoint:
 
 ## Next steps
 
-* [Custom NER overview](../overview.md)
+* [Enrich a Cognitive Search index tutorial](../tutorials/cognitive-search.md)
+
+
+

@@ -15,6 +15,8 @@ ms.author: barclayn
 
 # Link your domain to your Decentralized Identifier (DID) (preview)
 
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
+
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.

@@ -280,7 +280,10 @@ Management Groups.
 
 The guest configuration extension writes log files to the following locations:
 
-Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+Windows
+
+- Azure VM: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+- Arc-enabled server: `C:\ProgramData\GuestConfig\arc_policy_logs\gc_agent.log`
 
 Linux
 

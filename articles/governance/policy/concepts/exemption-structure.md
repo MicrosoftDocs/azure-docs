@@ -151,7 +151,7 @@ assignment.
 
 ## Next steps
 
-- Study the [Microsoft.Authorization policyExemptions resource type](https://docs.microsoft.com/azure/templates/microsoft.authorization/policyexemptions?tabs=json).
+- Study the [Microsoft.Authorization policyExemptions resource type](/azure/templates/microsoft.authorization/policyexemptions?tabs=json).
 - Learn about the [policy definition structure](./definition-structure.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
