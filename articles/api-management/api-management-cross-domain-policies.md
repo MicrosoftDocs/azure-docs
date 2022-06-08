@@ -1,6 +1,6 @@
 ---
 title: Azure API Management cross domain policies | Microsoft Docs
-description: Reference for the cross domain policies available for use in Azure API Management. Provides policy usage, settings, and examples.
+description: Reference for the cross domain policies available for use in Azure API Management, which enables cross domain calls from various clients. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
 
@@ -84,17 +84,18 @@ CORS specifies two kinds of [requests](https://developer.mozilla.org/en-US/docs/
 
 Apply the CORS policy in API Management for the following scenarios:
 
-* Enable the interactive console in the developer portal. Refer to the [developer portal documentation](./developer-portal-faq.md#cors) for details.
+* Enable the interactive test console in the developer portal. Refer to the [developer portal documentation](./developer-portal-faq.md#cors) for details.
 * Enable API Management to reply to preflight requests (using the `OPTIONS` method) or to pass through simple CORS requests when the backends don't provide their own CORS support.
 
 > [!NOTE]
 > If a request matches an operation with an `OPTIONS` method defined in the API, preflight request processing logic associated with CORS policies will not be executed. Therefore, such operations can be used to implement custom preflight processing logic. 
 
-### Preflight limitations
+### Preflight failures with CORS policy
 
-Because preflight requests Preflighted requests containing the following headers such as `Api Version` 
+Preflight requests, consisting of an `OPTIONS` HTTP request, support only CORS-specific headers. When the CORS policy is configured at the product or API scope and a request to API Management contains headers that aren't supported by CORS, a preflight failure may occur and the request will fail. Examples:
 
-* The following 
+* If you configure the CORS policy at the product scope, and your API uses subscription key authentication, the policy won't work when the subscription key is passed in a header. In this case, API Management requires the subscription key to resolve the product. As a workaround, modify requests to include a subscription key as a query parameter.
+* If you configure the CORS policy at the API scope, and your API uses a header-versioning scheme, the policy won't work when the version is passed in a header. In this case, API Management requires the version to resolve the API. You may need to configure an alternative versioning method such as a path or query parameter.   
 
 ### Policy statement
 
@@ -116,7 +117,7 @@ Because preflight requests Preflighted requests containing the following headers
 ```
 
 ### Example
-This example demonstrates how to support [preflighted requests](https://developer.mozilla.org/docs/Web/HTTP/CORS#preflighted_requests), such as those with custom headers or methods other than `GET` and `POST`. To support custom headers and additional HTTP verbs, use the `allowed-methods` and `allowed-headers` sections as shown in the following example.
+This example demonstrates how to support [preflight requests](https://developer.mozilla.org/docs/Web/HTTP/CORS#preflighted_requests), such as those with custom headers or methods other than `GET` and `POST`. To support custom headers and additional HTTP verbs, use the `allowed-methods` and `allowed-headers` sections as shown in the following example.
 
 ```xml
 <cors allow-credentials="true">
@@ -157,9 +158,9 @@ This example demonstrates how to support [preflighted requests](https://develope
 |origin|The value can be either `*` to allow all origins, or a URI that specifies a single origin. The URI must include a scheme, host, and port.|Yes|If the port is omitted in a URI, port 80 is used for HTTP and port 443 is used for HTTPS.|
 |allowed-methods|This element is required if methods other than `GET` or `POST` are allowed. Contains `method` elements that specify the supported HTTP verbs. The value `*` indicates all methods.|No|If this section is not present, `GET` and `POST` are supported.|
 |method|Specifies an HTTP verb.|At least one `method` element is required if the `allowed-methods` section is present.|N/A|
-|allowed-headers|This element contains `header` elements specifying names of the headers that can be included in the request.|No|N/A|
+|allowed-headers|This element contains `header` elements specifying names of the headers that are included in the request.|Yes|N/A|
 |expose-headers|This element contains `header` elements specifying names of the headers that will be accessible by the client.|No|N/A|
-|header|Specifies a header name.|At least one `header` element is required in `allowed-headers` or `expose-headers` if the section is present.|N/A|
+|header|Specifies a header name.|At least one `header` element is required in `allowed-headers` and at least one in `expose-headers` if that section is present.|N/A|
 
 > [!CAUTION]
 > Use the `*` wildcard with care in policy settings. This configuration may be overly permissive and may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
@@ -168,15 +169,20 @@ This example demonstrates how to support [preflighted requests](https://develope
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|The `Access-Control-Allow-Credentials` header in the preflighted response will be set to the value of this attribute and affect the client's ability to submit credentials in cross-domain requests.|No|false|
-|terminate-unmatched-request|This attribute controls the processing of cross-origin requests that don't match the CORS policy settings. When `OPTIONS` request is processed as a preflighted request and doesn't match CORS policy settings: If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response; If the attribute is set to `false`, check inbound for other in-scope CORS policies that are direct children of the inbound element and apply them.  If no CORS policies are found, terminate the request with an empty `200 OK` response. When `GET` or `HEAD` request includes the `Origin` header (and therefore is processed as a cross-origin request) and doesn't match CORS policy settings: If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response; If the attribute is set to `false`, allow the request to proceed normally and don't add CORS headers to the response.|No|true|
-|preflight-result-max-age|The `Access-Control-Max-Age` header in the preflighted response will be set to the value of this attribute and affect the user agent's ability to cache the preflighted response.|No|0|
+|allow-credentials|The `Access-Control-Allow-Credentials` header in the preflight response will be set to the value of this attribute and affect the client's ability to submit credentials in cross-domain requests.|No|false|
+|terminate-unmatched-request|This attribute controls the processing of cross-origin requests that don't match the CORS policy settings. When `OPTIONS` request is processed as a preflight request and doesn't match CORS policy settings: If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response; If the attribute is set to `false`, check inbound for other in-scope CORS policies that are direct children of the inbound element and apply them.  If no CORS policies are found, terminate the request with an empty `200 OK` response. When `GET` or `HEAD` request includes the `Origin` header (and therefore is processed as a cross-origin request) and doesn't match CORS policy settings: If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response; If the attribute is set to `false`, allow the request to proceed normally and don't add CORS headers to the response.|No|true|
+|preflight-result-max-age|The `Access-Control-Max-Age` header in the preflight response will be set to the value of this attribute and affect the user agent's ability to cache the preflight response.|No|0|
 
 ### Usage
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 - **Policy sections:** inbound
 - **Policy scopes:** all scopes
+
+> [!IMPORTANT]
+> * You may configure this policy at more than one scope (for example, at the product scope and the global scope). However, API Management only evaluates the *first* occurrence of the policy in the policy definition, as determined by the [policy evaluation order](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order). 
+* Ensure that the `base` element is configured properly at the operation, API, and product scopes to inherit any expected policies at the parent scopes. Select **Calculate effective policy** in the policy editor in the portal to check your policy evaluation order.
+> * It's recommended to order your policies so that the CORS policy is effectively the first in the `<inbound />` section. 
 
 ## <a name="JSONP"></a> JSONP
 The `jsonp` policy adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients. JSONP is a method used in JavaScript programs to request data from a server in a different domain. JSONP bypasses the limitation enforced by most web browsers where access to web pages must be in the same domain.
