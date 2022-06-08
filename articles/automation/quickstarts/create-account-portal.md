@@ -47,7 +47,7 @@ The following table describes the fields on the **Basics** tab.
 
 The following image shows a standard configuration for a new Automation account.
 
-:::image type="content" source="./media/create-account-portal/create-account-basics.png" alt-text="Required fields for creating the Automation account on Basics tab":::
+:::image type="content" source="./media/create-account-portal/create-account-basics.png" alt-text="Required fields for creating the Automation account on Basics tab.":::
 
 ### Advanced
 
@@ -66,9 +66,15 @@ You can chose to enable managed identities later, and the Automation account is 
 
 The following image shows a standard configuration for a new Automation account.
 
-:::image type="content" source="./media/create-account-portal/create-account-advanced.png" alt-text="Required fields for creating the Automation account on Advanced tab":::
+:::image type="content" source="./media/create-account-portal/create-account-advanced.png" alt-text="Required fields for creating the Automation account on Advanced tab.":::
 
-### Tags tab
+### Networking
+
+On the **Networking** tab, you can connect to your automation account either publicly, (via public IP addresses), or privately, using a private endpoint. The following image shows the connectivity configuration that you can define for a new automation account
+
+:::image type="content" source="./media/create-account-portal/create-account-networking.png" alt-text="Required fields for creating the Automation account on Networking tab.":::
+
+### Tags
 
 On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../../azure-resource-manager/management/tag-resources.md).
 
