@@ -36,7 +36,7 @@ To start using Connection Monitor for monitoring, do the following:
 * Diagnose issues in your network
 
 The following sections provide details for the steps involving the installation of Azure Monitor Agent. 
-Rest of the details can be found in the existing document of [Connection Monitor](./connection-monitor-overview.md)
+Rest of the details can be found in the existing document of [Connection Monitor](./connection-monitor-overview.md).
 
 ## Installing monitoring agents for Azure and Non-Azure resources
 
@@ -44,7 +44,7 @@ Connection Monitor relies on lightweight executable files to run connectivity ch
 
 ### Agents for Azure virtual machines and scale sets
 
-Refer [here](./connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets) to learn how to install agents for Azure virtual machines and scale sets
+Refer [here](./connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets) to learn how to install agents for Azure virtual machines and scale sets.
 
 ### Agents for On-premises machines
 
@@ -53,7 +53,7 @@ To make Connection Monitor recognize your on-premises machines as sources for mo
 	1. To connect hybrid machines, you install the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) on each machine.
 	2. This agent does not deliver any other functionality, and it doesn't replace the Azure Monitor Agent. The Azure Connected Machine agent simply enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers. 
 
-*Install the [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md) to enable the Network Watcher extension.
+* Install the [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md) to enable the Network Watcher extension.
 	1. The agent collects monitoring logs and data from the hybrid sources and delivers it to Azure Monitor
 
 #### Installing Azure Connected Machine agent to enable ARC 
