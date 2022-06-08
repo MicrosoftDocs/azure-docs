@@ -72,7 +72,7 @@ The following image shows a standard configuration for a new Automation account.
 
 On the **Networking** tab, you can connect to your automation account either publicly, (via public IP addresses), or privately, using a private endpoint. The following image shows the connectivity configuration that you can define for a new automation account
 
-:::image type="content" source="./media/create-account-portal/create-account-networking.png" alt-text="Required fields for creating the Automation account on Networking tab.":::
+:::image type="content" souce="./media/create-account-portal/create-account-networking.png" alt-text="Required fields for creating the Automation account on Networking tab.":::
 
 ### Tags
 
