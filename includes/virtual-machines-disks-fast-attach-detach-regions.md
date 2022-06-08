@@ -10,11 +10,15 @@
  ms.custom: include file
 ---
 
-Lower latency is currently available in the following regions:
+Lower latency is currently available in every public region except for:
 
-- West US
-- Australia East
-- Japan East
-- Switzerland North
-- Southeast Asia
-- UK South
+- Canada Central
+- Central US
+- East US
+- East US 2
+- South Central US
+- West US 2
+- Germany North
+- Jio India West
+- North Europe
+- West Europe
