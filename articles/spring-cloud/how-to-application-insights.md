@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 06/08/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 zone_pivot_groups: spring-cloud-tier-selection
 ---
@@ -90,7 +90,7 @@ Enable the Java In-Process Agent by using the following procedure.
 
 1. Select **Save** to save the change.
 
-> [NOTE]
+> [!NOTE]
 > Do not use the same Application Insights instance in different Azure Spring Apps instances, or you'll see mixed data.
 
 ::: zone-end
@@ -466,7 +466,7 @@ Automation in Enterprise tier is pending support. Documentation will be added as
 
 The Java agent will be updated/upgraded regularly with the JDK, which may affect the following scenarios.
 
-> [!Note]
+> [!NOTE]
 > The JDK version will be updated/upgraded quarterly per year.
 
 * Existing applications that use the Java agent before updating/upgrading won't be affected.
@@ -487,7 +487,7 @@ The Java agent will be updated/upgraded when the buildpack is updated.
 
 Azure Spring Apps has enabled a hot-loading mechanism to adjust the settings of agent configuration without restart of applications.
 
-> [!Note]
+> [!NOTE]
 > The hot-loading mechanism has a delay in minutes.
 
 * When the Java agent has been previously enabled, changes to the Application Insights instance and/or SamplingRate do NOT require applications to be restarted.
