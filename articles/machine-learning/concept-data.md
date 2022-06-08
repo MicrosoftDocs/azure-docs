@@ -20,40 +20,20 @@ ms.custom: devx-track-python, data4ml, event-tier1-build-2022
 > * [v1](./v1/concept-data.md)
 > * [v2 (current version)](concept-data.md)
 
-Azure Machine Learning makes it easy to connect to your data in the cloud. It provides an abstraction layer over the underlying storage service, so you can securely access and work with your data without having to write code specific to your storage type. Azure Machine Learning also provides the following data capabilities:
+Azure Machine Learning lets you bring data from a local machine or an existing cloud-based storage. In this article you will learn the main data concepts in Azure Machine Learning, including:
 
-*    Interoperability with Pandas and Spark DataFrames
-*    Versioning and tracking of data lineage
-*    Data labeling (V1 only for now)
+> [!div class="checklist"]
+> - [**URIs**](#uris) - A **U**niform **R**esource **I**dentifier that is a reference to a storage location on your local computer or in the cloud that makes it very easy to access data in your jobs.
+> - [**Data asset**](#data-asset) - Create data assets in your workspace to share with team members, version, and track data lineage.
+> - [**Datastore**](#datastore) - Azure Machine Learning Datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts.
+> - [**MLTable**](#mltable) - a method to abstract the schema definition for tabular data so that it is easier for consumers of the data to materialize the table into a Pandas/Dask/Spark dataframe.
 
-You can bring data to Azure Machine Learning 
-
-* Directly from your local machine
-* From an existing cloud-based storage service in Azure 
-
-## Securely connect to datastores
-
-Azure Machine Learning datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts. 
-
-You can access your data and create datastores with, 
-* [Credential-based data authentication](how-to-access-data.md), like a service principal or shared access signature (SAS) token. These credentials can be accessed by users who have *Reader* access to the workspace. 
-* Identity-based data authentication to connect to storage services with your Azure Active Directory ID. 
-
-The following table summarizes which cloud-based storage services in Azure can be registered as datastores and what authentication type can be used to access them. 
-
-Supported storage service | Credential-based authentication | Identity-based authentication
-|---|:----:|:---:|
-Azure Blob Container| ✓ | ✓|
-Azure File Share| ✓ | |
-Azure Data Lake Gen1 | ✓ | ✓|
-Azure Data Lake Gen2| ✓ | ✓|
-
-## Accessing data using URIs
-A URI represents a storage location on your local computer, an attached Datastore, blob/ADLS storage, or a publicly available http(s) location. In addition to local paths (for example: `./path_to_my_data/`), several different protocols are supported for cloud storage locations:
+## URIs
+A URI (uniform resource identifier) represents a storage location on your local computer, an attached Datastore, blob/ADLS storage, or a publicly available http(s) location. In addition to local paths (for example: `./path_to_my_data/`), several different protocols are supported for cloud storage locations:
 
 - `http(s)` - Private/Public Azure Blob Storage Locations, or publicly available http(s) location
 - `abfs(s)` - Azure Data Lake Storage Gen2 storage location
-- `azureml` - A registered Azure Machine Learning Datastore Location
+- `azureml` - An Azure Machine Learning [Datastore](#datastore) location
 
 Azure Machine Learning distinguishes two types of URIs:
 
@@ -62,11 +42,15 @@ Data type | Description | Examples
 `uri_file` | Refers to a specific **file** location | `https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>`<br> `azureml://datastores/<datastore_name>/paths/<folder>/<file>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>`
 `uri_folder`| Refers to a specific **folder** location | `https://<account_name>.blob.core.windows.net/<container_name>/<folder>`<br> `azureml://datastores/<datastore_name>/paths/<folder>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/`
 
-URIs are mapped to the filesystem on the compute target, hence using URIs is like using files or folders in the command that consumes/produces them.
+URIs are mapped to the filesystem on the compute target, hence using URIs is like using files or folders in the command that consumes/produces them. URIs leverage **identity-based authentication** to connect to storage services with either your Azure Active Directory ID (default) or Managed Identity.
+
+> [!TIP]
+> For data located in an Azure storage account we recommend using the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/#overview). You can browse data and obtain the URI for any file/folder by right-selecting **Copy URL**:
+> :::image type="content" source="media/concept-data/use-storage-explorer.png" alt-text="Storage Explorer Copy URL":::
 
 ### Examples
 
-# [URI File](#tab/uri-file-example)
+# [`uri_file`](#tab/uri-file-example)
 
 Below is an example of a job specification that shows how to access a file from a public blob store. In this example, the job executes the Linux `ls` command.
 
@@ -96,7 +80,7 @@ When the job has completed the user logs will show the standard output of the Li
 
 Notice that the file has been mapped to the filesystem on the compute target and `${{inputs.my_csv_file}}` resolves to that location. 
 
-# [URI Folder](#tab/uri-folder-example)
+# [`uri_folder`](#tab/uri-folder-example)
 
 In the case where you want to map a **folder** to the filesystem of the compute target, you define the `uri_folder` type in your job specification file:
 
@@ -127,14 +111,14 @@ Notice that the folder has been mapped to the filesystem on the compute target (
 
 ---
 
-## Share and version Data assets
+## Data asset
 
 Azure Machine Learning allows you to create and version data assets in a workspace so that other members of your team can easily consume the data asset by using a name/version.
 
-### Example Usage
+### Example usage
 
 
-# [Create Data Asset](#tab/cli-data-create-example)
+# [Create data asset](#tab/cli-data-create-example)
 To create a data asset, firstly define a data specification in a YAML file that provides a name, type and path for the data:
 
 ```yml
@@ -152,7 +136,7 @@ Then in the CLI, create the data asset:
 az ml data create --file data-example.yml --version 1
 ```
 
-# [Consume Data Asset](#tab/cli-data-consume-example)
+# [Consume data asset](#tab/cli-data-consume-example)
 
 To consume a data asset in a job, define your job specification in a YAML file the path to be `azureml:<NAME_OF_DATA_ASSET>:<VERSION>`, for example:
 
@@ -178,14 +162,41 @@ az ml job create --file hello-data-uri-file.yml
 
 ---
 
-## Define schema for tabular data with `mltable`
+## Datastore
+
+An Azure Machine Learning datastore is a *reference* to an *existing* storage account on Azure. The benefits of creating and using a datastore are:
+
+1. A common and easy-to-use API to interact with different storage types (Blob/Files/ADLS).
+1. Easier to discover useful datastores when working as a team.
+1. When using credential-based access (service principal/SAS/key), the connection information is secured so you don't have to code it in your scripts.
+
+When you create a datastore with an existing storage account on Azure, you have the choice between two different authentication methods:
+
+- **Credential-based** - authenticate access to the data using a service principal, shared access signature (SAS) token or account key. These credentials can be accessed by users who have *Reader* access to the workspace. 
+- **Identity-based** - authenticate access to the data using your Azure Active Directory identity or managed identity. 
+
+The table below summarizes which cloud-based storage services in Azure can be created as an Azure Machine Learning datastore and what authentication type can be used to access them. 
+
+Supported storage service | Credential-based authentication | Identity-based authentication
+|---|:----:|:---:|
+Azure Blob Container| ✓ | ✓|
+Azure File Share| ✓ | |
+Azure Data Lake Gen1 | ✓ | ✓|
+Azure Data Lake Gen2| ✓ | ✓|
+
+> [!NOTE]
+> The URI format to refer to a file/folder/mltable on a datastore is:
+> `azureml://datastores/<name>/paths/<path>`
+
+
+## MLTable
 `mltable` is a way to abstract the schema definition for tabular data so that it is easier for consumers of the data to materialize the table into a Pandas/Dask/Spark dataframe.
 
 > [!TIP]
 > The ideal scenarios to use `mltable` are:
-> - the schema of your data is complex and/or changes frequently
-> - you only need a subset of data (for example: a sample of rows or files, specific columns, etc)
-> - AutoML jobs requiring tabular data
+> - The schema of your data is complex and/or changes frequently.
+> - You only need a subset of data (for example: a sample of rows or files, specific columns, etc).
+> - AutoML jobs requiring tabular data.
 >
 > If your scenario does not fit the above then it is likely that URIs are a more suitable type.
 
@@ -217,9 +228,9 @@ Seattle 20/04/2022 12324 123.4 true false true blah blah
 London 20/04/2022 XX358YY 156 true true true blah blah
 ```
 
-Some interesting features of this data are:
+Some important features of this data are:
 
-- the data of interest is only in files that have the following suffix: `_use_this.txt` and other file names that don't match should be ignored.
+- The data of interest is only in files that have the following suffix: `_use_this.txt` and other file names that don't match should be ignored.
 - The date should be represented as a date and not a string.
 - The x, y, z columns are booleans, not strings.
 - The store location is an index that is useful for generating subsets of data.
@@ -278,8 +289,8 @@ However, it will be the responsibility of the *consumer* of the data asset to pa
 
 Passing responsibility to the consumer of the data asset will cause problems when:
 
-- **the schema changes (for example,  a column name changes):** All consumers of the data must update their Python code independently. Other examples can be type changes, columns being added/removed, encoding change, etc.
-- **the data size increases** - If the data gets too large for Pandas to process, then all the consumers of the data need to switch to a more scalable library (PySpark/Dask).
+- **The schema changes (for example,  a column name changes):** All consumers of the data must update their Python code independently. Other examples can be type changes, columns being added/removed, encoding change, etc.
+- **The data size increases** - If the data gets too large for Pandas to process, then all the consumers of the data need to switch to a more scalable library (PySpark/Dask).
 
 Under the above two conditions, `mltable` can help because it enables the creator of the data asset to define the schema in a single file and the consumers can materialize the data into a dataframe easily without needing to write Python code to parse the schema. For the above example, the creator of the data asset defines an MLTable file **in the same directory** as the data:
 
@@ -299,12 +310,12 @@ The MLTable file has the following definition that specifies how the data should
 type: mltable
 
 paths:
-    - search_pattern: ./*_use_this.txt
+    - pattern: ./*_use_this.txt
 
 traits:
     - index_columns: store_location
 
-transforms:
+transformations:
     - read_delimited:
         encoding: ascii
         header: all_files_have_same_headers
@@ -332,4 +343,7 @@ Just like `uri_file` and `uri_folder`, you can create a data asset with `mltable
 
 ## Next steps 
 
-* [How to work with data](how-to-use-data.md)
+- [Create datastores](how-to-datastore.md#create-datastores)
+- [Create data assets](how-to-create-register-data-assets.md#create-data-assets)
+- [Read and write data in a job](how-to-read-write-data-v2.md#read-and-write-data-in-a-job)
+- [Data administration](how-to-administrate-data-authentication.md#data-administration)

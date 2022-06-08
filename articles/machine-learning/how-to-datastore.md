@@ -16,7 +16,7 @@ ms.custom: contperf-fy21q1, devx-track-python, data4ml
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
 ---
 
-# Connect to storage with Azure Machine Learning datastores
+# Create datastores
 
 In this article, learn how to connect to data storage services on Azure with Azure Machine Learning datastores.
 

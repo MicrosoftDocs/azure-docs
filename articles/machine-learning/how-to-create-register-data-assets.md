@@ -16,7 +16,7 @@ ms.date: 05/24/2022
 
 ---
 
-# Create Data Assets
+# Create data assets
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](./v1/how-to-create-register-datasets.md)
@@ -46,7 +46,7 @@ To create and work with Data assets, you need:
 
 * The [Azure Machine Learning CLI/SDK installed](how-to-configure-cli.md) and MLTable package installed (`pip install mltable`).
 
-## Supported Paths
+## Supported paths
 
 When you create a data asset in Azure Machine Learning, you'll need to specify a `path` parameter that points to it's location. Below is a table that shows the different data locations supported in Azure Machine Learning and examples for the `path` parameter:
 
@@ -62,7 +62,7 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 > [!NOTE]
 > When you create a data asset from a local path, it will be automatically uploaded to the default Azure Machine Learning datastore in the cloud.
 
-## Create a Folder Data Asset
+## Create a folder data asset
 
 Below shows you how to create a *folder* as an asset:
 
@@ -119,7 +119,7 @@ ml_client.data.create_or_update(my_data)
 
 ---
 
-## Create a File Data Asset
+## Create a file data asset
 
 Below shows you how to create a *specific file* as a data asset:
 
@@ -171,7 +171,7 @@ ml_client.data.create_or_update(my_data)
 
 ---
    
-## Create an `mltable` Data Asset
+## Create an `mltable` data asset
 
 `mltable` is a way to abstract the schema definition for tabular data to make it easier to share data assets (more details on `mltable` can be found in [Define schema for tabular data with `mltable`](concept-data.md#define-schema-for-tabular-data-with-mltable)). 
 

@@ -1,5 +1,5 @@
 ---
-title: Read and Write Data in Jobs
+title: Read and write data in jobs
 titleSuffix: Azure Machine Learning
 description: Learn how to read and write data in Azure Machine Learning training jobs.
 services: machine-learning
@@ -14,7 +14,8 @@ ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to read in my data to make it available to a remote compute to train my machine learning models.
 ---
 
-# Read and Write Data in Jobs
+# Read and write data in a job
+
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 [!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
@@ -28,7 +29,7 @@ Learn how to read and write data for your jobs with the Azure Machine Learning P
 
 - An Azure Machine Learning workspace
 
-## Supported Paths in Jobs
+## Supported paths
 
 When you provide a data input/output to a Job, you'll need to specify a `path` parameter that points to the data location. Below is a table that shows the different data locations supported in Azure Machine Learning and examples for the `path` parameter:
 
@@ -40,24 +41,24 @@ When you provide a data input/output to a Job, you'll need to specify a `path` p
 |A path on Azure Storage     |   `https://<account_name>.blob.core.windows.net/<container_name>/path` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
 |A path on a Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
 
-## Supported Modes
+## Supported modes
 
 When you run a job with data inputs/outputs, you can specify the *mode* - for example, whether you would like the data to be read-only mounted or downloaded to the compute target. The table below shows the possible modes for different type/mode/input/output combinations:
 
 Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct` | `eval_download` | `eval_mount` 
------- | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------
-`uri_folder` | Input  | ❌  | ✅  |  ✅  | ❌  | ✅  | ❌ | ❌
-`uri_file`   | Input | ❌  | ✅  |  ✅  | ❌  | ✅  | ❌ | ❌
-`mltable`   | Input | ❌  | ✅  |  ✅  | ❌  | ✅  | ✅ | ✅
-`uri_folder` | Output  | ✅  | ❌  |  ❌  | ✅  | ✅  | ❌ | ❌
-`uri_file`   | Output | ✅  | ❌  |  ❌  | ✅  | ✅  | ❌ | ❌
-`mltable`   | Output | ✅  | ❌  |  ❌  | ✅  | ✅  | ❌ | ❌
+------ | ------ | :---: | :---: | :---: | :---: | :---: | :---: | :---:
+`uri_folder` | Input  |   | ✓  |  ✓  |   | ✓  |  | 
+`uri_file`   | Input |   | ✓  |  ✓  |   | ✓  |  | 
+`mltable`   | Input |   | ✓  |  ✓  |   | ✓  | ✓ | ✓
+`uri_folder` | Output  | ✓  |   |    | ✓  | ✓  |  | 
+`uri_file`   | Output | ✓  |   |    | ✓  | ✓  |  | 
+`mltable`   | Output | ✓  |   |    | ✓  | ✓  |  | 
 
 > [!NOTE]
 > `eval_download` and `eval_mount` are unique to `mltable`. Whilst `ro_mount` is the default mode for MLTable, there are scenarios where an MLTable can yield files that are not necessarily co-located with the MLTable file in storage. Alternatively, an `mltable` can subset or shuffle the data that resides in the storage. That view is only visible if the MLTable file is actually evaluated by the engine. These modes will provide that view of the files.
 
 
-## Read data with job inputs
+## Read data in a job
 
 # [CLI](#tab/CLI)
 
@@ -137,7 +138,7 @@ returned_job.services["Studio"].endpoint
 
 ---
 
-### Read V1 Data assets in jobs
+### Read V1 data assets
 This section outlines how you can read V1 `FileDataset` and `TabularDataset` data entities in a V2 job.
 
 #### Read a `FileDataset`
@@ -273,9 +274,9 @@ returned_job.services["Studio"].endpoint
 
 ---
 
-## Write data with job outputs
+## Write data in a job
 
-You can read and write data from your job into your cloud-based storage. The [Modes](#modes) section showed that only job *outputs* can write data.
+In your job you can write data to your cloud-based storage using *outputs*. The [Modes](#modes) section showed that only job *outputs* can write data because the mode can be either `rw_mount` or `upload`.
 
 # [CLI](#tab/CLI)
 
