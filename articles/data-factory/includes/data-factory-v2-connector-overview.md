@@ -2,7 +2,7 @@
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 04/13/2022
+ms.date: 05/27/2022
 ms.author: jianleishen
 ---
 
@@ -70,6 +70,7 @@ ms.author: jianleishen
 | &nbsp;                | [Generic ODBC](../connector-odbc.md)   | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Generic REST](../connector-rest.md)   | ✓/✓                                                          | ✓/✓                                                          |                                                              |                                                              |                                                              |
 | **Services and apps** | [Amazon Marketplace Web Service](../connector-amazon-marketplace-web-service.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
+| &nbsp;                | [Asana (Preview)](../connector-asana.md) |                                                          | ✓/−                                                              |                                                             |                                                              |                                                              |
 | &nbsp;                | [Concur (Preview)](../connector-concur.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [data.world (Preview)](../connector-dataworld.md) |                                                          |✓/−                                                              |                                                            |                                                              |                                                              |
 | &nbsp;                | [Dataverse](../connector-dynamics-crm-office-365.md) | ✓/✓                                                          |✓/✓                                                               | ✓                                                            |                                                              |                                                              |

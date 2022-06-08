@@ -38,9 +38,6 @@ Follow your deployment journey through this series of articles, in which you'll 
 | **5. Deploy SAP security content** | [Deploy SAP security content](deploy-sap-security-content.md)
 | **6. Optional steps** | - [Configure auditing](configure-audit.md)<br>- [Configure SAP data connector to use SNC](configure-snc.md)
 
-> [!NOTE]
-> Extra steps are required to configure communications between SAP data connector and SAP over a Secure Network Communications (SNC) connection. This is covered in [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md) section of the guide.
-
 ## Next steps
 
 Begin the deployment of SAP continuous threat monitoring solution by reviewing the Prerequisites

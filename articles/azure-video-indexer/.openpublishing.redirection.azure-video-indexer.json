@@ -240,5 +240,10 @@
             "redirect_url": "/azure/azure-video-indexer/video-indexer-view-edit",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/azure-video-indexer/create-video-analyzer-for-media-account.md",
+            "redirect_url": "/azure/azure-video-indexer/create-account-portal",
+            "redirect_document_id": false
+        }
     ]
 }

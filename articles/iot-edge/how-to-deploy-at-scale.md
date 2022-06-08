@@ -14,7 +14,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Create an **IoT Edge automatic deployment** in the Azure portal to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](../iot-hub/iot-hub-automatic-device-management.md) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
+Create an **IoT Edge automatic deployment** in the Azure portal to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [device management](../iot-hub/iot-hub-automatic-device-management.md) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
 
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
@@ -137,6 +137,9 @@ Select **Next: Review + Create** to move on to the final step.
 Review your deployment information, then select **Create**.
 
 To monitor your deployment, see [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md).
+
+> [!NOTE]
+> When a new IoT Edge deployment is created, sometimes it can take up to 5 minutes for the IoT Hub to process the new configuration and propagate the new desired properties to the targeted devices.
 
 ## Modify a deployment
 

@@ -17,7 +17,7 @@ This article introduces the workings of the attestation service and the policy e
 
 ## Policy Version 1.2
 
-:::image type="content" source="./media/maa-policy-version-12.png" alt-text="A diagram showing Azure attestation using policy version 1.2":::
+:::image type="content" source="./media/maa-policy-version-1-2-small.png" alt-text="A diagram showing Azure attestation using policy version 1.2" lightbox="./media/maa-policy-version-1-2.png":::
 
 The attestation flow is as follows:
 - The platform sends the attestation evidence in the attest call to the attestation service.
@@ -82,7 +82,7 @@ issuancerules
 // Verify if secureboot is enabled
 c:[type == "events", issuer=="AttestationService"] => add(type = "efiConfigVariables", value = JmesPath(c.value, "Events[?EventTypeString == 'EV_EFI_VARIABLE_DRIVER_CONFIG' && ProcessedData.VariableGuid == '8BE4DF61-93CA-11D2-AA0D-00E098032B8C']"));
 
-c:[type=="efiConfigVariables", issuer="AttestationPolicy"]=> add(type = "secureBootEnabled", value = JsonToClaimValue(JmesPath(c.value, "[?ProcessedData.UnicodeName == 'SecureBoot'] | length(@) == `1` && @[0].ProcessedData.VariableData == 'AQ'")));
+c:[type=="efiConfigVariables", issuer=="AttestationPolicy"]=> add(type = "secureBootEnabled", value = JsonToClaimValue(JmesPath(c.value, "[?ProcessedData.UnicodeName == 'SecureBoot'] | length(@) == `1` && @[0].ProcessedData.VariableData == 'AQ'")));
 ![type=="secureBootEnabled", issuer=="AttestationPolicy"] => add(type="secureBootEnabled", value=false);
 
 //Verfify in Defender ELAM is loaded.

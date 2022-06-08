@@ -2,6 +2,7 @@
 title: Deploy disaster recovery using JetStream DR
 description: Learn how to implement JetStream DR for your Azure VMware Solution private cloud and on-premises VMware workloads. 
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 04/11/2022
 ms.custom: references_regions
 ---
@@ -233,7 +234,7 @@ Once JetStream DR MSA and JetStream VIB are installed on the Azure VMware Soluti
 1. [Select the VMs](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/select-vms-for-protection/) you want to protect and then [start VM protection](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/start-vm-protection/).
 
  
-For remaining configuration steps for JetStream DR, such as creating a failover runbook, invoking failover to the DR site, and invoking failback to the primary site, see the [JetStream Admin Guide documentation](https://www.jetstreamsoft.com/portal/jetstream-article-categories/product-manual/).  
+For remaining configuration steps for JetStream DR, such as creating a failover runbook, invoking failover to the DR site, and invoking failback to the primary site, see the [JetStream Admin Guide documentation](https://docs.delphix.com/docs51/delphix-jet-stream/jet-stream-admin-guide).  
  
 ## Disable JetStream DR on an Azure VMware Solution cluster  
  

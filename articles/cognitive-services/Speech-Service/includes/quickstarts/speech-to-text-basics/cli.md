@@ -12,15 +12,9 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
-
 ## Set up the environment
 
-[!INCLUDE [SPX Setup](../../spx-setup.md)]
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
+[!INCLUDE [SPX Setup](../../spx-setup-quick.md)]
 
 ## Recognize speech from a microphone
 
@@ -34,11 +28,8 @@ Speak into the microphone, and you see transcription of your words into text in 
 
 ```console
 Connection CONNECTED...
-RECOGNIZED: Text=I'm excited to try speech to text.
+RECOGNIZED: I'm excited to try speech to text.
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
 
 Now that you've transcribed speech to text, here are some suggested modifications to try out:
 - To recognize speech from an audio file, use `--file` instead of `--microphone`. For compressed audio files such as MP4, install GStreamer and use `--format`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).

@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/my-apps-deployment-plan.md",
+      "redirect_url": "/azure/active-directory/manage-apps/myapps-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/authentication/cloud-native-certificate-based-authentication-faq.yml",
       "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-faq",
       "redirect_document_id": false
@@ -18,6 +23,11 @@
     {
       "source_path_from_root": "/articles/active-directory/authentication/concept-cloud-native-certificate-based-authentication.md",
       "redirect_url": "/azure/active-directory/authentication/concept-certificate-based-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/bridgelineunbound-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
     },
     {

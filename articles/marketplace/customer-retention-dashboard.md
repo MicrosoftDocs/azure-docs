@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 04/28/2022
+ms.date: 05/05/2022
 ---
 
 # Customer retention dashboard
@@ -79,7 +79,7 @@ Provide your feedback in the dialog box that appears.
 
 Select the **Category** for an offer from the **Category** list, and then select one of your offers from the **Marketplace offer** list.
 
-:::image type="content" source="media/customer-retention-dashboard/category-and-offer.png" lightbox="media/customer-retention-dashboard/category-and-offer.png" alt-text="Shows the Category and Marketplace offer drop-down selection boxes.":::
+:::image type="content" source="media/customer-retention-dashboard/category-selection-example.png" lightbox="media/customer-retention-dashboard/category-selection-example.png" alt-text="Shows the Category and Marketplace offer drop-down selection boxes.":::
 
 > [!NOTE]
 > The analysis is currently available at offer level, not at offer plan level.

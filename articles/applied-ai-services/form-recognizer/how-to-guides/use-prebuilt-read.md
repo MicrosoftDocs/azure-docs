@@ -15,13 +15,13 @@ recommendations: false
 
 # Use the Read Model
 
- In this how-to guide, you'll learn to use Azure Form Recognizer's [read model](../concept-read.md) to extract printed and handwritten text from documents. The read model can detect lines, words, locations, and languages. You can use a programming language of your choice or the REST API. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+ In this how-to guide, you'll learn to use Azure Form Recognizer's [read model](../concept-read.md) to extract typeface and handwritten text from documents. The read model can detect lines, words, locations, and languages. You can use a programming language of your choice or the REST API. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
  The read model is the core of all the other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the read model as a foundation for extracting texts from documents.
 
 >[!NOTE]
 > Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
-The current API version is ```2022-01-30-preview```.
+The current API version is ```2022-06-30```.
 
 ::: zone pivot="programming-language-csharp"
 

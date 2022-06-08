@@ -82,6 +82,18 @@ In version 2.x and later versions of the Functions runtime, configures app behav
 
 In version 2.x and later versions of the Functions runtime, application settings can override [host.json](functions-host-json.md) settings in the current environment. These overrides are expressed as application settings named `AzureFunctionsJobHost__path__to__setting`. For more information, see [Override host.json values](functions-host-json.md#override-hostjson-values).
 
+## AzureFunctionsWebHost__hostid
+
+Sets the host ID for a given function app, which should be a unique ID. This setting overrides the automatically generated host ID value for your app. Use this setting only when you need to prevent host ID collisions between function apps that share the same storage account. 
+
+A host ID must be between 1 and 32 characters, contain only lowercase letters, numbers, and dashes, not start or end with a dash, and not contain consecutive dashes. An easy way to generate an ID is to take a GUID, remove the dashes, and make it lower case, such as by converting the GUID `1835D7B5-5C98-4790-815D-072CC94C6F71` to the value `1835d7b55c984790815d072cc94c6f71`.
+
+|Key|Sample value|
+|---|------------|
+|AzureFunctionsWebHost__hostid|`myuniquefunctionappname123456789`|
+
+For more information, see [Host ID considerations](storage-considerations.md#host-id-considerations).
+
 ## AzureWebJobsDashboard
 
 Optional storage account connection string for storing logs and displaying them in the **Monitor** tab in the portal. This setting is only valid for apps that target version 1.x of the Azure Functions runtime. The storage account must be a general-purpose one that supports blobs, queues, and tables. To learn more, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
@@ -191,7 +203,7 @@ A Blob Storage SAS URL for a second storage account used for key storage. By def
 
 |Key|Sample value|
 |--|--|
-|AzureWebJobsSecretStorageSa| `<BLOB_SAS_URL>` | 
+|AzureWebJobsSecretStorageSas| `<BLOB_SAS_URL>` | 
 
 ## AzureWebJobsSecretStorageType
 
@@ -407,13 +419,15 @@ The above sample value of `1800` sets a timeout of 30 minutes. To learn more, se
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
-Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans running on Windows. For more information, see [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
+Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans. For more information, see [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-Only used when deploying to a Windows or Linux Premium plan or to a Windows Consumption plan. Not supported for Linux Consumption plans or Windows or Linux Dedicated plans. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+This setting is used for Consumption and Premium plan apps on both Windows and Linux. It's not used for Dedicated plan apps, which aren't dynamically scaled by Functions. 
+
+Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 ## WEBSITE\_CONTENTOVERVNET
 

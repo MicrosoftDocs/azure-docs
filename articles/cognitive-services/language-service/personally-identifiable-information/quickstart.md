@@ -19,6 +19,9 @@ zone_pivot_groups: programming-languages-text-analytics
 
 Use this article to get started detecting and redacting sensitive information in text, using the NER and PII client library and REST API. Follow these steps to try out examples code for mining text:
 
+> [!NOTE]
+> This quickstart only covers PII detection in documents. To learn more about detecting PII in conversations, see [How to detect and redact PII in conversations](how-to-call-for-conversations.md).
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](includes/quickstarts/csharp-sdk.md)]

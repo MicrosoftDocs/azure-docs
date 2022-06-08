@@ -26,7 +26,7 @@ This article describes version 0.2.x of the network normalization schema. [Versi
 
 ## Parsers
 
-For more information about ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md) and [Use ASIM parsers](normalization-about-parsers.md).
+For more information about ASIM parsers, see the [ASIM parsers overview](normalization-parsers-overview.md).
 
 ### Unifying parsers
 
@@ -38,21 +38,7 @@ For more information, see [built-in ASIM parsers and workspace-deployed parsers]
 
 ### Out-of-the-box, source-specific parsers
 
-Microsoft Sentinel provides the following out-of-the-box, product-specific Network Session parsers:
-
-| **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
-| --- | --------------------------- | ------------------------------ | 
-| **AWS VPC logs** collected using the AWS S3 connector |`_ASim_NetworkSession_AWSVPC` (regular)<br> `_Im_NetworkSession_AWSVPC` (filtering)  | `ASimNetworkSessionAWSVPC` (regular)<br> `vimNetworkSessionAWSVPC` (filtering)  |
-| **Azure Firewall logs** |`_ASim_NetworkSession_AzureFirewall` (regular)<br> `_Im_NetworkSession_AzureFirewall` (filtering)  | `ASimNetworkSessionAzureFirewall` (regular)<br> `vimNetworkSessionAzureFirewall` (filtering)  |
-| **Azure Monitor VMConnection** collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md) |`_ASim_NetworkSession_VMConnection` (regular)<br> `_Im_NetworkSession_VMConnection` (filtering)  | `ASimNetworkSessionVMConnection` (regular)<br> `vimNetworkSessionVMConnection` (filtering)  |
-| **Azure Network Security Groups (NSG) logs** collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md) |`_ASim_NetworkSession_AzureNSG` (regular)<br> `_Im_NetworkSession_AzureNSG` (filtering)  | `ASimNetworkSessionAzureNSG` (regular)<br> `vimNetworkSessionAzureNSG` (filtering)  |
-| **Microsoft 365 Defender for Endpoint** | `_ASim_NetworkSession_Microsoft365Defender` (regular)<br><br>`_Im_NetworkSession_Microsoft365Defender` (filtering) | `ASimNetworkSessionMicrosoft365Defender` (regular)<br><br> `vimNetworkSessionMicrosoft365Defender` (filtering) |
-| **Microsoft Defender for IoT - Endpoint** |`_ASim_NetworkSession_MD4IoT` (regular)<br><br>`_Im_NetworkSession_MD4IoT` (filtering) | `ASimNetworkSessionMD4IoT` (regular)<br><br> `vimNetworkSessionMD4IoT` (filtering) |
-| **Palo Alto PanOS traffic logs** collected using CEF |`_ASim_NetworkSession_PaloAltoCEF` (regular)<br> `_Im_NetworkSession_PaloAltoCEF` (filtering)  | `ASimNetworkSessionPaloAltoCEF` (regular)<br> `vimNetworkSessionPaloAltoCEF` (filtering)  |
-| **Sysmon for Linux**  (event 3)<br> Collected using the Log Analytics Agent<br> or the Azure Monitor Agent |`_ASim_NetworkSession_LinuxSysmon` (regular)<br><br>`_Im_NetworkSession_LinuxSysmon` (filtering) | `ASimNetworkSessionLinuxSysmon` (regular)<br><br> `vimNetworkSessionLinuxSysmon` (filtering) |
-| **Windows Firewall logs**<br>Collected as Windows events using the Log Analytics Agent (Event table) or Azure Monitor Agent (WindowsEvent table). Supports Windows events 5150 to 5159. |`_ASim_NetworkSession_`<br>`MicrosoftWindowsEventFirewall` (regular)<br><br>`_Im_NetworkSession_`<br>`MicrosoftWindowsEventFirewall` (filtering) | `ASimNetworkSession`<br>`MicrosoftWindowsEventFirewall` (regular)<br><br> `vimNetworkSession`<br>`MicrosoftWindowsEventFirewall` (filtering) |
-| **Zscaler ZIA firewall logs** |`_ASim_NetworkSessionZscalerZIA` (regular)<br> `_Im_NetworkSessionZscalerZIA` (filtering)  | `AsimNetworkSessionZscalerZIA` (regular)<br> `vimNetowrkSessionSzcalerZIA` (filtering)  |
-
+For the list of the Network Session parsers Microsoft Sentinel provides out-of-the-box refer to the [ASIM parsers list](normalization-parsers-list.md#network-session-parsers) 
 
 ### Add your own normalized parsers
 
@@ -65,7 +51,7 @@ Refer to the article [Managing ASIM parsers](normalization-manage-parsers.md) to
 
 ### Filtering parser parameters
 
-The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimized-parsers). While these parsers are optional, they can improve your query performance.
+The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parsers are optional, they can improve your query performance.
 
 The following filtering parameters are available:
 
@@ -75,8 +61,9 @@ The following filtering parameters are available:
 | **endtime** | datetime | Filter only network sessions that *started* running at or before this time. |
 | **srcipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [source IP address field](#srcipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.|
 | **dstipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.|
+| **ipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr) or [source IP address field](#srcipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.<br><br>The field [ASimMatchingIpAddr](normalization-common-fields.md#asimmatchingipaddr) is set with the one of the values `SrcIpAddr`, `DstIpAddr`, or `Both` to reflect the matching fields or fields. |
 | **dstportnum** | Int | Filter only network sessions with the specified destination port number. |
-| **hostname_has_any** | dynamic | Filter only network sessions for which the [destination hostname field](#dsthostname) has any of the values listed. |
+| **hostname_has_any** | dynamic | Filter only network sessions for which the [destination hostname field](#dsthostname) has any of the values listed. The length of the list is limited to 10,000 items.<br><br> The field [ASimMatchingHostname](normalization-common-fields.md#asimmatchinghostname) is set with the one of the values `SrcHostname`, `DstHostname`, or `Both` to reflect the matching fields or fields. |
 | **dvcaction** | dynamic | Filter only network sessions for which the [Device Action field](#dvcaction) is any of the values listed. | 
 | **eventresult** | String | Filter only network sessions with a specific **EventResult** value. |
 
@@ -84,7 +71,7 @@ The following filtering parameters are available:
 For example, to filter only network sessions for a specified list of domain names, use:
 
 ```kql
-let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
+let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co"]);
 _Im_NetworkSession (hostname_has_any = torProxies)
 ```
 
@@ -121,7 +108,7 @@ The following list mentions fields that have specific guidelines for Network Ses
 | <a name="eventsubtype"></a>**EventSubType** | Optional | String | Additional description of the event type, if applicable. <br> For Network Session records, supported values include:<br>- `Start`<br>- `End` |
 | **EventResult** | Mandatory | Enumerated | If the source device does not provide an event result, **EventResult** should be based on the value of [DvcAction](#dvcaction).  If [DvcAction](#dvcaction) is `Deny`, `Drop`, `Drop ICMP`, `Reset`, `Reset Source`, or `Reset Destination`<br>, **EventResult** should be `Failure`. Otherwise, **EventResult** should be `Success`. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `NetworkSession`. |
-| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.2`.        |
+| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.3`.        |
 | <a name="dvcaction"></a>**DvcAction** | Optional | Enumerated | The action taken on the network session. Supported values are:<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. The original value should be stored in the [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction) field.<br><br>Example: `drop` |
 | **EventSeverity** | Optional | Enumerated | If the source device does not provide an event severity, **EventSeverity** should be based on the value of [DvcAction](#dvcaction).  If [DvcAction](#dvcaction) is `Deny`, `Drop`, `Drop ICMP`, `Reset`, `Reset Source`, or `Reset Destination`<br>, **EventSeverity** should be `Low`. Otherwise, **EventSeverity** should be `Informational`. |
 | **DvcInterface** | | | The DvcInterface field should alias either the [DvcInboundInterface](#dvcinboundinterface) or the [DvcOutboundInterface](#dvcoutboundinterface) fields. |
@@ -136,7 +123,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | --------- | ---------- |
 | Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
 | Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
-| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)|
+| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)<br>- [DvcDescription](normalization-common-fields.md#dvcdescription)|
 
 
 ### Network session fields
@@ -249,7 +236,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name="srcusername"></a>**SrcUsername** | Optional | String | The source username, including domain information when available. For the supported format for different ID types, refer to [the User entity](normalization-about-schemas.md#the-user-entity). Use the simple form only if domain information isn't available.<br><br>Store the Username type in the [SrcUsernameType](#srcusernametype) field. If other username formats are available, store them in the fields `SrcUsername<UsernameType>`.<br><br>Example: `AlbertE` |
 | <a name="srcusernametype"></a>**SrcUsernameType** | Optional | UsernameType | Specifies the type of the username stored in the [SrcUsername](#srcusername) field. For a list of allowed values and further information refer to [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Example: `Windows` |
 | **SrcUserType** | Optional | UserType | The type of source user. For a list of allowed values and further information refer to [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [SrcOriginalUserType](#srcoriginalusertype) field. |
-| <a name="srcoriginalusertype"></a>**SrcOriginalUserType** | Optional | String | The original destination user type, if provided by the reporting decice. |
+| <a name="srcoriginalusertype"></a>**SrcOriginalUserType** | Optional | String | The original destination user type, if provided by the reporting device. |
 
 
 ### Source application fields
@@ -331,6 +318,11 @@ These are the changes in version 0.2.2 of the schema:
 - Changed the type of the following fields from Integer to Long: `SrcBytes`, `DstBytes`, `NetworkBytes`, `SrcPackets`, `DstPackets`, and `NetworkPackets`.
 - Added the fields `NetworkProtocolVersion`, `SrcSubscriptionId`, and `DstSubscriptionId`.
 - Deprecated `DstUserDomain` and `SrcUserDomain`.
+
+Theses are the changes in version 0.2.3 of the schema:
+- Added the `ipaddr_has_any_prefix` filtering parameter.
+- The `hostname_has_any` filtering parameter now matches either source or destination hostnames.
+- Added the fields `ASimMatchingHostname` and `ASimMatchingIpAddr`.
 
 ## Next steps
 

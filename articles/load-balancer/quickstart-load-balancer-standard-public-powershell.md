@@ -2,8 +2,8 @@
 title: 'Quickstart: Create a public load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer using Azure PowerShell
-author: asudbring
-ms.author: allensu
+author: greg-lindsay
+ms.author: greglin
 ms.date: 03/17/2022
 ms.topic: quickstart
 ms.service: load-balancer

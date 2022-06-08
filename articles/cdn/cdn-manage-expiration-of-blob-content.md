@@ -3,7 +3,7 @@ title: Manage expiration of Azure Blob storage
 titleSuffix: Azure Content Delivery Network
 description: Learn about the options for controlling time-to-live for blobs in Azure CDN caching.
 services: cdn
-documentationcenter: ''
+documentationcenter: 
 author: zhangmanling
 manager: erikre
 editor: ''
@@ -112,7 +112,7 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## Setting Cache-Control headers by using .NET
-To specify a blob's `Cache-Control` header by using .NET code, use the [Azure Storage Client Library for .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) to set the [BlobHttpHeaders.CacheControl](/dotnet/api/azure.storage.blobs.models.blobhttpheaders.cachecontrol?view=azure-dotnet) property.
+To specify a blob's `Cache-Control` header by using .NET code, use the [Azure Storage Client Library for .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) to set the [BlobHttpHeaders.CacheControl](/dotnet/api/azure.storage.blobs.models.blobhttpheaders.cachecontrol?view=azure-dotnet&preserve-view=true) property.
 
 For example:
 
