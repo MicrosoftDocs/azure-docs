@@ -70,9 +70,9 @@ If you're uploading or downloading data between a storage account and an on-prem
 
 403 authorization errors can prevent you from transferring data between accounts by using the client machine where AzCopy is running.
 
-If you're copying data between storage accounts, make sure that the machine that runs AzCopy is able to access both the source **and** the destination account. You might have to use IP network rules in the firewall settings of both the source and destination accounts to allow access from the public IP address of the machine. The service will use the IP address of the AzCopy client machine to authorize the source to destination traffic.
+If you're copying data between storage accounts, make sure that the machine that runs AzCopy is able to access both the source **and** the destination account. You might have to use IP network rules in the firewall settings of both the source and destination accounts to allow access from the public IP address of the machine. The service will use the IP address of the AzCopy client machine to authorize the source to destination traffic. To learn how to add a public IP address to the firewall settings of a storage account, see [Grant access from an internet IP range](storage-network-security.md#grant-access-from-an-internet-ip-range).
 
-To learn how to add a public IP address to the firewall settings of a storage account, see [Grant access from an internet IP range](storage-network-security.md#grant-access-from-an-internet-ip-range).
+In case your VM does not or cannot have a public IP address, you should consider using a private endpoint. See [Use private endpoints for Azure Storage](storage-private-endpoints.md).
 
 ##### Using a Private link
 
@@ -133,6 +133,8 @@ If you see a large file failing over and over again due to certain chunks failin
 
 For more information, see [Optimize the performance of AzCopy with Azure Storage](storage-use-azcopy-optimize.md)
 
+If you're copying data between accounts by using AzCopy, the quality and reliability of the network from where you run AzCopy might impact the overall performance. Data transfers server to server, but AzCopy does initiate calls for each file to copy between service endpoints.
+
 ## Known constraints with AzCopy
 
 - Copying data from government clouds to commercial clouds is not supported. However, copying data from commercial clouds to government clouds is supported. 
@@ -140,6 +142,19 @@ For more information, see [Optimize the performance of AzCopy with Azure Storage
 - Asynchronous service-side copy is not supported. AzCopy performs synchronous copy only. In other words, by the time the job finishes, the data has been moved.
 
 - If when copying to an Azure File share you forgot to specify the flag `--preserve-smb-permissions`, and you do not want to transfer the data again, then consider using Robocopy to bring over the permissions. 
+
+- If you're copying to Azure Files and you forgot to specify the `--preserve-smb-permissions` flag, and you don't want to transfer the data again, consider using Robocopy to bring over the only the permissions.
+
+- Azure Functions has a different endpoint for MSI authentication, which AzCopy doesn't yet support.
+
+## Known temporary issues
+
+There is a service issue impacting AzCopy 10.11+ which are using the [PutBlobFromURL API](https://docs.microsoft.com/en-us/rest/api/storageservices/put-blob-from-url) to copy blobs smaller than the given block size (whose default is 8MiB). If the user has any firewall (VNet / IP / PL / SE Policy) on the source account, the `PutBlobFromURL` API might mistakenly return the message `409 Copy source blob has been modified`. The workaround is to use AzCopy 10.10.
+
+- https://azcopyvnext.azureedge.net/release20210415/azcopy_darwin_amd64_10.10.0.zip
+- https://azcopyvnext.azureedge.net/release20210415/azcopy_linux_amd64_10.10.0.tar.gz
+- https://azcopyvnext.azureedge.net/release20210415/azcopy_windows_386_10.10.0.zip
+- https://azcopyvnext.azureedge.net/release20210415/azcopy_windows_amd64_10.10.0.zip
 
 ## See also
 
