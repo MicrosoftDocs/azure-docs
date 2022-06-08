@@ -70,7 +70,7 @@ The Marketplaces API is deprecated. The date that the API will be turned off is 
 
 ### When will the [Consumption Forecasts API](/rest/api/consumption/forecasts/list) get turned off?
 
-The Forecasts API is deprecated. The date that the API will be turned off is still being determined. Data from the API is available in the [Cost Management Forecast API](/rest/api/cost-management/forecast). We recommend that you migrate to it as soon as possible. For more information, see [Migrate from Consumption Forecasts API](migrate-consumption-forecasts-api.md).
+The Forecasts API is deprecated. The date that the API will be turned off is still being determined. Data from the API is available in the [Cost Management Forecast API](/rest/api/cost-management/forecast). We recommend that you migrate to it as soon as possible.
 
 ## Next steps
 
