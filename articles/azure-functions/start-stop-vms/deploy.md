@@ -24,7 +24,7 @@ The deployment is initiated from the Start/Stop VMs v2 GitHub organization [here
 To simplify management and removal, we recommend you deploy Start/Stop VMs v2 to a dedicated resource group.
 
 > [!NOTE]
-> Currently this does not support specifying an existing Storage account or Application Insights resource.
+> Currently this solution does not support specifying an existing Storage account or Application Insights resource.
 
 
 > [!NOTE]
