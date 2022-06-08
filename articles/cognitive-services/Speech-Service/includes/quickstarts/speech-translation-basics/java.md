@@ -18,7 +18,7 @@ ms.author: eur
 
 Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
 
-## Recognize speech from a microphone
+## Translate speech from a microphone
 
 Follow these steps to create a new console application for speech recognition.
 
@@ -81,7 +81,7 @@ Run your new console application to start speech recognition from a microphone:
 java SpeechRecognition
 ```
 
-Speak into your microphone when prompted. What you speak should be output as text: 
+Speak into your microphone when prompted. What you speak should be output as translated text in the target language:
 
 ```console
 Speak into your microphone.
@@ -91,7 +91,7 @@ RECOGNIZED: Text=I'm excited to try speech to text.
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
 
-- This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+- This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to translate speech](~/articles/cognitive-services/speech-service/how-to-translate-speech.md).
 - To recognize speech from an audio file, use `fromWavFileInput` instead of `fromDefaultMicrophoneInput`:
     ```java
     AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");

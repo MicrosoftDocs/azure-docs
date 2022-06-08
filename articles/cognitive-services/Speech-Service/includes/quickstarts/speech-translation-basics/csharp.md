@@ -37,26 +37,31 @@ Follow these steps to create a new console application and install the Speech SD
     using System.Threading.Tasks;
     using Microsoft.CognitiveServices.Speech;
     using Microsoft.CognitiveServices.Speech.Audio;
-
+    using Microsoft.CognitiveServices.Speech.Translation;
+    
     class Program 
     {
         static string YourSubscriptionKey = "YourSubscriptionKey";
         static string YourServiceRegion = "YourServiceRegion";
-
-        static void OutputSpeechRecognitionResult(SpeechRecognitionResult speechRecognitionResult)
+    
+        static void OutputSpeechRecognitionResult(TranslationRecognitionResult translationRecognitionResult)
         {
-            switch (speechRecognitionResult.Reason)
+            switch (translationRecognitionResult.Reason)
             {
-                case ResultReason.RecognizedSpeech:
-                    Console.WriteLine($"RECOGNIZED: Text={speechRecognitionResult.Text}");
+                case ResultReason.TranslatedSpeech:
+                    Console.WriteLine($"RECOGNIZED: Text={translationRecognitionResult.Text}");
+                    foreach (var element in translationRecognitionResult.Translations)
+                    {
+                        Console.WriteLine($"TRANSLATED into '{element.Key}': {element.Value}");
+                    }
                     break;
                 case ResultReason.NoMatch:
                     Console.WriteLine($"NOMATCH: Speech could not be recognized.");
                     break;
                 case ResultReason.Canceled:
-                    var cancellation = CancellationDetails.FromResult(speechRecognitionResult);
+                    var cancellation = CancellationDetails.FromResult(translationRecognitionResult);
                     Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
-
+    
                     if (cancellation.Reason == CancellationReason.Error)
                     {
                         Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
@@ -66,18 +71,19 @@ Follow these steps to create a new console application and install the Speech SD
                     break;
             }
         }
-
+    
         async static Task Main(string[] args)
         {
-            var speechConfig = SpeechConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);        
-            speechConfig.SpeechRecognitionLanguage = "en-US";
-
+            var speechTranslationConfig = SpeechTranslationConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);        
+            speechTranslationConfig.SpeechRecognitionLanguage = "en-US";
+            speechTranslationConfig.AddTargetLanguage("it-IT");
+    
             using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
-            using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
-
+            using var translationRecognizer = new TranslationRecognizer(speechTranslationConfig, audioConfig);
+    
             Console.WriteLine("Speak into your microphone.");
-            var speechRecognitionResult = await speechRecognizer.RecognizeOnceAsync();
-            OutputSpeechRecognitionResult(speechRecognitionResult);
+            var translationRecognitionResult = await translationRecognizer.RecognizeOnceAsync();
+            OutputSpeechRecognitionResult(translationRecognitionResult);
         }
     }
     ```
@@ -91,17 +97,18 @@ Run your new console application to start speech recognition from a microphone:
 dotnet run
 ```
 
-Speak into your microphone when prompted. What you speak should be output as text: 
+Speak into your microphone when prompted. What you speak should be output as translated text in the target language:
 
 ```console
 Speak into your microphone.
-RECOGNIZED: Text=I'm excited to try speech to text.
+RECOGNIZED: Text=I'm excited to try speech translation.
+TRANSLATED into 'it': Sono entusiasta di provare la traduzione vocale.
 ```
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
 
-- This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+- This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to translate speech](~/articles/cognitive-services/speech-service/how-to-translate-speech.md).
 - To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
     ```csharp
     using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");

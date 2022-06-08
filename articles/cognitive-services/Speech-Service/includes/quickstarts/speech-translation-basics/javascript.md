@@ -18,7 +18,7 @@ ms.author: eur
 
 Before you can do anything, you need to install the Speech SDK for JavaScript. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see [Set up the development environment](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
 
-## Recognize speech from a file 
+## Translate speech from a file 
 
 Follow these steps to create a new console application for speech recognition.
 
@@ -74,7 +74,7 @@ Run your new console application to start speech recognition from a file:
 node.exe SpeechRecognition.js
 ```
 
-The speech from the audio file should be output as text: 
+The speech from the audio file should be output as translated text in the target language:
 
 ```console
 RECOGNIZED: Text=I'm excited to try speech to text.
@@ -83,7 +83,7 @@ RECOGNIZED: Text=I'm excited to try speech to text.
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
 
-This example uses the `recognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+This example uses the `recognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to translate speech](~/articles/cognitive-services/speech-service/how-to-translate-speech.md).
 
 > [!NOTE]
 > Recognizing speech from a microphone is not supported in Node.js. It's supported only in a browser-based JavaScript environment. For more information, see the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) and the [implementation of speech-to-text from a microphone](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29) on GitHub. The React sample shows design patterns for the exchange and management of authentication tokens. It also shows the capture of audio from a microphone or file for speech-to-text conversions.

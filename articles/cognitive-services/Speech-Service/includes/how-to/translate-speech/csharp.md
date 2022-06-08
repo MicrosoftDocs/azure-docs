@@ -211,9 +211,9 @@ static async Task TranslateSpeechAsync()
     if (result.Reason == ResultReason.TranslatedSpeech)
     {
         Console.WriteLine($"Recognized: \"{result.Text}\":");
-        foreach (var (language, translation) in result.Translations)
+        foreach (var element in result.Translations)
         {
-            Console.WriteLine($"Translated into '{language}': {translation}");
+            Console.WriteLine($"    TRANSLATED into '{element.Key}': {element.Value}");
         }
     }
 }

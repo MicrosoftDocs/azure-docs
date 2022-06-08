@@ -22,7 +22,7 @@ The Speech SDK for Python is available as a [Python Package Index (PyPI) module]
 
 Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). First check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements. 
 
-## Recognize speech from a microphone
+## Translate speech from a microphone
 
 Follow these steps to create a new console application.
 
@@ -68,7 +68,7 @@ Run your new console application to start speech recognition from a microphone:
 python speech_recognition.py
 ```
 
-Speak into your microphone when prompted. What you speak should be output as text: 
+Speak into your microphone when prompted. What you speak should be output as translated text in the target language: 
 
 ```console
 Speak into your microphone.
@@ -78,7 +78,7 @@ RECOGNIZED: Text=I'm excited to try speech to text.
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
 
-- This example uses the `recognize_once_async` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+- This example uses the `recognize_once_async` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to translate speech](~/articles/cognitive-services/speech-service/how-to-translate-speech.md).
 - To recognize speech from an audio file, use `filename` instead of `use_default_microphone`:
     ```python
     audio_config = speechsdk.audio.AudioConfig(filename="YourAudioFile.wav")
