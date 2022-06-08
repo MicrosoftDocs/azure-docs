@@ -302,25 +302,30 @@ ORDER BY
     nbr_files desc,
     gb_processed desc;
 ```
-## Monitor Query blockings
+## Monitor query blockings
 
 The following query provides the top 500 blocked queries in the environment. 
 
 ```sql
 
 --Collect the top blocking
-select top 500 A.request_id as WaitingRequestId,
-	A.object_type as LockRequestType,
-	A.object_name as ObjectLockRequestName,
-	A.request_time as ObjectLockRequestTime,
-	B.session_id as BlockingSessionId,
-	B.request_id as BlockingRequestId
-from sys.dm_pdw_waits A, sys.dm_pdw_waits B
-where A.object_type = B.object_type 
-     and A.object_name = B.object_name 
-	   and A.state = 'Queued' 
-     and B.state = 'Granted'
-order by ObjectLockRequestTime asc
+SELECT 
+    TOP 500 waiting.request_id AS WaitingRequestId,
+    waiting.object_type AS LockRequestType,
+    waiting.object_name AS ObjectLockRequestName,
+    waiting.request_time AS ObjectLockRequestTime,
+    blocking.session_id AS BlockingSessionId,
+    blocking.request_id AS BlockingRequestId
+FROM 
+    sys.dm_pdw_waits waiting
+    INNER JOIN sys.dm_pdw_waits blocking
+    ON waiting.object_type = blocking.object_type 
+    AND waiting.object_name = blocking.object_name 
+WHERE 
+    waiting.state = 'Queued' 
+    AND blocking.state = 'Granted'
+ORDER BY 
+    ObjectLockRequestTime ASC;
 
 ```
 
