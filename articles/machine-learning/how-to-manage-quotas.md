@@ -125,6 +125,7 @@ To determine the current usage for an endpoint, [view the metrics](how-to-monito
 
 To request an exception from the Azure Machine Learning product team, use the steps in the [Request quota increases](#request-quota-increases) section and provide the following information:
 
+1. When opening the support request, __do not select Service and subscription limits (quotas)__. Instead, select __Technical__ as the issue type.
 1. Provide the Azure __subscriptions__ and __regions__ where you want to increase the quota.
 1. Provide the __tenant ID__ and __customer name__.
 1. Provide the __quota type__ and __new limit__. Use the following table as a guide:
