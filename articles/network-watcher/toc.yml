@@ -34,6 +34,8 @@
     href: connection-monitor-overview.md
   - name: Connection Monitor schema
     href: connection-monitor-schema.md
+  - name: Azure Monitor agent with Connection Monitor 
+    href: azure-monitor-agent-with-connection-monitor.md
   - name: Diagnose VM network traffic filter problems
     href: network-watcher-ip-flow-verify-overview.md
   - name: Diagnose NSG rules and Traffic filtering
