@@ -29,7 +29,7 @@ Some third-party reseller services available on Azure Marketplace now consume yo
 ### Partners
 
 > [!NOTE]
-> The Azure Marketplace price list feature in the EA portal is retired. This feature will be available on Azure portal by March 2023. 
+> The Azure Marketplace price list feature in the EA portal is retired.
 
 LSPs can download an Azure Marketplace price list from the price sheet page in the Azure Enterprise portal. Select the **Marketplace Price list** link in the upper right. Azure Marketplace price list shows all available services and their prices.
 
