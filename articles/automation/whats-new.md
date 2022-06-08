@@ -13,8 +13,11 @@ ms.custom: references_regions
 Azure Automation receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
+- New features
+- Improvements to existing features
 - Known issues
 - Bug fixes
+
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 

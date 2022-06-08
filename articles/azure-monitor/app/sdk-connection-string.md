@@ -4,6 +4,7 @@ description: How to use connection strings.
 ms.topic: conceptual
 ms.date: 04/13/2022
 ms.custom: "devx-track-js, devx-track-csharp"
+ms.reviewer: cogoodson
 ---
 
 # Connection strings

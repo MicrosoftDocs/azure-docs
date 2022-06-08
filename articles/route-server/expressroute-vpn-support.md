@@ -34,6 +34,11 @@ You can also replace the SDWAN appliance with Azure VPN gateway. Since Azure VPN
 
 ![Diagram showing ExpressRoute and VPN gateway configured with Route Server.](./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png)
 
+> [!IMPORTANT] 
+> When the same route is learned over ExpressRoute, Azure VPN or an SDWAN appliance, the ExpressRoute network will be preferred.
+>
+
+
 ## Next steps
 
 - Learn more about [Azure Route Server](route-server-faq.md).

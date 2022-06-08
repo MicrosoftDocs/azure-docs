@@ -9,6 +9,7 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
+ms.reviewer: riroloff
 ---
 
 # Create an Autoscale Setting for  Azure resources based on performance data or a schedule
