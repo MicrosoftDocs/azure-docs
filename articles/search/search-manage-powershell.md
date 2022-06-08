@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 06/01/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -237,7 +237,7 @@ New-AzSearchService -ResourceGroupName <resource-group-name> `
 
 ### Create an S3HD service
 
-To create a [S3HD](./search-sku-tier.md#tier-descriptions) service, a combination of `-Sku` and `-HostingMode` is used. Set `-Sku` to `Standard3` and `-HostingMode` to `HighDensity`.
+To create an [S3HD](./search-sku-tier.md#tier-descriptions) service, a combination of `-Sku` and `-HostingMode` is used. Set `-Sku` to `Standard3` and `-HostingMode` to `HighDensity`.
 
 ```azurepowershell-interactive
 New-AzSearchService -ResourceGroupName <resource-group-name> `
