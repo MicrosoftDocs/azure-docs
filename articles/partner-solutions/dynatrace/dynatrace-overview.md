@@ -10,7 +10,7 @@ ms.date: 06/07/2022
 
 # What is Dynatrace integration with Azure?
 
-Dynatrace is a popular monitoring solution that provides deep cloud observability, advanced AIOps, and continuous runtime application security capabilities in Azure.
+Dynatrace is a monitoring solution that provides deep cloud observability, advanced AIOps, and continuous runtime application security capabilities in Azure.
 
 Dynatrace for Azure (preview) offering in the Azure Marketplace enables you to create and manage Dynatrace environments using the Azure portal with a seamlessly integrated experience. This enables you to use Dynatrace as a monitoring solution for your Azure workloads through a streamlined workflow, starting from procurement, all the way to configuration and management.
 
