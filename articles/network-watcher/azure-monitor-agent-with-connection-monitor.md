@@ -21,8 +21,10 @@ ms.custom: mvc
 # Monitor Network Connectivity using Azure Monitor Agent with Connection Monitor (Private Preview)
 
 Connection Monitor now supports Azure Monitor Agent extension, thus eliminating the dependency on the legacy Log Analytics agent. 
+
 With Azure Monitor Agent, we aim to serve a single agent that will consolidate all the features necessary to address all connectivity logs and metrics data collection needs across Azure and On-premises machines as compared to running various monitoring agents. 
-Azure Monitor Agent provides enhanced security and performance capabilities, effective cost savings with efficient data collection & ease of troubleshooting with simpler management of data collection with respect to Log Analytics agent. Learn more about [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md).
+Azure Monitor Agent provides enhanced security and performance capabilities, effective cost savings with efficient data collection & ease of troubleshooting with simpler management of data collection with respect to Log Analytics agent. 
+Learn more about [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md).
 
 ![Diagram showing how Connection Monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations.](./media/connection-monitor-2-preview/hero-graphic-new.png)
 
@@ -56,19 +58,19 @@ To make Connection Monitor recognize your on-premises machines as sources for mo
 
 #### Installing Azure Connected Machine agent to enable ARC 
 
-Before proceeding be sure to review the [prerequisites](../azure-arc/servers/prerequisites.md) and verify that your subscription and resources meet the requirements.
+Before proceeding be sure to review the [prerequisites](../azure-arc/prerequisites.md) and verify that your subscription and resources meet the requirements.
 
 ##### Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Deploying the Connected Machine agent on a machine requires that you have administrator permissions to install and configure the agent. On Linux this is done by using the root account, and on Windows, with an account that is a member of the Local Administrators group.
 * The Microsoft.HybridCompute, Microsoft.GuestConfiguration, and Microsoft.HybridConnectivity resource providers must be registered on your subscription. You can [register these resource providers ahead of time](../azure-arc/servers/prerequisites.md#azure-resource-providers), or while completing the steps in this quickstart.
-* Before you get started, be sure to review the [agent prerequisites](../prerequisites.md) and verify the following:
+* Before you get started, be sure to review the [agent prerequisites](../azure-arc/prerequisites.md) and verify the following:
   * Your target machine is running a supported [operating system](../azure-arc/servers/prerequisites.md#supported-operating-systems).
   * Your account has the [required Azure built-in roles](../azure-arc/servers/prerequisites.md#required-permissions).
-  * Ensure the machine is in a [supported region](../azure-arc/server/overview.md#supported-regions).
+  * Ensure the machine is in a [supported region](../azure-arc/overview.md#supported-regions).
   * Confirm that the Linux hostname or Windows computer name doesn't use a [reserved word or trademark](../azure-resource-manager/templates/error-reserved-resource-name.md).
-  * If the machine connects through a firewall or proxy server to communicate over the Internet, make sure the URLs [listed](../azure-arc/server/network-requirements.md#urls) are not blocked.
+  * If the machine connects through a firewall or proxy server to communicate over the Internet, make sure the URLs [listed](../azure-arc/network-requirements.md#urls) are not blocked.
 
 ##### Generate installation script
 
@@ -190,7 +192,7 @@ Update-AzConnectedExtension -ResourceGroupName $env.ResourceGroupName -MachineNa
 ```
 ---
 
-The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#enabling-automatic-extension-upgrade-preview) feature, using the following PowerShell commands.
+The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../azure-arc/servers/manage-automatic-vm-extension-upgrade.md) feature, using the following PowerShell commands.
 # [Windows](#tab/PowerShellWindowsArc)
 ```powershell
 Update-AzConnectedMachineExtension -ResourceGroup <resource-group-name> -MachineName <arc-server-name> -Name AMAWindows -EnableAutomaticUpgrade
@@ -243,7 +245,7 @@ az connectedmachine upgrade-extension --extension-targets "{\"Microsoft.Azure.Mo
 ```
 ---
 
-The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#enabling-automatic-extension-upgrade-preview) feature, using the following PowerShell commands.
+The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../azure-arc/servers/manage-automatic-vm-extension-upgrade.md) feature, using the following PowerShell commands.
 # [Windows](#tab/CLIWindowsArc)
 ```azurecli
 az connectedmachine extension update --name AzureMonitorWindowsAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --enable-auto-upgrade true
