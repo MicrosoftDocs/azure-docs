@@ -11,7 +11,7 @@ ms.date: 06/07/2022
 
 # What is Microsoft Playwright Testing Preview?
 
-Azure Load Testing Preview is a fully managed load-testing service that enables you to generate high-scale load. The service simulates traffic for your applications, regardless of where they're hosted. Developers, testers, and quality assurance (QA) engineers can use it to optimize application performance, scalability, or capacity. 
+Microsoft Playwright Testing Preview is a fully managed load-testing service that enables you to generate high-scale load. The service simulates traffic for your applications, regardless of where they're hosted. Developers, testers, and quality assurance (QA) engineers can use it to optimize application performance, scalability, or capacity. 
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -49,3 +49,5 @@ Data stored in your Azure Load Testing resource is automatically encrypted with 
 ## Next steps
 
 Start using Azure Load Testing.
+
+- [Run end-to-end tests with Microsoft Playwright Testing Preview](./quickstart-create-and-run-load-test.md).
