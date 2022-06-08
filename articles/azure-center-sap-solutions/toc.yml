@@ -8,3 +8,5 @@ items:
   items:
   - name: Create network infrastructure
     href: create-network.md
+  - name: Configure Virtual Instance for SAP
+    href: configure-virtual-instance.md
