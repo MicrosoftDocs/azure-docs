@@ -27,3 +27,5 @@ landingContent:
             url: create-network.md
           - text: Monitor SAP system in Azure portal
             url: monitor-portal.md
+          - text: Configure Virtual Instance for SAP
+            url: configure-virtual-instance.md

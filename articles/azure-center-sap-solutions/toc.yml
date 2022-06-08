@@ -10,3 +10,5 @@ items:
     href: create-network.md
   - name: Monitor SAP system in Azure portal
     href: monitor-portal.md
+  - name: Configure Virtual Instance for SAP
+    href: configure-virtual-instance.md
