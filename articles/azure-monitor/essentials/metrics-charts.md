@@ -268,8 +268,8 @@ Currently, Drill into Logs are available for select resource providers. The reso
 
 - Application Insights
 - Autoscale
-- App Services  
-- Storage  
+- App Services
+- Storage
 
 This screenshot shows a sample for the Application Insights resource provider.
 
@@ -282,22 +282,6 @@ This screenshot shows a sample for the Application Insights resource provider.
 1. Select **Failures** to open a custom failure pane that provides you with the failed operations, top exceptions types, and dependencies.
 
    ![Screenshot of app insights failure pane.](./media/metrics-charts/ai-failure-blade.png)
-
-### Common problems with Drill into Logs
-
-- Log and queries are disabled - To view recommended logs and queries, you must route your diagnostic logs to Log Analytics. Read [this document](./diagnostic-settings.md).
-- Activity logs are only provided - The Drill into Logs feature is only available for select resource providers. By default, activity logs are provided. 
-
- 
-## Troubleshooting
-
-If you don't see any data on your chart, review the following troubleshooting information:
-
-- Filters apply to all of the charts on the pane. While you focus on a chart, make sure that you don't set a filter that excludes all the data on another chart.
-
-- To set different filters on different charts, create the charts in different blades. Then save the charts as separate favorites. If you want, you can pin the charts to the dashboard so you can see them together.
-
-- If you segment a chart by a property that the metric doesn't define, the chart displays no content. Try clearing the segmentation (splitting), or choose a different property.
 
 ## Next steps
 
