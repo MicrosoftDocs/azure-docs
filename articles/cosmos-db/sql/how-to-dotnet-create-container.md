@@ -64,5 +64,3 @@ The following example shows the **Database.CreateContainerIfNotExistsAsync** met
 
 - [Get started with Azure Cosmos DB SQL API and .NET](how-to-dotnet-get-started.md)
 - [Create a database](how-to-dotnet-create-database.md)
-- [Create an item](how-to-dotnet-create-item.md)
-

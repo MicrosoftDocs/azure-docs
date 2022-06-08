@@ -211,15 +211,11 @@ Create an item in the container by calling [``Container.UpsertItemAsync``](/dotn
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="new_item" highlight="3-4,12":::
 
-For more information on creating, upserting, or replacing items, see [Create an item in Azure Cosmos DB SQL API using .NET](how-to-dotnet-create-item.md).
-
 ### Get an item
 
 In Azure Cosmos DB, you can perform a point read operation by using both the unique identifier (``id``) and partition key fields. In the SDK, call [``Container.ReadItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.readitemasync) passing in both values to return a deserialized instance of your C# type.
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="read_item" highlight="3-4":::
-
-For more information about reading items and parsing the response, see [Read an item in Azure Cosmos DB SQL API using .NET](how-to-dotnet-read-item.md).
 
 ### Query items
 
