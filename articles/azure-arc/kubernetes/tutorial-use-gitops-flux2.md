@@ -41,7 +41,7 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
   >[!IMPORTANT]
   >**Ensure that the AKS cluster is created with MSI** (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
-  >For new AKS clusters created with “az aks create”, the cluster will be MSI-based by default. For already created SPN-based clusters that need to be converted to MSI run “az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity”. For more information, refer to [managed identity docs](../../aks/use-managed-identity).
+  >For new AKS clusters created with “az aks create”, the cluster will be MSI-based by default. For already created SPN-based clusters that need to be converted to MSI run “az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity”. For more information, refer to [managed identity docs](../../aks/use-managed-identity.md).
 
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type.
 * Registration of your subscription with the `AKS-ExtensionManager` feature flag. Use the following command:
