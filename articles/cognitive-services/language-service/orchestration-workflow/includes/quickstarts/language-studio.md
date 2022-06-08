@@ -51,7 +51,7 @@ To train a model, you need to start a training job. The output of a successful t
 
 ## Deploy your model
 
-Generally after training a model you would review its evaluation details. In this quickstart, you will just deploy your model, and make it available for you to try in the Language studio, or you can call the [prediction API](https://aka.ms/clu-apis).
+Generally after training a model you would review its evaluation details. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/clu-apis).
 
 [!INCLUDE [Deploy model](../language-studio/deploy-model.md)]
 

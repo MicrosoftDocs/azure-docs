@@ -160,13 +160,6 @@ For related information, see KB article **860340.1** at <https://support.oracle.
    If you configure the admin server to automatically assign unique port numbers to its managed servers, then load balancing is not possible because Azure does not support mapping from a single public port to multiple private ports, as would be required for this configuration.
 - **Multiple instances of Oracle WebLogic Server on a virtual machine.** Depending on your deployment’s requirements, you might consider running multiple instances of Oracle WebLogic Server on the same virtual machine, if the virtual machine is large enough. For example, on a midsize virtual machine, which contains two cores, you could choose to run two instances of Oracle WebLogic Server. However, we still recommend that you avoid introducing single points of failure into your architecture, which would be the case if you used just one virtual machine that is running multiple instances of Oracle WebLogic Server. Using at least two virtual machines could be a better approach, and each virtual machine could then run multiple instances of Oracle WebLogic Server. Each instance of Oracle WebLogic Server could still be part of the same cluster. However, it is currently not possible to use Azure to load-balance endpoints that are exposed by such Oracle WebLogic Server deployments within the same virtual machine, because Azure load balancer requires the load-balanced servers to be distributed among unique virtual machines.
 
-## Oracle JDK virtual machine images
-
-- **JDK 6 and 7 latest updates.** While we recommend using the latest public, supported version of Java (currently Java 8), Azure also makes JDK 6 and 7 images available. This is intended for legacy applications that are not yet ready to be upgraded to JDK 8. While updates to previous JDK images might no longer be available to the general public, given the Microsoft partnership with Oracle, the JDK 6 and 7 images provided by Azure are intended to contain a more recent non-public update that is normally offered by Oracle to only a select group of Oracle’s supported customers. New versions of the JDK images will be made available over time with updated releases of JDK 6 and 7.
-
-   The JDK available in the JDK 6 and 7 images, and the virtual machines and images derived from them, can only be used within Azure.
-- **64-bit JDK.** The Oracle WebLogic Server virtual machine images and the Oracle JDK virtual machine images provided by Azure contain the 64-bit versions of both Windows Server and the JDK.
-
 ## Next steps
 
 You now have an overview of current Oracle solutions based on virtual machine images in Microsoft Azure. Your next step is to deploy your first Oracle database on Azure.

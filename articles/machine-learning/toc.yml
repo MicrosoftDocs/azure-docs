@@ -310,7 +310,7 @@
                 displayName: compute target, low priority, managed identity
                 href: how-to-create-attach-compute-cluster.md
               - name: Kubernetes cluster
-                displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
+                displayName: Azure Arc, Kubernetes, on-premise, multi-cloud, attach
                 href: how-to-attach-kubernetes-anywhere.md
               - name: Use studio
                 displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
@@ -534,13 +534,13 @@
                   href: how-to-secure-online-endpoint.md
                 - name: Access Azure resources from online endpoints
                   href: how-to-access-resources-from-endpoints-managed-identities.md
-            - name: Autoscale managed online endpoints
+            - name: Autoscale online endpoints
               href: how-to-autoscale-endpoints.md
             - name: Managed online endpoints VM SKU list
               href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
-            - name: Monitoring managed online endpoints
+            - name: Monitoring online endpoints
               href: how-to-monitor-online-endpoints.md
             - name: Debug online endpoints locally VS Code
               href: how-to-debug-managed-online-endpoints-visual-studio-code.md
@@ -717,6 +717,8 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
+    - name: Kubernetes cluster configuration
+      href: reference-kubernetes.md
     - name: Designer component reference
       displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md

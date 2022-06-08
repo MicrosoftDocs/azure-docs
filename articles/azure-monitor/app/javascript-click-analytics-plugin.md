@@ -7,6 +7,7 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.devlang: javascript
+ms.reviewer: mmcc
 ---
 
 # Click Analytics Auto-collection plugin for Application Insights JavaScript SDK

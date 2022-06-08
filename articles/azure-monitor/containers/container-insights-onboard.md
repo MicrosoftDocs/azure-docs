@@ -103,7 +103,7 @@ To enable Container insights, use one of the methods that's described in the fol
 | New Kubernetes cluster | [Enable monitoring for a new AKS cluster using the Azure CLI](../../aks/learn/quick-kubernetes-deploy-cli.md)|
 | | [Enable for a new AKS cluster by using the open-source tool Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)|
 | | [Enable for a new OpenShift cluster by using an Azure Resource Manager template](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) |
-| | [Enable for a new OpenShift cluster by using the Azure CLI](/cli/azure/openshift#az-openshift-create) |
+| | [Enable for a new OpenShift cluster by using the Azure CLI](/azure/openshift/#az-openshift-create) |
 | Existing AKS cluster | [Enable monitoring for an existing AKS cluster using the Azure CLI](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | 
 | |[Enable for an existing AKS cluster using Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) |
 | | [Enable for an existing AKS cluster from Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| 

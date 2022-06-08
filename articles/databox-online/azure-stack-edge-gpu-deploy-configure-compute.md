@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 Before you set up a compute role on your Azure Stack Edge Pro device:
 
 - Make sure that you've activated your Azure Stack Edge Pro device as described in [Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
-- Make sure that you've followed the instructions in [Enable compute network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-virtual-switches-and-compute-ips) and:
+- Make sure that you've followed the instructions in [Enable compute network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-virtual-switches) and:
     - Enabled a network interface for compute.
     - Assigned Kubernetes node IPs and Kubernetes external service IPs.
 

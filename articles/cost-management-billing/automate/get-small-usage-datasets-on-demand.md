@@ -153,7 +153,7 @@ A summary of the key fields in the API response is below:
 ## Next steps
 
 - Read the [Ingest cost details data](automation-ingest-usage-details-overview.md) article.
-- Learn more about [cost details best practices](usage-details-best-practices.md).
+- Learn more about [Picking a cost details solution](usage-details-best-practices.md).
 - [Understand cost details fields](understand-usage-details-fields.md).
 - [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.

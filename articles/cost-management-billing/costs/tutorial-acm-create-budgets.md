@@ -3,7 +3,7 @@ title: Tutorial - Create and manage Azure budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/13/2022
+ms.date: 06/07/2022
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -160,10 +160,10 @@ Budget integration with action groups works for action groups which have enabled
 
 ## Create and edit budgets with PowerShell
 
-If you're an EA customer, you can create and edit budgets programmatically using the Azure PowerShell module. 
+If you're an EA customer, you can create and edit budgets programmatically using the Azure PowerShell module. However, we recommend that you use REST APIs to create and edit budgets because CLI commands might not support the latest version of the APIs.
 
->[!Note]
->Customers with a Microsoft Customer Agreement should use the [Budgets REST API](/rest/api/consumption/budgets/create-or-update) to create budgets programmatically because PowerShell and CLI aren't yet supported.
+> [!NOTE]
+> Customers with a Microsoft Customer Agreement should use the [Budgets REST API](/rest/api/consumption/budgets/create-or-update) to create budgets programmatically.
 
 To download the latest version of Azure PowerShell, run the following command:
 

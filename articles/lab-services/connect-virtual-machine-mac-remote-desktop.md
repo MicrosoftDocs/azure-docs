@@ -1,8 +1,8 @@
 ---
-title: How to connect to an Azure Lab Services VM from Mac | Microsoft Docs
+title: Connect to Azure Lab Services VMs from Mac
 description: Learn how to connect from a Mac to a virtual machine in Azure Lab Services.
 ms.topic: how-to
-ms.date: 01/04/2020
+ms.date: 02/04/2022
 ---
 
 # Connect to a VM using Remote Desktop Protocol on a Mac

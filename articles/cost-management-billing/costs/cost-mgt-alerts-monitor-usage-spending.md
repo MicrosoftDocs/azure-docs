@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes how cost alerts help you monitor usage and spending in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/12/2022
+ms.date: 06/07/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -31,7 +31,9 @@ Budget alerts notify you when spending, based on usage or cost, reaches or excee
 
 In the Azure portal, budgets are defined by cost. Using the Azure Consumption API, budgets are defined by cost or by consumption usage. Budget alerts support both cost-based and usage-based budgets. Budget alerts are generated automatically whenever the budget alert conditions are met. You can view all cost alerts in the Azure portal. Whenever an alert is generated, it's shown in cost alerts. An alert email is also sent to the people in the alert recipients list of the budget.
 
-You can use the Budget API to send email alerts in a different language. For more information, see [Supported locales for budget alert emails](../automate/automate-budget-creation.md#supported-locales-for-budget-alert-emails).
+If you have an Enterprise Agreement, you can [Create and edit budgets with PowerShell](tutorial-acm-create-budgets.md#create-and-edit-budgets-with-powershell). Customers with a Microsoft Customer Agreement should use the [Budgets REST API](/rest/api/consumption/budgets/create-or-update) to create budgets programmatically.
+
+You can use the Budget API to send email alerts in a different language. For more information, see [Supported locales for budget alert emails](manage-automation.md#supported-locales-for-budget-alert-emails).
 
 ## Credit alerts
 

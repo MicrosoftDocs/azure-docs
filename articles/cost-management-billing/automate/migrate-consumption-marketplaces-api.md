@@ -19,7 +19,7 @@ This article only applies to customers with an Enterprise Agreement or an MSDN, 
 
 ## Migration destinations
 
-We've merged Azure Marketplace and Azure usage records into a single usage details dataset. Read the [Usage details best practices](usage-details-best-practices.md) article before you choose the solution that's right for your workload. Generally, we recommend using [Exports](../costs/tutorial-export-acm-data.md) if you have ongoing data ingestion needs or a large monthly usage details dataset. For more information, see [Ingest usage details data](automation-ingest-usage-details-overview.md).
+We've merged Azure Marketplace and Azure usage records into a single usage details dataset. Read the [Picking a cost details solution](usage-details-best-practices.md) article before you choose the solution that's right for your workload. Generally, we recommend using [Exports](../costs/tutorial-export-acm-data.md) if you have ongoing data ingestion needs or a large monthly usage details dataset. For more information, see [Ingest usage details data](automation-ingest-usage-details-overview.md).
 
 If you have a smaller usage details dataset or a scenario that isn't met by Exports, consider using the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) instead. For more information, see [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
 

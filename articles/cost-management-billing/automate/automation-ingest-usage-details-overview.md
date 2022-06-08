@@ -21,7 +21,7 @@ You must have Cost Management permissions at the appropriate scope to use APIs a
 
 ## How to get cost details
 
-You can use [exports](../costs/tutorial-export-acm-data.md) or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) to get cost details programmatically. To learn more about which solutions are best for your scenarios, see [cost details best practices](usage-details-best-practices.md).
+You can use [exports](../costs/tutorial-export-acm-data.md) or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) to get cost details programmatically. To learn more about which solutions are best for your scenarios, see [Picking a cost details solution](usage-details-best-practices.md).
 
 For Azure portal download instructions, see [How to get your Azure billing invoice and daily usage data](../manage/download-azure-invoice-daily-usage-date.md). If you have a small cost details dataset that you maintain from one month to another, you can open your CSV file in Microsoft Excel or another spreadsheet application.
 
@@ -81,7 +81,7 @@ Azure doesn't log most user actions. Instead, Azure logs resource usage for bill
 
 ## Next steps
 
-- Learn more about [cost details best practices](usage-details-best-practices.md).
+- Learn more about [Picking a cost details solution](usage-details-best-practices.md).
 - [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.
 - [Understand cost details fields](understand-usage-details-fields.md).

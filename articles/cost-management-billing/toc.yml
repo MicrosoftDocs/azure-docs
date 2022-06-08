@@ -156,7 +156,7 @@
       items:
       - name: Cost details overview
         href: automate/automation-ingest-usage-details-overview.md
-      - name: Cost details best practices
+      - name: Picking a cost details solution
         href: automate/usage-details-best-practices.md
       - name: Understand cost details data fields
         href: automate/understand-usage-details-fields.md

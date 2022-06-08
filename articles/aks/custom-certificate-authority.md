@@ -103,7 +103,7 @@ You must ensure that:
 * The secret is created in the `kube-system` namespace.
 
 ```yaml
-apiVerison: v1
+apiVersion: v1
 kind: Secret
 metadata: 
     name: custom-ca-trust-secret

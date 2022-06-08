@@ -5,7 +5,7 @@ author: vhorne
 ms.author: victorh
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 06/01/2022
+ms.date: 06/02/2022
 ---
 
 # Manage Web Application Firewall policies (preview)
@@ -39,17 +39,6 @@ You can centrally create and associate Web Application Firewall (WAF) policies f
 1. Select **Add** to create a new WAF policy or import settings from an existing WAF policy.
    :::image type="content" source="media/manage-web-application-firewall-policies/web-application-firewall-policies.png" alt-text="Screenshot of Firewall Manager Web Application Firewall policies.":::
 
-## Upgrade Application Gateway WAF configuration to WAF policy
-
-For Application Gateway with WAF configuration, you can upgrade the WAF configuration to a WAF policy associated with Application Gateway. 
-
-The WAF policy can be shared to multiple application gateways. Also, a WAF policy allows you to take advantage of advanced and new features like bot protection, newer rule sets, and reduced false positives. New features are only released on WAF policies.
-
-To upgrade a WAF configuration to a WAF policy, select **Upgrade from WAF configuration** from the desired application gateway.
-
-:::image type="content" source="media/manage-web-application-firewall-policies/upgrade-policy.png" alt-text="Screenshot showing upgrade from WAF configuration.":::
-
 ## Next steps
 
-- [Configure an Azure DDoS Protection Plan using Azure Firewall Manager (preview)](configure-ddos.md)
-
+- [Configure WAF policies using Azure Firewall Manager (preview)](../web-application-firewall/shared/manage-policies.md)

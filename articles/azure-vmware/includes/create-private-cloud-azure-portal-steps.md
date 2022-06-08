@@ -2,10 +2,10 @@
 title: Create an Azure VMware Solution private cloud
 description: Steps to create an Azure VMware Solution private cloud using the Azure portal.
 ms.topic: include
-ms.date: 08/05/2021
+ms.service: azure-vmware
+ms.date: 05/31/2022
 author: suzizuber
 ms.author: v-szuber
-ms.service: azure-vmware
 ---
 
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
@@ -37,7 +37,7 @@ You can create an Azure VMware Solution private cloud using the Azure portal or 
    | **Resource name** | Provide the name of your Azure VMware Solution private cloud. |
    | **Location** | Select a location, such as **east us**. It's the *region* you defined during the planning phase. |
    | **Size of host** | Select **AV36**. |
-   | **Number of hosts** | Number of hosts allocated for the private cloud cluster. The default value is 3, which you can increase or decrease after deployment.  |
+   | **Number of hosts** | Number of hosts allocated for the private cloud cluster. The default value is 3, which you can increase or decrease after deployment. If these nodes are not listed as available, please contact to support to request a quota increase (https://docs.microsoft.com/azure/azure-vmware/request-host-quota-azure-vmware-solution?WT.mc_id=Portal-VMCP). You can also click the "If you need more hosts, request a quota increase" link in the Azure portal. |
    | **Address block for private cloud** | Provide an IP address block for the private cloud.  The CIDR represents the private cloud management network and is used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22.  The address should be unique and not overlap with other Azure Virtual Networks and with on-premises networks. |
    
 

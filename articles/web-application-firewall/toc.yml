@@ -141,7 +141,7 @@
       href: ./afds/waf-front-door-tutorial-geo-filtering.md
     - name: Monitoring and logging
       href: ./afds/waf-front-door-monitor.md
-  - name: Manage policies
+  - name: Configure policies using Firewall Manager
     href: ./shared/manage-policies.md
   - name: Using Microsoft Sentinel with Web Application Firewall
     href: waf-sentinel.md
