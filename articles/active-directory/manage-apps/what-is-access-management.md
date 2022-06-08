@@ -1,6 +1,5 @@
 ---
 title: Manage access to apps
-titleSuffix: Microsoft Entra
 description: Describes how Azure Active Directory enables organizations to specify the apps to which each user has access.
 services: active-directory
 author: eringreenlee
@@ -11,7 +10,6 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/23/2021
 ms.author: ergreenl
-ms.reviewer: davidmu
 ---
 
 # Manage access to an application

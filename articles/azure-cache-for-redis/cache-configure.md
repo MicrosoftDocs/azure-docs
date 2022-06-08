@@ -4,9 +4,9 @@ description: Understand the default Redis configuration for Azure Cache for Redi
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 06/07/2022
 ms.author: franlanglois 
-ms.custom: devx-track-azurepowershell
+
 
 ---
 
@@ -138,9 +138,9 @@ Use the **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemo
 
 For more information about `maxmemory` policies, see [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies).
 
-The **maxmemory-reserved** setting configures the amount of memory, in MB per instance in a cluster, that is reserved for non-cache operations, such as replication during failover. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads that write large amounts of data. When memory is reserved for such operations, it's unavailable for storage of cached data. The minimum and maximum values on the slider are 10% and 60%, shown in megabytes. You must set the value in that range.
+The **maxmemory-reserved** setting configures the amount of memory in MB per instance in a cluster that is reserved for non-cache operations, such as replication during failover. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads that write large amounts of data. When memory is reserved for such operations, it's unavailable for storage of cached data. The minimum and maximum values on the slider are 10% and 60%, shown in megabytes. You must set the value in that range.
 
-The **maxfragmentationmemory-reserved** setting configures the amount of memory, in MB per instance in a cluster, that is reserved to accommodate for memory fragmentation. When you set this value, the Redis server experience is more consistent when the cache is full or close to full and the fragmentation ratio is high. When memory is reserved for such operations, it's unavailable for storage of cached data. The minimum and maximum values on the slider are 10% and 60%, shown in megabytes. You must set the value in that range.
+The **maxfragmentationmemory-reserved** setting configures the amount of memory in MB per instance in a cluster that is reserved to accommodate for memory fragmentation. When you set this value, the Redis server experience is more consistent when the cache is full or close to full and the fragmentation ratio is high. When memory is reserved for such operations, it's unavailable for storage of cached data. The minimum and maximum values on the slider are 10% and 60%, shown in megabytes. You must set the value in that range.
 
 When choosing a new memory reservation value (**maxmemory-reserved** or **maxfragmentationmemory-reserved**), consider how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53-GB cache with 49 GB of data, then change the reservation value to 8 GB, this change drops the max available memory for the system down to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system will have to evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Available metrics and reporting intervals](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
@@ -294,11 +294,11 @@ The settings in the **Administration** section allow you to perform the followin
 
 ### Import/Export
 
-Import/Export is an Azure Cache for Redis data management operation, which allows you to import and export data in the cache by importing and exporting an Azure Cache for Redis Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. Import/Export enables you to migrate between different Azure Cache for Redis instances or populate the cache with data before use.
+Import/Export is an Azure Cache for Redis data management operation that allows you to import and export data in the cache. You can import and export an Azure Cache for Redis Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. Use Import/Export to migrate between different Azure Cache for Redis instances or populate the cache with data before use.
 
 Import can be used to bring Redis compatible RDB files from any Redis server running in any cloud or environment, including Redis running on Linux, Windows, or any cloud provider such as Amazon Web Services and others. Importing data is an easy way to create a cache with pre-populated data. During the import process, Azure Cache for Redis loads the RDB files from Azure storage into memory, and then inserts the keys into the cache.
 
-Export allows you to export the data stored in Azure Cache for Redis to Redis compatible RDB files. You can use this feature to move data from one Azure Cache for Redis instance to another or to another Redis server. During the export process, a temporary file is created on the VM that hosts the Azure Cache for Redis server instance, and the file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
+Export allows you to export the data stored in Azure Cache for Redis to Redis compatible RDB files. You can use this feature to move data from one Azure Cache for Redis instance to another or to another Redis server. During the export process, a temporary file is created on the VM that hosts the Azure Cache for Redis server instance. The temporary file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
 
 > [!IMPORTANT]
 > Import/Export is only available for Premium tier caches. For more information and instructions, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
@@ -388,8 +388,8 @@ New Azure Cache for Redis instances are configured with the following default Re
 | --- | --- | --- |
 | `databases` |16 |The default number of databases is 16 but you can configure a different number based on the pricing tier.<sup>1</sup> The default database is DB 0, you can select a different one on a per-connection basis using `connection.GetDatabase(dbid)` where `dbid` is a number between `0` and `databases - 1`. |
 | `maxclients` |Depends on the pricing tier<sup>2</sup> |This value is the maximum number of connected clients allowed at the same time. Once the limit is reached Redis closes all the new connections, returning a 'max number of clients reached' error. |
-| `maxmemory-reserved` | 10% of `maxmemory` | The allowed range for `maxmemory-reserved` is 10% - 60% of `maxmemory`. If you try to set these values lower than 10% or higher than 60%, they are re-evaluated and set to the 10% minimum and 60% maximum. The values are rendered in megabytes. |
-| `maxfragmentationmemory-reserved` | 10% of `maxmemory`  | The allowed range for `maxfragmentationmemory-reserved` is 10% - 60% of `maxmemory`. If you try to set these values lower than 10% or higher than 60%, they are re-evaluated and set to the 10% minimum and 60% maximum. The values are rendered in megabytes. |
+| `maxmemory-reserved` | 10% of `maxmemory` | The allowed range for `maxmemory-reserved` is 10% - 60% of `maxmemory`. If you try to set these values lower than 10% or higher than 60%, they're reevaluated and set to the 10% minimum and 60% maximum. The values are rendered in megabytes. |
+| `maxfragmentationmemory-reserved` | 10% of `maxmemory`  | The allowed range for `maxfragmentationmemory-reserved` is 10% - 60% of `maxmemory`. If you try to set these values lower than 10% or higher than 60%, they're reevaluated and set to the 10% minimum and 60% maximum. The values are rendered in megabytes. |
 | `maxmemory-policy` |`volatile-lru` | Maxmemory policy is the setting used by the Redis server to select what to remove when `maxmemory` (the size of the cache that you selected when you created the cache) is reached. With Azure Cache for Redis, the default setting is `volatile-lru`. This setting removes the keys with an expiration set using an LRU algorithm. This setting can be configured in the Azure portal. For more information, see [Memory policies](#memory-policies). |
 | `maxmemory-samples` |3 |To save memory, LRU and minimal TTL algorithms are approximated algorithms instead of precise algorithms. By default Redis checks three keys and picks the one that was used less recently. |
 | `lua-time-limit` |5,000 |Max execution time of a Lua script in milliseconds. If the maximum execution time is reached, Redis logs that a script is still in execution after the maximum allowed time, and starts to reply to queries with an error. |

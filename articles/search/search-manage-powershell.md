@@ -235,6 +235,19 @@ New-AzSearchService -ResourceGroupName <resource-group-name> `
                       -IdentityType SystemAssigned
 ```
 
+### Create an S3HD service
+
+To create a [S3HD](./search-sku-tier.md#tier-descriptions) service, a combination of `-Sku` and `-HostingMode` is used. Set `-Sku` to `Standard3` and `-HostingMode` to `HighDensity`.
+
+```azurepowershell-interactive
+New-AzSearchService -ResourceGroupName <resource-group-name> `
+                      -Name <search-service-name> `
+                      -Sku Standard3 `
+                      -Location "West US" `
+                      -PartitionCount 1 -ReplicaCount 3 `
+                      -HostingMode HighDensity
+```
+
 ## Create a service with a private endpoint
 
 [Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/ip-services/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For more details, see 
