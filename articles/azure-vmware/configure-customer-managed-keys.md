@@ -150,7 +150,7 @@ A customer enables CMK encryption without supplying a specific key version for C
 
 **Key selection setting 2**
 
-A customer can enable CMK encryption for a specified CMK key version to supply the full key version URI under the **Enter Key from URI** option. When the customer's current key expires, the customer will need to re-enable CMK encryption with a new key.
+A customer can enable CMK encryption for a specified CMK key version to supply the full key version URI under the **Enter Key from URI** option. When the customer's current key expires, they will need to extend the CMK key expiration or disable CMK.
 
 ## Change from customer-managed key to Microsoft managed key
 
