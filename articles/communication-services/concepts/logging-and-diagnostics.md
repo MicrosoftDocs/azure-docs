@@ -152,7 +152,7 @@ Communication Services offers the following types of logs that you can enable:
 | OperationName | The operation associated with log record. |
 | OperationVersion | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
 | Category | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
-| CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mappedto the MessageId which is returned from a successful SendMail request. |
+| CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mapped to the MessageId which is returned from a successful SendMail request. |
 | Size | Represents the total size of the email body, subject, headers and attachments. |
 | ToRecipientsCount | The total # of unique addresses on the To line. |
 | CcRecipientsCount | The total # of unique addresses on the Cc line. | 
@@ -170,7 +170,7 @@ Communication Services offers the following types of logs that you can enable:
 | OperationName | The operation associated with log record. |
 | OperationVersion | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
 | Category | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
-| CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mappedto the MessageId which is returned from a successful SendMail request. |
+| CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mapped to the MessageId which is returned from a successful SendMail request. |
 | RecipientId | The email address for the targeted recipient. If this is a message-level event, the property will be empty. |
 | DeliveryStatus | The terminal status of the message. |
 
@@ -183,7 +183,7 @@ Communication Services offers the following types of logs that you can enable:
 | OperationName | The operation associated with log record. |
 | OperationVersion | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
 | Category | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
-| CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mappedto the MessageId which is returned from a successful SendMail request. |
+| CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mapped to the MessageId which is returned from a successful SendMail request. |
 | RecipientId | The email address for the targeted recipient. If this is a message-level event, the property will be empty. |
 | EngagementType | The type of user engagement being tracked. |
 | EngagementContext | The context represents what the user interacted with. |
