@@ -8,11 +8,9 @@ author: timwarner-msft
 ---
 # Remediate non-compliant resources with Azure Policy
 
-Resources that are non-compliant to a **deployIfNotExists** or **modify** policy can be put into a
-compliant state through **Remediation**. Remediation is accomplished by instructing Azure Policy to
-run the **deployIfNotExists** effect or the **modify operations** of the assigned policy on your
-existing resources and subscriptions, whether that assignment is to a management group, a
-subscription, a resource group, or an individual resource. This article shows the steps needed to
+Resources that are non-compliant to policies with **deployIfNotExists** or **modify** effects can be put into a
+compliant state through **Remediation**. Remediation is accomplished through **remediation tasks** that deploy the **deployIfNotExists** template or the **modify** operations of the assigned policy on your existing resources and subscriptions, whether that assignment is on a management group,
+subscription, resource group, or individual resource. This article shows the steps needed to
 understand and accomplish remediation with Azure Policy.
 
 ## How remediation security works
@@ -211,37 +209,62 @@ To add a role to the assignment's managed identity, follow these steps:
    
 ## Create a remediation task
 
-The following sections describe how to create a remediation task.
+# [Portal](#tab/azure-portal)
 
-### Create a remediation task through the portal
-
-During evaluation, the policy assignment with **deployIfNotExists** or **modify** effects determines
-if there are non-compliant resources or subscriptions. When non-compliant resources or subscriptions
-are found, the details are provided on the **Remediation** page. Along with the list of policies
-that have non-compliant resources or subscriptions is the option to trigger a **remediation task**.
-This option is what creates a deployment from the **deployIfNotExists** template or the **modify**
-operations.
-
-To create a **remediation task**, follow these steps:
-
-1. Launch the Azure Policy service in the Azure portal by selecting **All services**, then searching
-   for and selecting **Policy**.
+Launch the Azure Policy service in the Azure portal by selecting **All services**, then searching for and selecting **Policy**.
 
    :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Screenshot of searching for Policy in All Services." border="false":::
+
+### Step 1: Initiate remediation task creation
+There are three ways to create a remediation task through the portal.
+
+#### Option 1: Create a remediation task from the Remediation page
 
 1. Select **Remediation** on the left side of the Azure Policy page.
 
    :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Screenshot of the Remediation node on the Policy page." border="false":::
 
-1. All **deployIfNotExists** and **modify** policy assignments with non-compliant resources are
-   included on the **Policies to remediate** tab and data table. Select on a policy with resources
-   that are non-compliant. The **New remediation task** page opens.
+1. All **deployIfNotExists** and **modify** policy assignments are
+   shown on the **Policies to remediate** tab. Select one with resources
+   that are non-compliant to open the **New remediation task** page.
+   
+1. Follow steps to [specify remediation task details](#specify-remediation-task-details).
+
+#### Option 2. Create a remediation task from a non-compliant policy assignment
+
+1. Select **Compliance** on the left side of the Azure Policy page.
+
+1. Select a non-compliant policy or initiative assignment containing **deployIfNotExists** or **modify** effects.
+
+1. Select the **Create Remediation Task** button at the top of the page to open the **New remediation task** page.
+
+1. Follow steps to [specify remediation task details](#specify-remediation-task-details).
+
+#### Option 3. Create a remediation task during policy assignment
+
+If the policy or initiative definition to assign has a **deployIfNotExists** or a **Modify** effect,
+the **Remediation** tab of the wizard offers a _Create a remediation task_ option, which creates a remediation task at the same time as the policy assignment.
 
    > [!NOTE]
-   > An alternate way to open the **remediation task** page is to find and select the policy from
-   > the **Compliance** page, then select the **Create Remediation Task** button.
+   > This is the most streamlined approach for creating a remediation task and is supported for policies assigned on a _subscription_. For policies assigned on a _management group_, remediation tasks should be created using [Option 1](#option-1-create-a-remediation-task-from-the-remediation-page) or [Option 2](#option-2-create-a-remediation-task-from-a-non-compliant-policy-assignment) after evaluation has determined resource compliance.
 
-1. On the **New remediation task** page, optional remediation settings are shown: 
+1. From the assignment wizard in the portal, navigate to the **Remediation** tab. Select the check box for **Create a remediation task**. 
+
+1. If the remediation task is initiated from an initiative assignment, select the policy to remediate from the drop down.
+
+1. Configure the [managed identity](#configure-a-managed-identity-through-the-azure-portal) and fill out the rest of the wizard. The remediation task will be created when the assignment is created.
+
+### Step 2: Specify remediation task details
+
+   > [!NOTE]
+   > This step is only applicable when using [Option 1](#option-1-create-a-remediation-task-from-the-remediation-page) or [Option 2](#option-2-create-a-remediation-task-from-a-non-compliant-policy-assignment).
+
+1. If the remediation task is initiated from an initiative assignment, select the policy to remediate from the drop down.
+
+   > [!NOTE]
+   > Remediation tasks can be created for one policy assignment at a time. 
+
+1. Optionally modify remediation settings on the **New remediation task** page: 
 
     - **Failure Threshold percentage** - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%. 
     - **Resource Count** - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number of is 50,000 resources.
@@ -263,20 +286,19 @@ To create a **remediation task**, follow these steps:
 
    :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Screenshot of the Remediation tasks tab and progress of existing remediation tasks." border="false":::
 
-1. Select the **remediation task** from the policy compliance page to get details about the
-   progress. The filtering used for the task is shown along with status and a list of resources being
-   remediated.
+### Step 3: Track remediation task progress
 
-1. From the **Remediation task** page, select and hold (or right-click) on a resource to view either the remediation
-   task's deployment or the resource. At the end of the row, select on **Related events** to see
+1. Navigate to the **Remediation tasks** tab on the **Remediation** page. Click on a remediation task to view details about the filtering used, the current status, and a list of resources being remediated.
+
+1. From the **Remediation task** details page, right-click on a resource to view either the remediation
+   task's deployment or the resource. At the end of the row, select **Related events** to see
    details such as an error message.
 
    :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Screenshot of the context menu for a resource on the Remediate task tab." border="false":::
 
-Resources deployed through a **remediation task** are added to the **Deployed Resources** tab on the
-policy compliance page.
+Resources deployed through a **remediation task** are added to the **Deployed Resources** tab on the policy assignment details page.
 
-### Create a remediation task through Azure CLI
+# [Azure CLI](#tab/azure-cli)
 
 To create a **remediation task** with Azure CLI, use the `az policy remediation` commands. Replace
 `{subscriptionId}` with your subscription ID and `{myAssignmentId}` with your **deployIfNotExists**
@@ -292,7 +314,7 @@ az policy remediation create --name myRemediation --policy-assignment '/subscrip
 For other remediation commands and examples, see the [az policy
 remediation](/cli/azure/policy/remediation) commands.
 
-### Create a remediation task through Azure PowerShell
+# [PowerShell](#tab/azure-powershell)
 
 To create a **remediation task** with Azure PowerShell, use the `Start-AzPolicyRemediation`
 commands. Replace `{subscriptionId}` with your subscription ID and `{myAssignmentId}` with your
@@ -308,12 +330,7 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 For other remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights)
 module.
 
-### Create a remediation task during policy assignment in the Azure portal
-
-A streamlined way of creating a remediation task is to do so from the Azure portal during policy
-assignment. If the policy definition to assign is a **deployIfNotExists** or a **Modify** effect,
-the wizard on the **Remediation** tab offers a _Create a remediation task_ option. If this option is
-selected, a remediation task is created at the same time as the policy assignment.
+---
 
 ## Next steps
 
