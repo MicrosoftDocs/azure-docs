@@ -3,7 +3,7 @@ title: How to use Defender for Containers to identify vulnerabilities in Microso
 description: Learn how to use Defender for Containers to scan images in your registries
 author: bmansheim
 ms.author: benmansheim
-ms.date: 04/28/2022
+ms.date: 06/08/2022
 ms.topic: how-to
 ---
 
