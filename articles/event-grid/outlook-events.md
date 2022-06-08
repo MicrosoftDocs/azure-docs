@@ -2,7 +2,7 @@
 title: Outlook events in Azure Event Grid
 description: This article describes Microsoft Outlook events in Azure Event Grid.
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 06/09/2022
 ---
 
 # Microsoft Outlook events
@@ -235,6 +235,7 @@ The data object has the following properties:
 | `subscriptionExpirationDateTime` | string | The time in [RFC 3339](https://tools.ietf.org/html/rfc3339) format at which the Graph API subscription expires.  |
 | `subscriptionId` | string | The Graph API subscription identifier. |
 | `tenantId` | string | The Outlook tenant identifier.  |
+| `otherResourceData` | string | Placeholder that represents one or more dynamic properties that may be included in the event. |
 
 
 ## Next steps

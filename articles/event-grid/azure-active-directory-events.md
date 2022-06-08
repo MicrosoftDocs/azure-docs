@@ -2,7 +2,7 @@
 title: Azure Active Directory events
 description: This article describes Azure AD event types and provides event samples.
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 06/09/2022
 ---
 
 # Azure Active Directory events

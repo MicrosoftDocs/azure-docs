@@ -2,7 +2,7 @@
 title: Azure Event Grid - Subscribe to Microsoft Graph API events 
 description: This article explains how to subscribe to events published by Microsoft Graph API.
 ms.topic: how-to
-ms.date: 06/06/2022
+ms.date: 06/09/2022
 ---
 
 # Subscribe to events published by Microsoft Graph API

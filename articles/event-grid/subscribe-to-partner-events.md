@@ -2,7 +2,7 @@
 title: Azure Event Grid - Subscribe to partner events 
 description: This article explains how to subscribe to events from a partner using Azure Event Grid.
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 06/09/2022
 ---
 
 # Subscribe to events published by a partner with Azure Event Grid
