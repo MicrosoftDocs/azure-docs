@@ -74,13 +74,70 @@ The core operation of the Translator service is translating text. In this quicks
 
     :::image type="content" source="media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studio's configure new project dialog window.":::
 
-1. In the **Additional information** dialog window, make sure **.NET 6.0 (Long-term support)** is selected. Leave the "Do not use top-level statements" checkbox **unchecked** and select **Create**.
+1. In the **Additional information** dialog window, make sure **.NET 6.0 (Long-term support)** is selected. Leave the "Don't use top-level statements" checkbox **unchecked** and select **Create**.
 
     :::image type="content" source="media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio's additional information dialog window.":::
 
 ### Build your application
 
+> [!NOTE]
+>
+> * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
+> * The new output uses recent C# features that simplify the code you need to write.
+> * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives.
+> * For more information, *see* [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
+
+1. Open the **Program.cs** file.
+
+1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`. Copy and paste the code sample into your application's Program.cs file. Make sure you update the key and endpoint variables with values from your Translator instance in the Azure portal:
+
+```csharp
+using System.Text;
+using Newtonsoft.Json;
+
+class Program
+{
+    private static readonly string key = "ef0bd80b228141fe98c2f523ba2ff058";
+    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    //private static readonly string location = "YOUR_RESOURCE_LOCATION";
+
+    static async Task Main(string[] args)
+    {
+        // Input and output languages are defined as parameters.
+        string route = "/translate?api-version=3.0&from=en&to=de&to=zu";
+        string textToTranslate = "Hello, what is your name?";
+        object[] body = new object[] { new { Text = textToTranslate } };
+        var requestBody = JsonConvert.SerializeObject(body);
+
+        using (var client = new HttpClient())
+        using (var request = new HttpRequestMessage())
+        {
+            // Build the request.
+            request.Method = HttpMethod.Post;
+            request.RequestUri = new Uri(endpoint + route);
+            request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+            request.Headers.Add("Ocp-Apim-Subscription-Key", key);
+            //request.Headers.Add("Ocp-Apim-Subscription-Region", location);
+
+            // Send the request and get response.
+            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
+            // Read response as a string.
+            string result = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(result);
+        }
+    }
+}
+
+```
+
 ### Run your application
+
+Once you've added a code sample to your application, choose the green Start button next to formRecognizer_quickstart to build and run your program, or press F5.
+
+:::image type="content" source="media/quickstarts/run-program-visual-studio.png" alt-text="Screenshot of the rum program button in Visual Studio.":::
 
 ### [Go](#tab/go)
 
@@ -2808,7 +2865,7 @@ After a successful call, you should see the following response. For more informa
 
 ### Java users
 
-If you're encountering connection issues, it may be that your SSL certificate has expired. To resolve this issue, install the [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) to your private store.
+If you're encountering connection issues, it may be that your /TLS certificate has expired. To resolve this issue, install the [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) to your private store.
 
 ## Next steps
 
