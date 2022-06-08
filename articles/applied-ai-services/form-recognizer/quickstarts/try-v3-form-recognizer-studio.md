@@ -19,7 +19,7 @@ ms.custom: ignite-fall-2021, mode-ui
 
 [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. Get started with exploring the pre-trained models with sample documents or your own. Create projects to build custom template models and reference the models in your applications using the [Python SDK preview](try-v3-python-sdk.md) and other quickstarts.
 
-:::image border="true" type="content" source="../media/quickstarts/form-recognizer-demo-preview3.gif" alt-text="GIF of Form Recognizer Studio experience.":::
+:::image border="true" type="content" source="../media/quickstarts/form-recognizer-demo-preview3.gif" alt-text="Selecting the Layout API and analyzing a newspaper document in the Form Recognizer Studio.":::
 
 ## Prerequisites for new users
 
@@ -43,7 +43,7 @@ After you've completed the prerequisites, navigate to the [Form Recognizer Studi
 
 In the following example, we use the General Documents feature. The steps to use other pre-trained features like [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2), [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), and [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument) models are similar.
 
-:::image border="true" type="content" source="../media/quickstarts/form-recognizer-general-document-demo-preview3.gif" alt-text="GIF showing Form Recognizer General Document analysis.":::
+   :::image border="true" type="content" source="../media/quickstarts/form-recognizer-general-document-demo-preview3.gif" alt-text="Selecting the General Document API to analysis a document in the Form Recognizer Studio.":::
 
 1. Select a Form Recognizer service feature from the Studio home page.
 
