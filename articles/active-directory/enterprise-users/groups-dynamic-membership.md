@@ -67,7 +67,7 @@ A membership rule that automatically populates a group with users or devices is 
 - Operator
 - Value
 
-The order of the parts within an expression are important to avoid syntax errors.
+The order of the parts within an expression is important to avoid syntax errors.
 
 ## Supported properties
 
@@ -106,7 +106,7 @@ dirSyncEnabled |true false |user.dirSyncEnabled -eq true
 | objectId |GUID of the user object | user.objectId -eq "11111111-1111-1111-1111-111111111111" |
 | onPremisesDistinguishedName (preview)| Any string value or *null* | user.onPremisesDistinguishedName -eq "value" |
 | onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. | user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111" |
-| passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | user.passwordPolicies -eq "DisableStrongPassword" |
+| passwordPolicies |None<br>DisableStrongPassword<br>DisablePasswordExpiration<br>DisablePasswordExpiration, DisableStrongPassword | user.passwordPolicies -eq "DisableStrongPassword" |
 | physicalDeliveryOfficeName |Any string value or *null* | user.physicalDeliveryOfficeName -eq "value" |
 | postalCode |Any string value or *null* | user.postalCode -eq "value" |
 | preferredLanguage |ISO 639-1 code | user.preferredLanguage -eq "en-US" |
@@ -162,12 +162,12 @@ The **-match** operator is used for matching any regular expression. Examples:
 ```
 user.displayName -match "Da.*"   
 ```
-Da, Dav, David evaluate to true, aDa evaluates to false.
+`Da`, `Dav`, `David` evaluate to true, aDa evaluates to false.
 
 ```
 user.displayName -match ".*vid"
 ```
-David evaluates to true, Da evaluates to false.
+`David` evaluates to true, `Da` evaluates to false.
 
 ## Supported values
 
@@ -278,7 +278,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 #### Example 3
 
-The following expression selects all users who have no asigned service plan:
+The following expression selects all users who have no assigned service plan:
 
 ```
 user.assignedPlans -all (assignedPlan.servicePlanId -eq "")
