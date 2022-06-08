@@ -46,6 +46,10 @@ In this tutorial:
 
 2. Install the notation-azure-kv plugin for remote signing and verification
 
+    > [!NOTE]
+    > The plugin directory varies depending upon the operating system being used.  The directory path below assumes Ubuntu.
+    > Please read the [notation config article](https://github.com/notaryproject/notation/blob/main/specs/notation-config.md) for more information.
+    
     ```bash
     # Create a directory for the plugin
     mkdir -p ~/.config/notation/plugins/azure-kv
@@ -58,13 +62,7 @@ In this tutorial:
     tar xvzf notation-azure-kv.tar.gz -C ~/.config/notation/plugins/azure-kv notation-azure-kv
     ```
 
-3. Configure the AKV plugin (azure-kv) for notation
-
-    ```bash
-    notation plugin add azure-kv ~/.config/notation/plugins/azure-kv/notation-azure-kv
-    ```
-
-4. List the available plugins and verify that the plugin is available
+3. List the available plugins and verify that the plugin is available
 
     ```bash
     notation plugin ls
