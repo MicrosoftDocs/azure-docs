@@ -12,7 +12,7 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/04/2021
+ms.date: 09/06/2022
 ms.author: mjha
 ms.custom: mvc
 #Customer intent: I need to monitor communication between one endpoint and another using Azure Monitor Agent with Connection Monitor. 
@@ -46,15 +46,15 @@ Connection Monitor relies on lightweight executable files to run connectivity ch
 
 Refer [here](./connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets) to learn how to install agents for Azure virtual machines and scale sets.
 
-### Agents for On-premises machines
+### Agents for on-premises machines
 
 To make Connection Monitor recognize your on-premises machines as sources for monitoring 
 * Enable your hybrid endpoints to [ARC Enabled Servers](../azure-arc/overview.md)
-	1. To connect hybrid machines, you install the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) on each machine.
-	2. This agent does not deliver any other functionality, and it doesn't replace the Azure Monitor Agent. The Azure Connected Machine agent simply enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers. 
+* To connect hybrid machines, you install the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) on each machine.
+* This agent does not deliver any other functionality, and it doesn't replace the Azure Monitor Agent. The Azure Connected Machine agent simply enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers. 
 
 * Install the [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md) to enable the Network Watcher extension.
-	1. The agent collects monitoring logs and data from the hybrid sources and delivers it to Azure Monitor
+* The agent collects monitoring logs and data from the hybrid sources and delivers it to Azure Monitor
 
 #### Installing Azure Connected Machine agent to enable ARC 
 
@@ -132,21 +132,21 @@ Follow the steps below for the operating system of your server.
 
 After you install the agent and configure it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machine in the [Azure portal](https://aka.ms/hybridmachineportal).
 
-:::image type="content" source="./media/connection-monitor-2-preview/confirm-arc-enable.png" alt-text="A successful machine connection" border="false":::
+:::image type="content" source="./media/connection-monitor-2-preview/confirm-arc-enable.png" alt-text="Scheenshot showing successful machine connection" border="false":::
 
 ##### Connect hybrid machines to Azure by using PowerShell
 
 For servers enabled with Azure Arc, you can take manual steps mentioned above to enable them for one or more Windows or Linux machines in your environment. Alternatively, you can use the PowerShell cmdlet Connect-AzConnectedMachine to download the Connected Machine agent, install the agent, and register the machine with Azure Arc. The cmdlet downloads the Windows agent package (Windows Installer) from the Microsoft Download Center, and the Linux agent package from the Microsoft package repository.
-Refer to the linked document to discover the required steps to install the [ARC agent via Powershell](../azure-arc/servers/onboard-powershell.md)
+Refer to the linked document to discover the required steps to install the [ARC agent via PowerShell](../azure-arc/servers/onboard-powershell.md)
 
 ##### Connect hybrid machines to Azure from Windows Admin Center
 
-You can enable Azure Arc-enabled servers for one or more Windows machines in your environment by performing a set of steps manually, as mentioned above. Or you can use Windows Admin Center to deploy the Connected Machine agent and register your on-premises servers without having to perform any steps outside of this tool. Refer to the linked document to discover the steps to [install ARC agent via Windows Admin Centre](../azure-arc/servers/onboard-windows-admin-center.md)
+You can enable Azure Arc-enabled servers for one or more Windows machines in your environment by performing a set of steps manually, as mentioned above. Or you can use Windows Admin Center to deploy the Connected Machine agent and register your on-premises servers without having to perform any steps outside of this tool. Refer to the linked document to discover the steps to [install ARC agent via Windows Admin Center](../azure-arc/servers/onboard-windows-admin-center.md)
 
 #### Installing Azure Monitor Agent 
 
 The Azure Monitor agent is implemented as an Azure VM extension with the details in the following table. It can be installed using any of the methods to install virtual machine extensions including those described in this article. Refer to [Azure Monitor overview](../azure-monitor/agents/azure-monitor-agent-overview.md) to learn more. 
-The following section covers installing Azure Monitor Agent on Arc Enabled Servers using Powershell and Azure CLI. Refer to [Manage the Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-manage.md) to learn the rest.
+The following section covers installing Azure Monitor Agent on Arc Enabled Servers using PowerShell and Azure CLI. Refer to [Manage the Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-manage.md) to learn the rest.
 
 ##### Using PowerShell
 You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers using the PowerShell command for adding a virtual machine extension. 
@@ -268,7 +268,7 @@ The Azure Monitor agent can coexist (run side by side on the same machine) with 
 * Besides data duplication, this would also generate more charges for data ingestion and retention.
 * Running two telemetry agents on the same machine would result in double the resource consumption, including but not limited to CPU, memory, storage space and network bandwidth
 
-#### Create connection monitor 
+## Next steps 
 
 After the successful installation of monitoring agents, proceed to [Creation a Connection Monitor](./connection-monitor-overview.md#create-a-connection-monitor). 
 Upon the successful creation of Connection Monitor, analyze monitoring data and set alerts. Diagnose issues in your connection monitor and your network. 
