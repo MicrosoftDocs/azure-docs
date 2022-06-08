@@ -1,0 +1,36 @@
+items:
+- name: Azure Storage Mover documentation
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: What is Azure Storage Mover?
+    href: overview.md
+  - name: Azure Storage Mover release notes
+    href: release-notes.md
+  expanded: true
+- name: Concepts
+  items: 
+  - name: Planning for a deployment
+    href: deployment-planning.md
+  - name: Resource Hierarchy
+    href: resource-hierarchy.md
+  - name: Networking considerations
+    href: network-considerations.md
+  - name: Scale and performance targets
+    href: performance-targets.md
+  - name: Prevent accidental deletion (disaster recovery)
+    href: disaster-recovery.md
+  - name: Understanding billing
+    href: billing.md
+  - name: Azure Storage compliance offerings
+    href: compliance-offerings.md
+- name: Quickstarts
+  items: 
+
+- name: Tutorials
+  items: 
+
+
+
+
+  
