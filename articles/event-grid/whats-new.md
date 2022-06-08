@@ -15,15 +15,12 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 ## REST API version 2021-12
 This release corresponds to REST API version 2021-12-01, which includes the following features:
 
-- MSI for delivery to first party destinations.
-- MSI for system topics.
-- [User identity for system topics, custom topics and domains](enable-identity-custom-topics-domains.md)
+- [Enable managed identities for system topics](enable-identity-system-topics.md)
+- [Enabled managed identities for custom topics and domains](enable-identity-custom-topics-domains.md)
+- [Use managed identities to deliver events to destinations](add-identity-roles.md)
 - [Support for delivery attributes](delivery-properties.md)
 - [Storage queue - message time-to-live (TTL)](delivery-properties.md#configure-time-to-live-on-outgoing-events-to-azure-storage-queues)- 
-- Topic type with multiple source scopes.
-- Self management of domain topics
-- Data plane AAD auth
-
+- [Azure Active Directory authentication for topics and domains, and partner namespaces](authenticate-with-active-directory.md)
 
 ## REST API version 2021-10
 This release corresponds to REST API version 2021-10-15-preview, which includes the following features:
