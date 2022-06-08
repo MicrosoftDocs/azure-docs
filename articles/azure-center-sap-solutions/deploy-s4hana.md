@@ -75,7 +75,7 @@ There are three deployment options that you can select for your infrastructure, 
 
     1. For **Username**, enter a username.
 
-    1. For **SSH public key source**, select a source for the public key. You can choose to generate a new key pair*, use an existing key stored in Azure, or use an existing public key stored on your local computer. If you don't have keys already saved, it's recommended to generate a new key pair.
+    1. For **SSH public key source**, select a source for the public key. You can choose to generate a new key pair, use an existing key stored in Azure, or use an existing public key stored on your local computer. If you don't have keys already saved, it's recommended to generate a new key pair.
 
     1. For **Key pair name**, enter a name for the key pair.
 
