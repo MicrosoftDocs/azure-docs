@@ -98,7 +98,7 @@ The authentication policy is cached. After a policy update, it may take up to an
 
 ## I get an error ‘Cannot read properties of undefine’ while trying to add a custom authentication rule
 
-This is a known issue, and we are working on graceful error handling. This error happens when there is no Certificate Authority (CA) on the tenant. To resolve the error, see [Configure the certificate authorities](how-to-certificate-based-authentication.md#step-1-configure-the-certificate-authorities).
+This is a known issue, and we are working on graceful error handling. This error happens when there is no Certificate Authority (CA) on the tenant. To resolve the error, see [Configure the certificate authorities](how-to-certificate-based-authentication.md#step-1-configure-the-certification-authorities).
 
 :::image type="content" border="true" source="./media/troubleshoot-certificate-based-authentication/no-ca.png" alt-text="Error message when no CA is set for Azure AD.":::
 
