@@ -27,3 +27,5 @@ landingContent:
             url: create-network.md
           - text: Install SAP software in ACSS
             url: install-software.md
+          - text: Configure Virtual Instance for SAP
+            url: configure-virtual-instance.md
