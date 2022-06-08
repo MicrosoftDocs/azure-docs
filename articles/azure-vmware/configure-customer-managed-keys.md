@@ -10,7 +10,7 @@ ms.date: 5/09/2022
 
 ## Overview
 
-This article will show you how to encrypt VMware vSAN Key Encryption Keys (KEK) with customer-managed keys (CMKs) managed by customer-owned Azure Key Vault.
+This article will show you how to encrypt VMware vSAN Key Encryption Keys (KEKs) with customer-managed keys (CMKs) managed by customer-owned Azure Key Vault.
 
 When CMK encryptions are enabled on your Azure VMware Solution private cloud, Azure VMware Solution uses the CMK from your Key Vault to encrypt the vSAN KEKs. Each ESXi host that participates in the vSAN cluster uses randomly generated Disk Encryption Keys (DEKs) that ESXi uses to encrypt disk data at rest. vSAN encrypts all DEKs with a KEK provided by Azure VMware Solution key management system (KMS). Azure VMware Solution private cloud and Key Vault don't need to be in the same subscription.
 
@@ -121,12 +121,13 @@ Navigate to your **Azure Key Vault** and provide access to the SDDC on Azure Key
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure customer-managed keys for an Azure VMware Solution private cloud with automatic updating of the key version, call [az vmware private-cloud add-cmk-encryption](https://docs.microsoft.com/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-add-cmk-encryption). Option 1  as shown in the following example without providing specific key version. Supply key version as argument to use customer-managed keys with specific key version as mentioned in option 2.
+To configure customer-managed keys for an Azure VMware Solution private cloud with automatic updating of the key version, call [az vmware private-cloud add-cmk-encryption](https://docs.microsoft.com/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-add-cmk-encryption). The example for **Option 1** below shows not providing a specific key version. Supply key version as argument to use customer-managed keys with specific key version as mentioned in option 2.
 
 `keyVaultUrl =$(az keyvault show --name <keyvault_name> --resource-group <resource_group_name> --query properties.vaultUri --output tsv)`
 
 **Option 1**
-az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name <keyvault_key_name>
+
+`az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name <keyvault_key_name>`
 
 **Option 2**
 
@@ -136,38 +137,40 @@ az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> 
 
 ## Customer-managed key version lifecycle
 
-You can change the Customer Managed Key by creating a new version of the key at any time without interrupting the virtual machine (VM) workload.
+You can change the customer-managed key (CMK) by creating a new version of the key. the creation of a new version won't interrupt the virtual machine (VM) workflow.
 
 In Azure VMware Solution, CMK key version rotation will depend on the key selection setting you've chosen during CMK setup.
 
 **Key selection setting 1**
 
-A customer enables CMK encryption without supplying a specific key version for CMK. Azure VMware Solution selects the latest key version for CMK from the customer's Key Vault to encrypt the vSAN KEKs. Azure VMware Solution tracks the CMK for version rotation. When a new version of the CMK key in Azure Key Vault is created, it's captured by Azure VMware Solution automatically to encrypt vSAN KEKs.
+A customer enables CMK encryption without supplying a specific key version for CMK. Azure VMware Solution selects the latest key version for CMK from the customer's Key Vault to encrypt the vSAN Key Encryption Keys (KEKs). Azure VMware Solution tracks the CMK for version rotation. When a new version of the CMK key in Azure Key Vault is created, it's captured by Azure VMware Solution automatically to encrypt vSAN KEKs.
+
+>[!NOTE]
+>Azure VMware Solution can take up to 10 minutes to detect a new auto rotated key version.
 
 **Key selection setting 2**
 
 A customer can enable CMK encryption for a specified CMK key version to supply the full key version URI under the **Enter Key from URI** option. When the customer's current key expires, the customer will need to re-enable CMK encryption with a new key.
 
-## Change from customer-managed key to Microsoft managed key 
+## Change from customer-managed key to Microsoft managed key
 
-If a customer wants to change from customer-managed key (CMK) to Microsoft managed key (MMK), it won't interrupt VM workload. To make the change from CMK to MMK, use the following steps.
+When a customer wants to change from a customer-managed key (CMK) to a Microsoft managed key (MMK), it won't interrupt VM workload. To make the change from CMK to MMK, use the following steps.
 
 1. Select **Encryption**, located under **Manage** from your Azure VMware Solution private cloud.
 2. Select **Microsoft-managed keys (MMK)**.
 3. Select **Save**.
   
+## Configurations
+
+The Azure Key Vault must be configured as recoverable.
+
+- Configure Azure Key Vault with the **Soft Delete** option.
+- Turn on **purge protection** to guard against force deletion of the secret vault, even after soft delete.
+
 ## Restore permission
 
 ## Errors  
 
-Errors 403 and 404 occur when Managed Service Identity (MSI) doesn't have access to Key Vault. These errors occur when a user removes access policies within Key Vault, deletes Key Vault, DNS outages, networking issues, or Key Vault outages.  It results in the delay of update operations on vCenter. The approach is to shut down the hosts to avoid any malicious access to the data within an hour of the error.  Host maintenance and update operations, whether manual or automatic, won't work, but you can still access the private cloud. 
 
-When all errors get resolved, access to the data will be restored. No data is lost because of outages. The error will get resolved by Microsoft fixing service outages or by you restoring a KEK or access to the Key Vault. To protect data from errors, Azure VMware Solution caches data encryption keys for as long as possible. You can write the data encryption keys to disks protected by a Microsoft key or a data protection API (DP API). But only if it continues to honor the one-hour window and is cleaned up afterward.
-
->[!TIP]
-> You'll be notified if a key or access to the key is revoked. Once revoked, you can then define custom actions to take. If you lose access to your cached data encryption key, make the data inaccessible so you don't lose the data.
-
->[!TIP]
-> You'll be notified if a key or access to the key is revoked. Once revoked, you can then define custom actions to take. If you lose access to your cached data encryption key, make the data inaccessible so you don't lose the data.
 
 ## Next steps
