@@ -1,6 +1,6 @@
 ---
 title: Configure CI/CD with Azure Pipelines
-description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline with GitHub Actions. Customize the build tasks and execute complex deployments.
+description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline with Azure DevOps Pipelines.
 ms.topic: article
 ms.date: 06/08/2022
 ms.author: jukullam
@@ -35,9 +35,9 @@ Create an Azure App Service on Linux or Windows with Azure Cloud Shell. To get s
 For more information, see [Overview of Azure Cloud Shell](/azure/cloud-shell/overview).
 
 
-# [Linux](#tab/linux)
+Create an Azure App Service.
 
-Create an Azure App Service on Linux.
+Add the flag `--is-linux` when creating your app service plan for an Linux app service plan. 
 
 ```azurecli
 # Create a resource group
@@ -46,27 +46,12 @@ az group create --location eastus2 --name myapp-rg
 # Create an app service plan of type Linux
 az appservice plan create -g myapp-rg -n myapp-service-plan --is-linux
 
-# Create an App Service from the plan 
+# Create an app service from the plan 
 az webapp create -g myapppipeline-rg -p myapp-service-plan -n my-app-dotnet --runtime "DOTNETCORE:6.0" 
 ```
 
-# [Windows](#tab/windows)
-
-Create an Azure App Service on Windows.
-
-```azurecli
-# Create a resource group
-az group create --location eastus2 --name myapp-rg
-
-# Create an app service plan of type Windows
-az appservice plan create -g myapp-rg -n myapp-service-plan
-
-# Create an App Service from the plan 
-az webapp create -g myapppipeline-rg -p myapp-service-plan -n my-app-dotnet-win --runtime "DOTNETCORE:6.0" 
-```
----
-
 ## Build your app with Azure Pipelines
+
 #### [YAML](#tab/yaml/)
 
 ### Create a .NET project
@@ -268,7 +253,7 @@ You'll need an Azure service connection for the `AzureWebApp` task. The Azure se
 
 For Azure DevOps Services, the easiest way to get started with this task is to be signed in as a user who owns both the Azure DevOps Services organization and the Azure subscription. In this case, you won't have to manually create the service connection.
 
-Otherwise, to learn how to create an Azure service connection, see [Create an Azure service connection](../library/connect-to-azure.md).
+Otherwise, to learn how to create an Azure service connection, see [Create an Azure service connection](/azure/devops/pipelines/library/connect-to-azure).
 
 ---
 
