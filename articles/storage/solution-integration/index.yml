@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Storage solution examples from Microsoft partners # < 60 chars
-summary: Learn how many different types of Microsoft partner industries use Azure Storage to enable advanced scenarios.  # < 160 chars
+title: Azure Storage solutions from Microsoft partners # < 60 chars
+summary: Learn about the many available Microsoft partner solutions that use Azure Storage to enable advanced scenarios.  # < 160 chars
 metadata:
-  title: Azure Storage solution examples from Microsoft partners # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description:  Learn how many different types of Microsoft partner industries use Azure Storage to enable advanced scenarios. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Storage solutions from Microsoft partners # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn about the many available Microsoft partner solutions that use Azure Storage to enable advanced scenarios. # Required; article description that is displayed in search results. < 160 chars.
   services: storage
   ms.service: storage #Required; service per approved list. Service slug assigned to your service by ACOM.
   ms.subservice: partner
