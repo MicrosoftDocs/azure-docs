@@ -82,11 +82,9 @@ Use the following steps to create a linked service to Dynamics 365 in the Azure 
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-2. Search for Dynamics and select the Dynamics 365 connector.
+2. Search for Dynamics or Dataverse and select the Dynamics 365 (Microsoft Dataverse) or Dynamics CRM connector.
 
     :::image type="content" source="media/connector-dynamics-crm-office-365/dynamics-crm-office-365-connector.png" alt-text="Screenshot of the Dynamics 365 connector.":::    
-
-   Search for Dataverse and select Dataverse connector.
 
     :::image type="content" source="media/connector-dynamics-crm-office-365/dataverse-connector.png" alt-text="Screenshot of the Dataverse connector.":::  
 
