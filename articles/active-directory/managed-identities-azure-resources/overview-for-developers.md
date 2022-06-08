@@ -385,13 +385,13 @@ To avoid storing credentials in your code or your application configuration, you
 In some scenarios, you may want to acquire tokens for Managed identities manually instead of using a built-in method to connect to the target resource. This may be because there's no client library for the programming language that you're using or for the target resource you're connecting to. When acquiring tokens manually, we provide the following guidelines:
 
 ### Cache the tokens you acquire
-For performance and reliability, we recommend that your application caches tokens. As Managed identity tokens are valid for 24 hours, there's no benefit in requesting new tokens regularly, as a cached one will be returned from the token issuing endpoint. If you exceed the request limits, you'll be rate limited and receive an HTTP 429 error.
+For performance and reliability, we recommend that your application caches tokens in local memory, or encrypted if you want to save them to disk. As Managed identity tokens are valid for 24 hours, there's no benefit in requesting new tokens regularly, as a cached one will be returned from the token issuing endpoint. If you exceed the request limits, you'll be rate limited and receive an HTTP 429 error.
 
 ### Token inspection
 Your application shouldn't rely on the contents of a token. The token's content is intended only for the audience (target endpoint) that is being accessed, not the client that's requesting the token. The token content may change or be encrypted in the future.
 
 ### Don't expose tokens
-Tokens should be treated like credentials - don't expose them in your application.
+Tokens should be treated like credentials. Don't expose them to users or other services; for example logging/monitoring solutions.
 
 ## Next steps
 
