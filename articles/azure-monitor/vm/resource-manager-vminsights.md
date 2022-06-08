@@ -4,7 +4,8 @@ description: Sample Azure Resource Manager templates to deploy and configureVM i
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 06/07/2022
+ms.date: 05/18/2020
+ms.reviewer: Xema Pathak
 
 ---
 
