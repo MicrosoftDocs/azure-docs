@@ -8,7 +8,7 @@ editor:
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: overview
-ms.date: 06/02/2022
+ms.date: 06/04/2022
 ms.author: barclayn
 ms.reviewer: 
 ---
@@ -74,7 +74,7 @@ To deliver on these promises, we need a technical foundation made up of seven ke
 **1. W3C Decentralized Identifiers (DIDs)**
 IDs users create, own, and control independently of any organization or government. DIDs are globally unique identifiers linked to Decentralized Public Key Infrastructure (DPKI) metadata composed of JSON documents that contain public key material, authentication descriptors, and service endpoints.
 
-**2. Decentralized system: ION (Identity Overlay Network)**
+**2. Decentralized system**
 
 - ION (Identity Overlay Network) ION is a Layer 2 open, permissionless network based on the purely deterministic Sidetree protocol, which requires no special tokens, trusted validators, or other consensus mechanisms; the linear progression of Bitcoin's time chain is all that's required for its operation. We have open sourced a [npm package](https://www.npmjs.com/package/@decentralized-identity/ion-tools) to make working with the ION network easy to integrate into your apps and services. Libraries include creating a new DID, generating keys and anchoring your DID on the Bitcoin blockchain.
 

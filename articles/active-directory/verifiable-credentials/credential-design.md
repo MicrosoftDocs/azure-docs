@@ -27,13 +27,16 @@ Verifiable credentials are made up of two components, the rules and display defi
 
 The rules definition is a simple JSON document that describes important properties of verifiable credentials. In particular, it describes how claims are used to populate your verifiable credential.
 
-There are currently three input types that are available to configure in the rules definition. These types are used by the verifiable credential issuing service to insert claims into a verifiable credential and attest to that information with your DID. The following are the three types with explanations.
+There are currently three input types that are available to configure in the rules definition. These types are used by the verifiable credential issuing service to insert claims into a verifiable credential and attest to that information with your DID. The following are the four types with explanations.
 
 - ID Token
+- ID Token Hint
 - Verifiable credentials via a verifiable presentation.
 - Self-Attested Claims
 
-**ID token:** The sample App and Tutorial use the ID Token. When this option is configured, you will need to provide an Open ID Connect configuration URI and include the claims that should be included in the VC. The user will be prompted to 'Sign in' on the Authenticator app to meet this requirement and add the associated claims from their account. 
+**ID token:** When this option is configured, you will need to provide an Open ID Connect configuration URI and include the claims that should be included in the VC. The user will be prompted to 'Sign in' on the Authenticator app to meet this requirement and add the associated claims from their account. 
+
+**ID token hint:** The sample App and Tutorial use the ID Token Hint. When this option is configured, the relying party app will need to provide claims that should be included in the VC in the Request Service API issuance request. Where the relying party app gets the claims from is up to the app, but it can come from the current login session, from backend CRM systems or even from self asserted user input. 
 
 **Verifiable credentials:** The end result of an issuance flow is to produce a Verifiable Credential but you may also ask the user to Present a Verifiable Credential in order to issue one. The rules definition is able to take specific claims from the presented Verifiable Credential and include those claims in the newly issued Verifiable Credential from your organization. 
 
@@ -54,7 +57,6 @@ There are currently three input types that are available to configure in the rul
 }
 ```
 
-
 ## Input type: ID token
 
 To get ID Token as input, the rules definition needs to configure the well-known endpoint of the OIDC compatible Identity system. In that system you need to register an application with the correct information from [Issuer service communication examples](issuer-openid.md). Additionally, the client_id needs to be put in the rules definition, as well as a scope parameter needs to be filled in with the correct scopes. For example, Azure Active Directory needs the email scope if you want to return an email claim in the ID token.
@@ -72,7 +74,7 @@ To get ID Token as input, the rules definition needs to configure the well-known
                 "indexed": false                 
               },
               { 
-                "outputClaim": "lasttName", 
+                "outputClaim": "lastName", 
                 "inputClaim": "family_name",
                 "required": true,
                 "indexed": true                 
@@ -90,30 +92,45 @@ To get ID Token as input, the rules definition needs to configure the well-known
         "type": ["https://schema.org/EducationalCredential", "https://schemas.ed.gov/universityDiploma2020", "https://schemas.contoso.edu/diploma2020" ]
       }
     }
-
-
 ```
-|Property | Description|
-|---------|------------|
-|`...mapping`| A collection that describes how claims in each ID token are mapped to attributes in the resulting verifiable credential. |
-|`...mapping.{outputClaim}`| The attribute that should be populated in the resulting Verifiable Credential. |
-|`...mapping.{inputClaim}`| The claim in ID tokens whose value should be used to populate the attribute.|
-|`...mapping.{required}`| The claim in ID tokens is required to have a value.|
-|`...mapping.{indexed}`| Only one can be enabled per Verifiable Credential to save for revoke. Please see the article on how to revoke a credential for more information|
 
+Please see [idToken attestation](rules-and-display-definitions-model.md#idTokenAttestation-type) for reference of properties.
 
-| Property | Description |
-| -------- | ----------- |
-| `attestations.idTokens` | An array of OpenID Connect identity providers that are supported for sourcing user information. |
-| `...mapping` | An object that describes how claims in each ID token are mapped to attributes in the resulting verifiable credential. |
-| `...mapping.{attribute-name}` | The attribute that should be populated in the resulting Verifiable Credential. |
-| `...mapping.{attribute-name}.claim` | The claim in ID tokens whose value should be used to populate the attribute. |
-| `...configuration` | The location of your identity provider's configuration document. This URL must adhere to the [OpenID Connect standard for identity provider metadata](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata). The configuration document must include the `issuer`, `authorization_endpoint`, `token_endpoint`, and `jwks_uri` fields. |
-| `...client_id` | The client ID obtained during the client registration process. |
-| `...scope` | A space-delimited list of scopes the IDP needs to be able to return the correct claims in the ID token. |
-| `...redirect_uri` | Must always use the value `vcclient://openid/`. |
-| `validityInterval` | A time duration, in seconds, representing the lifetime of your verifiable credentials. After this time period elapses, the verifiable credential will no longer be valid. Omitting this value means that each Verifiable Credential will remain valid until is it explicitly revoked. |
-| `vc.type` | An array of strings indicating the schema(s) that your Verifiable Credential satisfies. See the section below for more detail. |
+## Input type: ID token hint
+
+To get ID Token hint as input, the rules definition should not contain configuration for and OIDC Identity system but instead have the special value `https://self-issued.me` for the configuration property. The claims mapping are the same as for the ID token type, but the difference is that the claim values needs to be provided by the issuance relying party app in the Request Service API issuance request.
+
+```json
+  {
+      "attestations": {
+        "idTokenHints": [
+          {
+            "configuration": "https://self-issued.me",
+            "mapping": [
+              { 
+                "outputClaim": "firstName", 
+                "inputClaim": "given_name",
+                "required": true,
+                "indexed": false                 
+              },
+              { 
+                "outputClaim": "lastName", 
+                "inputClaim": "family_name",
+                "required": true,
+                "indexed": true                 
+              }
+            ]
+          }
+        ]        
+      },
+      "validityInterval": 2592000,
+      "vc": {
+        "type": ["VerifiedCredentialExpert" ]
+      }
+    }
+```
+
+Please see [idTokenHint attestation](rules-and-display-definitions-model.md#idTokenHintAttestation-type) for reference of properties.
 
 ### vc.type: Choose credential type(s) 
 
@@ -172,31 +189,12 @@ To ensure interoperability of your credentials, it's recommended that you work c
         "ProofOfNinjaNinja"
       ]
     }
-  }
-  ```
+}
+```
 
-| Property | Description |
-| -------- | ----------- |
-| `attestations.presentations` | An array of verifiable credentials being requested as inputs. |
-| `...mapping` | An object that describes how claims in each presented Verifiable Credential are mapped to attributes in the resulting Verifiable Credential. |
-| `...mapping.{attribute-name}` | The attribute that should be populated in the resulting verifiable credential. |
-| `...mapping.{attribute-name}.claim` | The claim in the Verifiable Credential whose value should be used to populate the attribute. |
-| `...mapping.{attribute-name}.indexed` | Only one can be enabled per Verifiable Credential to save for revoke. Please see the [article on how to revoke a credential](how-to-issuer-revoke.md) for more information. |
-| `credentialType` | The credentialType of the Verifiable Credential you are asking the user to present. |
-| `contracts` | The URI of the contract in the Verifiable Credential Service portal. |
-| `issuers.iss` | The issuer DID for the Verifiable Credential being asked of the user. |
-| `validityInterval` | A time duration, in seconds, representing the lifetime of your verifiable credentials. After this time period elapses, the Verifiable Credential will no longer be valid. Omitting this value means that each Verifiable Credential will remain valid until is it explicitly revoked. |
-| `vc.type` | An array of strings indicating the schema(s) that your verifiable credential satisfies. |
+Please see [verifiablePresentation attestation](rules-and-display-definitions-model.md#verifiablePresentationAttestation-type) for reference of properties.
 
-| Property | Description |
-| -------- | ----------- |
-|`...mapping` |	A collection that describes how claims in each ID token are mapped to attributes in the resulting verifiable credential.|
-|`...mapping.{outputClaim}`| The attribute that should be populated in the resulting Verifiable Credential.|
-|`...mapping.{inputClaim}`| The claim in the Verifiable Credential whose value should be used to populate the attribute.|
-|`...mapping.{required}`| The claim in the Verifiable Credential is required to have a value.|
-|`...mapping.{indexed}`| Only one can be enabled per Verifiable Credential to save for revoke. Please see the article on how to revoke a credential for more information|
-
-## Input type: Self-attested claims
+## Input type: Selfattested claims
 
 During the issuance flow, the user can be asked to input some self-attested information. As of now, the only input type is a 'string'. 
 
@@ -227,31 +225,9 @@ During the issuance flow, the user can be asked to input some self-attested info
     "type": [ "VerifiedCredentialExpert" ]
   }
 }
-
-
 ```
 
-
-| Property | Description |
-| -------- | ----------- |
-|`...mapping` |	A collection that describes how self-issued claims are mapped to attributes in the resulting Verifiable Credential.|
-|`...mapping.{outputClaim}`| The attribute that should be populated in the resulting Verifiable Credential.|
-|`...mapping.{inputClaim}`|	The claim in the Verifiable Credential whose value should be used to populate the attribute.|
-|`...mapping.{required}`|	The claim in the Verifiable Credential is required to have a value.|
-|`...mapping.{indexed}`| Only one can be enabled per Verifiable Credential to save for revoke. Please see the article on how to revoke a credential for more information|
-
-
-
-
-| Property | Description |
-| -------- | ----------- |
-| `attestations.selfIssued` | An array of self-issued claims that require input from the user. |
-| `...mapping` | An object that describes how self-issued claims are mapped to attributes in the resulting Verifiable Credential. |
-| `...mapping.alias` | The attribute that should be populated in the resulting Verifiable Credential. |
-| `...mapping.alias.claim` | The claim in the Verifiable Credential whose value should be used to populate the attribute. |
-| `validityInterval` | A time duration, in seconds, representing the lifetime of your verifiable credentials. After this time period elapses, the Verifiable Credential will no longer be valid. Omitting this value means that each Verifiable Credential will remain valid until is it explicitly revoked. |
-| `vc.type` | An array of strings indicating the schema(s) that your Verifiable Credential satisfies. |
-
+Please see [selfIssued attestation](rules-and-display-definitions-model.md#selfIssuedAttestation-type) for reference of properties.
 
 ## Display definition: Verifiable credentials in Microsoft Authenticator
 
@@ -298,31 +274,15 @@ The display definition has the following structure.
           "label": "Name"
         }
       ]
-
-
     }
 }
 ```
 
-| Property | Description |
-| -------- | ----------- |
-| `locale` | The language of the Verifiable Credential. Reserved for future use. | 
-| `card.title` | Displays the type of credential to the user. Recommended maximum length of 25 characters. | 
-| `card.issuedBy` | Displays the name of the issuing organization to the user. Recommended maximum length of 40 characters. |
-| `card.backgroundColor` | Determines the background color of the card, in hex format. A subtle gradient will be applied to all cards. |
-| `card.textColor` | Determines the text color of the card, in hex format. Recommended to use black or white. |
-| `card.logo` | A logo that is displayed on the card. The URL provided must be publicly addressable. Recommended maximum height of 36 px, and maximum width of 100 px regardless of phone size. Recommend PNG with transparent background. | 
-| `card.description` | Supplemental text displayed alongside each card. Can be used for any purpose. Recommended maximum length of 100 characters. |
-| `consent.title` | Supplemental text displayed when a card is being issued. Used to provide details about the issuance process. Recommended length of 100 characters. |
-| `consent.instructions` | Supplemental text displayed when a card is being issued. Used to provide details about the issuance process. Recommended length of 100 characters. |
-| `claims` | Allows you to provide labels for attributes included in each credential. |
-| `claims.{attribute}.claim` | Indicates the attribute of the credential to which the label applies. |
-| `claims.{attribute}.type` | Indicates the attribute type. Currently we only support 'String'. |
-| `claims.{attribute}.label` | The value that should be used as a label for the attribute, which will show up in Authenticator. This maybe different than the label that was used in the rules definition. Recommended maximum length of 40 characters. |
-
+Please see [Display definition model](rules-and-display-definitions-model.md#displayModel-type) for reference of properties.
 
 ## Next steps
 
 Now you have a better understanding of verifiable credential design and how you can create your own to meet your needs.
 
 - [Issuer service communication examples](issuer-openid.md)
+- Reference for [Rules and Display definitions](rules-and-display-definitions-model.md)

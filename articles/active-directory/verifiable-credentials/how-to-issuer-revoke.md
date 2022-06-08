@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 05/02/2022
+ms.date: 06/03/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued
@@ -91,7 +91,7 @@ See below for an example of how the Rules file is modified to include the index.
              "outputClaim": "email", 
              "inputClaim": "email",
              "required": true,
-             "indexed": truee                 
+             "indexed": true                 
            }
         ],
         "configuration": "https://login.microsoftonline.com/tenant-id-here7/v2.0/.well-known/openid-configuration",

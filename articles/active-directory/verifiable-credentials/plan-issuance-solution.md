@@ -7,7 +7,7 @@ manager: martinco
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/02/2022
+ms.date: 06/03/2022
 ms.author: baselden
 ms.custom: references_regions
 ---
