@@ -92,7 +92,7 @@ Use the VPN device configuration file to configure your on-premises VPN device. 
 
 The device configuration file contains the settings to use when configuring your on-premises VPN device. When you view this file, notice the following information:
 
-* **vpnSiteConfiguration -** This section denotes the device details set up as a site connecting to the virtual WAN. It includes the name and public ip address of the branch device.
+* **vpnSiteConfiguration -** This section denotes the device details set up as a site connecting to the virtual WAN. It includes the name and public IP address of the branch device.
 * **vpnSiteConnections -** This section provides information about the following settings:
 
     * **Address space** of the virtual hub(s) VNet.<br>Example:
