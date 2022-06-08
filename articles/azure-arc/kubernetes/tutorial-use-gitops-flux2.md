@@ -4,7 +4,7 @@ description: "This tutorial shows how to use GitOps with Flux v2 to manage confi
 keywords: "GitOps, Flux, Flux v2, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 06/06/2022
+ms.date: 06/08/2022
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli
 ---
@@ -37,10 +37,11 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
 ### For Azure Kubernetes Service clusters
 
-* An AKS cluster that's up and running.
+* An MSI-based AKS cluster that's up and running.
 
   >[!IMPORTANT]
-  >Ensure that the AKS cluster is created with MSI (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
+  >**Ensure that the AKS cluster is created with MSI** (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
+  >For new AKS clusters created with “az aks create”, the cluster will be MSI-based by default. For already created SPN-based clusters that need to be converted to MSI run “az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity”. For more information, refer to [managed identity docs](https://docs.microsoft.com/azure/aks/use-managed-identity).
 
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type.
 * Registration of your subscription with the `AKS-ExtensionManager` feature flag. Use the following command:
