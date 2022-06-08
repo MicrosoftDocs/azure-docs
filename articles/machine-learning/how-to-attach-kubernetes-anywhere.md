@@ -148,6 +148,8 @@ Update, list, show and delete an AzureML extension.
 - For AKS cluster without Azure Arc connected, refer to  [Usage of AKS extensions](../aks/cluster-extensions.md#usage-of-cluster-extensions).
 - For Azure Arc-enabled Kubernetes, refer to [Usage of cluster extensions](../azure-arc/kubernetes/extensions.md#usage-of-cluster-extensions).
 
+---
+
 ## Review AzureML extension configuration settings
 
 For AzureML extension deployment configurations, use ```--config``` or ```--config-protected``` to specify list of ```key=value``` pairs. Following is the list of configuration settings available to be used for different AzureML extension deployment scenario ns.
@@ -266,6 +268,7 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 
     :::image type="content" source="media/how-to-attach-arc-kubernetes/provision-resources.png" alt-text="Screenshot of attached settings for configuration of Kubernetes cluster.":::
    
+---
 
 ## Next steps
 
