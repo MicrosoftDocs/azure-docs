@@ -158,4 +158,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-group-delete]: /cli/azure/group#az_group_delete
-[sp-delete]: kubernetes-service-principal.md#additional-considerations
+[sp-delete]: kubernetes-service-principal.md#other-considerations
