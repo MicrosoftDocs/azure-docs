@@ -9,7 +9,7 @@ ms.date: 06/09/2022
 
 Event Grid is a highly scalable, serverless event broker that you can use to integrate applications using events. Events are delivered by Event Grid to subscriber destinations such as applications, Azure services, or any endpoint to which Event Grid has network access. The source of those events can be other applications, SaaS services and Azure services.
 
-With Event Grid you connect solutions using event-driven architectures. An [event-driven architecture](https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven) uses events to communicate occurrences in system state changes, for example, to other applications or services. You can use filters to route specific events to different endpoints, multicast to multiple endpoints, and make sure your events are reliably delivered.
+With Event Grid you connect solutions using event-driven architectures. An [event-driven architecture](/azure/architecture/guide/architecture-styles/event-driven) uses events to communicate occurrences in system state changes, for example, to other applications or services. You can use filters to route specific events to different endpoints, multicast to multiple endpoints, and make sure your events are reliably delivered.
 
 Azure Event Grid is deployed to maximize availability by natively spreading across multiple fault domains in every region, and across availability zones (in regions that support them). For a list of regions that are supported by Event Grid, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
