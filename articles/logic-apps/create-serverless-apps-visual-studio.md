@@ -10,6 +10,8 @@ ms.date: 07/15/2021
 
 # Create an example serverless app with Azure Logic Apps and Azure Functions in Visual Studio
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 You can quickly create, build, and deploy cloud-based "serverless" apps by using the services and capabilities in Azure, such as Azure Logic Apps and Azure Functions. When you use Azure Logic Apps, you can quickly and easily build workflows using low-code or no-code approaches to simplify orchestrating combined tasks. You can integrate different services, cloud, on-premises, or hybrid, without coding those interactions, having to maintain glue code, or learn new APIs or specifications. When you use Azure Functions, you can speed up development by using an event-driven model. You can use triggers that respond to events by automatically running your own code. You can use bindings to seamlessly integrate other services.
 
 This article shows how to create an example serverless app that runs in multi-tenant Azure by using an Azure Quickstart template. The template creates an Azure resource group project that includes an Azure Resource Manager deployment template. This template defines a basic logic app resource where a predefined a workflow includes a call to an Azure function that you define. The workflow definition includes the following components:
