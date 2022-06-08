@@ -116,8 +116,6 @@ landingContent:
       links:
       - text: Visualize (univariate) anomalies using batch detection and Power BI
         url: tutorials/batch-anomaly-detection-powerbi.md
-      - text: 🆕Use Multivariate Anomaly Detector in Azure Synapse Analytics
-        url: tutorials/multivariate-anomaly-detection-synapse.md
 
 # Card 5
 
