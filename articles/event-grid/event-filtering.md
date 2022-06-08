@@ -627,7 +627,7 @@ Here's an example of using an extension context attribute in a filter.
 
 Advanced filtering has the following limitations:
 
-* 25 advanced filters and 25 filter values across all the filters per event grid subscription
+* 25 advanced filters and 25 filter values across all the filters per Event Grid subscription
 * 512 characters per string value
 * Keys with **`.` (dot)** character in them. For example: `http://schemas.microsoft.com/claims/authnclassreference` or `john.doe@contoso.com`. Currently, there's no support for escape characters in keys. 
 
