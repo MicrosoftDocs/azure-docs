@@ -1,5 +1,5 @@
 ---
-title: How to use Defender for Containers to identify vulnerabilities
+title: How to use Defender for Containers to identify vulnerabilities in Microsoft Defender for Cloud
 description: Learn how to use Defender for Containers to scan images in your registries
 author: bmansheim
 ms.author: benmansheim
