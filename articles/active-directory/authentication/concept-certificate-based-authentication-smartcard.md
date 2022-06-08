@@ -16,7 +16,7 @@ ms.reviewer: vimrang
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Windows SmartCard logon using Azure Active Directory certificate-based authentication
+# Windows SmartCard logon using Azure Active Directory certificate-based authentication (Preview)
 
 Azure AD users can authenticate using X.509 certificates on their SmartCards directly against Azure AD at Windows logon. There is no special configuration needed on the Windows client to accept the SmartCard authentication. 
  
