@@ -1,10 +1,10 @@
 ---
 title: "Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
+keywords: "GitOps, Flux, Flux v2, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 05/24/2022
+ms.date: 06/06/2022
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli
 ---
@@ -615,6 +615,21 @@ Here's an example for including the [Flux image-reflector and image-automation c
 ```console
 az k8s-extension create -g <cluster_resource_group> -c <cluster_name> -t <connectedClusters or managedClusters> --name flux --extension-type microsoft.flux --config image-automation-controller.enabled=true image-reflector-controller.enabled=true
 ```
+
+### Red Hat OpenShift onboarding guidance
+Flux controllers require a **nonroot** [Security Context Constraint](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.2/html/authentication/managing-pod-security-policies) to properly provision pods on the cluster. These constraints must be added to the cluster prior to onboarding of the `microsoft.flux` extension.
+
+```console
+NS="flux-system"
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:kustomize-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:helm-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:source-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:notification-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:image-automation-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:image-reflector-controller
+```
+
+For more information on OpenShift guidance for onboarding Flux, refer to the [Flux documentation](https://fluxcd.io/docs/use-cases/openshift/#openshift-setup).
 
 ## Work with parameters
 

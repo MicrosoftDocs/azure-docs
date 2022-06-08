@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.date: 09/29/2021
 ms.author: jawilley
 ms.topic: troubleshooting
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.custom: devx-track-dotnet
 ---
 

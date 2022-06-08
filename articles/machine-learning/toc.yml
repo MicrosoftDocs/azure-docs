@@ -310,7 +310,7 @@
                 displayName: compute target, low priority, managed identity
                 href: how-to-create-attach-compute-cluster.md
               - name: Kubernetes cluster
-                displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
+                displayName: Azure Arc, Kubernetes, on-premise, multi-cloud, attach
                 href: how-to-attach-kubernetes-anywhere.md
               - name: Use studio
                 displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
@@ -717,6 +717,8 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
+    - name: Kubernetes cluster configuration
+      href: reference-kubernetes.md
     - name: Designer component reference
       displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md

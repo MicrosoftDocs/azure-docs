@@ -51,6 +51,9 @@ Use the `cross-domain` policy to make the API accessible from Adobe Flash and Mi
 |----------|-----------------|--------------|
 |cross-domain|Root element. Child elements must conform to the [Adobe cross-domain policy file specification](https://www.adobe.com/devnet-docs/acrobatetk/tools/AppSec/CrossDomain_PolicyFile_Specification.pdf).|Yes|
 
+> [!CAUTION]
+> Use the `*` wildcard with care in policy settings. This configuration may be overly permissive and may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
+
 ### Usage
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
@@ -136,6 +139,9 @@ This example demonstrates how to support [pre-flight requests](https://developer
 |allowed-headers|This element contains `header` elements specifying names of the headers that can be included in the request.|No|N/A|
 |expose-headers|This element contains `header` elements specifying names of the headers that will be accessible by the client.|No|N/A|
 |header|Specifies a header name.|At least one `header` element is required in `allowed-headers` or `expose-headers` if the section is present.|N/A|
+
+> [!CAUTION]
+> Use the `*` wildcard with care in policy settings. This configuration may be overly permissive and may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
 
 ### Attributes
 

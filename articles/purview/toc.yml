@@ -48,8 +48,6 @@ items:
     href: tutorial-metadata-policy-collections-apis.md
   - name: Use the Python SDK
     href: tutorial-using-python-sdk.md
-  - name: Integrate with Microsoft Sentinel
-    href: ../sentinel/purview-solution.md?toc=/azure/purview/toc.json&bc=/azure/purview/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Use the Microsoft Purview governance portal
