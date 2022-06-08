@@ -37,4 +37,11 @@ Users will get a primary refresh token(PRT) from Azure Active Directory after th
 •	Only Azure AD joined, and hybrid Azure AD joined Windows machines will be able to test this.  
 •	Like in the other native CBA scenarios, the user must be on a managed domain or using staged rollout and cannot use a federated auth model.   
 
-## Next Steps
+## Next steps
+
+- [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
+- [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
+- [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
+- [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
+- [FAQ](certificate-based-authentication-faq.yml)
+- [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
