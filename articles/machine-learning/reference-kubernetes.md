@@ -36,20 +36,21 @@ This article contains reference information that may be useful when [configuring
 
 For AzureML extension deployment on ARO or OCP cluster, grant privileged access to AzureML service accounts, run ```oc edit scc privileged``` command, and add following service accounts under "users:":
 
-   * ```system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa```
-   * ```system:serviceaccount:azureml:{EXTENSION-NAME}-kube-state-metrics``` 
-   * ```system:serviceaccount:azureml:prom-admission```
-   * ```system:serviceaccount:azureml:default```
-   * ```system:serviceaccount:azureml:prom-operator```
-   * ```system:serviceaccount:azureml:load-amlarc-selinux-policy-sa```
-   * ```system:serviceaccount:azureml:azureml-fe-v2```
-   * ```system:serviceaccount:azureml:prom-prometheus```
-   * ```system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default```
-   * ```system:serviceaccount:azureml:azureml-ingress-nginx```
-   * ```system:serviceaccount:azureml:azureml-ingress-nginx-admission```
-   > **<span>Notes</span>**
-      >* **{EXTENSION-NAME}:** is the extension name specified with ```az k8s-extension create --name``` CLI command. 
-      >* **{KUBERNETES-COMPUTE-NAMESPACE}:** is the namespace of kubernetes compute specified when attaching the compute to AzureML workspace. Skip configuring `system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default` if `KUBERNETES-COMPUTE-NAMESPACE` is `default`.
+* ```system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa```
+* ```system:serviceaccount:azureml:{EXTENSION-NAME}-kube-state-metrics``` 
+* ```system:serviceaccount:azureml:prom-admission```
+* ```system:serviceaccount:azureml:default```
+* ```system:serviceaccount:azureml:prom-operator```
+* ```system:serviceaccount:azureml:load-amlarc-selinux-policy-sa```
+* ```system:serviceaccount:azureml:azureml-fe-v2```
+* ```system:serviceaccount:azureml:prom-prometheus```
+* ```system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default```
+* ```system:serviceaccount:azureml:azureml-ingress-nginx```
+* ```system:serviceaccount:azureml:azureml-ingress-nginx-admission```
+
+> [!NOTE]
+> * `{EXTENSION-NAME}`: is the extension name specified with the `az k8s-extension create --name` CLI command. 
+>* `{KUBERNETES-COMPUTE-NAMESPACE}`: is the namespace of the Kubernetes compute specified when attaching the compute to the Azure Machine Learning workspace. Skip configuring `system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default` if `KUBERNETES-COMPUTE-NAMESPACE` is `default`.
 
 ## AzureML extension components
 
