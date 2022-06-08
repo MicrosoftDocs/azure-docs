@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 # Azure Communication Services Messaging Policy
 
-Azure Communication Services is transforming the way our customers engage with their clients by building rich, custom communication experiences that take advantage of the same enterprise-grade services that back Microsoft Teams ,Skype and Exchange. You can easily integrate SMS and Email messaging functionality into your communications solutions to reach your customers anytime and anywhere they need support. You just need to keep in mind a few messaging requirements and industry standards to get started.
+Azure Communication Services is transforming the way our customers engage with their clients by building rich, custom communication experiences that take advantage of the same enterprise-grade services that back Microsoft Teams, Skype, and Exchange. You can easily integrate SMS and email messaging functionality into your communications solutions to reach your customers anytime and anywhere they need support. You just need to keep in mind a few messaging requirements and industry standards to get started.
 
 We know that messaging requirements can seem daunting to learn, but they're as easy as remembering “COMS”:
 
@@ -30,7 +30,7 @@ We developed this messaging policy to help you satisfy regulatory requirements a
 
 ### What is consent?
 
-Consent is an agreement between you and the message recipient that allows you to send application to person(A2P) messages to them. You must obtain consent before sending the first message, and you should make clear to the recipient that they're agreeing to receive messages from you. This procedure is known as receiving “prior express consent” from the individual you intend to message.
+Consent is an agreement between you and the message recipient that allows you to send application to person (A2P) messages to them. You must obtain consent before sending the first message, and you should make clear to the recipient that they're agreeing to receive messages from you. This procedure is known as receiving "prior express consent" from the individual you intend to message.
 
 The messages that you send must be the same type of messages that the recipient agreed to receive and should only be sent to the number or email address that the recipient provided to you. If you intend to send informational messages, such as appointment reminders or alerts, then consent can be either written or oral. If you intend to send promotional messages, such as sales or marketing messages that promote a product or service, then consent must be written.
 
@@ -106,21 +106,21 @@ Ensure that message recipients can opt-out of future messages at any time. You m
 
 One of the most common opt-out mechanisms in SMS applications is to include a “STOP” keyword in the initial message of every new conversation. Be prepared to remove customers that reply with a lowercase “stop” or other common keywords, such as “unsubscribe” or “cancel.”  
 
-For Email, it is to embed a link to unsubscribe in every email sent to the customer. If the customer clicks the unsubscribe link, you should be prepared to remove that customer email address(es) from your communication list.
+For email, it is to embed a link to unsubscribe in every email sent to the customer. If the customer selects the unsubscribe link, you should be prepared to remove that customer email address(es) from your communication list.
 
 After an individual revokes consent, you should remove them from all recurring messaging campaigns unless they expressly elect to continue receiving messages from a particular program.
 
 ### Opt-out best practices:
 
-In addition to keywords, other common opt-out mechanisms include providing customers with a designated opt-out e-mail address, the phone number of customer support staff, or a link to unsubscribe embedded in email message you sent or available on your webpage. 
+In addition to keywords, other common opt-out mechanisms include providing customers with a designated opt-out e-mail address, the phone number of customer support staff, or a link to unsubscribe embedded in an email message you sent or available on your webpage. 
 
-### How we handle opt-out requests for SMS:
+### How we handle opt-out requests for SMS
 
 If an individual requests to opt-out of future messages on an Azure Communication Services toll-free number, then all further traffic from that number will be automatically stopped. However, you must still ensure that you do not send additional messages for that messaging campaign from new or different numbers. If you have separately obtained express consent for a different messaging campaign, then you may continue to send messages from a different number for that campaign. Check out our FAQ section to learn more on [Opt-out handling](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/communication-services/concepts/sms/sms-faq.md#how-can-i-receive-messages-using-azure-communication-services)
 
-### How we handle opt-out requests for Email:
+### How we handle opt-out requests for email
 
-If an individual requests to opt-out of future messages on an Azure Communication Services using the unsubscribe UI page to process the unsubscribe requests, you will have to add the requested recipient's email address to the suppression list that will be used to filter recipients during the send mail process. 
+If an individual requests to opt out of future messages on Azure Communication Services using the unsubscribe UI page to process the unsubscribe requests, you will have to add the requested recipient's email address to the suppression list that will be used to filter recipients during the send-mail process. 
 
 ## Message content
 
