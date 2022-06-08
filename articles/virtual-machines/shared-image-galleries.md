@@ -111,6 +111,9 @@ Image version:
 
 ## Sharing
 
+> [!IMPORTANT]
+> You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
+
 You can [share images](share-gallery.md) to users and groups using the standard role-based access control (RBAC) or you can share an entire gallery of images to the public, using a [community gallery (preview)](azure-compute-gallery.md#community).
 
 > [!IMPORTANT]

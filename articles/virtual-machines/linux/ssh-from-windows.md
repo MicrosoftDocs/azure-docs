@@ -56,7 +56,7 @@ You can also create key pairs with the [Azure CLI](/cli/azure) with the [az sshk
 To create an SSH key pair on your local computer using the `ssh-keygen` command from PowerShell or a command prompt, type the following: 
 
 ```powershell
-ssh-keygen -m PEM -t rsa -b 4096
+ssh-keygen -m PEM -t rsa -b 2048
 ```
 
 Enter a filename, or use the default shown in parenthesis (for example `C:\Users\username/.ssh/id_rsa`).  Enter a passphrase for the file, or leave the passphrase blank if you do not want to use a passphrase. 

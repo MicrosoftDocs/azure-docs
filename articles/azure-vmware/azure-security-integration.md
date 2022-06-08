@@ -2,6 +2,7 @@
 title: Integrate Microsoft Defender for Cloud with Azure VMware Solution
 description: Learn how to protect your Azure VMware Solution VMs with Azure's native security tools from the workload protection dashboard.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 06/14/2021
 ---
 

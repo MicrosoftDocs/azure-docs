@@ -190,6 +190,7 @@
                   href: graphql-api.md
                 - name: Import and resolve GraphQL schema
                   href: graphql-schema-resolve-api.md
+                  displayName: synthetic GraphQL
                 - name: Import an App Service web API
                   href: import-app-service-as-api.md
                 - name: Import a Container App web API
@@ -238,6 +239,7 @@
                   href: api-management-policy-expressions.md
                 - name: Reuse policy configurations
                   href: policy-fragments.md
+                  displayName: policy fragments
                 - name: Error handling
                   href: api-management-error-handling-policies.md
                 - name: Advanced monitoring
@@ -263,6 +265,15 @@
               href: api-management-howto-ca-certificates.md
             - name: Manage protocols and ciphers
               href: api-management-howto-manage-protocols-ciphers.md
+            - name: Mitigate OWASP API threats
+              href: mitigate-owasp-api-threats.md
+              displayName: OWASP top 10, vulnerability, vulnerabilities
+          - name: Manage API authorizations
+            items:
+            - name: Authorizations overview
+              href: authorizations-overview.md
+            - name: Configure and use authorization
+              href: authorizations-how-to.md
           - name: Set up backend authentication
             items:
             - name: Mutual certificate authentication
@@ -389,6 +400,8 @@
               href: api-management-transformation-policies.md
             - name: Validation policies
               href: validation-policies.md
+      - name: Authorizations - identity providers
+        href: authorizations-reference.md
       - name: Azure Policy built-ins
         displayName: samples, policies, definitions
         href: ./policy-reference.md

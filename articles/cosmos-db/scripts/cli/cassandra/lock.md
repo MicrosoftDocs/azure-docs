@@ -1,8 +1,9 @@
 ---
 title: Create resource lock for a Cassandra keyspace and table for Azure Cosmos DB
 description: Create resource lock for a Cassandra keyspace and table for Azure Cosmos DB
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
