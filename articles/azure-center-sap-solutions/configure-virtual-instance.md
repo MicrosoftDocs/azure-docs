@@ -49,7 +49,7 @@ In the sidebar menu, look under the section **SAP resources**:
 - To see properties of application server instances, select **App server instances**.
 - To see properties of database instances, select **Databases**.
 
-## Connect to HANA Database
+## Connect to HANA database
 
 If you've registered an SAP system and are connecting to a HANA database, you need an SAP username and password.
 
