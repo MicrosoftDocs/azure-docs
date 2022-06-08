@@ -56,7 +56,7 @@ To make Connection Monitor recognize your on-premises machines as sources for mo
 
 #### Installing Azure Connected Machine agent to enable ARC 
 
-Before proceeding be sure to review the [prerequisites](../azure-arc/servers/prerequisites.md") and verify that your subscription and resources meet the requirements.
+Before proceeding be sure to review the [prerequisites](../azure-arc/servers/prerequisites.md) and verify that your subscription and resources meet the requirements.
 
 ##### Prerequisites
 
