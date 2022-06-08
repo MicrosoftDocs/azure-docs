@@ -2,17 +2,17 @@
 title: Revisions in Azure Container Apps
 description: Learn how revisions are created in Azure Container Apps
 services: container-apps
-author: cebundy
+author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 06/07/2022
-ms.author: v-bcatherine
+ms.date: 05/11/2022
+ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Revisions in Azure Container Apps
 
-Azure Container Apps implements container app versioning by creating revisions. A revision is an immutable snapshot of a container app version.  Revisions are a key part of the application lifecycle. For more information, see[Application lifecycle management in Azure Container Apps](application-lifecycle-management.md).  To learn how to update your application and manage revisions, see [Manage revisions in Azure Container Apps](revisions-manage.md)
+Azure Container Apps implements container app versioning by creating revisions. A revision is an immutable snapshot of a container app version. 
 
 - The first revision is automatically created when you deploy your container app.
 - New revisions are automatically created when you make a [*revision-scope*](#revision-scope-changes) change to your container app.
@@ -22,6 +22,7 @@ Azure Container Apps implements container app versioning by creating revisions. 
 - You can split external HTTP traffic between active revisions.
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions.png" alt-text="Azure Container Apps: Containers":::
+
 
 ## Use cases
 

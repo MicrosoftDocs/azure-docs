@@ -52,7 +52,7 @@ In this step, you publish the template VM. When you publish the template VM, Azu
 2. On the **Publish template** page, enter the number of virtual machines you want to create in the lab, and then select **Publish**.
 
     ![Publish template - number of VMs](./media/how-to-create-manage-template/publish-template-number-vms.png)
-3. You see the **status of publishing** the template on page. This process can take up to an hour.
+3. You see the **status of publishing** the template on page.  If using [Azure Lab Services April 2022 Update (preview)](lab-services-whats-new.md), publishing can take up to 20 minutes.
 
     ![Publish template - progress](./media/how-to-create-manage-template/publish-template-progress.png)
 4. Wait until the publishing is complete and then switch to the **Virtual machines pool** page by selecting **Virtual machines** on the left menu or by selecting **Virtual machines** tile. Confirm that you see virtual machines that are in **Unassigned** state. These VMs aren’t assigned to students yet. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs.
