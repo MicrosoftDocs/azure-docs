@@ -9,7 +9,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Configure Azure CNI networking in Azure Kubernetes Service (AKS)
 
-By default, AKS clusters use [kubenet][kubenet], and a virtual network and subnet are created for you. With *kubenet*, nodes get an IP address from a virtual network subnet. Network address translation (NAT) is then configured on the nodes, and pods receive an IP address "hidden" behind the node IP. This approach reduces the number of IP addresses that you need to reserve in your network space for pods to use.
+By default, AKS clusters use [kubenet](/azure/aks/concepts-network#kubenet-basic-networking), and a virtual network and subnet are created for you. With *kubenet*, nodes get an IP address from a virtual network subnet. Network address translation (NAT) is then configured on the nodes, and pods receive an IP address "hidden" behind the node IP. This approach reduces the number of IP addresses that you need to reserve in your network space for pods to use.
 
 With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be unique across your network space, and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
 
@@ -33,10 +33,10 @@ IP addresses for the pods and the cluster's nodes are assigned from the specifie
 
 > [!IMPORTANT]
 > The number of IP addresses required should include considerations for upgrade and scaling operations. If you set the IP address range to only support a fixed number of nodes, you cannot upgrade or scale your cluster.
->
+> 
 > * When you **upgrade** your AKS cluster, a new node is deployed into the cluster. Services and workloads begin to run on the new node, and an older node is removed from the cluster. This rolling upgrade process requires a minimum of one additional block of IP addresses to be available. Your node count is then `n + 1`.
->   * This consideration is particularly important when you use Windows Server node pools. Windows Server nodes in AKS do not automatically apply Windows Updates, instead you perform an upgrade on the node pool. This upgrade deploys new nodes with the latest Window Server 2019 base node image and security patches. For more information on upgrading a Windows Server node pool, see [Upgrade a node pool in AKS][nodepool-upgrade].
->
+> * This consideration is particularly important when you use Windows Server node pools. Windows Server nodes in AKS do not automatically apply Windows Updates, instead you perform an upgrade on the node pool. This upgrade deploys new nodes with the latest Window Server 2019 base node image and security patches. For more information on upgrading a Windows Server node pool, see [Upgrade a node pool in AKS][nodepool-upgrade].
+> 
 > * When you **scale** an AKS cluster, a new node is deployed into the cluster. Services and workloads begin to run on the new node. Your IP address range needs to take into considerations how you may want to scale up the number of nodes and pods your cluster can support. One additional node for upgrade operations should also be included. Your node count is then `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
 
 If you expect your nodes to run the maximum number of pods, and regularly destroy and deploy pods, you should also factor in some additional IP addresses per node. These additional IP addresses take into consideration it may take a few seconds for a service to be deleted and the IP address released for a new service to be deployed and acquire the address.
@@ -293,41 +293,34 @@ The following questions and answers apply to the **Azure CNI network configurati
 Learn more about networking in AKS in the following articles:
 
 * [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
+
 * [Use an internal load balancer with Azure Container Service (AKS)](internal-lb.md)
 
 * [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
+
 * [Enable the HTTP application routing add-on][aks-http-app-routing]
+
 * [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
+
 * [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
+
 * [Create an ingress controller with a static public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-static-tls]
+
 <!-- IMAGES -->
-[advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
-[portal-01-networking-advanced]: ./media/networking-overview/portal-01-networking-advanced.png
-
 <!-- LINKS - External -->
-[services]: https://kubernetes.io/docs/concepts/services-networking/service/
-[portal]: https://portal.azure.com
-[cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
-
 <!-- LINKS - Internal -->
-[az-aks-create]: /cli/azure/aks#az_aks_create
-[aks-ssh]: ssh.md
-[ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
-[aks-network-concepts]: concepts-network.md
-[aks-network-nsg]: concepts-network.md#network-security-groups
-[aks-ingress-basic]: ingress-basic.md
-[aks-ingress-tls]: ingress-tls.md
-[aks-ingress-static-tls]: ingress-static-ip.md
-[aks-http-app-routing]: http-application-routing.md
-[aks-ingress-internal]: ingress-internal-ip.md
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[network-policy]: use-network-policies.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
-[network-comparisons]: concepts-network.md#compare-network-models
-[system-node-pools]: use-system-pools.md
-[prerequisites]: configure-azure-cni.md#prerequisites
+[AKS-HTTP-APP-ROUTING]: http-application-routing.md
+[AKS-INGRESS-BASIC]: ingress-basic.md
+[AKS-INGRESS-INTERNAL]: ingress-internal-ip.md
+[AKS-INGRESS-STATIC-TLS]: ingress-static-ip.md
+[AKS-INGRESS-TLS]: ingress-tls.md
+[AKS-NETWORK-CONCEPTS]: concepts-network.md
+[AKS-NETWORK-NSG]: concepts-network.md#network-security-groups
+[AZ-AKS-CREATE]: /cli/azure/aks#az_aks_create
+[CNI-NETWORKING]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[MANAGEDCLUSTERAGENTPOOLPROFILE]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
+[NETWORK-POLICY]: use-network-policies.md
+[PORTAL-01-NETWORKING-ADVANCED]: ./media/networking-overview/portal-01-networking-advanced.png
+[PREREQUISITES]: configure-azure-cni.md#prerequisites
+[SERVICES]: https://kubernetes.io/docs/concepts/services-networking/service/
+[SYSTEM-NODE-POOLS]: use-system-pools.md
