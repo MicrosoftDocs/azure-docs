@@ -146,11 +146,11 @@ To test instant global failover in action, try the following steps:
 
 1. Open the resource group **FrontDoorQS_rg0** and select the frontend service.
 
-    :::image type="content" source="/media/quickstart-create-front-door/front-door-view-frontend-service.png" alt-text="Screenshot of frontend service":::
+    :::image type="content" source="./media/quickstart-create-front-door/front-door-view-frontend-service.png" alt-text="Screenshot of frontend service":::
 
 1. From the **Overview** page, copy the **Frontend host** address.
 
-    :::image type="content" source="/media/quickstart-create-front-door/front-door-view-frontend-host-address.png" alt-text="Screenshot of frontend host address":::
+    :::image type="content" source="./media/quickstart-create-front-door/front-door-view-frontend-host-address.png" alt-text="Screenshot of frontend host address":::
 
 1. Open a browser, as described above, and go to your frontend address.
 
