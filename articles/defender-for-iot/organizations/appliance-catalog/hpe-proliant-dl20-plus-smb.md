@@ -13,7 +13,7 @@ The HPE ProLiant DL20 Plus is also available for the on-premises management cons
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | SMB|
+|**Hardware profile** | L500|
 |**Performance** | 	Max bandwidth: 200Mbp/s <br>Max devices: 1,000 |
 |**Physical specifications** | Mounting: 1U<br>Ports: 4x RJ45|
 |**Status** | Supported; Available as pre-configured |

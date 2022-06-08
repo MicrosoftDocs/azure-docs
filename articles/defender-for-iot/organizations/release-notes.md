@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 05/25/2022
+ms.date: 06/08/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -33,6 +33,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.2.4 | 06/2022 | 3/2023 |
 | 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
@@ -40,6 +41,34 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.4 | 12/2021 | 09/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
+
+## June 2022
+
+**Sensor version**: 22.2.4
+
+- [OT appliance catalog updates](#ot-appliance-catalog-updates)
+
+### OT appliance catalog updates
+
+We've refreshed the naming conventions for our OT appliance catalog for greater transparency and clarity. The new names reflect both the *type* of profile, including *Corporate*, *Enterprise*, and *Production line*, and also the related disk storage size.
+
+Use the following table to understand the mapping between legacy names and the current names used in our OT monitoring appliance catalog:
+
+|Legacy name  |Current name  |
+|---------|---------|
+|**Corporate**     |    C5600 <br><br> A *Corporate* environment, with: <br>16 Cores<br>32 GB RAM<br>5.6 TB disk storage |
+|**Enterprise**     | E1800 <br><br> An *Enterprise* environment, with: <br>8 Cores<br>32 GB RAM<br>1.8 TB disk storage        |
+|**SMB**    |    L500   <br><br> A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>500 GB disk storage  |
+|**Office**     | L100  <br><br> A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>100 GB disk storage      |
+|**Rugged**     |   L64 <br><br> A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>64 GB disk storage     |
+
+where is office in the TOC?
+
+<UPDATE EVERYWHERE ELSE, explain l=line>
+
+We also now support new enterprise hardware profiles, for sensors supporting both 500 GB and 1 TB disk sizes.
+
+For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
 
 ## May 2022
 
