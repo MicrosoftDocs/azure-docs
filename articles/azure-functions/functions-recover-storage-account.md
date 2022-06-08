@@ -93,7 +93,7 @@ For Linux function apps that run from a container, the "Azure Functions runtime 
 
 To confirm that the error is caused for this reason:
 
-1. Navigate to the Kudu Services for the function app.
+1. Navigate to the Kudu endpoint for the function app, which is located at `https://scm.<FUNCTION_APP>.azurewebsites.net`, where `<FUNCTION_APP>` is the name of your app.
 
 1. Download the Docker logs ZIP file and review them locally, or review the docker logs from within Kudu.
 
