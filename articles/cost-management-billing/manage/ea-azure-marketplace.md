@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 06/07/2022
+ms.date: 06/08/2022
 ms.author: banders
 ---
 
@@ -29,7 +29,7 @@ Some third-party reseller services available on Azure Marketplace now consume yo
 ### Partners
 
 > [!NOTE]
-> The Azure Marketplace price list feature in the EA portal is retired. The same feature is available in the Azure portal.
+> The Azure Marketplace price list feature in the EA portal is retired.
 
 LSPs can download an Azure Marketplace price list from the price sheet page in the Azure Enterprise portal. Select the **Marketplace Price list** link in the upper right. Azure Marketplace price list shows all available services and their prices.
 
@@ -79,7 +79,7 @@ The following services are billed hourly under an Enterprise Agreement instead o
 
 ### Azure RemoteApp
 
-If you have an Enterprise Agreement, you pay for Azure RemoteApp based on your Enterprise Agreement price level. There aren't additional charges. The standard price includes an initial 40 hours. The unlimited price covers an initial 80 hours. RemoteApp stops emitting usage over 80 hours.
+If you have an Enterprise Agreement, you pay for Azure RemoteApp based on your Enterprise Agreement price level. There aren't extra charges. The standard price includes an initial 40 hours. The unlimited price covers an initial 80 hours. RemoteApp stops emitting usage over 80 hours.
 
 ## Next steps
 

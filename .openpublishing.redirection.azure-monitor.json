@@ -199,6 +199,16 @@
             "source_path_from_root": "/articles/azure-monitor/insights/data-explorer.md" ,
             "redirect_url": "/azure/data-explorer/data-explorer-insights",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/cli-samples.md" ,
+            "redirect_url": "/cli/azure/azure-cli-reference-for-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/powershell-samples.md" ,
+            "redirect_url": "/powershell/module/az.monitor",
+            "redirect_document_id": false
         }
     ]
 }
