@@ -4,6 +4,7 @@ description: Export diagnostic and usage data to storage in Microsoft Azure, and
 ms.topic: conceptual
 ms.date: 02/19/2021
 ms.custom: references_regions
+ms.reviewer: mmcc
 ---
 
 # Export telemetry from Application Insights

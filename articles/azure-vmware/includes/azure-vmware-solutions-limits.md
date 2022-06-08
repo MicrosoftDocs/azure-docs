@@ -2,10 +2,10 @@
 title: Azure VMware Solution limits
 description: Azure VMware Solution limitations.
 ms.topic: include
+ms.service: azure-vmware
 ms.date: 09/02/2021
 author: suzizuber
 ms.author: v-szuber
-ms.service: azure-vmware
 ---
 
 <!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md and concepts-networking.md -->

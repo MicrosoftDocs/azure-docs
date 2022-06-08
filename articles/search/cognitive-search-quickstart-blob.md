@@ -14,7 +14,7 @@ ms.date: 05/31/2022
 
 Learn how AI enrichment in Azure Cognitive Search adds Optical Character Recognition (OCR), image analysis, language detection, text translation, and entity recognition to create searchable content in a search index. 
 
-In this quickstart, you'll run the **Import data** wizard to apply skills that transform and enrich content during indexing. Output is a searchable index containing image text, translated text, and entities. Enriched content is queryable in the portal using [Search explorer](search-explorer.md). 
+In this quickstart, you'll run the **Import data** wizard to apply skills that transform and enrich content during indexing. Output is a searchable index containing AI-generated image text, captions, and entities. Enriched content is queryable in the portal using [Search explorer](search-explorer.md). 
 
 To prepare, you'll create a few resources and upload sample files before running the wizard.
 
@@ -127,7 +127,7 @@ Cognitive skills indexing takes longer to complete than typical text-based index
 
 To check details about execution status, select an indexer from the list, and then select **Success** (or **Failed**) to view execution details.
 
-In this demo, there is one warning. It tells you that a PNG file in the data source doesn't provide a text input to Entity Recognition. This warning occurs because the upstream OCR skill didn't recognize any text in the image, and thus could not provide a text input to the downstream Entity Recognition skill.
+In this demo, there is one  warning: `"Could not execute skill because one or more skill input was invalid." It tells you that a PNG file in the data source doesn't provide a text input to Entity Recognition. This warning occurs because the upstream OCR skill didn't recognize any text in the image, and thus could not provide a text input to the downstream Entity Recognition skill.
 
 Warnings are common in skillset execution. As you become familiar with how skills iterate over your data, you'll begin to notice patterns and learn which warnings are safe to ignore.
 

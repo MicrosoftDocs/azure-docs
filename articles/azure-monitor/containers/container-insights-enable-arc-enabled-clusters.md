@@ -5,6 +5,7 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Collect metrics and logs of Azure Arc-enabled Kubernetes clusters using Azure Monitor.
+ms.reviewer: aul
 ---
 
 # Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters
