@@ -1,6 +1,6 @@
 ---
-title: Service principals for Azure Kubernetes Services (AKS)
-description: Create and manage an Azure Active Directory service principal for a cluster in Azure Kubernetes Service (AKS)
+title: Use a service principals with Azure Kubernetes Services (AKS)
+description: Create and manage an Azure Active Directory service principal with a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 06/08/2022
@@ -9,11 +9,11 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 #Customer intent: As a cluster operator, I want to understand how to create a service principal and delegate permissions for AKS to access required resources. In large enterprise environments, the user that deploys the cluster (or CI/CD system), may not have permissions to create this service principal automatically when the cluster is created.
 ---
 
-# Service principals with Azure Kubernetes Service (AKS)
+# Use a service principal with Azure Kubernetes Service (AKS)
 
-To interact with Azure APIs, an AKS cluster requires either an [Azure Active Directory (AD) service principal][aad-service-principal] or a [managed identity][use-managed-identity]. A service principal or managed identity is needed to dynamically create and manage other Azure resources such as an Azure load balancer or container registry (ACR).
+To access other Azure Active Directory (Azure AD) resources, an AKS cluster requires either an [Azure Active Directory (AD) service principal][aad-service-principal] or a [managed identity][managed-identity-resources-overview]. A service principal or managed identity is needed to dynamically create and manage other Azure resources such as an Azure load balancer or container registry (ACR).
 
-Managed identities are the recommended way to authenticate with other resources in Azure, and is the default authentication method for your AKS cluster.
+Managed identities are the recommended way to authenticate with other resources in Azure, and is the default authentication method for your AKS cluster. For more information about using a managed identity with your cluster, see [Use a system-assigned managed identity][use-managed-identity].
 
 This article shows how to create and use a service principal for your AKS clusters.
 
@@ -21,7 +21,7 @@ This article shows how to create and use a service principal for your AKS cluste
 
 To create an Azure AD service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. If you don't have the necessary permissions, you need to ask your Azure AD or subscription administrator to assign the necessary permissions, or pre-create a service principal for you to use with the AKS cluster.
 
-If you are using a service principal from a different Azure AD tenant, there are additional considerations around the permissions available when you deploy the cluster. You may not have the appropriate permissions to read and write directory information. For more information, see [What are the default user permissions in Azure Active Directory?][azure-ad-permissions]
+If you're using a service principal from a different Azure AD tenant, there are other considerations around the permissions available when you deploy the cluster. You may not have the appropriate permissions to read and write directory information. For more information, see [What are the default user permissions in Azure Active Directory?][azure-ad-permissions]
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -168,7 +168,7 @@ If you use Azure Container Registry (ACR) as your container image store, you nee
 
 ### Networking
 
-You may use advanced networking where the virtual network and subnet or public IP addresses are in another resource group. Assign the [Network Contributor][rbac-network-contributor] built-in role on the subnet within the virtual network. Alternatively, you can create a [custom role][rbac-custom-role] with permissions to access the network resources in that resource group. See [AKS service permissions][aks-permissions] for more details.
+You may use advanced networking where the virtual network and subnet or public IP addresses are in another resource group. Assign the [Network Contributor][rbac-network-contributor] built-in role on the subnet within the virtual network. Alternatively, you can create a [custom role][rbac-custom-role] with permissions to access the network resources in that resource group. For more information, see [AKS service permissions][aks-permissions].
 
 ### Storage
 
@@ -183,7 +183,7 @@ If you need to access existing disk resources in another resource group, assign 
 
 If you use Virtual Kubelet to integrate with AKS and choose to run Azure Container Instances (ACI) in resource group separate from the AKS cluster, the AKS cluster service principal must be granted *Contributor* permissions on the ACI resource group.
 
-## Additional considerations
+## Other considerations
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -195,9 +195,9 @@ When using AKS and an Azure AD service principal, consider the following:
 - When you specify the service principal **Client ID**, use the value of the `appId`.
 - On the agent node VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`
 - When you use the [az aks create][az-aks-create] command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/aksServicePrincipal.json` on the machine used to run the command.
-- If you do not specify a service principal with AKS CLI commands, the default service principal located at `~/.azure/aksServicePrincipal.json` is used.
+- If you don't specify a service principal with AKS CLI commands, the default service principal located at `~/.azure/aksServicePrincipal.json` is used.
 - You can optionally remove the `aksServicePrincipal.json` file, and AKS creates a new service principal.
-- When you delete an AKS cluster that was created by [az aks create][az-aks-create], the service principal created automatically is not deleted.
+- When you delete an AKS cluster that was created by [az aks create][az-aks-create], the service principal created automatically isn't deleted.
     - To delete the service principal, query for your clusters *servicePrincipalProfile.clientId* and then delete it using the [az ad sp delete][az-ad-sp-delete] command. Replace the values for the `-g` parameter for the resource group name, and `-n` parameter for the cluster name:
 
         ```azurecli
@@ -214,9 +214,9 @@ When using AKS and an Azure AD service principal, consider the following:
 - When you specify the service principal **Client ID**, use the value of the `ApplicationId`.
 - On the agent node VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`
 - When you use the [New-AzAksCluster][new-azakscluster] command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/acsServicePrincipal.json` on the machine used to run the command.
-- If you do not specify a service principal with AKS PowerShell commands, the default service principal located at `~/.azure/acsServicePrincipal.json` is used.
+- If you don't specify a service principal with AKS PowerShell commands, the default service principal located at `~/.azure/acsServicePrincipal.json` is used.
 - You can optionally remove the `acsServicePrincipal.json` file, and AKS creates a new service principal.
-- When you delete an AKS cluster that was created by [New-AzAksCluster][new-azakscluster], the service principal created automatically is not deleted.
+- When you delete an AKS cluster that was created by [New-AzAksCluster][new-azakscluster], the service principal created automatically isn't deleted.
     - To delete the service principal, query for your clusters *ServicePrincipalProfile.ClientId* and then delete it using the [Remove-AzADServicePrincipal][remove-azadserviceprincipal] command. Replace the values for the `-ResourceGroupName` parameter for the resource group name, and `-Name` parameter for the cluster name:
 
         ```azurepowershell-interactive
@@ -300,3 +300,4 @@ For information on how to update the credentials, see [Update or rotate the cred
 [set-azakscluster]: /powershell/module/az.aks/set-azakscluster
 [remove-azadserviceprincipal]: /powershell/module/az.resources/remove-azadserviceprincipal
 [use-managed-identity]: use-managed-identity.md
+[managed-identity-resources-overview]: ..//active-directory/managed-identities-azure-resources/overview.md
