@@ -4,7 +4,6 @@ description: Cloud Backup for Virtual Machines is a plug-in installed in the Azu
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 06/20/2022
-ms.custom: references_regions
 ---
 
 # Install Cloud Backup for Virtual Machines
@@ -100,4 +99,9 @@ If you need to reset the vCenter account, follow this these steps.
 
 1. Provide the required values, and then select **Run**. 
 
-1. Check **Notifications** or the **Run Execution Status** pane to monitor the progress. 
+1. Check **Notifications** or the **Run Execution Status** pane to monitor the progress.
+
+## Next steps
+
+* [Back up Azure NetApp Files datastores and VMs using Cloud Backup](backup-azure-netapp-files-datastores-vms.md) 
+* [Restore Virtual Machines using Cloud Backup](restore-azure-netapp-files-vms.md)

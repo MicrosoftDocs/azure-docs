@@ -1,19 +1,18 @@
 ---
-title: Backup Azure NetApp Files datastores and VMs
-description: Learn how to create Azure NetApp Files-based NSF datastores for Azure VMware Solution hosts.
+title: Back up Azure NetApp Files datastores and VMs using Cloud Backup
+description: Learn how to back up datastores and Virtual Machines to the cloud.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 06/20/2022
-ms.custom: references_regions
 ---
 
-# Backup Azure NetApp Files datastores and VMs using Cloud Backup
+# Back up Azure NetApp Files datastores and VMs using Cloud Backup
 
-From the VMware vSphere client, you can backup datastores and Virtual Machines to the cloud.
+From the VMware vSphere client, you can back up datastores and Virtual Machines to the cloud.
 
 ## Configure subscriptions
 
-Before you backup your Azure NetApp Files datastores, you must add your Azure and Azure NetApp Files cloud subscriptions.
+Before you back up your Azure NetApp Files datastores, you must add your Azure and Azure NetApp Files cloud subscriptions.
 
 ### Add Azure Cloud subscription 
 
@@ -83,7 +82,7 @@ Cloud Backup for Virtual Machines performs compatibility checks when you create 
     
     Although this is the easiest way to create a resource group, you can also perform one of the following:
     * To create a resource group for one Virtual Machine, select **Menu** > **Hosts and Clusters**. Then, right-click the Virtual Machine you want to create a resource group for and select **Cloud Backup for Virtual Machines**. Finally, select **+ Create**.
-    * To create a resource group for a single datastore, select **Menu** > **Hosts and Clusters**, then right-click a datastore, then select Cloud Backup for Virtual Machines, and then click **+ Create**.
+    * To create a resource group for a single datastore, select **Menu** > **Hosts and Clusters**, then right-click a datastore, then select **Cloud Backup for Virtual Machines**, and then select **+ Create**.
 1. On the **General Info & Notification** page in the wizard, enter the required values.
 1. On the **Resources** page, do the following:
     | Field | Action |
@@ -135,3 +134,6 @@ Backup operations are performed on all the resources defined in a resource group
 1. **Optional:** Monitor the operation progress by clicking Recent Tasks at the bottom of the window or on the dashboard Job Monitor for more details.
     If the quiesce operation fails for any of the Virtual Machines in the backup, then the backup completes with a warning and is marked as not Virtual Machine consistent even if the selected policy has Virtual Machine consistency selected. In this case, it is possible that some of the Virtual Machines were successfully quiesced. In the job monitor, the failed Virtual Machine details will show the quiesce as failed.
 
+## Next steps
+
+* [Restore Virtual Machines using Cloud Backup](restore-azure-netapp-files-vms.md)
