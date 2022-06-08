@@ -4,7 +4,7 @@ ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: include
-ms.date: 05/17/2022
+ms.date: 06/08/2022
 ---
 
 1. If you haven't already, sign in to Azure PowerShell using the [``Connect-AzAccount``](/powershell/module/az.accounts/connect-azaccount) cmdlet.

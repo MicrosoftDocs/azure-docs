@@ -4,7 +4,7 @@ ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: include
-ms.date: 05/17/2022
+ms.date: 06/08/2022
 ---
 
 1. Get the SQL API endpoint *URI* for the account using the [``az cosmosdb show``](/cli/azure/cosmosdb#az-cosmosdb-show) command.
