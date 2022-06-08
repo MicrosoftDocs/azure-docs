@@ -180,6 +180,8 @@ items:
             href: azure-active-directory-events.md
           - name: Microsoft Outlook
             href: outlook-events.md
+          - name: Microsoft Teams
+            href: teams-events.md
     - name: Event Domains
       href: event-domains.md
     - name: Event schema formats
