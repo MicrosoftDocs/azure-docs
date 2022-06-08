@@ -369,6 +369,22 @@
         - name: Data administration
           displayName: Data administration
           href: how-to-administrate-data-authentication.md
+        - name: Label data
+          items: 
+          - name: Set up image labeling
+            displayName: data, dataset
+            href: how-to-create-image-labeling-projects.md
+          - name: Set up text labeling
+            displayName: data, dataset
+            href: how-to-create-text-labeling-projects.md
+          - name: Label images and text
+            displayName: data, dataset, labeling
+            href: how-to-label-data.md
+          - name: Add users
+            displayName: data, dataset, labeling
+            href: how-to-add-users.md
+          - name: Outsource labeling tasks
+            href: how-to-outsource-data-labeling.md
     - name: Train models
       items: 
         - name: Train with the job creation UI
@@ -514,13 +530,13 @@
                   href: how-to-secure-online-endpoint.md
                 - name: Access Azure resources from online endpoints
                   href: how-to-access-resources-from-endpoints-managed-identities.md
-            - name: Autoscale managed online endpoints
+            - name: Autoscale online endpoints
               href: how-to-autoscale-endpoints.md
             - name: Managed online endpoints VM SKU list
               href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
-            - name: Monitoring managed online endpoints
+            - name: Monitoring online endpoints
               href: how-to-monitor-online-endpoints.md
             - name: Debug online endpoints locally VS Code
               href: how-to-debug-managed-online-endpoints-visual-studio-code.md

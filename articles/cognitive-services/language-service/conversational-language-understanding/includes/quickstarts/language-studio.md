@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/16/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -38,7 +38,7 @@ To train a model, you need to start a training job. The output of a successful t
 
 ## Deploy your model
 
-Generally after training a model you would review its evaluation details. In this quickstart, you will just deploy your model, and make it available for you to try in the Language studio, or you can call the [prediction API](https://aka.ms/clu-apis).
+Generally after training a model you would review its evaluation details. In this quickstart, you will just deploy your model, and make it available for you to try in Language studio, or you can call the [prediction API](https://aka.ms/clu-apis).
 
 [!INCLUDE [Deploy model](../language-studio/deploy-model.md)]
 

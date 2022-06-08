@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 05/12/2022
+ms.reviewer: cithomas
 ---
 
 # Application Insights for Worker Service applications (non-HTTP applications)
@@ -247,9 +248,14 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-d
                 IServiceCollection services = new ServiceCollection();
 
                 // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
-                // Hence connection string and any changes to default logging level must be specified here.
+                // Hence instrumentation key/ connection string and any changes to default logging level must be specified here.
                 services.AddLogging(loggingBuilder => loggingBuilder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("Category", LogLevel.Information));
-                services.AddApplicationInsightsTelemetryWorkerService("connection string here");
+                services.AddApplicationInsightsTelemetryWorkerService("instrumentation key here");
+
+                // To pass a connection string
+                // - aiserviceoptions must be created
+                // - set connectionstring on it
+                // - pass it to AddApplicationInsightsTelemetryWorkerService()
 
                 // Build ServiceProvider.
                 IServiceProvider serviceProvider = services.BuildServiceProvider();

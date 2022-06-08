@@ -1,11 +1,12 @@
 ---
 title: PowerShell script to change failover priority for an Azure Cosmos account with single write region
 description: Azure PowerShell script sample - Change failover priority or trigger failover for an Azure Cosmos account with single write region
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
-ms.author: mjbrown 
+ms.author: sidandrews
+ms.reviewer: mjbrown 
 ms.custom: devx-track-azurepowershell
 ---
 

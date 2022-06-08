@@ -186,7 +186,7 @@
           displayName: best practices
     - name: Compare runtime versions
       href: functions-versions.md
-      displayName: migrate, migration, v3
+      displayName: migrate, migration, v3, v4, update, upgrade
     - name: Hosting and scale
       items:
         - name: Consumption plan
