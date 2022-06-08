@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.pmowner: casocha
+ms.reviewer: casocha
 
 ---
 

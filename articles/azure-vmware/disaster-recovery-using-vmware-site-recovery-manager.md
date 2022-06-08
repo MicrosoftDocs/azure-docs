@@ -2,6 +2,7 @@
 title: Deploy disaster recovery with VMware Site Recovery Manager
 description: Deploy disaster recovery with VMware Site Recovery Manager (SRM) in your Azure VMware Solution private cloud.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 04/11/2022
 ---
 
