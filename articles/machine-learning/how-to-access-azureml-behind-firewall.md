@@ -120,12 +120,12 @@ These rule collections are described in more detail in [What are some Azure Fire
 
 | Outbound Endpoint| Port | Description|Training |Inference |
 |--|--|--|--|--|
-| *.kusto.windows.net,<br> *.table.core.windows.net, <br>*.queue.core.windows.net | https:443 | Required to upload system logs to Kusto. |**&check;**|**&check;**|
-| *.azurecr.io | https:443 | Azure container registry, required to pull docker images used for machine learning workloads.|**&check;**|**&check;**|
-| *.blob.core.windows.net | https:443 | Azure blob storage, required to fetch machine learning project scripts,data or models, and upload job logs/outputs.|**&check;**|**&check;**|
-| *.workspace.\<region\>.api.azureml.ms,<br>  \<region\>.experiments.azureml.net, <br> \<region\>.api.azureml.ms | https:443 | Azure mahince learning service API.|**&check;**|**&check;**|
-| pypi.org | https:443 | Python package index, to install pip packages used for training job environment initialization.|**&check;**|N/A|
-| archive.ubuntu.com, <br> security.ubuntu.com,<br> ppa.launchpad.net | http:80 | Required to download the necessary security patches. |**&check;**|N/A|
+| __\*.kusto.windows.net__<br>__\*.table.core.windows.net__<br>__\*.queue.core.windows.net__ | https:443 | Required to upload system logs to Kusto. |**&check;**|**&check;**|
+| __\*.azurecr.io__ | https:443 | Azure container registry, required to pull docker images used for machine learning workloads.|**&check;**|**&check;**|
+| __\*.blob.core.windows.net__ | https:443 | Azure blob storage, required to fetch machine learning project scripts,data or models, and upload job logs/outputs.|**&check;**|**&check;**|
+| __\*.workspace.\<region\>.api.azureml.ms__<br>__\<region\>.experiments.azureml.net__<br>__\<region\>.api.azureml.ms__ | https:443 | Azure mahince learning service API.|**&check;**|**&check;**|
+| __pypi.org__ | https:443 | Python package index, to install pip packages used for training job environment initialization.|**&check;**|N/A|
+| __archive.ubuntu.com__<br>__security.ubuntu.com__<br>__ppa.launchpad.net__ | http:80 | Required to download the necessary security patches. |**&check;**|N/A|
 
 > [!NOTE]
 > `<region>` is the lowcase full spelling of Azure Region, for example, eastus, southeastasia.
