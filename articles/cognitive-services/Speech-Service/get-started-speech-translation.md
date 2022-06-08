@@ -1,7 +1,7 @@
 ---
 title: Speech translation quickstart - Speech service
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you translate speech to text. 
+description: In this quickstart, you translate speech from one language to text in another language. 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -17,47 +17,48 @@ keywords: speech translation
 # Quickstart: Recognize and translate speech to text
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [C# include](includes/how-to/translate-speech/csharp.md)]
+[!INCLUDE [C# include](includes/quickstarts/speech-translation-basics/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [C++ include](includes/how-to/translate-speech/cpp.md)]
+[!INCLUDE [C++ include](includes/quickstarts/speech-translation-basics/cpp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-[!INCLUDE [Go include](includes/how-to/translate-speech/go.md)]
+[!INCLUDE [Go include](includes/quickstarts/speech-translation-basics/go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Java include](includes/how-to/translate-speech/java.md)]
+[!INCLUDE [Java include](includes/quickstarts/speech-translation-basics/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript include](includes/how-to/translate-speech/javascript.md)]
+[!INCLUDE [JavaScript include](includes/quickstarts/speech-translation-basics/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-[!INCLUDE [ObjectiveC include](includes/how-to/translate-speech/objectivec.md)]
+[!INCLUDE [ObjectiveC include](includes/quickstarts/speech-translation-basics/objectivec.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-swift"
-[!INCLUDE [Swift include](includes/how-to/translate-speech/swift.md)]
+[!INCLUDE [Swift include](includes/quickstarts/speech-translation-basics/swift.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Python include](./includes/how-to/translate-speech/python.md)]
+[!INCLUDE [Python include](./includes/quickstarts/speech-translation-basics/python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-rest"
-[!INCLUDE [REST include](includes/how-to/translate-speech/rest.md)]
+[!INCLUDE [REST include](includes/quickstarts/speech-translation-basics/rest.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cli"
-[!INCLUDE [CLI include](includes/how-to/translate-speech/cli.md)]
+[!INCLUDE [CLI include](includes/quickstarts/speech-translation-basics/cli.md)]
 ::: zone-end
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about language identification](language-identification.md)
+> [Learn more about speech translation](how-to-translate-speech.md)
+

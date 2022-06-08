@@ -1,14 +1,14 @@
 ---
 title: "How to translate speech - Speech service"
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize and translate speech, including object construction and supported audio input formats.
+description: Learn how to translate speech from one language to text in another language, including object construction and supported audio input formats.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 06/08/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services
 ---
