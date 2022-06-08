@@ -115,7 +115,7 @@ To see information about ASCS instances:
 
 1. Open the VIS in the Azure portal, as previously described.
 
-1. In the sidebar menu , under **SAP resources**, select **Central service instances**.
+1. In the sidebar menu, under **SAP resources**, select **Central service instances**.
 
 1. On the page for ASCS instances, select the instance from the table.
 
