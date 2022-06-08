@@ -532,6 +532,8 @@ items:
           href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Google Cloud Storage buckets'
           href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Troubleshoot AzCopy issues
+          href: ../common/storage-use-azcopy-troubleshoot.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Transfer data by using SFTP
