@@ -27,7 +27,11 @@ Shared managed disks don't natively offer a fully managed file system that can b
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](../../includes/virtual-machines-disks-shared-limitations.md)]
 
-## Pricing implications
+### Operating system requirements
+
+Shared disks support several operating systems. See the [Windows](#windows) or [Linux](#linux) sections for the supported operating systems.
+
+## Billing implications
 
 When using shared disks, your billing could be impacted in two different ways, depending on the type of disk you're sharing.
 
@@ -35,11 +39,7 @@ For shared premium SSDs, in addition to cost of the disk's tier, there's an extr
 
 Ultra disks don't have an extra charge for each VM that they're mounted to. They're billed on the total IOPS and MBps that the disk is configured for. Originally, an ultra disk only has two performance throttles that determine its total IOPS/MBps. However, when configured as a shared ultra disk, two more performance throttles are exposed, for a total of four. These two extra meters allow for increased performance at an extra expense and each meter has a default value, which raises the performance and cost of the disk.
 
-The four performance throttles a shared ultra disk has are diskMBpsReadWrite, diskIOPSReadOnly, diskMBpsReadWrite, and diskMBpsReadOnly. Each performance throttle can be configured to change the performance of your disk. The performance for shared ultra disk is calculated in the following ways: total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and for total provisioned throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly). The total provisioned IOPS and total provisioned throughput are what you would use in the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=managed-disks) to determine the cost of an ultra shared disk.
-
-### Operating system requirements
-
-Shared disks support several operating systems. See the [Windows](#windows) or [Linux](#linux) sections for the supported operating systems.
+The four performance throttles a shared ultra disk has are diskMBpsReadWrite, diskIOPSReadOnly, diskMBpsReadWrite, and diskMBpsReadOnly. Each performance throttle can be configured to change the performance of your disk. The performance for shared ultra disk is calculated in the following ways: total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and for total provisioned throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly). Once you've determined your total provisioned IOPS and total provisioned throughput use them in the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=managed-disks) to determine the cost of an ultra shared disk.
 
 ## Disk sizes
 
