@@ -53,9 +53,8 @@ You can define the Dapr configuration for a container app through the Azure CLI 
 | `--dapr-app-port` | `dapr.appPort` | Identifies which port your application is listening. |
 | `--dapr-app-protocol` | `dapr.appProtocol` | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`. |
 | `--dapr-app-id` | `dapr.appId` | The unique ID of the application. Used for service discovery, state encapsulation, and the pub/sub consumer ID. |
-|`--env-vars 'APP_PORT=<port number>`|`env: [{name: APP_PORT value: <port number>}]`| Defines the Dapr port number environment variable for a container. In a template, this parameter is added to the `template.containers` section for each container using dapr.|
 
-The following example adds the Dapr configuration to your `properties.configuration` section of your container apps resource declaration.
+The following example shows how to define a Dapr configuration in a template by adding the Dapr configuration to the `properties.configuration` section of your container apps resource declaration.
 
 # [Bicep](#tab/bicep1)
 
@@ -78,47 +77,6 @@ The following example adds the Dapr configuration to your `properties.configurat
     "appPort": 3000
   }
  
-```
-
----
-
-For each container accessing the Dapr components, you must configure the `APP_PORT` environment variable in the `template.container` section of your container app resource declaration.  Here's an example of the `template.containers` section with the `APP_PORT` environment variable configured:
-
-# [Bicep](#tab/bicep1)
-
-```Bicep
-  containers: [
-    {
-      image: 'dapriosamples/hello-k8s-node:latest'
-      name: 'hello-k8s-node'
-      env: [
-        {
-          name: 'APP_PORT'
-          value: '3000'
-        }
-      ]
-      ...
-    }
-  ]
-```
-
-# [ARM](#tab/arm1)
-
-```jason
-  "containers": [
-    {
-      "image": "dapriosamples/hello-k8s-node:latest",
-      "name": "hello-k8s-node",
-      "env": [
-        { 
-           "name": "APP_PORT",
-           "value": "3000"
-        }
-      ],  
-      ...
-    }
-  ],
-
 ```
 
 ---
