@@ -109,7 +109,7 @@ To collect debug logs for support diagnostics, use the following steps on the NP
 
    ```
    Mkdir c:\NPS
-   Cd NPS
+   Cd c:\NPS
    netsh trace start Scenario=NetConnection capture=yes tracefile=c:\NPS\nettrace.etl
    logman create trace "NPSExtension" -ow -o c:\NPS\NPSExtension.etl -p {7237ED00-E119-430B-AB0F-C63360C8EE81} 0xffffffffffffffff 0xff -nb 16 16 -bs 1024 -mode Circular -f bincirc -max 4096 -ets
    logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
