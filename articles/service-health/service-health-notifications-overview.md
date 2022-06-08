@@ -18,18 +18,19 @@ When there happens to be a Service Health notification for an Azure Active Direc
 Now that they are available as tenant events, they will be available in the Azure AD overview page as alert cards. Any Service Health notification that has been updated within the last 3 days will be shown in one of the cards.   
 
  
+![Azure Service Health overview page](./media/service-health-notifications-overview/service-health-overview.png)
 
 
 
 Each card represents a currently active event or a resolved one which will be distinguished by the icon in the card.  Each card has a link to the event which can be viewed in the Azure Service Health pages.  
 
  
-
+![Azure Service Health issues page](./media/service-health-notifications-overview/service-health-issues.png)
 
 
  
 
-For more information on the new Azure Service Health tenant events, see[Azure Service Health portal updates](link) 
+For more information on the new Azure Service Health tenant events, see [Azure Service Health portal updates](link) 
 
 ## Who will see the notifications 
 
