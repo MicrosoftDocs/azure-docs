@@ -2,7 +2,7 @@
 title: Service Health notifications overview | Microsoft Docs
 description: Learn how Service Health notifications provides you with a customizable dashboard which tracks the health of your Azure services in the regions where you use them. 
 ms.topic: conceptual
-ms.date: 08/06/2022
+ms.date: 06/08/2022
 
 
 ---
