@@ -3,7 +3,7 @@ title: Hyperparameter tuning a model (v2)
 titleSuffix: Azure Machine Learning
 description: Automate hyperparameter tuning for deep learning and machine learning models using Azure Machine Learning.
 ms.author: amipatel
-author: amipatel
+author: amibp
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -256,9 +256,6 @@ Azure Machine Learning supports the following early termination policies:
 ### Bandit policy
 
 [Bandit policy](/python/api/azure-ai-ml/azure.ai.ml.sweep.banditpolicy) is based on slack factor/slack amount and evaluation interval. Bandit policy ends a job when the primary metric isn't within the specified slack factor/slack amount of the most successful job.
-
-> [!NOTE]
-> Bayesian sampling does not support early termination. When using Bayesian sampling, set `early_termination_policy = None`.
 
 Specify the following configuration parameters:
 
