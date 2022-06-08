@@ -82,25 +82,25 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billin
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.CostManagement/CostDetails?api-version=2022-05-01
 ```
 
-#### Legacy/Modern - CostDetailsOperation - all scopes - per operation ID
+#### EA/MCA - CostDetailsOperation - all scopes - per operation ID
 
 ```http
 https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountId}/providers/Microsoft.CostManagement/CostDetailsOperationStatus/{operationId}?api-version=2022-05-01
 ```
 
-#### Legacy/Modern - subscription scope - per tenant ID
+#### EA/MCA - subscription scope - per tenant ID
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.CostManagement/CostDetails?api-version=2022-05-01
 ```
 
-#### Legacy/Modern - subscription scope - per billing account
+#### EA/MCA - subscription scope - per billing account
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.CostManagement/CostDetails?api-version=2022-05-01
 ```
 
-#### Legacy/Modern - all non-subscription scope - per billing account
+#### EA/MCA - all non-subscription scope - per billing account
 
 ```http
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/CostDetails?api-version=2022-05-01
