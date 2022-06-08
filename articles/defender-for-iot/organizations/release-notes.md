@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 05/25/2022
+ms.date: 06/08/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -33,6 +33,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.2.4 | 06/2022 | 3/2023 |
 | 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
@@ -83,6 +84,23 @@ Check out our new structure to follow through viewing devices and assets, managi
 > [!NOTE]
 > To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!
 >
+
+## June 2022
+
+**Sensor version**: 22.2.4
+
+### Enhancements for the ServiceNow integration API
+
+This version of the sensor provides enhancements for the `devicecves` API, which gets details about the CVEs found for a given device.
+
+Now you can add any of the following parameters to your query to fine tune your results:
+
+- “**sensorId**” - Shows results from a specific sensor, as defined by the given sensor ID.
+- “**score**” - Determines a minimum CVE score to be retrieved. All results will have a CVE score equal to or higher than the given value. Default = **0**.
+- “**deviceIds**” -  A comma-separated list of device IDs from which you want to show results. For example: **1232,34,2,456**
+
+For more information, see [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview).
+
 
 ## April 2022
 
