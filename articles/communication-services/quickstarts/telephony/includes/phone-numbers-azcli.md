@@ -3,7 +3,7 @@
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
 - A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- A purchased phone number. [Purchase Phone Number](../get-phone-number?pivots=platform-azp)
+- A purchased phone number.
 
 ## Setting up
 ### Add the extension
