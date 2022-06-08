@@ -6,7 +6,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 06/08/2021
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
@@ -67,39 +67,39 @@ You can also activate this agent from portal with the following procedure.
 
 1. Find the app from **Settings**/**Apps** in the navigation pane.
 
-   [ ![Find app to monitor](media/new-relic-monitoring/find-app.png) ](media/new-relic-monitoring/find-app.png)
+   [![Find app to monitor](media/new-relic-monitoring/find-app.png)](media/new-relic-monitoring/find-app.png)
 
 2. Select the application to jump to the **Overview** page.
 
-   [ ![Overview page](media/new-relic-monitoring/overview-page.png) ](media/new-relic-monitoring/overview-page.png)
+   [![Overview page](media/new-relic-monitoring/overview-page.png)](media/new-relic-monitoring/overview-page.png)
 
 3. Select **Configuration** in the left navigation pane to add/update/delete the **Environment Variables** of the application.
 
-   [ ![Update environment](media/new-relic-monitoring/configurations-update-environment.png) ](media/new-relic-monitoring/configurations-update-environment.png)
+   [![Update environment](media/new-relic-monitoring/configurations-update-environment.png)](media/new-relic-monitoring/configurations-update-environment.png)
 
 4. Select **General settings** to add/update/delete the **JVM options** of the application.
 
-   [ ![Update JVM Option](media/new-relic-monitoring/update-jvm-option.png) ](media/new-relic-monitoring/update-jvm-option.png)
+   [![Update JVM Option](media/new-relic-monitoring/update-jvm-option.png)](media/new-relic-monitoring/update-jvm-option.png)
 
 5. View the application api/gateway **Summary** page from the New Relic dashboard.
 
-   [ ![App summary page](media/new-relic-monitoring/app-summary-page.png) ](media/new-relic-monitoring/app-summary-page.png)
+   [![App summary page](media/new-relic-monitoring/app-summary-page.png)](media/new-relic-monitoring/app-summary-page.png)
 
 6. View the application customers-service **Summary** page from the New Relic dashboard.
 
-   [ ![Customers-service page](media/new-relic-monitoring/customers-service.png) ](media/new-relic-monitoring/customers-service.png)
+   [![Customers-service page](media/new-relic-monitoring/customers-service.png)](media/new-relic-monitoring/customers-service.png)
 
 7. View the **Service Map** page from the New Relic dashboard.
 
-   [ ![Service map page](media/new-relic-monitoring/service-map.png) ](media/new-relic-monitoring/service-map.png)
+   [![Service map page](media/new-relic-monitoring/service-map.png)](media/new-relic-monitoring/service-map.png)
 
 8. View the **JVMs** page of the application from the New Relic dashboard.
 
-   [ ![JVM page](media/new-relic-monitoring/jvm-page.png) ](media/new-relic-monitoring/jvm-page.png)
+   [![JVM page](media/new-relic-monitoring/jvm-page.png)](media/new-relic-monitoring/jvm-page.png)
 
 9. View the application profile from the New Relic dashboard.
 
-   [ ![Application profile](media/new-relic-monitoring/profile-app.png) ](media/new-relic-monitoring/profile-app.png)
+   [![Application profile](media/new-relic-monitoring/profile-app.png)](media/new-relic-monitoring/profile-app.png)
 
 ## Automate provisioning
 
