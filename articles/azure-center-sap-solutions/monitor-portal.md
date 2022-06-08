@@ -111,8 +111,6 @@ To check basic health and status settings:
 
     1. Review the **Virtual machines** section to see the health of VMs inside the VIS.
 
-        ![image-needed](image)
-
 To see information about ASCS instances:
 
 1. Open the VIS in the Azure portal, as previously described.
