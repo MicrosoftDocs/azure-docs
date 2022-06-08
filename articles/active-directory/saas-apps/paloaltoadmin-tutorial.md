@@ -26,7 +26,7 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Palo Alto Networks - Admin UI single sign-on (SSO) enabled subscription.
-* It is an requirement that the service should be public avalible. Please refer [this](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) page for more information.
+* It is an requirement that the service should be public avalible. Please refer [this](../develop/single-sign-on-saml-protocol.md) page for more information.
 
 ## Scenario description
 
