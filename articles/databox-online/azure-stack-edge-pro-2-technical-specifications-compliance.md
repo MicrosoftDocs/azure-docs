@@ -51,6 +51,8 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | Memory: raw   | Model 256G6T2GPU: 256 GB RAM |
 | Memory: usable | Model 256G6T2GPU: 204 GB RAM |
 
+---
+
 ## Power supply unit specifications
 
 This device has one power supply unit (PSU) with high-performance fans. The following table lists the technical specifications of the PSUs.
