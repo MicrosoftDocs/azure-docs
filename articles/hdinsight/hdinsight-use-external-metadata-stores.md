@@ -7,6 +7,9 @@ ms.custom: hdinsightactive
 ms.date: 05/05/2022
 ---
 
+> [!IMPORTANT]
+> The default metastore provides a basic tier Azure SQL Database with only **5 DTU and 2 GB data max size (NOT UPGRADEABLE)**! Use this for QA and testing purposes only. **For production or large workloads, we recommend migrating to an external metastore!**
+
 # Use external metadata stores in Azure HDInsight
 
 HDInsight allows you to take control of your data and metadata with external data stores. This feature is available for [Apache Hive metastore](#custom-metastore), [Apache Oozie metastore](#apache-oozie-metastore), and [Apache Ambari database](#custom-ambari-db).
@@ -21,9 +24,6 @@ There are two ways you can set up a metastore for your HDInsight clusters:
 * [Custom metastore](#custom-metastore)
 
 ## Default metastore
-
-> [!IMPORTANT]
-> The default metastore provides a basic tier Azure SQL Database with only **5 DTU and 2 GB data max size (NOT UPGRADEABLE)**! Use this for QA and testing purposes only. **For production or large workloads, we recommend migrating to an external metastore!**
 
 By default, HDInsight creates a metastore with every cluster type. You can instead specify a custom metastore. The default metastore includes the following considerations:
 
