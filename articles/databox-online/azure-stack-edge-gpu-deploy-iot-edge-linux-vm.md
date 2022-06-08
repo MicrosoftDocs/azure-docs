@@ -44,7 +44,7 @@ Per SME comment from Vivek, develop a short flow chart of the overall steps, so 
 To proceed, use steps in one of the following sections:
 
 - [Provision with symmetric keys](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md#provision-with-symmetric-keys)
-- [Provision with IoT Hub Device Provisioning Service](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md#provision-with-iot-device-provisioning-service)
+- [Provision with IoT Hub Device Provisioning Service](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md#provision-with-iot-hub-device-provisioning-service)
 
 ### Provision with symmetric keys
 
@@ -52,7 +52,7 @@ To connect your device to IoT Hub without Azure IoT Device Provisioning Service,
 
 1. Use an existing IoT Hub or create a new Hub. Use these steps to [create the IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 
-1. Use these steps to [register your Azure Stack Edge device in IoT Hub](../iot-edge/how-to-provision-single-device-linux-symmetric.md&preserve-view=true?view=iotedge-2020-11&tabs=azure-portal%2Cubuntu#register-your-device).
+1. Use these steps to [register your Azure Stack Edge device in IoT Hub](../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device).
 
 1. Retrieve the primary connection string from IoT Hub for your device, and then paste it into the appropriate location below.
 
@@ -153,7 +153,7 @@ Use steps in this section to connect your device to Device Provisioning Service/
    1. Make sure that the selection for **Symmetric Key for attestation type and IoT Edge device** is **True**. The default selection is **False**.
    1. Retrieve the following information from the Device Provisioning Service resource page:
       - **Registration ID**. We recommend that you use the same ID as the **Device ID** for your IoT Hub.
-      - **ID Scope** which is available in the [Overview menu](../iot-dps/quick-create-simulated-device-symm-key?pivots=programming-language-ansi-c#run-the-provisioning-code-for-the-device).
+      - **ID Scope** which is available in the [Overview menu](../iot-dps/quick-create-simulated-device-symm-key.md#run-the-provisioning-code-for-the-device).
       - **Primary SAS Key** from the Individual Enrollment menu.
 1. Copy and paste values from IoT Hub (IDScope) and Device Provisioning Service (RegistrationID, Symetric Key) into the script arguments.
 
@@ -233,7 +233,7 @@ Begin by deploying IoT Edge runtime. Follow these high-level steps to deploy IoT
 1. Create an Ubuntu VM using the VM image created in the previous step. Depending on whether you're creating a GPU-enabled VM or a non-GPU VM, you would need to follow a different set of steps.
  
 > [!IMPORTANT]
-> **DO NOT** create the VM until you read through the steps to auto-deploy the IoT Edge runtime. If the advance page step is missed, which allows you to apply a *cloud-init* script, you will have to manually deploy the IoT Edge runtime by SSH into the VM after the VM is created. To manually install the container engine in the Ubuntu VM, use the steps in [Create and provision an IoT Edge device on Linux using symmetric keys](../iot-edge/how-to-provision-single-device-linux-symmetric.md&preserve-view=true?view=iotedge-2020-11&tabs=azure-portal%2Cubuntu%22%20%5Cl%20%22install-a-container-engine) or [Quickstart - Set up IoT Hub Device Provisioning Service with the Microsoft Azure portal](../iot-dps/quick-setup-auto-provision.md).
+> **DO NOT** create the VM until you read through the steps to auto-deploy the IoT Edge runtime. If the advance page step is missed, which allows you to apply a *cloud-init* script, you will have to manually deploy the IoT Edge runtime by SSH into the VM after the VM is created. To manually install the container engine in the Ubuntu VM, use the steps in [Create and provision an IoT Edge device on Linux using symmetric keys](../iot-edge/how-to-provision-single-device-linux-symmetric.md#install-a-container-engine) or [Quickstart - Set up IoT Hub Device Provisioning Service with the Microsoft Azure portal](../iot-dps/quick-setup-auto-provision.md).
 
 |VM type  |Deployment procedure|
 |----------|-----------|------------|
