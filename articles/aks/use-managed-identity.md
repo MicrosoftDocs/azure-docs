@@ -13,12 +13,9 @@ To use a [service principal](kubernetes-service-principal.md), you have to creat
 
 Managed identities are essentially a wrapper around service principals, and make their management simpler. Managed identities use certificate-based authentication, and each managed identities credential has an expiration of 90 days and it's rolled after 45 days. AKS uses both system-assigned and user-assigned managed identity types, and these identities are immutable.
 
-## Before you begin
+## Prerequisites
 
 Azure CLI version 2.23.0 or later.
-
-> [!NOTE]
-> AKS will create a kubelet managed identity in the Node resource group if you do not specify your own kubelet managed identity.
 
 ## Limitations
 
@@ -54,6 +51,9 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI) | Contributor role for node resource group | No
 | OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Azure Active Directory (AAD) | NA | Steps to grant permission at https://github.com/Azure/aad-pod-identity#role-assignment.
+
+> [!NOTE]
+> AKS will create a kubelet managed identity in the Node resource group if you do not specify your own kubelet managed identity.
 
 ## Create an AKS cluster using a managed identity
 
@@ -97,7 +97,7 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 >
 > If your cluster was using `--attach-acr` to pull from image from Azure Container Registry, after updating your cluster to a managed identity, you need to rerun `az aks update --attach-acr <ACR Resource ID>` to let the newly created kubelet used for managed identity get the permission to pull from ACR. Otherwise, you won't be able to pull from ACR after the upgrade.
 >
-> The Azure CLI will ensure your addon's permission is correctly set after migrating, if you're not using the Azure CLI to perform the migrating operation, you'll need to handle the addon identity's permission by yourself. Here is one example using [ARM](../role-based-access-control/role-assignments-template.md).
+> The Azure CLI will ensure your addon's permission is correctly set after migrating, if you're not using the Azure CLI to perform the migrating operation, you'll need to handle the addon identity's permission by yourself. Here is one example using an [Azure Resource Manager](../role-based-access-control/role-assignments-template.md) template.
 
 > [!WARNING]
 > A nodepool upgrade will cause downtime for your AKS cluster as the nodes in the nodepools will be cordoned/drained and then reimaged.
@@ -318,6 +318,7 @@ az version
 # Upgrade the version to make sure it is 2.37.0 or later
 az upgrade
 ```
+
 #### Updating your cluster with kubelet identity 
 
 Now you can use the following command to update your cluster with your existing identities. Provide the control plane identity resource ID via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
@@ -355,7 +356,8 @@ A successful cluster update using your own kubelet managed identity contains the
 ```
 
 ## Next steps
-* Use [Azure Resource Manager templates ][aks-arm-template] to create Managed Identity enabled clusters.
+
+Use [Azure Resource Manager templates ][aks-arm-template] to create a managed identity-enabled cluster.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
