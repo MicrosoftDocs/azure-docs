@@ -15,7 +15,7 @@ Managed identities are essentially a wrapper around service principals, and make
 
 ## Prerequisites
 
-Azure CLI version 2.23.0 or later.
+Azure CLI version 2.23.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Limitations
 
@@ -203,7 +203,7 @@ A Kubelet identity enables access granted to the existing identity prior to clus
 
 ### Prerequisites
 
-- Azure CLI version 2.26.0 or later installed.
+- Azure CLI version 2.26.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ### Limitations
 
