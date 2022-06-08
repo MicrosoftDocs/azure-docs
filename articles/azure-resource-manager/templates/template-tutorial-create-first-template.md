@@ -67,8 +67,6 @@ Okay, you're ready to start learning about templates.
 
     Here's what your Visual Studio Code environment looks like:
 
-    :::image type="content" source="media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png" alt-text="An image that shows the creation of an an ARM template.":::
-
     ![ARM template Visual Studio Code first template](./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png)
 
     This template doesn't deploy any resources. We're starting with a blank template so you can get familiar with the steps to deploy a template while minimizing the chance of something going wrong.
