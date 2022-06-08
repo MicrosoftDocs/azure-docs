@@ -18,8 +18,8 @@ After you've created infrastructure for your new SAP system using Azure Center f
 
 - An Azure subscription.
 - An Azure account with **Contributor** and **User Access Administrator** role access to the subscriptions and resource groups in which the VIS exists.
-- A [network set up for your infrastructure deployment](create-network-infrastructure-deployment.md).
-- A [deployment of S/4HANA infrastructure](create-s4hana-deployment.md).
+- A [network set up for your infrastructure deployment](create-network.md).
+- A deployment of S/4HANA infrastructure.
 - The username and password for the SAP system that you created.
 - An [installation of the Azure Command-Line Interface (Azure CLI)](/cli/azure/install-azure-cli) on your local computer.
 
@@ -227,8 +227,6 @@ To install the SAP software on Azure, use the ACSS installation wizard.
 
 1. Wait for the installation to complete. The process takes approximately three hours. You can see the progress, along with estimated times for each step, in the wizard.
 
-    ![image](image)
-
 1. After the installation completes, sign in with your SAP system credentials.
 
 ## Limitations
@@ -258,4 +256,4 @@ If you encounter this problem, do the following:
 
 ## Next steps
 
-- [Configure a VIS resource](configure-virtual-instance.md)
+- [Create network for infrastructure deployment](create-network.md)
