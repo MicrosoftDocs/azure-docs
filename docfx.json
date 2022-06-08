@@ -839,6 +839,8 @@
         "articles/partner-solutions/datadog/**/*.md": "datadog",
         "articles/partner-solutions/elastic/**/*.md": "elastic",
         "articles/partner-solutions/logzio/**/*.md": "logzio",
+        "articles/partner-solutions/dynatrace/**/*.md": "dynatrace",
+        "articles/partner-solutions/nginx/**/*.md": "nginx",
         "articles/cognitive-services/Anomaly-Detector/**/*.md": "anomaly-detector",
         "articles/cognitive-services/Bing-Autosuggest/**/*.md": "bing-autosuggest",
         "articles/cognitive-services/Bing-Custom-Search/**/*.md": "bing-custom-search",

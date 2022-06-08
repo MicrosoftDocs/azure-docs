@@ -49,7 +49,7 @@ Insert this code in the try / catch block in `main()`. Make sure you update thes
 
 This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig).
 
-The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../how-to-specify-source-language.md) for information on choosing the source language.
+The Speech SDK will default to recognizing using en-us for the language, see [How to recognize speech](../../../how-to-recognize-speech.md) for information on choosing the source language.
 
 ## Initialize an IntentRecognizer
 
