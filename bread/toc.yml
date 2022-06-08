@@ -314,6 +314,9 @@
       - name: Logz.io
         tocHref: /azure/partner-solutions/logzio/
         topicHref: /azure/partner-solutions/logzio/overview
+      - name: Dynatrace
+        tocHref: /azure/partner-solutions/dynatrace/
+        topicHref: /azure/partner-solutions/dynatrace/dynatrace-overview
       - name: NGINX
         tocHref: /azure/partner-solutions/nginx/
         topicHref: /azure/partner-solutions/nginx/nginx-overview

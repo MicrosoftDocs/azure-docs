@@ -54,7 +54,7 @@ Azure [Confidential VM](../confidential-computing/confidential-vm-overview.md) (
 
 Azure customers can [prevent bootkit and rootkit infections](https://www.youtube.com/watch?v=CQqu_rTSi0Q) by enabling [Trusted launch](../virtual-machines/trusted-launch.md)) for their virtual machines (VMs). When the VM is Secure Boot and vTPM enabled with guest attestation extension installed, vTPM measurements get submitted to Azure Attestation periodically for monitoring of boot integrity. An attestation failure indicates potential malware, which is surfaced to customers via Microsoft Defender for Cloud, through Alerts and Recommendations. 
 
-## Azure Attestation can run in a TEE
+## Azure Attestation runs in a TEE
 
 Azure Attestation is critical to Confidential Computing scenarios, as it performs the following actions:
 
@@ -63,11 +63,7 @@ Azure Attestation is critical to Confidential Computing scenarios, as it perform
 - Manages and stores tenant-specific policies.
 - Generates and signs a token that is used by relying parties to interact with the enclave.
 
-Azure Attestation is built to run in two types of environments:
-- Azure Attestation running in an SGX enabled TEE.
-- Azure Attestation running in a non-TEE.
-
-Azure Attestation customers have expressed a requirement for Microsoft to be operationally out of trusted computing base (TCB). This is to prevent Microsoft entities such as VM admins, host admins, and Microsoft developers from modifying attestation requests, policies, and Azure Attestation-issued tokens. Azure Attestation is also built to run in TEE, where features of Azure Attestation like quote validation, token generation, and token signing are moved into an SGX enclave.
+To keep Microsoft operationally out of trusted computing base (TCB), critical operations of Azure Attestation like quote validation, token generation, policy evaluation and token signing are moved into an SGX enclave.
 
 ## Why use Azure Attestation
 
