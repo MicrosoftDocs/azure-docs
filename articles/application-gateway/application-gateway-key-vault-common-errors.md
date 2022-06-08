@@ -29,18 +29,31 @@ The following sections cover various errors you might encounter. You can find th
 [comment]: # (Error Code 1)
 ### Error code: UserAssignedIdentityDoesNotHaveGetPermissionOnKeyVault 
 
-**Description:** The associated user-assigned managed identity doesn't have the "Get" permission. 
+**Description:** The associated user-assigned managed identity doesn't have the required permission. 
 
-**Resolution:** Configure the access policy of Key Vault to grant the user-assigned managed identity this permission on secrets. 
-1. Go to the linked key vault in the Azure portal.
-1. Open the **Access policies** pane.
-1. For **Permission model**, select **Vault access policy**.
-1. Under **Secret Management Operations**, select the **Get** permission.
-1. Select **Save**.
+**Resolution:** Configure the access policies of your key vault to grant the user-assigned managed identity permission on secrets. You may do so in any of the following ways:
+
+  **Vault access policy**
+  1. Go to the linked key vault in the Azure portal.
+  1. Open the **Access policies** blade.
+  1. For **Permission model**, select **Vault access policy**.
+  1. Under **Secret Management Operations**, select the **Get** permission.
+  1. Select **Save**.
 
 :::image type="content" source="./media/application-gateway-key-vault-common-errors/no-get-permssion-for-managed-identity.png " alt-text=" Screenshot that shows how to resolve the Get permission error.":::
 
 For more information, see [Assign a Key Vault access policy by using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
+
+  **Azure role-based access control**
+  1. Go to the linked key vault in the Azure portal.
+  1. Open the **Access policies** blade.
+  1. For **Permission model**, select **Azure role-based access control**.
+  1. After this, navigate to **Access Control (IAM)** blade to configure permissions.
+  1. **Add role assignment** for your managed identity by choosing the following<br>
+    a. **Role**: Key Vault Secrets User<br>
+    b. **Assign access to**: Managed identity<br>
+    c. **Members**: select the user-assigned managed identity which you've associated with your application gateway.<br>
+  1. Select **Review + assign**.
 
 [comment]: # (Error Code 2)
 ### Error code: SecretDisabled 
@@ -74,10 +87,9 @@ On the other hand, if a certificate object is permanently deleted, you will need
 
 **Description:** The associated user-assigned managed identity has been deleted. 
 
-**Resolution:** To use the identity again:
-1. Re-create a managed identity with the same name that was used previously, and under the same resource group. Resource activity logs contain more details. 
-1. After you create the identity, go to **Application Gateway - Access Control (IAM)**. Assign the identity the **Reader** role, at a minimum.
-1. Finally, go to the desired Key Vault resource, and set its access policies to grant **Get** secret permissions for this new managed identity. 
+**Resolution:** Create and use the managed identity again.
+1. Re-create a managed identity with the same name that was previously used, and under the same resource group. (**TIP**: Refer to resource Activity Logs for naming details). 
+1. Go to the desired Key Vault resource, and set its access policies to grant this new managed identity the required permission. You can follow the same steps as mentioned under [UserAssignedIdentityDoesNotHaveGetPermissionOnKeyVault](./application-gateway-key-vault-common-errors.md#error-code-userassignedidentitydoesnothavegetpermissiononkeyvault). 
 
 For more information, see [How integration works](./key-vault-certs.md#how-integration-works).
 
