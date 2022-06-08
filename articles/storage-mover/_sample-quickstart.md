@@ -1,6 +1,6 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
+title: #Required. The title is displayed in search results. Always include the brand.
+description: #Required. The article description is displayed in search results. 
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage
@@ -16,9 +16,9 @@ This template provides the basic structure of a QUICKSTART article.
 
 ##Docs Required##
 
-Must start with "Quickstart: "; the first word following "Quickstart:" should be a verb. Identify both the technology/service and the language or framework, if applicable.-->
+Must start with "Quickstart: "; the first word following "Quickstart: " should be a verb. Identify both the technology/service and the language or framework, if applicable.-->
 
-# Quickstart: Configure a migration agent
+# Quickstart: Configure an Azure Storage Mover migration agent
 
 <!-- 
 2. Introductory paragraph 
@@ -62,7 +62,7 @@ Only include the Cloud Shell section if ALL commands can be run in the cloud she
 
 ## Open Azure Cloud Shell
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it)]
 
 <!-- 
 6. H2s
