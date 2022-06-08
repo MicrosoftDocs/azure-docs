@@ -1,13 +1,13 @@
 ---
 title: Form Recognizer receipt model
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using the prebuilt receipt model
+description: Concepts related to data extraction and analysis using the prebuilt receipt model
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/11/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
@@ -16,7 +16,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer receipt model
 
-The receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total and returns a structured JSON data representation.
+The receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, total tax, and transaction total and returns a structured JSON data representation.
 
 ***Sample receipt processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
@@ -34,7 +34,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Receipt model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul>|**prebuilt-receipt**|
+|**Receipt model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul>|**prebuilt-receipt**|
 
 ### Try Form Recognizer
 
@@ -64,7 +64,7 @@ See how data, including time and date of transactions, merchant information, and
 
 #### Sample Labeling tool (API v2.1)
 
-You will need a receipt document. You can use our [sample receipt document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-receipt.png).
+You'll need a receipt document. You can use our [sample receipt document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-receipt.png).
 
 1. On the Sample Labeling tool home page, select **Use prebuilt model to get data**.
 
@@ -81,7 +81,7 @@ You will need a receipt document. You can use our [sample receipt document](http
 * Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
-* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
+* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 * PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
@@ -107,13 +107,13 @@ You will need a receipt document. You can use our [sample receipt document](http
 | TransactionTime | Time | Time the receipt was issued | hh-mm-ss (24-hour)  |
 | Total | Number (USD)| Full transaction total of receipt | Two-decimal float|
 | Subtotal | Number (USD) | Subtotal of receipt, often before taxes are applied | Two-decimal float|
-| Tax | Number (USD) | Tax on receipt (often sales tax or equivalent) | Two-decimal float |
+ | Tax | Number (USD) | Total tax on receipt (often sales tax or equivalent). **Renamed to "TotalTax" in 2022-06-30-preview version**. | Two-decimal float |
 | Tip | Number (USD) | Tip included by buyer | Two-decimal float|
 | Items | Array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
-| Name | String | Item name | |
-| Quantity | Number | Quantity of each item | Integer |
+| Name | String | Item description. **Renamed to "Description" in 2022-06-30-preview version**. | |
+| Quantity | Number | Quantity of each item | Two-decimal float |
 | Price | Number | Individual price of each item unit| Two-decimal float |
-| Total Price | Number | Total price of line item | Two-decimal float |
+| TotalPrice | Number | Total price of line item | Two-decimal float |
 
 ## Form Recognizer preview v3.0
 
@@ -130,7 +130,7 @@ You will need a receipt document. You can use our [sample receipt document](http
 | Items.*.Category | String | Item category, for example, Room, Tax, etc. |  |
 | Items.*.Date | Date | Item date | yyyy-mm-dd |
 | Items.*.Description | String | Item description | |
-| Items.*.TotalPrice |  Number | Item total price | Integer |
+| Items.*.TotalPrice |  Number | Item total price | Two-decimal float |
 | Locale | String | Locale of the receipt, for example, en-US. | ISO language-county code   |
 | MerchantAddress | String | Listed address of merchant | |
 | MerchantAliases | Array| | |
