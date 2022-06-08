@@ -159,9 +159,9 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2"
 1. Browse to https:// your site name .scm.azurewebsites.net/ApplicationInsights
 1. Within this site, confirm:
- * The status source exists and looks like: `Status source /var/log/applicationinsights/status_abcde1234567_89_0.json` 
- * `Auto-Instrumentation enabled successfully`, is displayed. If a similar value isn't present, it means the application isn't running or isn't supported. To ensure that the application is running, try manually visiting the application url/application endpoints, which will allow the runtime information to become available.
- * `IKeyExists` is `true`. If it's `false`, add `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` with your ikey GUID to your application settings.
+   * The status source exists and looks like: `Status source /var/log/applicationinsights/status_abcde1234567_89_0.json` 
+   * `Auto-Instrumentation enabled successfully`, is displayed. If a similar value isn't present, it means the application isn't running or isn't supported. To ensure that the application is running, try manually visiting the application url/application endpoints, which will allow the runtime information to become available.
+   * `IKeyExists` is `true`. If it's `false`, add `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` with your ikey GUID to your application settings.
 
 :::image type="content" source="media/azure-web-apps-net-core/auto-instrumentation-status.png" alt-text="Screenshot displaying auto instrumentation status web page." lightbox="media/azure-web-apps-net-core/auto-instrumentation-status.png":::
 
