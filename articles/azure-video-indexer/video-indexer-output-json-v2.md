@@ -36,7 +36,9 @@ To get insights produced on the website or the Azure portal:
 1. Choose the **Insights** tab.
 2. Select which insights you want to view (under the **View** drop-down).
 3. Go to the **Timeline** tab.
-4. If you want to download artifacts, beware that artifacts are intermediate outputs of the indexing process. They are essentially raw outputs of the various AI engines that analyze the videos. For this reason, the output formats may change over time. It is recommended that you use the **Get Video Index API**, as described in the following section.
+4. If you want to download artifacts, beware of the following:
+
+  [!INCLUDE [artifacts](./includes/artifacts.md])
 
 For more information, see [View and edit video insights](video-indexer-view-edit.md).
 
