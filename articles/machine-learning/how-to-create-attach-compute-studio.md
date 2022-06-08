@@ -16,7 +16,7 @@ ms.custom: contperf-fy21q1, sdkv1, event-tier1-build-2022
 
 In this article, learn how to create and manage compute targets in Azure Machine studio.  You can also create and manage compute targets with:
 
-* Azure Machine Learning Learning SDK or  CLI extension for Azure Machine Learning
+* Azure Machine Learning SDK or  CLI extension for Azure Machine Learning
   * [Compute instance](how-to-create-manage-compute-instance.md)
   * [Compute cluster](how-to-create-attach-compute-cluster.md)
   * [Other compute resources](how-to-attach-compute-targets.md)
