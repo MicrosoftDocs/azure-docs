@@ -50,8 +50,7 @@ When an event is triggered, the Event Grid service sends data about that event t
     "subscriptionExpirationDateTime": "2022-05-24T23:21:19.3554403+00:00",
     "subscriptionId": "<microsoft-graph-subscription-id>",
     "tenantId": "<tenant-id>
-  },
-  "comexampleextension1": null
+  }
 }]
 ```
 
@@ -81,8 +80,7 @@ When an event is triggered, the Event Grid service sends data about that event t
     "subscriptionExpirationDateTime": "2022-05-24T23:21:19.3554403+00:00",
     "subscriptionId": "<microsoft-graph-subscription-id>",
     "tenantId": "<tenant-id>
-  },
-  "comexampleextension1": null
+  }
 }]
 ```
 ### Microsoft.Graph.UserDeleted event
@@ -111,8 +109,7 @@ When an event is triggered, the Event Grid service sends data about that event t
     "subscriptionExpirationDateTime": "2022-05-24T23:21:19.3554403+00:00",
     "subscriptionId": "<microsoft-graph-subscription-id>",
     "tenantId": "<tenant-id>
-  },
-  "comexampleextension1": null
+  }
 }]
 ```
 ### Microsoft.Graph.GroupCreated event
@@ -141,8 +138,7 @@ When an event is triggered, the Event Grid service sends data about that event t
     "subscriptionExpirationDateTime": "2022-05-24T23:21:19.3554403+00:00",
     "subscriptionId": "<microsoft-graph-subscription-id>",
     "tenantId": "<tenant-id>
-  },
-  "comexampleextension1": null
+  }
 }]
 ```
 ### Microsoft.Graph.GroupUpdated event
@@ -171,8 +167,7 @@ When an event is triggered, the Event Grid service sends data about that event t
     "subscriptionExpirationDateTime": "2022-05-24T23:21:19.3554403+00:00",
     "subscriptionId": "<microsoft-graph-subscription-id>",
     "tenantId": "<tenant-id>
-  },
-  "comexampleextension1": null
+  }
 }]
 ```
 
@@ -202,8 +197,7 @@ When an event is triggered, the Event Grid service sends data about that event t
     "subscriptionExpirationDateTime": "2022-05-24T23:21:19.3554403+00:00",
     "subscriptionId": "<microsoft-graph-subscription-id>",
     "tenantId": "<tenant-id>
-  },
-  "comexampleextension1": null
+  }
 }]
 ```
 ---

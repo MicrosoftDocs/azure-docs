@@ -48,10 +48,8 @@ When an event is triggered, the Event Grid service sends data about that event t
 			"@odata.etag": "<tag id>",
 			"od@ata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Events('<event id>')",
 			"@odata.type": "#Microsoft.OutlookServices.Event",
-			"OtherResourceData": "<some other resource data>",
-			"OtherResourceData2": "<some other resource data 2>"
-		},
-		"comexampleextension1": null
+			"OtherResourceData": "<some other resource data>"
+		}
 	}
 }
 ```
@@ -80,10 +78,8 @@ When an event is triggered, the Event Grid service sends data about that event t
 			"@odata.etag": "<tag id>",
 			"od@ata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Events('<event id>')",
 			"@odata.type": "#Microsoft.OutlookServices.Event",
-			"OtherResourceData": "<some other resource data>",
-			"OtherResourceData2": "<some other resource data 2>"
-		},
-		"comexampleextension1": null
+			"OtherResourceData": "<some other resource data>"
+		}
 	}
 }
 ```
@@ -111,10 +107,8 @@ When an event is triggered, the Event Grid service sends data about that event t
 			"@odata.etag": "<tag id>",
 			"od@ata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Events('<event id>')",
 			"@odata.type": "#Microsoft.OutlookServices.Event",
-			"OtherResourceData": "<some other resource data>",
-			"OtherResourceData2": "<some other resource data 2>"
-		},
-		"comexampleextension1": null
+			"OtherResourceData": "<some other resource data>"
+		}
 	}
 }
 ```
@@ -143,10 +137,8 @@ When an event is triggered, the Event Grid service sends data about that event t
 			"@odata.etag": "<tag id>",
 			"od@ata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Contacts('<contact id>')",
 			"@odata.type": "#Microsoft.OutlookServices.Contact",
-			"OtherResourceData": "<some other resource data>",
-			"OtherResourceData2": "<some other resource data 2>"
-		},
-		"comexampleextension1": null
+			"OtherResourceData": "<some other resource data>"
+		}
 	}
 }
 ```
@@ -175,10 +167,8 @@ When an event is triggered, the Event Grid service sends data about that event t
 			"@odata.etag": "<tag id>",
 			"od@ata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Contacts('<contact id>')",
 			"@odata.type": "#Microsoft.OutlookServices.Contact",
-			"OtherResourceData": "<some other resource data>",
-			"OtherResourceData2": "<some other resource data 2>"
-		},
-		"comexampleextension1": null
+			"OtherResourceData": "<some other resource data>"
+		}
 	}
 }
 ```
@@ -206,10 +196,8 @@ When an event is triggered, the Event Grid service sends data about that event t
 			"@odata.etag": "<tag id>",
 			"od@ata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Contacts('<contact id>')",
 			"@odata.type": "#Microsoft.OutlookServices.Contact",
-			"OtherResourceData": "<some other resource data>",
-			"OtherResourceData2": "<some other resource data 2>"
-		},
-		"comexampleextension1": null
+			"OtherResourceData": "<some other resource data>"
+		}
 	}
 }
 ```

@@ -588,7 +588,7 @@ If you specify multiple different filters, an **AND** operation is done, so each
 ## CloudEvents 
 For events in the **CloudEvents schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`). 
 
-You can also use [extension context attributes in CloudEvents 1.0](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#extension-context-attributes). In the following example, `comexampleextension1` and `comexampleothervalue` are extension context attributes. 
+You can also use [extension context attributes in CloudEvents 1.0](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#extension-context-attributes). 
 
 ```json
 {
@@ -598,8 +598,6 @@ You can also use [extension context attributes in CloudEvents 1.0](https://githu
     "id" : "C234-1234-1234",
     "time" : "2018-04-05T17:31:00Z",
     "subject": null,
-    "comexampleextension1" : "value",
-    "comexampleothervalue" : 5,
     "datacontenttype" : "application/json",
     "data" : {
         "appinfoA" : "abc",
