@@ -3,6 +3,7 @@ title: Move Azure VMware Solution resources across regions
 description: This article describes how to move Azure VMware Solution resources from one Azure region to another.  
 ms.custom: subject-moving-resources
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 04/11/2022
 
 # Customer intent: As an Azure service administrator, I want to move my Azure VMware Solution resources from Azure Region A to Azure Region B.

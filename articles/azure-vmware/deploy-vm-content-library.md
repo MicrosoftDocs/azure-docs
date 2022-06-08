@@ -2,6 +2,7 @@
 title: Create a content library to deploy VMs in Azure VMware Solution
 description: Create a content library to deploy a VM in an Azure VMware Solution private cloud.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 04/11/2022
 ---
 
