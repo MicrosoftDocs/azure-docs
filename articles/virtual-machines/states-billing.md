@@ -16,7 +16,7 @@ ms.custom: kr2b-contr-experiment
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Azure Virtual Machines (VMs) go through different states that can be categorized into *provisioning* and *power* states. This article describes these states and highlights when customers are billed for instance usage.
+Azure Virtual Machines (VM) instances go through different states. There are *provisioning* and *power* states. This article describes these states and highlights when customers are billed for instance usage.
 
 ## Get states using Instance View
 
