@@ -194,6 +194,8 @@
         href: concept-certificate-based-authentication-limitations.md
       - name: Configure Azure AD CBA
         href: how-to-certificate-based-authentication.md
+      - name: Windows SmartCard logon
+        href: concept-certificate-based-authentication-smartcard.md
       - name: FAQ
         href: certificate-based-authentication-faq.yml
       - name: Troubleshoot
