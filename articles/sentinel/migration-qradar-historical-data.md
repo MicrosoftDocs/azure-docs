@@ -44,9 +44,9 @@ To execute the search query:
         ```
     - For the API token method, run:
         
-            ```
-            curl -s -X POST -H 'SEC: <enter_api_token>' -H 'Version: 12.0' -H 'Accept: application/json' 'https://<enter_qradar_console_ip_or_hostname>/api/ariel/searches?query_expression=<enter_encoded_AQL_from_previous_step> 
-            ```
+        ```
+        curl -s -X POST -H 'SEC: <enter_api_token>' -H 'Version: 12.0' -H 'Accept: application/json' 'https://<enter_qradar_console_ip_or_hostname>/api/ariel/searches?query_expression=<enter_encoded_AQL_from_previous_step> 
+        ```
             
         The search job execution time may vary, depending on the AQL time range and amount of queried data. We recommended that you run the query in small time ranges, and to query only the data you need for the export.   
 
