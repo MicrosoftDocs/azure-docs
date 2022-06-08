@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2021
+ms.date: 06/08/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -98,7 +98,7 @@ Open the *app_config.py* file. This file contains information about your Azure A
 |---------|---------|
 |`b2c_tenant`| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso`).|
 |`CLIENT_ID`| The web API application ID from [step 2.1](#step-21-register-the-app).|
-|`CLIENT_SECRET`| The client secret you created in [step 2.2](#step-22-create-a-web-app-client-secret). To help increase security, consider storing it instead in an environment variable, as recommended in the comments. |
+|`CLIENT_SECRET`| The client secret value you created in [step 2.2](#step-22-create-a-web-app-client-secret). To help increase security, consider storing it instead in an environment variable, as recommended in the comments. |
 |`*_user_flow`|The user flows or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
 | | |
 
