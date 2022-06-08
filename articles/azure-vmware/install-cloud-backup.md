@@ -1,9 +1,9 @@
 ---
 title: Install Cloud Backup for Virtual Machines
-description: Learn how to create Azure NetApp Files-based NSF datastores for Azure VMware Solution hosts.
+description: Cloud Backup for Virtual Machines is a plug-in installed in the Azure VMware Solution and enables you to backup and restore Azure NetApp Files datastores and Virtual Machines.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 06/07/2022
+ms.date: 06/20/2022
 ms.custom: references_regions
 ---
 
@@ -28,11 +28,11 @@ You will need to install Cloud Backup for Virtual Machines through the Azure por
 1. Sign in to your Azure VMware Solution private cloud. 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Install-NetAppCBSA**.
  
-    //image 
+    :::image type="content" source="./media/cloud-backup/run-command.png" alt-text="Screenshot of the Azure interface that shows the configure signal logic step with a backdrop of the Create alert rule page." lightbox="./media/cloud-backup/run-command.png":::
 
 1. Provide the required values, and then select **Run**. 
 
-    //image
+    :::image type="content" source="./media/cloud-backup/run-commands-fields.png" alt-text="Screenshot of the Run Command fields which are described in the table below." lightbox="./media/cloud-backup/run-commands-fields.png":::
 
     | Field      | Value |
     | ------ | ----- |
