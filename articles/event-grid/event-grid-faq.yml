@@ -1,0 +1,45 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions - Azure Event Grid | Microsoft Docs
+  description: This article provides a list of frequently asked questions (FAQ) for Azure Event Grid and their answers. 
+  ms.topic: faq
+  ms.service: event-grid
+  ms.date: 06/08/2022
+title: Event Grid frequently asked questions
+summary: |
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          Is Azure Event Grid high available?
+        answer: |
+          Azure Event Grid it's automatically replicated in three availability zones when available to provide automatic in-region recovery of your data in case of a failure in the region. See [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) to learn more about the supported regions with availability zones. 
+          
+      - question: |
+          How do I recover from a failover?
+        answer: |
+          If you opt-in "within a region and geo-pair" in data residency configuration of the Azure Event Grid topics and domains, event subscription configuration data, aka "metadata" will be replicated to a predefined secondary region. This allows Microsoft-initiated failover to the paired region in case of a region failure*. See [Azure cross-region replication pairings for all geographies](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) to learn more about the supported paired regions. Otherwise, if you opt-in "within a region", no data of any kind is replicated to another region by Microsoft. You may define your own disaster recovery plan. See (Build your own disaster recovery for custom topics in Event Grid)[custom-disaster-recovery.md] for more information.
+
+          *Microsoft-initiated failover is exercised by Microsoft in rare situations to failover Event Grid resources from an affected region to the corresponding geo-paired region. This process is doesn’t require an intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve a user consent before the user's topic is failed over.
+
+      - question: |
+          Where does Azure Event Grid store data?
+        answer: |
+          Azure Event Grid store and process data published in the region that you select when you create topics and domains resources. By default, customer data stays within the selected region. For all regions except Brazil South and Southeast Asia, the database backup is hosted in a different region (usually the Azure paired region). For the Brazil south and Southeast Asia regions, database backups are stored in the same region to accommodate data-residency requirements for these regions.
+          
+  ## Next steps
+  
+  You can learn more about Event Grid by visiting the following links:
+
+  * [Event Grid overview](./overview.md)
+  * [Route Storage Blob events](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+    Respond to storage blob events by using Event Grid.
+  * [Create and subscribe to custom events](custom-event-quickstart.md)  
+    Jump right in and start sending your own custom events to any endpoint using the Azure Event Grid quickstart.
+  * [Using Logic Apps as an Event Handler](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+    A tutorial on building an app using Logic Apps to react to events pushed by Event Grid.
+  * [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)  
+    A tutorial that uses Azure Functions to stream data from Event Hubs to Azure Synapse Analytics.
+  * [Event Grid REST API reference](/rest/api/eventgrid)  
+    Provides reference content for managing Event Subscriptions, routing, and filtering.
