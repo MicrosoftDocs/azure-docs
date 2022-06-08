@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 05/17/2022
+ms.date: 06/08/2022
 ms.author: v-baolianzou
 ---
 
