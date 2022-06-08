@@ -13,7 +13,7 @@ ms.custom: "mvc, references_regions"
 # Migrate from Azure Database for PostgreSQL Single Server to Flexible Server (Preview)
 
 >[!NOTE]
-> Single Server to Flexible Server migration tool is in public preview.
+> Single Server to Flexible Server migration tool is in private preview.
 
 Azure Database for PostgreSQL Flexible Server provides zone redundant high availability, control over price, and control over maintenance window.  Single to Flexible Server Migration tool enables customers to migrate their databases from Single server to Flexible. See this [documentation](../flexible-server/concepts-compare-single-server-flexible-server.md) to understand the differences between Single and Flexible servers. Customers can initiate migrations for multiple servers and databases in a repeatable fashion using this migration tool. This tool automates most of the steps needed to do the migration and thus making the migration journey across Azure platforms as seamless as possible. The tool is provided free of cost for customers.
 

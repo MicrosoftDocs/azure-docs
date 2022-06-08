@@ -54,10 +54,9 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 - [Learn more about the IntSights integration with Microsoft Sentinel @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel)
 - To connect Microsoft Sentinel to the IntSights TAXII Server, obtain the API Root, Collection ID, Username and Password from the IntSights portal after you configure a policy of the data you wish to send to Microsoft Sentinel.
 
-### ThreatConnect
+### Pulsedive
 
-- [Learn more about STIX and TAXII @ThreatConnect](https://threatconnect.com/stix-taxii/)
-- [TAXII Services documentation @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/taxii/taxii_2.1.html)
+- [Learn about Pulsedive integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-pulsedive-feed-into-microsoft-sentinel/ba-p/3478953)
 
 ### ReversingLabs
 
@@ -71,6 +70,11 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 ### SEKOIA.IO
 
 - [Learn about SEKOIA.IO integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bring-threat-intelligence-from-sekoia-io-using-taxii-data/ba-p/3302497)
+
+### ThreatConnect
+
+- [Learn more about STIX and TAXII @ThreatConnect](https://threatconnect.com/stix-taxii/)
+- [TAXII Services documentation @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/taxii/taxii_2.1.html)
 
 ## Integrated threat intelligence platform products
 

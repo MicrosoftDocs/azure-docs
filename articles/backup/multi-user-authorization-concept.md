@@ -2,7 +2,7 @@
 title: Multi-user authorization using Resource Guard
 description: An overview of Multi-user authorization using Resource Guard.
 ms.topic: conceptual
-ms.date: 05/05/2022
+ms.date: 06/08/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -26,9 +26,9 @@ The following table lists the operations defined as critical operations and can 
 --- | ---
 Disable soft delete | Mandatory
 Disable MUA protection | Mandatory
-Modify backup policy | Optional: Can be excluded
-Modify protection | Optional: Can be excluded
-Stop protection | Optional: Can be excluded
+Modify backup policy (reduced retention) | Optional: Can be excluded
+Modify protection (reduced retention) | Optional: Can be excluded
+Stop protection with delete data | Optional: Can be excluded
 Change MARS security PIN | Optional: Can be excluded
 
 ### Concepts and process

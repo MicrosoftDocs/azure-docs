@@ -3,6 +3,7 @@ title: Azure Application Insights Agent overview | Microsoft Docs
 description: An overview of Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
 ms.date: 09/16/2019
+ms.reviewer: abinetabate
 ---
 
 # Deploy Azure Monitor Application Insights Agent for on-premises servers
