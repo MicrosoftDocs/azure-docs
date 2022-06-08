@@ -38,7 +38,7 @@ To get insights produced on the website or the Azure portal:
 3. Go to the **Timeline** tab.
 4. If you want to download artifacts, beware of the following:
 
-  [!INCLUDE [artifacts](./includes/artifacts.md])
+    [!INCLUDE [artifacts](./includes/artifacts.md)]
 
 For more information, see [View and edit video insights](video-indexer-view-edit.md).
 
