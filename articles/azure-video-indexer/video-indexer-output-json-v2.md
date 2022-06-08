@@ -41,7 +41,7 @@ To get insights produced on the website or the Azure portal:
 
 For more information, see [View and edit video insights](video-indexer-view-edit.md).
 
-## Get insights produced by the API:
+## Get insights produced by the API
 
 To retrieve the JSON file or an artifact type (OCR, face, keyframe, etc.), call the [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index).
 
