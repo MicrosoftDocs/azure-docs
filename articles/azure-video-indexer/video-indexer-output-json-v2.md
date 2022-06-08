@@ -35,8 +35,9 @@ To get insights produced on the website or the Azure portal:
 1. Press **Play**.
 1. Choose the **Insights** tab.
 2. Select which insights you want to view (under the **View** drop-down).
-3. Go to the **Timeline** tab.
-4. If you want to download artifacts, beware of the following:
+3. Go to the **Timeline** tab to see timestamped transcript lines.
+4. Select **Download** > **Insights (JSON)** to get the insights output file.
+5. If you want to download artifacts, beware of the following:
 
     [!INCLUDE [artifacts](./includes/artifacts.md)]
 
