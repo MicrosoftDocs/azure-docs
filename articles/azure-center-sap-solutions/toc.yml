@@ -18,3 +18,5 @@ items:
     href: deploy-s4hana.md
   - name: Register existing SAP system
     href: register-existing-system.md
+  - name: Get Quality Insights for VIS
+    href: get-quality-insights-vis.md
