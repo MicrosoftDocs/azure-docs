@@ -12,7 +12,7 @@ This article describes steps to subscribe to events published by Microsoft Graph
 |:--- | :--- | :----|
 |Azure Active Directory| [User](/graph/api/resources/user), [Group](/graph/api/resources/group) | [Azure AD event types](azure-active-directory-events.md) |
 |Microsoft Outlook|[Event](/graph/api/resources/event) (calendar meeting), [Message](/graph/api/resources/message) (email), [Contact](/graph/api/resources/contact) | [Microsoft Outlook event types](outlook-events.md) |
-|Microsoft Teams|[ChatMessage](/graph/api/resources/callrecords-callrecord), [CallRecord](/graph/api/resources/callrecords-callrecord) (meeting) | |
+|Microsoft Teams|[ChatMessage](/graph/api/resources/callrecords-callrecord), [CallRecord](/graph/api/resources/callrecords-callrecord) (meeting) | [Microsoft Teams event types](teams-events.md) |
 |Microsoft SharePoint and OneDrive| [DriveItem](/graph/api/resources/driveitem)| |
 |Microsoft SharePoint| [List](/graph/api/resources/list)|
 |Security alerts| [Alert](/graph/api/resources/alert)|
@@ -45,7 +45,7 @@ The common steps to subscribe to events published by any partner, including Grap
 ### Enable Microsoft Graph API events to flow to your partner topic
 
 > [!IMPORTANT]
-> Microsoft Graph API's (MGA) ability to send events to Even Grid (a generally available service) is in private preview. In the following steps, you will follow instructions from [Wehbook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=) to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask.graph.and.grid@service.microsoft.com?subject=Please allow my application ID">mailto:ask.graph.and.grid@service.microsoft.com?subject=Please allow my application with ID to send events through Graph API.</a> so that the Microsoft Graph API team can add your application ID to allow list to use this new capability.
+> Microsoft Graph API's (MGA) ability to send events to Even Grid (a generally available service) is in private preview. In the following steps, you will follow instructions from [Wehbook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=) to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask.graph.and.grid@microsoft.com?subject=Please allow my application ID">mailto:ask.graph.and.grid@microsoft.com?subject=Please allow my application with ID to send events through Graph API.</a> so that the Microsoft Graph API team can add your application ID to allow list to use this new capability.
 
 You request Microsoft Graph API to send events by creating a Graph API subscription. When you create a Graph API subscription, the http request looks like the following sample:
 
@@ -77,10 +77,7 @@ Here are some of the key payload properties:
 >graphClient.setServiceRoot("https://canary.graph.microsoft.com/testprodbetawebhooks1");
 >```
 
-**You can create a Microsoft Graph API subscription by following the instructions in the [Microsoft Graph API webhook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=)** that include code samples for [NodeJS](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java (Spring Boot)](https://github.com/microsoftgraph/java-spring-webhooks-sample), and [.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample). 
-
-> [!NOTE]
-> There are not samples available for Python, Go and other languages yet, but the [Graph SDK](/graph/sdks/sdks-overview) supports creating Graph API subscriptions in these programming languages. 
+**You can create a Microsoft Graph API subscription by following the instructions in the [Microsoft Graph API webhook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=)** that include code samples for [NodeJS](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java (Spring Boot)](https://github.com/microsoftgraph/java-spring-webhooks-sample), and [.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample). There are no samples available for Python, Go and other languages yet, but the [Graph SDK](/graph/sdks/sdks-overview) supports creating Graph API subscriptions in these programming languages. 
 
 > [!NOTE]
 > - Partner topic names must be unique within the same Azure region. Each tenant-application ID combination can  create up to 10 unique partner topics.
