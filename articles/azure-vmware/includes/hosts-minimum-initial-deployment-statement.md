@@ -2,10 +2,10 @@
 title: Minimum initial host deployment 
 description: The minimum initial deployment is three hosts. 
 ms.topic: include
+ms.service: azure-vmware
 ms.date: 09/29/2021
 author: suzizuber
 ms.author: v-szuber
-ms.service: azure-vmware
 ---
 
 <!-- Used in plan-private-cloud-deployment.md and concepts-private-clouds-clusters.md -->

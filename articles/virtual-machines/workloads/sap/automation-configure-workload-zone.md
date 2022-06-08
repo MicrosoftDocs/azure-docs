@@ -15,17 +15,9 @@ An [SAP application](automation-deployment-framework.md#sap-concepts) typically 
 
 ## Workload zone deployment configuration
 
-The configuration of the SAP workload zone is done via a Terraform tfvars variable file.
+The configuration of the SAP workload zone is done via a Terraform tfvars variable file. You can find examples of the variable file in the 'samples/WORKSPACES/LANDSCAPE' folder.
 
-## Terraform Parameters
-
-The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts.
-
-
-| Variable                | Type       | Description                           | 
-| ----------------------- | ---------- | ------------------------------------- | 
-| `tfstate_resource_id`   | Required * | Azure resource identifier for the Storage account in the SAP Library that will contain the Terraform state files  |
-| `deployer_tfstate_key`  | Required * | The name of the state file for the Deployer  |
+The sections below show the different sections of the variable file.
 
 ## Environment parameters
 
@@ -126,12 +118,12 @@ app_subnet_address_prefix = "10.110.32.0/19"
 The table below defines the credentials used for defining the Virtual Machine authentication
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                          | Type        | 
-> | ---------------------------------- | -------------------------------------| ----------- | 
-> | `automation_username`              | Administrator account name           | Optional	|
-> | `automation_password`              | Administrator password               | Optional    |
-> | `automation_path_to_public_key`    | Path to existing public key          | Optional    |
-> | `automation_path_to_private_key`   | Path to existing private key         | Optional    |
+> | Variable                           | Description                          | Type        | Notes               |
+> | ---------------------------------- | -------------------------------------| ----------- | ------------------- |
+> | `automation_username`              | Administrator account name           | Optional	| Default: 'azureadm' |   
+> | `automation_password`              | Administrator password               | Optional    |                     |
+> | `automation_path_to_public_key`    | Path to existing public key          | Optional    |                     |
+> | `automation_path_to_private_key`   | Path to existing private key         | Optional    |                     |
 
 **Minimum required authentication definition**
 
@@ -221,6 +213,17 @@ ANF_service_level         = "Ultra"
 
 ```
 
+## Other Parameters
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                             | Description                                                            | Type     | Notes                                 |
+> | ------------------------------------ | ---------------------------------------------------------------------- | -------- | ------------------------------------- |
+> | `enable_purge_control_for_keyvaults` | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional | Use only for test deployments         |
+> | `use_private_endpoint`               | Boolean flag controlling if private endpoints are used for storage accounts and key vaults. | Optional |                                       |
+> | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | For brown field deployments.  |
+> | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | For brown field deployments.  |
+
+
 ## ISCSI Parameters
 
 
@@ -240,15 +243,15 @@ ANF_service_level         = "Ultra"
 > | `iscsi_nic_ips`                  | IP addresses for the iSCSI Virtual Machines                               | Optional  | ignored if `iscsi_use_DHCP` is defined |
  
 
-## Other Parameters
+## Terraform Parameters
 
-> [!div class="mx-tdCol2BreakAll "]
-> | Variable                             | Description                                                            | Type     | Notes                                 |
-> | ------------------------------------ | ---------------------------------------------------------------------- | -------- | ------------------------------------- |
-> | `enable_purge_control_for_keyvaults` | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional | Use only for test deployments         |
-> | `use_private_endpoint`               | Boolean flag controlling if private endpoints are used for storage accounts and key vaults. | Optional |                                       |
-> | `diagnostics_storage_account_arm_id` | The Azure resource identifier for the diagnostics storage account      | Required | For brown field deployments.  |
-> | `witness_storage_account_arm_id`     | The Azure resource identifier for the witness storage account          | Required | For brown field deployments.  |
+The table below contains the Terraform parameters. These parameters need to be entered manually if not using the deployment scripts.
+
+
+| Variable                | Type       | Description                           | 
+| ----------------------- | ---------- | ------------------------------------- | 
+| `tfstate_resource_id`   | Required * | Azure resource identifier for the Storage account in the SAP Library that will contain the Terraform state files  |
+| `deployer_tfstate_key`  | Required * | The name of the state file for the Deployer  |
 
 
 ## Next Step

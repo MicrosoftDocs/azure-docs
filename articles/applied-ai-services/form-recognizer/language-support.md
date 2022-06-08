@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 04/22/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 ---
 
@@ -159,12 +159,25 @@ Pre-Built Receipt and Business Cards support all English receipts and business c
 |English (India|`en-in`|
 |English (United States)| `en-us`|
 
+## Business card model
+
+The **2022-06-30-preview** release includes Japanese language support:
+
+|Language| Locale code |
+|:-----|:----:|
+| Japanese | `ja` |
+
 ## Invoice model
 
 Language| Locale code |
 |:-----|:----:|
-|English (United States)|en-us|
-|Spanish (preview) | es |
+|English (United States) |en-US|
+|Spanish| es|
+|German (**2022-06-30-preview**)| de|
+|French (**2022-06-30-preview**)| fr|
+|Italian (**2022-06-30-preview**)|it|
+|Portuguese (**2022-06-30-preview**)|pt|
+|Dutch (**2022-06-30-preview**)| nl|
 
 ## ID documents
 

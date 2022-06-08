@@ -2,6 +2,7 @@
 title: Monitor and protect VMs with Azure native services
 description: Learn how to integrate and deploy Microsoft Azure native tools to monitor and manage your Azure VMware Solution workloads.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 08/15/2021
 ---
 

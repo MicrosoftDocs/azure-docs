@@ -104,7 +104,7 @@ Follow the next steps to use a managed identity for Azure resources on a Hybrid 
     Get-AzVM -DefaultProfile $AzureContext | Select Name
     ```
 
-    If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
+    If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you run the runbook in an Azure sandbox instead of Hybrid Runbook Worker and you want to use a user-assigned managed identity, then:
     1. From line 5, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
     1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
     1. Enter the Client ID.
@@ -413,6 +413,7 @@ To help troubleshoot issues with your runbooks running on a hybrid runbook worke
 
 ## Next steps
 
+* For more information on Hybrid Runbook Worker, see [Automation Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 * If your runbooks aren't completing successfully, review the troubleshooting guide for [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 * For more information on PowerShell, including language reference and learning modules, see [PowerShell Docs](/powershell/scripting/overview).
 * Learn about [using Azure Policy to manage runbook execution](enforce-job-execution-hybrid-worker.md) with Hybrid Runbook Workers.
