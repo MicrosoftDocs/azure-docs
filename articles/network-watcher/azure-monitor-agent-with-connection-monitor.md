@@ -58,19 +58,19 @@ To make Connection Monitor recognize your on-premises machines as sources for mo
 
 #### Installing Azure Connected Machine agent to enable ARC 
 
-Before proceeding be sure to review the [prerequisites](../azure-arc/prerequisites.md) and verify that your subscription and resources meet the requirements.
+Before proceeding be sure to review the [prerequisites](../azure-arc/servers/prerequisites.md) and verify that your subscription and resources meet the requirements.
 
 ##### Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Deploying the Connected Machine agent on a machine requires that you have administrator permissions to install and configure the agent. On Linux this is done by using the root account, and on Windows, with an account that is a member of the Local Administrators group.
 * The Microsoft.HybridCompute, Microsoft.GuestConfiguration, and Microsoft.HybridConnectivity resource providers must be registered on your subscription. You can [register these resource providers ahead of time](../azure-arc/servers/prerequisites.md#azure-resource-providers), or while completing the steps in this quickstart.
-* Before you get started, be sure to review the [agent prerequisites](../azure-arc/prerequisites.md) and verify the following:
+* Before you get started, be sure to review the [agent prerequisites](../azure-arc/servers/prerequisites.md) and verify the following:
   * Your target machine is running a supported [operating system](../azure-arc/servers/prerequisites.md#supported-operating-systems).
   * Your account has the [required Azure built-in roles](../azure-arc/servers/prerequisites.md#required-permissions).
-  * Ensure the machine is in a [supported region](../azure-arc/overview.md#supported-regions).
+  * Ensure the machine is in a [supported region](../azure-arc/overview.md).
   * Confirm that the Linux hostname or Windows computer name doesn't use a [reserved word or trademark](../azure-resource-manager/templates/error-reserved-resource-name.md).
-  * If the machine connects through a firewall or proxy server to communicate over the Internet, make sure the URLs [listed](../azure-arc/network-requirements.md#urls) are not blocked.
+  * If the machine connects through a firewall or proxy server to communicate over the Internet, make sure the URLs [listed](../azure-arc/servers/network-requirements.md#urls) are not blocked.
 
 ##### Generate installation script
 
