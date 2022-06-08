@@ -46,7 +46,7 @@ AzureML Kubernetes is customer fully configured and managed compute for machine 
     * If you have Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Platform (OCP) cluster, follow another prerequisite step [here](./reference-kubernetes.md#prerequisites-for-aro-or-ocp-clusters) before AzureML extension deployment. 
 * Cluster running behind an outbound proxy server or firewall needs additional network configurations. Fulfill the [network requirements](./how-to-access-azureml-behind-firewall.md#kubernetes-compute)
 * Install or upgrade Azure CLI to version >=2.16.0
-* Install the Azure CLI extension ```k8s-extension``` (version>=1.2.2) by running ```az extension add --name k8s-extension```
+* Install the Azure CLI extension ```k8s-extension``` (version>=1.2.3) by running ```az extension add --name k8s-extension```
 
 
 ## What is AzureML extension
