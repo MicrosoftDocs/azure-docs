@@ -27,7 +27,10 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 
 * During patching, machines are rebooted one rack at a time. You should not experience any degradation at the application side as long as **quorum ALL setting is not being used**, and the replication factor is **3 or higher**.
 
-* The version in Apache Cassandra is in the format `X.Y.Z`. You can control the deployment of major (X) and minor (Y) versions manually via service tools. Whereas the Cassandra patches (Z) that may be required for that major/minor version combination are done automatically.  
+* The version in Apache Cassandra is in the format `X.Y.Z`. You can control the deployment of major (X) and minor (Y) versions manually via service tools. Whereas the Cassandra patches (Z) that may be required for that major/minor version combination are done automatically. 
+
+>[!NOTE]
+> The service currently supports Cassandra versions 3.11 and 4.0. By default, version 3.11 is deployed, as version 4.0 is currently in public preview. See our [Azure CLI Quickstart](create-cluster-cli.md) for specifying Cassandra version during cluster deployment.
 
 ## Maintenance
 
