@@ -30,7 +30,7 @@ Users can now make meetings more personalized and avoid unexpected distractions 
 
 ### Multi-window and "Call me with Teams" features now generally available
 
-The multi-window feature gives users the option to pop out chats, meetings, calls, or documents into separate windows to streamline their workflow. The "Call me" feature lets users transfer a Teams call to their phone. Both features are now generally available in Teams on Azure Virtual Desktop. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-multi-window-support-and-call-me-are-now-in-ga/ba-p/3401830).
+The multi-window feature gives users the option to pop out chats, meetings, calls, or documents into separate windows to streamline their workflow. The "Call me with Teams" feature lets users transfer a Teams call to their phone. Both features are now generally available in Teams on Azure Virtual Desktop. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-multi-window-support-and-call-me-are-now-in-ga/ba-p/3401830).
 
 ### Japan metadata service in public preview
 

@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-mongo
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Troubleshoot query issues when using the Azure Cosmos DB API for MongoDB
