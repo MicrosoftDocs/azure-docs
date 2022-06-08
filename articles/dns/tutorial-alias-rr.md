@@ -19,7 +19,8 @@ Alias records can reference other record sets of the same type. For example, you
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create an alias record for a resource record in the zone.
+> * Create a resource record in the zone.
+> * Create an alias record for the resource record.
 > * Test the alias record.
 
 
@@ -28,10 +29,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 * An Azure account with an active subscription.
-* A domain name that you can host in Azure DNS. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain. Learn more about how to [host your domain in Azure DNS](dns-delegate-domain-azure-dns.md).
-* An Azure DNS zone with delegation in your registrar to Azure DNS. If you don't have one, you can [create a DNS zone](./dns-getstarted-powershell.md), then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
+* A domain name hosted in Azure DNS. If you don't have an Azure DNS zone, you can [create a DNS zone](./dns-delegate-domain-azure-dns.md#create-a-dns-zone), then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
 
-[!NOTE] In this tutorial, `contoso.com` is used as an example. Replace `contoso.com` with your own domain name.
+> [!NOTE]
+> In this tutorial, `contoso.com` is used as an example. Replace `contoso.com` with your own domain name.
 
 ## Sign in to Azure
 
@@ -68,13 +69,13 @@ After adding the alias record, you can verify that it's working by using a tool 
 > [!TIP]
 > You may need to wait at least 10 minutes after you add a record to successfully verify that it's working. It can take a while for changes to propagate through the DNS system.
 
-1. From a command prompt, enter the nslookup command:
+1. From a command prompt, enter the `nslookup` command:
 
    ```
    nslookup test.contoso.com
    ```
 
-1. Verify that the response looks similar to the following nslookup output:
+1. Verify that the response looks similar to the following output:
 
     ```
     Server:  UnKnown
@@ -84,8 +85,11 @@ After adding the alias record, you can verify that it's working by using a tool 
     Address:  10.10.10.10
     ```
 
-3. In the **Overview** page of `contoso.com` DNS zone, select the **server** record, and then change to the **IP address** to *10.11.11.11*.
-4. Wait a few minutes, and then use nslookup command again. Verify the response changed to reflect the new IP address:
+1. In the **Overview** page of **contoso.com** DNS zone, select the **server** record, and then enter *10.11.11.11* in the **IP address**.
+
+1. Select **Save**.
+
+1. Wait a few minutes, and then use the `nslookup` command again. Verify the response changed to reflect the new IP address:
 
 
     ```
