@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 06/08/2022
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an administrator grants permissions to roles, and not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to what content and functionality.
 
-Using RBAC with Application role and Role Claims, developers can securely enforce authorization in their apps with less effort.
+Using RBAC with Application Role and Role Claims, developers can securely enforce authorization in their apps with less effort.
 
 Another approach is to use Azure Active Directory (Azure AD) Groups and Group Claims as shown in the [active-directory-aspnetcore-webapp-openidconnect-v2](https://aka.ms/groupssample) code sample on GitHub. Azure AD Groups and Application Roles are not mutually exclusive; they can be used in tandem to provide even finer-grained access control.
 
