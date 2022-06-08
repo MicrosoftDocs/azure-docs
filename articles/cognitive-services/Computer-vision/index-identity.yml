@@ -7,7 +7,7 @@ metadata:
   description: The cloud-based Azure Face service provides developers with access to advanced face algorithms. Face algorithms enable face attribute detection and face recognition for comparison and identification. Learn how to analyze content in different ways with quickstarts, tutorials, and samples.
   services: cognitive-services
   ms.service: cognitive-services
-  ms.subservice: face-api
+  ms.subservice: computer-vision
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley
