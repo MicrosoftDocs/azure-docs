@@ -27,7 +27,7 @@ Before you can do anything, you need to install the Speech SDK for JavaScript. I
 
 ## Synthesize to file output
 
-Follow these steps to create a new console application for speech synthesis.
+Follow these steps to create a Node.js console application for speech synthesis.
 
 1. Open a command prompt where you want the new project, and create a new file named `SpeechSynthesis.js`.
 1. Install the Speech SDK for JavaScript:

@@ -20,7 +20,7 @@ Before you can do anything, you need to install the Speech SDK for JavaScript. I
 
 ## Translate speech from a file 
 
-Follow these steps to create a new console application for speech recognition.
+Follow these steps to create a Node.js console application for speech recognition.
 
 1. Open a command prompt where you want the new project, and create a new file named `SpeechTranslation.js`.
 1. Install the Speech SDK for JavaScript:
