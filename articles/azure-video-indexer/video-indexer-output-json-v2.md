@@ -82,7 +82,7 @@ This API returns a URL only with a link to the specific resource type you reques
 |`isEditable`|Indicates whether the current user is authorized to edit the playlist.|
 |`isBase`|Indicates whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
 |`durationInSeconds`|The total duration of the playlist.|
-|`summarizedInsights`|Contains one [summarized insight](#summarizedinsights).
+|`summarizedInsights`|Contains one [summarized insight](#summary-of-the-insights).
 |`videos`|A list of [videos](#videos) that construct the playlist.<br/>If this playlist is constructed of time ranges of other videos (derived), the videos in this list will contain only data from the included time ranges.|
 
 ```json
