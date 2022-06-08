@@ -4,6 +4,7 @@ description: Learn some of the common patterns to auto scale your resource in Az
 ms.topic: conceptual
 ms.date: 04/22/2022
 ms.subservice: autoscale
+ms.reviewer: riroloff
 ---
 # Overview of common autoscale patterns
 This article describes some of the common patterns to scale your resource in Azure.

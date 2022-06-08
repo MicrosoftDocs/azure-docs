@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/01/2022
+ms.date: 06/08/2022
 tags: connectors
 ---
 
@@ -36,8 +36,12 @@ The SQL Server connector has different versions, based on [logic app type and ho
 |-----------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | [Managed connector - Standard class](managed.md). For operations, limits, and other information, review the [SQL Server managed connector reference](/connectors/sql). |
 | **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For operations, managed connector limits, and other information, review the [SQL Server managed connector reference](/connectors/sql). For ISE-versioned limits, review the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits), not the managed connector's message limits. |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). <br><br>The built-in version differs in the following ways: <br><br>- The built-in version has no triggers. <br><br>- The built-in version has a single **Execute Query** action. The action can directly access Azure virtual networks with a connection string and doesn't need the on-premises data gateway. <br><br>For managed connector operations, limits, and other information, review the [SQL Server managed connector reference](/connectors/sql/). |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation).  For managed connector operations, limits, and other information, review the [SQL Server managed connector reference](/connectors/sql/). <br><br>The built-in connector differs in the following ways: <br><br>- The built-in version has no triggers. <br><br>- The built-in version has a single **Execute Query** action. This action can directly access Azure virtual networks with a connection string and doesn't need the on-premises data gateway. <br><br>For built-in connector operations, limits, and other information, review the [SQL Server built-in connector reference](#built-in-connector-operations). |
 ||||
+
+## Limitations
+
+For more information, review the [SQL Server managed connector reference](/connectors/sql/) or the [SQL Server built-in connector reference](#built-in-connector-operations).
 
 ## Prerequisites
 
@@ -82,11 +86,7 @@ The SQL Server connector has different versions, based on [logic app type and ho
 
     You can use the SQL Server built-in connector, which requires a connection string. To use the SQL Server managed connector, follow the same requirements as a Consumption logic app workflow in multi-tenant Azure Logic Apps.
 
-For other connector requirements, review [SQL Server connector reference](/connectors/sql/).
-
-## Limitations
-
-For more information, review the [SQL Server connector reference](/connectors/sql/).
+For other connector requirements, review [SQL Server managed connector reference](/connectors/sql/).
 
 <a name="add-sql-trigger"></a>
 
@@ -444,6 +444,35 @@ When you call a stored procedure by using the SQL Server connector, the returned
 1. When you're done, save your workflow.
 
 1. To reference the JSON content properties, click inside the edit boxes where you want to reference those properties so that the dynamic content list appears. In the list, under the [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) heading, select the data tokens for the JSON content properties that you want.
+
+<a name="built-in-connector-operations"></a>
+
+## Built-in connector operations
+
+
+### Actions
+
+The SQL Server built-in connector has a single action.
+
+#### Execute Query
+
+Operation ID: `executeQuery`
+
+##### Parameters
+
+| Name | Key | Required | Type | Description |
+|------|-----|----------|------|-------------|
+| **Query** | `query` | True | Dynamic | The body for your query |
+| **Query Parameters** | `queryParameters` | False | Objects | The parameters for your query |
+||||||
+
+##### Returns
+
+The outputs from this operation are dynamic.
+
+## Built-in connector app settings
+
+The SQL Server built-in connector includes app settings on your Standard logic app resource that control various thresholds for performance, throughput, capacity, and so on. For example, you can change the default timeout value for connector operations. For more information, review [Reference for app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#reference-local-settings-json).
 
 ## Troubleshoot problems
 
