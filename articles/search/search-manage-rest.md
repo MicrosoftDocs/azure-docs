@@ -24,7 +24,7 @@ In this article, learn how to create and configure an Azure Cognitive Search ser
 
 > [!div class="checklist"]
 > * [List search services](#list-search-services)
-> * [Create or update a service](#create-or-update-a service)
+> * [Create or update a service](#create-or-update-a-service)
 > * [(preview) Enable Azure role-based access control for data plane](#enable-rbac)
 > * [(preview) Enforce a customer-managed key policy](#enforce-cmk)
 > * [(preview) Disable semantic search](#disable-semantic-search)
@@ -160,7 +160,7 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups
 }
 ```
 
-### Create an S3HD search service
+## Create an S3HD service
 
 To create an [S3HD](search-sku-tier.md#tier-descriptions) service, use a combination of `-Sku` and `-HostingMode` properties. Set "sku" to `Standard3` and "hostingMode" to `HighDensity`.
 
