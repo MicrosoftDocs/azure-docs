@@ -110,14 +110,8 @@ az keyvault key rotation-policy update --vault-name <vault-name> --name <key-nam
 Set rotation policy using Azure Powershell [Set-AzKeyVaultKeyRotationPolicy](/powershell/module/az.keyvault/set-azkeyvaultkeyrotationpolicy) cmdlet. 
 
 ```powershell
-Get-AzKeyVaultKey -VaultName <vault-name> -Name <key-name>    
-$action = [Microsoft.Azure.Commands.KeyVault.Models.PSKeyRotationLifetimeAction]::new()
-$action.Action = "Rotate"
-$action.TimeAfterCreate = New-TimeSpan -Days 540
-$expiresIn = New-TimeSpan -Days 720                                                 
-Set-AzKeyVaultKeyRotationPolicy -InputObject $key -KeyRotationLifetimeAction $action -ExpiresIn $expiresIn
+Set-AzKeyVaultKeyRotationPolicy -VaultName <vault-name> -KeyName <key-name> -ExpiresIn (New-TimeSpan -Days 720) -KeyRotationLifetimeAction @{Action="Rotate";TimeAfterCreate= (New-TimeSpan -Days 540)}
 ```
-
 ## Rotation on demand
 
 Key rotation can be invoked manually.
