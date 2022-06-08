@@ -89,7 +89,7 @@ landingContent:
     - linkListType: overview
       links:
         - text: What is Univariate Anomaly Detector?
-          url: overview-univariate.md
+          url: overview.md
         - text: Introducing Azure Anomaly Detector API (univariate) 
           url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
     - linkListType: how-to-guide
