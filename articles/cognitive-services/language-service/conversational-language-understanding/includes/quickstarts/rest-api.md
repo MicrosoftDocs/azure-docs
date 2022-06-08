@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Get-training-job-status" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 [!INCLUDE [create a new resource from the Azure portal](../resource-creation-azure-portal.md)]
 
@@ -30,7 +30,7 @@ ms.custom: ignite-fall-2021
     :::image type="content" source="../../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal" lightbox="../../../media/azure-portal-resource-credentials.png":::
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Create-new-resource" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Get-resource-keys-and-endpoint" target="_target">I ran into an issue</a>
 
 ## Create a CLU project 
 
@@ -53,7 +53,7 @@ For this quickstart, you can download [this sample project](https://go.microsoft
 [!INCLUDE [get import project status](../rest-api/get-import-status.md)]
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Trigger-import-project-job" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Get-import-job-status" target="_target">I ran into an issue</a>
 
 ## Train your model
 

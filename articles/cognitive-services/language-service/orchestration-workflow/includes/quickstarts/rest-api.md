@@ -14,7 +14,7 @@ ms.author: aahi
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Get-training-status" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Create a Language resource from Azure portal
 
