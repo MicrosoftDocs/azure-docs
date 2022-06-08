@@ -793,13 +793,13 @@ To view the full details of these libraries, use these links:
 
 ### Worker dependencies for Azure Functions on Python
 
-The worker for Azure Functions on Python requires a specific set of libraries. You can also use these libraries in your functions, but they aren't a part of the Python standard. If your functions rely on any of these libraries, they might not be available to your code when you're running outside Azure Functions. You can find a detailed list of dependencies in the **install\_requires** section in the [setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) file.
+The worker for Azure Functions on Python requires a specific set of libraries. You can also use these libraries in your functions, but they aren't a part of the Python standard. If your functions rely on any of these libraries, they might not be available to your code when you're running outside Azure Functions. You can find a detailed list of dependencies in the `install\_requires` section in the [setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) file.
 
 > [!NOTE]
-> If your function app's *requirements.txt* file contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by the Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of the worker in *requirements.txt* might cause unexpected problems.
+> If your function app's *requirements.txt* file contains an `azure-functions-worker` entry, remove it. The Azure Functions platform automatically manages this worker, and we regularly update it with new features and bug fixes. Manually installing an old version of the worker in *requirements.txt* might cause unexpected problems.
 
 > [!NOTE]
-> If your package contains certain libraries that might collide with the worker's dependencies (for example, protobuf, TensorFlow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies-preview) to `1` in app settings to prevent your application from referring to the worker's dependencies. This feature is in preview.
+> If your package contains certain libraries that might collide with the worker's dependencies (for example, protobuf, TensorFlow, or grpcio), configure [PYTHON_ISOLATE_WORKER_DEPENDENCIES](functions-app-settings.md#python_isolate_worker_dependencies-preview) to `1` in app settings to prevent your application from referring to the worker's dependencies. This feature is in preview.
 
 ### Azure Functions library for Python
 
@@ -807,7 +807,7 @@ Every Python worker update includes a new version of the [Azure Functions librar
 
 The runtime library version is fixed by Azure, and *requirements.txt* can't override it. The `azure-functions` entry in *requirements.txt* is only for linting and customer awareness.
 
-Use the following code to track the actual version of the Python Functions library in your runtime:
+Use the following code to track the version of the Python Functions library in your runtime:
 
 ```python
 getattr(azure.functions, '__version__', '< 1.2.1')
@@ -918,7 +918,7 @@ An extension that inherits from [FuncExtensionBase](https://github.com/Azure/azu
 
 | Method | Description |
 | --- | --- |
-| `__init__` | Called when an extension instance is initialized in a specific function. This method is the constructor of the extension. When you're implementing this abstract method, you might want to accept a `filename` parameter and pass it to the parent's method `super().__init__(filename)` for proper extension registration. |
+| `__init__` | Called when an extension instance is initialized in a specific function. This method is the constructor of the extension. When you're implementing this abstract method, you might want to accept a `filename` parameter and pass it to the parent's `super().__init__(filename)` method for proper extension registration. |
 | `post_function_load` | Called right after the function is loaded. The function name and function directory are passed to the extension. Keep in mind that the function directory is read-only. Any attempt to write to a local file in this directory fails. |
 | `pre_invocation` | Called right before the function is triggered. The function context and function invocation arguments are passed to the extension. You can usually pass other attributes in the context object for the function code to consume. |
 | `post_invocation` | Called right after the function execution finishes. The function context, function invocation arguments, and the invocation return object are passed to the extension. This implementation is a good place to validate whether execution of the lifecycle hooks succeeded. |
