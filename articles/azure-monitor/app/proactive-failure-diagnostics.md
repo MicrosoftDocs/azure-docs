@@ -74,7 +74,15 @@ Click the alert to configure it.
 
 :::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Rule configuration screen." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
-Notice that you can disable or delete a Failure Anomalies alert rule, but you can't create another one on the same Application Insights resource.
+## Delete alerts
+
+You can disable or delete a Failure Anomalies alert rule, but you can't create another one for the same Application Insights resource. You have to create a new Application Insights resource for a new Failure Anomalies alert rule to be auto-generated.
+
+Notice that if you delete the Application Insights resource, the Failure Anomalies alert rule doesn't get deleted automatically. You can do so manually on the Alert rules page or with the following Azure CLI command:
+
+```azurecli
+az resource delete --ids <Resource ID of Failure Anomalies alert rule>
+```
 
 ## Example of Failure Anomalies alert webhook payload
 
