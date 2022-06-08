@@ -144,9 +144,6 @@ Using the REST API:
 
 You can use the REST API to list and delete API tokens in an application.
 
-> [!TIP]
-> The [preview API](/rest/api/iotcentral/1.2-previewdataplane/api-tokens) includes support for the new [organizations feature](howto-create-organizations.md).
-
 ## Use a bearer token
 
 To use a bearer token when you make a REST API call, your authorization header looks like the following example:
