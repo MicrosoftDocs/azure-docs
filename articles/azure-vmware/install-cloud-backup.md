@@ -1,14 +1,13 @@
 ---
 title: Install Cloud Backup for Virtual Machines
-description: Cloud Backup for Virtual Machines is a plug-in installed in the Azure VMware Solution and enables you to backup and restore Azure NetApp Files datastores and Virtual Machines.
+description: Cloud Backup for Virtual Machines is a plug-in installed in the Azure VMware Solution and enables you to back up and restore Azure NetApp Files datastores and Virtual Machines.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 06/20/2022
 ---
-
 # Install Cloud Backup for Virtual Machines
 
-Cloud Backup for Virtual Machines is a plug-in installed in the Azure VMware Solution and enables you to backup and restore Azure NetApp Files datastores and Virtual Machines. 
+Cloud Backup for Virtual Machines is a plug-in installed in the Azure VMware Solution and enables you to back up and restore Azure NetApp Files datastores and Virtual Machines. 
 
 * You should use Cloud Backup for Virtual Machines to: 
 * Build and securely connect both legacy and cloud-native workloads across environments and unify operations
@@ -54,14 +53,13 @@ You will need to install Cloud Backup for Virtual Machines through the Azure por
     
 On successful execution, the Cloud Backup for Virtual Machines will automatically be displayed in the VMware vSphere client. 
 
-
 ## Upgrade Cloud Backup for Virtual Machines 
 
 You can execute this run command to upgrade the Cloud Backup for Virtual Machines to the next available version. 
 
 ### Before you begin 
 
-* Backup the MySQL database of Cloud Backup for Virtual Machines. 
+* Back up the MySQL database of Cloud Backup for Virtual Machines. 
 
 * Take snapshot copies of Cloud Backup for Virtual Machines. 
 
@@ -93,7 +91,7 @@ You can execute the run command to uninstall Cloud Backup for Virtual Machines.
 
 ## Change vCenter account password 
 
-If you need to reset the vCenter account, follow this these steps. 
+If you need to reset the vCenter account, follow these steps. 
 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Invoke-ResetNetAppCBSApplianceVCenterPasswordA**.
 

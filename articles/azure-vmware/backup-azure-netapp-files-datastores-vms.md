@@ -5,7 +5,6 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 06/20/2022
 ---
-
 # Back up Azure NetApp Files datastores and VMs using Cloud Backup
 
 From the VMware vSphere client, you can back up datastores and Virtual Machines to the cloud.
@@ -14,25 +13,25 @@ From the VMware vSphere client, you can back up datastores and Virtual Machines 
 
 Before you back up your Azure NetApp Files datastores, you must add your Azure and Azure NetApp Files cloud subscriptions.
 
-### Add Azure Cloud subscription 
+### Add Azure cloud subscription 
 
 1.	Log in to the VMware vSphere client.
-2.	From the left pane, select **Cloud Backup for Virtual Machines**.
+2.	From the left navigation, select **Cloud Backup for Virtual Machines**.
 3.	Select the **Settings** page and then select the **Cloud Subscription** tab.
 4.	Select **Add** and then provide the required values from your Azure subscription.
 
-### Add Azure NetApp Files Cloud Subscription Account
+### Add Azure NetApp Files cloud subscription account
 
-1.	From the left pane, select **Cloud Backup for Virtual Machines**.
+1.	From the left navigation, select **Cloud Backup for Virtual Machines**.
 2.	Select **Storage Systems**.
 3.	Select **Add** to add the Azure NetApp Files cloud subscription account details.
 4.	Provide the required values and then select **Add** to save your settings. 
 
-## Create Backup Policy 
+## Create a backup policy
 
 You must create backup policies before you can use Cloud Backup for Virtual Machines to back up Azure NetApp Files datastores and Virtual Machines.
 
-1.	In the left Navigator pane of the vCenter web client page, select **Cloud Backup for Virtual Machines** > **Policies**.
+1.	In the left navigation of the vCenter web client page, select **Cloud Backup for Virtual Machines** > **Policies**.
 2.	On the **Policies** page, select **Create** to initiate the wizard.
 3.	On the **New Backup Policy** page, select the vCenter Server that will use the policy, and then enter the policy name and a description.
 * Unsupported characters: Do not use these special characters in Virtual Machine, datastore, cluster, policy, backup, or resource group names: % & * $ # @ ! \ / : * ? " < > - | ; ' , .
@@ -51,7 +50,7 @@ You must create backup policies before you can use Cloud Backup for Virtual Mach
 7. Select **Add** to save your policy.
     You can verify that the policy has been created successfully and review the policy configuration by selecting the policy in the **Policies** page.
 
-## Create a Resource Group
+## Create a resource group
 
 A resource group is the container for Virtual Machines and datastores that you want to protect.
 
@@ -76,7 +75,7 @@ Cloud Backup for Virtual Machines performs compatibility checks when you create 
 
 ### Steps
 
-1. In the left Navigator pane of the vCenter web client page, select **Cloud Backup** for **Virtual Machines** > **Resource Groups**, then select **+ Create** to start the wizard
+1. In the left navigation of the vCenter web client page, select **Cloud Backup** for **Virtual Machines** > **Resource Groups**, then select **+ Create** to start the wizard
 
     :::image type="content" source="./media/cloud-backup/vSphere-create-resource-group.png" alt-text="Screenshot of the vSphere Client Resource Group interface. At the top left, a red box highlights a button with a green plus sign that reads Create, instructing you to select this button." lightbox="./media/cloud-backup/vSphere-create-resource-group.png":::
     
@@ -98,7 +97,7 @@ Cloud Backup for Virtual Machines performs compatibility checks when you create 
     (This is the default option for datastores)
 * Always include all spanning datastores
     (This is the default for Virtual Machines)
-* Manually select the spanning datastores to be include
+* Manually select the spanning datastores to be included
 1. On the **Policies** page, select or create one or more backup policies.
     * To use **an existing policy**, select one or more policies from the list.
     * To **create a new policy**:
@@ -110,7 +109,7 @@ Cloud Backup for Virtual Machines performs compatibility checks when you create 
     :::image type="content" source="./media/cloud-backup/backup-schedules.png" alt-text="Backup schedules interface showing an hourly backup beginning at 10:22 a.m. on April 26, 2022." lightbox="./media/cloud-backup/backup-schedules.png":::
 1. Review the summary. If you need to change any information, you can return to any page in the wizard to do so. Select **Finish** to save your settings. 
 
-    After you select Finish, the new resource group will be add to the resource group list.
+    After you select Finish, the new resource group will be added to the resource group list.
 
     If the quiesce operation fails for any of the Virtual Machines in the backup, then the backup is marked as not Virtual Machine consistent even if the policy selected has Virtual Machine consistency selected. In this case, it is possible that some of the Virtual Machines were successfully quiesced.
 
@@ -125,7 +124,7 @@ Backup operations are performed on all the resources defined in a resource group
 
 ### Steps
 
-1. In the left Navigator pane of the vCenter web client page, select **Cloud Backup for Virtual Machines** > **Resource Groups**, then select a resource group. Select **Run Now** to start the backup.
+1. In the left navigation of the vCenter web client page, select **Cloud Backup for Virtual Machines** > **Resource Groups**, then select a resource group. Select **Run Now** to start the backup.
 
     :::image type="content" source="./media/cloud-backup/resource-groups-run-now.png" alt-text="Screenshot of the vSphere Client Resource Group interface. At the top left, a red box highlights a green circular button with a white arrow inside next to text reading Run Now, instructing you to select this button." lightbox="./media/cloud-backup/resource-groups-run-now.png":::
  

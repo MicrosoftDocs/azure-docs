@@ -1,10 +1,9 @@
 ---
-title: Install Cloud Backup for Virtual Machines
+title: Restore Virtual Machines using Cloud Backup
 description: Restore Virtual Machines enable you to restore Virtual Machines from the cloud backup to the vCenter. 
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 06/20/2022
-ms.custom: references_regions
 ---
 
 # Restore Virtual Machines using Cloud Backup
@@ -46,7 +45,7 @@ Ensure there are no HA configuration errors displayed on the vCenter ESXi Host S
 ### Steps
 
 1.	In the VMware vSphere web client GUI, select **Menu** in the toolbar. Select **Inventory** and then  **Virtual Machines and Templates**.
-2.	In the left Navigator pane, right-click a Virtual Machine, then select **NetApp Cloud Backup** in the drop-down list. Select **Restore** to initiate the wizard.
+2.	In the left navigation, right-click a Virtual Machine, then select **NetApp Cloud Backup** in the drop-down list. Select **Restore** to initiate the wizard.
 3.	In the Restore wizard, on the **Select Backup** page, select the backup snapshot copy that you want to restore.
     You can search for a specific backup name or a partial backup name, or you can filter the backup list by selecting the filter icon and then choosing a date and time range, selecting whether you want backups that contain VMware snapshots, whether you want mounted backups, and the location. Select **OK** to return to the wizard.
 1. On the **Select Scope** page, select Entire Virtual Machine in the Restore scope field, then select the restore location, and then enter the destination ESXi information where the backup should be mounted.
@@ -57,8 +56,10 @@ When restoring partial backups, the restore operation skips the Select Scope pag
 1. **Optional:** Monitor the operation progress by clicking Recent Tasks at the bottom of the screen.
 
 ### After you finish
+
 * Add restored Virtual Machines to resource groups
-    Although the Virtual Machines are restored, they are not automatically added to their former resource groups Therefore, you must manually add the restored Virtual Machines to the appropriate resource groups.
+
+    Although the Virtual Machines are restored, they are not automatically added to their former resource groups. Therefore, you must manually add the restored Virtual Machines to the appropriate resource groups.
 
 ## Restore deleted Virtual Machines from backups
 
@@ -66,7 +67,7 @@ You can restore a deleted Virtual Machine from a datastore primary or secondary 
 
 ### Before you begin
 
-* You must have added the Azure Cloud Subscription account.
+* You must have added the Azure cloud Subscription account.
     The user account in vCenter must have the minimum vCenter privileges required for Cloud Backup for Virtual Machines.
 * A backup must exist.
     You must have created a backup of the Virtual Machine using the Cloud Backup for Virtual Machines before you can restore the VMDKs on that Virtual Machine.
@@ -105,7 +106,7 @@ You can restore existing Virtual Machine disks (VMDKs) or deleted or detached VM
 ### Steps 
 
 1. In the VMware vSphere web client GUI, select Menu in the toolbar. Then select **Inventory** and then  **Virtual Machines and Templates**.
-1. In the left Navigator pane, right-click a Virtual Machine, then select **NetApp Cloud Backup**. In the drop-down list, and then select **Restore**.
+1. In the left navigation, right-click a Virtual Machine, then select **NetApp Cloud Backup**. In the drop-down list, and then select **Restore**.
 1. In the Restore wizard, on the **Select Backup** page, select the backup copy from which you want to restore. There are multiple ways to find the backup you.
     * Search for a specific backup name or a partial backup name
     * Filter the backup list by selecting the filter icon and selecting a date and time range, selecting whether you want backups that contain VMware snapshots, whether you want mounted backups, and primary location.
