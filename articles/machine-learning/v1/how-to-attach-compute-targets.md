@@ -346,7 +346,7 @@ Azure Container Instances (ACI) are created dynamically when you deploy a model.
 
 ## <a id="kubernetes"></a>Kubernetes
 
-Azure Machine Learning provides you with the option to attach your own Kubernetes clusters for training and inferencing. See [Congigure Kubernetes cluster for Azure Machine Learning](../how-to-attach-kubernetes-anywhere.md).
+Azure Machine Learning provides you with the option to attach your own Kubernetes clusters for training and inferencing. See [Configure Kubernetes cluster for Azure Machine Learning](../how-to-attach-kubernetes-anywhere.md).
 
 To detach a Kubernetes cluster from your workspace, use the following method:
 
