@@ -121,6 +121,9 @@ Follow these steps to recognize speech in a macOS application.
 
 After you select the button in the app and say a few words, you should see the text you have spoken on the lower part of the screen. When you run the app for the first time, you should be prompted to give the app access to your computer's microphone.
 
+## Remarks
+Now that you've completed the quickstart, here are some additional considerations:
+
 This example uses the `recognizeOnce` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
 
 ## Clean up resources

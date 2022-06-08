@@ -66,6 +66,11 @@ Now that you've completed the quickstart, here are some additional consideration
     spx translate --source en-US --target it --microphone --continuous
     ```
 
+Run this command for information about additional speech translation options such as file input and output:
+```console
+spx help translate
+```
+
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]

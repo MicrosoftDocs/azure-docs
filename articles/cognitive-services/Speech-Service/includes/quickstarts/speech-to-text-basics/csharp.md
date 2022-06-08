@@ -98,7 +98,8 @@ Speak into your microphone.
 RECOGNIZED: Text=I'm excited to try speech to text.
 ```
 
-Here are some additional considerations:
+## Remarks
+Now that you've completed the quickstart, here are some additional considerations:
 
 - This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
 - To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
