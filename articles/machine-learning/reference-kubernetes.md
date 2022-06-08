@@ -5,6 +5,7 @@ description: Reference for configuring Kubernetes cluster for Azure Machine Lear
 services: machine-learning
 author: zhongj
 ms.author: jinzhong
+ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
@@ -22,14 +23,14 @@ This article contains reference information that may be useful when [configuring
 
   - For example, if AKS introduces 1.20.a today, versions 1.20.a, 1.20.b, 1.19.c, 1.19.d, 1.18.e, and 1.18.f are supported.
 
-  - If customers are running an unsupported Kubernetes version, they will be asked to upgrade when requesting support for the cluster. Clusters running unsupported Kubernetes releases are not covered by the AzureML extension support policies.
+  - If customers are running an unsupported Kubernetes version, they'll be asked to upgrade when requesting support for the cluster. Clusters running unsupported Kubernetes releases aren't covered by the AzureML extension support policies.
 - AzureML extension region availability: 
   - AzureML extension can be deployed to AKS or Azure Arc-enabled Kubernetes in supported regions listed in [Azure Arc enabled Kubernetes region support](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc&regions=all).
 
 ## Prerequisites for ARO or OCP clusters
 ### Disable Security Enhanced Linux (SELinux) 
 
-[AzureML dataset](./how-to-train-with-datasets.md) that usually used in AzureML training jobs, is not supported on machines with SELinux enabled. Therefore, you need to disable `selinux`  on all workers in order to use AzureML dataset.
+[AzureML dataset](./how-to-train-with-datasets.md) (used in AzureML training jobs) isn't supported on machines with SELinux enabled. Therefore, you need to disable `selinux`  on all workers in order to use AzureML dataset.
 
 ### Privileged setup for ARO and OCP
 
@@ -52,13 +53,13 @@ For AzureML extension deployment on ARO or OCP cluster, grant privileged access 
 
 ## AzureML extension components
 
-For Arc-connected cluster, AzureML extension deployment will create [Azure Relay](../azure-relay/relay-what-is-it.md) in Azure cloud, used to route traffic between Azure services and the Kubernetes cluster. For AKS cluster without Arc connected, Azure Relay resource will not be created.
+For Arc-connected cluster, AzureML extension deployment will create [Azure Relay](../azure-relay/relay-what-is-it.md) in Azure cloud, used to route traffic between Azure services and the Kubernetes cluster. For AKS cluster without Arc connected, Azure Relay resource won't be created.
 
 Upon AzureML extension deployment completes, it will create following resources in Kubernetes cluster, depending on each AzureML extension deployment scenario:
 
    |Resource name  |Resource type |Training |Inference |Training and Inference| Description | Communication with cloud|
    |--|--|--|--|--|--|--|
-   |relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|relayserver is only needed in arc-connected cluster, and will not be installed in AKS cluster. Relayserver works with Azure Relay to communicate with the cloud services.|Receive the request of job creation, model deployment from cloud service; sync the job status with cloud service.|
+   |relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|relayserver is only needed in arc-connected cluster, and won't be installed in AKS cluster. Relayserver works with Azure Relay to communicate with the cloud services.|Receive the request of job creation, model deployment from cloud service; sync the job status with cloud service.|
    |gateway|Kubernetes deployment|**&check;**|**&check;**|**&check;**|The gateway is used to communicate and send data back and forth.|Send nodes and cluster resource information to cloud services.|
    |aml-operator|Kubernetes deployment|**&check;**|N/A|**&check;**|Manage the lifecycle of training jobs.| Token exchange with the cloud token service for authentication and authorization of Azure Container Registry.|
    |metrics-controller-manager|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Manage the configuration for Prometheus|N/A|
@@ -161,7 +162,7 @@ The following steps will create an instance type with the labeled behavior:
   is equivalent to `1000m`.
 > - Memory can be specified as a full number + suffix, for example `1024Mi` for 1024 MiB.
 
-It is also possible to create multiple instance types at once:
+It's also possible to create multiple instance types at once:
 
 ```bash
 kubectl apply -f my_instance_type_list.yaml
@@ -197,7 +198,7 @@ items:
           memory: "1Gi"
 ```
 
-The above example creates two instance types: `cpusmall` and `defaultinstancetype`.  Above `defaultinstancetype` definition will override the `defaultinstancetype` definition created when Kubernetes cluster was attached to AzureML workspace. 
+The above example creates two instance types: `cpusmall` and `defaultinstancetype`.  This `defaultinstancetype` definition will override the `defaultinstancetype` definition created when Kubernetes cluster was attached to AzureML workspace. 
 
 If a training or inference workload is submitted without an instance type, it uses the default
 instance type.  To specify a default instance type for a Kubernetes cluster, create an instance
@@ -217,7 +218,7 @@ resources:
 ```
 
 In the above example, replace `<compute_target_name>` with the name of your Kubernetes compute
-target and `<instance_type_name>` with the name of the instance type you wish to select. If there is no `instance_type` property specified, the system will use `defaultinstancetype` to submit job.
+target and `<instance_type_name>` with the name of the instance type you wish to select. If there's no `instance_type` property specified, the system will use `defaultinstancetype` to submit job.
 
 ### Select instance type to deploy model
 
@@ -238,7 +239,7 @@ environment:
   image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1
 ```
 
-In the above example, replace `<instance_type_name>` with the name of the instance type you wish to select. If there is no `instance_type` property specified, the system will use `defaultinstancetype` to deploy model.
+In the above example, replace `<instance_type_name>` with the name of the instance type you wish to select. If there's no `instance_type` property specified, the system will use `defaultinstancetype` to deploy model.
 
 ## AzureML jobs connect with on-premises data storage
 
@@ -263,7 +264,7 @@ spec:
     server: 20.98.110.84 
     readOnly: false
 ```
-2. Create PVC in the same Kubernetes namespace with ML workloads. In `metadata`, you **must** add label `ml.azure.com/pvc: "true"` to be recognized by AzureML , and add annotation  `ml.azure.com/mountpath: <mount path>` to set the mount path. 
+2. Create PVC in the same Kubernetes namespace with ML workloads. In `metadata`, you **must** add label `ml.azure.com/pvc: "true"` to be recognized by AzureML, and add annotation  `ml.azure.com/mountpath: <mount path>` to set the mount path. 
 
 ```
 apiVersion: v1
@@ -287,11 +288,11 @@ spec:
 > Only the job pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
 
 
-## Sample YAML definition of Kubernetes secret for SSL
+## Sample YAML definition of Kubernetes secret for TLS/SSL
 
-To enable HTTPS endpoint for real-time inference, you need to provide both PEM-encoded SSL certificate and PEM-encoded SSL key. The best practice is to save the certificate and key in a Kubernetes secret in `azureml` namespace.
+To enable HTTPS endpoint for real-time inference, you need to provide both PEM-encoded TLS/SSL certificate and key. The best practice is to save the certificate and key in a Kubernetes secret in the `azureml` namespace.
 
-The sample YAML definition of the SSl secret is as follows,
+The sample YAML definition of the TLS/SSL secret is as follows,
 
 ```
 apiVersion: v1
