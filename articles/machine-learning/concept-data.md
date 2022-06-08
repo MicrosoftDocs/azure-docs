@@ -46,7 +46,7 @@ URIs are mapped to the filesystem on the compute target, hence using URIs is lik
 
 > [!TIP]
 > For data located in an Azure storage account we recommend using the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/#overview). You can browse data and obtain the URI for any file/folder by right-selecting **Copy URL**:
-> :::image type="content" source="media/concept-data/use-storage-explorer.png" alt-text="Storage Explorer Copy URL":::
+> :::image type="content" source="media/concept-data/use-storage-explorer.png" alt-text="Screenshot of the Storage Explorer with Copy URL highlighted.":::
 
 ### Examples
 
@@ -76,7 +76,7 @@ az ml job create --file hello-data-uri-file.yml
 
 When the job has completed the user logs will show the standard output of the Linux command `ls ${{inputs.my_csv_file}}`:
 
-:::image type="content" source="media/concept-data/uri_file.png" alt-text="URI File Output":::
+:::image type="content" source="media/concept-data/uri-file.png" alt-text="Screenshot of the job log showing URI file output.":::
 
 Notice that the file has been mapped to the filesystem on the compute target and `${{inputs.my_csv_file}}` resolves to that location. 
 
@@ -105,7 +105,7 @@ az ml job create --file hello-data-uri-folder.yml
 
 When the job has completed the user logs will show the standard output of the Linux command `ls ${{inputs.sampledata}}`:
 
-:::image type="content" source="media/concept-data/uri_folder.png" alt-text="URI Folder Output":::
+:::image type="content" source="media/concept-data/uri-folder.png" alt-text="Screenshot of the job log showing the URI folder output":::
 
 Notice that the folder has been mapped to the filesystem on the compute target (you can see all the files in the folder), and `${{inputs.sampledata}}` resolves to the folder location. 
 
