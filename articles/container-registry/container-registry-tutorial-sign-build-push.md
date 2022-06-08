@@ -44,7 +44,7 @@ In this tutorial:
     cp ./notation /usr/local/bin
     ```
 
-2. Install the notation-azure-kv plugin for remote signing and verification
+2. Install the notation Azure Key Vault plugin for remote signing and verification
 
     > [!NOTE]
     > The plugin directory varies depending upon the operating system being used.  The directory path below assumes Ubuntu.
@@ -175,7 +175,6 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
     ```azure-cli
     export USER_NAME="00000000-0000-0000-0000-000000000000"
     export PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
-    export NOTATION_USERNAME=$USER_NAME
     export NOTATION_PASSWORD=$PASSWORD
     ```
 
