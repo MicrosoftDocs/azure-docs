@@ -69,11 +69,11 @@ All pods should show `STATUS` as `Running` with either `3/3` or `2/2` under the 
 
 ## Connecting Kubernetes clusters to Azure Arc
 
-Connecting clusters to Azure Arc requires access to an Azure subscription and `cluster-admin` access to a target cluster. If you cannot reach the cluster, or if you have insufficient permissions, connecting the cluster to Azure Arc will fail. Make sure you have met all of the [prerequisites to connect a cluster](quickstart-connect-cluster.md#prerequisites).
+Connecting clusters to Azure Arc requires access to an Azure subscription and `cluster-admin` access to a target cluster. If you can't reach the cluster, or if you have insufficient permissions, connecting the cluster to Azure Arc will fail. Make sure you've met all of the [prerequisites to connect a cluster](quickstart-connect-cluster.md#prerequisites).
 
 ### Azure CLI is unable to download Helm chart for Azure Arc agents
 
-If you are using Helm version >= 3.7.0, you will run into the following error when using `az connectedk8s connect` to connect the cluster to Azure Arc:
+With Helm version >= 3.7.0, you may run into the following error when using `az connectedk8s connect` to connect the cluster to Azure Arc:
 
 ```azurecli
 az connectedk8s connect -n AzureArcTest -g AzureArcTest
@@ -88,7 +88,7 @@ To resolve this issue, you'll need to install a prior version of [Helm 3](https:
 
 ### Insufficient cluster permissions
 
-If the provided kubeconfig file does not have sufficient permissions to install the Azure Arc agents, the Azure CLI command will return an error.
+If the provided kubeconfig file doesn't have sufficient permissions to install the Azure Arc agents, the Azure CLI command will return an error.
 
 ```azurecli
 az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
@@ -105,11 +105,11 @@ To resolve this issue, the user connecting the cluster to Azure Arc should have 
 
 ### Unable to connect OpenShift cluster to Azure Arc
 
-If `az connectedk8s connect` is timing out and failing when connecting an OpenShift cluster to Azure Arc, check the following:
+If `az connectedk8s connect` is timing out and failing when connecting an OpenShift cluster to Azure Arc:
 
-1. The OpenShift cluster needs to meet the version prerequisites: 4.5.41+ or 4.6.35+ or 4.7.18+.
+1. Ensure that the OpenShift cluster meets the version prerequisites: 4.5.41+ or 4.6.35+ or 4.7.18+.
 
-1. Before running `az connectedk8s connnect`, the following command needs to be run on the cluster:
+1. Before you run `az connectedk8s connnect`, run this command on the cluster:
 
     ```console
     oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
@@ -168,7 +168,7 @@ To resolve this issue, try the following steps.
    name: azure-identity-certificate
    ```
 
-   This could be a transient issue. You can try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If you're consistently facing this, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy.
+   To resolve this issue, try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If the issue continues to happen, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy.
 
 4. If the `clusterconnect-agent` and the `config-agent` pods are running, but the `kube-aad-proxy` pod is missing, check your pod security policies. This pod uses the `azure-arc-kube-aad-proxy-sa` service account, which doesn't have admin permissions but requires the permission to mount host path.
 
@@ -307,7 +307,7 @@ For more information, see [How do I resolve `webhook does not support dry run` e
 
 ### Flux v2 - Error installing the `microsoft.flux` extension
 
-The `microsoft.flux` extension installs the Flux controllers and Azure GitOps agents into your Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters. If the extension is not already installed in a cluster and you create a GitOps configuration resource for that cluster, the extension will be installed automatically.
+The `microsoft.flux` extension installs the Flux controllers and Azure GitOps agents into your Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters. If the extension isn't already installed in a cluster and you create a GitOps configuration resource for that cluster, the extension will be installed automatically.
 
 If you experience an error during installation, or if the extension is in a failed state, run a script to investigate. The cluster-type parameter can be set to `connectedClusters` for an Arc-enabled cluster or `managedClusters` for an AKS cluster. The name of the `microsoft.flux` extension will be "flux" if the extension was installed automatically during creation of a GitOps configuration. Look in the "statuses" object for information.
 
@@ -377,7 +377,7 @@ Some other aspects to consider:
      az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionManager
      ```
 
-* Assure that the cluster does not have any policies that restrict creation of the `flux-system` namespace or resources in that namespace.
+* Assure that the cluster doesn't have any policies that restrict creation of the `flux-system` namespace or resources in that namespace.
 
 With these actions accomplished, you can either [recreate a flux configuration](./tutorial-use-gitops-flux2.md), which will install the flux extension automatically, or you can reinstall the flux extension manually.
 
@@ -395,7 +395,7 @@ The extension status also returns as "Failed".
 "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceOperationFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"ExtensionCreationFailed\",\"message\":\" error: Unable to get the status from the local CRD with the error : {Error : Retry for given duration didn't get any results with err {status not populated}}\"}]}}",
 ```
 
-The issue is that the extension-agent pod is trying to get its token from IMDS on the cluster in order to talk to the extension service in Azure; however, this token request is being intercepted by the [pod identity](../../aks/use-azure-ad-pod-identity.md)).
+The extension-agent pod is trying to get its token from IMDS on the cluster in order to talk to the extension service in Azure, but the token request is intercepted by the [pod identity](../../aks/use-azure-ad-pod-identity.md)).
 
 The workaround is to create an `AzurePodIdentityException` that will tell Azure AD Pod Identity to ignore the token requests from flux-extension pods.
 
@@ -422,7 +422,7 @@ juju config kubernetes-worker allow-privileged=true
 
 ### Old version of agents used
 
-Usage of older version of agents where Cluster Connect feature was not yet supported will result in the following error:
+Some older agent versions didn't support the Cluster Connect feature. If you use one of these versions, you may see this error:
 
 ```azurecli
 az connectedk8s proxy -n AzureArcTest -g AzureArcTest
@@ -432,9 +432,9 @@ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
 Hybrid connection for the target resource does not exist. Agent might not have started successfully.
 ```
 
-When this occurs, ensure that you are using the `connectedk8s` Azure CLI extension with version >= 1.2.0 and [connect your cluster again](quickstart-connect-cluster.md) to Azure Arc. Also, verify that you've met all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) needed for Arc-enabled Kubernetes.
+Be sure to use the `connectedk8s` Azure CLI extension with version >= 1.2.0, then [connect your cluster again](quickstart-connect-cluster.md) to Azure Arc. Also, verify that you've met all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) needed for Arc-enabled Kubernetes.
 
-If your cluster is behind an outbound proxy or firewall, verify that websocket connections are enabled for `*.servicebus.windows.net` which is required specifically for the [Cluster Connect](cluster-connect.md) feature.
+If your cluster is behind an outbound proxy or firewall, verify that websocket connections are enabled for `*.servicebus.windows.net`, which is required specifically for the [Cluster Connect](cluster-connect.md) feature.
 
 ### Cluster Connect feature disabled
 
@@ -452,13 +452,13 @@ To resolve this error, [enable the Cluster Connect feature](cluster-connect.md#e
 
 ## Enable custom locations using service principal
 
-When you are connecting your cluster to Azure Arc or when you are enabling custom locations feature on an existing cluster, you may observe the following warning:
+When connecting your cluster to Azure Arc or enabling custom locations on an existing cluster, you may see the following warning:
 
 ```console
 Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation.
 ```
 
-This warning occurs when you have used a service principal to log into Azure. This is because a service principal doesn't have permissions to get information of the application used by Azure Arc service. To avoid this error, execute the following steps:
+This warning occurs when you use a service principal to log into Azure. The service principal doesn't have permissions to get information of the application used by Azure Arc service. To avoid this error, execute the following steps:
 
 1. Sign in into Azure CLI using your user account. Fetch the Object ID of the Azure AD application used by Azure Arc service:
 
@@ -466,15 +466,15 @@ This warning occurs when you have used a service principal to log into Azure. Th
     az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
     ```
 
-1. Sign in into Azure CLI using the service principal. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
+1. Sign in into Azure CLI using the service principal. Use the `<objectId>` value from above step to enable custom locations on the cluster:
 
-   * If you are enabling custom locations feature as part of connecting the cluster to Arc, run the following command:
+   * To enable custom locations when connecting the cluster to Arc, run the following command:
 
      ```azurecli
      az connectedk8s connect -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId>   
      ```
 
-   * If you are enabling custom locations feature on an existing Azure Arc-enabled Kubernetes cluster, run the following command:
+   * To enable custom locations on an existing Azure Arc-enabled Kubernetes cluster, run the following command:
 
     ```azurecli
     az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
@@ -498,6 +498,7 @@ osm-controller   1/1     1            1           59m
 ```
 
 ### Check the OSM Controller **Pod**
+
 ```bash
 kubectl get pods -n arc-osm-system --selector app=osm-controller
 ```
@@ -547,7 +548,7 @@ NAME             ENDPOINTS                              AGE
 osm-controller   10.240.1.115:9092,10.240.1.115:15128   69m
 ```
 
-If the user's cluster has no `ENDPOINTS` for `osm-controller`, the control plane is unhealthy. This may be caused by the OSM Controller pod crashing, or if it was never deployed correctly.
+If the user's cluster has no `ENDPOINTS` for `osm-controller`, the control plane is unhealthy. This unhealthy state may be caused by the OSM Controller pod crashing, or the pod may never have been deployed correctly.
 
 ### Check OSM Injector **Deployment**
 
@@ -774,7 +775,7 @@ metadata:
 >[!Note]
 >The arc-osm-system namespace will never participate in a service mesh and will never be labeled or annotated with the key/values below.
 
-We use the `osm namespace add` command to join namespaces to a given service mesh. When a Kubernetes namespace is part of the mesh, the following must be true:
+We use the `osm namespace add` command to join namespaces to a given service mesh. When a Kubernetes namespace is part of the mesh, confirm the following:
 
 View the annotations of the namespace `bookbuyer`:
 
@@ -803,7 +804,7 @@ The following label must be present:
 }
 ```
 
-Note that if you are not using `osm` CLI, you could also manually add these annotations to your namespaces. If a namespace is not annotated with `"openservicemesh.io/sidecar-injection": "enabled"` or not labeled with `"openservicemesh.io/monitored-by": "osm"` the OSM Injector will not add Envoy sidecars.
+If you aren't using `osm` CLI, you could also manually add these annotations to your namespaces. If a namespace isn't annotated with `"openservicemesh.io/sidecar-injection": "enabled"`, or isn't labeled with `"openservicemesh.io/monitored-by": "osm"`, the OSM Injector will not add Envoy sidecars.
 
 >[!Note]
 >After `osm namespace add` is called, only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restart deployment` command.
@@ -816,7 +817,7 @@ Check whether the cluster has the required Custom Resource Definitions (CRDs) by
 kubectl get crds
 ```
 
-Ensure that the CRDs correspond to the versions available in the release branch. For example, if you are using OSM-Arc v1.0.0-1, navigate to the [SMI supported versions page](https://docs.openservicemesh.io/docs/overview/smi/) and select v1.0 from the Releases dropdown to check which CRDs versions are in use.
+Ensure that the CRDs correspond to the versions available in the release branch. For example, if you're using OSM-Arc v1.0.0-1, navigate to the [SMI supported versions page](https://docs.openservicemesh.io/docs/overview/smi/) and select v1.0 from the Releases dropdown to check which CRDs versions are in use.
 
 Get the versions of the CRDs installed with the following command:
 
@@ -826,7 +827,7 @@ for x in $(kubectl get crds --no-headers | awk '{print $1}' | grep 'smi-spec.io'
 done
 ```
 
-If CRDs are missing, use the following commands to install them on the cluster. If you are using a version of OSM-Arc that is not v1.0, ensure that you replace the version in the command (ex: v1.1.0 would be release-v1.1).
+If CRDs are missing, use the following commands to install them on the cluster. If you're using a version of OSM-Arc that's not v1.0, ensure that you replace the version in the command (for example, v1.1.0 would be release-v1.1).
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v1.0/cmd/osm-bootstrap/crds/smi_http_route_group.yaml
