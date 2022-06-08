@@ -17,11 +17,10 @@ This topic shows you how to view and edit the Azure Video Indexer insights of a 
 2. Find a video from which you want to create your Azure Video Indexer insights. For more information, see [Find exact moments within videos](video-indexer-search.md).
 3. Press **Play**.
 
-	The page shows the video's summarized insights. 
+	The page shows the video's insights. 
 
 	![Insights](./media/video-indexer-view-edit/video-indexer-summarized-insights.png)
-
-4. View the summarized insights of the video. 
+4. View the insights of the video. 
 
 	Summarized insights show an aggregated view of the data: faces, keywords, sentiments. For example, you can see the faces of people and the time ranges each face appears in and the % of the time it is shown.
 
@@ -29,7 +28,8 @@ This topic shows you how to view and edit the Azure Video Indexer insights of a 
 
 ## Next steps
 
-[Use your videos' deep insights](use-editor-create-project.md)
+- [Insights output](video-indexer-output-json-v2.md)
+- [Use your videos' deep insights](use-editor-create-project.md)
 
 ## See also
 
