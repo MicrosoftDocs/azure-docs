@@ -173,7 +173,7 @@ ml_client.data.create_or_update(my_data)
    
 ## Create an `mltable` data asset
 
-`mltable` is a way to abstract the schema definition for tabular data to make it easier to share data assets (more details on `mltable` can be found in [Define schema for tabular data with `mltable`](concept-data.md#define-schema-for-tabular-data-with-mltable)). 
+`mltable` is a way to abstract the schema definition for tabular data to make it easier to share data assets (an overview can be found in [MLTable](concept-data.md#mltable)). 
 
 In this section, we show you how to create a data asset when the type is an `mltable`.
 
@@ -287,8 +287,4 @@ ml_client.data.create_or_update(my_data)
 
 ## Next steps
 
-* [Install and set up Python SDK v2 (preview)](https://aka.ms/sdk-v2-install)
-* [Install and use the CLI (v2)](how-to-configure-cli.md)
-* [Train models with the Python SDK v2 (preview)](how-to-train-sdk.md)
-* [Tutorial: Create production ML pipelines with Python SDK v2 (preview)](tutorial-pipeline-python-sdk.md)
-* Learn more about [Data in Azure Machine Learning](concept-data.md)
+- [Read data in a job](how-to-read-write-data-v2.md#read-data-in-a-job)

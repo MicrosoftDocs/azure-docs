@@ -86,7 +86,7 @@ The extension currently supports datastores of the following types:
 - Azure Data Lake Gen 2
 - Azure File
 
-For more information, see [datastores](concept-data.md#datastores).
+For more information, see [datastore](concept-data.md#datastore).
 
 ### Create a datastore
 

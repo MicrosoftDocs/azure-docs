@@ -276,7 +276,7 @@ returned_job.services["Studio"].endpoint
 
 ## Write data in a job
 
-In your job you can write data to your cloud-based storage using *outputs*. The [Modes](#modes) section showed that only job *outputs* can write data because the mode can be either `rw_mount` or `upload`.
+In your job you can write data to your cloud-based storage using *outputs*. The [Supported modes](#supported-modes) section showed that only job *outputs* can write data because the mode can be either `rw_mount` or `upload`.
 
 # [CLI](#tab/CLI)
 
