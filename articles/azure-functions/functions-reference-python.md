@@ -22,13 +22,13 @@ As a Python developer, you might also be interested in one of the following arti
 
 ## Programming model
 
-Azure Functions expects a function to be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the `__init__.py` file. You can also [specify an alternate entry point](#alternate-entry-point).
+Azure Functions expects a function to be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the *\__init\__.py* file. You can also [specify an alternate entry point](#alternate-entry-point).
 
 Data from triggers and bindings is bound to the function via method attributes that use the `name` property defined in the *function.json* file. For example, the  following _function.json_ file describes a simple function triggered by an HTTP request named `req`:
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
-Based on this definition, the `__init__.py` file that contains the function code might look like the following example:
+Based on this definition, the *\__init\__.py* file that contains the function code might look like the following example:
 
 ```python
 def main(req):
@@ -264,7 +264,7 @@ To learn more about logging, see [Monitor Azure Functions](functions-monitoring.
 
 By default, the Azure Functions runtime collects logs and other telemetry data that your functions generate. This telemetry ends up as traces in Application Insights. By default, [triggers and bindings](functions-triggers-bindings.md#supported-bindings) also collect request and dependency telemetry for certain Azure services. 
 
-To collect custom request and custom dependency telemetry outside bindings, you can use the [OpenCensus Python Extensions](https://github.com/census-ecosystem/opencensus-python-extensions-azure). This extension sends custom telemetry data to your Application Insights instance. You can find a list of supported extensions at the [OpenCensus repository](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).
+To collect custom request and custom dependency telemetry outside bindings, you can use the [OpenCensus Python Extensions](https://github.com/census-ecosystem/opencensus-python-extensions-azure). The Azure Functions extension sends custom telemetry data to your Application Insights instance. You can find a list of supported extensions at the [OpenCensus repository](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).
 
 >[!NOTE]
 >To use the OpenCensus Python extensions, you need to enable [Python worker extensions](#python-worker-extensions) in your function app by setting `PYTHON_ENABLE_WORKER_EXTENSIONS` to `1`. You also need to switch to using the Application Insights connection string by adding the [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string) setting to your [application settings](functions-how-to-use-azure-function-app-settings.md#settings), if it's not already there.
@@ -343,7 +343,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 In this function, the value of the `name` query parameter is obtained from the `params` parameter of the `HttpRequest` object. The JSON-encoded message body is read using the `get_json` method.
 
-Likewise, you can set the `status_code` and `headers` information for the response message in the returned [HttpResponse] object.
+Likewise, you can set the `status_code` and `headers` information for the response message in the returned `HttpResponse` object.
 
 ## Web frameworks
 
@@ -493,8 +493,8 @@ In Azure Functions, [application settings](functions-app-settings.md), such as s
 
 | Method | Description |
 | --- | --- |
-| **`os.environ["myAppSetting"]`** | Tries to get the application setting by key name. It raises an error when unsuccessful.  |
-| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name. It returns `null` when unsuccessful.  |
+| `os.environ["myAppSetting"]` | Tries to get the application setting by key name. It raises an error when unsuccessful.  |
+| `os.getenv("myAppSetting")` | Tries to get the application setting by key name. It returns `null` when unsuccessful.  |
 
 Both of these ways require you to declare `import os`.
 
@@ -538,9 +538,7 @@ To see the full list of supported Python versions for function apps, see [Suppor
 
 # [Azure CLI](#tab/azurecli-linux)
 
-You can view and set `linuxFxVersion` from the Azure CLI.  
-
-Use the Azure CLI to view the current `linuxFxVersion` value by using the [az functionapp config show](/cli/azure/functionapp/config) command. Replace `<function_app>` with the name of your function app. Replace `<my_resource_group>` with the name of the resource group for your function app.
+You can view and set `linuxFxVersion` from the Azure CLI by using the [az functionapp config show](/cli/azure/functionapp/config) command. Replace `<function_app>` with the name of your function app. Replace `<my_resource_group>` with the name of the resource group for your function app.
 
 ```azurecli-interactive
 az functionapp config show --name <function_app> \
@@ -575,7 +573,7 @@ az functionapp config set --name <FUNCTION_APP> \
 --linux-fx-version <LINUX_FX_VERSION>
 ```
 
-You can run the command from [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to run the command after you use [az login](/cli/azure/reference-index#az-login) to sign in.
+You can run the command from [Azure Cloud Shell](../cloud-shell/overview.md) by selecting **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to run the command after you use [az login](/cli/azure/reference-index#az-login) to sign in.
 
 The function app restarts after you change the site configuration.
 
@@ -608,7 +606,7 @@ You can also use Azure Pipelines to build your dependencies and publish by using
 
 ### Remote build
 
-When you use remote build, dependencies restored on the server and native dependencies match the production environment. This results in a smaller deployment package to upload. Use remote build when you're developing Python apps on Windows. If your project has custom dependencies, you can [use remote build with an extra index URL](#remote-build-with-extra-index-url).
+When you use a remote build, dependencies restored on the server and native dependencies match the production environment. This results in a smaller deployment package to upload. Use a remote build when you're developing Python apps on Windows. If your project has custom dependencies, you can [use a remote build with an extra index URL](#remote-build-with-extra-index-url).
 
 Dependencies are obtained remotely based on the contents of the *requirements.txt* file. [Remote build](functions-deployment-technologies.md#remote-build) is the recommended build method. By default, Azure Functions Core Tools requests a remote build when you use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish your Python project to Azure. Replace `<APP_NAME>` with the name of your function app in Azure.
 
@@ -616,11 +614,11 @@ Dependencies are obtained remotely based on the contents of the *requirements.tx
 func azure functionapp publish <APP_NAME>
 ```
 
-The [Azure Functions Extension for Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) also requests a remote build by default.
+The [Azure Functions extension for Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) also requests a remote build by default.
 
 ### Local build
 
-Dependencies are obtained locally based on the contents of the *requirements.txt* file. You can prevent a remote build by using the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build. replace `<APP_NAME>` with the name of your function app in Azure.
+Dependencies are obtained locally based on the contents of the *requirements.txt* file. You can prevent a remote build by using the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build. Replace `<APP_NAME>` with the name of your function app in Azure.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
@@ -807,7 +805,7 @@ Every Python worker update includes a new version of the [Azure Functions librar
 
 The runtime library version is fixed by Azure, and *requirements.txt* can't override it. The `azure-functions` entry in *requirements.txt* is only for linting and customer awareness.
 
-Use the following code to track the version of the Python Functions library in your runtime:
+Use the following code to track the version of the Azure Functions library for Python in your runtime:
 
 ```python
 getattr(azure.functions, '__version__', '< 1.2.1')
@@ -908,7 +906,7 @@ An extension inherited from [`AppExtensionBase`](https://github.com/Azure/azure-
 | `configure` | Called from function code when it's needed to configure the extension. |
 | `post_function_load_app_level` | Called right after the function is loaded. The function name and function directory are passed to the extension. Keep in mind that the function directory is read-only. Any attempt to write to a local file in this directory fails. |
 | `pre_invocation_app_level` | Called right before the function is triggered. The function context and function invocation arguments are passed to the extension. You can usually pass other attributes in the context object for the function code to consume. |
-| `post_invocation_app_level` | Called right after the function execution finishes. The function context, function invocation arguments, and the invocation return object are passed to the extension. This implementation is a good place to validate whether execution of the lifecycle hooks succeeded. |
+| `post_invocation_app_level` | Called right after the function execution finishes. The function context, function invocation arguments, and invocation return object are passed to the extension. This implementation is a good place to validate whether execution of the lifecycle hooks succeeded. |
 
 #### Function-level extensions
 
@@ -921,7 +919,7 @@ An extension that inherits from [FuncExtensionBase](https://github.com/Azure/azu
 | `__init__` | Called when an extension instance is initialized in a specific function. This method is the constructor of the extension. When you're implementing this abstract method, you might want to accept a `filename` parameter and pass it to the parent's `super().__init__(filename)` method for proper extension registration. |
 | `post_function_load` | Called right after the function is loaded. The function name and function directory are passed to the extension. Keep in mind that the function directory is read-only. Any attempt to write to a local file in this directory fails. |
 | `pre_invocation` | Called right before the function is triggered. The function context and function invocation arguments are passed to the extension. You can usually pass other attributes in the context object for the function code to consume. |
-| `post_invocation` | Called right after the function execution finishes. The function context, function invocation arguments, and the invocation return object are passed to the extension. This implementation is a good place to validate whether execution of the lifecycle hooks succeeded. |
+| `post_invocation` | Called right after the function execution finishes. The function context, function invocation arguments, and invocation return object are passed to the extension. This implementation is a good place to validate whether execution of the lifecycle hooks succeeded. |
 
 ## Cross-origin resource sharing
 
