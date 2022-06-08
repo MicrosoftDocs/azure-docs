@@ -2,7 +2,7 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 06/08/2022
 ms.reviewer: geg
 author: v-amallick
 ms.service: backup
@@ -21,7 +21,7 @@ Azure Backup now supports _Enhanced policy_ that's needed to support new Azure o
 You must enable backup of Trusted Launch VM through enhanced policy only. Enhanced policy provides the following features:
 
 - Supports *Multiple Backups Per Day* (in preview).
-- Instant Restore tier is zonally redundant using Zone-redundant storage (ZRS) resiliency. See the [pricing details for Enhanced policy storage here](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Instant Restore tier is zonally redundant using Zone-redundant storage (ZRS) resiliency. See the [pricing details for Managed Disk Snapshots](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot showing the enhanced backup policy options.":::
 
