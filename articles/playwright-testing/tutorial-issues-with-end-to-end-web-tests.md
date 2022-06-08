@@ -101,8 +101,6 @@ The sample application's source repo includes an Apache JMeter script named *Sam
 
 The Load Testing resource is a top-level resource for your load-testing activities. This resource provides a centralized place to view and manage load tests, test results, and related artifacts.
 
-If you already have a Load Testing resource, skip this section and continue to [Create a load test](#create_test).
-
 If you don't yet have a Load Testing resource, create one now.
 
 ### Create a load test
