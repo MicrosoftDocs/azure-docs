@@ -80,6 +80,7 @@ And the resource provider Storage account(resource name: ibabichvm) has metric u
 ![Screenshot that shows metric value with prefix mebi.](./media/metrics-troubleshoot/prefixIEC.png)
 
 SI uses decimal
+
 |   Value   | abbreviation |          SI         |
 |-----------|--------------|---------------------|
 |   1000	  |  k	 | kilo  |
@@ -92,9 +93,10 @@ SI uses decimal
 |   1000^8  |  Y	 | yotta |
 
 IEC uses binary
-|Value| abbreviation|	IEC | Legacy ||
-|-----|-------------|-----|----|----|
-|1024	| Ki|	kibi|	K	| kilo|
+
+|Value | abbreviation|	IEC | Legacy ||
+|------|-------------|-----|----|----|
+|1024  |  Ki|	kibi|	K	| kilo|
 |1024^2|	Mi|	mebi|	M	| mega|
 |1024^3|	Gi|	gibi|	G	| giga|
 |1024^4|	Ti|	tebi|	T	| tera|
