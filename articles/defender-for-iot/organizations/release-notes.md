@@ -54,17 +54,15 @@ We've refreshed the naming conventions for our OT appliance catalog for greater 
 
 Use the following table to understand the mapping between legacy names and the current names used in our OT monitoring appliance catalog:
 
-|Legacy name  |Current name  |
-|---------|---------|
-|**Corporate**     |    C5600 <br><br> A *Corporate* environment, with: <br>16 Cores<br>32 GB RAM<br>5.6 TB disk storage |
-|**Enterprise**     | E1800 <br><br> An *Enterprise* environment, with: <br>8 Cores<br>32 GB RAM<br>1.8 TB disk storage        |
-|**SMB**    |    L500   <br><br> A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>500 GB disk storage  |
-|**Office**     | L100  <br><br> A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>100 GB disk storage      |
-|**Rugged**     |   L64 <br><br> A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>64 GB disk storage     |
+|Legacy name  |Current name  | Description |
+|---------|---------|---------|
+|**Corporate**     |    C5600 | A *Corporate* environment, with: <br>16 Cores<br>32 GB RAM<br>5.6 TB disk storage |
+|**Enterprise**     | E1800 | An *Enterprise* environment, with: <br>8 Cores<br>32 GB RAM<br>1.8 TB disk storage        |
+|**SMB**    |    L500   | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>500 GB disk storage  |
+|**Office**     | L100  | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>100 GB disk storage      |
+|**Rugged**     |   L64 | A *Production line* environment, with: <br>4 Cores<br>8 GB RAM<br>64 GB disk storage     |
 
-where is office in the TOC?
-
-<UPDATE EVERYWHERE ELSE, explain l=line>
+<!--where is office in the TOC?-->
 
 We also now support new enterprise hardware profiles, for sensors supporting both 500 GB and 1 TB disk sizes.
 
