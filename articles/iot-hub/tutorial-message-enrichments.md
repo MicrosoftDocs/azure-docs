@@ -16,9 +16,9 @@ ms.custom: "mqtt, devx-track-azurecli, devx-track-csharp"
 
 In this tutorial, you see two ways to create and configure the resources that are needed to test the message enrichments for an IoT hub. The resources include one storage account with two storage containers. One container holds the enriched messages, and another container holds the original messages. Also included is an IoT hub to receive the messages and route them to the appropriate storage container based on whether they're enriched or not.
 
-* The first method is to use the Azure CLI to create the resources and configure the message routing. Then you define the enrichments manually by using the Azure portal.
+* The first method is to use the Azure CLI to create the resources and configure the message routing. Then you define the message enrichments in the Azure portal.
 
-* The second method is to use an Azure Resource Manager template to create both the resources *and* the configurations for the message routing and message enrichments.
+* The second method is to use an Azure Resource Manager template to create both the resources and configure both the message routing and message enrichments.
 
 After the configurations for the message routing and message enrichments are finished, you use an application to send messages to the IoT hub. The hub then routes them to both storage containers. Only the messages sent to the endpoint for the **enriched** storage container are enriched.
 
@@ -26,10 +26,10 @@ In this tutorial, you perform the following tasks:
 
 > [!div class="checklist"]
 >
-> * First method: Create resources and configure message routing by using the Azure CLI. Configure the message enrichments manually by using the Azure portal.
-> * Second method: Create resources and configure message routing and message enrichments by using a Resource Manager template.
+> * First method: Create resources and configure message routing using the Azure CLI. Configure the message enrichments in the Azure portal.
+> * Second method: Create resources and configure message routing and message enrichments using a Resource Manager template.
 > * Run an app that simulates an IoT device sending messages to the hub.
-> * View the results, and verify that the message enrichments are working as expected.
+> * View the results, and verify that the message enrichments are being applied to the targeted messages.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ This repository has several applications, scripts, and Resource Manager template
 * For the automated method, there's an Azure Resource Manager template. The template is in `/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments.json`. This template creates the resources, configures the message routing, and then configures the message enrichments.
 * The third application you use is the device simulation app, which you use to send messages to the IoT hub and test the message enrichments.
 
-## Set up and configure resources using the Azure CLI
+## Create and configure resources using the Azure CLI
 
 In addition to creating the necessary resources, the Azure CLI script also configures the two routes to the endpoints that are separate storage containers. For more information on how to configure message routing, see the [routing tutorial](tutorial-routing.md). After the resources are set up, use the [Azure portal](https://portal.azure.com) to configure message enrichments for each endpoint. Then continue on to the testing step.
 
@@ -273,7 +273,7 @@ At this point, the resources are all set up and the message routing is configure
 
 You now have message enrichments set up for all messages routed to the **enriched** endpoint. Skip to the [Test message enrichments](#test-message-enrichments) section to continue the tutorial.
 
-## Create and configure by using a Resource Manager template
+## Create and configure resources using a Resource Manager template
 
 You can use a Resource Manager template to create and configure the resources, message routing, and message enrichments.
 
