@@ -21,7 +21,7 @@ The following steps walk you through one way to navigate to your site and open t
 1. Click the site that you want to view.
 1. On the page for the site, click **BGP Dashboard**.
 
-   :::image type="content" source="./media/monitor-bgp-dashboard/bgp-dashboard.png" alt-text="Screenshot shows the overview page for the site with the BGP dashboard highlighted." lightbox="./media/monitor-bgp-dashboard/bgp-dashboard.png":::
+   :::image type="content" source="./media/monitor-bgp-dashboard/bgp-dashboard.png" alt-text="Screenshot shows the overview page for the site with the B G P dashboard highlighted." lightbox="./media/monitor-bgp-dashboard/bgp-dashboard.png":::
 
 ## <a name="peers"></a>BGP peers
 
@@ -29,7 +29,7 @@ The following steps walk you through one way to navigate to your site and open t
 
 1. The **BGP Peers** page is the main view that you see when you open the BGP dashboard.
 
-   :::image type="content" source="./media/monitor-bgp-dashboard/bgp-peers.png" alt-text="Screenshot shows the BGP Peers page." lightbox="./media/monitor-bgp-dashboard/bgp-peers.png":::
+   :::image type="content" source="./media/monitor-bgp-dashboard/bgp-peers.png" alt-text="Screenshot shows the B G P Peers page." lightbox="./media/monitor-bgp-dashboard/bgp-peers.png":::
 
 1. On the **BGP Peers** page, the following values are available:
 
@@ -51,7 +51,7 @@ The **Advertised Routes** page contains the routes that are being advertised to 
 
 1. On the **BGP Peers** page, click **Routes the site-to-site gateway is advertising** to show the **Advertised Routes** page.
 
-   :::image type="content" source="./media/monitor-bgp-dashboard/routes-advertising.png" alt-text="Screenshot shows BGP peers page with routes the site-to-site gateway is advertising highlighted." lightbox="./media/monitor-bgp-dashboard/routes-advertising.png":::
+   :::image type="content" source="./media/monitor-bgp-dashboard/routes-advertising.png" alt-text="Screenshot shows B G P peers page with routes the site-to-site gateway is advertising highlighted." lightbox="./media/monitor-bgp-dashboard/routes-advertising.png":::
 
 1. On the **Advertised Routes** page, you can view the top 50 BGP routes. To view all routes, click **Download advertised routes**.
 
@@ -69,11 +69,11 @@ The **Advertised Routes** page contains the routes that are being advertised to 
 
 ## <a name="learned"></a>Learned routes
 
-The **Learned Routes** page shows the routes that are learned. 
+The **Learned Routes** page shows the routes that are learned.
 
 1. On the **BGP Peers** page, click **Routes the site-to-site gateway is learning** to show the **Learned Routes** page.
 
-   :::image type="content" source="./media/monitor-bgp-dashboard/routes-learning.png" alt-text="Screenshot shows BGP peers page with routes the site-to-site gateway is learning highlighted." lightbox="./media/monitor-bgp-dashboard/routes-learning.png":::
+   :::image type="content" source="./media/monitor-bgp-dashboard/routes-learning.png" alt-text="Screenshot shows B G P peers page with routes the site-to-site gateway is learning highlighted." lightbox="./media/monitor-bgp-dashboard/routes-learning.png":::
 
 1. On the **Learned Routes** page, you can view the top 50 BGP routes. To view all routes, click **Download learned routes**.
 

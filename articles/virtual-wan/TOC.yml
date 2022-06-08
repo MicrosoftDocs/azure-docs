@@ -223,7 +223,7 @@
       href: monitor-virtual-wan.md
     - name: Azure Monitor Insights
       href: azure-monitor-insights.md
-    - name: BGP Dashboard
+    - name: BGP dashboard
       href: monitor-bgp-dashboard.md
     - name: Configure S2S VPN packet captures
       items:
