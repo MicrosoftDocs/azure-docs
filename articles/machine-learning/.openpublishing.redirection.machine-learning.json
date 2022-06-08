@@ -8,7 +8,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/concept-datastore.md",
         "redirect_url": "/azure/machine-learning/concept-data",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/tutorial-train-deploy-model-cli.md",
