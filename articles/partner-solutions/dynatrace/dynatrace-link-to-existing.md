@@ -1,5 +1,5 @@
 ---
-title: Linking to an existing Dynatrace for Azure resource
+title: Linking to an existing Dynatrace for Azure (preview) resource - Azure partner solutions
 description: This article describes how to use the Azure portal to link to an instance of Dynatrace.
 ms.topic: quickstart
 author: flang-msft
@@ -12,7 +12,7 @@ ms.date: 06/07/2022
 
 In this quickstart, you link an Azure subscription to an existing Dynatrace environment. After you link to the Dynatrace environment, you can monitor the linked Azure subscription and the resources in that subscription using the Dynatrace environment.
 
-When you use the integrated experience for Dynatrace in the Azure portal, your billing and monitoring for the following entities is tracked in the portal.
+When you use the integrated experience for Dynatrace in the Azure (preview) portal, your billing and monitoring for the following entities is tracked in the portal.
 
 :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-entities-linking.png" alt-text="Flowchart showing three entities: subscription 1 connected to subscription 1 and Dynatrace S A A S.":::
 
