@@ -101,7 +101,7 @@ To confirm that the error is caused for this reason:
 
 Any such error would need to be remedied for the function to work correctly.
 
-In the case where the container image could not be found you are likely to see a `manifest unknown` error in the Docker logs.  In this case you can use the CLI commands documented at [How to target Azure Functions runtime versions](/azure/azure-functions/set-runtime-version?tabs=azurecli) to change the container image being reference, or if it is a customer container image you would need to go and fix the image and deploy a new version to the referenced registry.
+When the container image can't be found, you should see a `manifest unknown` error in the Docker logs.  In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](set-runtime-version.md?tabs=azurecli) to change the container image being reference. If you've deployed a custom container image, you need to fix the image and redeploy the updated version to the referenced registry.
 
 ## Next steps
 
