@@ -27,26 +27,44 @@ This article examines the Azure Video Indexer output (JSON content). For informa
 > [!NOTE]
 > All the access tokens in Azure Video Indexer expire in one hour.
 
-## Get the insights
+## Get the insights using the website
 
 To get insights produced on the website or the Azure portal:
 
 1. Browse to the [Azure Video Indexer](https://www.videoindexer.ai/) website and sign in.
 1. Find a video whose output you want to examine.
 1. Press **Play**.
-1. Select the **Insights** tab to get summarized insights. Or select the **Timeline** tab to filter the relevant insights.
-1. Download artifacts (a folder with artifacts is created).
-
-    [!INCLUDE [artifacts](./includes/artifacts.md)]
+1. Choose the **Insights** tab
+2. Select which insights you want to view (under the **View** drop-down)
+3. Go to the **Timeline** tab.
+4. If you want to download artifacts, beware that artifacts are intermediate outputs of the indexing process. They are essentially raw outputs of the various AI engines that analyze the videos. For this reason, the output formats may change over time. It is recommended that you use the **Get Video Index API**, as described in the following section.
 
 For more information, see [View and edit video insights](video-indexer-view-edit.md).
 
-To get insights produced by the API:
+## Get insights produced by the API:
 
-- To retrieve the JSON file, call the [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index).
-- If you're interested in specific artifacts, call the [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url).
+To retrieve the JSON file or an artifact type (OCR, face, keyframe, etc.), call the [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index).
 
-  In the API call, specify the requested artifact type (for example, OCR, face, or keyframe).
+This API returns a URL only with a link to the specific resource type you request. An additional GET request must be made to this URL for the specific artifact. The file types for each artifact type vary depending on the artifact:
+
+### JSON
+
+* OCR 
+* Faces
+* VisualContentModeration
+* LanguageDetection
+* MultiLanguageDetection 
+* Metadata
+* Emotions
+* TextualContentModeration
+* AudioEffects
+* ObservedPeople  
+* Labels
+
+### Zip file containing JPG images
+
+* KeyframesThumbnails
+* FacesThumbnails
 
 ## Root elements of the insights
 
@@ -86,7 +104,7 @@ To get insights produced by the API:
 }
 ```
 
-## summarizedInsights
+## Summary of the insights
 
 This section shows a summary of the insights.
 
