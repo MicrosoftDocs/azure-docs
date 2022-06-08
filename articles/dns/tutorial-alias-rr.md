@@ -7,7 +7,7 @@ ms.author: rohink
 ms.service: dns
 services: dns
 ms.topic: tutorial
-ms.date: 06/08/2022
+ms.date: 06/09/2022
 ms.custom: template-tutorial
 #Customer intent: As an experienced network administrator, I want to configure Azure an DNS alias record to refer to a resource record within the zone.
 ---
@@ -53,7 +53,7 @@ Create an alias record that points to a resource record in the zone.
     :::image type="content" source="./media/tutorial-alias-rr/add-record-set-inline.png" alt-text="Screentshot of adding the target record set in the Add record set page." lightbox="./media/tutorial-alias-rr/add-record-set-expanded.png":::
 
 ### Create the alias record
-1. In the **Overview** page of `contoso.com` DNS zone, select the **+Record set** button.
+1. In the **Overview** page of **contoso.com** DNS zone, select the **+Record set** button.
 1. In the **Add record set**, enter *test* in the **Name**.
 1. Select **A** for the **Type**.
 1. Select **Yes** for the **Alias record set**, and then select the **Zone record set** for the **Alias type**.
@@ -106,7 +106,7 @@ When you no longer need the resources created for this tutorial, delete the **se
 
 ## Next steps
 
-In this tutorial, you created an alias record to refer to a resource record within the zone. To learn about Azure DNS and web apps, continue with the tutorial for web apps.
+In this tutorial, you learned the basic steps to create an alias record to refer to a resource record within the Azure DNS zone.
 
-> [!div class="nextstepaction"]
-> [Create DNS records for a web app in a custom domain](./dns-web-sites-custom-domain.md)
+- Learn more about [alias records](dns-alias.md).
+- Learn more about [zones and records](dns-zones-records.md).
