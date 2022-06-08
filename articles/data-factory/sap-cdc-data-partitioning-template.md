@@ -39,7 +39,7 @@ To auto-generate ADF pipeline from SAP data partitioning template, complete the 
 
 1.	Select **Use this template** button to auto-generate SAP data partitioning pipeline that can run multiple ADF copy activities to extract multiple partitions in parallel.
 
-    ADF copy activities run on SHIR to concurrently extract raw data (full) from your SAP system and load it into ADLS Gen2 as CSV files.  The files can be found in _sapcdc_ container under _deltachange/<your pipeline name>/<your pipeline run timestamp>_ folder path.  The **Extraction mode** property of ADF copy activity is set to _Full_.
+    ADF copy activities run on SHIR to concurrently extract raw data (full) from your SAP system and load it into ADLS Gen2 as CSV files.  The files can be found in _sapcdc_ container under _deltachange/&lt;your pipeline name&gt;/&lt;your pipeline run timestamp&gt;_ folder path.  The **Extraction mode** property of ADF copy activity is set to _Full_.
 
     To ensure high throughput, locate your SAP system, SHIR, ADLS Gen2, and Azure IR in the same region.
 

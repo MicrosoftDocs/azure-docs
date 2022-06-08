@@ -40,7 +40,7 @@ Add a network security rule on your SAP systems, so SHIR machine can connect to 
  
 ## Run PowerShell cmdlet allowing your SHIR to connect to your SAP systems
 
-On your SHIR machine, run the following PowerShell cmdlet to ensure that it can connect to your SAP systems: Test-NetConnection <SAP system IP address> -port 3300 
+On your SHIR machine, run the following PowerShell cmdlet to ensure that it can connect to your SAP systems: Test-NetConnection _&lt;SAP system IP address&gt;_ -port 3300 
 
 :::image type="content" source="media/sap-cdc-solution/sap-cdc-powershell-test-connection.png" alt-text="Shows a screenshot of the PowerShell cmdlet to test the connection to your SAP systems.":::
 
