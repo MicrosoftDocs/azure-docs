@@ -58,7 +58,7 @@ More information about policies:
 -   [Store value in cache](api-management-caching-policies.md#StoreToCacheByKey) - Store an item in the cache by key.
 -   [Remove value from cache](api-management-caching-policies.md#RemoveCacheByKey) - Remove an item in the cache by key.
 
-## [Cross domain policies](api-management-cross-domain-policies.md)
+## [Cross-domain policies](api-management-cross-domain-policies.md)
 -   [Allow cross-domain calls](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.
 -   [CORS](api-management-cross-domain-policies.md#CORS) - Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) - Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients.
