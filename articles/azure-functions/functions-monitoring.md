@@ -78,6 +78,9 @@ In addition to automatic dependency data collection, you can also use one of the
 + [Log custom telemetry in JavaScript functions](functions-reference-node.md#log-custom-telemetry) 
 + [Log custom telemetry in Python functions](functions-reference-python.md#log-custom-telemetry)
 
+> [!CAUTION]
+> Application Insights distributed tracing and dependency tracking are not currently supported in the dotnet-isolated worker.
+
 ## Writing to logs 
 
 The way that you write to logs and the APIs you use depend on the language of your function app project.   
