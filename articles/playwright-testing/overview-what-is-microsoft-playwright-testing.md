@@ -48,6 +48,6 @@ Data stored in your Azure Load Testing resource is automatically encrypted with 
 
 ## Next steps
 
-Start using Azure Load Testing.
+Start using Microsoft Playwright Testing.
 
-- [Run end-to-end tests with Microsoft Playwright Testing Preview](./quickstart-run-end-to-end-tests.md).
+- [Get started with running end-to-end web tests](./quickstart-run-end-to-end-tests.md).

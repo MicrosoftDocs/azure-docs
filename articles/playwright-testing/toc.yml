@@ -10,7 +10,7 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Run end-to-end tests with Microsoft Playwright Testing
+    - name: Run end-to-end web tests at scale
       href: quickstart-run-end-to-end-tests.md
 - name: Tutorials
   expanded: true
