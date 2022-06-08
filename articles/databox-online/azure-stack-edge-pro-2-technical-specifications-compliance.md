@@ -220,7 +220,7 @@ The following table lists the dimensions of the shipping package in millimeters 
 
 ### Enclosure weight
 
-# [SKU C](#tab/sku-c)
+# [SKU A](#tab/sku-a)
 
 | Line # | Hardware                                                                           | Weight lbs |
 |--------|------------------------------------------------------------------------------------|------------|
