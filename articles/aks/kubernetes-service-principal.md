@@ -1,5 +1,5 @@
 ---
-title: Use a service principals with Azure Kubernetes Services (AKS)
+title: Use a service principal with Azure Kubernetes Services (AKS)
 description: Create and manage an Azure Active Directory service principal with a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual

@@ -141,7 +141,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then subscribed to AKS events in Azure Event Hub.
+In this quickstart, you deployed a Kubernetes cluster and then subscribed to AKS events in Azure Event Hubs.
 
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 

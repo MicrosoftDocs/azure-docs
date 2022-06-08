@@ -136,7 +136,7 @@ Download the [latest WordPress](https://wordpress.org/download/) version. Create
 
 ```
 
-Rename ```wp-config-sample.php```  to ```wp-config.php``` and replace lines from beginingin of ```// ** MySQL settings - You can get this info from your web host ** //``` until the line ```define( 'DB_COLLATE', '' );``` with the code snippet below. The code below is reading the database host , username and password from the Kubernetes manifest file.
+Rename ```wp-config-sample.php```  to ```wp-config.php``` and replace lines from beginingin of ```// ** MySQL settings - You can get this info from your web host ** //``` until the line ```define( 'DB_COLLATE', '' );``` with the code snippet below. The code below is reading the database host, username and password from the Kubernetes manifest file.
 
 ```php
 //Using environment variables for DB connection information

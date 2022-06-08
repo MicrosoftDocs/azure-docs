@@ -19,7 +19,7 @@ Azure CLI version 2.23.0 or later. Run `az --version` to find the version. If yo
 
 ## Limitations
 
-* Tenants move or migrate of a managed identity-enabled clusters isn't supported.
+* Tenants move or migrate a managed identity-enabled cluster isn't supported.
 * If the cluster has `aad-pod-identity` enabled, Node-Managed Identity (NMI) pods modify the nodes'
   iptables to intercept calls to the Azure Instance Metadata endpoint. This configuration means any
   request made to the Metadata endpoint is intercepted by NMI even if the pod doesn't use
@@ -178,7 +178,7 @@ az aks create \
     --assign-identity <identity-id>
 ```
 
-A successful cluster creation using your own managed identity should rememble the following **userAssignedIdentities** profile information:
+A successful cluster creation using your own managed identity should resemble the following **userAssignedIdentities** profile information:
 
 ```output
  "identity": {
