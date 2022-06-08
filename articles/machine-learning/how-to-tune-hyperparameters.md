@@ -257,9 +257,6 @@ Azure Machine Learning supports the following early termination policies:
 
 [Bandit policy](/python/api/azure-ai-ml/azure.ai.ml.sweep.banditpolicy) is based on slack factor/slack amount and evaluation interval. Bandit policy ends a job when the primary metric isn't within the specified slack factor/slack amount of the most successful job.
 
-> [!NOTE]
-> Bayesian sampling does not support early termination. When using Bayesian sampling, set `early_termination_policy = None`.
-
 Specify the following configuration parameters:
 
 * `slack_factor` or `slack_amount`: the slack allowed with respect to the best performing training job. `slack_factor` specifies the allowable slack as a ratio. `slack_amount` specifies the allowable slack as an absolute amount, instead of a ratio.
