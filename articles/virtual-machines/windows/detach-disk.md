@@ -45,7 +45,7 @@ The disk stays in storage but is no longer attached to a virtual machine.
 
 ### Lower latency
 
-In select regions, the disk detach latency has been reduced, so you'll see an improvement of up to 15%. This is useful if you have planned/unplanned failovers between VMs, you're scaling your workload, or are running a high scale stateful workload such as Azure Kubernetes Service. However, this improvement is limited to the explicit disk detach command, `Remove-AzVMDataDisk`. You won't see the performance improvement if you call a command that may implicitly perform an detach, like `Update-AzVM`. You don't need to take any action other than calling the explicit detach command to see this improvement.
+In select regions, the disk detach latency has been reduced, so you'll see an improvement of up to 15%. This is useful if you have planned/unplanned failovers between VMs, you're scaling your workload, or are running a high scale stateful workload such as Azure Kubernetes Service. However, this improvement is limited to the explicit disk detach command, `Remove-AzVMDataDisk`. You won't see the performance improvement if you call a command that may implicitly perform a detach, like `Update-AzVM`. You don't need to take any action other than calling the explicit detach command to see this improvement.
 
 [!INCLUDE [virtual-machines-disks-fast-attach-detach-regions](../../../includes/virtual-machines-disks-fast-attach-detach-regions.md)]
 
@@ -59,7 +59,7 @@ You can *hot* remove a data disk, but make sure nothing is actively using the di
 1. In the **Disks** pane, to the far right of the data disk that you would like to detach, select the **X** button to detach.
 1. Select **Save** on the top of the page to save your changes.
 
-The disk stays in storage but is no longer attached to a virtual machine. The disk is not deleted.
+The disk stays in storage but is no longer attached to a virtual machine. The disk isn't deleted.
 
 ## Next steps
 

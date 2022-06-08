@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 06/02/2022
  ms.author: rogarana
- ms.custom: include file
+ ms.custom: include file, references_regions
 ---
 
 Lower latency is currently available in every public region except for:
