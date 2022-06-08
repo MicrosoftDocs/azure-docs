@@ -711,20 +711,25 @@
     - name: Develop applications
       items:
         - name: .NET
-          expanded: true
           items:
             - name: Get started
               href: how-to-dotnet-get-started.md
             - name: Work with databases
-              expanded: true
               items:
               - name: Create a database
                 href: how-to-dotnet-create-database.md
             - name: Work with containers
-              expanded: true
               items:
               - name: Create a container
-                href: how-to-dotnet-create-container.md
+                href: how-to-dotnet-create-container.md            
+            - name: Work with items
+              items:
+              - name: Create an item
+                href: how-to-dotnet-create-item.md
+              - name: Read an item
+                href: how-to-dotnet-read-item.md
+              - name: Query items
+                href: how-to-dotnet-query-items.md
     - name: Global distribution
       items:
         - name: Configure multi-region writes

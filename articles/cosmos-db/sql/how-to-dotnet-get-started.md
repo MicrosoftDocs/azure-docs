@@ -337,6 +337,9 @@ The following guides show you how to use each of these classes to build your app
 |--|---|
 | [Create a database](how-to-dotnet-create-database.md) | Create databases |
 | [Create a container](how-to-dotnet-create-container.md) | Create containers |
+| [Create an item](how-to-dotnet-create-item.md) | Create an individual item |
+| [Read an item](how-to-dotnet-read-item.md) | Point read a specific item |
+| [Query items](how-to-dotnet-query-items.md) | Query multiple items in a container |
 
 ## See also
 
