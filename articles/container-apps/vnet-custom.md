@@ -1,21 +1,22 @@
 ---
-title: Provide an external virtual network to an Azure Container Apps Preview environment
+title: Provide an external virtual network to an Azure Container Apps environment
 description: Learn how to provide an external VNET to an Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic:  how-to
-ms.date: 05/16/2022
+ms.date: 06/07/2022
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Provide a virtual network to an external Azure Container Apps (Preview) environment
+# Provide a virtual network to an external Azure Container Apps environment
 
 The following example shows you how to create a Container Apps environment in an existing virtual network.
 
 > [!IMPORTANT]
-> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. For more information, see [Known issues for public preview](https://github.com/microsoft/azure-container-apps/wiki/Known-Issues-for-public-preview).
+> Container Apps environments are deployed on a virtual network. This network can be managed or custom (pre-configured by the user beforehand). In either case, the environment has dependencies on services outside of that virtual network. For a list of these dependencies see [Outbound FQDN dependencies](firewall-integration.md#outbound-fqdn-dependencies).
 
 ::: zone pivot="azure-portal"
 
@@ -172,7 +173,7 @@ The following table describes the parameters used in `containerapp env create`.
 
 | Parameter | Description |
 |---|---|
-| `name` | Name of the container apps environment. |
+| `name` | Name of the Container Apps environment. |
 | `resource-group` | Name of the resource group. |
 | `location` | The Azure location where the environment is to deploy.  |
 | `infrastructure-subnet-resource-id` | Resource ID of a subnet for infrastructure components and user application containers. |
@@ -280,7 +281,7 @@ You must either provide values for all three of these properties, or none of the
 | Parameter | Description |
 |---|---|
 | `platform-reserved-cidr` | The address range used internally for environment infrastructure services. Must have a size between `/21` and `/12`. |
-| `platform-reserved-dns-ip` | An IP address from the `platform-reserved-cidr` range that is used for the internal DNS server. The address can't be the first address in the range, or the network address. For example, if `platform-reserved-cidr` is set to `10.2.0.0/16`, then `platform-reserved-dns-ip` can't be `10.2.0.0` (this is the network address), or `10.2.0.1` (infrastructure reserves use of this IP). In this case, the first usable IP for the DNS would be `10.2.0.2`. |
+| `platform-reserved-dns-ip` | An IP address from the `platform-reserved-cidr` range that is used for the internal DNS server. The address can't be the first address in the range, or the network address. For example, if `platform-reserved-cidr` is set to `10.2.0.0/16`, then `platform-reserved-dns-ip` can't be `10.2.0.0` (the network address), or `10.2.0.1` (infrastructure reserves use of this IP). In this case, the first usable IP for the DNS would be `10.2.0.2`. |
 | `docker-bridge-cidr` | The address range assigned to the Docker bridge network. This range must have a size between `/28` and `/12`. |
 
 - The `platform-reserved-cidr` and `docker-bridge-cidr` address ranges can't conflict with each other, or with the ranges of either provided subnet. Further, make sure these ranges don't conflict with any other address range in the VNET.
@@ -291,7 +292,7 @@ You must either provide values for all three of these properties, or none of the
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the **my-container-apps** resource group.
+If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the **my-container-apps** resource group.  Deleting this resource group will also delete the resource group automatically created by the Container Apps service containing the custom network components.
 
 ::: zone pivot="azure-cli"
 
@@ -315,7 +316,8 @@ az group delete `
 
 ## Additional resources
 
-- Refer to [What is Azure Private Endpoint](../private-link/private-endpoint-overview.md) for more details on configuring your private endpoint.
+- For more information about configuring your private endpoints, see [What is Azure Private Endpoint](../private-link/private-endpoint-overview.md).
+
 
 - To set up DNS name resolution for internal services, you must [set up your own DNS server](../dns/index.yml).
 

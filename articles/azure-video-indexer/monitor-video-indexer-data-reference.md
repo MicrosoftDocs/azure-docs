@@ -41,7 +41,7 @@ Azure Video Indexer currently does not support any monitoring on metrics.
 
 --------------**OPTION 2 EXAMPLE** -------------
 
-<!--  OPTION 2 -  Link to the metrics as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the metrics-supported link. For highly customized example, see [CosmosDB](https://docs.microsoft.com/azure/cosmos-db/monitor-cosmos-db-reference#metrics). They even regroup the metrics into usage type vs. resource provider and type.
+<!--  OPTION 2 -  Link to the metrics as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the metrics-supported link. For highly customized example, see [CosmosDB](../cosmos-db/monitor-cosmos-db-reference.md#metrics). They even regroup the metrics into usage type vs. resource provider and type.
 -->
 
 <!-- Example format. Mimic the setup of metrics supported, but add extra information -->
@@ -163,7 +163,7 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 
 <!----------------**OPTION 2 EXAMPLE** -------------
 
-<!--  OPTION 2 -  List out your tables adding additional information on what each table is for. Individually link to each table using the table name.  For example, link to [AzureMetrics](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azuremetrics).  
+<!--  OPTION 2 -  List out your tables adding additional information on what each table is for. Individually link to each table using the table name.  For example, link to [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics).  
 
 NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the automatically generated list. You can group these sections however you want provided you include the proper links back to the proper tables. 
 -->
@@ -229,7 +229,7 @@ The following table lists the operations related to Azure Video Indexer that may
 
 <!-- NOTE: This information may be hard to find or not listed anywhere.  Please ask your PM for at least an incomplete list of what type of messages could be written here. If you can't locate this, contact azmondocs@microsoft.com for help -->
 
-For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
+For more information on the schema of Activity Log entries, see [Activity  Log schema](../azure-monitor/essentials/activity-log-schema.md). 
 
 ## Schemas
 <!-- REQUIRED. Please keep heading in this order -->
@@ -269,4 +269,4 @@ The following schemas are in use by Azure Video Indexer
 
 <!-- replace below with the proper link to your main monitoring service article -->
 - See [Monitoring Azure Azure Video Indexer](monitor-video-indexer.md) for a description of monitoring Azure Video Indexer.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

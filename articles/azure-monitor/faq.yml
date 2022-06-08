@@ -133,7 +133,7 @@ sections:
       - question: |
           What is a Log Analytics workspace?
         answer: |
-          All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from various sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See [Designing your Azure Monitor Logs deployment](logs/design-logs-deployment.md).
+          All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from a variety of sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See Design a Log Analytics workspace configuration(logs/workspace-design.md).
           
       - question: |
           Can you move an existing Log Analytics workspace to another Azure subscription?

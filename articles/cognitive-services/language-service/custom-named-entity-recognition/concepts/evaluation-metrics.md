@@ -7,22 +7,32 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 11/02/2021
+ms.topic: conceptual 
+ms.date: 05/24/2022
 ms.author: aahi
-ms.custom: language-service-custom-ner, ignite-fall-2021
+ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Evaluation metrics for Custom NER models
+# Evaluation metrics for custom named entity recognition models
 
-Model evaluation in custom entity extraction uses the following metrics:
+Your [dataset is split](../how-to/train-model.md#data-splitting) into two parts: a set for training, and a set for testing. The training set is used to train the model, while the testing set is used as a test for model after training to calculate the model performance and evaluation. The testing set is not introduced to the model through the training process, to make sure that the model is tested on new data.
 
+Model evaluation is triggered automatically after training is completed successfully. The evaluation process starts by using the trained model to predict user defined entities for documents in the test set, and compares them with the provided data tags (which establishes a baseline of truth). The results are returned so you can review the model’s performance. For evaluation, custom NER uses the following metrics:
 
-|Metric |Description  |Calculation  |
-|---------|---------|---------|
-|Precision     |  The ratio of successful recognitions to all attempted recognitions. This shows how many times the model's entity recognition is truly a good recognition.       | `Precision = #True_Positive / (#True_Positive + #False_Positive)`        |
-|Recall     | The ratio of successful recognitions to the actual number of entities present.        | `Recall = #True_Positive / (#True_Positive + #False_Negatives)`        |
-|F1 score    |  The combination of precision and recall.       |  `F1 Score = 2 * Precision * Recall / (Precision + Recall)`       |
+* **Precision**: Measures how precise/accurate your model is. It is the ratio between the correctly identified positives (true positives) and all identified positives. The precision metric reveals how many of the predicted entities are correctly labeled. 
+
+    `Precision = #True_Positive / (#True_Positive + #False_Positive)`
+
+* **Recall**: Measures the model's ability to predict actual positive classes. It is the ratio between the predicted true positives and what was actually tagged. The recall metric reveals how many of the predicted entities are correct.
+
+    `Recall = #True_Positive / (#True_Positive + #False_Negatives)`
+
+* **F1 score**: The F1 score is a function of Precision and Recall. It's needed when you seek a balance between Precision and Recall.
+
+    `F1 Score = 2 * Precision * Recall / (Precision + Recall)` <br> 
+
+>[!NOTE]
+> Precision, recall and F1 score are calculated for each entity separately (*entity-level* evaluation) and for the model collectively (*model-level* evaluation).
 
 ## Model-level and entity-level evaluation metrics
 
@@ -100,7 +110,7 @@ So what does it actually mean to have high precision or high recall for a certai
 ## Confusion matrix
 
 A Confusion matrix is an N x N matrix used for model performance evaluation, where N is the number of entities.
-The matrix compares the actual tags with the tags predicted by the model.
+The matrix compares the expected labels with the ones predicted by the model.
 This gives a holistic view of how well the model is performing and what kinds of errors it is making.
 
 You can use the Confusion matrix to identify entities that are too close to each other and often get mistaken (ambiguity). In this case consider merging these entity types together. If that isn't possible, consider adding more tagged examples of both entities to help the model differentiate between them.
@@ -123,4 +133,5 @@ Similarly,
 
 ## Next steps
 
-[View a model's evaluation in Language Studio](../how-to/view-model-evaluation.md)
+* [View a model's performance in Language Studio](../how-to/view-model-evaluation.md)
+* [Train a model](../how-to/train-model.md)

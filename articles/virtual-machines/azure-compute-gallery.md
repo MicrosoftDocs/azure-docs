@@ -152,7 +152,7 @@ There are some limitations for sharing your gallery to the community:
 
 **A**: Users should exercise caution while using images from non-verified sources, since these images are not subject to Azure certification.  
 
-**Q**: If an image that is shared to the community doesn’t work, who do I contact for support?**
+**Q: If an image that is shared to the community doesn’t work, who do I contact for support?**
 
 **A**: Azure is not responsible for any issues users might encounter with community-shared images. The support is provided by the image publisher. Please look up the publisher contact information for the image and reach out to them for any support.  
 
@@ -179,6 +179,21 @@ As the Azure Compute Gallery, definition, and version are all resources, they ca
 | Image Definition     | No                   | Yes          | Yes                  |
 
 We recommend sharing at the Gallery level for the best experience. We do not recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
+
+## Activity Log
+The [Activity log](../azure-monitor/essentials/activity-log.md) displays recent activity on the gallery, image, or version including any configuration changes and when it was created and deleted.  View the activity log in the Azure portal, or create a [diagnostic setting to send it to a Log Analytics workspace](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace), where you can view events over time or analyze them with other collected data
+
+The following table lists a few example operations that relate to gallery operations in the activity log. For a complete list of possible log entries, see [Microsoft.Compute Resource Provider options](../role-based-access-control/resource-provider-operations.md#compute)
+
+| Operation | Description |
+|:---|:---|
+| Microsoft.Compute/galleries/write | Creates a new Gallery or updates an existing one |
+| Microsoft.Compute/galleries/delete	| Deletes the Gallery |
+| Microsoft.Compute/galleries/share/action | Shares a Gallery to different scopes |
+| Microsoft.Compute/galleries/images/read	| Gets the properties of Gallery Image |
+| Microsoft.Compute/galleries/images/write	| Creates a new Gallery Image or updates an existing one |
+| Microsoft.Compute/galleries/images/versions/read	| Gets the properties of Gallery Image Version |
+| | |
 
 
 ## Billing

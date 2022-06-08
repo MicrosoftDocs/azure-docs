@@ -21,7 +21,7 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 > You can also analyze a local image. See the [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) methods, such as **AnalyzeImageInStreamAsync**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ImageAnalysisQuickstart.cs) for scenarios involving local images.
 
 > [!TIP]
-> The Analyze API can do many different operations other than generate image tags. See the [Image Analysis how-to guide](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md) for examples that showcase all of the available features.
+> The Analyze API can do many different operations other than generate image tags. See the [Image Analysis how-to guide](../../how-to/call-analyze-image.md) for examples that showcase all of the available features.
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 
     ---
 
-1. Find the subscription key and endpoint.
+1. Find the key and endpoint.
 
     [!INCLUDE [find key and endpoint](../find-key.md)]
 
@@ -85,7 +85,7 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 
    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ImageAnalysisQuickstart-single.cs?name=snippet_single)]
 
-1. Paste your subscription key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
+1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
    > [!IMPORTANT]
    > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
@@ -146,7 +146,7 @@ In this quickstart, you learned how to install the Image Analysis client library
 
 
 > [!div class="nextstepaction"]
->[Call the Analyze API](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
+>[Call the Analyze API](../../how-to/call-analyze-image.md)
 
 * [Image Analysis overview](../../overview-image-analysis.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ImageAnalysisQuickstart.cs).

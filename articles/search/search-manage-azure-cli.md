@@ -7,8 +7,8 @@ author: DerekLegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 08/03/2021
+ms.topic: how-to
+ms.date: 05/23/2022
 ---
 
 # Manage your Azure Cognitive Search service with the Azure CLI
@@ -16,7 +16,7 @@ ms.date: 08/03/2021
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > * [Azure CLI](search-manage-azure-cli.md)
-> * [REST API](/rest/api/searchmanagement/)
+> * [REST API](search-manage-rest.md)
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 

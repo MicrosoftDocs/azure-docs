@@ -6,7 +6,7 @@ ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 05/12/2022
+ms.date: 06/02/2022
 ---
 
 # Azure guidance for secure isolation
@@ -174,7 +174,7 @@ When a managed HSM is created, the requestor also provides a list of data plane 
 > [!IMPORTANT]
 > Unlike with key vaults, granting your users management plane access to a managed HSM doesn't grant them any access to data plane to access keys or data plane role assignments managed HSM local RBAC. This isolation is implemented by design to prevent inadvertent expansion of privileges affecting access to keys stored in managed HSMs.
 
-As mentioned previously, managed HSM supports [importing keys generated](../key-vault/managed-hsm/hsm-protected-keys-byok.md) in your on-premises HSMs, ensuring the keys never leave the HSM protection boundary, also known as *bring your own key (BYOK)* scenario. Managed HSM supports integration with Azure services such as [Azure Storage](../storage/common/customer-managed-keys-overview.md), [Azure SQL Database](/azure/azure-sql/database/transparent-data-encryption-byok-overview), [Azure Information Protection](/azure/information-protection/byok-price-restrictions), and others.
+As mentioned previously, managed HSM supports [importing keys generated](../key-vault/managed-hsm/hsm-protected-keys-byok.md) in your on-premises HSMs, ensuring the keys never leave the HSM protection boundary, also known as *bring your own key (BYOK)* scenario. Managed HSM supports integration with Azure services such as [Azure Storage](../storage/common/customer-managed-keys-overview.md), [Azure SQL Database](/azure/azure-sql/database/transparent-data-encryption-byok-overview), [Azure Information Protection](/azure/information-protection/byok-price-restrictions), and others. For a more complete list of Azure services that work with Managed HSM, see [Data encryption models](../security/fundamentals/encryption-models.md#supporting-services).
 
 Managed HSM enables you to use the established Azure Key Vault API and management interfaces. You can use the same application development and deployment patterns for all your applications irrespective of the key management solution: multi-tenant vault or single-tenant managed HSM.
 
@@ -751,7 +751,7 @@ Drive encryption through BitLocker and DM-Crypt is a data protection feature tha
 
 For managed disks, Azure Disk encryption allows you to encrypt the OS and Data disks used by an IaaS virtual machine; however, Data can't be encrypted without first encrypting the OS volume. The solution relies on Azure Key Vault to help you control and manage the disk encryption keys in key vaults. You can supply your own encryption keys, which are safeguarded in Azure Key Vault to support *bring your own key (BYOK)* scenarios, as described previously in *[Data encryption key management](#data-encryption-key-management)* section.
 
-Azure Disk encryption isn't supported by Managed HSM or an on-premises key management service. Only key vaults managed by the Azure Key Vault service can be used to safeguard customer-managed encryption keys for Azure Disk encryption.
+Azure Disk encryption isn't supported by Managed HSM or an on-premises key management service. Only key vaults managed by the Azure Key Vault service can be used to safeguard customer-managed encryption keys for Azure Disk encryption. See [Encryption at host](#encryption-at-host) for other options involving Managed HSM.
 
 > [!NOTE]
 > Detailed instructions are available for creating and configuring a key vault for Azure Disk encryption with both **[Windows](../virtual-machines/windows/disk-encryption-key-vault.md)** and **[Linux](../virtual-machines/linux/disk-encryption-key-vault.md)** VMs.
@@ -774,7 +774,7 @@ For [Windows VMs](../virtual-machines/windows/disk-encryption-faq.yml), Azure Di
 Customer-managed keys (CMK) enable you to have [full control](../virtual-machines/disk-encryption.md#full-control-of-your-keys) over your encryption keys. You can grant access to managed disks in your Azure Key Vault so that your keys can be used for encrypting and decrypting the DEK. You can also disable your keys or revoke access to managed disks at any time. Finally, you have full audit control over key usage with Azure Key Vault monitoring to ensure that only managed disks or other authorized resources are accessing your encryption keys.
 
 ##### *Encryption at host*
-Encryption at host ensures that data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. Disks with encryption at host enabled aren't encrypted with Azure Storage encryption; instead, the server hosting your VM provides the encryption for your data, and that encrypted data flows into Azure Storage. For more information, see [Encryption at host - End-to-end encryption for your VM data](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+Encryption at host ensures that data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. Disks with encryption at host enabled aren't encrypted with Azure Storage encryption; instead, the server hosting your VM provides the encryption for your data, and that encrypted data flows into Azure Storage. For more information, see [Encryption at host - End-to-end encryption for your VM data](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data). As mentioned previously, [Azure Disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) for VM and VMSS isn't supported by Managed HSM. However, encryption at host with CMK is supported by Managed HSM.
 
 You're [always in control of your customer data](https://www.microsoft.com/trust-center/privacy/data-management) in Azure. You can access, extract, and delete your customer data stored in Azure at will. When you terminate your Azure subscription, Microsoft takes the necessary steps to ensure that you continue to own your customer data. A common concern upon data deletion or subscription termination is whether another customer or Azure administrator can access your deleted data. The following sections explain how data deletion, retention, and destruction work in Azure.
 

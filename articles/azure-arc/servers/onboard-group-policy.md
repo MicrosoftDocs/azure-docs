@@ -1,7 +1,7 @@
 ---
 title: Connect machines at scale using group policy
 description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using group policy. 
-ms.date: 04/29/2022
+ms.date: 05/25/2022
 ms.topic: conceptual
 ms.custom: template-how-to
 ---
@@ -35,15 +35,15 @@ Before you can run the script to connect your machines, you'll need to do the fo
 
 1. Modify and save the following configuration file to the remote share as `ArcConfig.json`. Edit the file with your Azure subscription, resource group, and location details. Use the service principal details from step 1 for the last two fields:
 
-```
+```json
 { 
-        "tenant-id": "INSERT AZURE TENANTID", 
-        "subscription-id": "INSERT AZURE SUBSCRIPTION ID", 
-        "resource-group": "INSERT RESOURCE GROUP NAME", 
-        "location": "INSERT REGION", 
-        "service-principal-id": "INSERT SPN ID", 
-        "service-principal-secret": "INSERT SPN Secret" 
-    } 
+     "tenant-id": "INSERT AZURE TENANTID", 
+     "subscription-id": "INSERT AZURE SUBSCRIPTION ID", 
+     "resource-group": "INSERT RESOURCE GROUP NAME", 
+     "location": "INSERT REGION", 
+     "service-principal-id": "INSERT SPN ID", 
+     "service-principal-secret": "INSERT SPN Secret" 
+ } 
 ```
 
 The group policy will project machines as Arc-enabled servers in the Azure subscription, resource group, and region specified in this configuration file.

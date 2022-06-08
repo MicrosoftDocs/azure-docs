@@ -1,6 +1,6 @@
 ---
-title: What is Azure Video Indexer (formerly Azure Video Analyzer for Media)?
-description: This article gives an overview of the Azure Video Indexer (formerly Azure Video Analyzer for Media) service.
+title: What is Azure Video Indexer?
+description: This article gives an overview of the Azure Video Indexer service.
 ms.topic: overview
 ms.date: 02/15/2022
 ms.author: juliako
@@ -10,7 +10,10 @@ ms.author: juliako
 
 [!INCLUDE [regulation](./includes/regulation.md)]
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Azure Video Indexer video and audio models.
+> [!NOTE]
+> The service is now rebranded from Azure Video Analyzer for Media to **Azure Video Indexer**. Click [here](https://vi.microsoft.com) to read more.
+
+Azure Video Indexer is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Azure Video Indexer video and audio models.
 
 To start extracting insights with Azure Video Indexer, you need to create an account and upload videos. When you upload your videos to Azure Video Indexer, it analyses both visuals and audio by running different AI models. As Azure Video Indexer analyzes your video, the insights that are extracted by the AI models.
 
@@ -76,7 +79,6 @@ The following list shows the insights you can retrieve from your videos using Az
 * **Speaker enumeration**: Maps and understands which speaker spoke which words and when. Sixteen speakers can be detected in a single audio-file.
 * **Speaker statistics**: Provides statistics for speakers' speech ratios.
 * **Textual content moderation**: Detects explicit text in the audio transcript.
-* **Audio effects** (preview): Detects the following audio effects in the non-speech segments of the content: Gunshot, Glass shatter, Alarm, Siren, Explosion, Dog Bark, Screaming, Laughter, Crowd reactions (cheering, clapping, and booing) and Silence. Note: the full set of events is available only when choosing ‘Advanced Audio Analysis’ in upload preset, otherwise only ‘Silence’ and ‘Crowd reaction’ will be available.
 * **Emotion detection**: Identifies emotions based on speech (what's being said) and voice tonality (how it's being said). The emotion could be joy, sadness, anger, or fear.
 * **Translation**: Creates translations of the audio transcript to 54 different languages.
 * **Audio effects detection** (preview): Detects the following audio effects in the non-speech segments of the content: alarm or siren, dog barking, crowd reactions (cheering, clapping, and booing), gunshot or explosion, laughter, breaking glass, and silence.
@@ -133,6 +135,7 @@ The following list shows the supported browsers that you can use for the Azure V
 
 You're ready to get started with Azure Video Indexer. For more information, see the following articles:
 
+- [Pricing](https://azure.microsoft.com/pricing/details/video-indexer/)
 - [Get started with the Azure Video Indexer website](video-indexer-get-started.md).
 - [Process content with Azure Video Indexer REST API](video-indexer-use-apis.md).
 - [Embed visual widgets in your application](video-indexer-embed-widgets.md).

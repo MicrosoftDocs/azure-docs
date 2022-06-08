@@ -36,7 +36,7 @@ The Azure Active Directory (Azure AD) default configuration for user sign-in fre
 
 It might sound alarming to not ask for a user to sign back in, in reality any violation of IT policies will revoke the session. Some examples include (but aren't limited to) a password change, an incompliant device, or account disable. You can also explicitly [revoke users’ sessions using PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). The Azure AD default configuration comes down to “don’t ask users to provide their credentials if security posture of their sessions hasn't changed”.
 
-The sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC protocols according to the standards. Most Microsoft native apps for Windows, Mac, and Mobile including the following web applications comply with the setting.
+The sign-in frequency setting works with apps that have implemented OAuth2 or OIDC protocols according to the standards. Most Microsoft native apps for Windows, Mac, and Mobile including the following web applications comply with the setting.
 
 - Word, Excel, PowerPoint Online
 - OneNote Online
@@ -48,7 +48,7 @@ The sign-in frequency setting works with apps that have implemented OAUTH2 or OI
 - Dynamics CRM Online
 - Azure portal
 
-The sign-in frequency setting works with SAML applications as well, as long as they don't drop their own cookies and are redirected back to Azure AD for authentication on regular basis.
+The sign-in frequency setting works with 3rd party SAML applications and apps that have implemented OAuth2 or OIDC protocols, as long as they don't drop their own cookies and are redirected back to Azure AD for authentication on regular basis.
 
 ### User sign-in frequency and multi-factor authentication
 

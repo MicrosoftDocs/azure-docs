@@ -14,7 +14,7 @@ A Log Analytics workspace is a unique environment for log data from Azure Monito
 
 You can use a single workspace for all your data collection, or you may create multiple workspaces based on a  variety of requirements such as the geographic location of the data, access rights that define which users can access data, and configuration settings such as the pricing tier and data retention. 
 
-To create a new workspace, see [Create a Log Analytics workspace in the Azure portal](./quick-create-workspace.md). For considerations on creating multiple workspaces, see [Designing your Azure Monitor Logs deployment](design-logs-deployment.md).
+To create a new workspace, see [Create a Log Analytics workspace in the Azure portal](./quick-create-workspace.md). For considerations on creating multiple workspaces, see Design a Log Analytics workspace configuration(workspace-design.md).
 
 
 ## Data structure
@@ -41,7 +41,7 @@ The following table summarizes the differences between the plans.
 | Category | Analytics Logs | Basic Logs |
 |:---|:---|:---|
 | Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
-| Log queries | No additional cost. Full query capabilities. | Additional cost. [Subset of query capabilities](basic-logs-query.md#limitations). |
+| Log queries | No additional cost. Full query capabilities. | Additional cost.<br>[Subset of query capabilities](basic-logs-query.md#limitations). |
 | Retention |  Configure retention from 30 days to 730 days. | Retention fixed at 8 days. |
 | Alerts | Supported. | Not supported. |
 
@@ -70,12 +70,12 @@ To access archived data, you must first retrieve data from it in an Analytics Lo
 
 
 ## Permissions
-Permission to data in a Log Analytics workspace is defined by the [access control mode](design-logs-deployment.md#access-control-mode), which is a setting on each workspace. Users can either be given explicit access to the workspace using a [built-in or custom role](../roles-permissions-security.md), or you can allow access to data collected for Azure resources to users with access to those resources.
+Permission to data in a Log Analytics workspace is defined by the [access control mode](manage-access.md#access-control-mode), which is a setting on each workspace. Users can either be given explicit access to the workspace using a [built-in or custom role](../roles-permissions-security.md), or you can allow access to data collected for Azure resources to users with access to those resources.
 
 See [Manage access to log data and workspaces in Azure Monitor](manage-access.md) for details on the different permission options and on configuring permissions.
 
 ## Next steps
 
 - [Create a new Log Analytics workspace](quick-create-workspace.md)
-- See [Designing your Azure Monitor Logs deployment](design-logs-deployment.md) for considerations on creating multiple workspaces.
+- See Design a Log Analytics workspace configuration(workspace-design.md) for considerations on creating multiple workspaces.
 - [Learn about log queries to retrieve and analyze data from a Log Analytics workspace.](./log-query-overview.md)

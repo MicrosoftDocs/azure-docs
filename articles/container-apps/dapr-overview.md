@@ -4,6 +4,7 @@ description: Learn more about using Dapr on your Azure Container App service to 
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 05/10/2022
 ---
@@ -38,7 +39,7 @@ The following Pub/sub example demonstrates how Dapr works alongside your contain
 
 | Label | Dapr settings | Description |  
 | ----- | ------------- | ----------- |
-| 1 | Container Apps with Dapr enabled | Dapr is enabled at the container app level by configuring Dapr settings. Dapr settings exist at the app-level, meaning they apply across revisions. |
+| 1 | Container Apps with Dapr enabled | Dapr is enabled at the container app level by configuring Dapr settings. Dapr settings apply across all revisions of a given container app. |
 | 2 | Dapr sidecar | Fully managed Dapr APIs are exposed to your container app via the Dapr sidecar. These APIs are available through HTTP and gRPC protocols. By default, the sidecar runs on port 3500 in Container Apps. |
 | 3 | Dapr component | Dapr components can be shared by multiple container apps. Using scopes, the Dapr sidecar will determine which components to load for a given container app at runtime. |
 
@@ -105,7 +106,7 @@ This resource defines a Dapr component called `dapr-pubsub` via Bicep. The Dapr 
 The `dapr-pubsub` component is scoped to the Dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`:
 
 ```bicep
-resource daprComponent 'daprComponents@2022-01-01-preview' = {
+resource daprComponent 'daprComponents@2022-03-01' = {
   name: 'dapr-pubsub'
   properties: {
     componentType: 'pubsub.azure.servicebus'
@@ -190,15 +191,20 @@ scopes:
 - subscriber-app
 ```
 
+## Current supported Dapr version
+
+Azure Container Apps supports Dapr version 1.7.3. 
+
+Version upgrades are handled transparently by Azure Container Apps. You can find the current version via the Azure portal and the CLI. 
+
 ## Limitations
 
 ### Unsupported Dapr capabilities
 
 - **Dapr Secrets Management API**: Use [Container Apps secret mechanism][aca-secrets] as an alternative.
 - **Custom configuration for Dapr Observability**: Instrument your environment with Application Insights to visualize distributed tracing.
-- **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec, which includes preview features.
+- **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
 - **Advanced Dapr sidecar configurations**: Container Apps allows you to specify sidecar settings including `app-protocol`, `app-port`, and `app-id`. For a list of unsupported configuration options, see [the Dapr documentation](https://docs.dapr.io/reference/arguments-annotations-overview/).
-- **Dapr APIs in Preview state**
 
 ### Known limitations
 

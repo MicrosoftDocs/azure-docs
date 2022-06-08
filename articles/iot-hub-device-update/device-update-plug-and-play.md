@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Device Update for IoT Hub and IoT Plug and Play
 
-Device Update for IoT Hub uses [IoT Plug and Play](../iot-develop/index.yml) to discover and manage devices that are over-the-air update capable. The Device Update service sends and receives properties and messages to and from devices using IoT Plug and Play interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model-id.
+Device Update for IoT Hub uses [IoT Plug and Play](../iot-develop/index.yml) to discover and manage devices that are over-the-air update capable. The Device Update service sends and receives properties and messages to and from devices using IoT Plug and Play interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model id.
 
 Concepts:
 * Understand the [IoT Plug and Play device client](../iot-develop/concepts-developer-guide-device.md?pivots=programming-language-csharp).
@@ -75,7 +75,7 @@ IoT Hub Device Twin sample
                     "deviceProperties": {
                         "manufacturer": "contoso",
                         "model": "virtual-vacuum-v1",
-                        "interfaceId": "dtmi:azure:iot:deviceUpdate;1",
+                        "interfaceId": "dtmi:azure:iot:deviceUpdateModel;1",
                         "aduVer": "DU;agent/0.8.0-rc1-public-preview",
                         "doVer": "DU;lib/v0.6.0+20211001.174458.c8c4051,DU;agent/v0.6.0+20211001.174418.c8c4051"
                     },

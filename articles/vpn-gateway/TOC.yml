@@ -197,10 +197,14 @@
       items:
       - name: Certificate authentication clients
         items:
+        - name: Windows clients
+          href: point-to-site-vpn-client-cert-windows.md
+        - name: macOS-iOS clients
+          href: point-to-site-vpn-client-cert-mac.md
+        - name: Linux clients
+          href: point-to-site-vpn-client-cert-linux.md
         - name: Install client certificates
           href: point-to-site-how-to-vpn-client-install-azure-cert.md
-        - name: Generate and install VPN client profile config files
-          href: point-to-site-vpn-client-configuration-azure-cert.md
       - name: RADIUS authentication clients
         items:
         - name: Certificate authentication clients
@@ -219,8 +223,6 @@
           href: about-vpn-profile-download.md 
         - name: Intune - Deploy VPN client profile
           href: vpn-profile-intune.md
-      - name: Install and configure an OpenVPN client
-        href: vpn-gateway-howto-openvpn-clients.md
   - name: Routing, BGP, and VNet Peering
     items:
     - name: Configure BGP for a VPN gateway

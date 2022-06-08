@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/22/2022
+ms.date: 05/17/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro 2 in datacenter so I can use it to transfer data to Azure.  
@@ -334,6 +334,9 @@ Follow these steps to cable your device for network:
 
     ![Back plane of a cabled device](./media/azure-stack-edge-pro-2-deploy-install/cabled-backplane-1.png)
 
+    > [!NOTE]
+    > Using USB ports to connect any external device, including keyboards and monitors, is not supported for Azure Stack Edge devices.
+
 ::: zone-end
 
 ::: zone pivot="two-node"
@@ -358,6 +361,8 @@ Cable your device as shown in the following diagram:
 1. Connect Port 3 on one device directly (without a switch) to the Port 3 on the other device node. Use a QSFP28 passive direct attached cable (tested in-house) for the connection.
 1. Connect Port 4 on one device directly (without a switch) to the Port 4 on the other device node. Use a QSFP28 passive direct attached cable (tested in-house) for the connection. 
 
+   > [!NOTE]
+   > Using USB ports to connect any external device, including keyboards and monitors, is not supported for Azure Stack Edge devices.
 
 #### Using external switches
 

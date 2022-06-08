@@ -117,12 +117,8 @@ items:
       href: agents/data-collection-rule-sample-agent.md
     - name: Custom logs
       href: logs/data-collection-rule-sample-custom-logs.md
-  - name: Azure CLI
-    href: cli-samples.md
   - name: Monitor Logs in Azure CLI
     href: logs\azure-cli-log-analytics-workspace-sample.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
   - name: Azure CLI metric alerts
@@ -142,23 +138,6 @@ items:
     - name: Logs
       displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
       href: logs/data-platform-logs.md
-  - name: Workspaces
-    items:
-    - name: Overview
-      href: logs/log-analytics-workspace-overview.md
-    - name: Design a workspace deployment
-      href: logs/design-logs-deployment.md
-    - name: Design for service providers
-      href: logs/service-providers.md
-    - name: Dedicated clusters
-      href: logs/logs-dedicated-clusters.md
-    - name: Availability zones
-      href: logs/availability-zones.md
-    - name: Log data ingestion time
-      displayName: latency
-      href: logs/data-ingestion-time.md
-  - name: Data collection rules
-    href: essentials/data-collection-rule-overview.md
   - name: Usage and cost
     items:
     - name: View and estimate charges
@@ -175,8 +154,6 @@ items:
       href: roles-permissions-security.md
     - name: Log data
       href: logs/data-security.md
-    - name: Azure AD Authentication for Logs
-      href: logs/azure-ad-authentication-logs.md
     - name: Customer-managed keys
       href: logs/customer-managed-keys.md
     - name: Private Link networking
@@ -197,12 +174,8 @@ items:
     items:
     - name: Overview
       href: alerts/alerts-overview.md
-    - name: Metric alerts
-      href: alerts/alerts-metric-overview.md
-    - name: Log alerts
-      href: alerts/alerts-unified-log.md
-    - name: Activity log alerts
-      href: alerts/activity-log-alerts.md
+    - name: Alert Types
+      href: alerts/alerts-types.md
   - name: Partner integrations
     href: partners.md
   - name: Security
@@ -300,6 +273,8 @@ items:
           href: logs/daily-cap.md
         - name: Configure Basic Logs
           href: logs/basic-logs-configure.md
+        - name: Use Azure AD authentication
+          href: logs/azure-ad-authentication-logs.md
       - name: Archive and restore
         items:
         - name: Set retention and archive policy
@@ -308,12 +283,23 @@ items:
           href: logs/search-jobs.md
         - name: Restore logs
           href: logs/restore.md
+      - name: Design
+        items:
+        - name: Design a workspace architecture
+          href: logs/workspace-design.md
+        - name: Dedicated clusters
+          href: logs/logs-dedicated-clusters.md
+        - name: Availability zones
+          href: logs/availability-zones.md
       - name: Monitor
         items:
         - name: Monitor a workspace
           href: logs/monitor-workspace.md
         - name: Analyze usage and cost
           href: logs/analyze-usage.md
+        - name: Log data ingestion time
+          displayName: latency
+          href: logs/data-ingestion-time.md
       - name: Move and delete
         items:
         - name: Move a workspace
@@ -448,6 +434,9 @@ items:
     items:
     - name: Data collection rules
       items:
+      - name: Overview
+        displayName: Data collection rules
+        href: essentials/data-collection-rule-overview.md
       - name: Structure
         displayName: Data collection rules
         href: essentials/data-collection-rule-structure.md
@@ -729,8 +718,8 @@ items:
         href: alerts/action-groups-logic-app.md
     - name: Alert user interface
       items:
-      - name: Manage alert instances
-        href: alerts/alerts-managing-alert-instances.md
+      - name: View and manage alert instances
+        href: alerts/alerts-page.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves
@@ -913,6 +902,8 @@ items:
         href: app/api-custom-events-metrics.md
       - name: Remove Application Insights
         href: app/remove-application-insights.md
+      - name: SDK support policy
+        href: app/sdk-support-guidance.md
     - name: OpenTelemetry-based instrumentation
       items:
       - name: Overview
@@ -1013,33 +1004,6 @@ items:
         href: app/standard-metrics.md
     - name: Transaction search
       href: app/diagnostic-search.md
-    - name: Profiler
-      items:
-      - name: Overview
-        displayName: profiling, debugging, code performance, perf
-        href: app/profiler-overview.md
-      - name: Enable Profiler for an App Service
-        href: app/profiler.md
-      - name: Enable Profiler for an Azure Functions app
-        href: app/profiler-azure-functions.md
-      - name: Enable Profiler for a Cloud Service
-        href: app/profiler-cloudservice.md
-      - name: Enable Profiler for a Service Fabric Application
-        href: app/profiler-servicefabric.md
-      - name: Enable Profiler for an Azure VM
-        href: app/profiler-vm.md
-      - name: Enable Profiler for Linux App services (preview)
-        href: app/profiler-aspnetcore-linux.md
-      - name: Enable Profiler for a Container
-        href: app/profiler-containers.md
-      - name: Profiler Settings
-        href: app/profiler-settings.md
-      - name: Track Requests for Profiling
-        href: app/profiler-trackrequests.md
-      - name: Configure BYOS (Bring Your Own Storage)
-        href: app/profiler-bring-your-own-storage.md
-      - name: Profiler Troubleshooting
-        href: app/profiler-troubleshooting.md
     - name: Snapshot Debugger
       items:
       - name: Overview
@@ -1054,7 +1018,7 @@ items:
       - name: Upgrade Snapshot Debugger
         href: app/snapshot-debugger-upgrade.md
       - name: Configure BYOS (Bring Your Own Storage)
-        href: app/profiler-bring-your-own-storage.md
+        href: profiler/profiler-bring-your-own-storage.md
       - name: Snapshot Debugger troubleshooting
         displayName: troubleshoot, troubleshooting
         href: app/snapshot-debugger-troubleshoot.md
@@ -1181,6 +1145,37 @@ items:
         href: app/sharepoint.md
       - name: Windows desktop
         href: app/windows-desktop.md
+  - name: Profiler
+    items:
+    - name: Overview
+      displayName: profiling, debugging, code performance, perf
+      href: profiler/profiler-overview.md
+    - name: Enable Profiler
+      items:        
+      - name: App Service
+        href: profiler/profiler.md
+      - name: Azure Functions app
+        href: profiler/profiler-azure-functions.md
+      - name: Cloud Service
+        href: profiler/profiler-cloudservice.md
+      - name: Service Fabric Application
+        href: profiler/profiler-servicefabric.md
+      - name: Azure VM
+        href: profiler/profiler-vm.md
+      - name: Linux App services (preview)
+        href: profiler/profiler-aspnetcore-linux.md
+      - name: ASP.NET Core Container
+        href: profiler/profiler-containers.md
+    - name: Configure
+      items:        
+      - name: Configure Profiler
+        href: profiler/profiler-settings.md
+      - name: Configure BYOS (Bring Your Own Storage)
+        href: profiler/profiler-bring-your-own-storage.md
+    - name: Track Requests
+      href: profiler/profiler-trackrequests.md
+    - name: Troubleshooting
+      href: profiler/profiler-troubleshooting.md
   - name: Change Analysis
     items:
     - name: Overview
@@ -1191,6 +1186,8 @@ items:
       href: change/change-analysis-powershell.md
     - name: Custom filters
       href: change/change-analysis-custom-filters.md
+    - name: Pin and share changes via Azure dashboard
+      href: change/change-analysis-query.md
     - name: Troubleshoot
       href: change/change-analysis-troubleshoot.md
   - name: VM insights
@@ -1255,36 +1252,38 @@ items:
       href: containers/container-insights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#container-insights
-    - name: Enable monitoring
+    - name: Enable
+      displayName: container insights
       items:
-      - name: Enable monitoring overview
+      - name: Overview
+        displayName: container insights
         href: containers/container-insights-onboard.md
-      - name: Enable for new AKS cluster
+      - name: New AKS cluster
         href: containers/container-insights-enable-new-cluster.md
-      - name: Enable for existing AKS cluster
+      - name: Existing AKS cluster
         href: containers/container-insights-enable-existing-clusters.md
-      - name: Enable for Azure Arc-enabled cluster
+      - name: Azure Arc-enabled cluster
         href: containers/container-insights-enable-arc-enabled-clusters.md
-      - name: Enable for hybrid cluster
+      - name: Hybrid cluster
         href: containers/container-insights-hybrid-setup.md
-      - name: Enable for Azure Red Hat OpenShift v3
-        href: containers/container-insights-azure-redhat-setup.md
-      - name: Enable for Azure Red Hat OpenShift v4
-        href: containers/container-insights-azure-redhat4-setup.md
       - name: Enable with Azure Policy
         href: containers/container-insights-enable-aks-policy.md
-      - name: Region mappings
+      - name: Supported region mappings
         href: containers/container-insights-region-mapping.md
+      - name: Migrate from Azure Red Hat OpenShift v4.x
+        href: containers/container-insights-transition-hybrid.md
+    - name: Configure
+      items:
       - name: Agent management
         href: containers/container-insights-manage-agent.md
-      - name: Configure Prometheus metric scraping
-        href: containers/container-insights-prometheus-integration.md
-      - name: Configure agent collection settings
+      - name: Agent collection settings
         href: containers/container-insights-agent-config.md
-      - name: Update to enable metrics
+      - name: Prometheus metric scraping
+        href: containers/container-insights-prometheus-integration.md
+      - name: Enable metrics
         href: containers/container-insights-update-metrics.md
-      - name: Migration from Azure Red Hat OpenShift v4.x to Azure Arc enabled cluster
-        href: containers/container-insights-transition-hybrid.md
+      - name: Enable ContainerLogv2 (preview)
+        href: containers/container-insights-logging-v2.md
     - name: Monitor
       items:
       - name: Monitor performance
@@ -1338,7 +1337,7 @@ items:
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
     - name: Azure Data Explorer
-      href: insights/data-explorer.md
+      href: /azure/data-explorer/data-explorer-insights
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks

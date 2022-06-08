@@ -43,7 +43,7 @@ The following conditions are required to renew a reservation:
 
 ## Default renewal settings
 
-By default, the renewal inherits all properties from the expiring reservation. A reservation renewal purchase has the same SKU, region, scope, billing subscription, term, and quantity.
+By default, the renewal inherits all properties except automatic renewal setting from the expiring reservation. A reservation renewal purchase has the same SKU, region, scope, billing subscription, term, and quantity.
 
 However, you can update the renewal reservation purchase quantity to optimize your savings.
 
