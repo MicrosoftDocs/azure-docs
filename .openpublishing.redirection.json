@@ -18976,7 +18976,11 @@
       "redirect_url": "/connectors/todo",
       "redirect_document_id": false
     },
-    
+    {
+      "source_path_from_root": "/articles/logic-apps/logic-apps-scenario-error-and-exception-handling.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-exception-handling",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/cognitive-services/LinguisticAnalysisAPI/AnalyzeMethod.md",
       "redirect_url": "/azure/machine-learning/classic-module-reference/text-analytics",

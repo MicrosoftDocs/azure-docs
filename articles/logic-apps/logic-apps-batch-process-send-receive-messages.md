@@ -217,5 +217,3 @@ Your batch sender logic app runs every minute, generates a random number between
 ## Next steps
 
 * [Batch and send EDI messages](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
-* [Build on logic app definitions by using JSON](../logic-apps/logic-apps-author-definitions.md)
-* [Exception handling and error logging for logic apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
