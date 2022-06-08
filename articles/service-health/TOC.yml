@@ -28,6 +28,8 @@
     href: service-health-overview.md
   - name: Resource Health
     href: resource-health-overview.md
+  - name: Service Health notifications
+    href: service-health-notifications-overview.md
 - name: How To
   items:
   - name: Configure alerts for service health events
