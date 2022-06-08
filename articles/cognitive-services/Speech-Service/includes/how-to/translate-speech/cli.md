@@ -21,5 +21,5 @@ ms.author: eur
 This command calls the Speech CLI to translate speech from the microphone from Italian to French:
 
 ```shell
- spx translate --microphone --source it-IT --target fr
+spx translate --microphone --source it-IT --target fr
 ```
