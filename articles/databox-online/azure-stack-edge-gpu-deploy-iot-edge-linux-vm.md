@@ -153,7 +153,7 @@ Use steps in this section to connect your device to Device Provisioning Service/
    1. Make sure that the selection for **Symmetric Key for attestation type and IoT Edge device** is **True**. The default selection is **False**.
    1. Retrieve the following information from the Device Provisioning Service resource page:
       - **Registration ID**. We recommend that you use the same ID as the **Device ID** for your IoT Hub.
-      - **ID Scope** which is available in the [Overview menu](../iot-dps/quick-create-simulated-device-symm-key.md#run-the-provisioning-code-for-the-device).
+      - **ID Scope** which is available in the [Overview menu](../iot-dps/quick-create-simulated-device-symm-key.md#prepare-and-run-the-device-provisioning-code).
       - **Primary SAS Key** from the Individual Enrollment menu.
 1. Copy and paste values from IoT Hub (IDScope) and Device Provisioning Service (RegistrationID, Symetric Key) into the script arguments.
 
