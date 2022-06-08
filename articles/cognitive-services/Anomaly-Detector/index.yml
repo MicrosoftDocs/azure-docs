@@ -58,7 +58,7 @@ landingContent:
 
 # Card 2 - MVAD
 
-- title: "Multivaraite Anomaly Detector"
+- title: "Multivariate Anomaly Detector"
   linkLists:
     - linkListType: overview
       links:
