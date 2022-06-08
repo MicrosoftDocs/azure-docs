@@ -713,9 +713,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    > [!NOTE]
-   > The higher timeouts, suggested when using NFSv4.1 make the pacemaker configuration more resilient. 
-   > They are necessary due to protocol-specific pause, related to NFSv4.1 lease renewals, which can be triggered by server side operations that don't preserve the lock state.  
-   > For more information see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf)  
+   > The higher timeouts, suggested when using NFSv4.1 make the pacemaker configuration more resilient.
+   > They are necessary due to protocol-specific pause, related to NFSv4.1 lease renewals. For more information see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf)  
    > The timeouts in the above configuration are just examples and may need to be adapted to the specific SAP setup. 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
