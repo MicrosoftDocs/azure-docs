@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller that uses Let's Encrypt for automatic TLS certificate generation in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 03/04/2022
 
 
 #Customer intent: As a cluster operator or developer, I want to use an ingress controller to handle the flow of incoming traffic and secure my apps using automatically generated TLS certificates
@@ -147,6 +147,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.image.tag=$CONTROLLER_TAG \
     --set controller.image.digest="" \
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz \
     --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
@@ -180,6 +181,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx `
     --set controller.image.tag=$ControllerTag `
     --set controller.image.digest="" `
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux `
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz `
     --set controller.admissionWebhooks.patch.image.registry=$AcrUrl `
     --set controller.admissionWebhooks.patch.image.image=$PatchImage `
     --set controller.admissionWebhooks.patch.image.tag=$PatchTag `
@@ -514,11 +516,11 @@ kind: Ingress
 metadata:
   name: hello-world-ingress
   annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
     nginx.ingress.kubernetes.io/use-regex: "true"
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - hello-world-ingress.MY_CUSTOM_DOMAIN
@@ -554,11 +556,11 @@ kind: Ingress
 metadata:
   name: hello-world-ingress-static
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /static/$2
     nginx.ingress.kubernetes.io/use-regex: "true"
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - hello-world-ingress.MY_CUSTOM_DOMAIN
@@ -567,14 +569,13 @@ spec:
   - host: hello-world-ingress.MY_CUSTOM_DOMAIN
     http:
       paths:
-      - path:
+      - path: /static(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: aks-helloworld-one
             port: 
               number: 80
-        path: /static(/|$)(.*)
 ```
 
 Create the ingress resource using the `kubectl apply` command.
@@ -675,7 +676,7 @@ You can also:
 - [Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates with a static public IP address][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
-[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az_network_dns_record_set_a_add_record
+[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az-network-dns-record-set-a-add-record
 [new-az-dns-recordset-create-a-record]: /powershell/module/az.dns/new-azdnsrecordset
 [custom-domain]: ../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../dns/dns-getstarted-cli.md
@@ -688,7 +689,7 @@ You can also:
 [cert-manager-issuer]: https://cert-manager.io/docs/concepts/issuer/
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
-[helm-install]: https://docs.helm.sh/using_helm/#installing-helm
+[helm-install]: https://helm.sh/docs/helm/helm_install
 [ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
 
 <!-- LINKS - internal -->
@@ -701,9 +702,9 @@ You can also:
 [aks-ingress-basic]: ingress-basic.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-own-tls]: ingress-own-tls.md
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-powershell]: kubernetes-walkthrough-powershell.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-supported versions]: supported-kubernetes-versions.md

@@ -37,7 +37,7 @@ You can enable confidential containers in Azure Partners and Open Source Softwar
 
 ### Fortanix
 
-[Fortanix](https://www.fortanix.com/) has portal and Command Line Interface (CLI) experiences to convert their containerized applications to SGX-capable confidential containers. You don't need to modify or recompile the application. Fortanix provides the flexibility to run and manage a broad set of applications. You can use existing applications, new enclave-native applications, and pre-packaged applications. Start with Fortanix's [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/em/). Create confidential containers using the Fortanix's [quickstart guide for AKS](https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service).
+[Fortanix](https://www.fortanix.com/) has portal and Command Line Interface (CLI) experiences to convert their containerized applications to SGX-capable confidential containers. You don't need to modify or recompile the application. Fortanix provides the flexibility to run and manage a broad set of applications. You can use existing applications, new enclave-native applications, and pre-packaged applications. Start with Fortanix's [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/). Create confidential containers using the Fortanix's [quickstart guide for AKS](https://hubs.li/Q017JnNt0).
 
 ![Diagram of Fortanix deployment process, showing steps to move applications to confidential containers and deploy.](./media/confidential-containers/fortanix-confidential-containers-flow.png)
 
@@ -68,7 +68,7 @@ Get started with a sample Redis Cache and Python Custom Application [here](https
 
 [Gramine](https://grapheneproject.io/) is a lightweight guest OS, designed to run a single Linux application with minimal host requirements. Gramine can run applications in an isolated environment. There's tooling support for converting existing Docker container applications to Gramine Shielded Containers (GSCs).
 
-For more information, see the Gramine's [sample application and deployment on AKS](https://graphene.readthedocs.io/en/latest/cloud-deployment.html#azure-kubernetes-service-aks)
+For more information, see the Gramine's [sample application and deployment on AKS](https://github.com/gramineproject/contrib/tree/master/Examples/aks-attestation)
 
 ### Occlum
 
@@ -84,12 +84,10 @@ This framework extends the confidentiality, integrity, and verifiability propert
 
 Marblerun supports confidential containers created with Graphene, Occlum, and EGo, with [examples for each SDK](https://docs.edgeless.systems/marblerun/#/examples?id=examples). The framework runs on Kubernetes alongside your existing cloud-native tooling. There's a CLI and helm charts. Marblerun also supports confidential computing nodes on AKS. Follow Marblerun's [guide to deploy Marblerun on AKS](https://docs.edgeless.systems/marblerun/#/deployment/cloud?id=cloud-deployment).
 
-## Confidential Containers demo
+## Confidential Containers reference architectures
 
-For a sample application, see the [healthcare demo with confidential containers](https://github.com/Azure-Samples/confidential-container-samples/blob/main/confidential-healthcare-scone-confinf-onnx/README.md). 
-
-> [!VIDEO https://www.youtube.com/embed/PiYCQmOh0EI]
-
+- [Confidential data messaging for healthcare reference architecture and sample with Intel SGX confidential containers](https://github.com/Azure-Samples/confidential-container-samples/blob/main/confidential-healthcare-scone-confinf-onnx/README.md). 
+- [Confidential big-data processing with Apache Spark on AKS with Intel SGX confidential containers](/azure/architecture/example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql). 
 
 ## Get in touch
 

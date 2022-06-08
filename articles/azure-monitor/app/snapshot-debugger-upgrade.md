@@ -3,7 +3,7 @@ title: Upgrading Azure Application Insights Snapshot Debugger
 description: How to upgrade Snapshot Debugger for .NET apps to the latest version on Azure App Services, or via Nuget packages
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.reviewer: mbullwin
+ms.reviewer: pharring
 ---
 
 # Upgrading the Snapshot Debugger

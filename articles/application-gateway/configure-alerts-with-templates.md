@@ -2,7 +2,7 @@
 title: Configure Azure Monitor alerts for Application Gateway
 description: Learn how to use ARM templates to configure Azure Monitor alerts for Application Gateway
 author: jaesoni
-ms.author: victorh
+ms.author: greglin
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/03/2022

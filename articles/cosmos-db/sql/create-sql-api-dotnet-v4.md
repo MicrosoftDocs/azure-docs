@@ -1,8 +1,9 @@
 ---
 title: Manage Azure Cosmos DB SQL API resources using .NET V4 SDK
 description: Use this quickstart to build a console app by using the .NET V4 SDK to manage Azure Cosmos DB SQL API account resources.
-author: rothja
-ms.author: jroth
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
@@ -21,6 +22,7 @@ ms.custom: devx-track-dotnet, devx-track-azurecli, mode-api
 > * [Spark v3 connector](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
+> * [Go](create-sql-api-go.md)
 
 Get started with the Azure Cosmos DB SQL API client library for .NET. Follow the steps in this article to install the .NET V4 (Azure.Cosmos) package and build an app. Then, try out the example code for basic create, read, update, and delete (CRUD) operations on the data stored in Azure Cosmos DB.
 

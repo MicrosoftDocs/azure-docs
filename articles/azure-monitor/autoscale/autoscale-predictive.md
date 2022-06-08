@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 01/24/2022
 ms.subservice: autoscale
 ms.custom: references_regions
+ms.reviewer: riroloff
 ---
 # Use predictive autoscale to scale out before load demands in virtual machine scale sets (Preview)
 
@@ -301,7 +302,7 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
 }
 ```
  
-For more information on Azure Resource Manager templates, see [Resource Manager template overview](/azure/azure-resource-manager/templates/overview)
+For more information on Azure Resource Manager templates, see [Resource Manager template overview](../../azure-resource-manager/templates/overview.md)
 
 ## Common questions
 

@@ -42,11 +42,13 @@ Advisor considers resizing virtual machines when it's possible to fit the curren
 - The last 7 days of utilization data are considered
 - Metrics are sampled every 30 seconds, aggregated to 1 min and then further aggregated to 30 mins (we take the average of max values while aggregating to 30 mins)
 - An appropriate SKU is determined based on the following criteria:
-  - Performance of the workloads on the new SKU should not be impacted. This is achieved by: 
-    - For user-facing workloads: P95 of the CPU and Outbound Network utilization, and P100 of Memory utilization don’t go above 80% on the new SKU 
-    - For non user-facing workloads: 
-      - P95 of CPU and Outbound Network utilization don’t go above 40% on the recommended SKU 
-      - P100 of Memory utilization doesn’t go above 60% on the recommended SKU
+  - Performance of the workloads on the new SKU should not be impacted. 
+    - Target for user-facing workloads: 
+      - P95 of CPU and Outbound Network utilization at 40% or lower on the recommended SKU 
+      - P100 of Memory utilization at 60% or lower on the recommended SKU
+    - Target for non user-facing workloads: 
+      - P95 of the CPU and Outbound Network utilization at 80% or lower on the new SKU
+      - P100 of Memory utilization at 80% or lower on the new SKU 
   - The new SKU has the same Accelerated Networking and Premium Storage capabilities 
   - The new SKU is supported in the current region of the Virtual Machine with the recommendation
   - The new SKU is less expensive 

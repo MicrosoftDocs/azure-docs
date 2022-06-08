@@ -2,7 +2,7 @@
 title: Azure status overview | Microsoft Docs
 description: A global view into the health of Azure services
 ms.topic: overview
-ms.date: 06/11/2019
+ms.date: 05/26/2022
 
 ---
 # Azure status overview
@@ -17,13 +17,26 @@ The Azure status page gets updated in real time as the health of Azure services 
 
 ![Azure status refresh](./media/azure-status-overview/update.PNG)
 
-## Azure status history
-
-While the Azure status page always shows the latest health information, you can view older events using the [Azure status history page](https://status.azure.com/status/history/). The history page contains all RCAs for incidents that occurred on November 20th, 2019 or later and will - from that date forward - provide a 5-year RCA history. RCAs prior to November 20th, 2019 are not available.
-
 ## RSS Feed
 
 Azure status also provides [an RSS feed](https://status.azure.com/status/feed/) of changes to the health of Azure services that you can subscribe to.
+
+## When does Azure publish communications to the Status page?
+ 
+Most of our service issue communications are provided as targeted notifications sent directly to impacted customers & partners. These are delivered through [Azure Service Health](https://azure.microsoft.com/features/service-health/) in the Azure portal and trigger any [Azure Service Health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal?toc=%2Fazure%2Fservice-health%2Ftoc.json) that have been configured. The public Status page is only used to communicate about service issues under three specific scenarios:
+
+- **Scenario 1 - Broad impact involving multiple regions, zones, or services** - A service issue has broad/significant customer impact across multiple services for a full region or multiple regions. We notify you in this case because customer-configured resilience like high availability and/or disaster recovery may not be sufficient to avoid impact.
+- **Scenario 2 - Azure portal / Service Health not accessible** - A service issue impedes you from accessing the Azure portal or Azure Service Health and thus impacted our standard outage communications path described earlier. 
+- **Scenario 3 - Service Impact, but not sure who exactly is affected yet** - The service issue has broad/significant customer impact but we aren't yet able to confirm which customers, regions, or services are affected. In this case, we aren't able to send targeted communications, so we provide public updates.
+ 
+## When does Azure publish RCAs to the Status History page?
+
+While the [Azure status page](https://status.azure.com/status) always shows the latest health information, you can view older events using the [Azure status history page](https://status.azure.com/status/history/). The history page contains all RCAs (Root Cause Analyses) for incidents that occurred on November 20, 2019 or later and will - from that date forward - provide a 5-year RCA history. RCAs prior to November 20, 2019 aren't available.
+ 
+After June 1st 2022, the [Azure status history page](https://status.azure.com/status/history/) will only be used to provide RCAs for scenario 1 above. We're committed to publishing RCAs publicly for service issues that had the broadest impact, such as those with both a multi-service and multi-region impact. We publish to ensure that all customers and the industry at large can learn from our retrospectives on these issues, and understand what steps we're taking to make such issues less likely and/or less impactful in future. 
+ 
+For scenarios 2 and 3 above - We may communicate publicly on the Status page during impact to work around when our standard, targeted communications aren't able to reach all impacted customers. After the issue is mitigated, we'll conduct a thorough impact analysis to determine exactly which customer subscriptions were impacted. In such scenarios, we'll provide the relevant PIR only to affected customers via [Azure Service Health](https://azure.microsoft.com/features/service-health/) in the Azure portal.
+
 
 ## Next Steps
 

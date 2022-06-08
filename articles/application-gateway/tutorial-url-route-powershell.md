@@ -2,11 +2,11 @@
 title: Route web traffic based on the URL - Azure PowerShell
 description: Learn how to route web traffic based on the URL to specific scalable pools of servers using Azure PowerShell.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/31/2019
-ms.author: victorh
+ms.author: greglin
 ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As an IT administrator, I want to use PowerShell to set up routing of web traffic to specific pools of servers based on the URL that the customer uses, so I can ensure my customers have the most efficient route to the information they need.
 ---

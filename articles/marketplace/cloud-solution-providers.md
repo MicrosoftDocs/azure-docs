@@ -4,9 +4,9 @@ description: Learn how to sell your offers through the Microsoft Cloud Solution 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
-ms.date: 07/14/2020
+author: karanraomsft
+ms.author: karrao
+ms.date: 05/10/2022
 ---
 
 # Cloud Solution Provider program

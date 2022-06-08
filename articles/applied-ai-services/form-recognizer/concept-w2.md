@@ -1,30 +1,30 @@
 ---
-title: Form Recognizer W-2 form prebuilt model
+title: Form Recognizer W-2 prebuilt model
 titleSuffix: Azure Applied AI Services
-description: Data extraction and analysis extraction using the prebuilt-tax Form W-2 model
+description: Data extraction and analysis extraction using the prebuilt W-2 model
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/08/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ---
 
 # Form Recognizer W-2 model | Preview
 
-The Form W-2, Wage and Tax Statement, is a [US Internal Revenue Service (IRS) tax form](https://www.irs.gov/forms-pubs/about-form-w-2) completed by employers to report employees' salary, wages, compensation, and taxes withheld. Employers send a W-2 form to each employee on or before January 31 each year and employees use the form to prepare their tax returns. W-2 is a key document used in employee's federal and state taxes filing, as well as other processes like mortgage loan and Social Security Administration (SSA).
+The Form W-2, Wage and Tax Statement, is a [US Internal Revenue Service (IRS) tax form](https://www.irs.gov/forms-pubs/about-form-w-2). It's used to report employees' salary, wages, compensation, and taxes withheld. Employers send a W-2 form to each employee on or before January 31 each year and employees use the form to prepare their tax returns. W-2 is a key document used in employee's federal and state taxes filing, as well as other processes like mortgage loan and Social Security Administration (SSA).
 
-A W-2 is a multipart form divided into state and federal sections and consists of more than 14 boxes, both numbered and lettered, that detail the employee's income from the previous year. The Form Recognizer W-2 model, combines Optical Character Recognition (OCR) with deep learning models to analyze and extract information reported in each box on a W-2 form. The model supports standard and customized forms from 2018 to the present, including both single form and multiple forms ([copy A, B, C, D, 1, 2](https://en.wikipedia.org/wiki/Form_W-2#Filing_requirements) on one page.
+A W-2 is a multipart form divided into state and federal sections and consisting of more than 14 boxes that details an employee's income from the previous year. The Form Recognizer W-2 model, combines Optical Character Recognition (OCR) with deep learning models to analyze and extract information reported in each box on a W-2 form. The model supports standard and customized forms from 2018 to the present. Both [single and multiple forms](https://en.wikipedia.org/wiki/Form_W-2#Filing_requirements) are also supported.
 
-***Sample W-2 form processed using Form Recognizer Studio***
+***Sample W-2 tax form processed using Form Recognizer Studio***
 
 :::image type="content" source="media/studio/w-2.png" alt-text="Screenshot of sample w-2 form processed in the Form Recognizer Studio.":::
 
 ## Development options
 
-The prebuilt W-2 form, model is supported by Form Recognizer v3.0 with the following tools:
+The prebuilt W-2 model is supported by Form Recognizer v3.0 with the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -32,11 +32,11 @@ The prebuilt W-2 form, model is supported by Form Recognizer v3.0 with the follo
 
 ### Try Form Recognizer
 
-See how data, including employee, employer, wage, and tax information is extracted from W-2 forms using the Form Recognizer Studio. You'll need the following resources:
+Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
@@ -45,7 +45,7 @@ See how data, including employee, employer, wage, and tax information is extract
 > [!NOTE]
 > Form Recognizer studio is available with v3.0 preview API.
 
-1. On the [Form Recognizer Studio home page](https://formrecognizer.appliedai.azure.com/studio), select **W-2 form**.
+1. On the [Form Recognizer Studio home page](https://formrecognizer.appliedai.azure.com/studio), select **W-2**.
 
 1. You can analyze the sample W-2 document or select the **➕ Add** button to upload your own sample.
 
@@ -59,22 +59,19 @@ See how data, including employee, employer, wage, and tax information is extract
 ## Input requirements
 
 * For best results, provide one clear photo or high-quality scan per document.
-* Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
+* Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 50 MB.
+* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 * Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 * PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
-* For unsupervised learning (without labeled data):
-  * Data must contain keys and values.
-  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 ## Supported languages and locales
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
-|prebuilt-tax.us.w2| <ul>English (United States)</ul></br>|English (United States)—en-US|
+|prebuilt-tax.us.w2|<ul><li>English (United States)</li></ul>|English (United States)—en-US|
 
 ## Field extraction
 
@@ -120,7 +117,6 @@ See how data, including employee, employer, wage, and tax information is extract
 | TaxYear |  | Number | Tax year | 2020 |
 | W2FormVariant |  | String | The variants of W-2 forms, including "W-2", "W-2AS", "W-2CM", "W-2GU", "W-2VI" | W-2 |
 
-
 ### Migration guide and REST API v3.0
 
 * Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
@@ -130,9 +126,10 @@ See how data, including employee, employer, wage, and tax information is extract
 ## Next steps
 
 * Complete a Form Recognizer quickstart:
-
-|Programming language | :::image type="content" source="media/form-recognizer-icon.png" alt-text="Form Recognizer icon from the Azure portal."::: |Programming language
-|:---:|:---:|:---:|
-|[**C#**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)||[**JavaScript**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)|
-|[**Java**](quickstarts/try-v3-java-sdk.md#prebuilt-model)||[**Python**](quickstarts/try-v3-python-sdk.md#prebuilt-model)|
-|[**REST API**](quickstarts/try-v3-rest-api.md#prebuilt-model)|||
+> [!div class="checklist"]
+>
+> * [**REST API**](quickstarts/try-v3-rest-api.md)
+> * [**C# SDK**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)
+> * [**Python SDK**](quickstarts/try-v3-python-sdk.md#prebuilt-model)
+> * [**Java SDK**](quickstarts/try-v3-java-sdk.md#prebuilt-model)
+> * [**JavaScript**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)</li></ul>

@@ -3,17 +3,17 @@ title: 'Azure AD on-premises application provisioning architecture | Microsoft D
 description: Presents an overview of on-premises application provisioning architecture.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: rkarlin
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/29/2021
+ms.date: 04/11/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD on-premises application provisioning architecture (preview)
+# Azure AD on-premises application identity provisioning architecture (preview)
 
 ## Overview
 
@@ -79,9 +79,7 @@ Since ECMA Connector Host currently only supports the USER object type, the OBJE
 You can define one or more matching attribute(s) and prioritize them based on the precedence.  Should you want to change the matching attribute you can also do so.
  [![Matching attribute](.\media\on-premises-application-provisioning-architecture\match-1.png)](.\media\on-premises-application-provisioning-architecture\match-1.png#lightbox)
 
-2.  ECMA Connector Host receives the GET request and queries its internal cache to see if the user exists and has based imported.  This is done using the **query attribute**. The query attribute is defined in the object types page.  
- [![Query attribute](.\media\on-premises-application-provisioning-architecture\match-2.png)](.\media\on-premises-application-provisioning-architecture\match-2.png#lightbox)
-
+2.  ECMA Connector Host receives the GET request and queries its internal cache to see if the user exists and has based imported.  This is done using the matching attribute(s) above. If you define multiple matching attributes, the Azure AD provisioning service will send a GET request for each attribute and the ECMA host will check it's cache for a match until it finds one.   
 
 3. If the user does not exist, Azure AD will make a POST request to create the user.  The ECMA Connector Host will respond back to Azure AD with the HTTP 201 and provide an ID for the user. This ID is derived from the anchor value defined in the object types page. This anchor will be used by Azure AD to query the ECMA Connector Host for future and subsequent requests. 
 4. If a change happens to the user in Azure AD, then Azure AD will make a GET request to retrieve the user using the anchor from the previous step, rather than the matching attribute in step 1. This allows, for example, the UPN to change without breaking the link between the user in Azure AD and in the app.  
@@ -98,10 +96,6 @@ You can define one or more matching attribute(s) and prioritize them based on th
 
 ## Provisioning agent questions
 Some common questions are answered here.
-
-### What is the GA version of the provisioning agent?
-
-For the latest GA version of the provisioning agent, see [Azure AD connect provisioning agent: Version release history](provisioning-agent-release-version-history.md).
 
 ### How do I know the version of my provisioning agent?
 
@@ -140,8 +134,29 @@ You can also check whether all the required ports are open.
      - Microsoft Azure AD Connect Agent Updater
      - Microsoft Azure AD Connect Provisioning Agent Package
 
+## Provisioning agent history
+This article lists the versions and features of Azure Active Directory Connect Provisioning Agent that have been released. The Azure AD team regularly updates the Provisioning Agent with new features and functionality. Please ensure that you do not use the same agent for on-prem provisioning and Cloud Sync / HR-driven provisioning.
 
+Microsoft provides direct support for the latest agent version and one version before.
 
+### Download link
+You can download the latest version of the agent using [this link](https://aka.ms/onpremprovisioningagent).
+
+### 1.1.892.0 
+
+May 20th, 2022 - released for download
+
+#### Fixed issues
+
+- We added support for exporting changes to integer attributes, which benefits customers using the generic LDAP connector.
+
+### 1.1.846.0
+
+April 11th, 2022 - released for download
+
+#### Fixed issues
+
+- We added support for ObjectGUID as an anchor for the generic LDAP connector when provisioning users into AD LDS. 
 
 
 ## Next steps

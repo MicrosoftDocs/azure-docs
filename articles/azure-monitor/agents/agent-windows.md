@@ -2,23 +2,21 @@
 title: Install Log Analytics agent on Windows computers
 description: This article describes how to connect Windows computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Windows.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 12/16/2021
+ms.date: 03/31/2022
 
 ---
 
 # Install Log Analytics agent on Windows computers
-The Log Analytics agents are on a **deprecation path** and will no longer be supported after **August 31, 2024**. If you use the Log Analytics agents to ingest data to Azure Monitor, make sure to [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.  
-
 
 This article provides details on installing the Log Analytics agent on Windows computers using the following methods:
 
 * Manual installation using the [setup wizard](#install-agent-using-setup-wizard) or [command line](#install-agent-using-command-line).
 * [Azure Automation Desired State Configuration (DSC)](#install-agent-using-dsc-in-azure-automation). 
 
+The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](./log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
+
 >[!IMPORTANT]
-> The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](./log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
+>The Log Analytics agents are on a **deprecation path** and will no longer be supported after **August 31, 2024**. If you use the Log Analytics agents to ingest data to Azure Monitor, make sure to [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.  
 
 > [!NOTE]
 > Installing the Log Analytics agent will typically not require you to restart the machine.  

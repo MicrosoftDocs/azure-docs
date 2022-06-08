@@ -1,7 +1,7 @@
 ---
 title: 'How to: Deploy Fluid applications using Azure Static Web Apps'
 description: Detailed explanation about how Fluid applications can be hosted on Azure Static Web Apps
-author: sdeshpande3
+author: sonalivdeshpande
 ms.author: sdeshpande
 ms.date: 08/19/2021
 ms.topic: article
@@ -24,9 +24,9 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 [!INCLUDE [fork-fluidhelloworld](../includes/fork-fluidhelloworld.md)]
 
-## Connect to Azure Fluid Relay Service
+## Connect to Azure Fluid Relay
 
-You can connect to Azure Fluid Relay service by providing the tenant ID and key that is uniquely generated for you when creating the Azure resource. You can build your own token provider implementation or you can use the two token provider implementations that the Fluid Framework provides: **InsecureTokenProvider** and **AzureFunctionTokenProvider**.
+You can connect to Azure Fluid Relay by providing the tenant ID and key that is uniquely generated for you when creating the Azure resource. You can build your own token provider implementation or you can use the two token provider implementations that the Fluid Framework provides: **InsecureTokenProvider** and **AzureFunctionTokenProvider**.
 
 To learn more about using InsecureTokenProvider for local development, see [Connecting to the service](connect-fluid-azure-service.md#connecting-to-the-service) and [Authentication and authorization in your app](../concepts/authentication-authorization.md#the-token-provider).
 
@@ -139,7 +139,7 @@ Run the `npm run build` command from the root directory to rebuild the app. This
 
     :::image type="content" source="../../static-web-apps/media/getting-started/extension-browse-site.png" alt-text="An image of the menu that is shown when right-clicking on a static web app. The Browse Site option is highlighted.":::
 
-1. The location of your application code, Azure Function, and build output is part of the `azure-static-web-apps-xxx-xxx-xxx.yml` workflow file located in the `/.github/workflows` directory. This file is automatically created when create the Static Web app. It defines a GitHub Action to build and deploy your Static Web app.
+1. The location of your application code, Azure Function, and build output is part of the `azure-static-web-apps-xxx-xxx-xxx.yml` workflow file located in the `/.github/workflows` directory. This file is automatically created when create the Static Web app. It defines a GitHub Actions to build and deploy your Static Web app.
 
 
 ## Clean up resources

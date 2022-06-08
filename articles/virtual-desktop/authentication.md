@@ -1,18 +1,17 @@
 ---
-title: Azure Virtual Desktop authentication - Azure
-description: Authentication methods for Azure Virtual Desktop.
+title: Azure Virtual Desktop identities and authentication - Azure
+description: Identities and authentication methods for Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
-
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/07/2021
 ms.author: helohr
 manager: femila
 ---
-# Supported authentication methods
+# Supported identities and authentication methods
 
-In this article, we'll give you a brief overview of what kinds of authentication you can use in Azure Virtual Desktop.
+In this article, we'll give you a brief overview of what kinds of identities and authentication methods you can use in Azure Virtual Desktop.
 
 ## Identities
 
@@ -40,9 +39,9 @@ Azure Virtual Desktop currently doesn't support [external identities](../active-
 
 To access Azure Virtual Desktop resources, you must first authenticate to the service by signing in to an Azure AD account. Authentication happens when subscribing to a workspace to retrieve your resources or every time you connect to apps or desktops. You can use [third-party identity providers](../active-directory/devices/azureadjoin-plan.md#federated-environment) as long as they federate with Azure AD.
 
-### Multifactor authentication
+### Multi-factor authentication
 
-Follow the instructions in [Set up multifactor authentication in Azure Virtual Desktop](set-up-mfa.md) to learn how to enable multifactor authentication (MFA) for your deployment. That article will also tell you how to configure how often your users are prompted to enter their credentials. When deploying Azure AD-joined VMs, follow the configuration guide in [Enabling MFA for Azure AD-joined VMs](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms).
+Follow the instructions in [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md) to learn how to enforce Azure AD Multi-Factor Authentication for your deployment. That article will also tell you how to configure how often your users are prompted to enter their credentials. When deploying Azure AD-joined VMs, note the extra steps for [Azure AD-joined session host VMs](set-up-mfa.md#azure-ad-joined-session-host-vms).
 
 ### Smart card authentication
 

@@ -10,8 +10,9 @@ metadata:
   ms.service: cosmos-db #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: SnehaGunda #Required; your GitHub user alias, with correct capitalization.
-  ms.author: sngun #Required; microsoft alias of author; optional team alias.
+  author: seesharprun #Required; your GitHub user alias, with correct capitalization.
+  ms.author: sidandrews
+  ms.reviewer: mjbrown #Required; microsoft alias of author; optional team alias.
   ms.date: 09/10/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -51,7 +52,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Data modeling - improve your application's speed and performance
-            url: https://www.youtube.com/watch?v=wOWa8ecFo88
+            url: https://aka.ms/docs.modeling-data
 
   # Card
   - title: Use Azure Cosmos DB SQL API 
@@ -194,10 +195,10 @@ landingContent:
             url: cosmosdb-sql-api-migrate-data-striim.md
           - text: Oracle DB to Cosmos DB Cassandra API using Striim
             url: cassandra/migrate-data-striim.md                                        
-          - text: Oracle DB to Cosmos DB Cassandra API using Blitzz
-            url: cassandra/oracle-migrate-cosmos-db-blitzz.md 
-          - text: Apache Cassandra to Cosmos DB using Blitzz
-            url: cassandra/migrate-data-blitzz.md 
+          - text: Oracle DB to Cosmos DB Cassandra API using Arcion
+            url: cassandra/oracle-migrate-cosmos-db-arcion.md 
+          - text: Apache Cassandra to Cosmos DB using Arcion
+            url: cassandra/migrate-data-arcion.md 
           - text: Migrate 100’s TBs of data
             url: migrate-cosmosdb-data.md 
 

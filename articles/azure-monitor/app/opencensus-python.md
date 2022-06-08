@@ -3,9 +3,9 @@ title: Monitor Python applications with Azure Monitor | Microsoft Docs
 description: Provides instructions to wire up OpenCensus Python with Azure Monitor
 ms.topic: conceptual
 ms.date: 10/12/2021
-ms.reviewer: mbullwin
 ms.devlang: python
 ms.custom: devx-track-python
+ms.reviewer: mmcc
 ---
 
 # Set up Azure Monitor for your Python application
@@ -349,7 +349,7 @@ OpenCensus.stats supports 4 aggregation methods but provides partial support for
         main()
     ```
 
-1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The value is cumulative, can only increase and resets to 0 on restart. You can find the data under `customMetrics`, but `customMetrics` properties valueCount, valueSum, valueMin, valueMax, and valueStdDev are not effectively used.
+1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. To modify the export interval, pass in `export_interval` as a parameter in seconds to `new_metrics_exporter()`. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The value is cumulative, can only increase and resets to 0 on restart. You can find the data under `customMetrics`, but `customMetrics` properties valueCount, valueSum, valueMin, valueMax, and valueStdDev are not effectively used.
 
 ### Setting custom dimensions in metrics
 

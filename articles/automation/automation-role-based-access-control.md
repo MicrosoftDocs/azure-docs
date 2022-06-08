@@ -1,15 +1,15 @@
 ---
 title: Manage role permissions and security in Azure Automation
-description: This article describes how to use Azure role-based access control (Azure RBAC), which enables access management for Azure resources.
+description: This article describes how to use Azure role-based access control (Azure RBAC), which enables access management and role permissions for Azure resources.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/10/2021
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, subject-rbac-steps
 #Customer intent: As an administrator, I want to understand permissions so that I use the least necessary set of permissions.
 ---
 
-# Manage role permissions and security in Automation
+# Manage role permissions and security in Azure Automation
 
 Azure role-based access control (Azure RBAC) enables access management for Azure resources. Using [Azure RBAC](../role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users, groups, and applications that they need to perform their jobs. You can grant role-based access to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
 
@@ -74,7 +74,7 @@ An Automation Contributor can manage all resources in the Automation account exc
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|[Microsoft.Automation](/azure/role-based-access-control/resource-provider-operations#microsoftautomation)/automationAccounts/* | Create and manage resources of all types.|
+|[Microsoft.Automation](../role-based-access-control/resource-provider-operations.md#microsoftautomation)/automationAccounts/* | Create and manage resources of all types.|
 |Microsoft.Authorization/*/read|Read roles and role assignments.|
 |Microsoft.Resources/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Resources/subscriptions/resourceGroups/read|Read resource group deployments.|
@@ -122,7 +122,7 @@ The following table shows the permissions granted for the role:
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
 |Microsoft.Support/* |Create and manage support tickets.|
-|[Microsoft.ResourceHealth](/azure/role-based-access-control/resource-provider-operations#microsoftresourcehealth)/availabilityStatuses/read| Gets the availability statuses for all resources in the specified scope.|
+|[Microsoft.ResourceHealth](../role-based-access-control/resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read| Gets the availability statuses for all resources in the specified scope.|
 
 ### Automation Job Operator
 
@@ -248,7 +248,7 @@ The Built-in Reader role for the Automation Account can't use the `API – GET /
 
 To access the `API – GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION`, we recommend that you switch to the built-in roles like Owner, Contributor or Automation Contributor to access the Automation account keys. These roles, by default, will have the *listKeys* permission. As a best practice, we recommend that you create a custom role with limited permissions to access the Automation account keys. For a custom role, you need to add 
 `Microsoft.Automation/automationAccounts/listKeys/action` permission to the role definition.
-[Learn more](/azure/role-based-access-control/custom-roles) about how to create custom role from the Azure portal.
+[Learn more](../role-based-access-control/custom-roles.md) about how to create custom role from the Azure portal.
  
 ## Feature setup permissions
 
@@ -298,11 +298,11 @@ The following sections describe the minimum required permissions needed for enab
 
 ## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
 
-You can create [Azure custom roles](/azure/role-based-access-control/custom-roles) in Automation and grant the following permissions to Hybrid Worker Groups and Hybrid Workers:
+You can create [Azure custom roles](../role-based-access-control/custom-roles.md) in Automation and grant the following permissions to Hybrid Worker Groups and Hybrid Workers:
 
-- [Extension-based Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
-- [Agent-based Windows Hybrid Runbook Worker](/azure/automation/automation-windows-hrw-install#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
- - [Agent-based Linux Hybrid Runbook Worker](/azure/automation/automation-linux-hrw-install#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers) 
+- [Extension-based Hybrid Runbook Worker](./extension-based-hybrid-runbook-worker-install.md?tabs=windows#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
+- [Agent-based Windows Hybrid Runbook Worker](./automation-windows-hrw-install.md#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
+ - [Agent-based Linux Hybrid Runbook Worker](./automation-linux-hrw-install.md#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers) 
 
 
 ## Update Management permissions
@@ -328,42 +328,26 @@ The following section shows you how to configure Azure RBAC on your Automation a
 
 ### Configure Azure RBAC using the Azure portal
 
-1. Log in to the [Azure portal](https://portal.azure.com/) and open your Automation account from the Automation Accounts page.
-2. Click on **Access control (IAM)** to open the Access control (IAM) page. You can use this page to add new users, groups, and applications to manage your Automation account and view existing roles that are configurable for the Automation account.
-3. Click the **Role assignments** tab.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and open your Automation account from the **Automation Accounts** page.
 
-   ![Access button](media/automation-role-based-access-control/automation-01-access-button.png)
+1. Select **Access control (IAM)** and select a role from the list of available roles. You can choose any of the available built-in roles that an Automation account supports or any custom role you might have defined. Assign the role to a user to which you want to give permissions.
 
-#### Add a new user and assign a role
-
-1. From the Access control (IAM) page, click **+ Add role assignment**. This action opens the Add role assignment page where you can add a user, group, or application, and assign a corresponding role.
-
-2. Select a role from the list of available roles. You can choose any of the available built-in roles that an Automation account supports or any custom role you may have defined.
-
-3. Type the name of the user that you want to give permissions to in the **Select** field. Choose the user from the list and click **Save**.
-
-   ![Add users](media/automation-role-based-access-control/automation-04-add-users.png)
-
-   Now you should see the user added to the Users page, with the selected role assigned.
-
-   ![List users](media/automation-role-based-access-control/automation-05-list-users.png)
-
-   You can also assign a role to the user from the Roles page.
-
-4. Click **Roles** from the Access control (IAM) page to open the Roles page. You can view the name of the role and the number of users and groups assigned to that role.
-
-    ![Assign role from users page](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
+   For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
    > [!NOTE]
    > You can only set role-based access control at the Automation account scope and not at any resource below the Automation account.
 
-#### Remove a user
+#### Remove role assignments from a user
 
-You can remove the access permission for a user who isn't managing the Automation account, or who no longer works for the organization. Following are the steps to remove a user:
+You can remove the access permission for a user who isn't managing the Automation account, or who no longer works for the organization. The following steps show how to remove the role assignments from a user. For detailed steps, see [Remove Azure role assignments](../../articles/role-based-access-control/role-assignments-remove.md):
 
-1. From the Access control (IAM) page, select the user to remove and click **Remove**.
-2. Click the **Remove** button in the assignment details pane.
-3. Click **Yes** to confirm removal.
+1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to remove access.
+
+1. Select the **Role assignments** tab to view all the role assignments at this scope.
+
+1. In the list of role assignments, add a checkmark next to the user with the role assignment you want to remove.
+
+1. Select **Remove**.
 
    ![Remove users](media/automation-role-based-access-control/automation-08-remove-users.png)
 
@@ -485,6 +469,7 @@ When a user assigned to the Automation Operator role on the Runbook scope views 
 
 ## Next steps
 
+* To learn about security guidelines, see [Security best practices in Azure Automation](automation-security-guidelines.md).
 * To find out more about Azure RBAC using PowerShell, see [Add or remove Azure role assignments using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * For details of the types of runbooks, see [Azure Automation runbook types](automation-runbook-types.md).
 * To start a runbook, see [Start a runbook in Azure Automation](start-runbooks.md).

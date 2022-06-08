@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+ms.reviewer: rijolly
 ---
 
 # System performance counters in Application Insights
@@ -139,7 +140,7 @@ Like other telemetry, **performanceCounters** also has a column `cloud_RoleInsta
 
 ## Performance counters for applications running in Azure Web Apps and Windows Containers on Azure App Service
 
-Both ASP.NET and ASP.NET Core applications deployed to Azure Web Apps run in a special sandbox environment. Applications deployed to Azure App Service can utilize a [Windows container](/azure/app-service/quickstart-custom-container?tabs=dotnet&pivots=container-windows) or be hosted in a sandbox environment. If the application is deployed in a Windows Container all standard performance counters are available in the container image. 
+Both ASP.NET and ASP.NET Core applications deployed to Azure Web Apps run in a special sandbox environment. Applications deployed to Azure App Service can utilize a [Windows container](../../app-service/quickstart-custom-container.md?pivots=container-windows&tabs=dotnet) or be hosted in a sandbox environment. If the application is deployed in a Windows Container all standard performance counters are available in the container image. 
 
 The sandbox environment does not allow direct access to system performance counters. However, a limited subset of counters are exposed as environment variables as described [here](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Only a subset of counters are available in this environment, and the full list can be found [here](https://github.com/microsoft/ApplicationInsights-dotnet/blob/main/WEB/Src/PerformanceCollector/PerformanceCollector/Implementation/WebAppPerformanceCollector/CounterFactory.cs).
 

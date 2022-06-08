@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/24/2021
+ms.date: 06/03/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -18,12 +18,12 @@ ms.collection: M365-identity-device-management
 
 # Dynamic membership rules for groups in Azure Active Directory
 
-In Azure Active Directory (Azure AD), you can create complex attribute-based rules to enable dynamic memberships for groups. Dynamic group membership reduces the administrative overhead of adding and removing users. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Microsoft 365 groups.
+In Azure Active Directory (Azure AD), you can create attribute-based rules to enable dynamic membership for a group. Dynamic group membership adds and removes group members automatically using membership rules based on member attributes. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Microsoft 365 groups.
 
 When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed. You can't manually add or remove a member of a dynamic group.
 
 - You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
-- You can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributes.
+- You can't create a device group based on the user attributes of the device owner. Device membership rules can reference only device attributes.
 
 > [!NOTE]
 > This feature requires an Azure AD Premium P1 license or Intune for Education for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the Azure AD organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your organization, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
@@ -81,10 +81,10 @@ The following are the user properties that you can use to create a single expres
 
 ### Properties of type boolean
 
-| Properties | Allowed values | Usage |
-| --- | --- | --- |
-| accountEnabled |true false |user.accountEnabled -eq true |
-| dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
+Properties | Allowed values | Usage
+--- | --- | ---
+accountEnabled |true false |user.accountEnabled -eq true
+dirSyncEnabled |true false |user.dirSyncEnabled -eq true
 
 ### Properties of type string
 
@@ -101,8 +101,10 @@ The following are the user properties that you can use to create a single expres
 | jobTitle |Any string value or *null* |(user.jobTitle -eq "value") |
 | mail |Any string value or *null* (SMTP address of the user) |(user.mail -eq "value") |
 | mailNickName |Any string value (mail alias of the user) |(user.mailNickName -eq "value") |
+| memberOf | Any string value (valid group object ID) | (device.memberof -any (group.objectId -in ['value'])) |
 | mobile |Any string value or *null* |(user.mobile -eq "value") |
 | objectId |GUID of the user object |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
+| onPremisesDistinguishedName (preview)| Any string value or *null* |(user.onPremisesDistinguishedName -eq "value") |
 | onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Any string value or *null* |(user.physicalDeliveryOfficeName -eq "value") |
@@ -264,7 +266,7 @@ assignedPlans is a multi-value property that lists all service plans assigned to
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-A rule such as this one can be used to group all users for whom a Microsoft 365 (or other Microsoft Online Service) capability is enabled. You could then apply with a set of policies to the group.
+A rule such as this one can be used to group all users for whom a Microsoft 365 or other Microsoft Online Service capability is enabled. You could then apply with a set of policies to the group.
 
 #### Example 2
 
@@ -344,13 +346,13 @@ device.objectId -ne null
 
 ## Extension properties and custom extension properties
 
-Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes) are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
+Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes) are synced from on-premises Window Server Active Directory and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[Custom extension properties](../hybrid/how-to-connect-sync-feature-directory-extensions.md) are synced from on-premises Windows Server AD or from a connected SaaS application and are of the format of `user.extension_[GUID]_[Attribute]`, where:
+[Custom extension properties](../hybrid/how-to-connect-sync-feature-directory-extensions.md) are synced from on-premises Windows Server Active Directory or from a connected SaaS application and are of the format of `user.extension_[GUID]_[Attribute]`, where:
 
 - [GUID] is the unique identifier in Azure AD for the application that created the property in Azure AD
 - [Attribute] is the name of the property as it was created
@@ -375,7 +377,7 @@ You can also create a rule that selects device objects for membership in a group
 > [!NOTE]
 > systemlabels is a read-only attribute that cannot be set with Intune.
 >
-> For Windows 10, the correct format of the deviceOSVersion attribute is as follows: (device.deviceOSVersion -eq "10.0.17763"). The formatting can be validated with the Get-MsolDevice PowerShell cmdlet.
+> For Windows 10, the correct format of the deviceOSVersion attribute is as follows: (device.deviceOSVersion -startsWith "10.0.1"). The formatting can be validated with the Get-MsolDevice PowerShell cmdlet.
 
 The following device attributes can be used.
 
@@ -384,7 +386,7 @@ The following device attributes can be used.
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | any string value |(device.displayName -eq "Rob iPhone")
  deviceOSType | any string value | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")<br>(device.deviceOSType -eq "Windows")
- deviceOSVersion | any string value | (device.deviceOSVersion -eq "9.1")<br>(device.deviceOSVersion -eq "10.0.17763.0")
+ deviceOSVersion | any string value | (device.deviceOSVersion -eq "9.1")<br>(device.deviceOSVersion -startsWith "10.0.1")
  deviceCategory | a valid device category name | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
  deviceModel | any string value | (device.deviceModel -eq "iPad Air")
@@ -392,12 +394,13 @@ The following device attributes can be used.
  enrollmentProfileName | Apple Device Enrollment Profile name, Android Enterprise Corporate-owned dedicated device Enrollment Profile name, or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (for mobile devices) | (device.managementType -eq "MDM")
+ memberOf | Any string value (valid group object ID) | (user.memberof -any (group.objectId -in ['value'])) 
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | a valid Azure AD object ID |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
  devicePhysicalIds | any string value used by Autopilot, such as all Autopilot devices, OrderID, or PurchaseOrderID  | (device.devicePhysicalIDs -any _ -contains "[ZTDId]") (device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342")
  systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | (device.systemLabels -contains "M365Managed")
 
-> [!Note]  
+> [!NOTE]
 > For the deviceOwnership when creating Dynamic Groups for devices you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
 
 ## Next steps

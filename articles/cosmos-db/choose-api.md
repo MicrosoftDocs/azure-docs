@@ -1,20 +1,23 @@
 ---
 title: Choose an API in Azure Cosmos DB
 description: Learn how to choose between SQL/Core, MongoDB, Cassandra, Gremlin, and table APIs in Azure Cosmos DB based on your workload requirements.
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/08/2021
 ms.custom: cosmos-db-video
+adobe-target: true
 ---
 
 # Choose an API in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-📺 <B><a href="https://aka.ms/cosmos-db-video-explore-cosmos-db-apis" target="_blank">Video: Explore Azure Cosmos DB APIs</a></b>
-
 Azure Cosmos DB is a fully managed NoSQL database for modern app development. Azure Cosmos DB takes database administration off your hands with automatic management, updates, and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
+
+>
+> [!VIDEO https://aka.ms/docs.essential-apis]
 
 ## APIs in Azure Cosmos DB
 
@@ -50,15 +53,13 @@ If you are migrating from other databases such as Oracle, DynamoDB, HBase etc. a
 
 This API stores data in a document structure, via BSON format. It is compatible with MongoDB wire protocol; however, it does not use any native MongoDB related code. This API is a great choice if you want to use the broader MongoDB ecosystem and skills, without compromising on using Azure Cosmos DB features such as scaling, high availability, geo-replication, multiple write locations, automatic and transparent shard management, transparent replication between operational and analytical stores, and more.
 
-You can use your existing MongoDB apps with API for MongoDB by just changing the connection string. You can move any existing data using native MongoDB tools such as mongodump & mongorestore or using our Azure Database Migration tool. Tools, such as the MongoDB shell, [MongoDB Compass](mongodb/connect-using-compass.md), and [Robo3T](mongodb/connect-using-robomongo.md), can run queries and work with data as they do with native MongoDB.
-
-API for MongoDB is compatible with the 4.0, 3.6, and 3.2 MongoDB server versions. Server version 4.0 is recommended as it offers the best performance and full feature support. To learn more, see [API for MongoDB](mongodb/mongodb-introduction.md) article.
+You can use your existing MongoDB apps with API for MongoDB by just changing the connection string. You can move any existing data using native MongoDB tools such as mongodump & mongorestore or using our Azure Database Migration tool. Tools, such as the MongoDB shell, [MongoDB Compass](mongodb/connect-using-compass.md), and [Robo3T](mongodb/connect-using-robomongo.md), can run queries and work with data as they do with native MongoDB. To learn more, see [API for MongoDB](mongodb/mongodb-introduction.md) article.
 
 ## Cassandra API
 
 This API stores data in column-oriented schema. Apache Cassandra offers a highly distributed, horizontally scaling approach to storing large volumes of data while offering a flexible approach to a column-oriented schema. Cassandra API in Azure Cosmos DB aligns with this philosophy to approaching distributed NoSQL databases. Cassandra API is wire protocol compatible with the Apache Cassandra. You should consider Cassandra API if you want to benefit the elasticity and fully managed nature of Azure Cosmos DB and still use most of the native Apache Cassandra features, tools, and ecosystem. This means on Cassandra API you don't need to manage the OS, Java VM, garbage collector, read/write performance, nodes, clusters, etc.
 
-You can use Apache Cassandra client drivers to connect to the Cassandra API. The Cassandra API enables you to interact with data using the Cassandra Query Language (CQL), and tools like CQL shell, Cassandra client drivers that you're already familiar with. Cassandra API currently only supports OLTP scenarios. Using Cassandra API, you can also use the unique features of Azure Cosmos DB such as change feed. To learn more, see [Cassandra API](cassandra-introduction.md) article.
+You can use Apache Cassandra client drivers to connect to the Cassandra API. The Cassandra API enables you to interact with data using the Cassandra Query Language (CQL), and tools like CQL shell, Cassandra client drivers that you're already familiar with. Cassandra API currently only supports OLTP scenarios. Using Cassandra API, you can also use the unique features of Azure Cosmos DB such as [change feed](cassandra-change-feed.md). To learn more, see [Cassandra API](cassandra-introduction.md) article. If you're already familiar with Apache Cassandra, but new to Azure Cosmos DB, we recommend our article on [how to adapt to the Cassandra API if you are coming from Apache Cassandra](./cassandra/cassandra-adoption.md).
 
 ## Gremlin API
 

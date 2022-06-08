@@ -141,6 +141,7 @@ This operation will simply “flatten” each of the names of the customEntities
 ```
 
 ## Next steps
+
 Once you have mapped your enriched fields to searchable fields, you can set the field attributes for each of the searchable fields [as part of the index definition](search-what-is-an-index.md).
 
 For more information about field mapping, see [Field mappings in Azure Cognitive Search indexers](search-indexer-field-mappings.md).

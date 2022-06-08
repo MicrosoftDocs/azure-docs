@@ -39,11 +39,14 @@ Data Factory offers three types of Integration Runtime (IR), and you should choo
 
 The following table describes the capabilities and network support for each of the integration runtime types:
 
-IR type | Public network | Private network 
-------- | -------------- | ---------------
-Azure | Data Flow<br/>Data movement<br/>Activity dispatch | Data Flow<br/>Data movement<br/>Activity dispatch
-Self-hosted | Data movement<br/>Activity dispatch | Data movement<br/>Activity dispatch
-Azure-SSIS | SSIS package execution | SSIS package execution
+IR type | Public Network Support | Private Link Support | 
+------- | -------------- | --------------- | 
+Azure | Data Flow<br/>Data movement<br/>Activity dispatch | Data Flow<br/>Data movement<br/>Activity dispatch |
+Self-hosted | Data movement<br/>Activity dispatch | Data movement<br/>Activity dispatch | 
+Azure-SSIS | SSIS package execution | SSIS package execution | 
+
+> [!NOTE]
+> Outbound controls vary by service for Azure IR. In Synapse, workspaces have options to limit outbound traffic from the [managed virtual network](../synapse-analytics/security/synapse-workspace-managed-vnet.md) when utilizing Azure IR. In Data Factory, all ports are opened for [outbound communications](managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-a-data-factory-managed-virtual-network) when utilizing Azure IR. Azure-SSIS IR can be integrated with your vNET to provide [outbound communications](azure-ssis-integration-runtime-standard-virtual-network-injection.md) controls.
 
 
 ## Azure integration runtime
@@ -56,7 +59,7 @@ An Azure integration runtime can:
 
 ### Azure IR network environment
 
-Azure Integration Runtime supports connecting to data stores and computes services with public accessible endpoints. Enabling Managed Virtual Network, Azure Integration Runtime supports connecting to data stores using private link service in private network environment.
+Azure Integration Runtime supports connecting to data stores and computes services with public accessible endpoints. Enabling Managed Virtual Network, Azure Integration Runtime supports connecting to data stores using private link service in private network environment. In Synapse, workspaces have options to limit outbound traffic from the IR [managed virtual network](../synapse-analytics/security/synapse-workspace-managed-vnet.md).  In Data Factory, all ports are opened for [outbound communications](managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-a-data-factory-managed-virtual-network). The Azure-SSIS IR can be integrated with your vNET to provide [outbound communications](azure-ssis-integration-runtime-standard-virtual-network-injection.md) controls.
 
 ### Azure IR compute resource and scaling
 Azure integration runtime provides a fully managed, serverless compute in Azure.  You don't have to worry about infrastructure provision, software installation, patching, or capacity scaling.  In addition, you only pay for the duration of the actual utilization.

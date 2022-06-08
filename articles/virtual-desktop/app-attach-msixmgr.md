@@ -66,6 +66,9 @@ Here's how you'd use that command to make a VHDX:
 msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\packageName_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\packageName.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps
 ```
 
+>[!NOTE]
+>This command doesn't support package names that are longer than 128 characters or MSIX image names with spaces between characters.
+
 ## Next steps
 
 Learn more about MSIX app attach at [What is MSIX app attach?](what-is-app-attach.md)

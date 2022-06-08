@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/03/2022
+ms.date: 05/24/2022
 ms.custom: subject-rbac-steps, references_regions
 ---
 
@@ -24,16 +24,16 @@ Per-user access over search results (sometimes referred to as row-level security
 
 ## Built-in roles used in Search
 
-Built-in roles include generally available and preview roles.
+Built-in roles include generally available and preview roles. If these roles are insufficient, [create a custom role](#create-a-custom-role) instead.
 
 | Role | Description and availability |
 | ---- | ---------------------------- |
 | [Owner](../role-based-access-control/built-in-roles.md#owner) | (Generally available) Full access to the search resource, including the ability to assign Azure roles. Subscription administrators are members by default. |
 | [Contributor](../role-based-access-control/built-in-roles.md#contributor) | (Generally available) Same level of access as Owner, minus the ability to assign roles or change authorization options. |
-| [Reader](../role-based-access-control/built-in-roles.md#reader) | (Generally available) Limited access to partial service information. In the portal, the Reader role can access information in the service Overview page, in the Essentials section and under the Monitoring tab. All other tabs and pages are off limits. </br></br>This role has access to service information: resource group, service status, location, subscription name and ID, tags, URL, pricing tier, replicas, partitions, and search units. This role also has access to service metrics: search latency, percentage of throttled requests, average queries per second. </br></br>There is no access to API keys, role assignments, content (indexes or synonym maps), or content metrics (storage consumed, number of objects). |
-| [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | (Generally available and preview) This role is equivalent to Contributor at the service-level, but with full access to all actions on indexes, synonym maps, indexers, data sources, and skillsets through [`Microsoft.Search/searchServices/*`](../role-based-access-control/resource-provider-operations.md#microsoftsearch). This role is for search service administrators who need to fully manage the service. </br></br>Like Contributor, members of this role cannot make or manage role assignments or change authorization options. Your service must be enabled for the preview for data requests. |
-| [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | (Preview) Provides full access to content in all indexes on the search service. This role is for developers or index owners who need to import, refresh, or query the documents collection of an index. |
-| [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) | (Preview) Provides read-only access to search indexes on the search service. This role is for apps and users who run queries. |
+| [Reader](../role-based-access-control/built-in-roles.md#reader) | (Generally available) Limited access to partial service information. In the portal, the Reader role can access information in the service Overview page, in the Essentials section and under the Monitoring tab. All other tabs and pages are off limits. </br></br>This role has access to service information: service name, resource group, service status, location, subscription name and ID, tags, URL, pricing tier, replicas, partitions, and search units. This role also has access to service metrics: search latency, percentage of throttled requests, average queries per second. </br></br>There is no access to API keys, role assignments, content (indexes or synonym maps), or content metrics (storage consumed, number of objects). |
+| [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | (Generally available) This role is identical to the Contributor role and applies to control plane operations. </br></br>(Preview) When you enable the RBAC preview for the data plane, this role also provides full access to all data plane actions on indexes, synonym maps, indexers, data sources, and skillsets as defined by [`Microsoft.Search/searchServices/*`](../role-based-access-control/resource-provider-operations.md#microsoftsearch). This role is for search service administrators who need to fully manage both the service and its content. </br></br>Like Contributor, members of this role cannot make or manage role assignments or change authorization options. To use the preview capabilities of this role, your service must have the preview feature enabled, as described in this article. |
+| [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | (Preview) Provides full data plane access to content in all indexes on the search service. This role is for developers or index owners who need to import, refresh, or query the documents collection of an index. |
+| [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) | (Preview) Provides read-only data plane access to search indexes on the search service. This role is for apps and users who run queries. |
 
 > [!NOTE]
 > Azure resources have the concept of [control plane and data plane](../azure-resource-manager/management/control-plane-and-data-plane.md) categories of operations. In Cognitive Search, "control plane" refers to any operation supported in the [Management REST API](/rest/api/searchmanagement/) or equivalent client libraries. The "data plane" refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent client libraries. Most roles apply to just one plane. The exception is Search Service Contributor which supports actions across both.
@@ -128,7 +128,7 @@ If you are using Postman or another web testing tool, see the Tip below for help
 1. [Assign roles](#step-3-assign-roles) on the service and verify they are working correctly against the data plane.
 
 > [!TIP]
-> Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principle and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
+> Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principal and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
 
 ---
 
@@ -277,13 +277,75 @@ In PowerShell, use [New-AzRoleAssignment](/powershell/module/az.resources/new-az
 
 If [built-in roles](#built-in-roles-used-in-search) don't provide the right combination of permissions, you can create a [custom role](../role-based-access-control/custom-roles.md) to support the operations you require
 
-For example, you might want to augment a read-only role to include listing the indexes on the search service (Microsoft.Search/searchServices/indexes/read), or create a role that can fully manage indexes, including the ability to create indexes and read data. 
+This example clones **Search Index Data Reader** and then adds the ability to list indexes by name. Normally, listing the indexes on a search service is considered an administrative right.
 
-The PowerShell example shows the JSON syntax for creating a custom role.
+### [**Azure portal**](#tab/custom-role-portal)
+
+These steps are derived from [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md). Cloning from an existing role is supported in a search service page.
+
+These steps create a custom role that augments search query rights to include listing indexes by name. Typically, listing indexes is considered an admin function.
+
+1. In the Azure portal, navigate to your search service.
+
+1. In the left-navigation pane, select **Access Control (IAM)**.
+
+1. In the action bar, select **Roles**.
+
+1. Right-click **Search Index Data Reader** (or another role) and select **Clone** to open the **Create a custom role** wizard.
+
+1. On the Basics tab, provide a name for the custom role, such as "Search Index Data Explorer", and then click **Next**.
+
+1. On the Permissions tab, select **Add permission**.
+
+1. On the Add permissions tab, search for and then select the **Microsoft Search** tile.
+
+1. Set the permissions for your custom role. At the top of the page, using the default **Actions** selection:
+
+   + Under Microsoft.Search/operations, select **Read : List all available operations**. 
+   + Under Microsoft.Search/searchServices/indexes, select **Read : Read Index**.
+
+1. On the same page, switch to **Data actions** and under Microsoft.Search/searchServices/indexes/documents, select **Read : Read Documents**.
+
+   The JSON definition looks like the following example:
+
+   ```json
+   {
+    "properties": {
+        "roleName": "search index data explorer",
+        "description": "",
+        "assignableScopes": [
+            "/subscriptions/a5b1ca8b-bab3-4c26-aebe-4cf7ec4791a0/resourceGroups/heidist-free-search-svc/providers/Microsoft.Search/searchServices/demo-search-svc"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Search/operations/read",
+                    "Microsoft.Search/searchServices/indexes/read"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.Search/searchServices/indexes/documents/read"
+                ],
+                "notDataActions": []
+            }
+        ]
+      }
+    }
+    ```
+
+1. Select **Review + create** to create the role. You can now assign users and groups to the role.
 
 ### [**Azure PowerShell**](#tab/custom-role-ps)
 
-1. Review the [list of atomic permissions](../role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
+The PowerShell example shows the JSON syntax for creating a custom role that's a clone of **Search Index Data Reader**, but withe ability to list all indexes by name.
+
+1. Review the [list of atomic permissions](../role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need. For this example, you'll need the following:
+
+   ```json
+   "Microsoft.Search/operations/read",
+   "Microsoft.Search/searchServices/read",
+   "Microsoft.Search/searchServices/indexes/read"
+   ```
 
 1. Set up a PowerShell session to create the custom role. For detailed instructions, see [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md)
 
@@ -291,17 +353,17 @@ The PowerShell example shows the JSON syntax for creating a custom role.
 
 ```json
 {
-  "Name": "Search Index Manager",
+  "Name": "Search Index Data Explorer",
   "Id": "88888888-8888-8888-8888-888888888888",
   "IsCustom": true,
-  "Description": "Can manage search indexes and read or write to them",
+  "Description": "List all indexes on the service and query them.",
   "Actions": [
-    "Microsoft.Search/searchServices/indexes/*",
-    
+      "Microsoft.Search/operations/read",
+      "Microsoft.Search/searchServices/read"
   ],
   "NotActions": [],
   "DataActions": [
-      "Microsoft.Search/searchServices/indexes/documents/*"
+      "Microsoft.Search/searchServices/indexes/read"
   ],
   "NotDataActions": [],
   "AssignableScopes": [
@@ -310,13 +372,8 @@ The PowerShell example shows the JSON syntax for creating a custom role.
 }
 ```
 
-### [**Azure portal**](#tab/custom-role-portal)
-
-1. Review the [list of atomic permissions](../role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
-
-1. See [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md) for steps.
-
-1. Clone or create a role, or use JSON to specify the custom role (see the PowerShell tab for JSON syntax).
+> [!NOTE]
+> If the assignable scope is at the index level, the data action should be `"Microsoft.Search/searchServices/indexes/documents/read"`.
 
 ### [**REST API**](#tab/custom-role-rest)
 
@@ -383,7 +440,7 @@ You cannot combine steps one and two. In step one, "disableLocalAuth" must be fa
 To re-enable key authentication, rerun the last request, setting "disableLocalAuth" to false. The search service will resume acceptance of API keys on the request automatically (assuming they are specified).
 
 > [!TIP]
-> Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principle and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
+> Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principal and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
 
 ## Conditional Access
 

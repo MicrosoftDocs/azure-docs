@@ -33,7 +33,7 @@ Information on Red Hat support policies for all versions of RHEL can be found on
 
 * RHEL SAP PAYG images in Azure (RHEL for SAP, RHEL for SAP HANA, and RHEL for SAP Business Applications) are connected to dedicated RHUI channels that remain on the specific RHEL minor version as required for SAP certification.
 
-* Access to Azure-hosted RHUI is limited to the VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). If you're proxying all VM traffic via an on-premises network infrastructure, you might need to set up user-defined routes for the RHEL PAYG VMs to access the Azure RHUI. If that is the case, user-defined routes will need to be added for _all_ RHUI IP addresses.
+* Access to Azure-hosted RHUI is limited to the VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519). If you're proxying all VM traffic via an on-premises network infrastructure, you might need to set up user-defined routes for the RHEL PAYG VMs to access the Azure RHUI. If that is the case, user-defined routes will need to be added for _all_ RHUI IP addresses.
 
 
 ## Image update behavior
@@ -84,122 +84,6 @@ At the time of this writing, EUS support has ended for RHEL <= 7.4. See the "Red
 * RHEL 7.6 EUS support ends May 31, 2021
 * RHEL 7.7 EUS support ends August 30, 2021
 
-### Switch a RHEL VM 7.x to EUS (version-lock to a specific minor version)
-Use the following instructions to lock a RHEL 7.x VM to a particular minor release (run as root):
-
->[!NOTE]
-> This only applies for RHEL 7.x versions for which EUS is available. At the time of this writing, this includes RHEL 7.2-7.7. More details are available at the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
-
-1. Disable non-EUS repos:
-    ```bash
-    yum --disablerepo='*' remove 'rhui-azure-rhel7'
-    ```
-
-1. Add EUS repos:
-    ```bash
-    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
-    ```
-
-1. Lock the `releasever` variable (run as root):
-    ```bash
-    echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
-    ```
-
-    >[!NOTE]
-    > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 7.5 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 7.5.
-
-1. Update your RHEL VM
-    ```bash
-    sudo yum update
-    ```
-
-### Switch a RHEL VM 8.x to EUS (version-lock to a specific minor version)
-Use the following instructions to lock a RHEL 8.x VM to a particular minor release (run as root):
-
->[!NOTE]
-> This only applies for RHEL 8.x versions for which EUS is available. At the time of this writing, this includes RHEL 8.1-8.2. More details are available at the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
-
-1. Disable non-EUS repos:
-    ```bash
-    yum --disablerepo='*' remove 'rhui-azure-rhel8'
-    ```
-
-1. Get the EUS repos config file:
-    ```bash
-    wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
-    ```
-
-1. Add EUS repos:
-    ```bash
-    yum --config=rhui-microsoft-azure-rhel8-eus.config install rhui-azure-rhel8-eus
-    ```
-
-1. Lock the `releasever` variable (run as root):
-    ```bash
-    echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
-    ```
-
-    >[!NOTE]
-    > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 8.1 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 8.1.
-
-    >[!NOTE]
-    > If there are permission issues to access the releasever, you can edit the file using 'nano /etc/yum/vars/releaseve' and add the image version details and save ('Ctrl+o' then press enter and then 'Ctrl+x').  
-
-1. Update your RHEL VM
-    ```bash
-    sudo yum update
-    ```
-
-
-### Switch a RHEL 7.x VM back to non-EUS (remove a version lock)
-Run the following as root:
-1. Remove the `releasever` file:
-    ```bash
-    rm /etc/yum/vars/releasever
-     ```
-
-1. Disable EUS repos:
-    ```bash
-    yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
-   ```
-
-1. Configure RHEL VM
-    ```bash
-    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
-    ```
-
-1. Update your RHEL VM
-    ```bash
-    sudo yum update
-    ```
-
-### Switch a RHEL 8.x VM back to non-EUS (remove a version lock)
-Run the following as root:
-1. Remove the `releasever` file:
-    ```bash
-    rm /etc/yum/vars/releasever
-     ```
-
-1. Disable EUS repos:
-    ```bash
-    yum --disablerepo='*' remove 'rhui-azure-rhel8-eus'
-   ```
-
-1. Get the regular repos config file:
-    ```bash
-    wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
-    ```
-
-1. Add non-EUS repos:
-    ```bash
-    yum --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
-    ```
-    
-1. Update your RHEL VM
-    ```bash
-    sudo yum update
-    ```
-
 ## The IPs for the RHUI content delivery servers
 
 RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page, Azure US Government, and Microsoft Azure Germany regions.
@@ -220,9 +104,6 @@ If you're using a network configuration to further restrict access from RHEL PAY
 13.72.14.155
 52.244.249.194
 
-# Azure Germany
-51.5.243.77
-51.4.228.145
 ```
 >[!NOTE]
 >The new Azure US Government images,as of January 2020, will be using Public IP mentioned under Azure Global header above.
@@ -258,7 +139,7 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
 
     1. If it points to a location with the following pattern, `mirrorlist.*cds[1-4].cloudapp.net`, a configuration update is required. You're using the old VM snapshot, and you need to update it to point to the new Azure RHUI.
 
-1. Access to Azure-hosted RHUI is limited to VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+1. Access to Azure-hosted RHUI is limited to VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
 1. If you're using the new configuration, have verified that the VM connects from the Azure IP range, and still can't connect to Azure RHUI, file a support case with Microsoft or Red Hat.
 

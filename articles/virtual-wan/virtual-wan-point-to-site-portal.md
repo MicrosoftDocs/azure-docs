@@ -1,20 +1,21 @@
 ---
 
-title: 'Tutorial: Use Azure Virtual WAN to create a Point-to-Site connection to Azure'
+title: 'Tutorial: Create a User VPN connection to Azure using Azure Virtual WAN'
 description: In this tutorial, learn how to use Azure Virtual WAN to create a User VPN (point-to-site) connection to Azure.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 08/23/2021
+ms.date: 04/11/2022
 ms.author: cherylmc
 
 ---
-# Tutorial: Create a User VPN connection using Azure Virtual WAN
+# Tutorial: Create a P2S User VPN connection using Azure Virtual WAN
 
-This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an OpenVPN or IPsec/IKE (IKEv2) VPN connection using a User VPN (P2S) configuration. This type of connection requires the native VPN client to be configured on each connecting client computer.
-* If you want to create a User VPN connection using Azure AD authentication, use the [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md) article instead.
+This tutorial shows you how to use Virtual WAN to connect to your resources in Azure. In this tutorial, you create a point-to-site User VPN connection over OpenVPN or IPsec/IKE (IKEv2) using the Azure portal. This type of connection requires the native VPN client to be configured on each connecting client computer.
+
+* This article applies to certificate and RADIUS authentication. For Azure AD authentication, see [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md).
 * For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
 In this tutorial, you learn how to:
@@ -47,9 +48,9 @@ In the following steps, when selecting the authentication method, you have three
 
 * **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](certificates-point-to-site.md).
 
-* **Azure Active Directory authentication:** Use the [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md) article, which contains the specific steps necessary for this configuration.
-
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
+
+* **Azure Active Directory authentication:** See [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md).
 
 ### Configuration steps
 
@@ -61,7 +62,7 @@ In the following steps, when selecting the authentication method, you have three
 
 ## <a name="download"></a>Generate client configuration files
 
-When you connect to VNet using User VPN (P2S), you use the VPN client that is natively installed on the operating system from which you are connecting. All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients. The VPN client configuration files that you generate are specific to the User VPN configuration for your gateway. In this section, you generate and download the files used to configure your VPN clients.
+When you connect to VNet using User VPN (P2S), you use the VPN client that is natively installed on the operating system from which you're connecting. All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients. The VPN client configuration files that you generate are specific to the User VPN configuration for your gateway. In this section, you generate and download the files used to configure your VPN clients.
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
@@ -74,7 +75,7 @@ Once you have finished configuring your client, you can connect.
 
 ## <a name="connect-vnet"></a>Connect VNet to hub
 
-In this section, you create a connection between your virtual hub and your VNet. For this tutorial, you do not need to configure the routing settings.
+In this section, you create a connection between your virtual hub and your VNet. For this tutorial, you don't need to configure the routing settings.
 
 [!INCLUDE [Connect virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
@@ -111,7 +112,6 @@ When you no longer need the resources that you created, delete them. Some of the
 [!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## Next steps
-
 
 > [!div class="nextstepaction"]
 > * [Manage secure access to resources in spoke VNets](manage-secure-access-resources-spoke-p2s.md)

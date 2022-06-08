@@ -124,11 +124,11 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. Select the **Review + Create** button to verify the details are all correct.
 
-1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Action for deployment.
+1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Actions for deployment.
 
 1. Once the deployment completes click, **Go to resource**.
 
-1. On the resource screen, click the _URL_ link to open your deployed application. You may need to wait a minute or two for the GitHub Action to complete.
+1. On the resource screen, click the _URL_ link to open your deployed application. You may need to wait a minute or two for the GitHub Actions to complete.
 
    :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Deployed application":::
 
@@ -136,7 +136,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 When you generate a static web app, a [workflow file](./build-configuration.md) is generated which contains the publishing configuration settings for the application.
 
-To configure environment variables, such as `JEKYLL_ENV`, add an `env` section to the Azure Static Web Apps GitHub Action in the workflow.
+To configure environment variables, such as `JEKYLL_ENV`, add an `env` section to the Azure Static Web Apps GitHub Actions in the workflow.
 
 ```yaml
 - name: Build And Deploy

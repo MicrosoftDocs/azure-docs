@@ -275,7 +275,7 @@ The HTTP status code for each response indicates success or common errors.
 | 200              | OK                | The request was successful.                                                                                                                                               |
 | 202              | Accepted          | The request has been accepted and is being processed.                                                                                  |
 | 400              | Bad Request       | The value of a parameter is invalid, or a required parameter is missing, empty, or null. One common issue is a header that is too long. |
-| 401              | Unauthorized      | The request isn't authorized. Check to make sure your subscription key or [token](rest-speech-to-text.md#authentication) is valid and in the correct region.                                                      |
+| 401              | Unauthorized      | The request isn't authorized. Check to make sure your subscription key or [token](rest-speech-to-text-short.md#authentication) is valid and in the correct region.                                                      |
 | 429              | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription.                                                                                            |
 | 502              | Bad Gateway       | Network or server-side issue. May also indicate invalid headers.                                                                                                          |
 

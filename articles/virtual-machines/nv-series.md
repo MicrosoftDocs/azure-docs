@@ -3,15 +3,21 @@ title: NV-series - Azure Virtual Machines
 description: Specifications for the NV-series VMs.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.author: jushiman
+ms.date: 03/29/2022
+ms.author: vikancha
 ---
 
 # NV-series
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
+
+> [!IMPORTANT]
+> NV and NV_Promo series Azure virtual machines (VMs) will be retired on August 31st, 2023. For more information, see the [NV and NV_Promo retirement information](nv-series-retirement.md). For how to migrate your workloads to other VM sizes, see the [NV and NV_Promo series migration guide](nv-series-migration-guide.md).
+>
+> This retirement announcement doesn't apply to NVv3 and NVv4 series VMs. 
 
 The NV-series virtual machines are powered by [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops where customers are able to visualize their data or simulations. Users are able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. NV-series VMs are also powered by Intel Xeon E5-2690 v3 (Haswell) CPUs.
 

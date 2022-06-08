@@ -27,7 +27,7 @@ The following providers and their corresponding Kubernetes distributions have su
 
 | Provider name | Distribution name | Version |
 | ------------ | ----------------- | ------- |
-| RedHat       | [OpenShift Container Platform](https://www.openshift.com/products/container-platform) | [4.5.41+](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html), [4.6.35+](https://docs.openshift.com/container-platform/4.6/release_notes/ocp-4-6-release-notes.html), [4.7.18+](https://docs.openshift.com/container-platform/4.7/release_notes/ocp-4-7-release-notes.html) |
+| RedHat       | [OpenShift Container Platform](https://www.openshift.com/products/container-platform) | [4.7.18+](https://docs.openshift.com/container-platform/4.7/release_notes/ocp-4-7-release-notes.html), [4.9.17+](https://docs.openshift.com/container-platform/4.9/release_notes/ocp-4-9-release-notes.html), [4.10.0+](https://docs.openshift.com/container-platform/4.10/release_notes/ocp-4-10-release-notes.html) |
 | VMware       | [Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid) | TKGm 1.4.0; upstream K8s v1.21.2+vmware.1 <br>TKGm 1.3.1; upstream K8s v1.20.5_vmware.2 <br>TKGm 1.2.1; upstream K8s v1.19.3+vmware.1 |
 | Canonical    | [Charmed Kubernetes](https://ubuntu.com/kubernetes) | [1.19](https://ubuntu.com/kubernetes/docs/1.19/components) |
 | SUSE Rancher      | [Rancher Kubernetes Engine](https://rancher.com/products/rke/) | RKE CLI version: [v1.2.4](https://github.com/rancher/rke/releases/tag/v1.2.4); Kubernetes versions: [1.19.6](https://github.com/kubernetes/kubernetes/releases/tag/v1.19.6)), [1.18.14](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.14)), [1.17.16](https://github.com/kubernetes/kubernetes/releases/tag/v1.17.16))  |
@@ -36,7 +36,7 @@ The following providers and their corresponding Kubernetes distributions have su
 | Cisco	| [Intersight Kubernetes Service (IKS)](https://www.cisco.com/c/en/us/products/cloud-systems-management/cloud-operations/intersight-kubernetes-service.html) Distribution | Upstream K8s version: 1.19.5 |
 | Kublr	| [Kublr Managed K8s](https://kublr.com/managed-kubernetes/) Distribution | Upstream K8s Version: 1.21.3 |
 | Mirantis | [Mirantis Kubernetes Engine](https://www.mirantis.com/software/mirantis-kubernetes-engine/) | MKE Version 3.5.1 <br> MKE Version 3.4.7 |
-| Wind River | [Wind River Cloud Platform](https://www.windriver.com/studio/operator/cloud-platform) | Wind River Cloud Platform 21.05; Upstream K8s version: 1.18.1 |
+| Wind River | [Wind River Cloud Platform](https://www.windriver.com/studio/operator/cloud-platform) | Wind River Cloud Platform 21.12; Upstream K8s version: 1.21.8 <br>Wind River Cloud Platform 21.05; Upstream K8s version: 1.18.1 |
 
 The Azure Arc team also ran the conformance tests and validated Azure Arc-enabled Kubernetes scenarios on the following public cloud providers:
 

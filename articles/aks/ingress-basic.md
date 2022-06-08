@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure a basic NGINX ingress controller in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 03/07/2022
 
 ---
 
@@ -54,7 +54,10 @@ NAMESPACE=ingress-basic
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 
-helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --namespace $NAMESPACE 
+helm install ingress-nginx ingress-nginx/ingress-nginx \
+  --create-namespace \
+  --namespace $NAMESPACE \
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -65,7 +68,10 @@ $Namespace = 'ingress-basic'
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 
-helm install ingress-nginx ingress-nginx/ingress-nginx --create-namespace --namespace $Namespace 
+helm install ingress-nginx ingress-nginx/ingress-nginx `
+  --create-namespace `
+  --namespace $Namespace `
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
 ```
 
 ---
@@ -153,6 +159,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.image.tag=$CONTROLLER_TAG \
     --set controller.image.digest="" \
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz \
     --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
@@ -183,6 +190,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx `
     --set controller.image.tag=$ControllerTag `
     --set controller.image.digest="" `
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux `
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz `
     --set controller.admissionWebhooks.patch.image.registry=$AcrUrl `
     --set controller.admissionWebhooks.patch.image.image=$PatchImage `
     --set controller.admissionWebhooks.patch.image.tag=$PatchTag `
@@ -310,11 +318,11 @@ kind: Ingress
 metadata:
   name: hello-world-ingress
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
@@ -345,10 +353,10 @@ kind: Ingress
 metadata:
   name: hello-world-ingress-static
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/rewrite-target: /static/$2
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
@@ -367,8 +375,8 @@ Create the ingress resource using the `kubectl apply -f hello-world-ingress.yaml
 ```
 $ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
-ingress.extensions/hello-world-ingress created
-ingress.extensions/hello-world-ingress-static created
+ingress.networking.k8s.io/hello-world-ingress created
+ingress.networking.k8s.io/hello-world-ingress-static created
 ```
 
 ## Test the ingress controller

@@ -1,11 +1,12 @@
 ---
 title: Cosmos DB Migration options
 description: This doc describes the various options to migrate your on-premises or cloud data to Azure Cosmos DB
-author: rothja
-ms.author: jroth
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 04/02/2022
 
 ---
 # Options to migrate your on-premises or cloud data to Azure Cosmos DB
@@ -39,11 +40,15 @@ The following factors determine the choice of the migration tool:
 If you need help with capacity planning, consider reading our [guide to estimating RU/s using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md). 
 * If you are migrating from a vCores- or server-based platform and you need guidance on estimating request units, consider reading our [guide to estimating RU/s based on vCores](estimate-ru-with-capacity-planner.md).
 
+>[!IMPORTANT]
+> The [Custom Migration Service using ChangeFeed](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator) is an open-source tool for live container migrations that implements change feed and bulk support. However, please note that the user interface application code for this tool is not supported or actively maintained by Microsoft. For Azure Cosmos DB SQL API live container migrations, we recommend using the Spark Connector + Change Feed as illustrated in the [sample](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples/DatabricksLiveContainerMigration) below. The [Spark Connector for Azure Cosmos DB](./create-sql-api-spark.md) is fully supported by Microsoft.
+
 |Migration type|Solution|Supported sources|Supported targets|Considerations|
 |---------|---------|---------|---------|---------|
 |Offline|[Data Migration Tool](import-data.md)| &bull;JSON/CSV Files<br/>&bull;Azure Cosmos DB SQL API<br/>&bull;MongoDB<br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;AWS DynamoDB<br/>&bull;Azure Blob Storage|&bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB Tables API<br/>&bull;JSON Files |&bull; Easy to set up and supports multiple sources. <br/>&bull; Not suitable for large datasets.|
 |Offline|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)| &bull;JSON/CSV Files<br/>&bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB API for MongoDB<br/>&bull;MongoDB <br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;Azure Blob Storage <br/> <br/>See the [Azure Data Factory](../data-factory/connector-overview.md) article for other supported sources.|&bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB API for MongoDB<br/>&bull;JSON Files <br/><br/> See the [Azure Data Factory](../data-factory/connector-overview.md) article for other supported targets. |&bull; Easy to set up and supports multiple sources.<br/>&bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets. <br/>&bull; Lack of checkpointing - It means that if an issue occurs during the course of migration, you need to restart the whole migration process.<br/>&bull; Lack of a dead letter queue - It means that a few erroneous files can stop the entire migration process.|
 |Offline|[Azure Cosmos DB Spark connector](./create-sql-api-spark.md)|Azure Cosmos DB SQL API. <br/><br/>You can use other sources with additional connectors from the Spark ecosystem.| Azure Cosmos DB SQL API. <br/><br/>You can use other targets with additional connectors from the Spark ecosystem.| &bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets. <br/>&bull; Needs a custom Spark setup. <br/>&bull; Spark is sensitive to schema inconsistencies and this can be a problem during migration. |
+|Online|[Azure Cosmos DB Spark connector + Change Feed](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples/DatabricksLiveContainerMigration)|Azure Cosmos DB SQL API. <br/><br/>Uses Azure Cosmos DB Change Feed to stream all historic data as well as live updates.| Azure Cosmos DB SQL API. <br/><br/>You can use other targets with additional connectors from the Spark ecosystem.| &bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets. <br/>&bull; Needs a custom Spark setup. <br/>&bull; Spark is sensitive to schema inconsistencies and this can be a problem during migration. |
 |Offline|[Custom tool with Cosmos DB bulk executor library](migrate-cosmosdb-data.md)| The source depends on your custom code | Azure Cosmos DB SQL API| &bull; Provides checkpointing, dead-lettering capabilities which increases migration resiliency. <br/>&bull; Suitable for very large datasets (10 TB+).  <br/>&bull; Requires custom setup of this tool running as an App Service. |
 |Online|[Cosmos DB Functions + ChangeFeed API](change-feed-functions.md)| Azure Cosmos DB SQL API | Azure Cosmos DB SQL API| &bull; Easy to set up. <br/>&bull; Works only if the source is an Azure Cosmos DB container. <br/>&bull; Not suitable for large datasets. <br/>&bull; Does not capture deletes from the source container. |
 |Online|[Custom Migration Service using ChangeFeed](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator)| Azure Cosmos DB SQL API | Azure Cosmos DB SQL API| &bull; Provides progress tracking. <br/>&bull; Works only if the source is an Azure Cosmos DB container. <br/>&bull; Works for larger datasets as well.<br/>&bull; Requires the user to set up an App Service to host the Change feed processor. <br/>&bull; Does not capture deletes from the source container.|
@@ -79,9 +84,10 @@ If you need help with capacity planning, consider reading our [guide to estimati
 |Migration type|Solution|Supported sources|Supported targets|Considerations|
 |---------|---------|---------|---------|---------|
 |Offline|[cqlsh COPY command](cassandra/migrate-data.md#migrate-data-by-using-the-cqlsh-copy-command)|CSV Files | Azure Cosmos DB Cassandra API| &bull; Easy to set up. <br/>&bull; Not suitable for large datasets. <br/>&bull; Works only when the source is a Cassandra table.|
-|Offline|[Copy table with Spark](cassandra/migrate-data.md#migrate-data-by-using-spark) | &bull;Apache Cassandra<br/>&bull;Azure Cosmos DB Cassandra API| Azure Cosmos DB Cassandra API | &bull; Can make use of Spark capabilities to parallelize transformation and ingestion. <br/>&bull; Needs configuration with a custom retry policy to handle throttles.|
+|Offline|[Copy table with Spark](cassandra/migrate-data.md#migrate-data-by-using-spark) | &bull;Apache Cassandra<br/> | Azure Cosmos DB Cassandra API | &bull; Can make use of Spark capabilities to parallelize transformation and ingestion. <br/>&bull; Needs configuration with a custom retry policy to handle throttles.|
+|Online|[Dual-write proxy + Spark](cassandra/migrate-data-dual-write-proxy.md)| &bull;Apache Cassandra<br/>|&bull;Azure Cosmos DB Cassandra API <br/>| &bull; Supports larger datasets, but careful attention required for setup and validation. <br/>&bull; Open-source tools, no purchase required.|
 |Online|[Striim (from Oracle DB/Apache Cassandra)](cassandra/migrate-data-striim.md)| &bull;Oracle<br/>&bull;Apache Cassandra<br/><br/> See the [Striim website](https://www.striim.com/sources-and-targets/) for other supported sources.|&bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB Cassandra API <br/><br/> See the [Striim website](https://www.striim.com/sources-and-targets/) for other supported targets.| &bull; Works with a large variety of sources like Oracle, DB2, SQL Server. <br/>&bull; Easy to build ETL pipelines and provides a dashboard for monitoring. <br/>&bull; Supports larger datasets. <br/>&bull; Since this is a third-party tool, it needs to be purchased from the marketplace and installed in the user's environment.|
-|Online|[Blitzz (from Oracle DB/Apache Cassandra)](cassandra/oracle-migrate-cosmos-db-blitzz.md)|&bull;Oracle<br/>&bull;Apache Cassandra<br/><br/>See the [Blitzz website](https://www.blitzz.io/) for other supported sources. |Azure Cosmos DB Cassandra API. <br/><br/>See the [Blitzz website](https://www.blitzz.io/) for other supported targets. | &bull; Supports larger datasets. <br/>&bull; Since this is a third-party tool, it needs to be purchased from the marketplace and installed in the user's environment.|
+|Online|[Arcion (from Oracle DB/Apache Cassandra)](cassandra/oracle-migrate-cosmos-db-arcion.md)|&bull;Oracle<br/>&bull;Apache Cassandra<br/><br/>See the [Arcion website](https://www.arcion.io/) for other supported sources. |Azure Cosmos DB Cassandra API. <br/><br/>See the [Arcion website](https://www.arcion.io/) for other supported targets. | &bull; Supports larger datasets. <br/>&bull; Since this is a third-party tool, it needs to be purchased from the marketplace and installed in the user's environment.|
 
 ## Other APIs
 
@@ -90,7 +96,6 @@ For APIs other than the SQL API, Mongo API and the Cassandra API, there are vari
 **Table API** 
 
 * [Data Migration Tool](table/table-import.md#data-migration-tool)
-* [AzCopy](table/table-import.md#migrate-data-by-using-azcopy)
 
 **Gremlin API**
 

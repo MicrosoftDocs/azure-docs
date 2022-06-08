@@ -1,12 +1,12 @@
 ---
 title: Get started with the MedTech service - Azure Health Data Services
 description: This document describes how to get started with the MedTech service in Azure Health Data Services.
-author: stevewohl
+author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/17/2022
-ms.author: zxue
+ms.date: 05/03/2022
+ms.author: jasteppe
 ms.custom: mode-api
 ---
 
@@ -22,7 +22,7 @@ You can follow all the steps, or skip some if you have an existing environment. 
 
 ## Create a workspace in your Azure subscription
 
-You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md) or using PowerShell, Azure CLI and REST API]. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md) or using PowerShell, Azure CLI and REST API]. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
 > [!NOTE]
 > There are limits to the number of workspaces and the number of MedTech service instances you can create in each Azure subscription.
@@ -33,7 +33,7 @@ The MedTech service works with the Azure Event Hub and the FHIR service. You can
 
 ## Create a MedTech service in the workspace
 
-You can create a MedTech service from the [Azure portal](deploy-iot-connector-in-azure.md) or using PowerShell, Azure CLI, or REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+You can create a MedTech service from the [Azure portal](deploy-iot-connector-in-azure.md) or using PowerShell, Azure CLI, or REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
 Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) and [DICOM service](../dicom/deploy-dicom-services-in-azure.md) in the workspace.
 

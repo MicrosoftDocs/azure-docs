@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Form Recognizer Python SDK v3.0 | Preview"
+title: "Quickstart: Form Recognizer Python SDK (beta) | Preview"
 titleSuffix: Azure Applied AI Services
 description: Form and document processing, data extraction, and analysis using Form Recognizer Python client library SDKs v3.0 (preview)
 author: laujan
@@ -7,20 +7,19 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/15/2022
+ms.date: 03/31/2022
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021, mode-api
 ---
 <!-- markdownlint-disable MD025 -->
-# Get started: Form Recognizer Python SDK v3.0 | Preview
+# Get started: Form Recognizer Python SDK (beta)
 
 >[!NOTE]
-> Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
+> Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.
 
 [Reference documentation](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b3/) | [Samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md)
 
- Get started with Azure Form Recognizer using the Python programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+Get started with Azure Form Recognizer using the Python programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
 
@@ -60,23 +59,25 @@ pip install azure-ai-formrecognizer==3.2.0b3
 
 ```
 
-### Create a new Python application
+## Create your Python application
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your key from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
 1. Create a new Python file called **form_recognizer_quickstart.py** in your preferred editor or IDE.
- 
-1. Open the **form_recognizer_quickstart.py** file and select one of the following code samples to copy and pasted into your application:
 
-* [**General document**](#general-document-model)
+1. Open the **form_recognizer_quickstart.py** file and select one of the following code samples to copy and paste into your application:
 
-* [**Layout**](#layout-model)
+    * [**General document**](#general-document-model)
 
-* [**Prebuilt Invoice**](#prebuilt-model)
+    * [**Layout**](#layout-model)
+
+    * [**Prebuilt Invoice**](#prebuilt-model)
 
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
+
+<!-- markdownlint-disable MD036 -->
 
 ## General document model
 
@@ -90,7 +91,7 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
 <!-- markdownlint-disable MD036 -->
-**Add the following sample code to your form_recognizer_quickstart.py application:**
+**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```python
 
@@ -119,8 +120,7 @@ def analyze_general_documents():
     docUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
     # create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-        endpoint=endpoint, credential=AzureKeyCredential(key)
-    )
+    document_analysis_client = DocumentAnalysisClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
     poller = document_analysis_client.begin_analyze_document_from_url(
             "prebuilt-document", docUrl)
@@ -224,11 +224,32 @@ if __name__ == "__main__":
     analyze_general_documents()
 ```
 
+**Run the application**
+
+Once you've added a code sample to your application, build and run your program:
+
+1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
+1. Type the following command in your terminal:
+
+    ```console
+    python form_recognizer_quickstart.py
+    ```
+
 ### General document model output
 
-Visit the Azure samples repository on GitHub to  view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-general-document-output.md)
+Here's a snippet of the expected output:
 
-___
+```console
+  ----Key-value pairs found in document----
+  Key '☒' found within 'Page #1: [0.6694, 1.7746], [0.7764, 1.7746], [0.7764, 1.8833], [0.6694, 1.8833]' bounding regions
+  Key 'QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934' found within 'Page #1: [0.996, 1.7804], [7.8449, 1.7804], [7.8449, 2.0559], [0.996, 2.0559]' bounding regions
+  Value ':selected:' found within 'Page #1: [0.6694, 1.7746], [0.7764, 1.7746], [0.7764, 1.8833], [0.6694, 1.8833]' bounding regions
+
+  Key 'For the Quarterly Period Ended March 31, 2020' found within 'Page #1: [0.9982, 2.1626], [3.4543, 2.1626], [3.4543, 2.2665], [0.9982, 2.2665]' bounding regions
+  Value 'OR' found within 'Page #1: [4.1471, 2.2972], [4.3587, 2.2972], [4.3587, 2.4049], [4.1471, 2.4049]' bounding regions
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-general-document-output.md)
 
 ## Layout model
 
@@ -240,7 +261,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * We've added the file URL value to the `formUrl` variable in the `analyze_layout` function.
 > * To analyze a given file at a URL, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-layout` as the model Id. The returned value is a `result` object containing data about the submitted document.
 
-**Add the following sample code to your form_recognizer_quickstart.py application:**
+**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```python
 
@@ -263,9 +284,7 @@ def analyze_layout():
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
     # create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-    document_analysis_client = DocumentAnalysisClient(
-        endpoint=endpoint, credential=AzureKeyCredential(key)
-    )
+    document_analysis_client = DocumentAnalysisClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
     poller = document_analysis_client.begin_analyze_document_from_url(
             "prebuilt-layout", formUrl)
@@ -351,9 +370,38 @@ if __name__ == "__main__":
 
 ```
 
+**Run the application**
+
+Once you've added a code sample to your application, build and run your program:
+
+1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
+1. Type the following command in your terminal:
+
+    ```console
+    python form_recognizer_quickstart.py
+    ```
+
 ### Layout model output
 
-Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-layout-output.md)
+Here's a snippet of the expected output:
+
+```console
+  ----Analyzing layout from page #1----
+  Page has width: 8.5 and height: 11.0, measured with unit: inch
+  ...Line # 0 has word count 2 and text 'UNITED STATES' within bounding box '[3.4915, 0.6828], [5.0116, 0.6828], [5.0116, 0.8265], [3.4915, 0.8265]'
+  ......Word 'UNITED' has a confidence of 1.0
+  ......Word 'STATES' has a confidence of 1.0
+  ...Line # 1 has word count 4 and text 'SECURITIES AND EXCHANGE COMMISSION' within bounding box '[2.1937, 0.9061], [6.297, 0.9061], [6.297, 1.0498], [2.1937, 1.0498]'
+  ......Word 'SECURITIES' has a confidence of 1.0
+  ......Word 'AND' has a confidence of 1.0
+  ......Word 'EXCHANGE' has a confidence of 1.0
+  ......Word 'COMMISSION' has a confidence of 1.0
+  ...Line # 2 has word count 3 and text 'Washington, D.C. 20549' within bounding box '[3.4629, 1.1179], [5.031, 1.1179], [5.031, 1.2483], [3.4629, 1.2483]'
+  ......Word 'Washington,' has a confidence of 1.0
+  ......Word 'D.C.' has a confidence of 1.0
+```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-layout-output.md)
 
 ___
 
@@ -371,7 +419,7 @@ Analyze and extract common fields from specific document types using a prebuilt 
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
 
-**Add the following sample code to your form_recognizer_quickstart.py application:**
+**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
 
 ```python
 # import libraries
@@ -397,11 +445,9 @@ def format_bounding_box(bounding_box):
 def analyze_invoice():
 
     invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
-    
+
     # create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-    document_analysis_client = DocumentAnalysisClient(
-        endpoint=endpoint, credential=AzureKeyCredential(key)
-    )
+    document_analysis_client = DocumentAnalysisClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
     poller = document_analysis_client.begin_analyze_document_from_url(
             "prebuilt-invoice", invoiceUrl)
@@ -658,28 +704,43 @@ if __name__ == "__main__":
     analyze_invoice()
 ```
 
-### Prebuilt model output
+**Run the application**
 
-Visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-prebuilt-invoice-output.md)
-
-## Run your application
+Once you've added a code sample to your application, build and run your program:
 
 1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
-
 1. Type the following command in your terminal:
 
+    ```console
+    python form_recognizer_quickstart.py
+    ```
+
+### Prebuilt model output
+
+Here's a snippet of the expected output:
+
 ```console
-python form_recognizer_quickstart.py
+  --------Recognizing invoice #1--------
+  Vendor Name: CONTOSO LTD. has confidence: 0.919
+  Vendor Address: 123 456th St New York, NY, 10001 has confidence: 0.907
+  Vendor Address Recipient: Contoso Headquarters has confidence: 0.919
+  Customer Name: MICROSOFT CORPORATION has confidence: 0.84
+  Customer Id: CID-12345 has confidence: 0.956
+  Customer Address: 123 Other St, Redmond WA, 98052 has confidence: 0.909
+  Customer Address Recipient: Microsoft Corp has confidence: 0.917
+  Invoice Id: INV-100 has confidence: 0.972
+  Invoice Date: 2019-11-15 has confidence: 0.971
+  Invoice Total: CurrencyValue(amount=110.0, symbol=$) has confidence: 0.97
+  Due Date: 2019-12-15 has confidence: 0.973
 ```
+
+To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-prebuilt-invoice-output.md)
 
 That's it, congratulations!
 
 In this quickstart, you used the Form Recognizer Python SDK to analyze various forms in different ways. Next, explore the reference documentation to learn more about Form Recognizer v3.0 API.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [REST API v3.0 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
-
-> [!div class="nextstepaction"]
-> [Form Recognizer Python reference library](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b1/index.html)
+> [Learn more about Form Recognizer REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)

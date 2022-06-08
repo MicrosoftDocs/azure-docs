@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller for an internal, private network in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 03/04/2022
 
 ---
 
@@ -138,6 +138,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
     --set controller.admissionWebhooks.patch.image.digest="" \
     --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz \
     --set defaultBackend.image.registry=$ACR_URL \
     --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
     --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG \
@@ -163,6 +164,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx `
     --set controller.image.tag=$ControllerTag `
     --set controller.image.digest="" `
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux `
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz `
     --set controller.admissionWebhooks.patch.image.registry=$AcrUrl `
     --set controller.admissionWebhooks.patch.image.image=$PatchImage `
     --set controller.admissionWebhooks.patch.image.tag=$PatchTag `
@@ -296,11 +298,11 @@ metadata:
   name: hello-world-ingress
   namespace: ingress-basic
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
@@ -338,7 +340,7 @@ The following example output shows the ingress resource is created.
 ```
 $ kubectl apply -f hello-world-ingress.yaml
 
-ingress.extensions/hello-world-ingress created
+ingress.networking.k8s.io/hello-world-ingress created
 ```
 
 ## Test the ingress controller
@@ -346,7 +348,7 @@ ingress.extensions/hello-world-ingress created
 To test the routes for the ingress controller, browse to the two applications with a web client. If needed, you can quickly test this internal-only functionality from a pod on the AKS cluster. Create a test pod and attach a terminal session to it:
 
 ```console
-kubectl run -it --rm aks-ingress-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --namespace ingress-basic
+kubectl run -it --rm aks-ingress-test --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 --namespace ingress-basic
 ```
 
 Install `curl` in the pod using `apt-get`:
@@ -477,9 +479,9 @@ You can also:
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [client-source-ip]: concepts-network.md#ingress-controllers
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-powershell]: kubernetes-walkthrough-powershell.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-supported versions]: supported-kubernetes-versions.md
