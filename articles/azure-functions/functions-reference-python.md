@@ -493,7 +493,7 @@ In Azure Functions, [application settings](functions-app-settings.md), such as s
 
 | Method | Description |
 | --- | --- |
-| **`os.environ["myAppSetting"]`** | Tries to get the application setting by key name. It rases an error when unsuccessful.  |
+| **`os.environ["myAppSetting"]`** | Tries to get the application setting by key name. It raises an error when unsuccessful.  |
 | **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name. It returns `null` when unsuccessful.  |
 
 Both of these ways require you to declare `import os`.
@@ -634,7 +634,7 @@ We don't recommend using local builds when you're developing locally on Windows.
 
 When your project has dependencies not found in the [Python Package Index](https://pypi.org/), there are two ways to build the project.
 
-#### Remote build with an extra index URL
+#### Remote build with extra index URL
 
 When your packages are available from an accessible custom package index, use a remote build. Before publishing, make sure to [create an app setting](functions-how-to-use-azure-function-app-settings.md#settings) named `PIP_EXTRA_INDEX_URL`. The value for this setting is the URL of your custom package index. Using this setting tells the remote build to run `pip install` with the `--extra-index-url` option. To learn more, see the [Python pip install documentation](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).
 
