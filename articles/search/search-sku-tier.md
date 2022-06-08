@@ -37,7 +37,11 @@ Tiers include **Free**, **Basic**, **Standard**, and **Storage Optimized**. Stan
 
 **Free** creates a limited search service for smaller projects, like running tutorials and code samples. Internally, system resources are shared among multiple subscribers. You cannot scale a free service or run significant workloads.
 
-**Basic** and **Standard (S1, S2, S3)** are the most commonly used billable tiers. **Basic** has just one partition but with the ability to meet SLA with its support for three replicas. **Standard** is the default. It gives you more flexibility in scaling for workloads. You can scale both partitions and replicas. With dedicated resources under your control, you can deploy larger projects, optimize performance, and increase capacity.
+The most commonly used billable tiers include the following:
+
++ **Basic** has just one partition but with the ability to meet SLA with its support for three replicas. 
+
++ **Standard** is the default. It gives you more flexibility in scaling for workloads. You can scale both partitions and replicas. With dedicated resources under your control, you can deploy larger projects, optimize performance, and increase capacity.
 
 Some tiers are designed for certain types of work:
 
