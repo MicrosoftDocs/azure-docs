@@ -42,7 +42,7 @@ Connection Monitor relies on lightweight executable files to run connectivity ch
 
 ### Agents for Azure virtual machines and scale sets
 
-Please refer [here](./connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets) to learn how to install agents for Azure virtual machines and scale sets
+Refer [here](./connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets) to learn how to install agents for Azure virtual machines and scale sets
 
 ### Agents for On-premises machines
 
@@ -56,7 +56,7 @@ To make Connection Monitor recognize your on-premises machines as sources for mo
 
 #### Installing Azure Connected Machine agent to enable ARC 
 
-Before proceeding please be sure to review the [prerequisites](../azure-arc/servers/prerequisites.md") and verify that your subscription and resources meet the requirements.
+Before proceeding be sure to review the [prerequisites](../azure-arc/servers/prerequisites.md") and verify that your subscription and resources meet the requirements.
 
 ##### Prerequisites
 
@@ -135,16 +135,16 @@ After you install the agent and configure it to connect to Azure Arc-enabled ser
 ##### Connect hybrid machines to Azure by using PowerShell
 
 For servers enabled with Azure Arc, you can take manual steps mentioned above to enable them for one or more Windows or Linux machines in your environment. Alternatively, you can use the PowerShell cmdlet Connect-AzConnectedMachine to download the Connected Machine agent, install the agent, and register the machine with Azure Arc. The cmdlet downloads the Windows agent package (Windows Installer) from the Microsoft Download Center, and the Linux agent package from the Microsoft package repository.
-Please refer to the linked document to discover the required steps to install the [ARC agent via Powershell](../azure-arc/servers/onboard-powershell.md)
+Refer to the linked document to discover the required steps to install the [ARC agent via Powershell](../azure-arc/servers/onboard-powershell.md)
 
 ##### Connect hybrid machines to Azure from Windows Admin Center
 
-You can enable Azure Arc-enabled servers for one or more Windows machines in your environment by performing a set of steps manually, as mentioned above. Or you can use Windows Admin Center to deploy the Connected Machine agent and register your on-premises servers without having to perform any steps outside of this tool. Please refer to the linked document to discover the steps to [install ARC agent via Windows Admin Centre](../azure-arc/servers/onboard-windows-admin-center.md)
+You can enable Azure Arc-enabled servers for one or more Windows machines in your environment by performing a set of steps manually, as mentioned above. Or you can use Windows Admin Center to deploy the Connected Machine agent and register your on-premises servers without having to perform any steps outside of this tool. Refer to the linked document to discover the steps to [install ARC agent via Windows Admin Centre](../azure-arc/servers/onboard-windows-admin-center.md)
 
 #### Installing Azure Monitor Agent 
 
-The Azure Monitor agent is implemented as an Azure VM extension with the details in the following table. It can be installed using any of the methods to install virtual machine extensions including those described in this article. Please refer to [Azure Monitor overview](../azure-monitor/agents/azure-monitor-agent-overview.md) to learn more. 
-The following section covers installing Azure Monitor Agent on Arc Enabled Servers using Powershell and Azure CLI. Please refer to [Manage the Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-manage.md) to learn the rest.
+The Azure Monitor agent is implemented as an Azure VM extension with the details in the following table. It can be installed using any of the methods to install virtual machine extensions including those described in this article. Refer to [Azure Monitor overview](../azure-monitor/agents/azure-monitor-agent-overview.md) to learn more. 
+The following section covers installing Azure Monitor Agent on Arc Enabled Servers using Powershell and Azure CLI. Refer to [Manage the Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-manage.md) to learn the rest.
 
 ##### Using PowerShell
 You can install the Azure Monitor agent on Azure virtual machines and on Azure Arc-enabled servers using the PowerShell command for adding a virtual machine extension. 
@@ -257,7 +257,7 @@ az connectedmachine extension update --name AzureMonitorLinuxAgent --machine-nam
 #### Enabling Network Watcher Agent 
 
 To make Connection Monitor recognize your Azure Arc enabled on-premises machines with Azure Monitor Agent extension as monitoring sources, install the Network Watcher Agent virtual machine extension on them. This extension is also known as the Network Watcher extension. 
-Please refer [here](./connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets) to learn how to install the Network Watcher extension on your Azure ARC enabled servers with Azure Monitor Agent extension installed. 
+Refer [here](./connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets) to learn how to install the Network Watcher extension on your Azure ARC enabled servers with Azure Monitor Agent extension installed. 
 
 #### Coexistence with other agents
 
@@ -271,7 +271,7 @@ The Azure Monitor agent can coexist (run side by side on the same machine) with 
 After the successful installation of monitoring agents, proceed to [Creation a Connection Monitor](./connection-monitor-overview.md#create-a-connection-monitor). 
 Upon the successful creation of Connection Monitor, analyze monitoring data and set alerts. Diagnose issues in your connection monitor and your network. 
 
-Please refer to the existing document of [Connection Monitor](./connection-monitor-overview.md) to proceed further with network connectivity monitoring of your Azure and Non-Azure set-ups. 
+Refer to the existing document of [Connection Monitor](./connection-monitor-overview.md) to proceed further with network connectivity monitoring of your Azure and Non-Azure set-ups. 
 
 
 
