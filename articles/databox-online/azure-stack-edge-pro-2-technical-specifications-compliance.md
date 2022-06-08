@@ -7,7 +7,7 @@ author: sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/06/2022
+ms.date: 06/06/2022
 ms.author: sipastak
 ---
 
@@ -17,6 +17,7 @@ The hardware components of your Azure Stack Edge Pro 2 adhere to the technical s
 
 ## Compute and memory specifications
 
+# [SKU A](#tab/sku-a)
 The Azure Stack Edge Pro 2 device has the following specifications for compute and memory:
 
 | Specification  | Value                                                                       |
@@ -24,9 +25,31 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | CPU type       | Intel® Xeon ® Gold 6209U CPU @ 2.10 GHz (Cascade Lake) CPU|
 | CPU: raw       | 20 total cores, 40 total vCPUs                                              |
 | CPU: usable    | 32 vCPUs                                                                    |
-| Memory type     | Model 64G2T: 64 GB |
+| Memory type     | Model 64G2T: 2 x 32 GB DDR4-2933 RDIMM |
 | Memory: raw   | Model 64G2T: 64 GB RAM |
 | Memory: usable | Model 64G2T: 51 GB RAM |
+
+# [SKU B](#tab/sku-b)
+
+| Specification  | Value                                                                       |
+|----------------|-----------------------------------------------------------------------------|
+| CPU type       | Intel® Xeon ® Gold 6209U CPU @ 2.10 GHz (Cascade Lake) CPU|
+| CPU: raw       | 20 total cores, 40 total vCPUs                                              |
+| CPU: usable    | 32 vCPUs                                                                    |
+| Memory type     | Model 128G4T1GPU: 4 x 32 GB DDR4-2933 RDIMM |
+| Memory: raw   | Model 128G4T1GPU: 128 GB RAM |
+| Memory: usable | Model 128G4T1GPU: 102 GB RAM |
+
+# [SKU C](#tab/sku-c)
+
+| Specification  | Value                                                                       |
+|----------------|-----------------------------------------------------------------------------|
+| CPU type       | Intel® Xeon ® Gold 6209U CPU @ 2.10 GHz (Cascade Lake) CPU|
+| CPU: raw       | 20 total cores, 40 total vCPUs                                              |
+| CPU: usable    | 32 vCPUs                                                                    |
+| Memory type     | Model 256G6T2GPU: 4 x 64 GB DDR4-2933 RDIMM |
+| Memory: raw   | Model 256G6T2GPU: 256 GB RAM |
+| Memory: usable | Model 256G6T2GPU: 204 GB RAM |
 
 ## Power supply unit specifications
 
