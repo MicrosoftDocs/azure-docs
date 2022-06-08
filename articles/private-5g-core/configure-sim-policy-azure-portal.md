@@ -12,14 +12,14 @@ ms.custom: template-how-to
 
 # Configure a SIM policy for Azure Private 5G Core Preview - Azure portal
 
-*SIM policies* allow you to define different sets of policies and interoperability settings that can each be assigned to a group of SIMs. You'll need to assign a SIM policy to a SIM before the user equipment (UE) using that SIM can access the private mobile network. In this how-to-guide, you'll learn how to configure a SIM policy.
+*SIM policies* allow you to define different sets of policies and interoperability settings that can each be assigned to SIMs or SIM groups. You'll need to assign a SIM policy to a SIM (either directly or through its SIM group) before the user equipment (UE) using that SIM can access the private mobile network. In this how-to-guide, you'll learn how to configure a SIM policy.
 
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Identify the name of the Mobile Network resource corresponding to your private mobile network.
 - Collect all the configuration values in [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md) for your chosen SIM policy.
-- Decide whether you want to assign this SIM policy to any SIMs as part of configuring it. If you do, you must have provisioned these SIMs following the instructions in [Provision SIMs - Azure portal](provision-sims-azure-portal.md).
+- Decide whether you want to assign this SIM policy to any SIMs or SIM groups as part of configuring it. If you do, you must have already provisioned the SIMs (as described in [Provision SIMs - Azure portal](provision-sims-azure-portal.md)) or created the SIM groups (as described in [Create a SIM group - Azure portal](create-sim-group-azure-portal.md)).
 
 ## Configure the SIM policy
 

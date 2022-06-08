@@ -20,6 +20,7 @@ Private mobile networks provide high performance, low latency, and secure connec
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor or Owner role at the subscription scope.
 - Collect all of the information listed in [Collect the required information to deploy a private mobile network - Azure portal](collect-required-information-for-private-mobile-network.md). You may also need to take the following steps based on the decisions you made when collecting this information.
  
+    - If you decided you wanted to encrypt SIM credentials using a customer-managed key, ensure you have the URI of this key and the managed identity that will be used to access the key.
     - If you decided you wanted to provision SIMs using a JSON file, ensure you've prepared this file and made it available on the machine you'll use to access the Azure portal. For more information on the file format, see [JSON file format for provisioning SIMs](collect-required-information-for-private-mobile-network.md#json-file-format-for-provisioning-sims).
     - If you decided you want to use the default service and SIM policy, identify the name of the data network to which your private mobile network will connect. 
 
@@ -47,7 +48,9 @@ In this step, you'll create the Mobile Network resource representing your privat
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-private-mobile-network-sims-tab.png" alt-text="Screenshot of the Azure portal showing the SIMs configuration tab.":::
 
-1. If you want to use the default service and SIM policy, set **Do you wish to create a basic, default SIM policy and assign it these SIMs?** to **Yes**, and then enter the name of the data network into the **Data network name** field that appears. 
+1. If you're provisioning SIMs at this point, you'll need to take the following additional steps.
+   1. If you want to use the default service and SIM policy, set **Do you wish to create a basic, default SIM policy and assign it these SIMs?** to **Yes**, and then enter the name of the data network into the **Data network name** field that appears. 
+   1. Under **SIM group information**, set **SIM group name** to your chosen name for the SIM group to which your SIMs will be added.
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
@@ -63,9 +66,10 @@ In this step, you'll create the Mobile Network resource representing your privat
     Select **Go to resource group**, and then check that your new resource group contains the correct **Mobile Network** resource. It may also contain the following, depending on the choices you made during the procedure. 
 
     - One or more **SIM** resources (if you provisioned any). 
+    - A **SIM group** resource (if you provisioned SIMs).
     - **Service**, **SIM Policy**, **Data Network**, and **Slice** resources (if you decided to use the default service and SIM policy).
 
-    :::image type="content" source="media/pmn-deployment-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing Mobile Network, SIM, Service, SIM policy, Data Network, and Slice resources.":::
+    :::image type="content" source="media/pmn-deployment-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing Mobile Network, SIM, SIM group, Service, SIM policy, Data Network, and Slice resources.":::
 
 ## Next steps
 
