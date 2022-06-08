@@ -27,13 +27,15 @@ There are two ways you can set up a metastore for your HDInsight clusters:
 
 By default, HDInsight creates a metastore with every cluster type. You can instead specify a custom metastore. The default metastore includes the following considerations:
 
+* Limited resources. See notice at the top of the page.
+
 * No additional cost. HDInsight creates a metastore with every cluster type without any additional cost to you.
 
-* Each default metastore is part of the cluster lifecycle. When you delete a cluster, the corresponding metastore and metadata are also deleted.
+* The default metastore is part of the cluster lifecycle. When you delete a cluster, the corresponding metastore and metadata are also deleted.
 
-* You can't share the default metastore with other clusters.
+* The default metastore is recommended only for simple workloads. Workloads that don't require multiple clusters and don't need metadata preserved beyond the cluster's lifecycle.
 
-* Default metastore is recommended only for simple workloads. Workloads that don't require multiple clusters and don't need metadata preserved beyond the cluster's lifecycle.
+* The default metastore can't be shared with other clusters.
 
 ## Custom metastore
 
