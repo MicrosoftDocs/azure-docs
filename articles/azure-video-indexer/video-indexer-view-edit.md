@@ -5,7 +5,7 @@ services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 06/07/2022
 ms.author: juliako
 ---
 
