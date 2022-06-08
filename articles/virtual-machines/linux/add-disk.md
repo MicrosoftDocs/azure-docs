@@ -1,15 +1,15 @@
 ---
 title: Add a data disk to Linux VM using the Azure CLI 
 description: Learn to add a persistent data disk to your Linux VM with the Azure CLI
-author: cynthn
+author: roygara
 ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: linux
 ms.topic: how-to
-ms.date: 06/02/2022
-ms.author: cynthn
-
+ms.date: 06/08/2022
+ms.author: rogarana
 ---
+
 # Add a disk to a Linux VM
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 

@@ -5,7 +5,7 @@ author: roygara
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: how-to
-ms.date: 06/02/2022
+ms.date: 06/08/2022
 ms.author: rogarana
 ms.subservice: disks 
 ms.custom: devx-track-azurepowershell
