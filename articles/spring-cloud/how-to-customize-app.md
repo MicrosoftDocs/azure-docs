@@ -29,7 +29,7 @@ By default, Azure Spring Apps offers default health probe rules for every applic
 
 ## Prerequisites
 
-* The [Azure Spring Appsextension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
+* The [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
 ## Config health probes to applications
 
