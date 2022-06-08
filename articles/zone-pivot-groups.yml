@@ -1673,8 +1673,8 @@ groups:
   title: Data Box shipping
   prompt: Choose shipping location
   pivots:
-  - id: north-america
-    title: North America
+  - id: americas
+    title: Americas
   - id: europe
     title: Europe
   - id: asia
