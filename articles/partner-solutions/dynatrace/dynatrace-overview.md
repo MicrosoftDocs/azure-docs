@@ -33,7 +33,7 @@ Dynatrace for Azure provides the following capabilities:
 
 - **Manage Dynatrace OneAgent on VMs and App Services** - Provides a single experience to install and uninstall Dynatrace OneAgent on virtual machines and App Services.
 
-## Dynatrace Links
+## Dynatrace links
 
 For more help using Dynatrace for Azure service, see the [Dynatrace](https://aka.ms/partners/Dynatrace/PartnerDocs) documentation.
 
