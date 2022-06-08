@@ -27,7 +27,9 @@ sections:
           Where does Azure Event Grid store data?
         answer: |
           Azure Event Grid store and process data published in the region that you select when you create topics and domains resources. By default, customer data stays within the selected region. For all regions except Brazil South and Southeast Asia, the database backup is hosted in a different region (usually the Azure paired region). For the Brazil south and Southeast Asia regions, database backups are stored in the same region to accommodate data-residency requirements for these regions.
-          
+
+additionalContent: | 
+
   ## Next steps
   
   You can learn more about Event Grid by visiting the following links:
