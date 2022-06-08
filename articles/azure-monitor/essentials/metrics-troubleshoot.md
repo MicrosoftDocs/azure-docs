@@ -76,7 +76,7 @@ Azure monitor metrics uses SI based prefixes. Metrics will only be using IEC pre
 For ex: The resource provider Network interface(resource name: rarana-vm816) has no metric unit defined for "Packets Sent". The prefix used for the metric value here is k representing kilo (1000), a SI prefix. 
 ![Screenshot that shows metric value with prefix kilo.](./media/metrics-troubleshoot/prefixSI.png)
 
-And the resource provider Storage account(resource name: ibabichvm) has metric unit defined for "Blob Capacity" as bytes. Hence, the prefix used is mebi (1024^2), an IEC prefix.
+The resource provider Storage account(resource name: ibabichvm) has metric unit defined for "Blob Capacity" as bytes. Hence, the prefix used is mebi (1024^2), an IEC prefix.
 ![Screenshot that shows metric value with prefix mebi.](./media/metrics-troubleshoot/prefixIEC.png)
 
 SI uses decimal
