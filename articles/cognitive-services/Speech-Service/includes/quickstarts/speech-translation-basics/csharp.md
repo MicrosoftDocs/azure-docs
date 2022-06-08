@@ -76,7 +76,7 @@ Follow these steps to create a new console application and install the Speech SD
         {
             var speechTranslationConfig = SpeechTranslationConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);        
             speechTranslationConfig.SpeechRecognitionLanguage = "en-US";
-            speechTranslationConfig.AddTargetLanguage("it-IT");
+            speechTranslationConfig.AddTargetLanguage("it");
     
             using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
             using var translationRecognizer = new TranslationRecognizer(speechTranslationConfig, audioConfig);

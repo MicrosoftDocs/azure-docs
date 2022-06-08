@@ -18,74 +18,130 @@ ms.author: eur
 
 Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
 
+To complete the steps in this quickstart, you must also install [Apache Maven](https://maven.apache.org/install.html).
+
 ## Translate speech from a microphone
 
 Follow these steps to create a new console application for speech recognition.
 
-1. Open a command prompt where you want the new project, and create a new file named `SpeechRecognition.java`.
-1. Copy the following code into `SpeechRecognition.java`:
+1. Open a command prompt where you want the new project, and create a new `pom.xml` file. 
+1. Copy the following XML content into `pom.xml`:
+    ```xml
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>com.microsoft.cognitiveservices.speech.samples</groupId>
+        <artifactId>quickstart-eclipse</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <build>
+            <sourceDirectory>src</sourceDirectory>
+            <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+                </configuration>
+            </plugin>
+            </plugins>
+        </build>
+        <repositories>
+            <repository>
+            <id>maven-cognitiveservices-speech</id>
+            <name>Microsoft Cognitive Services Speech Maven Repository</name>
+            <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+            </repository>
+        </repositories>
+        <dependencies>
+            <dependency>
+            <groupId>com.microsoft.cognitiveservices.speech</groupId>
+            <artifactId>client-sdk</artifactId>
+            <version>1.22.0</version>
+            </dependency>
+        </dependencies>
+    </project>
+    ```
+1. Run the following Maven command to install the Speech SDK and dependencies.
+    ```console
+    mvn clean dependency:copy-dependencies
+    ```
+1. Create a new file named `SpeechTranslation.java` in the same project root directory.
+1. Copy the following code into `SpeechTranslation.java`:
 
     ```java
     import com.microsoft.cognitiveservices.speech.*;
     import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
-
+    import com.microsoft.cognitiveservices.speech.translation.*;
+    
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.Future;
-
-    public class SpeechRecognition {
+    import java.util.Map;
+    
+    public class SpeechTranslation {
         private static String YourSubscriptionKey = "YourSubscriptionKey";
         private static String YourServiceRegion = "YourServiceRegion";
-
+    
         public static void main(String[] args) throws InterruptedException, ExecutionException {
-            SpeechConfig speechConfig = SpeechConfig.fromSubscription(YourSubscriptionKey, YourServiceRegion);
-            speechConfig.setSpeechRecognitionLanguage("en-US");
-            recognizeFromMicrophone(speechConfig);
-        }
-
-        public static void recognizeFromMicrophone(SpeechConfig speechConfig) throws InterruptedException, ExecutionException {
-            AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
-            SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
-
-            System.out.println("Speak into your microphone.");
-            Future<SpeechRecognitionResult> task = speechRecognizer.recognizeOnceAsync();
-            SpeechRecognitionResult speechRecognitionResult = task.get();
-
-            if (speechRecognitionResult.getReason() == ResultReason.RecognizedSpeech) {
-                System.out.println("RECOGNIZED: Text=" + speechRecognitionResult.getText());
+            SpeechTranslationConfig speechTranslationConfig = SpeechTranslationConfig.fromSubscription(YourSubscriptionKey, YourServiceRegion);
+            speechTranslationConfig.setSpeechRecognitionLanguage("en-US");
+    
+            String[] toLanguages = { "it" };
+            for (String language : toLanguages) {
+                speechTranslationConfig.addTargetLanguage(language);
             }
-            else if (speechRecognitionResult.getReason() == ResultReason.NoMatch) {
+    
+            recognizeFromMicrophone(speechTranslationConfig);
+        }
+    
+        public static void recognizeFromMicrophone(SpeechTranslationConfig speechTranslationConfig) throws InterruptedException, ExecutionException {
+            AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
+            TranslationRecognizer translationRecognizer = new TranslationRecognizer(speechTranslationConfig, audioConfig);
+    
+            System.out.println("Speak into your microphone.");
+            Future<TranslationRecognitionResult> task = translationRecognizer.recognizeOnceAsync();
+            TranslationRecognitionResult translationRecognitionResult = task.get();
+    
+            if (translationRecognitionResult.getReason() == ResultReason.TranslatedSpeech) {
+                System.out.println("RECOGNIZED: Text=" + translationRecognitionResult.getText());
+                for (Map.Entry<String, String> pair : translationRecognitionResult.getTranslations().entrySet()) {
+                    System.out.printf("Translated into '%s': %s\n", pair.getKey(), pair.getValue());
+                }
+            }
+            else if (translationRecognitionResult.getReason() == ResultReason.NoMatch) {
                 System.out.println("NOMATCH: Speech could not be recognized.");
             }
-            else if (speechRecognitionResult.getReason() == ResultReason.Canceled) {
-                CancellationDetails cancellation = CancellationDetails.fromResult(speechRecognitionResult);
+            else if (translationRecognitionResult.getReason() == ResultReason.Canceled) {
+                CancellationDetails cancellation = CancellationDetails.fromResult(translationRecognitionResult);
                 System.out.println("CANCELED: Reason=" + cancellation.getReason());
-
+    
                 if (cancellation.getReason() == CancellationReason.Error) {
                     System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
                     System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
                     System.out.println("CANCELED: Did you set the speech resource key and region values?");
                 }
             }
-
+    
             System.exit(0);
         }
     }
     ```
 
-1. In `SpeechRecognition.java`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. In `SpeechTranslation.java`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 
 Run your new console application to start speech recognition from a microphone:
 
 ```console
-java SpeechRecognition
+javac SpeechTranslation.java -cp ".;target\dependency\*"
+java -cp ".;target\dependency\*" SpeechTranslation
 ```
 
 Speak into your microphone when prompted. What you speak should be output as translated text in the target language:
 
 ```console
 Speak into your microphone.
-RECOGNIZED: Text=I'm excited to try speech to text.
+RECOGNIZED: Text=I'm excited to try speech translation.
+Translated into 'it': Sono entusiasta di provare la traduzione vocale.
 ```
 
 ## Remarks

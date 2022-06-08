@@ -21,7 +21,7 @@ ms.author: eur
 Run the following command to translate speech from the microphone from English to Italian:
 
 ```shell
-spx translate --source en-US --target it-IT --microphone
+spx translate --source en-US --target it --microphone
 ```
 
 Speak into the microphone, and you see the transcription of your translated speech in real time. The Speech CLI stops after a period of silence, 30 seconds, or when you press Ctrl+C.
@@ -40,30 +40,30 @@ Now that you've completed the quickstart, here are some additional consideration
 - To get speech from an audio file, use `--file` instead of `--microphone`. For compressed audio files such as MP4, install GStreamer and use `--format`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
     # [Terminal](#tab/terminal)
     ```console
-    spx translate --source en-US --target it-IT --file YourAudioFile.wav
-    spx translate --source en-US --target it-IT --file YourAudioFile.mp4 --format any
+    spx translate --source en-US --target it --file YourAudioFile.wav
+    spx translate --source en-US --target it --file YourAudioFile.mp4 --format any
     ```
     # [PowerShell](#tab/powershell)
     ```powershell
-    spx translate --source en-US --target it-IT --file YourAudioFile.wav
-    spx translate --source en-US --target it-IT --file YourAudioFile.mp4 --format any
+    spx translate --source en-US --target it --file YourAudioFile.wav
+    spx translate --source en-US --target it --file YourAudioFile.mp4 --format any
     ```
     ***
 - To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md). You include a phrase list in-line or with a text file:
     # [Terminal](#tab/terminal)
     ```console
-    spx translate --source en-US --target it-IT --microphone --phrases "Contoso;Jessie;Rehaan;"
-    spx translate --source en-US --target it-IT --microphone --phrases @phrases.txt
+    spx translate --source en-US --target it --microphone --phrases "Contoso;Jessie;Rehaan;"
+    spx translate --source en-US --target it --microphone --phrases @phrases.txt
     ```
     # [PowerShell](#tab/powershell)
     ```powershell
-    spx --% translate --source en-US --target it-IT --microphone --phrases "Contoso;Jessie;Rehaan;"
-    spx --% translate --source en-US --target it-IT --microphone --phrases @phrases.txt
+    spx --% translate --source en-US --target it --microphone --phrases "Contoso;Jessie;Rehaan;"
+    spx --% translate --source en-US --target it --microphone --phrases @phrases.txt
     ```
     ***
 - For continuous recognition of audio longer than 30 seconds, append `--continuous`:
     ```console
-    spx translate --source en-US --target it-IT --microphone --continuous
+    spx translate --source en-US --target it --microphone --continuous
     ```
 
 ## Clean up resources

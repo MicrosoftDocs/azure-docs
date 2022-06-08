@@ -43,7 +43,7 @@ Follow these steps to create a new console application and install the Speech SD
     {
         auto speechTranslationConfig = SpeechTranslationConfig::FromSubscription(YourSubscriptionKey, YourServiceRegion);
         speechTranslationConfig->SetSpeechRecognitionLanguage("en-US");
-        speechTranslationConfig->AddTargetLanguage("it-IT");
+        speechTranslationConfig->AddTargetLanguage("it");
     
         auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
         auto translationRecognizer = TranslationRecognizer::FromConfig(speechTranslationConfig, audioConfig);
