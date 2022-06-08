@@ -66,7 +66,7 @@ Microsoft partners with the following ISVs for role-based access control.
 |:-------------------------|:--------------|
 | ![Screenshot of a n8identity logo](./media/partner-gallery/n8identity-logo.png) | [N8Identity](./partner-n8identity.md) is an Identity-as-a-Service governance platform that provides solution to address customer accounts migration and Customer Service Requests (CSR) administration running on Microsoft Azure. |
 | ![Screenshot of a Saviynt logo](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-Saviynt.md) cloud-native platform promotes better security, compliance, and governance through intelligent analytics and cross application integration for streamlining IT modernization. |
-| ![Screenshot of a WhoIAM Rampart logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM Rampart](./partner-whoiam-rampart.md) [WhoIAM Rampart](https://www.whoiam.ai/) provides a fully integrated helpdesk and invitation-gated user registration experience. It allows support specialists to efficiently perform tasks like resetting passwords and multi-factor authentication without using Azure. It also enables apps and role-based access control (RBAC) for end-users of Azure AD B2C. |
+| ![Screenshot of a WhoIAM Rampart logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM Rampart](./partner-whoiam-rampart.md) provides a fully integrated helpdesk and invitation-gated user registration experience. It allows support specialists to efficiently perform tasks like resetting passwords and multi-factor authentication without using Azure. It also enables apps and role-based access control (RBAC) for end-users of Azure AD B2C. |
 
 ## Secure hybrid access to on-premises application
 
