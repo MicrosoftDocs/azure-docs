@@ -47,11 +47,7 @@ The Cost Details API supports a maximum data set time range of one month per rep
 
 ## Example Cost Details API requests
 
-The following example requests are used by Microsoft customers to address common scenarios. 
-
-### Get data for a scope during specific date range
-
-The data that's returned by the request corresponds to the date when the cost was received by the billing system. It might include costs from multiple invoices. It's an asynchronous API. As such, you place an initial call to request your report and receive a polling link in the response header. From there, you can poll the link provided until the report is available for you.
+The following example requests are used by Microsoft customers to address common scenarios. The data that's returned by the request corresponds to the date when the cost was received by the billing system. It might include costs from multiple invoices. It's an asynchronous API. As such, you place an initial call to request your report and receive a polling link in the response header. From there, you can poll the link provided until the report is available for you.
 
 Use the `retry-after` header in the API response to dictate when to poll the API next. The header provides an estimated minimum time that your report will take to generate.
 
@@ -71,7 +67,9 @@ Because of the change in how costs are represented, it's important to note that 
 POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/costdetails?api-version=2022-05-01
 ```
 
-Request body:
+**Request body:**
+
+An example request for an ActualCost dataset for a specified date range is provided below.
 
 ```json
 {
@@ -83,6 +81,15 @@ Request body:
 }
 
 ```
+
+The available fields you can provide in the report request body are summarized below.
+
+- **metric** - The type of report requested. This can be either ActualCost or AmortizedCost. Not required. If the field is not specified the API will default to an ActualCost report.
+- **timePeriod** - The requested date range for your data. Not required. This parameter cannot be used alongside either the invoiceId or billingPeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter is not provided in the request body the API will return the current month's cost.
+- **invoiceId** - The requested invoice for your data. This parameter can only be used by Microsoft Customer Agreement customers. Additionally, it can only be used at the Billing Profile or Customer scope. This parameter cannot be used alongside either the billingPeriod or timePeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter is not provided in the request body the API will return the current month's cost.
+- **billingPeriod** - The requested billing period for your data. This parameter can be used only by Enterprise Agreement customers. Use the YearMonth(e.g. 202008) format. This parameter cannot be used alongside either the invoiceId or timePeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter is not provided in the request body the API will return the current month's cost.
+
+**API response:**
 
 `Response Status: 202 – Accepted` : Indicates that the request will be processed. Use the `Location` header to check the status.
 

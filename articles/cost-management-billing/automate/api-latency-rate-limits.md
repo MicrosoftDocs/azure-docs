@@ -13,11 +13,13 @@ ms.reviewer: adwise
 
 # Cost Management API latency and rate limits
 
-We recommend that you call the Cost Management APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently doesn't provide more data. Instead, it creates increased load. To learn more about how often data changes and how data latency is handled, see [Understand cost management data](../costs/understand-cost-mgt-data.md).
+The Cost Management APIs are very resource intensive due to the large size of the underlying cost details dataset. We recommend calling the APIs as needed to ingest data but advise against building workloads that pull data more often than once per day. Cost Management data is refreshed every four hours as new cost data is received from Azure resource providers and other sources. Calling more frequently doesn't provide more data. Instead, it creates increased load. To learn more about how often data changes and how data latency is handled, see [Understand cost management data](../costs/understand-cost-mgt-data.md).
+
+This article outlines rate limits for the Cost Management APIs. The rate limits outlined below are not exhaustive and more limits will be added in the future. It is important to design services that abide by the rate limits and back off call frequency when throttling occurs. The Cost Management APIs provide a suggested time period to wait when throttling occurs in the `retry-after` header. In order to enforce the API fair use policy, we reserve the right to lower rate limits as needed. We also reserve the right to block customers temporarily should issues occur due to abusive call patterns.
 
 ## Error code 429 - Call count has exceeded rate limits
 
-To enable a consistent experience for all Cost Management subscribers, Cost Management APIs are rate limited. When you reach the limit, you receive the HTTP status code `429: Too many requests`. Wait a while before you call again.
+To enable a consistent experience for all Cost Management subscribers, Cost Management APIs are rate limited. When you reach the limit, you receive the HTTP status code `429: Too many requests`. Please wait for the period of time specific in the `retry-after` header before calling again.
 
 ## Cost Details API rate limits
 
