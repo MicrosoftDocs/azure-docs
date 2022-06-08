@@ -1,17 +1,17 @@
 ---
-title: Start/Stop VMs v2 (preview) overview
-description: This article describes version two of the Start/Stop VMs (preview) feature, which starts or stops Azure Resource Manager and classic VMs on a schedule.
+title: Start/Stop VMs v2 overview
+description: This article describes version two of the Start/Stop VMs feature, which starts or stops Azure Resource Manager and classic VMs on a schedule.
 ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
 ---
 
-# Start/Stop VMs v2 (preview) overview
+# Start/Stop VMs v2 overview
 
-The Start/Stop VMs v2 (preview) feature starts or stops Azure virtual machines (VMs) across multiple subscriptions. It starts or stops Azure VMs on user-defined schedules, provides insights through [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), and send optional notifications by using [action groups](../../azure-monitor/alerts/action-groups.md). The feature can manage both Azure Resource Manager VMs and classic VMs for most scenarios.
+The Start/Stop VMs v2 feature starts or stops Azure virtual machines (VMs) across multiple subscriptions. It starts or stops Azure VMs on user-defined schedules, provides insights through [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), and send optional notifications by using [action groups](../../azure-monitor/alerts/action-groups.md). The feature can manage both Azure Resource Manager VMs and classic VMs for most scenarios.
 
-This new version of Start/Stop VMs v2 (preview) provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the [original version](../../automation/automation-solution-vm-management.md) available with Azure Automation, but it is designed to take advantage of newer technology in Azure.
+This new version of Start/Stop VMs v2 provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the [original version](../../automation/automation-solution-vm-management.md) available with Azure Automation, but it is designed to take advantage of newer technology in Azure.
 
 > [!NOTE]
 > We've added a plan (**AZ - Availability Zone**) to our Start/Stop V2 solution to enable a high-availability offering. You can now choose between Consumption and Availability Zone plans before you start your deployment. In most cases, the monthly cost of the Availability Zone plan is higher when compared to the Consumption plan. 
@@ -22,9 +22,9 @@ This new version of Start/Stop VMs v2 (preview) provides a decentralized low-cos
     
 ## Overview
 
-Start/Stop VMs v2 (preview) is redesigned and it doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [previous version](../../automation/automation-solution-vm-management.md). This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
+Start/Stop VMs v2 is redesigned and it doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [previous version](../../automation/automation-solution-vm-management.md). This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
 
-A managed identity is created in Azure Active Directory (Azure AD) for this Azure Functions application and allows Start/Stop VMs v2 (preview) to easily access other Azure AD-protected resources, such as the logic apps and Azure VMs. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+A managed identity is created in Azure Active Directory (Azure AD) for this Azure Functions application and allows Start/Stop VMs v2 to easily access other Azure AD-protected resources, such as the logic apps and Azure VMs. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 An HTTP trigger endpoint function is created to support the schedule and sequence scenarios included with the feature, as shown in the following table.
 
@@ -66,7 +66,7 @@ The queue-based trigger functions are required in support of this feature. All t
 
 Each Start/Stop action supports assignment of one or more subscriptions, resource groups, or a list of VMs.
 
-An Azure Storage account, which is required by Functions, is also used by Start/Stop VMs v2 (preview) for two purposes:
+An Azure Storage account, which is required by Functions, is also used by Start/Stop VMs v2 for two purposes:
 
    - Uses Azure Table Storage to store the execution operation metadata (that is, the start/stop VM action).
 
@@ -80,7 +80,7 @@ Email notifications are also sent as a result of the actions performed on the VM
 
 ## New releases
 
-When a new version of Start/Stop VMs v2 (preview) is released, your instance is auto-updated without having to manually redeploy.
+When a new version of Start/Stop VMs v2 is released, your instance is auto-updated without having to manually redeploy.
 
 ## Supported scoping options
 
@@ -106,8 +106,8 @@ Specifying a list of VMs can be used when you need to perform the start and stop
 
 - Your account has been granted the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) permission in the subscription.
 
-- Start/Stop VMs v2 (preview) is available in all Azure global and US Government cloud regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) page for Azure Functions.
+- Start/Stop VMs v2 is available in all Azure global and US Government cloud regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) page for Azure Functions.
 
 ## Next steps
 
-To deploy this feature, see [Deploy Start/Stop VMs](deploy.md) (preview).
+To deploy this feature, see [Deploy Start/Stop VMs](deploy.md).
