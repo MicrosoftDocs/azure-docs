@@ -48,7 +48,7 @@ Insert this code in `quickstart.py`. Make sure you update these values:
 
 This sample constructs the `SpeechConfig` object using LUIS key and region. For a full list of available methods, see [SpeechConfig Class](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
 
-The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../how-to-specify-source-language.md) for information on choosing the source language.
+The Speech SDK will default to recognizing using en-us for the language, see [How to recognize speech](../../../how-to-recognize-speech.md) for information on choosing the source language.
 
 ## Initialize an IntentRecognizer
 
