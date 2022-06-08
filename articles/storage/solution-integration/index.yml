@@ -28,7 +28,7 @@ landingContent:
           - text: Overview of analytics partner solutions
             url: .\validated-partners\analytics\partner-overview.md
   # Card
-  - title: Archive, backup, and business continuity and disaster recovery (BCDR) partner solutions
+  - title: Archive, backup, and BCDR partner solutions
     linkLists:
       - linkListType: overview
         links:
