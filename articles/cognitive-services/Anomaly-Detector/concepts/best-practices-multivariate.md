@@ -130,7 +130,7 @@ Values of different variables at close timestamps are well aligned, and the MVAD
 
 ### Limitations
 
-There are some limitations in both training and inference APIs, you should follow these limitations to avoid errors.
+There are some limitations in both the training and inference APIs, you should be aware of these limitations to avoid errors.
 
 #### General Limitations
 * Sliding window: 28-2880 timestamps, default is 300. For periodic data, set the length of 2-4 cycles as the sliding window. 
@@ -138,7 +138,7 @@ There are some limitations in both training and inference APIs, you should follo
 * Variable numbers: For training and asynchronized inference, at most 301 variables.
 #### Training Limitations
 * Timestamps: At most 1000000. Too few timestamps may decrease model quality. Recommend having more than 15000 timestamps.
-* Granularity: The minimum granularity is `secondly`.
+* Granularity: The minimum granularity is `per_second`.
 
 #### Asynchronized inference limitations
 * Timestamps: At most 20000, at least 1 sliding window length.
@@ -149,10 +149,10 @@ There are some limitations in both training and inference APIs, you should follo
 ## Model quality
 
 ### How to deal with false positive and false negative in real scenarios?
-We have provided severity which indicates the significance of anomalies. False positives may be filtered out by setting up a threshold on the severity. Sometimes too many false positives may appear when there are pattern shifts in the inference data. In such cases model may need to be retrained on new data. If the training data contains too many anomalies, there could be false negatives in the detection results. This is because the model learns patterns from the training data and anomalies may bring bias to the model. Thus proper data cleaning may help reduce false negatives.
+We have provided severity which indicates the significance of anomalies. False positives may be filtered out by setting up a threshold on the severity. Sometimes too many false positives may appear when there are pattern shifts in the inference data. In such cases a model may need to be retrained on new data. If the training data contains too many anomalies, there could be false negatives in the detection results. This is because the model learns patterns from the training data and anomalies may bring bias to the model. Thus proper data cleaning may help reduce false negatives.
  
 ### How to estimate which model is best to use according to training loss and validation loss?
-Generally speaking, it is hard to decide which model is the best without labeled dataset. However, we can leverage the training and validation losses to have a rough estimation and discard those bad models. First, we need to observe whether training losses converges. Divergent losses often indicate poor quality of the model. Second, loss values may help identify whether underfitting or overfitting occurs. Models that are underfitting or overfitting may not have desired performance. Third, although the definition of loss function does not reflect the detection performance directly, loss values may be an auxiliary tool to estimate model quality. Low loss value is a necessary condition for a good model, thus we may discard models with high loss values.
+Generally speaking, it is hard to decide which model is the best without a labeled dataset. However, we can leverage the training and validation losses to have a rough estimation and discard those bad models. First, we need to observe whether training losses converge. Divergent losses often indicate poor quality of the model. Second, loss values may help identify whether underfitting or overfitting occurs. Models that are underfitting or overfitting may not have desired performance. Third, although the definition of the loss function does not reflect the detection performance directly, loss values may be an auxiliary tool to estimate model quality. Low loss value is a necessary condition for a good model, thus we may discard models with high loss values.
 
 
 ## Common pitfalls
@@ -180,7 +180,7 @@ Let's use two examples to learn how MVAD's sliding window works. Suppose you hav
 * **Batch scenario**: You have multiple target data points to predict. Your `endTime` will be greater than your `startTime`. Inference in such scenarios is performed in a "moving window" manner. For example, MVAD will use data from `2021-01-01T00:00:00Z` to `2021-01-01T23:59:00Z` (inclusive) to determine whether data at `2021-01-02T00:00:00Z` is anomalous. Then it moves forward and uses data from `2021-01-01T00:01:00Z` to `2021-01-02T00:00:00Z` (inclusive)
 to determine whether data at `2021-01-02T00:01:00Z` is anomalous. It moves on in the same manner (taking 1,440 data points to compare) until the last timestamp specified by `endTime` (or the actual latest timestamp). Therefore, your inference data source must contain data starting from `startTime` - `slidingWindow` and ideally contains in total of size `slidingWindow` + (`endTime` - `startTime`).
 
-### Why only accepting zip files for training and inference in asynchronous way?
+### Why does the service only accept zip files for training and inference when sending data asynchronously?
 
 We use zip files because in batch scenarios, we expect the size of both training and inference data would be very large and cannot be put in the HTTP request body. This allows users to perform batch inference on historical data either for model validation or data analysis.
 
