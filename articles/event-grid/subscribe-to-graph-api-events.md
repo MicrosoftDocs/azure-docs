@@ -42,17 +42,15 @@ The common steps to subscribe to events published by any partner, including Grap
 4. Activate partner topic so that your events start flowing to your partner topic.
 5. Subscribe to events.
 
-### **Enable Microsoft Graph API events to flow to your partner topic**
+### Enable Microsoft Graph API events to flow to your partner topic
 
 > [!IMPORTANT]
-> In the following steps, you will follow instructions from [Wehbook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=) to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask.graph.and.grid@service.microsoft.com?subject=Please allow my application ID">mailto:ask.graph.and.grid@service.microsoft.com?subject=Please allow my application with ID to send events through Graph API.</a> so that the Microsoft Graph API team can add your application ID to allow list to use this new capability.
+> Microsoft Graph API's (MGA) ability to send events to Even Grid (a generally available service) is in private preview. In the following steps, you will follow instructions from [Wehbook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=) to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask.graph.and.grid@service.microsoft.com?subject=Please allow my application ID">mailto:ask.graph.and.grid@service.microsoft.com?subject=Please allow my application with ID to send events through Graph API.</a> so that the Microsoft Graph API team can add your application ID to allow list to use this new capability.
 
-You request Microsoft Graph API to send events by creating a Graph API subscription. 
-
-When you create a Graph API subscription, the http request looks like the following sample:
+You request Microsoft Graph API to send events by creating a Graph API subscription. When you create a Graph API subscription, the http request looks like the following sample:
 
 ```
-POST to https://graph.microsoft.com/v1.0/subscriptions/
+POST to https://canary.graph.microsoft.com/testprodbetawebhooks1/subscriptions
 
 Body:
 {
@@ -62,7 +60,6 @@ Body:
     "expirationDateTime": "2022-04-30T00:00:00Z",
     "clientState": "mysecret"
 }
-
 ```
 
 Here are some of the key payload properties:
@@ -71,14 +68,23 @@ Here are some of the key payload properties:
 - `notificationUrl`: a URI that conforms to the following pattern: `EventGrid:?azuresubscriptionid=<you-azure-subscription-id>&resourcegroup=<your-resource-group-name>&partnertopic=<the-name-for-your-partner-topic>&location=<the-Azure-region-where-you-want-the-topic-created>`.
 - resource: the resource for which you need events announcing state changes.
 - expirationDateTime: the expiration time at which the subscription will expire and hence the flow of events will stop. It must conform to the format specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that is within the [maximum subscription length allowable for the resource type](/graph/api/resources/subscription#maximum-length-of-subscription-per-resource-type) used. 
+- client state. A value that is set by you when creating a Graph API subscription. For more information, see [Graph API subscription properties](/graph/api/resources/subscription#properties).
+
+> [!NOTE]
+> Microsoft Graph API's capability to send events to Event Grid is only available in specific Graph API environment. You will need to update your code so that it uses the following Graph API endpoint "https://canary.graph.microsoft.com/testprodbetawebhooks1". For example, this is the way you can set the endpoint on your graph client (com.microsoft.graph.requests.GraphServiceClient) using the Java SDK:
+>
+>```java
+>graphClient.setServiceRoot("https://canary.graph.microsoft.com/testprodbetawebhooks1");
+>```
 
 **You can create a Microsoft Graph API subscription by following the instructions in the [Microsoft Graph API webhook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=)** that include code samples for [NodeJS](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java (Spring Boot)](https://github.com/microsoftgraph/java-spring-webhooks-sample), and [.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample). 
 
 > [!NOTE]
-> There are not yet samples available for Python, Go and other languages but there is [Graph SDK](/graph/sdks/sdks-overview) support to create Graph API subscriptions. 
+> There are not samples available for Python, Go and other languages yet, but the [Graph SDK](/graph/sdks/sdks-overview) supports creating Graph API subscriptions in these programming languages. 
 
 > [!NOTE]
-> Be mindful of certain [Graph API resources' service limits](/graph/webhooks#azure-ad-resource-limitations) when developing your solution.
+> - Partner topic names must be unique within the same Azure region. Each tenant-application ID combination can  create up to 10 unique partner topics.
+> - Be mindful of certain [Graph API resources' service limits](/graph/webhooks#azure-ad-resource-limitations) when developing your solution.
 
 #### What happens when you create a Microsoft Graph API subscription?
 

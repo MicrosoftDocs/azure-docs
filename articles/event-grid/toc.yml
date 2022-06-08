@@ -174,10 +174,12 @@ items:
         items:
         - name: Auth0
           href: auth0-overview.md
-        - name: Azure Active Directory
-          href: azure-active-directory-events.md
-        - name: Microsoft Outlook
-          href: outlook-events.md
+        - name: Microsoft Graph API event sources
+          items:          
+          - name: Azure Active Directory
+            href: azure-active-directory-events.md
+          - name: Microsoft Outlook
+            href: outlook-events.md
     - name: Event Domains
       href: event-domains.md
     - name: Event schema formats

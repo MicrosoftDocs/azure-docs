@@ -78,6 +78,7 @@ Following example shows the way to create a partner configuration resource that 
 Here's the list of partners and a link to submit a request to enable events flow to a partner topic.
 
 - [Auth0](auth0-how-to.md)
+- [Graph API event sources](subscribe-to-partner-events.md)
 
 
 ## Activate a partner topic
