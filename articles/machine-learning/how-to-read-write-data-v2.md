@@ -379,8 +379,7 @@ The following example defines a pipeline containing three nodes and moves data b
 [!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
 
 ## Next steps
-* [Install and set up Python SDK v2 (preview)](https://aka.ms/sdk-v2-install)
-* [Install and use the CLI (v2)](how-to-configure-cli.md)
+
 * [Train models with the Python SDK v2 (preview)](how-to-train-sdk.md)
 * [Tutorial: Create production ML pipelines with Python SDK v2 (preview)](tutorial-pipeline-python-sdk.md)
 * Learn more about [Data in Azure Machine Learning](concept-data.md)

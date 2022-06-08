@@ -48,7 +48,7 @@ To create and work with Data assets, you need:
 
 ## Supported paths
 
-When you create a data asset in Azure Machine Learning, you'll need to specify a `path` parameter that points to it's location. Below is a table that shows the different data locations supported in Azure Machine Learning and examples for the `path` parameter:
+When you create a data asset in Azure Machine Learning, you'll need to specify a `path` parameter that points to its location. Below is a table that shows the different data locations supported in Azure Machine Learning and examples for the `path` parameter:
 
 
 |Location  | Examples  |
@@ -56,13 +56,13 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 |A path on your local computer     | `./home/username/data/my_data`         |
 |A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
 |A path on Azure Storage     |   `https://<account_name>.blob.core.windows.net/<container_name>/path` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
-|A path on a Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
+|A path on a datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
 
 
 > [!NOTE]
 > When you create a data asset from a local path, it will be automatically uploaded to the default Azure Machine Learning datastore in the cloud.
 
-## Create a folder data asset
+## Create a `uri_folder` data asset
 
 Below shows you how to create a *folder* as an asset:
 
@@ -119,7 +119,7 @@ ml_client.data.create_or_update(my_data)
 
 ---
 
-## Create a file data asset
+## Create a `uri_file` data asset
 
 Below shows you how to create a *specific file* as a data asset:
 
@@ -171,7 +171,7 @@ ml_client.data.create_or_update(my_data)
 
 ---
    
-## Create an `mltable` data asset
+## Create a `mltable` data asset
 
 `mltable` is a way to abstract the schema definition for tabular data to make it easier to share data assets (an overview can be found in [MLTable](concept-data.md#mltable)). 
 
