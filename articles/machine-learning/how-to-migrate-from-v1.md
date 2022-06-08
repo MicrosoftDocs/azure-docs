@@ -104,6 +104,16 @@ We recommend migrating the code for creating compute to v2.
 
 ### Endpoint and deployment (endpoint or web service in v1)
 
+TODO: reword and finish
+
+You can continue using your existing v1 model deployments to web services.
+
+For new model deployments, recommend MOE.
+
+For existing ACI web services, you can migrate to managed online endpoints.
+
+For existing AKS web services in v1, we recommend new Kubernetes compute target. Or if you don't want to maintain AKS cluster, consider migrating to managed online endpoint.
+
 Generally, you need to redeploy your model with v2 APIs to migrate endpoints and deployments. The deploy button in the studio for a model uses the v2 APIs for online and batch endpoints.
 
 We recommend using managed endpoints in v2 for online (near real-time) and batch (massively parallel) scenarios.
@@ -168,7 +178,7 @@ Typically, converting to v2 will involve refactoring your code to use MLflow for
 
 We recommend v2 for production model deployment. Managed endpoints abstract the IT overhead and provide a performant solution for deploying and scoring models, both for online (near real-time) and batch (massively parallel) scenarios.
 
-Kubernetes deployments are supported in v2 through Azure Arc, enabling usage through Azure Kubernetes Service (AKS) or on-premise deployments managed by your organization.
+Kubernetes deployments are supported in v2 through AKS or Azure Arc, enabling Azure cloud and on-premise deployments managed by your organization.
 
 ### Machine learning operations (MLOps)
 
@@ -185,3 +195,4 @@ You can obtain a YAML representation of any entity with the CLI via `az ml <enti
 ## Next steps
 
 - [Get started with the CLI (v2)](how-to-configure-cli.md)
+- [Get started with the Python SDK (v2)](https://aka.ms/sdk-v2-install)
