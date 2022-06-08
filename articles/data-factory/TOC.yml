@@ -1052,6 +1052,24 @@ items:
         href: industry-sap-connectors.md
       - name: SAP templates
         href: industry-sap-templates.md
+      - name: SAP change data capture (CDC)
+        items:
+        - name: 1 - Introduction and architecture
+          href: sap-cdc-solution-introduction-architecture.md
+        - name: 2 - Prerequisites and configuration
+          href: sap-cdc-solution-prerequisites-configuration.md
+        - name: 3 - Self-hosted integration runtime preparation
+          href: sap-cdc-solution-shir-preparation.md
+        - name: 4 - Linked service and source dataset creation
+          href: sap-cdc-solution-prepare-linked-service-source-dataset.md
+        - name: 5 - Debug copy activity issues
+          href: sap-cdc-debug-shir-logs.md
+        - name: 6 - Data partitioning template
+          href: sap-cdc-data-partitioning-template.md
+        - name: 7 - Data Replication template
+          href: sap-cdc-data-replication-template.md
+        - name: 8 - Managing the solution
+          href: sap-cdc-management.md
   - name: Templates
     items:
     - name: Overview of templates
