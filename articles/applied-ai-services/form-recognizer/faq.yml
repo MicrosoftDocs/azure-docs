@@ -173,9 +173,9 @@ sections:
           This table provides links to the latest SDK versions and shows the relationship between supported Form Recognizer SDK and API versions:
 
             | Supported Language | Azure SDK client-library|API reference |Supported API version|
-            | ----------- | --------|--------|:---------------------: |
+            | ----- | -----|-----|-----|
             | C#/.NET| [4.0.0-beta.3](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.3/index.html)|[.NET SDK](/dotnet/api/azure.ai.formrecognizer.documentanalysis?view=azure-dotnet-preview&preserve-view=true) |2022-06-30, 2022-01-30, 2021-09-30-preview, v2.1, v2.0 |
-            | Java | [4.0.0-beta.4](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.4/index.html)|[Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)|2022-06-30, 2022-01-30, 2021-09-30-preview, v2.1, v2.0 |
+            | Java | [4.0.0-beta.4](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.4/index.html)|[Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)| 2022-06-30, 2022-01-30, 2021-09-30-preview, v2.1, v2.0 |
             | JavaScript | [4.0.0-beta.3](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.3/index.html)|[JavaScript SDK](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) |2022-06-30, 2022-01-30, 2021-09-30-preview, v2.1, v2.0|
             | Python | [3.2.0b3](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b3/index.html) |[Python SDK](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) |2022-06-30, 2022-01-30, 2021-09-30-preview, v2.1, v2.0|
 
@@ -243,12 +243,12 @@ sections:
 
           - When you submit a document for analysis, all pages are analyzed unless you specify a page range with the `pages` parameter in your request.
 
-          - When analyzing Microsoft Word and HTML files with the new Read OCR model, pages are counted in blocks of 3,000 characters each. For example, if your document contains 7,000 characters, it will be counted as two pages.
+          - When analyzing Microsoft Word and HTML files with the new Read OCR model, pages are counted in blocks of 3,000 characters each. For example, if your document contains 7,000 characters, it will be counted as three pages as two pages with 3,000 characters each and one page with 1,000 characters.
+
+          - In addition, if your Microsoft Word, Excel, and PowerPoint documents have embedded images, each image will be analyzed for text extraction and counted as a page. Therefore, the total analyzed pages for Microsoft Office documents will be equal to the sum of total text pages and total images analyzed. In the previous example if the document contains 2 embedded images, the total page count in the service output will be 3 + 2 equaling five pages.
 
           - When analyzing Microsoft Excel and PowerPoint documents with the new Read OCR model, each worksheet and slide is counted as one page respectively.
-
-          - In addition, if your Microsoft Word, Excel, and PowerPoint documents have embedded images, each image will be analyzed for text extraction and counted as a page. Therefore, the total analyzed pages for Microsoft Office documents will be equal to the sum of total pages and total images analyzed.
-
+          
           - Training a custom model is always free with Form Recognizer. You’re only charged when a model is used to analyze a document.
 
           - Container pricing is the same as cloud service pricing.
@@ -454,7 +454,7 @@ sections:
           Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. Connected containers don't send customer data, such as the image or text that's being analyzed, to Microsoft. See the [Cognitive Services container FAQ](../../cognitive-services/containers/disconnected-container-faq.yml#how-does-billing-work) for an example of the information sent to Microsoft for billing.
 
       - question: |
-           I received an "OutOfQuota" error message: "Container isn't in a valid state. Subscription validation failed with status 'OutOfQuota'. Api key is out of quota".
+           I received an "OutOfQuota" error message: "Container isn't in a valid state. Subscription validation failed with status 'OutOfQuota'. API key is out of quota".
         answer: |
 
           Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. You could get this message if the containers can't communicate with the billing endpoint.
