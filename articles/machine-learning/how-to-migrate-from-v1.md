@@ -24,7 +24,7 @@ Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK (prev
 
 ## Should I use v2?
 
-You should use v2 if you're starting a new machine learning project. A new v2 project can reuse resources like workspaces and compute and assets like models and environments created using v1. You can also use v1 and v2 in tandem, for example using the v1 Python SDK within jobs that are submitted from the v2 CLI extension. However, see the [section below](#can-I-use-v1-and-v2-together) for details on why separating v1 and v2 use is recommended.
+You should use v2 if you're starting a new machine learning project. A new v2 project can reuse resources like workspaces and compute and assets like models and environments created using v1. You can also use v1 and v2 in tandem, for example using the v1 Python SDK within jobs that are submitted from the v2 CLI extension. However, see the [section below](#can-i-use-v1-and-v2-together?) for details on why separating v1 and v2 use is recommended.
 
 We recommend assessing the effort needed to migrate a project from v1 to v2. First, you should ensure all the features needed from v1 are available in v2. Some notable feature gaps include:
 
