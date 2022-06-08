@@ -172,7 +172,7 @@ You may use advanced networking where the virtual network and subnet or public I
 
 ### Storage
 
-You may need to access existing disk resources in another resource group. Assign one of the following set of role permissions:
+If you need to access existing disk resources in another resource group, assign one of the following set of role permissions:
 
 - Create a [custom role][rbac-custom-role] and define the following role permissions:
   - *Microsoft.Compute/disks/read*
@@ -181,7 +181,7 @@ You may need to access existing disk resources in another resource group. Assign
 
 ### Azure Container Instances
 
-If you use Virtual Kubelet to integrate with AKS and choose to run Azure Container Instances (ACI) in resource group separate to the AKS cluster, the AKS service principal must be granted *Contributor* permissions on the ACI resource group.
+If you use Virtual Kubelet to integrate with AKS and choose to run Azure Container Instances (ACI) in resource group separate from the AKS cluster, the AKS cluster service principal must be granted *Contributor* permissions on the ACI resource group.
 
 ## Additional considerations
 
@@ -195,10 +195,10 @@ When using AKS and an Azure AD service principal, consider the following:
 - When you specify the service principal **Client ID**, use the value of the `appId`.
 - On the agent node VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`
 - When you use the [az aks create][az-aks-create] command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/aksServicePrincipal.json` on the machine used to run the command.
-- If you do not specifically pass a service principal in additional AKS CLI commands, the default service principal located at `~/.azure/aksServicePrincipal.json` is used.
-- You can also optionally remove the aksServicePrincipal.json file, and AKS will create a new service principal.
-- When you delete an AKS cluster that was created by [az aks create][az-aks-create], the service principal that was created automatically is not deleted.
-    - To delete the service principal, query for your cluster *servicePrincipalProfile.clientId* and then delete with [az ad sp delete][az-ad-sp-delete]. Replace the following resource group and cluster names with your own values:
+- If you do not specify a service principal with AKS CLI commands, the default service principal located at `~/.azure/aksServicePrincipal.json` is used.
+- You can optionally remove the `aksServicePrincipal.json` file, and AKS creates a new service principal.
+- When you delete an AKS cluster that was created by [az aks create][az-aks-create], the service principal created automatically is not deleted.
+    - To delete the service principal, query for your clusters *servicePrincipalProfile.clientId* and then delete it using the [az ad sp delete][az-ad-sp-delete] command. Replace the values for the `-g` parameter for the resource group name, and `-n` parameter for the cluster name:
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
@@ -206,18 +206,18 @@ When using AKS and an Azure AD service principal, consider the following:
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-When using AKS and Azure AD service principals, keep the following considerations in mind.
+When using AKS and an Azure AD service principal, consider the following:
 
-- The service principal for Kubernetes is a part of the cluster configuration. However, don't use the identity to deploy the cluster.
+- The service principal for Kubernetes is a part of the cluster configuration. However, don't use this identity to deploy the cluster.
 - By default, the service principal credentials are valid for one year. You can [update or rotate the service principal credentials][update-credentials] at any time.
 - Every service principal is associated with an Azure AD application. The service principal for a Kubernetes cluster can be associated with any valid Azure AD application name (for example: *https://www.contoso.org/example*). The URL for the application doesn't have to be a real endpoint.
 - When you specify the service principal **Client ID**, use the value of the `ApplicationId`.
 - On the agent node VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`
 - When you use the [New-AzAksCluster][new-azakscluster] command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/acsServicePrincipal.json` on the machine used to run the command.
-- If you do not specifically pass a service principal in additional AKS PowerShell commands, the default service principal located at `~/.azure/acsServicePrincipal.json` is used.
-- You can also optionally remove the acsServicePrincipal.json file, and AKS will create a new service principal.
-- When you delete an AKS cluster that was created by [New-AzAksCluster][new-azakscluster], the service principal that was created automatically is not deleted.
-    - To delete the service principal, query for your cluster *ServicePrincipalProfile.ClientId* and then delete with [Remove-AzADServicePrincipal][remove-azadserviceprincipal]. Replace the following resource group and cluster names with your own values:
+- If you do not specify a service principal with AKS PowerShell commands, the default service principal located at `~/.azure/acsServicePrincipal.json` is used.
+- You can optionally remove the `acsServicePrincipal.json` file, and AKS creates a new service principal.
+- When you delete an AKS cluster that was created by [New-AzAksCluster][new-azakscluster], the service principal created automatically is not deleted.
+    - To delete the service principal, query for your clusters *ServicePrincipalProfile.ClientId* and then delete it using the [Remove-AzADServicePrincipal][remove-azadserviceprincipal] command. Replace the values for the `-ResourceGroupName` parameter for the resource group name, and `-Name` parameter for the cluster name:
 
         ```azurepowershell-interactive
         $ClientId = (Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster ).ServicePrincipalProfile.ClientId
@@ -229,7 +229,7 @@ When using AKS and Azure AD service principals, keep the following consideration
 
 ### [Azure CLI](#tab/azure-cli)
 
-The service principal credentials for an AKS cluster are cached by the Azure CLI. If these credentials have expired, you encounter errors deploying AKS clusters. The following error message when running [az aks create][az-aks-create] may indicate a problem with the cached service principal credentials:
+The service principal credentials for an AKS cluster are cached by the Azure CLI. If these credentials have expired, you encounter errors during deployment of the AKS cluster. The following error message when running [az aks create][az-aks-create] may indicate a problem with the cached service principal credentials:
 
 ```console
 Operation failed with status: 'Bad Request'.
@@ -237,17 +237,17 @@ Details: The credentials in ServicePrincipalProfile were invalid. Please see htt
 (Details: adal: Refresh request failed. Status Code = '401'.
 ```
 
-Check the age of the credentials file using the following command:
+Check the age of the credentials file by running the following command:
 
 ```console
 ls -la $HOME/.azure/aksServicePrincipal.json
 ```
 
-The default expiration time for the service principal credentials is one year. If your *aksServicePrincipal.json* file is older than one year, delete the file and try to deploy an AKS cluster again.
+The default expiration time for the service principal credentials is one year. If your *aksServicePrincipal.json* file is older than one year, delete the file and retry deploying the AKS cluster.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-The service principal credentials for an AKS cluster are cached by Azure PowerShell. If these credentials have expired, you encounter errors deploying AKS clusters. The following error message when running [New-AzAksCluster][new-azakscluster] may indicate a problem with the cached service principal credentials:
+The service principal credentials for an AKS cluster are cached by Azure PowerShell. If these credentials have expired, you encounter errors during deployment of the AKS cluster. The following error message when running [New-AzAksCluster][new-azakscluster] may indicate a problem with the cached service principal credentials:
 
 ```console
 Operation failed with status: 'Bad Request'.
@@ -255,13 +255,13 @@ Details: The credentials in ServicePrincipalProfile were invalid. Please see htt
 (Details: adal: Refresh request failed. Status Code = '401'.
 ```
 
-Check the age of the credentials file using the following command:
+Check the age of the credentials file by running the following command:
 
 ```azurepowershell-interactive
 Get-ChildItem -Path $HOME/.azure/aksServicePrincipal.json
 ```
 
-The default expiration time for the service principal credentials is one year. If your *aksServicePrincipal.json* file is older than one year, delete the file and try to deploy an AKS cluster again.
+The default expiration time for the service principal credentials is one year. If your *aksServicePrincipal.json* file is older than one year, delete the file and retry deploying the AKS cluster.
 
 ---
 
