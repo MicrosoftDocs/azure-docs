@@ -20,7 +20,7 @@ Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK (prev
 ## Prerequisites
 
 - General familiarity with Azure ML and the v1 Python SDK.
-- Understand [what is v2?](concept-v2.md).
+- Understand [what is v2?](concept-v2.md)
 
 ## Should I use v2?
 
