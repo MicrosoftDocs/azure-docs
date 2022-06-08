@@ -285,6 +285,8 @@
               href: deploy-ci-cd-custom-container.md
             - name: Deploy from local Git
               href: deploy-local-git.md
+            - name: Azure Pipelines
+              href: deploy-azure-pipelines.md
             - name: GitHub Actions
               href: deploy-github-actions.md
             - name: GitHub Actions for Containers
