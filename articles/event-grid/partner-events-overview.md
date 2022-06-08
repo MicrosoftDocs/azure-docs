@@ -58,6 +58,7 @@ A partner must go through an [onboarding process](onboard-partner.md) before a c
 | :--------------------|:-----------------------:|:----------------------:|
 | Microsoft Graph API* |   Yes                   | N/A                    |
 
+#### Microsoft Graph API
 Through Microsoft Graph API, you can get events from a diverse set of Microsoft services such as **Azure AD**, **Microsoft Outlook**, **Teams**, **SharePoint**, and so on. For a complete list of event sources, see [Microsoft Graph API's change notifications documentation](/graph/webhooks#supported-resources).
 
 ### Non-Microsoft partners
