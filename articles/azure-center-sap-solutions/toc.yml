@@ -14,3 +14,5 @@ items:
     href: install-software.md
   - name: Configure Virtual Instance for SAP
     href: configure-virtual-instance.md
+  - name: Deploy S/4HANA infrastructure
+    href: deploy-s4hana.md
