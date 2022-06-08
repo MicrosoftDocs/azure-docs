@@ -35,11 +35,11 @@ To get started, you'll need:
 
 WhoIAM Rampart is built entirely in Azure and runs in your Azure environment. The following components comprise the Rampart solution with Azure AD B2C:
 
-- An Azure AD tenant: Your Azure AD B2C tenant stores your users and manages who has access (and at what scope) to Rampart itself.
+- **An Azure AD tenant**: Your Azure AD B2C tenant stores your users and manages who has access (and at what scope) to Rampart itself.
 
-- Custom B2C policies: to integrate with Rampart.
+- **Custom B2C policies**: To integrate with Rampart.
 
-- A resource group that hosts Rampart functionality
+- **A resource group**: It hosts Rampart functionality.
 
 :::image type="content" source="media/partner-whoiam/whoiam-rampart-integration-scenario.png" alt-text="Diagram showing the WhoIAM Rampart integration scenario for Azure AD B2C." loc-scope="azure-active-directory-b2c" border="false" lightbox="media/partner-whoiam/whoiam-rampart-integration-scenario.png":::
 
