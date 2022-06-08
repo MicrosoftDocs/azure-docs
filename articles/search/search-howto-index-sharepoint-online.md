@@ -5,11 +5,11 @@ description: Set up a SharePoint indexer to automate indexing of document librar
 
 author: gmndrg
 ms.author: gimondra
-manager: nitinme
+manager: liamca
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 06/01/2022
 ---
 
 # Index data from SharePoint document libraries
