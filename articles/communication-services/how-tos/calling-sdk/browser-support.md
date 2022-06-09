@@ -1,11 +1,17 @@
 ---
-title: How to verify if your application is running in a web browser supported by Azure Communication Services
+title: Verify if a web browser is supported
+titleSuffix: An Azure Communication Services how-to guide
 description: Learn how to get current browser environment details using the Azure Communication Services Calling SDK for JavaScript 
-author: micahvivion
+author: sloanster
 ms.author: micahvivion
-ms.date: 05/27/2022
-ms.topic: include
 ms.service: azure-communication-services
+ms.subservice: calling
+ms.topic: how-to 
+ms.date: 06/08/2021
+ms.custom: template-how-to
+
+#Customer intent: As a developer, I can verify that a browser an end user is trying to do a call on is supported by Azure Communication Services.
+
 ---
 
 # How to verify if your application is running in a web browser supported by Azure Communication Services
