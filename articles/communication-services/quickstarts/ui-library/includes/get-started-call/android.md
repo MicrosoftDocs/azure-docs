@@ -42,6 +42,16 @@ Click `Finish`.
 In your app level (**app folder**) `UILibraryQuickStart/app/build.gradle`, add the following dependency.
 
 ```groovy
+android {
+    ...
+    packagingOptions {
+        pickFirst  'META-INF/*'
+    }
+    ...
+}
+```
+
+```groovy
 dependencies {
     ...
     implementation 'com.azure.android:azure-communication-ui-calling:+'
