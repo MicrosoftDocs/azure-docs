@@ -31,7 +31,7 @@ This procedure describes how to use the Azure portal to contact vendors for pre-
 
 ## Onboard sensors
 
-Onboard a sensor by registering it with Microsoft Defender for IoT. For OT sensors, you'll also need to downloading a sensor activation file.
+Onboard a sensor by registering it with Microsoft Defender for IoT. For OT sensors, you'll also need to download a sensor activation file.
 
 Select one of the following tabs, depending on the type of network you're working with.
 # [OT sensors](#tab/ot)
@@ -46,7 +46,7 @@ Select one of the following tabs, depending on the type of network you're workin
 
 1. In **Step 3: Register this sensor with Microsoft Defender for IoT** enter or select the following values for your sensor:
 
-    1. In the **Sensor name** field, enter a meaningful name for your sensor.  We recommend including your sensor's IP address as part of the name, or using another easily identifiable name, that can help you keep track between the registration name in the Azure portal and the IP address of the sensor shown in the sensor console.
+    1. In the **Sensor name** field, enter a meaningful name for your sensor.  We recommend including your sensor's IP address as part of the name, or using another easily identifiable name that can help you keep track between the registration name in the Azure portal and the IP address of the sensor shown in the sensor console.
 
     1. In the **Subscription** field, select your Azure subscription.
 
@@ -76,7 +76,7 @@ Make the downloaded activation file accessible to the sensor console admin so th
 
 1. Select **Set up Enterprise IoT Security**.
 
-    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="On the Getting Started page select Onboard sensor.":::
+    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="Screenshot of the Getting started page highlighting the Set up Enterprise IoT security.":::
 
 1. In the **Sensor name** field, enter a meaningful name for your sensor.
 
