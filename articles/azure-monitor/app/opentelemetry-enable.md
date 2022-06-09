@@ -9,7 +9,9 @@ ms.reviewer: mmcc
 
 # Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)
 
-This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. After you finish the instructions in this article, you'll be able to send OpenTelemetry traces to Azure Monitor Application Insights. To learn more about OpenTelemetry, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
+The Azure Monitor OpenTelemetry Exporter is a component that sends traces (and eventually all application telemetry) to Azure Monitor Application Insights. To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
+
+This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. After you finish the instructions in this article, you'll be able to send OpenTelemetry traces to Azure Monitor Application Insights.
 
 > [!IMPORTANT]
 > Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications is currently in preview.

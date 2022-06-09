@@ -35,7 +35,7 @@ The following image shows the architecture for the Arc-enabled SCVMM:
 
 ### Supported VMM versions
 
-Azure Arc-enabled SCVMM works with VMM 2016, 2019 and 2022 versions.
+Azure Arc-enabled SCVMM works with VMM 2016, 2019 and 2022 versions and supports SCVMM management servers with a maximum of 3500 VMS.
 
 ### Supported scenarios
 
