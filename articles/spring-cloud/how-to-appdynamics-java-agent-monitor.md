@@ -158,7 +158,7 @@ deploymentSettings: {
 
 To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
-```ARM template
+```JSON
 "deploymentSettings": {
   "environmentVariables": {
     "APPDYNAMICS_AGENT_APPLICATION_NAME" : "<your-app-name>",
