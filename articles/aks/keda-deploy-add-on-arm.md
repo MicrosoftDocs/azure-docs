@@ -18,9 +18,6 @@ This article shows you how to deploy the Kubernetes Event-driven Autoscaling (KE
 
 ## Prerequisites
 
-> [!NOTE]
-> KEDA is currently only available in the `westcentralus` region.
-
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
 
