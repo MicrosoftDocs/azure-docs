@@ -102,7 +102,7 @@ The flow is as follows:
 
 ### Ultra disks reservation flow
 
-Ultra disks offer two extra throttle, for a total of four throttles. Due to this, ultra disks reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
+Ultra disks offer two extra throttles, for a total of four throttles. Due to this, ultra disks reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="An image of a table that depicts the `ReadOnly` or `Read/Write` access for Reservation Holder, Registered, and Others.":::
 
