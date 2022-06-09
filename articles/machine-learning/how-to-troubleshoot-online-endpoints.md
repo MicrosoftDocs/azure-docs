@@ -248,7 +248,9 @@ Make sure model and code artifacts are registered to the same workspace as the d
 
 #### azureml-fe not ready
 The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. It's installed during your k8s-extension installation.
+
 This component should be healthy on cluster, at least one healthy replica. You will get this error message if it's not avaliable when you trigger kubernetes online endpoint and deployment creation/update request.
+
 Please check the pod status and logs to fix this issue, you can also try to update the k8s-extension intalled on the cluster.
 
 
