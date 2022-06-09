@@ -23,9 +23,9 @@ You can configure threat intelligence in one of the three modes that are describ
 
 |Mode |Description  |
 |---------|---------|
-|`Off`     | The threat intelligence feature is not enabled for your firewall. |
-|`Alert only`     | You will receive high-confidence alerts for traffic going through your firewall to or from known malicious IP addresses and domains. |
-|`Alert and deny`     | Traffic is blocked and you will receive high-confidence alerts when traffic is detected attempting to go through your firewall to or from known malicious IP addresses and domains. |
+|`Off`     | The threat intelligence feature isn't enabled for your firewall. |
+|`Alert only`     | you'll receive high-confidence alerts for traffic going through your firewall to or from known malicious IP addresses and domains. |
+|`Alert and deny`     | Traffic is blocked and you'll receive high-confidence alerts when traffic is detected attempting to go through your firewall to or from known malicious IP addresses and domains. |
 
 > [!NOTE]
 > Threat intelligence mode is inherited from parent policies to child policies. A child policy must be configured with the same or a stricter mode than the parent policy.
@@ -59,7 +59,7 @@ The following log excerpt shows a triggered rule for outbound traffic to a malic
 
 ## Testing
 
-- **Outbound testing** - Outbound traffic alerts should be a rare occurrence, as it means that your environment has been compromised. To help test outbound alerts are working, the following FQDNs have been created to triggers an alert. Use the following FQDNs  for your outbound tests:
+- **Outbound testing** - Outbound traffic alerts should be a rare occurrence, as it means that your environment has been compromised. To help test outbound alerts are working, the following FQDNs have been created to trigger an alert. Use the following FQDNs  for your outbound tests:
 <br><br>
 
    - `documentos-001.brazilsouth.cloudapp.azure.com`
