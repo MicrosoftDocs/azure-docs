@@ -201,6 +201,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-ga-release-faq.md" ,
+            "redirect_url": "/azure/azure-monitor/faq#vm-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-log-search.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/vminsights-log-query",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/cli-samples.md" ,
             "redirect_url": "/cli/azure/azure-cli-reference-for-monitor",
             "redirect_document_id": false
