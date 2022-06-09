@@ -361,7 +361,7 @@ auto pronunciationAssessmentResult =
 auto pronunciationScore = pronunciationAssessmentResult->PronunciationScore;
 
 // Alternative result as a JSON string
-auto pronunciationAssessmentResultJson = speechRecognitionResult ->Properties.GetProperty(PropertyId::SpeechServiceResponse_JsonResult);
+auto pronunciationAssessmentResultJson = speechRecognitionResult->Properties.GetProperty(PropertyId::SpeechServiceResponse_JsonResult);
 ```
    
 ::: zone-end 
