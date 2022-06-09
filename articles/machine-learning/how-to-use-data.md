@@ -85,17 +85,18 @@ Use the tabs below to select where your data is located.
 When you pass local data, the data is automatically uploaded to cloud storage as part of the job submission.
 
 ```python
-from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml import Input, command
+from azure.ai.ml.entities import Data
+from azure.ai.ml.constants import AssetTypes
 
 my_job_inputs = {
-    "input_data": JobInput(
+    "input_data": Input(
         path='./sample_data', # change to be your local directory
         type=AssetTypes.URI_FOLDER
     )
 }
 
-job = CommandJob(
+job = command(
     code="./src", # local path where the code is stored
     command='python train.py --input_folder ${{inputs.input_data}}',
     inputs=my_job_inputs,
@@ -112,18 +113,19 @@ returned_job.services["Studio"].endpoint
 # [ADLS Gen2](#tab/use-adls)
 
 ```python
-from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml import Input, command
+from azure.ai.ml.entities import Data, CommandJob
+from azure.ai.ml.constants import AssetTypes
 
 # in this example we
 my_job_inputs = {
-    "input_data": JobInput(
+    "input_data": Input(
         path='abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>',
         type=AssetTypes.URI_FOLDER
     )
 }
 
-job = CommandJob(
+job = command(
     code="./src", # local path where the code is stored
     command='python train.py --input_folder ${{inputs.input_data}}',
     inputs=my_job_inputs,
@@ -140,18 +142,19 @@ returned_job.services["Studio"].endpoint
 # [Blob](#tab/use-blob)
 
 ```python
-from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml import Input, command
+from azure.ai.ml.entities import Data, CommandJob
+from azure.ai.ml.constants import AssetTypes
 
 # in this example we
 my_job_inputs = {
-    "input_data": JobInput(
+    "input_data": Input(
         path='https://<account_name>.blob.core.windows.net/<container_name>/path',
         type=AssetTypes.URI_FOLDER
     )
 }
 
-job = CommandJob(
+job = command(
     code="./src", # local path where the code is stored
     command='python train.py --input_folder ${{inputs.input_data}}',
     inputs=my_job_inputs,
@@ -174,11 +177,12 @@ Use the tabs below to select where your data is located.
 # [Blob](#tab/rw-blob)
 
 ```python
-from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob, JobOutput
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml import Input, command
+from azure.ai.ml.entities import Data, CommandJob, JobOutput
+from azure.ai.ml.constants import AssetTypes
 
 my_job_inputs = {
-    "input_data": JobInput(
+    "input_data": Input(
         path='https://<account_name>.blob.core.windows.net/<container_name>/path',
         type=AssetTypes.URI_FOLDER
     )
@@ -191,7 +195,7 @@ my_job_outputs = {
     )
 }
 
-job = CommandJob(
+job = command(
     code="./src", #local path where the code is stored
     command='python pre-process.py --input_folder ${{inputs.input_data}} --output_folder ${{outputs.output_folder}}',
     inputs=my_job_inputs,
@@ -209,11 +213,12 @@ returned_job.services["Studio"].endpoint
 # [ADLS Gen2](#tab/rw-adls)
 
 ```python
-from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob, JobOutput
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml import Input, command
+from azure.ai.ml.entities import Data, CommandJob, JobOutput
+from azure.ai.ml.constants import AssetTypes
 
 my_job_inputs = {
-    "input_data": JobInput(
+    "input_data": Input(
         path='abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>',
         type=AssetTypes.URI_FOLDER
     )
@@ -226,7 +231,7 @@ my_job_outputs = {
     )
 }
 
-job = CommandJob(
+job = command(
     code="./src", #local path where the code is stored
     command='python pre-process.py --input_folder ${{inputs.input_data}} --output_folder ${{outputs.output_folder}}',
     inputs=my_job_inputs,
@@ -246,7 +251,7 @@ returned_job.services["Studio"].endpoint
 
 ```python
 from azure.ai.ml.entities import Data
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml.constants import AssetTypes
 
 # select one from:
 my_path = 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>' # adls gen2
@@ -266,19 +271,20 @@ ml_client.data.create_or_update(my_data)
 ### Consume registered data assets in job
 
 ```python
-from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml import Input, command
+from azure.ai.ml.entities import Data, Input, CommandJob
+from azure.ai.ml.constants import AssetTypes
 
 registered_data_asset = ml_client.data.get(name='titanic', version='1')
 
 my_job_inputs = {
-    "input_data": JobInput(
+    "input_data": Input(
         type=AssetTypes.URI_FOLDER,
         path=registered_data_asset.id
     )
 }
 
-job = CommandJob(
+job = command(
     code="./src", 
     command='python read_data_asset.py --input_folder ${{inputs.input_data}}',
     inputs=my_job_inputs,
@@ -342,20 +348,21 @@ inputs:
 The following example shows how to do this using the v2 SDK:
 
 ```python
-from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml import Input, command
+from azure.ai.ml.entities import Data, CommandJob
+from azure.ai.ml.constants import AssetTypes
 
 registered_v1_data_asset = ml_client.data.get(name='<ASSET NAME>', version='<VERSION NUMBER>')
 
 my_job_inputs = {
-    "input_data": JobInput(
+    "input_data": Input(
         type=AssetTypes.MLTABLE, 
         path=registered_v1_data_asset.id,
         mode="eval_mount"
     )
 }
 
-job = CommandJob(
+job = command(
     code="./src", #local path where the code is stored
     command='python train.py --input_data ${{inputs.input_data}}',
     inputs=my_job_inputs,

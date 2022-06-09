@@ -4,7 +4,7 @@ description: Learn how to use the Subscription APIs, which are part of the  the 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 03/07/2022
+ms.date: 06/03/2022
 author: arifgani
 ms.author: argani
 ---
@@ -65,13 +65,13 @@ Response body example:
       "emailId": "test@test.com",
       "objectId": "<guid>",
       "tenantId": "<guid>",
-      "pid": "<ID of the user>"
+      "puid": "<ID of the user>"
     },
     "purchaser": {
       "emailId": "test@test.com",
       "objectId": "<guid>",
       "tenantId": "<guid>",
-      "pid": "<ID of the user>"
+      "puid": "<ID of the user>"
     },
     "planId": "silver",
     "term": {
@@ -238,13 +238,13 @@ Returns the list of all existing subscriptions for all offers made by this publi
         "emailId": " test@contoso.com",
         "objectId": "<guid>",
         "tenantId": "<guid>",
-        "pid": "<ID of the user>"
+        "puid": "<ID of the user>"
       },
       "purchaser": {
         "emailId": "purchase@csp.com ",
         "objectId": "<guid>",
         "tenantId": "<guid>",
-        "pid": "<ID of the user>"
+        "puid": "<ID of the user>"
       },
       "term": {
         "startDate": "2019-05-31",

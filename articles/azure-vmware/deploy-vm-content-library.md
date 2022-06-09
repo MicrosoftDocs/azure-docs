@@ -2,7 +2,8 @@
 title: Create a content library to deploy VMs in Azure VMware Solution
 description: Create a content library to deploy a VM in an Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 06/28/2021
+ms.service: azure-vmware
+ms.date: 04/11/2022
 ---
 
 # Create a content library to deploy VMs in Azure VMware Solution
@@ -13,7 +14,7 @@ In this article, you'll create a content library in the vSphere Client and then 
 
 ## Prerequisites
 
-An NSX-T segment and a managed DHCP service are required to complete this tutorial.  For more information, see [Configure DHCP for Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).  
+An NSX-T Data Center segment and a managed DHCP service are required to complete this tutorial.  For more information, see [Configure DHCP for Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).  
 
 ## Create a content library
 
@@ -25,7 +26,7 @@ An NSX-T segment and a managed DHCP service are required to complete this tutori
 
    :::image type="content" source="media/content-library/create-new-content-library.png" alt-text="Screenshot showing how to create a new content library in vSphere.":::
 
-1. Provide a name and confirm the IP address of the vCenter server and select **Next**.
+1. Provide a name and confirm the IP address of the vCenter Server and select **Next**.
 
    :::image type="content" source="media/content-library/new-content-library-step-1.png" alt-text="Screenshot showing the name and vCenter Server IP for the new content library.":::
 

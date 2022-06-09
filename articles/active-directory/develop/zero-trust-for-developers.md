@@ -1,6 +1,5 @@
 ---
 title: "Increase app security by following Zero Trust principles"
-titleSuffix: Microsoft identity platform
 description: Learn how following the Zero Trust principles can help increase the security of your application, its data, and which features of the Microsoft identity platform you can use to build Zero Trust-ready apps.
 services: active-directory
 author: chrischiedo
