@@ -12,7 +12,6 @@ These articles have been prepared for the public preview of NC2 on Azure and are
 
 The documentation is a work-in-progress and is being constantly updated. If you want to share any feedback for this document, you can email at AzNutanixPM@microsoft.com.
 
-
 ![Nutanix Preview](media/nutanix-public-preview/nutanix-preview.png)
 
 ## Unlock benefits of Azure
@@ -25,6 +24,7 @@ The documentation is a work-in-progress and is being constantly updated. If you 
 ### Scale and flexibility to align to needs
 
 Get scale, automation, and fast provisioning for your Nutanix workloads on global Azure infrastructure to invent with purpose.
+
 ### Investment Optimization
 
 Keep using your existing Nutanix investments, skills, and tools to quickly increase business agility with Azure cloud services.
