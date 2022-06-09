@@ -47,7 +47,7 @@ To edit your JMeter script by using the Apache JMeter GUI:
 
   1. Update the **Filename** information and remove any file path reference.
   
-  1. Enter the CSV field names in **Variable Names**.
+  1. Optionally, enter the CSV field names in **Variable Names**, when you split the CSV file across test engines.
 
         Azure Load Testing doesn't preserve the header row when splitting your CSV file. Provide the variable names in the **CSV Data Set Config** element instead of using a header row.
 
@@ -146,11 +146,14 @@ To add a CSV file to your load test:
 
 ## Split CSV input data across test engines
 
-By default, Azure Load Testing copies and processes your input files unmodified across all test engine instances. Azure Load Testing enables you to split the CSV input data evenly across all engine instances. You don't have to make any modifications to the JMX test script.
+By default, Azure Load Testing copies and processes your input files unmodified across all test engine instances. Azure Load Testing enables you to split the CSV input data evenly across all engine instances. If you have multiple CSV files, each file will be split evenly.
 
 For example, if you have a large customer CSV input file, and the load test runs on 10 parallel test engines, then each instance will process 1/10th of the customers.
 
-If you have multiple CSV files, each file will be split evenly.
+> [!IMPORTANT]
+> Azure Load Testing doesn't preserve the header row when splitting your CSV file. 
+> 1. [Configure your JMeter script](#configure-your-jmeter-script) to use variable names when reading the CSV file. 
+> 1. Remove the header row from the CSV file before you add it to the load test.
 
 To configure your load test to split input CSV files:
 

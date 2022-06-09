@@ -96,7 +96,7 @@ By default, Azure Load Testing copies and processes your input files unmodified 
 
 For example, if you have a large customer CSV input file, and the load test runs on 10 parallel test engines, then each instance will process 1/10th of the customers.
 
-Azure Load Testing doesn't preserve the header row in your CSV file. For more information about how to configure your JMeter script and CSV file, see [Read data from a CSV file](./how-to-read-csv-data.md).
+Azure Load Testing doesn't preserve the header row in your CSV file when splitting a CSV file. For more information about how to configure your JMeter script and CSV file, see [Read data from a CSV file](./how-to-read-csv-data.md).
 
 :::image type="content" source="media/how-to-create-manage-test/configure-test-split-csv.png" alt-text="Screenshot that shows the checkbox to enable splitting input C S V files when configuring a test in the Azure portal.":::
 
