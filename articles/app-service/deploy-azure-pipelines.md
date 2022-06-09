@@ -52,7 +52,7 @@ az webapp create -g myapppipeline-rg -p myapp-service-plan -n my-app-dotnet --ru
 
 ## Build your app with Azure Pipelines
 
-#### [YAML](#tab/yaml/)
+# [YAML](#tab/yaml/)
 
 ### Create a .NET project
 
@@ -69,7 +69,6 @@ From the same terminal session, run the application locally using the [`dotnet r
 ```dotnetcli
 dotnet run
 ```
----
 
 ### Upload your code
 
@@ -130,7 +129,7 @@ Upload your code to new webapp GitHub or Azure Repos:
     * **appName**: the name of your existing app service.
     * **package**: the file path to the package or a folder containing your app service contents. Wildcards are supported.
 
-#### [Classic](#tab/classic/)
+# [Classic](#tab/classic/)
 
 To get started: 
 
@@ -149,7 +148,7 @@ Now you're ready to read through the rest of this topic to learn some of the mor
 
 ## Use the Azure Web App task
 
-#### [YAML](#tab/yaml/)
+# [YAML](#tab/yaml/)
 
 The simplest way to deploy to an Azure Web App is to use the **Azure Web App** (`AzureWebApp`) task.
 
@@ -224,7 +223,7 @@ the iisnode handler on the Azure Web App:
 
 For information on Azure service connections, see the [following section](#endpoint).
 
-#### [Classic](#tab/classic/)
+# [Classic](#tab/classic/)
 
 The simplest way to deploy to an Azure Web App is to use the **Azure Web App** task.
 To deploy to any Azure App service (Web app for Windows, Linux, container, Function app or web jobs), use the **Azure App Service Deploy** task.
@@ -245,11 +244,11 @@ To deploy to Azure App Service, you'll need to use an Azure Resource Manager [se
 
 Learn more about [Azure Resource Manager service connections](/azure/devops/pipelines/library/connect-to-azure). If your service connection is not working as expected, see [Troubleshooting service connections](/azure/devops/pipelines/release/azure-rm-endpoint). 
 
-#### [YAML](#tab/yaml/)
+# [YAML](#tab/yaml/)
 
 You'll need an Azure service connection for the `AzureWebApp` task. The Azure service connection stores the credentials to connect from Azure Pipelines to Azure. See [Create an Azure service connection](/azure/devops/pipelines/library/connect-to-azure).
 
-#### [Classic](#tab/classic/)
+# [Classic](#tab/classic/)
 
 For Azure DevOps Services, the easiest way to get started with this task is to be signed in as a user who owns both the Azure DevOps Services organization and the Azure subscription. In this case, you won't have to manually create the service connection.
 
@@ -259,7 +258,7 @@ Otherwise, to learn how to create an Azure service connection, see [Create an Az
 
 ## Deploy to a virtual application
 
-#### [YAML](#tab/yaml/)
+# [YAML](#tab/yaml/)
 
 By default, your deployment happens to the root application in the Azure Web App. You can deploy to a specific virtual application by using the `VirtualApplication` property of the `AzureRmWebAppDeployment` task:
 
@@ -272,7 +271,7 @@ By default, your deployment happens to the root application in the Azure Web App
 * **VirtualApplication**: the name of the Virtual Application that has been configured in the Azure portal. See [Configure an App Service app in the Azure portal
 ](/azure/app-service/configure-common) for more details.
 
-#### [Classic](#tab/classic/)
+# [Classic](#tab/classic/)
 
 By default, your deployment happens to the root application in the Azure Web App. If you want to deploy to a specific virtual application,
 enter its name in the **Virtual Application** property of the **Azure App Service Deploy** task.
@@ -281,7 +280,7 @@ enter its name in the **Virtual Application** property of the **Azure App Servic
 
 ## Deploy to a slot
 
-#### [YAML](#tab/yaml/)
+# [YAML](#tab/yaml/)
 
 You can configure the Azure Web App to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
 
@@ -316,7 +315,7 @@ The following example shows how to deploy to a staging slot, and then swap to a 
 * **SourceSlot**: Slot sent to production when `SwapWithProduction` is true. 
 * **SwapWithProduction**: Boolean. Swap the traffic of source slot with production. 
 
-#### [Classic](#tab/classic/)
+# [Classic](#tab/classic/)
 
 You can configure the Azure Web App to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
 
@@ -326,7 +325,7 @@ Use the option **Deploy to Slot or App Service Environment** in the **Azure Web 
 
 ## Deploy to multiple web apps
 
-#### [YAML](#tab/yaml/)
+# [YAML](#tab/yaml/)
 
 You can use [jobs](/azure/devops/pipelines/process/phases) in your YAML file to set up a pipeline of deployments.
 By using jobs, you can control the order of deployment to multiple web apps.
@@ -379,7 +378,7 @@ jobs:
       package: '$(Pipeline.Workspace)/**/*.zip'
 ```
 
-#### [Classic](#tab/classic/)
+# [Classic](#tab/classic/)
 
 If you want to deploy to multiple web apps, add stages to your release pipeline.
 You can control the order of deployment. To learn more, see [Stages](/azure/devops/pipelines/process/stages).
@@ -408,7 +407,7 @@ You can use the File Transform task to apply file transformations and variable s
 
 ### Variable substitution
 
-#### [YAML](#tab/yaml/)
+# [YAML](#tab/yaml/)
 
 The following snippet shows an example of variable substitution:
 
@@ -436,7 +435,7 @@ jobs:
       enableXmlVariableSubstitution: true
 ```
 
-#### [Classic](#tab/classic/)
+# [Classic](#tab/classic/)
 
 To change `connectionString` by using variable substitution:
 
@@ -449,7 +448,7 @@ To change `connectionString` by using variable substitution:
 
 ## Deploying conditionally
 
-#### [YAML](#tab/yaml/)
+# [YAML](#tab/yaml/)
 
 To do this in YAML, you can use one of these techniques:
 
@@ -468,7 +467,7 @@ The following example shows how to use step conditions to deploy only builds tha
 
 To learn more about conditions, see [Specify conditions](/azure/devops/pipelines/process/conditions).
 
-#### [Classic](#tab/classic/)
+# [Classic](#tab/classic/)
 
 In your release pipeline, you can implement various checks and conditions to control the deployment:
 
