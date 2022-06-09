@@ -1062,7 +1062,7 @@
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/understand/subscription-transfer.md",
-            "redirect_url": "/azure/cost-management-billing/manage/subscription-transfer-faq",
+            "redirect_url": "/azure/cost-management-billing/manage/subscription-transfer",
             "redirect_document_id": true
         },
         {
