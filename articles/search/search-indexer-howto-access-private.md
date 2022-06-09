@@ -13,11 +13,15 @@ ms.date: 06/09/2022
 
 # Make outbound connections through a private endpoint
 
-Many Azure resources, such as Azure storage accounts, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. If you're using an indexer and your Azure PaaS data source is on a private network and in a different region, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) used by Azure Cognitive Search to reach the data. If your search service and data source are in the same region, traffic does not go over the virtual network. In this scenario, search uses a private outbound IP for data source connections.
+Many Azure resources, such as Azure storage accounts, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. If you're using an indexer and your Azure PaaS data source is on a private network and in a different region, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) used by Azure Cognitive Search to reach the data. 
 
-Private endpoints created through Azure Cognitive Search APIs are referred to as *shared private links* or *managed outbound private endpoints*. The concept of a "shared private link" is that an Azure PaaS resource already has a private endpoint through [Azure Private Link service](https://azure.microsoft.com/services/private-link/), and Azure Cognitive Search is sharing access. Although access is shared, a shared private link creates its own private connection. The shared private link is the mechanism by which Azure Cognitive Search makes the connection to resources in a private network.
+A private endpoint is used for cross-region connections. If your search service and data source are in the same region, traffic doesn't go over the virtual network. In this scenario, search uses a private outbound IP for data source connections over the Microsoft backbone network.
 
 To create a shared private link, use the Azure portal or the [Create Or Update Shared Private Link](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) operation in the Azure Cognitive Search Management REST API.
+
+## Terminology
+
+Private endpoints created through Azure Cognitive Search APIs are referred to as *shared private links* or *managed outbound private endpoints*. The concept of a "shared private link" is that an Azure PaaS resource already has a private endpoint through [Azure Private Link service](https://azure.microsoft.com/services/private-link/), and Azure Cognitive Search is sharing access. Although access is shared, a shared private link creates its own private connection. The shared private link is the mechanism by which Azure Cognitive Search makes the connection to resources in a private network.
 
 ## Prerequisites
 
