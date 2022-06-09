@@ -3,8 +3,7 @@ title: Automate custom reports with Application Insights data
 description: Automate custom daily/weekly/monthly reports with Azure Monitor Application Insights data
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.reviewer: ssdash
-ms.pmowner: vitalyg
+ms.reviewer: tilee
 ---
 
 # Automate custom reports with Application Insights data

@@ -40,6 +40,8 @@ Create a service principal, as explained in [Use the portal to create an Azure A
    - **Service principal client ID** is your appId. 
    - **Service principal client secret** is the service principal's decrypted Secret value.
 
+    If you need to create a service principal, see  [Creating and using a service principal with an Azure Red Hat OpenShift cluster](howto-create-service-principal.md).
+    
    In the **Cluster pull secret** section:
 
    - **Pull secret** is your cluster's pull secret's decrypted value. If you don't have a pull secret, leave this field blank.

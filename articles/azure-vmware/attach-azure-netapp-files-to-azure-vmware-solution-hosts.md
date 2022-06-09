@@ -2,6 +2,7 @@
 title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts (Preview)
 description: Learn how to create Azure NetApp Files-based NSF datastores for Azure VMware Solution hosts.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 05/10/2022
 ms.custom: references_regions
 ---
@@ -42,7 +43,19 @@ Before you begin the prerequisites, review the [Performance best practices](#per
 
 ## Supported regions
 
-Azure VMware Solution currently supports the following regions: East US, Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany West Central, Japan West, North Central US, North Europe, Southeast Asia, Switzerland West, UK South, UK West, US South Central, and West US. The list of supported regions will expand as the preview progresses. 
+Azure VMware Solution currently supports the following regions:
+
+**America**   : East US, West US, Central US, South Central US, North Central US, Canada East, Canada Central .
+
+**Europe**    : North Europe, UK West, UK South, France Central, Switzerland West, Germany West Central.
+
+**Asia**      : Southeast Asia, Japan West.
+
+**Australia** : Australia East, Australia Southeast.
+
+**Brazil**    : Brazil South.
+
+The list of supported regions will expand as the preview progresses. 
 
 ## Performance best practices
 
@@ -67,7 +80,7 @@ To attach an Azure NetApp Files volume to your private cloud using Portal, follo
 1. Search for **Microsoft.AVS** and select it.
 1. Select **Register**.
 1. Under **Settings**, select **Preview features**.
-	1. Verify you're registered for both the `CloudSanExperience` and `AfnDatstoreExperience` features.
+	1. Verify you're registered for both the `CloudSanExperience` and `AnfDatstoreExperience` features.
 1. Navigate to your Azure VMware Solution.
 Under **Manage**, select **Storage (preview)**.
 1. Select **Connect Azure NetApp Files volume**.

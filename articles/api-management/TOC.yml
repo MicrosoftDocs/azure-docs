@@ -190,6 +190,7 @@
                   href: graphql-api.md
                 - name: Import and resolve GraphQL schema
                   href: graphql-schema-resolve-api.md
+                  displayName: synthetic GraphQL
                 - name: Import an App Service web API
                   href: import-app-service-as-api.md
                 - name: Import a Container App web API
@@ -238,6 +239,7 @@
                   href: api-management-policy-expressions.md
                 - name: Reuse policy configurations
                   href: policy-fragments.md
+                  displayName: policy fragments
                 - name: Error handling
                   href: api-management-error-handling-policies.md
                 - name: Advanced monitoring
@@ -257,18 +259,21 @@
               href: api-management-howto-protect-backend-with-aad.md
             - name: Protect your API with Azure AD B2C
               href: howto-protect-backend-frontend-azure-ad-b2c.md
-            - name: Manage authorization tokens for OAuth 2.0 APIs
-              items:
-                - name: Authorizations overview
-                  href: authorizations-overview.md
-                - name: Set up and use an authorization
-                  href: authorizations-how-to.md
             - name: Secure APIs using client certificate authentication
               href: api-management-howto-mutual-certificates-for-clients.md
             - name: Manage CA certificates
               href: api-management-howto-ca-certificates.md
             - name: Manage protocols and ciphers
               href: api-management-howto-manage-protocols-ciphers.md
+            - name: Mitigate OWASP API threats
+              href: mitigate-owasp-api-threats.md
+              displayName: OWASP top 10, vulnerability, vulnerabilities
+          - name: Manage API authorizations
+            items:
+            - name: Authorizations overview
+              href: authorizations-overview.md
+            - name: Configure and use authorization
+              href: authorizations-how-to.md
           - name: Set up backend authentication
             items:
             - name: Mutual certificate authentication
