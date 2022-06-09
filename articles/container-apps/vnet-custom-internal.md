@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic:  how-to
-ms.date: 06/07/2022
+ms.date: 06/09/2022
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
