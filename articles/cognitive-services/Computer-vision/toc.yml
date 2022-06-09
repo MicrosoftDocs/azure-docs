@@ -9,9 +9,7 @@ items:
   - name: Language support
     href: language-support.md
   - name: Pricing (Computer Vision)
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
-  - name: Pricing (Face)
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
+    href: pricing.md
   - name: What's new
     href: whats-new.md
   - name: Computer Vision FAQ
