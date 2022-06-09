@@ -11,6 +11,8 @@ ms.date: 04/28/2022
 
 # Build scalable apps
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 > [!NOTE]
 > This article is for you if:
 >

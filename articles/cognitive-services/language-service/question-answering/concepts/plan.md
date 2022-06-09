@@ -104,7 +104,7 @@ Question answering uses _active learning_ to improve your knowledge base by sugg
 
 ### Providing a default answer
 
-If your knowledge base doesn't find an answer, it returns the _default answer_. This answer is configurable on the **Settings** page.).
+If your knowledge base doesn't find an answer, it returns the _default answer_. This answer is configurable on the **Settings** page.
 
 This default answer is different from the Azure bot default answer. You configure the default answer for your Azure bot in the Azure portal as part of configuration settings. It's returned when the score threshold isn't met.
 
