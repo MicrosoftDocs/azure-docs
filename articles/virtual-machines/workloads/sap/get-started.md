@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/02/2022
+ms.date: 06/08/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -78,6 +78,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 ## Change Log
 
+- June 08, 2022: Change in [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) to adjust timeouts when using NFSv4.1 (related to NFSv4.1 lease renewal) for more resilient Pacemaker configuration  
 - June 02, 2022: Change in the [SAP Deployment Guide](deployment-guide.md) to add a link to RHEL in-place upgrade documentation
 - June 02, 2022: Change in [HA for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md), [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) to add sizing considerations
 - May 11, 2022: Change in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md), [Prepare the Azure infrastructure for SAP HA by using a Windows failover cluster and shared disk for SAP ASCS/SCS](./sap-high-availability-infrastructure-wsfc-shared-disk.md) and [SAP ASCS/SCS instance multi-SID high availability with Windows server failover clustering and Azure shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) to update instruction about the usage of Azure shared disk for SAP deployment with PPG.
