@@ -1,5 +1,5 @@
 ---
-title: 'Monitoring Azure Virtual WAN - Reference'
+title: 'Monitoring Azure Virtual WAN - Data reference'
 description: Learn about Azure Virtual WAN logs and metrics using Azure Monitor.
 author: cherylmc
 ms.service: virtual-wan
@@ -210,7 +210,7 @@ Replace the values below, after the **= =**, as needed based on the tables repor
 
 In order to execute the query, you have to open the Log Analytics resource you configured to receive the diagnostic logs, and then select **Logs** under the **General** tab on the left side of the pane:
 
-:::image type="content" source="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png" alt-text="Log Analytics Query Samples.":::
+:::image type="content" source="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png" alt-text="Screenshot of Log Analytics Query samples." lightbox="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png":::
 
 For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided to make log analysis easier. Using its graphical interface, it will be possible to investigate into the diagnostic data without manually writing any Log Analytics query.
 
@@ -250,4 +250,5 @@ Diagnostics and logging configuration must be done from there accessing the **Di
 ## Next steps
 
 * To learn how to monitor Azure Firewall logs and metrics, see [Tutorial: Monitor Azure Firewall logs](../firewall/firewall-diagnostics.md).
+* For additional information about Virtual WAN monitoring, see [Monitoring Azure Virtual WAN](monitor-virtual-wan.md).
 * To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
