@@ -31,9 +31,15 @@ The following table describes the network topologies supported by each network f
 
 The following table describes what’s supported for each network features configuration:
 
-|Features |Standard network features |Basic network features |
-| :------------------- | -------------------: |:---------------:|
-|Example|Example|Example|
+|Features |Basic network features |
+| :------------------- | -------------------: |
+|Delegated subnet per VNet |1|
+|[Network Security Groups](/virtual-network/network-security-groups-overview.md) on NC2 on Azure-delegated subnets|No|
+|[User-defined routes (UDRs)](/virtual-network/virtual-networks-udr-overview#user-defined) on NC2 on Azure-delegated subnets|No|
+|Connectivity to [private endpoints](/private-link/private-endpoint-overview)|No|
+|Load balancers for NC2 on Azure traffic|No|
+|Dual stack IPv4 and IPv6) virtual network|IPv4 only supported|
+
 
 ## Next steps
 
