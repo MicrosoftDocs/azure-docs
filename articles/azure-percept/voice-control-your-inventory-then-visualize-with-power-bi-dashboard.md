@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 - The [Azure Functions Core Tools](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/azure-functions/functions-run-local.md) version 3.x.
 - The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 - The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
-- Create an [Azure SQL server](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/azure-sql/database/single-database-create-quickstart.md)
+- Create an [Azure SQL server](/azure/azure-sql/database/single-database-create-quickstart)
 
 
 ## Software architecture 

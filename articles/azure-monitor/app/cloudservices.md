@@ -4,7 +4,8 @@ description: Monitor your web and worker roles effectively with Application Insi
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 09/05/2018
+ms.date: 06/02/2022
+ms.reviewer: abinetabate
 ---
 
 # Application Insights for Azure cloud services
@@ -177,12 +178,10 @@ If there is no data, do the following:
 1. In the app, open various pages so that it generates some telemetry.
 1. Wait a few seconds, and then click **Refresh**.  
 
-For more information, see [Troubleshooting](https://docs.microsoft.com/azure/azure-monitor/faq#application-insights).
-
 ## View Azure Diagnostics events
 You can find the [Azure Diagnostics](../agents/diagnostics-extension-overview.md) information in Application Insights in the following locations:
 
-* Performance counters are displayed as custom metrics. 
+* Performance counters are displayed as custom metrics.   
 * Windows event logs are shown as traces and custom events.
 * Application logs, ETW logs, and any diagnostics infrastructure logs appear as traces.
 

@@ -1,8 +1,9 @@
 ---
 title: Create an Azure Cosmos account with IP firewall
 description: Create an Azure Cosmos account with IP firewall
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 02/21/2022
