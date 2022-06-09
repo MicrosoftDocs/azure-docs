@@ -1,7 +1,7 @@
 ---
 title: Forward alert information
 description: You can send alert information to partner systems by working with forwarding rules.
-ms.date: 11/09/2021
+ms.date: 06/09/2022
 ms.topic: how-to
 ---
 
@@ -36,7 +36,7 @@ Alerts provide information about an extensive range of security and operational 
 - Disconnected sensors
 
 - Remote backup failures
- 
+
 - **Report system notifications**
   
 
