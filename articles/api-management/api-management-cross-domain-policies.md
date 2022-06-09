@@ -154,7 +154,7 @@ This example demonstrates how to support [preflight requests](https://developer.
 |origin|The value can be either `*` to allow all origins, or a URI that specifies a single origin. The URI must include a scheme, host, and port.|Yes|If the port is omitted in a URI, port 80 is used for HTTP and port 443 is used for HTTPS.|
 |allowed-methods|This element is required if methods other than `GET` or `POST` are allowed. Contains `method` elements that specify the supported HTTP verbs. The value `*` indicates all methods.|No|If this section isn't present, `GET` and `POST` are supported.|
 |method|Specifies an HTTP verb.|At least one `method` element is required if the `allowed-methods` section is present.|N/A|
-|allowed-headers|This element contains `header` elements specifying names of the headers that are included in the request.|Yes|N/A|
+|allowed-headers|This element contains `header` elements specifying names of the headers that can included in the request.|Yes|N/A|
 |expose-headers|This element contains `header` elements specifying names of the headers that will be accessible by the client.|No|N/A|
 |header|Specifies a header name.|At least one `header` element is required in `allowed-headers` or in `expose-headers` if that section is present.|N/A|
 
@@ -178,7 +178,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 #### Usage notes
  * You may configure the `cors` policy at more than one scope (for example, at the product scope and the global scope). Ensure that the `base` element is configured at the operation, API, and product scopes to inherit needed policies at the parent scopes. Select **Calculate effective policy** in the policy editor to check the [policy evaluation order](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order) at each scope. Generally, only the first `cors` policy is applied.
 * It's recommended to order policies so that the `cors` policy is effectively the first in the inbound section.
-* Only the `cors` policy is evaluated on the `OPTIONS` request in a preflight request. Remaining configured policies are evaluated on the approved request. 
+* Only the `cors` policy is evaluated on the `OPTIONS` request during preflight. Remaining configured policies are evaluated on the approved request. 
 
 ## <a name="JSONP"></a> JSONP
 The `jsonp` policy adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients. JSONP is a method used in JavaScript programs to request data from a server in a different domain. JSONP bypasses the limitation enforced by most web browsers where access to web pages must be in the same domain.
