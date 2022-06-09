@@ -319,4 +319,4 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [sas-tokens]: ../storage/common/storage-sas-overview.md
 [azure-csi-blob-storage-dynamic]: azure-csi-blob-storage-dynamic.md
-[azure-blob-storage-csi]: azure-blob-csi-md
+[azure-blob-storage-csi]: azure-blob-csi.md
