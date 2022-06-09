@@ -1190,6 +1190,8 @@
       items:
       - name: Jamf Pro
         href: jamfprosamlconnector-tutorial.md
+      - name: Javelo
+        href: javelo-tutorial.md
       - name: JDA Cloud
         href: jdacloud-tutorial.md
       - name: Jedox
