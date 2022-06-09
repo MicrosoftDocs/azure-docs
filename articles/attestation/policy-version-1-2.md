@@ -21,7 +21,7 @@ Instance owners can use the Azure Attestation policy to define what must be vali
 The attestation flow is as follows:
 
 - The platform sends the attestation evidence in the attest call to the attestation service.
-- The attestation service parses the evidence and creates a list of claims that are used in the attestation evaluation. The evidence is also parsed and maintained as a JSON format, which is used to provide a broader set of measurements to the policy writer. These claims are logically categorized as incoming claims sets.
+- The attestation service parses the evidence and creates a list of claims that are used in the attestation evaluation. The evidence is also parsed and maintained as a JSON format, which is used to provide a broader set of measurements to the policy writer. These claims are logically categorized as incoming claim sets.
 - The attestation policy uploaded by the owner of the attestation service instance is then used to evaluate and issue claims to the response. You can now use JmesPath-based queries to search in the evidence to create your own claims and subsequent claim rules. During the evaluation, configuration rules can also be used to indicate to the policy evaluation engine how to handle certain claims.
 
 Policy version 1.2 has four segments:
