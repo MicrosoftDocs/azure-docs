@@ -53,7 +53,7 @@ When a device connects to your IoT Central application, its device status change
     - A new real device is added on the **Devices** page.
     - A set of devices is added using **Import** on the **Devices** page.
 
-1. The device status changes to **Provisioned** when the device that connected to your IoT Central application with valid credentials completes the provisioning step. In this step, the device uses DPS to automatically retrieve a connection string from the IoT Hub used by your IoT Central application. The device can now connect to IoT Central and start sending data.
+1. The device status changes to **Provisioned** when the device that connected to your IoT Central application with valid credentials completes the provisioning step. In this step, the device uses DPS.The *Device ID* that was used to register the device.Either a SAS key or X.509 certificatTo find these values: to automatically retrieve a connection string from the IoT Hub used by your IoT Central application. The device can now connect to IoT Central and start sending data.
 
 1. An operator can block a device. When a device is blocked, it can't send data to your IoT Central application. Blocked devices have a status of **Blocked**. An operator must reset the device before it can resume sending data. When an operator unblocks a device the status returns to its previous value, **Registered** or **Provisioned**.
 
@@ -102,6 +102,25 @@ To add a device to your Azure IoT Central application:
 1. Select **Create**.
 
 1. This device now appears in your device list for this template. Select the device to see the device details page that contains all views for the device.
+
+## Get device connection information
+
+When a device provisions and connects to IoT Central, it needs connection information from your IoT Central application:
+
+- The *ID Scope* that identifies the application to DPS.
+- The *Device ID* that was used to register the device.
+- Either a SAS key or X.509 certificate.
+
+To find these values:
+
+1. Choose **Devices** on the left pane.
+
+1. Click on the device in the device list to see the device details.
+
+1. Select **Connect** to view the connection information. The QR code encodes a JSON document that includes the **ID Scope**, **Device ID**, and **Primary key** derived from the default **SAS-IoT-Devices** device connection group.
+
+> [!NOTE]
+> If the authentication type is **Shared access signature**, the keys displayed are derived from the default **SAS-IoT-Devices** device connection group.
 
 ## Change organization
 
