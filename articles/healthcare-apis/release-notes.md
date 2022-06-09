@@ -36,10 +36,10 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Enhancements | Related information |
 | :------------------------ | -------------------------------: |
-|DICOM service supports cross-origin resource sharing (CORS)  |DICOM service now supports [CORS](./../healthcare-apis/fhir/configure-cross-origin-resource-sharing). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request. For more information, see  |
-|DICOMcast supports Private Link   |DICOMcast has been updated to support Azure Health Data Services workspaces that have been configured to use [Private Link](./../healthcare-apis/healthcare-apis-configure-private-link). |
+|DICOM service supports cross-origin resource sharing (CORS)  |DICOM service now supports [CORS](./../healthcare-apis/fhir/configure-cross-origin-resource-sharing.md). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request. For more information, see  |
+|DICOMcast supports Private Link   |DICOMcast has been updated to support Azure Health Data Services workspaces that have been configured to use [Private Link](./../healthcare-apis/healthcare-apis-configure-private-link.md). |
 |UPS-RS supports Change and Retrieve work item  |Modality worklist (UPS-RS) endpoints have been added to support Change and Retrieve operations for work items. |
-|API version is now required as part of the URI  |All REST API requests to the DICOM service must now include the API version in the URI.  For more details, see [API versioning for DICOM service](./../healthcare-apis/dicom/api-versioning-dicom-service). |
+|API version is now required as part of the URI  |All REST API requests to the DICOM service must now include the API version in the URI.  For more details, see [API versioning for DICOM service](./../healthcare-apis/dicom/api-versioning-dicom-service.md). |
 
 #### **Bug fixes**
 
