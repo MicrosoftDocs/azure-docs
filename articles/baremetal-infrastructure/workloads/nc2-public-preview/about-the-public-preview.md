@@ -48,12 +48,6 @@ We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 * RI (In future
   * Additional discount until RI is supported if there is committed interest in purchasing it once the option becomes available. 
 
-## Pricing
-
-Nutanix will own pricing for the marketplace offer. Microsoft will own the pricing for underlying Azure resources 
-
-(Link to Pricing page)
-
 ## Transaction
 
  The final solution will be transacted through the Azure marketplace. Customers will get one bill from Microsoft with Nutanix solution as a separate line item.
