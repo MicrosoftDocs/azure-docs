@@ -24,7 +24,7 @@ You can configure threat intelligence in one of the three modes that are describ
 |Mode |Description  |
 |---------|---------|
 |`Off`     | The threat intelligence feature isn't enabled for your firewall. |
-|`Alert only`     | you'll receive high-confidence alerts for traffic going through your firewall to or from known malicious IP addresses and domains. |
+|`Alert only`     | You'll receive high-confidence alerts for traffic going through your firewall to or from known malicious IP addresses and domains. |
 |`Alert and deny`     | Traffic is blocked and you'll receive high-confidence alerts when traffic is detected attempting to go through your firewall to or from known malicious IP addresses and domains. |
 
 > [!NOTE]
