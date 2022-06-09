@@ -6,7 +6,7 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/07/2022
+ms.date: 06/09/2022
 ms.author: mikaelw
 ---
 
@@ -23,18 +23,35 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 ### FHIR service
 
-### **Bug fixes**
+#### **Bug fixes**
 
 |Bug fixes |Related information |
 | :----------------------------------- | ---------------: |
 |Removes SQL retry on upsert  |Removes retry on SQL command for upsert. The error still occurs, but data is saved correctly in success cases. For more information, see [#2571](https://github.com/microsoft/fhir-server/pull/2571). |
 |Added handling for SqlTruncate errors  |Added a check for SqlTruncate exceptions and tests. In particular, this will catch SqlTruncate exceptions for Decimal type based on the specified precision and scale. For more information, see [#2553](https://github.com/microsoft/fhir-server/pull/2553). |
 
+### DICOM service
+
+#### **Features**
+
+|Enhancements | Related information |
+| :------------------------ | -------------------------------: |
+|DICOM service supports cross-origin resource sharing (CORS)  |DICOM service now supports [CORS](./../healthcare-apis/fhir/configure-cross-origin-resource-sharing). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request. For more information, see  |
+|DICOMcast supports Private Link   |DICOMcast has been updated to support Azure Health Data Services workspaces that have been configured to use [Private Link](./../healthcare-apis/healthcare-apis-configure-private-link). |
+|UPS-RS supports Change and Retrieve work item  |Modality worklist (UPS-RS) endpoints have been added to support Change and Retrieve operations for work items. |
+|API version is now required as part of the URI  |All REST API requests to the DICOM service must now include the API version in the URI.  For more details, see [API versioning for DICOM service](./../healthcare-apis/dicom/api-versioning-dicom-service). |
+
+#### **Bug fixes**
+
+|Bug fixes |Related information |
+| :----------------------------------- | ---------------: |
+|Index the first value for DICOM tags which have multiple values |Attributes which have specified multiple values will now be leniently accepted. The first value for such attributes will be indexed. |
+
 ## April 2022
 
 ### FHIR service
 
-### **Features and enhancements**
+#### **Features and enhancements**
 
 |Enhancements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Related information |
 | :------------------- | ---------------: |
@@ -42,19 +59,19 @@ Azure Health Data Services is a set of managed API services based on open standa
 |Handles invalid header on versioned update |When the versioning policy is set to "versioned-update", we required that the most recent version of the resource is provided in the request's if-match header on an update. The specified version must be in ETag format. Previously, a 500 would be returned if the version was invalid or in an incorrect format. This update now returns a 400 Bad Request. For more information, see [PR #2467](https://github.com/microsoft/fhir-server/pull/2467). |
 |Bulk import in public preview |The bulk-import feature enables importing FHIR data to the FHIR server at high throughput using the $import operation. It's designed for initial data load into the FHIR server. For more information, see [Bulk-import FHIR data (Preview)](./../healthcare-apis/fhir/import-data.md). |
 
-### **Bug fixes**
+#### **Bug fixes**
 
 |Bug fixes |Related information |
 | :----------------------------------- | ---------------: |
 |Adds core to resource path |Part of the path to a string resource was accidentally removed in the versioning policy. This fix adds it back in. For more information, see [PR #2470](https://github.com/microsoft/fhir-server/pull/2470). |
 
-### **Known issues**
+#### **Known issues**
 
 For more information about the currently known issues with the FHIR service, see [Known issues: FHIR service](known-issues.md).
 
 ### DICOM service
 
-### **Bug fixes**
+#### **Bug fixes**
 
 |Bug fixes |Related information |
 | :----------------------------------- | ---------------: |
@@ -66,7 +83,7 @@ For more information about the currently known issues with the FHIR service, see
 
 ### Azure Health Data Services 
 
-### **Features**
+#### **Features**
 
 |Feature &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Related information |
 | :------------------- | ---------------: |
@@ -74,13 +91,13 @@ For more information about the currently known issues with the FHIR service, see
 
 ### FHIR service
 
-### **Features**
+#### **Features**
 
 |Feature | Related information |
 | :------------------------ | -------------------------------: |
 |FHIRPath Patch |This new feature enables you to use the FHIRPath Patch operation on FHIR resources. For more information, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md). |
 
-### **Bug fixes**
+#### **Bug fixes**
 
 |Bug fixes |Related information |
 | :----------------------------------- | ---------------: |
@@ -91,7 +108,7 @@ For more information about the currently known issues with the FHIR service, see
 
 ### MedTech service
 
-### **Features and enhancements**
+#### **Features and enhancements**
 
 |Enhancements | Related information |
 | :------------------------ | -------------------------------: |
@@ -101,7 +118,7 @@ For more information about the currently known issues with the FHIR service, see
 
 ## January 2022
 
-### **Features and enhancements**
+#### **Features and enhancements**
 
 |Enhancements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Related information |
 | :------------------- | ---------------: |
@@ -120,7 +137,7 @@ For more information about the currently known issues with the FHIR service, see
 
 ### Azure Health Data Services 
 
-### **Features and enhancements**
+#### **Features and enhancements**
 
 |Enhancements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Related information |
 | :------------------- | ---------------: |
@@ -130,14 +147,14 @@ For more information about the currently known issues with the FHIR service, see
 
 ### FHIR service
 
-### **Features and enhancements**
+#### **Features and enhancements**
 
 |Enhancements | Related information |
 | :------------------------ | -------------------------------: |
 |Added Publisher to `CapabiilityStatement.name` |You can now find the publisher in the capability statement at `CapabilityStatement.name`. [#2319](https://github.com/microsoft/fhir-server/pull/2319) |
 |Log `FhirOperation` linked to anonymous calls to Request metrics |We weren’t logging operations that didn’t require authentication. We extended the ability to get `FhirOperation` type in `RequestMetrics` for anonymous calls. [#2295](https://github.com/microsoft/fhir-server/pull/2295) |
 
-### **Bug fixes**
+#### **Bug fixes**
 
 |Bug fixes |Related information |
 | :----------------------------------- | ---------------: |
@@ -158,7 +175,7 @@ For more information about the currently known issues with the FHIR service, see
 |Compress continuation tokens |In certain instances, the continuation token was too long to be able to follow the [next link](./../healthcare-apis/fhir/overview-of-search.md#pagination) in searches and would result in a 404. To resolve this, we compressed the continuation token to ensure it stays below the size limit [#2279](https://github.com/microsoft/fhir-server/pull/2279). Addresses issue [#2250](https://github.com/microsoft/fhir-server/issues/2250). |
 |FHIR service autoscale |The [FHIR service autoscale](./fhir/fhir-service-autoscale.md) is designed to provide optimized service scalability automatically to meet customer demands when they perform data transactions in consistent or various workloads at any time. It's available in all regions where the FHIR service is supported. |
 
-### **Bug fixes**
+#### **Bug fixes**
 
 |Bug fixes |Related information |
 | :----------------------------------- | ---------------: |
@@ -259,6 +276,8 @@ For more information about the currently known issues with the FHIR service, see
 
 ### **DICOM service**
 
+#### **Bug fixes**
+
 |Bug fixes | Related information |
 | :------------------- | -------------------------------: |
 
@@ -266,6 +285,8 @@ For more information about the currently known issues with the FHIR service, see
 | :------------------- | -------------------------------: |
 
 ### **MedTech service**
+
+#### **Bug fixes**
 
 |Bug fixes | Related information |
 |:------------------- | -------------------------------: |
