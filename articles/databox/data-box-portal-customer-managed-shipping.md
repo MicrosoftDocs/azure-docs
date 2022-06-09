@@ -51,7 +51,7 @@ When you place a Data Box order, you can choose the self-managed shipping option
 
    ![Schedule pickup for Azure instructions](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-email-01.png)
 
-   If you're returning a Data Box in Brazil, see [Return Azure Data Box](..\articles\databox\data-box-deploy-picked-up.md) for detailed instructions.
+   If you're returning a Data Box in Brazil, see [Return Azure Data Box](data-box-deploy-picked-up.md) for detailed instructions.
 
    ```
    Subject: Request Azure Data Box Disk pickup for order: <ordername>

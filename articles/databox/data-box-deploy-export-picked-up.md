@@ -44,11 +44,11 @@ The next steps are determined by where you are returning the device.
 
 Based on the region where you're shipping the device, the procedure is different. In many countries/regions, you can use Microsoft managed shipping or [self-managed shipping](#self-managed-shipping).
 
-::: zone pivot="north-america" 
+::: zone pivot="americas" 
 
 If using Microsoft managed shipping, follow these steps. 
 
-## Shipping in North America 
+## Shipping in Americas 
 
 ### [US & Canada](#tab/in-us-canada)
 

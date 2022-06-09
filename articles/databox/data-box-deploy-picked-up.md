@@ -147,16 +147,16 @@ If using Microsoft managed shipping, follow these steps.
 
 ::: zone pivot="americas"
 
-        **Instructions for Brazil:** To schedule a device return in Brazil, send an email to [adbops@microsoft.com](mailto:adbops@microsoft.com) with the following information:
+ **Instructions for Brazil:** To schedule a device return in Brazil, send an email to [adbops@microsoft.com](mailto:adbops@microsoft.com) with the following information:
     
-       ```
-       Subject: Request Azure Data Box Disk drop-off for order: <ordername>
-    
-       - Order name
-       - Contact name of the person who will drop off the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.) 
-       - Inbound Nota Fiscal (A copy of the inbound Nota Fiscal will be required at drop-off.)   
-       ```
-    ::: zone-end
+    ```
+    Subject: Request Azure Data Box Disk drop-off for order: <ordername>
+
+    - Order name
+    - Contact name of the person who will drop off the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.) 
+    - Inbound Nota Fiscal (A copy of the inbound Nota Fiscal will be required at drop-off.)   
+    ```
+::: zone-end
 
 ::: zone target="chromeless"
 
