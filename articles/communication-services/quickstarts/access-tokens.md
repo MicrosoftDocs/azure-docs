@@ -10,7 +10,7 @@ ms.date: 11/17/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
-zone_pivot_groups: acs-js-csharp-java-python-azcli
+zone_pivot_groups: acs-azcli-js-csharp-java-python
 ms.custom: mode-other
 ---
 
@@ -20,7 +20,7 @@ Access tokens let Azure Communication Services SDKs [authenticate](../concepts/a
 
 In this quickstart, you'll learn how to use the Azure Communication Services SDKs to create identities and manage your access tokens. For production use cases, we recommend that you generate access tokens on a [server-side service](../concepts/client-and-server-architecture.md).
 
-::: zone pivot="programming-language-azcli"
+::: zone pivot="platform-azcli"
 [!INCLUDE [Azure CLI](./includes/access-tokens/access-token-azcli.md)]
 ::: zone-end
 
