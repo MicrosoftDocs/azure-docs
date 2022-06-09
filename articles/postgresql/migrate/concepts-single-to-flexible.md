@@ -12,6 +12,8 @@ ms.custom: "mvc, references_regions"
 
 # Migrate from Azure Database for PostgreSQL Single Server to Flexible Server (Preview)
 
+[!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
+
 >[!NOTE]
 > Single Server to Flexible Server migration tool is in private preview.
 

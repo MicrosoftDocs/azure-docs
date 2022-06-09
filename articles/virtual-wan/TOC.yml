@@ -235,6 +235,8 @@
       href: monitor-point-to-site-connections.md
 - name: Reference
   items:
+  - name: Monitoring data
+    href: monitor-virtual-wan-reference.md
   - name: Azure PowerShell
     href: /powershell/module/az.network#networking
   - name: REST

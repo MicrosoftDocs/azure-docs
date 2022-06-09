@@ -11,6 +11,8 @@ ms.date: 8/10/2020
 
 # Distribute and modify tables
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 ## Distributing tables
 
 To create a distributed table, you need to first define the table schema. To do
