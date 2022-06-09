@@ -6,7 +6,7 @@ ms.date: 04/05/2022
 ---
 
 # Data collection pipeline in Azure Monitor
-Azure Monitor collects and aggregates data from a variety of sources into a common data platform where it can be used for analysis, visualization, and alerting. The configuration and capabilities for data collection though varies for each [data source](data-sources.md). Azure Monitor is implementing a new [ETL](/azure/architecture/data-guide/relational-data/etl)-like data collection pipeline. This pipeline provides the following advantages:
+Azure Monitor collects and aggregates data from a variety of sources into a common data platform where it can be used for analysis, visualization, and alerting. The configuration and capabilities for data collection though varies for each [data source](data-sources.md). Azure Monitor is implementing a new [ETL](/azure/architecture/data-guide/relational-data/etl)-like data collection pipeline that provides the following advantages:
 
 - Consistent method for configuration of different data sources.
 - Scalable configuration options supporting infrastructure as code and DevOps processes.
@@ -19,36 +19,24 @@ The following table identifies different components of the Azure Monitor data co
 
 | Component | Description |
 |:---|:---
-| Data collection Rule (DCR) | Defines the configuration of a particular data collection workflow. Includes details such as the format of the incoming data, the destination of the data, and any transforms that should be applied to the incoming data before its stored. |
-| Data collection endpoint (DCE) | Endpoint that that provides a connection for workflows outside of Azure. This includes virtual machines running the Azure Monitor agent and custom application using the custom logs API. |
-| Data collection rule association (DCRA) | Associates a data collection rule with an agent. An agent may be associated with multiple data collection rules, and a data collection rule may be associated with multiple agents. |
+| Data collection Rule (DCR) | Defines the configuration of a particular data collection workflow. Includes details such as the format of the incoming data, the destination of the data, and any transforms that should be applied to the incoming data before its stored. All data using the data collection pipeline uses a DCR to define its configuration. |
+| Data collection rule association (DCRA) | Associates a data collection rule with a resource, such as an agent. A resource may be associated with multiple data collection rules, and a data collection rule may be associated with multiple resources. Not all workflows require a DCRA. |
+| Data collection endpoint (DCE) | Endpoint that that provides a connection for certain workflows outside of Azure. Some workflows may use public endpoints depending on customer requirements. |
+
 
 
 ## Supported workflows
-A limited set of workflows currently support the data collection pipeline. When the implementation is complete, all data collected by Azure Monitor will use this pipeline.
+Only certain workflows currently support the data collection pipeline. When the implementation is complete, all data collected by Azure Monitor will use this pipeline.
 
 Workflows that currently support the Azure Monitor data collection pipeline include the following:
 
-- Azure Monitor agent (transformations currently not supported)
-- Custom logs API
+- [Azure Monitor agent](agents/azure-monitor-agent-overview.md) (transformations currently not supported)
+- [Custom logs API](logs/custom-logs-overview.md)
 
 ### Legacy workflows
 Azure Monitor collects data from a variety of sources using legacy methods. This data is stored in Logs and Metrics just like data 
 
 
-
-## Collect monitoring data
-Different [sources of data for Azure Monitor](data-sources.md) will write to either a Log Analytics workspace (Logs) or the Azure Monitor metrics database (Metrics) or both. Some sources will write directly to these data stores, while others may write to another location such as Azure storage and require some configuration to populate logs or metrics. 
-
-See [Metrics in Azure Monitor](essentials/data-platform-metrics.md) and [Logs in Azure Monitor](logs/data-platform-logs.md) for a listing of different data sources that populate each type.
-
-
-## Stream data to external systems
-In addition to using the tools in Azure to analyze monitoring data, you may have a requirement to forward it to an external tool such as a security information and event management (SIEM) product. This forwarding is typically done directly from monitored resources through [Azure Event Hubs](../event-hubs/index.yml). Some sources can be configured to send data directly to an event hub while you can use another process such as a Logic App to retrieve the required data. See [Stream Azure monitoring data to an event hub for consumption by an external tool](essentials/stream-monitoring-data-event-hubs.md) for details.
-
-
-## Data flow
-Azure Monitor is in the process of implementing a new data flow pipeline for collecting data.
 
 
 ## Next steps

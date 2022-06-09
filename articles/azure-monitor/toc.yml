@@ -433,11 +433,11 @@ items:
         href: essentials/diagnostic-settings-policy.md
   - name: Data collection
     items:
-    - name: Overview
-      displayname: Data collection
-      href: data-collection.md
     - name: Data sources
       href: data-sources.md
+    - name: Data collection pipeline
+      displayname: Data collection
+      href: data-collection.md
     - name: Data collection rules
       items:
       - name: Overview

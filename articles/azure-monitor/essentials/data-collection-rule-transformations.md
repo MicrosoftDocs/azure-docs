@@ -7,7 +7,7 @@ ms.date: 02/21/2022
 ---
 
 # Data collection rule transformations in Azure Monitor (preview)
-Transformations in Azure Monitor allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. This article describes how to build transformations in including details and limitations of the Kusto Query Language (KQL) used for the transform statement.
+Transformations in Azure Monitor allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. This article describes how to build transformations including details and limitations of the Kusto Query Language (KQL) used for the transform statement.
 
 ## Basic concepts
 Data transformations are defined in a [data collection rule (DCR)](data-collection-rule-overview.md) and use a Kusto Query Language (KQL) statement that is applied individually to each entry in the incoming data. It must understand the format of the incoming data and create output in the structure of the target table where that data is being sent.
