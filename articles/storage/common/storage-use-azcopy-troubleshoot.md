@@ -4,7 +4,7 @@ description: Find workarounds to common issues with AzCopy v10.
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 06/09/2022
 ms.author: normesta
 ms.subservice: common
 
@@ -72,7 +72,7 @@ If you're uploading or downloading data between a storage account and an on-prem
 
 If you're copying data between storage accounts, make sure that the machine that runs AzCopy is able to access both the source **and** the destination account. You might have to use IP network rules in the firewall settings of both the source and destination accounts to allow access from the public IP address of the machine. The service will use the IP address of the AzCopy client machine to authorize the source to destination traffic. To learn how to add a public IP address to the firewall settings of a storage account, see [Grant access from an internet IP range](storage-network-security.md#grant-access-from-an-internet-ip-range).
 
-In case your VM doesn't or can't have a public IP address, you should consider using a private endpoint. See [Use private endpoints for Azure Storage](storage-private-endpoints.md).
+In case your VM doesn't or can't have a public IP address, consider using a private endpoint. See [Use private endpoints for Azure Storage](storage-private-endpoints.md).
 
 ##### Using a Private link
 
@@ -133,7 +133,7 @@ If you see a large file failing over and over again due to certain chunks failin
 
 For more information, see [Optimize the performance of AzCopy with Azure Storage](storage-use-azcopy-optimize.md)
 
-If you're copying data between accounts by using AzCopy, the quality and reliability of the network from where you run AzCopy might impact the overall performance. Data transfers server to server, but AzCopy does initiate calls for each file to copy between service endpoints.
+If you're copying data between accounts by using AzCopy, the quality and reliability of the network from where you run AzCopy might impact the overall performance. Event though data transfers from server to server, AzCopy does initiate calls for each file to copy between service endpoints.
 
 ## Known constraints with AzCopy
 
@@ -159,3 +159,4 @@ There's a service issue impacting AzCopy 10.11+ which are using the [PutBlobFrom
 ## See also
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
