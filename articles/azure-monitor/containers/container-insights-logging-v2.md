@@ -1,6 +1,6 @@
 ---
-title: Configure ContainerLogv2 schema (preview) for Container Insights
-description: Switch your ContainerLog table to the ContainerLogv2 schema
+title: Configure the ContainerLogv2 schema (preview) for Container Insights
+description: Switch your ContainerLog table to the ContainerLogv2 schema.
 author: aul
 ms.author: bwren
 ms.reviewer: bwren
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 05/11/2022
 ---
 
-# Enable ContainerLogV2 schema (preview)
-Azure Monitor Container insights is now in public preview of new schema for container logs, called ContainerLogV2. As part of this schema, there are new fields to make common queries to view Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes data. In addition, this schema is compatible with [Basic Logs](../logs/basic-logs-configure.md), which offers a low-cost alternative to standard analytics logs.
+# Enable the ContainerLogV2 schema (preview)
+Azure Monitor Container insights is now in public preview of a new schema for container logs, called ContainerLogV2. As part of this schema, there are new fields to make common queries to view Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes data. In addition, this schema is compatible with [Basic Logs](../logs/basic-logs-configure.md), which offers a low-cost alternative to standard analytics logs.
 
-Because the ContainerLogv2 schema is a preview feature, Container insights does not yet support the "View in Analytics" option. However, the data is available when queried directly from the [Log Analytics](./container-insights-log-query.md) interface.
+Because the ContainerLogv2 schema is a preview feature, Container insights does not yet support the **View in Analytics** option. However, the data is available when queried directly from the [Log Analytics](./container-insights-log-query.md) interface.
 
 The new fields are:
-* ContainerName
-* PodName
-* PodNamespace
+* ```ContainerName```
+* ```PodName```
+* ```PodNamespace```
 
 ## ContainerLogV2 schema
 ```kusto
@@ -31,40 +31,39 @@ The new fields are:
  LogSource: string,
  TimeGenerated: datetime
 ```
-## Enable ContainerLogV2 schema
-Customers can enable ContainerLogV2 schema at the cluster level. To enable ContainerLogV2 schema, configure the cluster's configmap. Learn more about [configmap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) in Kubernetes documentation and [Azure Monitor configmap](./container-insights-agent-config.md#configmap-file-settings-overview).
-Follow the instructions to configure an existing configMap or to use a new one.
+## Enable the ContainerLogV2 schema
+Customers can enable the ContainerLogV2 schema at the cluster level. To enable the ContainerLogV2 schema, configure the cluster's ConfigMap. Learn more about [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) in Kubernetes documentation and [Azure Monitor ConfigMap](./container-insights-agent-config.md#configmap-file-settings-overview).
+Follow the instructions to configure an existing ConfigMap or to use a new one.
 
-### Configuring an existing ConfigMap
-If your configMap doesn't yet have the "[log_collection_settings.schema]" field, you'll need to append the following section in your existing configMap yaml file:
-
+### Configure an existing ConfigMap
+If your ConfigMap doesn't yet have the ```log_collection_settings.schema``` field, you'll need to append the following section in your existing ConfigMap .yaml file:
 ```yaml
 [log_collection_settings.schema]
-          # In the absence of this configmap, default value for containerlog_schema_version is "v1"
+          # In the absence of this ConfigMap, the default value for containerlog_schema_version is "v1"
           # Supported values for this setting are "v1","v2"
           # See documentation at https://aka.ms/ContainerLogv2 for benefits of v2 schema over v1 schema before opting for "v2" schema
           containerlog_schema_version = "v2"
 ```
 
-### Configuring a new ConfigMap
-1. Download the new configMap [here](https://aka.ms/container-azm-ms-agentconfig). For the newly downloaded configmapdefault, the value for containerlog_schema_version is "v1"
-1. Update the "containerlog_schema_version = "v2""
+### Configure a new ConfigMap
+1. [Download the new ConfigMap](https://aka.ms/container-azm-ms-agentconfig). For the newly downloaded ConfigMap, the default value for ```containerlog_schema_version``` is "v1".
+1. Update the ```containerlog_schema_version = "v2"```.
 
-```yaml
-[log_collection_settings.schema]
-          # In the absence of this configmap, default value for containerlog_schema_version is "v1"
-          # Supported values for this setting are "v1","v2"
-          # See documentation at https://aka.ms/ContainerLogv2 for benefits of v2 schema over v1 schema before opting for "v2" schema
-          containerlog_schema_version = "v2"
-```
+    ```yaml
+    [log_collection_settings.schema]
+        # In the absence of this ConfigMap, the default value for containerlog_schema_version is "v1"
+        # Supported values for this setting are "v1","v2"
+        # See documentation at https://aka.ms/ContainerLogv2 for benefits of v2 schema over v1 schema before opting for "v2" schema
+        containerlog_schema_version = "v2"
+    ```
 
-3. Once you have finished configuring the configmap, run the following kubectl command: kubectl apply -f `<configname>`
+3. After you finish configuring the ConfigMap, run the following kubectl command: ```kubectl apply -f `<configname>`.```
 
-Example: kubectl apply -f container-azm-ms-agentconfig.yaml.
+   Example: ```kubectl apply -f container-azm-ms-agentconfig.yaml```.
 
 >[!NOTE]
->* The configuration change can take a few minutes to complete before taking effect. All omsagent pods in the cluster will restart. 
->* The restart is a rolling restart for all omsagent pods. It will not restart all of them at the same time.
+>* The configuration change can take a few minutes to complete before it takes effect. All OMS agent pods in the cluster will restart. 
+>* The restart is a rolling restart for all OMS agent pods. It won't restart all of them at the same time.
 
 ## Next steps
 * Configure [Basic Logs](../logs/basic-logs-configure.md) for ContainerLogv2.
