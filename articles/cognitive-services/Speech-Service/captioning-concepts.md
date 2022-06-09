@@ -8,14 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/12/2022
+ms.date: 06/02/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk-cli
 ---
 
 # Captioning with speech to text
 
-In this guide, you learn how to create captions with speech to text. Concepts include how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios. This guide covers captioning for speech, but doesn't include speaker ID or sound effects such as bells ringing. 
+In this guide, you learn how to create captions with speech to text. Captioning is the process of converting the audio content of a television broadcast, webcast, film, video, live event, or other production into text, and then displaying the text on a screen, monitor, or other visual display system. 
+
+Concepts include how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios. This guide covers captioning for speech, but doesn't include speaker ID or sound effects such as bells ringing. 
 
 Here are some common captioning scenarios:
 - Online courses and instructional videos

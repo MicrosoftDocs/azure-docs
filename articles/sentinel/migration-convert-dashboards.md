@@ -29,7 +29,7 @@ After reviewing your dashboards, do the following to prepare for your dashboard 
 - Review all of the visualizations in each dashboard. The dashboards in your current SIEM might contain several charts or panels. It's crucial to review the content of your short-listed dashboards to eliminate any unwanted visualizations or data.
 - Capture the dashboard design and interactivity.
 - Identify any design elements that are important to your users. For example, the layout of the dashboard, the arrangement of the charts or even the font size or color of the graphs.
-- Capture any interactivity such as drilldown, filtering, and others that you need to carry over to Azure Monitor Workbooks. We'll also discuss parameters and user inputs in the next step.
+- Capture any interactivity such as drilldown, filtering, and others that you need to carry over to Azure Monitor Workbooks. 
 - Identify required parameters or user inputs. In most cases, you need to define parameters for users to perform search, filtering, or scoping the results (for example, date range, account name and others). Hence, it's crucial to capture the details around parameters. Here are some of the key points to help you with collecting the parameter requirements:
     - The type of parameter for users to perform selection or input. For example, date range, text, or others.
     - How the parameters are represented, such as drop-down, text box, or others.

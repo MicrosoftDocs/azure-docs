@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 02/16/2022
 ms.author: thweiss
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ---
 
 # Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account
@@ -343,14 +343,14 @@ See [this page](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/sql-res
 
 ## Initialize the SDK with Azure AD
 
-To use the Azure Cosmos DB RBAC in your application, you have to update the way you initialize the Azure Cosmos DB SDK. Instead of passing your account's primary key, you have to pass an instance of a `TokenCredential` class. This instance provides the Azure Cosmos DB SDK with the context required to fetch an Azure AD (AAD) token on behalf of the identity you wish to use.
+To use the Azure Cosmos DB RBAC in your application, you have to update the way you initialize the Azure Cosmos DB SDK. Instead of passing your account's primary key, you have to pass an instance of a `TokenCredential` class. This instance provides the Azure Cosmos DB SDK with the context required to fetch an Azure AD token on behalf of the identity you wish to use.
 
 The way you create a `TokenCredential` instance is beyond the scope of this article. There are many ways to create such an instance depending on the type of Azure AD identity you want to use (user principal, service principal, group etc.). Most importantly, your `TokenCredential` instance must resolve to the identity (principal ID) that you've assigned your roles to. You can find examples of creating a `TokenCredential` class:
 
 - [In .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [In Java](/java/api/overview/azure/identity-readme#credential-classes)
 - [In JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
-- [In Python](/python/api/overview/azure/identity-readme#credential-classes)
+- [In Python](/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#credential-classes)
 
 The examples below use a service principal with a `ClientSecretCredential` instance.
 
