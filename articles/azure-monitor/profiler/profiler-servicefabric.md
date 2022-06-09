@@ -13,8 +13,9 @@ Application Insights Profiler is included with Azure Diagnostics. You can instal
 In this article, you will:
 
 - Add the Application Insights Profiler property to your Azure Resource Manager template.
-- 
-
+- Deploy your Service Fabric cluster using the Azure Resource Manager template.
+- Enable Application Insights on your Service Fabric application.
+- Redeploy your Service Fabric cluster to enable Profiler.
 
 ## Prerequisites
 
@@ -25,7 +26,7 @@ In this article, you will:
 
 ## Set up the environment deployment definition
 
-1. Navigate to your [Azure Resource Manager template](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json).
+1. In your Service Fabric managed cluster, navigate to your [Azure Resource Manager template](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json).
 1. Locate `WadCfg` in the [Azure Diagnostics](../agents/diagnostics-extension-overview.md) extension in the deployment template file.
 
    :::image type="content" source="./media/profiler-servicefabric/search-wadcfg.png" alt-text="Screenshot of where to place the Application Insights instrumentation key." :::
