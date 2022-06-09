@@ -1235,7 +1235,7 @@ items:
       - name: Troubleshoot
         href: vm/vminsights-health-troubleshoot.md
     - name: Analyze data with log queries
-      href: vm/vminsights-log-search.md
+      href: vm/vminsights-log-query.md
     - name: Monitor changes
       href: vm/vminsights-change-analysis.md
     - name: Visualize data with workbooks
