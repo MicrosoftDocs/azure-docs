@@ -19,12 +19,12 @@ To simplify the process for creating and managing pools, Azure Synapse takes car
 
 > [!NOTE]
 >  - GPU-accelerated pools can be created in workspaces located in East US, Australia East, and North Europe.
->  - GPU-accelerated pools are only available with the Apache Spark 3 runtime.
->  - You might need to request a [limit increase](./apache-spark-rapids-gpu.md#quotas-and-resource-constraints-in-azure-synapse-gpu-enabled-pools) in order to create GPU-enabled clusters.
+>  - GPU-accelerated pools are only available with the Apache Spark 3.1 and 3.2 runtime.
+>  - You might need to request a [limit increase](../spark/apache-spark-rapids-gpu.md#quotas-and-resource-constraints-in-azure-synapse-gpu-enabled-pools) in order to create GPU-enabled clusters.
 
 ## GPU ML Environment
 
-Azure Synapse Analytics provides built-in support for deep learning infrastructure. The Azure Synapse Analytics runtime for Apache Spark 3 includes support for the most common deep learning libraries like TensorFlow and PyTorch. The Azure Synapse runtime also includes supporting libraries like Petastorm and Horovod which are commonly used for distributed training.
+Azure Synapse Analytics provides built-in support for deep learning infrastructure. The Azure Synapse Analytics runtimes for Apache Spark 3 include support for the most common deep learning libraries like TensorFlow and PyTorch. The Azure Synapse runtime also includes supporting libraries like Petastorm and Horovod which are commonly used for distributed training.
 
 ### Tensorflow
 

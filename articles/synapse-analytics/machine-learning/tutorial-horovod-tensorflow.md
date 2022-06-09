@@ -60,9 +60,11 @@ For this tutorial, we will use the following configurations:
 > [!NOTE]
 > When training with Horovod, users should set the Spark configuration for ```numExecutors``` to be less or equal to the number of nodes.
 
-## Setup storage account
+## Setup primary storage account
 
-We will need the Azure Data Lake Storage (ADLS) account for storing intermediate and model data. If you are using an alternative storage account, be sure to set up the [linked service](https://docs.microsoft.com/azure/data-factory/concepts-linked-services?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=data-factory) to automatically authenticate and read from the account. In addition, you will need to modify the following properties below: ```remote_url```.
+We will need the Azure Data Lake Storage (ADLS) account for storing intermediate and model data. If you are using an alternative storage account, be sure to set up the [linked service](../../data-factory/concepts-linked-services.md) to automatically authenticate and read from the account. 
+
+In this example, we will read from the primary Azure Synapse Analytics storage account. To do this, you will need to modify the following properties below: ```remote_url```.
 
 ```python
 # Specify training parameters

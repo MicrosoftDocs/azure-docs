@@ -11,7 +11,7 @@ ms.author: midesa
 
 # Tutorial: Distributed Training with Horovod Estimator and PyTorch (Preview)
 
-[Horovod](https://github.com/horovod/horovod) is a distributed training framework for libraries like TensorFlow and PyTorch. With Horovod, users can scale up an existing training script to run on hundreds of GPUs in just a few lines of code. 
+[Horovod](https://github.com/horovod/horovod) is a distributed training framework for libraries like TensorFlow and PyTorch. With Horovod, users can scale up an existing training script to run on hundreds of GPUs in just a few lines of code.
 
 Within Azure Synapse Analytics, users can quickly get started with Horovod using the default Apache Spark 3 runtime.For Spark ML pipeline applications using PyTorch, users can use the horovod.spark estimator API. This notebook uses an Apache Spark dataframe to perform distributed training of a distributed neural network (DNN) model on MNIST dataset. This tutorial leverages PyTorch and the Horovod Estimator to run the training process.
 
@@ -92,9 +92,9 @@ from horovod.spark.common.store import Store
 from azure.synapse.ml.horovodutils import AdlsStore
 ```
 
-## Setup storage account
+## Connect to alternative storage account
 
-We will need the Azure Data Lake Storage (ADLS) account for storing intermediate and model data. If you are using an alternative storage account, be sure to set up the [linked service](https://docs.microsoft.com/azure/data-factory/concepts-linked-services?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=data-factory) to automatically authenticate and read from the account. In addition, you will need to modify the following properties below: ```remote_url```, ```account_name```, and ```linked_service_name```.
+We will need the Azure Data Lake Storage (ADLS) account for storing intermediate and model data. If you are using an alternative storage account, be sure to set up the [linked service](../../data-factory/concepts-linked-services.md) to automatically authenticate and read from the account. In addition, you will need to modify the following properties below: ```remote_url```, ```account_name```, and ```linked_service_name```.
 
 ```python
 num_proc = 3  # equal to numExecutors

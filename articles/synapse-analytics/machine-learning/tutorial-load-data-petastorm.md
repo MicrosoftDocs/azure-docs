@@ -109,7 +109,7 @@ with make_reader('abfs://<container_name>/<data directory path>/') as reader:
 
 ### Read dataset from secondary storage account
 
-If you are using an alternative storage account, be sure to set up the [linked service](https://docs.microsoft.com/azure/data-factory/concepts-linked-services?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=data-factory) to automatically authenticate and read from the account. In addition, you will need to modify the following properties below: ```remote_url```, ```account_name```, and ```linked_service_name```.
+If you are using an alternative storage account, be sure to set up the [linked service](../../data-factory/concepts-linked-services.md) to automatically authenticate and read from the account. In addition, you will need to modify the following properties below: ```remote_url```, ```account_name```, and ```linked_service_name```.
 
 ```python
 from petastorm import make_reader
