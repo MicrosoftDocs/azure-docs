@@ -1,5 +1,5 @@
 ---
-title: Request custom claims (MSAL iOS/macOS) | Azure 
+title: Request custom claims (MSAL iOS/macOS)
 description: Learn how to request custom claims.
 services: active-directory
 author: mmacy
