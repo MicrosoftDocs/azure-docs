@@ -34,25 +34,27 @@ To change permissions for a specific resource, follow these steps:
 1. Select **Access Control (IAM)**.
 1. Under **Grant access to this resource**, select **Add role assignment**.
 
-   :::image type="content" source="media/managed-grafana-how-to-permissions-iam.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
+   :::image type="content" source="./media/permissions/permissions-iam.png" alt-text="Screenshot of the Azure platform to add role assignment in App Insights.":::
 
 1. The portal lists various roles you can give to your Managed Grafana resource. Select a role. For instance, **Monitoring Reader**. Select this role.
 1. Click **Next**.
-      :::image type="content" source="media/managed-grafana-how-to-permissions-role.png" alt-text="Screenshot of the Azure platform and choose Monitor Reader.":::
+      :::image type="content" source="./media/permissions/permissions-role.png" alt-text="Screenshot of the Azure platform and choose Monitor Reader.":::
 
 1. For **Assign access to**, select **Managed Identity**.
 1. Click **Select members**.
 
-      :::image type="content" source="media/managed-grafana-how-to-permissions-members.png" alt-text="Screenshot of the Azure platform selecting members.":::
+      :::image type="content" source="media/permissions/permissions-members.png" alt-text="Screenshot of the Azure platform selecting members.":::
 
 1. Select the **Subscription** containing your Managed Grafana workspace
 1. Select a **Managed identity** from the options in the dropdown list
 1. Select your Managed Grafana workspace from the list.
 1. Click **Select** to confirm
 
-      :::image type="content" source="media/managed-grafana-how-to-permissions-identity.png" alt-text="Screenshot of the Azure platform selecting the workspace.":::
+      :::image type="content" source="media/permissions/permissions-managed-identities.png" alt-text="Screenshot of the Azure platform selecting the workspace.":::
 
 1. Click **Next**, then **Review + assign** to confirm the application of the new permission
+
+For more information about how to use Managed Grafana with Azure Monitor, go to [Monitor your Azure services in Grafana](../azure-monitor/visualize/grafana-plugin.md).
 
 ## Next steps
 

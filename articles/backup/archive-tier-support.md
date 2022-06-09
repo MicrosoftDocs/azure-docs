@@ -2,7 +2,7 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 05/12/2022
+ms.date: 06/06/2022
 ms.custom: references_regions
 author: v-amallick
 ms.service: backup
@@ -25,6 +25,8 @@ Archive tier supports the following workloads:
 | --- | --- |
 | Azure Virtual Machines | Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.  <br><br> Age >= 3 months in Vault-standard tier <br><br> Retention left >= 6 months. <br><br> No active daily and weekly dependencies. |
 | SQL Server in Azure Virtual Machines <br><br> SAP HANA in Azure Virtual Machines | Only full recovery points. Logs and differentials aren't supported. <br><br> Age >= 45 days in Vault-standard tier. <br><br> Retention left >= 6 months. <br><br>  No dependencies. |
+
+A recovery point becomes archivable only if all the above conditions are met.
 
 >[!Note]
 >- Archive tier support for Azure Virtual Machines, SQL Servers in Azure VMs and SAP HANA in Azure VM is now generally available in multiple regions. For the detailed list of supported regions, see the [support matrix](#support-matrix).
@@ -80,7 +82,7 @@ If you delete recovery points that haven't stayed in archive for a minimum of 18
 
 Stop protection and delete data deletes all recovery points. For recovery points in archive that haven't stayed for a duration of 180 days in archive tier, deletion of recovery points leads to early deletion cost.
 
-## Archive Tier pricing
+## Archive tier pricing
 
 You can view the Archive tier pricing from our [pricing page](azure-backup-pricing.md).
 

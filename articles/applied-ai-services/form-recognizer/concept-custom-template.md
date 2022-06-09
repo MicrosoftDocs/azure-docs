@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -20,15 +20,24 @@ Custom template models share the same labeling format and strategy as custom neu
 
 ## Model capabilities
 
-Custom template models support key-value pairs, selection marks, tables, signature fields, and selected regions. 
+Custom template models support key-value pairs, selection marks, tables, signature fields, and selected regions.
 
-| Form fields | Selection marks | Structured fields (Tables) | Signature | Selected regions |
-|--|--|--|--|--|
+| Form fields | Selection marks | Tabular fields (Tables) | Signature | Selected regions |
+|:--:|:--:|:--:|:--:|:--:|
 | Supported| Supported | Supported | Preview | Supported |
 
-## Dealing with variations 
+## Tabular fields
 
-Template models rely on a defined visual template, changes to the template will result in lower accuracy. In those instances, split your training dataset to include at least five samples of each template and train a model for each of the variations. You can then [compose](concept-composed-models.md) the models into a single endpoint. When dealing with subtle variations, like digital PDF documents and images, it's best to include at least five examples of each type in the same training dataset.
+With the release of API version **2022-06-30-preview**, custom template models will add support for **cross page** tabular fields (tables):  
+
+* To label a table that spans multiple pages, label each row of the table across the different pages in a single table.
+* As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include samples where the entire table is on a single page and where tables span two or more pages if you expect to see those variations in documents.
+
+Tabular fields are also useful when extracting repeating information within a document that isn't recognized as a table. For example, a repeating section of work experiences in a resume can be labeled and extracted as a tabular field.
+
+## Dealing with variations
+
+Template models rely on a defined visual template, changes to the template will result in lower accuracy. In those instances, split your training dataset to include at least five samples of each template and train a model for each of the variations. You can then [compose](concept-composed-models.md) the models into a single endpoint. For subtle variations, like digital PDF documents and images, it's best to include at least five examples of each type in the same training dataset.
 
 ## Training a model
 
@@ -36,13 +45,13 @@ Template models are available generally [v2.1 API](https://westus.dev.cognitive.
 
 | Model | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom template (preview) | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts/try-v3-python-sdk.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)|
+| Custom template (preview) | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts/try-v3-python-sdk.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)|
 | Custom template | [Form Recognizer 2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)| [Form Recognizer SDK](quickstarts/get-started-sdk-rest-api.md?pivots=programming-language-python)| [Form Recognizer Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
 
 On the v3 API, the build operation to train model supports a new ```buildMode``` property, to train a custom template model, set the ```buildMode``` to ```template```.
 
 ```REST
-https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-01-30-preview
+https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-06-30
 
 {
   "modelId": "string",

@@ -75,6 +75,9 @@ To register your device:
 
 Keep this page open. In the next section, you scan this QR code using the smartphone app to connect it to IoT Central.
 
+> [!TIP]
+> The QR code contains the information, such as the registered device ID, your device needs to establish a connection to your IoT Central application. It saves you from the need to enter the connection information manually.
+
 ## Connect your device
 
 To get you started quickly, this article uses the **IoT Plug and Play** smartphone app as an IoT device. The app sends telemetry collected from the smartphone's sensors, responds to commands invoked from IoT Central, and reports property values to IoT Central.

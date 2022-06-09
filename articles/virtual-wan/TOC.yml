@@ -59,6 +59,8 @@
       href: about-virtual-hub-routing.md
     - name: Routing scenarios
       items:
+      - name: Virtual hub routing preference
+        href: about-virtual-hub-routing-preference.md
       - name: Any-to-any
         href: scenario-any-to-any.md
       - name: Isolating VNets
@@ -191,6 +193,8 @@
     items:
     - name: Configure virtual hub routing
       href: how-to-virtual-hub-routing.md
+    - name: Configure virtual hub routing preference
+      href: howto-virtual-hub-routing-preference.md
     - name: View virtual hub effective routes
       href: effective-routes-virtual-hub.md
     - name: How to configure routing intent and policies
@@ -219,6 +223,8 @@
       href: monitor-virtual-wan.md
     - name: Azure Monitor Insights
       href: azure-monitor-insights.md
+    - name: BGP dashboard
+      href: monitor-bgp-dashboard.md
     - name: Configure S2S VPN packet captures
       items:
       - name: Azure portal

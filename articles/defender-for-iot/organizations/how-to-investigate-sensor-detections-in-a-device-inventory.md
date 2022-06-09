@@ -20,19 +20,8 @@ Options are available to:
  - Import Windows registry details.
 
  - Create groups for display in the device map.
- 
-## What is an inventory device?
 
-The Defender for IoT Device inventory displays an extensive range of asset attributes that are detected by sensors monitoring the organization's networks and managed endpoints.
-
-Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
-
-- Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
-- Devices composed of multiple backplane components (including all racks/slots/modules)
-- Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
-
-Public internet IP addresses, multicast groups, and broadcast groups aren't considered inventory devices.
-Devices that have been inactive for more than 60 days are classified as inactive inventory devices.
+For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
 ## View device attributes in the inventory
 

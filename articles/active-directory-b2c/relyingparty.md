@@ -43,7 +43,7 @@ The following example shows a **RelyingParty** element in the *B2C_1A_signup_sig
     <UserJourneyBehaviors>
       <SingleSignOn Scope="Tenant" KeepAliveInDays="7"/>
       <SessionExpiryType>Rolling</SessionExpiryType>
-      <SessionExpiryInSeconds>300</SessionExpiryInSeconds>
+      <SessionExpiryInSeconds>900</SessionExpiryInSeconds>
       <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="your-application-insights-key" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       <ContentDefinitionParameters>
         <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>

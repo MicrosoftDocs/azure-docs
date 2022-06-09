@@ -1,7 +1,6 @@
 ---
 title: Publish your application
 description: Learn how to publish your application in the Azure Active Directory application gallery. 
-titleSuffix: Microsoft Entra
 services: active-directory
 author: eringreenlee
 manager: CelesteDG
