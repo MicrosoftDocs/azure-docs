@@ -4,7 +4,7 @@ description: This article provides the properties and schema for Azure IoT Hub n
 author: kgremban
 ms.author: kgremban  
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 06/09/2022
 ms.service: iot-hub
 services: iot-hub
 ---
@@ -275,3 +275,11 @@ The following JSON shows a twin change event emitted for an update of a desired 
     }
 }
 ```
+
+## Next steps
+
+- To learn about message routing, see [IoT Hub message routing](iot-hub-devguide-messages-d2c.md).
+
+- To learn how to add queries to your message routes, see [IoT Hub message routing query syntax](iot-hub-devguide-routing-query-syntax.md).
+
+- To learn about the structure of device-to-cloud and cloud-to-device messages, see [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md).
