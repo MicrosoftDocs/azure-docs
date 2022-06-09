@@ -62,6 +62,7 @@ For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `depen
 If you are using old versions of `Android Studio (4.*)` then the `repositories` will be in project level `build.gradle` `allprojects{}`.  
 
 ```groovy
+// dependencyResolutionManagement
 repositories {
     ...
     mavenCentral()
@@ -218,7 +219,7 @@ The following classes and interfaces handle some of the major features of the Az
 | [CallComposite](#create-call-composite)                            | Composite component that renders a call experience with participant gallery and controls.    |
 | [CallCompositeBuilder](#create-call-composite)                     | Builder to build CallComposite with options.                                                 |
 | [GroupCallOptions](#group-call)                                    | Passed in CallComposite launch to start group call.                                          |
-| [TeamsMeetingOptions](#teams-meeting)                              | Passed to CallComposite launch to join Teams meeting meeting.                                |
+| [TeamsMeetingOptions](#teams-meeting)                              | Passed to CallComposite launch to join Teams meeting.                                        |
 | [ThemeConfiguration](#apply-theme-configuration)                   | Injected as optional in CallCompositeBuilder to change primary color of composite.           |
 | [LocalizationConfiguration](#apply-localization-configuration)     | Injected as optional in CallCompositeBuilder to set language of composite.       |
 
@@ -419,7 +420,7 @@ To change the language of composite, create a `LocalizationConfiguration` with `
 ```kotlin
 import com.azure.android.communication.ui.calling.models.LocalizationConfiguration
 
-// LanguageCode.values() provides list of supported languages
+// CommunicationUISupportedLocale provides list of supported locale
 val callComposite: CallComposite =
             CallCompositeBuilder().localization(
                 LocalizationConfiguration(Locale(CommunicationUISupportedLocale.EN))
@@ -431,12 +432,17 @@ val callComposite: CallComposite =
 ```java
 import com.azure.android.communication.ui.calling.models.LocalizationConfiguration;
 
-// LanguageCode.values() provides list of supported languages
+// CommunicationUISupportedLocale provides list of supported locale
 CallComposite callComposite = 
     new CallCompositeBuilder()
-        .localization(new LocalizationConfiguration(new Locale(CommunicationUISupportedLocale.EN)))
+        .localization(new LocalizationConfiguration(CommunicationUISupportedLocale.EN))
         .build();
 ```
+
+-----
+### Additional Features
+
+The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information of additional features.
 
 -----
 ### Add notifications into your mobile app

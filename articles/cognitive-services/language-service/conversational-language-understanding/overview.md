@@ -17,7 +17,7 @@ ms.custom: language-service-clu, ignite-fall-2021
 
 Conversational language understanding is one of the custom features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build natural language understanding component to be used in an end-to-end conversational application. 
 
-Conversational language understanding (CLU) enables users to build custom natural language understanding models to predict the overall intention of an incoming utterance and extract important information from it. CLU only provides the intelligence to understand the input text for the client application and doesn't perform any actions. By creating a CLU project, developers can iteratively tag utterances, train and evaluate model performance before making it available for consumption. The quality of the tagged data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
+Conversational language understanding (CLU) enables users to build custom natural language understanding models to predict the overall intention of an incoming utterance and extract important information from it. CLU only provides the intelligence to understand the input text for the client application and doesn't perform any actions. By creating a CLU project, developers can iteratively label utterances, train and evaluate model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
 
 This documentation contains the following article types:
 
@@ -57,9 +57,9 @@ Follow these steps to get the most out of your model:
 
 1. **Build schema**: Know your data and define the actions and relevant information that needs to be recognized from user's input utterances. In this step you create the [intents](glossary.md#intent) that you want to assign to user's utterances, and the relevant [entities](glossary.md#entity) you want extracted.
 
-2. **Tag data**: The quality of data tagging is a key factor in determining model performance. 
+2. **Label data**: The quality of data labeling is a key factor in determining model performance. 
 
-3. **Train model**: Your model starts learning from your tagged data.
+3. **Train model**: Your model starts learning from your labeled data.
 
 4. **View model evaluation details**: View the evaluation details for your model to determine how well it performs when introduced to new data.
 

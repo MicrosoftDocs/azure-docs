@@ -4,7 +4,7 @@ description: Learn the Apache Hadoop components and versions in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/22/2020
+ms.date: 05/26/2022
 ---
 
 # Hortonworks release notes associated with HDInsight versions

@@ -24,9 +24,9 @@ To start training your model from within the [Language Studio](https://aka.ms/la
 
 6. Click on the **Train** button.
 
-5. Click on the Training Job ID from the list, a side pane will appear where you can check **Training progress** and **Job status** and other details for this job.
+    :::image type="content" source="../../media/train-model.png" alt-text="A screenshot showing the training page in Language Studio." lightbox="../../media/train-model.png":::
 
-    <!--:::image type="content" source="../../media/train-pane.png" alt-text="View training job details" lightbox="../../media/train-pane.png":::-->
+5. Click on the Training Job ID from the list, a side pane will appear where you can check **Training progress** and **Job status** and other details for this job.
 
     > [!NOTE]
     > * Only successfully completed training jobs will generate models.

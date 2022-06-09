@@ -7,7 +7,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 05/06/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ---
 
@@ -18,7 +18,7 @@ ms.author: aahi
     :::image type="content" source="../../media/select-custom-text-classification.png" alt-text="A screenshot showing the location of custom text classification in the Language Studio landing page." lightbox="../../media/select-custom-text-classification.png":::
         
 
-3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
+3. Select **Create new project** from the top menu in your projects page. Creating a project will let you label data, train, evaluate, improve, and deploy your models. 
 
     :::image type="content" source="../../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../../media/create-project.png":::
 
@@ -36,14 +36,14 @@ ms.author: aahi
     
     :::image type="content" source="../../media/project-types.png" alt-text="A screenshot of the available custom classification project types." lightbox="../../media/project-types.png":::
 
-5. Enter the project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later. Click **Next**.
+5. Enter the project information, including a name, description, and the language of the documents in your project. You won’t be able to change the name of your project later. Click **Next**.
        
     >[!TIP]
     > Your dataset doesn't have to be entirely in the same language. You can have multiple documents, each with different supported languages. If your dataset contains documents of different languages or if you expect text from different languages during runtime, select **enable multi-lingual dataset** option when you enter the basic information for your project. This option can be enabled later from the **Project settings** page.
 
 6. Select the container where you have uploaded your dataset. 
 
-7. Click on **Yes, my files are already labeled and I have formatted JSON labels file** and select the labels file from the drop-down menu below to import your JSON tags file. Make sure it follows the [supported format](../../concepts/data-formats.md).
+7. Click on **Yes, my documents are already labeled and I have formatted JSON labels file** and select the labels file from the drop-down menu below to import your JSON labels file. Make sure it follows the [supported format](../../concepts/data-formats.md).
 
 7.   Click **Next**.
 

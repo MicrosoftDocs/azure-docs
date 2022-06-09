@@ -19,13 +19,15 @@ You can create an Azure Database for MySQL Flexible Server in one of three diffe
 
 | Resource / Tier | **Burstable** | **General Purpose** | **Business Critical** |
 |:---|:----------|:--------------------|:---------------------|
-| VM series| B-series | Ddsv4-series | Edsv4-series|
-| vCores | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
+| VM series| B-series | Ddsv4-series | Edsv4/v5-series*|
+| vCores | 1, 2, 4, 8, 12, 16, 20 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64, 80, 96 |
 | Memory per vCore | Variable | 4 GiB | 8 GiB * |
 | Storage size | 20 GiB to 16 TiB | 20 GiB to 16 TiB | 20 GiB to 16 TiB |
 | Database backup retention period | 1 to 35 days | 1 to 35 days | 1 to 35 days |
 
 \* With the exception of E64ds_v4 (Business Critical) SKU, which has 504 GB of memory
+
+\* Only few regions have Edsv5 compute availability.
 
 To choose a compute tier, use the following table as a starting point.
 
@@ -43,30 +45,45 @@ Compute resources can be selected based on the tier and size. This determines th
 
 The detailed specifications of the available server types are as follows:
 
-| Compute size         | vCores | Memory Size (GiB) | Max Supported IOPS | Max Supported I/O bandwidth (MBps)| Max Connections
-|----------------------|--------|-------------------| ------------------ |-----------------------------------|------------------
-| **Burstable**        |        |                   | 
-| Standard_B1s         | 1      | 1                 | 320                | 10                                | 171
-| Standard_B1ms        | 1      | 2                 | 640                | 10                                | 341
-| Standard_B2s         | 2      | 4                 | 1280               | 15                                | 683
-| **General Purpose**  |        |                   |                    |                                   | 
-| Standard_D2ds_v4     | 2      | 8                 | 3200               | 48                                | 1365
-| Standard_D4ds_v4     | 4      | 16                | 6400               | 96                                | 2731
-| Standard_D8ds_v4     | 8      | 32                | 12800              | 192                               | 5461
-| Standard_D16ds_v4    | 16     | 64                | 20000              | 384                               | 10923
-| Standard_D32ds_v4    | 32     | 128               | 20000              | 768                               | 21845
-| Standard_D48ds_v4    | 48     | 192               | 20000              | 1152                              | 32768
-| Standard_D64ds_v4    | 64     | 256               | 20000              | 1200                              | 43691
-| **Business Critical** |        |                   |                    |                                   |
-| Standard_E2ds_v4     | 2      | 16                | 3200               | 48                                | 2731
-| Standard_E4ds_v4     | 4      | 32                | 6400               | 96                                | 5461
-| Standard_E8ds_v4     | 8      | 64                | 12800              | 192                               | 10923
-| Standard_E16ds_v4    | 16     | 128               | 20000              | 384                               | 21845
-| Standard_E32ds_v4    | 32     | 256               | 20000              | 768                               | 43691
-| Standard_E48ds_v4    | 48     | 384               | 20000              | 1152                              | 65536
-| Standard_E64ds_v4    | 64     | 504               | 20000              | 1200                              | 86016
+| Compute size         | vCores | Memory Size (GiB) | Max Supported IOPS | Max Connections
+|----------------------|--------|-------------------| ------------------ |------------------
+|**Burstable**				
+|Standard_B1s	|	1	|	1	|	320		|	171
+|Standard_B1ms	|	1	|	2	|	640		|	341
+|Standard_B2s	|	2	|	4	|	1280	|	683
+|Standard_B2ms	|	2	|	8	|	1700	|	1365
+|Standard_B4ms	|	4	|	16	|	2400	|	2731
+|Standard_B8ms	|	8	|	32	|	3100	|	5461
+|Standard_B12ms	|	12	|	48	|	3800	|	8193
+|Standard_B16ms	|	16	|	64	|	4300	|	10923
+|Standard_B20ms	|	20	|	80	|	5000	|	13653
+|**General Purpose**|				
+|Standard_D2ds_v4	|2	|8	|3200	|1365
+|Standard_D4ds_v4	|4	|16	|6400	|2731
+|Standard_D8ds_v4	|8	|32	|12800	|5461
+|Standard_D16ds_v4	|16	|64	|20000	|10923
+|Standard_D32ds_v4	|32	|128	|20000	|21845
+|Standard_D48ds_v4	|48	|192	|20000	|32768
+|Standard_D64ds_v4	|64	|256	|20000	|43691
+|**Memory Optimized** |	
+|Standard_E2ds_v4	|	2	|	16	|	5000	|	2731
+|Standard_E4ds_v4	|	4	|	32	|	10000	|	5461
+|Standard_E8ds_v4	|	8	|	64	|	18000	|	10923
+|Standard_E16ds_v4	|	16	|	128	|	28000	|	21845
+|Standard_E32ds_v4	|	32	|	256	|	38000	|	43691
+|Standard_E48ds_v4	|	48	|	384	|	48000	|	65536
+|Standard_E64ds_v4	|	64	|	504	|	48000	|	86016
+|Standard_E80ids_v4	|	80	|	504	|	48000	|	86016
+|Standard_E2ds_v5	|	2	|	16	|	5000	|	2731
+|Standard_E4ds_v5	|	4	|	32	|	10000	|	5461
+|Standard_E8ds_v5	|	8	|	64	|	18000	|	10923
+|Standard_E16ds_v5	|	16	|	128	|	28000	|	21845
+|Standard_E32ds_v5	|	32	|	256	|	38000	|	43691
+|Standard_E48ds_v5	|	48	|	384	|	48000	|	65536
+|Standard_E64ds_v5	|	64	|	512	|	48000	|	87383
+|Standard_E96ds_v5	|	96	|	672	|	48000	|	100000
 
-To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Business Critical (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
+To get more details about the compute series available, refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and Business Critical [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md)/ [Edsv5-series](../../virtual-machines/edv5-edsv5-series.md)]
 
 >[!NOTE]
 >For [Burstable (B-series) compute tier](../../virtual-machines/sizes-b-series-burstable.md) if the VM is started/stopped or restarted, the credits may be lost. For more information, see [Burstable (B-Series) FAQ](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
@@ -106,32 +123,9 @@ Remember that storage once auto-scaled up, cannot be scaled down.
 
 Azure Database for MySQL – Flexible Server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. 
 
-The minimum IOPS is 360 across all compute sizes and the maximum IOPS is determined by the selected compute size. To learn more about the maximum IOPS per compute size is shown below: 
+The minimum IOPS is 360 across all compute sizes and the maximum IOPS is determined by the selected compute size. To learn more about the maximum IOPS per compute size refer to the [table].(#compute-tiers-size-and-server-types) 
 
-| Compute size         | Maximum IOPS        | 
-|----------------------|---------------------|
-| **Burstable**        |                     |
-| Standard_B1s         | 320                 |
-| Standard_B1ms        | 640                 |
-| Standard_B2s         | 1280                | 
-| **General Purpose**  |                     |
-| Standard_D2ds_v4     | 3200                |
-| Standard_D4ds_v4     | 6400                |
-| Standard_D8ds_v4     | 12800               |
-| Standard_D16ds_v4    | 20000               |
-| Standard_D32ds_v4    | 20000               |
-| Standard_D48ds_v4    | 20000               | 
-| Standard_D64ds_v4    | 20000               | 
-| **Business Critical** |                     | 
-| Standard_E2ds_v4     | 3200                | 
-| Standard_E4ds_v4     | 6400                | 
-| Standard_ E8ds_v4    | 12800               | 
-| Standard_ E16ds_v4   | 20000               | 
-| Standard_E32ds_v4    | 20000               | 
-| Standard_E48ds_v4    | 20000               | 
-| Standard_E64ds_v4    | 20000               |  
-
-The maximum IOPS is dependent on the maximum available IOPS per compute size. Refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md) documentation.
+The maximum IOPS is dependent on the maximum available IOPS per compute size. Refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md)/ [Edsv5-series](../../virtual-machines/edv5-edsv5-series.md)] documentation.
 
 > [!Important]
 > **Complimentary IOPS** are equal to MINIMUM("Max uncached disk throughput: IOPS/MBps" of compute size, 300 + storage provisioned in GiB * 3)<br>

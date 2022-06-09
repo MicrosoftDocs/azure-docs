@@ -31,17 +31,17 @@ To use the `LocalSettings`, pass the instance of `ParticipantViewData` and injec
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val viewData = ParticipantViewData("user_name", bitmap)
+val viewData = ParticipantViewData("user_name") // bitmap is optional
 val localSettings = LocalSettings(viewData)
-callComposite.launch(callLauncherActivity, groupCallOptions, localSettings)
+callComposite.launch(this, options, localSettings)
 ```
 
 #### [Java](#tab/java)
 
 ```java
-ParticipantViewData viewData = new ParticipantViewData("user_name", bitmap);
+ParticipantViewData viewData = new ParticipantViewData("user_name", bitmap); // bitmap is optional
 LocalSettings localSettings = new LocalSettings(viewData);
-callComposite.launch(callLauncherActivity, groupCallOptions, localSettings);
+callComposite.launch(this, options, localSettings);
 ```
 -----
 
@@ -64,7 +64,7 @@ callComposite.setOnRemoteParticipantJoinedHandler { remoteParticipantJoinedEvent
                 remoteParticipantJoinedEvent.identifiers.forEach { identifier ->
                     // get displayName, bitmap for identifier
                     callComposite.setRemoteParticipantViewData(identifier,
-                        ParticipantViewData("display_name", bitmap))
+                        ParticipantViewData("display_name"))
                 }
             }
 ```
@@ -72,12 +72,13 @@ callComposite.setOnRemoteParticipantJoinedHandler { remoteParticipantJoinedEvent
 #### [Java](#tab/java)
 
 ```java
-    for (CommunicationIdentifier identifier: participantJoinedEvent.getIdentifiers()) {
+    callComposite.setOnRemoteParticipantJoinedHandler( (remoteParticipantJoinedEvent) -> {
+                for (CommunicationIdentifier identifier: remoteParticipantJoinedEvent.getIdentifiers()) {
                     // get displayName, bitmap for identifier
-                    callComposite.setRemoteParticipantViewData(identifier, 
-                    new ParticipantViewData("display_name", bitmap))
+                    callComposite.setRemoteParticipantViewData(identifier,
+                            new ParticipantViewData("display_name"));
                 }
-     });
+            });
 ```
 -----
 

@@ -12,9 +12,9 @@ ms.author: aahi
 
 To deploy your model from within the [Language Studio](https://aka.ms/LanguageStudio):
 
-1. Select **Deploy model** from the left side menu.
+1. Select **Deploying a model** from the left side menu.
 
-2. Click on **Start deployment job** to start a new deployment job.
+2. Click on **Add deployment** to start a new deployment job.
 
     :::image type="content" source="../../media/add-deployment-model.png" alt-text="A screenshot showing the model deployment button in Language Studio." lightbox="../../media/add-deployment-model.png":::
 

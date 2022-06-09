@@ -11,7 +11,7 @@ ms.custom: language-service-custom-classification, event-tier1-build-2022
 ---
 
 To test your deployed models from within the [Language Studio](https://aka.ms/LanguageStudio):
-1. Select **Test model** from the left side menu.
+1. Select **Testing deployments** from the left side menu.
 
 2. Select the model you want to test. You can only test models that are assigned to deployments. 
 

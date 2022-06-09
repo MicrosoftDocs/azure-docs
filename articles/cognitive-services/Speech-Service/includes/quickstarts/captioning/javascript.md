@@ -28,7 +28,7 @@ Before you can do anything, you need to install the Speech SDK for JavaScript. I
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Copy the [scenarios/javascript/node/captioning/](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/javascript/node/captioning/) sample files from GitHub into your project directory.
+1. Copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/javascript/node/captioning/"  title="Copy the samples"  target="_blank">scenarios/javascript/node/captioning/</a> sample files from GitHub into your project directory.
 1. Open a command prompt in the same directory as `Captioning.js`.
 1. Install the Speech SDK for JavaScript:
     ```console
@@ -38,7 +38,7 @@ Follow these steps to create a new console application and install the Speech SD
     ```console
     node captioning.js --key YourSubscriptionKey --region YourServiceRegion --input c:\caption\caption.this.wav --output c:\caption\caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jessie;Rehaan"
     ```
-    Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. Make sure that the specified arguments for `--input` file and `--output` path exist. Otherwise you must change the path.
+    Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource [region](~/articles/cognitive-services/speech-service/regions.md), such as `westus` or `northeurope`. Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
 
     > [!NOTE]
     > The Speech SDK for JavaScript does not support [compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md). You must use a WAV file as shown in the example.

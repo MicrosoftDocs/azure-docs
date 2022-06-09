@@ -28,24 +28,22 @@ ms.author: lajanuar
 
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).
->
-> ☼ Indicates the language is not available for scanned PDF document translation.
 
-|Language | Language code | ☼ Cloud – Text Translation and Document Translation | Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
+|Language | Language code | Cloud – Text Translation and Document Translation | Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
 |:-|:-:|:-:|:-:|:-:|:-:|:-:|
 | Afrikaans  | `af` |✔|✔|✔|✔|✔|
 | Albanian | `sq` |✔|✔||✔||
-| Amharic ☼ | `am` |✔|✔||||
+| Amharic | `am` |✔|✔||||
 | Arabic | `ar` |✔|✔|✔|✔|✔|
-| Armenian ☼ | `hy` |✔|✔||✔||
-| Assamese ☼ | `as` |✔|✔|✔|||
+| Armenian  | `hy` |✔|✔||✔||
+| Assamese  | `as` |✔|✔|✔|||
 | Azerbaijani (Latin) | `az` |✔|✔||||
-| Bangla ☼ | `bn` |✔|✔|✔||✔|
-| Bashkir ☼ | `ba` |✔|||||
+| Bangla  | `bn` |✔|✔|✔||✔|
+| Bashkir  | `ba` |✔|||||
 | Basque | `eu` |✔|||||
 | Bosnian (Latin) | `bs` |✔|✔|✔||✔|
 | Bulgarian | `bg` |✔|✔|✔|✔|✔|
-| Cantonese (Traditional) ☼ | `yue` |✔|✔||||
+| Cantonese (Traditional)  | `yue` |✔|✔||||
 | Catalan | `ca` |✔|✔|✔|✔|✔|
 | Chinese (Literary) | `lzh` |✔|||||
 | Chinese Simplified | `zh-Hans` |✔|✔|✔|✔|✔|
@@ -54,7 +52,7 @@ ms.author: lajanuar
 | Czech | `cs` |✔|✔|✔|✔|✔|
 | Danish | `da` |✔|✔|✔|✔|✔|
 | Dari | `prs` |✔|✔||||
-| Divehi ☼ | `dv` |✔|||✔||
+| Divehi  | `dv` |✔|||✔||
 | Dutch | `nl` |✔|✔|✔|✔|✔|
 | English | `en` |✔|✔|✔|✔|✔|
 | Estonian | `et` |✔|✔|✔|✔||
@@ -65,55 +63,55 @@ ms.author: lajanuar
 | French | `fr` |✔|✔|✔|✔|✔|
 | French (Canada) | `fr-ca` |✔|✔||||
 | Galician | `gl` |✔|||||
-| Georgian ☼ | `ka` |✔|||✔||
+| Georgian  | `ka` |✔|||✔||
 | German | `de` |✔|✔|✔|✔|✔|
-| Greek ☼ | `el` |✔|✔|✔|✔|✔|
-| Gujarati ☼ | `gu` |✔|✔|✔|✔||
+| Greek  | `el` |✔|✔|✔|✔|✔|
+| Gujarati  | `gu` |✔|✔|✔|✔||
 | Haitian Creole | `ht` |✔|✔||✔|✔|
-| Hebrew ☼ | `he` |✔|✔|✔|✔|✔|
+| Hebrew  | `he` |✔|✔|✔|✔|✔|
 | Hindi | `hi` |✔|✔|✔|✔|✔|
 | Hmong Daw (Latin) | `mww` |✔|✔|||✔|
 | Hungarian | `hu` |✔|✔|✔|✔|✔|
 | Icelandic | `is` |✔|✔|✔|✔|✔|
 | Indonesian | `id` |✔|✔|✔|✔|✔|
-| Inuinnaqtun ☼ | `ikt` |✔|||||
-| Inuktitut ☼ | `iu` |✔|✔|✔|✔||
+| Inuinnaqtun  | `ikt` |✔|||||
+| Inuktitut  | `iu` |✔|✔|✔|✔||
 | Inuktitut (Latin) | `iu-Latn` |✔|||||
 | Irish | `ga` |✔|✔|✔|✔||
 | Italian | `it` |✔|✔|✔|✔|✔|
 | Japanese | `ja` |✔|✔|✔|✔|✔|
-| Kannada ☼ | `kn` |✔|✔|✔|||
+| Kannada  | `kn` |✔|✔|✔|||
 | Kazakh | `kk` |✔|✔||||
-| Khmer ☼ | `km` |✔|✔||✔||
+| Khmer  | `km` |✔|✔||✔||
 | Klingon | `tlh-Latn` |✔| ||✔|✔|
-| Klingon (plqaD) ☼ | `tlh-Piqd` |✔| ||✔||
+| Klingon (plqaD) | `tlh-Piqd` |✔| ||✔||
 | Korean | `ko` |✔|✔|✔|✔|✔|
 | Kurdish (Central)  | `ku` |✔|✔||✔||
-| Kurdish (Northern) ☼ | `kmr` |✔|✔||||
+| Kurdish (Northern)  | `kmr` |✔|✔||||
 | Kyrgyz (Cyrillic) | `ky` |✔|||||
-| Lao ☼ | `lo` |✔|✔||✔||
-| Latvian ☼| `lv` |✔|✔|✔|✔|✔|
+| Lao  | `lo` |✔|✔||✔||
+| Latvian | `lv` |✔|✔|✔|✔|✔|
 | Lithuanian | `lt` |✔|✔|✔|✔|✔|
-| Macedonian ☼ | `mk` |✔|||✔||
-| Malagasy ☼ | `mg` |✔|✔|✔|||
+| Macedonian  | `mk` |✔|||✔||
+| Malagasy  | `mg` |✔|✔|✔|||
 | Malay (Latin) | `ms` |✔|✔|✔|✔|✔|
-| Malayalam ☼ | `ml` |✔|✔|✔|||
+| Malayalam  | `ml` |✔|✔|✔|||
 | Maltese | `mt` |✔|✔|✔|✔|✔|
 | Maori | `mi` |✔|✔|✔|||
 | Marathi | `mr` |✔|✔|✔|||
-| Mongolian (Cyrillic) ☼| `mn-Cyrl` |✔|||||
-| Mongolian (Traditional) ☼ | `mn-Mong` |✔|||✔||
-| Myanmar ☼ | `my` |✔|✔||✔||
+| Mongolian (Cyrillic) | `mn-Cyrl` |✔|||||
+| Mongolian (Traditional) | `mn-Mong` |✔|||✔||
+| Myanmar  | `my` |✔|✔||✔||
 | Nepali | `ne` |✔|✔||||
 | Norwegian | `nb` |✔|✔|✔|✔|✔|
-| Odia ☼ | `or` |✔|✔|✔|||
+| Odia  | `or` |✔|✔|✔|||
 | Pashto | `ps` |✔|✔||✔||
 | Persian | `fa` |✔|✔|✔|✔|✔|
 | Polish | `pl` |✔|✔|✔|✔|✔|
 | Portuguese (Brazil) | `pt` |✔|✔|✔|✔|✔|
 | Portuguese (Portugal) | `pt-pt` |✔|✔||||
 | Punjabi | `pa` |✔|✔|✔|||
-| Queretaro Otomi ☼ | `otq` |✔|✔||||
+| Queretaro Otomi  | `otq` |✔|✔||||
 | Romanian | `ro` |✔|✔|✔|✔|✔|
 | Russian | `ru` |✔|✔|✔|✔|✔|
 | Samoan (Latin) | `sm` |✔| |✔|||
@@ -125,13 +123,13 @@ ms.author: lajanuar
 | Spanish | `es` |✔|✔|✔|✔|✔|
 | Swahili (Latin) | `sw` |✔|✔|✔|✔|✔|
 | Swedish | `sv` |✔|✔|✔|✔|✔|
-| Tahitian ☼ | `ty` |✔| |✔|✔||
-| Tamil ☼ | `ta` |✔|✔|✔||✔|
+| Tahitian  | `ty` |✔| |✔|✔||
+| Tamil  | `ta` |✔|✔|✔||✔|
 | Tatar (Latin) | `tt` |✔|||||
-| Telugu ☼ | `te` |✔|✔|✔|||
-| Thai ☼ | `th` |✔| |✔|✔|✔|
-| Tibetan ☼ | `bo` |✔||||
-| Tigrinya ☼ | `ti` |✔|✔||||
+| Telugu  | `te` |✔|✔|✔|||
+| Thai  | `th` |✔| |✔|✔|✔|
+| Tibetan  | `bo` |✔||||
+| Tigrinya  | `ti` |✔|✔||||
 | Tongan | `to` |✔|✔|✔|||
 | Turkish | `tr` |✔|✔|✔|✔|✔|
 | Turkmen (Latin) | `tk` |✔||||
@@ -140,7 +138,7 @@ ms.author: lajanuar
 | Urdu | `ur` |✔|✔|✔|✔|✔|
 | Uyghur (Arabic) | `ug` |✔||||
 | Uzbek (Latin | `uz` |✔|||✔||
-| Vietnamese ☼ | `vi` |✔|✔|✔|✔|✔|
+| Vietnamese  | `vi` |✔|✔|✔|✔|✔|
 | Welsh | `cy` |✔|✔|✔|✔|✔|
 | Yucatec Maya | `yua` |✔|✔||✔||
 | Zulu | `zu` |✔|||||

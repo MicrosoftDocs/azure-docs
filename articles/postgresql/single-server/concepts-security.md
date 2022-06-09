@@ -46,7 +46,7 @@ You can also connect to the server using [Azure Active Directory authentication]
 
 ## Threat protection
 
-You can opt in to [Advanced Threat Protection](/azure/defender-for-cloud/defender-for-databases-introduction) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
+You can opt in to [Advanced Threat Protection](../../defender-for-cloud/defender-for-databases-introduction.md) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
 
 [Audit logging](concepts-audit.md) is available to track activity in your databases. 
 

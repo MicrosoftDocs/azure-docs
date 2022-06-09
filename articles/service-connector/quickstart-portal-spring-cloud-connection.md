@@ -1,12 +1,15 @@
 ---
-title: Quickstart - Create a service connection in Spring Cloud from the Azure portal
-description: Quickstart showing how to create a service connection in Spring Cloud from Azure portal
+title: Create a service connection in Spring Cloud from Azure portal
+description: This quickstart shows you how to create a service connection in Spring Cloud from the Azure portal.
 author: shizn
 ms.author: xshi
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
-ms.topic: overview
-ms.date: 05/03/2022
+ms.topic: quickstart
+ms.date: 5/25/2022
+ms.custom:
+- ignite-fall-2021
+- kr2b-contr-experiment
+- event-tier1-build-2022
 ---
 
 # Quickstart: Create a service connection in Spring Cloud from the Azure portal
@@ -37,7 +40,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
     | **Storage account** | Your storage account | The target storage account you want to connect to. If you choose a different service type, select the corresponding target service instance. |
 
 1. Select **Next: Authentication** to select the authentication type. Then select **Connection string** to use access key to connect your Blob storage account.
-1. Then select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. It might take 1 minute to complete the operation.
+1. Then select **Next: Review + Create** to review the provided information. Then select **Create** to create the service connection. It might take one minute to complete the operation.
 
 ## View service connections in Spring Cloud
 
@@ -45,7 +48,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 1. Select **>**  to expand the list and access the properties required by your Spring boot application.
 
-1. Select the ellipsis **...** and **Validate**. You can see the connection validation details in the pop-up blade from the right.
+1. Select the ellipsis **...** and **Validate**. You can see the connection validation details in the context pane from the right.
 
 ## Next steps
 

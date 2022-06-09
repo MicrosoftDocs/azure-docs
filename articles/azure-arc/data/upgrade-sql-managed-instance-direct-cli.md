@@ -8,7 +8,7 @@ ms.custom: event-tier1-build-2022
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
-ms.date: 11/10/2021
+ms.date: 05/21/2022
 ms.topic: how-to
 ---
 
@@ -57,13 +57,13 @@ During a SQL Managed Instance General Purpose upgrade, the containers in the pod
 To upgrade the Managed Instance, use the following command:
 
 ````cli
-az sql mi-arc upgrade --resource-group <resource group> --name <instance name> [--no-wait]
+az sql mi-arc upgrade --resource-group <resource group> --name <instance name> --desired-version <imageTag> [--no-wait]
 ````
 
 Example:
 
 ````cli
-az sql mi-arc upgrade --resource-group rgarc --name sql1 [--no-wait]
+az sql mi-arc upgrade --resource-group myresource-group --name sql1 --desired-version v1.6.0_2022-05-02 [--no-wait]
 ````
 
 ## Monitor
@@ -89,7 +89,7 @@ Status:
   Observed Generation:   2
   Primary Endpoint:      30.76.129.38,1433
   Ready Replicas:        1/1
-  Running Version:       v1.0.0_2021-07-30
+  Running Version:       v1.5.0_2022-04-05
   State:                 Updating
 ```
 
@@ -102,7 +102,7 @@ Status:
   Observed Generation:   2
   Primary Endpoint:      30.76.129.38,1433
   Ready Replicas:        1/1
-  Running Version:       <version-tag>
+  Running Version:       v1.6.0_2022-05-02
   State:                 Ready
 ```
 

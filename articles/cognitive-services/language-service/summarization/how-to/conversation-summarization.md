@@ -16,7 +16,7 @@ ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2
 # How to use conversation summarization (preview)
 
 > [!IMPORTANT] 
-> conversation summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Conversation Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of conversation summarization. 
+> The conversation summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Conversation Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of conversation summarization. 
 
 Conversation summarization is designed to summarize text chat logs between customers and customer-service agents. This feature is capable of providing both issues and resolutions present in these logs. 
 
@@ -26,17 +26,13 @@ The AI models used by the API are provided by the service, you just have to send
 
 The conversation summarization API uses natural language processing techniques to locate key issues and resolutions in text-based chat logs. Conversation summarization will return issues and resolutions found from the text input.
 
-Each returned summary contains:
-* A numerical ID for identifying the summary.
-* A participant ID (such as *Agent* or *Customer*) for determining which participant of the chat log was associated with the summary.
-
-There is another feature in Azure Cognitive Service for Language, [document summarization](../overview.md?tabs=document-summarization), that can summarize sentences from large documents. When deciding between document summarization and conversation summarization, consider the following:
+There's another feature in Azure Cognitive Service for Language, [document summarization](../overview.md?tabs=document-summarization), that can summarize sentences from large documents. When you're deciding between document summarization and conversation summarization, consider the following points:
 * Extractive summarization returns sentences that collectively represent the most important or relevant information within the original content.
 * Conversation summarization returns summaries based on full chat logs including a reason for the chat (a problem), and the resolution. For example, a chat log between a customer and a customer service agent.
 
 ## Submitting data
 
-You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is [asynchronous](../../concepts/use-asynchronously.md), there may be a delay between sending an API request, and receiving the results.  For information on the size and number of requests you can send per minute and second, see the data limits below.
+You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is [asynchronous](../../concepts/use-asynchronously.md), there may be a delay between sending an API request and receiving the results.  For information on the size and number of requests you can send per minute and second, see the data limits below.
 
 When using this feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
@@ -46,7 +42,7 @@ When you submit data to conversation summarization, we recommend sending one cha
 
 When you get results from language detection, you can stream the results to an application or save the output to a file on the local system.
 
-The following is an example of content you might submit for summarization. This is only an example, the API can accept much longer input text. See [data limits](../../concepts/data-limits.md) for more information.
+The following text is an example of content you might submit for summarization. This is only an example, the API can accept much longer input text. See [data limits](../../concepts/data-limits.md) for more information.
  
 **Agent**: "*Hello, how can I help you*?"
 

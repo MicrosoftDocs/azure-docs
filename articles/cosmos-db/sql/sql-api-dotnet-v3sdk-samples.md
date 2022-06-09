@@ -1,14 +1,14 @@
 ---
 title: 'Azure Cosmos DB: .NET (Microsoft.Azure.Cosmos) examples for the SQL API'
 description: Find the C# .NET v3 SDK examples on GitHub for common tasks by using the Azure Cosmos DB SQL API.
-author: StefArroyo
-ms.author: esarroyo
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/02/2020
 ms.custom: devx-track-dotnet
-
 ---
 
 # Azure Cosmos DB .NET v3 SDK (Microsoft.Azure.Cosmos) examples for the SQL API

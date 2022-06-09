@@ -21,7 +21,7 @@ Use this article to learn about some of the definitions and terms you may encoun
 Entities are words in utterances that describe information used to fulfill or identify an intent. If your entity is complex and you would like your model to identify specific parts, you can break your model into subentities. For example, you might want your model to predict an address, but also the subentities of street, city, state, and zipcode. 
 
 ## F1 score
-The F1 score is a function of Precision and Recall. It's needed when you seek a balance between [precision](#precision) and [recall](#recall].
+The F1 score is a function of Precision and Recall. It's needed when you seek a balance between [precision](#precision) and [recall](#recall).
 
 ## Intent
 An intent represents a task or action the user wants to perform. It's a purpose or goal expressed in a user's input, such as booking a flight, or paying a bill.

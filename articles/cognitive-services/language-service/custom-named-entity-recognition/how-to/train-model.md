@@ -15,13 +15,12 @@ ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 
 # Train your custom named entity recognition model
 
-Training is the process where the model learns from your [labeled data](tag-data.md). After training is completed, you will be able to [view model performance](view-model-evaluation.md) to determine if you need to [improve your model](improve-model.md).
+Training is the process where the model learns from your [labeled data](tag-data.md). After training is completed, you'll be able to [view model performance](view-model-evaluation.md) to determine if you need to [improve your model](improve-model.md).
 
 To train a model, you start a training job and only successfully completed jobs create a model. Training jobs expire after seven days, which means you won't be able to retrieve the job details after this time. If your training job completed successfully and a model was created, the model won't be affected. You can only have one training job running at a time, and you can't start other jobs in the same project. 
 
 The training times can be anywhere from a few minutes when dealing with few documents, up to several hours depending on the dataset size and the complexity of your schema.
 
-Model evaluation is triggered automatically after training is completed successfully. The evaluation process starts by using the trained model to extract user defined entities from documents in the testing set, and compares them with the provided data labels (which establishes a baseline of truth). The results are returned so you can review the [model’s performance](view-model-evaluation.md).
 
 ## Prerequisites
 
@@ -41,7 +40,7 @@ It's recommended to make sure that all your entities are adequately represented 
 
 Custom NER supports two methods for data splitting:
 
-* **Automatically splitting the testing set from training data**:The system will split your tagged data between the training and testing sets, according to the percentages you choose. The recommended percentage split is 80% for training and 20% for testing. 
+* **Automatically splitting the testing set from training data**:The system will split your labeled data between the training and testing sets, according to the percentages you choose. The recommended percentage split is 80% for training and 20% for testing. 
 
  > [!NOTE]
  > If you choose the **Automatically splitting the testing set from training data** option, only the data assigned to training set will be split according to the percentages provided.
@@ -82,4 +81,4 @@ Training could take sometime depending on the size of your training data and com
 
 ## Next steps
 
-After training is completed, you will be able to [view model performance](view-model-evaluation.md) to optionally [improve your model](improve-model.md) if needed. Once you're satisfied with your model, you can deploy it, making it available to use for [extracting entities](call-api.md) from text.
+After training is completed, you'll be able to [view model performance](view-model-evaluation.md) to optionally [improve your model](improve-model.md) if needed. Once you're satisfied with your model, you can deploy it, making it available to use for [extracting entities](call-api.md) from text.

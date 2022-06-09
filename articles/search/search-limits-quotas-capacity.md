@@ -56,12 +56,7 @@ You might find some variation in maximum limits if your service happens to be pr
 
 ## Document limits 
 
-As of October 2018, there are no longer any document count limits for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. Older services created prior to October 2018 may still be subject to document count limits.
-
-To determine whether your service has document limits, use the [GET Service Statistics REST API](/rest/api/searchservice/get-service-statistics). Document limits are reflected in the response, with `null` indicating no limits.
-
-> [!NOTE]
-> Although there are no document limits imposed by the service, there is a shard limit of approximately 24 billion documents per index on Basic, S1, S2, and S3 search services. For S3 HD, the shard limit is 2 billion documents per index. Each element of a complex collection counts as a separate document in terms of shard limits.
+There are no longer any document limits per service in Azure Cognitive Search, however, there is a limit of approximately 24 billion documents per index on Basic, S1, S2, and S3 search services. For S3 HD, the limit is 2 billion documents per index. Each element of a complex collection counts as a separate document in terms of these limits.
 
 ### Document size limits per API call
 

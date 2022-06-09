@@ -13,11 +13,11 @@ ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
 
-# What is custom named entity recognition (preview)?
+# What is custom named entity recognition?
 
 Custom NER is one of the custom features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build custom models for custom named entity recognition tasks.
 
-Custom NER enables users to build custom AI models to extract domain-specific entities from unstructured text, such as contracts or financial documents. By creating a Custom NER project, developers can iteratively tag data, train, evaluate, and improve model performance before making it available for consumption. The quality of the tagged data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
+Custom NER enables users to build custom AI models to extract domain-specific entities from unstructured text, such as contracts or financial documents. By creating a Custom NER project, developers can iteratively label data, train, evaluate, and improve model performance before making it available for consumption. The quality of the labeled data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
  
 This documentation contains the following article types:
 
@@ -49,12 +49,12 @@ Using custom NER typically involves several different steps.
 
 1. **Define your schema**: Know your data and identify the [entities](glossary.md#entity) you want extracted. Avoid ambiguity.
 
-2. **Tag your data**: Tagging data is a key factor in determining model performance. Tag precisely, consistently and completely.
-    1. **Tag precisely**: Tag each entity to its right type always. Only include what you want extracted, avoid unnecessary data in your tag.
-    2. **Tag consistently**:  The same entity should have the same tag across all the files.
-    3. **Tag completely**: Tag all the instances of the entity in all your files.
+2. **Label your data**: Labeling data is a key factor in determining model performance. Label precisely, consistently and completely.
+    1. **Label precisely**: Label each entity to its right type always. Only include what you want extracted, avoid unnecessary data in your labels.
+    2. **Label consistently**:  The same entity should have the same label across all the files.
+    3. **Label completely**: Label all the instances of the entity in all your files.
 
-3. **Train model**: Your model starts learning from your tagged data.
+3. **Train model**: Your model starts learning from your labeled data.
 
 4. **View the model evaluation details**: After training is completed, view the model's evaluation details and its performance.
 
@@ -79,7 +79,7 @@ As you use custom NER, see the following reference documentation and samples for
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for custom NER]() to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for custom NER](/legal/cognitive-services/language-service/cner-transparency-note?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 

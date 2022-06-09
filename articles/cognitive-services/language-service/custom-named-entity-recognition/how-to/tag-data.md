@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -30,7 +30,7 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 
 ## Data labeling guidelines
 
-After [preparing your data, designing your schema](design-schema.md) and [creating your project](create-project.md), you will need to label your data. Labeling your data is important so your model knows which words will be associated with the entity types you need to extract. When you label your data in [Language Studio](https://aka.ms/languageStudio) (or import labeled data), these labels will be stored in the JSON file in your storage container that you have connected to this project. 
+After [preparing your data, designing your schema](design-schema.md) and [creating your project](create-project.md), you will need to label your data. Labeling your data is important so your model knows which words will be associated with the entity types you need to extract. When you label your data in [Language Studio](https://aka.ms/languageStudio) (or import labeled data), these labels will be stored in the JSON document in your storage container that you have connected to this project. 
 
 As you label your data, keep in mind:
 
@@ -39,8 +39,8 @@ As you label your data, keep in mind:
 * The precision, consistency and completeness of your labeled data are key factors to determining model performance. 
 
     * **Label precisely**: Label each entity to its right type always. Only include what you want extracted, avoid unnecessary data in your labels.
-    * **Label consistently**:  The same entity should have the same label across all the files.
-    * **Label completely**: Label all the instances of the entity in all your files. You can use the [auto-labeling feature](use-autotagging.md) to ensure complete labeling.
+    * **Label consistently**:  The same entity should have the same label across all the documents.
+    * **Label completely**: Label all the instances of the entity in all your documents. You can use the [auto-labeling feature](use-autotagging.md) to ensure complete labeling.
 
    > [!NOTE]
    > There is no fixed number of labels that can guarantee your model will perform the best. Model performance is dependent on possible ambiguity in your [schema](design-schema.md), and the quality of your labeled data. Nevertheless, we recommend having around 50 labeled instances per entity type.
@@ -56,10 +56,10 @@ Use the following steps to label your data:
     <!--:::image type="content" source="../media/tagging-files-view.png" alt-text="A screenshot showing the Language Studio screen for labeling data." lightbox="../media/tagging-files-view.png":::-->
 
     >[!TIP]
-    > You can use the filters in top menu to view the unlabeled files so that you can start labeling them.
+    > You can use the filters in top menu to view the unlabeled documents so that you can start labeling them.
     > You can also use the filters to view the documents that are labeled with a specific entity type.
 
-3. Change to a single file view from the left side in the top menu or select a specific file to start labeling. You can find a list of all `.txt` files available in your project to the left. You can use the **Back** and **Next** button from the bottom of the page to navigate through your documents.
+3. Change to a single document view from the left side in the top menu or select a specific document to start labeling. You can find a list of all `.txt` documents available in your project to the left. You can use the **Back** and **Next** button from the bottom of the page to navigate through your documents.
 
     > [!NOTE]
     > If you enabled multiple languages for your project, you will find a **Language** dropdown in the top menu, which lets you select the language of each document.
@@ -77,18 +77,18 @@ Use the following steps to label your data:
     
     The below screenshot shows labeling using a brush.
     
-    :::image type="content" source="../media/tag-options.png" alt-text="A screenshot showing the tagging options offered in Custom NER." lightbox="../media/tag-options.png":::
+    :::image type="content" source="../media/tag-options.png" alt-text="A screenshot showing the labeling options offered in Custom NER." lightbox="../media/tag-options.png":::
     
 6. In the right side pane under the **Labels** pivot you can find all the entity types in your project and the count of labeled instances per each.
 
-6. In the bottom section of the right side pane you can add the current file you are viewing to the training set or the testing set. By default all the documents are added to your training set. Learn more about [training and testing sets](train-model.md#data-splitting) and how they are used for model training and evaluation.
+6. In the bottom section of the right side pane you can add the current document you are viewing to the training set or the testing set. By default all the documents are added to your training set. Learn more about [training and testing sets](train-model.md#data-splitting) and how they are used for model training and evaluation.
 
     > [!TIP]
     > If you are planning on using **Automatic** data splitting, use the default option of assigning all the documents into your training set.
 
 7. Under the **Distribution** pivot you can view the distribution across training and testing sets. You have two options for viewing:
-    * *Files with at least one label* where each document is counted if it contains at least one labeled instance of this entity.
-    * *Total instances throughout  files* where you can view count of all labeled instances of a specific entity type.
+   * *Total instances* where you can view count of all labeled instances of a specific entity type.
+   * *documents with at least one label* where each document is counted if it contains at least one labeled instance of this entity.
   
 7. When you're labeling, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save labels** button at the bottom of the page.
 

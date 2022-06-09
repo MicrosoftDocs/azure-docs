@@ -16,6 +16,8 @@
     href: az-region.md
   - name: Migration Guidance
     items:
+    - name: Virtual Machines and Virtual Machine Scale Sets
+      href: migrate-vm.md
     - name: Storage accounts
       href: migrate-storage.md
   - name: Terminology
@@ -102,8 +104,7 @@
     - name: Identity
       items:
       - name: Create an Azure Active Directory Domain Services instance
-        href: ../active-directory-domain-services/tutorial-create-instance.md
-
+        href: ../active-directory-domain-services/tutorial-create-instance.md 
 - name: Disaster Recovery
   items:  
   - name: Business continuity management in Azure

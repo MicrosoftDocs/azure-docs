@@ -7,7 +7,7 @@ ms.subservice: purview
 ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: jejiang
-ms.reviewer: jrasnick
+ms.reviewer: wiassaf
 ---
 
 # Discover, connect, and explore data in Synapse using Microsoft Purview 

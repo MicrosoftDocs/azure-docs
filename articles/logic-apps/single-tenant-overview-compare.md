@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 04/28/2022
+ms.date: 06/01/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -127,35 +127,26 @@ With the **Logic App (Standard)** resource type, you can create these workflow t
 
   Create a stateless workflow when you don't need to keep, review, or reference data from previous events in external storage after each run finishes for later review. These workflows save all the inputs and outputs for each action and their states *in memory only*, not in external storage. As a result, stateless workflows have shorter runs that are typically less than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't saved in external storage. However, if outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs.
 
-  > [!IMPORTANT]
-  > A stateless workflow provides the best performance when handling data or content, such as a file, that doesn't exceed 64 KB in *total* size. 
-  > Larger content sizes, such as multiple large attachments, might significantly slow your workflow's performance or even cause your workflow to 
-  > crash due to out-of-memory exceptions. If your workflow might have to handle larger content sizes, use a stateful workflow instead.
+  A stateless workflow provides the best performance when handling data or content, such as a file, that doesn't exceed 64 KB in *total* size. Larger content sizes, such as multiple large attachments, might significantly slow your workflow's performance or even cause your workflow to crash due to out-of-memory exceptions. If your workflow might have to handle larger content sizes, use a stateful workflow instead.
 
-  Stateless workflows only run synchronously, so they don't use the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply) used by stateful workflows. Instead, all HTTP-based actions that return a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response proceed to the next step in the workflow execution. If the response includes a `location` header, a stateless workflow won't poll the specified URI to check the status. To follow the standard asynchronous operation pattern, use a stateful workflow instead.
+  In stateless workflows, [*managed connector actions*](../connectors/managed.md) are available, but *managed connector triggers* are unavailable. So, to start your workflow, select a [built-in trigger](../connectors/built-in.md) instead, such as the Request, Event Hubs, or Service Bus trigger. These triggers run natively on the Azure Logic Apps runtime. The Recurrence trigger is unavailable for stateless workflows and is available only for stateful workflows. For more information about limited, unavailable, or unsupported triggers, actions, and connectors, see [Changed, limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
+
+  Stateless workflows run only synchronously, so they don't use the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply) used by stateful workflows. Instead, all HTTP-based actions that return a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response continue to the next step in the workflow execution. If the response includes a `location` header, a stateless workflow won't poll the specified URI to check the status. To follow the standard asynchronous operation pattern, use a stateful workflow instead.
 
   For easier debugging, you can enable run history for a stateless workflow, which has some impact on performance, and then disable the run history when you're done. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless) or [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
-
-  > [!NOTE]
-  > Stateless workflows currently support only *actions* for [managed connectors](../connectors/managed.md), 
-  > which are deployed in Azure, and not triggers. To start your workflow, select either the 
-  > [built-in Request, Event Hubs, or Service Bus trigger](../connectors/built-in.md). 
-  > These triggers run natively in the Azure Logic Apps runtime. For more information about limited, 
-  > unavailable, or unsupported triggers, actions, and connectors, see 
-  > [Changed, limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
 
 ### Summary differences between stateful and stateless workflows
 
 <center>
 
-| Stateless                                                    | Stateful                                                    |
+| Stateful                                                     | Stateless                                                   |
 |--------------------------------------------------------------|-------------------------------------------------------------|
-| Doesn't store run history, inputs, or outputs by default     | Stores run history, inputs, and outputs                     |
-| Managed connector triggers are unavailable or not allowed    | Managed connector triggers are available and allowed        |
-| No support for chunking                                      | Supports chunking                                           |
-| No support for asynchronous operations                       | Supports asynchronous operations                            |
-| Best for workflows with max duration under 5 minutes         | Edit default max run duration in host configuration         |
-| Best for handling small message sizes (under 64K)            | Handles large messages                                      |
+| Stores run history, inputs, and outputs                      | Doesn't store run history, inputs, or outputs by default    |
+| Managed connector triggers are available and allowed         | Managed connector triggers are unavailable or not allowed   |
+| Supports chunking                                            | No support for chunking                                     |
+| Supports asynchronous operations                             | No support for asynchronous operations                      |
+| Edit default max run duration in host configuration          | Best for workflows with max duration under 5 minutes        |
+| Handles large messages                                       | Best for handling small message sizes (under 64K)           |
 |||
 
 </center>
@@ -166,23 +157,23 @@ With the **Logic App (Standard)** resource type, you can create these workflow t
 
 You can [make a workflow callable](logic-apps-http-endpoint.md) from other workflows that exist in the same **Logic App (Standard)** resource by using the [Request trigger](../connectors/connectors-native-reqres.md), [HTTP Webhook trigger](../connectors/connectors-native-webhook.md), or managed connector triggers that have the [ApiConnectionWebhook type](logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
 
-Here are the behavior patterns that nested workflows can follow after a parent workflow calls a child workflow:
+The following list describes the behavior patterns that nested workflows can follow after a parent workflow calls a child workflow:
 
 * Asynchronous polling pattern
 
-  The parent doesn't wait for a response to their initial call, but continually checks the child's run history until the child finishes running. By default, stateful workflows follow this pattern, which is ideal for long-running child workflows that might exceed [request timeout limits](logic-apps-limits-and-config.md).
+  The parent workflow doesn't wait for the child workflow to respond to their initial call. However, the parent continually checks the child's run history until the child finishes running. By default, stateful workflows follow this pattern, which is ideal for long-running child workflows that might exceed [request timeout limits](logic-apps-limits-and-config.md).
 
 * Synchronous pattern ("fire and forget")
 
-  The child acknowledges the call by immediately returning a `202 ACCEPTED` response, and the parent continues to the next action without waiting for the results from the child. Instead, the parent receives the results when the child finishes running. Child stateful workflows that don't include a Response action always follow the synchronous pattern. For child stateful workflows, the run history is available for you to review.
+  The child workflow acknowledges the parent workflow's call by immediately returning a `202 ACCEPTED` response. However, the parent doesn't wait for the child to return results. Instead, the parent continues on to the next action in the workflow and receives the results when the child finishes running. Child stateful workflows that don't include a Response action always follow the synchronous pattern and provide a run history for you to review.
 
   To enable this behavior, in the workflow's JSON definition, set the `operationOptions` property to `DisableAsyncPattern`. For more information, see [Trigger and action types - Operation options](logic-apps-workflow-actions-triggers.md#operation-options).
 
 * Trigger and wait
 
-  For a child stateless workflow, the parent waits for a response that returns the results from the child. This pattern works similar to using the built-in [HTTP trigger or action](../connectors/connectors-native-http.md) to call a child workflow. Child stateless workflows that don't include a Response action immediately return a `202 ACCEPTED` response, but the parent waits for the child to finish before continuing to the next action. These behaviors apply only to child stateless workflows.
+  Stateless workflows run in memory. So when a parent workflow calls a child stateless workflow, the parent waits for a response that returns the results from the child. This pattern works similarly to using the built-in [HTTP trigger or action](../connectors/connectors-native-http.md) to call a child workflow. Child stateless workflows that don't include a Response action immediately return a `202 ACCEPTED` response, but the parent waits for the child to finish before continuing to the next action. These behaviors apply only to child stateless workflows.
 
-This table specifies the child workflow's behavior based on whether the parent and child are stateful, stateless, or are mixed workflow types:
+The following table identifies the child workflow's behavior based on whether the parent and child are stateful, stateless, or are mixed workflow types. The list after the table 
 
 | Parent workflow | Child workflow | Child behavior |
 |-----------------|----------------|----------------|
@@ -255,9 +246,9 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
 For the **Logic App (Standard)** resource, these capabilities have changed, or they are currently limited, unavailable, or unsupported:
 
-* **Triggers and actions**: Built-in triggers and actions run natively in Azure Logic Apps, while managed connectors are hosted and run in Azure. Some built-in triggers and actions are unavailable, such as Sliding Window, Batch, Azure App Services, and Azure API Management. To start a stateful or stateless workflow, use the [Request, HTTP, HTTP Webhook, Event Hubs, Service Bus trigger, and so on](../connectors/built-in.md). The Recurrence trigger is available only for stateful workflows, not stateless workflows. In the designer, built-in triggers and actions appear under the **Built-in** tab.
+* **Triggers and actions**: [Built-in triggers and actions](../connectors/built-in.md) run natively in Azure Logic Apps, while managed connectors are hosted and run in Azure. For Standard workflows, some built-in triggers and actions are currently unavailable, such as Sliding Window, Batch, Azure App Service, and Azure API Management. To start a stateful or stateless workflow, use a built-in trigger such as the Request, Event Hubs, or Service Bus trigger. The Recurrence trigger is available for stateful workflows, but not stateless workflows. In the designer, built-in triggers and actions appear on the **Built-in** tab, while [managed connector triggers and actions](../connectors/managed.md) appear on the **Azure** tab.
 
-  For *stateful* workflows, [managed connector triggers and actions](../connectors/managed.md) appear under the **Azure** tab, except for the unavailable operations listed below. For *stateless* workflows, the **Azure** tab doesn't appear when you want to select a trigger. You can select only [managed connector *actions*, not triggers](../connectors/managed.md). Although you can enable Azure-hosted managed connectors for stateless workflows, the designer doesn't show any managed connector triggers for you to add.
+  For *stateless* workflows, *managed connector actions* are available, but *managed connector triggers* are unavailable. So the **Azure** tab appears only when you can select managed connector actions. Although you can enable managed connectors for stateless workflows, the designer doesn't show any managed connector triggers for you to add.
 
   > [!NOTE]
   > To run locally in Visual Studio Code, webhook-based triggers and actions require additional setup. For more information, see 

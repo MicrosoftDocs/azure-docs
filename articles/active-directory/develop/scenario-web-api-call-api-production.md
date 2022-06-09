@@ -1,6 +1,5 @@
 ---
-title: Move web API calling web APIs to production | Azure
-titleSuffix: Microsoft identity platform
+title: Move web API calling web APIs to production
 description: Learn how to move a web API that calls web APIs to production.
 services: active-directory
 author: jmprieur
