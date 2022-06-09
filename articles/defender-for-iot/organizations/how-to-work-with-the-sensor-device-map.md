@@ -68,14 +68,14 @@ The following predefined groups are available:
 | **non-standard ports (default)** | Devices that use non-standard ports or ports that haven't been assigned an alias. |
 | **OT protocols (default)** | Devices that handle known OT traffic. |
 | **Authorization (default)** | Devices that were discovered in the network during the learning process or were officially authorized on the network. |
-| **Device inventory filters** | Devices grouped according to the filters save in the Device Inventory table. |
-| **Polling intervals** | Devices grouped by polling intervals. The polling intervals are generated automatically according to cyclic channels, or periods. For example, 15.0 seconds, 3.0 seconds, 1.5 seconds, or any interval. Reviewing this information helps you learn if systems are polling too quickly or slowly. |
+| **Device inventory filters** | Devices grouped according to the filter save in the Device Inventory table. |
+| **Polling intervals** | Devices grouped by polling intervals. The polling intervals are generated automatically according to cyclic channels or periods. For example, 15.0 seconds, 3.0 seconds, 1.5 seconds, or any other interval. Reviewing this information helps you learn if systems are polling too quickly or slowly. |
 | **Programming** | Engineering stations, and programming machines. |
 | **Subnets** | Devices that belong to a specific subnet. |
 | **VLAN** | Devices associated with a specific VLAN ID. |
 | **Cross subnet connections** | Devices that communicate from one subnet to another subnet. |
 | **Attack vector simulations** | Vulnerable devices detected in attack vector reports. To view these devices on the map, select the **Display on Device Map** checkbox when generating the Attack Vector. :::image type="content" source="media/how-to-work-with-maps/add-attack-v3.png" alt-text="Screenshot of the Add Attack Vector Simulations":::|
-| **Last seen** | Devices grouped by the time frame they were last seen, for example: One hour, six hours, one day, seven days. |
+| **Last seen** | Devices grouped by the time frame they were last seen, for example: One hour, six hours, one day, or seven days. |
 | **Not In Active Directory** | All non-PLC devices that aren't communicating with the Active Directory. |
 
 For information about creating custom groups, see [Define custom groups](#define-custom-groups).
@@ -137,7 +137,7 @@ Overall connections are displayed.
 
 ### View IT subnets
 
-By default, IT devices are automatically aggregated by subnet, so that the map view is focused on OT and ICS networks. The presentation of the IT network elements is collapsed to a minimum, which reduces the total number of the devices presented on the map and provides a clear picture of the OT and ICS network elements.
+By default, IT devices are automatically aggregated by subnet, so that the map view is focused on OT and ICS networks. The presentation of the IT network elements is collapsed to a minimum which reduces the total number of the devices presented on the map, and provides a clear picture of the OT and ICS network elements.
 
 Each subnet is presented as a single entity on the Device map. Options are available to expand subnets to see details, collapse subnets or hide them.
 
@@ -238,11 +238,11 @@ This section describes device details.
 
 | Item | Description |
 |--|--|
-| Name | The device name. <br /> By default, the sensor discovers the device name as it defined in the network. For example, a name defined in the DNS server. <br /> If no such names were defined, the device IP address appears in this field. <br /> You can change a device name manually. Give your devices meaningful names that reflect their functionality. |
+| Name | The device name. <br /> By default, the sensor discovers the device name as it's defined in the network. For example, a name defined in the DNS server. <br /> If no such names were defined, the device IP address appears in this field. <br /> You can change a device name manually. Give your devices meaningful names that reflect their functionality. |
 | Authorized status | Indicates if the device is authorized or not. During the Learning period, all the devices discovered in the network are identified as Authorized. When a device is discovered after the Learning period, it appears as Unauthorized by default. You can change this definition manually. For information on this status and manually authorizing and unauthorizing, see [Authorize and unauthorize devices](#authorize-and-unauthorize-devices). |
 | Last seen | The last time the device was detected. |
 | Alert | The number of open alerts associated with the device. |
-| Type | The device type detected by the sensor. |
+| Type | The device type as detected by the sensor. |
 | Vendor | The device vendor. This is determined by the leading characters of the device MAC address. This field is read-only. |
 | Operating System | The device OS detected by the sensor. |
 | Location | The Purdue layer identified by the sensor for this device, including: <br /> - Automatic <br /> - Process Control <br /> - Supervisory <br /> - Enterprise |
@@ -366,7 +366,7 @@ The device must be inactive for at least 10 minutes to delete it.
 
 ### Merge devices
 
-Under certain circumstances, you may need to merge devices. This may be required if the sensor discovered separate network entities that are associated with one unique device. For example,
+Under certain circumstances you may need to merge devices. This may be required if the sensor discovered separate network entities that are associated with one unique device. For example,
 
   - A PLC with four network cards.
 
@@ -428,7 +428,7 @@ Unauthorized devices are included in Risk Assessment reports and Attack Vectors 
 
 ### Mark devices as important
 
-You can mark significant network devices as important, for example business critical servers. These devices are marked with a star on the map. The star varies according to the map's zoom level.
+You can mark significant network devices as important, for example, business critical servers. These devices are marked with a star on the map. The star varies according to the map's zoom level.
 
 :::image type="icon" source="media/how-to-work-with-maps/star-one.png" border="false"::: :::image type="icon" source="media/how-to-work-with-maps/star-two.png" border="false"::: :::image type="icon" source="media/how-to-work-with-maps/star-3.png" border="false":::
 
