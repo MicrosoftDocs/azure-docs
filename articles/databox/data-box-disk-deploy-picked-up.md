@@ -266,6 +266,8 @@ Take the following steps if returning the device in South Africa.
 
 ## Self-managed shipping
 
+ Self-managed shipping is available as an option when you [Order Azure Data Box](data-box-disk-deploy-ordered.md). For detailed steps, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
+
 Self-managed shipping is available in the following regions:
 
 | Region        | Region         | Region         | Region    | Region    |
@@ -273,7 +275,7 @@ Self-managed shipping is available in the following regions:
 | US Government | United Kingdom | West Europe    | Japan     | Singapore |
 | Korea         | India          | South Africa   | Australia | Brazil    |
 
-If you are using Data Box Disk and have selected the self-managed shipping option during order creation, follow these instructions. For detailed steps, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
+If you are using Data Box Disk and have selected the self-managed shipping option during order creation, follow these instructions.
 
 1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
 
@@ -286,12 +288,14 @@ If you are using Data Box Disk and have selected the self-managed shipping optio
    1. Order name
    2. Contact name of the person dropping off. You will need to display a government-approved ID during the drop-off.
    ```
-> [!NOTE]
-   > - Required information for return may vary by region. 
+
+3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure datacenter.
 
 ::: zone pivot="americas"
 
-**Instructions for Brazil:** To schedule a device return in Brazil, send an email to [adbops@microsoft.com](mailto:adbops@microsoft.com) with the following information:
+### Shipping in Brazil
+
+To schedule a device return in Brazil, send an email to [adbops@microsoft.com](mailto:adbops@microsoft.com) with the following information:
 
 ```
 Subject: Request Azure Data Box Disk drop-off for order: <ordername>
@@ -302,9 +306,6 @@ Subject: Request Azure Data Box Disk drop-off for order: <ordername>
 ```
   
 ::: zone-end    
-
-
-3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure datacenter.
 
 ---
 
