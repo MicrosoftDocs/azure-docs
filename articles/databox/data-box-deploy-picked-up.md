@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 05/05/2022
+ms.date: 06/08/2022
 ms.author: alkohli
 zone_pivot_groups: data-box-shipping
 
@@ -53,11 +53,11 @@ Before you begin, make sure:
 
 Based on the region where you're shipping the device, the procedure is different. In many countries/regions, you can use Microsoft managed shipping or [self-managed shipping](#self-managed-shipping).
 
-::: zone pivot="north-america" 
+::: zone pivot="americas" 
 
 If using Microsoft managed shipping, follow these steps. 
 
-## Shipping in North America 
+## Shipping in Americas 
 
 ### [US & Canada](#tab/in-us-canada)
 
@@ -144,6 +144,19 @@ If using Microsoft managed shipping, follow these steps.
 [!INCLUDE [data-box-shipping-regions](../../includes/data-box-shipping-regions.md)]
 
 [!INCLUDE [data-box-shipping-self-managed](../../includes/data-box-shipping-self-managed.md)]
+
+::: zone pivot="americas"
+
+        **Instructions for Brazil:** To schedule a device return in Brazil, send an email to [adbops@microsoft.com](mailto:adbops@microsoft.com) with the following information:
+    
+       ```
+       Subject: Request Azure Data Box Disk drop-off for order: <ordername>
+    
+       - Order name
+       - Contact name of the person who will drop off the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.) 
+       - Inbound Nota Fiscal (A copy of the inbound Nota Fiscal will be required at drop-off.)   
+       ```
+    ::: zone-end
 
 ::: zone target="chromeless"
 
