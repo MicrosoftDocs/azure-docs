@@ -2,11 +2,11 @@
 title: Upgrade an internal basic load balancer - Outbound connections required
 titleSuffix: Azure Load Balancer
 description: Learn how to upgrade a basic internal load balancer to a standard public load balancer.
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/17/2022
-ms.author: allensu
+ms.author: greglin
 ---
 
 # Upgrade an internal basic load balancer - Outbound connections required
@@ -35,7 +35,7 @@ An Azure PowerShell script is available that does the following procedures:
 
 ### Constraints
 
-* The script supports an internal load balancer upgrade where outbound connectivity is required. If outbound connectivity isn't required, see [Upgrade an internal basic load balancer - Outbound connections not required](upgrade-basicinternal-standard.md).
+* The script supports an internal load balancer upgrade where outbound connectivity is required. If outbound connectivity isn't required, see [Upgrade an internal basic load balancer - Outbound connections not required](./upgrade-basicinternal-standard.md).
 
 * The standard load balancer has a new public address. It’s impossible to move the IP addresses associated with existing basic internal load balancer to a standard public load balancer because of different SKUs.
 

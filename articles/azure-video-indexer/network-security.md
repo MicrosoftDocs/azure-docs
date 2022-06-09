@@ -34,7 +34,7 @@ This tag contains the IP addresses of Azure Video Indexer services for all regio
 
 ## Using Azure CLI
 
-You can also use Azure CLI to create a new or update an existing NSG rule and add the **AzureVideoAnalyzerForMedia** service tag using the `--source-address-prefixes`. For a full list of CLI commands and parameters see [az network nsg](/cli/azure/network/nsg/rule?view=azure-cli-latest)
+You can also use Azure CLI to create a new or update an existing NSG rule and add the **AzureVideoAnalyzerForMedia** service tag using the `--source-address-prefixes`. For a full list of CLI commands and parameters see [az network nsg](/cli/azure/network/nsg/rule?view=azure-cli-latest&preserve-view=true)
 
 Example of a security rule using service tags. For more details, visit https://aka.ms/servicetags
 
