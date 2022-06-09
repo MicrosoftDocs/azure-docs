@@ -224,7 +224,7 @@ the iisnode handler on the Azure Web App:
 
 For information on Azure service connections, see the [following section](#endpoint).
 
-# [Classic](#tab/classic)
+#### [Classic](#tab/classic)
 
 The simplest way to deploy to an Azure Web App is to use the **Azure Web App** task.
 To deploy to any Azure App service (Web app for Windows, Linux, container, Function app or web jobs), use the **Azure App Service Deploy** task.
@@ -319,7 +319,7 @@ The following example shows how to deploy to a staging slot, and then swap to a 
 You can configure the Azure Web App to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
 
 Use the option **Deploy to Slot or App Service Environment** in the **Azure Web App** task to specify the slot to deploy to.
-
+---
 
 ## Deploy to multiple web apps
 
@@ -445,6 +445,8 @@ To change `connectionString` by using variable substitution:
 
 ## Deploying conditionally
 
+#### [YAML](#tab/yaml/)
+
 To do this in YAML, you can use one of these techniques:
 
 * Isolate the deployment steps into a separate job, and add a condition to that job.
@@ -463,6 +465,7 @@ The following example shows how to use step conditions to deploy only builds tha
 To learn more about conditions, see [Specify conditions](/azure/devops/pipelines/process/conditions).
 
 #### [Classic](#tab/classic/)
+
 In your release pipeline, you can implement various checks and conditions to control the deployment:
 
 * Set *branch filters* to configure the *continuous deployment trigger* on the artifact of the release pipeline.
