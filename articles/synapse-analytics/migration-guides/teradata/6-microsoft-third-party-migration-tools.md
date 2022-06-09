@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 05/24/2022
+ms.date: 05/31/2022
 ---
 
 # Tools for Teradata data warehouse migration to Azure Synapse Analytics
@@ -87,7 +87,7 @@ Azure Data Factory is the recommended approach for implementing data integration
 
 #### Azure ExpressRoute
 
-Azure ExpressRoute creates private connections between Azure data centers and infrastructure on your premises or in a collocation environment. ExpressRoute connections don't go over the internet, and they offer more reliability, faster speeds, and lower latencies than typical internet connections. In some cases, by using ExpressRoute connections to transfer data between on-premises systems and Azure, you gain significant cost benefits.
+Azure ExpressRoute creates private connections between Azure data centers and infrastructure on your premises or in a collocation environment. ExpressRoute connections don't go over the public internet, and they offer more reliability, faster speeds, and lower latencies than typical internet connections. In some cases, by using ExpressRoute connections to transfer data between on-premises systems and Azure, you gain significant cost benefits.
 
 #### AzCopy
 

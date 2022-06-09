@@ -327,8 +327,6 @@
         href: braze-tutorial.md
       - name: Bridge
         href: bridge-tutorial.md
-      - name: Bridgeline Unbound
-        href: bridgelineunbound-tutorial.md
       - name: Bright Pattern Omnichannel Contact Center
         href: bright-pattern-omnichannel-contact-center-tutorial.md  
       - name: Brightidea
@@ -1956,6 +1954,8 @@
         href: secretserver-on-premises-tutorial.md
       - name: Sectigo Certificate Manager
         href: sectigo-certificate-manager-tutorial.md
+      - name: Seculio
+        href: seculio-tutorial.md
       - name: SECURE DELIVER
         href: securedeliver-tutorial.md
       - name: SecureW2 JoinNow Connector
@@ -2476,6 +2476,8 @@
         href: wuru-app-tutorial.md
       - name: XaitPorter
         href: xaitporter-tutorial.md
+      - name: xCarrier®
+        href: xcarrier-tutorial.md
       - name: xMatters OnDemand
         href: xmatters-ondemand-tutorial.md
       - name: X-point Cloud

@@ -5,7 +5,7 @@ description: This article answers common questions about virtual hub settings an
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/20/2022
+ms.date: 05/30/2022
 ms.author: cherylmc
 ---
 
@@ -23,7 +23,7 @@ You can create an empty virtual hub (a virtual hub that doesn't contain any gate
 
 By default, the virtual hub router is automatically configured to deploy with a virtual hub capacity of 2 routing infrastructure units. This supports a minimum of 3 Gbps aggregate throughput, and 2000 connected VMs deployed in all virtual networks connected to that virtual hub.
 
-When you deploy a new virtual hub, you can specify additional routing infrastructure units to increase the default virtual hub capacity in increments of 1 Gbps and 1000 VMs. This feature gives you the ability to secure upfront capacity without having to wait for the virtual hub to scale out when more throughput is needed. The scale unit on which the virtual hub is created becomes the minimum capacity. You can view routing infrastructure units, router Gbps, and number of VMs supported, in the Azure portal **Virtual hub** pages for **Create virtual hub** and **Edit virtual hub**.
+When you deploy a new virtual hub, you can specify additional routing infrastructure units to increase the default virtual hub capacity in increments of 1 Gbps and 1000 VMs. This feature gives you the ability to secure upfront capacity without having to wait for the virtual hub to scale out when more throughput is needed. The scale unit on which the virtual hub is created becomes the minimum capacity. Creating a virtual hub without a gateway takes about 5 - 7 minutes while creating a virtual hub and a gateway can take about 30 minutes to complete. You can view routing infrastructure units, router Gbps, and number of VMs supported, in the Azure portal **Virtual hub** pages for **Create virtual hub** and **Edit virtual hub**.
 
 ### Configure virtual hub capacity
 
@@ -36,6 +36,10 @@ Capacity is configured on the **Basics** tab **Virtual hub capacity** setting wh
 Adjust the virtual hub capacity when you need to support additional virtual machines and the aggregate throughput of the virtual hub router.
 
 To add additional virtual hub capacity, go to the virtual hub in the Azure portal. On the **Overview** page, click **Edit virtual hub**. Adjust the **Virtual hub capacity** using the dropdown, then **Confirm**.
+
+> [!NOTE]
+> When you edit virtual hub capacity, there will be data path disruption if the change in scale units has resulted in an underlying VPN GW SKU change.
+> 
 
 ### Routing infrastructure unit table
 
@@ -92,6 +96,14 @@ For pricing information, see [Azure Virtual WAN pricing](https://azure.microsoft
 | 48 | 48 | 48000 |
 | 49 | 49 | 49000 |
 | 50 | 50 | 50000 |
+
+## <a name="routing-preference"></a>Virtual hub routing preference (Preview)
+
+A Virtual WAN virtual hub connects to virtual networks (VNets) and on-premises sites using connectivity gateways, such as site-to-site (S2S) VPN gateway, ExpressRoute (ER) gateway, point-to-site (P2S) gateway, and SD-WAN Network Virtual Appliance (NVA). The virtual hub router provides central route management and enables advanced routing scenarios using route propagation, route association, and custom route tables. When a virtual hub router makes routing decisions, it considers the configuration of such capabilities.
+
+Previously, there wasn't a configuration option for you to use to influence routing decisions within virtual hub router for prefixes in on-premises sites. These decisions relied on the virtual hub router's built-in route selection algorithm and the options available within gateways to manage routes before they reach the virtual hub router. To influence routing decisions in virtual hub router for prefixes in on-premises sites, you can now adjust the **Hub routing preference** using the [Azure Preview portal](https://portal.azure.com/?feature.customRouterAsn=true&feature.virtualWanRoutingPreference=true#home).
+
+For more information, see [About virtual hub routing preference](about-virtual-hub-routing-preference.md).
 
 ## <a name="gateway"></a>Gateway settings
 

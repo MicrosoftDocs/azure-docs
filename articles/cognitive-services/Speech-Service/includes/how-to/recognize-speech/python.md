@@ -168,3 +168,12 @@ speech_config.speech_recognition_language="de-DE"
 
 [`speech_recognition_language`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#speech-recognition-language) is a parameter that takes a string as an argument. You can provide any value in the [list of supported locales/languages](../../../language-support.md).
 
+## Use a custom endpoint
+
+With [Custom Speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
+
+```python
+speech_config = speechsdk.SpeechConfig(subscription="YourSubscriptionKey", region="YourServiceRegion")
+speech_config.endpoint_id = "YourEndpointId"
+speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
+```

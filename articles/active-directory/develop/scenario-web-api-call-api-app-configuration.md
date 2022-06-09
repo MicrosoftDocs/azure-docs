@@ -1,6 +1,5 @@
 ---
-title: Configure a web API that calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Configure a web API that calls web APIs
 description: Learn how to build a web API that calls web APIs (app's code configuration)
 services: active-directory
 author: jmprieur

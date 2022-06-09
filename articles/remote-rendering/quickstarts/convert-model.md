@@ -202,11 +202,15 @@ The conversion script generates a *Shared Access Signature (SAS)* URI for the co
 The SAS URI created by the conversion script will only be valid for 24 hours. However, after it expired you do not need to convert your model again. Instead, you can create a new SAS in the portal as described in the next steps:
 
 1. Go to the [Azure portal](https://www.portal.azure.com)
-1. Click on your **Storage account** resource:
+2. Click on your **Storage account** resource:
+
 ![Screenshot that highlights the selected Storage account resource.](./media/portal-storage-accounts.png)
-1. In the following screen, click on **Storage explorer** in the left panel and find your output model (*.arrAsset* file) in the *arroutput* blob storage container. Right-click on the file and select **Get Shared Access Signature** from the context menu:
-![Signature Access](./media/portal-storage-explorer.png)
-1. A new screen opens where you can select an expiry date. Press **Create**, and copy the URI that is shown in the next dialog. This new URI replaces the temporary URI that the script created.
+
+3. In the following screen, click on **Storage explorer** in the left panel and find your output model (*.arrAsset* file) in the *arroutput* blob storage container. Right-click on the file and select **Get Shared Access Signature** from the context menu:
+
+   ![Signature Access](./media/portal-storage-explorer.png)
+
+4. A new screen opens where you can select an expiry date. Press **Create**, and copy the URI that is shown in the next dialog. This new URI replaces the temporary URI that the script created.
 
 ## Next steps
 

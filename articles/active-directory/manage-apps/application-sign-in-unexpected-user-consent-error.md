@@ -1,6 +1,5 @@
 ---
 title:  Unexpected error when performing consent to an application
-titleSuffix: Microsoft Entra
 description: Discusses errors that can occur during the process of consenting to an application and what you can do about them
 services: active-directory
 author: eringreenlee
