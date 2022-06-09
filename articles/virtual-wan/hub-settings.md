@@ -37,6 +37,10 @@ Adjust the virtual hub capacity when you need to support additional virtual mach
 
 To add additional virtual hub capacity, go to the virtual hub in the Azure portal. On the **Overview** page, click **Edit virtual hub**. Adjust the **Virtual hub capacity** using the dropdown, then **Confirm**.
 
+> [!NOTE]
+> When you edit virtual hub capacity, there will be data path disruption if the change in scale units has resulted in an underlying VPN GW SKU change.
+> 
+
 ### Routing infrastructure unit table
 
 For pricing information, see [Azure Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/).

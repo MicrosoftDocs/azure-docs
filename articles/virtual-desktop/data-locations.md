@@ -19,7 +19,9 @@ Azure Virtual Desktop stores various information for service objects, such as ho
 
 ## Customer input
 
-To set up Azure Virtual Desktop, you must create host pools and other service objects. During configuration, you must enter information such as the host pool name, application group name, and so on. This information is considered *customer input*. Customer input is stored in the geography associated with the Azure region the resource is created in. Azure Resource Manager paths to the objects are considered organizational information, so data residency doesn't apply to them. Data about Azure Resource Manager paths will be stored outside of the chosen geography.
+To set up Azure Virtual Desktop, you must create host pools and other service objects. During configuration, you must enter information such as the host pool name, application group name, and so on. This information is considered "customer input." Customer input is stored in the geography associated with the Azure region the resource is created in. The stored data includes all data that you input into the host pool deployment process and any data you add after deployment while making configuration changes to Azure Virtual Desktop objects. Basically, stored data is the same data you can access using the Azure Virtual Desktop portal, PowerShell, or Azure command-line interface (CLI). To ascertain this data using PowerShell as an example, review the PowerShell commands you can use to retrieve this "customer input" data that the [Azure Virtual Desktop service stores](https://docs.microsoft.com/powershell/module/az.desktopvirtualization/?view=azps-8.0.0)
+
+Azure Resource Manager paths to service objects are considered organizational information, so data residency doesn't apply to them. Data about Azure Resource Manager paths is stored outside of the chosen geography.
 
 ## Customer data
 
