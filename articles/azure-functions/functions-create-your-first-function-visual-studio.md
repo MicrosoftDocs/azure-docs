@@ -80,7 +80,7 @@ Your function definition should now look like the following code, depending on m
 
 # [Isolated process](#tab/isolated-process)
 
-::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="11-13":::
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="11-13":::
 
 --- 
 
