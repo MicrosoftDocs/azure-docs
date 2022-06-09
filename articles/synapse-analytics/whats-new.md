@@ -11,7 +11,7 @@ ms.date: 04/15/2022
 
 # What's new in Azure Synapse Analytics?
 
-This article lists updates to Azure Synapse Analytics that are published in Mar 2022. Each update links to the Azure Synapse Analytics blog and an article that provides more information. For previous months releases, check out [Azure Synapse Analytics - updates archive](whats-new-archive.md).
+This article lists updates to Azure Synapse Analytics that are published in April 2022. Each update links to the Azure Synapse Analytics blog and an article that provides more information. For previous months releases, check out [Azure Synapse Analytics - updates archive](whats-new-archive.md).
 
 The following updates are new to Azure Synapse Analytics this month.
 

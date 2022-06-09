@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 11/04/2020
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # Configuration options - Azure Monitor Application Insights for Java
