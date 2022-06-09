@@ -91,7 +91,7 @@ You can query you alerts instances to create custom views outside of the Azure p
 We recommended that you use [Azure Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade) with the 'AlertsManagementResources' schema for managing alerts across multiple subscriptions. For an sample query, see [Azure Resource Graph sample queries for Azure Monitor](../resource-graph-samples.md).
 
 You can use Azure Resource Graphs:
- - with [Azure PowerShell](/powershell/module/az.monitor/
+ - with [Azure PowerShell](/powershell/module/az.monitor/)
  - with the [Azure CLI](/cli/azure/monitor?view=azure-cli-latest&preserve-view=true)
  - in the Azure portal
  

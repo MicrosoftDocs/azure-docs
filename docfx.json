@@ -236,6 +236,7 @@
         "articles/azure-monitor/agents/*.md": "bwren",
         "articles/azure-monitor/alerts/*.md": "AbbyMSFT",
         "articles/azure-monitor/autoscale/*.md": "rboucher",
+        "articles/azure-monitor/change/*.md": "hhunter-ms",
         "articles/azure-monitor/containers/*.md": "bwren",
         "articles/azure-monitor/essentials/*.md": "rboucher",
         "articles/azure-monitor/*.md": "bwren",
