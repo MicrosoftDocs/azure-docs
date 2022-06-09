@@ -1,7 +1,7 @@
 ---
 title: Gain insight into devices discovered by a specific sensor
 description: The device inventory displays an extensive range of device attributes that a sensor detects. 
-ms.date: 03/09/2022
+ms.date: 06/09/2022
 ms.topic: how-to
 ---
 
@@ -25,7 +25,7 @@ For more information, see [Devices monitored by Defender for IoT](architecture.m
 
 ## View device attributes in the inventory
 
-This section describes device details available from the inventory and describes how to work with inventory filters and view contextual information about each device.
+This section describes device details available from the inventory, how to work with inventory filters, and how to view contextual information about each device.
 
 **To view the device inventory:**
 
@@ -42,7 +42,7 @@ The following columns are available for each device.
 | **FQDN lookup time** | The device's FQDN lookup time |
 | **Groups** | The groups that this device participates in. |
 | **IP Address** | The IP address of the device. |
-| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been |
+| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been authorized. |
 | **Is Known as Scanner** | Defined as a network scanning device by the user. |
 | **Is Programming device** | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
 | **Last Activity** | The last activity that the device performed. |
@@ -64,7 +64,7 @@ The following columns are available for each device.
 **To view additional details:**
 
 1. Select an alert from the inventory and the select **View full details** in the dialog box that opens.
-1. Navigate to additional information such as firmware details, and view contextual information such alerts related to the device, or a timeline of events associated with the device.
+1. Navigate to additional information such as firmware details, and view contextual information such as alerts related to the device, or a timeline of events associated with the device.
 
 ## Filter the inventory
 
@@ -130,7 +130,7 @@ Certain device properties can be updated manually. Information manually entered 
  
 ## Learn Windows registry details
 
-In addition to learning OT devices, you can discover Microsoft Windows workstations, and servers. These devices are also displayed in Device Inventory. After you learn devices, you can enrich the Device Inventory with detailed Windows information, such as:
+In addition to learning OT devices, you can discover Microsoft Windows workstations and servers. These devices are also displayed in the Device Inventory. After you learn devices, you can enrich the Device Inventory with detailed Windows information, such as:
 
 - Windows version installed
 
@@ -180,7 +180,7 @@ To receive the script, [contact customer support](mailto:support.microsoft.com).
 
 ### Deploy the script
 
-You can deploy the script once or schedule ongoing queries by using standard automated deployment methods and tools.
+You can deploy the script once or schedule ongoing queries using standard automated deployment methods and tools.
 
 ### About the script
 
@@ -216,7 +216,7 @@ You can deploy the script once or schedule ongoing queries by using standard aut
 
 Information learned on each endpoint should be imported to the sensor.
 
-Files generated from the queries can be placed in one folder that you can access from sensors. Use standard, automated methods and tools to move the files from each Windows endpoint to the location where you'll be importing them to the sensor.
+Files generated from the queries can be placed in one folder you can access from sensors. Use standard, automated methods and tools to move the files from each Windows endpoint to the location where you'll be importing them to the sensors.
 
 Don't update file names.
 
@@ -265,7 +265,7 @@ You can filter the inventory to display devices that are inactive:
 
 Devices you delete from the Inventory are removed from the map and won't be calculated when generating Defender for IoT reports, for example Data Mining, Risk Assessment, and Attack Vector reports.
 
-You'll be prompted to record a reason for deleting devices. This information, as well as the time/date and number of devices deleted, appears in the Event timeline.
+You'll be prompted to record a reason for deleting devices. This information, as well as the date/time and number of devices deleted, appears in the Event timeline.
 
 **To delete inactive devices:**
   
