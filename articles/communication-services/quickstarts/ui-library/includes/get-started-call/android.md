@@ -125,7 +125,7 @@ import com.azure.android.communication.common.CommunicationTokenRefreshOptions
 import com.azure.android.communication.ui.calling.CallComposite
 import com.azure.android.communication.ui.calling.CallCompositeBuilder
 import com.azure.android.communication.ui.calling.models.CallCompositeGroupCallLocator
-import com.azure.android.communication.ui.calling.models.CallCompositeJoinMeetingLocator
+import com.azure.android.communication.ui.calling.models.CallCompositeLocator
 import com.azure.android.communication.ui.calling.models.CallCompositeRemoteOptions
 import java.util.UUID
 
@@ -142,7 +142,7 @@ class MainActivity : AppCompatActivity() {
         val communicationTokenRefreshOptions = CommunicationTokenRefreshOptions({ fetchToken() }, true)
         val communicationTokenCredential = CommunicationTokenCredential(communicationTokenRefreshOptions)
 
-        val locator: CallCompositeJoinMeetingLocator = CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"))
+        val locator: CallCompositeLocator = CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"))
         val remoteOptions = CallCompositeRemoteOptions(locator, communicationTokenCredential, displayName)
 
         val callComposite: CallComposite = CallCompositeBuilder().build()
@@ -168,7 +168,7 @@ import com.azure.android.communication.common.CommunicationTokenRefreshOptions;
 import com.azure.android.communication.ui.calling.CallComposite;
 import com.azure.android.communication.ui.calling.CallCompositeBuilder;
 import com.azure.android.communication.ui.calling.models.CallCompositeGroupCallLocator;
-import com.azure.android.communication.ui.calling.models.CallCompositeJoinMeetingLocator;
+import com.azure.android.communication.ui.calling.models.CallCompositeLocator;
 import com.azure.android.communication.ui.calling.models.CallCompositeRemoteOptions;
 import java.util.UUID;
 
@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
         
         CallCompositeGroupCallLocator locator = new CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"));
 
-        final CallCompositeJoinMeetingLocator locator = new CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"));
+        final CallCompositeLocator locator = new CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"));
         final CallCompositeRemoteOptions remoteOptions =
                 new CallCompositeRemoteOptions(locator, communicationTokenCredential, "DISPLAY_NAME");
 
@@ -303,10 +303,10 @@ val remoteOptions = CallCompositeRemoteOptions(
 #### [Java](#tab/java)
 
 ```java
-CallCompositeGroupCallLocator locator = new CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"));
+CallCompositeLocator locator = new CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"));
 
 CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
-        remoteOptions,
+        locator,
         communicationTokenCredential,                
         "DISPLAY_NAME");
 ```
@@ -332,7 +332,7 @@ val remoteOptions = CallCompositeRemoteOptions(
 #### [Java](#tab/java)
 
 ```java
-CallCompositeTeamsMeetingLinkLocator locator = new CallCompositeTeamsMeetingLinkLocator("TEAMS_MEETING_LINK");
+CallCompositeLocator locator = new CallCompositeTeamsMeetingLinkLocator("TEAMS_MEETING_LINK");
 
 CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
         locator,
