@@ -89,16 +89,33 @@
   - name: vCPU quotas
     href: ../virtual-machines/windows/quotas.md
     maintainContext: true
-  - name: Use Availability Zones
+  - name: Availability Zones
     href: virtual-machine-scale-sets-use-availability-zones.md
-  - name: Create a proximity placement group
-    href: proximity-placement-groups.md
+  - name: Proximity Placement Groups
+    items: 
+    - name: Overview
+      href: ../virtual-machines/co-location.md
+    - name: Create a proximity placement group
+      href: proximity-placement-groups.md
+  - name: Capacity reservations
+    href: ../virtual-machines/capacity-reservation-overview.md
 - name: Cost optimization
   items: 
   - name: Azure Spot Virtual Machines
     href: use-spot.md
-  - name: Azure Hybrid Benefit for Linux
-    href: azure-hybrid-benefit-linux.md
+  - name: Azure Hybrid Benefit
+    items: 
+    - name: Linux
+      displayName: Azure Hybrid Benefit, Linux, AHB
+      href: azure-hybrid-benefit-linux.md
+    - name: Linux BYOS
+      displayName: Azure Hybrid Benefit BYOS, Linux, AHB
+      href: ./linux/azure-hybrid-benefit-byos-linux.md
+    - name: Windows
+      displayName: Azure Hybrid Benefit, AHB
+      href: ./windows/hybrid-use-benefit-licensing.md 
+  - name: Reserved instances
+    href: ../cost-management-billing/reservations/save-compute-costs-reservations.md
 - name: Management
   items: 
   - name: Common management tasks
