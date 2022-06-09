@@ -51,10 +51,10 @@ $MetricInformation.Data
 * **Start Time and End Time** - This time is based on UTC, so please ensure that you're entering UTC values when inputting these parameters. If these parameters aren't used, by default the past one hour's worth of data is shown.  
 
 * **Aggregation Types** - Average/Minimum/Maximum/Total
-   * Average - Total average of bytes/sec per the selected time period.
-   * Minimum – Minimum bytes that were sent during the selected time grain period.
-   * Maximum – Maximum bytes that were sent during the selected time grain period.
-   * Total – Total bytes/sec that were sent during the selected time grain period.
+  * Average - Total average of bytes/sec per the selected time period.
+  * Minimum – Minimum bytes that were sent during the selected time grain period.
+  * Maximum – Maximum bytes that were sent during the selected time grain period.
+  * Total – Total bytes/sec that were sent during the selected time grain period.
 
 ### <a name="s2s-metrics"></a>Site-to-site VPN gateway metrics
 
@@ -218,7 +218,7 @@ For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided t
 
 **Activity log** entries are collected by default and can be viewed in the Azure portal. You can use Azure activity logs (formerly known as *operational logs* and *audit logs*) to view all operations submitted to your Azure subscription.
 
-For more information on the schema of Activity Log entries, see [Activity  Log schema](../azure-monitor/essentials/activity-log-schema.md).
+For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md).
 
 ## <a name="schemas"></a>Schemas
 
