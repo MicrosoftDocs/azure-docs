@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/06/2022
+ms.date: 06/10/2022
 ms.author: helohr
 ---
 # Create a profile container with Azure Files and Azure Active Directory (preview)
@@ -36,6 +36,8 @@ The Azure AD Kerberos functionality is only available on the following operating
 The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need Active Directory Domain Services (AD DS) and Azure AD Connect. You must create these accounts in Active Directory and sync them to Azure AD. The service doesn't currently support environments where users are managed with Azure AD and optionally synced to Azure AD Directory Services.
 
 To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Azure AD.
+
+Multi-factor authentication must be disabled on the Azure AD app representing the storage account.
 
 > [!IMPORTANT]
 > This feature is currently only supported in the Azure Public cloud.
