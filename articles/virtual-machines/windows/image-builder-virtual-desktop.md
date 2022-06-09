@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Virtual Desktop image by using VM Image Builder
-description: Create an Azure VM image of Azure Virtual Desktop by using VM Image Builder in PowerShell.
+title: Create an Azure Virtual Desktop image by using Azure VM Image Builder
+description: Create an Azure VM image of Azure Virtual Desktop by using VM Image Builder and PowerShell.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
@@ -26,18 +26,17 @@ In this article, you learn how to create an Azure Virtual Desktop image with the
 
 The article discusses how to automate the customizations by using Azure VM Image Builder. You can then distribute the image to an [Azure Compute Gallery](../shared-image-galleries.md) (formerly Shared Image Gallery), where you can replicate it to other regions, control the scale, and share the image within and beyond your organization.
 
-
 To simplify deploying a VM Image Builder configuration, our example uses an Azure Resource Manager template with the VM Image Builder template nested within it. This approach gives you a few more benefits, such as variables and parameter inputs. You can also pass parameters from the command line.
 
 This article is intended as a copy-and-paste exercise.
 
 > [!NOTE]
-> You'll find the scripts for installing the apps on [GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/14_Building_Images_WVD). They're for illustration and testing purposes only, and not for production workloads. 
+> You'll find the scripts for installing the apps on [GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/14_Building_Images_WVD). They're for illustration and testing purposes only. Do not use them for production workloads. 
 
 ## Tips for building Windows images 
 
 - VM size: For Windows, use `Standard_D2_v2` or greater. The default size is `Standard_D1_v2`, which isn't suitable for Windows.
-- This article uses [PowerShell customizer scripts](../linux/image-builder-json.md). Use the following settings, or the build will stop responding.
+- This article uses [PowerShell customizer scripts](../linux/image-builder-json.md). Use the following settings, or the build will stop responding:
 
     ```json
       "runElevated": true,
@@ -169,17 +168,17 @@ If you don't already have an Azure Compute Gallery, you need to create one.
 $sigGalleryName= "myaibsig01"
 $imageDefName ="win10avd"
 
-# Create gallery
+# Create the gallery
 New-AzGallery -GalleryName $sigGalleryName -ResourceGroupName $imageResourceGroup  -Location $location
 
-# Create gallery definition
+# Create the gallery definition
 New-AzGalleryImageDefinition -GalleryName $sigGalleryName -ResourceGroupName $imageResourceGroup -Location $location -Name $imageDefName -OsState generalized -OsType Windows -Publisher 'myCo' -Offer 'Windows' -Sku '10avd'
 
 ```
 
 ## Configure the VM Image Builder template
 
-For this example, we've prepared a template that downloads and updates the template with the parameters that were specified earlier. The template installs FSLogix, operating system optimizations, and Microsoft Teams, and it runs Windows Update at the end.
+For this example, we've prepared a template that downloads and updates the VM Image Builder template with the parameters that were specified earlier. The template installs FSLogix, operating system optimizations, and Microsoft Teams, and it runs Windows Update at the end.
 
 If you open the template, you can see in the source property the image that's being used. In this example, it uses a Windows 10 multi-session image. 
 
@@ -210,7 +209,7 @@ You can also change which Windows 10 images are available:
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsDesktop -Offer windows-10
 ```
 
-## Download template and configure
+## Download and configure the template
 
 Now, download the template and configure it for your own use.
 
@@ -242,7 +241,7 @@ Your template must be submitted to the service. Doing so downloads any dependent
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -TemplateParameterObject @{"api-Version" = "2020-02-14"} -imageTemplateName $imageTemplateName -svclocation $location
 
-# Optional - if you have any errors running the above, run:
+# Optional - if you have any errors running the preceding command, run:
 $getStatus=$(Get-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $imageTemplateName)
 $getStatus.ProvisioningErrorCode 
 $getStatus.ProvisioningErrorMessage
@@ -270,7 +269,7 @@ $getStatus.LastRunStatusRunSubState
 ```
 ## Create a VM
 
-Now that the build is finished, you can build a VM from the image. Use the examples from [New-AzVM (Az PowerShell module.Compute)](/powershell/module/az.compute/new-azvm#examples).
+Now that the image is built, you can build a VM from it. Use the examples from [New-AzVM (Az PowerShell module.Compute)](/powershell/module/az.compute/new-azvm#examples).
 
 ## Clean up your resources
 
