@@ -33,6 +33,14 @@ Alerts provide information about an extensive range of security and operational 
 
 - Suspicious traffic detected
 
+- Disconnected sensors
+
+- Remote backup failures
+ 
+- **Report system notifications**
+  
+
+
 Relevant information is sent to partner systems when forwarding rules are created.
 
 ## About Forwarding rules and certificates
