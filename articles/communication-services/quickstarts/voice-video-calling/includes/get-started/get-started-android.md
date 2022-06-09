@@ -19,7 +19,11 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service.
+- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI to create a user and an access token.
+
+```azurecli-interactive
+az communication identity issue-access-token --scope voip
+```
 
 ## Setting up
 
