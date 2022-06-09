@@ -242,10 +242,8 @@ items:
       href: github-actions-key-vault.md
   - name: Disaster recovery
     items:
-    - name: Enable availability zone
-      href: how-to-enable-availability-zone.md
-    - name: Plan for disaster recovery
-      href: disaster-recovery.md
+    - name: High availability
+      href: how-to-enable-redundancy-and-disaster-recovery.md
   - name: Troubleshoot
     items:
     - name: Self diagnose and solve problems
