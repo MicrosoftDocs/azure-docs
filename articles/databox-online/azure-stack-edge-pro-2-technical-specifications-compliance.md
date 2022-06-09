@@ -137,7 +137,9 @@ The following tables list the various enclosure specifications for dimensions an
 
 ### Enclosure dimensions
 
-The following table lists the dimensions of the 2U device enclosure in millimeters and inches. The enclosure dimensions are identical across all models of Azure Stack Edge Pro 2. 
+The enclosure dimensions are identical across all models of Azure Stack Edge Pro 2. 
+
+The following table lists the dimensions of the 2U device enclosure in millimeters and inches. 
 
 |     Enclosure     |     Millimeters     |     Inches     |
 |-------------------|---------------------|----------------|
