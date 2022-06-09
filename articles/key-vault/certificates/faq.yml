@@ -41,27 +41,27 @@ sections:
         answer: |
           To view a more descriptive error, import the certificate file by using [the Azure CLI](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) or [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate).          
       - question: |
-          How can I resolve "Error type: Access denied or user is unauthorized to import certificate"?
+          How can I resolve this error? "Error type: Access denied or user is unauthorized to import certificate"
         answer: |
           The import operation requires that you grant the user permissions to import the certificate under the access policies. To do so, go to your key vault, select **Access policies** > **Add Access Policy** > **Select Certificate Permissions** > **Principal**, search for the user, and then add the user's email address. 
           
           For more information about certificate-related access policies, see [About Azure Key Vault certificates](./about-certificates.md#certificate-access-control).
       - question: |
-          How can I resolve "Error type: Conflict when creating a certificate"?
+          How can I resolve this error? "Error type: Conflict when creating a certificate"
         answer: |
           Each certificate name must be unique. A certificate with the same name might be in a soft-deleted state. Also, according to the [composition of a certificate](./about-certificates.md#composition-of-a-certificate), when new certificate is created, it creates an addressable secret with the same name so if there's another key or secret in the key vault with the same name as the one you're trying to specify for your certificate, the certificate creation will fail and you'll need to either remove that key or secret or use a different name for your certificate. 
           
           For more information, see [Get Deleted Certificate operation](/rest/api/keyvault/certificates/get-deleted-certificate/get-deleted-certificate).         
       - question: |
-          Why am I getting "Error type: char length is too long"?
+          How can I resolve this error? "Error type: char length is too long"
         answer: |
           This error could be caused by either of two reasons:    
           * The certificate subject name is limited to 200 characters.
           * The certificate password is limited to 200 characters.        
       - question: |
-          Error "The specified PEM X.509 certificate content is in an unexpected format. Please check if certificate is in valid PEM format."
+          How can I resolve this error? "The specified PEM X.509 certificate content is in an unexpected format. Check if certificate is in valid PEM format."
         answer: |
-          Please verify that the content in the PEM file is uses UNIX-style line separators `(\n)`
+          Verify that the content in the PEM file is uses UNIX-style line separators `(\n)`
       - question: |
           Can I import an expired certificate to Azure Key Vault?
         answer: |
@@ -85,19 +85,19 @@ sections:
       - question: |
           How do I combine certificates in a single .PEM or .PFX file to have the whole certificate bundle imported to Key Vault? 
         answer: |
-          Certificate Authorities may provide with the option to either download certificate individually (root, intermediate, leaf) or download all of them in a single file. While importing certificate in Key Vault, it will allow you to import one certificate or the whole chain, it's up to you.
+          Certificate Authorities may provide with the option to either download certificate individually (root, intermediate, leaf) or download all of them in a single file. When importing certificate into Key Vault, Certificate Authorities will allow you to import one certificate or the whole chain.
 
   - name: Renew your Azure Key Vault certificates
     questions:
       - question: What if the issued certificate is in *disabled* status in the Azure portal?
         answer: |
           Go to **Certificate Operation** and view the certificate's error message.
-      - question: How do I resolve error type "The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR."
+      - question: How do I resolve this error? "The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR."
         answer: |
           Go to 'Advanced Policy' section of the certificate and check if **'reuse key on renewal'** option is turned off.
       - question: How can I test the autorotation feature of the certificate?
         answer: |
-          Create a self-signed certificate with a validity of **1 month**, and then set the lifetime action for rotation at **1%**. You should be able to view certificate version history being created over next few days.
+          Create a self-signed certificate with a validity of **one month**, and then set the lifetime action for rotation at **1%**. You should be able to view certificate version history being created over next few days.
       - question: Will the tags be replicated after autorenewal of the certificate?
         answer: |
           Yes, the tags are replicated after autorenewal.
@@ -106,7 +106,7 @@ sections:
       - question: Can I generate a DigiCert wildcard certificate by using Key Vault?
         answer: |
           Yes, though it depends on how you configured your DigiCert account.
-      - question: How can I create an OV SSL or EV SSL certificate with DigiCert??
+      - question: How can I create an OV SSL or EV SSL certificate with DigiCert?
         answer: |
           Key Vault supports the creation of OV and EV SSL certificates. When you create a certificate, select **Advanced Policy Configuration** and then specify the certificate type. Supported values: OV SSL, EV SSL
    

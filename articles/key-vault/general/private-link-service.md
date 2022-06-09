@@ -76,11 +76,11 @@ If you already have a key vault, you can create a private link connection by fol
     ![Screenshot that shows the '+ Private Endpoint' button on the 'Networking' page.](../media/private-link-service-3.png)
     ![Screenshot that shows the 'Basics' tab on the 'Create a private endpoint (Preview) page.](../media/private-link-service-4.png)
 
-1. Under "Project Details", select the Resource Group that contains the virtual network that you created as a prerequisite for this tutorial. Under "Instance details", enter "myPrivateEndpoint" as the Name, and select the same location as the the virtual network that you created as a prerequisite for this tutorial.
+1. Under "Project Details", select the Resource Group that contains the virtual network that you created as a prerequisite for this tutorial. Under "Instance details", enter "myPrivateEndpoint" as the Name, and select the same location as the virtual network that you created as a prerequisite for this tutorial.
 
     You can choose to create a private endpoint for any Azure resource in using this blade. You can either use the dropdown menus to select a resource type and select a resource in your directory, or you can connect to any Azure resource using a resource ID. Leave the "integrate with the private zone DNS" option unchanged.  
 
-1. Advance to the the "Resources" blade. For "Resource type", select "Microsoft.KeyVault/vaults"; for "Resource", select the key vault you created as a prerequisite for this tutorial. "Target sub-resource" will auto-populate with "vault".
+1. Advance to the "Resources" blade. For "Resource type", select "Microsoft.KeyVault/vaults"; for "Resource", select the key vault you created as a prerequisite for this tutorial. "Target sub-resource" will auto-populate with "vault".
 1. Advance to the "Virtual Network". Select the virtual network and subnet that you created as a prerequisite for this tutorial.
 1. Advance through the "DNS" and "Tags" blades, accepting the defaults.
 1. On the "Review + Create" blade, select "Create".
@@ -89,7 +89,7 @@ When you create a private endpoint, the connection must be approved. If the reso
 
 There are four provisioning states:
 
-| Service provide action | Service consumer private endpoint state | Description |
+| Service action | Service consumer private endpoint state | Description |
 |--|--|--|
 | None | Pending | Connection is created manually and is pending approval from the Private Link resource owner. |
 | Approve | Approved | Connection was automatically or manually approved and is ready to be used. |
