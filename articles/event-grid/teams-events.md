@@ -10,7 +10,7 @@ ms.date: 06/06/2022
 This article provides the list of available event types for Microsoft Teams events, which are published by Microsoft Graph API. For an introduction to event schemas, see [CloudEvents schema](cloud-event-schema.md). 
 
 ## Available event types
-These events are triggered when an Outlook event or an Outlook contact is created, updated or deleted or by operating over those resources using Microsoft Graph API. 
+These events are triggered when a call record is created or updated, and chat message is created, updated or deleted or by operating over those resources using Microsoft Graph API. 
 
  | Event name | Description |
  | ---------- | ----------- |

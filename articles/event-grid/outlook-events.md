@@ -224,7 +224,7 @@ The data object has the following properties:
 | -------- | ---- | ----------- |
 | `changeType` | string | The type of resource state change. |
 | `resource` | string | The resource identifier for which the event was raised. |
-| `tenantId` | string | The organization ID where the user or group is kept. |
+| `tenantId` | string | The organization ID where the user or contact is kept. |
 | `clientState` | string | A secret provided by the user at the time of the Graph API subscription creation. |
 | `@odata.type` | string | The Graph API change type.   |
 | `@odata.id` | string | The Graph API resource identifier for which the event was raised. |

@@ -19,15 +19,15 @@ This article describes steps to subscribe to events published by Microsoft Graph
 |Microsoft Conversations| [Conversation](/graph/api/resources/conversation)| |
 
 > [!IMPORTANT]
->If you aren't familiar with the **Partner Events** feature, see [Partner Events overview](partner-events-overview.md) to understand the rationale of the steps in this article.
+>If you aren't familiar with the **Partner Events** feature, see [Partner Events overview](partner-events-overview.md).
 
 
 ## Why you should use Microsoft Graph API with Event Grid as a destination?
-Besides tha ability to subscribe to Microsoft Graph API events via Event Grid, you have [other options](/graph/change-notifications-delivery) through which you can receive similar notifications (not events). Consider using Microsoft Graph API to deliver events to Event Grid if you have at least one of the following requirements:
+Besides the ability to subscribe to Microsoft Graph API events via Event Grid, you have [other options](/graph/change-notifications-delivery) through which you can receive similar notifications (not events). Consider using Microsoft Graph API to deliver events to Event Grid if you have at least one of the following requirements:
 
-1. You're developing an event-driven solution and require events from Azure Active Directory, Outlook, etc. to react to resource changes. You require the robust eventing model and PubSub capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
+1. You're developing an event-driven solution that requires events from Azure Active Directory, Outlook, Teams, etc. to react to resource changes. You require the robust eventing model and publish-subscribe capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
 3. You want to use Event Grid to route events to multiple destinations using a single Graph API subscription, and you want to avoid managing multiple Graph API subscriptions.
-4. You require to route events to different downstream applications, webhooks or Azure services depending on some of the properties in the event. For example, you may want to route event types such as "Microsoft.Graph.UserCreated" and "Microsoft.Graph.UserDeleted" events to a specialized application that processes users' onboarding and off-boarding. You may also want to send "Microsoft.Graph.UserUpdated" events to another application that syncs contacts information, for example. You can achieve this using a single Graph API subscription when using Event Grid as a notification destination. Learn more about Event Grid's [event filtering](event-filtering.md) and [event handlers](event-handlers.md).
+4. You require to route events to different downstream applications, webhooks or Azure services depending on some of the properties in the event. For example, you may want to route event types such as `Microsoft.Graph.UserCreated` and `Microsoft.Graph.UserDeleted` events to a specialized application that processes users' onboarding and off-boarding. You may also want to send `Microsoft.Graph.UserUpdated` events to another application that syncs contacts information, for example. You can achieve it using a single Graph API subscription when using Event Grid as a notification destination. For more information, see [event filtering](event-filtering.md) and [event handlers](event-handlers.md).
 5. Interoperability is important to you. You want to forward and handle events in a standard way using CNCF's [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md) specification standard, to which Event Grid fully complies.
 7. You like the extensibility support that CloudEvents provides. For example, if you want to trace events across compliant systems, you may use CloudEvents extension [Distributed Tracing](https://github.com/cloudevents/spec/blob/v1.0.1/extensions/distributed-tracing.md). Learn more about more [CloudEvents extensions](https://github.com/cloudevents/spec/blob/v1.0.1/documented-extensions.md).
 8. You want to use proven event-driven approaches adopted by the industry. 
@@ -45,11 +45,11 @@ The common steps to subscribe to events published by any partner, including Grap
 ### Enable Microsoft Graph API events to flow to your partner topic
 
 > [!IMPORTANT]
-> Microsoft Graph API's (MGA) ability to send events to Even Grid (a generally available service) is in private preview. In the following steps, you will follow instructions from [Wehbook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=) to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask.graph.and.grid@microsoft.com?subject=Please allow my application ID">mailto:ask.graph.and.grid@microsoft.com?subject=Please allow my application with ID to send events through Graph API.</a> so that the Microsoft Graph API team can add your application ID to allow list to use this new capability.
+> Microsoft Graph API's (MGA) ability to send events to Even Grid (a generally available service) is in private preview. In the following steps, you will follow instructions from [Webhook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=) to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask.graph.and.grid@microsoft.com?subject=Please allow my application ID">mailto:ask.graph.and.grid@microsoft.com?subject=Please allow my Azure AD application with ID to send events through Graph API.</a> so that the Microsoft Graph API team can add your application ID to allow list to use this new capability.
 
-You request Microsoft Graph API to send events by creating a Graph API subscription. When you create a Graph API subscription, the http request looks like the following sample:
+You request Microsoft Graph API to send events by creating a Graph API subscription. When you create a Graph API subscription, the http request should look like the following sample:
 
-```
+```json
 POST to https://canary.graph.microsoft.com/testprodbetawebhooks1/subscriptions
 
 Body:
