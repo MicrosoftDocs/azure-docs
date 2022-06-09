@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-This article demonstrates how to create a customized Windows VM image using the Azure VM Image
+This article demonstrates how to create a customized Windows VM image by using the Azure VM Image
 Builder PowerShell module.
 
 
@@ -38,7 +38,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ### Register features
 
-If they aren't already registered, register the following resource providers to use with your Azure subscription:
+If you haven't already done so, register the following resource providers to use with your Azure subscription:
 
 - Microsoft.Compute
 - Microsoft.KeyVault
@@ -82,7 +82,7 @@ Write-Output $subscriptionID
 
 Create an [Azure resource group](../../azure-resource-manager/management/overview.md) by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as a group.
 
-The following example creates a resource group that's based on the name in the `$imageResourceGroup` variable in the region you've specified in the `$location` variable. This resource group is used to store the image configuration template artifact and the image.
+The following example creates a resource group that's based on the name in the `$imageResourceGroup` variable in the region that you've specified in the `$location` variable. This resource group is used to store the image configuration template artifact and the image.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $imageResourceGroup -Location $location
@@ -136,7 +136,7 @@ Grant Azure image builder permissions to create images in the specified resource
   New-AzRoleDefinition -InputFile $myRoleImageCreationPath
   ```
 
-1. Grant the role definition to the image builder service principal.
+1. Grant the role definition to the VM Image Builder service principal.
 
   ```azurepowershell-interactive
   $RoleAssignParams = @{
@@ -180,7 +180,7 @@ Grant Azure image builder permissions to create images in the specified resource
 
 ## Create an image
 
-1. Create an Azure image builder source object. For valid parameter values, see [Find Windows VM images in Azure Marketplace with Azure PowerShell](./cli-ps-findimage.md).
+1. Create a VM Image Builder source object. For valid parameter values, see [Find Windows VM images in Azure Marketplace with Azure PowerShell](./cli-ps-findimage.md).
 
   ```azurepowershell-interactive
   $SrcObjParams = @{
@@ -193,9 +193,9 @@ Grant Azure image builder permissions to create images in the specified resource
   $srcPlatform = New-AzImageBuilderSourceObject @SrcObjParams
   ```
 
-1. Create an Azure image builder distributor object.
+1. Create a VM Image Builder distributor object.
 
-1. Create an Azure image builder customization object.
+1. Create a VM Image Builder customization object.
 
   ```azurepowershell-interactive
   $ImgCustomParams01 = @{
@@ -234,9 +234,9 @@ Grant Azure image builder permissions to create images in the specified resource
   New-AzImageBuilderTemplate @ImgTemplateParams
   ```
 
-When the template has been created, a message is returned, and a VM Image Builder configuration template is created in the `$imageResourceGroup`.
+When the template has been created, a message is returned, and a VM Image Builder configuration template is created in `$imageResourceGroup`.
 
-To determine whether the template creation process was successful, you can use the following example:
+To determine whether the template creation process was successful, use the following example:
 
 ```azurepowershell-interactive
 Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup |
@@ -251,7 +251,7 @@ In the background, VM Image Builder also creates a staging resource group in you
 If the service reports a failure when the image configuration template is submitted, do the following:
 
 - See [Troubleshoot Azure VM Image Builder failures](../linux/image-builder-troubleshoot.md).
-- Before you retry submitting the template, delete it by using the following example:
+- Before you retry submitting the template, delete it by following this example:
 
   ```azurepowershell-interactive
   Remove-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup
@@ -295,13 +295,13 @@ If you encounter errors, review [Troubleshoot Azure VM Image Builder failures](.
   Get-Content -Path C:\buildActions\buildActionsOutput.txt
   ```
 
-  You should see output that's based on the contents of the file that you created during the image customization process.
+  The output is based on the contents of the file that you created during the image customization process.
 
   ```Output
   Azure-Image-Builder-Was-Here
   ```
 
-1. From the same PowerShell session, verify that the second customization finished successfully by checking for the presence of the file `c:\buildArtifacts\index.html`, as shown in the following example:
+1. From the same PowerShell session, verify that the second customization finished successfully by checking for the presence of `c:\buildArtifacts\index.html`, as shown in the following example:
 
   ```azurepowershell-interactive
   Get-ChildItem c:\buildArtifacts\
@@ -330,7 +330,7 @@ If you no longer need the resources that were created during this process, you c
 1. Delete the image resource group.
 
   > [!CAUTION]
-  > The following example deletes the specified resource group and all resources that are contained within it. If any resources outside the scope of this article exist in the resource group, they'll also be deleted.
+  > The following example deletes the specified resource group and all the resources that it contains. If any resources outside the scope of this article exist in the resource group, they'll also be deleted.
 
   ```azurepowershell-interactive
   Remove-AzResourceGroup -Name $imageResourceGroup
