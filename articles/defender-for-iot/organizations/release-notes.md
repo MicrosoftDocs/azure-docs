@@ -41,6 +41,26 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
+## June 2022
+
+- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
+
+### Bi-directional alert synch between sensors and the Azure portal (Public preview)
+
+For sensors updated to version 22.2.1, alert statuses and learn statuses are now fully synchronized between the sensor console and the Azure portal. For example, this means that you can close an alert on the Azure portal or the sensor console, and the alert status is updated in both locations.
+
+*Learn* an alert from either the Azure portal or the sensor console to ensure that it's not triggered again the next time the same network traffic is detected.
+
+The sensor console is also synchronized with an on-premises management console, so that alert statuses and learn statuses remain up-to-date across your management interfaces.
+
+For more information, see:
+
+- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+- [View alerts on your sensor](how-to-view-alerts.md)
+- [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
+- [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+
+
 ## May 2022
 
 We've recently optimized and enhanced our documentation as follows:
