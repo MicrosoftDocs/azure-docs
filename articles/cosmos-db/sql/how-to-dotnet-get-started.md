@@ -308,7 +308,7 @@ To connect to your SQL API account using the Microsoft Identity Platform and Azu
 
 #### Import Azure.Identity
 
-The [``Azure.Identity``] NuGet package contains core authentication functionality that is shared among all Azure SDK libraries.
+The **Azure.Identity** NuGet package contains core authentication functionality that is shared among all Azure SDK libraries.
 
 Import the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) NuGet package using the ``dotnet add package`` command.
 
