@@ -84,46 +84,42 @@ Hybrid Runbook Workers on Azure virtual machines can use managed identities to a
 
 There are two ways to use the Managed Identities in Hybrid Runbook Worker scripts.
 
-# [System-Assigned Managed Identity](#tab/sa-ma)
+1. Use the system-assigned Managed Identity for the Automation account:
 
-To use the system-assigned Managed Identity for the Automation account:
+    1. [Configure a System-assigned Managed Identity for the Automation account](/enable-managed-identity-for-automation.md#enable-a-system-assigned-managed-identity-for-an-azure-automation-account).
+    1. Grant this identity the [required permissions](/enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity) within the Subscription to perform its task.
+    1. Update the runbook to use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet with the `Identity` parameter to authenticate to Azure resources. This configuration reduces the need to use a Run As account and perform the associated account management.
 
-1. [Configure a System-assigned Managed Identity for the Automation account](/enable-managed-identity-for-automation.md#enable-a-system-assigned-managed-identity-for-an-azure-automation-account).
-1. Grant this identity the [required permissions](/enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity) within the Subscription to perform its task.
-1. Update the runbook to use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet with the `Identity` parameter to authenticate to Azure resources. This configuration reduces the need to use a Run As account and perform the associated account management.
+        ```powershell
+        # Ensures you do not inherit an AzContext in your runbook
+        Disable-AzContextAutosave -Scope Process
+        
+        # Connect to Azure with system-assigned managed identity
+        $AzureContext = (Connect-AzAccount -Identity).context
+        
+        # set and store context
+        $AzureContext = Set-AzContext -SubscriptionName 
+        $AzureContext.Subscription -DefaultProfile $AzureContext
 
-    ```powershell
-    # Ensures you do not inherit an AzContext in your runbook
-    Disable-AzContextAutosave -Scope Process
-    
-    # Connect to Azure with system-assigned managed identity
-    $AzureContext = (Connect-AzAccount -Identity).context
-    
-    # set and store context
-    $AzureContext = Set-AzContext -SubscriptionName 
-    $AzureContext.Subscription -DefaultProfile $AzureContext
+        # Get all VM names from the subscription
+        Get-AzVM -DefaultProfile $AzureContext | Select Name
+        ```
+    > [!NOTE]
+    > It is **Not** possible to use the Automation Account's User Managed Identity on a Hybrid Runbook Worker, it must be the Automation Account's System Managed Identity.
 
-    # Get all VM names from the subscription
-    Get-AzVM -DefaultProfile $AzureContext | Select Name
-    ```
-> [!NOTE]
-> It is **Not** possible to use the Automation Account's User Managed Identity on a Hybrid Runbook Worker, it must be the Automation Account's System Managed Identity.
+2. Use the VM Managed Identity for both the Azure VM or Arc-enabled server running as a Hybrid Runbook Worker. 
+   Here, you can use either the **VM’s User-assigned Managed Identity** or the **VM’s System-assigned Managed Identity**.
 
+    > [!NOTE]
+    > This will **Not** work in an Automation Account which has been configured with an Automation account Managed Identity. As soon as the Automation account Managed Identity is enabled, you can't use the VM Managed Identity. The only available option is to use the Automation Account **System-Assigned Managed Identity**.
 
-# [VM Managed Identity](#tab/vm-ma)
+    #### VM's system-assigned managed identity
 
-Use the VM Managed Identity for both the Azure VM or Arc-enabled server running as a Hybrid Runbook Worker. Here, you can use either the **VM’s User-assigned Managed Identity** or the **VM’s System-assigned Managed Identity**.
+    To use a VM's system-assigned managed identity:
 
-> [!NOTE]
-> This will **Not** work in an Automation Account which has been configured with an Automation account Managed Identity. As soon as the Automation account Managed Identity is enabled, you can't use the VM Managed Identity. The only available option is to use the Automation Account **System-Assigned Managed Identity**.
-
-#### VM's system-assigned managed identity
-
-To use a VM's system-assigned managed identity:
-
-1. [Configure a System Managed Identity for the VM](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm)
-1. Grant this identity the [required permissions](/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm#grant-your-vm-access-to-a-resource-group-in-resource-manager) within the subscription to perform its tasks.
-1. Update the runbook to use the [Connect-Az-Account] cmdlet with the `Identity` parameter to authenticate to Azure resources. This configuration reduces the need to use a Run As Account and perform the associated account management.
+    1. [Configure a System Managed Identity for the VM](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm)
+    1. Grant this identity the [required permissions](/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm#grant-your-vm-access-to-a-resource-group-in-resource-manager) within the subscription to perform its tasks.
+    1. Update the runbook to use the [Connect-Az-Account] cmdlet with the `Identity` parameter to authenticate to Azure resources. This configuration reduces the need to use a Run As Account and perform the associated account management.
 
     ```powershell
         # Ensures you do not inherit an AzContext in your runbook
@@ -140,10 +136,10 @@ To use a VM's system-assigned managed identity:
         Get-AzVM -DefaultProfile $AzureContext | Select Name   
     ```
 
-#### VM's user-assigned managed identity
-1. [Configure a User Managed Identity for the VM](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
-1. Grant this identity the [required permissions](/active-directory/managed-identities-azure-resources/howto-assign-access-portal) within the Subscription to perform its tasks.
-1. Update the runbook to use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-8.0.0) cmdlet with the `Identity ` and `AccountID` parameters to authenticate to Azure resources. This configuration reduces the need to use a Run As account and perform the associated account management.
+    #### VM's user-assigned managed identity
+    1. [Configure a User Managed Identity for the VM](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
+    1. Grant this identity the [required permissions](/active-directory/managed-identities-azure-resources/howto-assign-access-portal) within the Subscription to perform its tasks.
+    1. Update the runbook to use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-8.0.0) cmdlet with the `Identity ` and `AccountID` parameters to authenticate to Azure resources. This configuration reduces the need to use a Run As account and perform the associated account management.
 
     ```powershell
         # Ensures you do not inherit an AzContext in your runbook
@@ -159,12 +155,11 @@ To use a VM's system-assigned managed identity:
         # Get all VM names from the subscription
         Get-AzVM -DefaultProfile $AzureContext | Select Name 
     ```
-> [!NOTE]
-> You can find the client Id of the user-assigned managed identity in the Azure portal
+    > [!NOTE]
+    > You can find the client Id of the user-assigned managed identity in the Azure portal
 
-> :::image type="content" source="./media/automation-hrw-run-runbooks/managed-identities-client-id.png" alt-text="Screenshot of client id in Managed Identites."::: 
+    > :::image type="content" source="./media/automation-hrw-run-runbooks/managed-identities-client-id.png" alt-text="Screenshot of client id in Managed Identites."::: 
 
----
 
 >[!NOTE]
 > By default, the Azure contexts are saved for use between PowerShell sessions. It is possible that when a previous runbook on the Hybrid Runbook Worker has been authenticated with Azure, that context persists to the disk in the System PowerShell profile, as per [Azure contexts and sign-in credentials | Microsoft Docs](/powershell/azure/context-persistence?view=azps-7.3.2). 
