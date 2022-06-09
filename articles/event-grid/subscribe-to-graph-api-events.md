@@ -64,14 +64,14 @@ Body:
 
 Here are some of the key payload properties:
 
-- `changeType`: the kind of resource changes for which you want to receive events. Valid values: "Updated", "Deleted", and "Created". You can specify one or more of these values separated by commas.
+- `changeType`: the kind of resource changes for which you want to receive events. Valid values: `Updated`, `Deleted`, and `Created`. You can specify one or more of these values separated by commas.
 - `notificationUrl`: a URI that conforms to the following pattern: `EventGrid:?azuresubscriptionid=<you-azure-subscription-id>&resourcegroup=<your-resource-group-name>&partnertopic=<the-name-for-your-partner-topic>&location=<the-Azure-region-where-you-want-the-topic-created>`.
 - resource: the resource for which you need events announcing state changes.
 - expirationDateTime: the expiration time at which the subscription will expire and hence the flow of events will stop. It must conform to the format specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that is within the [maximum subscription length allowable for the resource type](/graph/api/resources/subscription#maximum-length-of-subscription-per-resource-type) used. 
 - client state. A value that is set by you when creating a Graph API subscription. For more information, see [Graph API subscription properties](/graph/api/resources/subscription#properties).
 
 > [!NOTE]
-> Microsoft Graph API's capability to send events to Event Grid is only available in specific Graph API environment. You will need to update your code so that it uses the following Graph API endpoint "https://canary.graph.microsoft.com/testprodbetawebhooks1". For example, this is the way you can set the endpoint on your graph client (com.microsoft.graph.requests.GraphServiceClient) using the Java SDK:
+> Microsoft Graph API's capability to send events to Event Grid is only available in specific Graph API environment. You will need to update your code so that it uses the following Graph API endpoint `https://canary.graph.microsoft.com/testprodbetawebhooks1`. For example, this is the way you can set the endpoint on your graph client (`com.microsoft.graph.requests.GraphServiceClient`) using the Java SDK:
 >
 >```java
 >graphClient.setServiceRoot("https://canary.graph.microsoft.com/testprodbetawebhooks1");
