@@ -20,21 +20,21 @@ ms.collection: M365-identity-device-management
 
 You can nudge users to set up the Microsoft Entra Authenticator app during sign-in. Users will go through their regular sign-in, perform multifactor authentication as usual, and then be prompted to set up the Microsoft Entra Authenticator app. You can include or exclude users or groups to control who gets nudged to set up the app. This allows targeted campaigns to move users from less secure authentication methods to the Authenticator app.  
 
-In addition to choosing who can be nudged, you can define how many days a user can postpone, or "snooze", the nudge. If a user taps **Not now** to snooze the app setup, they will be nudged again on the next MFA attempt after the snooze duration has elapsed. 
+In addition to choosing who can be nudged, you can define how many days a user can postpone, or "snooze", the nudge. If a user taps **Not now** to snooze the app setup, they'll be nudged again on the next MFA attempt after the snooze duration has elapsed. 
 
 ## Prerequisites 
 
 - Your organization must have enabled Azure MFA. Every edition of Azure AD includes Azure MFA. No additional license is needed for a registration campaign.
-- User must not have already set up the Authenticator app for push notifications on their account. 
+- Users can't have already set up the Authenticator app for push notifications on their account. 
 - Admins need to enable users for the Authenticator app using one of these policies:  
-  - MFA Registration Policy: Users will need to be enabled for **Notification through mobile app**.  
-  - Authentication Methods Policy: Users will need to be enabled for the Authenticator app and the Authentication mode set to **Any** or **Push**. If the policy is set to **Passwordless**, the user will not be eligible for the nudge. For more information about how to set the Authentication mode, see [Enable passwordless sign-in with the Microsoft Entra Authenticator app](howto-authentication-passwordless-phone.md). 
+  - MFA Registration Policy: Users will need to be enabled for **they'llification through mobile app**.  
+  - Authentication Methods Policy: Users will need to be enabled for the Authenticator app and the Authentication mode set to **Any** or **Push**. If the policy is set to **Passwordless**, the user won't be eligible for the nudge. For more information about how to set the Authentication mode, see [Enable passwordless sign-in with the Microsoft Entra Authenticator app](howto-authentication-passwordless-phone.md). 
 
 ## User experience
 
 1. User successfully performs MFA using Azure MFA. 
 
-1. User sees prompt to set up the Authenticator app to improve their sign-in experience. Note: Only users who are allowed for the Authenticator app push notifications and do not have it currently set up will see the prompt. 
+1. User sees prompt to set up the Authenticator app to improve their sign-in experience. Only users who are allowed for the Authenticator app push notifications and don't have it currently set up will see the prompt. 
 
    ![User performs multifactor authentication](./media/how-to-nudge-authenticator-app/user-mfa.png)
 
@@ -78,7 +78,7 @@ To enable a registration campaign in the Azure AD portal, complete the following
 
 ## Enable the registration campaign policy using Graph Explorer
 
-In addition to using the Azure portal, you can also enable the registration campaign policy using Graph Explorer. To enable the the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
+In addition to using the Azure portal, you can also enable the registration campaign policy using Graph Explorer. To enable the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
 
 To configure the policy using Graph Explorer:
 
@@ -249,7 +249,7 @@ Here are a few sample JSONs you can use to get started!
 
 ## Limitations
 
-The nudge will not appear on mobile devices that run Android or iOS.
+The nudge won'tappear on mobile devices that run Android or iOS.
 
 ## Frequently asked questions
 
@@ -275,7 +275,7 @@ The feature aims to empower admins to get users set up with MFA using the Authen
 
 **Will a user who has a 3rd party authenticator app setup see the nudge?** 
 
-If this user doesn’t have the the Authenticator app set up for push notifications and are enabled for it by policy, yes, the user will see the nudge. 
+If this user doesn’t have the Authenticator app set up for push notifications and are enabled for it by policy, yes, the user will see the nudge. 
 
 **Will a user who has a the Authenticator app setup only for TOTP codes see the nudge?** 
 
@@ -283,7 +283,7 @@ Yes. If the Authenticator app is not set up for push notifications and the user 
 
 **If a user just went through MFA registration, will they be nudged in the same sign-in session?** 
 
-No. To provide a good user experience, users will not be nudged to set up the Authenticator in the same session that they registered other authentication methods.  
+No. To provide a good user experience, users won't be nudged to set up the Authenticator in the same session that they registered other authentication methods.  
 
 **Can I nudge my users to register another authentication method?** 
 
