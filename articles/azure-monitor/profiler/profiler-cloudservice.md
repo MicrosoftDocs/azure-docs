@@ -25,7 +25,7 @@ In this article, you will:
 
 ## Track requests with Application Insights
 
-When publishing your CloudService to Azure portal, add the [Application Insights SDK to Azure Cloud Services](./cloudservices.md).
+When publishing your CloudService to Azure portal, add the [Application Insights SDK to Azure Cloud Services](../app/cloudservices.md).
 
 :::image type="content" source="./media/profiler-cloudservice/enable-app-insights.png" alt-text="Screenshot showing the checkbox for sending information to Application Insights.":::
 
@@ -63,7 +63,7 @@ Deploy your service with the new Diagnostics configuration. Application Insights
 
 Now that your Azure Cloud Service is deployed with Profiler, you can generate traffic to view Profiler traces.
 
-Generate traffic to your application by setting up an [availability test](monitor-web-app-availability.md)). Wait 10 to 15 minutes for traces to be sent to the Application Insights instance.
+Generate traffic to your application by setting up an [availability test](../app/monitor-web-app-availability.md). Wait 10 to 15 minutes for traces to be sent to the Application Insights instance.
 
 Navigate to your Azure Cloud Service's Application Insights resource. In the left side menu, select **Performance**.
 
