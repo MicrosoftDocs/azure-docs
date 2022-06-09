@@ -300,7 +300,7 @@ returned_job.services["Studio"].endpoint
 
 ## Table
 
-An MLTable is primarily an abstraction over tabular data, but it can also be used for some advanced scenarios involving multiple paths. The following YAML describes an MLTable:
+An [MLTable](concept-data.md#mltable) is primarily an abstraction over tabular data, but it can also be used for some advanced scenarios involving multiple paths. The following YAML describes an MLTable:
 
 ```yaml
 paths: 
@@ -324,7 +324,9 @@ tbl = mltable.load("./sample_data")
 df = tbl.to_pandas_dataframe()
 ```
 
-For a full example of using an MLTable, see the [Working with MLTable notebook].
+For more information on the YAML file format, see [the MLTable file](how-to-create-register-data-assets.md#the-mltable-file).
+
+<!-- Commenting until notebook is published. For a full example of using an MLTable, see the [Working with MLTable notebook]. -->
 
 ## Consuming V1 dataset assets in V2
 
