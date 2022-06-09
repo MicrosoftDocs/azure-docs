@@ -98,22 +98,34 @@ items:
       displayName: Model, Project, Class
     - name: Service limits
       href: custom-text-classification/service-limits.md
-    - name: REST API
+    - name: Authoring API
       items:
-      - name: Authoring API
-        href: https://aka.ms/ct-authoring-apis
-      - name: Runtime prediction API
+      - name: REST API
+      href: https://aka.ms/ct-authoring-apis
+    - name: Runtime prediction API
+      items:
+      - name: REST API
         href: https://aka.ms/ct-runtime-api
-    - name: SDK samples
-      items:
-      - name: Java
-        href: https://aka.ms/sdk-samples-java
-      - name: JavaScript
-        href: https://aka.ms/sdk-samples-java-script
-      - name: C#
-        href:  https://aka.ms/sdk-samples-dot-net
-      - name: Python
-        href:  https://aka.ms/sdk-samples-python
+      - name: SDK
+        items:
+        - name: C#
+          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+        - name: Java
+          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+        - name: JavaScript
+          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+        - name: Python
+          href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
+        - name: Samples
+          items:
+          - name: Java
+            href: https://aka.ms/sdk-samples-java
+          - name: JavaScript
+            href: https://aka.ms/sdk-samples-java-script
+          - name: C#
+            href:  https://aka.ms/sdk-samples-dot-net
+          - name: Python
+            href:  https://aka.ms/sdk-samples-python
 - name: Custom named entity recognition (NER)
   items:
   - name: Overview
@@ -176,22 +188,34 @@ items:
       href: custom-named-entity-recognition/glossary.md
     - name: Service limits
       href: custom-named-entity-recognition/service-limits.md
-    - name: REST API
+    - name: Authoring API
       items:
-      - name: Authoring API
-        href: https://aka.ms/ct-authoring-apis
-      - name: Runtime prediction API
+      - name: REST API
+      href: https://aka.ms/ct-authoring-apis
+    - name: Runtime prediction API
+      items:
+      - name: REST API
         href: https://aka.ms/ct-runtime-api
-      - name: SDK samples
+      - name: SDK
         items:
-        - name: Java
-          href: https://aka.ms/sdk-samples-java
-        - name: JavaScript
-          href: https://aka.ms/sdk-samples-java-script
         - name: C#
-          href:  https://aka.ms/sdk-samples-dot-net
+          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+        - name: Java
+          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+        - name: JavaScript
+          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
         - name: Python
-          href:  https://aka.ms/sdk-samples-python
+          href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
+        - name: Samples
+          items:
+          - name: Java
+            href: https://aka.ms/sdk-samples-java
+          - name: JavaScript
+            href: https://aka.ms/sdk-samples-java-script
+          - name: C#
+            href:  https://aka.ms/sdk-samples-dot-net
+          - name: Python
+            href:  https://aka.ms/sdk-samples-python
 - name: Conversational language understanding
   items:
   - name: Overview
@@ -244,17 +268,26 @@ items:
       href: conversational-language-understanding/service-limits.md
     - name: Glossary
       href: conversational-language-understanding/glossary.md
-    - name: REST API
+    - name: Authoring API
       items:
-      - name: Authoring API
+      - name: REST API
         href: https://aka.ms/clu-authoring-apis
-      - name: Runtime prediction API
+    - name: Runtime prediction API
+      items:
+      - name: REST API
         href: https://aka.ms/clu-runtime-api
+      - name: SDK
         items:
         - name: C#
-          href:  https://aka.ms/sdk-sample-conversation-dot-net
+          href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true
         - name: Python
-          href:   https://aka.ms/sdk-samples-conversation-python
+          href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true
+        - name: Samples
+          items:
+          - name: C#
+            href:  https://aka.ms/sdk-sample-conversation-dot-net
+          - name: Python
+            href:   https://aka.ms/sdk-samples-conversation-python
 - name: Entity linking
   items:
   - name: Overview
@@ -550,17 +583,26 @@ items:
       href: orchestration-workflow/service-limits.md
     - name: Glossary
       href: orchestration-workflow/glossary.md
-    - name: REST API
+    - name: Authoring API
       items:
-      - name: Authoring API
+      - name: REST API
         href: https://aka.ms/clu-authoring-apis
-      - name: Runtime prediction API
+    - name: Runtime prediction API
+      items:
+      - name: REST API
         href: https://aka.ms/clu-runtime-api
+      - name: SDK
         items:
         - name: C#
-          href:  https://aka.ms/sdk-sample-conversation-dot-net
+          href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true
         - name: Python
-          href:   https://aka.ms/sdk-samples-conversation-python
+          href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true
+        - name: Samples
+          items:
+          - name: C#
+            href:  https://aka.ms/sdk-sample-conversation-dot-net
+          - name: Python
+            href:   https://aka.ms/sdk-samples-conversation-python
 - name: Personally Identifying Information (PII) detection
   items:
   - name: Overview
@@ -584,10 +626,14 @@ items:
     items:
     - name: Call PII
       href: personally-identifiable-information/how-to-call.md
+    - name: Call PII for conversations (preview)
+      href: personally-identifiable-information/how-to-call-for-conversations.md
   - name: Concepts
     items:
     - name: Recognized entity categories
       href: personally-identifiable-information/concepts/entity-categories.md 
+    - name: Recognized entity categories for conversation
+      href: personally-identifiable-information/concepts/conversations-entity-categories.md 
   - name: Reference
     items:
     - name: REST API
@@ -648,7 +694,7 @@ items:
       href: question-answering/how-to/export-import-refresh.md
     - name: Encrypt data at rest
       href: question-answering/how-to/encrypt-data-at-rest.md
-    - name: Migrate knowledge base
+    - name: Move knowledge base
       href: question-answering/how-to/migrate-knowledge-base.md
     - name: Add chit-chat
       href: question-answering/how-to/chit-chat.md
@@ -666,6 +712,8 @@ items:
       href: question-answering/how-to/authoring.md
     - name: Prebuilt API
       href: question-answering/how-to/prebuilt.md
+    - name: Project Best practices
+      href: question-answering/how-to/best-practices.md
     - name: Troubleshooting
       href: question-answering/how-to/troubleshooting.md
   - name: Concepts

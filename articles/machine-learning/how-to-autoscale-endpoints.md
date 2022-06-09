@@ -1,7 +1,7 @@
 ---
-title: Autoscale managed online endpoints
+title: Autoscale online endpoints
 titleSuffix:  Azure Machine Learning
-description: Learn to scale up managed endpoints. Get more CPU, memory, disk space, and extra features.
+description: Learn to scale up online endpoints. Get more CPU, memory, disk space, and extra features.
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
@@ -12,9 +12,9 @@ ms.custom: devplatv2, cliv2, event-tier1-build-2022
 
 ms.date: 04/27/2022
 ---
-# Autoscale a managed online endpoint
+# Autoscale an online endpoint
 
-Autoscale automatically runs the right amount of resources to handle the load on your application. [Managed endpoints](concept-endpoints.md) supports autoscaling through integration with the Azure Monitor autoscale feature.
+Autoscale automatically runs the right amount of resources to handle the load on your application. [Online endpoints](concept-endpoints.md) supports autoscaling through integration with the Azure Monitor autoscale feature.
 
 Azure Monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more information, see [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md).
 
@@ -24,7 +24,7 @@ Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the 
 
 ## Prerequisites
 
-* A deployed endpoint. [Deploy and score a machine learning model by using a managed online endpoint](how-to-deploy-managed-online-endpoints.md). 
+* A deployed endpoint. [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-managed-online-endpoints.md). 
 
 ## Define an autoscale profile
 

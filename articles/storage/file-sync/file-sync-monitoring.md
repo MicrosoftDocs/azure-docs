@@ -67,6 +67,9 @@ Alerts proactively notify you when important conditions are found in your monito
 5. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
 6. Click **Create alert rule** to create the alert.  
 
+  > [!Note]  
+  > If you configure an alert using the Server Name dimension and the server is renamed, the alert will need to be updated to monitor the new server name.
+
 The following table lists some example scenarios to monitor and the proper metric to use for the alert:
 
 | Scenario | Metric to use for alert |

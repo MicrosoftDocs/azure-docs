@@ -47,7 +47,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 | Capability Name | CPUPressure-1.0 |
 | Target type | Microsoft-Agent |
 | Supported OS Types | Windows, Linux |
-| Description | Add CPU pressure up to the specified value on the VM where this fault is injected for the duration of the fault action. The artificial CPU pressure is removed at the end of the duration or if the experiment is canceled. |
+| Description | Add CPU pressure up to the specified value on the VM where this fault is injected for the duration of the fault action. The artificial CPU pressure is removed at the end of the duration or if the experiment is canceled. On Windows, the "% Processor Utility" performance counter is used at fault start to determine current CPU percentage and this is subtracted from the pressureLevel defined in the fault so that % Processor Utility will hit approximately the pressureLevel defined in the fault parameters. |
 | Prerequisites | **Linux:** Running the fault on a Linux VM requires the **stress-ng** utility to be installed. You can install it using the package manager for your Linux distro, </br> APT Command to install stress-ng: *sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng* </br> YUM Command to install stress-ng: *sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng*  |
 | | **Windows:** None. |
 | Urn | urn:csci:microsoft:agent:cpuPressure/1.0 |

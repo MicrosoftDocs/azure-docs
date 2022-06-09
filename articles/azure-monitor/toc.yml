@@ -91,8 +91,6 @@ items:
           href: app/resource-manager-web-app.md
         - name: Azure Functions
           href: app/resource-manager-function-app.md
-        - name: Manage with Azure CLI
-          href: insights/azure-cli-application-insights-component.md
     - name: Container insights
       href: containers/resource-manager-container-insights.md
     - name: Data collection rules
@@ -117,12 +115,8 @@ items:
       href: agents/data-collection-rule-sample-agent.md
     - name: Custom logs
       href: logs/data-collection-rule-sample-custom-logs.md
-  - name: Azure CLI
-    href: cli-samples.md
   - name: Monitor Logs in Azure CLI
     href: logs\azure-cli-log-analytics-workspace-sample.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
   - name: Azure CLI metric alerts
@@ -723,7 +717,7 @@ items:
     - name: Alert user interface
       items:
       - name: View and manage alert instances
-        href: alerts/alerts-managing-alert-instances.md
+        href: alerts/alerts-page.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves
@@ -906,6 +900,8 @@ items:
         href: app/api-custom-events-metrics.md
       - name: Remove Application Insights
         href: app/remove-application-insights.md
+      - name: SDK support policy
+        href: app/sdk-support-guidance.md
     - name: OpenTelemetry-based instrumentation
       items:
       - name: Overview
@@ -1196,8 +1192,6 @@ items:
     items:
     - name: Overview
       href: vm/vminsights-overview.md
-    - name: General Availability FAQ
-      href: vm/vminsights-ga-release-faq.yml
     - name: FAQ
       href: /azure/azure-monitor/faq#vm-insights
     - name: Configure workspace
@@ -1239,7 +1233,7 @@ items:
       - name: Troubleshoot
         href: vm/vminsights-health-troubleshoot.md
     - name: Analyze data with log queries
-      href: vm/vminsights-log-search.md
+      href: vm/vminsights-log-query.md
     - name: Monitor changes
       href: vm/vminsights-change-analysis.md
     - name: Visualize data with workbooks

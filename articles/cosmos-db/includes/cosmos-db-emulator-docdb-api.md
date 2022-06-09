@@ -3,7 +3,7 @@ title: "include file"
 description: "include file"
 services: cosmos-db
 documentationcenter: ''
-author: WilliamDAssafMSFT
+author: seesharprun
 manager: kfile
 editor: ''
 tags: ''
@@ -14,7 +14,8 @@ ms.topic: "include"
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 04/13/2018
-ms.author: wiassaf
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.custom: "include file"
 ---
 
