@@ -86,7 +86,7 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
 
 1. Use the system-assigned Managed Identity for the Automation account:
 
-    1. [Configure a System-assigned Managed Identity for the Automation account](/enable-managed-identity-for-automation.md#enable-a-system-assigned-managed-identity-for-an-azure-automation-account).
+    1. [Configure](/enable-managed-identity-for-automation.md#enable-a-system-assigned-managed-identity-for-an-azure-automation-account) a System-assigned Managed Identity for the Automation account.
     1. Grant this identity the [required permissions](/enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity) within the Subscription to perform its task.
     1. Update the runbook to use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet with the `Identity` parameter to authenticate to Azure resources. This configuration reduces the need to use a Run As account and perform the associated account management.
 
@@ -111,15 +111,13 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
    Here, you can use either the **VM’s User-assigned Managed Identity** or the **VM’s System-assigned Managed Identity**.
 
     > [!NOTE]
-    > This will **Not** work in an Automation Account which has been configured with an Automation account Managed Identity. As soon as the Automation account Managed Identity is enabled, you can't use the VM Managed Identity. The only available option is to use the Automation Account **System-Assigned Managed Identity**.
+    > This will **Not** work in an Automation Account which has been configured with an Automation account Managed Identity. As soon as the Automation account Managed Identity is enabled, you can't use the VM Managed Identity. The only available option is to use the Automation Account **System-Assigned Managed Identity** as mentioned in option 1.
 
-    #### VM's system-assigned managed identity
+    **To use a VM's system-assigned managed identity**:
 
-    To use a VM's system-assigned managed identity:
-
-    1. [Configure a System Managed Identity for the VM](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm)
+    1. [Configure](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm) a System Managed Identity for the VM.
     1. Grant this identity the [required permissions](/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm#grant-your-vm-access-to-a-resource-group-in-resource-manager) within the subscription to perform its tasks.
-    1. Update the runbook to use the [Connect-Az-Account] cmdlet with the `Identity` parameter to authenticate to Azure resources. This configuration reduces the need to use a Run As Account and perform the associated account management.
+    1. Update the runbook to use the [Connect-Az-Account](/powershell/module/az.accounts/connect-azaccount?view=azps-8.0.0) cmdlet with the `Identity` parameter to authenticate to Azure resources. This configuration reduces the need to use a Run As Account and perform the associated account management.
 
     ```powershell
         # Ensures you do not inherit an AzContext in your runbook
@@ -136,8 +134,8 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
         Get-AzVM -DefaultProfile $AzureContext | Select Name   
     ```
 
-    #### VM's user-assigned managed identity
-    1. [Configure a User Managed Identity for the VM](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
+    **To use a VM's user-assigned managed identity**:
+    1. [Configure](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity) a User Managed Identity for the VM.
     1. Grant this identity the [required permissions](/active-directory/managed-identities-azure-resources/howto-assign-access-portal) within the Subscription to perform its tasks.
     1. Update the runbook to use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-8.0.0) cmdlet with the `Identity ` and `AccountID` parameters to authenticate to Azure resources. This configuration reduces the need to use a Run As account and perform the associated account management.
 
@@ -156,7 +154,7 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
         Get-AzVM -DefaultProfile $AzureContext | Select Name 
     ```
     > [!NOTE]
-    > You can find the client Id of the user-assigned managed identity in the Azure portal
+    > You can find the client Id of the user-assigned managed identity in the Azure portal.
 
     > :::image type="content" source="./media/automation-hrw-run-runbooks/managed-identities-client-id-inline.png" alt-text="Screenshot of client id in Managed Identites." lightbox="./media/automation-hrw-run-runbooks/managed-identities-client-id-expanded.png"::: 
 
