@@ -39,7 +39,7 @@ For no-code-deployment, Azure Machine Learning
 The following table shows the target support for MLflow models in Azure ML:
 
 
-| Feature | Azure Container Instance | Azure Kubernetes | Managed Inference |
+| Scenario | Azure Container Instance | Azure Kubernetes | Managed Inference |
 | :- | :-: | :-: | :-: |
 | Deploying models logged with MLflow to real time inference | **&check;**<sup>1</sup> | **&check;**<sup>1</sup> | **&check;**<sup>1</sup> |
 | Deploying models logged with MLflow to batch inference | <sup>2</sup> | <sup>2</sup> | **&check;** |
@@ -58,15 +58,15 @@ The following table shows the target support for MLflow models in Azure ML:
 
 There are three workflows for deploying models to Azure ML:
 
-- [Using the MLflow plugin `azureml-mlflow`](#Using-the-MLflow-plugin)
+- [Deploy using the MLflow plugin](#Deploy-using-the-MLflow-plugin)
 - [Deploy using CLI (v2)](#Deploy-using-CLI-(v2))
-- [Deploying using Azure ML Studio](Deploying using Azure ML Studio)
+- [Deploy using Azure Machine Learning Studioo](#Deploy-using-Azure-Machine-Learning-Studio)
 
 ### Which option to use?
 
 If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the `azureml-mlflow` plugin. If, on the other hand, you are more familiar with the Azure ML CLI, you want to automate deployments using CI/CD pipelines, or you want to keep deployments configuration in a git repository, we recommend you to use the Azure ML CLI v2. If you want to quickly test models 
 
-## Using the MLflow plugin 
+## Deploy using the MLflow plugin 
 
 The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can deploy models to Azure ML, either to Azure Kubernetes Service (AKS), Azure Container Instances (ACI) and Managed Inference Service (MIR) for real-time serving.
 
@@ -244,6 +244,69 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
 1. To create the deployment using the YAML configuration, use the following command:
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment":::
+    
+## Deploy using Azure Machine Learning Studio
+
+This example shows how you can deploy an MLflow model to an online endpoint using [Azure Machine Learning studio](https://ml.azure.com).
+
+1. From [studio](https://ml.azure.com), select your workspace and then use the __models__ page to create a new model in the registry. You can use the option *From local files* to select the MLflow model from [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow/sklearn-diabetes/model](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow/sklearn-diabetes/model):
+
+   :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/register-model-ui.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/register-model-ui.png" alt-text="Screenshot showing create option on the Models UI page.":::
+
+2. From [studio](https://ml.azure.com), select your workspace and then use either the __endpoints__ or __models__ page to create the endpoint deployment:
+
+    # [Endpoints page](#tab/endpoint)
+
+    1. From the __Endpoints__ page, Select **+Create**.
+
+        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/create-from-endpoints.png" alt-text="Screenshot showing create option on the Endpoints UI page.":::
+
+    1. Provide a name and authentication type for the endpoint, and then select __Next__.
+    1. When selecting a model, select the MLflow model registered previously. Select __Next__ to continue.
+
+    1. When you select a model registered in MLflow format, in the Environment step of the wizard, you don't need a scoring script or an environment.
+
+        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" alt-text="Screenshot showing no code and environment needed for MLflow models":::
+
+    1. Complete the wizard to deploy the model to the endpoint.
+
+        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" alt-text="Screenshot showing NCD review screen":::
+
+    # [Models page](#tab/models)
+
+    1. Select the MLflow model, and then select __Deploy__. When prompted, select __Deploy to real-time endpoint (preview)__.
+
+        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/deploy-from-models-ui.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/deploy-from-models-ui.png" alt-text="Screenshot showing how to deploy model from Models UI":::
+
+    1. Complete the wizard to deploy the model to the endpoint.
+
+    ---
+
+### Deploy models after a training job
+
+This section helps you understand how to deploy models to an online endpoint once you have completed your [training job](how-to-train-cli.md).
+
+1. Download the outputs from the training job. The outputs contain the model folder. 
+
+    > [!NOTE]
+    > If you have used `mlflow.autolog()` in your training script, you will see model artifacts in the job's run history. Azure Machine Learning integrates with MLflow's tracking functionality. You can use `mlflow.autolog()` for several common ML frameworks to log model parameters, performance metrics, model artifacts, and even feature importance graphs.
+    >
+    > For more information, see [Train models with CLI](how-to-train-cli.md#model-tracking-with-mlflow). Also see the [training job samples](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step) in the GitHub repository.
+
+    # [Azure Machine Learning studio](#tab/studio)
+
+    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/download-output-logs.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/download-output-logs.png" alt-text="Screenshot showing how to download Outputs and logs from Experimentation run":::
+
+    # [CLI](#tab/cli)
+
+    ```azurecli
+    az ml job download -n $run_id --outputs
+    ```
+
+2. To deploy using the downloaded files, you can use either studio or the Azure command-line interface. Use the model folder from the outputs for deployment:
+
+    * [Deploy using Azure Machine Learning studio](how-to-deploy-mlflow-models-online-endpoints.md#deploy-using-azure-machine-learning-studio).
+    * [Deploy using Azure Machine Learning CLI (v2)](how-to-deploy-mlflow-models-online-endpoints.md#deploy-using-cli-v2).
 
 ## Considerations when deploying to real time inference
 
