@@ -337,7 +337,7 @@ To enroll in the preview, send an e-mail to ExpressRouteDirect@microsoft.com and
  To create an authorization, run the following commands in PowerShell:
  ```powershell
    Add-AzExpressRoutePortAuthorization -Name $Name -ExpressRoutePort $ERPort
-   Set-AzExpressRoutePort -ExpressRoutePort $ERPortt
+   Set-AzExpressRoutePort -ExpressRoutePort $ERPort
    ```
 #### Step 3: Verify that the authorization was created successfully:
  ```powershell
