@@ -40,7 +40,7 @@ Communication Services offers the following types of logs that you can enable:
 * **Network Traversal operational logs** - provides basic information related to the Network Traversal service
 * **Email Send Mail operational logs** - provides detailed information related to the Email service send mail requests.
 * **Email Status Update operational logs** - provides message and recipient level delivery status updates related to the Email service send mail requests.
-* **Email User Engagement operational logs** - provides information related to how users interact with messages sent from the Email service.
+* **Email User Engagement operational logs** - provides information related to 'open' and 'click' user engagement metrics for messages sent from the Email service.
 
 ### Usage logs schema
 
@@ -153,10 +153,10 @@ Communication Services offers the following types of logs that you can enable:
 | OperationVersion | The `api-version` associated with the operation, if the `operationName` was performed using an API. If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
 | Category | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
 | CorrelationID | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mapped to the MessageId which is returned from a successful SendMail request. |
-| Size | Represents the total size of the email body, subject, headers and attachments. |
-| ToRecipientsCount | The total # of unique addresses on the To line. |
-| CcRecipientsCount | The total # of unique addresses on the Cc line. | 
-| BccRecipientsCount | The total # of unique addresses on the Bcc line. |
+| Size | Represents the total size in megabytes of the email body, subject, headers and attachments. |
+| ToRecipientsCount | The total # of unique email addresses on the To line. |
+| CcRecipientsCount | The total # of unique email addresses on the Cc line. | 
+| BccRecipientsCount | The total # of unique email addresses on the Bcc line. |
 | UniqueRecipientsCount | This is the deduplicated total recipient count for the To, Cc and Bcc address fields. |
 | AttachmentsCount | The total # of attachments. |
 
