@@ -9,6 +9,8 @@ ms.date: 06/09/2022
 
 Microsoft Graph API provides a unified programmable model that you can use to receive events about state changes of resources in Microsoft Outlook, Teams, SharePoint, Azure Active Directory, Microsoft Conversations, and security alerts. For every resource in the following table, events for create, update and delete state changes are supported. 
 
+## Graph API event sources
+
 |Microsoft event source |Resource(s) | Available event types | 
 |:--- | :--- | :----|
 |Azure Active Directory| [User](/graph/api/resources/user), [Group](/graph/api/resources/group) | [Azure AD event types](azure-active-directory-events.md) |

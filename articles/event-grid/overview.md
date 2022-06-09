@@ -25,11 +25,11 @@ The event sources and event handlers or destinations are summarized in the follo
 Event Grid supports the following event sources:
 
 1. **Your own service or solution** that publishes events to Event Grid so that your customers can subscribe to them. Event Grid provides two type of resources you can use depending on your requirements.
-   1.  [Custom Topics](custom-topics.md) or "Topics" for short. Use custom topics if your requirements resemble the following user story:
+   - [Custom Topics](custom-topics.md) or "Topics" for short. Use custom topics if your requirements resemble the following user story:
    
         "As an owner of a system, I want to communicate my system's state changes by publishing events and routing those events to event handlers, under my control or otherwise, that can process my system's events in a way they see fit."
 
-   1.  [Domains](event-domains.md). Use domains if you want to deliver events to multiple teams at scale. Your requirements probably are similar to the following one:
+   - [Domains](event-domains.md). Use domains if you want to deliver events to multiple teams at scale. Your requirements probably are similar to the following one:
    
         "As an owner of a system, I want to announce my system’s state changes to multiple teams in a single tenant so that they can process my system’s events in a way they see fit."
 
