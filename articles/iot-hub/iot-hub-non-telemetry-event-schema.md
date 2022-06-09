@@ -19,10 +19,10 @@ Azure IoT Hub emits the non-telemetry events in the following categories:
 
 | Event category | Description |
 | ---------- | ----------- |
-| Device Connection State Events | Emitted when a device connects to or disconnects from an IoT hub. |
-| Device Lifecycle Events | Emitted when a device or module is created on or deleted from an IoT hub. |
-| Device Twin Change Events | Emitted when a device or module twin is changed or replaced. |
-| Digital Twin Change Events | Emitted when a device's or module's digital twin is changed or replaced. |
+| Device connection state events | Emitted when a device connects to or disconnects from an IoT hub. |
+| Device lifecycle events | Emitted when a device or module is created on or deleted from an IoT hub. |
+| Device twin change events | Emitted when a device or module twin is changed or replaced. |
+| Digital twin change events | Emitted when a device or module's digital twin is changed or replaced. |
 
 ## Common event properties
 
