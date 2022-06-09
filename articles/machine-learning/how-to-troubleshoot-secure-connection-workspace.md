@@ -1,24 +1,18 @@
 
 ## DNS
 
-1. On the Private Endpoint, click the link to the right of "Network Interface"
-1. Navigate to "IP Configurations" section
-1. Click the first link in the "Subnet" column
-1. You should be taken to the VNet the Private Endpoint is in, make note of the VNet
-1. If "DNS Servers" is set to "Default (Azure-Provided)" or "168.63.129.16", then the VNet is using Azure DNS. If there are IP addresses list, then the VNet us using a custom DNS solution. Make note of the VNet, and whether the VNet is using default or custom DNS.
+1. On the Private Endpoint, select the link to the right of __Network Interface__.
+1. Under __Settings__, select __IP Configurations__
+1. Click the __Virtual network__ link.
+1. From the __Settings__ section on the left of the page, select the __DNS servers__ entry. If this value is __Default (Azure-provided)__ or __168.63.129.16__, then the VNet is using Azure DNS. If there is a different IP address listed, the VNet is using a custom DNS solution.
 
 ### Is Private DNS integration correct?
 
-1. On the Private Endpoint, click "Private DNS Zone Groups"
-1. If "Private DNS Zone Groups" is empty, then the customer almost certainly setup their Private Endpoint incorrectly
-1. Have the customer delete the Private Endpoint, and recreate it ensuring they enabled Private DNS zone integrationPrivate DNS Integration Enabled.png
-1. Scroll down to "Private DNS Zone Configurations"
-1. Note the Private DNS Zone IDs for both lis ted zones
-1. Search for "privatelink.api" in the "Search for resources" text box
-1. Iterate through the results until you find the "privatelink.api" zone from step 4
-1. Scroll down to "Virtual Network Links"
-1. If the VNet is using Azure DNS, ensure this Private DNS zone has a link to the VNet. If it does not then the customer chose the incorrect Private DNS zone when creating the Private Endpoint. Have the customer delete the Private Endpoint and chose a Private DNS Zone linked to the VNet, or have the customer create a new Private DNS Zone that is linked to the VNet
-1. Repeat steps 5-8, but for "privatelink.notebooks"
+1. On the Private Endpoint, select __DNS configuration__.
+1. For each entry in the __Private DNS zone__ column, there should also be an entry in the __DNS zone group__ column. If there is a Private DNS zone entry, but no DNS zone group entry, delete and recreate the Private Endpoint. When recreating the private endpoint, __enable Private DNS zone integration__.
+1. If __DNS zone group__ isn't empty, select the link for the __Private DNS zone__ entry.
+1. From the Private DNS zone, select __Virtual network links__. If the VNet is using __Azure DNS__, ensure this Private DNS zone has a link to the VNet. If it doesn't, then delete and recreate the private endpoint. When recreating it, select a Private DNS Zone linked to the VNet or create a new one that is linked to it.
+1. Repeat the previous steps for the rest of the Private DNS zone entries.
 
 ### Disable DNS over HTTPS
 
@@ -46,5 +40,13 @@ If there does not appear to be any DNS configuration issue above, DNS over HTTPS
 
     For example.....
 
-1. If the `nslookup` command returns an error, or returns a different IP address than displayed in the portal, then the custom DNS solution isn't configured correctly. For information on using a custom DNS, see blah blah blah.
+1. If the `nslookup` command returns an error, or returns a different IP address than displayed in the portal, then the custom DNS solution isn't configured correctly. For more information, see [How to use your workspace with a custom DNS server](how-to-custom-dns.md)
+
+### Proxy configuration
+
+If you use a proxy, it may prevent communication with a secured workspace. To test, use one of the following options:
+
+* Temporarily disable the proxy setting and see if you can connect.
+* Create a [Proxy auto-config (PAC)](https://wikipedia.org/wiki/Proxy_auto-config) file that allows direct access to the FQDNs listed on the private endpoint. It should also allow direct access to the FQDN for any compute instances.
+* Configure your proxy server to forward DNS requests to Azure DNS.
 
