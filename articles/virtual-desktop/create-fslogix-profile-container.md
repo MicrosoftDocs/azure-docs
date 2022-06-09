@@ -28,7 +28,7 @@ The instructions in this guide are specifically for Azure Virtual Desktop users.
 Before you can create an FSLogix profile container for a host pool, you must:
 
 - Set up and configure Azure Virtual Desktop
-- Provision a Azure Virtual Desktop host pool
+- Provision an Azure Virtual Desktop host pool
 
 ## Set up your Azure NetApp Files account
 
