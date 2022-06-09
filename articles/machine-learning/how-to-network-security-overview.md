@@ -121,7 +121,7 @@ In this section, you learn how to secure the training environment in Azure Machi
 To secure the training environment, use the following steps:
 
 1. Create an Azure Machine Learning [compute instance and computer cluster in the virtual network](how-to-secure-training-vnet.md#compute-cluster) to run the training job.
-1. If your compute cluster or compute instance does not use a public IP address, you must [Allow inbound communication](how-to-secure-training-vnet.md#required-public-internet-access) so that management services can submit jobs to your compute resources. 
+1. If your compute cluster or compute instance use a public IP address, you must [Allow inbound communication](how-to-secure-training-vnet.md#required-public-internet-access) so that management services can submit jobs to your compute resources. 
 
     > [!TIP]
     > Compute cluster and compute instance can be created with or without a public IP address. If created with a public IP address, you get a load balancer with a public IP to accept the inbound access from Azure batch service and Azure Machine Learning service. You need to configure User Defined Routing (UDR) if you use a firewall. If created without a public IP, you get a private link service to accept the inbound access from Azure batch service and Azure Machine Learning service without a public IP.
