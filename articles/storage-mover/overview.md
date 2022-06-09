@@ -18,8 +18,6 @@ ms.custom: template-overview
 Set expectations for what the content covers, so customers know the content meets their needs.-->
 # What is Azure Storage Mover?
 
-
-
 <!-- 2. Introductory paragraph 
 ##Docs Required##
 
