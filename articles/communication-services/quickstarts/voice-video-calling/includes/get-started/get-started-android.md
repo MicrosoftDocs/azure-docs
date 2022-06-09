@@ -21,9 +21,9 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
 - A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI to create a user and an access token.
 
-```azurecli-interactive
-az communication identity issue-access-token --scope voip
-```
+    ```azurecli-interactive
+    az communication identity issue-access-token --scope voip
+    ```
 
 ## Setting up
 

@@ -24,9 +24,9 @@ Before you get started, make sure to:
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
 - Create **two** Communication Services Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and the userId string**. In this quickstart, we will create a thread with an initial participant and then add a second participant to the thread. You can also use the Azure CLI to create a user and an access token.
 
-```azurecli-interactive
-az communication identity issue-access-token --scope chat
-```
+    ```azurecli-interactive
+    az communication identity issue-access-token --scope chat
+    ```
 
 ## Setting up
 

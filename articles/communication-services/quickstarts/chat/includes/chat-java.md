@@ -23,9 +23,9 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 - A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string. You can also use the Azure CLI to create a user and an access token.
 
-```azurecli-interactive
-az communication identity issue-access-token --scope chat
-```
+    ```azurecli-interactive
+    az communication identity issue-access-token --scope chat
+    ```
 
 ## Setting up
 

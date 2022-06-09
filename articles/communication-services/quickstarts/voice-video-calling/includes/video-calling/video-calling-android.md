@@ -17,9 +17,9 @@ If you want to get started with sample code, you can [download the sample app](h
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
 - A [user access token](../../../access-tokens.md) for Communication Services. You can also use the Azure CLI to create a user and an access token.
 
-```azurecli-interactive
-az communication identity issue-access-token --scope voip
-```
+    ```azurecli-interactive
+    az communication identity issue-access-token --scope voip
+    ```
 
 ## Create an Android app with an empty activity
 
