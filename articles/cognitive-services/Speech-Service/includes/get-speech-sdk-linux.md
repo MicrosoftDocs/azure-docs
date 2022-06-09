@@ -28,7 +28,7 @@ To use the Speech SDK in Alpine Linux, create a Debian chroot environment as doc
 ### System requirements
 
 > [!IMPORTANT]
-> **Use the latest point release of the Linux distribution.** For example, CentOS 7.9.2009 (or newer if available) for CentOS 7; Ubuntu 18.04.6 (or newer if available) for Ubuntu 18.04 LTS.
+> Use the latest point release of the Linux distribution. For example, CentOS 7.9.2009 (or newer if available) for CentOS 7; Ubuntu 18.04.6 (or newer if available) for Ubuntu 18.04 LTS.
 
 For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, more dependencies might be required:
 
