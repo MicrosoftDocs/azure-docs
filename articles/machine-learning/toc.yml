@@ -632,6 +632,9 @@
         - name: Responsible AI dashboard scorecard
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
+    - name: Migrate from v1
+      displayName: migration, v1, v2
+      href: how-to-migrate-from-v1.md
 - name: Troubleshoot & debug
   items: 
     - name: VS Code interactive debugging

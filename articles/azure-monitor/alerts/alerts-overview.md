@@ -4,7 +4,7 @@ description: Learn about Azure Monitor alerts, alert rules, action processing ru
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: overview 
-ms.date: 04/26/2022
+ms.date: 06/09/2022
 ms.custom: template-overview 
 ms.reviewer: harelb
 ---
@@ -87,11 +87,15 @@ When the alert is considered resolved, the alert rule sends out a resolved notif
 
 ## Manage your alerts programmatically
 
-You can programmatically query for alerts using:
- - [Azure PowerShell](/powershell/module/az.monitor/)
- - [The Azure CLI](/cli/azure/monitor?view=azure-cli-latest&preserve-view=true)
- - The [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) 
-You can also use [Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade). Resource graphs are good for managing alerts across multiple subscriptions. 
+You can query you alerts instances to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
+We recommended that you use [Azure Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade) with the 'AlertsManagementResources' schema for managing alerts across multiple subscriptions. For an sample query, see [Azure Resource Graph sample queries for Azure Monitor](../resource-graph-samples.md).
+
+You can use Azure Resource Graphs:
+ - with [Azure PowerShell](/powershell/module/az.monitor/
+ - with the [Azure CLI](/cli/azure/monitor?view=azure-cli-latest&preserve-view=true)
+ - in the Azure portal
+ 
+You can also use the [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) for lower scale querying or to update fired alerts.
 
 ## Pricing
 See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for information about pricing.

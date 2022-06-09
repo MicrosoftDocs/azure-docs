@@ -91,8 +91,6 @@ items:
           href: app/resource-manager-web-app.md
         - name: Azure Functions
           href: app/resource-manager-function-app.md
-        - name: Manage with Azure CLI
-          href: insights/azure-cli-application-insights-component.md
     - name: Container insights
       href: containers/resource-manager-container-insights.md
     - name: Data collection rules
@@ -1194,8 +1192,6 @@ items:
     items:
     - name: Overview
       href: vm/vminsights-overview.md
-    - name: General Availability FAQ
-      href: vm/vminsights-ga-release-faq.yml
     - name: FAQ
       href: /azure/azure-monitor/faq#vm-insights
     - name: Configure workspace
@@ -1237,7 +1233,7 @@ items:
       - name: Troubleshoot
         href: vm/vminsights-health-troubleshoot.md
     - name: Analyze data with log queries
-      href: vm/vminsights-log-search.md
+      href: vm/vminsights-log-query.md
     - name: Monitor changes
       href: vm/vminsights-change-analysis.md
     - name: Visualize data with workbooks
