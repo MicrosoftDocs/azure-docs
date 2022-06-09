@@ -20,7 +20,7 @@ Text is added through a markdown control - into which an author can add their co
 #### Edit mode:
 :::image type="content" source="media/workbooks-add-text/workbooks-text-control-edit-mode.png" alt-text="Image showing a text step in workbooks in edit mode.":::
 
-#### preview mode:
+#### Preview mode:
 :::image type="content" source="media/workbooks-add-text/workbooks-text-control-edit-mode-preview.png" alt-text="Image showing a text step in workbooks in preview mode.":::
 
 ## Add a text step
@@ -52,3 +52,6 @@ Instead of picking a specific style, you may also choose a text parameter as the
 
 #### warning style example:
 :::image type="content" source="media/workbooks-add-text/workbooks-text-example-warning.png" alt-text="Image showing a text visualization in warning style.":::
+
+## Next Steps
+- [Add Workbook parameters](workbooks-parameters.md)

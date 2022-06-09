@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor workbooks creating parameters
-description: Learn how parameters allow workbook authors to collect input from the consumers and reference it in other parts of the workbook.
+title: Creating Workbook parameters
+description: Learn how to add parameters to your workbook to collect input from the consumers and reference it in other parts of the workbook.
 services: azure-monitor
 manager: carmonm
 
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ---
 
-# Workbook parameters
+# Creating Workbook parameters
 
 Parameters allow workbook authors to collect input from the consumers and reference it in other parts of the workbook – usually to scope the result set or setting the right visual. It is a key capability that allows authors to build interactive reports and experiences. 
 
@@ -30,7 +30,7 @@ Supported parameter types include:
 
 These parameter values can be referenced in other parts of workbooks either via bindings or value expansions.
 
-## Creating a parameter
+## Create a parameter
 1. Start with an empty workbook in edit mode.
 2. Choose _Add parameters_ from the links within the workbook.
 3. Click on the blue _Add Parameter_ button.
@@ -85,7 +85,9 @@ You can use these options to format all parameter types except for the time rang
 - For Subscription picker, subscription values are formatted.
 
 **Format**: Convert toml to json
+
 **Syntax**: `{param:tomltojson}`
+
 **Original Value**: 
 
 ```
@@ -108,6 +110,7 @@ country = "USA"
 }
 ```
 **Format**:escape JSON
+
 **Syntax**: `{param:escapejson}`
 
 **Original Value**: 
@@ -129,7 +132,9 @@ country = "USA"
 ```
 
 **Format**: Encode text to base64
+
 **Syntax**: `{param:base64}`
+
 **Original Value**: 
 
 ```
@@ -143,4 +148,4 @@ U2FtcGxlIHRleHQgdG8gdGVzdCBiYXNlNjQgZW5jb2Rpbmc=
 ```
 ## Next steps
 
- - [Getting started with Azure Workbooks](workbooks-getting-started.md).
+ 
