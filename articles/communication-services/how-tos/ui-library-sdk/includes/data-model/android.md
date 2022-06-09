@@ -18,20 +18,20 @@ The UI Library gives developers the ability to provide a more customized experie
 
 #### Local Participant View Data
 
-`ParticipantViewData` is a class that set the `renderedDisplayName`, `avatarBitmap` and `scaleType` for avatar control. This class is passed to the configuration in order to customize the local participants view information.
+`CallCompositeParticipantViewData` is a class that set the `displayName`, `avatarBitmap` and `scaleType` for avatar control. This class is passed to the `CallCompositeLocalOptions` in order to customize the local participants view information.
 
-This class is held in the `LocalSettings` object that represents options used locally on the device making the call.
+This class is held in the `CallCompositeLocalOptions` object that represents options used locally on the device making the call.
 
-`renderedDisplayName` differs from the `displayName` passed in via the `TeamsMeetingOptions` and `GroupCallOptions` in that it is only used locally as an override, where `displayName` is passed to the server and shared with other participants. When `renderedDisplayName` is not provided, `displayName` is used.
+`displayName` differs from the `displayName` passed in via the `CallCompositeRemoteOptions`. `CallCompositeParticipantViewData` `displayName` is only used locally as an override, where `CallCompositeRemoteOptions` `displayName` is passed to the server and shared with other participants. When `CallCompositeParticipantViewData` `displayName` is not provided, `CallCompositeRemoteOptions` `displayName` is used.
 
 #### Usage
 
-To use the `LocalSettings`, pass the instance of `CallCompositeParticipantViewData` and inject `LocalSettings` to `callComposite.launch`.
+To use the `CallCompositeLocalOptions`, pass the instance of `CallCompositeParticipantViewData` and inject `CallCompositeLocalOptions` to `callComposite.launch`.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val viewData = CallCompositeParticipantViewData("LocalUserDisplayName") // bitmap is optional
+val viewData = CallCompositeParticipantViewData().setDisplayName("displayName") // setAvatarBitmap for bitmap
 val localOptions = CallCompositeLocalOptions(viewData)
 callComposite.launch(this, remoteOptions, localOptions)
 ```
@@ -39,7 +39,7 @@ callComposite.launch(this, remoteOptions, localOptions)
 #### [Java](#tab/java)
 
 ```java
-ParticipantViewData viewData = new CallCompositeParticipantViewData("LocalUserDisplayName", bitmap); // bitmap is optional
+CallCompositeParticipantViewData viewData = new CallCompositeParticipantViewData().setDisplayName("displayName"); // setAvatarBitmap for bitmap
 CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions(viewData);
 callComposite.launch(this, remoteOptions, localOptions);
 ```
@@ -53,7 +53,7 @@ callComposite.launch(this, remoteOptions, localOptions);
 
 In some instances, you may wish to provide local overrides for remote participants to allow custom avatars and titles.
 
-The process is similar to the local participant process, however the data is set when participants join the call. As a developer you would need to add a listener to when remote participants join the call, and then call a method to set the ParticipantViewData for that remote user.
+The process is similar to the local participant process, however the data is set when participants join the call. As a developer you would need to add a listener to when remote participants join the call, and then call a method to set the `CallCompositeParticipantViewData` for that remote user.
 
 #### Usage
 
@@ -71,7 +71,7 @@ callComposite.setOnRemoteParticipantJoinedHandler { remoteParticipantJoinedEvent
                 remoteParticipantJoinedEvent.identifiers.forEach { identifier ->
                     // get displayName, bitmap for identifier
                     callComposite.setRemoteParticipantViewData(identifier,
-                        ParticipantViewData("display_name"))
+                        CallCompositeParticipantViewData().setDisplayName("displayName")) // setAvatarBitmap for bitmap
                 }
             }
 ```
@@ -83,7 +83,7 @@ callComposite.setOnRemoteParticipantJoinedHandler { remoteParticipantJoinedEvent
                 for (CommunicationIdentifier identifier: remoteParticipantJoinedEvent.getIdentifiers()) {
                     // get displayName, bitmap for identifier
                     callComposite.setRemoteParticipantViewData(identifier,
-                            new ParticipantViewData("display_name"));
+                            new CallCompositeParticipantViewData().setDisplayName("displayName")); // setAvatarBitmap for bitmap
                 }
             });
 ```
