@@ -45,34 +45,8 @@ We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 
 * MACC credits 
 * Nutanix BYOL  
-* RI (In future; additional discount until RI is supported)
-
-
-### Service Level Objectives
-
-## Supported Regions and Bare Metal Instances
-
-This public preview release supports the following Azure regions:
-
-
-|Region name |Ready Node for Nutanix AN36 |Ready Node for Nutanix AN36P |
-| :------------------- | -------------------: |:---------------:|
-|East US (Virginia)|​Yes|TBD|
-|East US 2 (Virginia)|No|Yes|
-|West US 2 (Washington)​|Yes|TBD|
-|North Central US (Illinois)​|No|Yes|
-|UK South (London)​|No|Yes|
-|Germany West Central (Frankfurt)​|No|Yes|
-|Australia East|No|Yes|
-|West Europe (Amsterdam)|No|Yes|
-|Southeast Asia (Singapore)​|No|Yes|
-
-## Out of scope features
-
-* NSGs
-* UDRs
-* Cross-region peering
-* Private link
+* RI (In future
+  * Additional discount until RI is supported if there is committed interest in purchasing it once the option becomes available. 
 
 ## Pricing
 

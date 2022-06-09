@@ -35,15 +35,6 @@ The following table describes what’s supported for each network features confi
 | :------------------- | -------------------: |:---------------:|
 |Example|Example|Example|
 
-## Out-of-scope features
-
-* NSGs
-* UDRs
-* Cross region peering
-* Private link
-
-
-
 ## Next steps
 
 Learn more about Nutanix:
