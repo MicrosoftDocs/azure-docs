@@ -3,8 +3,7 @@ title: Microsoft 365 Store step-by-step submission guide
 description:  Use this step-by-step submission guide to submit your app to the Microsoft stores. 
 ms.localizationpriority: medium
 ms.author: mingshen
-ms.date: 06/01/2022
----
+ms.date: 06/03/2022
 
 # Store step-by-step submission guide
 
@@ -164,3 +163,6 @@ Once you have answered those questions for yourself, select the submit button on
 ## Step 11: Congratulations, you are done submitting!
 
 Expect a response within 3 to 4 business days from our reviewers if there are any issues related to your submission.
+
+> [!TIP]
+> After publishing an offer, the [owner](/azure/marketplace/user-roles) of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview).
