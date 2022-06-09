@@ -1,4 +1,4 @@
-- name: What is NC2 on Azure?
+- name: What is BareMetal Infrastructure for NC2 on Azure?
   href: nc2-baremetal-overview.md
 - name: About the Public Preview
   href: about-the-public-preview.md
