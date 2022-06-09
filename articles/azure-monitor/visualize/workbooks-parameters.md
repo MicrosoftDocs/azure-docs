@@ -190,7 +190,7 @@ In horizontal style form, the controls are always visible, with label on left si
 #### Form Vertical
 In vertical style from, the controls are always visible, with label above the control. Unlike standard style, there is only one label or control in one row. 
 
-  :::image type="content" source="media/workbooks-parameters/workbooks-form-vertical.png" alt-text="Workbooks form vertical style.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-form-vertical.png" alt-text="Workbooks form vertical style.":::
  
 > [!NOTE]
 > In standard, form horizontal, and form vertical layouts, there's no concept of inline editing, the controls are always in edit mode. 
@@ -228,26 +228,26 @@ In this example, the `timerange` parameter above is declared as a global. In a q
 
    :::image type="content" source="media/workbooks-parameters/workbooks-global-timerange-brush.png" alt-text="Screenshot of global time brush setting in Workbooks.":::
 
-Now, whenever a time range is brushed in this chart, it will also update the `timerange` parameter above this query, and the query step itself (since it also depends on `timerange`!):
+Whenever a time range is brushed in this chart, it will also update the `timerange` parameter above this query, and the query step itself (since it also depends on `timerange`!):
 
-1. Before brushing:
+ 1. Before brushing:
 
-  :::image type="content" source="media/workbooks-parameters/workbooks-global-before-brush.png" alt-text="Screenshot of setting global parameters before brushing.":::  
+    :::image type="content" source="media/workbooks-parameters/workbooks-global-before-brush.png" alt-text="Screenshot of setting global parameters before brushing.":::  
 
    - The time range is shown as "last hour".
    - The chart shows the last hour of data.
 
-1. During brushing:
+ 1. During brushing:
 
-  :::image type="content" source="media/workbooks-parameters/workbooks-global-during-brush.png" alt-text="Screenshot of setting global parameters during brushing.":::  
+    :::image type="content" source="media/workbooks-parameters/workbooks-global-during-brush.png" alt-text="Screenshot of setting global parameters during brushing.":::  
 
    - The time range is still last hour, and the brushing outlines are drawn.
    - No parameters/etc have changed. once you let go of the brush, the time range will be updated.
 
 
-1. After brushing:
+ 1. After brushing:
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-global-after-brush.png" alt-text="Screenshot of setting global parameters after brushing.":::  
+    :::image type="content" source="media/workbooks-parameters/workbooks-global-after-brush.png" alt-text="Screenshot of setting global parameters after brushing.":::  
 
     - The time range specified by the time brush will be set by this step, overriding the global value (the timerange dropdown now displays that custom time range).
     - Because the global value at the top has changed, and because this chart depends on `timerange` *as an input*, the time range of the query used in the chart will also update, causing the query to and the chart to update.

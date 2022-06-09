@@ -1407,10 +1407,6 @@ items:
             href: visualize/workbooks-multi-value.md
         - name: Combine data from different sources
           href: visualize/workbooks-combine-data.md       
-    - name: Integrate Workbooks with Azure features
-      items:
-        - name: Overview
-          href: visualize/workbooks-integrate-azure.md
     - name: Configuration
       items:
       - name: Deploy with Azure Resource Manager

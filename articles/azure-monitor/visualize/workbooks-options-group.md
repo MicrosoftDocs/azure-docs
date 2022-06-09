@@ -11,14 +11,16 @@ ms.reviewer: gardnerjr
 
 # Options Group Parameters
 
-An options group parameter allows the user to select one values from a known set (for example, select one of your app’s requests). When there are a small number of values, an options group can be a better choice than a [drop down parameter](workbooks-dropdowns.md), as the user can see all the possible values, and see which one is selected. Options groups are commonly used for yes|no or on|off style choices. When there are large number of possible values, using a drop down is a better choice. Note that unlike drop down parameters, an options group *always* only allows one selected value.
+An options group parameter allows the user to select one values from a known set (for example, select one of your app’s requests). When there are a small number of values, an options group can be a better choice than a [drop down parameter](workbooks-dropdowns.md), as the user can see all the possible values, and see which one is selected. Options groups are commonly used for yes/no or on/off style choices. When there are large number of possible values, using a drop down is a better choice. Unlike drop down parameters, an options group always only allows one selected value.
 
-The easiest way to specify the list by providing a static list in the parameter setting. A more interesting way is to get the list dynamically via a KQL query.
+You can specify the list by:
+- providing a static list in the parameter setting
+- using a KQL queryt to retrieve the list dynamically
 
 ## Creating a static options group parameter
 1. Start with an empty workbook in edit mode.
-2. Choose _Add parameters_ from the links within the workbook.
-3. Click on the blue _Add Parameter_ button.
+2. Choose **Add parameters** from the links within the workbook.
+3. Select **Add Parameter**.
 4. In the new parameter pane that pops up enter:
     1. Parameter name: `Environment`
     2. Parameter type: `Options Group`
@@ -33,18 +35,11 @@ The easiest way to specify the list by providing a static list in the parameter 
     ]
     ```
     (you are not limited to JSON, you can use any query provider to provide initial values, but will be limited to the first 100 results)
-6. Use the blue `Update` button.
-7. Choose 'Save' from the toolbar to create the parameter.
+6. Select **Update**.
+7. Select **Save** from the toolbar to create the parameter.
 8. The Environment parameter will be an options group control with the three values.
 
 :::image type="content" source="media/workbooks-options-group/workbooks-options-group-create.png" alt-text="Image showing the creation of a static options group in a workbook.":::
-
-
-## Other examples
-
-Query examples and behaviors of the options group parameter the same as the single select drop down parameter samples.
-
-
 
 ## Next Steps:
 
