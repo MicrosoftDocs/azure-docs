@@ -12,20 +12,20 @@ ms.date: 07/01/2022
 
 The following table describes the network topologies supported by each network features configuration of Azure NetApp Files.
 
-|Topologies	|Standard network features	|Basic network features |
-| :------------------- | -------------------: |:---------------:|
+|Topologies	|Basic network features |
+| :------------------- |:---------------:|
 |Connectivity to BM in a local VNet|Yes |Yes |
-|Connectivity to BM in a peered VNet (Same region)|Yes |Yes |
-|Connectivity to BM in a peered VNet (Cross region or global peering) |No |No |
-|Connectivity to a BM over ExpressRoute gateway |Yes |Yes
-|ExpressRoute (ER) FastPath |Yes |No |
-|Connectivity from on-premises to a BM in a spoke VNet over ExpressRoute gateway and VNet peering with gateway transit|Yes | Yes |
+|Connectivity to BM in a peered VNet (Same region)|Yes |
+|Connectivity to BM in a peered VNet (Cross region or global peering)|No |
+|Connectivity to a BM over ExpressRoute gateway |Yes|
+|ExpressRoute (ER) FastPath |No |
+|Connectivity from on-premises to a BM in a spoke VNet over ExpressRoute gateway and VNet peering with gateway transit|Yes |
 |Connectivity from on-premises to a BM in a spoke VNet over VPN gateway|Yes | Yes |
-|Connectivity from on-premises to a BM in a spoke VNet over VPN gateway and VNet peering with gateway transit|Yes | Yes |
-|Connectivity over Active/Passive VPN gateways|Yes | Yes |
-|Connectivity over Active/Active VPN gateways|Yes | No |
-|Connectivity over Active/Active Zone Redundant gateways|No | No |
-|Connectivity over Virtual WAN (VWAN)|No | No |
+|Connectivity from on-premises to a BM in a spoke VNet over VPN gateway and VNet peering with gateway transit| Yes |
+|Connectivity over Active/Passive VPN gateways| Yes |
+|Connectivity over Active/Active VPN gateways| No |
+|Connectivity over Active/Active Zone Redundant gateways| No |
+|Connectivity over Virtual WAN (VWAN)| No |
 
 ## Constraints
 
