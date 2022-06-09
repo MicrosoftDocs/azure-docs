@@ -53,7 +53,7 @@ When a device connects to your IoT Central application, its device status change
     - A new real device is added on the **Devices** page.
     - A set of devices is added using **Import** on the **Devices** page.
 
-1. The device status changes to **Provisioned** when the device that connected to your IoT Central application with valid credentials completes the provisioning step. In this step, the device uses DPS.The *Device ID* that was used to register the device.Either a SAS key or X.509 certificatTo find these values: to automatically retrieve a connection string from the IoT Hub used by your IoT Central application. The device can now connect to IoT Central and start sending data.
+1. The device status changes to **Provisioned** when the device that connected to your IoT Central application with valid credentials completes the provisioning step. In this step, the device uses DPS. The *Device ID* that was used to register the device. Either a SAS key or X.509 certificatTo find these values: to automatically retrieve a connection string from the IoT Hub used by your IoT Central application. The device can now connect to IoT Central and start sending data.
 
 1. An operator can block a device. When a device is blocked, it can't send data to your IoT Central application. Blocked devices have a status of **Blocked**. An operator must reset the device before it can resume sending data. When an operator unblocks a device the status returns to its previous value, **Registered** or **Provisioned**.
 
@@ -68,7 +68,7 @@ When a device connects to your IoT Central application, its device status change
 
 ### Device connection status
 
-When a device or edge device connects using the MQTT protocol, _connected_ and _disconnected_ events for the device are generated. These events are not sent by the device, they are generated internally by IoT Central.
+When a device or edge device connects using the MQTT protocol, _connected_ and _disconnected_ events for the device are generated. These events aren't sent by the device, they're generated internally by IoT Central.
 
 The following diagram shows how, when a device connects, the connection is registered at the end of a time window. If multiple connection and disconnection events occur, IoT Central registers the one that's closest to the end of the time window. For example, if a device disconnects and reconnects within the time window, IoT Central registers the connection event. Currently, the time window is approximately one minute.
 
@@ -130,7 +130,7 @@ To move a device to a different organization, you must have access to both the s
 
 1. Select the device to move in the device list.
 
-1. Select **Manage Device** and **Organization** from the drop down menu.
+1. Select **Manage Device** and **Organization** from the drop-down menu.
 
 1. Select the new organization for the device:
 
