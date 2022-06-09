@@ -217,6 +217,10 @@
       href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
     - name: PowerShell
       href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
+    - name: CLI
+      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-CLI.md
+    - name: Portal
+      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-portal.md
   - name: Automatic VM guest patching
     items:
     - name: Overview
