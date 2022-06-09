@@ -94,7 +94,7 @@ You can use Azure Resource Graphs:
  - with [Azure PowerShell](/powershell/module/az.monitor/
  - with the [Azure CLI](/cli/azure/monitor?view=azure-cli-latest&preserve-view=true)
  - in the Azure portal
- - 
+ 
 You can also use the [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) for lower scale querying or to update fired alerts.
 
 ## Pricing
