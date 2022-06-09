@@ -27,13 +27,13 @@ Event Grid supports the following event sources:
 1. **Your own service or solution** that publishes events to Event Grid so that your customers can subscribe to them. Event Grid provides two type of resources you can use depending on your requirements.
    1.  [Custom Topics](custom-topics.md) or "Topics" for short. Use custom topics if your requirements resemble the following user story:
    
-        "As an owner of a system, I want to communicate my system's state changes by publishing events and configuring routing of those events so that event handlers, under my control or otherwise, can process my system's events in a way they see fit."
+        "As an owner of a system, I want to communicate my system's state changes by publishing events and routing those events to event handlers, under my control or otherwise, that can process my system's events in a way they see fit."
 
-   1.  [Domains](event-domains.md). Use domains if your requirements are similar to the following user story:
+   1.  [Domains](event-domains.md). Use domains if you want to deliver events to multiple teams at scale. Your requirements probably are similar to the following one:
    
-        "As an owner of a system, I want to communicate my system's state changes by publishing events so that thousands of subscribers, who may have control over event subscriptions, can process my system's events in a way they see fit."
+        "As an owner of a system, I want to announce my system’s state changes to multiple teams in a single tenant so that they can process my system’s events in a way they see fit."
 
-2. **An external event source**. We call those external event sources "partners" and are typically SaaS providers or platforms that publish their events to Event Grid. You can learn more by consulting [Partner Events overview](partner-events-overview.md) and [subscribe to partner events](subscribe-to-partner-events.md). Events from the following partners are currently available:
+2. A **SaaS provider or platform** can publish their events to Event Grid through a feature called [Partner Events](partner-events-overview.md). You can [subscribe to those events](subscribe-to-partner-events.md) and automate tasks, for example. Events from the following partners are currently available:
    - [Auth0](auth0-overview.md) 
    - [Microsoft Graph API](subscribe-to-graph-api-events.md). Through Microsoft Graph API you can get events from [Microsoft Outlook](outlook-events.md), [Teams](teams-events.md), [Azure AD](azure-active-directory-events.md), SharePoint, Conversations, security alerts, and Universal Print.
   

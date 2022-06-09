@@ -19,7 +19,7 @@ Microsoft Graph API provides a unified programmable model that you can use to re
 |Security alerts| [Alert](/graph/api/resources/alert)|
 |Microsoft Conversations| [Conversation](/graph/api/resources/conversation)| |
 
-You create a Microsoft Graph API subscription to enable Graph API events to flow into a partner topic. The partner topic is automatically for you as part of the Graph API subscription creation. You use that partner topic to [create event subscriptions](event-filtering.md) to send your events to any of the supported [event handlers](event-handlers.md) that best meets your requirements to process the events.
+You create a Microsoft Graph API subscription to enable Graph API events to flow into a partner topic. The partner topic is automatically created for you as part of the Graph API subscription creation. You use that partner topic to [create event subscriptions](event-filtering.md) to send your events to any of the supported [event handlers](event-handlers.md) that best meets your requirements to process the events.
 
 
 ## Next steps

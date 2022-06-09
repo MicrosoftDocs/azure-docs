@@ -26,26 +26,26 @@ This article describes steps to subscribe to events published by Microsoft Graph
 Besides the ability to subscribe to Microsoft Graph API events via Event Grid, you have [other options](/graph/change-notifications-delivery) through which you can receive similar notifications (not events). Consider using Microsoft Graph API to deliver events to Event Grid if you have at least one of the following requirements:
 
 1. You're developing an event-driven solution that requires events from Azure Active Directory, Outlook, Teams, etc. to react to resource changes. You require the robust eventing model and publish-subscribe capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
-3. You want to use Event Grid to route events to multiple destinations using a single Graph API subscription, and you want to avoid managing multiple Graph API subscriptions.
-4. You require to route events to different downstream applications, webhooks or Azure services depending on some of the properties in the event. For example, you may want to route event types such as `Microsoft.Graph.UserCreated` and `Microsoft.Graph.UserDeleted` events to a specialized application that processes users' onboarding and off-boarding. You may also want to send `Microsoft.Graph.UserUpdated` events to another application that syncs contacts information, for example. You can achieve it using a single Graph API subscription when using Event Grid as a notification destination. For more information, see [event filtering](event-filtering.md) and [event handlers](event-handlers.md).
+3. You want to use Event Grid to route events to multiple destinations using a single Graph API subscription and you want to avoid managing multiple Graph API subscriptions.
+4. You require to route events to different downstream applications, webhooks or Azure services depending on some of the properties in the event. For example, you may want to route event types such as `Microsoft.Graph.UserCreated` and `Microsoft.Graph.UserDeleted` to a specialized application that processes users' onboarding and off-boarding. You may also want to send `Microsoft.Graph.UserUpdated` events to another application that syncs contacts information, for example. You can achieve that using a single Graph API subscription when using Event Grid as a notification destination. For more information, see [event filtering](event-filtering.md) and [event handlers](event-handlers.md).
 5. Interoperability is important to you. You want to forward and handle events in a standard way using CNCF's [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md) specification standard, to which Event Grid fully complies.
 7. You like the extensibility support that CloudEvents provides. For example, if you want to trace events across compliant systems, you may use CloudEvents extension [Distributed Tracing](https://github.com/cloudevents/spec/blob/v1.0.1/extensions/distributed-tracing.md). Learn more about more [CloudEvents extensions](https://github.com/cloudevents/spec/blob/v1.0.1/documented-extensions.md).
 8. You want to use proven event-driven approaches adopted by the industry. 
 
 ## High-level steps
 
-The common steps to subscribe to events published by any partner, including Graph API, are described in [subscribe to partner events](subscribe-to-partner-events.md). For a quick reference, the high-level steps are listed below. This article deals with step 3: how to enable events flow to a partner topic.
+The common steps to subscribe to events published by any partner, including Graph API, are described in [subscribe to partner events](subscribe-to-partner-events.md). For a quick reference, the steps described in that article are listed here. This article deals with step 3: enable events flow to a partner topic.
 
 1. Register the Event Grid resource provider with your Azure subscription.
 2. Authorize partner to create a partner topic in your resource group.
-3. **Enable events to flow to a partner topic.**
+3. [Enable events to flow to a partner topic](#enable-microsoft-graph-api-events-to-flow-to-your-partner-topic)
 4. Activate partner topic so that your events start flowing to your partner topic.
 5. Subscribe to events.
 
 ### Enable Microsoft Graph API events to flow to your partner topic
 
 > [!IMPORTANT]
-> Microsoft Graph API's (MGA) ability to send events to Even Grid (a generally available service) is in private preview. In the following steps, you will follow instructions from [Webhook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=) to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask.graph.and.grid@microsoft.com?subject=Please allow my application ID">mailto:ask.graph.and.grid@microsoft.com?subject=Please allow my Azure AD application with ID to send events through Graph API.</a> so that the Microsoft Graph API team can add your application ID to allow list to use this new capability.
+> Microsoft Graph API's (MGA) ability to send events to Even Grid (a generally available service) is in private preview. In the following steps, you will follow instructions from [Node.js](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java](https://github.com/microsoftgraph/java-spring-webhooks-sample), and[.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample) Webhook samples to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask.graph.and.grid@microsoft.com?subject=Please allow my application ID">mailto:ask.graph.and.grid@microsoft.com?subject=Please allow my Azure AD application with ID to send events through Graph API</a> so that the Microsoft Graph API team can add your application ID to allow list to use this new capability.
 
 You request Microsoft Graph API to send events by creating a Graph API subscription. When you create a Graph API subscription, the http request should look like the following sample:
 
@@ -71,13 +71,13 @@ Here are some of the key payload properties:
 - client state. A value that is set by you when creating a Graph API subscription. For more information, see [Graph API subscription properties](/graph/api/resources/subscription#properties).
 
 > [!NOTE]
-> Microsoft Graph API's capability to send events to Event Grid is only available in specific Graph API environment. You will need to update your code so that it uses the following Graph API endpoint `https://canary.graph.microsoft.com/testprodbetawebhooks1`. For example, this is the way you can set the endpoint on your graph client (`com.microsoft.graph.requests.GraphServiceClient`) using the Java SDK:
+> Microsoft Graph API's capability to send events to Event Grid is only available in a specific Graph API environment. You will need to update your code so that it uses the following Graph API endpoint `https://canary.graph.microsoft.com/testprodbetawebhooks1`. For example, this is the way you can set the endpoint on your graph client (`com.microsoft.graph.requests.GraphServiceClient`) using the Graph API Java SDK:
 >
 >```java
 >graphClient.setServiceRoot("https://canary.graph.microsoft.com/testprodbetawebhooks1");
 >```
 
-**You can create a Microsoft Graph API subscription by following the instructions in the [Microsoft Graph API webhook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=)** that include code samples for [NodeJS](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java (Spring Boot)](https://github.com/microsoftgraph/java-spring-webhooks-sample), and [.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample). There are no samples available for Python, Go and other languages yet, but the [Graph SDK](/graph/sdks/sdks-overview) supports creating Graph API subscriptions in these programming languages. 
+**You can create a Microsoft Graph API subscription by following the instructions in the [Microsoft Graph API webhook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=)** that include code samples for [NodeJS](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java (Spring Boot)](https://github.com/microsoftgraph/java-spring-webhooks-sample), and [.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample). There are no samples available for Python, Go and other languages yet, but the [Graph SDK](/graph/sdks/sdks-overview) supports creating Graph API subscriptions using those programming languages. 
 
 > [!NOTE]
 > - Partner topic names must be unique within the same Azure region. Each tenant-application ID combination can  create up to 10 unique partner topics.
