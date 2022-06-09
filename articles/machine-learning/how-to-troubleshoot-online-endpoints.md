@@ -200,6 +200,7 @@ Below is a list of reasons you might run into this error:
 * [Startup task failed due to incorrect role assignments on resource](#authorization-error)
 * [Unable to download user container image](#unable-to-download-user-container-image)
 * [Unable to download user model or code artifacts](#unable-to-download-user-model-or-code-artifacts)
+* [azureml-fe for kubernetes online endpoint is not ready](#azureml-fe-not-ready)
 
 #### Resource requests greater than limits
 
@@ -244,6 +245,12 @@ Make sure model and code artifacts are registered to the same workspace as the d
 - For example, if the blob is `https://foobar.blob.core.windows.net/210212154504-1517266419/WebUpload/210212154504-1517266419/GaussianNB.pkl`, you can use this command to check if it exists:
 
   `az storage blob exists --account-name foobar --container-name 210212154504-1517266419 --name WebUpload/210212154504-1517266419/GaussianNB.pkl --subscription <sub-name>`
+
+#### azureml-fe not ready
+The front-end component (azureml-fe) that routes incoming inference requests to deployed services automatically scales as needed. It's installed during your k8s-extension installation.
+This component should be healthy on cluster, at least one healthy replica. You will get this error message if it's not avaliable when you trigger kubernetes online endpoint and deployment creation/update request.
+Please check the pod status and logs to fix this issue, you can also try to update the k8s-extension intalled on the cluster.
+
 
 ### ERROR: ResourceNotReady
 
