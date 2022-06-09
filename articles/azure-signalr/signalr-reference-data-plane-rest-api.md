@@ -22,7 +22,7 @@ On top of classical client-server pattern, Azure SignalR Service provides a set 
 
 The following diagram shows a typical server-less architecture of using Azure SignalR Service with Azure Functions.
 
-:::image type="content" source="../media/signalr-reference-data-plane-rest-api/serverless-arch.png" alt-text="A typical serverless architecture for Azure SignalR service":::
+:::image type="content" source="./media/signalr-reference-data-plane-rest-api/serverless-arch.png" alt-text="A typical serverless architecture for Azure SignalR service":::
 
 - `negotiate` function will return negotiation response and redirect all clients to Azure SignalR Service.
 - `broadcast` function will call Azure SignalR Service's REST API. Then SignalR Service will broadcast the message to all connected clients.
@@ -39,8 +39,8 @@ The following table shows all versions of REST API we have for now. You can also
 
 API Version | Status | Port | Doc | Spec 
 ---|---|---|---|---
-`1.0-preview` | Obsolete | Standard | [Doc](./swagger/v1-preview.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1-preview.json)
-`1.0` | Available | Standard | [Doc](./swagger/v1.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1.json)
+`1.0` | Latest | Standard | [Doc](./swagger/v1.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1.json)
+`1.0-preview` | Obsoleted | Standard | [Doc](./swagger/v1-preview.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1-preview.json)
 
 The latest available APIs are listed as following.
 
