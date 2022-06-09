@@ -583,7 +583,7 @@
     {
         "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-server-compute-contexts.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-server-get-started.md",
