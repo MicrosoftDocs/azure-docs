@@ -443,11 +443,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Corelight for Microsoft Sentinel**|Data connector, workbooks, analytics rules, hunting queries, parser | IT Operations, Security - Network | [Zeek Network](https://support.corelight.com/)|
 
-## Zscalar
+## Zscaler
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Zscalar Private Access**|Data connector, workbook, analytics rules, hunting queries, parser | Security - Network | Microsoft|
+|**Zscaler Private Access**|Data connector, workbook, analytics rules, hunting queries, parser | Security - Network | Microsoft|
 
 ## Next steps
 
