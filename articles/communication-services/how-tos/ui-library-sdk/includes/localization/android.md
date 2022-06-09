@@ -104,9 +104,3 @@ CallComposite callComposite =
 |`LayoutDirection.RTL` | `LayoutDirection.LTR`     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
 | :::image type="content" source="media/android-rtl.png" alt-text="Android RTL"::: | :::image type="content" source="media/android-ltr.png" alt-text="Android LTR":::  |
-
-### Customizing Translations
-
-To override a particular string, you can find the list of localization keys here for the key-value pair. You can specify the `languageCode` to be one of the supported languages, and when a key isn't provided, will fall back to our supported translation string. If you specified an unsupported language, you should provide translations for all the keys for that language, and will fall back to English strings when a key isn't provided.
-
-Create a `string.xml` file (or other filename) with the key-value pair for selected keys you want to override.
