@@ -36,11 +36,11 @@ The following system properties are set by IoT Hub on each event.
 | -------- | ---- | ---------- | ------------------------- |
 | content-encoding | string | utf-8 | $contentEncoding |
 | content-type | string | application/json | $contentType |
-| correlation-id | string | A unique ID that identifies the event. NEED MORE DEFINITION! Is this something that can be used to identify events routed to different services? Sometimes it's a GUID and sometime it isn't. | $correlationId |
+| correlation-id | string | A unique ID that identifies the event. **NEED MORE DEFINITION! Is this something that can be used to identify events routed to different services? Sometimes it's a GUID and sometime it isn't.** | $correlationId |
 | user-id | string | The name of IoT Hub that generated the event. | $userId |
 | iothub-connection-device-id | string | The device ID. | $connectionDeviceId |
 | iothub-connection-module-id | string | The module ID. This property is output only for module life cycle and twin events. | $connectionModuleId |
-| iothub-enqueuedtime | number | Date and time when the notification was sent. DESCRIPTION NEEDED as this is a number not a UTC string. 1653677358153. In routing queries, use an [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp for comparison. For example, `$enqueuedTime > "2022-06-06T22:56:06Z"` | $enqueuedTime |
+| iothub-enqueuedtime | number | Date and time when the notification was sent. **DESCRIPTION NEEDED as this is a number not a UTC string. 1653677358153.** In routing queries, use an [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp; for example, `$enqueuedTime > "2022-06-06T22:56:06Z"` | $enqueuedTime |
 | iothub-message-source | string | The event category that identifies the message source. For example, *deviceLifecycleEvents*. |  N/A (tried $messageSource but it didn't work) |
 
 ### Application properties
@@ -49,7 +49,7 @@ The following application properties are set by IoT Hub on each event.
 
 | Property | Type |Description |
 | -------- | ---- | ---------- |
-| deviceId | string | The device ID. | deviceId |
+| deviceId | string | The device ID. |
 | hubName | string | The name of the IoT Hub that generated the event. |
 | iothub-message-schema | string | The message schema associated with the event category; for example, *deviceLifecycleNotification*. |
 | moduleId | string | The module ID. This property is output only for module lifecycle and twin change events. |
