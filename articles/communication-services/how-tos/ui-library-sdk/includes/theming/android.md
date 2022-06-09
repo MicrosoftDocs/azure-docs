@@ -54,8 +54,22 @@ Contoso developers can implement a **Theme** within their apps like this one to 
 
 The theme style will be applied to pass the Theme resource ID to the ThemeConfiguration/Theme in the `CallCompositeBuilder`.
 
-```Kotlin
-CallCompositeBuilder().theme(ThemeConfiguration(R.style.Contoso_Theme_Calling))
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+val callComposite: CallComposite =
+        CallCompositeBuilder()
+            .theme(R.style.MyCompany_CallComposite)
+            .build()
+```
+
+#### [Java](#tab/java)
+
+```java
+CallComposite callComposite = 
+    new CallCompositeBuilder()
+        .theme(R.style.MyCompany_CallComposite)
+        .build();
 ```
 
 #### Light/Dark modes
