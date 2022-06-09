@@ -46,8 +46,12 @@ To edit your JMeter script by using the Apache JMeter GUI:
   1. Select the **CSV Data Set Config** element in your test plan.
 
   1. Update the **Filename** information and remove any file path reference.
+  
+  1. Enter the CSV field names in **Variable names**.
 
-        :::image type="content" source="media/how-to-read-csv-data/update-csv-data-set-config.png" alt-text="Screenshot that shows the test runs to compare.":::
+        Azure Load Testing doesn't preserve the header row when splitting your CSV file. Provide the variable names in the CSV Data Set Config element instead of using a header row.
+
+        :::image type="content" source="media/how-to-read-csv-data/update-csv-data-set-config.png" alt-text="Screenshot that shows the JMeter UI to configure a C S V Data Set Config element.":::
     
   1. Repeat the previous steps for every CSV Data Set Config element.
   
@@ -57,7 +61,11 @@ To edit your JMeter script by using Visual Studio Code or your editor of prefere
 
   1. Open the JMX file in Visual Studio Code.
 
-  1. For each `CSVDataSet`, update the `filename` element and remove any file path reference.
+  1. For each `CSVDataSet`: 
+
+      1. Update the `filename` element and remove any file path reference.
+
+      1. Add the CSV field names as a comma-separated list in `variableNames`.
 
         ```xml
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Search parameters" enabled="true">
@@ -78,6 +86,9 @@ To edit your JMeter script by using Visual Studio Code or your editor of prefere
 ## Add a CSV file to your load test
 
 When you reference an external file in your JMeter script, upload this file to your load test. When the load starts, Azure Load Testing copies all files to a single folder on each of the test engines instances.
+
+> [!IMPORTANT]
+> Azure Load Testing doesn't preserve the header row when splitting your CSV file. Before you add the CSV file to the load test, remove the header row from the file.
 
 ::: zone pivot="experience-azp"
 
