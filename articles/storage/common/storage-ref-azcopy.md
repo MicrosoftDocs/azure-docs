@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy command.
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 05/26/2022
+ms.date: 06/09/2022
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -54,6 +54,7 @@ To report issues or to learn more about the tool, see [https://github.com/Azure/
 - [azcopy jobs show](storage-ref-azcopy-jobs-show.md)
 - [azcopy list](storage-ref-azcopy-list.md)
 - [azcopy login](storage-ref-azcopy-login.md)
+- [azcopy login status](storage-ref-azcopy-login-status.md)
 - [azcopy logout](storage-ref-azcopy-logout.md)
 - [azcopy make](storage-ref-azcopy-make.md)
 - [azcopy remove](storage-ref-azcopy-remove.md)
