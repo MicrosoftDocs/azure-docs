@@ -270,7 +270,7 @@ The Azure Monitor agent can coexist (run side by side on the same machine) with 
 
 ## Next steps 
 
-After the successful installation of monitoring agents, proceed to [Creation a Connection Monitor](./connection-monitor-overview.md#create-a-connection-monitor). 
+After the successful installation of monitoring agents, proceed to [create a Connection Monitor](./connection-monitor-overview.md#create-a-connection-monitor). 
 Upon the successful creation of Connection Monitor, analyze monitoring data and set alerts. Diagnose issues in your connection monitor and your network. 
 
 Refer to the existing document of [Connection Monitor](./connection-monitor-overview.md) to proceed further with network connectivity monitoring of your Azure and Non-Azure set-ups. 
