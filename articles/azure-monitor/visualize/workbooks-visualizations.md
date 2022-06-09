@@ -17,14 +17,14 @@ Workbooks provide a rich set of capabilities for visualizing Azure Monitor data.
 Workbooks support these kinds of visual components:
 * [Text parameters](#text-parameters)
 * Using queries:
-    * [Charts](#chartsworkbooks-chart-visualizationsmd)
-    * [Grids](#gridsworkbooks-grid-visualizationsmd)
-    * [Tiles](#tilesworkbooks-tile-visualizationsmd)
-    * [Trees](#tilesworkbooks-tree-visualizationsmd)
-    * [Honey comb](#honey-combworkbooks-honey-combmd)
-    * [Graphs](#graphsworkbooks-graph-visualizationsmd)
-    * [Maps](#mapsworkbooks-map-visualizationsmd)
-    * [Text visualization](#text-visualizationworkbooks-text-visualizationsmd)
+    * [Charts](#charts)
+    * [Grids](#grids)
+    * [Tiles](#tiles)
+    * [Trees](#trees)
+    * [Honey comb](#honey-comb)
+    * [Graphs](#graphs)
+    * [Maps](#maps)
+    * [Text visualization](#text-visualizations)
 
 > [!NOTE]
 > Each visualization and data source may have its own [Limits](workbooks-limits.md).
@@ -63,7 +63,7 @@ Workbooks support these kinds of visual components:
 
 :::image type="content" source="media/workbooks-visualizations/MapExample.png" alt-text="Example image of an Azure workbooks map visualization.":::
 
-### [Text visualization](workbooks-text-visualizations.md)
+### [Text visualizations](workbooks-text-visualizations.md)
 
 :::image type="content" source="media/workbooks-visualizations/TextVisualizationExample.png" alt-text="Example image of an Azure workbooks text visualization.":::
 ## Next steps
