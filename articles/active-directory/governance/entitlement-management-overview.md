@@ -65,7 +65,7 @@ You can also read the [common scenarios](entitlement-management-scenarios.md), o
 
 Entitlement management introduces to Azure AD the concept of an *access package*. An access package is a bundle of all the resources with the access a user needs to work on a project or perform their task. Access packages are used to govern access for your internal employees, and also users outside your organization.
 
- Here are the types of resources you can manage user's access to with entitlement management:
+ Here are the types of resources you can manage user's access to, with entitlement management:
 
 - Membership of Azure AD security groups
 - Membership of Microsoft 365 Groups and Teams
@@ -82,15 +82,17 @@ You can also control access to other resources that rely upon Azure AD security 
 
 With an access package, an administrator or delegated access package manager lists the resources (groups, apps, and sites), and the roles the users need for those resources.
 
-Access packages also include one or more *policies*. A policy defines the rules or guardrails for assignment to access package. Each policy can be used to ensure that only the appropriate users are able to request access, that there are approvers for their request, and that their access to those resources is time-limited and will expire if not renewed.
+Access packages also include one or more *policies*. A policy defines the rules or guardrails for assignment to access package. Each policy can be used to ensure that only the appropriate users are able to have access assignments, and the access is time-limited and will expire if not renewed.
 
 ![Access package and policies](./media/entitlement-management-overview/elm-overview-access-package.png)
 
-Within each policy, an administrator or access package manager defines
+You can have policies for users to request access. In these kinds of policies, an administrator or access package manager defines
 
 - Either the already-existing users (typically employees or already-invited guests), or the partner organizations of external users, that are eligible to request access
 - The approval process and the users that can approve or deny access
 - The duration of a user's access assignment, once approved, before the assignment expires
+
+You can also have policies for users to be assigned access, either by an administrator or automatically.
 
 The following diagram shows an example of the different elements in entitlement management. It shows one catalog with two example access packages.
 

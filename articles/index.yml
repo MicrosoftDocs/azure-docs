@@ -164,7 +164,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/face/index.yml
+      url: cognitive-services/computer-vision/index-identity.yml
     # Card
     - title: Form Recognizer
       summary: The AI-powered document extraction service that understands your forms
@@ -287,7 +287,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
         - media
-      url: /azure-video-indexer/index.yml
+      url: /azure/azure-video-indexer/
     # Card
     - title: Azure Analysis Services
       summary: Enterprise-grade analytics engine as a service

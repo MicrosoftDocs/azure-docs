@@ -1,14 +1,14 @@
 ---
-title: How to move a schedule to another region
-description: This article explains how to move schedules to another Azure region.
+title: Move a schedule to another region
+description: This article explains how to move a top level schedule to another Azure region.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 05/09/2022
 ---
-# Move schedules to another region
+# Move a schedule to another region
 
-In this article, you'll learn how to move schedules by using an Azure Resource Manager (ARM) template. 
+In this article, you'll learn how to move a schedule by using an Azure Resource Manager (ARM) template. 
 
 DevTest Labs supports two types of schedules.
 

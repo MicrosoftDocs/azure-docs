@@ -1,12 +1,13 @@
 ---
 title: Provision container throughput in Azure Cosmos DB SQL API
 description: Learn how to provision throughput at the container level in Azure Cosmos DB SQL API using Azure portal, CLI, PowerShell and various other SDKs. 
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ---
 

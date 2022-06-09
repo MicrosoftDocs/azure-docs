@@ -181,7 +181,7 @@ If there is no data, do the following:
 ## View Azure Diagnostics events
 You can find the [Azure Diagnostics](../agents/diagnostics-extension-overview.md) information in Application Insights in the following locations:
 
-* Performance counters are displayed as custom metrics.
+* Performance counters are displayed as custom metrics.   
 * Windows event logs are shown as traces and custom events.
 * Application logs, ETW logs, and any diagnostics infrastructure logs appear as traces.
 

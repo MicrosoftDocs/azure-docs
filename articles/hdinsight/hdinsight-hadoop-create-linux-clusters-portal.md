@@ -4,7 +4,7 @@ description: Learn to create Apache Hadoop, Apache HBase, Apache Storm, or Apach
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 08/06/2020
+ms.date: 05/31/2022
 ---
 
 # Create Linux-based clusters in HDInsight by using the Azure portal

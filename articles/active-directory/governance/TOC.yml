@@ -29,7 +29,7 @@
       - name: Manage access to resources - Microsoft Graph
         href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - name: Manage access to resources - PowerShell
-        href: /powershell/microsoftgraph/tutorial-entitlement-management?view=graph-powershell-beta
+        href: /powershell/microsoftgraph/tutorial-entitlement-management
       - name: Review access to Microsoft 365 groups - Microsoft Graph
         href: /graph/tutorial-accessreviews-m365group
       - name: Review access to security groups - Microsoft Graph

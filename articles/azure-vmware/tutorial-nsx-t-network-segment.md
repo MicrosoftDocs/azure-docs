@@ -3,6 +3,7 @@ title: Tutorial - Add a network segment in Azure VMware Solution
 description: Learn how to add a network segment to use for virtual machines (VMs) in vCenter Server.
 ms.topic: tutorial
 ms.custom: contperf-fy22q1
+ms.service: azure-vmware
 ms.date: 07/16/2021
 ---
 

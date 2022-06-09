@@ -1,26 +1,21 @@
 ---
-title: Auto grow storage - Azure PowerShell - Azure Database for PostgreSQL
-description: This article describes how you can enable auto grow storage using PowerShell in Azure Database for PostgreSQL.
+title: Auto grow storage in Azure Database for PostgreSQL using PowerShell
+description: Learn how to auto grow storage using PowerShell in Azure Database for PostgreSQL.
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal 
-ms.date: 06/08/2020 
-ms.custom: devx-track-azurepowershell
+ms.date: 05/17/2022 
+ms.custom: kr2b-contr-experiment
 ---
-# Auto grow storage in Azure Database for PostgreSQL server using PowerShell
+# Auto grow Azure Database for PostgreSQL storage using PowerShell
 
-This article describes how you can configure an Azure Database for PostgreSQL server storage to grow
-without impacting the workload.
+This article describes how you can use PowerShell to configure Azure Database for PostgreSQL server storage to scale up automatically without impacting the workload.
 
-Storage auto grow prevents your server from
-[reaching the storage limit](./concepts-pricing-tiers.md#reaching-the-storage-limit) and
-becoming read-only. For servers with 100 GB or less of provisioned storage, the size is increased by
-5 GB when the free space is below 10%. For servers with more than 100 GB of provisioned storage, the
-size is increased by 5% when the free space is below 10 GB. Maximum storage limits apply as
-specified in the storage section of the
-[Azure Database for PostgreSQL pricing tiers](./concepts-pricing-tiers.md#storage).
+Storage auto grow prevents your server from [reaching the storage limit](./concepts-pricing-tiers.md#reaching-the-storage-limit) and
+becoming read-only. For servers with 100 GB or less of provisioned storage, the size increases by 5 GB when the free space is below 10%. For servers with more than 100 GB of provisioned storage, the size increases by 5% when the free space is below 10 GB. Maximum storage limits apply as
+specified in the storage section of the [Azure Database for PostgreSQL pricing tiers](./concepts-pricing-tiers.md#storage).
 
 > [!IMPORTANT]
 > Remember that storage can only be scaled up, not down.
@@ -29,28 +24,21 @@ specified in the storage section of the
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](/powershell/azure/install-az-ps) installed locally or
-  [Azure Cloud Shell](https://shell.azure.com/) in the browser
+- The [Az PowerShell module](/powershell/azure/install-az-ps) installed locally or [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for PostgreSQL server](quickstart-create-postgresql-server-database-using-azure-powershell.md)
-
-> [!IMPORTANT]
-> While the Az.PostgreSql PowerShell module is in preview, you must install it separately from the Az
-> PowerShell module using the following command: `Install-Module -Name Az.PostgreSql -AllowPrerelease`.
-> Once the Az.PostgreSql PowerShell module is generally available, it becomes part of future Az
-> PowerShell module releases and available natively from within Azure Cloud Shell.
 
 If you choose to use PowerShell locally, connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ## Enable PostgreSQL server storage auto grow
 
-Enable server auto grow storage on an existing server with the following command:
+Enable auto grow storage on an existing server with the following command:
 
 ```azurepowershell-interactive
 Update-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -StorageAutogrow Enabled
 ```
 
-Enable server auto grow storage while creating a new server with the following command:
+Enable auto grow storage while creating a new server with the following command:
 
 ```azurepowershell-interactive
 $Password = Read-Host -Prompt 'Please enter your password' -AsSecureString

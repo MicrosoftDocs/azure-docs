@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 05/24/2022
 ms.author: duau
 ms.custom: references_regions
 
@@ -68,6 +68,7 @@ The following table shows connectivity locations and the service providers for e
 | **Copenhagen** | [Interxion CPH1](https://www.interxion.com/Locations/copenhagen/) | 1 | n/a | Supported | Interxion |
 | **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | 1 | n/a | Supported | Aryaka Networks, AT&T NetBond, Cologix, Cox Business Cloud Port, Equinix, Intercloud, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Orange, PacketFabric, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
 | **Denver** | [CoreSite DE1](https://www.coresite.com/data-centers/locations/denver/de1) | 1 | West Central US | Supported | CoreSite, Megaport, PacketFabric, Zayo |
+| **Doha2** | [Ooredoo](https://www.ooredoo.qa/portal/OoredooQatar/b2b-data-centre) | 3 | Qatar Central | Supported | |
 | **Dubai** | [PCCS](https://www.pacificcontrols.net/cloudservices/index.html) | 3 | UAE North | n/a | Etisalat UAE |
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | UAE North | n/a | DE-CIX, du datamena, Equinix, GBI, Megaport, Orange, Orixcom |
 | **Dublin** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | North Europe | Supported | CenturyLink Cloud Connect, Colt, eir, Equinix, GEANT, euNetworks, Interxion, Megaport, Zayo|
@@ -109,7 +110,7 @@ The following table shows connectivity locations and the service providers for e
 | **Rio de Janeiro** | [Equinix-RJ2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/rio-de-janeiro-data-centers/rj2/) | 3 | Brazil Southeast | Supported | Equinix |
 | **San Antonio** | [CyrusOne SA1](https://cyrusone.com/locations/texas/san-antonio-texas/) | 1 | South Central US | Supported | CenturyLink Cloud Connect, Megaport, Zayo |
 | **Sao Paulo** | [Equinix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | 3 | Brazil South | Supported | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, InterCloud, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
-| **Sao Paulo2** | [TIVIT TSM](https://www.tivit.com/en/tivit/) | 3 | Brazil South | Supported | Ascenty Data Centers |
+| **Sao Paulo2** | [TIVIT TSM](https://www.tivit.com/en/tivit/) | 3 | Brazil South | Supported | Ascenty Data Centers, Tivit |
 | **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 1 | West US 2 | Supported | Aryaka Networks, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Telus, Zayo |
 | **Seoul** | [KINX Gasan IDC](https://www.kinx.net/?lang=en) | 2 | Korea Central | Supported | KINX, KT, LG CNS, LGUplus, Equinix, Sejong Telecom, SK Telecom |
 | **Seoul2** | [KT IDC](https://www.kt-idc.com/eng/introduce/sub1_4_10.jsp#tab) | 2 | Korea Central | n/a | KT |
@@ -144,7 +145,7 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | n/a | Supported | AT&T NetBond, British Telecom, Equinix, Level 3 Communications, Verizon |
 | **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | n/a | Supported | Equinix, Internet2, Megaport, Verizon |
 | **New York** | [Equinix NY5](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny5/) | n/a | Supported | Equinix, CenturyLink Cloud Connect, Verizon |
-| **Phoenix** | [CyrusOne Chandler](https://cyrusone.com/data-center-locations/arizona/phoenix-data-center/) | US Gov Arizona | Supported | AT&T NetBond, CenturyLink Cloud Connect, Megaport |
+| **Phoenix** | [CyrusOne Chandler](https://cyrusone.com/locations/arizona/phoenix-arizona-chandler/) | US Gov Arizona | Supported | AT&T NetBond, CenturyLink Cloud Connect, Megaport |
 | **San Antonio** | [CyrusOne SA2](https://cyrusone.com/locations/texas/san-antonio-texas-ii/) | US Gov Texas | Supported | CenturyLink Cloud Connect, Megaport |
 | **Silicon Valley** | [Equinix SV4](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv4/) | n/a | Supported | AT&T, Equinix, Level 3 Communications, Verizon |
 | **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | n/a | Supported | Equinix, Megaport |

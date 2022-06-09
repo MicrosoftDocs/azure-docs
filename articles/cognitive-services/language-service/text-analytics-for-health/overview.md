@@ -40,7 +40,7 @@ To use this feature, you submit raw unstructured text for analysis and handle th
 
 |Development option  |Description  | Links | 
 |---------|---------|---------|
-| Language Studio    | A web-based platform that enables you to try Text Analytics for health without needing writing code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/healthAnalysis) <br> • [Quickstart: Use the Language studio](../language-studio.md) |
+| Language Studio    | A web-based platform that enables you to try Text Analytics for health without needing writing code. | • [Language Studio website](https://language.cognitive.azure.com/tryout/healthAnalysis) <br> • [Quickstart: Use Language Studio](../language-studio.md) |
 | REST API or Client library (Azure SDK)     | Integrate Text Analytics for health into your applications using the REST API, or the client library available in a variety of languages. | • [Quickstart: Use Text Analytics for health](quickstart.md)  |
 | Docker container | Use the available Docker container to deploy this feature on-premises, letting you bring the service closer to your data for compliance, security, or other operational reasons. | • [How to deploy on-premises](how-to/use-containers.md) |
 

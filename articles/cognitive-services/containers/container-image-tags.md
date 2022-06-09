@@ -2399,14 +2399,14 @@ This container image has the following tags available. You can also find a full 
 
 # [Latest version](#tab/current)
 
-* Release notes for version `1.7.0`:
-    * Update langauge detection engine, and fix the support of throttling rate for continuous accuracy mode
+* Release notes for version `1.9.0`:
+    * Bug fixes
 
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                       |      |
-| `1.8.0-amd64-preview`                       |      |
+| `1.9.0-amd64-preview`                       |      |
 
 # [Previous versions](#tab/previous)
 

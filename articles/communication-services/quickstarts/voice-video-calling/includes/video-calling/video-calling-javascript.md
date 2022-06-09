@@ -14,7 +14,7 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1)
+- [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows).
 - Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../access-tokens.md?pivots=programming-language-csharp).
 
@@ -27,10 +27,10 @@ mkdir calling-quickstart && cd calling-quickstart
 ### Install the package
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 > [!IMPORTANT]
-> This quickstart uses the Azure Communication Services Calling SDK version `1.3.2-beta.1`. 
+> This quickstart uses the Azure Communication Services Calling SDK version `1.4.4`. 
 ```console
 npm install @azure/communication-common --save
-npm install @azure/communication-calling@1.3.2 --save
+npm install @azure/communication-calling@1.4.4 --save
 ```
 ### Set up the app framework
 
