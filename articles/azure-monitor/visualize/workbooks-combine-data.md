@@ -38,5 +38,5 @@ Workbooks support these merges:
 * Duplicate table
 
 ## Next Steps
- - [Getting started with Azure Workbooks](workbooks-getting-started.md) learning more about workbooks many rich visualizations options.
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md).
  - [Azure workbooks data sources](workbooks-data-sources.md).
