@@ -1,7 +1,7 @@
 ---
-title: Microsoft Graph API events 
-description: Microsoft Graph API events from 
-ms.topic: Microsoft Graph API Overview
+title: Microsoft Graph API events in Azure Event Grid
+description: This article describes events published by Microsoft Graph API.
+ms.topic: conceptual
 ms.date: 06/09/2022
 ---
 
