@@ -17,7 +17,7 @@ Get pricing information for the Azure Computer Vision services.
 
 | Service | Pricing link |
 | --- | --- |
-|Optical character recognition | [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision)  |
-|Image Analysis |[pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision)   |
-|Face | [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/face-api)  | 
-|Spatial Analysis| [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision)  |
+|Optical character recognition (OCR) | [OCR pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision)  |
+|Image Analysis |[Image Analysis pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision)   |
+|Face | [Face pricing](https://azure.microsoft.com/pricing/details/cognitive-services/face-api)  | 
+|Spatial Analysis| [Spatial Analysis pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision)  |
