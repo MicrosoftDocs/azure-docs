@@ -972,6 +972,8 @@
         href: grovo-tutorial.md
       - name: GT Nexus Prod System
         href: gtnexus-sso-module-tutorial.md  
+      - name: Guardium Data Protection
+        href: guardium-data-protection-tutorial.md
     - name: H - I
       items:
       - name: Hackerone
