@@ -196,8 +196,6 @@ The following example skillset creates a *merged_text* field. This field contain
 }
 ```
 
-For clarification, *contentOffset* comes from the normalized images that are extracted. This is for cases in which, if you have a document with a mix of text and images, you can easily merge the text that is extracted from the images with OCR skill back into the original document, at the location that the image ocurred.
-
 The above skillset example assumes that a normalized-images field exists. To generate this field, set the *imageAction* configuration in your indexer definition to *generateNormalizedImages* as shown below:
 
 ```json
