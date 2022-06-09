@@ -800,7 +800,7 @@ Use the following table to determine supported styles and roles for each neural 
 |zh-CN-XiaomoNeural|`affectionate`, `angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `envious`, `fearful`, `gentle`, `sad`, `serious`|Supported|Supported|
 |zh-CN-XiaoruiNeural|`angry`, `calm`, `fearful`, `sad`|Supported||
 |zh-CN-XiaoshuangNeural|`chat`|Supported||
-|zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `disgruntled`, `fearful`, `gentle`, `lyrical`, `newscast`, `sad`, `serious`|Supported||
+|zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `disgruntled`, `fearful`, `gentle`, `lyrical`, `newscast`, `poetry-reading`, `sad`, `serious`|Supported||
 |zh-CN-XiaoxuanNeural|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|Supported|Supported|
 |zh-CN-YunxiNeural|`angry`, `assistant`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `narration-relaxed`, `sad`, `serious`|Supported|Supported|
 |zh-CN-YunyangNeural|`customerservice`, `narration-professional`, `newscast-casual`|Supported||
@@ -925,6 +925,7 @@ The following table lists the released languages and public preview languages.
 |English (United Kingdom)|`en-GB`<sup>Public preview</sup> |
 |English (United States)|`en-US`<sup>General available</sup>|
 |French (France)|`fr-FR`<sup>Public preview</sup> |
+|German (Germany)|`de-DE`<sup>Public preview</sup> |
 |Spanish (Spain)|`es-ES`<sup>Public preview</sup> |
 
 > [!NOTE]

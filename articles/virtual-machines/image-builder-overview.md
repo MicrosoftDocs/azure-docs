@@ -39,8 +39,8 @@ To reduce the complexity of creating VM images, VM Image Builder:
 
 ### Infrastructure as code
 
-With VM Image Builder, you no longer need to manage your long-term infrastructure (for example, storage accounts that hold customization data) or transient infrastructure (for example,  temporary VMs for building images). 
-- VM Image Builder stores your VM image build specification and customization artifacts as Azure resources. This feature removes both the need to maintain offline definitions and the risk of environment drift caused by accidental deletions or updates.
+With VM Image Builder, there's no need to manage your long-term infrastructure (for example, storage accounts that hold customization data) or transient infrastructure (for example,  temporary VMs for building images). 
+- VM Image Builder stores your VM image build artifacts as Azure resources. This feature removes both the need to maintain offline definitions and the risk of environment drifts that are caused by accidental deletions or updates.
 
 ### Security
 
@@ -55,6 +55,7 @@ To help keep your images secure, VM Image Builder:
 - Enables you to connect VM Image Builder to your existing virtual networks, so that you can communicate with existing configuration servers, such as DSC (desired state configuration pull server), Chef, and Puppet, file shares, or any other routable servers and services.
 
 - Can be configured to assign your User Assigned Identities to the VM Image Builder build VM (that is, the VM that the VM Image Builder service creates in your subscription and uses to build and customize the image). You can then use these identities at customization time to access Azure resources, including secrets, in your subscription. There's no need to assign VM Image Builder direct access to those resources.
+
 
 ## Regions
 
@@ -92,6 +93,16 @@ The VM Image Builder service is available in the following regions:
 - East Asia
 - Korea Central
 - South Africa North
+- USGov Arizona (Public Preview)
+- USGov Virginia (Public Preview)
+
+> [!IMPORTANT]
+> Register the feature "Microsoft.VirtualMachineImages/FairfaxPublicPreview" to access the Azure Image Builder public preview in Fairfax regions (USGov Arizona and USGov Virginia).
+
+Use the following command to register the feature for Azure Image Builder in Fairfax regions (USGov Arizona and USGov Virginia).
+```azurecli-interactive
+az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPublicPreview
+```
 
 
 ## OS support
@@ -105,6 +116,7 @@ VM Image Builder supports the following Azure Marketplace base OS images:
 - Windows 10 RS5 Enterprise/Enterprise multi-session/Professional
 - Windows 2016
 - Windows 2019
+- CBL-Mariner
 
 >[!IMPORTANT]
 > These operating systems have been tested and now work with VM Image Builder. However, VM Image Builder should work with any Linux or Windows image in the marketplace.

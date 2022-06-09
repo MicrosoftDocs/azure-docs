@@ -2,14 +2,14 @@
 title: Your sign-in was blocked
 description: Troubleshoot a blocked sign-in to the Microsoft Application Network portal. 
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 1/18/2022
-ms.author: davidmu
+ms.author: jomondi
 ms.reviewer: jeedes
 #Customer intent: As a publisher of an application, I want troubleshoot a blocked sign-in to the Microsoft Application Network portal.
 ---

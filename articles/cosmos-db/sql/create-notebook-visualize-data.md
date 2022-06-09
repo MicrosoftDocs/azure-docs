@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.date: 11/05/2019
 ms.author: dech
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Tutorial: Create a notebook in Azure Cosmos DB to analyze and visualize the data

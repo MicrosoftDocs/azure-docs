@@ -1,8 +1,9 @@
 ---
 title: SQL query metrics for Azure Cosmos DB SQL API
 description: Learn about how to instrument and debug the SQL query performance of Azure Cosmos DB requests.
-author: timsander1
-ms.author: tisande
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to

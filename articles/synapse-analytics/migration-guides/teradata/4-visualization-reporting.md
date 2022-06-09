@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 05/24/2022
+ms.date: 05/31/2022
 ---
 
 # Visualization and reporting for Teradata migrations
@@ -18,7 +18,7 @@ This article is part four of a seven part series that provides guidance on how t
 
 ## Access Azure Synapse Analytics using Microsoft and third-party BI tools
 
-Almost every organization accesses data warehouses and data marts by using a range of BI tools and applications, such as:
+Almost every organization accesses data warehouses and data marts using a range of BI tools and applications, such as:
 
 - Microsoft BI tools, like Power BI.
 
@@ -28,11 +28,11 @@ Almost every organization accesses data warehouses and data marts by using a ran
 
 - Custom analytic applications that have embedded BI tool functionality inside the application.
 
-- Operational applications that request BI on demand by invoking queries and reports as-a-service on a BI platform, that in turn queries data in the data warehouse or data marts that are being migrated.
+- Operational applications that request BI on demand, invoke queries and reports as-a-service on a BI platform, which in turn queries data in the data warehouse or data marts that are being migrated.
 
-- Interactive data science development tools, for instance, Azure Synapse Spark Notebooks, Azure Machine Learning, RStudio, Jupyter Notebooks.
+- Interactive data science development tools, such as Azure Synapse Spark Notebooks, Azure Machine Learning, RStudio, and Jupyter Notebooks.
 
-The migration of visualization and reporting as part of a data warehouse migration program, means that all the existing queries, reports, and dashboards generated and issued by these tools and applications need to run on Azure Synapse and yield the same results as they did in the original data warehouse prior to migration.
+The migration of visualization and reporting as part of a data warehouse migration program means that all the existing queries, reports, and dashboards generated and issued by these tools and applications need to run on Azure Synapse and yield the same results as they did in the original data warehouse prior to migration.
 
 > [!TIP]
 > Existing users, user groups, roles and assignments of access security privileges need to be migrated first for migration of reports and visualizations to succeed.
@@ -74,12 +74,12 @@ In addition, all the required data needs to be migrated to ensure the same resul
 > [!TIP]
 > Views and SQL queries using proprietary SQL query extensions are likely to result in incompatibilities that impact BI reports and dashboards.
 
-If BI tools are querying views in the underlying data warehouse or data mart database, then will these views still work? You might think yes, but if there are proprietary SQL extensions, specific to your legacy data warehouse DBMS in these views that have no equivalent in Azure Synapse, you'll need to know about them and find a way to resolve them.
+If BI tools are querying views in the underlying data warehouse or data mart database, then will these views still work? You might think yes, but if there are proprietary SQL extensions specific to your legacy data warehouse DBMS in these views that have no equivalent in Azure Synapse, you'll need to know about them and find a way to resolve them.
 
 Other issues like the behavior of nulls or data type variations across DBMS platforms need to be tested, in case they cause slightly different calculation results. Obviously, you want to minimize these issues and take all necessary steps to shield business users from any kind of impact. Depending on your legacy data warehouse system (such as Teradata), there are [tools](../../partner/data-integration.md) that can help hide these differences so that BI tools and applications are kept unaware of them and can run unchanged.
 
 > [!TIP]
-> Use repeatable tests to ensure reports, dashboards, and other visualizations migrate successfully,.
+> Use repeatable tests to ensure reports, dashboards, and other visualizations migrate successfully.
 
 Testing is critical to visualization and report migration. You need a test suite and agreed-on test data to run and rerun tests in both environments. A test harness is also useful, and a few are mentioned later in this guide. In addition, it's also important to have significant business involvement in this area of migration to keep confidence high and to keep them engaged and part of the project.
 
@@ -97,7 +97,9 @@ There's a lot to think about here, so let's look at all this in more detail.
 > [!TIP]
 > Data virtualization allows you to shield business users from structural changes during migration so that they remain unaware of changes.
 
-The temptation during data warehouse migration to the cloud is to take the opportunity to make changes during the migration to fulfill long-term requirements, such as opening business requests, missing data, new features, and more. However, if you're going to do that, it can affect BI tool business users and applications accessing your data warehouse, especially if it involves structural changes in your data model. Even if there were no new data structures because of new requirements, but you're considering adopting a different data modeling technique (like Data Vault) in your migrated data warehouse, you're likely to cause structural changes that impact BI reports and dashboards. If you want to adopt an agile data modeling technique, do so after migration. One way in which you can minimize the impact of things like schema changes on BI tools, users, and the reports they produce, is to introduce data virtualization between BI tools and your data warehouse and data marts. The following diagram shows how data virtualization can hide the migration from users.
+The temptation during data warehouse migration to the cloud is to take the opportunity to make changes during the migration to fulfill long-term requirements, such as opening business requests, missing data, new features, and more. However, these changes can affect the BI tools accessing your data warehouse, especially if it involves structural changes in your data model. If you want to adopt an agile data modeling technique or implement structural changes, do so *after* migration. 
+
+One way in which you can minimize the impact of things like schema changes on BI tools is to introduce data virtualization between BI tools and your data warehouse and data marts. The following diagram shows how data virtualization can hide the migration from users.
 
 :::image type="content" source="../media/4-visualization-reporting/migration-data-virtualization.png" border="true" alt-text="Diagram showing how to hide the migration from users through data virtualization.":::
 
@@ -122,23 +124,23 @@ A key question when migrating your existing reports and dashboards to Azure Syna
 
 These factors are discussed in more detail later in this article.
 
-Whatever the decision is, it must involve the business, since they produce the reports and dashboards, and consume the insights these artifacts provide in support of the decisions that are made around your business. That said, if most reports and dashboards can be migrated seamlessly, with minimal effort, and offer up like-for-like results, simply by pointing your BI tool(s) at Azure Synapse, instead of your legacy data warehouse system, then everyone benefits. Therefore, if it's that straightforward and there's no reliance on legacy system proprietary SQL extensions, then there's no doubt that the above ease of migration option breeds confidence.
+Whatever the decision is, it must involve the business, since they produce the reports and dashboards, and consume the insights these artifacts provide in support of the decisions that are made around your business. That said, if most reports and dashboards can be migrated seamlessly, with minimal effort, and offer up like-for-like results, simply by pointing your BI tool(s) at Azure Synapse, instead of your legacy data warehouse system, then everyone benefits.
 
 ### Migrate reports based on usage
 
 Usage is interesting, since it's an indicator of business value. Reports and dashboards that are never used clearly aren't contributing to supporting any decisions and don't currently offer any value. So, do you have any mechanism for finding out which reports and dashboards are currently not used? Several BI tools provide statistics on usage, which would be an obvious place to start.
 
-If your legacy data warehouse has been up and running for many years, there's a high chance you could have hundreds, if not thousands, of reports in existence. In these situations, usage is an important indicator to the business value of a specific report or dashboard. In that sense, it's worth compiling an inventory of the reports and dashboards you have and defining their business purpose and usage statistics.
+If your legacy data warehouse has been up and running for many years, there's a high chance you could have hundreds, if not thousands, of reports in existence. In these situations, usage is an important indicator of the business value of a specific report or dashboard. In that sense, it's worth compiling an inventory of the reports and dashboards you have and defining their business purpose and usage statistics.
 
-For those that aren't used at all, it's an appropriate time to seek a business decision, to determine if it necessary to decommission those reports to optimize your migration efforts. A key question worth asking when deciding to decommission unused reports is: are they unused because people don't know they exist, or is it because they offer no business value, or have they been superseded by others?
+For those that aren't used at all, it's an appropriate time to seek a business decision, to determine if it's necessary to decommission those reports to optimize your migration efforts. A key question worth asking when deciding to decommission unused reports is: are they unused because people don't know they exist, or is it because they offer no business value, or have they been superseded by others?
 
 ### Migrate reports based on business value
 
 Usage on its own isn't a clear indicator of business value. There needs to be a deeper business context to determine the value to the business. In an ideal world, we would like to know the contribution of the insights produced in a report to the bottom line of the business. That's exceedingly difficult to determine, since every decision made, and its dependency on the insights in a specific report, would need to be recorded along with the contribution that each decision makes to the bottom line of the business. You would also need to do this over time.
 
-This level of detail is unlikely to be available in most organizations. One way in which you can get deeper on business value to drive migration order is to look at alignment with business strategy. A business strategy set by your executive typically lays out strategic business objectives, key performance indicators (KPIs), and KPI targets that need to be achieved and who is accountable for achieving them. In that sense, classifying your reports and dashboards by strategic business objectives&mdash;for example, reduce fraud, improve customer engagement, and optimize business operations&mdash;will help understand business purpose and show what objective(s), specific reports, and dashboards these are contributing to. Reports and dashboards associated with high priority objectives in the business strategy can then be highlighted so that migration is focused on delivering business value in a strategic high priority area.
+This level of detail is unlikely to be available in most organizations. One way in which you can get deeper on business value to drive migration order is to look at alignment with business strategy. A business strategy set by your executive typically lays out strategic business objectives, key performance indicators (KPIs), KPI targets that need to be achieved, and who is accountable for achieving them. In that sense, classifying your reports and dashboards by strategic business objectives&mdash;for example, reduce fraud, improve customer engagement, and optimize business operations&mdash;will help understand business purpose and show what objective(s), specific reports, and dashboards these are contributing to. Reports and dashboards associated with high priority objectives in the business strategy can then be highlighted so that migration is focused on delivering business value in a strategic high priority area.
 
-It's also worthwhile to classify reports and dashboards as operational, tactical, or strategic, to understand the level in the business where they're used. Delivering strategic business objectives requires contribution at all these levels. Knowing which reports and dashboards are used, at what level, and what objectives they're associated with, helps to focus migration on high priority business value that will drive the company forward. Business contribution of reports and dashboards is needed to understand this, perhaps like what is shown in the following **Business strategy objective** table.
+It's also worthwhile to classify reports and dashboards as operational, tactical, or strategic, to understand the level in the business where they're used. Delivering strategic business objectives requires contribution at all these levels. Knowing which reports and dashboards are used, at what level, and what objectives they're associated with helps to focus migration on high priority business value that will drive the company forward. Business contribution of reports and dashboards is needed to understand this, perhaps like what is shown in the following **business strategy objective** table.
 
 | **Level** | **Report / dashboard name** | **Business purpose** | **Department used** | **Usage frequency** | **Business priority** |
 |-|-|-|-|-|-|
@@ -170,11 +172,11 @@ When it comes to migrating to Azure Synapse, there are several things that can i
 
 BI tool reports and dashboards, and other visualizations, are produced by issuing SQL queries that access physical tables and/or views in your data warehouse or data mart. When it comes to migrating your data warehouse or data mart schema to Azure Synapse, there may be incompatibilities that can impact reports and dashboards, such as:
 
-- Non-standard table types supported in your legacy data warehouse DBMS that don't have an equivalent in Azure Synapse (like the Teradata Time-Series tables)
+- Non-standard table types supported in your legacy data warehouse DBMS that don't have an equivalent in Azure Synapse, for example Teradata Time-Series tables.
 
-- Data types supported in your legacy data warehouse DBMS that don't have an equivalent in Azure Synapse. For example, Teradata Geospatial or Interval data types.
+- Data types supported in your legacy data warehouse DBMS that don't have an equivalent in Azure Synapse, for example Teradata Geospatial or Interval data types.
 
-In many cases, where there are incompatibilities, there may be ways around them. For example, the data in unsupported table types can be migrated into a standard table with appropriate data types and indexed or partitioned on a date/time column. Similarly, it's possible to represent unsupported data types in another type of column and perform calculations in Azure Synapse to achieve the same. Either way, it will need refactoring.
+In many cases, where there are incompatibilities, there may be ways around them. For example, the data in unsupported table types can be migrated into a standard table with appropriate data types and indexed or partitioned on a date/time column. Similarly, it may be possible to represent unsupported data types in another type of column and perform calculations in Azure Synapse to achieve the same. Either way, it will need refactoring.
 
 > [!TIP]
 > Querying the system catalog of your legacy warehouse DBMS is a quick and straightforward way to identify schema incompatibilities with Azure Synapse.
@@ -185,7 +187,7 @@ The impact may be less than you think, because many BI tools don't support such 
 
 ### The impact of SQL incompatibilities and differences
 
-Additionally, any report, dashboard, or other visualization in an application or tool that makes use of proprietary SQL extensions associated with your legacy data warehouse DBMS, is likely to be impacted when migrating to Azure Synapse. This could happen because the BI tool or application:
+Additionally, any report, dashboard, or other visualization in an application or tool that makes use of proprietary SQL extensions associated with your legacy data warehouse DBMS is likely to be impacted when migrating to Azure Synapse. This could happen because the BI tool or application:
 
 - Accesses legacy data warehouse DBMS views that include proprietary SQL functions that have no equivalent in Azure Synapse.
 
@@ -200,7 +202,7 @@ You can't rely on documentation associated with reports, dashboards, and other v
 > [!TIP]
 > Gauge the impact of SQL incompatibilities by harvesting your DBMS log files and running `EXPLAIN` statements.
 
-One way is to get a hold of the SQL log files of your legacy data warehouse. Use a script to pull out a representative set of SQL statements into a file, prefix each SQL statement with an `EXPLAIN` statement, and then run all the `EXPLAIN` statements in Azure Synapse. Any SQL statements containing proprietary SQL extensions from your legacy data warehouse that are unsupported will be rejected by Azure Synapse when the `EXPLAIN` statements are executed. This approach would at least give you an idea of how significant or otherwise the use of incompatible SQL is.
+One way is to get hold of the SQL log files of your legacy data warehouse. Use a script to pull out a representative set of SQL statements into a file, prefix each SQL statement with an `EXPLAIN` statement, and then run all the `EXPLAIN` statements in Azure Synapse. Any SQL statements containing proprietary SQL extensions from your legacy data warehouse that are unsupported will be rejected by Azure Synapse when the `EXPLAIN` statements are executed. This approach would at least give you an idea of how significant or otherwise the use of incompatible SQL is.
 
 Metadata from your legacy data warehouse DBMS will also help you when it comes to views. Again, you can capture and view SQL statements, and `EXPLAIN` them as described previously to identify incompatible SQL in views.
 
@@ -211,7 +213,7 @@ Metadata from your legacy data warehouse DBMS will also help you when it comes t
 
 A key element in data warehouse migration is the testing of reports and dashboards against Azure Synapse to verify that the migration has worked. To do this, you need to define a series of tests and a set of required outcomes for each test that needs to be run to verify success. It's important to ensure that reports and dashboards are tested and compared across your existing and migrated data warehouse systems to:
 
-- Identify whether schema changes made during migration such as data types to be converted, have impacted reports in terms of ability to run, results, and corresponding visualizations.
+- Identify whether schema changes made during migration, such as data types to be converted, have impacted reports in terms of ability to run results and corresponding visualizations.
 
 - Verify all users are migrated.
 
@@ -221,7 +223,7 @@ A key element in data warehouse migration is the testing of reports and dashboar
 
 - Ensure consistent results of all known queries, reports, and dashboards.
 
-- Ensure that data and ETL migration is complete and error free.
+- Ensure that data and ETL migration is complete and error-free.
 
 - Ensure data privacy is upheld.
 
@@ -243,7 +245,7 @@ Ad-hoc analysis and reporting are more challenging and require a set of tests to
 
 In terms of security, the best way to do this is to create roles, assign access privileges to roles, and then attach users to roles. To access your newly migrated data warehouse, set up an automated process to create new users, and to do role assignment. To detach users from roles, you can follow the same steps.
 
-It's also important to communicate the cut-over to all users, so they know what's changing and what to expect.
+It's also important to communicate the cutover to all users, so they know what's changing and what to expect.
 
 ## Analyze lineage to understand dependencies between reports, dashboards, and data
 
@@ -257,9 +259,9 @@ A critical success factor in migrating reports and dashboards is understanding l
 
 In multi-vendor data warehouse environments, business analysts in BI teams may map out data lineage. For example, if you have Informatica for your ETL, Oracle for your data warehouse, and Tableau for reporting, each of which have their own metadata repository, figuring out where a specific data element in a report came from can be challenging and time consuming.
 
-To migrate seamlessly from a legacy data warehouse to Azure Synapse, end-to-end data lineage helps prove like-for-like migration when comparing reports and dashboards against your legacy environment. That means that metadata from several tools needs to be captured and integrated to show the end to end journey. Having access to tools that support automated metadata discovery and data lineage will let you see duplicate reports and ETL processes and reports that rely on data sources that are obsolete, questionable, or even non-existent. With this information, you can reduce the number of reports and ETL processes that you migrate.
+To migrate seamlessly from a legacy data warehouse to Azure Synapse, end-to-end data lineage helps prove like-for-like migration when comparing reports and dashboards against your legacy environment. That means that metadata from several tools needs to be captured and integrated to show the end-to-end journey. Having access to tools that support automated metadata discovery and data lineage will let you see duplicate reports and ETL processes and reports that rely on data sources that are obsolete, questionable, or even non-existent. With this information, you can reduce the number of reports and ETL processes that you migrate.
 
-You can also compare end-to-end lineage of a report in Azure Synapse against the end-to-end lineage, for the same report in your legacy data warehouse environment, to see if there are any differences that have occurred inadvertently during migration. This helps enormously with testing and verifying migration success.
+You can also compare end-to-end lineage of a report in Azure Synapse against the end-to-end lineage for the same report in your legacy data warehouse environment, to see if there are any differences that have occurred inadvertently during migration. This helps enormously with testing and verifying migration success.
 
 Data lineage visualization not only reduces time, effort, and error in the migration process, but also enables faster execution of the migration project.
 
@@ -292,7 +294,7 @@ A good way to get everything consistent across multiple BI tools is to create a 
 > [!TIP]
 > Use data virtualization to create a common semantic layer to guarantee consistency across all BI tools in an Azure Synapse environment.
 
-In this way, you get consistency across all BI tools, while at the same time breaking the dependency between BI tools and applications, and the underlying physical data structures in Azure Synapse. Use [Microsoft partners](../../partner/data-integration.md) on Azure to implement this. The following diagram shows how a common vocabulary in the Data Virtualization server lets multiple BI tools see a common semantic layer.
+In this way, you get consistency across all BI tools, while at the same time breaking the dependency between BI tools and applications and the underlying physical data structures in Azure Synapse. Use [Microsoft partners](../../partner/data-integration.md) on Azure to implement this. The following diagram shows how a common vocabulary in the data virtualization server lets multiple BI tools see a common semantic layer.
 
 :::image type="content" source="../media/4-visualization-reporting/data-virtualization-semantics.png" border="true" alt-text="Diagram with common data names and definitions that relate to the data virtualization server.":::
 
@@ -301,9 +303,9 @@ In this way, you get consistency across all BI tools, while at the same time bre
 > [!TIP]
 > Identify incompatibilities early to gauge the extent of the migration effort. Migrate your users, group roles and privilege assignments. Only migrate the reports and visualizations that are used and are contributing to business value.
 
-In a lift-and-shift data warehouse migration to Azure Synapse, most reports and dashboards should migrate easily.
+In a lift and shift data warehouse migration to Azure Synapse, most reports and dashboards should migrate easily.
 
-However, if data structures change, then data is stored in unsupported data types or access to data in the data warehouse or data mart is via a view that includes proprietary SQL that's unsupported in your Azure Synapse environment. You'll need to deal with those issues if they arise.
+However, if data structures change, then data is stored in unsupported data types, or access to data in the data warehouse or data mart is via a view that includes proprietary SQL that's unsupported in your Azure Synapse environment. You'll need to deal with those issues if they arise.
 
 You can't rely on documentation to find out where the issues are likely to be. Making use of `EXPLAIN` statements is a pragmatic and quick way to identify incompatibilities in SQL. Rework these to achieve similar results in Azure Synapse. In addition, it's recommended that you make use of automated metadata discovery and lineage tools to help you identify duplicate reports, reports that are no longer valid because they're using data from data sources that you no longer use, and to understand dependencies. Some of these tools help compare lineage to verify that reports running in your legacy data warehouse environment are produced identically in Azure Synapse.
 

@@ -71,7 +71,7 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/java/jre/captioning/"  title="Copy the samples"  target="_blank">scenarios/java/jre/captioning/</a> sample files from GitHub into your project directory.
+1. Copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/java/jre/console/captioning/"  title="Copy the samples"  target="_blank">scenarios/java/jre/captioning/</a> sample files from GitHub into your project directory.
 1. Open a command prompt and run this command to compile the project files. 
     ```console
     javac Captioning.java -cp ".;target\dependency\*"
