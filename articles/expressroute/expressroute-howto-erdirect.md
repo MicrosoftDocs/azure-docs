@@ -324,6 +324,30 @@ You can delete the ExpressRoute Direct resource by running the following command
  ```powershell
    Remove-azexpressrouteport -Name $Name -Resourcegroupname -$ResourceGroupName
    ```
+## Public Previews
+We support the following scenarios in public preview:
+- ExpressRoute Direct and ExpressRoute Circuit(s) in different subscriptions or Azure Active Directory Tenants: Create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute Circuit in a different subscription and Azure Active Directory Tenant.
+
+### ExpressRoute Direct and Circuit in Different Subscriptions
+
+#### Step 1: Request to enroll in the preview.
+To enroll in the preview, send an e-mail to ExpressRouteDirect@microsoft.com and provide the ExpressRoute Direct and target ExpressRoute Circuit Azure Subscription IDs. You'll receive an e-mail reply once the feature is enabled on your subscriptions.
+
+#### Step 2: Create the ExpressRoute Direct Authorization.
+ To create an authorization, run the following commands in PowerShell:
+ ```powershell
+   Add-AzExpressRoutePortAuthorization -Name $Name -ExpressRoutePort $ERPort
+   Set-AzExpressRoutePort -ExpressRoutePort $ERPort
+   ```
+#### Step 3: Verify that the authorization was created successfully:
+ ```powershell
+   $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
+   ```
+#### Step 4: Redeem the authorization to create the ExpressRoute Direct Circuit.
+ ```powershell
+   New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -ExpressRoutePort $ERDirect -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -Authorization $ERDirect.Authorization
+   ```
+
 ## Next steps
 
 For more information about ExpressRoute Direct, see the [Overview](expressroute-erdirect-about.md).
