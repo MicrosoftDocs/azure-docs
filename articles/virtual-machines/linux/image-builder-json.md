@@ -94,8 +94,16 @@ The location is the region where the custom image will be created. The following
 - UAE North
 - East Asia
 - Korea Central
-- South Africa North
+- South Africa North- USGov Arizona (Public Preview)
+- USGov Virginia (Public Preview)
 
+> [!IMPORTANT]
+> Register the feature "Microsoft.VirtualMachineImages/FairfaxPublicPreview" to access the Azure Image Builder public preview in Fairfax regions (USGov Arizona and USGov Virginia).
+
+Use the following command to register the feature for Azure Image Builder in Fairfax regions (USGov Arizona and USGov Virginia).
+```azurecli-interactive
+az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPublicPreview
+```
 
 ```json
     "location": "<region>",
