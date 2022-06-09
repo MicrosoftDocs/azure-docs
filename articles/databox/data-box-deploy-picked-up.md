@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 06/08/2022
+ms.date: 06/09/2022
 ms.author: alkohli
 zone_pivot_groups: data-box-shipping
 
@@ -141,13 +141,17 @@ If using Microsoft managed shipping, follow these steps.
 
 ## Self-managed shipping
 
+Self-managed shipping is available as an option when you [Order Azure Data Box](../articles/databox/data-box-deploy-ordered.md?tabs=portal). For detailed steps, see [Use self-managed shipping](../articles/databox/data-box-portal-customer-managed-shipping.md).
+
 [!INCLUDE [data-box-shipping-regions](../../includes/data-box-shipping-regions.md)]
 
 [!INCLUDE [data-box-shipping-self-managed](../../includes/data-box-shipping-self-managed.md)]
 
 ::: zone pivot="americas"
 
-**Instructions for Brazil:** To schedule a device return in Brazil, send an email to [adbops@microsoft.com](mailto:adbops@microsoft.com) with the following information:
+### Shipping in Brazil
+
+To schedule a device return in Brazil, send an email to [adbops@microsoft.com](mailto:adbops@microsoft.com) with the following information:
 
 ```
 Subject: Request Azure Data Box Disk drop-off for order: <ordername>

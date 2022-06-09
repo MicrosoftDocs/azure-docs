@@ -7,9 +7,7 @@ ms.date: 06/07/2022
 ms.author: alkohli
 ---
 
-Self-managed shipping is available as an option when you [Order Azure Data Box](../articles/databox/data-box-deploy-ordered.md?tabs=portal). For detailed steps, see [Use self-managed shipping](../articles/databox/data-box-portal-customer-managed-shipping.md).
-
-If you selected self-managed shipping when you created your order, follow these instructions. 
+If you selected self-managed shipping when you created your order, follow these instructions (except for Brazil). 
 
 1. Write down the Authorization code that's shown on the **Prepare to Ship** page of the local web UI for the Data Box after the step completes successfully.
 2. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device at the back of the device.
@@ -24,5 +22,3 @@ If you selected self-managed shipping when you created your order, follow these 
         3. Contact name of the person dropping off. You will need to display a government-approved ID during the drop off.
     ```
  
-   > [!NOTE]
-   > - Required information for return may vary by region. 
