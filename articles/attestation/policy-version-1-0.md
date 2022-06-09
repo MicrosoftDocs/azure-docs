@@ -23,7 +23,7 @@ The minimum version of the policy supported by the service is version 1.0.
 The attestation service flow is as follows:
 
 - The platform sends the attestation evidence in the attest call to the attestation service.
-- The attestation service parses the evidence and creates a list of claims that's used in the attestation evaluation. These claims are logically categorized as incoming claims sets.
+- The attestation service parses the evidence and creates a list of claims that's used in the attestation evaluation. These claims are logically categorized as incoming claim sets.
 - The uploaded attestation policy is used to evaluate the evidence over the rules authored in the attestation policy.
 
 Policy version 1.0 has three segments:
