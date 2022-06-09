@@ -220,15 +220,15 @@ There are two ways to research this error. The first is to look at where the inp
 
 1. Still in the **Enriched Data Structure**, open the Expression Evaluator **</>** for the "language" node and copy the expression `/document/language`.
 
-1. In the right pane, select **Skill Settings** for the #1 skill and open the Expression Evaluator **</>** for the input "languageCode."
+1. In the right pane, select **Skill Settings** for the #1 skill and open the Expression Evaluator **</>** for the input "languageCode".
 
 1. Paste the new value, `/document/language` into the Expression box and click **Evaluate**. It should display the correct input "en".
 
 1. Select **Save**.
 
-1. Select **Run**. 
+1. Select **Run**.
 
-After the debug session execution completes, check the Errors/Warnings tab and it will show that all of the input warnings are gone. There now remains just the two warnings about output fields for organizations and locations.
+After the debug session execution completes, check the Errors/Warnings tab and it will show that all of the input warnings are gone. There now remain just the two warnings about output fields for organizations and locations.
 
 ## Fix missing skill output values
 

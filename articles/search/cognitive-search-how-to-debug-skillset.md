@@ -21,13 +21,13 @@ A debug session is a cached indexer and skillset execution, scoped to a single d
 
 + An existing enrichment pipeline, including a data source, a skillset, an indexer, and an index. 
 
-+ You must have at least **Contributor** role over the Search service, to be able to run Debug Sessions.
++ A **Contributor** role assignment in the Search service.
 
 + An Azure Storage account, used to save session state.
 
-+ You must have at least **Storage Blob Data Contributor** role assgined over the Storage account. 
++ A **Storage Blob Data Contributor** role assingement in Azure Storage. 
 
-+ If the Azure Storage account has configured a firewall, you must configure it to [provide access to the Search service](search-indexer-howto-access-ip-restricted.md).
++ If the Azure Storage account is behind a firewall, configure it to [allow Search service access](search-indexer-howto-access-ip-restricted.md).
 
 ## Limitations
 
@@ -35,7 +35,7 @@ A Debug Session works with all generally available [indexer data sources](search
 
 + The MongoDB API (preview) of Cosmos DB is currently not supported.
 
-+ For the SQL API of Cosmos DB, if a row fails during index and there is no corresponding metadata, the debug session might not pick the correct row.
++ For the SQL API of Cosmos DB, if a row fails during index and there's no corresponding metadata, the debug session might not pick the correct row.
 
 + For the SQL API of Cosmos DB, if a partitioned collection was previously non-partitioned, a Debug Session won't find the document.
 
