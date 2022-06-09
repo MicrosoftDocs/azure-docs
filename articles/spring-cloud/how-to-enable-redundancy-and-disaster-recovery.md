@@ -49,9 +49,10 @@ Azure Spring App currently supports availability zones in the following regions:
 The following limitations apply when you create an Azure Spring App Service instance with zone redundant enabled:
 - This feature is not available in basic tier.
 - Zone redundant can only be enabled when creating a new Azure Spring App Service instance.
-- If you would like to enable your own resource in Azure Spring App such as [your own persistent storage](how-to-custom-persistent-storage), you should take care the zone redundancy of these resource by your own.
+- If you would like to enable your own resource in Azure Spring App such as [your own persistent storage](how-to-custom-persistent-storage.md), you should take care the zone redundancy of these resource by your own.
 - For compute resource, this feature only promise that the VM nodes will be distributed across all availability zones. For app's deployment instance, the zone redundant property is an important factor while schedule the VMs for instance but it do not guarantee the instance distribution across zones. If a deployment instance failed because a zone went down, Azure Spring App will create a new deployment instance for this app in another available zone.
-- Cross-region disaster recovery is not the purpose of this feature. To protect your service from regional disasters, please refer to [Plan for disaster recovery](disaster-recovery.md). 
+- Geo-disaster recovery is not the purpose of this feature. To protect your service from regional outages, please refer to [Customer-managed geo-disaster recovery
+](#Customer-managed-geo-disaster-recovery). 
 
 
 ## How to create an instance in Azure Spring App with availability zone enabled
