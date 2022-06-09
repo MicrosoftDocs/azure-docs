@@ -1,6 +1,6 @@
 ---
 title: CREATE TABLE AS SELECT (CTAS) 
-description: Explanation and examples of the CREATE TABLE AS SELECT (CTAS) statement in Dedicated SQL pool (formerly SQL DW) for developing solutions.
+description: Explanation and examples of the CREATE TABLE AS SELECT (CTAS) statement in dedicated SQL pool (formerly SQL DW) for developing solutions.
 author: joannapea
 manager: craigg
 ms.service: synapse-analytics
