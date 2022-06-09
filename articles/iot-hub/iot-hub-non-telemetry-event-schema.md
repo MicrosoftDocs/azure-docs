@@ -30,18 +30,18 @@ Non-telemetry events share several common properties.
 
 ### System properties
 
-The following system properties are set by IoT Hub on each event. System properties should be preceded with a '$' character when referenced in a routing query.
+The following system properties are set by IoT Hub on each event.
 
-| Property | Type |Description |
-| -------- | ---- | ---------- |
-| content-encoding | string | utf-8 |
-| content-type | string |application/json |
-| correlation-id | string | A unique ID that identifies the event. NEED MORE DEFINITION! Is this something that can be used to identify events routed to different services? Sometimes it's a GUID and sometime it isn't. |
-| user-id | string | The name of IoT Hub that generated the event. |
-| iothub-connection-device-id | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`.  |
-| iothub-connection-module-id | string | The unique identifier of the module. This property is output only for module life cycle and twin events. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| iothub-enqueuedtime | number | Date and time the event was received by IoT Hub. DESCRIPTION NEEDED as this is a number not a UTC string. 1653677358153 |
-| iothub-message-source | string | A value corresponding to the event category that identifies the message source; for example, *deviceLifecycleEvents*. |
+| Property | Type |Description | Keyword for routing query |
+| -------- | ---- | ---------- | ------------------------- |
+| content-encoding | string | utf-8 | $contentEncoding |
+| content-type | string | application/json | $contentType |
+| correlation-id | string | A unique ID that identifies the event. NEED MORE DEFINITION! Is this something that can be used to identify events routed to different services? Sometimes it's a GUID and sometime it isn't. | $correlationId |
+| user-id | string | The name of IoT Hub that generated the event. | $userId |
+| iothub-connection-device-id | string | The device ID. | $connectionDeviceId |
+| iothub-connection-module-id | string | The module ID. This property is output only for module life cycle and twin events. | $connectionModuleId |
+| iothub-enqueuedtime | number | Date and time when the notification was sent. DESCRIPTION NEEDED as this is a number not a UTC string. 1653677358153. In routing queries, use an [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp for comparison. For example, `$enqueuedTime > "2022-06-06T22:56:06Z"` | $enqueuedTime |
+| iothub-message-source | string | The event category that identifies the message source. For example, *deviceLifecycleEvents*. |  N/A (tried $messageSource but it didn't work) |
 
 ### Application properties
 
@@ -49,25 +49,27 @@ The following application properties are set by IoT Hub on each event.
 
 | Property | Type |Description |
 | -------- | ---- | ---------- |
-| deviceId | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| deviceId | string | The device ID. | deviceId |
 | hubName | string | The name of the IoT Hub that generated the event. |
 | iothub-message-schema | string | The message schema associated with the event category; for example, *deviceLifecycleNotification*. |
-| moduleId | string | The unique identifier of the module. This property is output only for module lifecycle and twin change events. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| operationTimestamp | string | The ISO8601 timestamp of the operation. |
+| moduleId | string | The module ID. This property is output only for module lifecycle and twin change events. |
+| operationTimestamp | string | The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp of the operation. |
 | opType | string | The identifier for the operation that generated the event. For example, *createDeviceIdentity* or *deleteDeviceIdentity*. |
+
+In routing queries, use the property name. For example, `deviceId = "my-device"`.
 
 ## Connection state events
 
 Connection state events are emitted whenever a device or module connects or disconnects from the IoT hub.
 
-**Application properties**: The following table shows how application property values are set for connection state events:  
+**Application properties**: The following table shows how application properties are set for connection state events:  
 
 | Property | Value |
 | ---- | ----------- |
 | iothub-message-schema | deviceConnectionStateNotification |
 | opType | One of the following values: deviceConnected, deviceDisconnected, moduleConnected, or moduleDisconnected. |
 
-**Annotations**: The following table shows how annotations are set for connection state events:
+**System properties**: The following table shows how system properties are set for connection state events:
 
 | Property | Value |
 | ---- | ----------- |
@@ -120,14 +122,14 @@ The following JSON shows a device connection state event emitted when a device d
 
 Device lifecycle events are emitted whenever a device or module is created or deleted from the identity registry. For more detail about when device lifecycle events are generated, see [Device and module lifecycle notifications](iot-hub-devguide-identity-registry.md#device-and-module-lifecycle-notifications).
 
-**Application properties**: The following table shows how application property values are set for device lifecycle events:  
+**Application properties**: The following table shows how application properties are set for device lifecycle events:  
 
 | Property | Value |
 | ---- | ----------- |
 | iothub-message-schema | deviceLifecycleNotification |
 | opType | One of the following values: createDeviceIdentity, deleteDeviceIdentity, createModuleIdentity, or deleteModuleIdentity. |
 
-**Annotations**: The following table shows how annotations are set for device lifecycle events:
+**System properties**: The following table shows how system properties are set for device lifecycle events:
 
 | Property | Value |
 | ---- | ----------- |
@@ -199,14 +201,14 @@ The following JSON shows a device lifecycle event emitted when a module is creat
 
 Device twin change events are emitted whenever a device twin or a module twin is updated or replaced. In some cases, several changes may be packaged in a single event. To learn more, see [Device twin backend operations](iot-hub-devguide-device-twins.md#back-end-operations) or [Module twin backend operations](iot-hub-devguide-module-twins.md#back-end-operations).
 
-**Application properties**: The following table shows how application property values are set for device twin change events:  
+**Application properties**: The following table shows how application properties are set for device twin change events:  
 
 | Property | Value |
 | ---- | ----------- |
 | iothub-message-schema | twinChangeNotification |
 | opType | One of the following values: replaceTwin or updateTwin. |
 
-**Annotations**: The following table shows how annotations are set for device twin change events:
+**System properties**: The following table shows how system properties are set for device twin change events:
 
 | Property | Value |
 | ---- | ----------- |
