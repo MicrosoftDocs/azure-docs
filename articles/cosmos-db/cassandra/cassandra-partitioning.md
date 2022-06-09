@@ -82,8 +82,10 @@ When data is returned, it is sorted by the clustering key, as expected in Apache
 
 :::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="Screenshot that shows the returned data that is sorted by the clustering key.":::
 
+Partition keys are not indexed by default in Cassandra API. If you have a [compound primary key](cassandra-partitioning.md#compound-primary-key) in your table, and you filter either on partition key and clustering key, or just partition key, this will give the desired behaviour. However, if you filter on partition key and any other non-indexed fields aside from the clustering key, this will result in a partition key fan-out - even if the other non-indexed fields have a secondary indexed. If you have a compound primary key in your table, and you want to filter only on both the partition key value element of the compound primary key, plus another field that is not the partition key or clustering key, please ensure that you explicitly add a secondary index on the *partition key*. The index in this scenario should significantly improve query performance, even if the other non-partition key and non-clustering key fields have no index.  Review our article on [partitioning](cassandra-partitioning.md) for more information.
+
 > [!WARNING]
-> When querying data, if you want to filter *only* on the partition key value element of a compound primary key (as is the case above), ensure that you *explicitly add a secondary index on the partition key*:
+> When querying data in a table that has a compound primary key, if you want to filter on the partition key *and* any other non-indexed fields aside from the clustering key, ensure that you *explicitly add a secondary index on the partition key*:
 >
 >    ```shell
 >    CREATE INDEX ON uprofile.user (user);
