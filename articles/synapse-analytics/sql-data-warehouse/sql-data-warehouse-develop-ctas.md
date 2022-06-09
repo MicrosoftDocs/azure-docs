@@ -6,7 +6,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 03/26/2019
+ms.date: 06/09/2022
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
