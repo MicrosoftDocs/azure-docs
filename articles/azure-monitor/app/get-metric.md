@@ -5,6 +5,7 @@ ms.service:  azure-monitor
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.devlang: csharp
+ms.reviewer: casocha
 ---
 
 # Custom metric collection in .NET and .NET Core

@@ -140,7 +140,6 @@ Defender for Cloud's billing is closely tied to the billing for Log Analytics. [
 - [SecurityDetection](/azure/azure-monitor/reference/tables/securitydetection)
 - [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent)
 - [WindowsFirewall](/azure/azure-monitor/reference/tables/windowsfirewall)
-- [MaliciousIPCommunication](/azure/azure-monitor/reference/tables/maliciousipcommunication)
 - [SysmonEvent](/azure/azure-monitor/reference/tables/sysmonevent)
 - [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)
 - [Update](/azure/azure-monitor/reference/tables/update) and [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) when the Update Management solution isn't running in the workspace or solution targeting is enabled.

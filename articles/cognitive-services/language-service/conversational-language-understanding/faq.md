@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 05/23/2022
+ms.date: 05/31/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, mode-other
 ---
@@ -73,6 +73,10 @@ Yes, you can use [orchestration workflow](../orchestration-workflow/overview.md)
 ## How do I handle out of scope or domain utterances that aren't relevant to my intents?
 
 Add any out of scope utterances to the [none intent](./concepts/none-intent.md).
+
+## How do I control the none intent?
+
+You can control the none intent threshhold from UI through the project settings, by changing the none inten threshold value. The values can be between 0.0 and 1.0. Also, you can change this threshold from the APIs by changing the *confidenceThreshold* in settings object. Learn more about [none intent](./concepts/none-intent.md#none-score-threshold)
 
 ## Is there any SDK support?
 

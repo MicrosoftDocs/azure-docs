@@ -370,17 +370,17 @@
           href: coredns-custom.md
     - name: Configure data volumes
       items:
-        - name: Azure Disk - Dynamic
+        - name: Azure disk - dynamic
           href: azure-disks-dynamic-pv.md
-        - name: Azure Disk - Static
+        - name: Azure disk - static
           href: azure-disk-volume.md
-        - name: Azure Files - Dynamic
+        - name: Azure Files - dynamic
           href: azure-files-dynamic-pv.md
-        - name: Azure Files - Static
+        - name: Azure Files - static
           href: azure-files-volume.md
         - name: Azure HPC Cache
           href: azure-hpc-cache.md
-        - name: NFS Server - Static
+        - name: NFS Server - static
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
           href: azure-netapp-files.md

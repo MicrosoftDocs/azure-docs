@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: View enterprise applications'
 description: View the enterprise applications that are registered to use your Azure Active Directory tenant.
-titleSuffix: Azure AD
 services: active-directory
 author: AllisonAm
 manager: CelesteDG

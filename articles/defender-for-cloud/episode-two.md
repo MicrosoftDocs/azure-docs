@@ -2,7 +2,7 @@
 title: Integrate Azure Purview with Microsoft Defender for Cloud
 description: Learn how to integrate Azure Purview with Microsoft Defender for Cloud.
 ms.topic: reference
-ms.date: 05/25/2022
+ms.date: 05/29/2022
 ---
 
 # Integrate Azure Purview with Microsoft Defender for Cloud 
@@ -13,7 +13,7 @@ David explains the use case scenarios for this integration and how the data clas
 
 <br>
 <br>
-<iframe src="https://aka.ms/docs/player?id=9b911e9c-e933-4b7b-908a-5fd614f822c7" width="1080" height="530" max-width: 100%; min-width: 100%;"></iframe>
+<iframe src="https://aka.ms/docs/player?id=9b911e9c-e933-4b7b-908a-5fd614f822c7" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [1:36](/shows/mdc-in-the-field/integrate-with-purview) - Overview of Azure Purview
 

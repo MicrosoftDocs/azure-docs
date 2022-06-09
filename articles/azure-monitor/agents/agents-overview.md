@@ -169,6 +169,10 @@ The following tables list the operating systems that are supported by the Azure 
 <sup>2</sup> Using the Azure Monitor agent [client installer (preview)](./azure-monitor-agent-windows-client.md)
 ### Linux
 
+> [!NOTE]
+> For Dependency Agent, please additionally check for supported kernel versions. See "Dependency agent Linux kernel support" table below for details 
+
+
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Dependency agent | Diagnostics extension <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
 | AlmaLinux                                                   | X |   |   |   |
@@ -200,7 +204,7 @@ The following tables list the operating systems that are supported by the Azure 
 | SUSE Linux Enterprise Server 12 SP5                         | X | X | X | X |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
 | Ubuntu 22.04 LTS                                            | X |   |   |   |
-| Ubuntu 20.04 LTS                                            | X | X | X | X |
+| Ubuntu 20.04 LTS                                            | X | X | X | X <sup>4</sup> |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |
 | Ubuntu 16.04 LTS                                            | X | X | X | X |
 | Ubuntu 14.04 LTS                                            |   | X |   | X |
@@ -208,6 +212,8 @@ The following tables list the operating systems that are supported by the Azure 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.
 
 <sup>3</sup> Known issue collecting Syslog events in versions prior to 1.9.0.
+
+<sup>4</sup> Not all kernel versions are supported, check supported kernel versions below. 
 
 #### Dependency agent Linux kernel support
 

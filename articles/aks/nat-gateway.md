@@ -11,7 +11,7 @@ ms.author: juda
 
 Whilst AKS customers are able to route egress traffic through an Azure Load Balancer, there are limitations on the amount of outbound flows of traffic that is possible. 
 
-Azure NAT Gateway allows up to 64,000 outbound UDP and TCP traffic flows per IP address with a maximum of 16 IP addresses.
+Azure NAT Gateway allows up to 64,512 outbound UDP and TCP traffic flows per IP address with a maximum of 16 IP addresses.
 
 This article will show you how to create an AKS cluster with a Managed NAT Gateway for egress traffic.
 

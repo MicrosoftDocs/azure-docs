@@ -1,6 +1,5 @@
 ---
 title: Hide an Enterprise application
-titleSuffix: Azure AD
 description: How to hide an Enterprise application from user's experience in Azure Active Directory access portals or Microsoft 365 launchers.
 services: active-directory
 author: lnalepa
