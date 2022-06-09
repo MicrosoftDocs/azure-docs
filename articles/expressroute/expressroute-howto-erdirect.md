@@ -324,7 +324,7 @@ You can delete the ExpressRoute Direct resource by running the following command
  ```powershell
    Remove-azexpressrouteport -Name $Name -Resourcegroupname -$ResourceGroupName
    ```
-## Public Preview
+## Public Previews
 We support the following scenarios in public preview:
 - ExpressRoute Direct and ExpressRoute Circuit(s) in different subscriptions or Azure Active Directory Tenants: Create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute Circuit in a different subscription and Azure Active Directory Tenant.
 
