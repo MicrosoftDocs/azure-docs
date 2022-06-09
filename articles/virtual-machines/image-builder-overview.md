@@ -103,7 +103,7 @@ az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPub
 ```
 
 
-## Operating system support
+## OS support
 
 VM Image Builder supports the following Azure Marketplace base operating system images:
 - Ubuntu 18.04
