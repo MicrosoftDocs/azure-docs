@@ -4,6 +4,7 @@ description:  Use this step-by-step submission guide to submit your app to the M
 ms.localizationpriority: medium
 ms.author: mingshen
 ms.date: 06/03/2022
+---
 
 # Store step-by-step submission guide
 
