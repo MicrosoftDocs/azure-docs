@@ -5,7 +5,7 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 03/22/2022
+ms.date: 06/06/2022
 ms.author: ginle
 ---
 # GitHub Projects

@@ -4,6 +4,7 @@ description: Learn how to enable Azure Active Directory (Azure AD) authenticatio
 ms.topic: conceptual
 ms.date: 08/02/2021
 ms.devlang: csharp, java, javascript, python
+ms.reviewer: rijolly
 ---
 
 # Azure AD authentication for Application Insights (Preview)

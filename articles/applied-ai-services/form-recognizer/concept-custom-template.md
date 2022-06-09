@@ -28,16 +28,10 @@ Custom template models support key-value pairs, selection marks, tables, signatu
 
 ## Tabular fields
 
-With the release of API version **2022-06-30-preview**, custom template models will support tabular fields (tables):  
-
-* Models trained with API version 2022-06-30-preview or later will accept tabular field labels.
-* Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables. 
-* The results can be found in the ```analyzeResult``` object's ```documents``` array that is returned following an analysis operation.
-
-Tabular fields support **cross page tables** by default:
+With the release of API version **2022-06-30-preview**, custom template models will add support for **cross page** tabular fields (tables):  
 
 * To label a table that spans multiple pages, label each row of the table across the different pages in a single table.
-* As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include samples where the entire table is on a single page and where tables span two or more pages.
+* As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include samples where the entire table is on a single page and where tables span two or more pages if you expect to see those variations in documents.
 
 Tabular fields are also useful when extracting repeating information within a document that isn't recognized as a table. For example, a repeating section of work experiences in a resume can be labeled and extracted as a tabular field.
 

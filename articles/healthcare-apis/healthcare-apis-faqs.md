@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 03/22/2022
+ms.date: 06/06/2022
 ms.author: ginle
 ---
 
