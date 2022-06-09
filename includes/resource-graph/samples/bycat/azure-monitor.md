@@ -81,7 +81,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Kubernetes/connected
 
 ---
 
-### Returns all alerts in a subscription in the last day:
+### Returns all Azure Monitor alerts in a subscription in the last day:
 
 ```json
 {
