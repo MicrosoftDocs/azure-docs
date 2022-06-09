@@ -15,7 +15,7 @@ ms.date: 06/09/2022
 
 Many Azure resources, such as Azure storage accounts, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. If you're using an indexer and your Azure PaaS data source is on a private network and in a different region, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) used by Azure Cognitive Search to reach the data. 
 
-A private endpoint is used for cross-region connections. If your search service and data source are in the same region, traffic doesn't go over the virtual network. In this scenario, search uses a private outbound IP for data source connections over the Microsoft backbone network.
+A private endpoint is used for cross-region connections among nodes within the same network. If your search service and data source are in the same region, traffic doesn't go over the virtual network. Instead, search uses a private outbound IP in the Microsoft backbone network for data connections. You can omit a private endpoint for this scenario.
 
 To create a shared private link, use the Azure portal or the [Create Or Update Shared Private Link](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) operation in the Azure Cognitive Search Management REST API.
 
@@ -31,10 +31,10 @@ Private endpoints created through Azure Cognitive Search APIs are referred to as
 
 + If you're connecting to a preview data source, such as Azure Database for MySQL or Azure Functions, use a preview version of the Management REST API to create the shared private link. Preview versions that support a shared private link include `2020-08-01-preview` or `2021-04-01-preview`.
 
-+ If you're using the [Azure portal](https://portal.azure.com/), make sure that access to all public networks is enabled in the data source resource firewall while going through the instructions below. Otherwise, you need to enable access to all public networks during this setup and then disable it again, or instead, you must use REST API from a device with an authorized IP in the firewall rules, to perform these operations. If the supported data source resource has public networks access disabled, there will be errors when connecting from the portal to it.
++ Connections from the search client should be programmatic, either REST APIs or an Azure SDK, rather than through the Azure portal. The device must connect using an authorized IP in the Azure PaaS resource's firewall rules.
 
 > [!NOTE]
-> When using Private Link for data sources, [Import data](search-import-data-portal.md) wizard is not supported.
+> When using Private Link for data sources, search service portal access to content, such as through the [Import data](search-import-data-portal.md) wizard, is not supported.
 
 <a name="group-ids"></a>
 
