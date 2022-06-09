@@ -38,8 +38,11 @@ This article lists significant changes to Azure Monitor documentation.
 ### Application Insights
 
 - [Application Map in Azure Application Insights](app/app-map.md) - Application Maps Intelligent View feature
+- [Azure Application Insights for ASP.NET Core applications](app/asp-net-core) - telemetry.Flush() guidance is now available.
+- [Diagnose with Live Metrics Stream - Azure Application Insights](app/live-stream.md) - Updated information on using unsecure control channel.
+- [Migrate an Azure Monitor Application Insights classic resource to a workspace-based resource](app/convert-classic-resource.md) - Schema change documentation is now available here.
 - [Profile production apps in Azure with Application Insights Profiler](profiler/profiler-overview.md) - Profiler documentation now has a new home in the table of contents.
-
+- All references to unsupported versions of .NET and .NET CORE have been scrubbed from Application Insights product documentation. See [.NET and >NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
 ### Change Analysis
 
 - [Navigate to a change using custom filters in Change Analysis](change/change-analysis-custom-filters.md) - New article.
