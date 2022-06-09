@@ -4,7 +4,7 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/07/2022
+ms.date: 06/09/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -33,13 +33,15 @@ Shared disks support several operating systems. See the [Windows](#windows) or [
 
 ## Billing implications
 
-When using shared disks, your billing could be impacted in two different ways, depending on the type of disk you're sharing.
+When you share a disk, your billing could be impacted in two different ways, depending on the type of disk.
 
 For shared premium SSDs, in addition to cost of the disk's tier, there's an extra charge that increases with each VM the SSD is mounted to. See [managed disks pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/) for details.
 
-Ultra disks don't have an extra charge for each VM that they're mounted to. They're billed on the total IOPS and MBps that the disk is configured for. Originally, an ultra disk only has two performance throttles that determine its total IOPS/MBps. However, when configured as a shared ultra disk, two more performance throttles are exposed, for a total of four. These two extra meters allow for increased performance at an extra expense and each meter has a default value, which raises the performance and cost of the disk.
+Ultra disks don't have an extra charge for each VM that they're mounted to. They're billed on the total IOPS and MBps that the disk is configured for. Normally, an ultra disk has two performance throttles that determine its total IOPS/MBps. However, when configured as a shared ultra disk, two more performance throttles are exposed, for a total of four. These two additional throttles allow for increased performance at an extra expense and each meter has a default value, which raises the performance and cost of the disk.
 
-The four performance throttles a shared ultra disk has are diskMBpsReadWrite, diskIOPSReadOnly, diskMBpsReadWrite, and diskMBpsReadOnly. Each performance throttle can be configured to change the performance of your disk. The performance for shared ultra disk is calculated in the following ways: total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and for total provisioned throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly). Once you've determined your total provisioned IOPS and total provisioned throughput use them in the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=managed-disks) to determine the cost of an ultra shared disk.
+The four performance throttles a shared ultra disk has are diskMBpsReadWrite, diskIOPSReadOnly, diskMBpsReadWrite, and diskMBpsReadOnly. Each performance throttle can be configured to change the performance of your disk. The performance for shared ultra disk is calculated in the following ways: total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and for total provisioned throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly).
+
+Once you've determined your total provisioned IOPS and total provisioned throughput, you can use them in the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=managed-disks) to determine the cost of an ultra shared disk.
 
 ## Disk sizes
 
@@ -100,7 +102,7 @@ The flow is as follows:
 
 ### Ultra disks reservation flow
 
-Ultra disks offer an extra throttle, for a total of two throttles. Due to this, ultra disks reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
+Ultra disks offer two extra throttle, for a total of four throttles. Due to this, ultra disks reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="An image of a table that depicts the `ReadOnly` or `Read/Write` access for Reservation Holder, Registered, and Others.":::
 
