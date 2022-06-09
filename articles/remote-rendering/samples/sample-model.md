@@ -28,9 +28,17 @@ Model statistics:
 
 ## Third-party data
 
+### Triangular meshes
+
 The Khronos Group maintains a set of glTF sample models for testing. ARR supports the glTF format both in text (*.gltf*) and in binary (*.glb*) form. We suggest using the PBR models for best visual results:
 
 * [glTF Sample Models](https://github.com/KhronosGroup/glTF-Sample-Models)
+
+### Point clouds
+
+The libE57 website provides many sample point clouds for testing in the supported E57 file format:
+
+* [libE57 sample models](http://www.libe57.org/data.html)
 
 ## Next steps
 
