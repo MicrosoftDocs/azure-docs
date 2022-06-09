@@ -1,5 +1,5 @@
 ---
-title: Reference for configuring Kubernetes cluster for Azure Machine Learning (Preview)
+title: Reference for configuring Kubernetes cluster for Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Reference for configuring Kubernetes cluster for Azure Machine Learning.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.topic: reference
 ms.date: 06/06/2022
 ---
 
-# Reference for configuring Kubernetes cluster for Azure Machine Learning (Preview)
+# Reference for configuring Kubernetes cluster for Azure Machine Learning
 
 This article contains reference information that may be useful when [configuring Kubernetes with Azure Machine Learning](./how-to-attach-kubernetes-anywhere.md).
 

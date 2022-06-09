@@ -1,5 +1,5 @@
 ---
-title: Configure Kubernetes cluster (Preview)
+title: Configure Kubernetes cluster
 description: Configure and attach an existing Kubernetes in any infrastructure across on-premises and multi-cloud to build, train, and deploy models with seamless Azure ML experience.
 titleSuffix: Azure Machine Learning
 author: ssalgadodev
@@ -11,22 +11,24 @@ ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 ---
 
-# Configure Kubernetes cluster for Azure Machine Learning (Preview)
+# Configure Kubernetes cluster for Azure Machine Learning
 
 Using Kubernetes with Azure Machine Learning enables you to build, train, and deploy models in any infrastructure on-premises and across multi-cloud. With an AzureML extension deployment on Kubernetes, you can instantly onboard teams of ML professionals with AzureML service capabilities. These services include full machine learning lifecycle and automation with MLOps in hybrid cloud and multi-cloud.
+
+  :::image type="content" source="media/how-to-attach-arc-kubernetes/machine-learning-anywhere-overview.png" alt-text="Screenshot of overview of AzureML with Kubernetes.":::
 
 You can easily bring AzureML capabilities to your Kubernetes cluster from cloud or on-premises by deploying AzureML extension.
 
 - For Azure Kubernetes Service (AKS) in Azure, deploy AzureML extension to the AKS directly. For more information, see [Deploy and manage cluster extensions for Azure Kubernetes Service (AKS)](../aks/cluster-extensions.md).
 - For Kubernetes clusters on-premises or from other cloud providers, connect the cluster with Azure Arc first, then deploy AzureML extension to Azure Arc-enabled Kubernetes. For more information, see [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
 
-In this article, you can learn about steps to configure and attach an existing Kubernetes cluster anywhere for Azure Machine Learning:
+In this article, you can learn about steps to configure and attach an existing Kubernetes cluster for Azure Machine Learning:
 * [Deploy AzureML extension to Kubernetes cluster](#deploy-azureml-extension)
 * [Attach a Kubernetes cluster to AzureML workspace](#attach-a-kubernetes-cluster-to-an-azureml-workspace)
 
-## Why use Azure Machine Learning Kubernetes?
+## Why use Kubernetes in AzureML?
 
-AzureML Kubernetes is customer fully configured and managed compute for machine learning. It can be used as both [training compute target](./concept-compute-target.md#train) and [inference compute target](./concept-compute-target.md#deploy). It provides the following benefits:
+Kubernetes in AzureML is a type of customer fully configured and managed compute. It can be used as both [training compute target](./concept-compute-target.md#train) and [inference compute target](./concept-compute-target.md#deploy). It provides the following benefits:
 
 - Harness existing heterogeneous or homogeneous Kubernetes cluster, with CPUs or GPUs.
 - Share the same Kubernetes cluster in multiple AzureML Workspaces across region.
@@ -49,13 +51,14 @@ AzureML Kubernetes is customer fully configured and managed compute for machine 
 * Install the Azure CLI extension ```k8s-extension``` (version>=1.2.3) by running ```az extension add --name k8s-extension```
 
 
-## What is AzureML extension
+## Deploy AzureML extension
+### What is AzureML extension
 
 AzureML extension consists of a set of system components deployed to your Kubernetes cluster in `azureml` namespace, so you can enable your cluster to run an AzureML workload - model training jobs or model endpoints. You can use an Azure CLI command ```k8s-extension create``` to deploy AzureML extension. General available (GA) version of AzureML extension >= 1.1.1
 
 For a detailed list of AzureML extension system components, see [AzureML extension components](./reference-kubernetes.md#azureml-extension-components).
 
-## Key considerations for AzureML extension deployment
+### Key considerations for AzureML extension deployment
 
 AzureML extension allows you to specify configuration settings needed for different workload support at deployment time. Before AzureML extension deployment, **read following carefully to avoid unnecessary extension deployment errors**:
 
@@ -69,7 +72,8 @@ AzureML extension allows you to specify configuration settings needed for differ
 
 For a complete list of configuration settings available to choose at AzureML deployment time, see [Review AzureML extension config settings](#review-azureml-extension-configuration-settings)
 
-## Deploy AzureML extension
+### Deploy AzureML extension to AKS or Azure Arc-enabled Kubernetes
+
 ### [CLI](#tab/deploy-extension-with-cli)
 To deploy AzureML extension with CLI, use `az k8s-extension create` command passing in values for the mandatory parameters.
 
@@ -148,7 +152,6 @@ Update, list, show and delete an AzureML extension.
 - For AKS cluster without Azure Arc connected, refer to  [Usage of AKS extensions](../aks/cluster-extensions.md#usage-of-cluster-extensions).
 - For Azure Arc-enabled Kubernetes, refer to [Usage of cluster extensions](../azure-arc/kubernetes/extensions.md#usage-of-cluster-extensions).
 
----
 
 ## Review AzureML extension configuration settings
 
