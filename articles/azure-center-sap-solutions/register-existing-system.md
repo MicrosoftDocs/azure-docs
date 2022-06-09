@@ -133,7 +133,7 @@ There's also a known issue with registering *S/4 HANA 2021* version SAP systems.
 
 1. Stop the Application Server instance:
     
-    ```sapcontrol -nr -function Stop`
+    `sapcontrol -nr -function Stop`
 
 1. Stop the ASCS instance:
 
