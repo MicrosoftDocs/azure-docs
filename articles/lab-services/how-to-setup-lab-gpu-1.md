@@ -1,6 +1,6 @@
 ---
-title: Set up a lab with GPUs in Azure Lab Services | Microsoft Docs
-description: Learn how to set up a lab with graphics processing unit (GPU) virtual machines. 
+title: Set up a lab with GPUs in Azure Lab Services when using lab accounts | Microsoft Docs
+description: Learn how to set up a lab with graphics processing unit (GPU) virtual machines when using lab accounts. 
 author: nicolela
 ms.topic: how-to
 ms.date: 06/26/2020
@@ -60,7 +60,7 @@ You might need to install a different version of the drivers than the version th
 
 #### Install the compute GPU drivers
 
-To manually install drivers for the *compute* GPU size, do the following:
+To manually install drivers for the *compute* GPU size, by doing the following steps:
 
 1. In the lab creation wizard, when you're [creating your lab](./how-to-manage-labs.md), disable the **Install GPU drivers** setting.
 
@@ -84,7 +84,7 @@ To manually install drivers for the *compute* GPU size, do the following:
 
 #### Install the visualization GPU drivers
 
-To manually install drivers for the *visualization* GPU sizes, do the following:
+To manually install drivers for the *visualization* GPU sizes, follow these steps:
 
 1. In the lab creation wizard, when you're [creating your lab](./how-to-manage-labs.md), disable the **Install GPU drivers** setting.
 1. After your lab is created, connect to the template VM to install the appropriate drivers.
