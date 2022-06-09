@@ -150,7 +150,7 @@ Grant Azure image builder permissions to create images in the specified resource
 > [!NOTE]
 > If you receive the error "New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created," see [Troubleshoot Azure RBAC (role-based access control)](../../role-based-access-control/troubleshooting.md).
 
-## Create an Azure Compute Gallery (formerly Shared Image Gallery)
+## Create an Azure Compute Gallery
 
 1. Create the gallery.
 
@@ -251,7 +251,7 @@ In the background, VM Image Builder also creates a staging resource group in you
 If the service reports a failure when the image configuration template is submitted, do the following:
 
 - See [Troubleshoot Azure VM Image Builder failures](../linux/image-builder-troubleshoot.md).
-- Before you retry the submission, delete the template by using the following example:
+- Before you retry submitting the template, delete it by using the following example:
 
   ```azurepowershell-interactive
   Remove-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup
@@ -317,12 +317,11 @@ If you encounter errors, review [Troubleshoot Azure VM Image Builder failures](.
   -a---          29/01/2021    10:04            276 index.html
   ```
 
-
 ## Clean up your resources
 
 If you no longer need the resources that were created during this process, you can delete them by doing the following:
 
-1. Delete the image builder template.
+1. Delete the VM Image Builder template.
 
   ```azurepowershell-interactive
   Remove-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $imageTemplateName
