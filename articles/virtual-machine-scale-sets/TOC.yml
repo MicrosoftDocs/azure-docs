@@ -143,10 +143,6 @@
       href: virtual-machine-scale-sets-extension-sequencing.md
     - name: Application Health extension
       href: virtual-machine-scale-sets-health-extension.md
-  - name: Applications on scale sets
-    href: virtual-machine-scale-sets-deploy-app.md
-  - name: Scale set Templates
-    href: virtual-machine-scale-sets-mvss-start.md
   - name: Automatic extension upgrade 
     href: ../virtual-machines/automatic-extension-upgrade.md
     maintainContext: true
