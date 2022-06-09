@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/02/2022
+ms.date: 06/15/2022
 ---
 
 # Debug an Azure Cognitive Search skillset in Azure portal
@@ -16,9 +16,6 @@ ms.date: 06/02/2022
 Start a portal-based debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure Cognitive Search service.
 
 A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test your changes interactively. If you're unfamiliar with how a debug session works, see [Debug sessions in Azure Cognitive Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
-
-> [!Important]
-> Debug sessions is a preview portal feature, provided under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -32,7 +29,6 @@ A debug session is a cached indexer and skillset execution, scoped to a single d
 
 + If the Azure Storage account has configured a firewall, you must configure it to [provide access to the Search service](search-indexer-howto-access-ip-restricted.md).
 
-
 ## Limitations
 
 A Debug Session works with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources. The following list notes the exceptions:
@@ -42,7 +38,6 @@ A Debug Session works with all generally available [indexer data sources](search
 + For the SQL API of Cosmos DB, if a row fails during index and there is no corresponding metadata, the debug session might not pick the correct row.
 
 + For the SQL API of Cosmos DB, if a partitioned collection was previously non-partitioned, a Debug Session won't find the document.
-
 
 ## Create a debug session
 

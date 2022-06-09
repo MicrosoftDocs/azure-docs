@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Debug skillsets'
 titleSuffix: Azure Cognitive Search
-description: Debug sessions (preview) is an Azure portal tool used to find, diagnose, and repair problems in a skillset.
+description: Debug sessions is an Azure portal tool used to find, diagnose, and repair problems in a skillset.
 
 author: HeidiSteen
 ms.author: heidist
@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 12/31/2021
+ms.date: 06/15/2022
 ---
 
 # Tutorial: Debug a skillset using Debug Sessions
@@ -19,10 +19,6 @@ Skillsets coordinate a series of actions that analyze or transform content, wher
 **Debug sessions** in the Azure portal provides a holistic visualization of a skillset. Using this tool, you can drill down to specific steps to easily see where an action might be falling down.
 
 In this article, you'll use **Debug sessions** to find and fix missing inputs and outputs. The tutorial is all-inclusive. It provides sample data, a Postman collection that creates objects, and instructions for debugging problems in the skillset.
-
-> [!Important]
-> Debug sessions is a preview feature provided under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## Prerequisites
 

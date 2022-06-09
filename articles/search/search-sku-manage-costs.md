@@ -52,7 +52,7 @@ There is no meter on the number of queries, query responses, or documents ingest
 
 Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Several premium features ([Knowledge store](knowledge-store-concept-intro.md), [Debug Sessions](cognitive-search-debug-session.md), [Enrichment cache (preview)](cognitive-search-incremental-indexing-conceptual.md)) have a dependency on Azure Storage. The meters for Azure Storage apply in this case, and the associated storage costs of using these features will be included in the Azure Storage bill.
+Several premium features such as ([knowledge store](knowledge-store-concept-intro.md), [Debug Sessions](cognitive-search-debug-session.md), and [enrichment cache](cognitive-search-incremental-indexing-conceptual.md)) have a dependency on Azure Storage. The meters for Azure Storage apply in this case, and the associated storage costs of using these features will be included in the Azure Storage bill.
 
 [Customer-managed keys](search-security-manage-encryption-keys.md) provide double encryption of sensitive content. This feature requires a billable [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/)).
 

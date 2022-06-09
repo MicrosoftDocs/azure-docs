@@ -1,22 +1,19 @@
 ---
-title: Debug Sessions concepts (preview)
+title: Debug Sessions concepts
 titleSuffix: Azure Cognitive Search
-description: Debug Sessions, accessed through the Azure portal, provides an IDE-like environment where you can identify and fix errors, validate changes, and push changes to skillsets in the AI enrichment pipeline. Debug Sessions is a preview feature.
+description: Debug Sessions, accessed through the Azure portal, provides an IDE-like environment where you can identify and fix errors, validate changes, and push changes to skillsets in the an enrichment pipeline.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/30/2021
+ms.date: 06/15/2022
 ---
 
 # Debug Sessions in Azure Cognitive Search
 
 Debug Sessions is a visual editor that works with an existing skillset in the Azure portal, exposing the structure and content of a single enriched document, as it's produced by an indexer and skillset, for the duration of the session. Because you are working with a live document, the session is interactive - you can identify errors, modify and invoke skill execution, and validate the results in real time. If your changes resolve the problem, you can commit them to a published skillset to apply the fixes globally.
-
-> [!Important]
-> Debug Sessions is a preview feature provided under [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How a debug session works
 
