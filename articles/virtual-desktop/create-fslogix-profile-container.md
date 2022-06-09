@@ -3,7 +3,7 @@ title: FSLogix profile containers NetApp Azure Virtual Desktop - Azure
 description: How to create an FSLogix profile container using Azure NetApp Files in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/07/2020
+ms.date: 06/09/2020
 ms.author: helohr
 manager: femila
 ---
@@ -142,7 +142,7 @@ After you create the volume, configure the volume access parameters.
 2.  Under Configuration in the **Active Directory** drop-down menu, select the same directory that you originally connected in [Join an Active Directory connection](create-fslogix-profile-container.md#join-an-active-directory-connection). Keep in mind that there's a limit of one Active Directory per subscription.
 3.  In the **Share name** text box, enter the name of the share used by the session host pool and its users.
 
-    If you want to enable Continuous Availability for the SMB volume, select Enable Continuous Availability.    
+    If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
 
     The SMB Continuous Availability feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using the Continuous Availability feature.
 
