@@ -12,7 +12,6 @@ Gen6 Vs Gen7 (Swapna to check AVS documentation)
 
 | |Ready Node for Nutanix AN36|Ready Node for Nutanix AN36P|
 | :------------------- | -------------------: |:---------------:|
-|Platform|Dell R640|Dell R640|
 |Core|Intel 6140, 36 Core, 2.3GHz|Intel 6240, 36 Core, 2.6GHz|
 |vCPUs|72|72|
 |RAM|576 GB|768 GB|
