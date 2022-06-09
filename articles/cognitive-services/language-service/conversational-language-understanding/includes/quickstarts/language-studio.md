@@ -15,14 +15,14 @@ ms.custom: ignite-fall-2021
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Prerequisites?azure-portal=true)
 
 ## Sign in to Language Studio
 
 [!INCLUDE [Sign in to Language studio](../language-studio/sign-in-studio.md)]
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Sign-in-to-language-studio" target="_target">I ran into an issue</a>
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Sign-in-to-language-studio?azure-portal=true)
 
 ## Create a conversational language understanding project
 
@@ -35,7 +35,7 @@ For this quickstart, you can download [this sample project](https://go.microsoft
 Once the upload is complete, you will land on **Build schema** page. For this quickstart, the schema is already built, and utterances are already labeled with intents and entities.
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Create-a-conversational-language-understanding-project" target="_target">I ran into an issue</a>
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Create-a-conversational-language-understanding-project?azure-portal=true)
 
 ## Train your model
 
@@ -46,7 +46,7 @@ To train a model, you need to start a training job. The output of a successful t
 [!INCLUDE [Train model](../language-studio/train-model.md)]
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Train-model" target="_target">I ran into an issue</a>
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Train-model?azure-portal=true)
 
 ## Deploy your model
 
@@ -55,7 +55,7 @@ Generally after training a model you would review its evaluation details. In thi
 [!INCLUDE [Deploy model](../language-studio/deploy-model.md)]
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Deploy-model" target="_target">I ran into an issue</a>
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Deploy-model?azure-portal=true)
 
 ## Test model
 
@@ -65,12 +65,12 @@ After your model is deployed, you can start using it to make predictions through
 [!INCLUDE [Test model](../language-studio/test-model.md)]
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Test-model" target="_target">I ran into an issue</a>
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Test-model?azure-portal=true)
 
 ## Clean up resources
 
 [!INCLUDE [Delete project using Language studio](../language-studio/delete-project.md)]
  
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Clean-up-projects" target="_target">I ran into an issue</a>
+> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Clean-up-projects?azure-portal=true)
 
