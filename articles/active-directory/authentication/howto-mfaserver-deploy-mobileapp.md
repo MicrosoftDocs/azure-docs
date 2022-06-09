@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/092022
+ms.date: 06/09/2022
 
 ms.author: justinha
 author: justinha
