@@ -133,12 +133,11 @@ The following table lists the storage capacity of the device.
 
 ## Enclosure dimensions and weight specifications
 
-The following tables list the various enclosure specifications for dimensions and weight. The enclosure dimensions and weight are identical across all models of Azure Stack Edge Pro 2. 
+The following tables list the various enclosure specifications for dimensions and weight. 
 
 ### Enclosure dimensions
 
-The following table lists the dimensions of the 2U device enclosure in millimeters and inches.
-
+The following table lists the dimensions of the 2U device enclosure in millimeters and inches. The enclosure dimensions are identical across all models of Azure Stack Edge Pro 2. 
 
 |     Enclosure     |     Millimeters     |     Inches     |
 |-------------------|---------------------|----------------|
