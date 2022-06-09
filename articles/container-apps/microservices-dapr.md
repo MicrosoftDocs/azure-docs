@@ -210,6 +210,7 @@ Your state store is configured using the Dapr component described in *statestore
 
 ## Deploy the service application (HTTP web server)
 
+
 # [Bash](#tab/bash)
 
 ```azurecli
@@ -248,10 +249,12 @@ az containerapp create `
 
 ---
 
+The image is pulled from the public repository *dapriosamples* in Docker Hub (docker.io).
+
 This command deploys:
 
 * the service (Node) app server on `--target-port 3000` (the app port) 
-* its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000'` for service discovery and invocation
+* its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000'` for service discovery and invocation.
 
 ## Deploy the client application (headless client)
 
@@ -287,7 +290,9 @@ az containerapp create `
 
 ---
 
-This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there's no `--target-port` to start a server, nor is there a need to enable ingress.
+The image is pulled from the public repository *dapriosamples* in Docker Hub (docker.io).
+
+This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there's no `--target-port` to start a server, nor is there a need to enable ingress.  
 
 ## Verify the result
 
