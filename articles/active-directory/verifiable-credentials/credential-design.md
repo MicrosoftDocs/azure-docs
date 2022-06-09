@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
-ms.date: 06/02/2022
+ms.date: 06/08/2022
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -44,7 +44,7 @@ There are currently three input types that are available to configure in the rul
 
 ![detailed view of verifiable credential card](media/credential-design/issuance-doc.png) 
 
-**Static claims:** Additionally we are able to declare a static claim in the rules definition, however this input does not come from the user. The Issuer defines a static claim in the rules definition and would look like any other claim in the Verifiable Credential. Simply add a credentialSubject after vc.type and declare the attribute and the claim. 
+**Static claims:** Additionally we are able to declare a static claim in the rules definition, however this input doesn't come from the user. The Issuer defines a static claim in the rules definition and would look like any other claim in the Verifiable Credential. Add a credentialSubject after vc.type and declare the attribute and the claim. 
 
 ```json
 "vc": {
@@ -98,7 +98,7 @@ Please see [idToken attestation](rules-and-display-definitions-model.md#idTokenA
 
 ## Input type: ID token hint
 
-To get ID Token hint as input, the rules definition should not contain configuration for and OIDC Identity system but instead have the special value `https://self-issued.me` for the configuration property. The claims mapping are the same as for the ID token type, but the difference is that the claim values needs to be provided by the issuance relying party app in the Request Service API issuance request.
+To get ID Token hint as input, the rules definition shouldn't contain configuration for and OIDC Identity system but instead have the special value `https://self-issued.me` for the configuration property. The claims mappings are the same as for the ID token type, but the difference is that the claim values need to be provided by the issuance relying party app in the Request Service API issuance request.
 
 ```json
   {
@@ -130,11 +130,11 @@ To get ID Token hint as input, the rules definition should not contain configura
     }
 ```
 
-Please see [idTokenHint attestation](rules-and-display-definitions-model.md#idTokenHintAttestation-type) for reference of properties.
+See [idTokenHint attestation](rules-and-display-definitions-model.md#idTokenHintAttestation-type) for reference of properties.
 
 ### vc.type: Choose credential type(s) 
 
-All verifiable credentials must declare their "type" in their rules definition. The type of a credential distinguishes your verifiable credentials from credentials issued by other organizations and ensures interoperability between issuers and verifiers. To indicate a credential type, you must provide one or more credential types that the credential satisfies. Each type is represented by a unique string - often a URI will be used to ensure global uniqueness. The URI does not need to be addressable; it is treated as a string. 
+All verifiable credentials must declare their "type" in their rules definition. The type of a credential distinguishes your verifiable credentials from credentials issued by other organizations and ensures interoperability between issuers and verifiers. To indicate a credential type, you must provide one or more credential types that the credential satisfies. Each type is represented by a unique string - often a URI will be used to ensure global uniqueness. The URI doesn't need to be addressable; it is treated as a string. 
 
 As an example, a diploma credential issued by Contoso University might declare the following types:
 
@@ -192,7 +192,7 @@ To ensure interoperability of your credentials, it's recommended that you work c
 }
 ```
 
-Please see [verifiablePresentation attestation](rules-and-display-definitions-model.md#verifiablePresentationAttestation-type) for reference of properties.
+See [verifiablePresentation attestation](rules-and-display-definitions-model.md#verifiablePresentationAttestation-type) for reference of properties.
 
 ## Input type: Selfattested claims
 
@@ -227,7 +227,7 @@ During the issuance flow, the user can be asked to input some self-attested info
 }
 ```
 
-Please see [selfIssued attestation](rules-and-display-definitions-model.md#selfIssuedAttestation-type) for reference of properties.
+See [selfIssued attestation](rules-and-display-definitions-model.md#selfIssuedAttestation-type) for reference of properties.
 
 ## Display definition: Verifiable credentials in Microsoft Authenticator
 
@@ -278,7 +278,7 @@ The display definition has the following structure.
 }
 ```
 
-Please see [Display definition model](rules-and-display-definitions-model.md#displayModel-type) for reference of properties.
+See [Display definition model](rules-and-display-definitions-model.md#displayModel-type) for reference of properties.
 
 ## Next steps
 

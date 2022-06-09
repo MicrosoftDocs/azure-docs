@@ -86,10 +86,6 @@ The expected JSON for the Rules definitions is the inner content of the rules at
       "attestations": {
         "idTokenHints": [
           {
-            "clientId": "ignored",
-            "configuration": "https://self-issued.me",
-            "redirectUri": "ignored",
-            "scope": "ignored",
             "mapping": [
               {
                 "outputClaim": "firstName",
