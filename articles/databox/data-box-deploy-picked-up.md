@@ -156,6 +156,7 @@ Subject: Request Azure Data Box Disk drop-off for order: <ordername>
 - Contact name of the person who will drop off the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.) 
 - Inbound Nota Fiscal (A copy of the inbound Nota Fiscal will be required at drop-off.)   
 ```
+
 ::: zone-end
 
 ::: zone target="chromeless"
