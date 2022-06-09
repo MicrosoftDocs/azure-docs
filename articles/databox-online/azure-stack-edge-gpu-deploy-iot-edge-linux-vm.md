@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 06/09/2022
 ms.author: alkohli
 ---
 
@@ -248,19 +248,6 @@ On the **Advanced** page, use the cloud-init configuration script from earlier i
 > Ensure that you specify the appropriate connection strings to connect to the respective IoT-Hub or DPS device.  
 
 ![Screenshot of the Advanced page of VM configuration in the Azure portal.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-advanced-page.png)
-
-### Troubleshooting module deployment
-
-1. View the NVIDIADeepStreamSDK log file output
-
-    ![Screenshot of the Azure portal, NVIDIADeepStreamSDK log file output.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-troubleshoot-iot-edge-module.png)
-
-    ![Screenshot of the Azure portal, NVIDIADeepStreamSDK log file output, continued.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-troubleshoot-iot-edge-module-2.png)
-    
-
-1. After a certain period of time, the module will complete and quit, causing the module to return an error. This is expected behavior.
-
-    ![Screenshot of the Azure portal, NVIDIADeepStreamSDK module runtime status with error condition.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-add-iot-edge-module-error.png)
 
 ## Update the IoT Edge runtime
 
