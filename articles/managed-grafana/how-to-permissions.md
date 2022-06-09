@@ -50,7 +50,7 @@ To change permissions for a specific resource, follow these steps:
 1. Select your Managed Grafana instance from the list.
 1. Click **Select** to confirm
 
-      :::image type="content" source="media/permissions/permissions-managed-identities.png" alt-text="Screenshot of the Azure platform selecting the workspace.":::
+      :::image type="content" source="media/permissions/permissions-managed-identities.png" alt-text="Screenshot of the Azure platform selecting the instance.":::
 
 1. Click **Next**, then **Review + assign** to confirm the application of the new permission
 
