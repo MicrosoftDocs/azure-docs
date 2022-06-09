@@ -12,9 +12,9 @@ ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
 
-# Single-tenant and multi-tenant authentication flow for Teams
+# Single-tenant and multi-tenant authentication for Teams
 
-You can build customized Teams calling experiences with the *Calling software development kit* (SDK) that *Azure Communication Services* makes available.This article gives you insight into the authentication process for single-tenant and multi-tenant, *Azure Active Directory* (Azure AD) applications. The use cases in this article also break down individual authentication artifacts.
+ This article gives you insight into the authentication process for single-tenant and multi-tenant, *Azure Active Directory* (Azure AD) applications. You can use authentication when you build customized Teams calling experiences with the *Calling software development kit* (SDK) that *Azure Communication Services* makes available. Use cases in this article also break down individual authentication artifacts.
 
 ## Case 1: Example of a single-tenant application
 The Fabrikam company has built a custom, Teams calling application for internal company use. All Teams users are managed by Azure Active Directory. Access to Azure Communication Services is controlled by *Azure role-based access control (Azure RBAC)*.
@@ -22,18 +22,18 @@ The Fabrikam company has built a custom, Teams calling application for internal 
 
 ![A diagram that outlines the authentication process for Fabrikam;s customized Teams calling application and its Azure Communication Services resource.](./media/custom-teams-endpoint/authentication-case-single-tenant-azure-rbac-overview.svg)
 
-The following sequence diagram details single-tenant authentication:
+The following sequence diagram details single-tenant authentication.
 
 :::image type="content" source="./media/custom-teams-endpoint/authentication-case-single-tenant-azure-rbac.svg" alt-text="A sequence diagram that details authentication of Fabrikam Teams users. The client application gets an Azure Communication Services access token for a single tenant Azure A D application." lightbox="./media/custom-teams-endpoint/authentication-case-single-tenant-azure-rbac.svg":::
 
-Prerequisites:
-- Alice or her Azure AD administrator needs to give the custom Teams application consent, prior to the first attempt to sign in. Learn more about [consent flow](../../../active-directory/develop/consent-framework.md).
-- The Azure Communication Services resource admin must grant Alice permission to perform her role. Learn more about [Azure RBAC role assignment](../../../role-based-access-control/role-assignments-portal.md).
+Before we begin:
+- Alice or her Azure AD administrator needs to give the custom Teams application consent, prior to the first attempt to sign in. Learn more about [consent](../../../active-directory/develop/consent-framework.md).
+- The Azure Communication Services resource admin needs to grant Alice permission to perform her role. Learn more about [Azure RBAC role assignment](../../../role-based-access-control/role-assignments-portal.md).
 
 Steps:
-1. Authenticate Alice using Azure Active Directory: Alice is authenticated using a standard OAuth flow with *Microsoft Authentication Library (MSAL)*. If authentication is successful, the client application receives an Azure AD access token, with a value of 'A'. Tokens are outlined later in this article. Authentication from the developer perspective is outlined in this [quickstart](../../quickstarts/manage-teams-identity.md).
-1. Get an access token for Alice: The customized Teams application performs control plane logic, using artifact 'A'. This produces Azure Communication Services access token 'D' and gives Alice access. This access token can also be used for data plane actions in Azure Communication Services, such as calling. 
-1. Call Bob from the custom, Fabrikam, Teams app: Alice makes a call using the Azure Communication Services access token. The call is to Bob, a Teams user,  and it takes place via the Calling SDK. Learn more about [developing custom Teams clients](../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md).
+1. Authenticate Alice using Azure Active Directory: Alice is authenticated using a standard OAuth flow with *Microsoft Authentication Library (MSAL)*. If authentication is successful, the client application receives an Azure AD access token, with a value of 'A'. Tokens are outlined later in this article. Authentication from the developer perspective is explored in this [quickstart](../../quickstarts/manage-teams-identity.md).
+1. Get an access token for Alice: The customized Teams application performs control plane logic, using artifact 'A'. This produces Azure Communication Services access token 'D' and gives Alice access. This access token can also be used for data plane actions in Azure Communication Services, like Calling.
+1. Call Bob: Alice makes a call to Teams user Bob, with Fabrikam's customized Teams app. The call takes place via the Calling SDK with an Azure Communication Services access token. Learn more about [developing custom Teams clients](../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md).
 
 Artifacts:
 - Artifact A
@@ -51,17 +51,17 @@ The Contoso company has built a custom Teams calling application for external cu
 
 ![A sequence diagram that demonstrates how the Contoso application authenticates Fabrikam users with Contoso's own Azure Communication Services resource.](./media/custom-teams-endpoint/authentication-case-multiple-tenants-hmac-overview.svg)
 
-The following sequence diagram details multi-tenant authentication:
+The following sequence diagram details multi-tenant authentication.
 
 :::image type="content" source="./media/custom-teams-endpoint/authentication-case-multiple-tenants-hmac.svg" alt-text="A sequence diagram that details authentication of Teams users and Azure Communication Services access tokens for multi-tenant Azure AD applications." lightbox="./media/custom-teams-endpoint/authentication-case-multiple-tenants-hmac.svg":::
 
-Prerequisites:
-- Alice or her Azure AD administrator needs to give Contoso's Azure Active Directory application consent before the first attempt to sign in. Learn more about [consent flow](../../../active-directory/develop/consent-framework.md).
+Before we begin:
+- Alice or her Azure AD administrator needs to give Contoso's Azure Active Directory application consent before the first attempt to sign in. Learn more about [consent](../../../active-directory/develop/consent-framework.md).
 
 Steps:
-1. Authenticate Alice usitng the Fabrikam application: Alice is authenticated through Fabrikam's customized Teams application. A standard OAuth flow with Microsoft Authentication Library (MSAL) is used. If authentication is successful, the client application, the Contoso app in this case, receives an Azure AD access token with a value of 'A'. Token details are outlined below.Authentication from the developer perspective is outlined in this [quickstart](../../quickstarts/manage-teams-identity.md). 
-1. Get an access token for Alice: The Contoso application performs control plane logic, using artifact 'A'. This generates Azure Communication Services access token 'D' for Alice within the Contoso application. This access token can be used for data plane actions in Azure Communication Services, like calling. Token details are outlined below. Authentication from the developer perspective is outlined in this [quickstart](../../quickstarts/manage-teams-identity.md). (https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
-1. Call Bob from the custom, Fabrikam, Teams app: Alice makes a call using the Azure Communication Services access token. The call is to Bob, a Teams user,  and it takes place via the Calling SDK. Learn more about [developing custom, Teams apps in this quickstart](../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md).
+1. Authenticate Alice using the Fabrikam application: Alice is authenticated through Fabrikam's customized Teams application. A standard OAuth flow with Microsoft Authentication Library (MSAL) is used. If authentication is successful, the client application, the Contoso app in this case, receives an Azure AD access token with a value of 'A'. Token details are outlined below. Authentication from the developer perspective is explored in this [quickstart](../../quickstarts/manage-teams-identity.md).
+1. Get an access token for Alice: The Contoso application performs control plane logic, using artifact 'A'. This generates Azure Communication Services access token 'D' for Alice within the Contoso application. This access token can be used for data plane actions in Azure Communication Services, like Calling.
+1. Call Bob: Alice makes a call to Teams user Bob, with Fabrikam's customized Teams app. The call takes place via the Calling SDK with an Azure Communication Services access token. Learn more about developing custom, Teams apps [in this quickstart](../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md).
 
 
 Artifacts:
