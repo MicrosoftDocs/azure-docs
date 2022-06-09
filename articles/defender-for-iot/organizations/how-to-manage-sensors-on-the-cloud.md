@@ -44,7 +44,7 @@ For more information, see [Activate and set up your sensor](how-to-activate-and-
 
 1. In the Azure portal, navigate to **Defender for IoT** > **Getting started** and select **Set up OT/ICS Security**.
 
-    :::image type="content" source="media/tutorial-onboarding/onboard-a-sensor.png" alt-text="Screenshot of the Set up OT/ICS Security button on the Get started page.":::
+    :::image type="content" source="media/tutorial-onboarding/onboard-a-sensor.png" alt-text="Screenshot of the Set up O T/I C S Security button on the Get started page.":::
 
     Alternately, from the Defender for IoT **Sites and sensors** page, select **Onboard OT sensor**.
 
@@ -82,7 +82,7 @@ Make the downloaded activation file accessible to the sensor console admin so th
 
 1. Select **Set up Enterprise IoT Security**.
 
-    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="Screenshot of the Set up Enterprise IoT Security button on the Get started page.":::
+    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="Screenshot of the Set up Enterprise I O T Security button on the Get started page.":::
 
 1. In the **Sensor name** field, enter a meaningful name for your sensor.
 
@@ -92,7 +92,7 @@ Make the downloaded activation file accessible to the sensor console admin so th
 
     For example:
 
-    :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an Enterprise IoT sensor.":::
+    :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an Enterprise I O T sensor.":::
 
 1. Copy the command to a safe location, and continue with installing the sensor. For more information, see [Install the sensor](tutorial-getting-started-eiot-sensor.md#install-the-sensor).
 
