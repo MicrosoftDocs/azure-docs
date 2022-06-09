@@ -1,6 +1,6 @@
 ---
 title: Azure SignalR service data plane REST API reference - v1-preview
-description: Describes the REST APIs Azure SignalR service supports to manage the connections and send messages to them.
+description: Describes REST APIs version v1-preview Azure SignalR service supports to manage the connections and send messages to them.
 author: vicancy
 ms.author: lianwei
 ms.service: signalr
@@ -8,10 +8,9 @@ ms.topic: reference
 ms.date: 06/09/2022
 ---
 
-# Azure SignalR Service REST API
-## Version: v1-preview
+# Azure SignalR Service data plane REST API - v1-preview
 
-### Available APIs
+## Available APIs
 
 | API | Path |
 | ---- | ---------- | 

@@ -16,13 +16,13 @@ ms.date: 06/09/2022
 
 On top of classical client-server pattern, Azure SignalR Service provides a set of REST APIs, so that you can easily integrate real-time functionality into your server-less architecture.
 
-<a name="architecture"></a>
+<a name="serverless"></a>
 
 ## Typical Server-less Architecture with Azure Functions
 
 The following diagram shows a typical server-less architecture of using Azure SignalR Service with Azure Functions.
 
-    :::image type="content" source="../media/signalr-reference-data-plane-rest-api/serverless-arch.png" alt-text="A typical serverless architecture for Azure SignalR service":::
+:::image type="content" source="../media/signalr-reference-data-plane-rest-api/serverless-arch.png" alt-text="A typical serverless architecture for Azure SignalR service":::
 
 - `negotiate` function will return negotiation response and redirect all clients to Azure SignalR Service.
 - `broadcast` function will call Azure SignalR Service's REST API. Then SignalR Service will broadcast the message to all connected clients.
@@ -63,6 +63,8 @@ The latest available APIs are listed as following.
 | [Remove a user from all groups.](./swagger/v1.md#delete-remove-a-user-from-all-groups.) | `DELETE /api/v1/hubs/{hub}/users/{user}/groups` |
 
 ## Using REST API
+
+<a name="authentication"></a>
 
 ### Authenticate via Azure SignalR Service AccessKey
 
