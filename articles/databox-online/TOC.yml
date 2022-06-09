@@ -390,8 +390,6 @@
 
     - name: IoT Edge
       items:
-      - name: Configure IoT Edge on VM
-        href: azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md
       - name: Deploy IoT Edge samples (Managed)
         items:
           - name: Module from Nvidia gallery
@@ -406,9 +404,9 @@
             href: azure-stack-edge-gpu-deploy-compute-module-simple.md
       - name: Deploy IoT Edge samples (Self-service)
         items:
-          - name: Deploy IoT Edge on an Ubuntu VM
+          - name: Configure IoT Edge on VM
             href: azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md
-          - name: Deploy Nvidia DeepStream module on an Ubuntu VM
+          - name: Deploy Nvidia DeepStream module on VM
             href: azure-stack-edge-deploy-nvidia-deepstream-module.md
       - name: Troubleshoot IoT Edge issues
         href: azure-stack-edge-gpu-troubleshoot-iot-edge.md

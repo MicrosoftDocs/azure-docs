@@ -37,9 +37,20 @@ Before you begin, make sure you have:
 - An Azure Stack Edge device that you've activated. For detailed steps, see [Activate Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-activate.md).
 - Access to the latest Ubuntu 20.04 VM image, either an image from Azure Marketplace or a custom image that you're bringing.
 
-## Prepare the custom script
+## Process overview
 
-Per SME comment from Vivek, develop a short flow chart of the overall steps, so customer has context before doing the details
+The high-level process is as follows:
+
+1. Create or identify the IoT Hub or Azure IoT Hub Device Provisioning Service instance.
+1. Acquire the Ubuntu 20.04 LTS image from the IoT Edge Module Marketplace.
+1. Upload the Ubuntu image onto the Azure Stack Edge VM image library.
+1. Deploy the Ubuntu image as a VM using the following steps:
+   1. Provide the name of the VM, the username, and the password.
+   1. Creating another disk is optional.
+   1. Set up the network configuration.
+   1. Provide a prepared cloud-init script on the *Advanced* page.
+
+## Prepare the custom script
 
 To proceed, use steps in one of the following sections:
 
@@ -48,7 +59,7 @@ To proceed, use steps in one of the following sections:
 
 ### Provision with symmetric keys
 
-To connect your device to IoT Hub without Azure IoT Device Provisioning Service, the process in this section will walk you through to prepare a cloud-init script that would be used during the VM creation advance page to deploy the IoT Edge runtime and Nvidia’s container runtime (if applicable).  
+To connect your device to IoT Hub without IoT Device Provisioning Service, the process in this section will walk you through to prepare a cloud-init script that would be used during the VM creation advance page to deploy the IoT Edge runtime and Nvidia’s container runtime (if applicable).  
 
 1. Use an existing IoT Hub or create a new Hub. Use these steps to [create the IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 
@@ -59,22 +70,28 @@ To connect your device to IoT Hub without Azure IoT Device Provisioning Service,
 **Cloud-init script**
 
 ```python
-#cloud-config 
+# cloud-config
+
 runcmd:
 dcs="<connection string>" 
 | 
     set -x 
     ( 
     # Wait for docker daemon to start 
+
     while [ $(ps -ef | grep -v grep | grep docker | wc -l) -le 0 ]; do  
     sleep 3 
     done 
-    if [ $(lspci | grep NVIDIA | wc -l) -gt 0 ]; then 
+    if [ $(lspci | grep NVIDIA | wc -l) -gt 0 ]; then
+
         #install Nvidia drivers 
+
         apt install -y ubuntu-drivers-common 
         ubuntu-drivers devices 
         ubuntu-drivers autoinstall 
+
         # Install NVIDIA Container Runtime 
+
         curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey | apt-key add - 
         distribution=$(. /etc/os-release;echo $ID$VERSION_ID) 
         curl -s -L https://nvidia.github.io/nvidia-container-runtime/$distribution/nvidia-container-runtime.list | tee /etc/apt/sources.list.d/nvidia-container-runtime.list 
@@ -83,10 +100,12 @@ dcs="<connection string>"
         fi        
         
         # Restart Docker 
+
         systemctl daemon-reload 
         systemctl restart docker 
 
         # Install IoT Edge 
+
         apt install -y aziot-edge 
 
         if [ ! -z $dcs ]; then
@@ -160,7 +179,8 @@ Use steps in this section to connect your device to Device Provisioning Service/
 **Cloud-init script**
 
 ```python
-#cloud-config
+# cloud-config
+
 runcmd:
     - dps_idscope="<DPS IDScope>" 
     - registration_device_id="<RegistrationID>" 
@@ -184,7 +204,7 @@ runcmd:
 
       if [ $(lspci | grep NVIDIA | wc -l) -gt 0 ]; then 
 
-        #install Nvidia drivers 
+        # Install Nvidia drivers 
 
         apt install -y ubuntu-drivers-common 
         ubuntu-drivers devices 
