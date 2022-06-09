@@ -78,7 +78,7 @@ To access identity secure score, you must be assigned one of the following roles
 
 #### Read and write roles
 
-With read and write access, you can make changes and directly interact with secure score.
+With read and write access, you can make changes and directly interact with identity secure score.
 
 * Global administrator
 * Security administrator
