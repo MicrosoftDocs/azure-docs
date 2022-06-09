@@ -8,9 +8,9 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Managed Grafana instance from the portal
+  - name: Create an instance from the portal
     href: quickstart-managed-grafana-portal.md
-  - name: Create a Managed Grafana instance from the CLI
+  - name: Create an instance from the CLI
     href: quickstart-managed-grafana-cli.md  
 - name: How-to guides
   items:
@@ -18,11 +18,11 @@ items:
     href: how-to-data-source-plugins-managed-identity.md
   - name: Modify access permissions to Azure Monitor
     href: how-to-permissions.md
-  - name: Share your Managed Grafana instance
+  - name: Share a Managed Grafana instance
     href: how-to-share-grafana-workspace.md
   - name: Call Grafana APIs programmatically
     href: how-to-api-calls.md
-  - name: Monitor your Managed Grafana instance
+  - name: Monitor a Managed Grafana instance
     href: how-to-monitor-managed-grafana-workspace.md
 - name: Reference
   items:
