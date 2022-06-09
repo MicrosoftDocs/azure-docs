@@ -105,15 +105,14 @@
     href: use-spot.md
   - name: Azure Hybrid Benefit
     items: 
-    - name: Linux
-      displayName: Azure Hybrid Benefit, Linux, AHB
+    - name: Hybrid Benefit for Linux
+      href: ../virtual-machines/linux/azure-hybrid-benefit.md
+      maintainContext: true
+    - name: Hybrid Benefit for Windows
+      href: ../virtual-machines/hybrid-use-benefit-licensing.md
+      maintainContext: true
+    - name: Hybrid benefit for Uniform Scale Sets
       href: azure-hybrid-benefit-linux.md
-    - name: Linux BYOS
-      displayName: Azure Hybrid Benefit BYOS, Linux, AHB
-      href: ./linux/azure-hybrid-benefit-byos-linux.md
-    - name: Windows
-      displayName: Azure Hybrid Benefit, AHB
-      href: ./windows/hybrid-use-benefit-licensing.md 
   - name: Reserved instances
     href: ../cost-management-billing/reservations/save-compute-costs-reservations.md
 - name: Management
