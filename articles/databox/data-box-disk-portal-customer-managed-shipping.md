@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 06/07/2022
 ms.author: alkohli
 ---
 
@@ -52,20 +52,7 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
    ![Schedule pickup](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-02c.png)
 
-   **Instructions for Brazil:** If you're scheduling a device pickup in Brazil, include the following information in your email. The datacenter will schedule the pickup after they receive an inbound `Nota Fiscal`, which can take up to 4 business days.
-
-   ```
-   Subject: Request Azure Data Box Disk pickup for order: <ordername>
-
-   - Order name
-   - Company name
-   - Company legal name (if different) 
-   - CNPJ (Business Tax ID, format: 00.000.000/0000-00) or CPF (Individual Tax ID, format: 000.000.000-00)
-   - Address 
-   - Country 
-   - Phone number 
-   - Contact name of the person who will pick up the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.)   
-   ```
+   If you're returning a Data Box Disk in Brazil, see [Return Azure Data Box Disk](data-box-deploy-picked-up.md) for detailed instructions.
 
 6. After you've scheduled your device pickup, you can view your authorization code in **Schedule pickup for Azure**.
 

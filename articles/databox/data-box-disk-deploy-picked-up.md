@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/05/2022
+ms.date: 06/07/2022
 ms.author: alkohli
 zone_pivot_groups: data-box-shipping
 
@@ -48,11 +48,11 @@ Before you begin, make sure you've completed the [Tutorial: Copy data to Azure D
 
 The next steps are determined by where you are returning the device. In many countries/regions, you can use Microsoft managed shipping or [self-managed shipping](#self-managed-shipping).
 
-::: zone pivot="north-america" 
+::: zone pivot="americas" 
 
 If using Microsoft managed shipping, follow these steps. 
 
-## Shipping in North America
+## Shipping in Americas
 
 ### [US & Canada](#tab/in-us-canada)
 
@@ -289,8 +289,25 @@ If you are using Data Box Disk and have selected the self-managed shipping optio
 
    > [!NOTE]
    > - Required information for return may vary by region. 
-   > - If you're returning a Data Box Disk in Brazil, see [Use self-managed shipping for Azure Data Box Disk](data-box-disk-portal-customer-managed-shipping.md) for detailed instructions.
+
+::: zone pivot="americas"
+
+    **Instructions for Brazil:** If you're scheduling a device pickup in Brazil, include the following information in your email. The datacenter will schedule the pickup after they receive an inbound `Nota Fiscal`, which can take up to 4 business days.
+    
+       ```
+       Subject: Request Azure Data Box Disk pickup for order: <ordername>
+    
+       - Order name
+       - Company name
+       - Company legal name (if different) 
+       - CNPJ (Business Tax ID, format: 00.000.000/0000-00) or CPF (Individual Tax ID, format: 000.000.000-00)
+       - Address 
+       - Country 
+       - Phone number 
+       - Contact name of the person who will pick up the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.)   
+       ```
   
+::: zone-end
 
 3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure datacenter.
 
