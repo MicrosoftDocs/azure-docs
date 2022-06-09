@@ -1,6 +1,6 @@
 ---
-title: Customize a Language model in Azure Video Indexer (formerly Azure Video Analyzer for Media) - Azure  
-description: This article gives an overview of what is a Language model in Azure Video Indexer (formerly Azure Video Analyzer for Media) and how to customize it.
+title: Customize a Language model in Azure Video Indexer - Azure  
+description: This article gives an overview of what is a Language model in Azure Video Indexer and how to customize it.
 author: Juliako
 manager: femila
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.date: 02/02/2022
 
 # Customize a Language model with Azure Video Indexer 
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) supports automatic speech recognition through integration with the Microsoft [Custom Speech Service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). You can customize the Language model by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized, assuming default pronunciation, and the Language model will learn new probable sequences of words. See the list of supported by Azure Video Indexer languages in [supported langues](language-support.md). 
+Azure Video Indexer supports automatic speech recognition through integration with the Microsoft [Custom Speech Service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). You can customize the Language model by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized, assuming default pronunciation, and the Language model will learn new probable sequences of words. See the list of supported by Azure Video Indexer languages in [supported langues](language-support.md). 
 
 Let's take a word that is highly specific, like "Kubernetes" (in the context of Azure Kubernetes service), as an example. Since the word is new to Azure Video Indexer, it is recognized as "communities". You need to train the model to recognize it as "Kubernetes". In other cases, the words exist, but the Language model is not expecting them to appear in a certain context. For example, "container service" is not a 2-word sequence that a non-specialized Language model would recognize as a specific set of words.
 

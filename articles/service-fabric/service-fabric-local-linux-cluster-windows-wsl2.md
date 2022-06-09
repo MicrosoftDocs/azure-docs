@@ -54,7 +54,7 @@ For manual installation of the Service Fabric runtime and common SDK, follow the
 
 5. Inside genie namespace, SF SDK can also be installed as mentioned under Script Installation or Manual Installation steps in [Set up a linux local cluster](service-fabric-get-started-linux.md)
 
-6. Provide sudo privileges to current user by making an entry (e.g. \<USERNAME> ALL = (ALL) NOPASSWD:ALL) in /etc/sudoers
+6. Provide sudo privileges to current user by making an entry `<USERNAME\> ALL = (ALL) NOPASSWD:ALL` in /etc/sudoers
 
 ## Set up a local cluster
 Service Fabric inside WSL2 VM is recommended to manage from host windows

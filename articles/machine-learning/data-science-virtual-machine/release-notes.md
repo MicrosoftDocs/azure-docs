@@ -2,10 +2,10 @@
 title: What's new on the Data Science Virtual Machine
 titleSuffix: Azure Data Science Virtual Machine 
 description: Release notes for the Azure Data Science Virtual Machine
-author: v-jeevkumar
+author: jesscioffi
 ms.service: data-science-vm
 
-ms.author: v-jeevkumar
+ms.author: jcioffi
 ms.date: 12/14/2021
 ms.topic: reference
 ---
@@ -19,6 +19,15 @@ Due to the rapidly evolving needs and packages updates, we target to release new
 Azure portal users will always find the latest image available for provisioning the Data Science Virtual Machine. For CLI or Azure Resource Manager (ARM) users, we keep images of individual versions available for 12 months. After that period, particular version of image is no longer available for provisioning.
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
+
+## May 17, 2022
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version `22.05.11`
+
+Main changes:
+
+- Upgraded `log4j(v2)` to version `2.17.2`
 
 ## April 29, 2022
 [Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview) and [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
@@ -123,8 +132,8 @@ Main changes:
 * Changed CUDA to version 11.5
 * Changed Docker to version 20.10.10
 * Changed Intellijidea to version 2021.2.3
-* Changed NVIDIA Drivers to version 495.29.05
-* Changed NVIDIA SMI to version 495.29.05
+* Changed NVIDIA Drivers to version 470.103.01
+* Changed NVIDIA SMI to version 470.103.01
 * Changed Nodejs to version v16.13.0
 * Changed Pycharm to version 2021.2.3
 * Changed VS Code to version 1.61.2

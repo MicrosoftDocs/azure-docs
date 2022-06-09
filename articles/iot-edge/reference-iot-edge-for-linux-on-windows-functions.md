@@ -126,6 +126,7 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | gpuName | GPU Device name |  Name of GPU device to be used for passthrough. |
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (CPU only) |  GPU Passthrough type |
 | gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
+| customSsh | None | Determines whether user wants to use their custom OpenSSH.Client installation. If present, ssh.exe must be available to the EFLOW PSM |
 :::moniker-end
 <!-- end 1.1 -->
 
@@ -148,6 +149,7 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | gpuName | GPU Device name |  Name of GPU device to be used for passthrough. |
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (CPU only) |  GPU Passthrough type |
 | gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
+| customSsh | None | Determines whether user wants to use their custom OpenSSH.Client installation. If present, ssh.exe must be available to the EFLOW PSM |
 :::moniker-end
 <!-- end 1.2 -->
 
@@ -287,7 +289,7 @@ The **Provision-EflowVm** command adds the provisioning information for your IoT
 | deviceId | The device ID of an existing IoT Edge device | Device ID for provisioning an IoT Edge device (**ManualX509**). |
 | scopeId | The scope ID for an existing DPS instance. | Scope ID for provisioning an IoT Edge device (**DpsTPM**, **DpsX509**, or **DpsSymmetricKey**). |
 | symmKey | The primary key for an existing DPS enrollment or the primary key of an existing IoT Edge device registered using symmetric keys | Symmetric key for provisioning an IoT Edge device (**DpsSymmetricKey**). |
-| registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DpsSymmetricKey**). |
+| registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DpsSymmetricKey**, **DpsTPM**). |
 | identityCertPath | Directory path | Absolute destination path of the identity certificate on your Windows host machine (**ManualX509**, **DpsX509**). |
 | identityPrivKeyPath | Directory path | Absolute source path of the identity private key on your Windows host machine (**ManualX509**, **DpsX509**). |
 | globalEndpoint | Device Endpoint URL | URL for Global Endpoint to be used for DPS provisioning. |

@@ -32,13 +32,12 @@ With Azure AD and RBAC, Azure IoT Hub Device Provisioning Service (DPS) requires
 
 To ensure least privilege, always assign the appropriate role at the lowest possible [resource scope](#resource-scope), which is probably the Azure IoT Hub Device Provisioning Service (DPS) scope.
 
-Azure IoT Hub Device Provisioning Service (DPS) provides the following Azure built-in roles for authorizing access to Azure IoT Hub DPS APIs by using Azure AD and RBAC:
+Azure IoT Hub Device Provisioning Service (DPS) provides the following Azure built-in roles for authorizing access to DPS APIs by using Azure AD and RBAC:
 
-| Role | Description | 
-| ---- | ----------- | 
+| Role | Description |
+| ---- | ----------- |
 | Device Provisioning Service Data Contributor | Allows for full access to Device Provisioning Service data-plane operations. |
 | Device Provisioning Service Data Reader | Allows for full read access to Device Provisioning Service data-plane properties. |
-
 
 You can also define custom roles to use with Azure IoT Hub Device Provisioning Service (DPS) by combining the [permissions](#permissions-for-azure-iot-hub-device-provisioning-service-dps-apis) that you need. For more information, see [Create custom roles for Azure role-based access control](../role-based-access-control/custom-roles.md).
 
