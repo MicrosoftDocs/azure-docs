@@ -36,11 +36,17 @@ Onboard a sensor by registering it with Microsoft Defender for IoT. For OT senso
 Select one of the following tabs, depending on the type of network you're working with.
 # [OT sensors](#tab/ot)
 
-**Prerequisites**: Make sure that you've set up your sensor and configured your SPAN port or TAP. For more information, see [Defender for IoT installation](how-to-install-software.md).
+**Prerequisites**: Make sure that you've set up your sensor and configured your SPAN port or TAP. 
+
+For more information, see [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md) and [Defender for IoT installation](how-to-install-software.md), or our [Tutorial: Get started with Microsoft Defender for IoT for OT security](tutorial-onboarding.md).
 
 **To onboard your OT sensor to Defender for IoT**:
 
-1. In the Azure portal, navigate to **Defender for IoT** > **Getting started** and select **Set up OT/ICS Security**. Alternately, from the Defender for IoT **Sites and sensors** page, select **Onboard OT sensor**.
+1. In the Azure portal, navigate to **Defender for IoT** > **Getting started** and select **Set up OT/ICS Security**.
+
+    :::image type="content" source="media/tutorial-onboarding/onboard-a-sensor.png" alt-text="Screenshot of the Set up OT/ICS Security button on the Get started page.":::
+
+    Alternately, from the Defender for IoT **Sites and sensors** page, select **Onboard OT sensor**.
 
 1. By default, on the **Set up OT/ICS Security** page, **Step 1: Did you set up a sensor?** and **Step 2: Configure SPAN port or TAP​** of the wizard are collapsed. If you haven't completed these steps, do so before continuing.
 
@@ -62,9 +68,9 @@ Select one of the following tabs, depending on the type of network you're workin
 
 1. Select **Register**.
 
-A success message appears and your activation file is automatically downloaded, and your sensor is now shown under the configured site on the Defender for IoT **Sites and sensors** page.
+A success message appears and your activation file is automatically downloaded. Your sensor is now shown under the configured site on the Defender for IoT **Sites and sensors** page.
 
-However, until you activate your sensor, the sensor's status will show as **Pending Activation**.
+Until you activate your sensor, the sensor's status will show as **Pending Activation**.
 
 Make the downloaded activation file accessible to the sensor console admin so that they can activate the sensor. For more information, see [Upload new activation files](how-to-manage-individual-sensors.md#upload-new-activation-files).
 
@@ -76,7 +82,7 @@ Make the downloaded activation file accessible to the sensor console admin so th
 
 1. Select **Set up Enterprise IoT Security**.
 
-    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="Screenshot of the Getting started page highlighting the Set up Enterprise IoT security.":::
+    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="Screenshot of the Set up Enterprise IoT Security button on the Get started page.":::
 
 1. In the **Sensor name** field, enter a meaningful name for your sensor.
 
