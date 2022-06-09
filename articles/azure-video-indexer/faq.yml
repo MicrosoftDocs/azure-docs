@@ -6,7 +6,7 @@ metadata:
   author: Juliako
   manager: femila
   ms.topic: faq
-  ms.date: 05/25/2021
+  ms.date: 06/01/2022
   ms.author: juliako
 title: Azure Video Indexer frequently asked questions
 summary: This article answers frequently asked questions about Azure Video Indexer.
@@ -57,6 +57,10 @@ sections:
           In the Azure Video Indexer web-based portal, you can upload a media file using the file upload dialog or by pointing to a URL that directly hosts the source file (see [example](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4)). Any URL that hosts the media content using an iFrame or embed code will not work (see [example](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11)).
 
           For more information, please see this [how-to guide](./upload-index-videos.md).
+ 
+      - question: How many files can I stitch and render in a project?
+        answer: |
+          In Azure Video Indexer you can create a project and add multiple files to stitch and render as a new file. The number of source files is set to 10 in the portal UI and 100 in the API. This is a limit set by the Azure Media Services Media Encoder Standard API where we have a dependency on.
 
       - question: How long does it take Azure Video Indexer to extract insights from media?
         answer: |
@@ -95,7 +99,7 @@ sections:
 
       - question: What is the SLA for Azure Video Indexer?
         answer: |
-          Azure Media Service’s SLA covers Azure Video Indexer and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/azure/media-services/v1_2/) page. The SLA only applies to Azure Video Indexer paid accounts and does not apply to the free trial.
+          Azure Media Service’s SLA covers Azure Video Indexer and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/) page. The SLA only applies to Azure Video Indexer paid accounts and does not apply to the free trial.
 
   - name: Privacy Questions
     questions:
@@ -140,6 +144,8 @@ sections:
       - question: I tried to upload a video as public and it was flagged for inappropriate or offensive content, what does that mean?
         answer: |
           When uploading a video to Azure Video Indexer, an automatic content analysis is done by algorithms and models in order to make sure no inappropriate content will be presented publicly. If a video is found to be suspicious as containing explicit content, it will not be possible to set it as public. However, the account members can still access it as a private video (view it, download the insights and extracted artifacts, and perform other operations available to account members).
+
+          [!INCLUDE [artifacts](./includes/artifacts.md)]
 
           In order to set the video for public access, you can either:
 
@@ -190,7 +196,7 @@ sections:
     questions:
       - question: How much does Azure Video Indexer cost?
         answer: |
-          Azure Video Indexer uses a simple pay-as-you-go pricing model based on the duration of the content input that you index. Additional charges may apply for encoding, streaming, storage, network usage, and media reserved units. For more information, see the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) page.
+          Azure Video Indexer uses a simple pay-as-you-go pricing model based on the duration of the content input that you index. Additional charges may apply for encoding, streaming, storage, network usage, and media reserved units. For more information, see the [pricing](/azure/azure-video-indexer/) page.
 
       - question: When am I billed for using Azure Video Indexer?
         answer: When sending a video to be indexed, the user will define the indexing to be video analysis, audio analysis or both. This will determine which SKUs will be charged. If there is a critical level error during processing, an error code will be returned as a response. In such a case, no billing occurs.  A critical error can be caused by a bug in our code or a critical failure in an internal dependency the service has. Errors such as wrong identification or insight extraction are not considered as critical and a response is returned. In any case where a valid (non-error code) response is returned, billing occurs.

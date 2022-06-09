@@ -20,7 +20,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
 
 ## Prerequisites
 
-* An Azure Media Services (AMS) account. You can create one for free through the [Create AMS Account](/azure/azure/media-services/latest/account-create-how-to).
+* An Azure Media Services (AMS) account. You can create one for free through the [Create AMS Account](/azure/media-services/latest/account-create-how-to).
 
 ## Deploy the sample
 
@@ -52,7 +52,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
     ```
 
 > [!NOTE]
-> If you would like to work with bicep format, inspect the [bicep file](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ARM-Samples/Create-Account/avam.template.bicep) on this repo.
+> If you would like to work with bicep format, inspect the [bicep file](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ARM-Quick-Start/avam.template.bicep) on this repo.
 
 ## Parameters
 

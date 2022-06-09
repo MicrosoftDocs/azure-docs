@@ -5,7 +5,7 @@ services: healthcare-apis
 author: mikaelweave
 ms.service: healthcare-apis
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 06/06/2022
 ms.author: mikaelw
 ---
 
