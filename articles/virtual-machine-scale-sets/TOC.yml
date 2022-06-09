@@ -106,10 +106,10 @@
   - name: Azure Hybrid Benefit
     items: 
     - name: Hybrid Benefit for Linux
-      href: ../virtual-machines/linux/azure-hybrid-benefit.md
+      href: ../virtual-machines/linux/azure-hybrid-benefit-linux.md
       maintainContext: true
     - name: Hybrid Benefit for Windows
-      href: ../virtual-machines/hybrid-use-benefit-licensing.md
+      href: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
       maintainContext: true
     - name: Hybrid benefit for Uniform Scale Sets
       href: azure-hybrid-benefit-linux.md
