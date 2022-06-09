@@ -21,6 +21,14 @@ This article shows you how to install the Kubernetes Event-driven Autoscaling (K
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
+- 
+### Install the extension `aks-preview` 
+ 
+Install the `aks-preview` extension in the AKS cluster to make sure you have the latest version of AKS extension before installing KEDA add-on
+
+```azurecli
+- az extension add --upgrade --name aks-preview
+```
 
 ### Register the `AKS-KedaPreview` feature flag
 
@@ -137,13 +145,13 @@ spec:
 
 While KEDA provides various customization options, the KEDA add-on currently provides basic common configuration.
 
-If you have requirement to run with additional custom configurations, such as namespaces that should be watched or tweaking the log level, then you may edit the KEDA YAML manually and deploy it.
+If you have requirement to run with another custom configurations, such as namespaces that should be watched or tweaking the log level, then you may edit the KEDA YAML manually and deploy it.
 
 However, when the installation is customized there will no support offered for custom configurations.
 
 ## Disable KEDA add-on from your AKS cluster
 
-When you no longer need KEDA add-on in the cluster, use the `az aks update` command with--disable-keda option. This will disable KEDA workload auto-scaler
+When you no longer need KEDA add-on in the cluster, use the `az aks update` command with--disable-keda option. This execution will disable KEDA workload auto-scaler
 
 ```azurecli-interactive
 az aks update \
@@ -156,21 +164,21 @@ az aks update \
 
 ### Enabling add-on on clusters with self-managed open-source KEDA installations
 
-While Kubernetes only allows one metric server to be installed, you can in theory install KEDA multiple times. However, this is not recommended given only one installation will work.
+While Kubernetes only allows one metric server to be installed, you can in theory install KEDA multiple times. However, it isn't recommended given only one installation will work.
 
 When the KEDA add-on is installed in an AKS cluster, the previous installation of open-source KEDA will be overridden and the add-on will take over.
 
 This means that the customization and configuration of the self-installed KEDA deployment will get lost and no longer be applied.
 
-While there is a possibility that the existing autoscaling will keep on working, there is a risk given it will be configured differently and will not support features such as managed identity.
+While there's a possibility that the existing autoscaling will keep on working, there's a risk given it will be configured differently and won't support features such as managed identity.
 
-It is recommended to uninstall existing KEDA installations before enabling the KEDA add-on given the installation will succeed without any error.
+It's recommended to uninstall existing KEDA installations before enabling the KEDA add-on given the installation will succeed without any error.
 
 Following error will be thrown in the operator logs but the installation of KEDA add-on will be completed. 
 
 Error logged in now-suppressed non-participating KEDA operator pod:
 the error logged inside the already installed KEDA operator logs.
-E0520 11:51:24.868081 1 leaderelection.go:330] error retrieving resource lock default/operator.keda.sh: config maps "operator.keda.sh" is forbidden: User "system:serviceaccount:default:keda-operator" cannot get resource "config maps" in API group "" in the namespace "default"
+E0520 11:51:24.868081 1 leaderelection.go:330] error retrieving resource lock default/operator.keda.sh: config maps "operator.keda.sh" is forbidden: User "system:serviceaccount:default:keda-operator" can't get resource "config maps" in API group "" in the namespace "default"
 
 ## Next steps
 This article showed you how to install the KEDA add-on on an AKS cluster using Azure CLI. The steps to verify that KEDA add-on is installed and running are included. With the KEDA add-on installed on your cluster, you can [deploy a sample application][keda-sample] to start scaling apps
