@@ -12,7 +12,7 @@ ms.author: banders
 
 # Azure consumption API overview
 
-The Azure Consumption APIs give you programmatic access to cost and usage data for your Azure resources. These APIs currently only support Enterprise Enrollments and Web Direct Subscriptions (with a few exceptions). The APIs are continually updated to support other types of Azure subscriptions.
+The Azure Consumption APIs give you programmatic access to cost and usage data for your Azure resources. These APIs currently only support Enterprise Enrollments, Web Direct Subscriptions (with a few exceptions) and CSP Azure plan Subscriptions. The APIs are continually updated to support other types of Azure subscriptions.
 
 Azure Consumption APIs provide access to:
 - Enterprise and Web Direct Customers
