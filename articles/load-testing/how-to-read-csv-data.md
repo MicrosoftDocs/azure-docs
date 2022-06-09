@@ -47,15 +47,15 @@ To edit your JMeter script by using the Apache JMeter GUI:
 
   1. Update the **Filename** information and remove any file path reference.
   
-  1. Enter the CSV field names in **Variable names**.
+  1. Enter the CSV field names in **Variable Names**.
 
-        Azure Load Testing doesn't preserve the header row when splitting your CSV file. Provide the variable names in the CSV Data Set Config element instead of using a header row.
+        Azure Load Testing doesn't preserve the header row when splitting your CSV file. Provide the variable names in the **CSV Data Set Config** element instead of using a header row.
 
         :::image type="content" source="media/how-to-read-csv-data/update-csv-data-set-config.png" alt-text="Screenshot that shows the JMeter UI to configure a C S V Data Set Config element.":::
     
-  1. Repeat the previous steps for every CSV Data Set Config element.
+  1. Repeat the previous steps for every **CSV Data Set Config** element in the script.
   
-  1. Save the JMeter script.
+  1. Save the JMeter script and add it to your [test plan](./how-to-create-manage-test.md#test-plan).
 
 To edit your JMeter script by using Visual Studio Code or your editor of preference:
 
@@ -81,7 +81,7 @@ To edit your JMeter script by using Visual Studio Code or your editor of prefere
         </CSVDataSet>
         ```
 
-  1. Save the JMeter script.
+  1. Save the JMeter script and add it to your [test plan](./how-to-create-manage-test.md#test-plan).
 
 ## Add a CSV file to your load test
 
