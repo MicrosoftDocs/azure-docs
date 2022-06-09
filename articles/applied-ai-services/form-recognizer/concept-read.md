@@ -50,7 +50,7 @@ Try extracting text from forms and documents using the Form Recognizer Studio. Y
 ### Form Recognizer Studio (preview)
 
 > [!NOTE]
-> Form Recognizer studio is available with the preview (v3.0) API. The latest service preview is currently not enabled for analyzing Microsoft Word, Excel, PowerPoint, and HTML file formats using the Form Recognizer Studio.
+> Currently, Form Recognizer Studio doesn't support Microsoft Word, Excel, PowerPoint, and HTML file formats in the Read preview.
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/read)***
 
@@ -69,7 +69,7 @@ Try extracting text from forms and documents using the Form Recognizer Studio. Y
 
 ## Input requirements
 
-* Supported file formats: These include JPEG/JPG, PNG, BMP, TIFF, PDF (text-embedded or scanned). Additionally, Microsoft Word, Excel, PowerPoint, and HTML files are supported with the Read API in **2022-06-30-preview**.
+* Supported file formats: These include JPEG/JPG, PNG, BMP, TIFF, PDF (text-embedded or scanned). Additionally, the newest API version `2022-06-30-preview` supports Microsoft Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML files.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 * Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
