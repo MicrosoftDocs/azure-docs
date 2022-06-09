@@ -249,15 +249,15 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
    1. Go to key vault Access control (IAM) tab and remove "Key Vault Secrets Officer" role assignment for this resource.
 
-    ![Remove assignment - key vault](../media/rbac/image-9.png)
+      ![Remove assignment - key vault](../media/rbac/image-9.png)
 
    1. Navigate to previously created secret. You can see all secret properties.
 
-    ![Secret view with access](../media/rbac/image-10.png)
+      ![Secret view with access](../media/rbac/image-10.png)
 
    1. Create new secret ( Secrets \> +Generate/Import) should show below error:
 
-    ![Create new secret](../media/rbac/image-11.png)
+      ![Create new secret](../media/rbac/image-11.png)
 
 1. Validate secret editing without "Key Vault Secret Officer" role on secret level.
 
@@ -267,7 +267,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
    1. Navigate to previously created secret. You can see secret properties.
 
-    ![Secret view without access](../media/rbac/image-12.png)
+      ![Secret view without access](../media/rbac/image-12.png)
 
 1. Validate secrets read without reader role on key vault level.
 
@@ -275,7 +275,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
    1. Navigating to key vault's Secrets tab should show below error:
 
-    ![Secret tab - error](../media/rbac/image-13.png)
+      ![Secret tab - error](../media/rbac/image-13.png)
 
 ### Creating custom roles 
 
