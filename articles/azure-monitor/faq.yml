@@ -1179,8 +1179,6 @@ sections:
       - question: |
           I don't see some or any data in the performance charts for my VM
         answer: |
-          Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you'll need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](vm/vminsights-ga-release-faq.yml) for more information.
-          
           If you don't see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](./vm/vminsights-enable-powershell.md).
           
       - question: |
