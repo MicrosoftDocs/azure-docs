@@ -24,7 +24,7 @@ You can access Workbooks in a few ways:
 The gallery opens. Select a saved workbook or a template from the gallery, or search for the name in the search bar.
 
 ## Start a new workbook
-To start a new workbook, select the **Empty** template under **Quick start**, or the **New** icon in the top navigation bar. For more information on creating new workbooks, see [Azure Workbooks](workbooks-create-a-workbook.md).
+To start a new workbook, select the **Empty** template under **Quick start**, or the **New** icon in the top navigation bar. For more information on creating new workbooks, see [Create a workbook](workbooks-create-a-workbook.md).
 
 ## Save a workbook
 To save a workbook, save the report with a specific title, subscription, resource group, and location.
@@ -34,12 +34,9 @@ The workbook will autofill to the same settings as the LA workspace, with the sa
 
 Once you start creating your own workbook template, you may want to share it with the wider community. To learn more, and to explore other templates that aren't part of the default Azure Monitor gallery, visit our [GitHub repository](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md). To browse existing workbooks, visit the [Workbook library](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks) on GitHub.
 
-## Print a workbook
-** needs content **
-
 ## Pin a visualization
 
-Text, query, and metrics steps in a workbook can be pinned by using the pin button on those items while the workbook is in pin mode, or if the workbook author has enabled settings for that element to make the pin icon visible.
+Use the pin button next to a text, query, or metrics steps in a workbook can be pinned by using the pin button on those items while the workbook is in pin mode, or if the workbook author has enabled settings for that element to make the pin icon visible.
 
 To access pin mode, select **Edit** to enter editing mode, and select the blue pin icon in the top bar. An individual pin icon will then appear above each corresponding workbook part's *Edit* box on the right-hand side of your screen.
 

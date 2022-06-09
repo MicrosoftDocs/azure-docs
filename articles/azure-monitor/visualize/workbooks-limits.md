@@ -9,7 +9,7 @@ ms.date: 05/30/2022
 ms.reviewer: gardnerjr
 ---
 
-# Limits
+# Workbooks Result Limits
 
 - In general, Workbooks limits the results of queries to be no more than 10,000 results. Any results after that point are truncated.
 - Each data source may have its own specific limits based on the limits of the service they query.

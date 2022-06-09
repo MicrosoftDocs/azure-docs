@@ -1379,7 +1379,7 @@ items:
             href: visualize/workbooks-honey-comb.md
           - name: Composite bar
             href: visualize/workbooks-composite-bar.md
-        - name: Limits
+        - name: Workbook Result Limits
           href: visualize/workbooks-limits.md
     - name: Creating a new workbook
       items:

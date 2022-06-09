@@ -91,4 +91,4 @@ To make a query control using [Application Change Analysis](../app/change-analys
 ## Next Steps
 
  - [Getting started with Azure Workbooks](workbooks-getting-started.md) learning more about workbooks many rich visualizations options.
- - [Azure workbooks data sources](workbooks-data-sources.md).
+ - [Create an Azure Workbook](workbooks-create-a-workbook.md).
