@@ -14,7 +14,7 @@ ms.custom: seoapril2019, azure-synapse
 
 # CREATE TABLE AS SELECT (CTAS)
 
-This article explains the CREATE TABLE AS SELECT (CTAS) T-SQL statement in Dedicated SQL pool (formerly SQL DW) for developing solutions. The article also provides code examples.
+This article explains the CREATE TABLE AS SELECT (CTAS) T-SQL statement in dedicated SQL pool (formerly SQL DW) for developing solutions. The article also provides code examples.
 
 ## CREATE TABLE AS SELECT
 
