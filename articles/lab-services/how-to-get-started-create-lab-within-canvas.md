@@ -134,11 +134,11 @@ This section outlines common error messages that you may see, along with the ste
 
   Before a student or educator can first access their lab, some browsers require that they first grant Azure Lab Services access to the browser's local storage.  To grant access, educators and students should click the **Grant access** button when they are prompted:
 
-  :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-grant-access-prompt.png" alt-text="Grant access to Azure Lab Services to use the browser's local storage.":::
+  :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-grant-access-prompt.png" alt-text="Screenshot of page to grant Azure Lab Services access to use local storage for the browser.":::
 
   Educators and students will see the message **Access granted** when access is successfully granted to Azure Lab Services.  The educator or student should then reload the browser window to start using Azure Lab Services.
 
-  :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-access-granted-success.png" alt-text="Access granted to Azure Lab Services.":::
+  :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-access-granted-success.png" alt-text="Screenshot of access granted page in Azure Lab Services.":::
 
   > [!IMPORTANT]
   > Ensure that students and educators are using an up-to-date version of their browser.  For older browser versions, students and educators may experience issues with being able to successfully grant access to Azure Lab Services.
