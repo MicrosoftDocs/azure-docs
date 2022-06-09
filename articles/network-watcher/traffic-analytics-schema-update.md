@@ -3,7 +3,7 @@ title: Azure Traffic Analytics schema update - March 2020
 description: Sample queries with new fields in the Traffic Analytics schema. Use these three examples to replace the deprecated fields with the new ones.
 services: network-watcher
 documentationcenter: na
-author: vinigam
+author: Harsha-CS
 manager: agummadi
 editor: 
 
@@ -13,7 +13,7 @@ ms.custom: kr2b-contr-experiment
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 06/13/2022
-ms.author: vinigam
+ms.author: harshacs
 
 ---
 # Sample queries with new fields in the Traffic Analytics schema (March 2020 schema update)
