@@ -201,15 +201,15 @@ You can verify the deployment by exploring the resource group from the Azure por
 
 1. Notice in the middle of the overview, in the **Essentials** section, the page displays the deployment status next to **Deployments**. Select **1 Succeeded**.
 
-:::image type="content" source="./media/template-tutorial-create-first-template/deployment-status.png" alt-text="See deployment status.":::
+    :::image type="content" source="./media/template-tutorial-create-first-template/deployment-status.png" alt-text="See deployment status.":::
 
 1. You see a history of deployment for the resource group. Check the box to the left of **blanktemplate** and select **blanktemplate**.
 
-:::image type="content" source="./media/template-tutorial-create-first-template/select-from-deployment-history.png" alt-text="Select deployment.":::
+    :::image type="content" source="./media/template-tutorial-create-first-template/select-from-deployment-history.png" alt-text="Select deployment.":::
 
 1. You see a summary of the deployment. In this case, there's not a lot to see because no resources are deployed. Later in this series you might find it helpful to review the summary in the deployment history. Notice on the left you can see inputs, outputs, and  the template that the deployment used.
 
-:::image type="content" source="./media/template-tutorial-create-first-template/view-deployment-summary.png" alt-text="See deployment summary.":::
+    :::image type="content" source="./media/template-tutorial-create-first-template/view-deployment-summary.png" alt-text="See deployment summary.":::
 
 ## Clean up resources
 
@@ -222,7 +222,7 @@ If you're stopping now, you might want to delete the resource group.
 3. Check the box next to **myResourceGroup** and select **myResourceGroup** or the resource group name you chose.
 4. Select **Delete resource group** from the top menu.
 
-:::image type="content" source="./media/template-tutorial-create-first-template/resource-deletion.png" alt-text="See deletion.":::
+    :::image type="content" source="./media/template-tutorial-create-first-template/resource-deletion.png" alt-text="See deletion.":::
 
 ## Next steps
 
