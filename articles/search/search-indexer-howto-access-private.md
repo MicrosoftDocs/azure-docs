@@ -34,7 +34,7 @@ Private endpoints created through Azure Cognitive Search APIs are referred to as
 + Connections from the search client should be programmatic, either REST APIs or an Azure SDK, rather than through the Azure portal. The device must connect using an authorized IP in the Azure PaaS resource's firewall rules.
 
 > [!NOTE]
-> When using Private Link for data sources, search service portal access to content, such as through the [Import data](search-import-data-portal.md) wizard, is not supported.
+> When using Private Link for data sources, Azure portal access (from Cognitive Search to your content) - such as through the [Import data](search-import-data-portal.md) wizard - is not supported.
 
 <a name="group-ids"></a>
 
