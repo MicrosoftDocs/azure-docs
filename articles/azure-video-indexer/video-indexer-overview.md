@@ -15,11 +15,9 @@ ms.author: juliako
 
 Azure Video Indexer is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Azure Video Indexer video and audio models.
 
-To start extracting insights with Azure Video Indexer, you need to create an account and upload videos. When you upload your videos to Azure Video Indexer, it analyses both visuals and audio by running different AI models. As Azure Video Indexer analyzes your video, the insights that are extracted by the AI models.
+To start extracting insights with Azure Video Indexer, you need to [create an account](connect-to-azure.md) and upload videos, see the [how can i get started](#how-can-i-get-started-with-azure-video-indexer) section below.
 
-When you create an Azure Video Indexer account and connect it to Media Services, the media and metadata files are stored in the Azure storage account associated with that Media Services account. For more information, see [Create an Azure Video Indexer account connected to Azure](connect-to-azure.md).
-
-The following diagram is an illustration and not a technical explanation of how Azure Video Indexer works in the backend.
+Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. Below is an illustration of the audio and video analysis performed by Azure Video Indexer in the background, with the insights landing in the video index.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Azure Video Indexer flow diagram":::
