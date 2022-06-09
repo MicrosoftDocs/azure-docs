@@ -39,7 +39,7 @@ conceptualContent:
           url: quickstarts-sdk/client-library.md
         - itemType: how-to-guide
           text: Call the Read API
-          url: Vision-API-How-to-Topics/call-read-api.md
+          url: how-to/call-read-api.md
         - itemType: deploy
           text: Use the Read OCR container
           url: computer-vision-how-to-install-containers.md
@@ -75,6 +75,32 @@ conceptualContent:
       footerLink:
         text: More
         url: index-image-analysis.yml
+    - title: Face
+      links:
+        - itemType: overview
+          text: About Face service
+          url: overview-identity.md
+        - itemType: quickstart
+          text: Get started with Azure Identity
+          url: quickstarts-sdk/identity-client-library.md
+        - itemType: how-to-guide
+          text: Detect faces in an image
+          url: how-to/identity-detect-faces.md
+        - itemType: concept
+          text: Face detection
+          url: concept-face-detection.md
+        - itemType: concept
+          text: Face recognition
+          url: concept-face-recognition.md
+        - itemType: tutorial
+          text: Add users to a Face service
+          url: Tutorials/build-enrollment-app.md
+        - itemType: reference
+          text: Face API reference
+          url: /rest/api/face/
+      footerLink:
+        text: More
+        url: index-identity.yml
     - title: Spatial Analysis
       links:
         - itemType: overview

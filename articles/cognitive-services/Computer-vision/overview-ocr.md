@@ -23,8 +23,8 @@ Optical character recognition (OCR) allows you to extract printed or handwritten
 
 This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
-* The [how-to guides](./Vision-API-How-to-Topics/call-read-api.md) contain instructions for using the service in more specific or customized ways.
-<!--* The [conceptual articles](Vision-API-How-to-Topics/call-read-api.md) provide in-depth explanations of the service's functionality and features.
+* The [how-to guides](./how-to/call-read-api.md) contain instructions for using the service in more specific or customized ways.
+<!--* The [conceptual articles](how-to/call-read-api.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions. -->
 
 ## Read API 
@@ -49,7 +49,7 @@ OCR for print text includes support for English, French, German, Italian, Portug
 
 OCR for handwritten text includes support for English, Chinese Simplified, French, German, Italian, Japanese, Korean, Portuguese, Spanish languages.
 
-See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages and features. Refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr).
+See [How to specify the model version](./how-to/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages and features. Refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr).
 
 ## Key features
 
@@ -63,14 +63,14 @@ The Read API includes the following features.
 * Select pages and page ranges from large, multi-page documents
 * Natural reading order option for text line output (Latin only)
 * Handwriting classification for text lines (Latin only)
-* Available as Distroless Docker container for on-premise deployment
+* Available as Distroless Docker container for on-premises deployment
 
-Learn [how to use the OCR features](./vision-api-how-to-topics/call-read-api.md).
+Learn [how to use the OCR features](./how-to/call-read-api.md).
 
-## Use the cloud API or deploy on-premise
+## Use the cloud API or deploy on-premises
 The Read 3.x cloud APIs are the preferred option for most customers because of ease of integration and fast productivity out of the box. Azure and the Computer Vision service handle scale, performance, data security, and compliance needs while you focus on meeting your customers' needs.
 
-For on-premise deployment, the [Read Docker container (preview)](./computer-vision-how-to-install-containers.md) enables you to deploy the new OCR capabilities in your own local environment. Containers are great for specific security and data governance requirements.
+For on-premises deployment, the [Read Docker container (preview)](./computer-vision-how-to-install-containers.md) enables you to deploy the new OCR capabilities in your own local environment. Containers are great for specific security and data governance requirements.
 
 > [!WARNING]
 > The Computer Vision [RecognizeText](https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/587f2c6a1540550560080311) and [ocr](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) operations are no longer maintained, and are in the process of being deprecated in favor of the new [Read API](#read-api) covered in this article. Existing customers should [transition to using Read operations](upgrade-api-versions.md).

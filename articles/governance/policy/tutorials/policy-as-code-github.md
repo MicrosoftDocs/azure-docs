@@ -1,8 +1,10 @@
 ---
 title: "Tutorial: Implement Azure Policy as Code with GitHub"
 description: In this tutorial, you implement an Azure Policy as Code workflow with export, GitHub actions, and GitHub workflows
-ms.date: 08/17/2021
+ms.date: 06/07/2022
 ms.topic: tutorial
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Tutorial: Implement Azure Policy as Code with GitHub
 
@@ -25,6 +27,7 @@ resources, the quickstart articles explain how to do so.
   [free account](https://azure.microsoft.com/free/) before you begin.
 - Review [Design an Azure Policy as Code workflow](../concepts/policy-as-code.md) to have an
   understanding of the design patterns used in this tutorial.
+- Your account must be assigned the **Owner** role at the management group or subscription scope. For more information on Azure RBAC permissions in Azure Policy, see [Overview of Azure Policy](../overview.md).
 
 ### Export Azure Policy objects from the Azure portal
 

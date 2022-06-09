@@ -3,6 +3,7 @@ title: Concepts - Storage
 description: Learn about storage capacity, storage policies, fault tolerance, and storage integration in Azure VMware Solution private clouds.
 ms.topic: conceptual
 ms.custom: contperf-fy21q4
+ms.service: azure-vmware
 ms.date: 05/02/2022
 ---
 

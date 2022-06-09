@@ -9,7 +9,7 @@ ms.date: 01/13/2022
 
 This tutorial will help you learn how to investigate, and remediate the alerts issued by Defender for IoT. Remediating alerts is the best way to ensure compliance, and protection across your IoT solution.
 
-In this tutorial you will learn how to:
+In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
 > - Investigate security alerts

@@ -9,10 +9,12 @@ ms.topic: how-to
 ms.author: larryfr
 author: blackmist
 ms.date: 10/21/2021
-ms.custom: deploy, cliv1
+ms.custom: deploy, cliv1, sdkv1, event-tier1-build-2022
 ---
 
-# Update a deployed web service
+# Update a deployed web service (v1)
+
+[!INCLUDE [dev v1](../../includes/machine-learning-dev-v1.md)]
 
 In this article, you learn how to update a web service that was deployed with Azure Machine Learning.
 
@@ -20,6 +22,8 @@ In this article, you learn how to update a web service that was deployed with Az
 
 - This article assumes you have already deployed a web service with Azure Machine Learning. If you need to learn how to deploy a web service, [follow these steps](how-to-deploy-and-where.md).
 - The code snippets in this article assume that the `ws` variable has already been initialized to your workspace by using the [Workflow()](/python/api/azureml-core/azureml.core.workspace.workspace#constructor) constructor or loading a saved configuration with [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#azureml-core-workspace-workspace-from-config). The following snippet demonstrates how to use the constructor:
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core import Workspace
@@ -52,6 +56,8 @@ See [ACI Service Update Method.](/python/api/azureml-core/azureml.core.webservic
 **Using the SDK**
 
 The following code shows how to use the SDK to update the model, environment, and entry script for a web service:
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Environment
@@ -97,14 +103,13 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 > [!TIP]
 > In this example, a JSON document is used to pass the model information from the registration command into the update command.
 >
-> To update the service to use a new entry script or environment, create an [inference configuration file](./reference-azure-machine-learning-cli.md#inference-configuration-schema) and specify it with the `ic` parameter.
+> To update the service to use a new entry script or environment, create an [inference configuration file](./v1/reference-azure-machine-learning-cli.md#inference-configuration-schema) and specify it with the `ic` parameter.
 
 For more information, see the [az ml service update](/cli/azure/ml(v1)/service#az-ml-v1--service-update) documentation.
 
 ## Next steps
 
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
-* [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)
 * [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)

@@ -1,6 +1,5 @@
 ---
 title: Create a trust relationship between an app and GitHub
-titleSuffix: Microsoft identity platform
 description: Set up a trust relationship between an app in Azure AD and a GitHub repo.  This allows a GitHub Actions workflow to access Azure AD protected resources without using secrets or certificates. 
 services: active-directory
 author: rwike77

@@ -11,12 +11,69 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/30/2022
+ms.date: 5/26/2022
 ms.author: gunnarc
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+
+## May 2022 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 22-05 |  [5013941]  |  Latest Cumulative Update(LCU) | [6.44] | May 10, 2022 |
+|  Rel 22-05 |  [5011486]  |  IE Cumulative Updates | [2.123], [3.110], [4.103] | Mar 8, 2022 |
+|  Rel 22-05 |  [5013944]  |  Latest Cumulative Update(LCU) | [7.12] | May 10, 2022 |
+|  Rel 22-05 |  [5013952]  |  Latest Cumulative Update(LCU) | [5.68] | May 10, 2022 |
+|  Rel 22-05 |  [5013637]  |  .NET Framework 3.5 Security and Quality Rollup | [2.123] | May 10, 2022 |
+|  Rel 22-05 |  [5012141]  |  .NET Framework 4.5.2 Security and Quality Rollup | [2.123] | Apr 12, 2022 |
+|  Rel 22-05 |  [5013638]  |  .NET Framework 3.5 Security and Quality Rollup | [4.103] | May 10, 2022 |
+|  Rel 22-05 |  [5012142]  |  .NET Framework 4.5.2 Security and Quality Rollup | [4.103] | Apr 12, 2022 |
+|  Rel 22-05 |  [5013635]  |  .NET Framework 3.5 Security and Quality Rollup | [3.110] | May 10, 2022 |
+|  Rel 22-05 |  [5012140]  |  . NET Framework 4.5.2 Security and Quality Rollup | [3.110] | Apr 12, 2022 |
+|  Rel 22-05 |  [5013641]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update | [6.44] | May 10, 2022 |
+|  Rel 22-05 |  [5013630]  |  .NET Framework 4.8 Security and Quality Rollup | [7.12] | May 10, 2022 |
+|  Rel 22-05 |  [5014012]  |  Monthly Rollup | [2.123] | May 10, 2022 |
+|  Rel 22-05 |  [5014017]  |  Monthly Rollup | [3.110] | May 10, 2022 |
+|  Rel 22-05 |  [5014011]  |  Monthly Rollup | [4.103] | May 10, 2022 |
+|  Rel 22-05 |  [5014027]  |  Servicing Stack update | [3.110] | May 10, 2022 |
+|  Rel 22-05 |  [5014025]  |  Servicing Stack update | [4.103] | May 10, 2022 |
+|  Rel 22-05 |  [4578013]  |  Standalone Security Update | [4.103] | Aug 19, 2020 |
+|  Rel 22-05 |  [5014026]  |  Servicing Stack update | [5.68] | May 10, 2022 |
+|  Rel 22-05 |  [5011649]  |  Servicing Stack update | [2.123] | Mar 8, 2022 |
+|  Rel 22-05 |  [4494175]  |  Microcode | [5.68] | Sep 1, 2020 |
+|  Rel 22-05 |  [4494174]  |  Microcode | [6.44] | Sep 1, 2020 |
+
+[5013941]: https://support.microsoft.com/kb/5013941
+[5011486]: https://support.microsoft.com/kb/5011486
+[5013944]: https://support.microsoft.com/kb/5013944
+[5013952]: https://support.microsoft.com/kb/5013952
+[5013637]: https://support.microsoft.com/kb/5013637
+[5012141]: https://support.microsoft.com/kb/5012141
+[5013638]: https://support.microsoft.com/kb/5013638
+[5012142]: https://support.microsoft.com/kb/5012142
+[5013635]: https://support.microsoft.com/kb/5013635
+[5012140]: https://support.microsoft.com/kb/5012140
+[5013641]: https://support.microsoft.com/kb/5013641
+[5013630]: https://support.microsoft.com/kb/5013630
+[5014012]: https://support.microsoft.com/kb/5014012
+[5014017]: https://support.microsoft.com/kb/5014017
+[5014011]: https://support.microsoft.com/kb/5014011
+[5014027]: https://support.microsoft.com/kb/5014027
+[5014025]: https://support.microsoft.com/kb/5014025
+[4578013]: https://support.microsoft.com/kb/4578013
+[5014026]: https://support.microsoft.com/kb/5014026
+[5011649]: https://support.microsoft.com/kb/5011649
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+[2.123]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.110]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.103]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.68]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.44]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.12]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 ## April 2022 Guest OS
 

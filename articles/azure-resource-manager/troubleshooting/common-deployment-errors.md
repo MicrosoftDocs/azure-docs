@@ -3,7 +3,7 @@ title: Troubleshoot common Azure deployment errors
 description: Describes common deployment errors for Azure resources that are deployed with Azure Resource Manager templates (ARM templates) or Bicep files.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 03/17/2022
+ms.date:  05/16/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -33,6 +33,7 @@ If your error code isn't listed, submit a GitHub issue. On the right side of the
 | DeploymentJobSizeExceeded | Simplify your template to reduce size. | [Resolve template size errors](error-job-size-exceeded.md) |
 | DnsRecordInUse | The DNS record name must be unique. Enter a different name. | |
 | ImageNotFound | Check VM image settings. |  |
+| InaccessibleImage | Azure Container Instance deployment fails. You might need to include the image's tag with the syntax `registry/image:tag` to deploy the container. For a private registry, verify your credentials are correct. | [Find error code](find-error-code.md) | 
 | InternalServerError | Caused by a temporary problem. Retry the deployment. | |
 | InUseSubnetCannotBeDeleted | This error can occur when you try to update a resource, if the request process deletes and creates the resource. Make sure to specify all unchanged values. | [Update resource](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Get access token for the appropriate tenant. You can only get the token from the tenant that your account belongs to. | |
@@ -77,7 +78,7 @@ If your error code isn't listed, submit a GitHub issue. On the right side of the
 | SubnetsNotInSameVnet | A virtual machine can only have one virtual network. When deploying several NICs, make sure they belong to the same virtual network. | [Windows VM multiple NICs](../../virtual-machines/windows/multiple-nics.md) <br><br> [Linux VM multiple NICs](../../virtual-machines/linux/multiple-nics.md) |
 | SubnetIsFull | There aren't enough available addresses in the subnet to deploy resources. You can release addresses from the subnet, use a different subnet, or create a new subnet. | [Manage subnets](../../virtual-network/virtual-network-manage-subnet.md) and [Virtual network FAQ](../../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) <br><br> [Private IP addresses](../../virtual-network/ip-services/private-ip-addresses.md) |
 | SubscriptionNotFound | A specified subscription for deployment can't be accessed. It could be the subscription ID is wrong, the user deploying the template doesn't have adequate permissions to deploy to the subscription, or the subscription ID is in the wrong format. When using ARM template nested deployments to deploy across scopes, provide the subscription's GUID. | [ARM template deploy across scopes](../templates/deploy-to-resource-group.md) <br><br> [Bicep file deploy across scopes](../bicep/deploy-to-resource-group.md) |
-| SubscriptionNotRegistered | When deploying a resource, the resource provider must be registered for your subscription. When you use an Azure Resource Manager template for deployment, the resource provider is automatically registered in the subscription. Sometimes, the automatic registration doesn't complete in time. To avoid this intermittent error, register the resource provider before deployment. | [Resolve registration](error-register-resource-provider.md) |
+| SubscriptionNotRegistered | When a resource is deployed, the resource provider must be registered for your subscription. When you use an Azure Resource Manager template for deployment, the resource provider is automatically registered in the subscription. Sometimes, the automatic registration doesn't complete in time. To avoid this intermittent error, register the resource provider before deployment. | [Resolve registration](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Remove unnecessary dependencies. | [Resolve circular dependencies](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Reduce number of resource groups for a single deployment. | [ARM template deploy across scopes](../templates/deploy-to-resource-group.md) <br><br> [Bicep file deploy across scopes](../bicep/deploy-to-resource-group.md) |
 

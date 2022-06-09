@@ -1,12 +1,13 @@
 ---
 title: Create and manage MongoDB API for Azure Cosmos DB with Bicep
 description: Use Bicep to create and configure MongoDB API Azure Cosmos DB API.
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 09/13/2021
-ms.author: mjbrown
+ms.date: 05/23/2022
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Manage Azure Cosmos DB MongoDB API resources using Bicep
@@ -15,7 +16,7 @@ ms.author: mjbrown
 
 In this article, you learn how to use Bicep to deploy and manage your Azure Cosmos DB accounts for MongoDB API, databases, and collections.
 
-This article shows Bicep samples for Gremlin API accounts. You can also find Bicep samples for [SQL](../sql/manage-with-bicep.md), [Cassandra](../cassandra/manage-with-bicep.md), [Gremlin](../graph/manage-with-bicep.md), and [Table](../table/manage-with-bicep.md) APIs.
+This article shows Bicep samples for MongoDB API accounts. You can also find Bicep samples for [SQL](../sql/manage-with-bicep.md), [Cassandra](../cassandra/manage-with-bicep.md), [Gremlin](../graph/manage-with-bicep.md), and [Table](../table/manage-with-bicep.md) APIs.
 
 > [!IMPORTANT]
 >
@@ -29,7 +30,7 @@ To create any of the Azure Cosmos DB resources below, copy the following example
 
 ## MongoDB API with autoscale provisioned throughput
 
-This template will create an Azure Cosmos account for MongoDB API (3.2, 3.6 or 4.0) with two collections that share autoscale throughput at the database level.
+This template will create an Azure Cosmos account for MongoDB API (3.2, 3.6, 4.0, or 4.2) with two collections that share autoscale throughput at the database level.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.documentdb/cosmosdb-mongodb-autoscale/main.bicep":::
 
@@ -37,7 +38,7 @@ This template will create an Azure Cosmos account for MongoDB API (3.2, 3.6 or 4
 
 ## MongoDB API with standard provisioned throughput
 
-Create an Azure Cosmos account for MongoDB API (3.2, 3.6 or 4.0) with two collections that share 400 RU/s standard (manual) throughput at the database level.
+Create an Azure Cosmos account for MongoDB API (3.2, 3.6, 4.0, or 4.2) with two collections that share 400 RU/s standard (manual) throughput at the database level.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.documentdb/cosmosdb-mongodb/main.bicep":::
 

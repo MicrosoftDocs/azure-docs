@@ -45,7 +45,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * If you aren't using VS Code, make sure you have the following installed in your development environment:
 
-  * A [**Java Development Kit** (JDK)](https://www.oracle.com/java/technologies/downloads/) version 8 or later.
+  * A [**Java Development Kit** (JDK)](https://wiki.openjdk.java.net/display/jdk8u) version 8 or later. For more information, *see* [supported Java Versions and update schedule](/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule).
 
   * [**Gradle**](https://gradle.org/), version 6.8 or later.
 
