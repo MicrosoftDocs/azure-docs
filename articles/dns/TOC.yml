@@ -45,13 +45,13 @@
     items:
     - name: Host your domain in Azure DNS
       href: dns-delegate-domain-azure-dns.md
-    - name: Create child DNS zone
+    - name: Create child DNS zones
       href: tutorial-public-dns-zones-child.md    
     - name: Create custom DNS records for a web app
       href: dns-web-sites-custom-domain.md
     - name: Create alias records for zone records
       href: tutorial-alias-rr.md
-    - name: Create alias records for Public IP addresses
+    - name: Create alias records for public IP addresses
       href: tutorial-alias-pip.md
     - name: Create alias records for Traffic Manager
       href: tutorial-alias-tm.md
