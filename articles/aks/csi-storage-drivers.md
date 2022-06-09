@@ -24,7 +24,7 @@ The CSI storage driver support on AKS allows you to natively use:
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code opposed to the new CSI drivers, which are plug-ins.
 
 > [!NOTE]
-> Azure disk CSI driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. Azure disk CSI driver v2 (preview) also provides the ability to fine tune performance. If you're interested in participating in the preview, submit a request: [https://aka.ms/DiskCSIv2Preview](https://aka.ms/DiskCSIv2Preview). This preview version is provided without a service level agreement, and you can occasionally expect breaking changes while in preview. The preview version isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure disk CSI driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. Azure disks CSI driver v2 (preview) also provides the ability to fine tune performance. If you're interested in participating in the preview, submit a request: [https://aka.ms/DiskCSIv2Preview](https://aka.ms/DiskCSIv2Preview). This preview version is provided without a service level agreement, and you can occasionally expect breaking changes while in preview. The preview version isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Migrate custom in-tree storage classes to CSI
 
@@ -32,7 +32,7 @@ If you created in-tree driver storage classes, those storage classes continue to
 
 Migrating these storage classes involves deleting the existing ones, and re-creating them with the provisioner set to one of the following depending on the storage type:
 
-* Azure disk storage - **disk.csi.azure.com**
+* Azure Disk Storage - **disk.csi.azure.com**
 * Azure Files - **files.csi.azure.com**
 * Azure Blob storage - **blob.csi.azure.com**
 
@@ -75,9 +75,9 @@ parameters:
 > $ kubectl patch pv pv-azuredisk --type merge --patch '{"spec": {"persistentVolumeReclaimPolicy": "Retain"}}'
 > ```
 
-### Migrate in-tree Azure disk persistent volumes
+### Migrate in-tree Azure disks persistent volumes
 
-If you have in-tree Azure disk persistent volumes, get `diskURI` from in-tree persistent volumes and then follow this [guide][azure-disk-static-mount] to set up CSI driver persistent volumes.
+If you have in-tree Azure disks persistent volumes, get `diskURI` from in-tree persistent volumes and then follow this [guide][azure-disk-static-mount] to set up CSI driver persistent volumes.
 
 ### Migrate in-tree Azure File persistent volumes
 
