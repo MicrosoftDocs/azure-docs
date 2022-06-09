@@ -141,7 +141,7 @@ If using Microsoft managed shipping, follow these steps.
 
 ## Self-managed shipping
 
-Self-managed shipping is available as an option when you [Order Azure Data Box](../articles/databox/data-box-deploy-ordered.md?tabs=portal). For detailed steps, see [Use self-managed shipping](../articles/databox/data-box-portal-customer-managed-shipping.md).
+Self-managed shipping is available as an option when you [Order Azure Data Box](data-box-disk-deploy-ordered.md). For detailed steps, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
 
 [!INCLUDE [data-box-shipping-regions](../../includes/data-box-shipping-regions.md)]
 
