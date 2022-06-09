@@ -22,7 +22,7 @@ Ensure that you have an Azure subscription. If you don't have an Azure subscript
 
 Your new function app is ready to use. Next, you'll create a function in the new function app.
 
-:::image type="content" source="./media/functions-create-scheduled-function/function-app-create-success-new.png" alt-text="Screenshot that shows function app created successfully." border="true":::
+:::image type="content" source="./media/functions-create-scheduled-function/function-app-create-success-new.png" alt-text="Screenshot showing successful creation of the function app." border="true":::
 
 <a name="create-function"></a>
 
@@ -30,11 +30,11 @@ Your new function app is ready to use. Next, you'll create a function in the new
 
 1. In your function app, select **Functions**, and then select **+ Create**.
 
-   :::image type="content" source="./media/functions-create-scheduled-function/function-create-function.png" alt-text="Screenshot of Add a function in the Azure portal." border="true":::
+   :::image type="content" source="./media/functions-create-scheduled-function/function-create-function.png" alt-text="Screenshot of adding a function in the Azure portal." border="true":::
 
 1. Select the **Timer trigger** template.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger-template.png" alt-text="Screenshot that shows select the timer trigger page in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger-template.png" alt-text="Screenshot of select the timer trigger page in the Azure portal." border="true":::
 
 1. Configure the new trigger with the settings as specified in the table below the image, and then select **Create**.
 
@@ -49,11 +49,11 @@ Your new function app is ready to use. Next, you'll create a function in the new
 
 1. In your function, select **Code + Test** and expand the **Logs**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-code-test-timer-trigger.png" alt-text="Screenshot that shows the Test the timer trigger page in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-code-test-timer-trigger.png" alt-text="Screenshot of the Test the timer trigger page in the Azure portal." border="true":::
 
 1. Verify execution by viewing the information written to the logs.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-timer-logs-view.png" alt-text="Screenshot that shows the View the timer trigger page in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-timer-logs-view.png" alt-text="Screenshot showing the View the timer trigger page in the Azure portal." border="true":::
 
 Now, you change the function's schedule so that it runs once every hour instead of every minute.
 
@@ -63,11 +63,11 @@ Now, you change the function's schedule so that it runs once every hour instead 
 
 1. Select **Timer (myTimer)**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule-new.png" alt-text="Screenshot shows the Update the timer schedule page in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule-new.png" alt-text="Screenshot of Update the timer schedule page in the Azure portal." border="true":::
 
 1. Update the **Schedule** value to `0 0 */1 * * *`, and then select **Save**.  
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Screenshot that shows the Update function timer schedule page in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Screenshot of the Update function timer schedule page in the Azure portal." border="true":::
 
 You now have a function that runs once every hour, on the hour.
 

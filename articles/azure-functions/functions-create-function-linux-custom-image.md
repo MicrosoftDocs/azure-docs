@@ -289,7 +289,7 @@ func start
 ```
 ::: zone-end
 
-Once you see the `HttpExample` endpoint appears in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser must display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
+After you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser must display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
 
 Press <kbd>Ctrl + C</kbd> to stop the host.
 
@@ -431,7 +431,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     ---
 
-    In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Storage names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account [supported by Functions](storage-considerations.md#storage-account-requirements).
+    In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Storage names must contain 3 to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account [supported by Functions](storage-considerations.md#storage-account-requirements).
     
 1. Use the command to create a Premium plan for Azure Functions named `myPremiumPlan` in the **Elastic Premium 1** pricing tier (`--sku EP1`), in your `<REGION>`, and in a Linux container (`--is-linux`).
 
@@ -497,7 +497,7 @@ A function app on Azure manages the execution of your functions in your hosting 
 
     Replace `<STORAGE_NAME>` with the name of the storage account you created earlier.
 
-1. Use the following command to add setting to the function app:
+1. Use the following command to add the setting to the function app:
  
     # [Azure CLI](#tab/azure-cli)
     ```azurecli
@@ -518,7 +518,7 @@ A function app on Azure manages the execution of your functions in your hosting 
 1. The function can now use this connection string to access the storage account.
 
 > [!NOTE]
-> If you publish your custom image to a private container registry, you must use environment variables in the *Dockerfile* for the connection string instead. For more information, see the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env). You must also set the `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` variables. To use the values, then, you must rebuild the image, push the image to the registry, and then restart the function app on Azure.
+> If you publish your custom image to a private container registry, you must use environment variables in the *Dockerfile* for the connection string instead. For more information, see the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env). You must also set the `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` variables. To use the values, you must rebuild the image, push the image to the registry, and then restart the function app on Azure.
 
 ## Verify your functions on Azure
 
@@ -566,9 +566,9 @@ You can enable Azure Functions to automatically update your deployment of an ima
 
 1. Copy the deployment webhook URL to the clipboard.
 
-1. Open [Docker Hub](https://hub.docker.com/), sign in, and select **Repositories** on the navigation bar. Locate and select image, select the **Webhooks** tab, specify a **Webhook name**, paste your URL in **Webhook URL**, and then select **Create**.
+1. Open [Docker Hub](https://hub.docker.com/), sign in, and select **Repositories** on the navigation bar. Locate and select the image, select the **Webhooks** tab, specify a **Webhook name**, paste your URL in **Webhook URL**, and then select **Create**.
 
-    :::image type="content" source="./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png" alt-text="Screenshot that shows Add the webhook in your Docker Hub window.":::  
+    :::image type="content" source="./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png" alt-text="Screenshot showing how to add the webhook in your Docker Hub window.":::  
 
 1. With the webhook set, Azure Functions redeploys your image whenever you update it in Docker Hub.
 

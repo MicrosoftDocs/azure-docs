@@ -4,7 +4,7 @@ description: Learn how to connect your function app to Application Insights for 
 ms.date: 05/16/2022
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devdivchpfy22
-# Customer intent: As a developer, I want to understand how to correctly configure monitoring for my functions so I can collect the data that I need.
+# Customer intent: As a developer, I want to understand how to configure monitoring for my functions correctly, so I can collect the data that I need.
 ---
 
 # How to configure monitoring for Azure Functions
@@ -138,13 +138,13 @@ If *[host.json]* includes multiple logs that start with the same string, the mor
 You can use a log level setting of `None` to prevent any logs from being written for a category.
 
 > [!CAUTION]
-> Azure Functions integrates with Application Insights by storing telemetry events in Application Insights tables, setting a category log level to any value different from `Information` will prevent the telemetry to flow to those tables. As outcome, you won't be able to see the related data in **Application Insights** or **Function Monitor** tab.
+> Azure Functions integrates with Application Insights by storing telemetry events in Application Insights tables. Setting a category log level to any value different from `Information` will prevent the telemetry to flow to those tables. As outcome, you won't be able to see the related data in **Application Insights** or **Function Monitor** tab.
 >
 > From above samples:
-> + If `Host.Results` category is set to `Error` log level, it will only gather host execution telemetry events in the `requests` table for failed function executions, preventing to display host execution details of success executions in both **Application Insights** and **Function Monitor** tab.
-> + If `Function` category is set to `Error` log level, it will stop gathering function telemetry data related to `dependencies`, `customMetrics`, and `customEvents` for all the functions, preventing to see any of this data in Application Insights. It will only gather `traces` logged with `Error` level.
+> + If the `Host.Results` category is set to `Error` log level, it will only gather host execution telemetry events in the `requests` table for failed function executions, preventing to display host execution details of success executions in both the **Application Insights** and **Function Monitor** tab.
+> + If the `Function` category is set to `Error` log level, it will stop gathering function telemetry data related to `dependencies`, `customMetrics`, and `customEvents` for all the functions, preventing to see any of this data in Application Insights. It will only gather `traces` logged with `Error` level.
 >
-> In both cases you will continue to collect errors and exceptions data in **Application Insights** and **Function Monitor** tab. For more information, see [Solutions with high-volume of telemetry](#solutions-with-high-volume-of-telemetry).
+> In both cases you will continue to collect errors and exceptions data in the **Application Insights** and **Function Monitor** tab. For more information, see [Solutions with high-volume of telemetry](#solutions-with-high-volume-of-telemetry).
 
 ## Configure the aggregator
 
@@ -239,13 +239,13 @@ With scale controller logging enabled, you're now able to [query your scale cont
 
 For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
-When you create your function app in the [Azure portal](./functions-get-started.md), from the command line by using [Azure Functions Core Tools](./create-first-function-cli-csharp.md), or by using [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in the nearest region.
+When you create your function app in the [Azure portal](./functions-get-started.md) from the command line by using [Azure Functions Core Tools](./create-first-function-cli-csharp.md) or [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in the nearest region.
 
 ### New function app in the portal
 
 To review the Application Insights resource being created, select it to expand the **Application Insights** window. You can change the **New resource name** or select a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data.
 
-:::image type="content" source="media/functions-monitoring/enable-ai-new-function-app.png" alt-text="Screenshot of enable Application Insights while creating a function app.":::
+:::image type="content" source="media/functions-monitoring/enable-ai-new-function-app.png" alt-text="Screenshot of enabling Application Insights while creating a function app.":::
 
 When you select **Create**, an Application Insights resource is created with your function app, which has the `APPINSIGHTS_INSTRUMENTATIONKEY` set in application settings. Everything is ready to go.
 
@@ -258,7 +258,7 @@ If an Application Insights resource wasn't created with your function app, use t
 
 1. Select the **Application Insights is not configured** banner at the top of the window. If you don't see this banner, then your app might already have Application Insights enabled.
 
-   :::image type="content" source="media/configure-monitoring/enable-application-insights.png" alt-text="Screenshot of enable Application Insights from the portal.":::
+   :::image type="content" source="media/configure-monitoring/enable-application-insights.png" alt-text="Screenshot of enabling Application Insights from the portal.":::
 
 1. Expand **Change your resource** and create an Application Insights resource by using the settings specified in the following table:  
 
@@ -267,7 +267,7 @@ If an Application Insights resource wasn't created with your function app, use t
     | **New resource name** | Unique app name | It's easiest to use the same name as your function app, which must be unique in your subscription. |
     | **Location** | West Europe | If possible, use the same [region](https://azure.microsoft.com/regions/) as your function app, or the one that's close to that region. |
 
-    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Screenshot of create an Application Insights resource.":::
+    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Screenshot of creating an Application Insights resource.":::
 
 1. Select **Apply**.
 
@@ -286,13 +286,13 @@ To disable built-in logging, delete the `AzureWebJobsDashboard` app setting. For
 
 ## Solutions with high volume of telemetry
 
-Function apps are an essential part of solutions that can cause high volumes of telemetry (IoT solutions, event driven based solutions, high load financial systems, integration systems, and so on). In this case, you should consider extra configuration to reduce costs while maintaining observability.
+Function apps are an essential part of solutions that can cause high volumes of telemetry such as IoT solutions, event driven based solutions, high load financial systems, and integration systems. In this case, you should consider extra configuration to reduce costs while maintaining observability.
 
 The generated telemetry can be consumed in real-time dashboards, alerting, detailed diagnostics, and so on. Depending on how the generated telemetry is going to be consumed, you'll need to define a strategy to reduce the volume of data generated. This strategy will allow you to properly monitor, operate, and diagnose your function apps in production. You can consider the following options:
 
-+ **Use sampling**: As mentioned [earlier](#configure-sampling), it will help to dramatically reduce the volume of telemetry events ingested while maintaining a statistically correct analysis. It could happen that even using sampling you still get high volume of telemetry. Inspect the options that [adaptive sampling](../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-applications) provides to you. For example, set the `maxTelemetryItemsPerSecond` to a value that balances the volume generated with your monitoring needs. Keep in mind that the telemetry sampling is applied per host executing your function app.
++ **Use sampling**: As mentioned [earlier](#configure-sampling), it will help to dramatically reduce the volume of telemetry events ingested while maintaining a statistically correct analysis. It could happen that even using sampling you still a get high volume of telemetry. Inspect the options that [adaptive sampling](../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-applications) provides to you. For example, set the `maxTelemetryItemsPerSecond` to a value that balances the volume generated with your monitoring needs. Keep in mind that the telemetry sampling is applied per host executing your function app.
 
-+ **Default log level**: Use `Warning` or `Error` as the default value for all telemetry categories. Now, you can decide which [categories](#configure-categories) you want to set at `Information` so that you can monitor and diagnose your functions properly.
++ **Default log level**: Use `Warning` or `Error` as the default value for all telemetry categories. Now, you can decide which [categories](#configure-categories) you want to set at `Information` level so that you can monitor and diagnose your functions properly.
 
 + **Tune your functions telemetry**: With the default log level set to `Error` or `Warning`, no detailed information from each function will be gathered (dependencies, custom metrics, custom events, and traces). For those functions that are key for production monitoring, define an explicit entry for `Function.<YOUR_FUNCTION_NAME>` category and set it to `Information`, so that you can gather detailed information. At this point, to avoid gathering [user-generated logs](functions-monitoring.md#writing-to-logs) at `Information` level, set the `Function.<YOUR_FUNCTION_NAME>.User` category to `Error` or `Warning` log level.
 
@@ -369,15 +369,15 @@ Here's a sample:
 
 With this configuration, you'll have:
 
-+ The default value for all functions and telemetry categories is set to `Warning` (including Microsoft and Worker categories) so, by default, all errors and warnings generated by both, the runtime and custom logging, are gathered.
++ The default value for all functions and telemetry categories is set to `Warning` (including Microsoft and Worker categories). So, by default, all errors and warnings generated by runtime and custom logging are gathered.
 
 + The `Function` category log level is set to `Error`, so for all functions, by default, only exceptions and error logs will be gathered (dependencies, user-generated metrics, and user-generated events will be skipped).
 
-+ For the `Host.Aggregator` category, as it's set to `Error` log level, no aggregated information from function invocations will be gathered in the `customMetrics` Application Insights table, and no information about executions counts (total, successful, failed, and so on) will be shown in the function overview dashboard.
++ For the `Host.Aggregator` category, as it is set to `Error` log level, aggregated information from function invocations won't be gathered in the `customMetrics` Application Insights table, and information about executions counts (total, successful, and failed) won't be shown in the function overview dashboard.
 
 + For the `Host.Results` category, all the host execution information is gathered in the `requests` Application Insights table. All the invocations results will be shown in the function Monitor dashboard and in Application Insights dashboards.
 
-+ For the function called `Function1`, we have set the log level to `Information` so, for this concrete function, all the telemetry is gathered (dependency, custom metrics, custom events). For the same function, the `Function1.User` category (user-generated traces) is set to `Error`, so only custom error logging will be gathered.
++ For the function called `Function1`, we have set the log level to `Information`. So, for this concrete function, all the telemetry is gathered (dependency, custom metrics, and custom events). For the same function, the `Function1.User` category (user-generated traces) is set to `Error`, so only custom error logging will be gathered.
 
   > [!NOTE]
   > Configuration per function isn't supported in v1.x.
