@@ -1,5 +1,20 @@
+---
+title: Troubleshoot private endpoint connection
+titleSuffix: Azure Machine Learning
+description: 'Learn how to troubleshoot connectivity problems to a workspace that is configured with a private endpoint.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: enterprise-readiness
+ms.topic: how-to
+ms.author: jhirono
+author: jhirono
+ms.reviewer: larryfr
+ms.date: 06/09/2022
+---
 
-## DNS
+When connecting to a workspace that has been configured with a private endpoint, you may encounter a 403 or a messaging saying that access is forbidden. Use the information in this article to check for common configuration problems that can cause this error.
+
+## Troubleshoot DNS
 
 1. On the Private Endpoint, select the link to the right of __Network Interface__.
 1. Under __Settings__, select __IP Configurations__
@@ -16,7 +31,7 @@
 
 ### Disable DNS over HTTPS
 
-If there does not appear to be any DNS configuration issue above, DNS over HTTPS may be the issue. This will prevent Azure DNS from responding with the IP address of the Private Endpoint.
+If the previous sections did not resolve the problem, see if DNS over HTTP is enabled in your web browser. DNS over HTTP can prevent Azure DNS from responding with the IP address of the Private Endpoint.
 
 * [Disable in Firefox](https://support.mozilla.org/en-US/kb/firefox-dns-over-https)
 * Chromium Edge
@@ -38,11 +53,19 @@ If there does not appear to be any DNS configuration issue above, DNS over HTTPS
 
     `nslookup <fqdn>`
 
-    For example.....
+    For example, running the command `nslookup 29395bb6-8bdb-4737-bf06-848a6857793f.workspace.eastus.api.azureml.ms` would return a value similar to the following:
+
+    ```
+    Server: yourdnsserver
+    Address: yourdnsserver-IP-address
+
+    Name:   29395bb6-8bdb-4737-bf06-848a6857793f.workspace.eastus.api.azureml.ms
+    Address: 10.3.0.5
+    ```
 
 1. If the `nslookup` command returns an error, or returns a different IP address than displayed in the portal, then the custom DNS solution isn't configured correctly. For more information, see [How to use your workspace with a custom DNS server](how-to-custom-dns.md)
 
-### Proxy configuration
+## Proxy configuration
 
 If you use a proxy, it may prevent communication with a secured workspace. To test, use one of the following options:
 
