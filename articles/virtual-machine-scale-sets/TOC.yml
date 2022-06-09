@@ -82,12 +82,16 @@
     href: virtual-machine-scale-sets-vertical-scale-reprovision.md
   - name: Scale-In Policy
     href: virtual-machine-scale-sets-scale-in-policy.md 
+  - name: Instance protection
+    href: virtual-machine-scale-sets-instance-protection.md
 - name: Availability
   items: 
   - name: Design considerations
     href: virtual-machine-scale-sets-design-overview.md
   - name: vCPU quotas
     href: ../virtual-machines/windows/quotas.md
+  - name: Automatic instance repairs
+    href: virtual-machine-scale-sets-automatic-instance-repairs.md
     maintainContext: true
   - name: Availability Zones
     href: virtual-machine-scale-sets-use-availability-zones.md
@@ -103,6 +107,8 @@
   items: 
   - name: Azure Spot Virtual Machines
     href: use-spot.md
+  - name: Reserved instances
+    href: ../cost-management-billing/reservations/save-compute-costs-reservations.md
   - name: Azure Hybrid Benefit
     items: 
     - name: Hybrid Benefit for Linux
@@ -113,8 +119,6 @@
       maintainContext: true
     - name: Hybrid benefit for Uniform Scale Sets
       href: azure-hybrid-benefit-linux.md
-  - name: Reserved instances
-    href: ../cost-management-billing/reservations/save-compute-costs-reservations.md
 - name: Management
   items: 
   - name: Common management tasks
@@ -135,43 +139,23 @@
     href: virtual-machine-scale-sets-manage-fault-domains.md
   - name: Understand instance IDs
     href: virtual-machine-scale-sets-instance-ids.md
-  - name: Terminate notification on delete
-    href: virtual-machine-scale-sets-terminate-notification.md
-  - name: Extensions on scale sets
+  - name: Extensions
     items:
+    - name: Automatic extension upgrade 
+      href: ../virtual-machines/automatic-extension-upgrade.md
+      maintainContext: true
     - name: Extension sequencing on scale sets
       href: virtual-machine-scale-sets-extension-sequencing.md
     - name: Application Health extension
       href: virtual-machine-scale-sets-health-extension.md
-  - name: Automatic extension upgrade 
-    href: ../virtual-machines/automatic-extension-upgrade.md
-    maintainContext: true
-  - name: Automatic OS upgrades
-    href: virtual-machine-scale-sets-automatic-upgrade.md
-  - name: Automatic instance repairs
-    href: virtual-machine-scale-sets-automatic-instance-repairs.md
-  - name: Automatic VM guest patching
-    items:
-    - name: Overview
-      href: ../virtual-machines/automatic-vm-guest-patching.md
-      maintainContext: true
-    - name: Hotpatch
-      href: ../automanage/automanage-hotpatch.md
-      maintainContext: true
-  - name: Maintenance control
-    items:
-    - name: Overview
-      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
-    - name: PowerShell
-      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
-  - name: Instance protection
-    href: virtual-machine-scale-sets-instance-protection.md
 - name: Monitoring
   items:
   - name: Monitor virtual machines
     href: ../virtual-machines/monitor-vm.md
   - name: VM insights
     href: ../azure-monitor/vm/vminsights-overview.md
+  - name: Terminate notifications
+    href: virtual-machine-scale-sets-terminate-notification.md
   - name: Instance Metadata service
     items:
     - name: CLI
@@ -225,6 +209,22 @@
   - name: Security and policy
     href: ../virtual-machines/security-policy.md
     maintainContext: true
+  - name: Automatic OS upgrades
+    href: virtual-machine-scale-sets-automatic-upgrade.md
+  - name: Maintenance control
+    items:
+    - name: Overview
+      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
+    - name: PowerShell
+      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
+  - name: Automatic VM guest patching
+    items:
+    - name: Overview
+      href: ../virtual-machines/automatic-vm-guest-patching.md
+      maintainContext: true
+    - name: Hotpatch
+      href: ../automanage/automanage-hotpatch.md
+      maintainContext: true
   - name: Azure Disk Encryption
     href: disk-encryption-overview.md
   - name: Azure security baseline
