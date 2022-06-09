@@ -52,7 +52,7 @@ To execute the search query:
 
         The output should return a status, such as `COMPLETED`, `EXECUTE`, `WAIT`, a `progress` value, and a `search_id` value. For example:
 
-        :::image type="content" source="media/migration-qradar-historical-data/export-output.png" alt-text="Screenshot of the output of the search query command." lightbox="media/migration-qradar-historical-data/export-output.png" border="false":::
+        :::image type="content" source="media/migration-qradar-historical-data/export-output.png" alt-text="Screenshot of the output of the search query command." border="false":::
 
 1. Copy the value in the `search_id` field. You'll use this ID to check the progress and status of the search query execution, and to download the results after the search execution is complete. 
 1. To check the status and the progress of the search, run one of these commands:
