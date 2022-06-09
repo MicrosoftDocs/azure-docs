@@ -378,6 +378,10 @@
           href: azure-files-dynamic-pv.md
         - name: Azure Files - static
           href: azure-files-volume.md
+        - name: Azure Blob storage - dynamic
+          href: azure-csi-blob-storage-dynamic.md
+        - name: Azure Blob storage - static
+          href: azure-csi-blob-storage-manual.md
         - name: Azure HPC Cache
           href: azure-hpc-cache.md
         - name: NFS Server - static
