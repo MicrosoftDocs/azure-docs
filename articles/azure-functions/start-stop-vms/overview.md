@@ -4,7 +4,7 @@ description: This article describes version two of the Start/Stop VMs feature, w
 ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: start-stop-vms
-ms.date: 06/25/2021
+ms.date: 06/08/2022
 ---
 
 # Start/Stop VMs v2 overview
