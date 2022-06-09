@@ -136,7 +136,7 @@ To create a load test in the Azure portal:
 
 ## Run the load test
 
-When Azure Load Testing starts your load test, it will first deploy the JMeter script and any additional files onto test engine instances and run the test.
+When Azure Load Testing starts your load test, it will first deploy the JMeter script and any other files onto test engine instances and run the test.
 
 If you selected **Run test after creation**, your load test will start automatically. To manually start the load test you created earlier, perform the following steps:
 
