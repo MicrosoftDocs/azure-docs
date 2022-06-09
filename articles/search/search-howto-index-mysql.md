@@ -21,7 +21,7 @@ ms.date: 06/10/2022
 
 In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Database for MySQL and makes it searchable in Azure Cognitive Search.
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to indexing files in Azure DB for MySQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers:
+This article supplements [Creating indexers in Azure Cognitive Search](search-howto-create-indexers.md) with information that's specific to indexing files in Azure DB for MySQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers:
 
 - Create a data source
 - Create an index
@@ -110,7 +110,7 @@ In a [search index](search-what-is-an-index.md), add search index fields that co
     ]
 ```
 
-If the primary key in the source table matches the document key (in this case, "ID"), the indexer will import the primary key as the document key.
+If the primary key in the source table matches the document key (in this case, "ID"), the indexer imports the primary key as the document key.
 
 <a name="TypeMapping"></a>
 
@@ -214,11 +214,11 @@ Execution history contains up to 50 of the most recently completed executions, w
 
 Once an indexer has fully populated a search index, you might want subsequent indexer runs to incrementally index just the new and changed rows in your database.
 
-To enable incremental indexing, set the "dataChangeDetectionPolicy" property in your data source definition. This property tells the indexer which change tracking mechanism is used on your data.
+To enable incremental indexing, set the `dataChangeDetectionPolicy` property in your data source definition. This property tells the indexer which change tracking mechanism is used on your data.
 
 For Azure Database for MySQL indexers, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy). 
 
-An indexer's change detection policy relies on having a "high water mark" column that captures the row version, or the date and time when a row was last updated. It's often a `DATE`, `DATETIME`, or `TIMESTAMP` column at a granularity sufficient for meeting the requirements of a high water mark column.
+An indexer's change detection policy relies on having a *high water mark* column that captures the row version, or the date and time when a row was last updated. It's often a `DATE`, `DATETIME`, or `TIMESTAMP` column at a granularity sufficient for meeting the requirements of a high water mark column.
 
 In your MySQL database, the high water mark column must meet the following requirements:
 
@@ -248,7 +248,7 @@ api-key: [admin key]
 > [!IMPORTANT]
 > If you're using a view, you must set a high water mark policy in your indexer data source. 
 >
-> If the source table does not have an index on the high water mark column, queries used by the MySQL indexer may time out. In particular, the `ORDER BY [High Water Mark Column]` clause requires an index to run efficiently when the table contains many rows.
+> If the source table does not have an index on the high water mark column, queries used by the MySQL indexer might time out. In particular, the `ORDER BY [High Water Mark Column]` clause requires an index to run efficiently when the table contains many rows.
 
 <a name="DataDeletionDetectionPolicy"></a>
 
