@@ -20,6 +20,31 @@ This article assumes that you have an existing AKS cluster running version 1.21 
 
 If you don't have a storage account that supports the NFS v3 protocol, see [Mount Blob Storage by using the Network File System (NFS) 3.0 protocol][mount-blob-storage-nfs] to create one for your AKS cluster.
 
+## Storage class driver dynamic parameters
+
+|Name | Description | Example | Mandatory | Default value|
+|--- | --- | --- | --- | --- |
+|skuName | Specify an Azure storage account type (alias: `storageAccountType`) | `Standard_LRS`, `Premium_LRS`, `Standard_GRS`, `Standard_RAGRS` | No | `Standard_LRS`|
+|location | Specify an Azure location | `eastus` | No | If empty, driver will use the same location name as current cluster.|
+|resourceGroup | Specify an Azure resource group name | myResourceGroup | No | If empty, driver will use the same resource group name as current cluster.|
+|storageAccount | Specify an Azure storage account name| STORAGE_ACCOUNT_NAME | - No for blobfuse mount </br> - Yes for NFSv3 mount |  - For blobfuse mount: if empty, driver will find a suitable storage account that matches `skuName` in the same resource group; if a storage account name is provided, storage account must exist. </br>  - For NFSv3 mount, storage account name must be provided.|
+|protocol | Specify blobfuse mount or NFSv3 mount | `fuse`, `nfs` | No | `fuse`|
+|containerName | Specify the existing container (directory) name | container | No | if empty, driver will create a new container name, starting with `pvc-fuse` for blobfuse or `pvc-nfs` for NFSv3 |
+|containerNamePrefix | Specify Azure storage directory prefix created by driver | my |Can only contain lowercase letters, numbers, hyphens, and length should be less than 21 characters. | No |
+|server | Specify Azure storage account server address | Existing server address, for example `accountname.privatelink.blob.core.windows.net`. | No | If empty, driver will use default `accountname.blob.core.windows.net` or other sovereign cloud account address.|
+|allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true`,`false` | No | `false`|
+|storageEndpointSuffix | Specify Azure storage endpoint suffix | `core.windows.net` | No | If empty, driver will use default storage endpoint suffix according to cloud environment.|
+|tags | [tags][az-tags] would be created in newly created storage account | Tag format: 'foo=aaa,bar=bbb' | No | ""|
+|matchTags | Whether matching tags when driver tries to find a suitable storage account | `true`,`false` | No | `false`|
+|--- | **Following parameters are only for blobfuse** | --- | --- |--- |
+|subscriptionID | Specify Azure subscription ID where blob storage directory will be created. | Azure subscription ID | No | If not empty, `resourceGroup` must be provided.|
+|storeAccountKey | Specify store account key to Kubernetes secret <br><br> Note:  <br> `false` means driver leverages kubelet identity to get account key. | `true`,`false` | No | `true`|
+|secretName | Specify secret name to store account key | | No |
+|secretNamespace | Specify the namespace of secret to store account key | `default`,`kube-system`, etc | No | pvc namespace |
+|isHnsEnabled | Enable `Hierarchical namespace` for Azure DataLake storage account | `true`,`false` | No | `false`|
+|--- | **Following parameters are only for NFS protocol** | --- | --- |--- |
+|mountPermissions | Specify mounted folder permissions |The default is `0777`. If set to `0`, driver will not perform `chmod` after mount. | `0777` | No |
+
 ## Create a storage class
 
 A storage class is used to define how an Azure Blob storage container is created. A storage account is automatically created in the node resource group for use with the storage class to hold the Azure Blob storage container.
@@ -114,7 +139,8 @@ The following YAML creates a pod that uses the persistent volume claim my-blobst
 
 ## Next steps
 
-- For Azure File CSI driver parameters, see [CSI driver parameters][CSI driver parameters].
+- To learn how to use CSI driver for Azure Blob storage, see [Use Azure Blob storage with CSI driver][azure-blob-storage-csi].
+- To learn how to manually setup a static persistent volume, see [Create and use a volume with Azure Blob storage][azure-csi-blob-storage-static].
 - For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
 
 <!-- LINKS - external -->
@@ -140,3 +166,4 @@ The following YAML creates a pod that uses the persistent volume claim my-blobst
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [sas-tokens]: ../storage/common/storage-sas-overview.md
 [mount-blob-storage-nfs]: ../storage/blobs/network-file-system-protocol-support-how-to.md
+[azure-csi-blob-storage-static]: azure-csi-blob-storage-manual.md

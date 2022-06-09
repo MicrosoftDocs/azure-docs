@@ -294,7 +294,8 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 
 ## Next steps
 
-- For Azure Blob storage CSI driver parameters, see [CSI driver parameters][CSI driver parameters].
+- To learn how to use CSI driver for Azure Blob storage, see [Use Azure Blob storage with CSI driver][azure-blob-storage-csi].
+- To learn how to manually setup a dynamic persistent volume, see [Create and use a dynamic volume with Azure Blob storage][azure-csi-blob-storage-dynamic].
 - For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
 
 <!-- LINKS - external -->
@@ -317,3 +318,5 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 [use-managed-identity]: use-managed-identity.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [sas-tokens]: ../storage/common/storage-sas-overview.md
+[azure-csi-blob-storage-dynamic]: azure-csi-blob-storage-dynamic.md
+[azure-blob-storage-csi]: azure-blob-csi-md

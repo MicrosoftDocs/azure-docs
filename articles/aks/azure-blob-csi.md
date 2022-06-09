@@ -31,64 +31,6 @@ A [persistent volume][persistent-volume] (PV) represents a piece of storage that
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
-## Storage class driver dynamic parameters
-
-|Name | Description | Example | Mandatory | Default value|
-|--- | --- | --- | --- | --- |
-|skuName | Specify an Azure storage account type (alias: `storageAccountType`) | `Standard_LRS`, `Premium_LRS`, `Standard_GRS`, `Standard_RAGRS` | No | `Standard_LRS`|
-|location | Specify an Azure location | `eastus` | No | If empty, driver will use the same location name as current cluster.|
-|resourceGroup | Specify an Azure resource group name | myResourceGroup | No | If empty, driver will use the same resource group name as current cluster.|
-|storageAccount | Specify an Azure storage account name| STORAGE_ACCOUNT_NAME | - No for blobfuse mount </br> - Yes for NFSv3 mount |  - For blobfuse mount: if empty, driver will find a suitable storage account that matches `skuName` in the same resource group; if a storage account name is provided, storage account must exist. </br>  - For NFSv3 mount, storage account name must be provided.|
-|protocol | Specify blobfuse mount or NFSv3 mount | `fuse`, `nfs` | No | `fuse`|
-|containerName | Specify the existing container (directory) name | container | No | if empty, driver will create a new container name, starting with `pvc-fuse` for blobfuse or `pvc-nfs` for NFSv3 |
-|containerNamePrefix | Specify Azure storage directory prefix created by driver | my |Can only contain lowercase letters, numbers, hyphens, and length should be less than 21 characters. | No |
-|server | Specify Azure storage account server address | Existing server address, for example `accountname.privatelink.blob.core.windows.net`. | No | If empty, driver will use default `accountname.blob.core.windows.net` or other sovereign cloud account address.|
-|allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true`,`false` | No | `false`|
-|storageEndpointSuffix | Specify Azure storage endpoint suffix | `core.windows.net` | No | If empty, driver will use default storage endpoint suffix according to cloud environment.|
-|tags | [tags][az-tags] would be created in newly created storage account | Tag format: 'foo=aaa,bar=bbb' | No | ""|
-|matchTags | Whether matching tags when driver tries to find a suitable storage account | `true`,`false` | No | `false`|
-|--- | **Following parameters are only for blobfuse** | --- | --- |--- |
-|subscriptionID | Specify Azure subscription ID where blob storage directory will be created. | Azure subscription ID | No | If not empty, `resourceGroup` must be provided.|
-|storeAccountKey | Specify store account key to Kubernetes secret <br><br> Note:  <br> `false` means driver leverages kubelet identity to get account key. | `true`,`false` | No | `true`|
-|secretName | Specify secret name to store account key | | No |
-|secretNamespace | Specify the namespace of secret to store account key | `default`,`kube-system`, etc | No | pvc namespace |
-|isHnsEnabled | Enable `Hierarchical namespace` for Azure DataLake storage account | `true`,`false` | No | `false`|
-|--- | **Following parameters are only for NFS protocol** | --- | --- |--- |
-|mountPermissions | Specify mounted folder permissions |The default is `0777`. If set to `0`, driver will not perform `chmod` after mount. | `0777` | No |
-
-## Storage class for static parameters
-
-|Name | Description | Example | Mandatory | Default value|
-|--- | --- | --- | --- | ---|
-|volumeAttributes.resourceGroup | Specify Azure resource group name | myResourceGroup | No | If empty, driver will use the same resource group name as current cluster.|
-|volumeAttributes.storageAccount | Specify existing Azure storage account name | STORAGE_ACCOUNT_NAME | Yes ||
-|volumeAttributes.containerName | Specify existing container name | container | Yes ||
-|volumeAttributes.protocol | Specify blobfuse mount or NFSv3 mount | `fuse`, `nfs` | No | `fuse`|
-|--- | **Following parameters are only for blobfuse** | --- | --- | --- |
-|volumeAttributes.secretName | Secret name that stores storage account name and key (only applies for SMB)| | No ||
-|volumeAttributes.secretNamespace | Specify namespace of secret to store account key | `default` | No | Pvc namespace|
-|nodeStageSecretRef.name | Specify secret name that stores (see examples below):<br>`azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret` | |Existing Kubernetes secret name |  No  |
-|nodeStageSecretRef.namespace | Specify the namespace of secret | k8s namespace | Yes ||
-|--- | **Following parameters are only for NFS protocol** | --- | --- | --- |
-|volumeAttributes.mountPermissions | Specify mounted folder permissions | `0777` | No ||
-|--- | **Following parameters are only for NFS vnet setting** | --- | --- | --- |
-|vnetResourceGroup | Specify vnet resource group where virtual network is | myResourceGroup | No | If empty, driver will use the `vnetResourceGroup` value specified in the Azure cloud config file.|
-|vnetName | Specify the virtual network name | aksVNet | No | If empty, driver will use the `vnetName` value specified in the Azure cloud config file.|
-|subnetName | Specify the existing subnet name of the agent node | aksSubnet | No | If empty, driver will use the `subnetName` value in azure cloud config file. |
-|--- | **Following parameters are only for feature: blobfuse [Managed Identity and Service Principal Name auth](https://github.com/Azure/azure-storage-fuse#environment-variables)** | --- | --- |--- |
-|volumeAttributes.AzureStorageAuthType | Specify the authentication type | `Key`, `SAS`, `MSI`, `SPN` | No | `Key`|
-|volumeAttributes.AzureStorageIdentityClientID | Specify the Identity Client ID |  | No ||
-|volumeAttributes.AzureStorageIdentityObjectID | Specify the Identity Object ID |  | No ||
-|volumeAttributes.AzureStorageIdentityResourceID | Specify the Identity Resource ID |  | No ||
-|volumeAttributes.MSIEndpoint | Specify the MSI endpoint |  | No ||
-|volumeAttributes.AzureStorageSPNClientID | Specify the Azure Service Principal Name (SPN) Client ID |  | No ||
-|volumeAttributes.AzureStorageSPNTenantID | Specify the Azure SPN Tenant ID |  | No ||
-|volumeAttributes.AzureStorageAADEndpoint | Specify the Azure Active Directory (AAD) Endpoint |  | No ||
-|--- | **Following parameters are only for feature: blobfuse read account key or SAS token from key vault** | --- | --- | --- |
-|volumeAttributes.keyVaultURL | Specify Azure Key Vault DNS name | {vault-name}.vault.azure.net | No ||
-|volumeAttributes.keyVaultSecretName | Specify Azure Key Vault secret name | Existing Azure Key Vault secret name | No ||
-|volumeAttributes.keyVaultSecretVersion | Azure Key Vault secret version | existing version | No |If empty, driver will use "current version"|
-
 ## Dynamically create Azure Blob storage PVs by using the built-in storage classes
 
 A storage class is used to define how an Azure Blob storage container is created. A storage account is automatically created in the node resource group for use with the storage class to hold the Azure Blob storage container. Choose one of the following Azure storage redundancy SKUs for skuName:
@@ -194,8 +136,9 @@ This hasn't been tested yet by Vybava and team. THey will get back to me
 
 ## Next steps
 
-- To learn how to manually setup a static persistent volume, see [Create and use a volume with Azure Blob storage](azure-csi-blob-storage-manual.md).
-- To learn how to use CSI driver for Azure disks, see [Use Azure disks with CSI driver](azure-disk-csi.md).
+- To learn how to manually setup a static persistent volume, see [Create and use a volume with Azure Blob storage][azure-csi-blob-storage-static].
+- To learn how to dynamically setup a persistent volume, see [Create and use a dynamic persistent volume with Azure Blob storage][azure-csi-blob-storage-dynamic].
+- To learn how to use CSI driver for Azure disk, see [Use Azure disk with CSI driver](azure-disk-csi.md).
 - To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver](azure-files-csi.md).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 
@@ -236,3 +179,5 @@ This hasn't been tested yet by Vybava and team. THey will get back to me
 [storage-skus]: ../storage/common/storage-redundancy.md
 [use-tags]: use-tags.md
 [az-tags]: ../azure-resource-manager/management/tag-resources.md
+[azure-csi-blob-storage-dynamic]: azure-csi-blob-storage-dynamic.md
+[azure-csi-blob-storage-static]: azure-csi-blob-storage-manual.md
