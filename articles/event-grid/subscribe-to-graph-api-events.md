@@ -94,11 +94,11 @@ For quick tests and to get to know the API, you could use the [Microsoft Graph A
 
 See the following articles: 
 
-1. [Azure Event Grid - Partner Events overview](partner-events-overview.md)
-2. [Microsoft Graph API webhook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=). Use these samples to send events to Event Grid. You just need to provide a suitable value ``notificationUrl`` according to the request example above.
-3. [Varied set of resources on Microsoft Graph API](https://developer.microsoft.com/en-us/graph/rest-api).
-4. [Microsoft Graph API webhooks](/graph/api/resources/webhooks)
-5. [Best practices for working with Microsoft Graph API](/graph/best-practices-concept)
-6. [Microsoft Graph API SDKs](/graph/sdks/sdks-overview)
-8. [Microsoft Graph API tutorials](/graph/tutorials), which shows how to use Graph API in different programming languages.This doesn't necessarily include examples for sending events to Event Grid.
+- [Azure Event Grid - Partner Events overview](partner-events-overview.md)
+- [Microsoft Graph API webhook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=). Use these samples to send events to Event Grid. You just need to provide a suitable value ``notificationUrl`` according to the request example above.
+- [Varied set of resources on Microsoft Graph API](https://developer.microsoft.com/en-us/graph/rest-api).
+- [Microsoft Graph API webhooks](/graph/api/resources/webhooks)
+- [Best practices for working with Microsoft Graph API](/graph/best-practices-concept)
+- [Microsoft Graph API SDKs](/graph/sdks/sdks-overview)
+- [Microsoft Graph API tutorials](/graph/tutorials), which shows how to use Graph API in different programming languages.This doesn't necessarily include examples for sending events to Event Grid.
 
