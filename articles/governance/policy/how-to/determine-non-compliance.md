@@ -1,7 +1,7 @@
 ---
 title: Determine causes of non-compliance
-description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
-ms.date: 05/31/2022
+description: When a resource is non-compliant, there are many possible reasons. Discover what caused the non-compliance quickly and easily.
+ms.date: 06/09/2022
 ms.topic: how-to
 ms.author: timwarner
 author: timwarner-msft
@@ -131,7 +131,9 @@ responsible [condition](../concepts/definition-structure.md#conditions) in the p
 
 #### Azure Policy Resource Provider mode compliance reasons
 
-The following table maps each `Microsoft.PolicyInsights` [Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) _reason code_ to its corresponding explanation:
+The following table maps each `Microsoft.PolicyInsights`
+[Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) reason code to
+its corresponding explanation:
 
 |Compliance reason code |Error message and explanation |
 |-|-|
