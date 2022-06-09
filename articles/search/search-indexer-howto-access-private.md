@@ -15,7 +15,7 @@ ms.date: 06/09/2022
 
 Many Azure resources, such as Azure storage accounts, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. If you're using an indexer and your Azure PaaS data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) used by Azure Cognitive Search to reach the data. 
 
-For [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security?tabs=azure-portal), if both the storage account and the search service are in the same region, outbound traffic uses a private IP address to communicate to storage and occurs over the Microsoft backbone network. For this scenario, you can omit private endpoints through Azure Cognitive Search. For other Azure PaaS resources, we suggest that you review the networking documentation for those resources to determine whether a private endpoint is helpful.
+For [Azure Storage](../storage/common/storage-network-security.md?tabs=azure-portal), if both the storage account and the search service are in the same region, outbound traffic uses a private IP address to communicate to storage and occurs over the Microsoft backbone network. For this scenario, you can omit private endpoints through Azure Cognitive Search. For other Azure PaaS resources, we suggest that you review the networking documentation for those resources to determine whether a private endpoint is helpful.
 
 To create a shared private link, use the Azure portal or the [Create Or Update Shared Private Link](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) operation in the Azure Cognitive Search Management REST API.
 
