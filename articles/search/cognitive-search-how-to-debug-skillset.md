@@ -171,16 +171,9 @@ Within the debug session, modify your Custom Web API Skill URI to call the ngrok
 
 You can edit the skill definition in the portal.
 
-### Test
+### Test your code
 
 At this point, new requests from your debug session should now be sent to your local Azure Function. You can use breakpoints in your Visual Studio code to debug your code or run step by step.
-
-
-## Expected behaviors
-
-+ If debugging for a CosmosDB SQL data source, if the CosmosDB SQL collection was previously non-partitioned, and then it was changed to a partitioned collection on the CosmosDB end, Debug Sessions won't be able to pick up the correct document from CosmosDB.
-+ CosmosDB SQL errors omit some metadata about what row failed, so in some cases, Debug Sessions won’t pick the correct row.
-
 
 ## Next steps
 

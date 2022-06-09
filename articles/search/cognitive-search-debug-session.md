@@ -17,7 +17,7 @@ Debug Sessions is a visual editor that works with an existing skillset in the Az
 
 ## How a debug session works
 
-When you start a session, the search service creates a copy of the skillset, indexer, and a data source containing a single document that will be used to test the skillset. All session state will be saved to a container in an Azure Storage account that you provide. 
+When you start a session, the search service creates a copy of the skillset, indexer, and a data source containing a single document that will be used to test the skillset. All session state will be saved to a blob container in an Azure Storage account that you provide.You can reuse the same container for all subsequent debug sessions you create. A helpful container name might be "cognitive-search-debug-sessions".
 
 A cached copy of the enriched document and skillset is loaded into the visual editor so that you can inspect the content and metadata of the enriched document, with the ability to check each document node and edit any aspect of the skillset definition. Any changes made within the session are cached. Those changes will not affect the published skillset unless you commit them. Committing changes will overwrite the production skillset.
 
