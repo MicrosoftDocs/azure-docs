@@ -10,14 +10,14 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 
 ---
-# Create a Linux image and distribute it to Azure Compute Gallery by using the Azure CLI
+# Create a Linux image and distribute it to an Azure Compute Gallery by using the Azure CLI
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets  
 
-In this article, you learn how to use Azure VM Image Builder and the Azure CLI to create an image version in [Azure Compute Gallery](../shared-image-galleries.md) (formerly Shared Image Gallery) and then distribute the image globally. You can also create an image version by using [Azure PowerShell](../windows/image-builder-gallery.md).
+In this article, you learn how to use Azure VM Image Builder and the Azure CLI to create an image version in an [Azure Compute Gallery](../shared-image-galleries.md) (formerly Shared Image Gallery) and then distribute the image globally. You can also create an image version by using [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
-This article uses a sample JSON template to configure the image. The JSON file we're using is at [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
+This article uses a sample JSON template to configure the image. The JSON file is at [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
 To distribute the image to an Azure Compute Gallery, the template uses [sharedImage](image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
@@ -47,20 +47,20 @@ az provider register -n Microsoft.Network
 
 Because you'll be using some pieces of information repeatedly, create some variables to store that information.
 
-VM Image Builder supports creating custom images only in the same resource group as the source-managed image. In the following example, update the resource group name in this example to be the same resource group as your source-managed image.
+VM Image Builder supports creating custom images only in the same resource group as the source-managed image. In the following example, update the resource group name to be the same resource group as your source-managed image.
 
 ```azurecli-interactive
-# Resource group name - we're using ibLinuxGalleryRG in this example
+# Resource group name - ibLinuxGalleryRG in this example
 sigResourceGroup=ibLinuxGalleryRG
-# Datacenter location - we are using West US 2 in this example
+# Datacenter location - West US 2 in this example
 location=westus2
-# Additional region to replicate the image to - we are using East US in this example
+# Additional region to replicate the image to - East US in this example
 additionalregion=eastus
-# Name of the Azure Compute Gallery - in this example we're using myGallery
+# Name of the Azure Compute Gallery - myGallery in this example
 sigName=myIbGallery
-# Name of the image definition to be created - in this example we're using myImageDef
+# Name of the image definition to be created - myImageDef in this example
 imageDefName=myIbImageDef
-# Image distribution metadata reference name
+# Reference name in the image distribution metadata
 runOutputName=aibLinuxSIG
 ```
 
@@ -77,7 +77,8 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 ## Create a user-assigned identity and set permissions on the resource group
-VM Image Builder uses the provided [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) to inject the image into Azure Compute Gallery. In this example, you create an Azure role definition with specific actions for distributing the image. The role definition is then assigned to the user identity.
+
+VM Image Builder uses the provided [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) to inject the image into an Azure Compute Gallery. In this example, you create an Azure role definition with specific actions for distributing the image. The role definition is then assigned to the user identity.
 
 ```bash
 # Create user-assigned identity for VM Image Builder to access the storage account where the script is stored
@@ -113,9 +114,11 @@ az role assignment create \
 
 ## Create an image definition and gallery
 
-To use VM Image Builder with Azure Compute Gallery, you need to have an existing gallery and image definition. VM Image Builder won't create the gallery and image definition for you.
+To use VM Image Builder with Azure Compute Gallery, you need to have an existing gallery and image definition. VM Image Builder doesn't create the gallery and image definition for you.
 
-If you don't already have a gallery and image definition to use, start by creating them. First, create a gallery:
+If you don't already have a gallery and image definition to use, start by creating them. 
+
+First, create a gallery:
 
 ```azurecli-interactive
 az sig create \
@@ -178,7 +181,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-It can take a while to create the image and replicate it to both regions. Wait until this part is finished before you move on to creating a VM.
+It can take a few moments to create the image and replicate it to both regions. Wait until this part is finished before you move on to create a VM.
 
 
 ## Create the VM
@@ -195,13 +198,13 @@ az vm create \
   --generate-ssh-keys
 ```
 
-SSH into the VM.
+Connect to the VM via Secure Shell (SSH):
 
 ```azurecli-interactive
 ssh aibuser@<publicIpAddress>
 ```
 
-You should see that the image was customized with a *Message of the Day* as soon as your SSH connection is established!
+As soon as your SSH connection is established, you should see that the image was customized with a *Message of the Day*:
 
 ```console
 *******************************************************
@@ -213,9 +216,12 @@ You should see that the image was customized with a *Message of the Day* as soon
 
 ## Clean up your resources
 
-If you now want to try re-customizing the image version to create a new version of the same image, skip the next steps and go on to [Use VM Image Builder to create another image version](image-builder-gallery-update-image-version.md).
+> [!NOTE]
+> If you now want to try to recustomize the image version to create a new version of the same image, *skip the step outlined here* and go to [Use VM Image Builder to create another image version](image-builder-gallery-update-image-version.md).
 
-This deletes the image that you created, along with all the other resource files. Make sure that you're finished with this deployment before you delete the resources.
+If you no longer need the resources that were created as you followed the process in this article, you can delete them by doing the following.
+
+This process deletes both the image that you created and all the other resource files. Make sure that you've finished this deployment before you delete the resources.
 
 When you're deleting gallery resources, you need delete all the image versions before you can delete the image definition that was used to create them. To delete a gallery, you first need to have deleted all the image definitions in the gallery.
 
