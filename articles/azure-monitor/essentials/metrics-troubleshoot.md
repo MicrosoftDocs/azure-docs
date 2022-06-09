@@ -4,8 +4,8 @@ description: Troubleshoot the issues with creating, customizing, or interpreting
 author: vgorbenko
 services: azure-monitor
 
-ms.topic: conceptual
-ms.date: 04/23/2019
+ms.topic: troubleshooting
+ms.date: 06/09/2022
 ms.author: vitalyg
 ---
 

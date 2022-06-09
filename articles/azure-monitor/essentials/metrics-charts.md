@@ -264,7 +264,7 @@ This table summarizes the types of logs and queries provided:
 | Diagnostic log   | Provides insight into operations that were performed within an Azure resource (the data plane), for example getting a secret from a Key Vault or making a request to a database. The content of resource logs varies by the Azure service and resource type. **Note:** Must be provided by service and enabled by customer.  | 
 | Recommended log | Scenario-based queries that customer can use to investigate anomalies in their Metrics Explorer.  |
 
-Currently, Drill into Logs are available for select resource providers. The resource providers that have the complete Drill into Logs experience are:
+Currently, Drill into Logs is available for select resource providers. The resource providers that have the complete Drill into Logs experience are:
 
 - Application Insights
 - Autoscale
