@@ -203,6 +203,7 @@ The Azure services that support each encryption model:
 | IoT Hub Device Provisioning      | Yes                | Yes                | -                  |
 | **Management and Governance**    |                    |                    |                    |
 | Azure Site Recovery              | Yes                | -                  | -                  |
+| Azure Managed Grafana            | Yes                | -                  | N/A                |
 | Azure Migrate                    | Yes                | Yes                | -                  |
 | **Media**                        |                    |                    |                    |
 | Media Services                   | Yes                | Yes                | Yes                |
