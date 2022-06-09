@@ -162,7 +162,7 @@ To use a VM's system-assigned managed identity:
 > [!NOTE]
 > You can find the client Id of the user-assigned managed identity in the Azure portal
 
-    > :::image type="content" source="./media/automation-hrw-run-runbooks/managed-identities-client-id.png" alt-text="Screenshot of client id in Managed Identites."::: 
+> :::image type="content" source="./media/automation-hrw-run-runbooks/managed-identities-client-id.png" alt-text="Screenshot of client id in Managed Identites."::: 
 
 ---
 
