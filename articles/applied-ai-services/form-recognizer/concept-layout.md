@@ -1,7 +1,7 @@
 ---
 title: Layouts - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn concepts related to Layout API analysis with Form Recognizer API—usage and limits.
+description: Learn concepts related to the Layout API with Form Recognizer REST API usage and limits.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -34,6 +34,7 @@ The Form Recognizer Layout API extracts text, tables, selection marks, and struc
 | Layout  | ✓  | ✓  | ✓  | ✓  | ✓  |
 
 **Supported paragraph roles**:
+The paragraph roles are best used with unstructured documents, structured documents and forms.  Roles help analyze the structure of the extracted content for better semantic search and analysis.
 
 * title
 * sectionHeading
@@ -41,8 +42,6 @@ The Form Recognizer Layout API extracts text, tables, selection marks, and struc
 * pageHeader
 * pageFooter
 * pageNumber
-
-For a richer semantic analysis, paragraph roles are best used with unstructured documents to better understand the layout of the extracted content.
 
 ## Development options
 

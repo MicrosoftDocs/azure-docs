@@ -1,10 +1,8 @@
 ---
 title: Microsoft Defender for Containers feature availability
 description: Learn about the availability of Microsoft Defender for Cloud containers features according to OS, machine type, and cloud deployment.
-author: bmansheim
-ms.author: benmansheim
 ms.topic: overview
-ms.date: 04/28/2022
+ms.date: 06/08/2022
 ms.custom: references_regions
 ---
 
@@ -73,7 +71,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | Arc enabled VMs | Preview | X | Log Analytics agent | Defender for Servers Plan 2 |
-| Vulnerability Assessment | Registry scan | ACR, Private ACR | Preview | ✓ (Preview) | Agentless | Defender for Containers |
+| Vulnerability Assessment | Registry scan | ACR, Private ACR | GA | ✓ (Preview) | Agentless | Defender for Containers |
 | Vulnerability Assessment | View vulnerabilities for running images | Arc enabled K8s clusters | Preview | X | Defender extension | Defender for Containers |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | Arc enabled K8s clusters | Preview | X | Azure Policy extension | Defender for Containers |
