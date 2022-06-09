@@ -82,9 +82,9 @@ Let’s say there are flows from a virtual network VNET1 connected to Hub_1 to v
 
 | Flow destination route-prefix | HRP of Hub_1 | HRP of Hub_2 | Path used by flow | All possible paths | Explanation |
 | --- | --- | --- | --- | --- |---|
-| 10.61.1.5 | AS Path | N/A | 4 | 1,2,3,4 | Paths 1, 4 and 5 have the shortest AS Path but ER takes precedence over VPN, so path 4 is chosen. |
-| 10.61.1.5 | VPN | N/A | 1 | 1,2,3,4 | VPN route is preferred over ER, so paths 1 and 2 are preferred, but path 1 has the shorter AS Path. |
-| 10.61.1.5 | ER | N/A | 4 | 1,2,3,4 | ER routes 3 and 4 are selected, but path 4 has the shorter AS Path. |
+| 10.61.1.5 | AS Path | Any setting | 4 | 1,2,3,4 | Paths 1 and 4 have the shortest AS Path but for local routes ER takes precedence over VPN, so path 4 is chosen. |
+| 10.61.1.5 | VPN | Any setting | 1 | 1,2,3,4 | VPN route is preferred over ER due to HRP setting, so paths 1 and 2 are preferred, but path 1 has the shorter AS Path. |
+| 10.61.1.5 | ER | Any setting | 4 | 1,2,3,4 | ER routes 3 and 4 are preferred, but path 4 has the shorter AS Path. |
 
 **When only remote routes are available:**
 
