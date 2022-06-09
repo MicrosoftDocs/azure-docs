@@ -25,7 +25,7 @@ Attestation evidence, which was earlier processed to generate specific incoming 
 - String
 - Claim property access
 
-You can use the new function call expression to process the incoming claims set. Use the function call expression with a claim property. It's structured as:
+You can use the new function call expression to process the incoming claim set. Use the function call expression with a claim property. It's structured as:
 
 ```JSON
 value=FunctionName((Expression (, Expression)*)?))
@@ -67,13 +67,13 @@ Consider the following rule:
 =>add(type="JmesPathResult", value=JmesPath("{\"foo\": \"bar\"}", "foo"));
 ```
 
-During the evaluation of this rule, the JmesPath function is evaluated. The evaluation boils down to evaluating JmesPath query *foo* against the JSON *{ "foo" :  "bar" }.* The result of this search operation is a JSON value *"bar".* So, the evaluation of the rule adds a new claim with type *"JmesPathResult"* and string value *"bar"* to the incoming claims set.
+During the evaluation of this rule, the JmesPath function is evaluated. The evaluation boils down to evaluating JmesPath query *foo* against the JSON *{ "foo" :  "bar" }.* The result of this search operation is a JSON value *"bar".* So, the evaluation of the rule adds a new claim with type *"JmesPathResult"* and string value *"bar"* to the incoming claim set.
 
 The backslash character is used to escape the double quotation-mark character within the literal string that represents the JSON data.
 
 #### Arguments constructed from claims
 
-Assume the following claims are available in the incoming claims set:
+Assume the following claims are available in the incoming claim set:
 
 ```JSON
 Claim1: {type="JsonData", value="{\"values\": [0,1,2,3,4]}"}
@@ -87,7 +87,7 @@ c1:[type="JsonData"] && c2:[type=="JmesPathQuery"] =>
 add(type="JmesPathResult", value=JmesPath(c1.value, c2.value));
 ```
 
-The evaluation of the JmesPath function boils down to evaluating the JmesPath query *values[2]* against the JSON *{"values":[0,1,2,3,4]}*. So, the evaluation of the rule adds a new claim with type *"JmesPathResult"* and string value *"2"* to the incoming claims set. So, the incoming set is updated as:
+The evaluation of the JmesPath function boils down to evaluating the JmesPath query *values[2]* against the JSON *{"values":[0,1,2,3,4]}*. So, the evaluation of the rule adds a new claim with type *"JmesPathResult"* and string value *"2"* to the incoming claim set. So, the incoming set is updated as:
 
 ```JSON
 Claim1: {type="JsonData", value="{\"values\": [0,1,2,3,4]}"}
@@ -132,7 +132,7 @@ Here's how each type of the six JSON values is converted to a claim value:
 - **String**: The function returns a claim value with the same string value.
 - **Object**: The function doesn't support JSON objects. If the argument is a JSON object, an error is generated.
 - **Array**: The function only supports arrays of primitive (number, Boolean, string, and null) types. Such an array is converted to a set that contains a claim with the same type but with values created by converting the JSON values from the array. If the argument to the function is an array of non-primitive (object and array) types, an error is generated.
-- **Null**: If the input is a JSON null, the function returns an empty claim value. If such a claim value is used to construct a claim, the claim is an empty claim. If a rule attempts to add or issue an empty claim, no claim is added to the incoming or the outgoing claims set. In other words, a rule attempting to add or issue an empty claim results in a no-op.
+- **Null**: If the input is a JSON null, the function returns an empty claim value. If such a claim value is used to construct a claim, the claim is an empty claim. If a rule attempts to add or issue an empty claim, no claim is added to the incoming or the outgoing claim set. In other words, a rule attempting to add or issue an empty claim results in a no-op.
 
 ### Effect of read-only arguments on result
 
@@ -160,7 +160,7 @@ c:[type=="JsonBooleanData"] => add(type="BooleanResult", value=JsonToClaimValue(
 c:[type=="JsonStringData"] => add(type="StringResult", value=JsonToClaimValue(c.value));
 ```
 
-Updated incoming claims set:
+Updated incoming claim set:
 
 ```JSON
 Claim1: { type = "JsonIntegerData", value="100" } 
@@ -173,7 +173,7 @@ Claim6: { type = "StringResult", value="abc" }
 
 #### JSON array
 
-Assume the following claims are available in the incoming claims set:
+Assume the following claims are available in the incoming claim set:
 
 ```JSON
 Claim1: { type="JsonData", value="[0, \"abc\", true]" }
@@ -185,7 +185,7 @@ Evaluating rule:
 c:[type=="JsonData"] => add(type="Result", value=JsonToClaimValue(c.value));
 ```
 
-Updated incoming claims set:
+Updated incoming claim set:
 
 ```JSON
 Claim1: { type="JsonData", value="[0, \"abc\", true]" }
@@ -198,7 +198,7 @@ The type in the claims is the same and only the value differs. If multiple entri
 
 #### JSON null
 
-Assume the following claims are available in the incoming claims set:
+Assume the following claims are available in the incoming claim set:
 
 ```JSON
 Claim1: { type="JsonData", value="null" }
@@ -210,13 +210,13 @@ Evaluating rule:
 c:[type=="JsonData"] => add(type="Result", value=JsonToClaimValue(c.value));
 ```
 
-Updated incoming claims set:
+Updated incoming claim set:
 
 ```JSON
 Claim1: { type="JsonData", value="null" }
 ```
 
-The rule attempts to add a claim with the type *Result* and an empty value. Because it's not allowed, no claim is created, and the incoming claims set remains unchanged.
+The rule attempts to add a claim with the type *Result* and an empty value. Because it's not allowed, no claim is created, and the incoming claim set remains unchanged.
 
 ## IsSubsetOf function
 
@@ -240,7 +240,7 @@ Because the function simply creates and returns a Boolean value, the returned cl
 
 ### Usage example
 
-Assume the following claims are available in the incoming claims set:
+Assume the following claims are available in the incoming claim set:
 
 ```JSON
 Claim1: { type="Subset", value="abc" }
@@ -256,7 +256,7 @@ Evaluating rule:
 c1:[type == "Subset"] && c2:[type=="Superset"] => add(type="IsSubset", value=IsSubsetOf(c1.value, c2.value));
 ```
 
-Updated incoming claims set:
+Updated incoming claim set:
 
 ```JSON
 Claim1: { type="Subset", value="abc" }
@@ -289,7 +289,7 @@ The resultant string value is considered to be read-only if either one of the ar
 
 ### Usage example
 
-Assume the following claims are available in the incoming claims set:
+Assume the following claims are available in the incoming claim set:
 
 ```JSON
 Claim1: { type="String1", value="abc" }
@@ -302,7 +302,7 @@ Evaluating rule:
 c:[type=="String1"] && c2:[type=="String2"] => add(type="Result", value=AppendString(c1.value, c2.value));
 ```
 
-Updated incoming claims set:
+Updated incoming claim set:
 
 ```JSON
 Claim1: { type="String1", value="abc" }
@@ -332,7 +332,7 @@ The resultant Boolean value is considered to be read-only if the argument is ret
 
 ### Usage example
 
-Assume the following claims are available in the incoming claims set:
+Assume the following claims are available in the incoming claim set:
 
 ```JSON
 Claim1: { type="Input", value=true }
@@ -344,7 +344,7 @@ Evaluating rule:
 c:[type=="Input"] => add(type="Result", value=NegateBol(c.value));
 ```
 
-Updated incoming claims set:
+Updated incoming claim set:
 
 ```JSON
 Claim1: { type="Input", value=true }
@@ -373,7 +373,7 @@ Because the function simply creates and returns a Boolean value, the returned cl
 
 ### Usage example
 
-Assume the following claims are available in the incoming claims set:
+Assume the following claims are available in the incoming claim set:
 
 ```JSON
 Claim1: {type="Set", value=100}
@@ -386,7 +386,7 @@ Evaluating rule:
 c:[type=="Set"] => add(type="Result", value=ContainsOnlyValue(100));
 ```
 
-Updated incoming claims set:
+Updated incoming claim set:
 
 ```JSON
 Claim1: {type="Set", value=100}
@@ -396,11 +396,11 @@ Claim3: {type="Result", value=false}
 
 ## Not condition operator
 
-The rules in the policy language start with an optional list of conditions that act as filtering criteria on the incoming claims set. The conditions can be used to identify if a claim is present in the incoming claims set. But there's no way of checking if a claim is absent. So, a new operator (!) is introduced that can be applied to the individual conditions in the conditions list. This operator changes the evaluation behavior of the condition from checking the presence of a claim to checking the absence of a claim.
+The rules in the policy language start with an optional list of conditions that act as filtering criteria on the incoming claim set. The conditions can be used to identify if a claim is present in the incoming claim set. But there's no way of checking if a claim is absent. So, a new operator (!) is introduced that can be applied to the individual conditions in the conditions list. This operator changes the evaluation behavior of the condition from checking the presence of a claim to checking the absence of a claim.
 
 ### Usage example
 
-Assume the following claims are available in the incoming claims set:
+Assume the following claims are available in the incoming claim set:
 
 ```JSON
 Claim1: {type="Claim1", value=100}
@@ -413,9 +413,9 @@ Evaluating rule:
 ![type=="Claim3"] => add(type="Claim3", value=300)
 ```
 
-This rule effectively translates to: *If a claim with type "Claim3" is not present in the incoming claims set, add a new claim with type "Claim3" and value 300 to the incoming claims set.*
+This rule effectively translates to: *If a claim with type "Claim3" is not present in the incoming claim set, add a new claim with type "Claim3" and value 300 to the incoming claim set.*
 
-Updated incoming claims set:
+Updated incoming claim set:
 
 ```JSON
 Claim1: {type="Claim1", value=100}
