@@ -66,17 +66,24 @@ Select the "Review + Create" button and create the key vault. It will take 5-10 
 
 If you already have a key vault, you can create a private link connection by following these steps:
 
-1. Sign in to the Azure portal. 
-1. In the search bar, type in "key vaults"
+1. Sign in to the Azure portal.
+1. In the search bar, type in "key vaults".
 1. Select the key vault from the list to which you want to add a private endpoint.
-1. Select the "Networking" tab under Settings
-1. Select the Private endpoint connections tab at the top of the page
-1. Select the "+ Private Endpoint" button at the top of the page.
+1. Select the "Networking" tab under Settings.
+1. Select the "Private endpoint connections" tab at the top of the page.
+1. Select the "+ Create" button at the top of the page.
 
     ![Screenshot that shows the '+ Private Endpoint' button on the 'Networking' page.](../media/private-link-service-3.png)
     ![Screenshot that shows the 'Basics' tab on the 'Create a private endpoint (Preview) page.](../media/private-link-service-4.png)
 
-You can choose to create a private endpoint for any Azure resource in using this blade. You can either use the dropdown menus to select a resource type and select a resource in your directory, or you can connect to any Azure resource using a resource ID. Leave the "integrate with the private zone DNS" option unchanged.  
+1. Under "Project Details", select the Resource Group that contains the virtual network that you created as a prerequisite for this tutorial. Under "Instance details", enter "myPrivateEndpoint" as the Name, and select the same location as the the virtual network that you created as a prerequisite for this tutorial.
+
+    You can choose to create a private endpoint for any Azure resource in using this blade. You can either use the dropdown menus to select a resource type and select a resource in your directory, or you can connect to any Azure resource using a resource ID. Leave the "integrate with the private zone DNS" option unchanged.  
+
+1. Advance to the the "Resources" blade. For "Resource type", select "Microsoft.KeyVault/vaults"; for "Resource", select the key vault you created as a prerequisite for this tutorial. "Target sub-resource" will auto-populate with "vault".
+1. Advance to the "Virtual Network". Select the virtual network and subnet that you created as a prerequisite for this tutorial.
+1. Advance through the "DNS" and "Tags" blades, accepting the defaults.
+1. On the "Review + Create" blade, select "Create".
 
 When you create a private endpoint, the connection must be approved. If the resource for which you are creating a private endpoint is in your directory, you will be able to approve the connection request provided you have sufficient permissions; if you are connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
 
