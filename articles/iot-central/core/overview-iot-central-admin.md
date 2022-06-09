@@ -3,7 +3,7 @@ title: Azure IoT Central application administration guide
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to administer your IoT Central application. Application administration includes users, organization, and security.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 01/04/2022
+ms.date: 06/08/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
