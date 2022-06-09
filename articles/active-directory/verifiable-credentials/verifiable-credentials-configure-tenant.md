@@ -12,7 +12,7 @@ ms.date: 05/06/2022
 
 ---
 
-# Configure your tenant for Azure AD Verifiable Credentials (preview) P0, base article for tutorial set, next steps can be either workplace credentials or custom
+# Configure your tenant for Azure AD Verifiable Credentials (preview)
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
@@ -26,7 +26,6 @@ Specifically, you learn how to:
 > - Create an Azure Key Vault instance.
 > - Set up the Verifiable Credentials service.
 > - Register an application in Azure AD.
-
 
 The following diagram illustrates the Azure AD Verifiable Credentials architecture and the component you configure.
 
@@ -69,6 +68,18 @@ A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) def
 
 1. To save the changes, select **Save**.
 
+### Set access policies for the Verifiable Credentials Service Request service principal
+
+The Verifiable Credentials Service Request is the Request Service API, and it needs access to Key Vault in order to sign issuance and presentation requests. 
+
+1. Select **+ Add Access Policy** and select the service principal **Verifiable Credentials Service Request** with AppId **3db474b9-6a0c-4840-96ac-1fceb342124**.
+
+1. For **Key permissions**, select permissions **Get** and **Sign**. 
+
+    ![Screenshot that shows how to configure the admin access policy.](media/verifiable-credentials-configure-tenant/set-key-vault-sp-access-policy.png)
+
+1. To save the changes, select **Save**.
+
 ## Set up Verifiable Credentials 
 
 To set up Azure AD Verifiable Credentials, follow these steps:
@@ -86,7 +97,13 @@ To set up Azure AD Verifiable Credentials, follow these steps:
         >[!IMPORTANT]
         > The domain can't be a redirect. Otherwise, the DID and domain can't be linked. Make sure to use HTTPS for the domain. For example: `https://contoso.com`.
 
-    1. **Key vault**: Enter the name of the key vault that you created earlier.
+    1. **Key vault**: Select the key vault that you created earlier.
+
+    1. Under **Advanced**, you have the option to select what **trust system** your tenant will use. Currently **Web** and **ION** is supported. Web means you tenant will use [did:web](https://w3c-ccg.github.io/did-method-web/) as the did method and ION means it will use [did:ion](https://identity.foundation/ion/).
+            
+        >[!IMPORTANT]
+        > The only way to change the trust system is to opt-out of verifiable credentials and redo the onboarding.
+
 
 1. Select **Save and create credential**.  
     
@@ -94,7 +111,7 @@ To set up Azure AD Verifiable Credentials, follow these steps:
 
 ## Register an application in Azure AD
 
-Azure AD Verifiable Credentials Request Service needs to be able to get access tokens to issue and verify. To get access tokens, register a web application and grant API permission for the API Verifiable Credential Request Service that you set up in the previous step.
+Azure AD Verifiable Credentials Service Request needs to be able to get access tokens to issue and verify. To get access tokens, register a web application and grant API permission for the API Verifiable Credential Request Service that you set up in the previous step.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
 
@@ -114,7 +131,7 @@ Azure AD Verifiable Credentials Request Service needs to be able to get access t
 
 ### Grant permissions to get access tokens
 
-In this step, you grant permissions to the Verifiable Credential Request Service principal.
+In this step, you grant permissions to the Verifiable Credentials Service Request Service principal.
 
 To add the required permissions, follow these steps:
 
@@ -124,7 +141,7 @@ To add the required permissions, follow these steps:
 
 1. Select **APIs my organization uses**.
 
-1. Search for the service principal that you created earlier, **Verifiable Credential Request Service**, and select it.
+1. Search for the service principal that you created earlier, **Verifiable Credentials Service Request**, and select it.
     
     ![Screenshot that shows how to select the service principal.](media/verifiable-credentials-configure-tenant/add-app-api-permissions-select-service-principal.png)
 
