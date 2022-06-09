@@ -180,7 +180,7 @@ The deployment command returns results. Look for `ProvisioningState` to see whet
 
 # [Azure CLI](#tab/azure-cli)
 
-![Azure CLI deployment provisioning state](./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png)
+:::image type="content" source="./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png" alt-text="Azure CLI deployment provisioning state.":::
 
 ---
 
@@ -195,21 +195,21 @@ You can verify the deployment by exploring the resource group from the Azure por
 
 1. From the left menu, select **Resource groups**.
 
-1. Check the box to the left of **myResourceGroup** and then select **myResourceGroup**.
+1. Check the box to the left of **myResourceGroup** and select **myResourceGroup**.
 
 1. Select the resource group you created in the earlier procedure. The default name is **myResourceGroup**. The resource group doesn't have any resources yet because you deployed a blank template.
 
-1. Notice in the middle of the overview, in the **Essentials** section, the page displays the deployment status next to **Deployments**. select **1 Succeeded**.
+1. Notice in the middle of the overview, in the **Essentials** section, the page displays the deployment status next to **Deployments**. Select **1 Succeeded**.
 
-   ![See deployment status](./media/template-tutorial-create-first-template/deployment-status.png)
+:::image type="content" source="./media/template-tutorial-create-first-template/deployment-status.png" alt-text="See deployment status.":::
 
-1. You see a history of deployment for the resource group. Check the box to the left of **blanktemplate** and then select **blanktemplate**.
+1. You see a history of deployment for the resource group. Check the box to the left of **blanktemplate** and select **blanktemplate**.
 
-   ![Select deployment](./media/template-tutorial-create-first-template/select-from-deployment-history.png)
+:::image type="content" source="./media/template-tutorial-create-first-template/select-from-deployment-history.png" alt-text="Select deployment.":::
 
-1. You see a summary of the deployment. In this case, there's not a lot to see because no resources are deployed. Later in this series you might find it helpful to review the summary in the deployment history. Notice on the left you can see inputs, outputs, and the template that the deployment used.
+1. You see a summary of the deployment. In this case, there's not a lot to see because no resources are deployed. Later in this series you might find it helpful to review the summary in the deployment history. Notice on the left you can see inputs, outputs, and  the template that the deployment used.
 
-   ![See deployment summary](./media/template-tutorial-create-first-template/view-deployment-summary.png)
+:::image type="content" source="./media/template-tutorial-create-first-template/view-deployment-summary.png" alt-text="See deployment summary.":::
 
 ## Clean up resources
 
@@ -222,7 +222,7 @@ If you're stopping now, you might want to delete the resource group.
 3. Check the box next to **myResourceGroup** and select **myResourceGroup** or the resource group name you chose.
 4. Select **Delete resource group** from the top menu.
 
- ![See deletion](./media/template-tutorial-create-first-template/resource-deletion.png)
+:::image type="content" source="./media/template-tutorial-create-first-template/resource-deletion.pn" alt-text="See deletion.":::
 
 ## Next steps
 
