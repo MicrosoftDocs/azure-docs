@@ -8,21 +8,19 @@ ms.date: 07/01/2022
 
 # Frequently asked questions
 
-## How to raise an Azure support ticket?
-
-## How to contact Nutanix support?
-
 ## What is Hyperconverged Infrastructure (HCI)?
 
-Hyper-converged infrastructure (HCI) uses locally attached storage resources to combine common datacenter hardware with intelligent software to create flexible building blocks that replace legacy infrastructure consisting of separate servers, storage networks, and storage arrays. [Video explanation](https://www.youtube.com/watch?v=OPYA5-V0yRo)
+Hyper-converged infrastructure (HCI) uses locally attached storage resources to combine common data center hardware with intelligent software to create flexible building blocks that replace legacy infrastructure consisting of separate servers, storage networks, and storage arrays. [Video explanation](https://www.youtube.com/watch?v=OPYA5-V0yRo)
 
 ## How can I create a vm on a node?
 
-After a customer provisions a cluster of Nutanix Ready Nodes, they can spin up a VM through the Nutanix Prism Portal. This operation should be the exact same as on-premises in the prism portal.
+After a customer provisions a cluster of Nutanix Ready Nodes, they can spin up a VM through the Nutanix Prism Portal.
+This operation should exactly the same as on-premises in the prism portal.
 
 ## Is this a third party or first party offering?
 
-Nutanix on Azure is a 3rd-party offering on Azure Marketplace. However, we're working hand in hand with Nutanix to offer the best product experience
+Nutanix on Azure is a 3rd-party offering on Azure Marketplace. 
+However, we're working hand in hand with Nutanix to offer the best product experience
 
 ## How will I get billed?
 
@@ -38,15 +36,15 @@ Cluster level microservices that lead to world-class performance
 
 Yes! You can use the products and services in azure that you already have and love.
 
-## Who supports NC2 on Azure? 
+## Who supports NC2 on Azure?
 
-Microsoft delivers support for BareMetal infrastructure of NC2 on Azure. You can submit a support request. For Cloud Solution Provider (CSP) managed subscriptions, the first level of support provides the Solution Provider in the same fashion as CSP does for other Azure services. 
+Microsoft delivers support for BareMetal infrastructure of NC2 on Azure. You can submit a support request. For Cloud Solution Provider (CSP) managed subscriptions, the first level of support provides the Solution Provider in the same fashion as CSP does for other Azure services.
 
-Nutanix delivers support for Nutanix software of NC2 on Azure. Nutanix offers a support tier called Production Support for NC2. See Product Support Programs under Cloud Services Support for more information about Production Support tier and SLAs. 
+Nutanix delivers support for Nutanix software of NC2 on Azure. Nutanix offers a support tier called Production Support for NC2. See Product Support Programs under Cloud Services Support for more information about Production Support tier and SLAs.
 
-## Can I use my existing VPN or ER gateway for the DR scenario? 
+## Can I use my existing VPN or ER gateway for the DR scenario?
 
-Technically yes. Please raise a support ticket from Azure portal to get this functionality enabled. 
+Technically, yes. Please raise a support ticket from Azure portal to get this functionality enabled.
 
 
 
