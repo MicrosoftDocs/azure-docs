@@ -113,7 +113,7 @@ If **Match Internal Address** was specified, the destination would be the intern
 For more information on the NSX-T Gateway Firewall see the [NSX-T Gateway Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-A52E1A6F-F27D-41D9-9493-E3A75EC35481.html)
 The Distributed Firewall could be used to filter traffic to VMs. This feature is outside the scope of this document. For more information, see [NSX-T Distributed Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-6AB240DB-949C-4E95-A9A7-4AC6EF5E3036.html)git status.
 
-To enable this feature for your subscription, register the ```PIPOnNSXEnabled``` flag and follow these steps to [set up the preview feature in your Azure subscription](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
+To enable this feature for your subscription, register the ```PIPOnNSXEnabled``` flag and follow these steps to [set up the preview feature in your Azure subscription](https://docs.microsoft.com/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
 
 
 ## Next steps 
