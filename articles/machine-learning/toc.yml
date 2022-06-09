@@ -197,14 +197,10 @@
         - name: Plan and manage costs
           displayName: low priority VM
           href: concept-plan-manage-cost.md
-    - name: Work with data
+    - name: Work with Data
       items: 
-        - name: Datastores
-          href: concept-datastore.md
         - name: Access data
           href: concept-data.md
-    - name: Collect data
-      items:
         - name: Sourcing human data responsibly
           href: concept-sourcing-human-data.md
     - name: Security
@@ -310,7 +306,7 @@
                 displayName: compute target, low priority, managed identity
                 href: how-to-create-attach-compute-cluster.md
               - name: Kubernetes cluster
-                displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
+                displayName: Azure Arc, Kubernetes, on-premise, multi-cloud, attach
                 href: how-to-attach-kubernetes-anywhere.md
               - name: Use studio
                 displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
@@ -361,17 +357,17 @@
           href: how-to-troubleshoot-environments.md
     - name: Work with data
       items: 
-        - name: Create a datastore for data storage services
-          displayName: datastore, data storage
+        - name: Create datastores
+          displayName: Create datastores
           href: how-to-datastore.md
-        - name: Register a data asset
-          displayName: data, data asset
+        - name: Create data assets
+          displayName: Create data assets
           href: how-to-create-register-data-assets.md
-        - name: Reading & writing data
-          displayName: read and write data
+        - name: Read & write data in jobs
+          displayName: Read & write data in jobs
           href: how-to-read-write-data-v2.md
-        - name: Administrate data authentication
-          displayName: data authentication
+        - name: Data administration
+          displayName: Data administration
           href: how-to-administrate-data-authentication.md
         - name: Label data
           items: 
@@ -636,6 +632,9 @@
         - name: Responsible AI dashboard scorecard
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
+    - name: Migrate from v1
+      displayName: migration, v1, v2
+      href: how-to-migrate-from-v1.md
 - name: Troubleshoot & debug
   items: 
     - name: VS Code interactive debugging
@@ -717,6 +716,8 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
+    - name: Kubernetes cluster configuration
+      href: reference-kubernetes.md
     - name: Designer component reference
       displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md

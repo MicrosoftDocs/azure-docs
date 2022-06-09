@@ -3,12 +3,20 @@ title: Platform updates for Azure VMware Solution
 description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: references_regions
+ms.service: azure-vmware
 ms.date: 12/22/2021
 ---
 
 # Platform updates for Azure VMware Solution
 
 Azure VMware Solution will apply important updates starting in March 2021. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+
+
+## June 7, 2022
+
+All new Azure VMware Solution private clouds in regions (East US2, Canada Central, North Europe, and Japan East), are now deployed in with VMware vCenter Server version 7.0 Update 3c and ESXi version 7.0 Update 3c.
+
+Any existing private clouds in the above mentioned regions will also be upgraded to these versions. For more information, please see [VMware ESXi 7.0 Update 3c Release Notes](https://docs.vmware.com/VMware-vSphere/7.0/rn/vsphere-esxi-70u3c-release-notes.html) and [VMware vCenter Server 7.0 Update 3c Release Notes](https://docs.vmware.com/VMware-vSphere/7.0/rn/vsphere-vcenter-server-70u3c-release-notes.html).
 
 ## May 23, 2022
 

@@ -6,7 +6,7 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/03/2022
+ms.date: 06/03/2022
 ms.author: mikaelw
 ---
 
@@ -159,4 +159,6 @@ Based on your private link setup and for more information about registering your
 * [Register a confidential client application](register-confidential-azure-ad-client-app.md)
 * [Register a public client application](register-public-azure-ad-client-app.md)
 * [Register a service application](register-service-azure-ad-client-app.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 

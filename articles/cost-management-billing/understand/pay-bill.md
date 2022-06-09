@@ -28,15 +28,15 @@ If you have Azure credits, they automatically apply to your invoice each billing
 
 ## Reserve Bank of India 
 
-**The Reserve Bank of India has issued new regulations.**
+**The Reserve Bank of India has issued new directives.**
 
-On 1 October 2021, automatic payments in India may block some credit card transactions, especially transactions exceeding 5,000 INR. Because of this you may need to make payments manually in the Azure portal. These regulations won't affect the total amount you will be charged for your Azure usage. 
+On 1 October 2021, automatic payments in India may block some credit card transactions, especially transactions exceeding 5,000 INR. Because of this you may need to make payments manually in the Azure portal. This directive will not affect the total amount you will be charged for your Azure usage. 
 
-[Learn more about the Reserve Bank of India regulation for recurring payments](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0)
+[Learn more about the Reserve Bank of India directive; Processing of e-mandate on cards for recurring transactions](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0)
 
 On 1 July 2022, Microsoft and other online merchants will no longer be storing credit card information. To comply with this regulation Microsoft will be removing all stored card details from Microsoft Azure. To avoid service interruption, you will need to add a payment method and make a one-time payment for all invoices.
 
-[Learn about the Reserve Bank of India regulation for card storage](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12211)
+[Learn about the Reserve Bank of India directive; Restriction on storage of actual card data ](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12211)
 
 ## Pay by default payment method
 

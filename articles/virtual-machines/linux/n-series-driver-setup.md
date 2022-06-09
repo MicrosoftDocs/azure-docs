@@ -48,7 +48,7 @@ Then run installation commands specific for your distribution.
     > [!NOTE]
    >  The example below shows the CUDA package path for Ubuntu 16.04. Replace the path specific to the version you plan to use. 
    >  
-   >  Visit the [Nvidia Download Center] (https://developer.download.nvidia.com/compute/cuda/repos/) for the full path specific to each version. 
+   >  Visit the [Nvidia Download Center](https://developer.download.nvidia.com/compute/cuda/repos/) for the full path specific to each version. 
    > 
    ```bash
    CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
@@ -115,7 +115,7 @@ sudo reboot
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
    sudo yum install dkms
    
-   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo /etc/yum.repos.d/cuda-rhel7.repo
+   sudo wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo -O /etc/yum.repos.d/cuda-rhel7.repo
 
    sudo yum install cuda-drivers
    ```
@@ -132,7 +132,7 @@ For example, CentOS 8 and RHEL 8 will need the following steps.
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
    sudo yum install dkms
    
-   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo /etc/yum.repos.d/cuda-rhel8.repo
+   sudo wget https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo -O /etc/yum.repos.d/cuda-rhel8.repo
 
    sudo yum install cuda-drivers
    ```
