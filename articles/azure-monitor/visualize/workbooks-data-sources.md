@@ -13,12 +13,17 @@ ms.reviewer: gardnerjr
 
 Workbooks can extract data from these data sources:
 
-* [Logs](../visualize/workbooks-data-sources.md#logs)
-* [Metrics](../visualize/workbooks-data-sources.md#metrics)
-* [Azure Resource Graph](../visualize/workbooks-data-sources.md#azure-resource-graph)
-* [Workload Health](../visualize/workbooks-data-sources.md#workload-health)
-* [Azure Resource Health](../visualize/workbooks-data-sources.md#azure-resource-health)
-* [Azure Data Explorer](../visualize/workbooks-data-sources.md#azure-data-explorer)
+ - [Logs](#logs)
+ - [Metrics](#metrics)
+ - [Azure Resource Graph](#azure-resource-graph)
+ - [Azure Resource Manager](#azure-resource-manager)
+ - [Azure Data Explorer](../visualize/workbooks-data-sources.md#azure-data-explorer)
+ - [Workload health](#workload-health)
+ - [Azure resource health](#azure-resource-health)
+ - [Change Analysis (preview)](#change-analysis-preview)
+ - [JSON](#json)
+ - [Custom endpoint](#custom-endpoint)
+ - [Azure RBAC](#azure-rbac)
 
 ## Logs
 
@@ -88,6 +93,37 @@ To make a query control using [Application Change Analysis](../app/change-analys
 > [!div class="mx-imgBorder"]
 > ![A screenshot of a workbook with Change Analysis](./media/workbooks-data-sources/change-analysis-data-source.png)
 
+## JSON
+
+The JSON provider allows you to create a query result from static JSON content. It is most commonly used in Parameters to create dropdown parameters of static values. Simple JSON arrays or objects will automatically be converted into grid rows and columns.  For more specific behaviors, you can use the Results tab and JSONPath settings to configure columns.
+
+> [!NOTE]
+> Do not include any sensitive information in any fields (`headers`, `parameters`, `body`, `url`), since they will be visible to all of the Workbook users.
+
+This provider supports [JSONPath](workbooks-jsonpath.md).
+
+## Custom endpoint
+
+Workbooks support getting data from any external source. If your data lives outside Azure you can bring it to Workbooks by using this data source type.
+
+To make a query control use this data source, use the _Data source_ drop-down to choose _Custom Endpoint_. Provide the appropriate parameters such as `Http method`, `url`, `headers`, `url parameters` and/or `body`. Make sure your data source supports [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) otherwise the request will fail.
+
+To avoid automatically making calls to untrusted hosts when using templates, the user needs to mark the used hosts as trusted. This can be done by either clicking on the _Add as trusted_ button, or by adding it as a trusted host in Workbook settings. These settings will be saved in [browsers that support IndexDb with web workers](https://caniuse.com/#feat=indexeddb).
+
+This provider supports [JSONPath](workbooks-jsonpath.md).
+
+## Azure RBAC
+The Azure RBAC provider allows you to check permissions on resources. It is most commonly used in parameter to check if the correct RBAC are setup. A use case would be to create a parameter to check deployment permission and then notify the user if they don't have deployment permission. Simple JSON arrays or objects will automatically be converted into grid rows and columns or text with a 'hasPermission' column with either true or false. The permission is checked on each resource and then either 'or' or 'and' to get the result. The [operations or actions](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) can be a string or an array.
+
+  **String:**
+   ```
+   "Microsoft.Resources/deployments/validate/action"
+   ```
+
+   **Array:**
+   ```
+   ["Microsoft.Resources/deployments/read","Microsoft.Resources/deployments/write","Microsoft.Resources/deployments/validate/action","Microsoft.Resources/operations/read"]
+   ```
 ## Next Steps
 
  - [Getting started with Azure Workbooks](workbooks-getting-started.md) learning more about workbooks many rich visualizations options.
