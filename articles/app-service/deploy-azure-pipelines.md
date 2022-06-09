@@ -129,7 +129,7 @@ Upload your code to new webapp GitHub or Azure Repos:
     * **azureSubscription**: your Azure subscription.
     * **appName**: the name of your existing app service.
     * **package**: the file path to the package or a folder containing your app service contents. Wildcards are supported.
-    
+
 #### [Classic](#tab/classic/)
 
 To get started: 
@@ -224,7 +224,7 @@ the iisnode handler on the Azure Web App:
 
 For information on Azure service connections, see the [following section](#endpoint).
 
-#### [Classic](#tab/classic)
+#### [Classic](#tab/classic/)
 
 The simplest way to deploy to an Azure Web App is to use the **Azure Web App** task.
 To deploy to any Azure App service (Web app for Windows, Linux, container, Function app or web jobs), use the **Azure App Service Deploy** task.
@@ -273,6 +273,7 @@ By default, your deployment happens to the root application in the Azure Web App
 ](/azure/app-service/configure-common) for more details.
 
 #### [Classic](#tab/classic/)
+
 By default, your deployment happens to the root application in the Azure Web App. If you want to deploy to a specific virtual application,
 enter its name in the **Virtual Application** property of the **Azure App Service Deploy** task.
 
@@ -316,9 +317,11 @@ The following example shows how to deploy to a staging slot, and then swap to a 
 * **SwapWithProduction**: Boolean. Swap the traffic of source slot with production. 
 
 #### [Classic](#tab/classic/)
+
 You can configure the Azure Web App to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
 
 Use the option **Deploy to Slot or App Service Environment** in the **Azure Web App** task to specify the slot to deploy to.
+
 ---
 
 ## Deploy to multiple web apps
@@ -434,6 +437,7 @@ jobs:
 ```
 
 #### [Classic](#tab/classic/)
+
 To change `connectionString` by using variable substitution:
 
 1. Create a release pipeline with two stages.
