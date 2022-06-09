@@ -4,12 +4,12 @@ description: Explore single-tenant and multi-tenant authentication use cases for
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
-
 ms.author: tchladek
-ms.date: 06/30/2021
+ms.date: 06/08/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
+ms.custom: kr2b-contr-experiment
 ---
 
 # Single-tenant and multi-tenant authentication for Teams
