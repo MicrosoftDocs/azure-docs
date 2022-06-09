@@ -27,7 +27,7 @@ If you’re using BGP AS-Path Prepend to dedicate a circuit from Azure towards o
 ## Management VMs and default routes from on-premises 
 
 > [!IMPORTANT]
-> Azure VMware Solution Management VMs don't honor a default route from On-Premises.
+> Azure VMware Solution Management VMs does not honor a default route from On-Premises.
 
 If you’re routing back to your on-premises networks using only a default route advertised towards Azure, the vCenter Server and NSX Manager VMs won't honor that route.  
 
