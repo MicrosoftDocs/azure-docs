@@ -46,7 +46,7 @@ After you sign in for the first time, you need to activate the on-premises manag
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="Screenshot that shows selecting multiple subscriptions." lightbox="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png":::
 
-   If you haven't already onboarded Defender for IoT to a subscription, see [Onboard Defender for IoT to a subscription](how-to-manage-subscriptions.md#onboard-defender-for-iot-to-a-subscription).
+   If you haven't already onboarded Defender for IoT to a subscription, see [Onboard a Defender for IoT plan to a subscription](how-to-manage-subscriptions.md#onboard-a-defender-for-iot-plan-to-a-subscription).
 
    > [!Note]
    > If you delete a subscription, you must upload a new activation file to the on-premises management console that was affiliated with the deleted subscription.
@@ -67,7 +67,7 @@ After activating an on-premises management console, you'll need to apply new act
 
 |Location  |Activation process  |
 |---------|---------|
-|**On-premises management console**     |  Apply a new activation file on your on-premises management console if you've [modified the number of committed devices](how-to-manage-subscriptions.md#update-committed-devices-in-a-subscription) in your subscription.      |
+|**On-premises management console**     |  Apply a new activation file on your on-premises management console if you've [modified the number of committed devices](how-to-manage-subscriptions.md#edit-a-plan) in your subscription.      |
 |**Cloud-connected sensors**     | Cloud-connected sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active. <br><br>However, you'll also need to apply a new activation file when [updating your sensor software](how-to-manage-individual-sensors.md#download-a-new-activation-file-for-version-221x-or-higher) from a legacy version to version 22.2.x.        |
 |  **Locally-managed**   |   Apply a new activation file to locally-managed sensors every year. After a sensor's activation file has expired, the sensor will continue to monitor your network, but you'll see a warning message when signing in to the sensor.     |
 
