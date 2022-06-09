@@ -166,9 +166,6 @@ az containerapp env create `
 
 ---
 
-> [!NOTE]
-> As you call `az containerapp create` to create the container app inside your environment, make sure the value for the `--image` parameter is in lower case.
-
 The following table describes the parameters used in `containerapp env create`.
 
 | Parameter | Description |
