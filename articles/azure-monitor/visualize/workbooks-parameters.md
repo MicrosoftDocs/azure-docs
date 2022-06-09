@@ -222,11 +222,11 @@ When creating the parameter in a parameters step, use the "Treat this parameter 
 The parameter will be available and function as normal parameters do.
 
 ### Updating the value of an existing global parameter
-For the chart example above, the most common way to update a global parameter is by using [Time Brushing](../Visualizations/Timebrush.md).  
+For the chart example above, the most common way to update a global parameter is by using Time Brushing.  
 
 In this example, the `timerange` parameter above is declared as a global. In a query step below that, create and run a query that uses that `timerange` parameter in the query and returns a time chart result. In the advanced settings for the query step, enable the time range brushing setting, and use the same parameter name as the output for the time brush parameter, and also set the only export the parameter when brushed option.
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-parameters-global-timerange-brush.png" alt-text="Screenshot of global time brush setting in Workbooks.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-global-timerange-brush.png" alt-text="Screenshot of global time brush setting in Workbooks.":::
 
 Now, whenever a time range is brushed in this chart, it will also update the `timerange` parameter above this query, and the query step itself (since it also depends on `timerange`!):
 
