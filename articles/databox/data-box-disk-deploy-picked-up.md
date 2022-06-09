@@ -286,28 +286,28 @@ If you are using Data Box Disk and have selected the self-managed shipping optio
    1. Order name
    2. Contact name of the person dropping off. You will need to display a government-approved ID during the drop-off.
    ```
-
-   > [!NOTE]
+> [!NOTE]
    > - Required information for return may vary by region. 
 
 ::: zone pivot="americas"
 
-    **Instructions for Brazil:** If you're scheduling a device pickup in Brazil, include the following information in your email. The datacenter will schedule the pickup after they receive an inbound `Nota Fiscal`, which can take up to 4 business days.
-    
-       ```
-       Subject: Request Azure Data Box Disk pickup for order: <ordername>
-    
-       - Order name
-       - Company name
-       - Company legal name (if different) 
-       - CNPJ (Business Tax ID, format: 00.000.000/0000-00) or CPF (Individual Tax ID, format: 000.000.000-00)
-       - Address 
-       - Country 
-       - Phone number 
-       - Contact name of the person who will pick up the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.)   
-       ```
+**Instructions for Brazil:** If you're scheduling a device pickup in Brazil, include the following information in your email. The datacenter will schedule the pickup after they receive an inbound `Nota Fiscal`, which can take up to 4 business days.
+
+```
+Subject: Request Azure Data Box Disk pickup for order: <ordername>
+
+- Order name
+- Company name
+- Company legal name (if different) 
+- CNPJ (Business Tax ID, format: 00.000.000/0000-00) or CPF (Individual Tax ID, format: 000.000.000-00)
+- Address 
+- Country 
+- Phone number 
+- Contact name of the person who will pick up the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.)   
+```
   
-::: zone-end
+::: zone-end    
+
 
 3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure datacenter.
 
