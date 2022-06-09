@@ -94,7 +94,8 @@ The location is the region where the custom image will be created. The following
 - UAE North
 - East Asia
 - Korea Central
-- South Africa North- USGov Arizona (Public Preview)
+- South Africa North
+- USGov Arizona (Public Preview)
 - USGov Virginia (Public Preview)
 
 > [!IMPORTANT]
