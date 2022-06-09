@@ -5,7 +5,7 @@ description: In this quickstart, you'll learn how to add raw media access callin
 author: Yassir Bisteni
 
 ms.author: yassirb
-ms.date: 04/18/2022
+ms.date: 06/09/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
