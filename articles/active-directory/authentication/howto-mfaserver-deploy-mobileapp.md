@@ -29,7 +29,7 @@ Using a mobile app for two-step verification is preferred when phone reception i
 > Existing customers that activated Azure Multi-Factor Authentication Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual.
 
 > [!IMPORTANT]
-> If you have installed Azure Multi-Factor Authentication Server v8.x or higher, most of the steps below are not required. Mobile app authentication can be set up by following the steps under [Configure the mobile app](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server).
+> If you have installed Azure Multi-Factor Authentication Server v8.x or higher, most of the steps below are not required. Mobile app authentication can be set up by following the steps under [Configure the mobile app](#configure-the-mobile-app-settings-in-mfa-server).
 
 ## Requirements
 
