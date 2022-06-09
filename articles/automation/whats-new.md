@@ -52,7 +52,7 @@ Users can now restore an Automation account deleted within 30 days. Read [here](
 
 **Type:** New feature
 
-New scripts are added to the Azure Automation [GitHub repository](https://github.com/azureautomation) to address one of Azure Automation's key scenarios of VM management based on Azure Monitor alert. For more information, see [Trigger runbook from Azure alert](./automation/automation-create-alert-triggered-runbook#common-azure-vm-management-operations).
+New scripts are added to the Azure Automation [GitHub repository](https://github.com/azureautomation) to address one of Azure Automation's key scenarios of VM management based on Azure Monitor alert. For more information, see [Trigger runbook from Azure alert](./automation/automation-create-alert-triggered-runbook.md#common-azure-vm-management-operations).
 
 - Stop-Azure-VM-On-Alert
 - Restart-Azure-VM-On-Alert
