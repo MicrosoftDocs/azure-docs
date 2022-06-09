@@ -94,7 +94,7 @@ To get ID Token as input, the rules definition needs to configure the well-known
     }
 ```
 
-Please see [idToken attestation](rules-and-display-definitions-model.md#idTokenAttestation-type) for reference of properties.
+Please see [idToken attestation](rules-and-display-definitions-model.md#idtokenattestation-type) for reference of properties.
 
 ## Input type: ID token hint
 
@@ -130,7 +130,7 @@ To get ID Token hint as input, the rules definition shouldn't contain configurat
     }
 ```
 
-See [idTokenHint attestation](rules-and-display-definitions-model.md#idTokenHintAttestation-type) for reference of properties.
+See [idTokenHint attestation](rules-and-display-definitions-model.md#idtokenhintattestation-type) for reference of properties.
 
 ### vc.type: Choose credential type(s) 
 
@@ -192,7 +192,7 @@ To ensure interoperability of your credentials, it's recommended that you work c
 }
 ```
 
-See [verifiablePresentation attestation](rules-and-display-definitions-model.md#verifiablePresentationAttestation-type) for reference of properties.
+See [verifiablePresentation attestation](rules-and-display-definitions-model.md#verifiablepresentationattestation-type) for reference of properties.
 
 ## Input type: Selfattested claims
 
@@ -227,7 +227,7 @@ During the issuance flow, the user can be asked to input some self-attested info
 }
 ```
 
-See [selfIssued attestation](rules-and-display-definitions-model.md#selfIssuedAttestation-type) for reference of properties.
+See [selfIssued attestation](rules-and-display-definitions-model.md#selfissuedattestation-type) for reference of properties.
 
 ## Display definition: Verifiable credentials in Microsoft Authenticator
 
@@ -278,7 +278,7 @@ The display definition has the following structure.
 }
 ```
 
-See [Display definition model](rules-and-display-definitions-model.md#displayModel-type) for reference of properties.
+See [Display definition model](rules-and-display-definitions-model.md#displaymodel-type) for reference of properties.
 
 ## Next steps
 

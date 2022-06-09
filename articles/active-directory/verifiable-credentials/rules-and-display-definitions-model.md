@@ -22,7 +22,7 @@ Rules and Display definitions are used to define a credential. You can read more
 ## rulesModel type
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`attestations`| [idTokenAttestation](#idTokenAttestation-type) and/or [idTokenHintAttestation](#idTokenHintAttestation-type) and/or [verifiablePresentationAttestation](#verifiablePresentationAttestation-type) and/or [selfIssuedAttestation](#selfIssuedAttestation-type) |
+|`attestations`| [idTokenAttestation](#idtokenattestation-type) and/or [idTokenHintAttestation](#idtokenhintattestation-type) and/or [verifiablePresentationAttestation](#verifiablepresentationattestation-type) and/or [selfIssuedAttestation](#selfissuedattestation-type) |
 |`validityInterval` | number | time span the represents the lifespan of the credential |
 |`vc`| vcType array | types for this contract |
 
@@ -32,7 +32,7 @@ When you sign-in the user from within Authenticator you can use the returned ID 
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-| `mapping` | [claimMapping](#claimMapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
+| `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
 | `configuration` | string (url) | location of the identity provider's configuration document |
 | `clientId` | string | client id to use when obtaining the id token |
 | `redirectUri` | string | redirect uri to use when obtaining the id token MUST BE vcclient://openid/ |
@@ -54,7 +54,7 @@ When you want the user to present another VC as input for a new issued VC. The w
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-| `mapping` | [claimMapping](#claimMapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
+| `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
 | `credentialType` | string (optional) | required credential type of the input |
 | `required` | boolean (default false) | indicating whether this attestation is required or not |
 | `trustedIssuers` | string (array) | a list of DIDs allowed to issue the verifiable credential for this contract, the service will default your issuer under the covers so no need to provide this yourself. |
@@ -63,7 +63,7 @@ When you want the user to present another VC as input for a new issued VC. The w
 When you want the user to enter input themselves, also called self-attested input.
 | Property | Type | Description |
 | -------- | -------- | -------- |
-| `mapping` | [claimMapping](#claimMapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
+| `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
 | `required` | boolean (default false) | indicating whether this attestation is required or not |
 
 
@@ -114,9 +114,9 @@ When you want the user to enter input themselves, also called self-attested inpu
 | Property | Type | Description |
 | -------- | -------- | -------- |
 |`locale`| string | the locale of this display |
-|`credential` | [displayCredential](#displayCredential-type) | the display properties of the verifiable credential |
-|`consent` | [displayConsent](#displayConsent-type) | supplemental data when the verifiable credential is issued |
-|`claims`| [displayClaims](#displayClaims-type) array | labels for the claims included in the verifiable credential |
+|`credential` | [displayCredential](#displaycredential-type) | the display properties of the verifiable credential |
+|`consent` | [displayConsent](#displayconsent-type) | supplemental data when the verifiable credential is issued |
+|`claims`| [displayClaims](#displayclaims-type) array | labels for the claims included in the verifiable credential |
 
 ### displayCrendential type
 | Property | Type | Description |
@@ -126,7 +126,7 @@ When you want the user to enter input themselves, also called self-attested inpu
 |`backgroundColor` | number (hex)| background color of the credential in hex format e.g. #FFAABB |
 |`textColor`| number (hex)| text color of the credential in hex format e.g. #FFAABB |
 |`description`| string | supplemental text displayed alongside each credential |
-|`logo`| [displayCredentialLogo](#displayCredentialLogo-type) | the logo to use for the credential |
+|`logo`| [displayCredentialLogo](#displayCredentiallogo-type) | the logo to use for the credential |
 
 ### displayCredentialLogodisplayCredentialLogo type
 

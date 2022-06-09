@@ -111,7 +111,7 @@ The expected JSON for the Rules definitions is the inner content of the rules at
 
 To configure your sample code deployment to issue and verify your custom credentials you need your issuer DID for your tenant, the credential type and the manifest url to your credential. The easiest way to find this for a Custom Credential is to go to your credential in the portal, select Issue credential and switch to Custom issue.
 
-![Quickstart custom issue](media/how-to-use-quickstart/quickstart-config-sample-1.png)
+![Quickstart issue credential screen](media/how-to-use-quickstart/quickstart-config-sample-1.png)
 
 This will bring up a textbox with a skeleton JSON payload for the Request Service API. There you have these value that you can copy and paste to your sample deployment’s configuration files. Issuer’s DID is the authority value.
 
