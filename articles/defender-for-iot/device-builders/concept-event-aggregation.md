@@ -105,7 +105,7 @@ The data collected for each event is:
 | **os_version** | The version of the operating system. For example, `Windows 10`, or `Ubuntu 20.04.1`. |
 | **os_platform** | The OS of the device. |
 | **os_arch** | The architecture of the OS. For example, `x86_64`. |
-| **nics** | The network interface controller. The full list of properties are listed below. |
+| **nics** | The network interface controller. The full list of properties is listed below. |
 
 The **nics** properties are composed of the following;
 

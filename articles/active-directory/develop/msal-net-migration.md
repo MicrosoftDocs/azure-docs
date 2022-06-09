@@ -1,6 +1,5 @@
 ---
 title: Migrating to MSAL.NET and Microsoft.Identity.Web
-titleSuffix: Microsoft identity platform
 description: Learn why and how to migrate from  Azure AD Authentication Library for .NET (ADAL.NET) to Microsoft Authentication Library for .NET (MSAL.NET) or Microsoft.Identity.Web
 services: active-directory
 author: jmprieur

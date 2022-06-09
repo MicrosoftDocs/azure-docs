@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Clean up resources | Azure
+title: Tutorial - Clean up resources
 description: In this tutorial, you learn how to clean up the Azure resources allocated while creating the web app.
 services: storage, app-service-web
 author: rwike77

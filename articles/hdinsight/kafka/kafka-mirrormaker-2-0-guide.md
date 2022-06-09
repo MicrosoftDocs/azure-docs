@@ -211,4 +211,4 @@ The implementation needs to be added to the Kafka classpath for the class refere
 
 [Apache Kafka 2.4 Documentation](https://kafka.apache.org/24/documentation.html)
 
-[Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking.md)
+[Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking)

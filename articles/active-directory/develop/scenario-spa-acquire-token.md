@@ -1,6 +1,5 @@
 ---
-title: Acquire a token to call a web API (single-page apps) | Azure
-titleSuffix: Microsoft identity platform
+title: Acquire a token to call a web API (single-page apps)
 description: Learn how to build a single-page application (acquire a token to call an API)
 services: active-directory
 author: negoe

@@ -108,7 +108,7 @@ There are three primary actors in the verifiable credential solution. In the fol
 
 - **Step 1**, the **user** requests a verifiable credential from an issuer.
 - **Step 2**, the **issuer** of the credential attests that the proof the user provided is accurate and creates a verifiable credential signed with their DID and the user’s DID is the subject.
-- **In Step 3**, the user signs a verifiable presentation (VP) with their DID and sends to the **verifier.** The verifier then validates of the credential by matching with the public key placed in the DPKI.
+- **In Step 3**, the user signs a verifiable presentation (VP) with their DID and sends to the **verifier.** The verifier then validates the credential by matching with the public key placed in the DPKI.
 
 The roles in this scenario are:
 

@@ -8,7 +8,7 @@ ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 03/07/2022
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.custom: devx-track-java
 ---
 

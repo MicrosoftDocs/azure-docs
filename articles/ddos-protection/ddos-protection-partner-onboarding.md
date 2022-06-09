@@ -5,7 +5,7 @@ ms.service: ddos-protection
 documentationcenter: na
 author: AbdullahBell
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 06/07/2022
 ms.author: abell
 ---
 # Partnering with Azure DDoS Protection Standard
@@ -88,4 +88,4 @@ The following steps are required for partners to configure integration with Azur
 View existing partner integrations:
 
 - [Barracuda WAF-as-a-service](https://www.barracuda.com/waf-as-a-service)
-- [Azure Cloud WAF from Radware](https://www.radware.com/resources/microsoft-azure/)
+

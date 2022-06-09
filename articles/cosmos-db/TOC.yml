@@ -390,6 +390,9 @@
                     - name: DateTimeAdd
                       displayName: DateTimeAdd, date time add, timestamp, date and time functions, datetime
                       href: sql/sql-query-datetimeadd.md
+                    - name: DateTimeBin
+                      displayName: DateTimeBin, date time bin, date and time functions, datetime
+                      href: sql/sql-query-datetimebin.md
                     - name: DateTimeDiff
                       displayName: DateTimeDiff, date time diff, date and time functions, datetime
                       href: sql/sql-query-datetimediff.md
@@ -1700,6 +1703,8 @@
           href: ../private-link/tutorial-private-endpoint-cosmosdb-portal.md?bc=%2fazure%2fcosmos-db%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcosmos-db%2ftoc.json
         - name: Use Azure Key Vault to access data
           href: access-secrets-from-keyvault.md
+        - name: Access Azure Key Vault with managed identity
+          href: access-key-vault-managed-identity.md
         - name: Restrict user access to data operations only
           href: how-to-restrict-user-data.md
         - name: Configure customer-managed keys
@@ -1746,8 +1751,6 @@
               href: how-to-alert-on-logical-partition-key-storage-size.md
         - name: Monitoring data reference
           href: monitor-cosmos-db-reference.md
-        - name: Application logging with Logic Apps
-          href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Third-party monitoring solutions
           href: monitoring-solutions.md
     - name: Migrate data to Cosmos DB
