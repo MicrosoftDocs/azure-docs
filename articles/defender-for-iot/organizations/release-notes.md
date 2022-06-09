@@ -41,6 +41,20 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
+## June
+
+- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)
+
+### PCAP access from the Azure portal (Public preview)
+
+Now you can access the raw traffic files, known as packet capture files or PCAP files, directly from the Azure portal. This feature supports SOC or OT security engineers who want to investigate alerts from Defender for IoT or Microsoft Sentinel, without having to access each sensor separately.
+
+:::image type="content" source="media/release-notes/pcap-request.png" alt-text="Screenshot of the Download PCAP button" lightbox="media/release-notes/pcap-request.png":::
+
+PCAP files are downloaded to your Azure storage.
+
+For more information, see [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md).
+
 ## May 2022
 
 We've recently optimized and enhanced our documentation as follows:

@@ -209,6 +209,22 @@ Users working with alerts in Azure and on-premises should understand how alert m
 | **Managing alerts on-premises**  |  Alerts  **Learned**,  **Acknowledged**, or **Muted** in the on-premises management console or in sensors aren't simultaneously updated in Alerts page on the Defender for IoT Cloud Alerts page. This means that this alert will stay open on the Cloud. However another alert  won't be triggered from the on-premises components for this activity.
 | **Managing alert in the portal Alerts page** | Changing the status of an alert to **New**, **Active**, or **Closed** on the Alerts page or changing the alert severity on the Alerts page doesn't affect the alert status or severity  in the on-premises management console or sensors.
 
+## Access alert PCAP data (Public preview)
+
+To access raw traffic files for your alert, known as packet capture files or PCAP files, select **Download PCAP** in the top-left corner of your alert details page.
+
+For example:
+
+:::image type="content" source="media/release-notes/pcap-request.png" alt-text="Screenshot of the Download PCAP button" lightbox="media/release-notes/pcap-request.png":::
+
+The portal requests the file from the sensor that detected the alert and downloads it to your Azure storage.
+
+Downloading the PCAP file can take several minutes, depending on the quality of your sensor connectivity.
+
+> [!TIP]
+> Accessing PCAP files directly from the Azure portal supports SOC or OT security engineers who want to investigate alerts from Defender for IoT or Microsoft Sentinel, without having to access each sensor separately. For more information, see [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md).
+>
+
 ## Next steps
 
 For more information, see [Gain insight into global, regional, and local threats](how-to-gain-insight-into-global-regional-and-local-threats.md#gain-insight-into-global-regional-and-local-threats).
