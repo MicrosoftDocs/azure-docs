@@ -15,12 +15,12 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Migrate from Azure MFA Server to Azure multi-factor authentication
+# Migrate from Azure MFA Server to Azure AD multi-factor authentication
 
-Multifactor authentication (MFA) is important to securing your infrastructure and assets from bad actors. Azure MFA Server isn’t available for new deployments and will be deprecated. Customers who are using MFA Server should move to using cloud-based Azure Active Directory (Azure AD) multi-factor authentication. 
+Multifactor authentication (MFA) is important to securing your infrastructure and assets from bad actors. Azure Multi-Factor Authentication Server (MFA Server) isn’t available for new deployments and will be deprecated. Customers who are using MFA Server should move to using cloud-based Azure Active Directory (Azure AD) Multi-Factor Authentication. 
 In this documentation, we assume that you have a hybrid environment where:
 
-- You are using MFA Server for MFA.
+- You are using MFA Server for multifactor authentication.
 - You are using federation on Azure AD with Active Directory Federation Services (AD FS) or another identity provider federation product.
   - While this article is scoped to AD FS, similar steps apply to other identity providers.
 - Your MFA Server is integrated with AD FS. 
@@ -30,34 +30,34 @@ There are multiple possible end states to your migration, depending on your goal
 
 | <br> | Goal: Decommission MFA Server ONLY | Goal: Decommission MFA Server and move to Azure AD Authentication | Goal: Decommission MFA Server and AD FS |
 |------|------------------------------------|-------------------------------------------------------------------|-----------------------------------------|
-|MFA provider | Change MFA provider from MFA Server to Azure AD MFA. | Change MFA provider from MFA Server to Azure AD MFA. |	Change MFA provider from MFA Server to Azure AD MFA. |
+|MFA provider | Change MFA provider from MFA Server to Azure AD Multi-Factor Authentication. | Change MFA provider from MFA Server to Azure AD Multi-Factor Authentication. |	Change MFA provider from MFA Server to Azure AD Multi-Factor Authentication. |
 |User authentication  |Continue to use federation for Azure AD authentication. | Move to Azure AD with Password Hash Synchronization (preferred) or Passthrough Authentication **and** seamless single sign-on.| Move to Azure AD with Password Hash Synchronization (preferred) or Passthrough Authentication **and** seamless single sign-on. |
 |Application authentication | Continue to use AD FS authentication for your applications. | Continue to use AD FS authentication for your applications. | Move apps to Azure AD before migrating to Azure MFA. |
 
-If you can, move both your MFA and your user authentication to Azure. For step-by-step guidance, see [Moving to Azure AD MFA and Azure AD user authentication](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md). 
+If you can, move both your multifactor authentication and your user authentication to Azure. For step-by-step guidance, see [Moving to Azure AD Multi-Factor Authentication and Azure AD user authentication](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md). 
 
-If you can’t move your user authentication, see the step-by-step guidance for [Moving to Azure AD MFA with federation](how-to-migrate-mfa-server-to-azure-mfa-with-federation.md).
+If you can’t move your user authentication, see the step-by-step guidance for [Moving to Azure AD Multi-Facto Authentication with federation](how-to-migrate-mfa-server-to-azure-mfa-with-federation.md).
 
 ## Prerequisites
 
 - AD FS environment (required if you are not migrating all your apps to Azure AD prior to migrating MFA)
   - Upgrade to AD FS for Windows Server 2019, Farm behavior level (FBL) 4. This enables you to select authentication provider based on group membership for a more seamless user transition. While it is possible to migrate while on AD FS for Windows Server 2016 FBL 3, it is not as seamless for users. During the migration users will be prompted to select an authentication provider (MFA Server or Azure MFA) until the migration is complete. 
 - Permissions
-  - Enterprise administrator role in Active Directory to configure AD FS farm for Azure AD MFA
+  - Enterprise administrator role in Active Directory to configure AD FS farm for Azure AD Multi-Factor Authentication
   - Global administrator role in Azure AD to perform configuration of Azure AD using Azure AD PowerShell
 
 
 ## Considerations for all migration paths
 
-Migrating from MFA Server to Azure AD MFA involves more than just moving the registered MFA phone numbers. 
-Microsoft’s MFA server can be integrated with many systems, and you must evaluate how these systems are using MFA Server to understand the best ways to integrate with Azure AD MFA. 
+Migrating from MFA Server to Azure AD Multi-Factor Authentication involves more than just moving the registered MFA phone numbers. 
+Microsoft’s MFA server can be integrated with many systems, and you must evaluate how these systems are using MFA Server to understand the best ways to integrate with Azure AD Multi-Factor Authentication. 
 
 ### Migrating MFA user information
 
 Common ways to think about moving users in batches include moving them by regions, departments, or roles such as administrators. 
 Whichever strategy you choose, ensure that you move users iteratively, starting with test and pilot groups, and that you have a rollback plan in place. 
 
-While you can migrate users’ registered MFA phone numbers and hardware tokens, you cannot migrate device registrations such as their Microsoft Authenticator app settings. 
+While you can migrate users’ registered multifactor authentication phone numbers and hardware tokens, you cannot migrate device registrations such as their Microsoft Authenticator app settings. 
 Users will need to register and add a new account on the Authenticator app and remove the old account. 
 
 To help users to differentiate the newly added account from the old account linked to the MFA Server, make sure the Account name for the Mobile App on the MFA Server is named in a way to distinguish the two accounts. 
@@ -71,7 +71,7 @@ We therefore recommend that regardless of the migration path you choose, that yo
 #### Migrating hardware security keys
 
 Azure AD provides support for OATH hardware tokens. 
-In order to migrate the tokens from MFA Server to Azure AD MFA, the [tokens must be uploaded into Azure AD using a CSV file](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview), commonly referred to as a "seed file". 
+In order to migrate the tokens from MFA Server to Azure AD Multi-Factor Authentication, the [tokens must be uploaded into Azure AD using a CSV file](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview), commonly referred to as a "seed file". 
 The seed file contains the secret keys and token serial numbers, as well as other necessary information needed to upload the tokens into Azure AD. 
 
 If you no longer have the seed file with the secret keys, it is not possible to export the secret keys from MFA Server. 
@@ -113,12 +113,12 @@ We recommend you evaluate moving your SSPR service to Azure AD SSPR.
 You can use the opportunity of users registering for Azure MFA to use the combined registration experience to register for Azure AD SSPR.
 
 
-### RADIUS clients and Azure AD MFA
+### RADIUS clients and Azure AD Multi-Factor Authentication
 
 MFA Server supports RADIUS to invoke MFA for applications and network devices that support the protocol. 
 If you are using RADIUS with MFA Server, we recommend moving client applications to modern protocols such as SAML, Open ID Connect, or OAuth on Azure AD. 
 If the application cannot be updated, then you can deploy Network Policy Server (NPS) with the Azure MFA extension. 
-The network policy server (NPS) extension acts as an adapter between RADIUS-based applications and Azure AD MFA to provide a second factor of authentication. This allows you to move your RADIUS clients to Azure MFA and decommission your MFA Server.
+The network policy server (NPS) extension acts as an adapter between RADIUS-based applications and Azure AD Multi-Factor Authentication to provide a second factor of authentication. This allows you to move your RADIUS clients to Azure MFA and decommission your MFA Server.
 
 #### Important considerations
 
@@ -126,7 +126,7 @@ There are limitations when using NPS for RADIUS clients, and we recommend evalua
 Check with the service provider for supported product versions and their capabilities. 
 
 - The NPS extension does not use Azure AD Conditional Access policies. If you stay with RADIUS and use the NPS extension, all authentication requests going to NPS will require the user to perform MFA.
-- Users must register for Azure AD MFA prior to using the NPS extension. Otherwise, the extension fails to authenticate the user, which can generate help desk calls.
+- Users must register for Azure AD Multi-Factor Authentication prior to using the NPS extension. Otherwise, the extension fails to authenticate the user, which can generate help desk calls.
 - When the NPS extension invokes MFA, the MFA request is sent to the user's default MFA method. 
   - Because the sign-in happens on 3rd party applications, it is unlikely that the user will see visual notification that MFA is required and that a request has been sent to their device.
   - During the MFA requirement, the user must have access to their default authentication method to complete the MFA requirement. They cannot choose an alternative method. Their default authentication method will be used even if it's been disabled in the tenant authentication methods and MFA policies.
@@ -156,11 +156,11 @@ Others might include:
 - [Adding new NPS infrastructure](/windows-server/networking/technologies/nps/nps-top)
 - [NPS deployment best practices](https://www.youtube.com/watch?v=qV9wddunpCY)
 - [Azure MFA NPS extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
-- [Integrating existing NPS infrastructure with Azure AD MFA](howto-mfa-nps-extension-vpn.md)
+- [Integrating existing NPS infrastructure with Azure AD Multi-Factor Authentication](howto-mfa-nps-extension-vpn.md)
 
 ## Next steps
 
-- [Moving to Azure AD MFA with federation](how-to-migrate-mfa-server-to-azure-mfa-with-federation.md)
-- [Moving to Azure AD MFA and Azure AD user authentication](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md)
+- [Moving to Azure AD Multi-Factor Authentication with federation](how-to-migrate-mfa-server-to-azure-mfa-with-federation.md)
+- [Moving to Azure AD Multi-Factor Authentication and Azure AD user authentication](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md)
 
 
