@@ -20,6 +20,10 @@ Access tokens let Azure Communication Services SDKs [authenticate](../concepts/a
 
 In this quickstart, you'll learn how to use the Azure Communication Services SDKs to create identities and manage your access tokens. For production use cases, we recommend that you generate access tokens on a [server-side service](../concepts/client-and-server-architecture.md).
 
+::: zone pivot="programming-language-azcli"
+[!INCLUDE [Azure CLI](./includes/access-tokens/access-token-azcli.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/access-tokens/access-token-net.md)]
 ::: zone-end
@@ -34,10 +38,6 @@ In this quickstart, you'll learn how to use the Azure Communication Services SDK
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Java](./includes/access-tokens/access-token-java.md)]
-::: zone-end
-
-::: zone pivot="programming-language-azcli"
-[!INCLUDE [Azure CLI](./includes/access-tokens/access-token-azcli.md)]
 ::: zone-end
 
 ## Use identity for monitoring and metrics

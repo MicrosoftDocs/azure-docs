@@ -19,6 +19,10 @@ zone_pivot_groups: acs-azp-java-net-python-csharp-js-azcli
 
 [!INCLUDE [Bulk Acquisition Instructions](../../includes/phone-number-special-order.md)]
 
+::: zone pivot="programming-language-azcli"
+[!INCLUDE [Azure CLI](./includes/phone-numbers-azcli.md)]
+::: zone-end
+
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/phone-numbers-portal.md)]
 ::: zone-end
@@ -37,10 +41,6 @@ zone_pivot_groups: acs-azp-java-net-python-csharp-js-azcli
 
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [JavaScript](./includes/phone-numbers-js.md)]
-::: zone-end
-
-::: zone pivot="programming-language-azcli"
-[!INCLUDE [Azure CLI](./includes/phone-numbers-azcli.md)]
 ::: zone-end
 
 ## Troubleshooting

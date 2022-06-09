@@ -8,7 +8,7 @@
 ### Add the extension
 Add the Azure Communication Services extension for Azure CLI by using the `az extension` command.
 
-```azurecli
+```azurecli-interactive
 az extension add --name communication
 ```
 
@@ -74,3 +74,39 @@ az communication identity issue-access-token --scope chat
 
 The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md).
 
+
+## Store your access token in an environment variable
+
+To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<youraccesstoken>` with your actual access token.
+
+#### [Windows](#tab/windows)
+
+Open a console window and enter the following command:
+
+```console
+setx AZURE_COMMUNICATION_ACCESS_TOKEN "<youraccesstoken>"
+```
+
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
+
+#### [macOS](#tab/unix)
+
+Edit your **.zshrc**, and add the environment variable:
+
+```bash
+export AZURE_COMMUNICATION_ACCESS_TOKEN="<youraccesstoken>"
+```
+
+After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
+
+#### [Linux](#tab/linux)
+
+Edit your **.bash_profile**, and add the environment variable:
+
+```bash
+export AZURE_COMMUNICATION_ACCESS_TOKEN="<youraccesstoken>"
+```
+
+After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
+
+---

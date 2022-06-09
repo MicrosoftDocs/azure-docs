@@ -9,7 +9,7 @@
 ### Add the extension
 Add the Azure Communication Services extension for Azure CLI by using the `az extension` command.
 
-```azurecli
+```azurecli-interactive
 az extension add --name communication
 ```
 

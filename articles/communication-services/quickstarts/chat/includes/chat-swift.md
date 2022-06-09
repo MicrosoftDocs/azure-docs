@@ -22,7 +22,11 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Xcode](https://developer.apple.com/xcode/) and [CocoaPods](https://cocoapods.org/). You use Xcode to create an iOS application for the quickstart, and CocoaPods to install dependencies.
 - Create an Azure Communication Services resource. For details, see [Quickstart: Create and manage Communication Services resources](../../create-communication-resource.md). For this quickstart, you need to record your resource endpoint.
-- Create two users in Azure Communication Services, and issue them a [user access token](../../access-tokens.md). Be sure to set the scope to `chat`, and note the `token` string as well as the `userId` string. In this quickstart, you create a thread with an initial participant, and then add a second participant to the thread.
+- Create two users in Azure Communication Services, and issue them a [user access token](../../access-tokens.md). Be sure to set the scope to `chat`, and note the `token` string as well as the `userId` string. In this quickstart, you create a thread with an initial participant, and then add a second participant to the thread. You can also use the Azure CLI to create a user and an access token.
+
+```azurecli-interactive
+az communication identity issue-access-token --scope chat
+```
 
 ## Setting up
 
