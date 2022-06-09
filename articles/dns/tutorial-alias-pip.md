@@ -11,9 +11,9 @@ ms.custom: template-tutorial
 #Customer intent: As an experienced network administrator, I want to configure Azure an DNS alias record to refer to an Azure public IP address.
 ---
 
-# Tutorial: Configure an alias record to refer to an Azure public IP address 
+# Tutorial: Create an alias record to refer to an Azure public IP address 
 
-You can create an alias record reference an Azure resource. An example is an alias record that refers to an Azure public IP resource.
+You can create an alias record to reference an Azure resource. An example is an alias record that references an Azure public IP resource.
 
 In this tutorial, you learn how to:
 
@@ -49,7 +49,7 @@ Create a virtual network and a subnet to place your web server in.
     | **Setting**          | **Value**  |
     |----------------------|------------|
     | **Project Details**  |            |
-    | Subscription         | Select your Azure subscription. |
+    | Subscription         | Select your Azure subscription |
     | Resource Group       | Select **Create new** </br> In **Name**, enter **PIPResourceGroup** </br> Select **OK** |
     | **Instance details** |            |
     | Name                 | Enter **myPIPVNet** |
@@ -156,23 +156,23 @@ Create an alias record that points to the public IP address.
 1. Select the **Web-01-ip** public IP address for the **Azure resource**.
 1. Select **OK**.
 
-    :::image type="content" source="./media/tutorial-alias-pip/add-public-ip-alias-inline.png" alt-text="Screenshot of adding an alias record to refer to the Azure public ip of the I I S web server using the Add record set page." lightbox="./media/tutorial-alias-pip/add-public-ip-alias-expanded.png":::
+    :::image type="content" source="./media/tutorial-alias-pip/add-public-ip-alias-inline.png" alt-text="Screenshot of adding an alias record to refer to the Azure public IP of the I I S web server using the Add record set page." lightbox="./media/tutorial-alias-pip/add-public-ip-alias-expanded.png":::
 
 ## Test the alias record
 
 1. In the Azure portal, enter *virtual machine* in the search box at the top of the portal, and then select **Virtual machines** from the search results.
 1. Select the **Web-01** virtual machine. Note the public IP address in the **Overview** page.
-1. From a web browser, browse to the fully qualified domain name of the Web-01 virtual machine, which is `web01.contoso.com`. You now see the IIS welcome web page.
+1. From a web browser, browse to `web01.contoso.com`, which is the fully qualified domain name of the **Web-01** virtual machine. You now see the IIS welcome web page.
 1. Close the web browser.
 1. Stop the **Web-01** virtual machine, and then restart it.
 1. After the virtual machine restarts, note the new public IP address for the virtual machine.
 1. From a web browser, browse again to `web01.contoso.com`.
 
-This procedure succeeds because you used an alias record to point to the public IP address resource, not a standard A record.
+This procedure succeeds because you used an alias record to point to the public IP resource instead of a standard A record that points to the public IP address, not the resource.
 
 ## Clean up resources
 
-When no longer needed, you can delete all resources created in this tutorial by deleting the **RG-DNS-Alias-pip** resource group and the alias record from **contoso.com** DNS zone.
+When no longer needed, you can delete all resources created in this tutorial by deleting the **RG-DNS-Alias-pip** resource group and the alias record **web01** from **contoso.com** DNS zone.
 
 ## Next steps
 
