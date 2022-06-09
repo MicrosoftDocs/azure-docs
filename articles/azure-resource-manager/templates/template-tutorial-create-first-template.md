@@ -176,7 +176,7 @@ The deployment command returns results. Look for `ProvisioningState` to see whet
 
 # [PowerShell](#tab/azure-powershell)
 
-![PowerShell deployment provisioning state](./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png)
+:::image type="content" source="./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png" alt-text="PowerShell deployment provisioning state.":::
 
 # [Azure CLI](#tab/azure-cli)
 
