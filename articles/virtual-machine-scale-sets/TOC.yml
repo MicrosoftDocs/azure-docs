@@ -82,14 +82,13 @@
     href: virtual-machine-scale-sets-vertical-scale-reprovision.md
   - name: Scale-In Policy
     href: virtual-machine-scale-sets-scale-in-policy.md 
-  - name: Use guest-based autoscaling with a Linux scale set template
-    href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
 - name: Availability
   items: 
   - name: Design considerations
     href: virtual-machine-scale-sets-design-overview.md
   - name: vCPU quotas
     href: ../virtual-machines/windows/quotas.md
+    maintainContext: true
   - name: Use Availability Zones
     href: virtual-machine-scale-sets-use-availability-zones.md
   - name: Create a proximity placement group
@@ -134,10 +133,21 @@
     href: virtual-machine-scale-sets-mvss-start.md
   - name: Automatic extension upgrade 
     href: ../virtual-machines/automatic-extension-upgrade.md
+    maintainContext: true
   - name: Automatic OS upgrades
     href: virtual-machine-scale-sets-automatic-upgrade.md
   - name: Automatic instance repairs
     href: virtual-machine-scale-sets-automatic-instance-repairs.md
+  - name: Automatic VM guest patching
+    items:
+    - name: Overview
+      href: ../virtual-machines/automatic-vm-guest-patching.md
+      maintainContext: true
+    - name: Hotpatch
+      href: ../automanage/automanage-hotpatch.md
+      maintainContext: true
+  - name: Update Management in Azure Automation
+    href: ../automation/update-management/overview.md 
   - name: Maintenance control
     items:
     - name: Overview
@@ -146,38 +156,81 @@
       href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
   - name: Instance protection
     href: virtual-machine-scale-sets-instance-protection.md
+- name: Monitoring
+  items:
+  - name: Monitor virtual machines
+    href: ../virtual-machines/monitor-vm.md
+  - name: Monitor virtual machine reference
+    href: ../virtual-machines/monitor-vm-reference.md
+  - name: Agents
+    href: ../azure-monitor/agents/agents-overview.md
+  - name: VM insights
+    href: ../azure-monitor/vm/vminsights-overview.md
+  - name: VM usage
+    href: ../virtual-machines/vm-usage.md
+    maintainContext: true
+  - name: Instance Metadata service
+    items:
+    - name: CLI
+      displayName: Monitor metadata
+      href: ../virtual-machines/linux/instance-metadata-service.md
+    - name: PowerShell
+      displayName: Monitor metadata
+      href: ../virtual-machines/windows/instance-metadata-service.md
   - name: Planned maintenance
     href: virtual-machine-scale-sets-maintenance-notifications.md
+  - name: Maintenance notifications
+    href: ../virtual-machines/maintenance-notifications.md
+  - name: Scheduled events
+    items:
+    - name: Linux
+      href: ../virtual-machines/linux/scheduled-events.md
+      displayname: Scheduled events
+    - name: Windows
+      items:
+      - name: Scheduled events
+        href: ../virtual-machines/windows/scheduled-events.md
+      - name: Monitor scheduled events
+        href: ../virtual-machines/windows/scheduled-event-service.md
 - name: Disks
   items:
   - name: Select a disk type
     href: ../virtual-machines/disks-types.md
+    maintainContext: true
   - name: Premium storage performance
     href: ../virtual-machines/premium-storage-performance.md
+    maintainContext: true
   - name: Ephemeral OS disks
     href: ../virtual-machines/ephemeral-os-disks.md
+    maintainContext: true
   - name: Scalability targets for disks
     href: ../virtual-machines/disks-scalability-targets.md
+    maintainContext: true
   - name: Backup and disaster recovery for disks
     href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
+    maintainContext: true
   - name: Use data disks with scale sets
     href: virtual-machine-scale-sets-attached-disks.md
 - name: Networking
   items: 
   - name: Networking Overview
     href: ../virtual-network/network-overview.md
+    maintainContext: true
   - name: Network performance
-    href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
+    href: ../virtual-network/virtual-network-optimize-network-bandwidth.md
+    maintainContext: true
   - name: Use an existing virtual network
     href: virtual-machine-scale-sets-mvss-existing-vnet.md
 - name: Security
   items:
   - name: Security and policy
     href: ../virtual-machines/security-policy.md
+    maintainContext: true
   - name: Azure Disk Encryption
     href: disk-encryption-overview.md
   - name: Azure security baseline
-    href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline?toc=/azure/virtual-machine-scale-sets/TOC.json
+    href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
+    maintainContext: true
   - name: Encrypt disks in scale sets
     items:
     - name: Use PowerShell
@@ -203,6 +256,7 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ../virtual-machines/policy-reference.md
+    maintainContext: true
 - name: Resources
   items:
   - name: Cloud adoption framework
