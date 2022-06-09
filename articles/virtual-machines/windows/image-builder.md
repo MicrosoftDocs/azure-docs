@@ -24,7 +24,7 @@ In this article, you learn how to create a customized Windows image by using Azu
 - `osDiskSizeGB`: Can be used to increase the size of an image.
 - `identity`. Provides an identity for VM Image Builder to use during the build.
 
-You can use the following sample JSON template to configure the image: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
+Use the following sample JSON template to configure the image: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
 
 > [!NOTE]
@@ -95,13 +95,13 @@ Create a user-assigned identity so that VM Image Builder can access the storage 
 identityName=aibBuiUserId$(date +'%s')
 az identity create -g $imageResourceGroup -n $identityName
 
-# Get identity ID
+# Get the identity ID
 imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName --query clientId -o tsv)
 
 # Get the user identity URI that's needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName
 
-# Download preconfigured role definition example
+# Download the preconfigured role definition example
 curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
@@ -121,7 +121,7 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
-## Download the image configuration template example
+## Download the image configuration template
 
 We've created a parameterized image configuration template for you to try. Download the example JSON file, and then configure it with the variables that you set earlier.
 
@@ -169,7 +169,7 @@ In the background, VM Image Builder also creates a staging resource group in you
 
 If the service reports a failure when you submit the image configuration template, do the following:
 - See [Troubleshoot the Azure VM Image Builder service](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors). 
-- Before you try resubmitting the template, delete the template by running the following commands:
+- Before you try to resubmit the template, delete it by running the following commands:
 
 ```azurecli-interactive
 az resource delete \
@@ -217,7 +217,7 @@ Create a Remote Desktop connection to the VM by using the username and password 
 dir c:\
 ```
 
-The following two directories are created during image customization:
+The following two directories are created during the image customization:
 
 - buildActions
 - buildArtifacts
