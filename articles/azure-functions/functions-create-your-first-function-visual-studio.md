@@ -72,9 +72,17 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 1. In the `HttpTrigger` method named `Run`, rename the `FunctionName` method attribute to `HttpExample`. 
 
-Your function definition should now look like the following code:
+Your function definition should now look like the following code, depending on mode:
+
+# [In-process](#tab/in-process) 
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="15-18"::: 
+
+# [Isolated process](#tab/isolated-process)
+
+::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="11-13":::
+
+--- 
 
 Now that you've renamed the function, you can test it on your local computer.
 
