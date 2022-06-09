@@ -277,7 +277,7 @@ If you are using Data Box Disk and have selected the self-managed shipping optio
 
 1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
 
-2. Send an email to the Azure Data Box Operations team using the following template when you're ready to return the device.
+2. Send an email to the Azure Data Box Operations team using the following template when you're ready to return the device. 
 
    ```
    To: adbops@microsoft.com
@@ -291,19 +291,14 @@ If you are using Data Box Disk and have selected the self-managed shipping optio
 
 ::: zone pivot="americas"
 
-**Instructions for Brazil:** If you're scheduling a device pickup in Brazil, include the following information in your email. The datacenter will schedule the pickup after they receive an inbound `Nota Fiscal`, which can take up to 4 business days.
+**Instructions for Brazil:** To schedule a device return in Brazil, send an email to [adbops@microsoft.com](mailto:adbops@microsoft.com) with the following information:
 
 ```
-Subject: Request Azure Data Box Disk pickup for order: <ordername>
+Subject: Request Azure Data Box Disk drop-off for order: <ordername>
 
 - Order name
-- Company name
-- Company legal name (if different) 
-- CNPJ (Business Tax ID, format: 00.000.000/0000-00) or CPF (Individual Tax ID, format: 000.000.000-00)
-- Address 
-- Country 
-- Phone number 
-- Contact name of the person who will pick up the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.)   
+- Contact name of the person who will drop off the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.) 
+- Inbound Nota Fiscal (A copy of the inbound Nota Fiscal will be required at drop-off.)   
 ```
   
 ::: zone-end    
