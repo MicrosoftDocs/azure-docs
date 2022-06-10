@@ -3,11 +3,11 @@ title: Backend Pool Management
 titleSuffix: Azure Load Balancer
 description: Get started learning how to configure and manage the backend pool of an Azure Load Balancer
 services: load-balancer
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 2/17/2022
-ms.author: allensu 
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Backend pool management

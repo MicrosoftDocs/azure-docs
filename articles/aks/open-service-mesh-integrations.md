@@ -15,7 +15,7 @@ The Open Service Mesh (OSM) add-on integrates with features provided by Azure as
 
 ## Ingress
 
-Ingress allows for traffic external to the mesh to be routed to services within the mesh. With OSM, you can configure most ingress solutions to work with your mesh, but OSM works best with either [NGINX ingress][osm-nginx] or [Contour ingress][osm-contour]. Open source projects integrating with OSM, including NGINX ingress and Contour ingress, are not covered by the [AKS support policy][aks-support-policy].
+Ingress allows for traffic external to the mesh to be routed to services within the mesh. With OSM, you can configure most ingress solutions to work with your mesh, but OSM works best with [Web Application Routing][web-app-routing], [NGINX ingress][osm-nginx], or [Contour ingress][osm-contour]. Open source projects integrating with OSM, including NGINX ingress and Contour ingress, are not covered by the [AKS support policy][aks-support-policy].
 
 Using [Azure Gateway Ingress Controller (AGIC)][agic] for ingress with OSM is not supported and not recommended.
 
@@ -102,3 +102,4 @@ OSM has several types of certificates it uses to operate on your AKS cluster. OS
 [open-source-integrations]: open-service-mesh-integrations.md#additional-open-source-integrations
 [osm-traffic-management-example]: https://github.com/MicrosoftDocs/azure-docs/pull/81085/files
 [osm-tresor]: https://release-v1-0.docs.openservicemesh.io/docs/guides/certificates/#using-osms-tresor-certificate-issuer
+[web-app-routing]: web-app-routing.md

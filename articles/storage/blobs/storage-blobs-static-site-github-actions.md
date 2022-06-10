@@ -152,7 +152,7 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 1. Go to **Actions** for your GitHub repository.
 
-    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub actions menu item":::
+    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub Actions menu item":::
 
 1. Select **Set up your workflow yourself**.
 
@@ -240,7 +240,7 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 1. Go to **Actions** for your GitHub repository.
 
-    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub actions menu item":::
+    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub Actions menu item":::
 
 1. Select **Set up your workflow yourself**.
 
@@ -358,7 +358,7 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 1. Open the first result to see detailed logs of your workflow's run.
 
-    :::image type="content" source="../media/index/github-actions-run.png" alt-text="Log of GitHub actions run":::
+    :::image type="content" source="../media/index/github-actions-run.png" alt-text="Log of GitHub Actions run":::
 
 ## Clean up resources
 

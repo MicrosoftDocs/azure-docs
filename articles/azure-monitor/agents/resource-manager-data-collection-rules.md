@@ -53,12 +53,15 @@ The following sample creates an association between an Azure virtual machine and
   "contentVersion": "1.0.0.0",
   "parameters": {
       "vmName": {
-        "value": "my-windows-vm"
+        "value": "my-azure-vm"
       },
-      "location": {
-        "value": "eastus"
+      "associationName": {
+        "value": "my-windows-vm-my-dcr"
+      },
+      "dataCollectionRuleId": {
+        "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
       }
-  }
+   }
 }
 ```
 
@@ -114,12 +117,15 @@ The following sample creates an association between an Azure Arc-enabled server 
   "contentVersion": "1.0.0.0",
   "parameters": {
       "vmName": {
-        "value": "my-windows-vm"
+        "value": "my-hybrid-vm"
       },
-      "location": {
-        "value": "eastus"
+      "associationName": {
+        "value": "my-windows-vm-my-dcr"
+      },
+      "dataCollectionRuleId": {
+        "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
       }
-  }
+   }
 }
 ```
 

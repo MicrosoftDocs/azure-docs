@@ -1,9 +1,10 @@
 ---
- author: SnehaGunda
+ author: seesharprun
  ms.service: cosmos-db
  ms.topic: include
  ms.date: 04/21/2021
- ms.author: sngun
+ ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 ## Capacity planner modes
