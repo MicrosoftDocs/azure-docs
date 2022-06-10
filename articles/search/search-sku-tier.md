@@ -59,7 +59,7 @@ Most features are available on all tiers, including the free tier. In a few case
 
 | Feature | Limitations |
 |---------|-------------|
-| [indexers](search-indexer-overview.md) | Indexers are not available on S3 HD.  |
+| [indexers](search-indexer-overview.md) | Indexers are not available on S3 HD. Indexers have [more limitations](search-limits-quotas-capacity.md#indexer-limits) on the free tier. |
 | [AI enrichment](cognitive-search-concept-intro.md) | Runs on the Free tier but not recommended. |
 | [Managed or trusted identities for outbound (indexer) access](search-howto-managed-identities-data-sources.md) | Not available on the Free tier.|
 | [Customer-managed encryption keys](search-security-manage-encryption-keys.md) | Not available on the Free tier. |
