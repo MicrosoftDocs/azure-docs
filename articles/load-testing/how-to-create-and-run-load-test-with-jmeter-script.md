@@ -1,16 +1,17 @@
 ---
-title: Create and run a load test with Azure Load Testing with a JMeter script
-description: 'Learn how to load test a website with Azure Load Testing in the Azure portal by using an existing Apache JMeter script.'
+title: Create a JMeter-based load test
+titleSuffix: Azure Load Testing
+description: 'Learn how to load test a website by using an existing Apache JMeter script and Azure Load Testing.'
 services: load-testing
 ms.service: load-testing
 ms.topic: how-to
 author: ntrogh
 ms.author: nicktrog
-ms.date: 05/16/2022
+ms.date: 06/10/2022
 adobe-target: true
 ---
 
-# Load test a website with Azure Load Testing Preview in the Azure portal by using an existing JMeter script
+# Load test a website by using an existing JMeter script in Azure Load Testing Preview
 
 Learn how to use an Apache JMeter script to load test a web application with Azure Load Testing Preview from the Azure portal.
 
