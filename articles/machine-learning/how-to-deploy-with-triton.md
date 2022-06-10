@@ -27,7 +27,8 @@ Triton is multi-framework, open-source software that is optimized for inference.
 In this article, you will learn how to deploy Triton and a model to a managed online endpoint. Information is provided on using both the CLI (command line) and Azure Machine Learning studio.
 
 > [!NOTE]
-> [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) is an open-source third-party software that is integrated in Azure Machine Learning.
+> * [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) is an open-source third-party software that is integrated in Azure Machine Learning.
+> * While Azure Machine Learning online endpoints are generally available, _using Triton with an online endpoint deployment is still in preview_. 
 
 ## Prerequisites
 
