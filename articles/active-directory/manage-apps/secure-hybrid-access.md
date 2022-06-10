@@ -54,9 +54,9 @@ The following partners offer pre-built solutions to support **conditional access
 
 The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD.
 
-- [AWS ClientVPN](../saas-apps/aws-clientvpn-tutorial.md)
+- [AWS](../saas-apps/aws-clientvpn-tutorial.md)
 
-- [Check Point Identity Awareness](../saas-apps/check-point-identity-awareness-tutorial.md)
+- [Check Point](../saas-apps/check-point-remote-access-vpn-tutorial)
 
 - [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
 
