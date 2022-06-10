@@ -81,9 +81,7 @@ External authorization allows you to offload authorization of HTTP requests to a
 
 ## Certificate management
 
-OSM has several types of certificates it uses to operate on your AKS cluster. OSM includes its own certificate manager called Tresor, which is used by default. Alternatively, OSM allows you to integrate with [Hashicorp Vault][osm-hashi-vault], [Tresor][osm-tresor], and [cert-manager][osm-cert-manager], but those integrations are not covered by the [AKS support policy][aks-support-policy].
-
-
+OSM has several types of certificates it uses to operate on your AKS cluster. OSM includes its own certificate manager called [Tresor][osm-tresor], which is used by default. Alternatively, OSM allows you to integrate with [Hashicorp Vault][osm-hashi-vault] and [cert-manager][osm-cert-manager], but those integrations are not covered by the [AKS support policy][aks-support-policy].
 
 [agic]: ../application-gateway/ingress-controller-overview.md
 [agic-aks]: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
