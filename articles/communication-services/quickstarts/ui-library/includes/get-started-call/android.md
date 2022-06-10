@@ -55,8 +55,8 @@ Two maven repositories are required to integrate the library. MavenCentral is th
 
 In your project gradle scripts ensure the following `repositories` are added.
 
-For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  
-If you are using old versions of `Android Studio (4.*)` then the `repositories` will be in project level `build.gradle` `allprojects{}`.  
+For `Android Studio (2020.*)`, the `repositories` are in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  
+If you are using old versions of `Android Studio (4.*)`, then the `repositories` will be in project level `build.gradle` `allprojects{}`.  
 
 ```groovy
 // dependencyResolutionManagement
@@ -182,8 +182,6 @@ public class MainActivity extends AppCompatActivity {
         CommunicationTokenCredential communicationTokenCredential = 
                 new CommunicationTokenCredential(communicationTokenRefreshOptions);
         
-        CallCompositeGroupCallLocator locator = new CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"));
-
         final CallCompositeLocator locator = new CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"));
         final CallCompositeRemoteOptions remoteOptions =
                 new CallCompositeRemoteOptions(locator, communicationTokenCredential, "DISPLAY_NAME");
@@ -310,7 +308,7 @@ Initialize a `CallCompositeTeamsMeetingLinkLocator` and supply it to the `CallCo
 
 
 ```kotlin
-val locator = CallCompositeTeamsMeetingLinkLocator("TEAMS_MEETING_LINK)
+val locator = CallCompositeTeamsMeetingLinkLocator("TEAMS_MEETING_LINK")
 
 val remoteOptions = CallCompositeRemoteOptions(
     locator,
@@ -358,7 +356,7 @@ callComposite.launch(context, remoteOptions);
 -----
 ### Subscribe to error events from `CallComposite`
 
-To receive error events register an `onErrorHandler` with the `CallComposite`. 
+To receive error events, register an `onErrorHandler` with the `CallComposite`. 
 
 The following `errorCode` values may be sent to the Error Handler
 
@@ -446,9 +444,9 @@ CallComposite callComposite =
 ```
 
 -----
-### Additional Features
+### More Features
 
-The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information of additional features.
+The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information of more features.
 
 -----
 ### Add notifications into your mobile app
