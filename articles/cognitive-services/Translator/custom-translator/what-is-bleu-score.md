@@ -15,8 +15,7 @@ ms.custom: applied-ai-non-critical-form
 
 # What is a BLEU score?
 
-[BLEU (Bilingual Evaluation Understudy)](https://en.wikipedia.org/wiki/BLEU) is a measurement of the differences between an automatic translation and
-one or more human-created reference translations of the same source sentence.
+[BLEU (Bilingual Evaluation Understudy)](https://en.wikipedia.org/wiki/BLEU) is a measurement of the difference between an automatic translation and human-created reference translations of the same source sentence.
 
 ## Scoring process
 
