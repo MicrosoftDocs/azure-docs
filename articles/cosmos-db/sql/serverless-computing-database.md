@@ -6,7 +6,7 @@ ms.author: maquaran
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ms.date: 05/02/2020
 ms.custom: cosmos-db-video
 ---

@@ -92,7 +92,7 @@ az vm update \
 ### [PowerShell](#tab/powershell)
 
 
-In order to provision a VM with Trusted Launch, it first needs to be enabled with the `TrustedLaunch` using the `Set-AzVmSecurityType` cmdlet. Then you can use the Set-AzVmUefi cmdlet to set the vTPM and SecureBoot configuration. Use the below snippet as a quick start, remember to replace the values in this example with your own. 
+In order to provision a VM with Trusted Launch, it first needs to be enabled with the `TrustedLaunch` using the `Set-AzVmSecurityProfile` cmdlet. Then you can use the Set-AzVmUefi cmdlet to set the vTPM and SecureBoot configuration. Use the below snippet as a quick start, remember to replace the values in this example with your own. 
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"
@@ -128,7 +128,7 @@ $vm = Set-AzVMOSDisk -VM $vm `
    -StorageAccountType "StandardSSD_LRS" `
    -CreateOption "FromImage" 
 
-$vm = Set-AzVmSecurityType -VM $vm `
+$vm = Set-AzVmSecurityProfile -VM $vm `
    -SecurityType "TrustedLaunch" 
 
 $vm = Set-AzVmUefi -VM $vm `
