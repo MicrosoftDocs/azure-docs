@@ -117,7 +117,7 @@ Once migrated to Question Answering:
 
 Old QnA Maker resources need to be manually deleted.
 
-Here are some [detailed steps](migrate-qnamaker.md) on migration scenario 1
+Here are some [detailed steps](migrate-qnamaker.md) on migration scenario 1.
 
 ### Migration scenario 2
 
