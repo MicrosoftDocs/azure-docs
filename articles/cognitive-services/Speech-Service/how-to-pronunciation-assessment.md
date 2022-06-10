@@ -216,7 +216,7 @@ pronunciationAssessmentConfig?.phonemeAlphabet = "IPA"
 ## Spoken phoneme
 
 > [!NOTE]
-> The spoken phoneme feature of Pronunciation Assessment is only available for the `en-US` locale.
+> The spoken phoneme feature of Pronunciation Assessment is only generally available for the `en-US` locale.
 
 With spoken phonemes, you can get confidence scores indicating how likely the spoken phonemes matched the expected phonemes. 
 
@@ -356,7 +356,7 @@ auto speechRecognizer = SpeechRecognizer::FromConfig(
 pronunciationAssessmentConfig->ApplyTo(speechRecognizer);
 speechRecognitionResult = speechRecognizer->RecognizeOnceAsync().get();
 
-// The pronunciation score result as a Speech SDK object
+// The pronunciation assessment result as a Speech SDK object
 auto pronunciationAssessmentResult =
     PronunciationAssessmentResult::FromResult(speechRecognitionResult);
 
@@ -378,7 +378,7 @@ pronunciationAssessmentConfig.applyTo(speechRecognizer);
 Future<SpeechRecognitionResult> future = speechRecognizer.recognizeOnceAsync();
 SpeechRecognitionResult speechRecognitionResult = future.get(30, TimeUnit.SECONDS);
 
-// The pronunciation score result as a Speech SDK object
+// The pronunciation assessment result as a Speech SDK object
 PronunciationAssessmentResult pronunciationAssessmentResult =
     PronunciationAssessmentResult.fromResult(speechRecognitionResult);
 
@@ -403,7 +403,7 @@ var speechRecognizer = SpeechSDK.SpeechRecognizer.FromConfig(speechConfig, audio
 pronunciationAssessmentConfig.applyTo(speechRecognizer);
 
 speechRecognizer.recognizeOnceAsync((speechRecognitionResult: SpeechSDK.SpeechRecognitionResult) => {
-    // The pronunciation score result as a Speech SDK object
+    // The pronunciation assessment result as a Speech SDK object
 	var pronunciationAssessmentResult = SpeechSDK.PronunciationAssessmentResult.fromResult(speechRecognitionResult);
 
 	// The pronunciation assessment result as a JSON string
@@ -426,7 +426,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(
 pronunciation_assessment_config.apply_to(speech_recognizer)
 speech_recognition_result = speech_recognizer.recognize_once()
 
-# The pronunciation score result as a Speech SDK object
+# The pronunciation assessment result as a Speech SDK object
 pronunciation_assessment_result = speechsdk.PronunciationAssessmentResult(speech_recognition_result)
 
 # The pronunciation assessment result as a JSON string
@@ -447,7 +447,7 @@ SPXSpeechRecognizer* speechRecognizer = \
 
 SPXSpeechRecognitionResult *speechRecognitionResult = [speechRecognizer recognizeOnce];
 
-// The pronunciation score result as a Speech SDK object
+// The pronunciation assessment result as a Speech SDK object
 SPXPronunciationAssessmentResult* pronunciationAssessmentResult = [[SPXPronunciationAssessmentResult alloc] init:speechRecognitionResult];
 
 // The pronunciation assessment result as a JSON string
@@ -465,7 +465,7 @@ try! pronConfig.apply(to: speechRecognizer)
 
 let speechRecognitionResult = try? speechRecognizer.recognizeOnce()
 
-// The pronunciation score result as a Speech SDK object
+// The pronunciation assessment result as a Speech SDK object
 let pronunciationAssessmentResult = SPXPronunciationAssessmentResult(speechRecognitionResult!)
 
 // The pronunciation assessment result as a JSON string
@@ -478,7 +478,7 @@ let pronunciationAssessmentResultJson = speechRecognitionResult!.properties?.get
 
 ::: zone-end
 
-## Result parameters
+### Result parameters
 
 This table lists some of the key pronunciation assessment results.
 
@@ -489,6 +489,8 @@ This table lists some of the key pronunciation assessment results.
 | `CompletenessScore` | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |
 | `PronScore` | Overall score indicating the pronunciation quality of the given speech. `PronScore` is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |
 | `ErrorType` | This value indicates whether a word is omitted, inserted, or mispronounced, compared to the `ReferenceText`. Possible values are `None`, `Omission`, `Insertion`, and `Mispronunciation`. |
+
+### JSON result example
 
 Pronunciation assessment results for the spoken word "hello" are shown as a JSON string in the following example. Here's what you should know:
 - The phoneme [alphabet](#phoneme-alphabet-format) is IPA.
