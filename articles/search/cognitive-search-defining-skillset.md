@@ -71,7 +71,7 @@ After the name and description, a skillset has four main properties:
 
 Inside the skillset definition, the skills array specifies which skills to execute. Three to five skills are common, but you can add as many skills as necessary, subject to [service limits](search-limits-quotas-capacity.md#indexer-limits).
 
-The end result of an enrichment pipeline is textual content in either a search index or knowledge store, so most skills either create text from images (OCR text, captions, tags), or analyze existing text to create new information (entities, key phrases, sentiment). Skills that operate independently are processed in parallel. Skills that depend on each other specify the output of one skill (such as key phrases) as the input of second skill (such as text translation). The search service determines the order of skill execution.
+The end result of an enrichment pipeline is textual content in either a search index or knowledge store. For this reason, most skills either create text from images (OCR text, captions, tags), or analyze existing text to create new information (entities, key phrases, sentiment). Skills that operate independently are processed in parallel. Skills that depend on each other specify the output of one skill (such as key phrases) as the input of second skill (such as text translation). The search service determines the order of skill execution.
 
 All skills have a type, context, inputs, and outputs. A skill might optionally have a name and description. The following example shows two unrelated [built-in skills](cognitive-search-predefined-skills.md) so that you can compare the basic structure.
 
@@ -141,7 +141,7 @@ Context is usually one of the following examples:
 
 The context also determines where outputs are produced in the enrichment tree. For example, the Entity Recognition skill returns a property called `"organizations"`, captured as `orgs`. If the context is `"/document"`, then the "organizations" node is added as a child of `"/document"`. If you then wanted to reference this node in downstream skills, the path would be `"/document/orgs"`.
 
-## Define a skill input
+## Define inputs
 
 Skills read from and write to an enriched document. Skill inputs specify the origin of the incoming data and how it's used. The [reference documentation](cognitive-search-predefined-skills.md) for each skill describes the inputs it can produce. Each input has a "name" and a "source". The following example is from the Entity Recognition skill:
 
@@ -171,7 +171,7 @@ Skills read from and write to an enriched document. Skill inputs specify the ori
 
 If the skill iterates over an array, both context and input source should include `/*` in the correct positions.
 
-## Define a skill output
+## Define outputs
 
 Each skill is designed to emit specific kinds of output, which are referenced by name in the skillset. A skill output has a "name" and an optional "targetName".
 
@@ -246,19 +246,23 @@ Although skill output can be optionally cached for reuse purposes, it's usually 
 
 + Assemble a representative sample of your content in Blob Storage or another supported data source and run the [**Import data** wizard](search-import-data-portal.md). 
 
-  The wizard automates several steps that can be challenging the first time around. It defines fields in an index, field mappings in an indexer, and projections in a knowledge store if you're using one. For some skills, such as OCR or image analysis, the wizard adds utility skills that merge the image and text content that was separated during document cracking.
+  The wizard automates several steps that can be challenging the first time around. It defines the skillset, index, and indexer, including field mappings and output field mappings. It will also define projections in a knowledge store if you're using one. For some skills, such as OCR or image analysis, the wizard adds utility skills that merge the image and text content that was separated during document cracking.
+
+  After the wizard runs, you can open each object in the Azure portal to view its JSON definition. You can also use [Debug Sessions](cognitive-search-debug-session.md) to invoke skillset execution over a target document.
 
 + Alternatively, you can [import sample Postman collections](https://github.com/Azure-Samples/azure-search-postman-samples) that provide a full articulation of the object definitions required to evaluate a skill.
 
-In the early stages of skillset evaluation, checking preliminary results is important. We recommend a search index over a knowledge store because it's simpler to set up. For each skill output, [define an output field mapping](cognitive-search-output-field-mapping.md) in the indexer, and a field in the search index.
++ When you're ready to start from scratch on a new skillset, checking preliminary results is important. We recommend a search index for content validation because it's simpler to set up, in comparison to knowledge stores. 
 
-:::image type="content" source="media/cognitive-search-defining-skillset/skillset-indexer-index-combo.png" alt-text="Object diagram that shows the person entity as a skill output, indexer field mapping, and index field.":::
+  For each skill output, [define an output field mapping](cognitive-search-output-field-mapping.md) in the indexer, and a field in the search index.
 
-After you run the indexer, use [Search Explorer](search-explorer.md) to return documents from the index and check the contents of each field to determine what the skillset detected or created.
+  :::image type="content" source="media/cognitive-search-defining-skillset/skillset-indexer-index-combo.png" alt-text="Object diagram that shows the person entity as a skill output, indexer field mapping, and index field.":::
 
-This screenshot shows the results of an entity recognition skill that detected persons, locations, organizations, and other entities in a chunk of text. You can view the results to decide whether a skill adds value to your solution.
+  After you run the indexer, use [Search Explorer](search-explorer.md) to return documents from the index and check the contents of each field to determine what the skillset detected or created.
 
-:::image type="content" source="media/cognitive-search-defining-skillset/doc-in-search-explorer.png" alt-text="Screenshot of a document in Search Explorer.":::
+  This screenshot shows the results of an entity recognition skill that detected persons, locations, organizations, and other entities in a chunk of text. You can view the results to decide whether a skill adds value to your solution.
+
+  :::image type="content" source="media/cognitive-search-defining-skillset/doc-in-search-explorer.png" alt-text="Screenshot of a document in Search Explorer.":::
 
 ## Next steps
 
