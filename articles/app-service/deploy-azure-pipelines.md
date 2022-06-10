@@ -20,61 +20,16 @@ You'll use the [Azure Web App task](/azure/devops/pipelines/tasks/deploy/azure-r
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* A GitHub account where you can create a repository. [Create one for free](https://github.com).
-* An Azure DevOps organization. [Create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up). 
-* An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/pipelines/licensing/concurrent-jobs) or you can request a free tier. 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure DevOps organization. [Create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up). 
+- An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/pipelines/licensing/concurrent-jobs) or you can request a free tier. 
+- A working Azure App Service app with code hosted on [GitHub](https://docs.github.com/en/get-started/quickstart/create-a-repo) or [Azure Repos](https://docs.github.com/en/get-started/quickstart/create-a-repo). 
+    - .NET: [Create an ASP.NET Core web app in Azure](quickstart-dotnetcore.md)
+    - ASP.NET: [Create an ASP.NET Framework web app in Azure](./quickstart-dotnetcore.md?tabs=netframework48)
+    - JavaScript: [Create a Node.js web app in Azure App Service](quickstart-nodejs.md)  
+    - Java: [Create a Java app on Azure App Service](quickstart-java.md)
+    - Python: [Create a Python app in Azure App Service](quickstart-python.md)
 
-## Create an Azure App Service in the Azure portal
-
-Create an Azure App Service on Linux or Windows with Azure Cloud Shell. To get started:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Launch the Cloud Shell from the upper navigation pane of the portal.
-
-For more information, see [Overview of Azure Cloud Shell](/azure/cloud-shell/overview).
-
-
-Create an Azure App Service.
-
-Add the flag `--is-linux` when creating your app service plan for an Linux app service plan. 
-
-```azurecli
-# Create a resource group
-az group create --location eastus2 --name myapp-rg
-
-# Create an app service plan of type Linux
-az appservice plan create -g myapp-rg -n myapp-service-plan --is-linux
-
-# Create an app service from the plan 
-az webapp create -g myapppipeline-rg -p myapp-service-plan -n my-app-dotnet --runtime "DOTNETCORE:6.0" 
-```
-
-## Build your app with Azure Pipelines
-
-# [YAML](#tab/yaml/)
-
-### Create a .NET project
-
-If you don't have a .NET project to work with, create a new one, and upload your code to your GitHub repository or Azure Repos.  Start by installing <a href="https://dotnet.microsoft.com/download/dotnet/6.0" target="_blank"> the latest .NET 6.0 SDK. </a>
-
-Create a new .NET 6 webapp. 
-
-```dotnetcli
-dotnet new webapp -f net6.0
-```
-
-From the same terminal session, run the application locally using the [`dotnet run`](/dotnet/core/tools/dotnet-run) command from your project directory.
-
-```dotnetcli
-dotnet run
-```
-
-### Upload your code
-
-Upload your code to new webapp GitHub or Azure Repos:
-* [Create a new Git repo in Azure Repos](/azure/devops/repos/git/creatingrepo).  
-* [Create a new GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo). 
 
 ### Create your pipeline
 
