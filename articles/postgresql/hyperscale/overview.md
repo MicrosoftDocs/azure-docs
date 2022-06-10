@@ -13,6 +13,8 @@ ms.date: 04/20/2022
 
 # What is Hyperscale (Citus)?
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 ## The superpower of distributed tables
 
 Hyperscale (Citus) is PostgreSQL extended with the superpower of "distributed
