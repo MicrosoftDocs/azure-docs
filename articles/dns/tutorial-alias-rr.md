@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * A domain name hosted in Azure DNS. If you don't have an Azure DNS zone, you can [create a DNS zone](./dns-delegate-domain-azure-dns.md#create-a-dns-zone), then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
 
 > [!NOTE]
-> In this tutorial, `contoso.com` is used as an example. Replace `contoso.com` with your own domain name.
+> In this tutorial, `contoso.com` is used as an example domain name. Replace `contoso.com` with your own domain name.
 
 ## Sign in to Azure
 

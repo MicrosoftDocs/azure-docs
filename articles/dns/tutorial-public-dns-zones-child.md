@@ -11,7 +11,7 @@ ms.workload: infrastructure-services
 ms.date: 06/07/2022
 ms.author: jonbeck
 ---
-# Tutorial: Create a new Child DNS zone
+# Tutorial: Create a child DNS zone
 
 In this tutorial, you learn how to: 
 
