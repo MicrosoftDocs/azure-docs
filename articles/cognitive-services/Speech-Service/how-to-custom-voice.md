@@ -84,7 +84,7 @@ SSML is the markup language used to communicate with the text-to-speech service 
 
 With cross lingual feature (public preview), you can create a different language for your voice model. If the language of your training data is supported by cross lingual feature, you can create a voice that speaks a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US` or any of the languages supported by cross lingual feature.  For details, see [supported languages](language-support.md#custom-neural-voice). You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. 
 
-For how to create a different language from your training data, select the training method **Neural-cross lingua** during training. See [how to train your custom neural voice model](how-to-custom-voice-create-voice.md#train-your-custom-neural-voice-model).
+For how to create a different language from your training data, select the training method **Neural-cross lingual** during training. See [how to train your custom neural voice model](how-to-custom-voice-create-voice.md#train-your-custom-neural-voice-model).
 
 After the voice is created, you can use the Audio Content Creation tool to fine-tune your deployed voice, with richer voice tuning supports.  Sign in to the Audio Content Creation of [Speech Studio]( https://aka.ms/speechstudio/) with your Azure account, and select your created voice from the target language to start tuning experience.
 
