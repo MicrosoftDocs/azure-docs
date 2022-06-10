@@ -1,7 +1,7 @@
 ---
 title: "Migrate PostgreSQL Single Server to Flexible Server using the Azure CLI"
 titleSuffix: Azure Database for PostgreSQL Flexible Server
-description: Learn about migrating your Single server databases to Azure database for PostgreSQL Flexible server using CLI.
+description: Learn about migrating your Single Server databases to Azure database for PostgreSQL Flexible Server by using the Azure CLI.
 author: hariramt
 ms.author: hariramt
 ms.service: postgresql
@@ -9,66 +9,71 @@ ms.topic: conceptual
 ms.date: 05/09/2022
 ---
 
-# Migrate Single Server to Flexible Server PostgreSQL using Azure CLI
+# Migrate Single Server to Flexible Server by using the Azure CLI
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
->[!NOTE]
-> Single Server to Flexible Server migration tool is in private preview.
+This quickstart article shows you how to use the migration tool in the Azure CLI to migrate databases from Azure Database for PostgreSQL Single server to Flexible Server.
 
-This quick start article shows you how to use Single to Flexible Server migration tool to migrate databases from Azure database for PostgreSQL Single server to Flexible server.
+>[!NOTE]
+> The migration tool is in private preview.
 
 ## Before you begin
 
-1. If you are new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate our offerings. 
-2. Register your subscription for Azure Database Migration Service (DMS). If you have already done it, you can skip this step. Go to Azure portal homepage and navigate to your subscription as shown below.
+1. If you're new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate our offerings. 
+2. Register your subscription for Azure Database Migration Service. If you've already done it, you can skip this step. Go to the Azure portal and browse to your subscription.
 
-  :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-dms.png" alt-text="Screenshot of C L I Database Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-dms.png":::
+  :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-dms.png" alt-text="Screenshot of Azure Database Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-dms.png":::
 
-3. In your subscription, navigate to **Resource Providers** from the left navigation menu. Search for "**Microsoft.DataMigration**"; as shown below and click on **Register**.
+3. In your subscription, go to **Resource Providers** on the left menu. Search for **Microsoft.DataMigration**, and then select **Register**.
 
-  :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-dms-register.png" alt-text="Screenshot of C L I Database Migration Service register button." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-dms-register.png":::
+  :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-dms-register.png" alt-text="Screenshot of the register button in Azure Database Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-dms-register.png":::
 
-## Pre-requisites
+## Prerequisites
 
-### Setup Azure CLI
+### Set up the Azure CLI
 
-1. Install the latest Azure CLI for your corresponding operating system from the [Azure CLI install page](/cli/azure/install-azure-cli)
-2. In case Azure CLI is already installed, check the version by issuing **az version** command. The version should be **2.28.0 or above** to use the migration CLI commands. If not, update your Azure CLI using this [link](/cli/azure/update-azure-cli.md).
-3. Once you have the right Azure CLI version, run the **az login** command. A browser page is opened with Azure sign-in page to authenticate. Provide your Azure credentials to do a successful authentication. For other ways to sign with Azure CLI, visit this [link](/cli/azure/authenticate-azure-cli.md).
+1. Install the latest Azure CLI for your operating system from the [Azure CLI installation page](/cli/azure/install-azure-cli).
+
+   If Azure CLI is already installed, check the version by using the `az version` command. The version should be 2.28.0 or later to use the migration CLI commands. If not, [update your Azure CLI version](/cli/azure/update-azure-cli).
+2. After you have the right Azure CLI version, run the `az login` command: 
    
       ```bash
       az login
       ```
-4. Take care of the pre-requisites listed in this [**document**](./concepts-single-to-flexible.md#pre-requisites) which are necessary to get started with the Single to Flexible migration tool.
+
+   A browser window opens with the Azure sign-in page. Provide your Azure credentials to do a successful authentication. For other ways to sign with Azure CLI, see [this article](/cli/azure/authenticate-azure-cli).   
+3. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server (preview)](./concepts-single-to-flexible.md#pre-requisites). You need them to get started with the migration tool.
 
 ## Migration CLI commands
 
-Single to Flexible Server migration tool comes with a list of easy-to-use CLI commands to do migration-related tasks. All the CLI commands start with  **az postgres flexible-server migration**. You can use the **help** parameter to help you with understanding the various options associated with a command and in framing the right syntax for the same.
+The migration tool comes with a list of easy-to-use CLI commands to do migration-related tasks. All the CLI commands start with  `az postgres flexible-server migration`. 
+
+For help with understanding the options assocated with a command and with framing the right syntax, you can use the `help` parameter:
 
 ```azurecli-interactive
 az postgres flexible-server migration --help
 ```
 
-  gives you the following output.
+That command gives you the following output:
 
-  :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-help.png" alt-text="Screenshot of C L I help." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-help.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-help.png" alt-text="Screenshot of Azure C L I help." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-help.png":::
 
-It lists the set of migration commands that are supported along with their actions. Let us look into these commands in detail.
+The output lists the supported migration commands, along with their actions. Let's look into these commands in detail.
 
 ### Create migration
 
-The create migration command helps in creating a migration from a source server to a target server
+The `create` migration command helps in creating a migration from a source server to a target server:
 
 ```azurecli-interactive
 az postgres flexible-server migration create -- help
 ```
 
-gives the following result
+That command gives the following result:
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-create.png" alt-text="Screenshot of C L I create." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-create.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-create.png" alt-text="Screenshot of the create migration command." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-create.png":::
 
-It calls out the expected arguments and has an example syntax that needs to be used to create a successful migration from the source to target server. The CLI command to create a migration is given below
+It calls out the expected arguments and has an example syntax for creating a successful migration from the source server to the target server. Here's the CLI command to create a migration:
 
 ```azurecli
 az postgres flexible-server migration create [--subscription]
@@ -80,25 +85,25 @@ az postgres flexible-server migration create [--subscription]
 
 | Parameter | Description |
 | ---- | ---- |
-|**subscription** | Subscription ID of the target flexible server |
-| **resource-group** | Resource group of the target flexible server |
-| **name** | Name of the target flexible server |
-| **migration-name** | Unique identifier to migrations attempted to the flexible server. This field accepts only alphanumeric characters and does not accept any special characters except  **-**. The name cannot start with a  **-** and no two migrations to a flexible server can have the same name. |
-| **properties** | Absolute path to a JSON file, that has the information about the source single server |
+|`subscription` | Subscription ID of the Flexible Server target. |
+|`resource-group` | Resource group of the Flexible Server target. |
+|`name` | Name of the Flexible Server target. |
+|`migration-name` | Unique identifier to migrations attempted to Flexible Server. This field accepts only alphanumeric characters and does not accept any special characters except `-`. The name can't start with `-`, and no two migrations to a flexible server can have the same name. |
+|`properties` | Absolute path to a JSON file that has the information about the Single Server source. |
 
-**For example:**
+For example:
 
 ```azurecli-interactive
 az postgres flexible-server migration create --subscription 5c5037e5-d3f1-4e7b-b3a9-f6bf9asd2nkh0 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON"
 ```
 
-The **migration-name** argument used in **create migration** command will be used in other CLI commands such as **update, delete, show** to uniquely identify the migration attempt and to perform the corresponding actions.
+The `migration-name` argument used in the `create` command will be used in other CLI commands such as `update`, `delete`, and `show` to uniquely identify the migration attempt and to perform the corresponding actions.
 
 The migration tool offers online and offline mode of migration. To know more about the migration modes and their differences, visit this [link](./concepts-single-to-flexible.md)
 
-Create a migration between a source and target server with a migration mode of your choice. The **create** command needs a JSON file to be passed as part of its **properties** argument.
+Create a migration between a source and target server with a migration mode of your choice. The `create` command needs a JSON file to be passed as part of its `properties` argument.
 
-The structure of the JSON is given below.
+The structure of the JSON is:
 
 ```bash
 {

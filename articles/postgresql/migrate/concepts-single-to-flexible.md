@@ -14,9 +14,9 @@ ms.custom: "mvc, references_regions"
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
-Azure Database for PostgreSQL Flexible Server provides zone-redundant high availability, control over price, and control over maintenance windows. A migration tool enables customers to move their databases from Single Server to Flexible Server. To understand the differences between the two deployment options, see [this comparison chart](../flexible-server/concepts-compare-single-server-flexible-server.md). 
+Azure Database for PostgreSQL Flexible Server provides zone-redundant high availability, control over price, and control over maintenance windows. You can use a migration tool to move your databases from Single Server to Flexible Server. To understand the differences between the two deployment options, see [this comparison chart](../flexible-server/concepts-compare-single-server-flexible-server.md). 
 
-By using the migration tool, customers can initiate migrations for multiple servers and databases in a repeatable way. The tool automates most of the migration steps to make the migration journey across Azure platforms as seamless as possible. The tool is free for customers.
+By using the migration tool, you can initiate migrations for multiple servers and databases in a repeatable way. The tool automates most of the migration steps to make the migration journey across Azure platforms as seamless as possible. The tool is free for customers.
 
 >[!NOTE]
 > The migration tool is in private preview.
@@ -33,49 +33,55 @@ You choose the source server and can select up to eight databases from it. This 
 2. Creates a public IP address and attaches it to the migration infrastructure.
 3. Adds the migration infrastructure's IP address to the allowlist on the firewall rules of both the source and target servers.
 4. Creates a migration project with both source and target types as Azure Database for PostgreSQL.
-5. Creates a migration activity to migrate the databases specified by the user from source to target.
+5. Creates a migration activity to migrate the databases specified by the user from the source to the target.
 6. Migrates schemas from the source to the target.
 7. Creates databases with the same name on the Flexible Server target.
 8. Migrates data from the source to the target.
 
-The following diagram shows the process flow for migration from Single Server to Flexible Server through the migration tool.
+The following diagram shows the process flow for migration from Single Server to Flexible Server via the migration tool.
 
 :::image type="content" source="./media/concepts-single-to-flexible/concepts-flow-diagram.png" alt-text="Diagram that shows the migration from Single Server to Flexible Server." lightbox="./media/concepts-single-to-flexible/concepts-flow-diagram.png":::
     
 The steps in the process are:
 
-1. Create a flexible Postgresql server.
+1. Create a flexible PostgreSQL server.
 2. Invoke migration.
-3. Migration infrastructure provisioned (DMS)
-4. Initiates migration – (4a) Initial dump/restore (online & offline) (4b) streaming the changes (online only)
+3. Provision the migration infrastructure by using Azure Database Migration Service.
+4. Start the migration.
+   1. Initial dump/restore (online and offline) 
+   1. Streaming the changes (online only)
 5. Cut over to the target.
    
-The migration tool is exposed through **Azure Portal** and via easy-to-use **Azure CLI** commands. It allows you to create migrations, list migrations, display migration details, modify the state of the migration, and delete   migrations
+The migration tool is exposed through the Azure portal and through easy-to-use Azure CLI commands. It allows you to create migrations, list migrations, display migration details, modify the state of the migration, and delete migrations.
 
-## Migration modes comparison
+## Comparison of migration modes
 
-Single to Flexible Server migration supports online and offline mode of migrations. Online option provides reduced downtime migration with logical replication restrictions while the offline option offers a simple migration but may incur extended downtime depending on the size of databases.
+The tool supports two modes for migration from Single Server to Flexible Server. The *online* option provides reduced downtime for the migration, with logical replication restrictions. The *offline* option offers a simple migration but might incur extended downtime, depending on the size of databases.
 
-The following table summarizes the differences between these two modes of migration.
+The following table summarizes the differences between the migration modes.
 
 |    Capability        | Online | Offline |
 |:---------------|:-------------|:-----------------|
 | Database availability for reads during migration | Available | Available |
-| Database availability for writes during migration | Available | Generally, not recommended. Any writes initiated after the migration is not captured or migrated. |
-| Application suitability | Applications that need maximum uptime | Applications that can afford a planned downtime window. |
-| Environment suitability | Production environments | Usually development environments, testing environments, and some production that can afford  downtime. |
-| Suitability for write-heavy workloads | Suitable but expected to reduce the workload during migration | Not Applicable. Writes at source after migration begins are not replicated to the target. |
+| Database availability for writes during migration | Available | Generally not recommended, because any writes initiated after the migration are not captured or migrated |
+| Application suitability | Applications that need maximum uptime | Applications that can afford a planned downtime window |
+| Environment suitability | Production environments | Usually development environments, testing environments, and some production environments that can afford  downtime |
+| Suitability for write-heavy workloads | Suitable but expected to reduce the workload during migration | Not applicable, because writes at the source after migration begins are not replicated to the target |
 | Manual cutover | Required | Not required |
 | Downtime required | Less | More |
 | Logical replication limitations  | Applicable | Not applicable |
 | Migration time required  | Depends on the database size and the write activity until cutover | Depends on the database size |
 
-**Migration steps involved for Offline mode** = Dump of the source Single Server database followed by the Restore at the target Flexible server.
+Based on those differences, pick the mode that best works for your workloads.
 
-The following table shows the approximate time taken to perform offline migrations for databases of various sizes.  
+### Migration considerations for offline mode
+
+The migration process for offline mode entails a dump of the source Single Server database, followed by a restore at the Flexible Server target.
+
+The following table shows the approximate time for performing offline migrations for databases of various sizes.  
 
 >[!NOTE]
-> Add ~15 minutes for the migration infrastructure to get deployed for each migration task, where each task can migrate up to eight databases.
+> Add about 15 minutes for the migration infrastructure to be deployed for each migration task. Each task can migrate up to eight databases.
 
 | Database size | Approximate time taken (HH:MM) |
 |:---------------|:-------------|
@@ -85,104 +91,110 @@ The following table shows the approximate time taken to perform offline migratio
 | 50 GB | 00:45 |
 | 100 GB | 06:00 |
 | 500 GB | 08:00 |
-| 1000 GB | 09:30 |
+| 1,000 GB | 09:30 |
 
-**Migration steps involved for Online mode** = Dump of the source Single Server database(s), Restore of that dump in the target Flexible server, followed by Replication of ongoing changes (change data capture using logical decoding).
+### Migration considerations for online mode 
 
-The time taken for an online migration to complete is dependent on the incoming writes to the source server. The higher the write workload is on the source, the more time it takes for the data to the replicated to the target flexible server.
+The migration process for online mode entails a dump of the Single Server source database, a restore of that dump in the Flexible Server target, and then replication of ongoing changes. You capture change data by using logical decoding.
 
-Based on the above differences, pick the mode that best works for your workloads.
+The time for completing an online migration depends on the incoming writes to the source server. The higher the write workload is on the source, the more time it takes for the data to be replicated to Flexible Server.
 
 ## Migration steps
 
 ### Prerequisites
 
-Follow the steps provided in this section before you get started with the single to flexible server migration tool.
+Before you start using the migration tool:
 
-- **Target Server Creation**: You need to create the target PostgreSQL Flexible Server before using the migration tool. Use the creation [QuickStart guide](../flexible-server/quickstart-create-server-portal.md) to create one.
+- [Create an Azure Database for PostgreSQL server](../flexible-server/quickstart-create-server-portal.md). 
 
-- **Source Server prerequisites**: You must [enable logical replication](../single-server/concepts-logical.md) on the source server.
+- [Enable logical replication](../single-server/concepts-logical.md) on the source server.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/logical-replication-support.png" alt-text="Screenshot of logical replication support in Azure portal." lightbox="./media/concepts-single-to-flexible/logical-replication-support.png":::
+  :::image type="content" source="./media/concepts-single-to-flexible/logical-replication-support.png" alt-text="Screenshot of logical replication support in the Azure portal." lightbox="./media/concepts-single-to-flexible/logical-replication-support.png":::
 
   >[!NOTE]
-  > Enabling logical replication will require a server reboot for the change to take effect.
+  > Enabling logical replication will require a server restart for the change to take effect.
 
-- **Azure Active Directory App set up**: It is a critical component of the migration tool. Azure AD App helps with role-based access control as the migration tool needs access to both the source and target servers. See [How to setup and configure Azure AD App](./how-to-setup-azure-ad-app-portal.md) for step-by-step process.
+- [Set up an Azure Active Directory (Azure AD) app](./how-to-setup-azure-ad-app-portal.md). An Azure AD app is a critical component of the migration tool. It helps with role-based access control as the migration tool accesses both the source and target servers.
 
 ### Data and schema migration
 
-After all these pre-requisites are taken care of, you can do the migration. This automated step involves schema and data migration using Azure portal or Azure CLI.
+After you finish the prerequisites, migrate the data and schemas by using one of these methods:
 
-- [Migrate using Azure portal](../migrate/how-to-migrate-single-to-flexible-portal.md)
-- [Migrate using Azure CLI](../migrate/how-to-migrate-single-to-flexible-cli.md)
+- [Migrate by using the Azure portal](../migrate/how-to-migrate-single-to-flexible-portal.md)
+- [Migrate by using the Azure CLI](../migrate/how-to-migrate-single-to-flexible-cli.md)
 
-### Post migration
+### Post-migration considerations
 
-- All the resources created by this migration tool will be automatically cleaned up irrespective of whether the migration has **succeeded/failed/canceled**. There is no action required from you.
+- All the resources that the migration tool creates will be automatically cleaned up, whether the migration succeeds, fails, or is canceled. No action is required from you.
 
-- If your migration has failed and you want to retry the migration, then you need to create a new migration task with a different name and retry the operation.
+- If your migration fails, you can create a new migration task with a different name and retry the operation.
 
-- If you have more than eight databases on your single server and if you want to migrate them all, then it is recommended to create multiple migration tasks with each task migrating up to eight databases.
+- If you have more than eight databases on your Single Server source and you want to migrate them all, we recommend that you create multiple migration tasks, with each task migrating up to eight databases.
 
-- The migration does not move the database users and roles of the source server. This has to be manually created and applied to the target server post migration.
+- The migration does not move the database users and roles of the source server. You have to manually create these and apply them to the target server after migration.
 
-- For security reasons, it is highly recommended to delete the Azure Active Directory app after the migration finishes.
+- For security reasons, we highly recommended that you delete the Azure AD app after the migration finishes.
 
-- Post data validations and making your application point to flexible server, you can consider deleting your single server.
+- After you validate your data and make your application point to Flexible Server, you can consider deleting your Single Server source.
 
 ## Limitations
 
 ### Size
 
-- Databases of sizes up to 1TB can be migrated using this tool. To migrate larger databases or heavy write workloads, reach out to your account team or reach us @ AskAzureDBforPGS2F@microsoft.com.
+- You can migrate databases of sizes up to 1 TB by using this tool. To migrate larger databases or heavy write workloads, contact your account team or [contact us](mailto:AskAzureDBforPGS2F@microsoft.com).
 
-- In one migration attempt, you can migrate up to eight user databases from a single server to flexible server. In case you have more databases to migrate, you can create multiple migrations between the same single and flexible servers.
+- In one migration attempt, you can migrate up to eight user databases from Single Server to Flexible Server. If you have more databases to migrate, you can create multiple migrations between the same Single Server source and Flexible Server target.
 
 ### Performance
 
-- The migration infrastructure is deployed on a 4 vCore VM which may limit the migration performance. 
+- The migration infrastructure is deployed on a four-vCore virtual machine that might limit migration performance. 
 
-- The deployment of migration infrastructure takes ~10-15 minutes before the actual data migration starts - irrespective of the size of data or the migration mode (online or offline).
+- The deployment of migration infrastructure takes 10 to 15 minutes before the actual data migration starts, regardless of the size of data or the migration mode (online or offline).
 
 ### Replication
 
-- Single to Flexible Server migration tool uses logical decoding feature of PostgreSQL to perform the online migration and it comes with the following limitations. See PostgreSQL documentation for [logical replication limitations](https://www.postgresql.org/docs/10/logical-replication-restrictions.html).
-  - **DDL commands** are not replicated.
-  - **Sequence** data is not replicated.
-  - **Truncate** commands are not replicated.(**Workaround**: use DELETE instead of TRUNCATE. To avoid accidental TRUNCATE invocations, you can revoke the TRUNCATE privilege from tables)
+- The migration tool uses a logical decoding feature of PostgreSQL to perform the online migration. The decoding feature has the following limitations. For more information about logical replication limitations, see the [PostgreSQL documentation](https://www.postgresql.org/docs/10/logical-replication-restrictions.html).
+  - Data Definition Language (DDL) commands are not replicated.
+  - Sequence data is not replicated.
+  - Truncate commands are not replicated.
+  
+    To work around this limitation, use `DELETE` instead of `TRUNCATE`. To avoid accidental `TRUNCATE` invocations, you can revoke the `TRUNCATE` privilege from tables.
 
-  - Views, Materialized views, partition root tables and foreign tables will not be migrated.
+  - Views, materialized views, partition root tables, and foreign tables are not migrated.
 
-- Logical decoding will use resources in the source single server. Consider reducing the workload or plan to scale CPU/memory resources at the Source Single Server during the migration.
+- Logical decoding will use resources in the Single Server source. Consider reducing the workload, or plan to scale CPU/memory resources at the Single Server source during the migration.
 
 ### Other limitations
 
-- The migration tool migrates only data and schema of the single server databases to flexible server. It does not migrate other features such as server parameters, connection security details, firewall rules, users, roles and permissions. In other words, everything except data and schema must be manually configured in the target flexible server.
+- The migration tool migrates only data and schemas of the Single Server databases to Flexible Server. It does not migrate other features, such as server parameters, connection security details, firewall rules, users, roles, and permissions. In other words, everything except data and schemas must be manually configured in the Flexible Server target.
 
-- It does not validate the data in flexible server post migration. The customers must manually do this.
+- The migration tool does not validate the data in the Flexible Server target after migration. You must do this validation manually.
 
-- The migration tool only migrates user databases including Postgres database and not system/maintenance databases.
+- The migration tool migrates only user databases, including Postgres databases. It doesn't migrate system or maintenance databases.
 
-- For failed migrations, there is no option to retry the same migration task. A new migration task with a unique name has to be created.
+- If migration fails, there is no option to retry the same migration task. You have to create a new migration task with a unique name.
 
-- The migration tool does not include assessment of your single server. 
+- The migration tool does not include an assessment of your Single Server source. 
 
 ## Best practices
 
-- As part of discovery and assessment, take the server SKU,  CPU usage, storage, database sizes, and extensions usage as some of the critical data to help with migrations.
-- Plan the mode of migration for each database. For less complex migrations and smaller databases, consider offline mode of migrations.
-- Batch similar sized databases in a migration task.  
+- As part of discovery and assessment, take the server SKU, CPU usage, storage, database sizes, and extensions usage as some of the critical data to help with migrations.
+- Plan the mode of migration for each database. For simpler migrations and smaller databases, consider offline mode.
+- Batch similar-sized databases in a migration task.  
 - Perform large database migrations with one or two databases at a time to avoid source-side load and migration failures.
-- Perform test migrations before migrating for production.
-  - **Testing migrations** is a very important aspect of database migration to ensure that all aspects of the migration are taken care of, including application testing. The best practice is to begin by running a migration entirely for testing purposes. Start a migration, and after it enters the continuous replication (CDC) phase with minimal lag, make your flexible server as the primary database server and use it for testing the application to ensure expected performance and results. If you are doing migration to a higher Postgres version, test for your application compatibility.
+- Perform test migrations before migrating for production:
+  - Test migrations are an important aspect of database migration to ensure that you cover all aspects of the migration, including application testing. 
+  
+    The best practice is to begin by running a migration entirely for testing purposes. After a newly started migration enters the continuous replication (CDC) phase with minimal lag, make your Flexible Server target the primary database server. Use that target for testing the application to ensure expected performance and results. If you're migrating to a higher Postgres version, test for application compatibility.
 
-  - **Production migrations**: After testing is completed, you can migrate the production databases. At this point you need to finalize the day and time of production migration. Ideally, there is low application use at this time. In addition, all stakeholders that need to be involved should be available and ready. The production migration would require close monitoring. It's important that for an online migration, the replication is completed before you perform the cutover, to prevent data loss.
+  - After testing is completed, you can migrate the production databases. At this point, you need to finalize the day and time of production migration. Ideally, there's low application use at this time. All stakeholders who need to be involved should be available and ready. 
+  
+    The production migration requires close monitoring. For an online migration, the replication must be completed before you perform the cutover, to prevent data loss.
 
-- Cut over all dependent applications to access the new primary database and open the applications for production usage.
-- After the application starts running on flexible server, monitor the database performance closely to see if performance tuning is required.
+- Cut over all dependent applications to access the new primary database, and open the applications for production usage.
+- After the application starts running on the Flexible Server target, monitor the database performance closely to see if performance tuning is required.
 
 ## Next steps
 
-- [Migrate to Flexible Server using the Azure portal](../migrate/how-to-migrate-single-to-flexible-portal.md).
-- [Migrate to Flexible Server using the Azure CLI](../migrate/how-to-migrate-single-to-flexible-cli.md)
+- [Migrate to Flexible Server by busing the Azure portal](../migrate/how-to-migrate-single-to-flexible-portal.md)
+- [Migrate to Flexible Server by using the Azure CLI](../migrate/how-to-migrate-single-to-flexible-cli.md)

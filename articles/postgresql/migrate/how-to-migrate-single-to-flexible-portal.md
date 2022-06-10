@@ -123,7 +123,7 @@ If either source or target is configured in private access, then the networking 
 
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-private.png" alt-text="Screenshot of Networking Private Access configuration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-private.png":::
 
-All the fields will be automatically populated with subnet details. This is the subnet in which the migration tool will deploy Azure DMS to move data between the source and target.
+All the fields will be automatically populated with subnet details. This is the subnet in which the migration tool will deploy Azure Database Migration Service to move data between the source and target.
 
 You can go ahead with the suggested subnet or choose a different subnet. But make sure that the selected subnet can connect to both the source and target servers.
 
@@ -153,7 +153,7 @@ You can click on the migration name in the grid to see the details of that migra
 
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-grid.png" alt-text="Screenshot of Migration grid." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-grid.png":::
 
-- As soon as the migration is created, the migration moves to the **InProgress** state and **PerformingPreRequisiteSteps** substate. It takes up to 10 minutes for the migration workflow to move out of this substate since it takes time to create and deploy DMS, add its IP on firewall list of source and target servers and to perform a few maintenance tasks.
+- As soon as the migration is created, the migration moves to the **InProgress** state and **PerformingPreRequisiteSteps** substate. It takes up to 10 minutes for the migration workflow to move out of this substate since it takes time to create and deploy Database Migration Service, add its IP on firewall list of source and target servers and to perform a few maintenance tasks.
 - After the **PerformingPreRequisiteSteps** substate is completed, the migration moves to the substate of **Migrating Data** where the dump and restore of the databases take place.
 - The time taken for **Migrating Data** substate to complete is dependent on the size of databases that are being migrated.
 - You can click on each of the DBs that are being migrated and a fan-out blade appears that has all migration details such as table count, incremental inserts, deletes, pending bytes, etc.
