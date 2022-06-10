@@ -71,7 +71,7 @@ With the Language service, QnA Maker customers now benefit from a single service
 - A unified set of APIs across all the capabilities
 - A cohesive, simpler, and powerful product
 
-Lean how to get started in [Language Studio](../../language-studio.md)
+Learn how to get started in [Language Studio](../../language-studio.md)
 
 ## Migration Phases
 
