@@ -1,6 +1,6 @@
 ---
 title: Guidance for mitigating silicon based micro-architectural and speculative execution side-channel vulnerabilities
-description: Learn more about Guidance for mitigating silicon based micro-architectural and speculative execution side-channel vulnerabilities execution side-channel vulnerabilities in Azure.
+description: Learn more about Guidance for mitigating silicon based micro-architectural and speculative execution side-channel vulnerabilities in Azure.
 services: virtual-machines
 author: cynthn
 keywords: spectre,meltdown,specter
