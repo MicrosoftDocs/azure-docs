@@ -86,27 +86,15 @@ By default, these databases are created under your server: information_schema, m
 > To avoid connectivity problems, check if your network allows outbound traffic over port 3306, which is used by Azure Database for MySQL Flexible Server.
 
 ## Connect to the server 
-Before getting started, download the [public SSL certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) for certificate authority verification. Based on your connectivity method you will see different connect experience in the portal. 
-
-### [Public access](#tab/public-access)
-In overview page, click on **Connect** button to connect to MySQL server using Azure cloud shell. Refer [create or manage firewall rules documentation](how-to-manage-firewall-portal.md) to learn more. 
+Before getting started, download the [public SSL certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) for certificate authority verification. For servers created with public access connectivity method, you can get started quickly with built-in MySQL command line client tool by clicking on **Connect** button in **Overview** page.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-server-portal/connect-on-overview.png" alt-text="Screenshot that how to connect for public access.":::
+> :::image type="content" source="./media/quickstart-create-server-portal/connect-on-overview.png" alt-text="Screenshot that how to connect with Azure cloud shell.":::
 
 You can go to **Connect** page to view more details on how to connect locally with MySQL client tool or perform import and export data operations. 
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-server-portal/connect-page-public-access.png" alt-text="Screenshot that how to connect with tools for public access.":::
-
-### [Private access](#tab/private-access)
-
-Go to **Connect** page to view the details of your server confguration and how to connect to the server using MySQL client tools. See [private access documentation](how-to-manage-virtual-network-portal.md) to learn more.
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-server-portal/connect-page-private-access.png" alt-text="Screenshot that shows connect page for private access.":::
-
----
+> :::image type="content" source="./media/quickstart-create-server-portal/connect-mysql-flexible-server.png" alt-text="Screenshot that shows connect page.":::
 
 > [!IMPORTANT]
 > If you see the following error message while connecting to your flexible server following the command earlier, you missed setting the firewall rule using the "Allow public access from any Azure service within Azure to this server" mentioned earlier or the option isn't saved. Please retry setting firewall and try again.
