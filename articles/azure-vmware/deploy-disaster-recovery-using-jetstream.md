@@ -140,7 +140,7 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
 - A DNS server configured on both the primary and DR sites to resolve the IP addresses of Azure VMware Solution vCenter Server, Azure VMware Solution ESXi hosts, Azure Storage account, and the JetStream Marketplace service for the JetStream virtual appliances.
 - (Optional) Azure NetApp Files volume(s) created and attached to the Azure VMware Solution private cloud for recovery or failover of protected VMs to Azure NetApp Files backed datastores.
   - [Integrate Azure NetApp Files with Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/netapp-files-with-azure-vmware-solution) 
-  - [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://docs.microsoft.com/en-us/azure/azure-vmware/netapp-files-with-azure-vmware-solution)   
+  - [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://docs.microsoft.com/azure/azure-vmware/netapp-files-with-azure-vmware-solution)   
 
 For more on-premises JetStream DR prerequisites, see the [JetStream Pre-Installation Guide](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/pre-installation-guidelines/).
 
