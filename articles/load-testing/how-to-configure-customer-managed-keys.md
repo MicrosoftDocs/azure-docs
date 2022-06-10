@@ -149,7 +149,7 @@ To configure customer-managed keys for a new Azure Load Testing resource, follow
 
 1. In the Azure portal, navigate to the **Azure Load Testing** page, and select the **Create** button to create a new resource.
 
-1. Follow the steps outlined in [create an Azure Load Testing resource](./quickstart-create-and-run-load-test.md#create_resource) to fill out the fields on the **Basics** tab.
+1. Follow the steps outlined in [create an Azure Load Testing resource](./quickstart-create-and-run-load-test.md#create-an-azure-load-testing-resource) to fill out the fields on the **Basics** tab.
 
 1. Go to the **Encryption** tab. In the **Encryption type** field, select **Customer-managed keys (CMK)**.
 
