@@ -1170,14 +1170,14 @@ The following sample creates a diagnostic setting for each storage service endpo
   },
   "resources": [
     {
-      "apiVersion": "2019-10-01",
-      "name": "nested",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "nested",
       "properties": {
-        "mode": "Incremental",
         "expressionEvaluationOptions": {
           "scope": "inner"
         },
+        "mode": "Incremental",
         "parameters": {
           "endpoints": {
             "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-06-01', 'Full').properties.primaryEndpoints]"
@@ -1198,35 +1198,42 @@ The following sample creates a diagnostic setting for each storage service endpo
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
+          "metadata": {
+            "_generator": {
+              "name": "bicep",
+              "version": "0.5.6.12127",
+              "templateHash": "11434612818320380418"
+            }
+          },
           "parameters": {
             "endpoints": {
               "type": "object"
             },
             "settingName": {
-              "type": "String"
+              "type": "string"
             },
             "storageAccountName": {
-              "type": "String"
+              "type": "string"
             },
             "storageSyncName": {
-              "type": "String"
+              "type": "string"
             },
             "workspaceId": {
-              "type": "String"
+              "type": "string"
             }
           },
           "variables": {
-            "hasblob": "[contains(parameters('endpoints'),'blob')]",
-            "hastable": "[contains(parameters('endpoints'),'table')]",
-            "hasfile": "[contains(parameters('endpoints'),'file')]",
-            "hasqueue": "[contains(parameters('endpoints'),'queue')]"
+            "hasblob": "[contains(parameters('endpoints'), 'blob')]",
+            "hastable": "[contains(parameters('endpoints'), 'table')]",
+            "hasfile": "[contains(parameters('endpoints'), 'file')]",
+            "hasqueue": "[contains(parameters('endpoints'), 'queue')]"
           },
           "resources": [
             {
-              "type": "Microsoft.Storage/storageAccounts/providers/diagnosticsettings",
-              "apiVersion": "2017-05-01-preview",
-              "name": "[concat(parameters('storageAccountName'),'/Microsoft.Insights/', parameters('settingName'))]",
-
+              "type": "Microsoft.Insights/diagnosticSettings",
+              "apiVersion": "2021-05-01-preview",
+              "scope": "[format('Microsoft.Storage/storageAccounts/{0}', parameters('storageAccountName'))]",
+              "name": "[parameters('settingName')]",
               "properties": {
                 "workspaceId": "[parameters('workspaceId')]",
                 "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageSyncName'))]",
@@ -1240,9 +1247,10 @@ The following sample creates a diagnostic setting for each storage service endpo
             },
             {
               "condition": "[variables('hasblob')]",
-              "type": "Microsoft.Storage/storageAccounts/blobServices/providers/diagnosticsettings",
-              "apiVersion": "2017-05-01-preview",
-              "name": "[concat(parameters('storageAccountName'),'/default/Microsoft.Insights/', parameters('settingName'))]",
+              "type": "Microsoft.Insights/diagnosticSettings",
+              "apiVersion": "2021-05-01-preview",
+              "scope": "[format('Microsoft.Storage/storageAccounts/{0}/blobServices/{1}', split(parameters('storageAccountName'), '/')[0], split(parameters('storageAccountName'), '/')[1])]",
+              "name": "[parameters('settingName')]",
               "properties": {
                 "workspaceId": "[parameters('workspaceId')]",
                 "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageSyncName'))]",
@@ -1270,10 +1278,10 @@ The following sample creates a diagnostic setting for each storage service endpo
             },
             {
               "condition": "[variables('hastable')]",
-              "type": "Microsoft.Storage/storageAccounts/tableServices/providers/diagnosticsettings",
-              "apiVersion": "2017-05-01-preview",
-              "name": "[concat(parameters('storageAccountName'),'/default/Microsoft.Insights/', parameters('settingName'))]",
-
+              "type": "Microsoft.Insights/diagnosticSettings",
+              "apiVersion": "2021-05-01-preview",
+              "scope": "[format('Microsoft.Storage/storageAccounts/{0}/tableServices/{1}', split(parameters('storageAccountName'), '/')[0], split(parameters('storageAccountName'), '/')[1])]",
+              "name": "[parameters('settingName')]",
               "properties": {
                 "workspaceId": "[parameters('workspaceId')]",
                 "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageSyncName'))]",
@@ -1301,9 +1309,10 @@ The following sample creates a diagnostic setting for each storage service endpo
             },
             {
               "condition": "[variables('hasfile')]",
-              "type": "Microsoft.Storage/storageAccounts/fileServices/providers/diagnosticsettings",
-              "apiVersion": "2017-05-01-preview",
-              "name": "[concat(parameters('storageAccountName'),'/default/Microsoft.Insights/', parameters('settingName'))]",
+              "type": "Microsoft.Insights/diagnosticSettings",
+              "apiVersion": "2021-05-01-preview",
+              "scope": "[format('Microsoft.Storage/storageAccounts/{0}/fileServices/{1}', split(parameters('storageAccountName'), '/')[0], split(parameters('storageAccountName'), '/')[1])]",
+              "name": "[parameters('settingName')]",
               "properties": {
                 "workspaceId": "[parameters('workspaceId')]",
                 "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageSyncName'))]",
@@ -1331,9 +1340,9 @@ The following sample creates a diagnostic setting for each storage service endpo
             },
             {
               "condition": "[variables('hasqueue')]",
-              "type": "Microsoft.Storage/storageAccounts/queueServices/providers/diagnosticsettings",
-              "apiVersion": "2017-05-01-preview",
-              "name": "[concat(parameters('storageAccountName'),'/default/Microsoft.Insights/', parameters('settingName'))]",
+              "type": "Microsoft.Insights/diagnosticSettings",
+              "apiVersion": "2021-05-01-preview",
+              "name": "[parameters('settingName')]",
               "properties": {
                 "workspaceId": "[parameters('workspaceId')]",
                 "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageSyncName'))]",
