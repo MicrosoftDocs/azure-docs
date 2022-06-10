@@ -113,17 +113,7 @@ Go to **Connect** page to view the details of your server confguration and how t
 > ERROR 2002 (HY000): Can't connect to MySQL server on \<servername\> (115)
 
 ## Clean up resources
-You have now created an Azure Database for MySQL flexible server in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group, or you can just delete the MySQL server. To delete the resource group, complete these steps:
-
-1. In the Azure portal, search for and select **Resource groups**.
-1. In the list of resource groups, select the name of your resource group.
-1. In the **Overview** page for your resource group, select **Delete resource group**.
-1. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
-
-To delete the server, you can select **Delete** on **Overview** page for your server, as shown here:
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Screenshot that shows how to delete a server.":::
+When no longer needed, you can delete the resource group with MySQL Flexible Server. To do so, select the resource group for the MySQL flexible server resource and select **Delete**, then confirm the name of the resource group to delete.
 
 ## Next steps
 
