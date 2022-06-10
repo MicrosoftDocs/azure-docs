@@ -365,7 +365,7 @@ callComposite.launch(context, remoteOptions);
 -----
 ### Subscribe to error events from `CallComposite`
 
-To receive error events, register an `onErrorHandler` with the `CallComposite`. 
+To receive error events, call  `setOnErrorHandler` with the `CallComposite`. 
 
 The following `errorCode` values may be sent to the Error Handler
 
