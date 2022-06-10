@@ -473,6 +473,8 @@
           href: keda-about.md
         - name: Use ARM template
           href: keda-deploy-add-on-arm.md
+        - name: Use Azure CLI
+          href: keda-deploy-add-on-cli.md
         - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
           href: keda-integrations.md
     - name: Use Web Application Routing (preview)
