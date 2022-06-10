@@ -70,7 +70,7 @@ To install JetStream DR in the on-premises data center and in the Azure VMware S
   - Download the JetStream DR bundle from Azure Marketplace (ZIP) and deploy the JetStream DR MSA (OVA) in the designated cluster.
   - Configure the cluster with the IO filter package (install JetStream VIB). 
   - Provision Azure Blob (Azure Storage Account) in the same region as the DR Azure VMware Solution cluster.
-  - Deploy the DRVA appliance and assign a replication log volume (VMDK from existing datastore or shared iSCSI storage). 
+  - Deploy the disaster recovery virtual appliance (DRVA) and assign a replication log volume (VMDK from existing datastore or shared iSCSI storage). 
   - Create protected domains (groups of related VMs) and assign DRVAs and the Azure Blob Storage/ANF.
   - Start protection. 
 
