@@ -7,7 +7,7 @@ ms.date: 04/11/2022
 ms.custom: references_regions
 ---
 
-# Deploy disaster recovery using JetStream DR Software
+# Deploy disaster recovery using JetStream DR software
 
 
 [JetStream DR](https://www.jetstreamsoft.com/product-portfolio/jetstream-dr/) is a cloud-native disaster recovery solution designed to minimize downtime of virtual machines (VMs) if there was a disaster. Instances of JetStream DR are deployed at both the protected and recovery sites. 
@@ -87,7 +87,7 @@ To install JetStream DR in the on-premises data center and in the Azure VMware S
 
 - Invoke failback to the protected site after the protected site has been recovered. 
 
-### Ransomware Recovery 
+### Ransomware recovery 
 
 Recovering from ransomware can be a daunting task. Specifically, it can be hard for IT organizations to pinpoint what the “safe point of return is,”. After that safe point is determined, how to ensure that recovered workloads are safeguarded from the attacks re-occurring by sleeping malware or through vulnerable applications. 
 
