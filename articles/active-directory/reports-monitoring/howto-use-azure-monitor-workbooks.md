@@ -41,6 +41,7 @@ Azure AD supports several of the most widely used authentication and authorizati
 - Microsoft Office 2013 or older.
 - Apps using mail protocols like POP, IMAP, and SMTP AUTH.
 
+
 Typically, legacy authentication clients can't enforce any type of second factor authentication. However, multi-factor authentication (MFA) is a common requirement in many environments to provide a high level of protection.   
 
 How can you determine whether it is safe to block legacy authentication in an environment? Answering this question requires an analysis of the sign-ins in your environment for a certain timeframe. This is a scenario where Azure Monitor workbooks can help you.
