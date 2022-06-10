@@ -296,6 +296,8 @@ items:
         href: how-tos/calling-sdk/teams-interoperability.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
+      - name: Check if user is running supported browser
+        href: how-tos/calling-sdk/browser-support.md
   - name: Using the UI Library
     items: 
     - name: Setup Localization

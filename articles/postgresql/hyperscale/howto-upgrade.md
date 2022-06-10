@@ -11,6 +11,8 @@ ms.date: 4/5/2021
 
 # Upgrade Hyperscale (Citus) server group
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 These instructions describe how to upgrade to a new major version of PostgreSQL
 on all server group nodes.
 
