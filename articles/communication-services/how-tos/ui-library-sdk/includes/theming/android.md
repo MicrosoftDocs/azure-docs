@@ -72,6 +72,8 @@ CallComposite callComposite =
         .build();
 ```
 
+----
+
 #### Light/Dark modes
 
 The Android resource system handles the night theme. Night mode on Android is a system-wide configuration. When night mode is enabled, preference is given to resources in the `-night/` folders. To specify night mode colors, a second theme.xml would be added to the `values-night/`.
