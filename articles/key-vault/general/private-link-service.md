@@ -34,7 +34,7 @@ Your private endpoint uses a private IP address in your virtual network.
 
 # [Azure portal](#tab/portal)
 
-## Establish a private link connection to Key Vault using the Azure portal 
+## Establish a private link connection to Key Vault using the Azure portal
 
 First, create a virtual network by following the steps in [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md)
 
@@ -246,7 +246,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
     2. Click Overview and check if there is an A record with the simple name of your key vault (i.e. fabrikam). Do not specify any suffix.
     3. Make sure you check the spelling, and either create or fix the A record. You can use a TTL of 600 (10 mins).
     4. Make sure you specify the correct private IP address. 
-    
+
 * Check to make sure the A record has the correct IP Address. 
     1. You can confirm the IP address by opening the Private Endpoint resource in Azure portal.
     2. Navigate to the Microsoft.Network/privateEndpoints resource, in the Azure portal (not the Key Vault resource)

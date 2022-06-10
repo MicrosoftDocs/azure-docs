@@ -85,7 +85,7 @@ sections:
       - question: |
           How do I combine certificates in a single .PEM or .PFX file to have the whole certificate bundle imported to Key Vault? 
         answer: |
-          Certificate Authorities may provide with the option to either download certificate individually (root, intermediate, leaf) or download all of them in a single file. When importing certificate into Key Vault, Certificate Authorities will allow you to import one certificate or the whole chain.
+          Certificate Authorities may provide with the option to either download certificate individually (root, intermediate, leaf) or download all of them in a single file. When you import certificates into Key Vault, Certificate Authorities allows you to import one or an entire whole chain.
 
   - name: Renew your Azure Key Vault certificates
     questions:
