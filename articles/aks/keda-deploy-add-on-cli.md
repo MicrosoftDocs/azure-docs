@@ -160,7 +160,6 @@ az aks update \
   --disable-keda 
 ```
 
-
 ### Enabling add-on on clusters with self-managed open-source KEDA installations
 
 While Kubernetes only allows one metric server to be installed, you can in theory install KEDA multiple times. However, it isn't recommended given only one installation will work.
