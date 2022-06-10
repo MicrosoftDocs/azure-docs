@@ -36,7 +36,7 @@ First, create a basic WAF policy with a managed Default Rule Set (DRS) using the
    |Subscription     |Select your subscription name|
    |Resource group     |Select your resource group|
    |Policy name     |Type a unique name for your WAF policy.|
-3. On the **Association** tab, select **Add association**, select one of the following settings:
+3. On the **Association** tab, select **Add association**, then select one of the following settings:
 
    |Setting  |Value  |
    |---------|---------|
