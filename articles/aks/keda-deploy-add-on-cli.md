@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Install the Kubernetes Event-driven Autoscaling (KEDA) add-on by using Azure CLI
 
-This article shows you how to install the Kubernetes Event-driven Autoscaling (KEDA) add-on to Azure Kubernetes Service (AKS) by using Azure CLI. The article includes steps to verify that it's installed and running
+This article shows you how to install the Kubernetes Event-driven Autoscaling (KEDA) add-on to Azure Kubernetes Service (AKS) by using Azure CLI. The article includes steps to verify that it's installed and running.
 
 [!INCLUDE [Current version callout](./includes/keda/current-version-callout.md)]
 
@@ -24,7 +24,7 @@ This article shows you how to install the Kubernetes Event-driven Autoscaling (K
 
 ### Install the extension `aks-preview` 
  
-Install the `aks-preview` extension in the AKS cluster to make sure you have the latest version of AKS extension before installing KEDA add-on
+Install the `aks-preview` extension in the AKS cluster to make sure you have the latest version of AKS extension before installing KEDA add-on.
 
 ```azurecli
 - az extension add --upgrade --name aks-preview
@@ -98,7 +98,7 @@ You can verify KEDA that's running on your cluster. Use `kubectl` to display the
 kubectl get pods -n kube-system 
 ```
 
-The following example output shows that the KEDA operator and metrics API server are installed in the AKS cluster along with its status
+The following example output shows that the KEDA operator and metrics API server are installed in the AKS cluster along with its status.
 
 ```output
 kubectl get pods -n kube-system
@@ -151,7 +151,7 @@ However, when the installation is customized there will no support offered for c
 
 ## Disable KEDA add-on from your AKS cluster
 
-When you no longer need KEDA add-on in the cluster, use the `az aks update` command with--disable-keda option. This execution will disable KEDA workload auto-scaler
+When you no longer need KEDA add-on in the cluster, use the `az aks update` command with--disable-keda option. This execution will disable KEDA workload auto-scaler.
 
 ```azurecli-interactive
 az aks update \
@@ -180,7 +180,7 @@ the error logged inside the already installed KEDA operator logs.
 E0520 11:51:24.868081 1 leaderelection.go:330] error retrieving resource lock default/operator.keda.sh: config maps "operator.keda.sh" is forbidden: User "system:serviceaccount:default:keda-operator" can't get resource "config maps" in API group "" in the namespace "default"
 
 ## Next steps
-This article showed you how to install the KEDA add-on on an AKS cluster using Azure CLI. The steps to verify that KEDA add-on is installed and running are included. With the KEDA add-on installed on your cluster, you can [deploy a sample application][keda-sample] to start scaling apps
+This article showed you how to install the KEDA add-on on an AKS cluster using Azure CLI. The steps to verify that KEDA add-on is installed and running are included. With the KEDA add-on installed on your cluster, you can [deploy a sample application][keda-sample] to start scaling apps.
 
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
