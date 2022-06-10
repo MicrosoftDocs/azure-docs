@@ -20,12 +20,10 @@ The Web Application Routing solution makes it easy to access applications that a
 
 ## Web Application Routing solution overview
 
-The add-on deploys four components: an [nginx ingress controller][nginx], [Secrets Store CSI Driver][csi-driver], [Open Service Mesh (OSM)][osm], and [External-DNS][external-dns] controller.
+The add-on deploys two components: an [nginx ingress controller][nginx], and [External-DNS][external-dns] controller.
 
 - **Nginx ingress Controller**: The ingress controller exposed to the internet.
 - **External-DNS controller**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
-- **CSI driver**: Connector used to communicate with keyvault to retrieve SSL certificates for ingress controller.
-- **OSM**: A lightweight, extensible, cloud native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
 ## Prerequisites
 
@@ -48,23 +46,31 @@ az extension update --name aks-preview
 
 ### Install the `osm` CLI
 
-Since Web Application Routing uses OSM internally to secure intranet communication, we need to set up the `osm` CLI. This command-line tool contains everything needed to install and configure Open Service Mesh. The binary is available on the [OSM GitHub releases page][osm-release].
+Since Web Application Routing uses OSM internally to secure intranet communication, we need to set up the `osm` CLI. This command-line tool contains everything needed to configure and manage Open Service Mesh. The latest binaries are available on the [OSM GitHub releases page][osm-release].
+
+### Import Certificate to Azure Keyvault
+
+```bash
+openssl pkcs12 -export -in aks-ingress-tls.crt -inkey aks-ingress-tls.key -out aks-ingress-tls.pfx
+# skip Password prompt
+```
+
+```azurecli
+az keyvault certificate import --vault-name <MY_KEYVAULT> -n <KEYVAULT-CERTIFICATE-NAME> -f aks-ingress-tls.pfx
+```
 
 ## Deploy Web Application Routing with the Azure CLI
 
-The Web Application Routing routing add-on can be enabled with the Azure CLI when deploying an AKS cluster. To do so, use the [az aks create][az-aks-create] command with the `--enable-addons` argument.
+The Web Application Routing routing add-on can be enabled with the Azure CLI when deploying an AKS cluster. To do so, use the [az aks create][az-aks-create] command with the `--enable-addons` argument. However, since Web Application routing depends on the OSM addon to secure intranet communication and the Azure Keyvault Secret Provider to retrieve certificates, we must enable them at the same time.
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons web_application_routing 
+az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons azure-keyvault-secrets-provider,open-service-mesh,web_application_routing --generate-ssh-keys
 ```
-
-> [!TIP]
-> If you want to enable multiple add-ons, provide them as a comma-separated list. For example, to enable Web Application Routing routing and monitoring, use the format `--enable-addons web_application_routing,monitoring`.
 
 You can also enable Web Application Routing on an existing AKS cluster using the [az aks enable-addons][az-aks-enable-addons] command. To enable Web Application  Routing on an existing cluster, add the `--addons` parameter and specify *web_application_routing* as shown in the following example:
 
 ```azurecli
-az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons web_application_routing 
+az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons azure-keyvault-secrets-provider,open-service-mesh,web_application_routing
 ```
 
 ## Connect to your AKS cluster
@@ -109,16 +115,10 @@ Copy the identity's object ID:
 
 ### Grant access to Azure Key Vault
 
-Obtain the vault URI for your Azure Key Vault:
-
-```azurecli
-az keyvault show --resource-group myResourceGroup --name myapp-contoso
-```
-
 Grant `GET` permissions for Web Application Routing to retrieve certificates from Azure Key Vault:
 
 ```azurecli
-az keyvault set-policy --name myapp-contoso --object-id <WEB_APP_ROUTING_MSI_OBJECT_ID>  --secret-permissions get --certificate-permissions get
+az keyvault set-policy --name myapp-contoso --object-id <WEB_APP_ROUTING_MSI_OBJECT_ID> --secret-permissions get --certificate-permissions get
 ```
 
 ## Use Web Application Routing
@@ -128,12 +128,16 @@ The Web Application Routing solution may only be triggered on service resources 
 ```yaml
 annotations:
   kubernetes.azure.com/ingress-host: myapp.contoso.com
-  kubernetes.azure.com/tls-cert-keyvault-uri: myapp-contoso.vault.azure.net/certificates/keyvault-certificate-name/keyvault-certificate-name-revision
+  kubernetes.azure.com/tls-cert-keyvault-uri: https://<MY-KEYVAULT>.vault.azure.net/certificates/<KEYVAULT-CERTIFICATE-NAME>/<KEYVAULT-CERTIFICATE-REVISION>
 ```
 
-These annotations in the service manifest would direct Web Application Routing to create an ingress servicing `myapp.contoso.com` connected to the keyvault `myapp-contoso` and will retrieve the `keyvault-certificate-name` with `keyvault-certificate-name-revision`
+These annotations in the service manifest would direct Web Application Routing to create an ingress servicing `myapp.contoso.com` connected to the keyvault `<MY-KEYVAULT>` and will retrieve the `<KEYVAULT-CERTIFICATE-NAME>` with `<KEYVAULT-CERTIFICATE-REVISION>`. To obtain the certificate URI within your keyvault run: 
 
-Create a file named **samples-web-app-routing.yaml** and copy in the following YAML. On line 29-31, update `<MY_HOSTNAME>` with your DNS host name and `<MY_KEYVAULT_URI>` with the full certficicate vault URI.
+```azurecli
+az keyvault certificate show --vault-name <MY_KEYVAULT> --name <KEYVAULT-CERTIFICATE-NAME> -o jsonc | jq .id
+```
+
+Create a file named **samples-web-app-routing.yaml** and copy in the following YAML. On line 29-31, update `<MY_HOSTNAME>` with your DNS host name and `<MY_KEYVAULT_CERTIFICATE_URI>` with the id returned from keyvault.
 
 ```yaml
 apiVersion: apps/v1
@@ -165,7 +169,7 @@ metadata:
   name: aks-helloworld
   annotations:
     kubernetes.azure.com/ingress-host: <MY_HOSTNAME>
-    kubernetes.azure.com/tls-cert-keyvault-uri: <MY_KEYVAULT_URI>
+    kubernetes.azure.com/tls-cert-keyvault-uri: <MY_KEYVAULT_CERTIFICATE_URI>
 spec:
   type: ClusterIP
   ports:
@@ -190,10 +194,15 @@ service/aks-helloworld created
 ## Verify the managed ingress was created
 
 ```bash
-$ kubectl get ingress -n hello-web-app-routing
+kubectl get ingress -n hello-web-app-routing
+
+NAME             CLASS                                HOSTS               ADDRESS       PORTS     AGE
+aks-helloworld   webapprouting.kubernetes.azure.com   myapp.contoso.com   20.51.92.19   80, 443   4m
 ```
 
-Open a web browser to *<MY_HOSTNAME>*, for example *myapp.contoso.com* and verify you see the demo application. The application may take a few minutes to appear.
+## Configure external DNS to point to cluster
+
+Now that Web Application Routing is configured within our cluster and we have the external IP address, we can configure our DNS servers to reflect this. As soon as the DNS updates have propagated, open a web browser to *<MY_HOSTNAME>*, for example *myapp.contoso.com* and verify you see the demo application. The application may take a few minutes to appear.
 
 ## Remove Web Application Routing
 
@@ -206,7 +215,7 @@ kubectl delete namespace hello-web-app-routing
 The Web Application Routing add-on can be removed using the Azure CLI. To do so run the following command, substituting your AKS cluster and resource group name.
 
 ```azurecli
-az aks disable-addons --addons web_application_routing  --name myAKSCluster --resource-group myResourceGroup --no-wait
+az aks disable-addons --addons azure-keyvault-secrets-provider,open-service-mesh,web_application_routing --name myAKSCluster --resource-group myResourceGroup 
 ```
 
 When the Web Application Routing add-on is disabled, some Kubernetes resources may remain in the cluster. These resources include *configMaps* and *secrets*, and are created in the *app-routing-system* namespace. To maintain a clean cluster, you may want to remove these resources.
