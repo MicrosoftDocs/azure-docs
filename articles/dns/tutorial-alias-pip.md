@@ -138,6 +138,9 @@ Install IIS web server on **Web-01**.
 1. On the **Server Manager** dashboard, select **Manage** then **Add Roles and Features**.
 1. Select **Server Roles** or select **Next** three times. On the **Server Roles** page, select **Web Server (IIS)**.
 1. Select **Add Features**, and then select **Next**.
+
+    :::image type="content" source="./media/tutorial-alias-pip/iis-web-server-installation.png" alt-text="Screenshot of Add Roles and Features Wizard in Windows Server 2019 showing how to add the I I S Web Server.":::
+
 1. Select **Confirmation** or select **Next** three times, and then select **Install**. The installation process takes a few minutes to finish.
 1. After the installation finishes, select **Close**.
 1. Open a web browser. Browse to **localhost** to verify that the default IIS web page appears.
