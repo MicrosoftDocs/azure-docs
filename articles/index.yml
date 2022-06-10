@@ -1506,7 +1506,7 @@ tools:
   items:
     # Card
     - title: Python
-      imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+      imageSrc: /media/logos/logo_python.svg
       url: /azure/developer/python/
     # Card
     - title: .NET
@@ -1514,27 +1514,27 @@ tools:
       url: /dotnet/azure/
     # Card
     - title: JavaScript
-      imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
+      imageSrc: /media/logos/logo_js.svg
       url: /azure/developer/javascript/
     # Card
     - title: Java
-      imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+      imageSrc: /media/logos/logo_java.svg
       url: /azure/developer/java/
     # Card
     - title: Go
-      imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
+      imageSrc: /media/logos/logo_Go-lightblue.svg
       url: /azure/developer/go/
     # Card
     - title: REST API
-      imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg
+      imageSrc: /media/logos/logo_REST.svg
       url: /rest/api/
     # Card
     - title: Azure PowerShell
-      imageSrc: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      imageSrc: /media/logos/logo_powershell.svg
       url: /powershell/azure/
     # Card
     - title: Azure CLI
-      imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
+      imageSrc: /media/logos/logo_CLIgeneric.svg
       url: /cli/azure/
     # Card
     - title: ARM templates
@@ -1546,11 +1546,11 @@ tools:
       url: azure-resource-manager/bicep/index.yml
     # Card
     - title: Jenkins
-      imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
+      imageSrc: /media/logos/logo_jenkins.svg
       url: /azure/developer/jenkins
     # Card
     - title: Terraform
-      imageSrc: https://docs.microsoft.com/media/logos/logo_terraform.svg
+      imageSrc: /media/logos/logo_terraform.svg
       url: /azure/developer/terraform/
 
 additionalContent:
