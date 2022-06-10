@@ -253,7 +253,7 @@ The following table lists the limits specific to MongoDB feature support. Other 
 
 ## Try Cosmos DB Free limits
 
-The following table lists the limits for the [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/) trial.
+The following table lists the limits for the [Try Azure Cosmos DB for Free](/azure/cosmos-db/try-free) trial.
 
 | Resource | Limit |
 | --- | --- |
@@ -297,4 +297,4 @@ Get started with Azure Cosmos DB with one of our quickstarts:
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
-> [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)
+> [Try Azure Cosmos DB for free](/azure/cosmos-db/try-free)

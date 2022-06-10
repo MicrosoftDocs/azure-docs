@@ -35,15 +35,15 @@ Watch this video for a complete walkthrough of the content in this article.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) with a URI of `https://localhost:8081` and the key `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](/azure/cosmos-db/try-free) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) with a URI of `https://localhost:8081` and the key `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
 - [Node.js 6.0.0+](https://nodejs.org/).
 - [Git](https://www.git-scm.com/downloads).
 
 ## Create an Azure Cosmos account
 
-For this quickstart purpose, you can use the [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) option to create an Azure Cosmos account.
+For this quickstart purpose, you can use the [try Azure Cosmos DB for free](/azure/cosmos-db/try-free) option to create an Azure Cosmos account.
 
-1. Navigate to the [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) page.
+1. Navigate to the [try Azure Cosmos DB for free](/azure/cosmos-db/try-free) page.
 
 1. Choose the **SQL** API account and select **Create**. Sign-in using your Microsoft account.
 
