@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 06/10/2022
 ---
 
 # Create a skillset in Azure Cognitive Search
@@ -18,7 +18,7 @@ A skillset defines the operations that extract and enrich data to make it search
 
 This article explains how to create a skillset with the [Create Skillset (REST API)](/rest/api/searchservice/create-skillset). Rules for skillset definition include:
 
-+ A skillset is a top-level resource, which means it can be created once and referenced by many indexers.
++ A skillset is a named top-level resource, which means it can be created once and referenced by many indexers.
 + A skillset must contain at least one skill.
 + A skillset can repeat skills of the same type (for example, multiple Shaper skills).
 
@@ -67,14 +67,20 @@ After the name and description, a skillset has four main properties:
 
 + `encryptionKey` (optional) specifies an Azure Key Vault and [customer-managed keys](search-security-manage-encryption-keys.md) used to encrypt sensitive content in a skillset definition. Remove this property if you aren't using customer-managed encryption.
 
-## Insert a skills array
+## Add skills
 
-Inside the skillset definition, the skills array specifies which skills to execute. All skills have a type, context, inputs, and outputs. The following example shows two unrelated, [built-in skills](cognitive-search-predefined-skills.md). Notice that each skill has a type, context, inputs, and outputs. 
+Inside the skillset definition, the skills array specifies which skills to execute. Most skillsets tend to have three to five skills on average but you can include as many skills as you need, subject to [service limits](search-limits-quotas-capacity.md#indexer-limits).
+
+The end result of enrichment is textual content in either a search index or knowledge store, so most skills either generate text output from images (OCR text, captions, tags), or analyze existing text for entities, key phrases, and sentiment. If the skills you're using operate independently, they'll be processed in parallel with no dependencies. Your skillset can specify the output of one skill (such as key phrases) as the input of second skill (such as text translation). The search service will recognize this dependency and run the skills sequentially.
+
+All skills have a type, context, inputs, and outputs. A skill might optionally have a name and description. The following example shows two unrelated [built-in skills](cognitive-search-predefined-skills.md) so that you can compare the basic structure.
 
 ```json
 "skills":[
   {
     "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+    "name": "#1",
+    "description": "Detect organizations in the source content",
     "context": "/document",
     "categories": [ "Organization" ],
     "defaultLanguageCode": "en",
@@ -92,20 +98,26 @@ Inside the skillset definition, the skills array specifies which skills to execu
     ]
   },
   {
-    "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
-    "context": "/document",
-    "inputs": [
-      {
-        "name": "text",
-        "source": "/document/content"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "score",
-        "targetName": "mySentiment"
-      }
-    ]
+      "description": "Extract image analysis.",
+      "name": "#2",
+      "description": "Detect corporate logos in the source files",
+      "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+      "context": "/document/normalized_images/*",
+      "defaultLanguageCode": "en",
+      "visualFeatures": [
+          "brands"
+      ],
+      "inputs": [
+          {
+              "name": "image",
+              "source": "/document/normalized_images/*"
+          }
+      ],
+      "outputs": [
+          {
+              "name": "brands"
+          }
+      ]
   }
 ]
 ```
@@ -113,9 +125,43 @@ Inside the skillset definition, the skills array specifies which skills to execu
 > [!NOTE]
 > You can build complex skillsets with looping and branching using the [Conditional skill](cognitive-search-skill-conditional.md) to create the expressions. The syntax is based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation, with a few modifications to identify nodes in the enrichment tree. A `"/"` traverses a level lower in the tree and `"*"` acts as a for-each operator in the context. Numerous examples in this article illustrate the [the syntax](cognitive-search-skill-annotation-language.md). 
 
-### How built-in skills are structured
+## Set skill context
 
-Each skill is unique in terms of its input values and the parameters that it takes. The [documentation for each skill](cognitive-search-predefined-skills.md) describes all of the parameters and properties of a given skill. Although there are differences, most skills share a common set and are similarly patterned. To illustrate several points, the [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md) provides an example:
+Set the skill's [context property](cognitive-search-working-with-skillsets.md#context). Context determines the level at which operations take place, and where outputs are produced in the enrichment tree. It's usually one of the following examples:
+
+| Context example | Description |
+|-----------------|-------------|
+| "context": "/document"  | (Default) Inputs and outputs are at the document level. |
+| "context": "/document/pages/*" | Some skills like sentiment analysis perform better over smaller chunks of text. If you're splitting a large content field into pages or sentences, the context should be over each component part. |
+| "context": "/document/normalized_images/*" | Inputs and outputs are one per image in the parent document. |
+
+## Define a skill input
+
+Set the skill's input source to the node that's providing the data to be processed. A skill input has a name and a source. The name specifies the skill input, which varies across skills. FOr example, for Entity Recognition, the inputs are "languageCode" and "text". The source specifies which field or row provides the content to be processed. For text-based skills, the source is a field in the document or row that provides text. For image-based skills, the node providing the input is normalized images.
+
+| Source example | Description |
+|-----------------|-------------|
+| "source": "/document/content"  | For blobs, the source is usually the blob's content property. |
+| "source": "/document/some-named-field" | For text-based skills, such as entity recognition or key phrase extraction, the origin should be a field that contains sufficient text to be analyzed, such as a "description" or "summary". |
+| "source": "/document/normalized_images/*" | For image content, the source is image that's been normalized during document cracking. |
+
+If the skill iterates over an array, both context and input source should include `/*` in the correct positions.
+
+## Define a skill output
+
+A skill output has a name and an optional target name. The name specifies the skill output, which varies across skills. For Entity Recognition, output can be persons, locations, organizations, to name a few. The target name specifies the name you would like this node to have in the search index or knowledge store projection. If the target name is unspecified, the name property is used for both.
+
+Skill output becomes a new node in the enrichment tree. It might be a simple field, such as a sentiment score, or it might be a collection such as a list of organizations, people, or locations. 
+
+It can also represent a complex structure, as is the case with the Shaper skill. The inputs of the skill determine the composition of the shape, but the output is the named object, which can be referenced in a search index, a knowledge store projection, or another skill.
+
+Skill output is not automatically routed to a search index or knowledge store. To send output to a search index, [create an output field mapping](cognitive-search-output-field-mapping.md) that associates the target name with the index field name. To send the output to a knowledge store, [define a projection](knowledge-store-projections-examples.md) that includes the node.
+
+## Example of skill composition
+
+Each skill is unique in terms of its input values and the parameters that it takes. The [documentation for each skill](cognitive-search-predefined-skills.md) describes all of the parameters and properties of a given skill. Although there are differences, most skills share a common set and are similarly patterned. 
+
+To illustrate several points, the [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md) provides an example:
 
 ```json
 {
@@ -175,26 +221,6 @@ The second skill for sentiment analysis follows the same pattern as the first en
   ]
 }
 ```
-
-## Set context and input source
-
-1. Set the skill's [context property](cognitive-search-working-with-skillsets.md#context). Context determines the level at which operations take place, and where outputs are produced in the enrichment tree. It's usually one of the following examples:
-
-    | Context example | Description |
-    |-----------------|-------------|
-    | "context": "/document"  | (Default) Inputs and outputs are at the document level. |
-    | "context": "/document/pages/*" | Some skills like sentiment analysis perform better over smaller chunks of text. If you're splitting a large content field into pages or sentences, the context should be over each component part. |
-    | "context": "/document/normalized_images/*" | Inputs and outputs are one per image in the parent document. |
-
-1. Set the skill's input source to the node that's providing the data to be processed. For text-based skills, it's a field in the document or row that provides text. For image-based skills, the node providing the input is normalized images.
-
-    | Source example | Description |
-    |-----------------|-------------|
-    | "source": "/document/content"  | For blobs, the source is usually the blob's content property. |
-    | "source": "/document/some-named-field" | For text-based skills, such as entity recognition or key phrase extraction, the origin should be a field that contains sufficient text to be analyzed, such as a "description" or "summary". |
-    | "source": "/document/normalized_images/*" | For image content, the source is image that's been normalized during document cracking. |
-
-If the skill iterates over an array, both context and input source should include `/*` in the correct positions. 
 
 ## Add a custom skill
 
