@@ -8,9 +8,9 @@ ms.date: 03/31/2021
 
 # About the NC2 on Azure Public Preview
 
-These articles have been prepared for the public preview of NC2 on Azure and are intended for a limited audience, namely the professionals participating in the public preview of NC2 on Azure.
+The articles in this section are intended for the professionals participating in the Public Preview of NC2 on Azure.
 
-The documentation is a work-in-progress and is being constantly updated. If you want to share any feedback for this document, you can email at AzNutanixPM@microsoft.com.
+The documentation is a work-in-progress and is being constantly updated. If you want to share any feedback for this document, you can email at AzNutanixPM@microsoft.com
 
 ![Nutanix Preview](media/nutanix-public-preview/nutanix-preview.png)
 
@@ -41,20 +41,21 @@ Adapt quicker with unified data governance and gain immediate insights with tran
 
 We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 
-### Additional benefits
+### More benefits
 
 * MACC credits 
 * Nutanix BYOL  
 * RI (In future
-  * Additional discount until RI is supported if there is committed interest in purchasing it once the option becomes available. 
+  * Added discount until RI is supported if there's committed interest in purchasing it once the option becomes available. 
 
 ## Transaction
 
- The final solution will be transacted through the Azure marketplace. Customers will get one bill from Microsoft with Nutanix solution as a separate line item.
+ The final solution will be transacted through the Azure Marketplace.
+Customers will get one invoice from Microsoft with Nutanix solution as a separate line item.
 
 ## Support
 
-Nutanix for software and Microsoft for infrastructure issues will provide support to end customers
+Nutanix (for software-related issues) and Microsoft (for infrastructure-related issues) will provide end-user support.
 
 ## Next steps
 

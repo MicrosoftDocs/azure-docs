@@ -14,20 +14,19 @@ Nutanix Cloud Clusters on Microsoft Azure provides a hybrid cloud solution that 
 
 You use the NC2 console to create a cluster, update the cluster capacity (the number of nodes), and delete a Nutanix cluster. After you create a Nutanix cluster in Azure using NC2, you can operate the cluster in the same manner as you operate your on-prem Nutanix cluster with minor changes in the Nutanix command-line interface (nCLI), the Prism Element and Prism Central web consoles, and APIs.  
 
-
-### Supported protocols
+## Supported protocols
 
 The following protocols are used for different mount points within BareMetal servers for Nutanix workload.
 
 - OS mount – iSCSI
 - Data/log – NFSv3
-- backup/archieve – NFSv4
+- Backup/archive – NFSv4
 
-### Licensing
+## Licensing
 
 You can bring your own on-premises CBL Nutanix licenses. Alternatively, you can purchase licenses from Nutanix or the Azure Marketplace.
 
-### Operating system and hypervisor
+## Operating system and hypervisor
 
 NC2 runs Nutanix Acropolis Operating System (AOS) and Nutanix Acropolis Hypervisor (AHV).
 
