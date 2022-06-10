@@ -347,4 +347,4 @@ Delete the resource group template first. Otherwise the staging resource group (
 
 ## Next steps
 
-To update the image version that you created in this article, see [Use VM Image Builder to create another image version](image-builder-gallery-update-image-version.md).   
+To update the image version that you created in this article, see [Use VM Image Builder to create another image version](image-builder-gallery-update-image-version.md).    

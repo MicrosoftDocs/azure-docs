@@ -359,5 +359,4 @@ The VM Image Builder template resource artifact is in the resource group that wa
 
 ## Next steps
 
-For more information, see [VM Image Builder overview](../image-builder-overview.md).
-
+For more information, see [VM Image Builder overview](../image-builder-overview.md). 

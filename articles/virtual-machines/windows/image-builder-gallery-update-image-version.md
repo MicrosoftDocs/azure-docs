@@ -176,4 +176,4 @@ You should now see two directories:
 
 ## Next steps
 
-To learn more about the components of the JSON file that you used in this article, see [Create an Azure VM Image Builder template](image-builder-json.md).
+To learn more about the components of the JSON file that you used in this article, see [Create an Azure VM Image Builder template](image-builder-json.md). 
