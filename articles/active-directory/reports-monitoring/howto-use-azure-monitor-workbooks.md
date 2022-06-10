@@ -47,7 +47,7 @@ How can you determine whether it is safe to block legacy authentication in an en
 
 Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences.
 
-Which Azure Monitor workbooks, you can:
+With Azure Monitor workbooks, you can:
 
 - Query data from multiple sources in Azure
 - Visualize data for reporting and analysis
@@ -56,16 +56,7 @@ Which Azure Monitor workbooks, you can:
 For more information, see [Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 
 
-### TBD
-
-Create from scratch vs.reusing an existing workbook in the gallery. 
-
-
-
-
 ## Who should use it?
-
-
 
 Typical personas for workbooks are:
 
@@ -77,7 +68,15 @@ Typical personas for workbooks are:
 
 
 
+## How to use it
 
+All workbooks are stored in the workbook [gallery](../../azure-monitor/visualize/workbooks-overview.md#gallery)
+You have two options for working with workbooks:
+
+- Create an new workbook from scratch
+- Start with an existing workbook template from the gallery
+
+By using an already existing template from the gallery, you can benefit from the work others have already invested into solving the same business problem as you. 
 
 
 ## Prerequisites
