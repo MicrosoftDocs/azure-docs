@@ -27,6 +27,11 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 
 ## Prerequisites
 
+> [!IMPORTANT]
+> Ensure that your AKS cluster is created with a managed identity, as cluster extensions won't work with service principal-based clusters.
+>
+> For new clusters created with `az aks create`, managed identity is configured by default. For existing service principal-based clusters that need to be switched over to managed identity, it can be enabled by running `az aks update` with the `--enable-managed-identity` flag. For more information, see [Use managed identity][use-managed-identity].
+
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI](/cli/azure/install-azure-cli) version >= 2.16.0 installed.
 
