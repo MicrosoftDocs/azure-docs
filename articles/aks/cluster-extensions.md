@@ -195,6 +195,7 @@ az k8s-extension delete --name azureml --cluster-name <clusterName> --resource-g
 [gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
 [k8s-extension-reference]: /cli/azure/k8s-extension
 [use-azure-ad-pod-identity]: ./use-azure-ad-pod-identity.md
+[use-managed-identity]: ./use-managed-identity.md
 
 <!-- EXTERNAL -->
 [arc-k8s-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc&regions=all
