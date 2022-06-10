@@ -7,7 +7,7 @@ ms.service: mysql
 ms.subservice: flexible-server
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 10/22/2020
+ms.date: 062/10/2022
 ---
 
 # Quickstart: Use the Azure portal to create an Azure Database for MySQL flexible server
@@ -36,7 +36,7 @@ Complete these steps to create a flexible server:
 
 3. On the **Select Azure Database for MySQL deployment option** page, select **Flexible server** as the deployment option:
 
-    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Screenshot that shows the Flexible server option.":::
+    > :::image type="content" source="./media/quickstart-create-server-portal/azure-mysql-deployment-option.png" alt-text="Screenshot that shows the Flexible server option.":::
 
 4. On the **Basics** tab, enter the following information:
 
@@ -65,7 +65,7 @@ Complete these steps to create a flexible server:
    - Public access (allowed IP addresses)
    - Private access (VNet Integration)
 
-    When you use public access, access to your server is limited to allowed IP addresses that you add to a firewall rule. This method prevents external applications and tools from     connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range. When you use private access (VNet       Integration), access to your server is limited to your virtual network. [Learn more about connectivity methods in the concepts article.](./concepts-networking.md)
+    When you use public access, access to your server is limited to allowed IP addresses that you add to a firewall rule. This method prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range. When you use private access (VNet Integration), access to your server is limited to your virtual network. [Learn more about connectivity methods in the concepts article.](./concepts-networking.md)
 
      In this quickstart, you'll learn how to enable public access to connect to the server. On the **Networking tab**, for **Connectivity method** select **Public access**. For configuring **Firewall rules**, select **Add current client IP address**.
 
@@ -86,7 +86,9 @@ By default, these databases are created under your server: information_schema, m
 > To avoid connectivity problems, check if your network allows outbound traffic over port 3306, which is used by Azure Database for MySQL Flexible Server.
 
 ## Connect to the server 
-Before getting started, download the [public SSL certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) for certificate authority verification. For servers created with public access connectivity method, you can get started quickly with built-in MySQL command line client tool by clicking on **Connect** button in **Overview** page.
+Before getting started, download the [public SSL certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) for certificate authority verification. 
+
+For MySQL servers created with **public access** connectivity method, you can get started quickly with built-in MySQL command line client tool by clicking on **Connect** button in **Overview** page.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-server-portal/connect-on-overview.png" alt-text="Screenshot that how to connect with Azure cloud shell.":::
