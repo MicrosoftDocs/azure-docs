@@ -59,7 +59,7 @@ The process is similar to the local participant process, however the data is set
 
 To set the participant view data for remote participant, set `setOnRemoteParticipantJoinedHandler`. On remote participant join, use callComposite `setRemoteParticipantViewData` to inject view data for remote participant. The participant identifier [CommunicationIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/index.html) is to uniquely identify a remote participant.
 
-Calls to `setRemoteParticipantViewData` return a result of `CallCompositeSetParticipantViewDataResult` which has the following values.
+Calls to `setRemoteParticipantViewData` return a result of `CallCompositeSetParticipantViewDataResult`, which has the following values.
 
 - CallCompositeSetParticipantViewDataResult.SUCCESS
 - CallCompositeSetParticipantViewDataResult.PARTICIPANT_NOT_IN_CALL
