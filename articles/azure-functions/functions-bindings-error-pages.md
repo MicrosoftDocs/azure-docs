@@ -33,7 +33,7 @@ Azure Functions integrates with Application Insights to collect error data, perf
 
 ### Use structured error handling
 
-Capturing and logging errors is critical to monitoring the health of your application. The top-most level of any function code should include a try/catch block. In the catch block, you can capture and log errors.
+Capturing and logging errors is critical to monitoring the health of your application. The top-most level of any function code should include a try/catch block. In the catch block, you can capture and log errors. For information about what errors might be raised by bindings, see [Binding error codes](#binding-error-codes).
 
 ### Plan your retry strategy
 
@@ -47,17 +47,16 @@ The occurrence of errors when processing data can be a problem for your function
 
 There are two kinds of retries available for your functions: built-in retry behaviors of individual trigger extensions and retry policies. The following table indicates which triggers support retries and where the retry behavior is configured. It also links to more information about errors coming from the underlying services.
 
-| Trigger/binding | Retry source | Configuration | Error info |   
-| ---- | ---- | ----- | ---- |
-| Azure Cosmos DB | [Binding extension](functions-bindings-cosmosdb-v2.md) | Not configurable |[Error codes](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
-| Blob Storage | [Binding extension](functions-bindings-storage-blob-trigger.md#poison-blobs) |  [host.json](functions-bindings-storage-queue.md#host-json) | [Error codes](functions-bindings-storage-blob-output.md#exceptions-and-return-codes) | 
-| Event Grid | [Binding extension](../event-grid/delivery-and-retry.md) | Event subscription | [Error codes](../event-grid/troubleshoot-errors.md) | 
-| Event Hubs/IoT Hubs | [Retry policies](#retry-policies) | Function-level | [Error codes](functions-bindings-event-hubs-output.md#exceptions-and-return-codes) |
-| Queue Storage | [Binding extension](functions-bindings-storage-queue-trigger.md#poison-messages) | [host.json](functions-bindings-storage-queue.md#host-json) | [Error codes](functions-bindings-storage-queue-output.md#exceptions-and-return-codes) |
-| RabbitMQ | [Binding extension](functions-bindings-rabbitmq-trigger.md#dead-letter-queues) | [Dead letter queue](https://www.rabbitmq.com/dlx.html) | n/a |
-| Service Bus | [Binding extension](../service-bus-messaging/service-bus-dead-letter-queues.md) | [Dead letter queue](/service-bus-messaging/service-bus-dead-letter-queues.md#maximum-delivery-count) | [Error codes](functions-bindings-service-bus-output.md#exceptions-and-return-codes) |
-|Table Storage | n/a | n/a | [Error codes](functions-bindings-storage-table-output.md#exceptions-and-return-codes) |
-|Timer | [Retry policies](#retry-policies) | Function-level | n/a |
+| Trigger/binding | Retry source | Configuration | 
+| ---- | ---- | ----- | 
+| Azure Cosmos DB | n/a | Not configurable |
+| Blob Storage | [Binding extension](functions-bindings-storage-blob-trigger.md#poison-blobs) |  [host.json](functions-bindings-storage-queue.md#host-json) |
+| Event Grid | [Binding extension](../event-grid/delivery-and-retry.md) | Event subscription | 
+| Event Hubs | [Retry policies](#retry-policies) | Function-level | 
+| Queue Storage | [Binding extension](functions-bindings-storage-queue-trigger.md#poison-messages) | [host.json](functions-bindings-storage-queue.md#host-json) | 
+| RabbitMQ | [Binding extension](functions-bindings-rabbitmq-trigger.md#dead-letter-queues) | [Dead letter queue](https://www.rabbitmq.com/dlx.html) | 
+| Service Bus | [Binding extension](../service-bus-messaging/service-bus-dead-letter-queues.md) | [Dead letter queue](/service-bus-messaging/service-bus-dead-letter-queues.md#maximum-delivery-count) | 
+|Timer | [Retry policies](#retry-policies) | Function-level |
 
 ### Retry policies
 
@@ -298,6 +297,20 @@ public void run(
 ---
 
 ::: zone-end
+
+## Binding error codes
+
+When integrating with Azure services, errors may originate from the APIs of the underlying services. Information relating to binding-specific errors is available in the **Exceptions and return codes** section of the following articles:
+
++ [Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb)
++ [Blob storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
++ [Event Grid](../event-grid/troubleshoot-errors.md)
++ [Event Hubs](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
++ [IoT Hubs](functions-bindings-event-iot-output.md#exceptions-and-return-codes)
++ [Notification Hubs](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
++ [Queue storage](functions-bindings-storage-queue-output.md#exceptions-and-return-codes)
++ [Service Bus](functions-bindings-service-bus-output.md#exceptions-and-return-codes)
++ [Table storage](functions-bindings-storage-table-output.md#exceptions-and-return-codes)
 
 ## Next steps
 
