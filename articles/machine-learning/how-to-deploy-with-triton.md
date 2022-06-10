@@ -5,7 +5,7 @@ description: 'Learn to deploy your model with NVIDIA Triton Inference Server in 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/31/2022
+ms.date: 06/10/2022
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: ssambare
@@ -166,7 +166,7 @@ This section shows how you can deploy Triton to managed online endpoint using [A
 
     # [Endpoints page](#tab/endpoint)
 
-    1. From the __Endpoints__ page, Select **+Create (preview)**.
+    1. From the __Endpoints__ page, select **Create**.
 
         :::image type="content" source="media/how-to-deploy-with-triton/create-option-from-endpoints-page.png" lightbox="media/how-to-deploy-with-triton/create-option-from-endpoints-page.png" alt-text="Screenshot showing create option on the Endpoints UI page.":::
 
@@ -183,7 +183,7 @@ This section shows how you can deploy Triton to managed online endpoint using [A
 
     # [Models page](#tab/models)
 
-    1. Select the Triton model, and then select __Deploy__. When prompted, select __Deploy to real-time endpoint (preview)__.
+    1. Select the Triton model, and then select __Deploy__. When prompted, select __Deploy to real-time endpoint__.
 
         :::image type="content" source="media/how-to-deploy-with-triton/deploy-from-models-page.png" lightbox="media/how-to-deploy-with-triton/deploy-from-models-page.png" alt-text="Screenshot showing how to deploy model from Models UI":::
 
@@ -195,10 +195,10 @@ This section shows how you can deploy Triton to managed online endpoint using [A
 
 To learn more, review these articles:
 
-- [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
-- [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
-- [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
+- [Deploy models with REST](how-to-deploy-with-rest.md)
+- [Create and use managed online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
+- [Safe rollout for online endpoints ](how-to-safely-rollout-managed-endpoints.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
-- [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
-- [Access Azure resources with a managed online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
+- [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
+- [Access Azure resources with a managed online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Troubleshoot managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
