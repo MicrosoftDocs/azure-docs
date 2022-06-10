@@ -18,9 +18,9 @@ You use the NC2 console to create a cluster, update the cluster capacity (the nu
 
 The following protocols are used for different mount points within BareMetal servers for Nutanix workload.
 
-- OS mount – iSCSI
-- Data/log – NFSv3
-- Backup/archive – NFSv4
+- OS mount – internet small computer systems interface (iSCSI)
+- Data/log – [Network File System version 3 (NFSv3)](/windows-server/storage/nfs/nfs-overview#nfs-version-3-continuous-availability)
+- Backup/archive – [Network File System version 4 (NFSv4)](/windows-server/storage/nfs/nfs-overview#nfs-version-41)
 
 ## Licensing
 
