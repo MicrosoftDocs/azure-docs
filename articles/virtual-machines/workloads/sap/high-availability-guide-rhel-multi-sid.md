@@ -263,7 +263,7 @@ This article assumes that:
     sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
     ```
 
-   If the installation fails to create a subfolder in */usr/sap/\<SID>/ASCS\<Instance#>*, try setting the owner to <sid>adm and group to sapsys of the ASCS<Instance#> and retry.
+   If the installation fails to create a subfolder in */usr/sap/\<SID>/ASCS\<Instance#>*, try setting the owner to \<sid>adm and group to sapsys of the ASCS<Instance#> and retry.
 
 3. **[1]** Create a virtual IP and health-probe cluster resources for the ERS instance of the other SAP system you're deploying to the cluster. This example is for `NW2` and `NW3` ERS, using NFS on Azure NetApp Files volumes with NFSv3 protocol.  
 
@@ -316,7 +316,7 @@ This article assumes that:
    > [!NOTE]
    > Use SWPM SP 20 PL 05 or higher. Lower versions do not set the permissions correctly and the installation fails.
 
-   If the installation fails to create a subfolder in */usr/sap/<NW2>/ERS<Instance#>*, try setting the owner to <sid>adm and the group to sapsys of the ERS<Instance#> folder and retry.
+   If the installation fails to create a subfolder in */usr/sap/\<NW2>/ERS\<Instance#>*, try setting the owner to \<sid>adm and the group to sapsys of the ERS<Instance#> folder and retry.
 
    If it was necessary for you to migrate the ERS group of the newly deployed SAP system to a different cluster node, don't forget to remove the location constraint for the ERS group. You can remove the constraint by running the following command. This example is given for SAP systems `NW2` and `NW3`. Make sure to remove the temporary constraints for the same resource you used in the command to move the ERS cluster group.
 
