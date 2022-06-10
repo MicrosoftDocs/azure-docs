@@ -15,7 +15,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to deploy IoT Edge runtime on an Ubuntu VM running on your Azure Stack Edge device. 
+This article describes how to deploy an IoT Edge runtime on an Ubuntu VM running on your Azure Stack Edge device. 
 
 > [!NOTE]
 > If you use the IoT Edge solution in a production environment, we recommend that you deploy IoT Edge on an Ubuntu VM. The managed IoT Edge solution on Azure Stack Edge has limited features and functionality.
@@ -50,7 +50,7 @@ The high-level process is as follows:
    1. Set up the network configuration.
    1. Provide a prepared cloud-init script on the *Advanced* page.
 
-## Prepare the cloud-init script
+## Prepare the cloud-init-script
 
 To proceed, use steps in one of the following sections:
 
