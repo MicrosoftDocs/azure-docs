@@ -510,7 +510,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 **Updated articles**
 
-- [Azure Data Explorer Insights](insights/data-explorer.md)
+- [Azure Data Explorer Insights](/azure/data-explorer/data-explorer-insights)
 - [Agent Health solution in Azure Monitor](insights/solution-agenthealth.md)
 - [Monitoring solutions in Azure Monitor](insights/solutions.md)
 - [Monitor your SQL deployments with SQL Insights (preview)](insights/sql-insights-overview.md)

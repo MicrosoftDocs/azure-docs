@@ -168,7 +168,7 @@ You can use the Management REST API instead of the portal to assign a user-assig
 
 If your Azure resource is behind a firewall, make sure there's an inbound rule that admits requests from your search service. 
 
-+ For same-region connections to Azure Blob Storage or Azure Data Lake Storage Gen2, use a system managed identity and the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md). Optionally, you can configure a [resource instance rule (preview)](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) to admit requests.
++ For same-region connections to Azure Blob Storage or Azure Data Lake Storage Gen2, use a system managed identity and the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md). Optionally, you can configure a [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances) to admit requests.
 
 + For all other resources and connections, [configure an IP firewall rule](search-indexer-howto-access-ip-restricted.md) that admits requests from Search. See [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md) for details.
 

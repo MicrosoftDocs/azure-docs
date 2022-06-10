@@ -1,53 +1,63 @@
 items:
-- name: Azure Spring Cloud documentation
+- name: Azure Spring Apps documentation
   href: index.yml
-  displayName: Azure Spring Cloud
+  displayName: Azure Spring Apps
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Spring Cloud?
+  - name: What is Azure Spring Apps?
     href: overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Launch your first app
     href: quickstart.md
-  - name: Introduction to PetClinic sample
-    href: quickstart-sample-app-introduction.md
   - name: Run apps on Basic/Standard tier
     expanded: true
     items:
+    - name: Introduction to PetClinic sample
+      href: quickstart-sample-app-introduction.md
     - name: Provision a service instance
       href: quickstart-provision-service-instance.md
     - name: Set up configuration server
       href: quickstart-setup-config-server.md
     - name: Build and deploy apps
       href: quickstart-deploy-apps.md
+    - name: Set up Log Analytics
+      href: quickstart-setup-log-analytics.md
+    - name: Use logs, metrics and tracing
+      href: quickstart-logs-metrics-tracing.md
+    - name: Integrate with Azure Database for MySQL
+      href: quickstart-integrate-azure-database-mysql.md
   - name: Run apps on Enterprise tier
     items:
-    - name: Provision a service instance
-      href: quickstart-provision-service-instance-enterprise.md
-    - name: Use Application Configuration Service
-      href: quickstart-setup-application-configuration-service-enterprise.md
+    - name: Introduction to Fitness Store sample
+      href: quickstart-sample-app-acme-fitness-store-introduction.md
     - name: Build and deploy apps
       href: quickstart-deploy-apps-enterprise.md
-  - name: Set up Log Analytics
-    href: quickstart-setup-log-analytics.md
-  - name: Use logs, metrics and tracing
-    href: quickstart-logs-metrics-tracing.md
-  - name: Integrate with Azure Database for MySQL
-    href: quickstart-integrate-azure-database-mysql.md
+    - name: Configure single sign-on
+      href: quickstart-configure-single-sign-on-enterprise.md
+    - name: Integrate Azure Database for PostgreSQL and Azure Cache for Redis
+      href: quickstart-integrate-azure-database-and-redis-enterprise.md
+    - name: Load application secrets using Key Vault
+      href: quickstart-key-vault-enterprise.md
+    - name: Monitor applications end-to-end
+      href: quickstart-monitor-end-to-end-enterprise.md
+    - name: Set request rate limits
+      href: quickstart-set-request-rate-limits-enterprise.md
+    - name: Automate deployments
+      href: quickstart-automate-deployments-github-actions-enterprise.md
   - name: Provisioning
     expanded: true
     items:
+    - name: Provision using Bicep
+      href: quickstart-deploy-infrastructure-vnet-bicep.md
     - name: Provision using an ARM template
       href: quickstart-deploy-infrastructure-vnet.md
     - name: Provision using Azure CLI
       href: quickstart-deploy-infrastructure-vnet-azure-cli.md
     - name: Provision using Terraform
       href: quickstart-deploy-infrastructure-vnet-terraform.md
-    - name: Provision using Bicep
-      href: quickstart-deploy-infrastructure-vnet-bicep.md
 - name: Tutorials
   items:
     - name: Alerts and action groups
@@ -118,9 +128,9 @@ items:
       href: how-to-intellij-deploy-apps.md
     - name: Use VS Code to deploy apps
       href: https://code.visualstudio.com/docs/java/java-spring-cloud
-    - name: Deploy Azure Spring Cloud with Maven
-      href: how-to-maven-deploy-apps.md 
-    - name: Deploy Azure Spring Cloud with Azure PowerShell
+    - name: Deploy Spring apps with Maven
+      href: how-to-maven-deploy-apps.md
+    - name: Deploy Spring apps with Azure PowerShell
       href: how-to-deploy-powershell.md
     - name: Deploy non-Java enterprise applications
       href: how-to-enterprise-deploy-non-java-apps.md
@@ -190,7 +200,7 @@ items:
       href: how-to-elastic-diagnostic-settings.md
   - name: Network
     items:
-    - name: Deploy Azure Spring Cloud in a virtual network
+    - name: Deploy Azure Spring Apps in a virtual network
       href: how-to-deploy-in-azure-virtual-network.md
     - name: Access your application in a private network
       href: access-app-virtual-network.md
@@ -200,13 +210,13 @@ items:
       href: expose-apps-gateway-end-to-end-tls.md
     - name: Configure Palo Alto
       href: how-to-configure-palo-alto.md
-    - name: Customer responsibilities running Azure Spring Cloud in VNET
+    - name: Customer responsibilities running Azure Spring Apps in VNET
       href: vnet-customer-responsibilities.md
-    - name: Troubleshooting Azure Spring Cloud in virtual networks
+    - name: Troubleshooting Azure Spring Apps in virtual networks
       href: troubleshooting-vnet.md
   - name: Secure
     items:
-    - name: Use managed identities for applications in Azure Spring Cloud
+    - name: Use managed identities for applications in Azure Spring Apps
       href: how-to-use-managed-identities.md
     - name: Enable system-assigned managed identity
       href: how-to-enable-system-assigned-managed-identity.md
@@ -220,6 +230,8 @@ items:
       href: how-to-enable-ingress-to-app-tls.md
     - name: Access Config Server and Service Registry
       href: how-to-access-data-plane-azure-ad-rbac.md
+    - name: Configure single sign-on
+      href: how-to-set-up-sso-with-azure-ad.md
   - name: Automate
     items:
     - name: CI/CD with Azure DevOps
@@ -262,8 +274,10 @@ items:
     href: reference-architecture.md
 - name: Reference
   items:
+  - name: API breaking changes
+    href: breaking-changes.md
   - name: Azure CLI plugin
-    href: /cli/azure/spring-cloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
+    href: /cli/azure/spring?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
   - name: Azure PowerShell
     href: /powershell/module/az.springcloud?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
   - name: Azure Pipelines task

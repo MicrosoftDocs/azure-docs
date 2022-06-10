@@ -34,6 +34,9 @@ After your application is registered with Azure AD, you can create work items in
 Action groups provide a modular and reusable way of triggering actions for Azure alerts. You can use action groups with metric alerts, Activity Log alerts, and Azure Log Analytics alerts in the Azure portal.
 To learn more about action groups, see [Create and manage action groups in the Azure portal](../alerts/action-groups.md).
 
+> [!NOTE]
+> If you are using a log alert, the query results must include a “Computer” column containing the configuration items list.
+
 To add a webhook to an action, follow these instructions for Secure Webhook:
 
 1. In the [Azure portal](https://portal.azure.com/), search for and select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
