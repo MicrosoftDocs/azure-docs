@@ -65,8 +65,8 @@ Two maven repositories are required to integrate the library. MavenCentral is th
 
 In your project gradle scripts ensure the following `repositories` are added.
 
-For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  
-If you are using old versions of `Android Studio (4.*)` then the `repositories` will be in project level `build.gradle` `allprojects{}`.  
+For `Android Studio (2020.*)`, the `repositories` are in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  
+If you are using old versions of `Android Studio (4.*)`, then the `repositories` will be in project level `build.gradle` `allprojects{}`.  
 
 ```groovy
 // dependencyResolutionManagement
@@ -366,7 +366,7 @@ callComposite.launch(context, remoteOptions);
 -----
 ### Subscribe to error events from `CallComposite`
 
-To receive error events register an `onErrorHandler` with the `CallComposite`. 
+To receive error events, register an `onErrorHandler` with the `CallComposite`. 
 
 The following `errorCode` values may be sent to the Error Handler
 
@@ -454,9 +454,9 @@ CallComposite callComposite =
 ```
 
 -----
-### Additional Features
+### More Features
 
-The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information of additional features.
+The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information of more features.
 
 -----
 ### Add notifications into your mobile app
