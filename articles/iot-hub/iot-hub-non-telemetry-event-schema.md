@@ -41,7 +41,7 @@ The following system properties are set by IoT Hub on each event.
 | iothub-connection-device-id | string | The device ID. | $connectionDeviceId |
 | iothub-connection-module-id | string | The module ID. This property is output only for module life cycle and twin events. | $connectionModuleId |
 | iothub-enqueuedtime | number | Date and time when the notification was sent. **DESCRIPTION NEEDED as this is a number not a UTC string: 1653677358153. My best guess is that it's a Unix epoch in milliseconds** In routing queries, use an [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp; for example, `$enqueuedTime > "2022-06-06T22:56:06Z"` | $enqueuedTime |
-| iothub-message-source | string | The event category that identifies the message source. For example, *deviceLifecycleEvents*. |  N/A (tried $messageSource but it didn't work) |
+| iothub-message-source | string | The event category that identifies the message source. For example, *deviceLifecycleEvents*. |  **N/A (tried $messageSource but it didn't work)** |
 
 ### Application properties
 
