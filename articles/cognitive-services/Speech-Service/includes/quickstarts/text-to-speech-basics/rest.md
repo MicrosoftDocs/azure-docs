@@ -25,8 +25,8 @@ At a command prompt, run the following cURL command. Insert the following values
 key="YourSubscriptionKey"
 region="YourServiceRegion"
 
-curl --location --request POST 'https://$region.tts.speech.microsoft.com/cognitiveservices/v1' \
---header 'Ocp-Apim-Subscription-Key: $key' \
+curl --location --request POST "https://$region.tts.speech.microsoft.com/cognitiveservices/v1" \
+--header "Ocp-Apim-Subscription-Key: $key" \
 --header 'Content-Type: application/ssml+xml' \
 --header 'X-Microsoft-OutputFormat: audio-16khz-128kbitrate-mono-mp3' \
 --header 'User-Agent: curl' \
