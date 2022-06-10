@@ -115,7 +115,7 @@ Once migrated to Question Answering:
   - Retaining of prompts
   - Customers can use the batch testing tool post migration to test the newly created project in custom question answering.
 
-Old QnA Maker resources need to be manually deleted
+Old QnA Maker resources need to be manually deleted.
 
 Here are some [detailed steps](migrate-qnamaker.md) on migration scenario 1
 
