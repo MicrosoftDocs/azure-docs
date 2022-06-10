@@ -71,7 +71,7 @@ With the Language service, QnA Maker customers now benefit from a single service
 - A unified set of APIs across all the capabilities
 - A cohesive, simpler, and powerful product
 
-Lean how to get started in [Language Studio](https://docs.microsoft.com/azure/cognitive-services/language-service/language-studio)
+Lean how to get started in [Language Studio](../../language-studio.md)
 
 ## Migration Phases
 
@@ -83,7 +83,7 @@ Following are the broad migration phases to consider:
 
 Additional links which can help you are given below:
 - [Authoring portal](https://language.cognitive.azure.com/home)
-- [API](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/authoring)
+- [API](authoring.md)
 - [SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet)
 - Bot SDK: For bots to use custom question answering, use the [Bot.Builder.AI.QnA](https://www.nuget.org/packages/Microsoft.Bot.Builder.AI.QnA/) SDK – We recommend customers to continue to use this for their Bot integrations. Here are some sample usages of the same in the bot’s code: [Sample 1](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/48.customQABot-all-features) [Sample 2](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/12.customQABot)
 
@@ -95,13 +95,13 @@ This topic compares two hypothetical scenarios when migrating from QnA Maker to 
 > An attempt has been made to ensure these scenarios are representative of real customer migrations, however, individual customer scenarios will of course differ. Also, this article doesn't include pricing details. Click here for [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/)
 
 > [!IMPORTANT] 
-> Each question answering project is equivalent to a knowledge base in QnA Maker. Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. These resource level settings would have to be reconfigured for the language resource post migration. You will also need to [re-enable analytics](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/analytics) for the language resource.
+> Each question answering project is equivalent to a knowledge base in QnA Maker. Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. These resource level settings would have to be reconfigured for the language resource post migration. You will also need to [re-enable analytics](analytics.md) for the language resource.
 
 ### Migration scenario 1: No custom authoring portal
 
 In the first migration scenario, the customer uses qnamaker.ai as the authoring portal and they want to migrate their QnA Maker knowledge bases to Custom Question Answering.
 
-[Migrate your project from QnA Maker to Question Answering](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/migrate-qnamaker)
+[Migrate your project from QnA Maker to Question Answering](migrate-qnamaker.md)
 
 Once migrated to Question Answering:
 
@@ -117,7 +117,7 @@ Once migrated to Question Answering:
 
 Old QnA Maker resources need to be manually deleted
 
-Here are some [detailed steps](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/migrate-qnamaker) on migration scenario 1
+Here are some [detailed steps](migrate-qnamaker.md) on migration scenario 1
 
 ### Migration scenario 2
 
@@ -147,7 +147,7 @@ Here you can find some code samples: [Sample 1](https://github.com/microsoft/Bot
 
 Here are [detailed steps on migration scenario 2](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/MigrationGuide.md)
 
-Learn more about the [pre-built API](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/using-prebuilt-api)
+Learn more about the [pre-built API](using-prebuilt-api.md)
 
 Learn more about the [Question Answering Get Answers REST API](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers)
 
