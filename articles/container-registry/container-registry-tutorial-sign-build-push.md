@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 05/08/2022
 ---
 
-# Build, sign, and verify container images using Notary and Azure Key Vault (AKV)
+# Build, sign, and verify container images using Notary and Azure Key Vault (Preview)
 
 The Azure Key Vault (AKV) is used to store a signing key that can be utilized by **notation** with the notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach these signatures using the **az** or **oras** CLI commands.
 
