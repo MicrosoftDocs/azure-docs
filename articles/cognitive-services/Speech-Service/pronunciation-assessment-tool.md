@@ -1,5 +1,5 @@
 ---
-title: How to use Pronunciation assessment in Speech Studio
+title: How to use pronunciation assessment in Speech Studio
 titleSuffix: Azure Cognitive Services
 description: The pronunciation assessment tool in Speech Studio gives you feedback on the accuracy and fluency of your speech, no coding required.
 services: cognitive-services
@@ -14,18 +14,18 @@ ms.author: v-baolianzou
 
 # Pronunciation assessment in Speech Studio
 
-Pronunciation Assessment provides subjective and objective feedback to language learners. Practicing pronunciation and getting timely feedback are essential for improving language skills. Assessments driven by experienced teachers can take a lot of time and effort, and makes a high-quality assessment expensive for learners. Pronunciation Assessment can help make the language assessment more engaging and accessible to learners of all backgrounds. 
+Pronunciation assessment provides subjective and objective feedback to language learners. Practicing pronunciation and getting timely feedback are essential for improving language skills. Assessments driven by experienced teachers can take a lot of time and effort, and makes a high-quality assessment expensive for learners. Pronunciation assessment can help make the language assessment more engaging and accessible to learners of all backgrounds. 
 
-Pronunciation Assessment provides various assessment results in different granularities, from individual phonemes to the entire text input. 
-- At the full-text level, Pronunciation Assessment offers additional Fluency and Completeness scores: Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words, and Completeness indicates how many words are pronounced in the speech to the reference text input. An overall score aggregated from Accuracy, Fluency and Completeness is then given to indicate the overall pronunciation quality of the given speech.  
-- At the word-level, Pronunciation Assessment can automatically detect miscues and provide accuracy score simultaneously, which provides more detailed information on omission, repetition, insertions, and mispronunciation in the given speech.
-- At the phoneme level, Pronunciation Assessment provides accuracy scores of each phoneme, helping learners to better understand the pronunciation details of their speech.
+Pronunciation assessment provides various assessment results in different granularities, from individual phonemes to the entire text input. 
+- At the full-text level, pronunciation assessment offers additional Fluency and Completeness scores: Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words, and Completeness indicates how many words are pronounced in the speech to the reference text input. An overall score aggregated from Accuracy, Fluency and Completeness is then given to indicate the overall pronunciation quality of the given speech.  
+- At the word-level, pronunciation assessment can automatically detect miscues and provide accuracy score simultaneously, which provides more detailed information on omission, repetition, insertions, and mispronunciation in the given speech.
+- At the phoneme level, pronunciation assessment provides accuracy scores of each phoneme, helping learners to better understand the pronunciation details of their speech.
 
-This article describes how to use the pronunciation assessment tool through the [Speech Studio](https://speech.microsoft.com). You can get immediate feedback on the accuracy and fluency of your speech without writing any code. For information about how to integrate pronunciation assessment in your speech applications, see [How to use Pronunciation Assessment](how-to-pronunciation-assessment.md).
+This article describes how to use the pronunciation assessment tool through the [Speech Studio](https://speech.microsoft.com). You can get immediate feedback on the accuracy and fluency of your speech without writing any code. For information about how to integrate pronunciation assessment in your speech applications, see [How to use pronunciation assessment](how-to-pronunciation-assessment.md).
 
 ## Try out pronunciation assessment
 
-You can explore and try out Pronunciation Assessment even without signing in. 
+You can explore and try out pronunciation assessment even without signing in. 
 
 > [!TIP]
 > To assess more than 5 seconds of speech with your own script, sign in with an Azure account and use your Speech or Cognitive Services resource.
@@ -40,11 +40,11 @@ Follow these steps to assess your pronunciation of the reference text:
 
    When reading the text, you should be close to microphone to make sure the recorded voice isn't too low. 
 
-   :::image type="content" source="media/pronunciation-assessment/pa-record.png" alt-text="Screenshot of recording":::
+   :::image type="content" source="media/pronunciation-assessment/pa-record.png" alt-text="Screenshot of where to record audio with a microphone.":::
 
    Otherwise you can upload recorded audio for pronunciation assessment. Once successfully uploaded, the audio will be automatically evaluated by the system, as shown in the following screenshot.
 
-   :::image type="content" source="media/pronunciation-assessment/pa-upload.png" alt-text="Screenshot of uploading recorded audio":::
+   :::image type="content" source="media/pronunciation-assessment/pa-upload.png" alt-text="Screenshot of uploading recorded audio to be assessed.":::
 
 
 ## Pronunciation assessment results
@@ -65,7 +65,7 @@ Pronunciation Assessment evaluates three aspects of pronunciation: accuracy, flu
 
 The complete transcription is shown in the **Display** window. If a word is omitted, inserted, or mispronounced compared to the reference text, the word will be highlighted according to the error type. While hovering over each word, you can see accuracy scores for the whole word or specific phonemes. 
 
-:::image type="content" source="media/pronunciation-assessment/pa-display-omission-zoom.png" alt-text="Screenshot of scores for a word and it's phonemes." lightbox="media/pronunciation-assessment/pa-display-omission-full.png":::
+:::image type="content" source="media/pronunciation-assessment/pa-display-omission-zoom.png" alt-text="Screenshot of scores for a word and its phonemes." lightbox="media/pronunciation-assessment/pa-display-omission-full.png":::
 
 ### [JSON](#tab/json)
 

@@ -1,5 +1,5 @@
 ---
-title: Use Pronunciation Assessment
+title: Use pronunciation assessment
 titleSuffix: Azure Cognitive Services
 description: Learn about pronunciation assessment features that are currently publicly available.
 services: cognitive-services
@@ -13,16 +13,16 @@ ms.author: eur
 zone_pivot_groups: programming-languages-speech-sdk
 ---
 
-# Use Pronunciation Assessment
+# Use pronunciation assessment
 
-In this article, you'll learn how to use Pronunciation Assessment through the Speech SDK.
+In this article, you'll learn how to use pronunciation assessment through the Speech SDK.
 
 ::: zone pivot="programming-language-go"
 > [!NOTE]
-> Pronunciation Assessment is not available with the Speech SDK for Go.
+> pronunciation assessment is not available with the Speech SDK for Go.
 ::: zone-end
 
-You can get Pronunciation Assessment scores for:
+You can get pronunciation assessment scores for:
 
 - Full text
 - Words
@@ -124,7 +124,7 @@ do {
 
 ## Syllable groups
 
-For the [supported languages](language-support.md#pronunciation-assessment) in public preview, Pronunciation Assessment can provide syllable-level assessment results along with phonemes. Grouping in syllables is more legible and aligned with speaking habits, as a word is typically pronounced syllable by syllable rather than phoneme by phoneme.
+For the [supported languages](language-support.md#pronunciation-assessment) in public preview, pronunciation assessment can provide syllable-level assessment results along with phonemes. Grouping in syllables is more legible and aligned with speaking habits, as a word is typically pronounced syllable by syllable rather than phoneme by phoneme.
 
 The following table compares example phonemes with the corresponding syllables.
 
@@ -216,7 +216,7 @@ pronunciationAssessmentConfig?.phonemeAlphabet = "IPA"
 ## Spoken phoneme
 
 > [!NOTE]
-> The spoken phoneme feature of Pronunciation Assessment is only generally available for the `en-US` locale.
+> The spoken phoneme feature of pronunciation assessment is only generally available for the `en-US` locale.
 
 With spoken phonemes, you can get confidence scores indicating how likely the spoken phonemes matched the expected phonemes. 
 
