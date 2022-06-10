@@ -104,7 +104,7 @@ Type `wmic` to enter the interactive interface. Then type the following command 
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-If the number of logical processors is greater than physical processors (cores), then hyper-threading is enabled. If you are running a hyper-threaded VM, [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled. Once hyper-threading is disabled, support will require a full VM reboot. Please refer to [Core count](#core-count) to understand why your VM core count decreased.
+If the number of logical processors is greater than physical processors (cores), then hyper-threading is enabled. If you are running a hyper-threaded VM, [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled. Once hyper-threading is disabled, support will require a full VM reboot. Refer to [Core count](#core-count) to understand why your VM core count decreased.
 
 
 ### Linux
@@ -134,7 +134,7 @@ NUMA node(s):          1
 
 ```
 
-If you are running a hyper-threaded VM, [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled.  Once hyper-threading is disabled, **support will require a full VM reboot**. Please refer to [Core count](#core-count) to understand why your VM core count decreased.
+If you are running a hyper-threaded VM, [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled.  Once hyper-threading is disabled, **support will require a full VM reboot**. Refer to [Core count](#core-count) to understand why your VM core count decreased.
 
 
 
