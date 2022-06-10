@@ -23,7 +23,7 @@ In this quickstart, you create a confidential ledger with [Azure PowerShell](/po
 
 [!INCLUDE [Create resource group](../../includes/powershell-rg-create.md)]
 
-## Get your principal ID and t
+## Get your principal ID and tenant ID
 
 To create a confidential ledger, you'll need your Azure Active Directory principal ID (also called your object ID).  To obtain your principal ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, with the `-SignedIn` flag:
 
@@ -38,7 +38,7 @@ Your result will be listed under "Id", in the format `xxxxxxxx-xxxx-xxxx-xxxx-xx
 Use the Azure Powershell [New-AzConfidentialLedger](/powershell/module/az.confidentialledger/new-azconfidentialledger) command to create a confidential ledger in your new resource group.
 
 ```azurepowershell
-New-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup" -Location "EastUS" -LedgerType "Public" -AadBasedSecurityPrincipal '@{ LedgerRoleName="Administrator"; PrincipalId="34621747-6fc8-4771-a2eb-72f31c461f2e"; }'
+New-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup" -Location "EastUS" -LedgerType "Public" -AadBasedSecurityPrincipal @{ LedgerRoleName="Administrator"; PrincipalId="34621747-6fc8-4771-a2eb-72f31c461f2e"; }
 
 ```
 
@@ -54,16 +54,10 @@ You can view the properties associated with your newly created confidential ledg
 Get-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup"
 ```
 
-The returned JSON object displays the ledger's properties, including your role:
-
-```json
-"ledgerRoleName": "Administrator",
-```
-
 To update the properties of a confidential ledger, use do so, use the Azure PowerShell [Update-AzConfidentialLedger](/powershell/module/az.confidentialledger/update-azconfidentialledger) cmdlet. For instance, to update your ledger to change your role to "Reader", run:
 
 ```azurepowershell
-Update-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup" -LedgerType "Public" -AadBasedSecurityPrincipal '@{ LedgerRoleName="Reader"; PrincipalId="34621747-6fc8-4771-a2eb-72f31c461f2e"; }'
+Update-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup" -Location "EastUS" -LedgerType "Public" -AadBasedSecurityPrincipal @{ LedgerRoleName="Reader"; PrincipalId="34621747-6fc8-4771-a2eb-72f31c461f2e"; }
 ```
 
 If you again run [Get-AzConfidentialLedger](/powershell/module/az.confidentialledger/get-azconfidentialledger), you'll see that the role has been updated.
