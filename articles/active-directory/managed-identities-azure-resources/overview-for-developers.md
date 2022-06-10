@@ -33,14 +33,16 @@ Some resources don't support Azure Active Directory authentication, or its clien
 
 ## Creating a managed identity
 
-There are two types of managed identity: system-assigned and user-assigned. System-assigned identities are directly linked to a single Azure resource. When the Azure resource is deleted, so is the identity. A user-assigned managed identity can be associated with multiple Azure resources, and its lifecycle is independent of those resources. This article will explain how to create and configure a user-assigned masnaged identity. Read [our best practice recommendations](managed-identity-best-practice-recommendations.md) to see which type of managed identity is best for your scenario.
+There are two types of managed identity: system-assigned and user-assigned. System-assigned identities are directly linked to a single Azure resource. When the Azure resource is deleted, so is the identity. A user-assigned managed identity can be associated with multiple Azure resources, and its lifecycle is independent of those resources. 
 
-### Creating a user-assigned managed identity
+This article will explain how to create and configure a user-assigned masnaged identity which is [recommended for most scenarios](managed-identity-best-practice-recommendations.md). If the source resource you're using doesn't support user-assigned managed identities then you can refer to that resource provider's documentation to learn how to configure it to have a system-assigned managed identity.
+
+## Creating a user-assigned managed identity
 
 > [!NOTE]
 > You'll need a role such as "Managed Identity Contributor" to create a new user-assigned managed identity.
 
-If you want to use a user-assigned identity, you'll need to create it before you associate it with your Azure resource.
+#### [Portal](#tab/portal)
 
 1. Search for "Managed Identities" from the search bar at the top of the Portal and select the matching result.
 
@@ -60,9 +62,18 @@ If you want to use a user-assigned identity, you'll need to create it before you
 
 :::image type="content" source="media/overview-for-developers/Managed-Identity-Confirmation-Screen.png" alt-text="Managed identity - confirmation screen":::
 
-You now have an identity that can be associated with an Azure resource. [Read more about managing user-assigned managed identities.](how-manage-user-assigned-managed-identities.md).
+#### [Azure CLI](#tab/cli)
+```cli
+az identity create --name <name of the identity> --resource-group <name of the resource group>
+```
 
-#### Configuring your resource to use a user-assigned managed identity
+Take a note of the `clientId` and the `principalId` values that are returned when the managed identity is created. You will use `principalId` while adding permissions, and `clientId` in your application's code.
+
+---
+
+You now have an identity that can be associated with an Azure source resource. [Read more about managing user-assigned managed identities.](how-manage-user-assigned-managed-identities.md).
+
+#### Configuring your source resource to use a user-assigned managed identity
 
 Follow these steps to configure your Azure resource to have a managed identity through the Portal. Refer to the documentation for the specific resource type to learn how to configure the resource's identity using the Command Line Interface, PowerShell or ARM template.
 
@@ -91,7 +102,7 @@ Follow these steps to configure your Azure resource to have a managed identity t
 
 :::image type="content" source="media/overview-for-developers/User-Assigned-Identity-Added-To-Resource.png" alt-text="User-assigned identity has been associated with the Azure resource":::
 
-Your resource now has a user-assigned identity that it can use to connect to other resources.
+Your source resource now has a user-assigned identity that it can use to connect to target resources.
 
 ### Configuring your resource to use a system-assigned managed identity
 
@@ -117,7 +128,7 @@ Some resources may only support system-assigned identities, or you may prefer to
 
 :::image type="content" source="media/overview-for-developers/system-assigned-created.png" alt-text="System-assigned identity is created.":::
 
-Your resource now has a system-assigned identity that it can use to connect to other resources.
+Your source resource now has a system-assigned identity that it can use to connect to target resources.
 
 ## Adding permissions to the identity
 
@@ -125,6 +136,8 @@ Your resource now has a system-assigned identity that it can use to connect to o
 > You'll need a role such as "User Access Administrator" or "Owner" for the target resource to add Role assignments. Ensure you're granting the least privilege required for the application to run.
 
 Now your App Service has a managed identity, you'll need to give the identity the correct permissions. As you're using this identity to interact with Azure Storage, you'll use the [Azure RBAC (Role Based Access Control) system](../../role-based-access-control/overview.md).
+
+#### [Portal](#tab/portal)
 
 1. Locate the resource you want to connect to using the search bar at the top of the Portal
 2. Select the "Access Control (IAM)" link in the left hand navigation.
@@ -156,13 +169,24 @@ Now your App Service has a managed identity, you'll need to give the identity th
 
 :::image type="content" source="media/overview-for-developers/resource-role-assignment-added.png" alt-text="Role assignment added":::
 
-Your managed identity now has the correct permissions to access the Azure resource. [Read more about Azure Role Based Access Control](../../role-based-access-control/overview.md).
+#### [Azure CLI](#tab/cli)
+```cli
+az role assignment create --assignee "<Object/Principal ID of the managed identity>" \
+--role "<Role name or Role ID>" \
+--scope "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceSubType}/{resourceName}"
+```
 
-## Using the identity in your code
+[Read more about adding role assignments using the Command Line Interface](../../role-based-access-control/role-assignments-cli.md).
 
-Your App Service now has an identity with permissions. You can use the identity in your code to interact with Azure Storage, instead of storing credentials in your code.
+---
 
-The recommended method is to use the Azure Identity library for your preferred programming language. The supported languages include .NET, Java, JavaScript, Python, Go, and C++. The library acquires access tokens for you, making it simple to connect to target resources.
+Your managed identity now has the correct permissions to access the Azure target resource. [Read more about Azure Role Based Access Control](../../role-based-access-control/overview.md).
+
+## Using the managed identity in your code
+
+Your App Service now has a managed identity with permissions. You can use the managed identity in your code to interact with target resources, instead of storing credentials in your code.
+
+The recommended method is to use the Azure Identity library for your preferred programming language. The supported languages include [.NET](/dotnet/api/overview/azure/identity-readme), [Java](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true), [JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true), [Python](/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true), [Go](/azure/developer/go/azure-sdk-authentication), and [C++](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md). The library acquires access tokens for you, making it simple to connect to target resources.
 
 ### Using the Azure Identity library in your development environment
 
@@ -193,7 +217,8 @@ using Azure.Storage.Blobs;
 
 var credentialOptions = new DefaultAzureCredentialOptions
 {
-    ManagedIdentityClientId = "<Client ID of User-assigned identity>"
+    // Store this as an environment variable/app setting
+    ManagedIdentityClientId = "<Client ID of User-assigned managed identity>"
 };
 var msiCredential = new DefaultAzureCredential(credentialOptions);                        
 
@@ -231,6 +256,7 @@ import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.BlobServiceClientBuilder;
 
+// read the Client ID from your environment variables
 DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
         .managedIdentityClientId("<Client ID of User-assigned identity>")
         .build();
