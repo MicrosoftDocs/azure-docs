@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS alias records to use my domain name apex with Traffic Manager.
 ---
 
-# Tutorial: Create an alias record to support domain names apex with Traffic Manager 
+# Tutorial: Create an alias record to support domain name apex with Traffic Manager 
 
 You can create an alias record for your domain name apex to reference an Azure Traffic Manager profile. Instead of using a redirecting service, you configure Azure DNS to reference a Traffic Manager profile directly from your zone. 
 
@@ -42,7 +42,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create the network infrastructure
 
-Create a virtual network and a subnet to place your web server in.
+Create a virtual network and a subnet to place your web servers in.
 
 1. In the Azure portal, enter *virtual network* in the search box at the top of the portal, and then select **Virtual networks** from the search results.
 1. In **Virtual networks**, select **+ Create**.
@@ -75,7 +75,7 @@ Create a virtual network and a subnet to place your web server in.
 1. Select the **Review + create** tab or select the **Review + create** button.
 1. Select **Create**.
 
-## Create two web server virtual machines
+## Create web server virtual machines
 
 Create two Windows Server virtual machines, and install IIS web server on them, and then add DNS labels to their public IPs.
 
@@ -125,7 +125,7 @@ Create two Windows Server 2019 virtual machines.
 1. Review the settings, and then select **Create**.
 1. Repeat previous steps to create the second virtual machine. Enter *Web-02* in the **Virtual machine name** and *Web-02-ip* in the **Name** of **Public IP**. For the other settings, use the same information from the previous steps used with first virtual machine.
 
-Each VM deployment may take a few minutes to complete.
+Each virtual machine deployment may take a few minutes to complete.
 
 ### Install IIS web server
 
@@ -162,7 +162,7 @@ The public IP addresses need a DNS label to work with Traffic Manager.
 
     :::image type="content" source="./media/tutorial-alias-tm/ip-dns-name-label-inline.png" alt-text="Screenshot of the Configuration page of Azure Public IP Address showing D N S name label." lightbox="./media/tutorial-alias-tm/ip-dns-name-label-expanded.png":::
 
-1. Repeat the previous steps for the **Web-02-ip** public IP address by entering *web02pip* in the **DNS name label**.
+1. Repeat the previous steps for the **Web-02-ip** public IP address and enter *web02pip* in the **DNS name label**.
 
 ## Create a Traffic Manager profile
 
@@ -178,25 +178,25 @@ The public IP addresses need a DNS label to work with Traffic Manager.
     | Subscription             | Select your Azure subscription  |
     | Resource group           | Select **TMResourceGroup**      |
 
-1. Select **Create**.
-
     :::image type="content" source="./media/tutorial-alias-tm/create-traffic-manager-profile.png" alt-text="Screenshot of the Create Traffic Manager profile page showing the selected settings.":::
 
+1. Select **Create**.
+
 1. After **TM-alias-test** deployment finishes, select **Go to resource**.
-1. On the **Endpoints** page of **TM-alias-test** Traffic Manager profile, select **+ Add** and enter or select the following information:
+1. In the **Endpoints** page of **TM-alias-test** Traffic Manager profile, select **+ Add** and enter or select the following information:
 
     | Setting                  | Value                           |
     |--------------------------|---------------------------------|
     | Type                     | Select **External endpoint**    |
     | Name                     | Enter *EP-Web01*              |
     | Fully qualified domain name (FQDN) or IP | Enter the IP address for **Web-01-ip** that you noted previously  |
-    | Priority                 | Enter *1*.  |
-
-1. Select **Add**.
+    | Priority                 | Enter *1*  |
 
     :::image type="content" source="./media/tutorial-alias-tm/add-endpoint-tm-inline.png" alt-text="Screenshot of the Endpoints page in Traffic Manager profile showing selected settings for adding an endpoint." lightbox="./media/tutorial-alias-tm/add-endpoint-tm-expanded.png":::
 
-1. Repeat last two steps for to create the second endpoint and enter or select the following information:
+1. Select **Add**.
+
+1. Repeat the last two steps to create the second endpoint. Enter or select the following information:
 
     | Setting                  | Value                           |
     |--------------------------|---------------------------------|
@@ -210,7 +210,7 @@ The public IP addresses need a DNS label to work with Traffic Manager.
 Create an alias record that points to the Traffic Manager profile.
 
 1. In the Azure portal, enter *contoso.com* in the search box at the top of the portal, and then select **contoso.com** DNS zone from the search results.
-1. In the **Overview** page, select the **+ Record set** button.
+1. In the **Overview** page of **contoso.com** DNS zone, select the **+ Record set** button.
 1. In the **Add record set**, leave the **Name** box empty to represent the domain name apex. An example is `contoso.com`.
 1. Select **A** for the **Type**.
 1. Select **Yes** for the **Alias record set**, and then select the **Azure Resource** for the **Alias type**.
@@ -235,13 +235,13 @@ When no longer needed, you can delete all resources created in this tutorial by 
 1. Enter *TMResourceGroup* and select **Delete**.
 1. On the Azure portal menu, select **All resources**.
 1. Select **contoso.com** DNS zone.
-1. Select **@** record created in this tutorial.
+1. Select the **@** record created in this tutorial.
 1. Select **Delete** and then **Yes**.
 
 ## Next steps
 
-In this tutorial, you created an alias record to use your apex domain name to reference a Traffic Manager profile. To learn about Azure DNS and web apps, continue with the tutorial for web apps.
+In this tutorial, you created an alias record to use your apex domain name to reference a Traffic Manager profile.
 
 - Learn more about [alias records](dns-alias.md).
 - Learn more about [zones and records](dns-zones-records.md).
-- Learn more about [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md)
+- Learn more about [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
