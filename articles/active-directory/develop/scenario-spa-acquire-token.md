@@ -17,9 +17,9 @@ ms.custom: aaddev
 
 # Single-page application: Acquire a token to call an API
 
-The pattern for acquiring tokens for APIs with [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js) is to first attempt a silent token request by using the `acquireTokenSilent` method. When this method is called, the library first checks the cache in browser storage to see if a valid token exists and returns it. When no valid token is in the cache, it attempts to use its refresh token to get the token. If the refresh token's 24-hour lifetime has expired, MSAL.js will open a hidden iframe to silently request a new authorization code, which it will exchange for a new, valid refresh token. For more information about single sign-on session and token lifetime values in Azure Active Directory (Azure AD), see [Token lifetimes](active-directory-configurable-token-lifetimes.md).
+The pattern for acquiring tokens for APIs with [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js) is to first attempt a silent token request by using the `acquireTokenSilent` method. When this method is called, the library first checks the cache in browser storage to see if a valid token exists and returns it. When no valid token is in the cache, it attempts to use its refresh token to get the token. If the refresh token's 24-hour lifetime has expired, MSAL.js will open a hidden iframe to silently request a new authorization code, which it will exchange for a new, valid refresh token. For more information about Single sign-on (SSO) session and token lifetime values in Azure Active Directory (Azure AD), see [Token lifetimes](active-directory-configurable-token-lifetimes.md).
 
-The silent token requests to Azure AD might fail for reasons like a password change or updated conditional access policies. More often, failures are due to the refresh token's 24-hour lifetime expiring and [the browser blocking 3rd party cookies](reference-third-party-cookies-spas.md), which prevents the use of hidden iframes to continue authenticating the user. In these cases, you should invoke one of the interactive methods (which may prompt the user) to acquire tokens:
+The silent token requests to Azure AD might fail for reasons like a password change or updated conditional access policies. More often, failures are due to the refresh token's 24-hour lifetime expiring and [the browser blocking third party cookies](reference-third-party-cookies-spas.md), which prevents the use of hidden iframes to continue authenticating the user. In these cases, you should invoke one of the interactive methods (which may prompt the user) to acquire tokens:
 
 - [Pop-up window](#acquire-a-token-with-a-pop-up-window), by using `acquireTokenPopup`
 - [Redirect](#acquire-a-token-with-a-redirect), by using `acquireTokenRedirect`
@@ -32,7 +32,7 @@ The choice between a pop-up or redirect experience depends on your application f
 
 - If users have browser constraints or policies where pop-up windows are disabled, you can use the redirect method. Use the redirect method with the Internet Explorer browser, because there are [known issues with pop-up windows on Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md#popups).
 
-You can set the API scopes that you want the access token to include when it's building the access token request. Note that all requested scopes might not be granted in the access token. That depends on the user's consent.
+You can set the API scopes that you want the access token to include when it's building the access token request. All requested scopes might not be granted in the access token. That depends on the user's consent.
 
 ## Acquire a token with a pop-up window
 
@@ -320,7 +320,7 @@ function App() {
 }
 ```
 
-Alternatively, if you need to acquire a token outside of a React component you can call `acquireTokenSilent` but should not fallback to interaction if it fails. All interaction should take place underneath the `MsalProvider` component in your component tree.
+Alternatively, if you need to acquire a token outside of a React component you can call `acquireTokenSilent` but shouldn't fallback to interaction if it fails. All interactions should take place underneath the `MsalProvider` component in your component tree.
 
 ```javascript
 // MSAL.js v2 exposes several account APIs, logic to determine which account to use is the responsibility of the developer
@@ -424,7 +424,7 @@ userAgentApplication
 
 You can use optional claims for the following purposes:
 
-- Include additional claims in tokens for your application.
+- Include extra claims in tokens for your application.
 - Change the behavior of certain claims that Azure AD returns in tokens.
 - Add and access custom claims for your application.
 
@@ -563,7 +563,7 @@ function App() {
 }
 ```
 
-Alternatively, if you need to acquire a token outside of a React component you can call `acquireTokenSilent` but should not fallback to interaction if it fails. All interaction should take place underneath the `MsalProvider` component in your component tree.
+Alternatively, if you need to acquire a token outside of a React component you can call `acquireTokenSilent` but shouldn't fallback to interaction if it fails. All interactions should take place underneath the `MsalProvider` component in your component tree.
 
 ```javascript
 // MSAL.js v2 exposes several account APIs, logic to determine which account to use is the responsibility of the developer
