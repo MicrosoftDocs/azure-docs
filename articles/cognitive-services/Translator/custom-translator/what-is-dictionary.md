@@ -9,6 +9,7 @@ ms.subservice: translator-text
 ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: conceptual
+ms.custom: applied-ai-non-critical-form
 #Customer intent: As a Custom Translator, I want to understand how to use a dictionary to build a custom translation model.
 ---
 
