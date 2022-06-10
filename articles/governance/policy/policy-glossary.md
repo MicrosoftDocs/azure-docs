@@ -4,38 +4,86 @@ description: A glossary defining the terminology used throughout Azure Policy
 author: timwarner-msft
 ms.author: timwarner
 ms.topic: conceptual
-ms.date: 05/31/2022
+ms.date: 06/10/2022
 ---
-# Azure Policy product glossary
+# Azure Policy glossary
 
-Below is a glossary of terminology used throughout Microsoft Azure Policy.
+The term _policy_ is used widely in virtually every industry and is associated with many use cases. Azure Policy has specific vocabulary and applications that are not to be confused with policy embedded in other contexts.
 
+This glossary provides definitions and descriptions of terms used by Azure Policy.
+
+## Alias
+Also known as _property alias_; A field of value that maps to a resource property
+## Applicability
+Resources that are considered for assessment depending on the policy rule
 ## Assignment
-Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse est enim, porta aliquet ex eget, consectetur mollis lectus.
+A JSON-defined object that determines the resources for which a definition is applied on. Learn more about the policy definition JSON structure here:[Azure Policy definition structure](./concepts/definition-structure.md)
+## Azure Policy
+A service that enables users to govern Azure resources by enforcing organizational standards and assessing compliance at scale
+## Built-in
+<!-- to be added -->
+## Category
+Metadata property on the policy definitions that highlights what resource provider the category is focused on (For example: Compute, Storage, Monitoring)
+## Compliance state
+Describes a resource's adherence to assigned policies. Can be compliant, non-compliant, exempt,conflict, not started, or protected
 ## Compliant
-Aenean in mauris non augue venenatis finibus sit amet vel urna. Maecenas vulputate ipsum ac eros ultricies fermentum. Ut iaculis tellus in dui aliquet, et tempus dolor lacinia. Integer eleifend id leo eget imperdiet. Curabitur accumsan tellus orci, in dapibus purus dapibus id.
+A compliance state which indicates that a resource conformed to the policy rule in the policy definition
+## Control
+Another term used for _group_, specifically in the context of regulatory compliance
+## Custom
+Describes a definition that is authored by a policy user. This is the alternative to a built-in
 ## Definition
-Donec scelerisque tellus nunc, sit amet tempor ex auctor nec. Aliquam lorem mi, semper ut malesuada non, convallis dictum justo. Nulla facilisi.
+A JSON-defined object that describes a policy, including resource compliance requirements and the effect to take if they are violated. Learn more about the policy definition JSON structure here:[Azure Policy definition structure](./concepts/definition-structure.md)
+## Definition location
+<!-- to be added -->
 ## Effect
-Etiam facilisis orci metus, quis pharetra nisi venenatis id. Duis quis massa quam. Nunc consequat dictum leo, non fringilla nisl vehicula mollis.
+<!-- to be added -->
+## Enforcement
+Describes the preventative action that certain types of policy effects can have
+## Enforcement mode
+A property of a policy assignment that allows users to enable or disable enforcement of certain policy effects like deny, while still evaluating for compliance and providing logs
+## Evaluation
+Describes the process Azure Policy uses in scanning resources in the cloud environment to determine applicability and compliance of assigned policies
+## Event
+<!-- to be added -->
 ## Exclusion
-Any single object that is stored within a Microsoft Purview Data Catalog.
+also called _NotScopes_; A property in the assignment that exclude scopes from assignments. Excluded scopes do not appear on the the Azure portal Compliance blade
+## Exempt
+A compliance state that indicates that a resource is covered by an exemption
 ## Exemption
-Mauris tempus posuere congue. Cras commodo mollis nisl ac laoreet. Aenean lacinia sollicitudin arcu tristique aliquam. Maecenas dictum tempor volutpat. Mauris sed maximus sapien.
+<!-- to be added -->
+## Group
+A sub-collection of policy definition IDs within an initiative definition
+## Identity
+A system- or user-assigned managed identity used for policy remediation
 ## Initiative
-Phasellus in iaculis ligula. Sed porta felis sed elit ornare ultricies. Nam in nisi a neque pharetra lacinia id quis augue. Vivamus eget pretium lectus. Nunc vel augue odio.
+Also known as a _policy set_. A type of policy definition that consist sof a collection of policy definition IDs. Used for centralization across common goal definitions that can share parameters, identities and be managed in a single assignment
 ## JSON
-Proin ut viverra ante, ac tempus tellus. Aenean venenatis tincidunt dolor, sed dictum nibh pharetra id. Nullam non nunc condimentum, semper leo at, ornare quam. Donec lobortis suscipit nibh, quis congue lorem euismod nec.
-## Machine Configuration
-Vivamus velit nisl, eleifend eu ullamcorper vel, tincidunt ac massa. Nulla malesuada tortor ipsum. Quisque venenatis justo orci, et congue tellus facilisis nec. Quisque mattis finibus malesuada. Integer pharetra dignissim urna finibus pharetra. Fusce tincidunt quam odio, a rutrum risus pretium a.
-## Policy
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mattis augue eu varius mollis. Phasellus in purus lectus. Integer et libero ut sapien tincidunt posuere.
-## Policy set
-Aenean rhoncus et lectus ut imperdiet. Vivamus ut malesuada orci. Suspendisse vulputate, sem in fermentum mollis, nibh neque sodales lorem, id sagittis mi urna ut velit.
+Abbreviation for JavaScript Object Notation (JSON). Used by Azure Policy to define policy objects
+## Machine configuration
+<!-- to be added -->
+## Manual attestation
+<!-- to be added -->
+## Mode
+Property on the policy definition that determines which resource types are evaluated for a policy definition. It is configured depending on whether the policy is targeting an Azure Resource Manager (ARM) property defined in an ARM template or Resource Provider (RP) property.
+## Non-compliant
+A compliance state that indicates that a resource did not conformed to the policy rule in the policy definition.
+## Policy rule
+The component of a policy definition that describes resource compliance requirements through logic-based conditional statements, as well as the effect taken if those conditions are not met. It is composed of _"_if_ and _then_ blocks.
+## Policy state
+Describes the aggregated compliance state of a policy assignment
+## Regulatory compliance
+<!-- to be added -->
 ## Remediation
-Nunc ex lorem, ultrices in nisl nec, maximus consequat dui. Nulla nunc ligula, lobortis in justo pharetra, ullamcorper scelerisque tellus. Integer risus sem, molestie rhoncus mi in, dignissim aliquam elit.
+A JSON-defined object that when triggered corrects violating resources. Remediation is only
+automatic for resource during create or update. Existing resource need to be remediated by
+triggering a remediation task.
+## Remediation task
+<!-- to be added -->
 ## Scope
-Curabitur porta, enim ac faucibus condimentum, felis tellus pellentesque nisi, sit amet dignissim nunc dui non justo. Nulla sed lectus bibendum, tincidunt massa nec, vulputate risus.
+the set of resources that an assignment applies to; for example: subscription, management group, or resource group
+## Template info
+How you define your constraint template in your policy definition
 
 ## Next steps
 
