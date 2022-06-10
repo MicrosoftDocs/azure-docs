@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 06/09/2022
 ---
 
 # Visually monitor Azure Data Factory
@@ -113,6 +113,13 @@ To rerun a pipeline that has previously ran from the start, hover over the speci
 If you wish to rerun starting at a specific point, you can do so from the activity runs view. Select the activity you wish to start from and select **Rerun from activity**. 
 
 :::image type="content" source="media/monitor-visually/rerun-activity.png" alt-text="Rerun an activity run":::
+
+You can also rerun a pipeline and change the parameters. Select the **New parameters** button to change the parameters.
+
+:::image type="content" source="media/monitor-visually/monitor-rerun-newparameters.png" alt-text="Rerun an activity run with new parameters":::
+
+> [!NOTE]
+> Rerunning a pipeline with new parameters will be considered a new pipeline run so will not show under the rerun groupings for a pipeline run.
 
 ### Rerun from failed activity
 
