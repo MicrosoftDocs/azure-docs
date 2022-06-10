@@ -27,7 +27,7 @@ When an application is published through Azure AD Application Proxy, traffic fro
 
 :::image type="content" source="./media/application-proxy-network-topology/application-proxy-three-hops.png" alt-text="Diagram showing traffic flow from user to target application." lightbox="./media/application-proxy-network-topology/application-proxy-three-hops.png":::
 
-## Optimize connector groups to use closest Application Proxy cloud service (Preview)
+## Optimize connector groups to use closest Application Proxy cloud service
 
 When you sign up for an Azure AD tenant, the region of your tenant is determined by the country/region you specify. When you enable Application Proxy, the **default** Application Proxy cloud service instances for your tenant are chosen in the same region as your Azure AD tenant, or the closest region to it.
 
