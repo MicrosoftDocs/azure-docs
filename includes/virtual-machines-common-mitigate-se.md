@@ -96,7 +96,7 @@ To validate enabled protections against these vulnerabilities, see [Understandin
 
 #### Option 2
 
-**Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM might choose to disable hyper-threading or move to a non-hyper-threaded VM size. Reference [this doc](acu.md) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if your VM has hyper-threading enabled, please refer to the below script using the Windows command line from within the VM.
+**Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM might choose to disable hyper-threading or move to a non-hyper-threaded VM size. Reference [this doc](../articles/virtual-machines/acu.md)for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if your VM has hyper-threading enabled, refer to the below script using the Windows command line from within the VM.
 
 Type `wmic` to enter the interactive interface. Then type the following command to view the amount of physical and logical processors on the VM.
 
@@ -104,7 +104,7 @@ Type `wmic` to enter the interactive interface. Then type the following command 
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-If the number of logical processors is greater than physical processors (cores), then hyper-threading is enabled. If you are running a hyper-threaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled. Once hyper-threading is disabled, support will require a full VM reboot. Please refer to [Core count](#core-count) to understand why your VM core count decreased.
+If the number of logical processors is greater than physical processors (cores), then hyper-threading is enabled. If you are running a hyper-threaded VM, [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled. Once hyper-threading is disabled, support will require a full VM reboot. Please refer to [Core count](#core-count) to understand why your VM core count decreased.
 
 
 ### Linux
@@ -134,7 +134,7 @@ NUMA node(s):          1
 
 ```
 
-If you are running a hyper-threaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled.  Once hyper-threading is disabled, **support will require a full VM reboot**. Please refer to [Core count](#core-count) to understand why your VM core count decreased.
+If you are running a hyper-threaded VM, [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled.  Once hyper-threading is disabled, **support will require a full VM reboot**. Please refer to [Core count](#core-count) to understand why your VM core count decreased.
 
 
 
