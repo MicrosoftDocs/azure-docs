@@ -227,7 +227,6 @@ The following classes and interfaces handle some of the major features of the Az
 | [CallCompositeBuilder](#create-call-composite)                        | Builder to build CallComposite with options.                                                 |
 | [CallCompositeJoinMeetingLocator](#group-call)                        | Passed in CallComposite launch to start group call.                                          |
 | [CallCompositeTeamsMeetingLinkLocator](#teams-meeting)                | Passed to CallComposite launch to join Teams meeting.                                        |
-| [ThemeConfiguration](#apply-theme-configuration)                      | Injected as optional in CallCompositeBuilder to change primary color and tint of composite.           |
 | [CallCompositeLocalizationOptions](#apply-localization-configuration) | Injected as optional in CallCompositeBuilder to set language of composite.       |
 
 ## UI Library functionality
