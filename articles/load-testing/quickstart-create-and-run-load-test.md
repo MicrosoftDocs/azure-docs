@@ -63,7 +63,7 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
 
 > [!NOTE]
 > Azure Load Testing auto-generates an Apache JMeter script for your load test.
-> You can download the JMeter script from the test run dashboard. Select **Download**, and then select **Input file**. To run the script, you have to provide environment variables to configure the URL and test parameters.```
+> You can download the JMeter script from the test run dashboard. Select **Download**, and then select **Input file**. To run the script locally, you have to provide environment variables to configure the URL and test parameters.
 
 ## View the test results
 
@@ -112,4 +112,4 @@ You now have an Azure Load Testing resource, which you used to load test an exte
 You can reuse this resource to learn how to identify performance bottlenecks in an Azure-hosted application by using server-side metrics.
 
 > [!div class="nextstepaction"]
-> [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
+> [Tutorial: Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
