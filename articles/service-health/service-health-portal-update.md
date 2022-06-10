@@ -1,13 +1,13 @@
 ---
 title: Azure Service Health portal update
-description: We are updating the Azure Service Health portal experience to let users engage with service events and manage actions to maintain the business continuity of impacted applications.
+description: We're' updating the Azure Service Health portal experience to let users engage with service events and manage actions to maintain the business continuity of impacted applications.
 ms.topic: overview
 ms.date: 06/10/2022
 ---
 
 # Azure Service Health portal update
 
-We are updating the Azure Service Health portal experience. The new experience lets users engage with service events and manage actions to maintain the business continuity of impacted applications.
+We're' updating the Azure Service Health portal experience. The new experience lets users engage with service events and manage actions to maintain the business continuity of impacted applications.
 
 ## Highlights of the new experience
 
@@ -28,8 +28,6 @@ The following user interfaces are updated to the new experience.
 ## Service issues window
 
 Groups of users will be automatically switched to the new Service Health experience over time. In the new experience, you can select \*\*Switch to Classic\*\* to switch back to the old experience.
-
-![Graphical user interface Description automatically generated](./media/image1.png)
 
 :::image type="content" source="media/service-health-portal-update/services-issue-window-1.png" alt-text="A screenshot of the services issue user interface highlighting the switch to classic button.":::
 
