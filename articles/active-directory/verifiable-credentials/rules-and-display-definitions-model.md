@@ -126,7 +126,7 @@ When you want the user to enter input themselves, also called self-attested inpu
 |`backgroundColor` | number (hex)| background color of the credential in hex format e.g. #FFAABB |
 |`textColor`| number (hex)| text color of the credential in hex format e.g. #FFAABB |
 |`description`| string | supplemental text displayed alongside each credential |
-|`logo`| [displayCredentialLogo](#displayCredentiallogo-type) | the logo to use for the credential |
+|`logo`| [displayCredentialLogo](#displaycredentiallogo-type) | the logo to use for the credential |
 
 ### displayCredentialLogo type
 
