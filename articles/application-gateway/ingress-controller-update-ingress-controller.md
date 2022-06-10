@@ -98,7 +98,7 @@ If the Helm deployment fails, you can roll back to a previous release.
 
     Based on the sample output of the **helm history** command, the last successful deployment of our **odd-billygoat** was revision **1**.
 
-1. Rollback to the last successful revision:
+1. Roll back to the last successful revision:
 
     ```bash
     helm rollback odd-billygoat 1
