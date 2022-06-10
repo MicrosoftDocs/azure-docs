@@ -20,7 +20,7 @@ ms.author: helohr
 In this article, you'll learn how to create an Azure Files share to store FSLogix profiles that can be accessed by hybrid user identities authenticated with Azure Active Directory (AD). Azure AD users can now access an Azure file share using Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from Hybrid Azure AD-joined and Azure AD-joined VMs.
 
 > [!IMPORTANT]
-> This feature is currently supported in the Azure Public, Azure Government and Azure China clouds.
+> This feature is currently supported in the Azure Public, Azure Government, and Azure China clouds.
 
 ## Configure your Azure storage account and file share
 
@@ -35,14 +35,14 @@ To store your FSLogix profiles on an Azure Files share:
 
 3. [Enable Azure Active Directory Kerberos authentication on Azure Files](../storage/files/storage-files-identity-auth-azure-active-directory-enable.md) to enable access from Azure AD-joined VMs.
 
-  - When configuring the directory and file level permissions, review the recommended list of permissions for FSLogix profiles at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht)
+  - When configuring the directory and file level permissions, review the recommended list of permissions for FSLogix profiles at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht).
   - Without proper directory level permissions in place, a user can delete the user profile or access the personal information of a different user. It's important to make sure users have proper permissions to prevent accidental deletion from happening.
 
 ## Configure the session hosts
 
 To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you must configure the session hosts. To configure session hosts:
 
-1. Enable the Azure AD Kerberos functionality using one of the methods below. Once configured, restart the system for the changes to take effect.
+1. Enable the Azure AD Kerberos functionality using one of the following methods.
 
     - Policy CSP: [Kerberos/CloudKerberosTicketRetrievalEnabled](../../windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled.md)
     - Group policy: `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
