@@ -13,7 +13,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/06/2022
+ms.date: 06/10/2022
 ms.author: markvi
 ms.reviewer: davey  
 
@@ -60,4 +60,4 @@ Service Health events allow the addition of alerts and notifications to be appli
 
 ## Next steps
 
-- [Service Health overview](service-health-overview.md)
+- [Service Health overview](../../service-health/service-health-overview.md)
