@@ -45,7 +45,7 @@ This flow uses the IDTokenHint which is provided as payload throught the Request
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-| `mapping` | [claimMapping](#claimMapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
+| `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
 | `required` | boolean (default false) | indicating whether this attestation is required or not |
 | `trustedIssuers` | optional string (array) | a list of DIDs allowed to issue the verifiable credential for this contract, this is only used for specific scenarios where the idtoken hint can come from another issuer |
 
@@ -118,7 +118,7 @@ When you want the user to enter input themselves, also called self-attested inpu
 |`consent` | [displayConsent](#displayconsent-type) | supplemental data when the verifiable credential is issued |
 |`claims`| [displayClaims](#displayclaims-type) array | labels for the claims included in the verifiable credential |
 
-### displayCrendential type
+### displayCredential type
 | Property | Type | Description |
 | -------- | -------- | -------- |
 |`title`| string | title of the credential |
