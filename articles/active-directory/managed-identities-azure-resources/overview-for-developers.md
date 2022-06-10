@@ -37,7 +37,7 @@ There are two types of managed identity: system-assigned and user-assigned. Syst
 
 This article will explain how to create and configure a user-assigned masnaged identity which is [recommended for most scenarios](managed-identity-best-practice-recommendations.md). If the source resource you're using doesn't support user-assigned managed identities then you can refer to that resource provider's documentation to learn how to configure it to have a system-assigned managed identity.
 
-## Creating a user-assigned managed identity
+### Creating a user-assigned managed identity
 
 > [!NOTE]
 > You'll need a role such as "Managed Identity Contributor" to create a new user-assigned managed identity.
@@ -104,32 +104,6 @@ Follow these steps to configure your Azure resource to have a managed identity t
 
 Your source resource now has a user-assigned identity that it can use to connect to target resources.
 
-### Configuring your resource to use a system-assigned managed identity
-
-Some resources may only support system-assigned identities, or you may prefer to have a managed identity that's directly associated with just one resource. Follow these instructions to configure your resource to have a system-assigned identity.
-
-1. Locate the resource using the search bar at the top of the Portal
-
-:::image type="content" source="media/overview-for-developers/locate-resource.png" alt-text="Locate the Azure resource":::
-
-2. Select the Identity link in the navigation
-
-:::image type="content" source="media/overview-for-developers/App-Service-Summary.png" alt-text="Identity link in Resource screen.":::
-
-3. Select the "Status" option so that "On" is selected
-
-:::image type="content" source="media/overview-for-developers/system-assigned-select.png" alt-text="Set status to 'On'.":::
-
-4. Select the "Save" button. A confirmation message will appear. Select "Yes".
-
-:::image type="content" source="media/overview-for-developers/system-assigned-confirm.png" alt-text="Confirmation message for system-assigned identity'.":::
-
-5. The page will automatically update, and the client (principal) ID of the identity will be displayed. 
-
-:::image type="content" source="media/overview-for-developers/system-assigned-created.png" alt-text="System-assigned identity is created.":::
-
-Your source resource now has a system-assigned identity that it can use to connect to target resources.
-
 ## Adding permissions to the identity
 
 > [!NOTE]
@@ -137,7 +111,7 @@ Your source resource now has a system-assigned identity that it can use to conne
 
 Now your App Service has a managed identity, you'll need to give the identity the correct permissions. As you're using this identity to interact with Azure Storage, you'll use the [Azure RBAC (Role Based Access Control) system](../../role-based-access-control/overview.md).
 
-#### [Portal](#tab/portal)
+### [Portal](#tab/portal)
 
 1. Locate the resource you want to connect to using the search bar at the top of the Portal
 2. Select the "Access Control (IAM)" link in the left hand navigation.
@@ -169,7 +143,7 @@ Now your App Service has a managed identity, you'll need to give the identity th
 
 :::image type="content" source="media/overview-for-developers/resource-role-assignment-added.png" alt-text="Role assignment added":::
 
-#### [Azure CLI](#tab/cli)
+### [Azure CLI](#tab/cli)
 ```azurecli
 az role assignment create --assignee "<Object/Principal ID of the managed identity>" \
 --role "<Role name or Role ID>" \
