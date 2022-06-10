@@ -15,11 +15,11 @@ Hyper-converged infrastructure (HCI) uses locally attached storage resources to 
 ## How can I create a vm on a node?
 
 After a customer provisions a cluster of Nutanix Ready Nodes, they can spin up a VM through the Nutanix Prism Portal.
-This operation should exactly the same as on-premises in the prism portal.
+This operation should be exactly the same as on-premises in the prism portal.
 
-## Is this a third party or first party offering?
+## Is NC2 on Azure a third party or first party offering?
 
-Nutanix on Azure is a 3rd-party offering on Azure Marketplace. 
+NC2 on Azure is a 3rd-party offering on Azure Marketplace. 
 However, we're working hand in hand with Nutanix to offer the best product experience
 
 ## How will I get billed?
@@ -32,19 +32,22 @@ Data locality
 Shadow Clones (which lead to faster boot time)
 Cluster level microservices that lead to world-class performance
 
-## Will this solution integrate with the rest of the azure cloud?
+## Will this solution integrate with the rest of the Azure cloud?
 
-Yes! You can use the products and services in azure that you already have and love.
+Yes! You can use the products and services in Azure that you already have and love.
 
 ## Who supports NC2 on Azure?
 
-Microsoft delivers support for BareMetal infrastructure of NC2 on Azure. You can submit a support request. For Cloud Solution Provider (CSP) managed subscriptions, the first level of support provides the Solution Provider in the same fashion as CSP does for other Azure services.
+Microsoft delivers support for BareMetal infrastructure of NC2 on Azure. 
+You can submit a support request. For Cloud Solution Provider (CSP) managed subscriptions, the first level of support provides the Solution Provider in the same fashion as CSP does for other Azure services.
 
-Nutanix delivers support for Nutanix software of NC2 on Azure. Nutanix offers a support tier called Production Support for NC2. See Product Support Programs under Cloud Services Support for more information about Production Support tier and SLAs.
+Nutanix delivers support for Nutanix software of NC2 on Azure.
+Nutanix offers a support tier called Production Support for NC2. 
+For more information about Production Support tiers and SLAs, see Product Support Programs under Cloud Services Support.
 
 ## Can I use my existing VPN or ER gateway for the DR scenario?
 
-Technically, yes. Please raise a support ticket from Azure portal to get this functionality enabled.
+Technically, yes. Raise a support ticket from Azure portal to get this functionality enabled.
 
 
 

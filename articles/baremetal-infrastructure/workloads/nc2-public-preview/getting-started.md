@@ -10,11 +10,11 @@ ms.date: 07/01/2021
 
 ## Signing up for the Public Preview
 
-Once you have satisfied the [requirements](requirements.md), go to (insert signup link) to get started.
+Once you've satisfied the [requirements](requirements.md), go to (insert signup link) to get started.
 
 ## Setup
 
-To setup NC2 on Azure, go to (insert Nutanix setup link).
+To set up NC2 on Azure, go to (insert Nutanix setup link).
 
 ## Using NC2 on Azure
 
