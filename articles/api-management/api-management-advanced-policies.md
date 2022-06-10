@@ -563,7 +563,7 @@ The `retry` policy executes its child policies once and then retries their execu
 
 ### Example
 
-In the following example, request forwarding is retried up to ten times using an exponential retry algorithm. Since `first-fast-retry` is set to false, all retry attempts are subject to exponentially increasing retry wait times (in this example, 10 seconds, 20 seconds, 40 seconds, ...), up to a maximum wait of `max-interval`.
+In the following example, request forwarding is retried up to ten times using an exponential retry algorithm. Since `first-fast-retry` is set to false, all retry attempts are subject to exponentially increasing retry wait times (in this example, approximately 10 seconds, 20 seconds, 40 seconds, ...), up to a maximum wait of `max-interval`.
 
 ```xml
 
