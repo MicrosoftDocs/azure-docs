@@ -44,7 +44,9 @@ The following three examples show how to replace the old fields with the new one
 
 We don't have to infer source and destination cases from the `FlowDirection_s` field for AzurePublic and ExternalPublic flows. It can also be inappropriate to use the `FlowDirection_s` field for a network virtual appliance.
 
-```Old Kusto query
+Previous Kusto query:
+
+```kusto
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FASchemaVersion_s == "1"
 | extend isAzureOrExternalPublicFlows = FlowType_s in ("AzurePublic", "ExternalPublic")
@@ -64,8 +66,9 @@ SourcePublicIPsAggregated = iif(isAzureOrExternalPublicFlows and FlowDirection_s
 DestPublicIPsAggregated = iif(isAzureOrExternalPublicFlows and FlowDirection_s == 'O', PublicIPs_s, "N/A")
 ```
 
+New Kusto query:
 
-```New Kusto query
+```kusto
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FASchemaVersion_s == "2"
 | extend SourceAzureVM = iif(isnotempty(VM1_s), VM1_s, "N/A"),
@@ -88,11 +91,15 @@ DestPublicIPsAggregated = iif(isnotempty(DestPublicIPs_s), DestPublicIPs_s, "N/A
 
 The old field used the following format:
 
-`<Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>`
+```kusto
+<Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
+```
 
-We no longer aggregate data across a network security group (NSG). In the updated schema, `NSGList_s` contains only one NSG. Also `NSGRules` contains only one rule. We removed the complicated formatting here and in other fields as shown in the example.
+We no longer aggregate data across a network security group (NSG). In the updated schema, `NSGList_s` contains only one NSG. Also, `NSGRules` contains only one rule. We removed the complicated formatting here and in other fields as shown in the following example.
 
-```Old Kusto query
+Previous Kusto query:
+
+```kusto
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FASchemaVersion_s == "1"
 | extend NSGRuleComponents = split(NSGRules_s, "|")
@@ -104,7 +111,9 @@ AzureNetworkAnalytics_CL
 | project NSGName, NSGRuleName, FlowDirection, FlowStatus, FlowCountProcessedByRule
 ```
 
-```New Kusto query
+New Kusto query:
+
+```kusto
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FASchemaVersion_s == "2"
 | extend NSGRuleComponents = split(NSGRules_s, "|")
@@ -117,7 +126,7 @@ FlowCountProcessedByRule = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_
 
 ## Example 3: FlowCount_d field
 
-Because we don't club data across the NSG, the `FlowCount_d`** is simply:
+Because we don't club data across the NSG, the `FlowCount_d` is simply:
 
 `AllowedInFlows_d` + `DeniedInFlows_d` + `AllowedOutFlows_d` + `DeniedOutFlows_d`
 
@@ -125,10 +134,10 @@ Only one of the four fields is nonzero. The other three fields are zero. The fie
 
 To illustrate these conditions:
 
-- If the flow was allowed, one of the "Allowed" prefixed fields is populated.
-- If the flow was denied, one of the "Denied" prefixed fields is populated.
-- If the flow was inbound, one of the "InFlows_d" suffixed fields is populated.
-- If the flow was outbound, one of the "OutFlows_d" suffixed fields is populated.
+- If the flow was allowed, one of the `Allowed` prefixed fields is populated.
+- If the flow was denied, one of the `Denied` prefixed fields is populated.
+- If the flow was inbound, one of the `InFlows_d` suffixed fields is populated.
+- If the flow was outbound, one of the `OutFlows_d` suffixed fields is populated.
 
 Depending on the conditions, we know which one of the four fields is populated.
 
@@ -136,4 +145,3 @@ Depending on the conditions, we know which one of the four fields is populated.
 
 - To get answers to frequently asked questions, see [Traffic Analytics FAQ](traffic-analytics-faq.yml).
 - To see details about functionality, see [Traffic Analytics documentation](traffic-analytics.md).
-- 
