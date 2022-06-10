@@ -51,47 +51,63 @@ To use the Azure Key Vault VM extension, you need to have an Azure Active Direct
     - If you are using RBAC preview, search for the name of the AAD app you created and assign it to the Key Vault Secrets User (preview) role.
     - If you are using vault access policies, then assign **Secret-Get** permissions to the AAD app you created. For more information, see [Assign access policies](../key-vault/general/assign-access-policy-portal.md)
 
-7. Install first version of the certificates created in the first step and the Key Vault VM extension using the ARM template as shown below:
+7. Install first version of the certificates created in the first step and the Key Vault VM extension using the ARM template snippet for `cloudService` resource as shown below:
 
-    ```json
-        {
-       "osProfile":{
-          "secrets":[
-             {
-                "sourceVault":{
-                   "id":"[parameters('sourceVaultValue')]"
+```json
+{
+    "osProfile":
+    {
+        "secrets":
+        [
+            {
+                "sourceVault":
+                {
+                    "id": "[parameters('sourceVaultValue')]"
                 },
-                "vaultCertificates":[
-                   {
-                      "certificateUrl":"[parameters('bootstrpCertificateUrlValue')]"
-                   }
+                "vaultCertificates":
+                [
+                    {
+                        "certificateUrl": "[parameters('bootstrpCertificateUrlValue')]"
+                    }
                 ]
-             }
-          ]
-       }{
-          "name":"KVVMExtensionForPaaS",
-          "properties":{
-             "type":"KeyVaultForPaaS",
-             "autoUpgradeMinorVersion":true,
-             "typeHandlerVersion":"1.0",
-             "publisher":"Microsoft.Azure.KeyVault",
-             "settings":{
-                "secretsManagementSettings":{
-                   "pollingIntervalInS":"3600",
-                   "certificateStoreName":"My",
-                   "certificateStoreLocation":"LocalMachine",
-                   "linkOnRenewal":false,
-                   "requireInitialSync":false, 
-                   "observedCertificates":"[parameters('keyVaultObservedCertificates']"
-                },
-                "authenticationSettings":{
-                   "clientId":"Your AAD app ID",
-                   "clientCertificateSubjectName":"Your boot strap certificate subject name [Do not include the 'CN=' in the subject name]"
+            }
+        ]
+    },
+    "extensionProfile":
+    {
+        "extensions":
+        [
+            {
+                "name": "KVVMExtensionForPaaS",
+                "properties":
+                {
+                    "type": "KeyVaultForPaaS",
+                    "autoUpgradeMinorVersion": true,
+                    "typeHandlerVersion": "1.0",
+                    "publisher": "Microsoft.Azure.KeyVault",
+                    "settings":
+                    {
+                        "secretsManagementSettings":
+                        {
+                            "pollingIntervalInS": "3600",
+                            "certificateStoreName": "My",
+                            "certificateStoreLocation": "LocalMachine",
+                            "linkOnRenewal": false,
+                            "requireInitialSync": false,
+                            "observedCertificates": "[parameters('keyVaultObservedCertificates']"
+                        },
+                        "authenticationSettings":
+                        {
+                            "clientId": "Your AAD app ID",
+                            "clientCertificateSubjectName": "Your boot strap certificate subject name [Do not include the 'CN=' in the subject name]"
+                        }
+                    }
                 }
-             }
-          }
-       }
-    ```
+            }
+        ]
+    }
+}
+```
     You might need to specify the certificate store for boot strap certificate in ServiceDefinition.csdef like below:
     
     ```xml
