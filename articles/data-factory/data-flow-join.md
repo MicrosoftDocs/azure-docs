@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 06/09/2022
 ---
 
 # Join transformation in mapping data flow
@@ -53,6 +53,16 @@ If you would like to explicitly produce a full cartesian product, use the Derive
 
 > [!NOTE]
 > Make sure to include at least one column from each side of your left and right relationship in a custom cross join. Executing cross joins with static values instead of columns from each side results in full scans of the entire dataset, causing your data flow to perform poorly.
+
+## Fuzzy join
+
+You can choose to join based on fuzzy join logic instead of exact column value matching by turning on the "Use fuzzy matching" checkbox option.
+
+* Combine text parts: Use this option to find matches by remove space between words. For example, Data Factory is matched with DataFactory if this option is enabled.
+* Similarity score column: You can optionally choose to store the matching score for each row in a column by entering a new column name here to store that value.
+* Similarity threshold: Choose a value between 60 and 100 as a percentage match between values in the columns you've selected.
+
+:::image type="content" source="media/data-flow/fuzzy1.png" alt-text="Fuzzy join":::
 
 ## Configuration
 
