@@ -141,6 +141,7 @@ spec:
     - so
     singular: scaledobject
   scope: Namespaced
+  # Redacted for simplicity
   ```
 
 While KEDA provides various customization options, the KEDA add-on currently provides basic common configuration.

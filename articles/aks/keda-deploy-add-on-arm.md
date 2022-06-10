@@ -57,13 +57,13 @@ The KEDA add-on can be enabled by deploying an AKS cluster with an Azure Resourc
 
 To connect to the Kubernetes cluster from your local computer, you use [kubectl][kubectl], the Kubernetes command-line client.
 
-If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [Az PowerShell module aks install-cli][az aks install-cli] command:
+If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [az aks install-cli][] command:
 
 ```azurecli
 az aks install-cli
 ```
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [Az PowerShell module aks get-credentials][az aks get-credentials] command. The following example gets credentials for the AKS cluster named *MyAKSCluster* in the *MyResourceGroup*:
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][] command. The following example gets credentials for the AKS cluster named *MyAKSCluster* in the *MyResourceGroup*:
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
