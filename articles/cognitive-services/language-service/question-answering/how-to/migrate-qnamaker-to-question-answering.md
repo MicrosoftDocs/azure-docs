@@ -1,6 +1,6 @@
 ---
 title: Migrate from QnA Maker to Question Answering
-description: Moving a QnA Maker project to Question Answering requires exporting a project from one resource, and then importing into another.
+description: Details on features, requirements, and examples for migrating from QnA Maker to Question Answering
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
@@ -58,9 +58,9 @@ When you are looking at migrating to Question Answering, please consider the fol
 
 - “Text Records” in Question Answering features refer to the query submitted by the user to the runtime, and it is a concept common to all features within Language Service
 
-Here you can find the pricing details for [Question Answering](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/language-service/) and [QnA Maker](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
+Here you can find the pricing details for [Question Answering](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) and [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 
-The [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) can provide even more detail.
+The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) can provide even more detail.
 
 ## Simplified Provisioning and Development Experience
 
@@ -71,7 +71,7 @@ With the Language service, QnA Maker customers now benefit from a single service
 - A unified set of APIs across all the capabilities
 - A cohesive, simpler, and powerful product
 
-https://docs.microsoft.com/en-us/azure/cognitive-services/language-service/language-studio
+Lean how to get started in [Language Studio](https://docs.microsoft.com/azure/cognitive-services/language-service/language-studio)
 
 ## Migration Phases
 
@@ -79,12 +79,12 @@ If you or your organization have applications in development or production that 
 
 Following are the broad migration phases to consider:
 
-[image]
+![A chart showing the phases of a successful migration](../media/migrate-qnamaker-to-question-answering/migration-phases.png)
 
 Additional links which can help you are given below:
 - [Authoring portal](https://language.cognitive.azure.com/home)
-- [API](https://docs.microsoft.com/en-us/azure/cognitive-services/language-service/question-answering/how-to/authoring)
-- [SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet)
+- [API](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/authoring)
+- [SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet)
 - Bot SDK: For bots to use custom question answering, use the [Bot.Builder.AI.QnA](https://www.nuget.org/packages/Microsoft.Bot.Builder.AI.QnA/) SDK – We recommend customers to continue to use this for their Bot integrations. Here are some sample usages of the same in the bot’s code: [Sample 1](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/48.customQABot-all-features) [Sample 2](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/12.customQABot)
 
 ## Common migration scenarios
@@ -92,16 +92,16 @@ Additional links which can help you are given below:
 This topic compares two hypothetical scenarios when migrating from QnA Maker to Question Answering. These scenarios can help you to determine the right set of migration steps to execute for the given scenario.
 
 > [!NOTE]
-> An attempt has been made to ensure these scenarios are representative of real customer migrations, however, individual customer scenarios will of course differ. Also, this article doesn't include pricing details. Click here for [pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/language-service/)
+> An attempt has been made to ensure these scenarios are representative of real customer migrations, however, individual customer scenarios will of course differ. Also, this article doesn't include pricing details. Click here for [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/)
 
 > [!IMPORTANT] 
-> Each question answering project is equivalent to a knowledge base in QnA Maker. Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. These resource level settings would have to be reconfigured for the language resource post migration. You will also need to [re-enable analytics](https://docs.microsoft.com/en-us/azure/cognitive-services/language-service/question-answering/how-to/analytics) for the language resource.
+> Each question answering project is equivalent to a knowledge base in QnA Maker. Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. These resource level settings would have to be reconfigured for the language resource post migration. You will also need to [re-enable analytics](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/analytics) for the language resource.
 
 ### Migration scenario 1: No custom authoring portal
 
 In the first migration scenario, the customer uses qnamaker.ai as the authoring portal and they want to migrate their QnA Maker knowledge bases to Custom Question Answering.
 
-[Migrate your project from QnA Maker to Question Answering](https://docs.microsoft.com/en-us/azure/cognitive-services/language-service/question-answering/how-to/migrate-qnamaker)
+[Migrate your project from QnA Maker to Question Answering](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/migrate-qnamaker)
 
 Once migrated to Question Answering:
 
@@ -117,7 +117,7 @@ Once migrated to Question Answering:
 
 Old QnA Maker resources need to be manually deleted
 
-Here are some [detailed steps](https://docs.microsoft.com/en-us/azure/cognitive-services/language-service/question-answering/how-to/migrate-qnamaker) on migration scenario 1
+Here are some [detailed steps](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/how-to/migrate-qnamaker) on migration scenario 1
 
 ### Migration scenario 2
 
@@ -147,10 +147,12 @@ Here you can find some code samples: [Sample 1](https://github.com/microsoft/Bot
 
 Here are [detailed steps on migration scenario 2](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/MigrationGuide.md)
 
-Learn more about the [pre-built API](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/using-prebuilt-api)
+Learn more about the [pre-built API](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/using-prebuilt-api)
 
-Learn more about the [Question Answering Get Answers REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/questionanswering/question-answering/get-answers)
+Learn more about the [Question Answering Get Answers REST API](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers)
 
 ## Migration steps
 
 Please note that some of these steps are needed depending on the customers existing architecture. Kindly look at migration phases given above for getting more clarity on which steps are needed by you for migration.
+
+![A chart showing the steps of a successful migration](../media/migrate-qnamaker-to-question-answering/migration-steps.png)
