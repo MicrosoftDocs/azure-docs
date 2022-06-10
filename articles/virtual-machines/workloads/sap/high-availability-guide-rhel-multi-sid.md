@@ -298,7 +298,7 @@ This article assumes that:
    Next, make sure that the resources of the newly created ERS group are running on the cluster node, opposite to the cluster node where the ASCS instance for the same SAP system was installed. For example, if NW2 ASCS was installed on `rhelmsscl1`, then make sure the NW2 ERS group is running on `rhelmsscl2`. You can migrate the  NW2 ERS group to `rhelmsscl2` by running the following command for one of the cluster resources in the group:
 
     ```cmd
-      pcs resource move fs_NW2_AERS rhelmsscl2
+    pcs resource move fs_NW2_AERS rhelmsscl2
     ```
 
 4. **[2]** Install SAP NetWeaver ERS
@@ -321,8 +321,8 @@ This article assumes that:
    If it was necessary for you to migrate the ERS group of the newly deployed SAP system to a different cluster node, don't forget to remove the location constraint for the ERS group. You can remove the constraint by running the following command. This example is given for SAP systems `NW2` and `NW3`. Make sure to remove the temporary constraints for the same resource you used in the command to move the ERS cluster group.
 
     ```cmd
-      pcs resource clear fs_NW2_AERS
-      pcs resource clear fs_NW3_AERS
+    pcs resource clear fs_NW2_AERS
+    pcs resource clear fs_NW3_AERS
     ```
 
 5. **[1]** Adapt the ASCS/SCS and ERS instance profiles for the newly installed SAP systems. The example shown below is for NW2. You need to adapt the ASCS/SCS and ERS profiles for all SAP instances added to the cluster.  
@@ -419,7 +419,7 @@ This article assumes that:
    sudo pcs property set maintenance-mode=false
    ```
 
-   SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
+   SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Beginning with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
    If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), define the resources for SAP systems `NW2` and `NW3` as follows:
 
    ```cmd
