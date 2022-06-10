@@ -91,7 +91,7 @@ To install JetStream DR in the on-premises data center and in the Azure VMware S
 
 Recovering from ransomware can be a daunting task. Specifically, it can be hard for IT organizations to pinpoint what the “safe point of return is,”. After that safe point is determined, how to ensure that recovered workloads are safeguarded from the attacks re-occurring by sleeping malware or through vulnerable applications. 
 
-JetStream DR for Azure VMware Solution together with Azure NetApp Files datastores can address these concerns by allowing organizations to recover from an available point-in-time; ensuring workloads are recovered to a functional and isolated network if required, allowing the applications to function and communicate with each other without exposing them to any North-South traffic, giving security teams a safe place to perform forensics, and so on. 
+JetStream DR for Azure VMware Solution together with Azure NetApp Files datastores can address these concerns by allowing organizations to recover from an available point-in-time. It ensures that workloads are recovered to a functional and isolated network if required, allows the applications to function and communicate with each other without exposing them to any North-South traffic. It also gives security teams a safe place to perform forensics, and conduct other recovery measures. 
 
 For full details, refer to the article: [Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/). 
 
@@ -119,7 +119,7 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
 
 - A DNS server configured to resolve the IP addresses of Azure VMware Solution vCenter Server, Azure VMware Solution ESXi hosts, Azure Storage account, and the JetStream Marketplace service for the JetStream virtual appliances. 
 
-- (Optional) Azure NetApp Files volume(s) created and attached to the Azure VMware Solution private cloud for recovery or failover of protected VMs to Azure NetApp Files backed datastores.  
+- (Optional) Azure NetApp Files volume(s) are created and attached to the Azure VMware Solution private cloud for recovery or failover of protected VMs to Azure NetApp Files backed datastores.  
 
   - [Integrate Azure NetApp Files with Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/netapp-files-with-azure-vmware-solution)
   - [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/)  
@@ -140,7 +140,7 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
 - An NSX-T network segment configured on Azure VMware Solution private cloud with DHCP enabled on the segment for the transient JetStream Virtual appliances employed during recovery or failover.   
 
 - A DNS server configured on both the primary and DR sites to resolve the IP addresses of Azure VMware Solution vCenter Server, Azure VMware Solution ESXi hosts, Azure Storage account, and the JetStream Marketplace service for the JetStream virtual appliances.
-- (Optional) Azure NetApp Files volume(s) created and attached to the Azure VMware Solution private cloud for recovery or failover of protected VMs to Azure NetApp Files backed datastores.
+- (Optional) Azure NetApp Files volume(s) are created and attached to the Azure VMware Solution private cloud for recovery or failover of protected VMs to Azure NetApp Files backed datastores.
   - [Integrate Azure NetApp Files with Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/netapp-files-with-azure-vmware-solution) 
   - [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://docs.microsoft.com/azure/azure-vmware/netapp-files-with-azure-vmware-solution)   
 
