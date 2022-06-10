@@ -17,7 +17,11 @@ Learn how to use an Apache JMeter script to load test a web application with Azu
 
 Azure Load Testing enables you to take an existing Apache JMeter script, and use it to run a load test at cloud scale. Alternatively, you can also [create a URL-based load test in the Azure portal](./quickstart-create-and-run-load-test.md).
 
-Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
+Use cases for creating a load test with an existing JMeter script include:
+
+- You want to reuse existing JMeter scripts to test your application.
+- You want to test multiple endpoints in a single load test.
+- You have a data-driven load test. For example, you want to [read CSV data in a load test](./how-to-read-csv-data.md).
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -107,9 +111,12 @@ If you don't have an existing Apache JMeter script, you'll create a sample scrip
 
 ## Create a load test
 
-You'll now create a load test in your Azure Load Testing resource for your JMeter script. The script defines the [test plan](./how-to-create-manage-test.md#test-plan) for the load test.
+To create a load test in Azure Load Testing, you have to specify a JMeter script. This script defines the [test plan](./how-to-create-manage-test.md#test-plan) for the load test. You can create multiple load tests in an Azure Load Testing resource.
 
-To create a load test in the Azure portal:
+> [!NOTE]
+> When you [create a quick test by using a URL](./quickstart-create-and-run-load-test.md), Azure Load Testing automatically generates the JMeter script.
+
+To create a load test using an existing JMeter script in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
 
