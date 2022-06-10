@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/11/2022
+ms.date: 06/06/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -16,6 +16,9 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Example request
 
@@ -94,6 +97,9 @@ curl -X GET    https://your-text-analytics-endpoint-here/text/analytics/v3.2-pre
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-key-here"
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Document-summarization" target="_target">I ran into an issue</a>
 
 
 ### JSON response
@@ -268,15 +274,19 @@ curl -X GET    https://your-language-endpoint-here/language/analyze-conversation
 -H "Ocp-Apim-Subscription-Key: your-key-here"
 ```
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Conversation-summarization" target="_target">I ran into an issue</a>
+
+
 
 ### JSON response
 
 ```json
 {
-    "jobId": "28261846-59bc-435a-a73a-f47c2feb245e",
-    "lastUpdatedDateTime": "2022-05-11T23:16:48Z",
-    "createdDateTime": "2022-05-11T23:16:44Z",
-    "expirationDateTime": "2022-05-12T23:16:44Z",
+    "jobId": "738120e1-7987-4d19-af0c-89d277762a2f",
+    "lastUpdatedDateTime": "2022-05-31T16:52:59Z",
+    "createdDateTime": "2022-05-31T16:52:51Z",
+    "expirationDateTime": "2022-06-01T16:52:51Z",
     "status": "succeeded",
     "errors": [],
     "displayName": "Analyze conversations from 123",
@@ -289,7 +299,7 @@ curl -X GET    https://your-language-endpoint-here/language/analyze-conversation
             {
                 "kind": "conversationalSummarizationResults",
                 "taskName": "analyze 1",
-                "lastUpdateDateTime": "2022-05-11T23:16:48.9553011Z",
+                "lastUpdateDateTime": "2022-05-31T16:52:59.85913Z",
                 "status": "succeeded",
                 "results": {
                     "conversations": [
@@ -298,11 +308,11 @@ curl -X GET    https://your-language-endpoint-here/language/analyze-conversation
                             "summaries": [
                                 {
                                     "aspect": "issue",
-                                    "text": "Customer wanted to set up wifi connection for Smart Brew 300 coffee machine, but it didn't work"
+                                    "text": "Customer tried to set up wifi connection for Smart Brew 300 machine, but it didn't work"
                                 },
                                 {
                                     "aspect": "resolution",
-                                    "text": "Asked customer if the power light is slowly blinking | Checked the Contoso coffee app. It had no prompt"
+                                    "text": "Asked customer to try the following steps | Asked customer for the power light | Checked if the app is prompting to connect to the machine | Transferred the call to a tech support"
                                 }
                             ],
                             "warnings": []

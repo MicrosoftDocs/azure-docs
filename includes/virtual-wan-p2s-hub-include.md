@@ -1,12 +1,14 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 05/20/2022
+ms.date: 05/25/2022
 ms.service: virtual-wan
 ms.topic: include
 ---
 
-1. On the page for your **virtual WAN**, on the left pane, select **Hubs**. On the **Hubs** page, select **+New Hub**.
+1. Go to the virtual WAN that you created. On the virtual WAN page left pane, under the **Connectivity**, select **Hubs**.
+
+1. On the **Hubs** page, select **+New Hub** to open the **Create virtual hub** page.
 
    :::image type="content" source="media/virtual-wan-p2s-hub/new-hub.png" alt-text="Screenshot of new hub.":::
 
@@ -16,10 +18,12 @@ ms.topic: include
 
 1. On the **Basics** tab, configure the following settings:
 
-   * **Region**: Select the region in which you want to deploy the virtual hub.
+   * **Region**: This setting was previously referred to as location. It's the region in which you want to create your virtual hub.
    * **Name**: The name by which you want the virtual hub to be known.
-   * **Hub private address space**: The hub's address range in CIDR notation.
+   * **Hub private address space**: The hub's address range in CIDR notation. The minimum address space is /24 to create a hub.
    * **Virtual hub capacity**: Select from the dropdown. For more information, see [Virtual hub settings](../articles/virtual-wan/hub-settings.md).
+   * **Hub routing preference**: This field is only available as part of the virtual hub routing preference preview and can only be viewed in the [preview portal](https://portal.azure.com/?feature.customRouterAsn=true&feature.virtualWanRoutingPreference=true#home). See [Virtual hub routing preference](../articles/virtual-wan/about-virtual-hub-routing-preference.md) for more information.
+   * **Router ASN**: Set the Autonomous System Number for the virtual hub router. You can use any ASN number except numbers that are reserved by [Azure or IANA](../articles/vpn-gateway/vpn-gateway-bgp-overview.md#what-asns-autonomous-system-numbers-can-i-use).
 
 1. Click the **Point to site** tab to open the configuration page for point-to-site. To view the point to site settings, click **Yes**.
 
@@ -40,7 +44,7 @@ ms.topic: include
 
       After you create the User VPN gateway, go to gateway and note the RADIUS proxy IPs field. The RADIUS proxy IPs are the source IPs of the RADIUS packets the User VPN gateway sends to your RADIUS server. Therefore, your RADIUS server needs to be configured to accept authentication requests from the RADIUS proxy IPs. If the RADIUS proxy IPs field is blank or none, configure the RADIUS server to accept authentication requests from the hub's address space.  
 
-      :::image type="content" source="media/virtual-wan-p2s-hub/radius-proxy-ips.png" alt-text="Screenshot of User V P N Config with RADIUS Proxy I P's." lightbox="media/virtual-wan-p2s-hub/radius-proxy-ips.png":::
+      :::image type="content" source="media/virtual-wan-p2s-hub/radius-proxy-ips.png" alt-text="Screenshot of User V P N Config with RADIUS Proxy I Ps." lightbox="media/virtual-wan-p2s-hub/radius-proxy-ips.png":::
 
    * **Client address pool** -  The address pool from which IP addresses will be automatically assigned to VPN clients. For more information, see [About client address pools](../articles/virtual-wan/about-client-address-pools.md).
    * **Custom DNS Servers** - The IP address of the DNS server(s) the clients will use. You can specify up to 5.
