@@ -1134,7 +1134,7 @@ The **request path** match condition identifies requests that include the specif
 
 | Property | Supported values |
 |-|-|
-| Operator | <ul><li>Any operator from the [standard operator list](#operator-list).</li><li>**Wildcard**: Matches when the request path matches a wildcard, which can include the `*` character to match zero or more characters within the path. For example, a wildcard expression of `files/customer*/file.pdf` matches `files/customer1/file.pdf`, `files/customer109/file.pdf`, and `files/customer/file.pdf`, but does not match `files/customer2/anotherfile.pdf`.<ul><li>In the Azure portal: `Wildcards`, `Not Wildcards`</li><li>In ARM templates: `Wildcard`; use the `negateCondition` property to specify _Not Wildcards_</li></ul></li></ul> |
+| Operator | <ul><li>Any operator from the [standard operator list](#operator-list).</li><li>**Wildcard**: Matches when the request path matches a wildcard expression. A wildcard expression can include the `*` character to match zero or more characters within the path. For example, a wildcard expression of `files/customer*/file.pdf` matches `files/customer1/file.pdf`, `files/customer109/file.pdf`, and `files/customer/file.pdf`, but does not match `files/customer2/anotherfile.pdf`.<ul><li>In the Azure portal: `Wildcards`, `Not Wildcards`</li><li>In ARM templates: `Wildcard`; use the `negateCondition` property to specify _Not Wildcards_</li></ul></li></ul> |
 | Value | One or more string or integer values representing the value of the request path to match. Don't include the leading slash. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
