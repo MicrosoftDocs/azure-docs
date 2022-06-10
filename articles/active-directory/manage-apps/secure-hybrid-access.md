@@ -56,7 +56,7 @@ The following partners offer pre-built solutions and detailed guidance for integ
 
 - [AWS](../saas-apps/aws-clientvpn-tutorial.md)
 
-- [Check Point](../saas-apps/check-point-remote-access-vpn-tutorial)
+- [Check Point](../saas-apps/check-point-remote-access-vpn-tutorial.md)
 
 - [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
 
