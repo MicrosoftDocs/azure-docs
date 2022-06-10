@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: esarroyo
 author: StefArroyo 
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.custom: devx-track-csharp
 ---
 # Set up a CI/CD pipeline with the Azure Cosmos DB Emulator build task in Azure DevOps

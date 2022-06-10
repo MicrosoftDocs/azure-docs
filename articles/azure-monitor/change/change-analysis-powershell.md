@@ -9,6 +9,7 @@ ms.devlang: azurepowershell
 ms.date: 04/11/2022
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
+ms.reviwer: cawa
 ---
 
 # Azure PowerShell for Change Analysis in Azure Monitor (preview)

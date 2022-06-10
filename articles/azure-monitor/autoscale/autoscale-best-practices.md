@@ -4,6 +4,7 @@ description: Autoscale patterns in Azure for Web Apps, Virtual Machine Scale set
 ms.topic: conceptual
 ms.date: 04/22/2022
 ms.subservice: autoscale
+ms.reviewer: riroloff
 ---
 # Best practices for Autoscale
 Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](../../api-management/api-management-key-concepts.md).

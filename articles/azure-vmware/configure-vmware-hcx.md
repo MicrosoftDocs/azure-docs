@@ -2,6 +2,7 @@
 title: Configure VMware HCX in Azure VMware Solution
 description: Configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud. 
 ms.topic: tutorial
+ms.service: azure-vmware
 ms.date: 09/07/2021
 ---
 

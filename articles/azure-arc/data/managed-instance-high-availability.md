@@ -114,7 +114,7 @@ az sql mi-arc create -n <instanceName> --k8s-namespace <namespace> --use-k8s --t
 Example:
 
 ```azurecli
-az sql mi-arc create -n sqldemo --k8s-namespace my-namespace --use-k8s --tier bc --replicas 3
+az sql mi-arc create -n sqldemo --k8s-namespace my-namespace --use-k8s --tier BusinessCritical --replicas 3
 ```
 
 Directly connected mode:
@@ -124,7 +124,7 @@ az sql mi-arc create --name <name> --resource-group <group>  --location <Azure l
 ```
 Example:
 ```azurecli
-az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location --tier bc --replcias 3
+az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location --tier BusinessCritical --replcias 3
 ```
 
 By default, all the replicas are configured in synchronous mode. This means any updates on the primary instance will be synchronously replicated to each of the secondary instances.

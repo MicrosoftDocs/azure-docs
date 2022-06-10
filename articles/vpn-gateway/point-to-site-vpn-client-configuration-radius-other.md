@@ -51,7 +51,7 @@ You can generate the VPN client configuration files by using the Azure portal, o
 
 ### Azure PowerShell
 
-Use the [Get-AzVpnClientConfiguration](/powershell/module/az.network/get-azvpnclientconfiguration.md) cmdlet to generate the VPN client configuration for EapMSChapv2.
+Use the [Get-AzVpnClientConfiguration](/powershell/module/az.network/get-azvpnclientconfiguration) cmdlet to generate the VPN client configuration for EapMSChapv2.
 
 ## View the files and configure the VPN client
 

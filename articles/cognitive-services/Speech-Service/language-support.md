@@ -726,47 +726,50 @@ The following neural voices are in public preview.
 
 | Language                         | Locale  | Gender | Voice name                             | Style support |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
-| English (United Kingdom) | `en-GB` | Female | `en-GB-AbbiNeural` <sup>New</sup> | General |
-| English (United Kingdom) | `en-GB` | Female | `en-GB-BellaNeural` <sup>New</sup> | General |
-| English (United Kingdom) | `en-GB` | Female | `en-GB-HollieNeural` <sup>New</sup> | General |
-| English (United Kingdom) | `en-GB` | Female | `en-GB-OliviaNeural` <sup>New</sup> | General |
-| English (United Kingdom) | `en-GB` | Female | `en-GB-MaisieNeural` <sup>New</sup> | General, child voice |
-| English (United Kingdom) | `en-GB` | Male | `en-GB-AlfieNeural` <sup>New</sup> | General |
-| English (United Kingdom) | `en-GB` | Male | `en-GB-ElliotNeural` <sup>New</sup> | General |
-| English (United Kingdom) | `en-GB` | Male | `en-GB-EthanNeural` <sup>New</sup> | General |
-| English (United Kingdom) | `en-GB` | Male | `en-GB-NoahNeural` <sup>New</sup> | General |
-| English (United Kingdom) | `en-GB` | Male | `en-GB-OliverNeural` <sup>New</sup> | General |
-| English (United Kingdom) | `en-GB` | Male | `en-GB-ThomasNeural` <sup>New</sup> | General |
-| English (United States) | `en-US` | Male | `en-US-DavisNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| English (United States) | `en-US` | Female | `en-US-JaneNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| English (United States) | `en-US` | Male | `en-US-JasonNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| English (United States) | `en-US` | Female | `en-US-NancyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| English (United States) | `en-US` | Male | `en-US-TonyNeural` | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
-| French (France) | `fr-FR` | Female | `fr-FR-BrigitteNeural` <sup>New</sup> | General |
-| French (France) | `fr-FR` | Female | `fr-FR-CelesteNeural` <sup>New</sup> | General |
-| French (France) | `fr-FR` | Female | `fr-FR-CoralieNeural` <sup>New</sup> | General |
-| French (France) | `fr-FR` | Female | `fr-FR-JacquelineNeural` <sup>New</sup> | General |
-| French (France) | `fr-FR` | Female | `fr-FR-JosephineNeural` <sup>New</sup> | General |
-| French (France) | `fr-FR` | Female | `fr-FR-YvetteNeural` <sup>New</sup> | General |
-| French (France) | `fr-FR` | Female | `fr-FR-EloiseNeural` <sup>New</sup> | General, child voice |
-| French (France) | `fr-FR` | Male | `fr-FR-AlainNeural` <sup>New</sup> | General |
-| French (France) | `fr-FR` | Male | `fr-FR-ClaudeNeural` <sup>New</sup> | General |
-| French (France) | `fr-FR` | Male | `fr-FR-JeromeNeural` <sup>New</sup> | General |
-| French (France) | `fr-FR` | Male | `fr-FR-MauriceNeural` <sup>New</sup> | General |
-| French (France) | `fr-FR` | Male | `fr-FR-YvesNeural` <sup>New</sup> | General |
-| German (Germany) | `de-DE` | Female | `de-DE-AmalaNeural` <sup>New</sup> | General |
-| German (Germany) | `de-DE` | Female | `de-DE-ElkeNeural` <sup>New</sup> | General |
-| German (Germany) | `de-DE` | Female | `de-DE-KlarissaNeural` <sup>New</sup> | General |
-| German (Germany) | `de-DE` | Female | `de-DE-LouisaNeural` <sup>New</sup> | General |
-| German (Germany) | `de-DE` | Female | `de-DE-MajaNeural` <sup>New</sup> | General |
-| German (Germany) | `de-DE` | Female | `de-DE-TanjaNeural` <sup>New</sup> | General |
-| German (Germany) | `de-DE` | Female | `de-DE-GiselaNeural` <sup>New</sup> | General, child voice |
-| German (Germany) | `de-DE` | Male | `de-DE-BerndNeural` <sup>New</sup> | General |
-| German (Germany) | `de-DE` | Male | `de-DE-ChristophNeural` <sup>New</sup> | General |
-| German (Germany) | `de-DE` | Male | `de-DE-KasperNeural` <sup>New</sup> | General |
-| German (Germany) | `de-DE` | Male | `de-DE-KillianNeural` <sup>New</sup> | General |
-| German (Germany) | `de-DE` | Male | `de-DE-KlausNeural` <sup>New</sup> | General |
-| German (Germany) | `de-DE` | Male | `de-DE-RalfNeural` <sup>New</sup> | General |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunjianNeural` <sup>New</sup> | Optimized for broadcasting sports event, 2 new multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunhaoNeural` <sup>New</sup> | Optimized for promoting a product or service, 1 new multiple style available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Male | `zh-CN-YunfengNeural` <sup>New</sup> | General, multiple styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-AbbiNeural` | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-BellaNeural` | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-HollieNeural` | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-OliviaNeural` | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-MaisieNeural` | General, child voice |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-AlfieNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-ElliotNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-EthanNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-NoahNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-OliverNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-ThomasNeural` | General |
+| English (United States) | `en-US` | Male | `en-US-DavisNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Female | `en-US-JaneNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Male | `en-US-JasonNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Female | `en-US-NancyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| English (United States) | `en-US` | Male | `en-US-TonyNeural` <sup>New</sup> | General, multiple voice styles available [using SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
+| French (France) | `fr-FR` | Female | `fr-FR-BrigitteNeural` | General |
+| French (France) | `fr-FR` | Female | `fr-FR-CelesteNeural`  | General |
+| French (France) | `fr-FR` | Female | `fr-FR-CoralieNeural`  | General |
+| French (France) | `fr-FR` | Female | `fr-FR-JacquelineNeural`  | General |
+| French (France) | `fr-FR` | Female | `fr-FR-JosephineNeural`  | General |
+| French (France) | `fr-FR` | Female | `fr-FR-YvetteNeural`  | General |
+| French (France) | `fr-FR` | Female | `fr-FR-EloiseNeural`  | General, child voice |
+| French (France) | `fr-FR` | Male | `fr-FR-AlainNeural` | General |
+| French (France) | `fr-FR` | Male | `fr-FR-ClaudeNeural` | General |
+| French (France) | `fr-FR` | Male | `fr-FR-JeromeNeural` | General |
+| French (France) | `fr-FR` | Male | `fr-FR-MauriceNeural` | General |
+| French (France) | `fr-FR` | Male | `fr-FR-YvesNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-AmalaNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-ElkeNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-KlarissaNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-LouisaNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-MajaNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-TanjaNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-GiselaNeural` | General, child voice |
+| German (Germany) | `de-DE` | Male | `de-DE-BerndNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-ChristophNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-KasperNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-KillianNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-KlausNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-RalfNeural` | General |
 
 
 ### Voice styles and roles
@@ -782,88 +785,93 @@ Use the following table to determine supported styles and roles for each neural 
 |Voice|Styles|Style degree|Roles|
 |-----|-----|-----|-----|
 |en-US-AriaNeural|`angry`, `chat`, `cheerful`, `customerservice`, `empathetic`, `excited`, `friendly`, `hopeful`, `narration-professional`, `newscast-casual`, `newscast-formal`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
-|en-US-DavisNeural|`angry`, `chat`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
+|en-US-DavisNeural <sup>Public preview</sup>|`angry`, `chat`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
 |en-US-GuyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `newscast`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
-|en-US-JaneNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
-|en-US-JasonNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
+|en-US-JaneNeural <sup>Public preview</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
+|en-US-JasonNeural <sup>Public preview</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
 |en-US-JennyNeural|`angry`, `assistant`, `chat`, `cheerful`,`customerservice`, `excited`, `friendly`, `hopeful`, `newscast`, `sad`, `shouting`, `terrified`, , `unfriendly`, `whispering`|||
-|en-US-NancyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
+|en-US-NancyNeural <sup>Public preview</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
 |en-US-SaraNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
-|en-US-TonyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
-|fr-FR-DeniseNeural |`cheerful` <sup>Public preview</sup>, `sad`<sup>Public preview</sup>||| 
+|en-US-TonyNeural <sup>Public preview</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
+|fr-FR-DeniseNeural |`cheerful`, `sad`||| 
 |ja-JP-NanamiNeural|`chat`, `cheerful`, `customerservice`|||
 |pt-BR-FranciscaNeural|`calm`|||
 |zh-CN-XiaohanNeural|`affectionate`, `angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Supported||
 |zh-CN-XiaomoNeural|`affectionate`, `angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `envious`, `fearful`, `gentle`, `sad`, `serious`|Supported|Supported|
 |zh-CN-XiaoruiNeural|`angry`, `calm`, `fearful`, `sad`|Supported||
 |zh-CN-XiaoshuangNeural|`chat`|Supported||
-|zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `disgruntled`, `fearful`, `gentle`, `lyrical`, `newscast`, `sad`, `serious`|Supported||
+|zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `disgruntled`, `fearful`, `gentle`, `lyrical`, `newscast`, `poetry-reading`, `sad`, `serious`|Supported||
 |zh-CN-XiaoxuanNeural|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|Supported|Supported|
 |zh-CN-YunxiNeural|`angry`, `assistant`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `narration-relaxed`, `sad`, `serious`|Supported|Supported|
 |zh-CN-YunyangNeural|`customerservice`, `narration-professional`, `newscast-casual`|Supported||
 |zh-CN-YunyeNeural|`angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `sad`, `serious`|Supported|Supported|
+|zh-CN-YunjianNeural <sup>Public preview</sup>|`narration-relaxed`, `sports-commentary`  <sup>Public preview</sup>, `sports-commentary-excited`  <sup>Public preview</sup>|Supported||
+|zh-CN-YunhaoNeural <sup>Public preview</sup>|`general`, `advertisement-upbeat` <sup>Public preview</sup>|Supported||
+|zh-CN-YunfengNeural <sup>Public preview</sup>|`calm`, `angry`, ` disgruntled`, `cheerful`, `fearful`, `sad`, `serious`, `depressed`|Supported||
 
 
 ### Custom Neural Voice
 
 Custom Neural Voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data.  
 
-Select the right locale that matches the training data you have to train a custom neural voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
+Select the right locale that matches your training data to train a custom neural voice model. For example, if the recording data is spoken in English with a British accent, select `en-GB`. 
 
-With the cross-lingual feature (preview), you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages marked "Yes" in the Cross-lingual column in the following table.  
+With the cross-lingual feature (preview), you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages marked with "Yes" in the Cross-lingual column in the following table.  
 
-| Language | Locale | Cross-lingual (preview) |
-|--|--|--|
-| Arabic (Egypt) | `ar-EG` | No |
-| Arabic (Saudi Arabia) | `ar-SA` | No |
-| Bulgarian (Bulgaria) | `bg-BG` | No |
-| Catalan (Spain) | `ca-ES` | No |
-| Chinese (Cantonese, Traditional) | `zh-HK` | No |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Yes |
-| Chinese (Mandarin, Simplified), English bilingual | `zh-CN` bilingual | Yes |
-| Chinese (Taiwanese Mandarin) | `zh-TW` | No |
-| Croatian (Croatia) | `hr-HR` | No |
-| Czech (Czech) | `cs-CZ` | No |
-| Danish (Denmark) | `da-DK` | No |
-| Dutch (Netherlands) | `nl-NL` | No |
-| English (Australia) | `en-AU` | Yes |
-| English (Canada) | `en-CA` | No |
-| English (India) | `en-IN` | No |
-| English (Ireland) | `en-IE` | No |
-| English (United Kingdom) | `en-GB` | Yes |
-| English (United States) | `en-US` | Yes |
-| Finnish (Finland) | `fi-FI` | No |
-| French (Canada) | `fr-CA` | Yes |
-| French (France) | `fr-FR` | Yes |
-| French (Switzerland) | `fr-CH` | No |
-| German (Austria) | `de-AT` | No |
-| German (Germany) | `de-DE` | Yes |
-| German (Switzerland) | `de-CH` | No |
-| Greek (Greece) | `el-GR` | No |
-| Hebrew (Israel) | `he-IL` | No |
-| Hindi (India) | `hi-IN` | No |
-| Hungarian (Hungary) | `hu-HU` | No |
-| Indonesian (Indonesia) | `id-ID` | No |
-| Italian (Italy) | `it-IT` | Yes |
-| Japanese (Japan) | `ja-JP` | Yes |
-| Korean (Korea) | `ko-KR` | Yes |
-| Malay (Malaysia) | `ms-MY` | No |
-| Norwegian (Bokmål, Norway) | `nb-NO` | No |
-| Polish (Poland) | `pl-PL` | No |
-| Portuguese (Brazil) | `pt-BR` | Yes |
-| Portuguese (Portugal) | `pt-PT` | No |
-| Romanian (Romania) | `ro-RO` | No |
-| Russian (Russia) | `ru-RU` | Yes |
-| Slovak (Slovakia) | `sk-SK` | No |
-| Slovenian (Slovenia) | `sl-SI` | No |
-| Spanish (Mexico) | `es-MX` | Yes |
-| Spanish (Spain) | `es-ES` | Yes |
-| Swedish (Sweden) | `sv-SE` | No |
-| Tamil (India) | `ta-IN` | No | 
-| Telugu (India) | `te-IN` | No | 
-| Thai (Thailand) | `th-TH` | No | 
-| Turkish (Turkey) | `tr-TR` | No |
-| Vietnamese (Vietnam) | `vi-VN` | No |
+There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (preview). In the following table, all the languages are supported by CNV Pro, and the languages marked with "Yes" in the Custom Neural Voice Lite column are supported by CNV Lite. 
+
+| Language | Locale | Cross-lingual (preview) |Custom Neural Voice Lite (preview)|
+|--|--|--|--|
+| Arabic (Egypt) | `ar-EG` | No |No|
+| Arabic (Saudi Arabia) | `ar-SA` | No |No|
+| Bulgarian (Bulgaria) | `bg-BG` | No |No|
+| Catalan (Spain) | `ca-ES` | No |No|
+| Chinese (Cantonese, Traditional) | `zh-HK` | No |No|
+| Chinese (Mandarin, Simplified) | `zh-CN` | Yes |Yes|
+| Chinese (Mandarin, Simplified), English bilingual | `zh-CN` bilingual | Yes |No|
+| Chinese (Taiwanese Mandarin) | `zh-TW` | No |No|
+| Croatian (Croatia) | `hr-HR` | No |No|
+| Czech (Czech) | `cs-CZ` | No |No|
+| Danish (Denmark) | `da-DK` | No |No|
+| Dutch (Netherlands) | `nl-NL` | No |No|
+| English (Australia) | `en-AU` | Yes |No|
+| English (Canada) | `en-CA` | No |Yes|
+| English (India) | `en-IN` | No |No|
+| English (Ireland) | `en-IE` | No |No|
+| English (United Kingdom) | `en-GB` | Yes |Yes|
+| English (United States) | `en-US` | Yes |Yes|
+| Finnish (Finland) | `fi-FI` | No |No|
+| French (Canada) | `fr-CA` | Yes |No|
+| French (France) | `fr-FR` | Yes |Yes|
+| French (Switzerland) | `fr-CH` | No |No|
+| German (Austria) | `de-AT` | No |No|
+| German (Germany) | `de-DE` | Yes |Yes|
+| German (Switzerland) | `de-CH` | No |No|
+| Greek (Greece) | `el-GR` | No |No|
+| Hebrew (Israel) | `he-IL` | No |No|
+| Hindi (India) | `hi-IN` | No |No|
+| Hungarian (Hungary) | `hu-HU` | No |No|
+| Indonesian (Indonesia) | `id-ID` | No |No|
+| Italian (Italy) | `it-IT` | Yes |Yes|
+| Japanese (Japan) | `ja-JP` | Yes |No|
+| Korean (Korea) | `ko-KR` | Yes |Yes|
+| Malay (Malaysia) | `ms-MY` | No |No|
+| Norwegian (Bokmål, Norway) | `nb-NO` | No |No|
+| Polish (Poland) | `pl-PL` | No |No|
+| Portuguese (Brazil) | `pt-BR` | Yes |Yes|
+| Portuguese (Portugal) | `pt-PT` | No |No|
+| Romanian (Romania) | `ro-RO` | No |No|
+| Russian (Russia) | `ru-RU` | Yes |No|
+| Slovak (Slovakia) | `sk-SK` | No |No|
+| Slovenian (Slovenia) | `sl-SI` | No |No|
+| Spanish (Mexico) | `es-MX` | Yes |Yes|
+| Spanish (Spain) | `es-ES` | Yes |No|
+| Swedish (Sweden) | `sv-SE` | No |No|
+| Tamil (India) | `ta-IN` | No |No |
+| Telugu (India) | `te-IN` | No |No | 
+| Thai (Thailand) | `th-TH` | No |No |
+| Turkish (Turkey) | `tr-TR` | No |No|
+| Vietnamese (Vietnam) | `vi-VN` | No |No|
 
 ## Language identification
 
@@ -917,6 +925,7 @@ The following table lists the released languages and public preview languages.
 |English (United Kingdom)|`en-GB`<sup>Public preview</sup> |
 |English (United States)|`en-US`<sup>General available</sup>|
 |French (France)|`fr-FR`<sup>Public preview</sup> |
+|German (Germany)|`de-DE`<sup>Public preview</sup> |
 |Spanish (Spain)|`es-ES`<sup>Public preview</sup> |
 
 > [!NOTE]
