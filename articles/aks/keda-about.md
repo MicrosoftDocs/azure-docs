@@ -63,11 +63,15 @@ For general KEDA questions, we recommend [visiting the FAQ overview][keda-faq].
 ## Next steps
 
 * [Enable the KEDA add-on with an ARM template][keda-arm]
+* [Enable the KEDA add-on with the Azure CLI][keda-cli]
+* [Troubleshoot KEDA add-on problems][keda-troubleshoot]
 * [Autoscale a .NET Core worker processing Azure Service Bus Queue messages][keda-sample]
 
 <!-- LINKS - internal -->
 [keda-azure-cli]: keda-deploy-addon-az-cli.md
+[keda-cli]: keda-deploy-add-on-cli.md
 [keda-arm]: keda-deploy-add-on-arm.md
+[keda-troubleshoot]: keda-troubleshoot.md
 
 <!-- LINKS - external -->
 [keda]: https://keda.sh/

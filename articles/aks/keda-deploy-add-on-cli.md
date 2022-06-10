@@ -161,32 +161,17 @@ az aks update \
   --disable-keda 
 ```
 
-### Enabling add-on on clusters with self-managed open-source KEDA installations
-
-While Kubernetes only allows one metric server to be installed, you can in theory install KEDA multiple times. However, it isn't recommended given only one installation will work.
-
-When the KEDA add-on is installed in an AKS cluster, the previous installation of open-source KEDA will be overridden and the add-on will take over.
-
-This means that the customization and configuration of the self-installed KEDA deployment will get lost and no longer be applied.
-
-While there's a possibility that the existing autoscaling will keep on working, there's a risk given it will be configured differently and won't support features such as managed identity.
-
-It's recommended to uninstall existing KEDA installations before enabling the KEDA add-on given the installation will succeed without any error.
-
-Following error will be thrown in the operator logs but the installation of KEDA add-on will be completed. 
-
-Error logged in now-suppressed non-participating KEDA operator pod:
-the error logged inside the already installed KEDA operator logs.
-E0520 11:51:24.868081 1 leaderelection.go:330] error retrieving resource lock default/operator.keda.sh: config maps "operator.keda.sh" is forbidden: User "system:serviceaccount:default:keda-operator" can't get resource "config maps" in API group "" in the namespace "default"
-
 ## Next steps
 This article showed you how to install the KEDA add-on on an AKS cluster using Azure CLI. The steps to verify that KEDA add-on is installed and running are included. With the KEDA add-on installed on your cluster, you can [deploy a sample application][keda-sample] to start scaling apps.
+
+You can troubleshoot troubleshoot KEDA add-on problems in [this article][keda-troubleshoot].
 
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks update]: /cli/azure/aks#az-aks-update
 [az-group-delete]: /cli/azure/group#az-group-delete
+[keda-troubleshoot]: keda-troubleshoot.md
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl
 [keda]: https://keda.sh/
