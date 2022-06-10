@@ -2,7 +2,7 @@
 title: Security overview
 description: Security information about Azure Arc-enabled servers.
 ms.topic: conceptual
-ms.date: 03/17/2022
+ms.date: 05/24/2022
 ---
 
 # Azure Arc-enabled servers security overview
@@ -84,6 +84,16 @@ azcmagent config set guestconfiguration.enabled false
 
 When Guest Configuration is disabled, any Guest Configuration policies assigned to the machine in Azure will report as non-compliant. Consider [creating an exemption](../../governance/policy/concepts/exemption-structure.md) for these machines or [changing the scope](../../governance/policy/concepts/assignment-structure.md#excluded-scopes) of your policy assignments if you don't want to see these machines reported as non-compliant.
 
+### Enable or disable the extension manager
+
+The extension manager is responsible for installing, updating, and removing [VM Extensions](manage-vm-extensions.md) on your server. You can disable the extension manager to prevent managing any extensions on your server, but we recommend using the [allow and blocklists](#extension-allowlists-and-blocklists) instead for more granular control.
+
+```bash
+azcmagent config set extensions.enabled false
+```
+
+Disabling the extension manager will not remove any extensions already installed on your server. Extensions that are hosted in their own Windows or Linux services, such as the Log Analytics Agent, may continue to run even if the extension manager is disabled. Other extensions that are hosted by the extension manager itself, like the Azure Monitor Agent, will not run if the extension manger is disabled. You should [remove any extensions](manage-vm-extensions-portal.md#remove-extensions) before disabling the extension manager to ensure no extensions continue to run on the server.
+
 ### Locked down machine best practices
 
 When configuring the Azure Connected Machine agent with a reduced set of capabilities, it is important to consider the mechanisms that someone could use to remove those restrictions and implement appropriate controls. Anybody capable of running commands as an administrator or root user on the server can change the Azure Connected Machine agent configuration. Extensions and guest configuration policies execute in privileged contexts on your server, and as such may be able to change the agent configuration. If you apply these security controls to lock down the agent, Microsoft recommends the following best practices to ensure only local server admins can update the agent configuration:
@@ -148,9 +158,38 @@ sudo azcmagent config set extensions.allowlist "Microsoft.EnterpriseCloud.Monito
 sudo azcmagent config set guestconfiguration.enabled true
 ```
 
+## Agent modes
+
+A simpler way to configure local security controls for monitoring and security scenarios is to use the *monitor mode*, available with agent version 1.18 and newer. Modes are pre-defined configurations of the extension allowlist and guest configuration agent maintained by Microsoft. As new extensions become available that enable monitoring scenarios, Microsoft will update the allowlist and agent configuration to include or exclude the new functionality, as appropriate.
+
+There are two modes to choose from:
+
+1. **full** - the default mode. This allows all agent functionality.
+1. **monitor** - a restricted mode that disables the guest configuration policy agent and only allows the use of extensions related to monitoring and security.
+
+To enable monitor mode, run the following command:
+
+```bash
+azcmagent config set config.mode monitor
+```
+
+You can check the current mode of the agent and allowed extensions with the following command:
+
+```bash
+azcmagent config list
+```
+
+While in monitor mode, you cannot modify the extension allowlist or blocklist. If you need to change either list, change the agent back to full mode and specify your own allowlist and blocklist.
+
+To change the agent back to full mode, run the following command:
+
+```bash
+azcmagent config set config.mode full
+```
+
 ## Using a managed identity with Azure Arc-enabled servers
 
-By default, the Azure Active Directory system assigned identity used by Arc can only be used to update the status of the Azure Arc-enabled server in Azure. For example, the *last seen* heartbeat status. You can optionally assign other roles to the identity if an application on your server uses the system assigned identity to access other Azure services. To learn more about configuring a system-assigned managed identity to access Azure resources, see [Authenticate against Azure resources with Azure Arc-enabled servers](managed-identity-authentication.md). 
+By default, the Azure Active Directory system assigned identity used by Arc can only be used to update the status of the Azure Arc-enabled server in Azure. For example, the *last seen* heartbeat status. You can optionally assign other roles to the identity if an application on your server uses the system assigned identity to access other Azure services. To learn more about configuring a system-assigned managed identity to access Azure resources, see [Authenticate against Azure resources with Azure Arc-enabled servers](managed-identity-authentication.md).
 
 While the Hybrid Instance Metadata Service can be accessed by any application running on the machine, only authorized applications can request an Azure AD token for the system assigned identity. On the first attempt to access the token URI, the service will generate a randomly generated cryptographic blob in a location on the file system that only trusted callers can read. The caller must then read the file (proving it has appropriate permission) and retry the request with the file contents in the authorization header to successfully retrieve an Azure AD token.
 

@@ -3,13 +3,12 @@ title: Smart detection - performance anomalies | Microsoft Docs
 description: Smart detection analyzes your app telemetry and warns you of potential problems. This feature needs no setup.
 ms.topic: conceptual
 ms.date: 05/04/2017
-ms.reviewer: antonfr
 ---
 
 # Smart detection - Performance Anomalies
 
 >[!NOTE]
->You can migrate your Application Insight resources to alerts-bases smart detection (preview). The migration creates alert rules for the different smart detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
+>You can migrate your Application Insight resources to alerts-based smart detection (preview). The migration creates alert rules for the different smart detection modules. Once created, you can manage and configure these rules just like any other Azure Monitor alert rules. You can also configure action groups for these rules, thus enabling multiple methods of taking actions or triggering notification on new detections.
 >
 > For more information on the migration process, see [Smart Detection Alerts migration](../alerts/alerts-smart-detections-migration.md).
 

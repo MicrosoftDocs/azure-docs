@@ -3,8 +3,9 @@ title: 'Connect to Azure Database for PostgreSQL flexible server with private ac
 description: This article shows how to create and connect to Azure Database for PostgreSQL flexible server with private access or virtual network using Azure portal.
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sumuth
-author: mksuni
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
 ms.date: 11/30/2021
@@ -128,7 +129,7 @@ ssh -i .\Downloads\myKey1.pem azureuser@10.111.12.123
 You need to install the postgresql-client tool to be able to connect to the server.
 
 ```bash
-sudo apt-getupdate
+sudo apt-get update
 sudo apt-get install postgresql-client
 ```
 

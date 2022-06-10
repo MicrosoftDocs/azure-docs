@@ -24,16 +24,14 @@ sections:
       - question: Which Azure Cache for Redis services were deprecated?
         answer: |
           - Managed Cache service -[Managed Cache service](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
-            <!-- To view archived documentation, see [Archived Managed Cache Service Documentation](/previous-versions/azure/azure-services/dn386094(v=azure.100)). -->
-
+            
           - In-Role Cache - [In-Role Cache](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
-            <!-- To view archived documentation, see [Archived In-Role Cache Documentation](/previous-versions/azure/azure-services/dn386103(v=azure.100)). -->
-              
+                          
   - name: Caches with a dependency on Cloud Services (classic) 
     questions:
       - question: What should I do with any instances of Azure Cache for Redis that depend on Cloud Services (classic)?
         answer: |
-          You should migrate all caches with a dependency on [**Cloud Services (classic)**](https://azure.microsoft.com/en-us/updates/cloud-services-retirement-announcement/). In August 2021, we announced Cloud Services (classic) will be retired on August 31, 2024. Any instances of Azure Cache for Redis that are dependent on Cloud Services (classic) need to be retired by the same date. 
+          You should migrate all caches with a dependency on [**Cloud Services (classic)**](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). In August 2021, we announced Cloud Services (classic) will be retired on August 31, 2024. Any instances of Azure Cache for Redis that are dependent on Cloud Services (classic) need to be retired by the same date. 
           
           You should migrate caches with a dependency on Cloud Services (classic) before August 31, 2024.
 

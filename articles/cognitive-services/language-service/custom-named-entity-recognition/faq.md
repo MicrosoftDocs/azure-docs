@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 04/05/2022
+ms.date: 05/09/2022
 ms.author: aahi
-ms.custom: language-service-custom-ner, ignite-fall-2021
+ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
 
 
@@ -38,7 +38,7 @@ The training process can take a long time. As a rough estimate, the expected tra
 
 [!INCLUDE [SDK limitations](includes/sdk-limitations.md)]
 
-You can use the [REST APIs](https://aka.ms/ct-authoring-swagger) to build your custom models. Follow this [quickstart](quickstart.md?pivots=rest-api) to get started with creating a project and creating a model through APIs for examples of how to call the Authoring API.
+You can use the [REST APIs](https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob) to build your custom models. Follow this [quickstart](quickstart.md?pivots=rest-api) to get started with creating a project and creating a model through APIs for examples of how to call the Authoring API.
 
 When you're ready to start [using your model to make predictions](#how-do-i-use-my-trained-model-for-predictions), you can use the REST API, or the client library.
 
@@ -59,7 +59,7 @@ See the [data selection and schema design](how-to/design-schema.md) article for 
 
 * View the model [confusion matrix](how-to/view-model-evaluation.md). If you notice that a certain entity type is frequently not predicted correctly, consider adding more tagged instances for this class. If you notice that two entity types are frequently predicted as each other, this means the schema is ambiguous and you should consider merging them both into one entity type for better performance.
 
-* [Examine the data distribution](how-to/improve-model.md#examine-data-distribution). If one of the entity types has a lot more tagged instances than the others, your model may be biased towards this type. Add more data to the other entity types or remove examples from the dominating type.
+* [Review test set predictions](how-to/improve-model.md#review-test-set-predictions). If one of the entity types has a lot more tagged instances than the others, your model may be biased towards this type. Add more data to the other entity types or remove examples from the dominating type.
 
 * Learn more about [data selection and schema design](how-to/design-schema.md).
 
@@ -73,7 +73,7 @@ See the [data selection and schema design](how-to/design-schema.md) article for 
 
 ## How do I get predictions in different languages?
 
-First, you need to enable the multilingual option when [creating your project](how-to/create-project.md) or you can enable it later from the project settings page. After you train and deploy your model, you can start querying it in [multiple languages](language-support.md#multiple-language-support). You may get varied results for different languages. To improve the accuracy of any language, add more tagged instances to your project in that language to introduce the trained model to more syntax of that language.
+First, you need to enable the multilingual option when [creating your project](how-to/create-project.md) or you can enable it later from the project settings page. After you train and deploy your model, you can start querying it in [multiple languages](language-support.md#multi-lingual-option). You may get varied results for different languages. To improve the accuracy of any language, add more tagged instances to your project in that language to introduce the trained model to more syntax of that language.
 
 ## I trained my model, but I can't test it
 
@@ -85,13 +85,13 @@ After deploying your model, you [call the prediction API](how-to/call-api.md), u
 
 ## Data privacy and security
 
-Custom NER is a data processor for General Data Protection Regulation (GDPR) purposes. In compliance with GDPR policies, Custom NER users have full control to view, export, or delete any user content either through the [Language Studio](https://aka.ms/languageStudio) or programmatically by using [REST APIs](https://aka.ms/ct-authoring-swagger).
+Custom NER is a data processor for General Data Protection Regulation (GDPR) purposes. In compliance with GDPR policies, Custom NER users have full control to view, export, or delete any user content either through the [Language Studio](https://aka.ms/languageStudio) or programmatically by using [REST APIs](https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob).
 
 Your data is only stored in your Azure Storage account. Custom NER only has access to read from it during training.
 
 ## How to clone my project?
 
-To clone your project you need to use the export API  to export the project assets, and then import them into a new project. See the [REST API](https://aka.ms/ct-authoring-swagger) reference for both operations.
+To clone your project you need to use the export API  to export the project assets, and then import them into a new project. See the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob) reference for both operations.
 
 ## Next steps
 

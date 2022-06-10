@@ -7,6 +7,8 @@ ms.custom: ignite-fall-2021
 ---
 # Deploy Azure Video Analyzer on Azure Stack Edge
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This article provides full instructions for deploying Azure Video Analyzer on your Azure Stack Edge device. After you've set up and activated the device, it's ready for Video Analyzer deployment. 
 
 In the article, we'll deploy Video Analyzer by using Azure IoT Hub, but the Azure Stack Edge resources expose a Kubernetes API, with which you can deploy additional non-IoT Hub-aware solutions that can interface with Video Analyzer. 

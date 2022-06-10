@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/14/2022
+ms.date: 05/26/2022
 ms.author: tamram
 ms.reviewer: nachakra
 ms.subservice: common
@@ -137,6 +137,5 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 ## Next steps
 
-- [Use the Azurite emulator for local Azure Storage development](../common/storage-use-azurite.md)
-- [Azure Storage explorers](storage-explorers.md)
-- [Using Shared Access Signatures (SAS)](storage-sas-overview.md)
+- [Use the Azurite emulator for local Azure Storage development](storage-use-azurite.md)
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)

@@ -76,6 +76,8 @@
       href: qs-configure-rest-vm.md
     - name: Azure SDKs
       href: qs-configure-sdk-windows-vm.md
+    - name: Using Azure Policy
+      href: how-to-assign-managed-identity-via-azure-policy.md
 
   - name: Configure managed identities on virtual machine scale sets
     items:
@@ -89,6 +91,8 @@
       href: qs-configure-template-windows-vmss.md
     - name: REST
       href: qs-configure-rest-vmss.md
+    - name: Using Azure Policy
+      href: how-to-assign-managed-identity-via-azure-policy.md
 
   - name: Use managed identities on VMs
     items:
@@ -105,7 +109,7 @@
     - name: CLI
       href: howto-assign-access-cli.md
     - name: PowerShell
-      href: howto-assign-access-powershell.md
+      href: howto-assign-access-powershell.md   
 
   - name: Manage user-assigned managed identities
     href: how-manage-user-assigned-managed-identities.md
@@ -125,6 +129,8 @@
       href: how-to-assign-app-role-managed-identity-cli.md
   - name: View managed identity activity
     href: how-to-view-managed-identity-activity.md
+  - name: Move a managed identity to a new region
+    href: how-to-managed-identity-regional-move.md
 
 - name: Reference
   items:

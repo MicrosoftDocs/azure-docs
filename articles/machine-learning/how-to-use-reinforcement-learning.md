@@ -9,16 +9,15 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q2
-
+ms.custom: devx-track-python, contperf-fy21q2, sdkv1, event-tier1-build-2022
 ---
 
 # Reinforcement learning (preview) with Azure Machine Learning
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
-
-> [!NOTE]
-> Azure Machine Learning reinforcement learning is currently a preview feature. Only Ray and RLlib frameworks are supported at this time.
+> [!WARNING]
+> Azure Machine Learning reinforcement learning via the [`azureml.contrib.train.rl`](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl) package will no longer be supported after June 2022. We recommend customers use the [Ray on Azure Machine Learning library](https://github.com/microsoft/ray-on-aml) for reinforcement learning experiments with Azure Machine Learning. For an example, see the notebook [Reinforcement Learning in Azure Machine Learning - Pong problem](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb).
 
 In this article, you learn how to train a reinforcement learning (RL) agent to play the video game Pong. You use the open-source Python library [Ray RLlib](https://docs.ray.io/en/master/rllib/) with Azure Machine Learning to manage the complexity of distributed RL.
 

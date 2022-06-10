@@ -3,6 +3,7 @@ title: Configure Container insights Prometheus Integration | Microsoft Docs
 description: This article describes how you can configure the Container insights agent to scrape metrics from Prometheus with your Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 04/22/2020
+ms.reviewer: aul
 ---
 
 # Configure scraping of Prometheus metrics with Container insights
@@ -148,7 +149,7 @@ Perform the following steps to configure your ConfigMap configuration file for t
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
 
-The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+The configuration change can take a few minutes to finish before taking effect. You must restart all omsagent pods manually. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
 ## Configure and deploy ConfigMaps - Azure Red Hat OpenShift v3
 
@@ -277,11 +278,11 @@ For the following Kubernetes environments:
 - Azure Stack or on-premises
 - Azure Red Hat OpenShift and Red Hat OpenShift version 4.x
 
-run the command `kubectl apply -f <configmap_yaml_file.yaml`. 
+run the command `kubectl apply -f <config3. map_yaml_file.yaml>`. 
 
-For an Azure Red Hat OpenShift v3.x cluster, run the command, `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in your default editor to modify and then save it.
+For an example, run the command, `Example: kubectl apply -f container-azm-ms-agentconfig.yaml` to open the file in your default editor to modify and then save it.  
 
-The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" updated`.
+The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a popup message is displayed that's similar to the following and includes the result: 'configmap "container-azm-ms-agentconfig' created to indicate the configmap resource created.
 
 ## Verify configuration
 

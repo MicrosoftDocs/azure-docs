@@ -25,7 +25,7 @@ platform :osx, 10.14
 use_frameworks!
 
 target 'MyApp' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.20.0'
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.22.0'
 end
 ```
 

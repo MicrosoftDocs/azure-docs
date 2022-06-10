@@ -2,11 +2,11 @@
 title: Upgrade an internal basic load balancer - Outbound connections required
 titleSuffix: Azure Load Balancer
 description: Learn how to upgrade a basic internal load balancer to a standard public load balancer.
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/17/2022
-ms.author: allensu
+ms.author: greglin
 ---
 
 # Upgrade an internal basic load balancer - Outbound connections required
@@ -42,6 +42,8 @@ An Azure PowerShell script is available that does the following procedures:
 * If the standard load balancer is created in a different region, you won’t be able to associate the VMs in the old region. To avoid this constraint, ensure you create new VMs in the new region.
 
 * If the load balancer doesn't have a frontend IP configuration or backend pool, you'll encounter an error running the script. Ensure the load balancer has a frontend IP and backend pool
+
+* The script cannot migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. We recommend manually creating a Standard Load Balancer and follow [Update or delete a load balancer used by virtual machine scale sets](update-load-balancer-with-vm-scale-set.md) to complete the migration.
 
 ## Download the script
 

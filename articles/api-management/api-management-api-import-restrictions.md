@@ -15,6 +15,7 @@ ms.author: danlep
 # API import restrictions and known issues
 
 When importing an API, you might encounter some restrictions or need to identify and rectify issues before you can successfully import. In this article, you'll learn:
+
 * API Management's behavior during OpenAPI import. 
 * OpenAPI import limitations and how OpenAPI export works.
 * Requirements and limitations for WSDL and WADL import.
@@ -22,16 +23,19 @@ When importing an API, you might encounter some restrictions or need to identify
 ## API Management during OpenAPI import
 
 During OpenAPI import, API Management:
+
 * Checks specifically for query string parameters marked as required.
 * Converts the query string parameters to template parameters. 
 
 If you prefer a different behavior, you can either: 
+
 * Manually change via form-based editor, or 
 * Remove the "required" attribute from the OpenAPI definition, thus not converting them to template parameters.
 
 ## <a name="open-api"> </a>OpenAPI/Swagger import limitations
 
 If you receive errors while importing your OpenAPI document, make sure you've validated it beforehand by either:
+
 * Using the designer in the Azure portal (Design > Front End > OpenAPI Specification Editor), or 
 * With a third-party tool, such as <a href="https://editor.swagger.io">Swagger Editor</a>.
 
@@ -52,10 +56,10 @@ If you receive errors while importing your OpenAPI document, make sure you've va
 **Supported versions**
 
 API Management only supports:
+
 * OpenAPI version 2.
 * OpenAPI version 3.0.x (up to version 3.0.3).
-
-OpenAPI version 3.1 is currently not supported in API Management.
+* OpenAPI version 3.1 (import only)
 
 **Size limitations**
 
@@ -65,6 +69,7 @@ OpenAPI version 3.1 is currently not supported in API Management.
 | **Size limit doesn't apply** | When an OpenAPI document is provided via a URL to a location accessible from your API Management service. |
 
 #### Supported extensions
+
 The only supported extensions are:
 
 | Extension | Description |
@@ -73,6 +78,7 @@ The only supported extensions are:
 | **`x-servers`** | A backport of the [OpenAPI 3 `servers` object](https://swagger.io/docs/specification/api-host-and-base-path/) for OpenAPI 2. |
 
 #### Unsupported extensions
+
 | Extension | Description |
 | ----------- | ----------- |
 | **`Recursion`** | API Management doesn't support definitions defined recursively.<br />For example, schemas referring to themselves. |
@@ -80,33 +86,54 @@ The only supported extensions are:
 | **`Produces` keyword** | Describes MIME types returned by an API. <br />Not supported. |
 
 #### Custom extensions
-- Are ignored on import.
-- Aren't saved or preserved for export.
+
+* Are ignored on import.
+* Aren't saved or preserved for export.
 
 #### Unsupported definitions 
+
 Inline schema definitions for API operations aren't supported. Schema definitions:
-- Are defined in the API scope.
-- Can be referenced in API operations request or response scopes.
+
+* Are defined in the API scope.
+* Can be referenced in API operations request or response scopes.
 
 #### Ignored definitions
+
 Security definitions are ignored.
+
+#### Definition restrictions
+
+<!-- Ref: 1851786 Query parameter handling -->
+When importing query parameters, only the default array serialization method (`style: form`, `explode: true`) is supported.  For more details on query parameters in OpenAPI specifications, refer to [the serialization specification](https://swagger.io/docs/specification/serialization/).
+
+<!-- Ref: 1795433 Parameter limitations -->
+Parameters [defined in cookies](https://swagger.io/docs/specification/describing-parameters/#cookie-parameters) are not supported.  You can still use policy to decode and validate the contents of cookies.  
 
 ### <a name="open-api-v2"> </a>OpenAPI version 2
 
 OpenAPI version 2 support is limited to JSON format only.
 
-### <a name="open-api-v3"> </a>OpenAPI version 3.0.x
+<!-- Ref: 1795433 Parameter limitations -->
+["Form" type parameters](https://swagger.io/specification/v2/#parameter-object) are not supported.  You can still use policy to decode and validate `application/x-www-form-urlencoded` and `application/form-data` payloads.
 
-The latest supported OpenAPI version 3.0 is 3.0.3.
+### <a name="open-api-v3"> </a>OpenAPI version 3.x
+
+API Management supports the following specification versions:
+
+* [OpenAPI 3.0.3](https://swagger.io/specification/)
+* [OpenAPI 3.1.0](https://spec.openapis.org/oas/v3.1.0) (import only)
 
 #### HTTPS URLs
-- If multiple `servers` are specified, API Management will use the first HTTPS URL it finds. 
-- If there aren't any HTTPS URLs, the server URL will be empty.
+
+* If multiple `servers` are specified, API Management will use the first HTTPS URL it finds. 
+* If there aren't any HTTPS URLs, the server URL will be empty.
 
 #### Supported
+
 - `example`
 
 #### Unsupported
+
 The following fields are included in [OpenAPI version 3.0.x](https://swagger.io/specification/), but are not supported:
 
 | Object | Field |
@@ -122,6 +149,7 @@ The following fields are included in [OpenAPI version 3.0.x](https://swagger.io/
 ### <a name="open-import-export-general"> </a>General
 
 API definitions exported from an API Management service are:
+
 * Primarily intended for external applications that need to call the API hosted in API Management service. 
 * Not intended to be imported into the same or different API Management service. 
 

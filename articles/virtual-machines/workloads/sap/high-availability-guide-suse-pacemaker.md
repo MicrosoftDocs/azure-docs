@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 09/08/2021
+ms.date: 05/26/2022
 ms.author: radeltch
 
 ---
@@ -485,15 +485,15 @@ This section applies only if you're using a STONITH device that's based on an Az
 
 By default, the service principal doesn't have permissions to access your Azure resources. You need to give the service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the [Azure CLI](../../../role-based-access-control/custom-roles-cli.md).
 
-Use the following content for the input file. You need to adapt the content to your subscriptions. That is, replace *c276fc76-9cd4-44c9-99a7-4fd71546436e* and *e91d47c4-76f3-4271-a796-21b4ecfe3624* with your own subscription IDs. If you have only one subscription, remove the second entry under AssignableScopes.
+Use the following content for the input file. You need to adapt the content to your subscriptions. That is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with your own subscription IDs. If you have only one subscription, remove the second entry under AssignableScopes.
 
 ```json
 {
       "Name": "Linux fence agent Role",
       "description": "Allows to power-off and start virtual machines",
       "assignableScopes": [
-              "/subscriptions/e663cc2d-722b-4be1-b636-bbd9e4c60fd9",
-              "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+              "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+              "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
       ],
       "actions": [
               "Microsoft.Compute/*/read",
@@ -621,16 +621,20 @@ Be sure to assign the role for both cluster nodes.
    >[!IMPORTANT]
    > The installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent, when a cluster node is fenced. If you're running an earlier version, we recommend that you update the package.  
 
-1. **[A]** Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5.
+1. **[A]** Install the Azure Python SDK and Azure Identity python module.  
+
+    Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5:
     <pre><code># You might need to activate the public cloud extension first
     SUSEConnect -p sle-module-public-cloud/12/x86_64
     sudo zypper install python-azure-mgmt-compute
+    sudo zypper install python-azure-identity
     </code></pre>
 
     Install the Azure Python SDK on SLES 15 or later:
     <pre><code># You might need to activate the public cloud extension first. In this example, the SUSEConnect command is for SLES 15 SP1
     SUSEConnect -p sle-module-public-cloud/15.1/x86_64
     sudo zypper install python3-azure-mgmt-compute
+    sudo zypper install python3-azure-identity
     </code></pre> 
 
     >[!IMPORTANT]

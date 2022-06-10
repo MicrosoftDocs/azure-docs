@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 06/03/2022
 ms.author: danlep
 ---
 
@@ -20,12 +20,13 @@ This article provides a reference for API Management access restriction policies
 ## <a name="AccessRestrictionPolicies"></a> Access restriction policies
 
 -   [Check HTTP header](#CheckHTTPHeader) - Enforces existence and/or value of an HTTP header.
+- [Get authorization context](#GetAuthorizationContext) - Gets the authorization context of a specified [authorization](authorizations-overview.md) configured in the API Management instance.
 -   [Limit call rate by subscription](#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.
 -   [Limit call rate by key](#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.
 -   [Restrict caller IPs](#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
 -   [Set usage quota by subscription](#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
 -   [Set usage quota by key](#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
--   [Validate JWT](#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
+-   [Validate JWT](#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP header or a specified query parameter.
 -  [Validate client certificate](#validate-client-certificate) - Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims.
 
 > [!TIP]
@@ -67,7 +68,7 @@ Use the `check-header` policy to enforce that a request has a specified HTTP hea
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | failed-check-error-message | Error message to return in the HTTP response body if the header doesn't exist or has an invalid value. This message must have any special characters properly escaped. | Yes      | N/A     |
 | failed-check-httpcode      | HTTP Status code to return if the header doesn't exist or has an invalid value.                                                                                        | Yes      | N/A     |
-| header-name                | The name of the HTTP Header to check.                                                                                                                                  | Yes      | N/A     |
+| header-name                | The name of the HTTP header to check.                                                                                                                                  | Yes      | N/A     |
 | ignore-case                | Can be set to True or False. If set to True case is ignored when the header value is compared against the set of acceptable values.                                    | Yes      | N/A     |
 
 ### Usage
@@ -77,6 +78,142 @@ This policy can be used in the following policy [sections](./api-management-howt
 -   **Policy sections:** inbound, outbound
 
 -   **Policy scopes:** all scopes
+
+## <a name="GetAuthorizationContext"></a> Get authorization context
+
+Use the `get-authorization-context` policy to get the authorization context of a specified [authorization](authorizations-overview.md) (preview) configured in the API Management instance. 
+
+The policy fetches and stores authorization and refresh tokens from the configured authorization provider.
+
+If `identity-type=jwt` is configured, a JWT token is required to be validated. The audience of this token must be https://azure-api.net/authorization-manager.  
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
+### Policy statement
+
+```xml
+<get-authorization-context
+    provider-id="authorization provider id" 
+    authorization-id="authorization id" 
+    context-variable-name="variable name" 
+    identity-type="managed | jwt"
+    identity="JWT bearer token"
+    ignore-error="true | false" />
+```
+
+### Examples
+
+#### Example 1: Get token back
+
+```xml
+<!-- Add to inbound policy. -->
+<get-authorization-context 
+    provider-id="github-01" 
+    authorization-id="auth-01" 
+    context-variable-name="auth-context" 
+    identity-type="managed" 
+    identity="@(context.Request.Headers["Authorization"][0].Replace("Bearer ", ""))"
+    ignore-error="false" />
+<!-- Return the token -->
+<return-response>
+    <set-status code="200" />
+    <set-body template="none">@(((Authorization)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</set-body>
+</return-response>
+```
+
+#### Example 2: Get token back with dynamically set attributes
+
+```xml
+<!-- Add to inbound policy. -->
+<get-authorization-context 
+  provider-id="@(context.Request.Url.Query.GetValueOrDefault("authorizationProviderId"))" 
+  authorization-id="@(context.Request.Url.Query.GetValueOrDefault("authorizationId"))" context-variable-name="auth-context" 
+  ignore-error="false" 
+  identity-type="managed" />
+<!-- Return the token -->
+<return-response>
+    <set-status code="200" />
+    <set-body template="none">@(((Authorization)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</set-body>
+</return-response>
+```
+
+#### Example 3: Attach the token to the backend call
+
+```xml
+<!-- Add to inbound policy. -->
+<get-authorization-context
+    provider-id="github-01" 
+    authorization-id="auth-01" 
+    context-variable-name="auth-context" 
+    identity-type="managed" 
+    ignore-error="false" />
+<!-- Attach the token to the backend call -->
+<set-header name="Authorization" exists-action="override">
+    <value>@("Bearer " + ((Authorization)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</value>
+</set-header>
+```
+
+#### Example 4: Get token from incoming request and return token
+
+```xml
+<!-- Add to inbound policy. -->
+<get-authorization-context 
+    provider-id="github-01" 
+    authorization-id="auth-01" 
+    context-variable-name="auth-context" 
+    identity-type="jwt" 
+    identity="@(context.Request.Headers["Authorization"][0].Replace("Bearer ", ""))"
+    ignore-error="false" />
+<!-- Return the token -->
+<return-response>
+    <set-status code="200" />
+    <set-body template="none">@(((Authorization)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</set-body>
+</return-response>
+```
+
+### Elements
+
+| Name  | Description   | Required |
+| ----- | ------------- | -------- |
+| get-authorization-context | Root element. | Yes      |
+
+### Attributes
+
+| Name | Description | Required | Default |
+|---|---|---|---|
+| provider-id | The authorization provider resource identifier. | Yes |   |
+| authorization-id | The authorization resource identifier. | Yes |   |
+| context-variable-name | The name of the context variable to receive the [`Authorization` object](#authorization-object). | Yes |   |
+| identity-type | Type of identity to be checked against the authorization access policy. <br> - `managed`: managed identity of the API Management service. <br> - `jwt`: JWT bearer token specified in the `identity` attribute. | No | managed |
+| identity | An Azure AD JWT bearer token to be checked against the authorization permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: https://azure-api.net/authorization-manager <br> - `oid`: Permission object id <br> - `tid`: Permission tenant id | No |   |
+| ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the authorization resource is not found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500` | No | false |
+
+### Authorization object
+
+The Authorization context variable receives an object of type `Authorization`.
+
+```c#
+class Authorization
+{
+    public string AccessToken { get; }
+    public IReadOnlyDictionary<string, object> Claims { get; }
+}
+```
+
+| Property Name | Description |
+| -- | -- |
+| AccessToken | Bearer access token to authorize a backend HTTP request. |
+| Claims | Claims returned from the authorization server’s token response API (see [RFC6749#section-5.1](https://datatracker.ietf.org/doc/html/rfc6749#section-5.1)). |
+
+### Usage
+
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
+
+-   **Policy sections:** inbound
+
+-   **Policy scopes:** all scopes
+
 
 ## <a name="LimitCallRate"></a> Limit call rate by subscription
 
@@ -175,6 +312,7 @@ For more information and examples of this policy, see [Advanced request throttli
 <rate-limit-by-key calls="number"
                    renewal-period="seconds"
                    increment-condition="condition"
+                   increment-count="number"
                    counter-key="key value" 
                    retry-after-header-name="header name" retry-after-variable-name="policy expression variable name"
                    remaining-calls-header-name="header name"  remaining-calls-variable-name="policy expression variable name"
@@ -215,6 +353,7 @@ In the following example, the rate limit of 10 calls per 60 seconds is keyed by 
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expression is allowed. | Yes      | N/A     |
 | counter-key         | The key to use for the rate limit policy.                                                             | Yes      | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the rate (`true`).        | No       | N/A     |
+| increment-count | The number by which the counter is increased per request.        | No       | 1     |
 | renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Policy expression is allowed. Maximum allowed value: 300 seconds.                 | Yes      | N/A     |
 | retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
@@ -277,6 +416,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 -   **Policy sections:** inbound
 -   **Policy scopes:** all scopes
+
+> [!NOTE]
+> If you configure this policy at more than one scope, IP filtering is applied in the order of [policy evaluation](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order) in your policy definition. 
 
 ## <a name="SetUsageQuota"></a> Set usage quota by subscription
 
@@ -410,7 +552,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="ValidateJWT"></a> Validate JWT
 
-The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from either a specified HTTP Header or a specified query parameter.
+The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from either a specified HTTP header or a specified query parameter.
 
 > [!IMPORTANT]
 > The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.

@@ -34,7 +34,13 @@
       - name: OT sensor cloud connection methods
         href: architecture-connections.md
       - name: OT monitoring appliance catalog
-        href: how-to-identify-required-appliances.md
+        items:
+        - name: Which appliances do I need?
+          href: ot-appliance-sizing.md
+        - name: Pre-configured appliances
+          href: ot-pre-configured-appliances.md
+        - name: OT monitoring with virtual appliances
+          href: ot-virtual-appliances.md
       - name: Supported OT protocols
         href: concept-supported-protocols.md
 - name: How-to guides
@@ -145,6 +151,8 @@
         items:
         - name: Create and manage users
           href: how-to-create-and-manage-users.md
+        - name: Integrate with active directory
+          href: integrate-with-active-directory.md
         - name: Define global user access control
           href: how-to-define-global-user-access-control.md
       - name: Enrich device information
@@ -169,6 +177,44 @@
         href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
+  - name: OT monitoring appliances
+    items:
+    - name: Corporate appliances
+      items:
+      - name: HPE ProLiant DL360
+        href: appliance-catalog/hpe-proliant-dl360.md
+    - name: Enterprise appliances
+      items:
+      - name: HPE ProLiant DL20/DL20 Plus
+        href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
+    - name: SMB appliances
+      items:
+      - name: HPE ProLiant DL20 Plus
+        href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
+    - name: Rugged appliances
+      items:
+      - name: Dell Edge 5200
+        href: appliance-catalog/dell-edge-5200.md
+      - name: YS-techsystems YS-FIT2
+        href: appliance-catalog/ys-techsystems-ys-fit2.md
+    - name: Virtual appliances
+      items:
+      - name: OT sensor (VMWare ESXi)
+        href: appliance-catalog/virtual-sensor-vmware.md
+      - name: OT sensor (Hyper-V)
+        href: appliance-catalog/virtual-sensor-hyper-v.md
+      - name: On-premises management console (VMWare ESXi)
+        href: appliance-catalog/virtual-management-vmware.md
+      - name: On-premises management console (Microsoft Hyper-V)
+        href: appliance-catalog/virtual-management-hyper-v.md
+    - name: Legacy appliances
+      items:
+      - name: Dell PowerEdge R340 XL (enterprise)
+        href: appliance-catalog/dell-poweredge-r340-xl-legacy.md
+      - name: HPE Edgeline EL300 (SMB rugged)
+        href: appliance-catalog/hpe-edgeline-el300.md
+      - name: Neousys Nuvo-500LP (SMB rugged)
+        href: appliance-catalog/neousys-nuvo-5006lp.md
   - name: Alert reference
     href: alert-engine-messages.md
   - name: Work with Defender for IoT APIs
