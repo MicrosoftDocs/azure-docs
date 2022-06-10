@@ -6,7 +6,7 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/09/2022
+ms.date: 06/10/2022
 ms.author: mikaelw
 ---
 
@@ -45,7 +45,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Bug fixes |Related information |
 | :----------------------------------- | ---------------: |
-|Index the first value for DICOM tags which have multiple values |Attributes which have specified multiple values will now be leniently accepted. The first value for such attributes will be indexed. |
+|Index the first value for DICOM tags that incorrectly specify multiple values |Attributes that are defined to have a single value but have specified multiple values will now be leniently accepted. The first value for such attributes will be indexed. |
 
 ## April 2022
 
