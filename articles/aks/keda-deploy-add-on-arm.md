@@ -20,6 +20,7 @@ This article shows you how to deploy the Kubernetes Event-driven Autoscaling (KE
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
+- Firewall rules are configured to allow access to the Kubernetes API server. ([learn more][aks-firewall-requirements])
 
 ### Register the `AKS-KedaPreview` feature flag
 
@@ -150,6 +151,7 @@ You can troubleshoot troubleshoot KEDA add-on problems in [this article][keda-tr
 [az aks update]: /cli/azure/aks#az-aks-update
 [az-group-delete]: /cli/azure/group#az-group-delete
 [keda-troubleshoot]: keda-troubleshoot.md
+[aks-firewall-requirements]: limit-egress-traffic.md#azure-global-required-network-rules
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl
