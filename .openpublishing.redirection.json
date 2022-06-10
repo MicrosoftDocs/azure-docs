@@ -35517,6 +35517,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-speech-translation.yml",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-translation",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/voice-first-virtual-assistants.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/voice-assistants",
       "redirect_document_id": true
