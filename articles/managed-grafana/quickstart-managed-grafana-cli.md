@@ -1,17 +1,17 @@
 ---
 title: 'Quickstart: create an Azure Managed Grafana Preview instance using the Azure CLI'
-description: Learn how to create a Managed Grafana workspace using the Azure CLI 
+description: Learn how to create a Managed Grafana instance using the Azure CLI
 ms.service: managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
-ms.date: 05/11/2022
+ms.date: 06/10/2022
 ms.devlang: azurecli
 --- 
 
 # Quickstart: Create an Azure Managed Grafana Preview instance using the Azure CLI
 
-This quickstart describes how to use the Azure Command-Line Interface (CLI) to create a new instance in Azure Managed Grafana Preview.
+Get started by creating an Azure Managed Grafana Preview workspace using the Azure CLI. Creating a workspace will generate a Managed Grafana instance.
 
 > [!NOTE]
 > The CLI experience for Azure Managed Grafana Preview is part of the amg extension for the Azure CLI (version 2.30.0 or higher). The extension will automatically install the first time you run an `az grafana` command.
@@ -49,8 +49,8 @@ Run the code below to create an Azure Managed Grafana workspace.
 
 | Parameter    | Description                                      | Example |
 |--------------|-----------------------------------------------------------------------------------------|----------|
-| --name | Choose a unique name for your new Managed Grafana workspace. | *grafana-test*     |
-| --location    | Choose an Azure Region where Managed Grafana is available.   | *eastus*     |
+| --name       | Choose a unique name for your new Managed Grafana instance. | *grafana-test*     |
+| --location   | Choose an Azure Region where Managed Grafana is available.   | *eastus*     |
 
 ```azurecli
    az grafana create --name <managed-grafana-resource-name> --resource-group <resource-group-name>
@@ -58,15 +58,15 @@ Run the code below to create an Azure Managed Grafana workspace.
 
 Once the deployment is complete, you'll see a note in the output of the command line stating that the instance was successfully created, alongside with additional information about the deployment.
 
-## Open your new Managed Grafana dashboard
+## Access your new Managed Grafana instance
 
-Now let's check if you can access your new Managed Grafana dashboard.
+Now let's check if you can access your new Managed Grafana instance.
 
 1. Take note of the **endpoint** URL ending by `eus.grafana.azure.com`, listed in the CLI output.  
 
-1. Open a browser and enter the endpoint URL. You should now see your Azure Managed Grafana Dashboard. From there, you can finish setting up your Grafana installation.
+1. Open a browser and enter the endpoint URL. You should now see your Azure Managed Grafana instance. From there, you can finish setting up your Grafana installation.
 
-:::image type="content" source="media/managed-grafana-quickstart-portal-grafana-workspace.png" alt-text="Screenshot of the Azure Managed Grafana dashboard in the browser.":::
+:::image type="content" source="media/managed-grafana-quickstart-portal-grafana-workspace.png" alt-text="Screenshot of the Azure Managed Grafana instance in the browser.":::
 
 > [!NOTE]
 > If creating a Grafana instance fails the first time, please try again. The failure might be due to a limitation in our backend, and we are actively working to fix.

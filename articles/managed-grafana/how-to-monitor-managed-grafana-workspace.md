@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 3/31/2022 
 ---
 
-# How to monitor your instance with logs in Azure Managed Grafana Preview
+# How to monitor your Azure Managed Grafana Preview instance with logs
 
 In this article, you'll learn how to monitor an Azure Managed Grafana Preview instance by configuring diagnostic settings and accessing event logs.
 
@@ -44,7 +44,7 @@ You can create up to five different diagnostic settings to send different logs t
    | Destination             | Description                            | Settings                                                                                                                                                                         |
    |-------------------------|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | Log Analytics workspace | Send data to a Log Analytics workspace | Select the **subscription** containing an existing Log Analytics workspace, then select the **Log Analytics workspace**                                                          |
-   | Storage account         | Archive data to a storage account      | Select the **subscription** containing an existing storage account, then select the **storage account**. Only storage accounts in the same region as the Grafana workspace are displayed in the dropdown menu.                                                                          |
+   | Storage account         | Archive data to a storage account      | Select the **subscription** containing an existing storage account, then select the **storage account**. Only storage accounts in the same region as the Grafana instance are displayed in the dropdown menu.                                                                          |
    | Event hub               | Stream to an event hub                 | Select a **subscription** and an existing Azure Event Hub **namespace**. Optionally also choose an existing **event hub**. Lastly, choose an **event hub policy** from the list. Only event hubs in the same region as the Grafana instance are displayed in the dropdown menu. |
    | Partner solution        | Send to a partner solution             | Select a **subscription** and a **destination**. For more information about available destinations, go to [partner destinations](../azure-monitor/partners.md).                 |
 

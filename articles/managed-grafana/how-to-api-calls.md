@@ -16,7 +16,7 @@ In this article, you'll learn how to call Grafana APIs within Azure Managed Graf
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An Azure Managed Grafana instance. If you don't have one yet, [create a Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
+- An Azure Managed Grafana instance. If you don't have one yet, [create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
 
 ## Sign in to Azure
 

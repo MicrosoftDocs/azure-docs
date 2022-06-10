@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: how-to 
-ms.date: 3/31/2022 
+ms.date: 6/10/2022 
 ---
 
 # How to modify access permissions to Azure Monitor
@@ -26,7 +26,7 @@ In this article, you'll learn how to manually edit permissions for a specific re
 
 Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
 
-## Edit Azure Monitor permissions for an Azure Managed Grafana instance
+## Edit Azure Monitor permissions
 
 To change permissions for a specific resource, follow these steps:
 
