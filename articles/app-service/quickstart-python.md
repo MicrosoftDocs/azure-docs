@@ -3,8 +3,8 @@ title: 'Quickstart: Deploy a Python (Django or Flask) web app to Azure'
 description: Get started with Azure App Service by deploying your first Python app to Azure App Service.
 ms.topic: quickstart
 ms.date: 03/22/2022
-author: DavidCBerry13
-ms.author: daberry
+author: mijacobs
+ms.author: mijacobs
 ms.devlang: python
 ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22
 ---

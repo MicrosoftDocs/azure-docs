@@ -104,7 +104,7 @@ Follow the next steps to use a managed identity for Azure resources on a Hybrid 
     Get-AzVM -DefaultProfile $AzureContext | Select Name
     ```
 
-    If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
+    If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you run the runbook in an Azure sandbox instead of Hybrid Runbook Worker and you want to use a user-assigned managed identity, then:
     1. From line 5, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
     1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
     1. Enter the Client ID.
@@ -128,30 +128,33 @@ Instead of having your runbook provide its own authentication to local resources
 
 #### Use a credential asset for a Hybrid Runbook Worker group
 
-By default, the Hybrid jobs run under the context of System account. However, to run Hybrid jobs under a diffferent credential asset, follow the steps:
+By default, the Hybrid jobs run under the context of System account. However, to run Hybrid jobs under a different credential asset, follow the steps:
 
 1. Create a [credential asset](./shared-resources/credentials.md) with access to local resources.
 1. Open the Automation account in the Azure portal.
 1. Select **Hybrid Worker Groups**, and then select the specific group.
-1. Select **Settings**  and change the value of **Hybrid Worker credentials** from **Default** to **Custom**.
+1. Select **Settings**.
+1. Change the value of **Hybrid Worker credentials** from **Default** to **Custom**.
 1. Select the credential and click **Save**.
+1. If the following permissions are not assigned for Custom users, jobs might get suspended. 
+Use your discretion in assigning the elevated permissions corresponding to the following registry keys/folders: 
+    
+**Registry path**
 
-For a successful job execution, ensure that you provide the following permissions. The jobs might get suspended if the required permissions are not assigned for Custom users.
+- HKLM\SYSTEM\CurrentControlSet\Services\EventLog (read) </br>
+- HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters (full access) </br>
+- HKLM\SOFTWARE\Microsoft\Wbem\CIMOM (full access) </br>
+- HKLM\Software\Policies\Microsoft\SystemCertificates\Root (full access) </br>
+- HKLM\Software\Microsoft\SystemCertificates (full access) </br>
+- HKLM\Software\Microsoft\EnterpriseCertificates (full access) </br>
+- HKLM\software\Microsoft\HybridRunbookWorker (full access) </br>
+- HKLM\software\Microsoft\HybridRunbookWorkerV2 (full access) </br>
+- HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed (full access) </br>
+- HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\PnpLockdownFiles (full access) </br>
 
- **Registry path** | **Permission**
-  --- | ---
-  HKLM\SYSTEM\CurrentControlSet\Services\EventLog  | read
-  HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters | full access
-  HKLM\SOFTWARE\Microsoft\Wbem\CIMOM | full access
-  HKLM\Software\Policies\Microsoft\SystemCertificates\Root | full access
-  HKLM\Software\Microsoft\SystemCertificates | full access
-  HKLM\Software\Microsoft\EnterpriseCertificates | full access
-  HKLM\software\Microsoft\HybridRunbookWorker | full access
-  HKLM\software\Microsoft\HybridRunbookWorkerV2 | full access
-  HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed | full access
-  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\PnpLockdownFiles | full access
-  Folder C:\ProgramData\AzureConnectedMachineAgent\Tokens | read
-  Folder C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\0.1.0.18\HybridWorkerPackage\HybridWorkerAgent | full access
+**Folders**
+- C:\ProgramData\AzureConnectedMachineAgent\Tokens (read) </br>
+- C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\0.1.0.18\HybridWorkerPackage\HybridWorkerAgent (full access)
 
 ## <a name="runas-script"></a>Install Run As account certificate
 
@@ -410,6 +413,7 @@ To help troubleshoot issues with your runbooks running on a hybrid runbook worke
 
 ## Next steps
 
+* For more information on Hybrid Runbook Worker, see [Automation Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 * If your runbooks aren't completing successfully, review the troubleshooting guide for [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 * For more information on PowerShell, including language reference and learning modules, see [PowerShell Docs](/powershell/scripting/overview).
 * Learn about [using Azure Policy to manage runbook execution](enforce-job-execution-hybrid-worker.md) with Hybrid Runbook Workers.
