@@ -11,6 +11,8 @@ ms.date: 08/03/2021
 
 # Pick initial size for Hyperscale (Citus) server group
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 The size of a server group, both number of nodes and their hardware capacity,
 is [easy to change](howto-scale-grow.md)). However you still need to
 choose an initial size for a new server group. Here are some tips for a
