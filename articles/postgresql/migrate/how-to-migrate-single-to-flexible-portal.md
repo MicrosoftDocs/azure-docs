@@ -11,6 +11,9 @@ ms.date: 05/09/2022
 
 # Migrate Single Server to Flexible Server PostgreSQL using the Azure portal
 
+
+[!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
+
 >[!NOTE]
 > Single Server to Flexible Server migration tool is in private preview.
 
