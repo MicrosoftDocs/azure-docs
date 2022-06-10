@@ -26,7 +26,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 #### **Bug fixes**
 
 |Bug fixes |Related information |
-| :----------------------------------- | ---------------: |
+| ----------------------------------- | --------------- |
 |Removes SQL retry on upsert  |Removes retry on SQL command for upsert. The error still occurs, but data is saved correctly in success cases. For more information, see [#2571](https://github.com/microsoft/fhir-server/pull/2571). |
 |Added handling for SqlTruncate errors  |Added a check for SqlTruncate exceptions and tests. In particular, this will catch SqlTruncate exceptions for Decimal type based on the specified precision and scale. For more information, see [#2553](https://github.com/microsoft/fhir-server/pull/2553). |
 
@@ -35,7 +35,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 #### **Features**
 
 |Enhancements | Related information |
-| :------------------------ | -------------------------------: |
+| ------------------------ | ------------------------------- |
 |DICOM service supports cross-origin resource sharing (CORS)  |DICOM service now supports [CORS](./../healthcare-apis/fhir/configure-cross-origin-resource-sharing.md). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request. |
 |DICOMcast supports Private Link   |DICOMcast has been updated to support Azure Health Data Services workspaces that have been configured to use [Private Link](./../healthcare-apis/healthcare-apis-configure-private-link.md). |
 |UPS-RS supports Change and Retrieve work item  |Modality worklist (UPS-RS) endpoints have been added to support Change and Retrieve operations for work items. |
