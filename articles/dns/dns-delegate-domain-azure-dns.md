@@ -53,7 +53,7 @@ Sign in to the Azure portal at https://portal.azure.com.
     | Subscription | Select your Azure subscription.|
     | Resource group | Select **Create new** </br> In **Name**, enter **myResourceGroup** </br> Select **OK**. |
     | **Instance details** |       |
-    | This zone is a child of an existing zone already hosted in Azure DNS | Clear this checkbox since the DNS zone is not a [child zone](./tutorial-public-dns-zones-child.md). |
+    | This zone is a child of an existing zone already hosted in Azure DNS | Clear this checkbox since the DNS zone isn't a [child zone](./tutorial-public-dns-zones-child.md). |
     | Name | Enter your parent DNS zone name. |
     | Resource group location | Select the resource group location. </br> The resource group location doesn't affect your DNS zone service, which is global and not bound to a location. |
 
