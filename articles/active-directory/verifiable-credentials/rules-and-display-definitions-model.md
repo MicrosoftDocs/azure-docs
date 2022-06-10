@@ -128,7 +128,7 @@ When you want the user to enter input themselves, also called self-attested inpu
 |`description`| string | supplemental text displayed alongside each credential |
 |`logo`| [displayCredentialLogo](#displayCredentiallogo-type) | the logo to use for the credential |
 
-### displayCredentialLogodisplayCredentialLogo type
+### displayCredentialLogo type
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
