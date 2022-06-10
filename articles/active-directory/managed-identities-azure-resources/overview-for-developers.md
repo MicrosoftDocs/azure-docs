@@ -23,17 +23,17 @@ ms.collection: M365-identity-device-management
 
 This page explains how developers can use Managed identities so that Azure resources can connect to resources that support authentication with Azure Active Directory, without needing to handle or store any credentials. This is the recommended approach for Azure resources that support the ability to authentiate using a managed identity.
 
-The examples provided will show how an Azure App Service can connect to Azure Key Vault, Azure Storage, and Microsoft SQL Server. However the same principles can be used for any Azure resource that supports Managed Identities and that will connect to endpoints that support Azure Active Directory authentication. 
+The examples provided will show how an Azure App Service can connect to Azure Key Vault, Azure Storage, and Microsoft SQL Server. However the same principles can be used for any Azure resource that supports Managed Identities and that will connect to resources that support Azure Active Directory authentication. 
 
-The Azure resource that will make the connection is referred to as a "source" endpoint, and the resource that you're connecting to is referred to as a "target" endpoint.
+The Azure resource that will make the connection is referred to as a "source" resource, and the resource that you're connecting to is referred to as a "target" resource.
 
 The examples shown use the Azure Identity client library, which is the recommended method as it automatically handles many of the steps for you, including acquiring an access token used in the connection.
 
-Some endpoints don't support Azure Active Directory authentication, or its client library doesn't support authenticating with a token. Keep reading to see our guidance on how to use a Managed identity to securely access the credentials without needing to store them in your code or application configuration.
+Some resources don't support Azure Active Directory authentication, or its client library doesn't support authenticating with a token. Keep reading to see our guidance on how to use a Managed identity to securely access the credentials without needing to store them in your code or application configuration.
 
 ## Creating a managed identity
 
-There are two types of managed identity: system-assigned and user-assigned. System-assigned identities are directly linked to a single Azure resource. When the Azure resource is deleted, so is the identity. A user-assigned identity can be associated with multiple Azure resources, and its lifecycle is independent of those resources. This article will explain how to create and configure a user-assigned identity. Read [our best practice recommendations](managed-identity-best-practice-recommendations.md) to see which type of managed identity is best for your scenario.
+There are two types of managed identity: system-assigned and user-assigned. System-assigned identities are directly linked to a single Azure resource. When the Azure resource is deleted, so is the identity. A user-assigned managed identity can be associated with multiple Azure resources, and its lifecycle is independent of those resources. This article will explain how to create and configure a user-assigned masnaged identity. Read [our best practice recommendations](managed-identity-best-practice-recommendations.md) to see which type of managed identity is best for your scenario.
 
 ### Creating a user-assigned managed identity
 
@@ -60,9 +60,9 @@ If you want to use a user-assigned identity, you'll need to create it before you
 
 :::image type="content" source="media/overview-for-developers/Managed-Identity-Confirmation-Screen.png" alt-text="Managed identity - confirmation screen":::
 
-You now have an identity that can be associated with an Azure resource. [Read more about managing your identities](how-manage-user-assigned-managed-identities.md).
+You now have an identity that can be associated with an Azure resource. [Read more about managing user-assigned managed identities.](how-manage-user-assigned-managed-identities.md).
 
-### Configuring your resource to use a user-assigned managed identity
+#### Configuring your resource to use a user-assigned managed identity
 
 Follow these steps to configure your Azure resource to have a managed identity through the Portal. Refer to the documentation for the specific resource type to learn how to configure the resource's identity using the Command Line Interface, PowerShell or ARM template.
 
@@ -71,7 +71,7 @@ Follow these steps to configure your Azure resource to have a managed identity t
 
 1. Locate the resource using the search bar at the top of the Portal
 
-:::image type="content" source="media/overview-for-developers/System-Assigned-Identity-Created.png" alt-text="System-assigned identity has been created":::
+:::image type="content" source="media/overview-for-developers/locate-resource.png" alt-text="Locate the resource":::
 
 2. Select the Identity link in the navigation
 
@@ -99,7 +99,7 @@ Some resources may only support system-assigned identities, or you may prefer to
 
 1. Locate the resource using the search bar at the top of the Portal
 
-:::image type="content" source="media/overview-for-developers/System-Assigned-Identity-Created.png" alt-text="System-assigned identity has been created":::
+:::image type="content" source="media/overview-for-developers/locate-resource.png" alt-text="Locate the Azure resource":::
 
 2. Select the Identity link in the navigation
 
@@ -124,7 +124,7 @@ Your resource now has a system-assigned identity that it can use to connect to o
 > [!NOTE]
 > You'll need a role such as "User Access Administrator" or "Owner" for the target resource to add Role assignments. Ensure you're granting the least privilege required for the application to run.
 
-Now your App Service has a managed identity, you'll need to give the identity the correct permissions. As you're using this identity to interact with Azure Storage, you'll use the Azure RBAC (Role Based Access Control) system.
+Now your App Service has a managed identity, you'll need to give the identity the correct permissions. As you're using this identity to interact with Azure Storage, you'll use the [Azure RBAC (Role Based Access Control) system](../../role-based-access-control/overview.md).
 
 1. Locate the resource you want to connect to using the search bar at the top of the Portal
 2. Select the "Access Control (IAM)" link in the left hand navigation.
@@ -162,11 +162,11 @@ Your managed identity now has the correct permissions to access the Azure resour
 
 Your App Service now has an identity with permissions. You can use the identity in your code to interact with Azure Storage, instead of storing credentials in your code.
 
-The recommended method is to use the Azure Identity library for your preferred programming language. The supported languages include .NET, Java, JavaScript, Python, Go, and C++. The library acquires access tokens for you, making it simple to connect to target endpoints.
+The recommended method is to use the Azure Identity library for your preferred programming language. The supported languages include .NET, Java, JavaScript, Python, Go, and C++. The library acquires access tokens for you, making it simple to connect to target resources.
 
 ### Using the Azure Identity library in your development environment
 
-With the exception of the C++ library, the Azure Identity libraries support a `DefaultAzureCredential` type. `DefaultAzureCredential` automatically attempts to authenticate via multiple mechanisms, including environment variables or an interactive login. The credential type can be used in your development environment using your own credentials. It can also be used in your production Azure environment using a Managed identity. No code changes are required when you deploy your application.
+With the exception of the C++ library, the Azure Identity libraries support a `DefaultAzureCredential` type. `DefaultAzureCredential` automatically attempts to authenticate via multiple mechanisms, including environment variables or an interactive login. The credential type can be used in your development environment using your own credentials. It can also be used in your production Azure environment using a managed identity. No code changes are required when you deploy your application.
 
 You can also explicitly specify that the Managed identity you wish to authenticate with by passing in the identity's client ID. You can retrieve this client ID by browsing to the identity in the Portal.
 
@@ -376,7 +376,7 @@ public class Connect_to_Azure_SQL {
 
 ## Connecting to resources that don't support Azure Active Directory or token based authentication in libraries
 
-Some Azure resources either don't yet support Azure Active Directory authentication, or their client libraries don't support authenticating with a token. Typically these endpoints are open-source technologies that expect a username and password or an access key in a connection string.
+Some Azure resources either don't yet support Azure Active Directory authentication, or their client libraries don't support authenticating with a token. Typically these are open-source technologies that expect a username and password or an access key in a connection string.
 
 To avoid storing credentials in your code or your application configuration, you can store the credentials as a secret in Azure Key Vault. Using the example displayed above, you can retrieve the secret from Azure KeyVault using a managed identity, and pass the credentials into your connection string. This approach means that no credentials need to be handled directly in your code or environment.
 
@@ -388,10 +388,10 @@ In some scenarios, you may want to acquire tokens for Managed identities manuall
 For performance and reliability, we recommend that your application caches tokens in local memory, or encrypted if you want to save them to disk. As Managed identity tokens are valid for 24 hours, there's no benefit in requesting new tokens regularly, as a cached one will be returned from the token issuing endpoint. If you exceed the request limits, you'll be rate limited and receive an HTTP 429 error.
 
 ### Token inspection
-Your application shouldn't rely on the contents of a token. The token's content is intended only for the audience (target endpoint) that is being accessed, not the client that's requesting the token. The token content may change or be encrypted in the future.
+Your application shouldn't rely on the contents of a token. The token's content is intended only for the audience (target resource) that is being accessed, not the client that's requesting the token. The token content may change or be encrypted in the future.
 
-### Don't expose tokens
-Tokens should be treated like credentials. Don't expose them to users or other services; for example logging/monitoring solutions.
+### Don't expose or move tokens
+Tokens should be treated like credentials. Don't expose them to users or other services; for example logging/monitoring solutions. They should not be moved from the source resource that's using them, other than to authenticate against the target resource.
 
 ## Next steps
 
