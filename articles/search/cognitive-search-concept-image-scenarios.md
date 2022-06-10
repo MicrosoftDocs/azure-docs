@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 06/10/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -403,7 +403,7 @@ The following workflow outlines the process of image extraction, analysis, mergi
 
 1. Image outputs are passed into enriched documents, with each output as a separate node. Outputs vary by skill (text and layoutText for OCR, tags and captions for Image Analysis).
 
-1. Optional but recommended if you want search documents to include both text and image-origin text together, [Text Merge](cognitive-search-skill-textmerger.md) runs, combining the text representation of those images with the raw text extracted from the file. Text chunks are consolidated into a single large string, where the OCR output or image tags and captions are inserted in the same location as the image.
+1. Optional but recommended if you want search documents to include both text and image-origin text together, [Text Merge](cognitive-search-skill-textmerger.md) runs, combining the text representation of those images with the raw text extracted from the file. Text chunks are consolidated into a single large string, where the text is inserted first in the string and then the OCR text output or image tags and captions.
 
    The output of Text Merge is now the definitive text to analyze for any downstream skills that perform text processing. For example, if your skillset includes both OCR and Entity Recognition, the input to Entity Recognition should be `"document/merged_text"` (the targetName of the Text Merge skill output).
 
