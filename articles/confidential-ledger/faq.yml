@@ -25,7 +25,7 @@ sections:
       - question: |
           What makes Azure confidential ledger much more secure?
         answer: |
-          As its name suggests, the ledger utilizes [Azure Confidential Computing platform](../confidential-computing/index.yml). One ledger spans across three or more identical instances, each of which run in a dedicated, fully attested hardware-backed enclave. The ledger's integrity is maintained through a consensus-based blockchain.
+          As its name suggests, the ledger utilizes [Azure Confidential Computing platform](../confidential-computing/index.yml) and the [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework) to provide a high integrity solution that is tamper protected and evident. One ledger spans across three or more identical instances, each of which run in a dedicated, fully attested hardware-backed enclave. The ledger's integrity is maintained through a consensus-based blockchain.
           
       - question: |
           When writing to the Azure confidential ledger, do I need to store write receipts?
@@ -48,12 +48,12 @@ sections:
       - question: |
           Can Microsoft help me manage users on a ledger I have created?
         answer: |
-          No. Once a ledger is created, Microsoft no access to user management. 
+          No. Once a ledger is created, Microsoft has no access to user management. 
 
       - question: |
           I've created a ledger without an administrator. Can I still add users?
         answer: |
-          No. To perform user management operations, you will need to delete this ledger and create new one, with a user assigned as administrator.
+          If you create a ledger without an administrator, the AAD/cert gets admin rights. That identity can be used to manage the ledger.
           
 
 
