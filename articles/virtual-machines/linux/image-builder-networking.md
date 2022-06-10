@@ -73,8 +73,8 @@ Private Link requires an IP from the specified virtual network and subnet. Curre
 ### Checklist for using your virtual network
 
 1. Allow Azure Load Balancer to communicate with the proxy VM in a network security group.
-    * [AZ CLI example](image-builder-vnet.md#add-nsg-rule)
-    * [PowerShell example](../windows/image-builder-vnet.md#add-nsg-rule)
+    * [AZ CLI example](image-builder-vnet.md#add-an-nsg-rule)
+    * [PowerShell example](../windows/image-builder-vnet.md#add-an-nsg-rule)
 2. Disable the private service policy on the subnet.
     * [AZ CLI example](image-builder-vnet.md#disable-private-service-policy-on-the-subnet)
     * [PowerShell example](../windows/image-builder-vnet.md#disable-private-service-policy-on-the-subnet)
