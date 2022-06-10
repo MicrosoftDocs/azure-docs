@@ -262,3 +262,4 @@ In the preceding example, adding the `DATABASE BACKUP ADMIN` privilege to the SY
 ## Next steps
 
 - [Tips and tricks for using AzAcSnap](azacsnap-tips.md)
+- [AzAcSnap command reference](azacsnap-cmd-ref-configure.md)
