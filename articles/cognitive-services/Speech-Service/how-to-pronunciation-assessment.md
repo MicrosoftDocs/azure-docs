@@ -358,6 +358,10 @@ speechRecognitionResult = speechRecognizer->RecognizeOnceAsync().get();
 auto pronunciationAssessmentResult =
     PronunciationAssessmentResult::FromResult(speechRecognitionResult);
 
+// The pronunciation score result as a Speech SDK object
+auto pronunciationScore = pronunciationAssessmentResult->PronunciationScore;
+
+// Alternative result as a JSON string
 auto pronunciationAssessmentResultJson = speechRecognitionResult->Properties.GetProperty(PropertyId::SpeechServiceResponse_JsonResult);
 ```
    
