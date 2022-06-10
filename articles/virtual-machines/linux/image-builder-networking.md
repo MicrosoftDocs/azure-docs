@@ -73,14 +73,14 @@ Private Link requires an IP from the specified virtual network and subnet. Curre
 ### Checklist for using your virtual network
 
 1. Allow Azure Load Balancer to communicate with the proxy VM in a network security group.
-    * [AZ CLI example](image-builder-vnet.md#add-network-security-group-rule)
-    * [PowerShell example](../windows/image-builder-vnet.md#add-network-security-group-rule)
+    * [AZ CLI example](image-builder-vnet.md#add-nsg-rule)
+    * [PowerShell example](../windows/image-builder-vnet.md#add-nsg-rule)
 2. Disable the private service policy on the subnet.
-    * [AZ CLI example](image-builder-vnet.md#disable-private-service-policy-on-subnet)
-    * [PowerShell example](../windows/image-builder-vnet.md#disable-private-service-policy-on-subnet)
+    * [AZ CLI example](image-builder-vnet.md#disable-private-service-policy-on-the-subnet)
+    * [PowerShell example](../windows/image-builder-vnet.md#disable-private-service-policy-on-the-subnet)
 3. Allow Azure Image Builder to create a load balancer, and add VMs to the virtual network.
-    * [AZ CLI Example](image-builder-permissions-cli.md#existing-vnet-azure-role-example)
-    * [PowerShell example](image-builder-permissions-powershell.md#permission-to-customize-images-on-your-vnets)
+    * [AZ CLI Example](image-builder-permissions-cli.md#existing-virtual-network-azure-role-example)
+    * [PowerShell example](image-builder-permissions-powershell.md#permission-to-customize-images-on-your-virtual-networks)
 4. Allow Azure Image Builder to read and write source images, and create images.
     * [AZ CLI example](image-builder-permissions-cli.md#custom-image-azure-role-example)
     * [PowerShell example](image-builder-permissions-powershell.md#custom-image-azure-role-example)
