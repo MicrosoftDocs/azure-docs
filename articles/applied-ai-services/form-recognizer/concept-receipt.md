@@ -131,7 +131,6 @@ You'll need a receipt document. You can use our [sample receipt document](https:
 | Items.*.Date | Date | Item date | yyyy-mm-dd |
 | Items.*.Description | String | Item description | |
 | Items.*.TotalPrice |  Number | Item total price | Two-decimal float |
-| Locale | String | Locale of the receipt, for example, en-US. | ISO language-county code   |
 | MerchantAddress | String | Listed address of merchant | |
 | MerchantAliases | Array| | |
 | MerchantAliases.* | String | Alternative name of merchant |  |
