@@ -20,7 +20,7 @@ In this article, you'll learn about how configurations are applied to your netwo
 
 ## Deployment
 
-*Deployment* is the method Azure Virtual Network Manager uses to apply configurations to your virtual networks in network groups.Configurations won't take effect until they are deployed. Changes to network groups, including events such as removal and addition of a virtual network into a network group, will take effect without the need of re-deployment. When committing a deployment, you select the region(s) to which the configuration will be applied. When a deployment request is sent to Azure Virtual Network Manager, it will calculate the [goal state](#goalstate) of network resources and request the necessary changes to your infrastructure. The changes can take about 15-20 minutes depending on how large the configuration is.
+*Deployment* is the method Azure Virtual Network Manager uses to apply configurations to your virtual networks in network groups. Configurations won't take effect until they are deployed. Changes to network groups, including events such as removal and addition of a virtual network into a network group, will take effect without the need of re-deployment. When committing a deployment, you select the region(s) to which the configuration will be applied. When a deployment request is sent to Azure Virtual Network Manager, it will calculate the [goal state](#goalstate) of network resources and request the necessary changes to your infrastructure. The changes can take about 15-20 minutes depending on how large the configuration is.
 
 ## <a name="deployment"></a>Deployment against network group membership types
 
