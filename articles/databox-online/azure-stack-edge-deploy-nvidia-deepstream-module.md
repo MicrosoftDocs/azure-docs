@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 06/10/2022
 ms.author: alkohli
 ---
 
@@ -43,14 +43,12 @@ Before you begin, make sure you have:
 
      ![Screenshot of the Azure portal, modules runtime status.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-verify-module-status.png)
 
-## Troubleshooting module deployment
+1. Verify that the module provides the following output in the troubleshooting page of the IoT Edge device on IoT Hub:
 
-To troubleshoot module deployment, view the *NVIDIADeepStreamSDK* log file output:
+    ![Screenshot of the Azure portal, NVIDIADeepStreamSDK log file output.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-troubleshoot-iot-edge-module.png)
 
-![Screenshot of the Azure portal, NVIDIADeepStreamSDK log file output.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-troubleshoot-iot-edge-module.png)
-
-![Screenshot of the Azure portal, NVIDIADeepStreamSDK log file output, continued.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-troubleshoot-iot-edge-module-2.png)
+    ![Screenshot of the Azure portal, NVIDIADeepStreamSDK log file output, continued.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-troubleshoot-iot-edge-module-2.png)
     
-After a certain period of time, the module will complete and quit, causing the module to return an error. This is expected behavior.
+1. After a certain period of time, the module runtime will complete and quit, causing the module status to return an error. This error condition is expected behavior.
 
-![Screenshot of the Azure portal, NVIDIADeepStreamSDK module runtime status with error condition.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-add-iot-edge-module-error.png)
+    ![Screenshot of the Azure portal, NVIDIADeepStreamSDK module runtime status with error condition.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-add-iot-edge-module-error.png)
