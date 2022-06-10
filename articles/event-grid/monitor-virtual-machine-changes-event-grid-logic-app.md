@@ -74,15 +74,17 @@ In this tutorial, you learn how to:
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | Select the same Azure subscription for all the services in this tutorial. |
    | **Resource Group** | Yes | <*Azure-resource-group*> | The Azure resource group name for your logic app, which you can select for all the services in this tutorial. |
-   | **Type** | Yes | Consumption | The resource type for your logic app. For this tutorial, make sure that you select **Consumption**. |
    | **Logic App name** | Yes | <*logic-app-name*> | Provide a unique name for your logic app. |
    | **Publish** | Yes | Workflow | Select the deployment destination for your logic app. For this tutorial, make sure that you select **Workflow**, which deploys to Azure. |
    | **Region** | Yes | <*Azure-region*> | Select the same region for all services in this tutorial. |
+   | **Plan type** | Yes | Consumption | The resource type for your logic app. For this tutorial, make sure that you select **Consumption**. |
    |||||
 
    > [!NOTE]
-   > If you later want to use the Azure Event Grid operations with a Standard logic app resource instead, make sure that you create a *stateful* workflow, not a stateless workflow. 
-   > To add Azure Event Grid operations to your workflow in the designer, on the operations picker pane, make sure that you select the **Azure** tab. 
+   > If you later want to use the Azure Event Grid operations with a Standard logic app resource instead, 
+   > make sure that you create a *stateful* workflow, not a stateless workflow. This tutorial applies only 
+   > to Consumption logic apps, which follow a different user experience. To add Azure Event Grid operations 
+   > to your workflow in the designer, on the operations picker pane, make sure that you select the **Azure** tab. 
    > For more information about multi-tenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multi-tenant and integration service environment](../logic-apps/single-tenant-overview-compare.md).
 
 1. When you're done, select **Review + create**. On the next pane, confirm the provided information, and select **Create**.
@@ -94,6 +96,9 @@ In this tutorial, you learn how to:
 1. Scroll past the video window and commonly used triggers section.
 
 1. Under **Templates**, select **Blank Logic App**.
+
+   > [!NOTE
+   > The workflow templates gallery is available only for Consumption logic apps, not Standard logic apps.
 
    ![Screenshot showing Azure Logic Apps templates with selected "Blank Logic App" template.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
