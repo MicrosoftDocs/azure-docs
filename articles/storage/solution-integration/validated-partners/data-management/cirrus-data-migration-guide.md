@@ -15,11 +15,11 @@ ms.subservice: partner
 
 Cirrus Migrate Cloud (CMC) enables disk migration from an existing storage system or cloud to Azure. Migration proceeds while the original system is still in operation. This article presents the methodology to successfully configure and execute the migration.
 
-The solution uses distributed Migration Agents that run on every host that allows direct Host-to-Host connections. Each Host-to-Host migration is independent, which makes the solution infinitely scalable. There are no central bottlenecks for the dataflow. The migration uses cMotion™ technology to ensure no effect on production.
+The solution uses distributed Migration Agents that run on every host. The agents allow direct Host-to-Host connections. Each Host-to-Host migration is independent, which makes the solution infinitely scalable. There are no central bottlenecks for the dataflow. The migration uses cMotion™ technology to ensure no effect on production.
 
 ## Migration use cases
 
-This document covers a generic migration case for moving the application from one virtual machine to a virtual machine in Azure. The virtual machine can be on-premises or in another cloud provider. For step-by-step guides in various use cases, see the following links:
+This document covers a generic migration case for moving an application from one virtual machine to a virtual machine in Azure. The virtual machine can be on-premises or in another cloud provider. For step-by-step guides in various use cases, see the following links:
 
 - [Moving the workload to Azure with cMotion](https://support.cirrusdata.cloud/en/article/howto-cirrus-migrate-cloud-on-premises-to-azure-1xo3nuf/)
 - [Moving from Premium Disks to Ultra Disks](https://support.cirrusdata.cloud/en/article/howto-cirrus-migrate-cloud-migration-between-azure-tiers-sxhppt/)
@@ -40,16 +40,18 @@ Follow the Azure best practices to implement a new virtual machine. For more inf
 
 Before starting the migration, make sure the following prerequisites have been met:
 
-- Verify that the OS in Azure is properly licensed
-- Verify access to the Azure Virtual Machine
-- Check that the application / database license is available to run in Azure
-- Check the permission to auto-allocate the destination disk size
-- Ensure that managed disk is the same size or larger than the source disk
+- Verify that the OS in Azure is properly licensed.
+- Verify access to the Azure Virtual Machine.
+- Check that the application / database license is available to run in Azure.
+- Check the permission to auto-allocate the destination disk size.
+- Ensure that managed disk is the same size or larger than the source disk.
 - Ensure that either the source or the destination virtual machine has a port open to allow our H2H connection.
+
+Follow these implementation steps:
 
 1. **Prepare the Azure virtual machine**. The virtual machine must be fully implemented. Once the data disks are migrated, the destination host can immediately start the application and bring it online. State of the data is the same as the source when it was shut down seconds ago. CMC doesn't migrate the OS disk from source to destination.
 
-1. **Prepare the application in the Azure virtual machine**. In this example, the source is Linux host. It can run any user application accessing the respective BSD storage. This example uses a database application running at the source using a 1-GiB disk as a source storage device. However, any application can be used instead. Set up a virtual machine in Azure ready to be used as the destination virtual machine. Make sure that resource configuration and operating system are compatible with the application, and ready to receive the migration from the source using CMC portal. The destination block storage device/s are automatically allocated and created during the migration process.
+1. **Prepare the application in the Azure virtual machine**. In this example, the source is Linux host. It can run any user application accessing the respective BSD storage. This example uses a database application running at the source using a 1-GiB disk as a source storage device. However, any application can be used instead. Set up a virtual machine in Azure ready to be used as the destination virtual machine. Make sure that resource configuration and operating system are compatible with the application, and ready to receive the migration from the source using CMC portal. The destination block storage devices are automatically allocated and created during the migration process.
 
 1. **Sign up for CMC account**. To obtain a CMC account, follow the support page for instructions on how to get an account. For more information, see [Licensing Model](https://support.cirrusdata.cloud/en/article/licensing-m4lhll/).
 
@@ -78,23 +80,23 @@ Before starting the migration, make sure the following prerequisites have been m
     For details on creating Azure AD application, see the [step-by-step instructions](https://support.cirrusdata.cloud/en/article/creating-an-azure-service-account-for-cirrus-data-cloud-tw2c9n/). By creating and registering Azure AD application for CMC, you enable automatic creation of Azure Managed Disks on the target virtual machine.
 
     >[!NOTE]
-    >Since you selected **Auto allocate destination volumes** on the previous step, don't select it again for a new allocation. If you do, it will output and error. Instead, select **Continue**.
+    >Since you selected **Auto allocate destination volumes** on the previous step, don't select it again for a new allocation. Instead, select **Continue**.
 
 ## Migration guide
 
 After selecting **Save** in the previous step, the **New Migration Session** window appears. Fill in the fields:
 
-- **Session description**: provide meaningful description
-- **Auto Resync Interval**: enable migration schedule 
+- **Session description**: Provide meaningful description.
+- **Auto Resync Interval**: Enable migration schedule.
 - Use iQoS to select the effect migration has on the production:
-  - **Minimum** throttles migration rate to 25% of the available bandwidth
-  - **Moderate** throttles migration rate to 50% of the available bandwidth
-  - **Aggressive** throttles migration rate to 75% of the available bandwidth
+  - **Minimum** throttles migration rate to 25% of the available bandwidth.
+  - **Moderate** throttles migration rate to 50% of the available bandwidth.
+  - **Aggressive** throttles migration rate to 75% of the available bandwidth.
   - **Relentless** doesn't throttle the migration.
 
        :::image type="content" source="./media/cirrus-data-migration-guide/cirrus-iqos.jpg" alt-text="Screenshot that shows options for iQoS settings.":::
 
-Press **Create Session** to start the migration.
+Select **Create Session** to start the migration.
 
 From the start of the migration initial sync until cMotion starts, there's no need for you to interact with CMC. You can monitor current status, session volumes, and track the changes using the dashboard.
 
@@ -116,7 +118,7 @@ After the initial synchronization finishes, prepare to move the workload from th
 
 At this point, the systems are ready for cMotion™ migration cut-over.
 
-1. In the CMS portal, select **Trigger cMotion™** using Session to switch the workload from the source to the destination disk. To check if the process finished, you can use `iostat`, or equivalent command. Go to the terminal in the Azure virtual machine, and run `iostat /dev/<device_name>`, for example `/dev/sdc`. Observe that the IOs are written by the application on the destination disk in Azure cloud.
+In the CMS portal, select **Trigger cMotion™** using Session to switch the workload from the source to the destination disk. To check if the process finished, you can use `iostat`, or equivalent command. Go to the terminal in the Azure virtual machine, and run `iostat /dev/<device_name>`, for example `/dev/sdc`. Observe that the IOs are written by the application on the destination disk in Azure cloud.
 
 :::image type="content" source="./media/cirrus-data-migration-guide/cirrus-monitor-4.jpg" alt-text="Screenshot that shows current monitoring status.":::
 
@@ -125,16 +127,17 @@ In this state, the workload can be moved back to the source disk at any time. If
 When the final cut-over to the destination virtual machine is required, follow these steps:
 
 1. Select **Session Actions**.
-1. Select the **Finalize Cutover** option to lock-in the cut-over to the new Azure virtual machine and disable the option for source disk to be removed. Stop any other application running in the source host for final host cut-over.
+1. Select the **Finalize Cutover** option to lock-in the cut-over to the new Azure virtual machine and disable the option for source disk to be removed.
+1. Stop any other application running in the source host for final host cut-over.
 
 ### Move the application to the destination virtual machine
 
-Once the cut-over has been done, application needs to be switched over to the new virtual machine. To do that, perform the following steps:
+Once the cut-over has been done, application needs to be switched over to the new virtual machine. To do that, do the following steps:
 
 1. Stop the application.
 1. Unmount the migrated device.
-1. Mount the new migrated device in Azure virtual machine.
-1. Start the same application in Azure virtual machine on the new migrated disk.
+1. Mount the new migrated device in the Azure virtual machine.
+1. Start the same application in the Azure virtual machine on the new migrated disk.
 
 Verify that here are no IOs going to source hosts devices by running the `iostat` command in the source host. Running `iostat` in Azure virtual machine shows that IO is running on the Azure virtual machine terminal.
 
