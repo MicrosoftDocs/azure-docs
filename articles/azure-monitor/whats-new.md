@@ -48,7 +48,6 @@ This article lists significant changes to Azure Monitor documentation.
 
 - [Navigate to a change using custom filters in Change Analysis](change/change-analysis-custom-filters.md) - New article
 - [Pin and share a Change Analysis query to the Azure dashboard](change/change-analysis-query.md) - New article
-- [Track a web app outage using Change Analysis](change/change-analysis-outages.md) - New article
 - [Use Change Analysis in Azure Monitor to find web-app issues](change/change-analysis.md) - Added details  enabling for web app in-guest changes
 ### Containers
 
