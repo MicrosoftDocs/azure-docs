@@ -166,46 +166,6 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
 :::image type="content" source="media/azure-web-apps-net-core/auto-instrumentation-status.png" alt-text="Screenshot displaying auto instrumentation status web page." lightbox="media/azure-web-apps-net-core/auto-instrumentation-status.png":::
 
-##### No Data
-
-1. List and identify the process that is hosting an app. Navigate to your terminal and on the command line type `ps ax`. 
-    
-    The output should be similar to: 
-
-   ```bash
-     PID TTY      STAT   TIME COMMAND
-    
-        1 ?        SNs    0:00 /bin/bash /opt/startup/startup.sh
-    
-       19 ?        SNs    0:00 /usr/sbin/sshd
-    
-       27 ?        SNLl   5:52 dotnet dotnet6demo.dll
-    
-       50 ?        SNs    0:00 sshd: root@pts/0
-    
-       53 pts/0    SNs+   0:00 -bash
-    
-       55 ?        SNs    0:00 sshd: root@pts/1
-    
-       57 pts/1    SNs+   0:00 -bash
-   ``` 
-
-
-1. Then list environment variables from app process. On the command line type `cat /proc/27/environ | tr '\0' '\n`.
-    
-    The output should be similar to: 
-
-    ```bash
-    ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=Microsoft.ApplicationInsights.StartupBootstrapper
-    
-    DOTNET_STARTUP_HOOKS=/DotNetCoreAgent/2.8.39/StartupHook/Microsoft.ApplicationInsights.StartupHook.dll
-    
-    APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/
-    
-    ```
-    
-1. Validate that `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`, `DOTNET_STARTUP_HOOKS`, and `APPLICATIONINSIGHTS_CONNECTION_STRING` are set.
-
 ---
 
 #### Default website deployed with web apps doesn't support automatic client-side monitoring

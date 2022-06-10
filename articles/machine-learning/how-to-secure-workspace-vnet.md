@@ -48,9 +48,6 @@ In this article you learn how to enable the following workspaces resources in a 
 
 + An existing virtual network and subnet to use with your compute resources.
 
-    > [!TIP]
-    > If you plan on using Azure Container Instances in the virtual network (to deploy models), then the workspace and virtual network must be in the same resource group. Otherwise, they can be in different groups.
-
 + To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
     - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
@@ -74,6 +71,10 @@ In this article you learn how to enable the following workspaces resources in a 
 
     * If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
     * If the storage account uses a __private endpoint__, the workspace private endpoint and storage private endpoint must be in the same VNet. In this case, they can be in different subnets.
+
+### Azure Container Instances
+
+When your Azure Machine Learning workspace is configured with a private endpoint, deploying to Azure Container Instances in a VNet is not supported. Instead, consider using a [Managed online endpoint with network isolation](how-to-secure-online-endpoint.md).
 
 ### Azure Container Registry
 
