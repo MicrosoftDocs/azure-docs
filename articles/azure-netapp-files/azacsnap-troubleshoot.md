@@ -43,20 +43,20 @@ For the `-c backup` command, AzAcSnap writes to a *\*.result* file and to the sy
 Database # 1 (PR1) : completed ok
 ```
 
-Here is example output from `/var/log/messages`:
+Here's example output from `/var/log/messages`:
 
 ```output
 Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
 ```
 
-## Use Cloud Shell to test communication
+## Use Cloud Shell to troubleshoot communications
 
 Communication with Azure NetApp Files might fail or time out. To troubleshoot, make sure firewall rules aren't blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:
 
 - `https://management.azure.com:443`
 - `https://login.microsoftonline.com:443`
 
-You can also test whether the service principal is configured correctly, by using Cloud Shell through the Azure portal. Using Cloud Shell tests for correct configuration, bypassing network controls within a virtual network or virtual machine (VM).
+You can also test whether the service principal is configured correctly by using Cloud Shell through the Azure portal. Using Cloud Shell tests for correct configuration, bypassing network controls within a virtual network or virtual machine (VM).
 
 1. In the Azure portal, open a [Cloud Shell](../cloud-shell/overview.md) session.
 1. Make a test directory, for example `mkdir azacsnap`.
@@ -71,7 +71,7 @@ You can also test whether the service principal is configured correctly, by usin
    ```bash
    ./azacsnapinstaller -X -d .
    ```
-   The results looks like the following output:
+   The results look like the following output:
 
    ```output
    +-----------------------------------------------------------+
@@ -110,7 +110,7 @@ ECDSA key fingerprint is SHA256:QxamHRn3ZKbJAKnEimQpVVCknDSO9uB4c9Qd8komDec.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
-To troubleshoot this error, don't respond Yes. Make sure that your storage IP address is correct. You can confirm the storage IP address with the Microsoft operations team.
+To troubleshoot this error, don't respond `yes`. Make sure that your storage IP address is correct. You can confirm the storage IP address with the Microsoft operations team.
 
 The error usually appears when the Azure Large Instance storage user doesn't have access to the underlying storage. To determine whether the storage user has access to storage, run the `ssh` command to validate communication with the storage platform.
 
@@ -163,7 +163,7 @@ To troubleshoot this error:
 
 ## Troubleshoot problems with SAP HANA
 
-When setting up communication with SAP HANA, the `hdbuserstore` program creates the secure communication settings.  The `hdbuserstore` program is usually found under */usr/sap/<SID>/SYS/exe/hdb/* or */usr/sap/hdbclient*.  Make sure the installer added the correct location to the AzAcSnap user's `$PATH`.
+When setting up communication with SAP HANA, the `hdbuserstore` program creates the secure communication settings.  The `hdbuserstore` program is usually under */usr/sap/\<SID>/SYS/exe/hdb/* or */usr/sap/hdbclient*.  Make sure the installer added the correct location to the AzAcSnap user's `$PATH`.
 
 ### Failed 'test hana' command
 
@@ -231,7 +231,7 @@ To troubleshoot this error:
 
 ### Insufficient privilege error
 
-If running `azacsnap` presents an error such as `* 258: insufficient privilege`, check that the user has the appropriate AZACSNAP database user privileges, set up per the [installation guide](azacsnap-installation.md#enable-communication-with-database)). Verify the user's privileges with the following command:
+If running `azacsnap` presents an error such as `* 258: insufficient privilege`, check that the user has the appropriate AZACSNAP database user privileges set up per the [installation guide](azacsnap-installation.md#enable-communication-with-database). Verify the user's privileges with the following command:
 
 ```bash
 hdbsql -U AZACSNAP "select GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE from sys.granted_privileges " | grep -i -e GRANTEE -e azacsnap
