@@ -12,7 +12,7 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS alias records to use my apex domain name with Traffic Manager.
 ---
 
-# Tutorial: Create an alias record to support apex domain name with Traffic Manager 
+# Tutorial: Create an alias record to support apex domain names with Traffic Manager 
 
 You can create an alias record for your apex domain name to reference an Azure Traffic Manager profile. Instead of using a redirecting service, you configure Azure DNS to reference a Traffic Manager profile directly from your zone. 
 

@@ -136,4 +136,4 @@ When no longer needed, you can delete all resources created in this tutorial by 
 In this tutorial, you learned how to create a child zone in Azure DNS for your subdomain. To learn how to create custom DNS records for web apps, continue with the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Create custom DNS records for web apps](dns-web-sites-custom-domain)
+> [Create custom DNS records for web apps](dns-web-sites-custom-domain.md)
