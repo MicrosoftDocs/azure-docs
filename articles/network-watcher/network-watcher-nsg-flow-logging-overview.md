@@ -390,7 +390,7 @@ Also, when a NSG is deleted, by default the associated flow log resource is dele
 
 Few common scenarios:
 1. **Multiple NICs at a VM**: In case multiple NICs are attached to a virtual machine, flow logging must be enabled on all of them
-1. **Having NSG at both NIC and Subnet Level**: In case NSG is configured at the NIC as well as the subnet level, then flow logging must be enabled at both the NSGs since the exact sequence of rule processing by NSGs at NIC and subnet level is platform dependent and varies from case to case. Traffic flows will be logged against the NSG which is processed last. 
+1. **Having NSG at both NIC and Subnet Level**: In case NSG is configured at the NIC as well as the subnet level, then flow logging must be enabled at both the NSGs since the exact sequence of rule processing by NSGs at NIC or subnet depends whether the traffic is inbound or outbound. Traffic flows will be logged against the NSG which is processed last. Inbound traffic to a VM is processed first at the subnet level NSG and then the NIC NSG. Outbound traffic from a VM is processed first at the NIC NSG and then at the subnet NSG.
 1. **AKS Cluster Subnet**: AKS adds a default NSG at the cluster subnet. As explained in the above point, flow logging must be enabled on this default NSG.
 
 **Storage provisioning**: Storage should be provisioned in tune with expected Flow Log volume.
