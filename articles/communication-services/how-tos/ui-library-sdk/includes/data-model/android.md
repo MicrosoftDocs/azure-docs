@@ -14,7 +14,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Local Participant View Customization
 
-The UI Library gives developers the ability to provide a more customized experience in regards to Participant information. At launch, developers can optionally add Partipant View Data. This local data is not shared with the server and can be used to customize the display name and avatar of the local user.
+The UI Library gives developers the ability to provide a more customized experience regarding Participant information. At launch, developers can optionally add Participant View Data. This local data is not shared with the server and can be used to customize the display name and avatar of the local user.
 
 #### Local Participant View Data
 
@@ -59,7 +59,7 @@ The process is similar to the local participant process, however the data is set
 
 To set the participant view data for remote participant, set `setOnRemoteParticipantJoinedHandler`. On remote participant join, use callComposite `setRemoteParticipantViewData` to inject view data for remote participant. The participant identifier [CommunicationIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/index.html) is to uniquely identify a remote participant.
 
-Calls to `setRemoteParticipantViewData` return a result of `CallCompositeSetParticipantViewDataResult` which has the following values.
+Calls to `setRemoteParticipantViewData` return a result of `CallCompositeSetParticipantViewDataResult`, which has the following values.
 
 - CallCompositeSetParticipantViewDataResult.SUCCESS
 - CallCompositeSetParticipantViewDataResult.PARTICIPANT_NOT_IN_CALL
