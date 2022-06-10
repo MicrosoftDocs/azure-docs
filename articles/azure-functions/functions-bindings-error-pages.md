@@ -83,6 +83,8 @@ The first retry waits for the minimum delay. On subsequent retries, time is adde
 
 You can configure the maximum number of times function execution is retried before eventual failure. The current retry count is stored in memory of the instance. It's possible that an instance has a failure between retry attempts. When an instance fails during a retry policy, the retry count is lost. When there are instance failures, the Event Hubs trigger is able to resume processing and retry the batch on a new instance, with the retry count reset to zero. Timer trigger doesn't resume on a new instance. This behavior means that the max retry count is a best effort, and in some rare cases an execution could be retried more than the maximum. For Timer triggers, the retries can be less than the maximum requested.
 
+#### Retry examples
+
 ::: zone pivot="programming-language-csharp"
 
 # [In-process](#tab/in-process/fixed-delay)
