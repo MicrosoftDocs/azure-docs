@@ -10,7 +10,7 @@ ms.author: v-amallick
 ---
 # Azure Resource Manager and Bicep templates for Azure Backup
 
-The following table includes link to a repository of Azure Resource Manager and Bicep templates for use with Recovery Services vaults and Azure Backup features. To learn about the JSON or Bicep syntax and properties, see [Microsoft.RecoveryServices resource types](/azure/templates/microsoft.recoveryservices/allversions).
+The following table includes a link to a repository of Azure Resource Manager and Bicep templates for use with Recovery Services vaults and Azure Backup features. To learn about the JSON or Bicep syntax and properties, see [Microsoft.RecoveryServices resource types](/azure/templates/microsoft.recoveryservices/allversions).
 
 | Template | Description |
 |---|---|
