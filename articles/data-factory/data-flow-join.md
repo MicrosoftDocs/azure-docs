@@ -62,15 +62,15 @@ You can choose to join based on fuzzy join logic instead of exact column value m
 * Similarity score column: You can optionally choose to store the matching score for each row in a column by entering a new column name here to store that value.
 * Similarity threshold: Choose a value between 60 and 100 as a percentage match between values in the columns you've selected.
 
-:::image type="content" source="media/data-flow/fuzzy1.png" alt-text="Fuzzy join":::
+:::image type="content" source="media/data-flow/fuzzy-1.png" alt-text="Fuzzy join":::
 
 ## Configuration
 
 1. Choose which data stream you're joining with in the **Right stream** dropdown.
 1. Select your **Join type**
-1. Choose which key columns you want to match on for you join condition. By default, data flow looks for equality between one column in each stream. To compare via a computed value, hover over the column dropdown and select **Computed column**.
+1. Choose which key columns you want to match on for your join condition. By default, data flow looks for equality between one column in each stream. To compare via a computed value, hover over the column dropdown and select **Computed column**.
 
-:::image type="content" source="media/data-flow/join.png" alt-text="Join Transformation":::
+:::image type="content" source="media/data-flow/join.png" alt-text="Screenshot of join Transformation":::
 
 ### Non-equi joins
 
