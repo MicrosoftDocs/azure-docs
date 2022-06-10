@@ -395,13 +395,6 @@ resource serverName_dbName_microsoft_insights_settingName 'microsoft.sql/servers
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "metadata": {
-    "_generator": {
-      "name": "bicep",
-      "version": "0.5.6.12127",
-      "templateHash": "14443920850246409760"
-    }
-  },
   "parameters": {
     "settingName": {
       "type": "string"
@@ -1145,7 +1138,190 @@ The following sample creates a diagnostic setting for each storage service endpo
 
 # [Bicep](#tab/bicep)
 
+main.bicep
+
 ```bicep
+param storageAccountName string
+param settingName string
+param storageSyncName string
+param workspaceId string
+
+module nested './module.bicep' = {
+  name: 'nested'
+  params: {
+    endpoints: reference(resourceId('Microsoft.Storage/storageAccounts', storageAccountName), '2019-06-01', 'Full').properties.primaryEndpoints
+    settingName: settingName
+    storageAccountName: storageAccountName
+    storageSyncName: storageSyncName
+    workspaceId: workspaceId
+  }
+}
+```
+
+module.bicep
+
+```bicep
+param endpoints object
+param settingName string
+param storageAccountName string
+param storageSyncName string
+param workspaceId string
+
+var hasblob = contains(endpoints, 'blob')
+var hastable = contains(endpoints, 'table')
+var hasfile = contains(endpoints, 'file')
+var hasqueue = contains(endpoints, 'queue')
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2021-09-01' existing = {
+  name: storageAccountName
+}
+
+resource diagnosticSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+  name: settingName
+  scope: storageAccount
+  properties: {
+    workspaceId: workspaceId
+    storageAccountId: resourceId('Microsoft.Storage/storageAccounts', storageSyncName)
+    metrics: [
+      {
+        category: 'Transaction'
+        enabled: true
+      }
+    ]
+  }
+}
+
+resource blob 'Microsoft.Storage/storageAccounts/blobServices@2021-09-01' existing = {
+  name:storageAccountName
+}
+
+resource blobSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (hasblob) {
+  name: settingName
+  scope: blob
+  properties: {
+    workspaceId: workspaceId
+    storageAccountId: resourceId('Microsoft.Storage/storageAccounts', storageSyncName)
+    logs: [
+      {
+        category: 'StorageRead'
+        enabled: true
+      }
+      {
+        category: 'StorageWrite'
+        enabled: true
+      }
+      {
+        category: 'StorageDelete'
+        enabled: true
+      }
+    ]
+    metrics: [
+      {
+        category: 'Transaction'
+        enabled: true
+      }
+    ]
+  }
+}
+
+resource table 'Microsoft.Storage/storageAccounts/tableServices@2021-09-01' existing = {
+  name:storageAccountName
+}
+
+resource tableSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (hastable) {
+  name: settingName
+  scope: table
+  properties: {
+    workspaceId: workspaceId
+    storageAccountId: resourceId('Microsoft.Storage/storageAccounts', storageSyncName)
+    logs: [
+      {
+        category: 'StorageRead'
+        enabled: true
+      }
+      {
+        category: 'StorageWrite'
+        enabled: true
+      }
+      {
+        category: 'StorageDelete'
+        enabled: true
+      }
+    ]
+    metrics: [
+      {
+        category: 'Transaction'
+        enabled: true
+      }
+    ]
+  }
+}
+
+resource file 'Microsoft.Storage/storageAccounts/fileServices@2021-09-01' existing = {
+  name:storageAccountName
+}
+
+resource fileSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (hasfile) {
+  name: settingName
+  scope: file
+  properties: {
+    workspaceId: workspaceId
+    storageAccountId: resourceId('Microsoft.Storage/storageAccounts', storageSyncName)
+    logs: [
+      {
+        category: 'StorageRead'
+        enabled: true
+      }
+      {
+        category: 'StorageWrite'
+        enabled: true
+      }
+      {
+        category: 'StorageDelete'
+        enabled: true
+      }
+    ]
+    metrics: [
+      {
+        category: 'Transaction'
+        enabled: true
+      }
+    ]
+  }
+}
+
+resource queue 'Microsoft.Storage/storageAccounts/queueServices@2021-09-01' existing = {
+  name:storageAccountName
+}
+
+
+resource queueSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (hasqueue) {
+  name: settingName
+  properties: {
+    workspaceId: workspaceId
+    storageAccountId: resourceId('Microsoft.Storage/storageAccounts', storageSyncName)
+    logs: [
+      {
+        category: 'StorageRead'
+        enabled: true
+      }
+      {
+        category: 'StorageWrite'
+        enabled: true
+      }
+      {
+        category: 'StorageDelete'
+        enabled: true
+      }
+    ]
+    metrics: [
+      {
+        category: 'Transaction'
+        enabled: true
+      }
+    ]
+  }
+}
 ```
 
 # [JSON](#tab/json)
@@ -1198,13 +1374,6 @@ The following sample creates a diagnostic setting for each storage service endpo
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
-          "metadata": {
-            "_generator": {
-              "name": "bicep",
-              "version": "0.5.6.12127",
-              "templateHash": "11434612818320380418"
-            }
-          },
           "parameters": {
             "endpoints": {
               "type": "object"
