@@ -14,7 +14,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Local Participant View Customization
 
-The UI Library gives developers the ability to provide a more customized experience in regards to Participant information. At launch, developers can optionally add Partipant View Data. This local data is not shared with the server and can be used to customize the display name and avatar of the local user.
+The UI Library gives developers the ability to provide a more customized experience regarding Participant information. At launch, developers can optionally add Participant View Data. This local data is not shared with the server and can be used to customize the display name and avatar of the local user.
 
 #### Local Participant View Data
 
