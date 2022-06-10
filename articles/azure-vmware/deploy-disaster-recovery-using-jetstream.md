@@ -89,11 +89,11 @@ To install JetStream DR in the on-premises data center and in the Azure VMware S
 
 ### Ransomware Recovery 
 
-Recovering from ransomware can be a daunting task. Specifically, it can be hard for IT organizations to pin-point what the “safe point of return is,” and once determined, how to ensure that recovered workloads are safeguarded from the attacks re-occurring (from sleeping malware or through vulnerable applications). 
+Recovering from ransomware can be a daunting task. Specifically, it can be hard for IT organizations to pinpoint what the “safe point of return is,”. After that safe point is determined, how to ensure that recovered workloads are safeguarded from the attacks re-occurring by sleeping malware or through vulnerable applications. 
 
 JetStream DR for Azure VMware Solution together with Azure NetApp Files datastores can address these concerns by allowing organizations to recover from an available point-in-time; ensuring workloads are recovered to a functional and isolated network if required, allowing the applications to function and communicate with each other without exposing them to any North-South traffic, giving security teams a safe place to perform forensics, and so on. 
 
-For full details, refer to the article: [Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution (AVS)](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/). 
+For full details, refer to the article: [Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/). 
 
 
 ## Prerequisites
