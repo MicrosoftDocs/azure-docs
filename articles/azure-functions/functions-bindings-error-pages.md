@@ -299,7 +299,7 @@ public void run(
 
 ::: zone-end
 
-# Next steps
+## Next steps
 
 + [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md)
 + [Best practices for reliable Azure Functions](functions-best-practices.md)

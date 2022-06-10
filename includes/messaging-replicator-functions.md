@@ -54,7 +54,7 @@ To avoid data loss during availability event on either side of a replication fun
 
 The policy settings chosen for the example projects in the [sample repository](https://github.com/Azure-Samples/azure-messaging-replication-dotnet) configure an exponential backoff strategy with retry intervals from 5 seconds to 15 minutes with infinite retries to avoid data loss.
 
-For Service Bus, review the ["using retry support on top of trigger resilience"](../articles/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) section to understand the interaction of triggers and the maximum delivery count defined for the queue.
+The generally available (GA) version of retry policies for Azure Functions only supports Event Hubs and Timer triggers. The preview support for all other trigger has been removed.
 
 ### Setting up a replication application host
 
