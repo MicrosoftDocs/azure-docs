@@ -30,7 +30,7 @@ For more information, you can watch the [Azure confidential ledger demo](https:/
 
 The confidential ledger is exposed through REST APIs which can be integrated into new or existing applications. The confidential ledger can be managed by administrators utilizing Administrative APIs (Control Plane). It can also be called directly by application code through Functional APIs (Data Plane). The Administrative APIs support basic operations such as create, update, get and, delete. The Functional APIs allow direct interaction with your instantiated ledger and include operations such as put and get data.
 
-## ledger security
+## Ledger security
 
 This section defines the security protections for the ledger. The ledger APIs use client certificate-based authentication. Currently, the ledger supports certificate-based authentication process with owner roles. We will be adding support for Azure Active Directory (AAD) based authentication and also role-based access (for example, owner, reader, and contributor).
 
