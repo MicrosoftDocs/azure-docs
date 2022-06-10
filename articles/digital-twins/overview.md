@@ -55,6 +55,14 @@ Azure Digital Twins provides a rich event system to keep that graph current with
 
 You can also extract insights from the live execution environment, using Azure Digital Twins' powerful *query API​*. The API lets you query with extensive search conditions, including property values, relationships, relationship properties, model information, and more. You can also combine queries, gathering a broad range of insights about your environment and answering custom questions that are important to you.
 
+### 3D Scenes Studio (preview)
+
+Azure Digital Twins [3D Scenes Studio (preview)](concepts-3d-scenes-studio.md) is an immersive 3D environment, where end users can monitor, diagnose, and investigate operational data with the visual context of 3D assets. With a digital twin graph and curated 3D model, subject matter experts can leverage the studio's low-code builder to map the 3D elements to digital twins in the Azure Digital Twins graph, and define UI interactivity and business logic for a 3D visualization of a business environment. The 3D scenes can then be consumed in the hosted 3D Scenes Studio, or in a custom application that leverages the embeddable 3D viewer component.
+
+Here's an example of a scene in 3D Scenes Studio, showing how digital twin properties can be visualized with 3D elements: 
+
+:::image type="content" source="media/quickstart-3d-scenes-studio/studio-full.png" alt-text="Screenshot of a sample scene in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/studio-full.png":::
+
 ## Input from IoT and business systems
 
 To keep the live execution environment of Azure Digital Twins up to date with the real world, you can use [IoT Hub](../iot-hub/about-iot-hub.md) to connect your solution to IoT and IoT Edge devices. These hub-managed devices are represented as part of your twin graph, and provide the data that drives your model.
