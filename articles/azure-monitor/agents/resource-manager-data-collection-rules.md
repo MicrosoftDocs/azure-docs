@@ -4,7 +4,7 @@ description: Sample Azure Resource Manager templates to create associations betw
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/05/2022
+ms.date: 06/10/2022
 
 ---
 
@@ -35,12 +35,68 @@ The following sample creates an association between an Azure virtual machine and
 # [Bicep](#tab/bicep)
 
 ```bicep
+@description('Name of the virtual machine.')
+param vmName string
+
+@description('Name of the association.')
+param associationName string
+
+@description('Resource ID of the data collection rule.')
+param dataCollectionRuleId string
+
+resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' existing = {
+  name: vmName
+}
+
+resource vmName_microsoft_insights_associationName 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
+  name: associationName
+  scope: vm
+  properties: {
+    description: 'Association of data collection rule. Deleting this association will break the data collection for this virtual machine.'
+    dataCollectionRuleId: dataCollectionRuleId
+  }
+}
 ```
 
 # [JSON](#tab/json)
 
 ```json
-
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the virtual machine."
+      }
+    },
+    "associationName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the association."
+      }
+    },
+    "dataCollectionRuleId": {
+      "type": "string",
+      "metadata": {
+        "description": "Resource ID of the data collection rule."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "apiVersion": "2021-09-01-preview",
+      "scope": "[format('Microsoft.Compute/virtualMachines/{0}', parameters('vmName'))]",
+      "name": "[parameters('associationName')]",
+      "properties": {
+        "description": "Association of data collection rule. Deleting this association will break the data collection for this virtual machine.",
+        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
+      }
+    }
+  ]
+}
 ```
 
 ---
@@ -71,43 +127,74 @@ The following sample creates an association between an Azure Arc-enabled server 
 
 ### Template file
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "vmName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the virtual machine."
-            }
-        },
-        "associationName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the association."
-            }
-        },
-        "dataCollectionRuleId": {
-            "type": "string",
-            "metadata": {
-                "description": "Resource ID of the data collection rule."
-            }
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.HybridCompute/machines/providers/dataCollectionRuleAssociations",
-            "name": "[concat(parameters('vmName'),'/microsoft.insights/', parameters('associationName'))]",
-            "apiVersion": "2019-11-01-preview",
-            "properties": {
-                "description": "Association of data collection rule. Deleting this association will break the data collection for this Arc server.",
-                "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
-            }
-        }
-    ]
+# [Bicep](#tab/bicep)
+
+```bicep
+@description('Name of the virtual machine.')
+param vmName string
+
+@description('Name of the association.')
+param associationName string
+
+@description('Resource ID of the data collection rule.')
+param dataCollectionRuleId string
+
+resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' existing = {
+  name: vmName
+}
+
+resource vmName_microsoft_insights_associationName 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
+  name: associationName
+  scope: vm
+  properties: {
+    description: 'Association of data collection rule. Deleting this association will break the data collection for this Arc server.'
+    dataCollectionRuleId: dataCollectionRuleId
+  }
 }
 ```
+
+# [JSON](#tab/json)
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the virtual machine."
+      }
+    },
+    "associationName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the association."
+      }
+    },
+    "dataCollectionRuleId": {
+      "type": "string",
+      "metadata": {
+        "description": "Resource ID of the data collection rule."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "apiVersion": "2021-09-01-preview",
+      "scope": "[format('Microsoft.Compute/virtualMachines/{0}', parameters('vmName'))]",
+      "name": "[parameters('associationName')]",
+      "properties": {
+        "description": "Association of data collection rule. Deleting this association will break the data collection for this Arc server.",
+        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
+      }
+    }
+  ]
+}
+```
+
+---
 
 ### Parameter file
 
