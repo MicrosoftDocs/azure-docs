@@ -141,7 +141,7 @@ Your logic app is now live and listens to events from Azure Event Grid, but does
 
 ## Add a condition
 
-If you want to your logic app workflow to run only when a specific event or operation happens, add a condition that checks for the `Microsoft.Compute/virtualMachines/write` operation. When this condition is true, your logic app workflow sends you email with details about the updated virtual machine.
+If you want to your logic app workflow to run only when a specific event or operation happens, add a condition that checks for the **Microsoft.Compute/virtualMachines/write** operation. When this condition is true, your logic app workflow sends you an email, which has details about the updated virtual machine.
 
 1. In the workflow designer, under the Azure Event Grid trigger, select **New step**.
 
