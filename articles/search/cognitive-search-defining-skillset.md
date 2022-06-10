@@ -22,7 +22,7 @@ This article explains how to create a skillset with the [Create Skillset (REST A
 + A skillset must contain at least one skill.
 + A skillset can repeat skills of the same type (for example, multiple Shaper skills).
 
-An indexer drives skillset execution. You need an [indexer](search-howto-create-indexers.md), [data source](search-data-sources-gallery.md), and [search index](search-what-is-an-index.md) before you can test your skillset.
+Indexers drive skillset execution. You'll need an [indexer](search-howto-create-indexers.md), [data source](search-data-sources-gallery.md), and [index](search-what-is-an-index.md) before you can test your skillset.
 
 > [!TIP]
 > Enable [enrichment caching](cognitive-search-incremental-indexing-conceptual.md) to reuse the content you've already processed and lower the cost of development.
@@ -59,7 +59,7 @@ Start with the basic structure. In the [Create Skillset REST API](/rest/api/sear
 
 After the name and description, a skillset has four main properties:
 
-+ `skills` array, an unordered [collection of skills](cognitive-search-predefined-skills.md), for which the search service determines the sequence of execution based on the inputs required for each skill. If skills are independent, they execute in parallel. Skills can be utilitarian (like splitting text), transformational (based on AI from Cognitive Services), or custom skills that you provide. An example of a skills array is provided in the next section.
++ `skills` array, an unordered [collection of skills](cognitive-search-predefined-skills.md). Skills can be utilitarian (like splitting text), transformational (based on AI from Cognitive Services), or custom skills that you provide. An example of a skills array is provided in the next section.
 
 + `cognitiveServices` is used for [billable skills](cognitive-search-predefined-skills.md) that call Cognitive Services APIs. Remove this section if you aren't using billable skills or Custom Entity Lookup. [Attach a resource](cognitive-search-attach-cognitive-services.md) if you are.
 
@@ -80,10 +80,9 @@ All skills have a type, context, inputs, and outputs. A skill might optionally h
   {
     "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
     "name": "#1",
-    "description": "Detect organizations in the source content",
+    "description": "This skill detects organizations in the source content",
     "context": "/document",
     "categories": [ "Organization" ],
-    "defaultLanguageCode": "en",
     "inputs": [
       {
         "name": "text",
@@ -98,12 +97,10 @@ All skills have a type, context, inputs, and outputs. A skill might optionally h
     ]
   },
   {
-      "description": "Extract image analysis.",
       "name": "#2",
-      "description": "Detect corporate logos in the source files",
+      "description": "This skill detects corporate logos in the source files",
       "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
       "context": "/document/normalized_images/*",
-      "defaultLanguageCode": "en",
       "visualFeatures": [
           "brands"
       ],
@@ -122,16 +119,34 @@ All skills have a type, context, inputs, and outputs. A skill might optionally h
 ]
 ```
 
-Each skill is unique in terms of its input values and the parameters that it takes. The [documentation for each skill](cognitive-search-predefined-skills.md) describes all of the parameters and properties of a given skill. Although there are differences, most skills share a common set and are similarly patterned. 
+Each skill is unique in terms of its input values and the parameters that it takes. [Skill reference documentation](cognitive-search-predefined-skills.md) describes all of the parameters and properties of a given skill. Although there are differences, most skills share a common set and are similarly patterned. 
 
 > [!NOTE]
 > You can build complex skillsets with looping and branching using the [Conditional skill](cognitive-search-skill-conditional.md) to create the expressions. The syntax is based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation, with a few modifications to identify nodes in the enrichment tree. A `"/"` traverses a level lower in the tree and `"*"` acts as a for-each operator in the context. Numerous examples in this article illustrate the [the syntax](cognitive-search-skill-annotation-language.md). 
 
 ## Set skill context
 
-Each skill has a [context property](cognitive-search-working-with-skillsets.md#context) that determines the level at which operations take place. If the "context" field isn't explicitly set, the default context is `"/document"`, where the context is the whole document (the skill is called once per document).
+Each skill has a [context property](cognitive-search-working-with-skillsets.md#context) that determines the level at which operations take place. If the "context" property isn't explicitly set, the default is `"/document"`, where the context is the whole document (the skill is called once per document).
 
-Context is usually one of the following examples:
+```json
+"skills":[
+  {
+    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+    "context": "/document",
+    "inputs": [],
+    "outputs": []
+  },
+  {
+      "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+      "context": "/document/normalized_images/*",
+      "visualFeatures": [],
+      "inputs": [],
+      "outputs": []
+  }
+]
+```
+
+Context is usually set to one of the following examples:
 
 | Context example | Description |
 |-----------------|-------------|
@@ -139,11 +154,13 @@ Context is usually one of the following examples:
 | "context": "/document/pages/*" | Some skills like sentiment analysis perform better over smaller chunks of text. If you're splitting a large content field into pages or sentences, the context should be over each component part. |
 | "context": "/document/normalized_images/*" | For image content, inputs and outputs are one per image in the parent document. |
 
-The context also determines where outputs are produced in the enrichment tree. For example, the Entity Recognition skill returns a property called `"organizations"`, captured as `orgs`. If the context is `"/document"`, then the "organizations" node is added as a child of `"/document"`. If you then wanted to reference this node in downstream skills, the path would be `"/document/orgs"`.
+Context also determines where outputs are produced in the [enrichment tree](cognitive-search-working-with-skillsets.md#enrichment-tree). For example, the Entity Recognition skill returns a property called `"organizations"`, captured as `orgs`. If the context is `"/document"`, then an "organizations" node is added as a child of `"/document"`. If you then wanted to reference this node in downstream skills, the path would be `"/document/orgs"`.
 
 ## Define inputs
 
-Skills read from and write to an enriched document. Skill inputs specify the origin of the incoming data and how it's used. The [reference documentation](cognitive-search-predefined-skills.md) for each skill describes the inputs it can produce. Each input has a "name" and a "source". The following example is from the Entity Recognition skill:
+Skills read from and write to an enriched document. Skill inputs specify the origin of the incoming data. It's often the root node of the enriched document. For blobs, a typical skill input is the document's content property. 
+
+[Skill reference documentation](cognitive-search-predefined-skills.md) for each skill describes the inputs it can produce. Each input has a "name" and a "source". The following example is from the Entity Recognition skill:
 
 ```json
 "inputs": [
@@ -175,6 +192,8 @@ If the skill iterates over an array, both context and input source should includ
 
 Each skill is designed to emit specific kinds of output, which are referenced by name in the skillset. A skill output has a "name" and an optional "targetName".
 
+[Skill reference documentation](cognitive-search-predefined-skills.md) for each skill describes the outputs it can produce. The following example is from the Entity Recognition skill:
+
 ```json
 "outputs": [
     {
@@ -192,7 +211,7 @@ Each skill is designed to emit specific kinds of output, which are referenced by
 ]
 ```
 
-+ Skills can have multiple outputs. The "name" identifies a specific output. For example, for Entity Recognition, output can be "persons", "locations", "organizations", among others. The [reference documentation](cognitive-search-predefined-skills.md) for each skill describes the outputs it can produce.
++ Skills can have multiple outputs. The "name" identifies a specific output. For example, for Entity Recognition, output can be "persons", "locations", "organizations", among others. 
 
 + "targetName" specifies the name you would like this node to have in the enriched document. This is useful if skill outputs have the same name. If you have multiple skills that return the same output, use the `"targetName"` for name disambiguation in enrichment node paths. If the target name is unspecified, the name property is used for both.
 
