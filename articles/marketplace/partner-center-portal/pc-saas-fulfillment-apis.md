@@ -62,3 +62,7 @@ For more information about CSP, refer to https://partner.microsoft.com/licensing
 ## Next steps
 
 - If you have not already done so, register your SaaS application in the [Azure portal](https://portal.azure.com) as explained in [Register an Azure AD Application](./pc-saas-registration.md).  Afterwards, use the most current version of this interface for development: [SaaS fulfillment Subscription APIs v2](pc-saas-fulfillment-subscription-api.md) and [SaaS fulfillment Operations APIs v2](pc-saas-fulfillment-operations-api.md).
+
+**Video tutorials**
+
+- [The SaaS Client Library for .NET](https://go.microsoft.com/fwlink/?linkid=2196324)

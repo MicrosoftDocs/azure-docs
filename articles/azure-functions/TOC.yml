@@ -52,6 +52,9 @@
             href: create-first-function-cli-python.md
           - name: TypeScript
             href: create-first-function-cli-typescript.md
+        - name: Bicep
+          displayName: ARM, Resource Manager, Template
+          href: functions-create-first-function-bicep.md
         - name: ARM template
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
@@ -183,7 +186,7 @@
           displayName: best practices
     - name: Compare runtime versions
       href: functions-versions.md
-      displayName: migrate, migration, v3
+      displayName: migrate, migration, v3, v4, update, upgrade
     - name: Hosting and scale
       items:
         - name: Consumption plan
@@ -634,7 +637,16 @@
               href: functions-bindings-event-iot-trigger.md
               displayName: Azure IoT Hubs
         - name: Kafka
-          href: https://github.com/azure/azure-functions-kafka-extension
+          items:
+            - name: Overview
+              href: functions-bindings-kafka.md
+              displayName: Kafka
+            - name: Trigger
+              href: functions-bindings-kafka-trigger.md
+              displayName: Kafka
+            - name: Output
+              href: functions-bindings-kafka-output.md
+              displayName: Kafka
         - name: HTTP and webhooks
           items:
             - name: Overview

@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 05/10/2022
+ms.date: 05/24/2022
 ms.topic: conceptual 
 ---
 
@@ -50,8 +50,15 @@ The following versions of the Windows and Linux operating system are officially 
 
 ## Software requirements
 
+Windows operating systems:
+
 * NET Framework 4.6 or later is required. [Download the .NET Framework](/dotnet/framework/install/guide-for-developers).
 * Windows PowerShell 5.1 is required. [Download Windows Management Framework 5.1.](https://www.microsoft.com/download/details.aspx?id=54616).
+
+Linux operating systems:
+
+* systemd
+* wget (to download the installation script)
 
 ## Required permissions
 

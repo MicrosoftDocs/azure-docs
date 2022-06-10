@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: reference
-ms.date: 01/24/2022
+ms.date: 05/16/2022
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -22,6 +22,7 @@ Before you use the speech-to-text REST API for short audio, consider the followi
 
 * Requests that use the REST API for short audio and transmit audio directly can contain no more than 60 seconds of audio.
 * The REST API for short audio returns only final results. It doesn't provide partial results.
+* [Speech translation](speech-translation.md) is not supported via REST API for short audio. You need to use [Speech SDK](speech-sdk.md).
 
 > [!TIP]
 > For Azure Government and Azure China endpoints, see [this article about sovereign clouds](sovereign-clouds.md).
@@ -52,7 +53,7 @@ These parameters might be included in the query string of the REST request:
 | `language` | Identifies the spoken language that's being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
 | `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include four different representations of display text. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are: <br><br>`masked`, which replaces profanity with asterisks. <br>`removed`, which removes all profanity from the result. <br>`raw`, which includes profanity in the result. <br><br>The default setting is `masked`. | Optional |
-| `cid` | When you're using the [Custom Speech portal](./custom-speech-overview.md) to create custom models, you can take advantage of the **Endpoint ID** value from the **Deployment** page. Use the **Endpoint ID** value as the argument to the `cid` query string parameter. | Optional |
+| `cid` | When you're using the [Speech Studio](speech-studio-overview.md) to create [custom models](./custom-speech-overview.md), you can take advantage of the **Endpoint ID** value from the **Deployment** page. Use the **Endpoint ID** value as the argument to the `cid` query string parameter. | Optional |
 
 ### Request headers
 
