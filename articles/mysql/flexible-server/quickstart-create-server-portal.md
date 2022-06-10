@@ -85,7 +85,25 @@ By default, these databases are created under your server: information_schema, m
 > [!NOTE]
 > To avoid connectivity problems, check if your network allows outbound traffic over port 3306, which is used by Azure Database for MySQL Flexible Server.
 
-## Connect to the server by using mysql.exe
+## Connect to the server 
+
+Based on your connectivity method you will see different connect experience in the portal. 
+
+### [Public access](#tab/public-access)
+In overview page, click on Connect button to connect to MySQL server and start running queries.
+
+
+### [Private access](#tab/private-access)
+
+Go to **Connect** page to view the details of your server confguration and how to connect to the server using MySQL client tools. 
+
+---
+
+
+ 
+
+[ADD IMAGE]
+
 
 If you created your flexible server by using private access (VNet Integration), you'll need to connect to your server from a resource within the same virtual network as your server. You can create a virtual machine and add it to the virtual network created with your flexible server. Refer configuring [private access documentation](how-to-manage-virtual-network-portal.md) to learn more.
 
