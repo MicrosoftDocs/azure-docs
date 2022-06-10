@@ -3,7 +3,7 @@ title: Create an Azure Video Indexer account
 description: This topic explains how to create an account for Azure Video Indexer.
 ms.topic: tutorial
 ms.author: itnorman
-ms.date: 05/03/2022
+ms.date: 06/10/2022
 ---
 
 # Get started with Azure Video Indexer in Azure portal
