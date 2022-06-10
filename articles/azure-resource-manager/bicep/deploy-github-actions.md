@@ -34,7 +34,7 @@ az group create -n exampleRG -l westus
 
 # [Service principal](#tab/userlevel)
 
-Your GitHub Actions runs under an identity. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the identity.
+Your GitHub Actions run under an identity. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the identity.
 
 Replace the placeholder `myApp` with the name of your application. Replace `{subscription-id}` with your subscription ID.
 
