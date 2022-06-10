@@ -61,7 +61,7 @@ The ISV creates a solution package for the offer that includes license plan info
 
 | Transactable offers | Licensable-only offers |
 | ------------ | ------------- |
-| Customers can manage subscriptions for the Apps they purchased in [Microsoft 365 admin center](https://admin.microsoft.com/), just like they normally do for any of their Microsoft Office or Dynamics subscriptions. | ISVs activate and manage deals in Partner Center ([deal registration portal(https://partner.microsoft.com/)]) |
+| Customers can manage subscriptions for the Apps they purchased in [Microsoft 365 admin center](https://admin.microsoft.com/), just like they normally do for any of their Microsoft Office or Dynamics subscriptions. | ISVs activate and manage deals in Partner Center [deal registration portal](https://partner.microsoft.com/) |
 
 ### Step 5: Assign licenses
 
