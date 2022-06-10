@@ -192,8 +192,6 @@ public class MainActivity extends AppCompatActivity {
         CommunicationTokenCredential communicationTokenCredential = 
                 new CommunicationTokenCredential(communicationTokenRefreshOptions);
         
-        CallCompositeGroupCallLocator locator = new CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"));
-
         final CallCompositeLocator locator = new CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"));
         final CallCompositeRemoteOptions remoteOptions =
                 new CallCompositeRemoteOptions(locator, communicationTokenCredential, "DISPLAY_NAME");
@@ -320,7 +318,7 @@ Initialize a `CallCompositeTeamsMeetingLinkLocator` and supply it to the `CallCo
 
 
 ```kotlin
-val locator = CallCompositeTeamsMeetingLinkLocator("TEAMS_MEETING_LINK)
+val locator = CallCompositeTeamsMeetingLinkLocator("TEAMS_MEETING_LINK")
 
 val remoteOptions = CallCompositeRemoteOptions(
     locator,
