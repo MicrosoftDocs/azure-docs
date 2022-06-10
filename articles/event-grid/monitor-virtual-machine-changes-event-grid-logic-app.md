@@ -13,7 +13,9 @@ ms.date: 01/01/2022
 
 # Tutorial: Monitor virtual machine changes by using Azure Event Grid and Logic Apps
 
-To monitor and respond to specific events that happen in Azure resources or third-party resources, you can create an automated [logic app workflow](../logic-apps/logic-apps-overview.md) with minimal code using Azure Logic Apps. You can have these resources publish events to an [Azure event grid](../event-grid/overview.md). In turn, the event grid pushes those events to subscribers that have queues, webhooks, or [event hubs](../event-hubs/event-hubs-about.md) as endpoints. As a subscriber, your workflow waits for these events to arrive in the event grid before running the steps to process the events.
+Applies to: [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
+To monitor and respond to specific events that happen in Azure resources or third-party resources, you can create an automated [Consumption logic app workflow](../logic-apps/logic-apps-overview.md) with minimal code with Azure Logic Apps. You can have these resources publish events to an [Azure event grid](../event-grid/overview.md). In turn, the event grid pushes those events to subscribers that have queues, webhooks, or [event hubs](../event-hubs/event-hubs-about.md) as endpoints. As a subscriber, your workflow waits for these events to arrive in the event grid before running the steps to process the events.
 
 For example, here are some events that publishers can send to subscribers through the Azure Event Grid service:
 
