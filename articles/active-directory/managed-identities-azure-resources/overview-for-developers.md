@@ -63,7 +63,7 @@ This article will explain how to create and configure a user-assigned masnaged i
 :::image type="content" source="media/overview-for-developers/Managed-Identity-Confirmation-Screen.png" alt-text="Managed identity - confirmation screen":::
 
 #### [Azure CLI](#tab/cli)
-```cli
+```azurecli
 az identity create --name <name of the identity> --resource-group <name of the resource group>
 ```
 
@@ -170,7 +170,7 @@ Now your App Service has a managed identity, you'll need to give the identity th
 :::image type="content" source="media/overview-for-developers/resource-role-assignment-added.png" alt-text="Role assignment added":::
 
 #### [Azure CLI](#tab/cli)
-```cli
+```azurecli
 az role assignment create --assignee "<Object/Principal ID of the managed identity>" \
 --role "<Role name or Role ID>" \
 --scope "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceSubType}/{resourceName}"
