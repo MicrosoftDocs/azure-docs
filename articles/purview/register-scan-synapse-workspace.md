@@ -23,21 +23,17 @@ This article outlines how to register Azure Synapse Analytics workspaces and how
 >[!NOTE]
 >Currently, Azure Synapse lake databases are not supported.
 
-<!-- 4. Prerequisites
-Required. Add any relevant/source-specific prerequisites for connecting with this source. Authentication/Registration should be covered by the sections below and does not need to be covered here.
--->
-
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
-This section describes how to register Azure Synapse Analytics workspaces in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Azure Synapse Analytics workspaces in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -68,11 +64,21 @@ Only a user with at least a *Reader* role on the Azure Synapse workspace and who
 
 Follow the steps below to scan Azure Synapse Analytics workspaces to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
-You will first need to set up authentication for enumerating for either your [dedicated](#authentication-for-enumerating-dedicated-sql-database-resources) or [serverless](#authentication-for-enumerating-serverless-sql-database-resources) resources. This will allow Microsoft Purview to enumerate your workspace assets and perform scans.
+1. You'll first need to set up authentication for enumerating for either your [dedicated](#authentication-for-enumerating-dedicated-sql-database-resources) or [serverless](#authentication-for-enumerating-serverless-sql-database-resources) resources. This will allow Microsoft Purview to enumerate your workspace assets and perform scans.
+1. Then, you'll need to [apply permissions to scan the contents of the workspace](#apply-permissions-to-scan-the-contents-of-the-workspace).
+1. Lastly, confirm your [network is set up to allow access for Microsoft Purview](#set-up-azure-synapse-workspace-firewall-access).
 
-Then, you will need to [apply permissions to scan the contents of the workspace](#apply-permissions-to-scan-the-contents-of-the-workspace).
+> [!TIP]
+> To troubleshoot any issues with scanning:
+> 1. Confirm you have followed all [**prerequisites**](#prerequisites).
+> 1. Confirm you have set up [enumeration authentication](#enumeration-authentication) for your resources.
+> 1. Confirm [authentication](#apply-permissions-to-scan-the-contents-of-the-workspace) is properly set up.
+> 1. Check network by confirming [firewall settings](#set-up-azure-synapse-workspace-firewall-access).
+> 1. Review our [**scan troubleshooting documentation**](troubleshoot-connections.md).
 
-### Authentication for enumerating dedicated SQL database resources
+### Enumeration authentication
+
+#### Authentication for enumerating dedicated SQL database resources
 
 1. In the Azure portal, go to the Azure Synapse workspace resource.  
 1. On the left pane, select **Access Control (IAM)**.
@@ -87,11 +93,16 @@ Then, you will need to [apply permissions to scan the contents of the workspace]
 > [!NOTE]
 > If you're planning to register and scan multiple Azure Synapse workspaces in your Microsoft Purview account, you can also assign the role from a higher level, such as a resource group or a subscription.
 
-### Authentication for enumerating serverless SQL database resources
+#### Authentication for enumerating serverless SQL database resources
 
-There are three places you will need to set authentication to allow Microsoft Purview to enumerate your serverless SQL database resources: The Azure Synapse workspace, the associated storage, and the Azure Synapse serverless databases. The steps below will set permissions for all three.
+There are three places you'll need to set authentication to allow Microsoft Purview to enumerate your serverless SQL database resources: 
+* [The Azure Synapse workspace](#azure-synapse-workspace)
+* [The associated storage](#storage-account)
+* [The Azure Synapse serverless databases](#azure-synapse-serverless-database)
 
-#### Azure Synapse workspace
+The steps below will set permissions for all three.
+
+##### Azure Synapse workspace
 
 1. In the Azure portal, go to the Azure Synapse workspace resource.  
 1. On the left pane, select **Access Control (IAM)**. 
@@ -103,7 +114,7 @@ There are three places you will need to set authentication to allow Microsoft Pu
 1. Set the **Reader** role and enter your Microsoft Purview account name, which represents its managed service identity (MSI).
 1. Select **Save** to finish assigning the role.
 
-#### Storage account
+##### Storage account
 
 1. In the Azure portal, go to the **Resource group** or **Subscription** that the storage account associated with the Azure Synapse workspace is in.
 1. On the left pane, select **Access Control (IAM)**. 
@@ -114,7 +125,7 @@ There are three places you will need to set authentication to allow Microsoft Pu
 1. Set the **Storage blob data reader** role and enter your Microsoft Purview account name (which represents its MSI) in the **Select** box. 
 1. Select **Save** to finish assigning the role.
 
-#### Azure Synapse serverless database
+##### Azure Synapse serverless database
 
 1. Go to your Azure Synapse workspace and open the Synapse Studio.
 1. Select the **Data** tab on the left menu.
@@ -126,16 +137,18 @@ There are three places you will need to set authentication to allow Microsoft Pu
 
 ### Apply permissions to scan the contents of the workspace
 
-You can set up authentication for an Azure Synapse source in either of two ways:
+You can set up authentication for an Azure Synapse source in either of two ways. Select your scenario below for steps to apply permissions.
 
 - Use a managed identity
 - Use a service principal
 
 > [!IMPORTANT]
-> These steps for serverless databases **do not** apply to replicated databases. Currently in Synapse, serverless databases that are replicated from Spark databases are read-only. For more information, go [here](../synapse-analytics/sql/resources-self-help-sql-on-demand.md#operation-is-not-allowed-for-a-replicated-database).
+> These steps for serverless databases **do not** apply to replicated databases. Currently in Synapse, serverless databases that are replicated from Spark databases are read-only. For more information, go [here](../synapse-analytics/sql/resources-self-help-sql-on-demand.md#operation-isnt-allowed-for-a-replicated-database).
 
 > [!NOTE]
 > You must set up authentication on each SQL database that you intended to register and scan from your Azure Synapse workspace.
+
+# [Managed identity](#tab/MI)
 
 #### Use a managed identity for dedicated SQL databases
 
@@ -177,6 +190,7 @@ If the Azure Synapse workspace has any external tables, the Microsoft Purview ma
 ```sql
 GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewAccountName];
 ```
+# [Service principal](#tab/SP)
 
 #### Use a service principal for dedicated SQL databases
 
@@ -215,6 +229,8 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
     ALTER ROLE db_datareader ADD MEMBER [ServicePrincipalID]; 
     ```
 
+---
+
 ### Set up Azure Synapse workspace firewall access
 
 1. In the Azure portal, go to the Azure Synapse workspace. 
@@ -226,15 +242,15 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
 1. Select **Save**.
 
 > [!IMPORTANT]
-> Currently, we do not support setting up scans for an Azure Synapse workspace from Microsoft Purview Studio, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces. In this case:
->  - You can use [Microsoft Purview Rest API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to create a new scan for your Synapse workspaces including dedicated and serverless pools.
+> Currently, we do not support setting up scans for an Azure Synapse workspace from the Microsoft Purview governance portal, if you cannot enable **Allow Azure services and resources to access this workspace** on your Azure Synapse workspaces. In this case:
+>  - You can use [Microsoft Purview REST API - Scans - Create Or Update](/rest/api/purview/scanningdataplane/scans/create-or-update/) to create a new scan for your Synapse workspaces including dedicated and serverless pools.
 >  - You must use **SQL Auth** as authentication mechanism.
 
 ### Create and run scan
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Select the data source that you registered.
 
@@ -261,8 +277,8 @@ To create and run a new scan, do the following:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

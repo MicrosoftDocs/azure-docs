@@ -7,8 +7,6 @@ ms.custom: subject-resourcegraph-sample
 ---
 # Azure Resource Graph sample queries for Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This page is a collection of [Azure Resource Graph](../governance/resource-graph/overview.md) sample
 queries for Microsoft Defender for Cloud. For a complete list of Azure Resource Graph samples, see
 [Resource Graph samples by Category](../governance/resource-graph/samples/samples-by-category.md)

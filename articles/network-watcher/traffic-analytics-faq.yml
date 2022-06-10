@@ -9,12 +9,12 @@ metadata:
   ms.topic: faq
   ms.tgt_pltfrm: na
   ms.workload:  infrastructure-services
-  ms.date: 01/04/2021
+  ms.date: 05/12/2022
   ms.author: damendo 
   ms.custom: devx-track-azurepowershell
-title: Traffic Analytics frequently asked questions
+title: Traffic Analytics - frequently asked questions
 summary: |
-  This article collects in one place many of the most frequently asked questions about traffic analytics in Azure Network Watcher.
+  This article provides answers to the most frequently asked questions about traffic analytics in Azure Network Watcher.
   
   
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -58,7 +58,7 @@ sections:
           3. To list all the roles that are assigned to a specified user, use
               **Get-AzRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**. 
           
-          If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Add or remove Azure role assignments using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+          If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more information, see [Add or remove Azure role assignments using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
           
       - question: |
           Can the NSGs I enable flow logs for be in different regions than my workspace?
@@ -93,7 +93,7 @@ sections:
       - question: |
           What if I am getting the status, “Failed to load,” under the NSG flow logs page?
         answer: |
-          The Microsoft.Insights provider must be registered for flow logging to work properly. If you are not sure whether the Microsoft.Insights provider is registered for your subscription, replace *xxxxx-xxxxx-xxxxxx-xxxx* in the following command, and run the following commands from PowerShell:
+          The Microsoft.Insights  provider must be registered for flow logging to work properly. If you are not sure whether the Microsoft.Insights provider is registered for your subscription, replace *xxxxx-xxxxx-xxxxxx-xxxx* in the following command, and run the following commands from PowerShell:
           
           ```powershell-interactive
           **Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
@@ -125,7 +125,7 @@ sections:
           If problems persist, raise concerns in the [User voice forum](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=cd276b66-8326-ec11-b6e6-000d3a4f0789).
               
       - question: |
-          What if I get this message: “Looks like we have resources data (Topology) and no flows information. Meanwhile, click here to see resources data and refer to FAQs for further information.”?
+          What if I get this message: “Looks like we have resources data (Topology) and no flows information. For more information, click here to see resources data and refer to FAQs.”?
         answer: |
           You are seeing the resources information on the dashboard; however, no flow-related statistics are present. Data might not be present because of no communication flows between the resources. Wait for 60 minutes, and recheck status. If the problem persists, and you're sure that communication flows among resources exist, raise concerns in the [User voice forum](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=cd276b66-8326-ec11-b6e6-000d3a4f0789).
           
@@ -155,7 +155,7 @@ sections:
               {
                   'storageId': '${TAstorageId}',
                   'enabled': '<true to enable flow log or false to disable flow log>',
-                  'retentionPolicy' : 
+                  'retentionPolicy': 
                   {
                       days: <enter number of days like to retail flow logs in storage account>,
                       enabled: <true to enable retention or false to disable retention>
@@ -165,7 +165,7 @@ sections:
               {
                           'networkWatcherFlowAnalyticsConfiguration':
                 {
-                  'enabled':,<true to enable traffic analytics or false to disable traffic analytics>
+                  'enabled':<true to enable traffic analytics or false to disable traffic analytics>
                   'workspaceId':'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb',
                   'workspaceRegion':'<workspace region>',
                   'workspaceResourceId':'/subscriptions/<workspace subscription id>/resourcegroups/<workspace resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
@@ -216,14 +216,14 @@ sections:
       - question: |
           How does Traffic Analytics decide that an IP is malicious? 
         answer: |
-          Traffic Analytics relies on Microsoft internal threat intelligence systems to deem an IP as malicious. These systems leverage diverse telemetry sources like Microsoft products and services,the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds and build a lot of intelligence on top of it. 
+          Traffic Analytics relies on Microsoft internal threat intelligence systems to deem an IP as malicious. These systems leverage diverse telemetry sources like Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds and build a lot of intelligence on top of it. 
           Some of this data is Microsoft Internal. If a known IP is getting flagged as malicious, please raise a support ticket to know the details.
           
       - question: |
           How can I set alerts on Traffic Analytics data?
         answer: |
           Traffic Analytics does not have inbuilt support for alerts. However, since Traffic Analytics data is stored in Log Analytics you can write custom queries and set alerts on them. 
-          Steps :
+          Steps:
           - You can use the shortlink for Log Analytics in Traffic Analytics. 
           - Use the [schema documented here](traffic-analytics-schema.md) to write your queries 
           - Click "New alert rule" to create the alert
@@ -239,7 +239,7 @@ sections:
           | mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
           | where isnotempty(vm) 
           | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
-          | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by vm
+          | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1 m by vm
           | render timechart
           ```
           
@@ -252,11 +252,11 @@ sections:
           | mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
           | where isnotempty(IP) 
           | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
-          | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by IP
+          | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1 m by IP
           | render timechart
           ```
           
-          For time, use format : yyyy-mm-dd 00:00:00
+          For time, use format: yyyy-mm-dd 00:00:00
           
       - question: |
           How do I check standard deviation in traffic received by my VMs from on-premises machines?
@@ -289,8 +289,8 @@ sections:
           ```
           AzureNetworkAnalytics_CL
           | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
-          | extend sourceIPs = iif(isempty(SrcIP_s), split(SrcPublicIPs_s, " ") , pack_array(SrcIP_s)),
-          destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_s))
+          | extend sourceIPs = iif(isempty(SrcIP_s), split(SrcPublicIPs_s," "), pack_array(SrcIP_s)),
+          destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," "), pack_array(DestIP_s))
           | mvexpand SourceIp = sourceIPs to typeof(string)
           | mvexpand DestIp = destIPs to typeof(string)
           | project SourceIp = tostring(split(SourceIp, "|")[0]), DestIp = tostring(split(DestIp, "|")[0]), NSGList_s, NSGRule_s, DestPort_d, L4Protocol_s, FlowStatus_s 

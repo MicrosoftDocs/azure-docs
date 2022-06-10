@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 06/06/2022
 ms.author: aahi
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-health, ignite-fall-2021, mode-api
@@ -19,6 +19,9 @@ zone_pivot_groups: programming-languages-text-analytics
 # Quickstart: using Text Analytics for health client library and REST API
 
 Use this article to get started with Text Analytics for health using the client library and REST API. Follow these steps to try out examples code for mining text:
+
+> [!IMPORTANT]
+> Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -46,7 +49,7 @@ Use this article to get started with Text Analytics for health using the client 
 
 ::: zone pivot="rest-api"
 
-[!INCLUDE [REST API quickstart](includes/quickstarts/rest-api.md)]
+[!INCLUDE [REST API quickstart](includes/quickstarts/rest-api.md)] 
 
 ::: zone-end
 
@@ -56,6 +59,9 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
 
 ## Next steps
 

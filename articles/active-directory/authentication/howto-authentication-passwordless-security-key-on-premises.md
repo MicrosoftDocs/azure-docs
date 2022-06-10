@@ -48,7 +48,7 @@ You must also meet the following system requirements:
     - [Windows Server 2016](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
     - [Windows Server 2019](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
 
-- AES256_HMAC_SHA1 must be enabled when **Network security: Configure encryption types allowed for Kerberos** policy is [configured](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-configure-encryption-types-allowed-for-kerberos) on domain controllers.
+- AES256_HMAC_SHA1 must be enabled when **Network security: Configure encryption types allowed for Kerberos** policy is [configured](/windows/security/threat-protection/security-policy-settings/network-security-configure-encryption-types-allowed-for-kerberos) on domain controllers.
 
 - Have the credentials required to complete the steps in the scenario:
     - An Active Directory user who is a member of the Domain Admins group for a domain and a member of the Enterprise Admins group for a forest. Referred to as **$domainCred**.
@@ -287,13 +287,6 @@ Make sure that enough DCs are patched to respond in time to service your resourc
 
 > [!NOTE]
 > The `/keylist` switch in the `nltest` command is available in client Windows 10 v2004 and later.
-
-### What if I have a CloudTGT but it never gets exchange for a OnPremTGT when I am using Windows Hello for Business Cloud Trust?
-
-Make sure that the user you are signed in as, is a member of the groups of users that can use FIDO2 as an authentication method, or enable it for all users.
-
-> [!NOTE]
-> Even if you are not explicitly using a security key to sign-in to your device, the underlying technology is dependent on the FIDO2 infrastructure requirements.
 
 ### Do FIDO2 security keys work in a Windows login with RODC present in the hybrid environment?
 

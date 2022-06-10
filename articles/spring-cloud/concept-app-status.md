@@ -1,23 +1,26 @@
 ---
-title: App status in Azure Spring Cloud
-description: Learn the app status categories in Azure Spring Cloud
+title: App status in Azure Spring Apps
+description: Learn the app status categories in Azure Spring Apps
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 03/30/2022
 ms.author: karler
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
-# App status in Azure Spring Cloud
+# App status in Azure Spring Apps
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to view app status for Azure Spring Cloud.
+This article shows you how to view app status for Azure Spring Apps.
 
-The Azure Spring Cloud UI delivers information about the status of running applications. There's an **Apps** option for each resource group in a subscription that displays general status of application types. For each application type, there's a display of **Application instances**.
+The Azure Spring Apps UI delivers information about the status of running applications. There's an **Apps** option for each resource group in a subscription that displays general status of application types. For each application type, there's a display of **Application instances**.
 
 ## Apps status
 
@@ -67,8 +70,8 @@ The instance status is reported as one of the following values:
 
 | Value       | Definition |
 |-------------|------------|
-| Starting    | The binary is successfully deployed to the given instance. The instance booting the jar file may fail because the jar can't run properly. Azure Spring Cloud will restart the app instance in 60 seconds if it detects that the app instance is still in the *Starting* state. |
-| Running     | The instance works. The instance can serve requests from inside Azure Spring Cloud. |
+| Starting    | The binary is successfully deployed to the given instance. The instance booting the jar file may fail because the jar can't run properly. Azure Spring Apps will restart the app instance in 60 seconds if it detects that the app instance is still in the *Starting* state. |
+| Running     | The instance works. The instance can serve requests from inside Azure Spring Apps. |
 | Failed      | The app instance failed to start the user’s binary after several retries. The app instance may be in one of the following states:<br/>- The app may stay in the *Starting* status and never be ready for serving requests.<br/>- The app may boot up but crashed in a few seconds. |
 | Terminating | The app instance is shutting down. The app may not serve requests and the app instance will be removed. |
 
@@ -86,7 +89,7 @@ The discovery status of the instance is reported as one of the following values:
 
 ## App registration status
 
-The *app registration* status shows the state in service discovery. Azure Spring Cloud uses Eureka for service discovery. For more information on how the Eureka client calculates the state, see [Eureka's health checks](https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__service_discovery_eureka_clients.html#_eureka_s_health_checks).
+The *app registration* status shows the state in service discovery. Azure Spring Apps uses Eureka for service discovery. For more information on how the Eureka client calculates the state, see [Eureka's health checks](https://cloud.spring.io/spring-cloud-static/Greenwich.RELEASE/multi/multi__service_discovery_eureka_clients.html#_eureka_s_health_checks).
 ## Next steps
 
-* [Prepare a Spring or Steeltoe application for deployment in Azure Spring Cloud](how-to-prepare-app-deployment.md)
+* [Prepare a Spring or Steeltoe application for deployment in Azure Spring Apps](how-to-prepare-app-deployment.md)

@@ -30,6 +30,7 @@ This is the basic template format:
     "identity": {},			 
     "properties": {
       "buildTimeoutInMinutes": <minutes>, 
+      "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>",
       "vmProfile": {
         "vmSize": "<vmSize>",
         "proxyVmSize": "<vmSize>",
@@ -45,8 +46,9 @@ This is the basic template format:
       ]
       },
       "source": {}, 
-      "customize": {}, 
-      "distribute": {} 
+      "customize": [], 
+      "validate": {},
+      "distribute": [] 
     } 
   } 
 ```
@@ -93,7 +95,16 @@ The location is the region where the custom image will be created. The following
 - East Asia
 - Korea Central
 - South Africa North
+- USGov Arizona (Public Preview)
+- USGov Virginia (Public Preview)
 
+> [!IMPORTANT]
+> Register the feature "Microsoft.VirtualMachineImages/FairfaxPublicPreview" to access the Azure Image Builder public preview in Fairfax regions (USGov Arizona and USGov Virginia).
+
+Use the following command to register the feature for Azure Image Builder in Fairfax regions (USGov Arizona and USGov Virginia).
+```azurecli-interactive
+az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPublicPreview
+```
 
 ```json
     "location": "<region>",
@@ -145,7 +156,7 @@ There are two ways to add user assigned identities explained below.
 
 ### User Assigned Identity for Azure Image Builder image template resource
 
-Required - For Image Builder to have permissions to read/write images, read in scripts from Azure Storage you must create an Azure User-Assigned Identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, please review the [documentation](image-builder-user-assigned-identity.md).
+Required - For Image Builder to have permissions to read/write images, read in scripts from Azure Storage you must create an Azure User-Assigned Identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, review the [documentation](image-builder-user-assigned-identity.md).
 
 
 ```json
@@ -169,10 +180,10 @@ For more information on deploying this feature, see [Configure managed identitie
 
 This field is only available in API versions 2021-10-01 and newer.
 
-Optional - The Image Builder Build VM, that is created by the Image Builder service in your subscription, is used to build and customize the image. For the Image Builder Build VM to have permissions to authenticate with other services like Azure Key Vault in your subscription, you must create one or more Azure User Assigned Identities that have permissions to the individual resources. Azure Image Builder can then associate these User Assigned Identities with the Build VM. Customizer scripts running inside the Build VM can then fetch tokens for these identities and interact with other Azure resources as needed. Please be aware, the user assigned identity for Azure Image Builder must have the "Managed Identity Operator" role assignment on all the user assigned identities for Azure Image Builder to be able to associate them to the build VM.
+Optional - The Image Builder Build VM, that is created by the Image Builder service in your subscription, is used to build and customize the image. For the Image Builder Build VM to have permissions to authenticate with other services like Azure Key Vault in your subscription, you must create one or more Azure User Assigned Identities that have permissions to the individual resources. Azure Image Builder can then associate these User Assigned Identities with the Build VM. Customizer scripts running inside the Build VM can then fetch tokens for these identities and interact with other Azure resources as needed. Be aware, the user assigned identity for Azure Image Builder must have the "Managed Identity Operator" role assignment on all the user assigned identities for Azure Image Builder to be able to associate them to the build VM.
 
 > [!NOTE]
-> Please be aware that multiple identities can be specified for the Image Builder Build VM, including the identity you created for the [image template resource](#user-assigned-identity-for-azure-image-builder-image-template-resource). By default, the identity you created for the image template resource will not automatically be added to the build VM.
+> Be aware that multiple identities can be specified for the Image Builder Build VM, including the identity you created for the [image template resource](#user-assigned-identity-for-azure-image-builder-image-template-resource). By default, the identity you created for the image template resource will not automatically be added to the build VM.
 
 ```json
     "properties": { 
@@ -190,6 +201,32 @@ The Image Builder Build VM User Assigned Identity:
 * Doesn't support cross tenant scenarios (identity created in one tenant while the image template is created in another tenant)
 
 To learn more, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) and [How to use managed identities for Azure resources on an Azure VM for sign-in](../../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md).
+
+## Properties: stagingResourceGroup
+The `stagingResourceGroup` field contains information about the staging resource group that the Image Builder service will create for use during the image build process. The `stagingResourceGroup` is an optional field for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
+
+```json			 
+    "properties": {
+      "stagingResourceGroup": "/subscriptions/<subscriptionID>/resourceGroups/<stagingResourceGroupName>"
+    }
+```
+
+### Template Creation Scenarios
+
+#### The stagingResourceGroup field is left empty
+If the `stagingResourceGroup` field is not specified or specified with an empty string, the Image Builder service will create a staging resource group with the default name convention "IT_***". The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Also, the default RBAC will be applied to the identity assigned to the Azure Image Builder template resource, which is "Contributor".
+
+#### The stagingResourceGroup field is specified with a resource group that exists
+If the `stagingResourceGroup` field is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements are not met an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Preexisting tags are not deleted.
+
+#### The stagingResourceGroup field is specified with a resource group that DOES NOT exist
+If the `stagingResourceGroup` field is specified with a resource group that does not exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` field. There will be an error if the given name does not meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. By default the identity assigned to the Azure Image Builder image template resource will have the "Contributor" RBAC applied to it in the resource group.
+
+### Template Deletion
+Any staging resource group created by the Image Builder service will be deleted after the image template is deleted. This includes staging resource groups that were specified in the `stagingResourceGroup` field, but did not exist prior to the image build. 
+
+If Image Builder did not create the staging resource group, but it did create resources inside of it, those resources will be deleted after the image template is deleted as long as the Image Builder service has the appropriate permissions or role required to delete resources. 
+
 
 ## Properties: source
 
@@ -261,7 +298,7 @@ The `imageId` should be the ResourceId of the managed image. Use `az image list`
 Sets the source image as an existing image version in an Azure Compute Gallery.
 
 > [!NOTE]
-> The source shared image version must be of a supported OS and the image version must reside in the same region as your Azure Image Builder template, if not, please replicate the image version to the Image Builder Template region.
+> The source shared image version must be of a supported OS and the image version must reside in the same region as your Azure Image Builder template, if not, replicate the image version to the Image Builder Template region.
 
 
 ```json
@@ -295,10 +332,10 @@ If you find you need more time for customizations to complete, set this to what 
 Image Builder supports multiple `customizers`. Customizers are functions that are used to customize your image, such as running scripts, or rebooting servers. 
 
 When using `customize`: 
-- You can use multiple customizers, but they must have a unique `name`.
+- You can use multiple customizers
 - Customizers execute in the order specified in the template.
 - If one customizer fails, then the whole customization component will fail and report back an error.
-- It is strongly advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
+- It is advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
 - don't put sensitive data in the scripts. 
 - The script locations need to be publicly accessible, unless you're using [MSI](./image-builder-user-assigned-identity.md).
 
@@ -361,7 +398,7 @@ Customize properties:
     * To generate the sha256Checksum, using a terminal on Mac/Linux run: `sha256sum <fileName>`
 
 > [!NOTE]
-> Inline commands are stored as part of the image template definition, you can see these when you dump out the image definition. If you have sensitive commands or values (including passwords, SAS token, authentication tokens etc), it is strongly recommended these are moved into scripts, and use a user identity to authenticate to Azure Storage.
+> Inline commands are stored as part of the image template definition, you can see these when you dump out the image definition. If you have sensitive commands or values (including passwords, SAS token, authentication tokens etc), it is recommended these are moved into scripts, and use a user identity to authenticate to Azure Storage.
 
 #### Super user privileges
 For commands to run with super user privileges, they must be prefixed with `sudo`, you can add these into scripts or use it inline commands, for example:
@@ -468,7 +505,7 @@ File customizer properties:
 - **sourceUri** - an accessible storage endpoint, this can be GitHub or Azure storage. You can only download one file, not an entire directory. If you need to download a directory, use a compressed file, then uncompress it using the Shell or PowerShell customizers. 
 
 > [!NOTE]
-> If the sourceUri is an Azure Storage Account, irrespective if the blob is marked public, you will to grant the Managed User Identity permissions to read access on the blob. Please see this [example](./image-builder-user-assigned-identity.md#create-a-resource-group) to set the storage permissions.
+> If the sourceUri is an Azure Storage Account, irrespective if the blob is marked public, you will to grant the Managed User Identity permissions to read access on the blob. See this [example](./image-builder-user-assigned-identity.md#create-a-resource-group) to set the storage permissions.
 
 - **destination** – this is the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set these up beforehand. You can use the script customizers to create the path. 
 
@@ -483,7 +520,7 @@ If there is an error trying to download the file, or put it in a specified direc
 > The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads, use a script or inline command, then use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
 
 ### Windows Update Customizer
-This customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, please see the project repository.
+This customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, see the project repository.
 
 ```json
      "customize": [
@@ -544,7 +581,12 @@ Write-Output '>>> Sysprep complete ...'
 #### Default Linux deprovision command
 
 ```bash
-/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync
+WAAGENT=/usr/sbin/waagent
+waagent -version 1> /dev/null 2>&1
+if [ $? -eq 0 ]; then
+  WAAGENT=waagent
+fi
+$WAAGENT -force -deprovision+user && export HISTSIZE=0 && sync
 ```
 
 #### Overriding the Commands
@@ -554,6 +596,103 @@ To override the commands, use the PowerShell or Shell script provisioners to cre
 * Linux: /tmp/DeprovisioningScript.sh
 
 Image Builder will read these commands, these are written out to the AIB logs, `customization.log`. See [troubleshooting](image-builder-troubleshoot.md#customization-log) on how to collect logs.
+
+## Properties: validate
+You can use the `validate` property to validate platform images and any customized images you create regardless of if you used Azure Image Builder to create them.
+
+Azure Image Builder supports a 'Source-Validation-Only' mode that can be set using the `sourceValidationOnly` field. If the `sourceValidationOnly` field is set to true, the image specified in the `source` section will directly be validated. No separate build will be run to generate and then validate a customized image.
+
+The `inVMValidations` field takes a list of validators that will be performed on the image. Azure Image Builder supports both PowerShell and Shell validators.
+
+The `continueDistributeOnFailure` field is responsible for whether the output image(s) will be distributed if validation fails. If validation fails and this field is set to false, the output image(s) will not be distributed (this is the default behavior). If validation fails and this field is set to true, the output image(s) will still be distributed. Use this option with caution as it may result in failed images being distributed for use. In either case (true or false), the end to end image run will be reported as a failed in the case of a validation failure. This field has no effect on whether validation succeeds or not.
+
+When using `validate`: 
+- You can use multiple validators
+- Validators execute in the order specified in the template.
+- If one validator fails, then the whole validation component will fail and report back an error.
+- It is advised you test the script thoroughly before using it in a template. Debugging the script on your own VM will be easier.
+- Don't put sensitive data in the scripts. 
+- The script locations need to be publicly accessible, unless you're using [MSI](./image-builder-user-assigned-identity.md).
+
+How to use the `validate` property to validate Windows images
+        
+```json
+{
+    "properties": {
+      "validate": {
+        "continueDistributeOnFailure": false,
+        "sourceValidationOnly": false,
+        "inVMValidations": [
+          {
+            "type": "PowerShell",
+            "name": "test PowerShell validator inline",
+            "inline": [
+              "<command to run inline>"
+            ],
+            "validExitCodes": "<exit code>",
+            "runElevated": <true or false>,
+            "runAsSystem": <true or false>
+          },
+          {
+            "type": "PowerShell",
+            "name": "<name>",
+            "scriptUri": "<path to script>",
+            "runElevated": <true false>,
+            "sha256Checksum": "<sha256 checksum>" 
+          }
+        ]
+      },
+    }    
+}
+```
+
+`inVMValidations` properties:
+
+- **type** – PowerShell.
+- **name** - name of the validator
+- **scriptUri** - URI of the PowerShell script file. 
+- **inline** – array of commands to be run, separated by commas.
+- **validExitCodes** – Optional, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
+- **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
+- **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
+    * To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash)
+
+How to use the `validate` property to validate Linux images
+        
+```json
+{
+    "properties": {
+       "validate": {
+         "continueDistributeOnFailure": false,
+         "sourceValidationOnly": false,
+         "inVMValidations": [
+           {
+             "type": "Shell",
+             "name": "<name>",
+             "inline": [
+               "<command to run inline>"
+             ]
+           },
+           {
+             "type": "Shell",
+             "name": "<name>",
+             "scriptUri": "<path to script>",
+             "sha256Checksum": "<sha256 checksum>" 
+           }
+         ]
+       },
+     }
+ }
+```
+
+`inVMValidations` properties:
+
+- **type** – Shell 
+- **name** - name of the validator
+- **scriptUri** - URI of the script file 
+- **inline** - array of commands to be run, separated by commas.
+- **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
+    * To generate the sha256Checksum, using a terminal on Mac/Linux run: `sha256sum <fileName>`
  
 ## Properties: distribute
 
@@ -570,7 +709,7 @@ You can distribute an image to both of the target types in the same configuratio
 
 Because you can have more than one target to distribute to, Image Builder maintains a state for every distribution target that can be accessed by querying the `runOutputName`.  The `runOutputName` is an object you can query post distribution for information about that distribution. For example, you can query the location of the VHD, or regions where the image version was replicated to, or SIG Image version created. This is a property of every distribution target. The `runOutputName` must be unique to each distribution target. Here is an example, this is querying an Azure Compute Gallery distribution:
 
-```bash
+```azurecli
 subscriptionID=<subcriptionID>
 imageResourceGroup=<resourceGroup of image template>
 runOutputName=<runOutputName>
@@ -720,7 +859,7 @@ Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $ima
 ```
 
 
-```bash
+```azurecli
 az resource invoke-action \
      --resource-group $imageResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
@@ -731,7 +870,7 @@ az resource invoke-action \
 ### Cancelling an Image Build
 If you're running an image build that you believe is incorrect, waiting for user input, or you feel will never complete successfully, then you can cancel the build.
 
-The build can be canceled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command doesn't wait for cancel to complete, please monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
+The build can be canceled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command doesn't wait for cancel to complete, monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
 
 
 Examples of `cancel` commands:
@@ -740,7 +879,7 @@ Examples of `cancel` commands:
 Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Cancel -Force
 ```
 
-```bash
+```azurecli
 az resource invoke-action \
      --resource-group $imageResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \

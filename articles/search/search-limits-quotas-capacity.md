@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 06/10/2022
 ---
 
 # Service limits in Azure Cognitive Search
@@ -56,12 +56,7 @@ You might find some variation in maximum limits if your service happens to be pr
 
 ## Document limits 
 
-As of October 2018, there are no longer any document count limits for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. Older services created prior to October 2018 may still be subject to document count limits.
-
-To determine whether your service has document limits, use the [GET Service Statistics REST API](/rest/api/searchservice/get-service-statistics). Document limits are reflected in the response, with `null` indicating no limits.
-
-> [!NOTE]
-> Although there are no document limits imposed by the service, there is a shard limit of approximately 24 billion documents per index on Basic, S1, S2, and S3 search services. For S3 HD, the shard limit is 2 billion documents per index. Each element of a complex collection counts as a separate document in terms of shard limits.
+There are no longer any document limits per service in Azure Cognitive Search, however, there is a limit of approximately 24 billion documents per index on Basic, S1, S2, and S3 search services. For S3 HD, the limit is 2 billion documents per index. Each element of a complex collection counts as a separate document in terms of these limits.
 
 ### Document size limits per API call
 
@@ -88,7 +83,7 @@ Maximum running times exist to provide balance and stability to the service as a
 | Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
 | Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4&nbsp;million |8&nbsp;million |16&nbsp;million |N/A |4&nbsp;million |4&nbsp;million |
 
-<sup>1</sup> Free services have indexer maximum execution time of 3 minutes for blob sources and 1 minute for all other data sources. For AI indexing that calls into Cognitive Services, free services are limited to 20 free transactions per day, where a transaction is defined as a document that successfully passes through the enrichment pipeline.
+<sup>1</sup> Free services have indexer maximum execution time of 3 minutes for blob sources and 1 minute for all other data sources. Indexer invocation is once every 180 seconds. For AI indexing that calls into Cognitive Services, free services are limited to 20 free transactions per indexer per day, where a transaction is defined as a document that successfully passes through the enrichment pipeline (tip: you can reset an indexer to reset its count).
 
 <sup>2</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexers, data sources, and skillsets.
 

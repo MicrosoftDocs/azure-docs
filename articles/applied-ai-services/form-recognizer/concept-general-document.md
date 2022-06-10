@@ -1,13 +1,13 @@
 ---
 title: Form Recognizer general document model | Preview
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using prebuilt general document preview model
+description: Concepts related to data extraction and analysis using prebuilt general document preview model
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/08/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -21,18 +21,17 @@ The General document preview model combines powerful Optical Character Recogniti
 The general document API supports most form types and will analyze your documents and extract keys and associated values. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
 
 > [!NOTE]
-> The ```2022-01-30-preview``` update to the general document model adds support for selection marks. 
+> The ```2022-06-30``` update to the general document model adds support for selection marks. 
 
 ## General document features
 
-* The general document model is a pre-trained model, doesn't require labels or training.
+* The general document model is a pre-trained model; it doesn't require labels or training.
 
-* A single API extracts key-value pairs, selection marks entities, text, tables, and structure from documents.
+* A single API extracts key-value pairs, selection marks, entities, text, tables, and structure from documents.
 
 * The general document model supports structured, semi-structured, and unstructured documents.
 
 * Key names are spans of text within the document that are associated with a value.
-
 
 * Selection marks are identified as fields with a value of ```:selected:``` or ```:unselected:``` 
 
@@ -46,17 +45,17 @@ The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources |
 |----------|-------------------------|
-|🆕 **General document model**|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|
+|🆕 **General document model**|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|
 
 ### Try Form Recognizer
 
-See how data is extracted from forms and documents using the Form Recognizer Studio or our Sample Labeling tool.
+Try extracting data from forms and documents using the Form Recognizer Studio.
 
 You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -78,15 +77,15 @@ You'll need the following resources:
 
 ## Key-value pairs
 
-Key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, these pairs could be the label and the value the user entered for that field or in an unstructured  document they could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
+Key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, these pairs could be the label and the value the user entered for that field. In an unstructured  document, they could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
-Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document and if you have documents where same value is described in different ways, for example, a customer or a user, the associated key will be either customer or user based on what the document contained. 
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key-value pairs are spans of text contained in the document. If you have documents where the same value is described in different ways, for example, customer and user, the associated key will be either customer or user based on context.
 
 ## Entities
 
 Natural language processing models can identify parts of speech and classify each token or word. The named entity recognition model is able to identify entities like people, locations, and dates to provide for a richer experience. Identifying entities enables you to distinguish between customer types, for example,  an individual or an organization.
 
-The key value pair extraction model and entity identification model are run in parallel on the entire document and not just on the values of the extracted key-value pairs. This process ensures that complex structures where a key can't be identified is still enriched by identifying the entities referenced. You can still match keys or values to entities based on the offsets of the identified spans.
+The key-value pair extraction model and entity identification model are run in parallel on the entire document—not just on the values of the extracted key-value pairs. This process ensures that complex structures where a key can't be identified are still enriched by identifying the entities referenced. You can still match keys or values to entities based on the offsets of the identified spans.
 
 * The general document is a pre-trained model and can be directly invoked via the REST API.
 
@@ -101,16 +100,13 @@ The key value pair extraction model and entity identification model are run in p
 ## Input requirements
 
 * For best results, provide one clear photo or high-quality scan per document.
-* Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
+* Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 50 MB.
+* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 * Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 * PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
-* For unsupervised learning (without labeled data):
-  * Data must contain keys and values.
-  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 ## Supported languages and locales
 

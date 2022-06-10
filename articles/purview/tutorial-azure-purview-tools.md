@@ -30,7 +30,7 @@ This article lists several open-source tools and utilities (command-line, python
 
 - *Microsoft Purview Adopters*: Adopters who have migrated from starting up and exploring Microsoft Purview and are smoothly using Microsoft Purview for more than a few months.
 
-- *Microsoft Purview Long-Term Regular Users*: Long-term users who have been using Microsoft Purview for more than one year and are now confident and comfortable using most advanced Microsoft Purview use cases on the Azure portal and Microsoft Purview Studio; furthermore they have near perfect knowledge and awareness of the Microsoft Purview REST APIs and the other use cases supported via Microsoft Purview APIs.
+- *Microsoft Purview Long-Term Regular Users*: Long-term users who have been using Microsoft Purview for more than one year and are now confident and comfortable using most advanced Microsoft Purview use cases on the Azure portal and Microsoft Purview governance portal; furthermore they have near perfect knowledge and awareness of the Microsoft Purview REST APIs and the other use cases supported via Microsoft Purview APIs.
 
 
 ## Microsoft Purview open-source tools and utilities list
@@ -38,7 +38,7 @@ This article lists several open-source tools and utilities (command-line, python
 1. [Purview-API-via-PowerShell](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/README.md) 
 
     - **Recommended customer journey stages**: *Learners, Innovators, Enthusiasts, Adopters, Long-Term Regular Users*
-    - **Description**: This utility is based on and covers the entire set of [Microsoft Purview REST API Reference](/rest/api/purview/) Microsoft Docs. [Download & Install from PowerShell Gallery](https://aka.ms/purview-api-ps). It helps you execute all the documented Microsoft Purview REST APIs through a breezy fast and easy to use PowerShell interface. Use and automate Microsoft Purview APIs for regular and long-term usage via command-line and scripted methods. This is an alternative for customers looking to do bulk tasks in automated manner, batch-mode, or scheduled cron jobs; as against the GUI method of using the Azure portal and Microsoft Purview Studio. Detailed documentation, sample usage guide, self-help, and examples are available on [GitHub:Azure-Purview-API-PowerShell](https://github.com/Azure/Azure-Purview-API-PowerShell).
+    - **Description**: This utility is based on and covers the entire set of [Microsoft Purview REST API Reference](/rest/api/purview/) Microsoft Docs. [Download & Install from PowerShell Gallery](https://aka.ms/purview-api-ps). It helps you execute all the documented Microsoft Purview REST APIs through a breezy fast and easy to use PowerShell interface. Use and automate Microsoft Purview APIs for regular and long-term usage via command-line and scripted methods. This is an alternative for customers looking to do bulk tasks in automated manner, batch-mode, or scheduled cron jobs; as against the GUI method of using the Azure portal and Microsoft Purview governance portal. Detailed documentation, sample usage guide, self-help, and examples are available on [GitHub:Azure-Purview-API-PowerShell](https://github.com/Azure/Azure-Purview-API-PowerShell).
 
 1. [Purview-Starter-Kit](https://aka.ms/PurviewKickstart)
 

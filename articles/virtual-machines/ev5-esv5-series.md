@@ -1,12 +1,10 @@
 ---
 title: Ev5 and Esv5-series - Azure Virtual Machines
 description: Specifications for the Ev5 and Esv5-series VMs.
-author: joelpelley
-ms.author: joelpell
-ms.reviewer: joelpell
-ms.custom: mimckitt
+author: andysports8
+ms.author: shuji
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 10/20/2021
 ---

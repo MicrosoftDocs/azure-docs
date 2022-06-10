@@ -157,6 +157,16 @@ The following features are supported for Linux containers:
 1. From the left navigation, click **Configuration** > **Path Mappings** > **New Azure Storage Mount**. 
 1. Configure the storage mount according to the following table. When finished, click **OK**.
 
+    ::: zone pivot="code-windows"
+    | Setting | Description |
+    |-|-|
+    | **Name** | Name of the mount configuration. Spaces are not allowed. |
+    | **Configuration options** | Select **Basic** if the storage account is not using [private endpoints](../storage/common/storage-private-endpoints.md). Otherwise, select **Advanced**. |
+    | **Storage accounts** | Azure Storage account. It must contain an Azure Files share. |
+    | **Share name** | Files share to mount. |
+    | **Access key** (Advanced only) | [Access key](../storage/common/storage-account-keys-manage.md) for your storage account. |
+    | **Mount path** | Directory inside your file/blob storage that you want to mount. Only `/mounts/pathname` is supported.|
+    ::: zone-end
     ::: zone pivot="container-windows"
     | Setting | Description |
     |-|-|

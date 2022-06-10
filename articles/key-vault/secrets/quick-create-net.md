@@ -28,19 +28,22 @@ For more information about Key Vault and secrets, see:
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 * [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core)
 * [Azure CLI](/cli/azure/install-azure-cli)
+* [Azure PowerShell](/powershell/azure/install-az-ps)
 * A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
 
-This quickstart is using `dotnet` and Azure CLI
+This quickstart is using `dotnet` and Azure CLI or Azure PowerShell.
 
 ## Setup
+
+### [Azure CLI](#tab/azure-cli)
 
 This quickstart is using Azure Identity library with Azure CLI to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
 
 ### Sign in to Azure
 
-1. Run the `login` command.
+1. Run the `az login` command.
 
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
 
@@ -55,9 +58,38 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 Create an access policy for your key vault that grants secret permissions to your user account
 
-```console
+```azurecli
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+This quickstart is using Azure Identity library with Azure PowerShell to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
+
+### Sign in to Azure
+
+1. Run the `Connect-AzAccount` command.
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+    If the PowerShell can open your default browser, it will do so and load an Azure sign-in page.
+
+    Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the
+    authorization code displayed in your terminal.
+
+2. Sign in with your account credentials in the browser.
+
+### Grant access to your key vault
+
+Create an access policy for your key vault that grants secret permissions to your user account
+
+```azurepowershell
+Set-AzKeyVaultAccessPolicy -VaultName "<YourKeyVaultName>" -UserPrincipalName "user@domain.com" -PermissionsToSecrets delete,get,list,set,purge
+```
+
+---
 
 ### Create new .NET console app
 

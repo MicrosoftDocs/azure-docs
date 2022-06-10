@@ -19,26 +19,24 @@ ms.author: eur
 
 ## Set up the environment
 
-The Speech SDK for Python is available as a [Python Package Index (PyPI) module](https://pypi.org/project/azure-cognitiveservices-speech/). Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). 
-
-The Speech SDK for Python is compatible with Windows, Linux, and macOS. 
+The Speech SDK for Python is available as a [Python Package Index (PyPI) module](https://pypi.org/project/azure-cognitiveservices-speech/). The Speech SDK for Python is compatible with Windows, Linux, and macOS. 
 - On Windows, you must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, or 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
 - On Linux, you must use the x64 target architecture.
 
-Install the Speech SDK. First check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements. 
-
-```console
-pip install azure-cognitiveservices-speech
-```
+Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). First check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements. 
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Synthesize to speaker output
 
-Follow these steps to create a new console application and install the Speech SDK.
+Follow these steps to create a new console application.
 
 1. Open a command prompt where you want the new project, and create a new file named `speech-synthesis.py`.
+1. Run this command to install the Speech SDK:  
+    ```console
+    pip install azure-cognitiveservices-speech
+    ```
 1. Copy the following code into `speech_synthesis.py`: 
 
     ```Python
@@ -86,6 +84,9 @@ I'm excited to try text to speech
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-speaker-output" target="_target">I ran into an issue</a>
+
+## Remarks
+Now that you've completed the quickstart, here are some additional considerations:
 
 This quickstart uses the `speak_text_async` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
 - For information about speech synthesis from a file, see [How to synthesize speech](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).

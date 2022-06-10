@@ -78,7 +78,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 ## Build your application
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `FormRecognizerClient` class. To do so, you'll create an `AzureKeyCredential` with your apiKey and a `FormRecognizerClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Form Recognizer service, you'll need to create an instance of the `FormRecognizerClient` class. To do so, you'll create an `AzureKeyCredential` with your key and a `FormRecognizerClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
 1. Open the **Program.cs** file.
 
@@ -92,12 +92,12 @@ using Azure.AI.FormRecognizer.Models;
 using System.Threading.Tasks;
 ```
 
-1. Set your  `endpoint` and `apiKey`  environment variables and create your `AzureKeyCredential` and `FormRecognizerClient` instance:
+1. Set your  `endpoint` and `key`  environment variables and create your `AzureKeyCredential` and `FormRecognizerClient` instance:
 
 ```csharp
 private static readonly string endpoint = "your-form-recognizer-endpoint";
-private static readonly string apiKey = "your-api-key";
-private static readonly AzureKeyCredential credential = new AzureKeyCredential(apiKey);
+private static readonly string key = "your-api-key";
+private static readonly AzureKeyCredential credential = new AzureKeyCredential(key);
 ```
 
 1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the **Try It** code samples to the **Main** method in the **Program.cs** file:
@@ -140,7 +140,7 @@ Task.WaitAll(recognizeContent);
 
 private static FormRecognizerClient AuthenticateClient()
             {
-                var credential = new AzureKeyCredential(apiKey);
+                var credential = new AzureKeyCredential(key);
                 var client = new FormRecognizerClient(new Uri(endpoint), credential);
                 return client;
             }
@@ -211,7 +211,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
 
 ```csharp
    private static FormRecognizerClient AuthenticateClient() {
-     var credential = new AzureKeyCredential(apiKey);
+     var credential = new AzureKeyCredential(key);
      var client = new FormRecognizerClient(new Uri(endpoint), credential);
      return client;
    }
@@ -230,7 +230,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("InvoiceId", out invoiceIdField)) {
        if (invoiceIdField.Value.ValueType == FieldValueType.String) {
          string invoiceId = invoiceIdField.Value.AsString();
-         Console.WriteLine($ "    Invoice Id: '{invoiceId}', with confidence {invoiceIdField.Confidence}");
+         Console.WriteLine($"    Invoice Id: '{invoiceId}', with confidence {invoiceIdField.Confidence}");
        }
      }
 
@@ -238,7 +238,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("InvoiceDate", out invoiceDateField)) {
        if (invoiceDateField.Value.ValueType == FieldValueType.Date) {
          DateTime invoiceDate = invoiceDateField.Value.AsDate();
-         Console.WriteLine($ "    Invoice Date: '{invoiceDate}', with confidence {invoiceDateField.Confidence}");
+         Console.WriteLine($"    Invoice Date: '{invoiceDate}', with confidence {invoiceDateField.Confidence}");
        }
      }
 
@@ -246,7 +246,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("DueDate", out dueDateField)) {
        if (dueDateField.Value.ValueType == FieldValueType.Date) {
          DateTime dueDate = dueDateField.Value.AsDate();
-         Console.WriteLine($ "    Due Date: '{dueDate}', with confidence {dueDateField.Confidence}");
+         Console.WriteLine($"    Due Date: '{dueDate}', with confidence {dueDateField.Confidence}");
        }
      }
 
@@ -254,7 +254,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("VendorName", out vendorNameField)) {
        if (vendorNameField.Value.ValueType == FieldValueType.String) {
          string vendorName = vendorNameField.Value.AsString();
-         Console.WriteLine($ "    Vendor Name: '{vendorName}', with confidence {vendorNameField.Confidence}");
+         Console.WriteLine($"    Vendor Name: '{vendorName}', with confidence {vendorNameField.Confidence}");
        }
      }
 
@@ -262,7 +262,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("VendorAddress", out vendorAddressField)) {
        if (vendorAddressField.Value.ValueType == FieldValueType.String) {
          string vendorAddress = vendorAddressField.Value.AsString();
-         Console.WriteLine($ "    Vendor Address: '{vendorAddress}', with confidence {vendorAddressField.Confidence}");
+         Console.WriteLine($"    Vendor Address: '{vendorAddress}', with confidence {vendorAddressField.Confidence}");
        }
      }
 
@@ -270,7 +270,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("CustomerName", out customerNameField)) {
        if (customerNameField.Value.ValueType == FieldValueType.String) {
          string customerName = customerNameField.Value.AsString();
-         Console.WriteLine($ "    Customer Name: '{customerName}', with confidence {customerNameField.Confidence}");
+         Console.WriteLine($"    Customer Name: '{customerName}', with confidence {customerNameField.Confidence}");
        }
      }
 
@@ -278,7 +278,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("CustomerAddress", out customerAddressField)) {
        if (customerAddressField.Value.ValueType == FieldValueType.String) {
          string customerAddress = customerAddressField.Value.AsString();
-         Console.WriteLine($ "    Customer Address: '{customerAddress}', with confidence {customerAddressField.Confidence}");
+         Console.WriteLine($"    Customer Address: '{customerAddress}', with confidence {customerAddressField.Confidence}");
        }
      }
 
@@ -286,7 +286,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("CustomerAddressRecipient", out customerAddressRecipientField)) {
        if (customerAddressRecipientField.Value.ValueType == FieldValueType.String) {
          string customerAddressRecipient = customerAddressRecipientField.Value.AsString();
-         Console.WriteLine($ "    Customer address recipient: '{customerAddressRecipient}', with confidence {customerAddressRecipientField.Confidence}");
+         Console.WriteLine($"    Customer address recipient: '{customerAddressRecipient}', with confidence {customerAddressRecipientField.Confidence}");
        }
      }
 
@@ -294,7 +294,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("InvoiceTotal", out invoiceTotalField)) {
        if (invoiceTotalField.Value.ValueType == FieldValueType.Float) {
          float invoiceTotal = invoiceTotalField.Value.AsFloat();
-         Console.WriteLine($ "    Invoice Total: '{invoiceTotal}', with confidence {invoiceTotalField.Confidence}");
+         Console.WriteLine($"    Invoice Total: '{invoiceTotal}', with confidence {invoiceTotalField.Confidence}");
        }
      }
    }

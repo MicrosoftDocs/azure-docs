@@ -11,27 +11,11 @@ ms.custom: devx-track-js
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-Before you can do anything, you need to install the Speech SDK for Node.js. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see [Set up the development environment](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript&tabs=dotnet%2clinux%2cjre%2cnodejs).
-
-Use the following `require` statement to import the SDK:
-
-```javascript
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-```
-
-For more information on `require`, see the [require documentation](https://nodejs.org/en/knowledge/getting-started/what-is-require/).
-
 ## Create a speech configuration
 
 To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
 
-Create a `SpeechConfig` instance by using your key and location/region. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion).
+Create a `SpeechConfig` instance by using your key and location/region. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 
 ```javascript
 const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
@@ -217,3 +201,12 @@ speechConfig.speechRecognitionLanguage = "it-IT";
 
 The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#speechrecognitionlanguage) property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
 
+## Use a custom endpoint
+
+With [Custom Speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
+
+```javascript
+var speechConfig = SpeechSDK.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+speechConfig.endpointId = "YourEndpointId";
+var speechRecognizer = new SpeechSDK.SpeechRecognizer(speechConfig);
+```

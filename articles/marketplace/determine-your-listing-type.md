@@ -29,7 +29,6 @@ This table shows which listing options are available for each offer type:
 | Managed Service |  |  |  | &#10004;<sup>1</sup> |
 | Power BI App |  |  |  | &#10004;<sup>1</sup> |
 | Software as a service | &#10004; | &#10004; | &#10004; | &#10004;<sup>1</sup> |
-||||||
 
 <sup>1</sup> The **Get It Now** listing option includes Get It Now (Free), bring your own license (BYOL), Subscription, and Usage-based pricing. For more information, see [Get It Now](#get-it-now).
 
@@ -81,7 +80,6 @@ This table shows which offer types support the pricing options that are included
 | Power BI App | &#10004; |   |   |   |
 | Azure Virtual Machine |   | &#10004; |   | &#10004;<sup>2</sup> |
 | Software as a service | &#10004; |   | &#10004; | &#10004; |
-||||||
 
 <sup>1</sup> The **Pricing model** column of the **Plan overview** tab shows **Free** or **BYOL**, but it's not selectable.
 
@@ -118,7 +116,7 @@ The following offer types support usage-based pricing:
 - SaaS offers support for Metered billing and per user (per seat) pricing. For more information about metered billing, see [Metered billing for SaaS using the commercial marketplace metering service](partner-center-portal/saas-metered-billing.md).
 - Azure virtual machine offers support for **Per core**, **Per core size**, and **Per market and core size** pricing. These options are priced per hour and billed monthly.
 
-When you create a transactable offer, it's important to understand the pricing, billing, invoicing, and payout considerations before you select an offer type and create your offer. To learn more, see [Commercial marketplace online stores](overview.md#commercial-marketplace-online-stores).
+When you create a transactable offer, it's important to understand the pricing, billing, invoicing, and payout considerations before you select an offer type and create your offer. To learn more, see [Commercial marketplace online stores](overview.md#commercial-marketplace-online-stores) and [Changing prices in active commercial marketplace offers](price-changes.md).
 
 ## Sample offer
 
@@ -146,7 +144,6 @@ The following table shows the options that are available for different offer typ
 | Dynamics 365 apps on Dataverse and Power Apps | AppSource | AppSource |   |   | AppSource <sup>3</sup>  |
 | Dynamics 365 Operations Apps | AppSource | AppSource |   |   |   |
 | Power BI App |   |   | AppSource |   |   |
-|||||||
 
 <sup>1</sup> SaaS transactable offers in AppSource only accept credit cards at this time.
 
@@ -164,4 +161,4 @@ Non-transactable offers earn benefits based on whether or not a free trial is at
 
 ## Next steps
 
-To choose an offer type to create, see [Publishing guide by offer type](publisher-guide-by-offer-type.md).
+- To choose an offer type, see [Publishing guide by offer type](publisher-guide-by-offer-type.md).
