@@ -27,7 +27,7 @@ Learn more about the [key concepts for Azure Load Testing](./concept-load-testin
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure RBAC role with permission to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner) 
 
-## <a name="create_resource"></a> Create an Azure Load Testing resource
+## Create an Azure Load Testing resource
 
 First, you'll create the top-level resource for Azure Load Testing. It provides a centralized place to view and manage test plans, test results, and related artifacts.
 
