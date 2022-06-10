@@ -27,7 +27,7 @@ This article shows you how to install the Kubernetes Event-driven Autoscaling (K
 Install the `aks-preview` extension in the AKS cluster to make sure you have the latest version of AKS extension before installing KEDA add-on.
 
 ```azurecli
-- az extension add --upgrade --name aks-preview
+az extension add --upgrade --name aks-preview
 ```
 
 ### Register the `AKS-KedaPreview` feature flag
