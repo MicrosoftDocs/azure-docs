@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Connecting from applications to Azure resources without handling credentials
 
-This page explains how developers can use Managed identities so that Azure resources can connect to resources that support authentication with Azure Active Directory, without needing to handle or store any credentials. This is the recommended approach for Azure resources that support the ability to authentiate using a managed identity.
+This page explains how developers can use Managed identities so that Azure resources can connect to resources that support authentication with Azure Active Directory, without needing to handle or store any credentials. This is the recommended approach for Azure resources that support the ability to authentiate using a managed identity. [Read an overview of managed identities](overview.md).
 
 The examples provided will show how an Azure App Service can connect to Azure Key Vault, Azure Storage, and Microsoft SQL Server. However the same principles can be used for any Azure resource that supports Managed Identities and that will connect to resources that support Azure Active Directory authentication. 
 
