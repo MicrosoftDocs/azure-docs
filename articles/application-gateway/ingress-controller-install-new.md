@@ -35,7 +35,7 @@ choose to use another environment, ensure the following command-line tools are i
 
 ## Create an Identity
 
-Follow the steps below to create an Azure Active Directory (AzureAD) [service principal object](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Record the `appId`, `password`, and `objectId` values - these values will be used in the following steps.
+Follow the steps below to create an Azure Active Directory (Azure AD) [service principal object](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Record the `appId`, `password`, and `objectId` values - these values will be used in the following steps.
 
 1. Create AD service principal ([Read more about Azure RBAC](../role-based-access-control/overview.md)):
     ```azurecli
