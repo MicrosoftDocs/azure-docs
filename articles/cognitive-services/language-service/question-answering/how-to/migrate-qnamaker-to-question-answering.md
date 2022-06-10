@@ -84,7 +84,7 @@ Following are the broad migration phases to consider:
 Additional links which can help you are given below:
 - [Authoring portal](https://language.cognitive.azure.com/home)
 - [API](authoring.md)
-- [SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet)
+- [SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker)
 - Bot SDK: For bots to use custom question answering, use the [Bot.Builder.AI.QnA](https://www.nuget.org/packages/Microsoft.Bot.Builder.AI.QnA/) SDK – We recommend customers to continue to use this for their Bot integrations. Here are some sample usages of the same in the bot’s code: [Sample 1](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/48.customQABot-all-features) [Sample 2](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/12.customQABot)
 
 ## Common migration scenarios
@@ -147,7 +147,7 @@ Here you can find some code samples: [Sample 1](https://github.com/microsoft/Bot
 
 Here are [detailed steps on migration scenario 2](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Language.QuestionAnswering_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/MigrationGuide.md)
 
-Learn more about the [pre-built API](using-prebuilt-api.md)
+Learn more about the [pre-built API](../../../QnAMaker/How-To/using-prebuilt-api.md)
 
 Learn more about the [Question Answering Get Answers REST API](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers)
 
