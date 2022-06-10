@@ -51,7 +51,7 @@ To configure a client to access Kubernetes cluster, you'll need the Kubernetes e
 1. In the local web UI of your device, go to **Device** page.
 2. Under the **Device endpoints**, copy the **Kubernetes API** endpoint. This endpoint is a string in the following format: `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]`. 
 
-    ![Screenshot that shows the Device page in local UI.](./media/azure-stack-edge-gpu-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
+    ![Screenshot that shows the Device page in local U I.](./media/azure-stack-edge-gpu-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
 
 3. Save the endpoint string. You'll use this endpoint string later when configuring a client to access the Kubernetes cluster via kubectl.
 
@@ -59,13 +59,13 @@ To configure a client to access Kubernetes cluster, you'll need the Kubernetes e
 
     - If you've been provided a key from Microsoft (select users may have a key), go to Kubernetes API, select **Advanced config**, and download an advanced configuration file for Kubernetes. 
 
-        ![Screenshot that shows the Device page in local UI 1.](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-1.png)
+        ![Screenshot that shows the Device page in local U I 1.](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-1.png)
      
-        ![Screenshot that shows the Device page in local UI 2.](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-2.png)
+        ![Screenshot that shows the Device page in local U I 2.](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-2.png)
 
     - You can also go to **Kubernetes dashboard** endpoint and download an `aseuser` config file. 
     
-        ![Screenshot that shows the Device page in local UI 3.](./media/azure-stack-edge-gpu-deploy-configure-compute/download-aseuser-config-1.png)
+        ![Screenshot that shows the Device page in local U I 3.](./media/azure-stack-edge-gpu-deploy-configure-compute/download-aseuser-config-1.png)
 
         You can use this config file to sign into the Kubernetes dashboard or debug any issues in your Kubernetes cluster. For more information, see [Access Kubernetes dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#access-dashboard). 
 
