@@ -57,7 +57,7 @@ This section explains the route selection algorithm in a virtual hub along with 
 
 * When there are multiple virtual hubs in a Virtual WAN scenario, a virtual hub selects the best routes using the route selection algorithm described above, and then advertises them to the other virtual hubs in the virtual WAN.
 
-* **Limitation:** If a route-prefix is reachable via ER or VPN connections, and via virtual hub SD-WAN NVA, then the latter route is ignored by the route-selection algorithm. Therefore, the flows to prefixes reachable only via virtual hub SD-WAN NVA will ever take the route through the NVA. This is a limitation during the Preview phase of  the **Hub routing preference** feature.
+* **Limitation:** If a route-prefix is reachable via ER or VPN connections, and via virtual hub SD-WAN NVA, then the latter route is ignored by the route-selection algorithm. Therefore, the flows to prefixes reachable only via virtual hub SD-WAN NVA will take the route through the NVA. This is a limitation during the Preview phase of  the **Hub routing preference** feature.
 
 ## Routing scenarios
 
