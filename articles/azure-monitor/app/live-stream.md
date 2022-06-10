@@ -12,7 +12,7 @@ ms.devlang: csharp
 Monitor your live, in-production web application by using Live Metrics Stream (also known as QuickPulse) from [Application Insights](./app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](./profiler.md) and [Snapshot debugger](./snapshot-debugger.md), Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
 
 > [!NOTE]
-> Live Metrics only supports TLS 1.2. For more information refer to [Troubleshooting](#troubleshooting). 
+> Live Metrics only supports TLS 1.2. For more information, refer to [Troubleshooting](#troubleshooting). 
 
 With Live Metrics Stream, you can:
 
@@ -50,10 +50,12 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-### Enable LiveMetrics using code for any .NET application
+### Enable Live Metrics using code for any .NET application
 
-Even though LiveMetrics is enabled by default when onboarding using recommended instructions for .NET Applications, the following shows how to set up Live Metrics
-manually.
+> [!NOTE]
+> Live Metrics is enabled by default when onboarding using the recommended instructions for .NET Applications.
+
+The following shows how to set up Live Metrics manually:
 
 1. Install the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
 2. The following sample console app code shows setting up Live Metrics.
@@ -161,7 +163,7 @@ See the details of an item in the live feed by clicking it. You can pause the fe
 
 ## Filter by server instance
 
-If you want to monitor a particular server role instance, you can filter by server. To filter select the server name under *Servers*.
+If you want to monitor a particular server role instance, you can filter by server. To filter, select the server name under *Servers*.
 
 ![Sampled live failures](./media/live-stream/filter-by-server.png)
 
@@ -240,7 +242,7 @@ For Azure Function Apps (v2), securing the channel with an API key can be accomp
 
 Create an API key from within your Application Insights resource and go to **Settings > Configuration** for your Function App. Select **New application setting** and enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` and a value that corresponds to your API key.
 
-Securing the control channel is not necessary if you recognize and trust all the connected servers. This option is made available so that you can try custom filters without having to set up an authenticated channel. If you choose this option you will have to authorize the connected servers once every new session or when a new server comes online. We strongly discourage the use of unsecured channels and will disable this option 6 months after you start using it. To use custom filters without a secure channel simply click on any of the filter icons and authorize the connected servers. The “Authorize connected servers” dialog displays the date (highlighted below) after which this option will be disabled.
+Securing the control channel is not necessary if you recognize and trust all the connected servers. This option is made available so that you can try custom filters without having to set up an authenticated channel. If you choose this option, you will have to authorize the connected servers once every new session or when a new server comes online. We strongly discourage the use of unsecured channels and will disable this option 6 months after you start using it. To use custom filters without a secure channel, simply click on any of the filter icons and authorize the connected servers. The “Authorize connected servers” dialog displays the date (highlighted below) after which this option will be disabled.
 
 :::image type="content" source="media/live-stream/live-stream-auth.png" alt-text="Screenshot displaying the authorize connected servers dialog." lightbox="media/live-stream/live-stream-auth.png":::
 
@@ -271,7 +273,7 @@ Basic metrics include request, dependency, and exception rate. Performance metri
 
 Live Metrics Stream uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](./ip-addresses.md) are open in your firewall. Also check the [outgoing ports for Live Metrics Stream](./ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
 
-As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2. If you are using an older version of TLS , Live Metrics will not display any data. For applications based on .NET Framework 4.5.1 refer to [How to enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support newer TLS version.
+As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2. If you are using an older version of TLS, Live Metrics will not display any data. For applications based on .NET Framework 4.5.1, refer to [How to enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support newer TLS version.
 
 > [!WARNING]
 > Currently, authenticated channel only supports manual SDK instrumentation. The authenticated channel cannot be configured with auto-instrumentation (used to be known as "codeless attach").
@@ -281,8 +283,8 @@ As described in the [Azure TLS 1.2 migration announcement](https://azure.microso
 1. Verify you are using the latest version of the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
 2. Edit the `ApplicationInsights.config` file
     * Verify that the connection string points to the Application Insights resource you are using
-    * Locate the `QuickPulseTelemetryModule` configuration option; if it is not there add it
-    * Locate the `QuickPulseTelemetryProcessor` configuration option; if it is not there add it
+    * Locate the `QuickPulseTelemetryModule` configuration option; if it is not there, add it
+    * Locate the `QuickPulseTelemetryProcessor` configuration option; if it is not there, add it
      
  ```xml
 <TelemetryModules>
