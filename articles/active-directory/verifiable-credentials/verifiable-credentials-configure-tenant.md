@@ -102,7 +102,7 @@ To set up Azure AD Verifiable Credentials, follow these steps:
         > The only way to change the trust system is to opt-out of verifiable credentials and redo the onboarding.
 
 
-1. Select **Save and create credential**.  
+1. Select **Save and get started**.  
     
     ![Screenshots that shows how to set up Verifiable Credentials.](media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png)
 
