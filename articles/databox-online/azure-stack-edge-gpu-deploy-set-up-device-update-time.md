@@ -49,17 +49,17 @@ Follow these steps to configure device related settings:
 
 1. To validate and apply the configured device settings, select **Apply**.
 
-    ![Screenshot of local web UI "Device" page 1.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
+    ![Screenshot of local web U I "Device" page 1.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
 
     When the device name and the DNS domain are changed, the SMB endpoint is created.  
 
     If you've changed the device name and the DNS domain, the automatically generated self-signed certificates on the device won't work. You'll need to regenerate device certificates or bring your own certificates.
     
-    ![Screehshot of local web UI "Device" page 2.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
+    ![Screehshot of local web U I "Device" page 2.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
   
 1. After the settings are applied, select **Next: Update server**.
 
-    ![Screenshot of local web UI "Device" page 3.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
+    ![Screenshot of local web U I "Device" page 3.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
 
 ## Configure update
 
@@ -67,11 +67,11 @@ Follow these steps to configure device related settings:
 
     - You can get the updates directly from the **Microsoft Update server**.
 
-        ![Screenshot of local web UI "Update Server" page.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-2.png)
+        ![Screenshot of local web U I "Update Server" page.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-2.png)
 
         You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
         
-        ![Screenshot of local web UI "Update Server" page 2.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
+        ![Screenshot of local web U I "Update Server" page 2.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
         > If a separate Windows Update server is configured and if you choose to connect over *https* (instead of *http*), then signing chain certificates required to connect to the update server are needed. For information on how to create and upload certificates, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md). 
