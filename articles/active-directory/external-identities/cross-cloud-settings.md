@@ -81,6 +81,9 @@ Follow these steps to add the tenant you want to collaborate with to your Organi
 
 1. If you want to change the cross-tenant access settings for this organization, select the **Inherited from default** link under the **Inbound access** or **Outbound access** column. Then follow the detailed steps in these sections:
 
+> [!NOTE]
+> B2B direct connect is not supported for collaboration with Azure AD tenants in a different Microsoft cloud.
+
    - [Modify inbound access settings](cross-tenant-access-settings-b2b-collaboration.md#modify-inbound-access-settings)
    - [Modify outbound access settings](cross-tenant-access-settings-b2b-collaboration.md#modify-outbound-access-settings)
 
