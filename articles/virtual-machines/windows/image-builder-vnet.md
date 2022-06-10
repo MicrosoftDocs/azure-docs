@@ -60,7 +60,7 @@ $subnetName="subnet01"
 $vnetRgName="existingVnetRG"
 # Existing Subnet NSG Name or the demo will create it
 $nsgName="aibdemoNsg"
-# NOTE! The virtual network must always be in the same region as the AIB service region.
+# NOTE! The virtual network must always be in the same region as the Azure Image Builder service region.
 ```
 
 Create the resource group.

@@ -1,5 +1,5 @@
 ---
-title: Azure Image Builder service networking options
+title: Azure Image Builder networking options
 description: Understand the networking options available to you when you deploy the Image Builder service of Azure Virtual Machines.
 author: kof-f
 ms.author: kofiforson
@@ -11,7 +11,7 @@ ms.subservice: image-builder
 
 ---
 
-# Azure Image Builder service networking options
+# Azure Image Builder networking options
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
@@ -36,7 +36,7 @@ Azure Private Link provides private connectivity from a virtual network to Azure
 
 ### Required permissions for an existing virtual network
 
-Azure Image Builder requires specific permissions to use an existing virtual network. For more information, see [Configure Azure Image Builder service permissions by using the Azure CLI](image-builder-permissions-cli.md) or [Configure Azure Image Builder service permissions by using PowerShell](image-builder-permissions-powershell.md).
+Azure Image Builder requires specific permissions to use an existing virtual network. For more information, see [Configure Azure Image Builder permissions by using the Azure CLI](image-builder-permissions-cli.md) or [Configure Azure Image Builder permissions by using PowerShell](image-builder-permissions-powershell.md).
 
 ### What is deployed during an image build?
 
@@ -50,7 +50,7 @@ If you use an existing virtual network, Azure Image Builder deploys an additiona
 
 When a VM without a public IP is behind an internal load balancer, it doesn't have internet access. The load balancer used for the virtual network is internal. The proxy VM allows internet access for the build VM during builds. You can use the associated network security groups to restrict the build VM access.
 
-The deployed proxy VM size is *Standard A1_v2*, in addition to the build VM. The Image Builder service uses the proxy VM to send commands between the service and the build VM. You can't change the proxy VM properties can't be changed (this restriction includes the size and the operating system).
+The deployed proxy VM size is *Standard A1_v2*, in addition to the build VM. The Image Builder service uses the proxy VM to send commands between the service and the build VM. You can't change the proxy VM properties (this restriction includes the size and the operating system).
 
 ### Image template parameters to support the virtual network
 
