@@ -1,12 +1,25 @@
 ---
-title: Service Health notifications overview | Microsoft Docs
+title: What are Service Health notifications in Azure Active Directory? | Microsoft Docs
 description: Learn how Service Health notifications provides you with a customizable dashboard which tracks the health of your Azure services in the regions where you use them. 
-ms.topic: conceptual
-ms.date: 06/08/2022
+services: active-directory
+documentationcenter: ''
+author: MarkusVi
+manager: karenhoran
+editor: ''
+
+ms.assetid: 1c5002e4-079e-4c28-a4e8-a5841942030a6
+ms.service: active-directory
+ms.topic: overview
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.subservice: report-monitor
+ms.date: 10/06/2022
+ms.author: markvi
+ms.reviewer: davey  
 
 
 ---
-# Service Health notifications overview
+# What are Service Health notifications in Azure Active Directory?
 
 
 Azure Service Health has been updated to provide notifications to tenant admins within the Azure portal when there are Service Health events for Azure Active Directory services. Due to the criticality of these events, an alert card in the Azure AD overview page will also be provided to support the discovery of these notifications. 
