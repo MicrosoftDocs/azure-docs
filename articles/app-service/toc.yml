@@ -58,6 +58,8 @@
           href: tutorial-python-postgresql-app.md
         - name: Java with Spring Data
           href: tutorial-java-spring-cosmosdb.md
+        - name: Quarkus with Postgres
+          href: tutorial-java-quarkus-postgresql-app.md
     - name: Custom containers
       items:
         - name: Deploy from ACR
