@@ -139,16 +139,12 @@ items:
       href: how-to-audio-content-creation.md 
 - name: Speech translation
   items:
-    - name: Speech translation documentation
-      href: index-speech-translation.yml
     - name: Speech translation overview
       href: speech-translation.md
     - name: Speech translation quickstart
       href: get-started-speech-translation.md
-    - name: Translate and synthesize text with REST APIs
-      href: /learn/modules/python-flask-build-ai-web-app
-    - name: Speech translation FAQ
-      href: https://www.microsoft.com/translator/faq.aspx
+    - name: How to recognize and translate speech
+      href: how-to-translate-speech.md
 - name: Intent recognition
   items:
     - name: Intent recognition documentation
