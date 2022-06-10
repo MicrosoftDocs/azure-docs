@@ -217,7 +217,6 @@ The following classes and interfaces handle some of the major features of the Az
 | [CallCompositeBuilder](#create-call-composite)                        | Builder to build CallComposite with options.                                                 |
 | [CallCompositeJoinMeetingLocator](#group-call)                        | Passed in CallComposite launch to start group call.                                          |
 | [CallCompositeTeamsMeetingLinkLocator](#teams-meeting)                | Passed to CallComposite launch to join Teams meeting.                                        |
-| [ThemeConfiguration](#apply-theme-configuration)                      | Injected as optional in CallCompositeBuilder to change primary color and tint of composite.           |
 | [CallCompositeLocalizationOptions](#apply-localization-configuration) | Injected as optional in CallCompositeBuilder to set language of composite.       |
 
 ## UI Library functionality
@@ -356,7 +355,7 @@ callComposite.launch(context, remoteOptions);
 -----
 ### Subscribe to error events from `CallComposite`
 
-To receive error events, register an `onErrorHandler` with the `CallComposite`. 
+To receive error events, call  `setOnErrorHandler` with the `CallComposite`. 
 
 The following `errorCode` values may be sent to the Error Handler
 
