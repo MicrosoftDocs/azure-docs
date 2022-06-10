@@ -97,7 +97,7 @@ In this tutorial, you learn how to:
 
 1. Under **Templates**, select **Blank Logic App**.
 
-   > [!NOTE
+   > [!NOTE]
    > The workflow templates gallery is available only for Consumption logic apps, not Standard logic apps.
 
    ![Screenshot showing Azure Logic Apps templates with selected "Blank Logic App" template.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
