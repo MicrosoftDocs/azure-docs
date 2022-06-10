@@ -31,7 +31,7 @@ More information about how security is integrated into every aspect of Azure is 
 > [!NOTE] 
 > Since this document was first published, multiple variants of this vulnerability class have been disclosed. Microsoft continues to be heavily invested in protecting our customers and providing guidance. This page will be updated as we continue to release further fixes. 
 >
-> **Customers that are running untrusted code within their VM** need to take action to protect against these vulnerabilities by reading below for additional guidance on all vulnerabilities.
+> **Customers that are running untrusted code within their VM** need to take action to protect against these vulnerabilities by reading below for more guidance on all vulnerabilities.
 >
 > Other customers should evaluate these vulnerabilities from a Defense in Depth perspective and consider the security and performance implications of their chosen configuration.
 > 
@@ -51,9 +51,9 @@ While an OS update is not required to isolate your applications running on Azure
 
 ## Additional guidance if you are running untrusted code 
 
-Customers who allow untrusted users to execute arbitrary code may wish to implement some additional security features inside their Azure Virtual Machines or Cloud Services. These features protect against the intra-process disclosure vectors that several speculative execution vulnerabilities describe.
+Customers who allow untrusted users to execute arbitrary code may wish to implement some extra security features inside their Azure Virtual Machines or Cloud Services. These features protect against the intra-process disclosure vectors that several speculative execution vulnerabilities describe.
 
-Example scenarios where additional security features are recommended:
+Example scenarios where more security features are recommended:
 
 - You allow code that you do not trust to run inside your VM.  
 	- *For example, you allow one of your customers to upload a binary or script that you then execute within your application*. 
@@ -62,15 +62,15 @@ Example scenarios where additional security features are recommended:
 - You allow untrusted users access to virtual machines implemented via nested virtualization.  
 	- *For example, you control the Hyper-V host, but allocate the VMs to untrusted users*. 
 
-Customers who do not implement a scenario involving untrusted code do not need to enable these additional security features. 
+Customers who do not implement a scenario involving untrusted code do not need to enable these extra security features. 
 
 ## Enabling additional security 
 
-You can enable additional security features inside your VM or Cloud Service if you are running untrusted code. In parallel, ensure your operating system is up-to-date to enable security features inside your VM or Cloud Service
+You can enable more security features inside your VM or Cloud Service if you are running untrusted code. In parallel, ensure your operating system is up-to-date to enable security features inside your VM or Cloud Service
 
 ### Windows 
 
-Your target operating system must be up-to-date to enable these additional security features. While numerous mitigations are enabled by default, the additional features described here must be enabled manually and may cause a performance impact. 
+Your target operating system must be up-to-date to enable these extra security features. While numerous mitigations are enabled by default, the extra features described here must be enabled manually and may cause a performance impact. 
 
 
 
@@ -109,7 +109,7 @@ If the number of logical processors is greater than physical processors (cores),
 
 ### Linux
 
-<a name="linux"></a>Enabling the set of additional security features inside requires that the target operating system be fully up-to-date. Some mitigations will be enabled by default. The following section describes the features which are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider’s documentation for further instructions
+<a name="linux"></a>Enabling the set of extra security features inside requires that the target operating system be fully up-to-date. Some mitigations will be enabled by default. The following section describes the features which are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider’s documentation for further instructions
 
 
 **Step 1: Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM will need to disable hyper-threading or move to a non-hyper-threaded VM.  Reference [this doc](../articles/virtual-machines/acu.md) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if you are running a hyper-threaded VM, run the `lscpu` command in the Linux VM. 
