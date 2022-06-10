@@ -44,7 +44,7 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
 1. Select **Create**.
 1. In the **Create an Azure Video Indexer resource** section enter required values. 
 
-    ![Image of how to create an Azure Video Indexer resource](media/create-account-portal/avi-create-blade.png)
+    ![Image of how to create an Azure Video Indexer resource.](media/create-account-portal/avi-create-blade.png)
     
     Here are the definitions:
     
@@ -65,7 +65,7 @@ You can use the Azure portal to validate the Azure Video Indexer account and oth
 
 ### Overview
 
-![Image of Azure Video Indexer overview blade](media/create-account-portal/avi-overview.png)
+![Image of Azure Video Indexer overview blade.](media/create-account-portal/avi-overview.png)
 
 Select on *Explore Azure Video Indexer's portal* to view your new account on the [Azure Video Indexer portal](https://aka.ms/vi-portal-link).
 
@@ -78,7 +78,7 @@ Select on *Explore Azure Video Indexer's portal* to view your new account on the
 
 ### Management API
 
-![Image of Generate-access-token](media/create-account-portal/generate-access-token.png)
+![Image of Generate-access-token.](media/create-account-portal/generate-access-token.png)
 
 Use the *Management API* tab to manually generate access tokens for the account.
 This token can be used to authenticate API calls for this account. Each token is valid for one hour.
@@ -92,7 +92,7 @@ Choose the following:
 ### Identity
 
 Use the *Identity* tab to manually update the managed identities associated with the Azure Video Indexer resource.
-Add new managed identities, switch the default managed identity between user-assigned and system-assigned or set a new user-assigned managed identities. 
+Add new managed identities, switch the default managed identity between user-assigned and system-assigned or set a new user-assigned managed identity. 
 
 ---
 
