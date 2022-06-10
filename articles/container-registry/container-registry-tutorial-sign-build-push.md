@@ -190,7 +190,7 @@ ACR support for ORAS artifacts enables a linked graph of supply chain artifacts 
 
 1. Signed images can be view with the ORAS CLI
 
-    ```azure-cli
+    ```bash
     oras login -u $USER_NAME -p $PASSWORD $REGISTRY
     oras discover -o tree $IMAGE
     ```
@@ -226,9 +226,26 @@ ACR support for ORAS artifacts enables a linked graph of supply chain artifacts 
 
 1. The notation command can also help to ensure the container image hasn't been tampered with since build time by comparing the `sha` with what is in the registry.
 
-```azure-cli
+```bash
 notation verify $IMAGE
 sha256:effba96d9b7092a0de4fa6710f6e73bf8c838e4fbd536e95de94915777b18613
+```
+The sha256 result is a successful verification of the image using the trusted certificate.
+
+2. We can add a different local signing certificate to show how multiple certificates and verification failures work.
+
+```bash
+notation cert generate-test -n localcert --trust true
+notation verify $IMAGE
+sha256:effba96d9b7092a0de4fa6710f6e73bf8c838e4fbd536e95de94915777b18613
+```
+
+We can see that verification still passes because `notation verify` will implicitly pass with _any_ certificate in its trust store.  To get a verification failure, we'll remove the certificate utilized to sign the image.
+
+```azure-cli
+notation cert rm $KEY_NAME
+notation verify $IMAGE
+2022/06/10 11:24:30 verification failure: x509: certificate signed by unknown authority
 ```
 
 ## Next steps
