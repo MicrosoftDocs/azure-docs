@@ -30,7 +30,7 @@ In this article, we'll look at the architectural options for BareMetal Infrastru
 
 ## Connecting on premises
 
-Connecting from cloud to on-prem is supported with two traditional products: Express Route and VPN Gateway. 
+Connecting from cloud to on-premises is supported with two traditional products: Express Route and VPN Gateway. 
 One example deployment is to have a VPN gateway in the Hub virtual network.
 This virtual network is peered with both the PC virtual network and Cluster Management virtual network, providing connectivity across the network and to your on-premises site.
 
