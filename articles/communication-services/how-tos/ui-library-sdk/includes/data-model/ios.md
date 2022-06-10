@@ -28,7 +28,7 @@ The UI Library now gives developers the ability to provide a more customized exp
 
 ```swift
 let participantViewData = ParticipantViewData(avatar: <Some UIImage>, displayName: "<Some Display Name>")
-let localOptions = Local:Options(participantViewData: participantViewData)
+let localOptions = LocalOptions(participantViewData: participantViewData)
 callComposite.launch(remoteOptions: <some RemoteOptions>, localOptions: localOptions)
 ```
 
