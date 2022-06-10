@@ -234,9 +234,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Enhancements | Related information |
 | :------------------- | :------------------------------- |
-
 |Added support for conditional patch | [Conditional patch](./././azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch)|
-| :------------------- | :-------------------------------|
 |Conditional patch | [#2163](https://github.com/microsoft/fhir-server/pull/2163) |
 |Added conditional patch audit event. | [#2213](https://github.com/microsoft/fhir-server/pull/2213) |
 
