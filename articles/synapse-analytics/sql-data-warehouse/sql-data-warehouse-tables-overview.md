@@ -232,6 +232,7 @@ INNER JOIN sys.dm_pdw_nodes_db_partition_stats nps
     ON nt.[object_id] = nps.[object_id]
     AND nt.[pdw_node_id] = nps.[pdw_node_id]
     AND nt.[distribution_id] = nps.[distribution_id]
+    AND i.[index_id] = nps.[index_id]
 LEFT OUTER JOIN (select * from sys.pdw_column_distribution_properties where distribution_ordinal = 1) cdp
     ON t.[object_id] = cdp.[object_id]
 LEFT OUTER JOIN sys.columns c
