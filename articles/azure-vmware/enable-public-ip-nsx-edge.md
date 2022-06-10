@@ -21,6 +21,9 @@ With this capability, you have the following features:
 - DDoS Security protection against network traffic in and out of the Internet. 
 - HCX Migration support over the Public Internet.
 
+>[!TIP]
+>To enable this feature for your subscription, register the ```PIPOnNSXEnabled``` flag and follow these steps to [set up the preview feature in your Azure subscription](https://docs.microsoft.com/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
+
 ## Reference   architecture    
 The architecture shows Internet access to and from your Azure VMware Solution private cloud using a Public IP directly to the NSX Edge.
 :::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png" alt-text="Diagram that shows architecture of Internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the NSX Edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
@@ -114,9 +117,6 @@ For example, the following rule is set to Match External Address, and this setti
 If **Match Internal Address** was specified, the destination would be the internal or private IP address of the VM. 
 For more information on the NSX-T Gateway Firewall see the [NSX-T Gateway Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-A52E1A6F-F27D-41D9-9493-E3A75EC35481.html)
 The Distributed Firewall could be used to filter traffic to VMs. This feature is outside the scope of this document. For more information, see [NSX-T Distributed Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-6AB240DB-949C-4E95-A9A7-4AC6EF5E3036.html)git status.
-
-To enable this feature for your subscription, register the ```PIPOnNSXEnabled``` flag and follow these steps to [set up the preview feature in your Azure subscription](https://docs.microsoft.com/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
-
 
 ## Next steps 
 [Internet connectivity design considerations (Preview)](concepts-design-public-internet-access.md)
