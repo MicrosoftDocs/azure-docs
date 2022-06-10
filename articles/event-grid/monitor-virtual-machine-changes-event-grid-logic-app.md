@@ -81,6 +81,7 @@ In this tutorial, you learn how to:
    |||||
 
    > [!NOTE]
+   > 
    > If you later want to use the Azure Event Grid operations with a Standard logic app resource instead, 
    > make sure that you create a *stateful* workflow, not a stateless workflow. This tutorial applies only 
    > to Consumption logic apps, which follow a different user experience. To add Azure Event Grid operations 
@@ -98,6 +99,7 @@ In this tutorial, you learn how to:
 1. Under **Templates**, select **Blank Logic App**.
 
    > [!NOTE]
+   > 
    > The workflow templates gallery is available only for Consumption logic apps, not Standard logic apps.
 
    ![Screenshot showing Azure Logic Apps templates with selected "Blank Logic App" template.](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
@@ -117,6 +119,7 @@ Now add the Azure Event Grid trigger, which you use to monitor the resource grou
    ![Screenshot that shows the workflow designer with the Azure sign-in prompt to connect to Azure Event Grid.](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
+   > 
    > If you're signed in with a personal Microsoft account, such as @outlook.com or @hotmail.com, 
    > the Azure Event Grid trigger might not appear correctly. As a workaround, select 
    > [Connect with Service Principal](../active-directory/develop/howto-create-service-principal-portal.md), 
