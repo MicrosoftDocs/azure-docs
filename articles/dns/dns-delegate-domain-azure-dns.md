@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Host your domain in Azure DNS'
-description: In this tutorial, you learn how to configure Azure DNS to host your DNS zones.
+description: In this tutorial, you learn how to configure Azure DNS to host your DNS zones using Azure portal.
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -57,7 +57,7 @@ Sign in to the Azure portal at https://portal.azure.com.
     | Name | Enter your parent DNS zone name. |
     | Resource group location | Select the resource group location. </br> The resource group location doesn't affect your DNS zone service, which is global and not bound to a location. |
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-parent-dns-zone.png" alt-text="Screenshot of Create D N S zone page showing the setting used in this tutorial to create a parent D N S zone.":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-parent-dns-zone.png" alt-text="Screenshot of Create D N S zone page showing the settings used in this tutorial to create a parent D N S zone.":::
 
 1. Select **Review + create**.    
 1. Select **Create**.
@@ -136,7 +136,7 @@ When no longer needed, you can delete all resources created in this tutorial by 
 
 ## Next steps
 
-In this tutorial, you created a DNS zone for your domain and delegated it to Azure DNS. To learn about Azure DNS and web apps, continue with the tutorial for web apps.
+In this tutorial, you learned how to create a DNS zone for your domain and delegate it to Azure DNS. To learn how to create child DNS zones, continue with the next tutorial:
 
 > [!div class="nextstepaction"]
 > [Create a child DNS zone](./tutorial-public-dns-zones-child.md)
