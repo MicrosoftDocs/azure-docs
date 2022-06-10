@@ -35413,22 +35413,17 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-translate-speech-cpp.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-translate-speech-cpp-windows",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-translate-speech",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-translate-speech-csharp.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-translate-speech-dotnetcore-windows",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-translate-speech.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-translate-speech-dotnetframework-windows",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-translate-speech",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-translate-speech-java.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-translate-speech-java-jre",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-translate-speech",
       "redirect_document_id": false
     },
     {

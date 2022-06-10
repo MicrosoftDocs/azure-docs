@@ -1,5 +1,5 @@
 ---
-title: Deploy the Kubernetes Event-driven Autoscaling (KEDA) add-on by using an ARM template
+title: Install the Kubernetes Event-driven Autoscaling (KEDA) add-on by using an ARM template
 description: Use an ARM template to deploy the Kubernetes Event-driven Autoscaling (KEDA) add-on to Azure Kubernetes Service (AKS).
 services: container-service
 author: jahabibi
@@ -8,7 +8,7 @@ ms.date: 05/24/2022
 ms.author: jahabibi
 ---
 
-# Deploy the Kubernetes Event-driven Autoscaling (KEDA) add-on by using ARM template
+# Install the Kubernetes Event-driven Autoscaling (KEDA) add-on by using ARM template
 
 This article shows you how to deploy the Kubernetes Event-driven Autoscaling (KEDA) add-on to Azure Kubernetes Service (AKS) by using an [ARM](../azure-resource-manager/templates/index.yml) template.
 
@@ -17,9 +17,6 @@ This article shows you how to deploy the Kubernetes Event-driven Autoscaling (KE
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
-
-> [!NOTE]
-> KEDA is currently only available in the `westcentralus` region.
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
@@ -44,7 +41,7 @@ When ready, refresh the registration of the *Microsoft.ContainerService* resourc
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Deploy the KEDA add-on with Azure Resource Manager (ARM) templates
+## Install the KEDA add-on with Azure Resource Manager (ARM) templates
 
 The KEDA add-on can be enabled by deploying an AKS cluster with an Azure Resource Manager template and specifying the `workloadAutoScalerProfile` field:
 
@@ -60,13 +57,13 @@ The KEDA add-on can be enabled by deploying an AKS cluster with an Azure Resourc
 
 To connect to the Kubernetes cluster from your local computer, you use [kubectl][kubectl], the Kubernetes command-line client.
 
-If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [az aks install-cli][az aks install-cli] command:
+If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [az aks install-cli][] command:
 
 ```azurecli
 az aks install-cli
 ```
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az aks get-credentials] command. The following example gets credentials for the AKS cluster named *MyAKSCluster* in the *MyResourceGroup*:
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][] command. The following example gets credentials for the AKS cluster named *MyAKSCluster* in the *MyResourceGroup*:
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
@@ -134,11 +131,30 @@ To learn more about KEDA CRDs, follow the official [KEDA documentation][keda-sca
 
 ## Clean Up
 
-To remove the resource group, and all related resources, use the [az group delete][az-group-delete] command:
+To remove the resource group, and all related resources, use the [Az PowerShell module group delete][az-group-delete] command:
 
 ```azurecli
 az group delete --name MyResourceGroup
 ```
+
+### Enabling add-on on clusters with self-managed open-source KEDA installations
+
+While Kubernetes only allows one metric server to be installed, you can in theory install KEDA multiple times. However, it isn't recommended given only one installation will work.
+
+When the KEDA add-on is installed in an AKS cluster, the previous installation of open-source KEDA will be overridden and the add-on will take over.
+
+This means that the customization and configuration of the self-installed KEDA deployment will get lost and no longer be applied.
+
+While there's a possibility that the existing autoscaling will keep on working, there's a risk given it will be configured differently and won't support features such as managed identity.
+
+It's recommended to uninstall existing KEDA installations before enabling the KEDA add-on given the installation will succeed without any error.
+
+Following error will be thrown in the operator logs but the installation of KEDA add-on will be completed. 
+
+Error logged in now-suppressed non-participating KEDA operator pod:
+the error logged inside the already installed KEDA operator logs.
+E0520 11:51:24.868081 1 leaderelection.go:330] error retrieving resource lock default/operator.keda.sh: config maps "operator.keda.sh" is forbidden: User "system:serviceaccount:default:keda-operator" can't get resource "config maps" in API group "" in the namespace "default"
+
 ## Next steps
 
 This article showed you how to install the KEDA add-on on an AKS cluster, and then verify that it's installed and running. With the KEDA add-on installed on your cluster, you can [deploy a sample application][keda-sample] to start scaling apps
