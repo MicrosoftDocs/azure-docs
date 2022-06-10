@@ -154,14 +154,31 @@ landingContent:
     linkLists: 
       - linkListType: overview
         links:
-          - text: What is BareMetal Infrastructure for NC2? 
-            url: workloads/nc2-public-preview/nc2-baremetal-overview.md
-          - text: About the Public Preview
-            url: workloads/nc2-public-preview/about-the-public-preview.md
-          - text: Architecture
-            url:  workloads/nc2-public-preview/architecture.md  
-          - text: Requirements
-            url:  workloads/nc2-public-preview/requirements.md
-          - text: Supported instances
-            url:  workloads/nc2-public-preview/supported-instances.md
-  
+         - text: What is BareMetal Infrastructure for NC2 on Azure?
+           url: /nutanix-public preview/nc2-baremetal-overview.md
+         - text: About the Public Preview
+           url: /nutanix-public preview/about-the-public-preview.md
+         - text: FAQ
+           url: /nutanix-public preview/faq.md
+      - linkListType: get-started
+        links:
+         - text: Getting started
+           url: /nutanix-public preview/getting-started.md
+         - text: Use cases and supported scenarios
+           url: /nutanix-public preview/use-cases-and-supported-scenarios.md  
+         - text: Requirements
+           url: /nutanix-public preview/requirements.md
+         - text: Supported instances and regions
+           url: /nutanix-public preview/supported-instances-and-regions.md
+         - text: SKUs
+           url: /nutanix-public preview/skus.md
+      - linkListType: architecture
+        links:
+         - text: Architecture
+           url: /nutanix-public preview/architecture.md 
+      - linkListType: concept
+        links:
+         - text: Solution design
+           url: /nutanix-public preview/solution-design.md
+
+
