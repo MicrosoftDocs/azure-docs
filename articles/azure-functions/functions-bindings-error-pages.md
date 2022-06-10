@@ -1,6 +1,6 @@
 ---
 title: Azure Functions error handling and retry guidance
-description: Learn to handle errors and retry events in Azure Functions with links to specific binding errors.
+description: Learn to handle errors and retry events in Azure Functions with links to specific binding errors, including information on retry policies.
 
 ms.topic: conceptual
 ms.date: 06/09/2022
@@ -12,6 +12,9 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 Handling errors in Azure Functions is important to avoid lost data, missed events, and to monitor the health of your application. It's also important to understand the retry behaviors of event-based triggers.
 
 This article describes general strategies for error handling and the available retry strategies. 
+
+> [!IMPORTANT]
+> The retry policy support in the runtime for triggers other than Timer and Event Hubs is being removed after this feature becomes generally available (GA). Preview retry policy support for all triggers other than Timer and Event Hubs will be removed in October 2022. 
 
 ## Handling errors
 
@@ -58,10 +61,7 @@ There are two kinds of retries available for your functions: built-in retry beha
 
 ### Retry policies
 
-Starting with version 3.x of the Azure Functions runtime, you can define a retry policy for Timer and Event Hubs triggers that's enforced by the Functions runtime. The retry policy tells the runtime to rerun a failed execution until either successful completion occurs or the maximum number of retries is reached.   
-
-> [!IMPORTANT]
-> The retry policy support in the runtime for triggers other than Timer and Event Hubs is being removed after this feature has become generally available (GA). Preview retry policy support for all triggers other Timer and Event Hubs will be removed in October 2022.   
+Starting with version 3.x of the Azure Functions runtime, you can define a retry policies for Timer and Event Hubs triggers that are enforced by the Functions runtime. The retry policy tells the runtime to rerun a failed execution until either successful completion occurs or the maximum number of retries is reached.   
 
 A retry policy is evaluated when a Timer or Event Hubs triggered function raises an uncaught exception. As a best practice, you should catch all exceptions in your code and rethrow any errors that you want to result in a retry. Event Hubs checkpoints won't be written until the retry policy for the execution has completed. Because of this behavior, progress on the specific partition is paused until the current batch has completed.
 
