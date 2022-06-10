@@ -172,9 +172,6 @@ Before you install the Speech SDK on Windows or Linux, make sure you have the fo
 [!INCLUDE [python](../includes/quickstarts/platform/python.md)]
 
 
-
-
-
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
@@ -205,8 +202,6 @@ To install the Speech SDK for JavaScript, run the following `npm install` comman
 npm install microsoft-cognitiveservices-speech-sdk
 ```
 
-
-
 **Choose your target environment**
 
 #### [Browser-based](#tab/browser)
@@ -226,10 +221,17 @@ For more information, see the <a href="https://github.com/Azure-Samples/cognitiv
 For more information, see the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node" target="_blank">Node.js Speech SDK quickstart</a>.
 
 * * *
+
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
 
 [!INCLUDE [objectivec](../includes/quickstarts/platform/objectivec-mac.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+
+[!INCLUDE [swift](../includes/quickstarts/platform/swift-mac.md)]
 
 ::: zone-end

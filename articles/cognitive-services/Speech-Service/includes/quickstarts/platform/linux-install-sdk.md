@@ -54,7 +54,7 @@ sudo yum install alsa-lib openssl wget
 
 ---
 
-## Install the Speech SDK
+### Install the Speech SDK
 
 Use the following procedure to download and install the SDK. The steps include downloading the required libraries and header files as a .tar file from https://aka.ms/csspeech/linuxbinary.
 

@@ -2,20 +2,20 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/27/2022
+ms.date: 06/10/2022
 ms.author: eur
 ---
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Objective-C. 
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Swift. 
 
-For details about using the Objective-C Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift</a>.
+For details about using the Swift Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Swift into Swift</a>.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 
 # [Mac](#tab/mac)
 
-The Objective-C Speech SDK is available natively as a CocoaPod package for Mac x64 and ARM-based silicons. 
+The Swift Speech SDK is available natively as a CocoaPod package for Mac x64 and ARM-based silicons. 
 
 System requirements for Mac:
 
@@ -37,7 +37,7 @@ Alternatively, .NET developers can build native macOS applications by using the 
 
 # [iOS](#tab/ios)
 
-The Objective-C Speech SDK is available natively as a CocoaPod package.
+The Swift Speech SDK is available natively as a CocoaPod package.
 
 System requirements for iOS:
 
@@ -59,3 +59,4 @@ Alternatively, .NET developers can build native iOS applications by using the Xa
 
 
 ---
+
