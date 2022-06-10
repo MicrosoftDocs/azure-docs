@@ -22,7 +22,7 @@ Azure Database for PostgreSQL is a managed service that enables you to run, mana
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-Install the [db-up](/cli/azure/ext/db-up/mysql) extension. If an error is returned, ensure you have installed the latest version of the Azure CLI. See [Install Azure CLI](/cli/azure/install-azure-cli).
+Install the [db-up](/cli/azure/mysql) extension. If an error is returned, ensure you have installed the latest version of the Azure CLI. See [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli
 az extension add --name db-up
