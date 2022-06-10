@@ -186,7 +186,7 @@ This section shows how you can deploy Triton to managed online endpoint using [A
 
     1. Select the Triton model, and then select __Deploy__. When prompted, select __Deploy to real-time endpoint__.
 
-        :::image type="content" source="media/how-to-deploy-with-triton/deploy-from-models-page.png" lightbox="media/how-to-deploy-with-triton/deploy-from-models-page.png" alt-text="Screenshot showing how to deploy model from Models UI":::
+        :::image type="content" source="media/how-to-deploy-with-triton/deploy-from-models-page.png" lightbox="media/how-to-deploy-with-triton/deploy-from-models-page.png" alt-text="Screenshot showing how to deploy model from Models UI.":::
 
     1. Complete the wizard to deploy the model to the endpoint.
 
