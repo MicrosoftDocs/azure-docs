@@ -57,13 +57,13 @@ The KEDA add-on can be enabled by deploying an AKS cluster with an Azure Resourc
 
 To connect to the Kubernetes cluster from your local computer, you use [kubectl][kubectl], the Kubernetes command-line client.
 
-If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [az aks install-cli][az aks install-cli] command:
+If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [Az PowerShell module aks install-cli][az aks install-cli] command:
 
 ```azurecli
 az aks install-cli
 ```
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az aks get-credentials] command. The following example gets credentials for the AKS cluster named *MyAKSCluster* in the *MyResourceGroup*:
+To configure `kubectl` to connect to your Kubernetes cluster, use the [Az PowerShell module aks get-credentials][az aks get-credentials] command. The following example gets credentials for the AKS cluster named *MyAKSCluster* in the *MyResourceGroup*:
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
@@ -131,31 +131,29 @@ To learn more about KEDA CRDs, follow the official [KEDA documentation][keda-sca
 
 ## Clean Up
 
-To remove the resource group, and all related resources, use the [az group delete][az-group-delete] command:
+To remove the resource group, and all related resources, use the [Az PowerShell module group delete][az-group-delete] command:
 
 ```azurecli
 az group delete --name MyResourceGroup
 ```
 
-## Troubleshooting guide
-
 ### Enabling add-on on clusters with self-managed open-source KEDA installations
 
-While Kubernetes only allows one metric server to be installed, you can in theory install KEDA multiple times. However, this is not recommended given only one installation will work.
+While Kubernetes only allows one metric server to be installed, you can in theory install KEDA multiple times. However, it isn't recommended given only one installation will work.
 
 When the KEDA add-on is installed in an AKS cluster, the previous installation of open-source KEDA will be overridden and the add-on will take over.
 
 This means that the customization and configuration of the self-installed KEDA deployment will get lost and no longer be applied.
 
-While there is a possibility that the existing autoscaling will keep on working, there is a risk given it will be configured differently and will not support features such as managed identity.
+While there's a possibility that the existing autoscaling will keep on working, there's a risk given it will be configured differently and won't support features such as managed identity.
 
-It is recommended to uninstall existing KEDA installations before enabling the KEDA add-on given the installation will succeed without any error.
+It's recommended to uninstall existing KEDA installations before enabling the KEDA add-on given the installation will succeed without any error.
 
 Following error will be thrown in the operator logs but the installation of KEDA add-on will be completed. 
 
 Error logged in now-suppressed non-participating KEDA operator pod:
 the error logged inside the already installed KEDA operator logs.
-E0520 11:51:24.868081 1 leaderelection.go:330] error retrieving resource lock default/operator.keda.sh: config maps "operator.keda.sh" is forbidden: User "system:serviceaccount:default:keda-operator" cannot get resource "config maps" in API group "" in the namespace "default"
+E0520 11:51:24.868081 1 leaderelection.go:330] error retrieving resource lock default/operator.keda.sh: config maps "operator.keda.sh" is forbidden: User "system:serviceaccount:default:keda-operator" can't get resource "config maps" in API group "" in the namespace "default"
 
 ## Next steps
 
