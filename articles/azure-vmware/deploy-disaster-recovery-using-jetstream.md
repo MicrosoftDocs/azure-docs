@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 [JetStream DR](https://www.jetstreamsoft.com/product-portfolio/jetstream-dr/) is a cloud-native disaster recovery solution designed to minimize downtime of virtual machines (VMs) if there was a disaster. Instances of JetStream DR are deployed at both the protected and recovery sites. 
 
-JetStream is built on the foundation of Continuous Data Protection (CDP), using [VMware VAIO framework](https://core.vmware.com/resource/vmware-vsphere-apis-io-filtering-vaio), which enables minimal or close to no data loss. JetStream DR provides the level of protection wanted for business and mission-critical applications. It also enables cost-effective DR by using minimal resources at the DR site and using cost-effective cloud storage, such as [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/).
+JetStream is built on the foundation of Continuous Data Protection (CDP), using [VMware vSphere API for I/O filtering (VAIO) framework](https://core.vmware.com/resource/vmware-vsphere-apis-io-filtering-vaio), which enables minimal or close to no data loss. JetStream DR provides the level of protection wanted for business and mission-critical applications. It also enables cost-effective DR by using minimal resources at the DR site and using cost-effective cloud storage, such as [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/).
 
 In this article, you'll implement JetStream DR for your Azure VMware Solution private cloud and on-premises VMware workloads.
 
@@ -57,7 +57,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 ## Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution 
 
-Disaster Recovery to cloud is a resilient and cost-effective way of protecting the workloads against site outages and data corruption events (e.g., ransomware). Leveraging the VMware VAIO framework, on-premises VMware workloads can be replicated to Azure Blob storage and recovered with minimal or close to no data loss and near-zero Recovery Time Objective (RTO). JetStream DR can seamlessly recover workloads replicated from on-premises to AVS and specifically to Azure NetApp Files. 
+Disaster Recovery to cloud is a resilient and cost-effective way of protecting the workloads against site outages and data corruption events like ransomware. Leveraging the VMware VAIO framework, on-premises VMware workloads can be replicated to Azure Blob storage and recovered with minimal or close to no data loss and near-zero Recovery Time Objective (RTO). JetStream DR can seamlessly recover workloads replicated from on-premises to Azure VMware Solution and specifically to Azure NetApp Files. 
 
 It enables cost-effective disaster recovery by consuming minimal resources at the DR site and using cost-effective cloud storage. JetStream DR automates recovery to ANF datastores via Azure Blob Storage and can recover independent VMs or groups of related VMs into the recovery site infrastructure according to runbook settings. It also provides point-in-time recovery for ransomware protection. 
 
@@ -67,7 +67,7 @@ It enables cost-effective disaster recovery by consuming minimal resources at th
 
   - Download the JetStream DR bundle from Azure Marketplace (ZIP) and deploy the JetStream DR MSA (OVA) in the designated cluster.
   - Configure the cluster with the IO filter package (install JetStream VIB). 
-  - Provision Azure Blob (Azure Storage Account) in the same region as the DR AVS cluster.
+  - Provision Azure Blob (Azure Storage Account) in the same region as the DR Azure VMware Solution cluster.
   - Deploy the DRVA appliance and assign a replication log volume (VMDK from existing datastore or shared iSCSI storage). 
   - Create protected domains (groups of related VMs) and assign DRVAs and the Azure Blob Storage/ANF.
   - Start protection. 
@@ -81,7 +81,7 @@ It enables cost-effective disaster recovery by consuming minimal resources at th
    - Import protected domains and configure RocVA (recovery VA) to use ANF datastore for VM placements. 
    - Select the appropriate failover option and start continuous rehydration for near-zero RTO domains/VMs. 
 
-- During a disaster event, trigger failover to Azure NetApp Files datastores in the designated AVS DR site. 
+- During a disaster event, trigger failover to Azure NetApp Files datastores in the designated Azure VMware Solution DR site. 
 
 - Invoke failback to the protected site after the protected site has been recovered. 
 
@@ -89,9 +89,9 @@ It enables cost-effective disaster recovery by consuming minimal resources at th
 
 Recovering from ransomware can be a daunting task. Specifically, it can be hard for IT organizations to pin-point what the “safe point of return is,” and once determined, how to ensure that recovered workloads are safeguarded from the attacks re-occurring (from sleeping malware or through vulnerable applications). 
 
-JetStream DR for AVS together with Azure NetApp Files datastores can address these concerns by allowing organizations to recover from an available point-in-time; ensuring workloads are recovered to a functional and isolated network if required, allowing the applications to function and communicate with each other without exposing them to any North-South traffic, giving security teams a safe place to perform forensics, and so on. 
+JetStream DR for Azure VMware Solution together with Azure NetApp Files datastores can address these concerns by allowing organizations to recover from an available point-in-time; ensuring workloads are recovered to a functional and isolated network if required, allowing the applications to function and communicate with each other without exposing them to any North-South traffic, giving security teams a safe place to perform forensics, and so on. 
 
-For full details, refer to the article: [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/). 
+For full details, refer to the article: [Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution (AVS)](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/). 
 
 
 ## Prerequisites
