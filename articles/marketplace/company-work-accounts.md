@@ -45,7 +45,7 @@ To create a new work account for your company, take the following steps. You mig
 
 1. Search for and select **Azure Active Directory**, and then select **Users**.
 
-1. Select **New user**, and then follow these steps to create a new Azure work account:
+1. Select **New user**, and then follow these steps to configure a new Azure work account:
 
    1. Enter a name and work email address.
    1. For **Directory role**, ensure the value meets the user requirement.
