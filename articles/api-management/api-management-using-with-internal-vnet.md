@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 # Connect to a virtual network in internal mode using Azure API Management 
 With Azure virtual networks (VNets), Azure API Management can manage internet-inaccessible APIs using several VPN technologies to make the connection. For VNet connectivity options, requirements, and considerations, see [Using a virtual network with Azure API Management](virtual-network-concepts.md).
 
-This article explains how to set up VNet connectivity for your API Management instance in the *internal* mode, In this mode, you can only access the following API Management endpoints within a VNet whose access you control.
+This article explains how to set up VNet connectivity for your API Management instance in the *internal* mode. In this mode, you can only access the following API Management endpoints within a VNet whose access you control.
 * The API gateway
 * The developer portal
 * Direct management
