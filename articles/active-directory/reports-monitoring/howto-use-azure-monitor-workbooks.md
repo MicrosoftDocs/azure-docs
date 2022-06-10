@@ -57,6 +57,25 @@ With Azure Monitor workbooks, you can:
 For more information, see [Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 
 
+## How does it help me?
+
+Common scenarios for using workbooks include:
+
+- Get shareable, at-a-glance summary reports about your Azure AD tenant, and build your own custom reports.
+
+- Find and diagnose sign-in failures, and get a trending view of your organization's sign-in health.
+
+- Monitor Azure AD logs for sign-ins, tenant administrator actions, provisioning, and risk together in a flexible, customizable format.
+
+- Watch trends in your tenant’s usage of Azure AD features such as conditional access, self-service password reset, and more.
+
+- Know who's using legacy authentications to sign in to your environment.
+
+- Understand the effect of your conditional access policies on your users' sign-in experience.
+
+
+
+
 ## Who should use it?
 
 Typical personas for workbooks are:
