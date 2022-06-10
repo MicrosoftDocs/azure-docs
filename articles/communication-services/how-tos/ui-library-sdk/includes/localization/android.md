@@ -71,6 +71,8 @@ CallComposite callComposite =
         .build();
 ```
 
+-----
+
 ### Layout Direction
 
 Certain cultures (Arabic, Hebrew, etc.) may need for localization to have right-to-left layout. You can specify the `layoutDirection` as part of the `CallCompositeLocalizationOptions`. The layout of the composite will be mirrored but the text will remain in the direction of the string.
