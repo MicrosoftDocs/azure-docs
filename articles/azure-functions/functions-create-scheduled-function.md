@@ -3,7 +3,7 @@ title: Create a function in Azure that runs on a schedule
 description: Learn how to use the Azure portal to create a function that runs based on a schedule that you define.
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
-ms.date: 05/18/2022
+ms.date: 06/10/2022
 ms.custom: mvc, cc996988-fb4f-47, devdivchpfy22
 ---
 # Create a function in the Azure portal that runs on a schedule

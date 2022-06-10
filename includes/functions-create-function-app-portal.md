@@ -5,7 +5,7 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/17/2022
+ms.date: 06/10/2022
 ms.author: glenga
 ms.custom: include file, devdivchpfy22
 ---
