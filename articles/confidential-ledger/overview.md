@@ -11,9 +11,9 @@ ms.author: mbaldwin
 ---
 # Microsoft Azure confidential ledger (preview)
 
-Microsoft Azure confidential ledger (ACL) is a new and highly secure service for managing sensitive data records. It runs exclusively on hardware-backed secure enclaves, a heavily monitored and isolated runtime environment which keeps potential attacks at bay. Furthermore, Azure confidential ledger runs on a minimalistic Trusted Computing Base (TCB), which ensures that no one -- not even Microsoft" -- are "above" the ledger.
+Microsoft Azure confidential ledger (ACL) is a new and highly secure service for managing sensitive data records. It runs exclusively on hardware-backed secure enclaves, a heavily monitored and isolated runtime environment which keeps potential attacks at bay. Furthermore, Azure confidential ledger runs on a minimalistic Trusted Computing Base (TCB), which ensures that no one⁠—not even Microsoft⁠—is "above" the ledger.
 
-As its name suggests, Azure confidential ledger utilizes the [Azure Confidential Computing platform](../confidential-computing/index.yml) and the [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework) to provide a high integrity solution that is tamper protected and evident. One ledger spans across three or more identical instances, each of which run in a dedicated, fully attested hardware-backed enclave. The ledger's integrity is maintained through a consensus-based blockchain.
+As its name suggests, Azure confidential ledger utilizes the [Azure Confidential Computing platform](../confidential-computing/index.yml) and the [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework) to provide a high integrity solution that is tamper-protected and evident. One ledger spans across three or more identical instances, each of which run in a dedicated, fully attested hardware-backed enclave. The ledger's integrity is maintained through a consensus-based blockchain.
 
 Azure confidential ledger offers unique data integrity advantages, including immutability, tamper-proofing, and append-only operations. These features, which ensure that all records are kept intact, are ideal when critical metadata records must not be modified, such as for regulatory compliance and archival purposes.
 
