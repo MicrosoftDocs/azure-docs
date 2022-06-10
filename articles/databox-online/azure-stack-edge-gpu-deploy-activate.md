@@ -41,18 +41,18 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 1. In the local web UI of the device, go to **Get started** page.
 2. On the **Activation** tile, select **Activate**. 
 
-    ![Screenshot that shows the local web UI "Cloud details" page.](./media/azure-stack-edge-gpu-deploy-activate/activate-1.png)
+    ![Screenshot that shows the local web U I "Cloud details" page.](./media/azure-stack-edge-gpu-deploy-activate/activate-1.png)
     
 3. In the **Activate** pane, enter the **Activation key** that you got in [Get the activation key for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
 
 4. Select **Apply**.
 
-    ![Screenshot that shows the local web UI "Cloud details" page 2.](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
+    ![Screenshot that shows the local web U I "Cloud details" page 2.](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
 
 
 5. First the device is activated. You're then prompted to download the key file.
     
-    ![Screenshot that shows the local web UI "Cloud details" page 3.](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
+    ![Screenshot that shows the local web U I "Cloud details" page 3.](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
     
     Select **Download and continue** and save the *device-serial-no.json* file in a safe location outside of the device. **This key file contains the recovery keys for the OS disk and data disks on your device**. These keys may be needed to facilitate a future system recovery.
 
@@ -83,7 +83,7 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 
 6. Go to the **Overview** page. The device state should show as **Activated**.
 
-    ![Screenshot that shows the local web UI "Cloud details" page 4.](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
+    ![Screenshot that shows the local web U I "Cloud details" page 4.](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
  
 The device activation is complete. You can now add shares on your device.
 
