@@ -90,13 +90,13 @@ Typical personas for workbooks are:
 
 ## How to use it
 
-All workbooks are stored in the workbook [gallery](../../azure-monitor/visualize/workbooks-overview.md#gallery)
-You have two options for working with workbooks:
+When working with workbooks, you can either start with an empty workbook, or use an existing template. Workbook templates enable you to quickly get started using workbooks without needing to build from scratch. 
 
-- Create a new workbook from scratch
-- Start with an existing workbook template from the gallery
+There are:
 
-By using an already existing template from the gallery, you can benefit from the work others have already invested into solving the same business problem as you. 
+- **Public templates** published to a [gallery](../../azure-monitor/visualize/workbooks-overview.md#gallery) that serve as a good starting point when you are just getting started with workbooks.
+- **Private templates** when you start building your own workbooks and want to save one as a template to serve as the foundation for multiple workbooks in your tenant.
+
 
 
 ## Prerequisites
