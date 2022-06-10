@@ -139,7 +139,7 @@ Once migrated to Question Answering:
   - Response time for Questions answered in v1 vs v2
   - Retaining of prompts
    - Batch testing pre and post migration
-- Old QnA Maker resources need to be manually deleted
+- Old QnA Maker resources need to be manually deleted.
 
 Additionally, for customers who have to migrate and upgrade Bot, upgrade bot code is published as NuGet package.
 
