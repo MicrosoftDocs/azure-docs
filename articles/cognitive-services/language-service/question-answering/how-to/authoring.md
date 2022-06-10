@@ -475,7 +475,7 @@ If you try to access the resultUrl directly, you will get a 404 error. You must 
 
 ```bash
 curl -X POST -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: application/json" -d '{
-      "ImportJobOptions": {"fileUri": "FILE-URI-PATH"}
+      "fileUri": "FILE-URI-PATH"
   }' -i 'https://{ENDPOINT}.api.cognitive.microsoft.com/language/query-knowledgebases/projects/{PROJECT-NAME}/:import?api-version=2021-10-01&format=tsv'
 ```
 
