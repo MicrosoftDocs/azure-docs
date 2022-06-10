@@ -335,7 +335,7 @@ using (var speechRecognizer = new SpeechRecognizer(
     var pronunciationAssessmentResult =
         PronunciationAssessmentResult.FromResult(speechRecognitionResult);
 
-    // Word, syllable, and phoneme results are available, but not shown here
+    // The pronunciation score result as a Speech SDK object
     var pronunciationScore = pronunciationAssessmentResult.PronunciationScore;
 
     // Alternative result as a JSON string
@@ -345,6 +345,7 @@ using (var speechRecognizer = new SpeechRecognizer(
    
 ::: zone-end   
 
+Word, syllable, and phoneme results are not available with the Speech SDK for C+++. 
 ::: zone pivot="programming-language-cpp"
 
 ```cpp
@@ -357,16 +358,13 @@ speechRecognitionResult = speechRecognizer->RecognizeOnceAsync().get();
 auto pronunciationAssessmentResult =
     PronunciationAssessmentResult::FromResult(speechRecognitionResult);
 
-// Word, syllable, and phoneme results are available, but not shown here
-auto pronunciationScore = pronunciationAssessmentResult->PronunciationScore;
-
-// Alternative result as a JSON string
-auto pronunciationAssessmentResultJson = speechRecognitionResult ->Properties.GetProperty(PropertyId::SpeechServiceResponse_JsonResult);
+auto pronunciationAssessmentResultJson = speechRecognitionResult->Properties.GetProperty(PropertyId::SpeechServiceResponse_JsonResult);
 ```
    
 ::: zone-end 
 
 ::: zone pivot="programming-language-java"
+Word, syllable, and phoneme results are available for Android, but not available for Java Runtime (JRE). 
 
 ```Java
 SpeechRecognizer speechRecognizer = new SpeechRecognizer(
@@ -379,7 +377,7 @@ SpeechRecognitionResult speechRecognitionResult = future.get(30, TimeUnit.SECOND
 PronunciationAssessmentResult pronunciationAssessmentResult =
     PronunciationAssessmentResult.fromResult(speechRecognitionResult);
 
-// Word, syllable, and phoneme results are available, but not shown here
+// The pronunciation score result as a Speech SDK object
 Double pronunciationScore = pronunciationAssessmentResult.getPronunciationScore();
 
 // Alternative result as a JSON string
@@ -405,7 +403,7 @@ pronunciationAssessmentConfig.applyTo(speechRecognizer);
 speechRecognizer.recognizeOnceAsync((speechRecognitionResult: SpeechSDK.SpeechRecognitionResult) => {
 	var pronunciationAssessmentResult = SpeechSDK.PronunciationAssessmentResult.fromResult(speechRecognitionResult);
 
-	// Word, syllable, and phoneme results are available, but not shown here
+    // The pronunciation score result as a Speech SDK object
 	var pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
 
 	// Alternative result as a JSON string
@@ -429,7 +427,7 @@ pronunciation_assessment_config.apply_to(speech_recognizer)
 speech_recognition_result = speech_recognizer.recognize_once()
 pronunciation_assessment_result = speechsdk.PronunciationAssessmentResult(speech_recognition_result)
 
-# Word, syllable, and phoneme results are available, but not shown here
+# The pronunciation score result as a Speech SDK object
 pronunciation_score = pronunciation_assessment_result.pronunciation_score
 
 # Alternative result as a JSON string
@@ -451,11 +449,11 @@ SPXSpeechRecognizer* speechRecognizer = \
 SPXSpeechRecognitionResult *speechRecognitionResult = [speechRecognizer recognizeOnce];
 SPXPronunciationAssessmentResult* pronunciationAssessmentResult = [[SPXPronunciationAssessmentResult alloc] init:speechRecognitionResult];
 
-// Word, syllable, and phoneme results are available, but not shown here
+// The pronunciation score result as a Speech SDK object
 double pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
 
 // Alternative result as a JSON string
-NSString* pronunciationAssessmentResultJson = [speechRecognitionResult.properties getPropertyByName:SPXPronunciationAssessment_Json];
+NSString* pronunciationAssessmentResultJson = [speechRecognitionResult.properties getPropertyByName:SPXSpeechServiceResponseJsonResult];
 ```
 
 ::: zone-end 
@@ -463,8 +461,18 @@ NSString* pronunciationAssessmentResultJson = [speechRecognitionResult.propertie
 ::: zone pivot="programming-language-swift"
 
 ```swift
-// Get result as a JSON string
-let pronunciationAssessmentResultJson = result.properties.getPropertyBy(PropertyId.SPXPronunciationAssessment_Json)
+let speechRecognizer = try! SPXSpeechRecognizer(speechConfiguration: speechConfig, audioConfiguration: audioConfig)
+
+try! pronConfig.apply(to: speechRecognizer)
+
+let speechRecognitionResult = try? speechRecognizer.recognizeOnce()
+let pronunciationAssessmentResult = SPXPronunciationAssessmentResult(speechRecognitionResult!)
+
+// The pronunciation score result as a Speech SDK object
+let pronunciationScore = pronunciationAssessmentResult!.pronunciationScore
+
+// Alternative result as a JSON string
+let pronunciationAssessmentResultJson = speechRecognitionResult!.properties?.getPropertyBy(SPXPropertyId.speechServiceResponseJsonResult)
 ```
 
 ::: zone-end
