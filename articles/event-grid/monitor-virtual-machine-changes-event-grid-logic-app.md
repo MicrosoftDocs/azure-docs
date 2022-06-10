@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: estfan, azla
 ms.topic: tutorial
-ms.date: 01/01/2022
+ms.date: 06/10/2022
 ---
 
 # Tutorial: Monitor virtual machine changes by using Azure Event Grid and Azure Logic Apps
