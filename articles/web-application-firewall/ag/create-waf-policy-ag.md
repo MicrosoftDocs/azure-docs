@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 02/08/2020
+ms.date: 06/10/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -28,7 +28,7 @@ All new Web Application Firewall's WAF settings (custom rules, managed rulset co
 First, create a basic WAF policy with a managed Default Rule Set (DRS) using the Azure portal.
 
 1. On the upper left side of the portal, select **Create a resource**. Search for **WAF**, select **Web Application Firewall**, then select **Create**.
-2. On **Create a WAF policy** page, **Basics** tab, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
+2. On **Create a WAF policy** page, **Basics** tab, enter or select the following information and accept the defaults for the remaining settings:
 
    |Setting  |Value  |
    |---------|---------|
@@ -36,12 +36,13 @@ First, create a basic WAF policy with a managed Default Rule Set (DRS) using the
    |Subscription     |Select your subscription name|
    |Resource group     |Select your resource group|
    |Policy name     |Type a unique name for your WAF policy.|
-3. On the **Association** tab, enter one of the following settings, then select **Add**:
+3. On the **Association** tab, select **Add association**, select one of the following settings:
 
    |Setting  |Value  |
    |---------|---------|
-   |Associate Application Gateway     |Select your Application Gateway profile name.|
-   |Associate Listeners     |Select the name of your Application Gateway Listener, then select **Add**.|
+   |Application Gateway     |Select the application gateway, and then select **Add**.|
+   |HTTP Listener     |Select the application gateway, select the listeners, then select **Add**.|
+   |Route Path|Select the application gateway, select the listener, select the routing rule, and then select **Add**.
 
    > [!NOTE]
    > If you assign a policy to your Application Gateway (or listener) that already has a policy in place, the original policy is overwritten and replaced by the new policy.
@@ -69,9 +70,9 @@ To create a custom rule, select **Add custom rule** under the **Custom rules** t
 
 If you have an existing WAF, you may have noticed some changes in the portal. First you need to identify what kind of Policy you've enabled on your WAF. There are three potential states:
 
-- No WAF Policy
-- Custom Rules only Policy
-- WAF Policy
+1. No WAF Policy
+2. Custom Rules only Policy
+3. WAF Policy
 
 You can tell which state your WAF is in by looking at it in the portal. If the WAF settings are visible and can be changed from within the Application Gateway view, your WAF is in state 1.
 
