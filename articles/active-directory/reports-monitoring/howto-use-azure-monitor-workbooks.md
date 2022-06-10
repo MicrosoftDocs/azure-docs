@@ -34,7 +34,7 @@ Azure AD tracks all activities in your Azure AD in the activity logs. The data i
 
 Using the access capabilities provided by the Azure portal, you can review the information that is tracked in your activity logs. This option is helpful if you need to do a quick investigation of an event with a limited scope. For example, a user had trouble signing in during a period of a few hours. In this scenario, reviewing the recent records of this user in the sign-in logs can help to shed light on this issue. 
 
-For one-off investigations with a limited scope, the Azure portal is often the easiest way to find the data you need. However, there are also business problems requiring a more complex analysis of the data in your activity logs. This is, for example, true if you are watching for trends in signals of interest. One common example for a scenario that requires a trend analysis is related to blocking legacy authentication in your Azure AD tenant. 
+For one-off investigations with a limited scope, the Azure portal is often the easiest way to find the data you need. However, there are also business problems requiring a more complex analysis of the data in your activity logs. This is, for example, true if you're watching for trends in signals of interest. One common example for a scenario that requires a trend analysis is related to blocking legacy authentication in your Azure AD tenant. 
 
 Azure AD supports several of the most widely used authentication and authorization protocols including legacy authentication. Legacy authentication refers to basic authentication, a widely used industry-standard method for collecting user name and password information. Examples of applications that commonly or only use legacy authentication are:
 
@@ -74,7 +74,7 @@ Typical personas for workbooks are:
 All workbooks are stored in the workbook [gallery](../../azure-monitor/visualize/workbooks-overview.md#gallery)
 You have two options for working with workbooks:
 
-- Create an new workbook from scratch
+- Create a new workbook from scratch
 - Start with an existing workbook template from the gallery
 
 By using an already existing template from the gallery, you can benefit from the work others have already invested into solving the same business problem as you. 
