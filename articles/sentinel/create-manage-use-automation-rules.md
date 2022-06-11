@@ -149,7 +149,6 @@ Playbook actions within an automation rule may be treated differently under some
 | Less than a second | Immediately after playbook is completed |
 | Less than two minutes | Up to two minutes after playbook began running,<br>but no more than 10 seconds after the playbook is completed |
 | More than two minutes | Two minutes after playbook began running,<br>regardless of whether or not it was completed |
-|
 
 ## Next steps
 

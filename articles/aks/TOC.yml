@@ -370,17 +370,17 @@
           href: coredns-custom.md
     - name: Configure data volumes
       items:
-        - name: Azure Disk - Dynamic
+        - name: Azure disk - dynamic
           href: azure-disks-dynamic-pv.md
-        - name: Azure Disk - Static
+        - name: Azure disk - static
           href: azure-disk-volume.md
-        - name: Azure Files - Dynamic
+        - name: Azure Files - dynamic
           href: azure-files-dynamic-pv.md
-        - name: Azure Files - Static
+        - name: Azure Files - static
           href: azure-files-volume.md
         - name: Azure HPC Cache
           href: azure-hpc-cache.md
-        - name: NFS Server - Static
+        - name: NFS Server - static
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
           href: azure-netapp-files.md
@@ -388,11 +388,11 @@
           href: use-ultra-disks.md
     - name: CSI storage drivers
       items:
-        - name: CSI storage driver overview
+        - name: CSI storage drivers overview
           href: csi-storage-drivers.md
-        - name: Azure disk CSI drivers
+        - name: Azure disks CSI driver
           href: azure-disk-csi.md
-        - name: Azure Files CSI drivers
+        - name: Azure Files CSI driver
           href: azure-files-csi.md
     - name: Monitoring and logging
       items:
@@ -473,6 +473,8 @@
           href: keda-about.md
         - name: Use ARM template
           href: keda-deploy-add-on-arm.md
+        - name: Use Azure CLI
+          href: keda-deploy-add-on-cli.md
         - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
           href: keda-integrations.md
     - name: Use Web Application Routing (preview)

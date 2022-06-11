@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS resolver in A
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 05/11/2022
+ms.date: 06/02/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui
@@ -117,12 +117,64 @@ Create a second virtual network to simulate an on-premises or other environment.
 
     ![second vnet create](./media/dns-resolver-getstarted-portal/vnet-create.png)
 
+## Link your forwarding ruleset to the second virtual network
+
+To apply your forwarding ruleset to the second virtual network, you must create a virtual link.
+
+1. Search for **DNS forwarding rulesets** in the Azure services list and select your ruleset (ex: **myruleset**).
+2. Select **Virtual Network Links**, select **Add**, choose **myvnet2** and use the default Link Name **myvnet2-link**.
+3. Select **Add** and verify that the link was added successfully.  You might need to refresh the page.
+
+    ![Screenshot of ruleset virtual network links.](./media/dns-resolver-getstarted-portal/ruleset-links.png)
+
+## Configure a DNS forwarding ruleset
+
+Add or remove specific rules your DNS forwarding ruleset as desired, such as:
+- A rule to resolve an Azure Private DNS zone linked to your virtual network: azure.contoso.com.
+- A rule to resolve an on-premises zone: internal.contoso.com.
+- A wildcard rule to forward unmatched DNS queries to a protective DNS service.
+
+### Delete a rule from the forwarding ruleset
+
+Individual rules can be deleted or disabled. In this example, a rule is deleted.
+
+1. Search for **Dns Forwarding Rulesets** in the Azure Services list and select it.
+2. Select the ruleset you previously configured (ex: **myruleset**) and then select **Rules**.
+3. Select the **contosocom** sample rule that you previously configured, select **Delete**, and then select **OK**.
+
+### Add rules to the forwarding ruleset
+
+Add three new conditional forwarding rules to the ruleset. 
+
+1. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
+    - Rule Name: **AzurePrivate**
+    - Domain Name: **azure.contoso.com.**
+    - Rule State: **Enabled**
+2. Under **Destination IP address** enter 10.0.0.4, and then click **Add**.
+3. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
+    - Rule Name: **Internal**
+    - Domain Name: **internal.contoso.com.**
+    - Rule State: **Enabled**
+4. Under **Destination IP address** enter 192.168.1.2, and then click **Add**.
+5. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
+    - Rule Name: **Wildcard**
+    - Domain Name: **.** (enter only a dot)
+    - Rule State: **Enabled**
+6. Under **Destination IP address** enter 10.5.5.5, and then click **Add**.
+
+    ![Screenshot of a forwarding ruleset example.](./media/dns-resolver-getstarted-portal/ruleset.png)
+
+In this example: 
+- 10.0.0.4 is the resolver's inbound endpoint. 
+- 192.168.1.2 is an on-premises DNS server.
+- 10.5.5.5 is a protective DNS service.
+
 ## Test the private resolver
 
 You should now be able to send DNS traffic to your DNS resolver and resolve records based on your forwarding rulesets, including:
 - Azure DNS private zones linked to the virtual network where the resolver is deployed.
-- DNS zones in the public internet DNS namespace.
 - Private DNS zones that are hosted on-premises.
+- DNS zones in the public internet DNS namespace.
 
 ## Next steps
 

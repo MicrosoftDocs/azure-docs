@@ -576,10 +576,10 @@ Tags                   : {}
 
 ---
 
-## Deleting hosts 
+## Deleting a host
 
 
-being charged for your dedicated hosts even when no virtual machines are deployed. You should delete any hosts you're currently not using to save costs.
+You're being charged for your dedicated host even when no virtual machines are deployed on the host. You should delete any hosts you're currently not using to save costs.
 
 You can only delete a host when there are no any longer virtual machines using it.
 

@@ -130,6 +130,8 @@ You can define the order in which automation rules will run. Later automation ru
 
 For example, if "First Automation Rule" changed an incident's severity from Medium to Low, and "Second Automation Rule" is defined to run only on incidents with Medium or higher severity, it won't run on that incident.
 
+Rules based on the update trigger have their own separate order queue. If such rules are triggered to run on a just-created incident (by a change made by another automation rule), they will run only after all the applicable rules based on the create trigger have run.
+
 ## Common use cases and scenarios
 
 ### Incident-triggered automation
@@ -192,7 +194,7 @@ If you've used playbooks to create tickets in external systems when incidents ar
 
 ## Automation rules execution
 
-Automation rules are run sequentially, according to the order you determine. Each automation rule is executed after the previous one has finished its run. Within an automation rule, all actions are run sequentially in the order in which they are defined.
+Automation rules are run sequentially, according to the [order](#order) you [determine](create-manage-use-automation-rules.md#finish-creating-your-rule). Each automation rule is executed after the previous one has finished its run. Within an automation rule, all actions are run sequentially in the order in which they are defined.
 
 Playbook actions within an automation rule may be treated differently under some circumstances, according to the following criteria:
 
