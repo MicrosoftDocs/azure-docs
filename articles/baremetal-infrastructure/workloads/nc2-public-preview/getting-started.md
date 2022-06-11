@@ -6,7 +6,7 @@ ms.subservice: baremetal-nutanix
 ms.date: 07/01/2021
 ---
 
-# Getting started
+# Getting started with NC2 on Azure
 
 ## Signing up for the Public Preview
 

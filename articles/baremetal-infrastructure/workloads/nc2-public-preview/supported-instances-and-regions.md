@@ -6,6 +6,8 @@ ms.subservice:
 ms.date: 03/31/2021
 ---
 
+# Supported instances and regions
+
 ## Supported instances
 
 Nutanix Clusters on Azure supports:

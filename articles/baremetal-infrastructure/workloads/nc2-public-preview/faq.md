@@ -6,7 +6,7 @@ ms.subservice:
 ms.date: 07/01/2022
 ---
 
-# Frequently asked questions
+# Frequently asked questions about NC2 on Azure
 
 ## What is Hyperconverged Infrastructure (HCI)?
 
