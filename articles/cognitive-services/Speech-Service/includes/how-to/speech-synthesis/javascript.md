@@ -11,45 +11,6 @@ ms.custom: devx-track-js
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-Before you can do anything, you need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript</a>. See the [instructions](../../../setup-platform.md).
-
-Additionally, depending on the target environment, use one of the following elements:
-
-# [script](#tab/script)
-
-Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK for JavaScript </a> *microsoft.cognitiveservices.speech.sdk.bundle.js* file. Place it in a folder that your HTML file can access.
-
-```html
-<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
-```
-
-> [!TIP]
-> If you're targeting a web browser and using the `<script>` tag, the `sdk` prefix is not needed. The `sdk` prefix is an alias that's used to name the `require` module.
-
-# [import](#tab/import)
-
-```javascript
-import * as sdk from "microsoft-cognitiveservices-speech-sdk";
-```
-
-For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">Export and Import</a> on the JavaScript website.
-
-# [require](#tab/require)
-
-```javascript
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-```
-
-For more information on `require`, see <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">What is require?</a> on the Node.js website.
-
----
-
 ## Select synthesis language and voice
 
 The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. You can get the [full list](../../../language-support.md#prebuilt-neural-voices) or try them in a [text-to-speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).

@@ -21,7 +21,7 @@ The Speech SDK is compatible with Android devices that have 32/64-bit ARM and In
 
 :::row:::
     :::column span="3":::
-        The Java SDK for Android is packaged as an <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR (Android Library)</a>, which includes the necessary libraries and required Android permissions. It's hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/` as package `com.microsoft.cognitiveservices.speech:client-sdk:1.19.0`. Make sure 1.19.0 is the latest version by [searching our GitHub repo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/search?q=com.microsoft.cognitiveservices.speech%3Aclient-sdk).
+        The Java SDK for Android is packaged as an <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR (Android Library)</a>, which includes the necessary libraries and required Android permissions. It's hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/` as package `com.microsoft.cognitiveservices.speech:client-sdk:1.22.0`. Make sure 1.22.0 is the latest version by [searching our GitHub repo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/search?q=com.microsoft.cognitiveservices.speech%3Aclient-sdk).
     :::column-end:::
     :::column:::
         <br>
@@ -40,7 +40,7 @@ To consume the package from your Android Studio project, make the following chan
 
 1. In the module-level *build.gradle* file, add the following to the `dependencies` section:
       ```gradle
-      implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.19.0'
+      implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.22.0'
       ```
 
 ## Install the Speech SDK by using Android Studio

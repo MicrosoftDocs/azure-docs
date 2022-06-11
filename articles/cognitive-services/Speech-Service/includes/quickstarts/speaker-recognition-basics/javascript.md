@@ -17,7 +17,7 @@ ms.custom: references_regions, ignite-fall-2021
 
 ### Install the Speech SDK
 
-Before you start, you must install the [Speech SDK for JavaScript](../../../setup-platform.md).
+Before you start, you must install the [Speech SDK for JavaScript](~/articles/cognitive-services/Speech-Service/media/setup-platform.md).
 
 Depending on the target environment, use one of the following:
 

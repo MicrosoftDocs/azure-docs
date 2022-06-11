@@ -37,13 +37,13 @@ To start, make sure you're set up correctly in Visual Studio for C++ desktop dev
 
 1. Select **Continue without code** to go to the Visual Studio IDE.
 
-   ![Screenshot that shows the Visual Studio 2019 start window.](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
+   ![Screenshot that shows the Visual Studio 2019 start window.](~/articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
 
 1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features** to open Visual Studio Installer and view the **Modifying** dialog.   
 
 1. On the **Workloads** tab, under **Windows**, find the **Desktop development with C++** workload. If the check box next to that workload isn't already selected, select it.
 
-   ![Screenshot that shows the Workloads tab of the Modifying dialog for Visual Studio Installer.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
+   ![Screenshot that shows the Workloads tab of the Modifying dialog for Visual Studio Installer.](~/articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
 
 1. On the **Individual components** tab, find the **NuGet package manager** check box. If the check box isn't already selected, select it.
 
@@ -63,13 +63,13 @@ Next, create your project and select the target architecture:
 
 1. Select **Next**.
 
-   ![Screenshot of selections for creating a console app project in Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-01-new-console-app.png)   
+   ![Screenshot of selections for creating a console app project in Visual Studio.](~/articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-01-new-console-app.png)   
 
 1. In the **Configure your new project** dialog, in **Project name**, enter **helloworld**.
 
 1. In **Location**, go to and select (or create) the folder where you want to save your project, and then select **Create**.
 
-   ![Screenshot of selections for configuring a new project in Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-configure-your-new-project.png)
+   ![Screenshot of selections for configuring a new project in Visual Studio.](~/articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-configure-your-new-project.png)
 
 1. Select your target platform architecture. On the Visual Studio toolbar, find the **Solution Platforms** drop-down box. If you don't see it, select **View** > **Toolbars** > **Standard** to display the toolbar that contains **Solution Platforms**.
 
@@ -85,7 +85,7 @@ Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) a
 
 1. In **Package source**, select **nuget.org**.
 
-   ![Screenshot that shows the Manage NuGet Packages for Solution dialog, with the Browse tab, search box, and package source highlighted.](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
+   ![Screenshot that shows the Manage NuGet Packages for Solution dialog, with the Browse tab, search box, and package source highlighted.](~/articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
 
 1. In the **Search** box, enter **Microsoft.CognitiveServices.Speech**. Choose that package after it appears in the search results.
 
@@ -93,7 +93,7 @@ Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) a
 
 1. Select **Install**.
 
-   ![Screenshot that shows the Microsoft.CognitiveServices.Speech package selected, with the project and the Install button highlighted.](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
+   ![Screenshot that shows the Microsoft.CognitiveServices.Speech package selected, with the project and the Install button highlighted.](~/articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 
 1. In the **Preview Changes** dialog, select **OK**.
 

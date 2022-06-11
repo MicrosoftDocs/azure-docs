@@ -10,32 +10,6 @@ ms.author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
-### Install the Speech SDK
-
-Before you can do anything, you need to install the Speech SDK. Depending on your platform, follow the instructions in the <a href="/azure/cognitive-services/speech-service/setup-platform" target="_blank">Get the Speech SDK </a> section of the _About the Speech SDK_ article.
-
-### Import dependencies
-
-To run the examples in this article, include the following `#include` and `using` statements at the top of the C++ code file:
-
-```cpp
-#include <iostream> // cin, cout
-#include <fstream>
-#include <string>
-#include <stdio.h>
-#include <stdlib.h>
-#include <speechapi_cxx.h>
-
-using namespace std;
-using namespace Microsoft::CognitiveServices::Speech;
-using namespace Microsoft::CognitiveServices::Speech::Audio;
-using namespace Microsoft::CognitiveServices::Speech::Translation;
-```
-
 ## Sensitive data and environment variables
 
 The example source code in this article depends on environment variables for storing sensitive data, such as the Speech resource's subscription key and region. The C++ code file contains two string values that are assigned from the host machine's environment variables: `SPEECH__SUBSCRIPTION__KEY` and `SPEECH__SERVICE__REGION`. Both of these fields are at the class scope, so they're accessible within method bodies of the class: 

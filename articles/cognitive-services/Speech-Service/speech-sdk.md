@@ -14,7 +14,7 @@ ms.author: eur
 
 # What is the Speech SDK?
 
-The Speech software development kit (SDK) exposes many of the Speech service capabilities you can use to develop speech-enabled applications. The Speech SDK is available in many programming languages and across all platforms.
+The Speech SDK (software development kit) exposes many of the Speech service capabilities you can use to develop speech-enabled applications. The Speech SDK is available [in many programming languages](quickstarts/setup-platform.md) and across all platforms. The Speech SDK is ideal for both real-time and non-real-time scenarios, by using local devices, files, Azure Blob Storage, and even input and output streams.
 
 | SDK | Platform support |
 |----------------------|----------|
@@ -31,17 +31,6 @@ The Speech software development kit (SDK) exposes many of the Speech service cap
 > [!IMPORTANT]
 > C isn't a supported programming language for the Speech SDK. Several supported programming languages, for example, C++, include C headers that are part of a common Application Binary Interface (ABI) layer. These ABI headers are *not* intended for direct use and are subject to change across versions.
 
-## Scenario capabilities
-
-The Speech SDK exposes many features from the Speech service, but not all of them. The capabilities of the Speech SDK are often associated with scenarios. The Speech SDK is ideal for both real-time and non-real-time scenarios, by using local devices, files, Azure Blob Storage, and even input and output streams. When a scenario can't be achieved with the Speech SDK, look for a REST API alternative.
-
-## REST API
-
-The Speech SDK covers many feature capabilities of the Speech service, but for some scenarios you might want to use the REST API.
-
-[Batch transcription](batch-transcription.md) enables asynchronous speech-to-text transcription of large volumes of data. Batch transcription is only possible from the REST API. In addition to converting speech audio to text, batch speech-to-text also allows for diarization and sentiment analysis.
-
-
 ## Platform requirements
 
 Before you install the Speech SDK on Windows or Linux, make sure you have the following prerequisites:
@@ -54,14 +43,18 @@ Before you install the Speech SDK on Windows or Linux, make sure you have the fo
 
 [!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-linux.md)]
 
-
 ---
 
-[!INCLUDE [License notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+## REST API
 
-[!INCLUDE [Sample source code](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+In some cases, you can't or shouldn't use the [Speech SDK](speech-sdk.md). In those cases, you can use REST APIs to access the Speech service. For example, use REST APIs for [batch transcription](batch-transcription.md) and [speaker recognition](/rest/api/speakerrecognition/) REST APIs.
+
+
+## Code examples
+
+The Speech SDK team actively maintains a large set of examples in an open-source repository. For the sample source code repository, see the <a href="https://aka.ms/csspeech/samples" target="_blank">Microsoft Cognitive Services Speech SDK on GitHub <span class="docon docon-navigate-external x-hidden-focus"></span></a>. There are samples for C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity, and Xamarin.
 
 ## Next steps
 
-* [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-* [See how to recognize speech in C#](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)
+* [Install the SDK](quickstarts/setup-platform.md)
+* [Try the speech to text quickstart](./get-started-speech-to-text.md)
