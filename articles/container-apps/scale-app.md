@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 # Set scaling rules in Azure Container Apps
 
-Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. As a container app scales out, new instances of the container app are created on-demand. These instances are known as replicas. When you first create a container app, the scale rule is set to zero. No usage charges are incurred when an application scales to zero.
+Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. As a container app scales out, new instances of the container app are created on-demand. These instances are known as replicas. When you first create a container app, the scale rule is set to zero. No usage charges are incurred when an application scales to zero. For more pricing information, see [Billing in Azure Container Apps](billing.md).
 
 Scaling rules are defined in `resources.properties.template.scale` section of the JSON configuration file. When you add or edit existing scaling rules, a new revision of your container is automatically created with the new configuration. A revision is an immutable snapshot of your container app and it gets created automatically when certain aspects of your application are updated (scaling rules, Dapr settings, template configuration etc.). See the [Change types](./revisions.md#change-types) section to learn about the type of changes that do or don't trigger a new revision.
 
