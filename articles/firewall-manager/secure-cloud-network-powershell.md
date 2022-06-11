@@ -317,7 +317,11 @@ $AzFW = New-AzFirewall -Name $FirewallName -ResourceGroupName $RG -Location $Loc
             -SkuTier $FirewallTier `
             -Zone 1,2,3 
 ```
-Once executed the script above, procedure must be completed as described in the section *Deploy Azure Firewall and configure custom routing* above.
+Once executed the script above, Availability Zones should appear in the secured hub properties as shown in the screenshot below:
+
+:::image type="content" source="./media/secure-cloud-network/vwan-firewall-hub-az-correct7.png" alt-text="Screenshot of Secured virtual hub availability zones" lightbox="./media/secure-cloud-network/vwan-firewall-hub-az-correct7.png":::
+
+Once the Azure Firewall instance will be deployed, configuration procedure must be completed as described in the section *Deploy Azure Firewall and configure custom routing* above.
 
 ## Next steps
 
