@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Front Door Standard/Premium with the Azure CLI
-description: Learn how to create an Azure Front Door Standard/Premium (preview) with the Azure CLI. Use the Front Door to protect your web apps against vulnerabilities.
+title: Create an Azure Front Door Premium with the Azure CLI
+description: Learn how to create an Azure Front Door Premium with Azure CLI. Use Azure Front Door to deliver content to your global userbase and protect your web apps against vulnerabilities.
 ms.topic: sample
 author: duau
 ms.author: duau
@@ -10,12 +10,12 @@ ms.custom: devx-track-azurecli
 
 ---
 
-# Quickstart: Create an Azure Front Door Standard/Premium - Azure CLI
+# Quickstart: Create an Azure Front Door Premium - Azure CLI
 
-In this quickstart, you'll learn how to create an Azure Front Door Standard/Premium profile using the Azure CLI. You'll create this profile using two Web Apps as your origin, and add a WAF security policy. You can then verify connectivity to your Web Apps using the Azure Front Door Standard/Premium frontend hostname.
+In this quickstart, you will learn how to create an Azure Front Door Premium profile using  Azure CLI. You will create this profile using two Web Apps as your origin, and add a WAF security policy. You can then verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
 
 > [!NOTE]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
+> This documentation is for Azure Front Door Standard/Premium. Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -23,20 +23,13 @@ In this quickstart, you'll learn how to create an Azure Front Door Standard/Prem
 
 ## Create a resource group
 
-For this quickstart, you'll need two resource groups. One in *Central US* and the second in *East US*.
+In Azure, you allocate related resources to a resource group. You can either use an existing resource group or create a new one.
 
-Run [az group create](/cli/azure/group#az-group-create) to create resource groups.
+Run [az group create](/cli/azure/group) to create resource groups.
 
 ```azurecli
-az group create \
-    --name myRGFDCentral \
-    --location centralus
-
-az group create \
-    --name myRGFDEast \
-    --location eastus
+az group create --name myRGFD --location centralus
 ```
-
 ## Create an Azure Front Door profile
 
 Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to create an Azure Front Door profile.
@@ -44,9 +37,8 @@ Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to cre
 ```azurecli
 az afd profile create \
     --profile-name contosoafd \
-    --resource-group myRGFDCentral \
-    --sku Premium_AzureFrontDoor \
-    --subscription mysubscription
+    --resource-group myRGFD \
+    --sku Premium_AzureFrontDoor
 ```
 
 ## Create two instances of a web app
@@ -64,31 +56,27 @@ Run [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-cr
 ```azurecli
 az appservice plan create \
     --name myAppServicePlanCentralUS \
-    --resource-group myRGFDCentral
+    --resource-group myRGFD
 
 az appservice plan create \
     --name myAppServicePlanEastUS \
-    --resource-group myRGFDEast
+    --resource-group myRGFD
 ```
 
 ### Create web apps
 
 Run [az webapp create](/cli/azure/webapp#az-webapp-create&preserve-view=true) to create a web app in each of the app service plans in the previous step. Web app names have to be globally unique.
 
-Run [az webapp list-runtimes](/cli/azure/webapp#az-webapp-create&preserve-view=true) to see a list of built-in stacks for web apps.
-
 ```azurecli
 az webapp create \
-    --name WebAppContoso-001 \
-    --resource-group myRGFDCentral \
-    --plan myAppServicePlanCentralUS \
-    --runtime "DOTNETCORE|2.1"
+    --name WebAppContoso-01 \
+    --resource-group myRGFD \
+    --plan myAppServicePlanCentralUS
 
 az webapp create \
-    --name WebAppContoso-002 \
-    --resource-group myRGFDEast \
-    --plan myAppServicePlanEastUS \
-    --runtime "DOTNETCORE|2.1"
+    --name WebAppContoso-02 \
+    --resource-group myRGFD \
+    --plan myAppServicePlanEastUS
 ```
 
 Make note of the default host name of each web app so you can define the backend addresses when you deploy the Front Door in the next step.
@@ -99,10 +87,9 @@ Run [az afd endpoint create](/cli/azure/afd/endpoint#az-afd-endpoint-create) to 
 
 ```azurecli
 az afd endpoint create \
-    --resource-group myRGFDCentral \
-    --endpoint-name contoso-frontend \
+    --resource-group myRGFD \
+    --endpoint-name contosofrontend \
     --profile-name contosoafd \
-    --origin-response-timeout-seconds 60 \
     --enabled-state Enabled
 ```
 
@@ -112,13 +99,13 @@ Run [az afd origin-group create](/cli/azure/afd/origin-group#az-afd-origin-group
 
 ```azurecli
 az afd origin-group create \
-    --resource-group myRGFDCentral \
-    --origin-group-name og1 \
+    --resource-group myRGFD \
+    --origin-group-name og2 \
     --profile-name contosoafd \
     --probe-request-type GET \
     --probe-protocol Http \
-    --probe-interval-in-seconds 120 \
-    --probe-path /test1/azure.txt \
+    --probe-interval-in-seconds 60 \
+    --probe-path / \
     --sample-size 4 \
     --successful-samples-required 3 \
     --additional-latency-in-milliseconds 50
@@ -130,12 +117,12 @@ Run [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) to add an
 
 ```azurecli
 az afd origin create \
-    --resource-group myRGFDCentral \
-    --host-name webappcontoso-1.azurewebsites.net
+    --resource-group myRGFD \
+    --host-name webappcontoso-01.azurewebsites.net \
     --profile-name contosoafd \
-    --origin-group-name og1 \
+    --origin-group-name og \
     --origin-name contoso1 \
-    --origin-host-header webappcontoso-1.azurewebsites.net \
+    --origin-host-header webappcontoso-01.azurewebsites.net \
     --priority 1 \
     --weight 1000 \
     --enabled-state Enabled \
@@ -147,12 +134,12 @@ Repeat this step and add your second origin.
 
 ```azurecli
 az afd origin create \
-    --resource-group myRGFDCentral \
-    --host-name webappcontoso-2.azurewebsites.net
+    --resource-group myRGFD \
+    --host-name webappcontoso-02.azurewebsites.net \
     --profile-name contosoafd \
-    --origin-group-name og1 \
+    --origin-group-name og \
     --origin-name contoso2 \
-    --origin-host-header webappcontoso-2.azurewebsites.net \
+    --origin-host-header webappcontoso-02.azurewebsites.net \
     --priority 1 \
     --weight 1000 \
     --enabled-state Enabled \
@@ -162,35 +149,33 @@ az afd origin create \
 
 ## Add a route
 
-Run [az afd route create](/cli/azure/afd/route#az-afd-route-create) to map your frontend endpoint to the origin group. This route forwards requests from the endpoint to *og1*.
+Run [az afd route create](/cli/azure/afd/route#az-afd-route-create) to map your endpoint to the origin group. This route forwards requests from the endpoint to orgin group *og*.
 
 ```azurecli
 az afd route create \
-    --resource-group myRGFDCentral \
-    --endpoint-name contoso-frontend \
+    --resource-group myRGFD \
     --profile-name contosoafd \
-    --route-name route1 \
+    --endpoint-name contosofrontend \
+    --forwarding-protocol MatchRequest \
+    --route-name route \
     --https-redirect Enabled \
-    --origin-group og1 \
-    --supported-protocols Https \
-    --link-to-default-domain Enabled \
-    --forwarding-protocol MatchRequest
+    --origin-group og \
+    --supported-protocols Http Https \
+    --link-to-default-domain Enabled 
 ```
 
 ## Create a new security policy
 
 ### Create a WAF policy
 
-Run [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az-network-front-door-waf-policy-create) to create a WAF policy for one of your resource groups.
-
-Create a new WAF policy for your Front Door. This example creates a policy that's enabled and in prevention mode.
+Run [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az-network-front-door-waf-policy-create) to create a new WAF policy for your Front Door. This example creates a policy that is enabled and in prevention mode.
     
 ```azurecli
-az network front-door waf-policy create
-    --name contosoWAF /
-    --resource-group myRGFDCentral /
-    --sku Premium_AzureFrontDoor
-    --disabled false /
+az network front-door waf-policy create \
+    --name contosoWAF \
+    --resource-group myRGFD \
+    --sku Premium_AzureFrontDoor \
+    --disabled false \
     --mode Prevention
 ```
 
@@ -201,26 +186,40 @@ az network front-door waf-policy create
 
 Run [az afd security-policy create](/cli/azure/afd/security-policy#az-afd-security-policy-create) to apply your WAF policy to the endpoint's default domain.
 
+> [!NOTE]
+> Substitute 'mysubscription' with your Azure Subscription ID in the domains and waf-policy parameters below. Run [az account subscription list](/cli/azure/aaccount/subscription#az-account-subscription-list) to get Subscription ID details.
+
+
 ```azurecli
 az afd security-policy create \
-    --resource-group myRGFDCentral \
+    --resource-group myRGFD \
     --profile-name contosoafd \
     --security-policy-name contososecurity \
-    --domains /subscriptions/mysubscription/resourcegroups/myRGFDCentral/providers/Microsoft.Cdn/profiles/contosoafd/afdEndpoints/contoso-frontend.z01.azurefd.net \
-    --waf-policy /subscriptions/mysubscription/resourcegroups/myRGFDCentral/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/contosoWAF
+    --domains /subscriptions/mysubscription/resourcegroups/myRGFD/providers/Microsoft.Cdn/profiles/contosoafd/afdEndpoints/contosofrontend \
+    --waf-policy /subscriptions/mysubscription/resourcegroups/myRGFD/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/contosoWAF
 ```
 
 ## Verify Azure Front Door
 
-When you create the Azure Front Door Standard/Premium profile, it takes a few minutes for the configuration to be deployed globally. Once completed, you can access the frontend host you created. In a browser, go to `contoso-frontend.z01.azurefd.net`. Your request will automatically get routed to the nearest server from the specified servers in the origin group.
+When you create the Azure Front Door Standard/Premium profile, it takes a few minutes for the configuration to be deployed globally. Once completed, you can access the frontend host you created.
+
+Run [az afd endpoint show](/cli/azure/afd/endpoint#az-afd-endpoint-show) to get the hostname of the Front Door endpoint.
+
+```azurecli
+az afd endpoint show --resource-group myRGFD --profile-name contosoafd --endpoint-name contosofrontend
+```
+In a browser, go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`. Your request will automatically get routed to the least latent Web App in the origin group.
+
+:::image type="content" source="../media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Your web app is running and waiting for your content":::
 
 To test instant global failover, we'll use the following steps:
 
-1. Open a browser, as described above, and go to the frontend address: `contoso-frontend.azurefd.net`.
+1. Open a browser, as described above, and go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`.
 
-2. In the Azure portal, search for and select *App services*. Scroll down to find one of your web apps, **WebAppContoso-1** in this example.
-
-3. Select your web app, and then select **Stop**, and **Yes** to verify.
+2. Stop one of the Web Apps by running [az webapp stop](/cli/azure/webapp#az-webapp-stop&preserve-view=true)
+```azurecli
+az webapp stop --name WebAppContoso-01 --resource-group myRGFD
+```
 
 4. Refresh your browser. You should see the same information page.
 
@@ -229,10 +228,18 @@ To test instant global failover, we'll use the following steps:
 
 5. Find the other web app, and stop it as well.
 
+```azurecli
+az webapp stop --name WebAppContoso-02 --resource-group myRGFD
+```
+
 6. Refresh your browser. This time, you should see an error message.
 
-    :::image type="content" source="../media/create-front-door-portal/web-app-stopped-message.png" alt-text="Both instances of the web app stopped":::
+    :::image type="content" source="../media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Both instances of the web app stopped":::
+7. Restart one of the Web Apps by running [az webapp start](/cli/azure/webapp#az-webapp-start&preserve-view=true). Refresh your browser and the page will go back to normal.
 
+```azurecli
+az webapp start --name WebAppContoso-01 --resource-group myRGFD
+```
 ## Clean up resources
 
 When you don't need the resources for the Front Door, delete both resource groups. Deleting the resource groups also deletes the Front Door and all its related resources.
@@ -241,10 +248,7 @@ Run [az group delete](/cli/azure/group#az-group-delete&preserve-view=true):
 
 ```azurecli
 az group delete \
-    --name myRGFDCentral
-
-az group delete \
-    --name myRGFDEast
+    --name myRGFD
 ```
 
 ## Next steps
