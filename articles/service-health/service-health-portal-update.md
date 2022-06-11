@@ -11,10 +11,10 @@ We're' updating the Azure Service Health portal experience. The new experience l
 
 ## Highlights of the new experience
 
--   **\*\*Tenant level view\*\*** - Users who are Tenant Admins can now see Service Issues that happen at a Tenant level. Service Issues blade and Health History blades are updated to show incidents both at Tenant and Subscription levels. Users can filter on the scope (Tenant or Subscription) within the blades. The scope column indicates when an event is at the Tenant or Subscriber level.
--   **\*\*Enhanced Map\*\*** - The Service Issues blade shows an enhanced version of the map with all the user services across the world. This version helps you find services that might be impacted by an outage easily.
--   **\*\*Issues Details\*\*** - The issues details look and feel has been updated, for better readability.
--   **\*\*Removal of personalized dashboard\*\*** - Users can no longer pin a personalized map to the dashboard. This feature has been deprecated in the new experience.
+-   **Tenant level view** - Users who are Tenant Admins can now see Service Issues that happen at a Tenant level. Service Issues blade and Health History blades are updated to show incidents both at Tenant and Subscription levels. Users can filter on the scope (Tenant or Subscription) within the blades. The scope column indicates when an event is at the Tenant or Subscriber level.
+-   **Enhanced Map** - The Service Issues blade shows an enhanced version of the map with all the user services across the world. This version helps you find services that might be impacted by an outage easily.
+-   **Issues Details** - The issues details look and feel has been updated, for better readability.
+-   **Removal of personalized dashboard** - Users can no longer pin a personalized map to the dashboard. This feature has been deprecated in the new experience.
 
 ## Coming soon
 
@@ -33,9 +33,11 @@ Groups of users will be automatically switched to the new Service Health experie
 
 In the new experience, you can now see events at both Tenant and Subscription level scope. If you have [tenant admin access](admin-access-reference.md#roles-with-tenant-admin-access), you can view events at the Tenant scope.
 
-If you have Subscription access, then you can view events that impact all the subscriptions you have access to. You can use the scope column in the details view to filter on scope (Tenant vs Subscriber).
+If you have Subscription access, then you can view events that impact all the subscriptions you have access to.
 
 :::image type="content" source="media/service-health-portal-update/services-issue-window-2.png" alt-text="A screenshot of the services issue user interface highlighting the scope selection boxes of tenant and subscription.":::
+
+You can use the scope column in the details view to filter on scope (Tenant vs Subscriber).
 
 :::image type="content" source="media/service-health-portal-update/services-issue-window-3.png" alt-text="A screenshot of the services issue user interface highlighting the scope column.":::
 
