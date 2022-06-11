@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Front Door Premium with the Azure CLI
-description: Learn how to create an Azure Front Door Premium with Azure CLI. Use Azure Front Door to deliver content to your global userbase and protect your web apps against vulnerabilities.
+description: Learn how to create an Azure Front Door Premium with Azure CLI. Use Azure Front Door to deliver content to your global user base and protect your web apps against vulnerabilities.
 ms.topic: sample
 author: duau
 ms.author: duau
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Quickstart: Create an Azure Front Door Premium - Azure CLI
 
-In this quickstart, you will learn how to create an Azure Front Door Premium profile using  Azure CLI. You will create this profile using two Web Apps as your origin, and add a WAF security policy. You can then verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
+In this quickstart, you'll learn how to create an Azure Front Door Premium profile using  Azure CLI. You'll create this profile using two Web Apps as your origin, and add a WAF security policy. You can then verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
 
 > [!NOTE]
 > This documentation is for Azure Front Door Standard/Premium. Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
@@ -149,7 +149,7 @@ az afd origin create \
 
 ## Add a route
 
-Run [az afd route create](/cli/azure/afd/route#az-afd-route-create) to map your endpoint to the origin group. This route forwards requests from the endpoint to orgin group *og*.
+Run [az afd route create](/cli/azure/afd/route#az-afd-route-create) to map your endpoint to the origin group. This route forwards requests from the endpoint to origin group *og*.
 
 ```azurecli
 az afd route create \
@@ -234,7 +234,7 @@ az webapp stop --name WebAppContoso-02 --resource-group myRGFD
 
 6. Refresh your browser. This time, you should see an error message.
 
-    :::image type="content" source="../media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Both instances of the web app stopped":::
+    :::image type="content" source="../media/create-front-door-portal/web-app-stopped-message" alt-text="Both instances of the web app stopped":::
 7. Restart one of the Web Apps by running [az webapp start](/cli/azure/webapp#az-webapp-start&preserve-view=true). Refresh your browser and the page will go back to normal.
 
 ```azurecli
