@@ -39,11 +39,11 @@ The **Overview** page for your virtual WAN shows a list of virtual hubs and secu
 
 2. Once in the hub properties, click on **Azure Firewall and Firewall Manager** under the "Security" section on the left:
 
-   :::image type="content" source="./media/howto-firewall/vwan-convert-firewall2.png" alt-text="Screenshot of Convert to secure hub with a hub selected." lightbox="./media/howto-firewall/vwan-convert-firewall2.png":::
+   :::image type="content" source="./media/howto-firewall/vwan-convert-firewall2.png" alt-text="Screenshot of vWAN hub properties." lightbox="./media/howto-firewall/vwan-convert-firewall2.png":::
 
 3. Click on **Next: Azure Firewall** button at the bottom of screen: 
 
-   :::image type="content" source="./media/howto-firewall/vwan-select-hub3.png" alt-text="Screenshot of Convert to secure hub with a hub selected." lightbox="./media/howto-firewall/vwan-select-hub3.png":::
+   :::image type="content" source="./media/howto-firewall/vwan-select-hub3.png" alt-text="Screenshot of initial convertion flow." lightbox="./media/howto-firewall/vwan-select-hub3.png":::
 
 4. Select the Azure Firewall properties and status desired, then complete the wizard up to the **Review + confirm** tab:
 
