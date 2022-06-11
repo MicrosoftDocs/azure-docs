@@ -9,7 +9,7 @@ ms.devlang: csharp
 
 # Live Metrics Stream: Monitor & Diagnose with 1-second latency
 
-Monitor your live, in-production web application by using Live Metrics Stream (also known as QuickPulse) from [Application Insights](./app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](./profiler.md) and [Snapshot debugger](./snapshot-debugger.md), Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
+Monitor your live, in-production web application by using Live Metrics Stream (also known as QuickPulse) from [Application Insights](./app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](./profiler.md) and [Snapshot debugger](./snapshot-debugger.md), Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.live m
 
 > [!NOTE]
 > Live Metrics only supports TLS 1.2. For more information, refer to [Troubleshooting](#troubleshooting). 
@@ -29,19 +29,19 @@ With Live Metrics Stream, you can:
 Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions, Java, and Node.js apps.
 
 > [!NOTE]
->  The number of monitored server instances displayed by Live Metrics Stream may be lower than the actual number of instances allocated for the application. This is because many modern web servers will unload applications that do not receive requests over a period of time in order to conserve resources. Since Live Metrics Stream only counts servers that are currently running the application, servers that have already unloaded the process will not be included in that total.
+> The number of monitored server instances displayed by Live Metrics Stream may be lower than the actual number of instances allocated for the application. This is because many modern web servers will unload applications that do not receive requests over a period of time in order to conserve resources. Since Live Metrics Stream only counts servers that are currently running the application, servers that have already unloaded the process will not be included in that total.
 
 ## Get started
 
 1. Follow language specific guidelines to enable Live Metrics.
    * [ASP.NET](./asp-net.md) - Live Metrics is enabled by default.
-   * [ASP.NET Core](./asp-net-core.md)- Live Metrics is enabled by default.
-   * [.NET/.NET Core Console/Worker](./worker-service.md)- Live Metrics is enabled by default.
-   * [.NET Applications - Enable using code](#enable-livemetrics-using-code-for-any-net-application).
+   * [ASP.NET Core](./asp-net-core.md) - Live Metrics is enabled by default.
+   * [.NET/.NET Core Console/Worker](./worker-service.md) - Live Metrics is enabled by default.
+   * [.NET Applications - Enable using code](#enable-live-metrics-using-code-for-any-net-application).
     * [Java](./java-in-process-agent.md) - Live Metrics is enabled by default.
    * [Node.js](./nodejs.md#live-metrics)
 
-2. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open Live Stream.
+2. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, then open Live Stream.
 
 3. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data such as customer names in your filters.
 
@@ -55,7 +55,7 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 > [!NOTE]
 > Live Metrics is enabled by default when onboarding using the recommended instructions for .NET Applications.
 
-The following shows how to set up Live Metrics manually:
+How to manually set up Live Metrics:
 
 1. Install the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
 2. The following sample console app code shows setting up Live Metrics.
@@ -143,7 +143,7 @@ You can monitor a value different from Count. The options depend on the type of 
 
 In addition to Application Insights telemetry, you can also monitor any Windows performance counter by selecting that from the stream options, and providing the name of the performance counter.
 
-Live metrics are aggregated at two points: locally on each server, and then across all servers. You can change the default at either by selecting other options in the respective drop-downs.
+Live Metrics are aggregated at two points: locally on each server, and then across all servers. You can change the default at either by selecting other options in the respective drop-downs.
 
 ## Sample Telemetry: Custom Live Diagnostic Events
 By default, the live feed of events shows samples of failed requests and dependency calls, exceptions, events, and traces. Select the filter icon to see the applied criteria at any point in time.
