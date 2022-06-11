@@ -15,9 +15,12 @@ If you're using [Azure Active Directory (Azure AD)](../active-directory/fundamen
 
 ## Pre-requisites
 
+# [PowerShell](#tab/azure-powershell)
 - Email AzureDisks@microsoft .com to have the feature enabled on your subscription.
 - Install the latest [Azure PowerShell module](/powershell/azure/install-az-ps).
 - Install the [pre-release version](https://aka.ms/DisksAzureADAuthSDK) of the Az.Storage PowerShell module.
+
+---
 
 ## Restrictions
 
@@ -26,7 +29,43 @@ If you're using [Azure Active Directory (Azure AD)](../active-directory/fundamen
 
 ## Get started
 
-First, make sure the disk you're importing to or exporting from has its dataAccessAuthMode set to AzureActiveDirectory.
+
+Create disk with DataAccessAuthMode set to AzureActiveDirectory.  
+
+$diskConfig = New-AzDiskConfig -Location 'eastus2euap' -AccountType 'Premium_LRS' -CreateOption 'Empty' -DiskSizeGB 32 -DataAccessAuthMode 'AzureActiveDirectory'  
+
+New-AzDisk -ResourceGroupName 'ResourceGroup01' -DiskName 'Disk01' -Disk $diskConfig  
+
+$disk = Get-AzDisk -ResourceGroupName 'ResourceGroup01' -DiskName 'Disk01'  
+
+  
+
+# $disk.Properties.DataAccessAuthMode.tostring()  
+
+"AzureActiveDirectory"  
+
+Export Disk and download using Az.Storage Powershell  
+
+$diskSas = Grant-AzDiskAccess 'ResourceGroup01' -DiskName 'Disk01' -DurationInSecond 86400 -Access 'Read'  
+
+Connect-AzAccount  
+
+Get-AzStorageBlobContent -Uri $diskSas.AccessSAS -Destination $downloadDest  
+
+# [PowerShell](#tab/azure-powershell)
+Before either uploading or downloading a disk, you have to set its `dataAccessAuthMode` to `AzureActiveDirectory`. 
+
+
+### upload configuration
+When uploading a disk, create the disk config with the `dataAccessAuthMode` set to `AzureActiveDirectory`.
+
+```azurepowershell
+$diskConfig = New-AzDiskConfig -Location '<yourRegion>' -AccountType '<yourDiskType> -CreateOption 'Empty' -DiskSizeGB 'desiredSize" -DataAccessAuthMode 'AzureActiveDirectory'
+
+New-AzDisk -ResourceGroupName 'yourRGName' -DiskName 'yourDiskName' -Disk $diskConfig
+
+```
+
 
 ```azurepowershell
 # Declare variables
@@ -40,6 +79,13 @@ set-AzContext -subscription $subscriptionID
 # Switch an existing disk to AzureActiveDirectory to enable Azure AD access
 New-AzDiskUpdateConfig -dataAccessAuthMode "AzureActiveDirectory" | Update-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName;
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+Cr
+
+---
+
 
 Next, create a custom RBAC role with the necessary permissions.
 
