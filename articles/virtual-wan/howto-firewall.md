@@ -64,6 +64,11 @@ To view Azure Firewall settings from the secured hub, click on **Azure Firewall 
 
 :::image type="content" source="./media/howto-firewall/vwan-secured-hub-properties6.png" alt-text="Screenshot of Secured virtual hub settings." lightbox="./media/howto-firewall/vwan-secured-hub-properties6.png":::
 
+Usage of Availability Zones for Azure Firewall in the Azure Virtual WAN Hub, can be checked accessing the security properties of the hub, as shown in the screenshot below:
+
+:::image type="content" source="./media/howto-firewall/vwan-firewall-hub-az-correct7.png" alt-text="Screenshot of Secured virtual hub availability zones" lightbox="./media/howto-firewall/vwan-firewall-hub-az-correct7.png":::
+
+
 ## Configure additional settings
 
 To configure additional Azure Firewall settings for the virtual hub, select the link to **Azure Firewall Manager**. For information about firewall policies, see [Azure Firewall Manager](../firewall-manager/secure-cloud-network.md#create-a-firewall-policy-and-secure-your-hub).
