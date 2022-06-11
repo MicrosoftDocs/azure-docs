@@ -149,7 +149,7 @@ az afd origin create \
 
 ## Add a route
 
-Run [az afd route create](/cli/azure/afd/route#az-afd-route-create) to map your endpoint to the origin group. This route forwards requests from the endpoint to origin group *og*.
+Run [az afd route create](/cli/azure/afd/route#az-afd-route-create) to map your endpoint to the origin group. This route forwards requests from the endpoint to your origin group.
 
 ```azurecli
 az afd route create \
