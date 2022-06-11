@@ -317,6 +317,7 @@ $AzFW = New-AzFirewall -Name $FirewallName -ResourceGroupName $RG -Location $Loc
             -SkuTier $FirewallTier `
             -Zone 1,2,3 
 ```
+Once executed the script above, procedure must be completed as described in the section *Deploy Azure Firewall and configure custom routing* above.
 
 ## Next steps
 
