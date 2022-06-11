@@ -21,6 +21,9 @@ In this tutorial, you learn how to:
 > * Deploy Azure Firewall and configure custom routing
 > * Test connectivity
 
+> [!IMPORTANT]
+> Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many Virtual WAN per their need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services is automatically deployed across **Availability Zones** *except* Azure Firewall, if the region supports Availability Zones. To upgrade an existing Azure Virtual WAN Hub to Secure Hub and have the Azure Firewall leveraging Availability Zones, PowerShell code must be used, as described in this article, see section below. 
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -28,6 +31,8 @@ In this tutorial, you learn how to:
 - PowerShell 7
 
    This tutorial requires that you run Azure PowerShell locally on PowerShell 7. To install PowerShell 7, see [Migrating from Windows PowerShell 5.1 to PowerShell 7](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7&preserve-view=true).
+
+- "Az.Network" module version must be 4.17.0 or higher. 
 
 ## Sign in to Azure
 
@@ -46,6 +51,8 @@ $RG = "vwan-rg"
 $Location = "westeurope"
 $VwanName = "vwan"
 $HubName =  "hub1"
+$FirewallTier = "Standard" # or "Premium"
+
 # Create Resource Group, Virtual WAN and Virtual Hub
 New-AzResourceGroup -Name $RG -Location $Location
 $Vwan = New-AzVirtualWan -Name $VwanName -ResourceGroupName $RG -Location $Location -AllowVnetToVnetTraffic -AllowBranchToBranchTraffic -VirtualWANType "Standard"
@@ -74,8 +81,12 @@ $AzFWHubIPs = New-AzFirewallHubIpAddress -PublicIP $AzFWPIPs
 # New Firewall
 $AzFW = New-AzFirewall -Name "azfw1" -ResourceGroupName $RG -Location $Location `
             -VirtualHubId $Hub.Id -FirewallPolicyId $FWPolicy.Id `
-            -Sku AZFW_Hub -HubIPAddress $AzFWHubIPs
+            -SkuName "AZFW_Hub" -HubIPAddress $AzFWHubIPs `
+            -SkuTier $FirewallTier 
 ```
+
+> [!NOTE]
+> The Firewall creation command below will **not** use Availability Zones. If you want to leverage this feature, an additional parameter **-Zone** is required. An example is provided in the upgrade section at the end of this article. 
 
 Enabling logging from the Azure Firewall to Azure Monitor is optional, but in this example you use the Firewall logs to prove that traffic is traversing the firewall:
 
@@ -270,6 +281,41 @@ To delete the test environment, you can remove the resource group with all conta
 ```azurepowershell
 # Delete resource group and all contained resources
 Remove-AzResourceGroup -Name $RG
+```
+
+## Upgrade an existing Hub with Availability Zones
+
+The procedure described above will permit a user to create a brand **new** Azure Virtual WAN Hub, and then immediately convert to a Secured Hub deploying Azure Firewall using a PowerShell script. 
+A similar approach can be applied to an **existing** Azure Virtual WAN Hub: Firewall Manager can be also used for the conversion, but will not be possible to deploy Azure Firewall across Availability Zones without a script-based approach. 
+The code snippet required to convert an existing Azure Virtual WAN Hub to a Secured Hub, using an Azure Firewall deployed across all three Availability Zones, is reported below: 
+
+```azurepowershell
+# Variable definition
+$RG = "vwan-rg"
+$Location = "westeurope"
+$VwanName = "vwan"
+$HubName =  "hub1"
+$FirewallName = "azfw1"
+$FirewallTier = "Standard" # or "Premium"
+$FirewallPolicyName = "VwanFwPolicy"
+
+# Get references to vWAN and vWAN Hub to convert #
+$Vwan = Get-AzVirtualWan -ResourceGroupName $RG -Name $VwanName
+$Hub = Get-AzVirtualHub -ResourceGroupName  $RG -Name $HubName
+
+# Create a new Firewall Policy #
+$FWPolicy = New-AzFirewallPolicy -Name $FirewallPolicyName -ResourceGroupName $RG -Location $Location
+
+# Create a new Firewall Public IP #
+$AzFWPIPs = New-AzFirewallHubPublicIpAddress -Count 1
+$AzFWHubIPs = New-AzFirewallHubIpAddress -PublicIP $AzFWPIPs
+
+# Create Firewall instance #
+$AzFW = New-AzFirewall -Name $FirewallName -ResourceGroupName $RG -Location $Location `
+            -VirtualHubId $Hub.Id -FirewallPolicyId $FWPolicy.Id `
+            -SkuName "AZFW_Hub" -HubIPAddress $AzFWHubIPs `
+            -SkuTier $FirewallTier `
+            -Zone 1,2,3 
 ```
 
 ## Next steps
