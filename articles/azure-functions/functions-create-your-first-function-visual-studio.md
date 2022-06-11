@@ -58,7 +58,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
     
     # [Isolated process](#tab/isolated-process)
     
-        | Setting      | Value  | Description                      |
+    | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
     | **Functions worker** | **.NET 6 Isolated** | When you choose **.NET 6 Isolated**, you create a project that runs in a separate worker process. Choose isolated process when you need to run your function app on .NET 5.0 or on .NET Framework 4.8 (preview). To learn more, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).   |
     | **Function** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
