@@ -5,14 +5,14 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 06/10/2022
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
 
 # Set scaling rules in Azure Container Apps
 
-Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. As a container app scales out, new instances of the container app are created on-demand. These instances are known as replicas. When you first create a container app, the scale rule is set to zero. No charges are incurred when an application scales to zero.
+Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. As a container app scales out, new instances of the container app are created on-demand. These instances are known as replicas. When you first create a container app, the scale rule is set to zero. No usage charges are incurred when an application scales to zero.
 
 Scaling rules are defined in `resources.properties.template.scale` section of the JSON configuration file. When you add or edit existing scaling rules, a new revision of your container is automatically created with the new configuration. A revision is an immutable snapshot of your container app and it gets created automatically when certain aspects of your application are updated (scaling rules, Dapr settings, template configuration etc.). See the [Change types](./revisions.md#change-types) section to learn about the type of changes that do or don't trigger a new revision.
 
@@ -23,7 +23,7 @@ There are two scale properties that apply to all rules in your container app:
 | `minReplicas` | Minimum number of replicas running for your container app. | 0 | 0 | 30 |
 | `maxReplicas` | Maximum number of replicas running for your container app. | 10 | 1 | 30 |
 
-- If your container app scales to zero, then you aren't billed.
+- If your container app scales to zero, then you aren't billed usage charges.
 - Individual scale rules are defined in the `rules` array.
 - If you want to ensure that an instance of your application is always running, set `minReplicas` to 1 or higher.
 - Replicas not processing, but that remain in memory are billed in the "idle charge" category.
