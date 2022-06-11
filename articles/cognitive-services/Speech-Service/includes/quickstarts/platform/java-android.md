@@ -46,7 +46,3 @@ To consume the package from your Android Studio project, make the following chan
 ## Install the Speech SDK by using Android Studio
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
-
-## Next steps
-
-[!INCLUDE [windows](../quickstart-list.md)]

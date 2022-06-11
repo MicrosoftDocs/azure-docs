@@ -31,6 +31,3 @@ This quickstart requires:
 
 The Speech SDK is now installed. You can now delete or reuse the **helloworld** project that you created in the previous steps.
 
-## Next steps
-
-[!INCLUDE [windows](../quickstart-list.md)]

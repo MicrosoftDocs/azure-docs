@@ -6,8 +6,7 @@ ms.date: 06/10/2022
 ms.author: eur
 ---
 
-The C++ Speech SDK is available as a NuGet package on Windows, Linux, and macOS. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech</a>.
-        The C++ Speech SDK is also available as a tar package from https://aka.ms/csspeech/linuxbinary.
+The C++ Speech SDK is available as a NuGet package on Windows, Linux, and macOS. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech</a>. The C++ Speech SDK is also available as a tar package from https://aka.ms/csspeech/linuxbinary.
 
 ## C++ NuGet package
 

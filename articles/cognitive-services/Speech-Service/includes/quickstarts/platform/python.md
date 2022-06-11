@@ -32,9 +32,6 @@ Before you install the Speech SDK on Windows or Linux, make sure you have the fo
 
 [!INCLUDE [Get Python Speech SDK](../../../includes/get-speech-sdk-python.md)]
 
-[!INCLUDE [python](python.md)]
-
-
 
 ## Prerequisites
 
@@ -42,7 +39,7 @@ Before you install the Python Speech SDK, make sure you have the following prere
 
 - On Windows, you must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, or 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
 
-- On Linux, see the [system requirements and setup instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
+- On Linux, see the [system requirements and setup instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#platform-requirements).
 
 - Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). The minimum Python version on macOS is 3.7. Select **Add Python to your PATH** during the installation process on Windows. To check your installation, open a terminal and run the command `python --version`. If it's installed properly, you'll get a response like "Python 3.8.8".
 
@@ -89,8 +86,3 @@ pip list
 If you have any problems, or you're missing a feature, see [Support and help options](../../../../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 
-
-
-## Next steps
-
-[!INCLUDE [windows](../quickstart-list.md)]

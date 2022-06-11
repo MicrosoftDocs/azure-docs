@@ -17,10 +17,7 @@ ms.custom: references_regions, ignite-fall-2021
 
 ### Install the Speech SDK
 
-Before you start, you must install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. Depending on your platform, use the following instructions:
-
-- [Node.js](../../../speech-sdk.md?tabs=nodejs#get-the-speech-sdk)
-- [Web browser](../../../speech-sdk.md?tabs=browser#get-the-speech-sdk)
+Before you start, you must install the [Speech SDK for JavaScript](../../../setup-platform.md).
 
 Depending on the target environment, use one of the following:
 

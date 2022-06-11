@@ -27,7 +27,3 @@ This quickstart requires:
 ## Create a Visual Studio project and install the Speech SDK
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
-
-## Next steps
-
-[!INCLUDE [windows](../quickstart-list.md)]

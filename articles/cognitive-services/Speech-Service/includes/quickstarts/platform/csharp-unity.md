@@ -42,6 +42,3 @@ To install the Speech SDK for Unity, follow these steps:
 
 For more information about importing asset packages into Unity, see the [Unity documentation](https://docs.unity3d.com/Manual/AssetPackages.html).
 
-## Next steps
-
-[!INCLUDE [windows](../quickstart-list.md)]

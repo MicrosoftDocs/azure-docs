@@ -17,7 +17,7 @@ ms.custom: devx-track-js
 
 ### Install the Speech SDK
 
-Before you can do anything, you need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript</a>. See the [instructions](../../../speech-sdk.md?tabs=browser#get-the-speech-sdk).
+Before you can do anything, you need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript</a>. See the [instructions](../../../setup-platform.md).
 
 Additionally, depending on the target environment, use one of the following elements:
 

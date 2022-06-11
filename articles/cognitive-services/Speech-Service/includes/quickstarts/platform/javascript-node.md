@@ -28,6 +28,3 @@ Create a new directory, run `npm init`, and walk through the prompts.
 
 Run `npm install microsoft-cognitiveservices-speech-sdk`.
 
-## Next steps
-
-[!INCLUDE [windows](../quickstart-list.md)]

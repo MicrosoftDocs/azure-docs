@@ -31,7 +31,7 @@ The Java Speech SDK package is available for these operating systems:
 
 - [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for the Windows platform. Installing it for the first time might require a restart.
 
-- For Linux, see the [system requirements and setup instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
+- For Linux, see the [system requirements and setup instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#platform-requirements).
 
 ## Gradle configurations
 
@@ -55,6 +55,3 @@ dependencies {
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-## Next steps
-
-[!INCLUDE [windows](../quickstart-list.md)]

@@ -18,6 +18,3 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 [!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
 
-## Next steps
-
-[!INCLUDE [windows](../quickstart-list.md)]
