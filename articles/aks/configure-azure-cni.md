@@ -159,6 +159,9 @@ A drawback with the traditional CNI is the exhaustion of pod IP addresses as the
 
 ### Additional prerequisites
 
+> [!NOTE]
+> When using dynamic allocation of IPs, exposing an application as a Private Link Service using a Kubernetes Load Balancer Service is not supported.
+
 The [prerequisites][prerequisites] already listed for Azure CNI still apply, but there are a few additional limitations:
 
 * Only linux node clusters and node pools are supported.

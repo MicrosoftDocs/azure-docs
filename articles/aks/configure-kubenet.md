@@ -269,4 +269,4 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
 [custom-route-table]: ../virtual-network/manage-route-table.md
-[user-assigned managed identity]: use-managed-identity.md#bring-your-own-control-plane-mi
+[user-assigned managed identity]: use-managed-identity.md#bring-your-own-control-plane-managed-identity

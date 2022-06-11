@@ -2,6 +2,7 @@
 title: Deploy Horizon on Azure VMware Solution
 description: Learn how to deploy VMware Horizon on Azure VMware Solution.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 04/11/2022
 ---
 

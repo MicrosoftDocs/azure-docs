@@ -27,6 +27,10 @@ Before you subscribe, you should have a sense of how many devices you would like
 
 Users can also work with trial subscription, which supports monitoring a limited number of devices for 30 days. See [Microsoft Defender for IoT pricing](https://azure.microsoft.com/pricing/details/iot-defender/) information on committed device prices.
 
+### What's a device?
+
+[!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
+
 ## Requirements
 
 Before you onboard a subscription, verify that:
@@ -45,6 +49,24 @@ If you already have access to an Azure subscription, but it isn't listed when su
 ### User permission requirements
 
 Azure **Subscription Owners** and **Subscription Contributor**s can onboard, update, and offboard Microsoft Defender for IoT subscriptions.
+
+### Calculate the number of devices you need to monitor
+
+When onboarding or editing your Defender for IoT plan, you'll need to know how many devices you want to monitor.
+
+**To calculate the number of devices you need to monitor**:
+
+Collect the total number of devices in your network and remove:
+
+- **Duplicate devices that have the same IP or MAC address**. When detected, the duplicates are automatically removed by Defender for IoT.
+
+- **Duplicate devices that have the same ID**. These are the same devices, seen by the same sensor, with different field values. For such devices, check the last time each device had activity and use the latest device only.
+
+- **Inactive devices**, with no traffic for more than 60 days.
+
+- **Broadcast / multicast devices**. These represent unique addresses but not unique devices.
+
+For more information, see [What's a device?](#whats-a-device)
 
 ## Onboard a trial subscription
 

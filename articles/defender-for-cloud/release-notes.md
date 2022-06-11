@@ -20,8 +20,17 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in June include:
 
+- [Drive implementation of security recommendations to enhance your security posture](#drive-implementation-of-security-recommendations-to-enhance-your-security-posture)
 - [Filter security alerts by IP address](#filter-security-alerts-by-ip-address)
 - [General availability (GA) of Defender for SQL on machines for AWS and GCP environments](#general-availability-ga-of-defender-for-sql-on-machines-for-aws-and-gcp-environments)
+
+### Drive implementation of security recommendations to enhance your security posture
+
+Today's increasing threats to organizations stretch the limits of security personnel to protect their expanding workloads. Security teams are challenged to implement the protections defined in their security policies.
+
+Now with the governance experience, security teams can assign remediation of security recommendations to the resource owners and require a remediation schedule. They can have full transparency into the progress of the remediation and get notified when tasks are overdue.
+
+Learn more about the governance experience in [Driving your organization to remediate security issues with recommendation governance](governance-rules.md).
 
 ### Filter security alerts by IP address
 
