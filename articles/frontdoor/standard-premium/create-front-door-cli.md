@@ -210,7 +210,7 @@ az afd endpoint show --resource-group myRGFD --profile-name contosoafd --endpoin
 ```
 In a browser, go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`. Your request will automatically get routed to the least latent Web App in the origin group.
 
-:::image type="content" source="../media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Your web app is running and waiting for your content":::
+
 
 To test instant global failover, we'll use the following steps:
 
@@ -234,7 +234,6 @@ az webapp stop --name WebAppContoso-02 --resource-group myRGFD
 
 6. Refresh your browser. This time, you should see an error message.
 
-    :::image type="content" source="../media/create-front-door-portal/web-app-stopped-message" alt-text="Both instances of the web app stopped":::
 7. Restart one of the Web Apps by running [az webapp start](/cli/azure/webapp#az-webapp-start&preserve-view=true). Refresh your browser and the page will go back to normal.
 
 ```azurecli
