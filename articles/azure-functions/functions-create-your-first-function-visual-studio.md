@@ -13,9 +13,7 @@ adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
 ---
 # Quickstart: Create your first C# function in Azure using Visual Studio
 
-Azure Functions lets you use Visual Studio to create local C# function projects and then easily publish this project to run in a scalable serverless environment in Azure. 
-
-If you prefer to develop your C# apps locally using Visual Studio Code, you should instead consider the [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
+Azure Functions lets you use Visual Studio to create local C# function projects and then easily publish this project to run in a scalable serverless environment in Azure. If you prefer to develop your C# apps locally using Visual Studio Code, you should instead consider the [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
 By default, this article shows you how to create your functions as [C# class libraries that run in the same process as the Functions host](functions-dotnet-class-library.md). In-process C# functions require Long Term Support (LTS) versions of .NET, like .NET 6. You can also create [C# class library apps that run in an isolated process](dotnet-isolated-process-guide.md). Isolated process C# functions are supported for both LTS and non-LTS releases of .NET, such as .NET 5.0. To instead run in an isolated process, see the [alternate version of this article](functions-create-your-first-function-visual-studio.md?tabs=isolated-process). 
 
@@ -85,7 +83,7 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 1. In the `HttpTrigger` method named `Run`, rename the `FunctionName` method attribute to `HttpExample`. 
 
-Your function definition should now look like the following code, depending on mode:
+Your function definition should now look like the following code:
 
 # [In-process](#tab/in-process) 
 
