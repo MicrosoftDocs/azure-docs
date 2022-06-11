@@ -10,7 +10,7 @@ ms.date: 07/01/2021
 
 ## Signing up for the Public Preview
 
-Once you've satisfied the [requirements](requirements.md), go to (insert signup link) to get started.
+Once you've satisfied the [requirements](requirements.md), go to (insert sign up link) to get started.
 
 ## Setup
 

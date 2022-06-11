@@ -1,6 +1,6 @@
 ---
 title: Solution design
-description:  
+description: Topologies for NC2 on Azure
 ms.topic: conceptual
 ms.subservice:  
 ms.date: 07/01/2022
@@ -12,15 +12,15 @@ ms.date: 07/01/2022
 
 The following table describes the network topologies supported by each network features configuration of Azure NetApp Files.
 
-|Topologies	|Basic network features |
+|Topology |Basic network features |
 | :------------------- |:---------------:|
-|Connectivity to BM in a local VNet|Yes |Yes |
+|Connectivity to BM in a local VNet| Yes |
 |Connectivity to BM in a peered VNet (Same region)|Yes |
 |Connectivity to BM in a peered VNet (Cross region or global peering)|No |
 |Connectivity to a BM over ExpressRoute gateway |Yes|
 |ExpressRoute (ER) FastPath |No |
 |Connectivity from on-premises to a BM in a spoke VNet over ExpressRoute gateway and VNet peering with gateway transit|Yes |
-|Connectivity from on-premises to a BM in a spoke VNet over VPN gateway|Yes | Yes |
+|Connectivity from on-premises to a BM in a spoke VNet over VPN gateway| Yes |
 |Connectivity from on-premises to a BM in a spoke VNet over VPN gateway and VNet peering with gateway transit| Yes |
 |Connectivity over Active/Passive VPN gateways| Yes |
 |Connectivity over Active/Active VPN gateways| No |
@@ -39,7 +39,6 @@ The following table describes what’s supported for each network features confi
 |Connectivity to [private endpoints](/azure/private-link/private-endpoint-overview)|No|
 |Load balancers for NC2 on Azure traffic|No|
 |Dual stack IPv4 and IPv6) virtual network|IPv4 only supported|
-
 
 ## Next steps
 

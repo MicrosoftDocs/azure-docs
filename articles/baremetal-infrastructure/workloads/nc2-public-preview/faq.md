@@ -19,7 +19,7 @@ This operation should be exactly the same as on-premises in the prism portal.
 
 ## Is NC2 on Azure a third party or first party offering?
 
-NC2 on Azure is a 3rd-party offering on Azure Marketplace. 
+NC2 on Azure is a 3rd-party offering on Azure Marketplace.
 However, we're working hand in hand with Nutanix to offer the best product experience
 
 ## How will I get billed?
@@ -38,19 +38,16 @@ Yes! You can use the products and services in Azure that you already have and lo
 
 ## Who supports NC2 on Azure?
 
-Microsoft delivers support for BareMetal infrastructure of NC2 on Azure. 
+Microsoft delivers support for BareMetal infrastructure of NC2 on Azure.
 You can submit a support request. For Cloud Solution Provider (CSP) managed subscriptions, the first level of support provides the Solution Provider in the same fashion as CSP does for other Azure services.
 
 Nutanix delivers support for Nutanix software of NC2 on Azure.
-Nutanix offers a support tier called Production Support for NC2. 
+Nutanix offers a support tier called Production Support for NC2.
 For more information about Production Support tiers and SLAs, see Product Support Programs under Cloud Services Support.
 
 ## Can I use my existing VPN or ER gateway for the DR scenario?
 
 Technically, yes. Raise a support ticket from Azure portal to get this functionality enabled.
-
-
-
 
 > [!div class="nextstepaction"]
 > [About the Public Preview](about-the-public-preview.md)
