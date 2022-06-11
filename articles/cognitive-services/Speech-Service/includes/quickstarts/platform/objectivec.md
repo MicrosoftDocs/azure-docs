@@ -2,15 +2,13 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/27/2022
+ms.date: 06/10/2022
 ms.author: eur
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Objective-C. 
 
 For details about using the Objective-C Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift</a>.
-
-[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 
 # [Mac](#tab/mac)

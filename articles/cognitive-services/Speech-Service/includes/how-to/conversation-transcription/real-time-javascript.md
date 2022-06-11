@@ -6,13 +6,13 @@ ms.date: 01/24/2022
 ms.author: eur
 ---
 
-## Install the Speech SDK
+## Prerequisites
 
-Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. Depending on your platform, use the following instructions:
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
-class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Web Browser </a>
+## Set up the environment
+
+Before you can do anything, you need to install the Speech SDK for JavaScript. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see [Set up the development environment](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
 
 ## Create voice signatures
 

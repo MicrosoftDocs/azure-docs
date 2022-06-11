@@ -9,16 +9,9 @@ ms.author: chschrae
 zone_pivot_groups: programming-languages-set-two
 ---
 
-## Create a speech project in Visual Studio
+## Create a project
 
-[!INCLUDE [Create project](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
-
-## Open your project in Visual Studio
-
-Next, open your project in Visual Studio.
-
-1. Launch Visual Studio 2019.
-2. Load your project and open `helloworld.cpp`.
+Create a new C# console application project in Visual Studio 2019 and open `Program.cs`.
 
 ## Start with some boilerplate code
 

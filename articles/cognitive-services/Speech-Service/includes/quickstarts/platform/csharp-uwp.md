@@ -18,8 +18,6 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 > [!NOTE]
 > The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
 
-[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
-
 ## Prerequisites
 
 This quickstart requires:

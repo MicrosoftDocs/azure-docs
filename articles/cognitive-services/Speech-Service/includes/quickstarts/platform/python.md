@@ -2,13 +2,11 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/15/2020
+ms.date: 06/10/2022
 ms.author: eur
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Python. If you just want the package name to get started on your own, run `pip install azure-cognitiveservices-speech`.
-
-[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## Supported operating systems
 
@@ -16,6 +14,27 @@ The Python Speech SDK package is available for these operating systems:
 - Windows: x64 and x86.
 - Mac: macOS X version 10.14 or later. 
 - Linux: See the list of [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
+
+## Platform requirements
+
+Before you install the Speech SDK on Windows or Linux, make sure you have the following prerequisites:
+
+# [Windows](#tab/windows)
+
+[!INCLUDE [Get the Speech SDK](../../../includes/get-speech-sdk-windows.md)]
+
+# [Linux](#tab/linux)
+
+[!INCLUDE [Get the Speech SDK](../../../includes/get-speech-sdk-linux.md)]
+* * * 
+
+[!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
+
+[!INCLUDE [Get Python Speech SDK](../../../includes/get-speech-sdk-python.md)]
+
+[!INCLUDE [python](python.md)]
+
+
 
 ## Prerequisites
 
@@ -68,6 +87,9 @@ pip list
 ```
 
 If you have any problems, or you're missing a feature, see [Support and help options](../../../../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
+
+
+
 
 ## Next steps
 

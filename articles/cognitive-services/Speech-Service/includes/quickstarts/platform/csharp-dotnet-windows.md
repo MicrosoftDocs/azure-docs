@@ -15,8 +15,6 @@ ms.custom: devx-track-dotnet, ignite-fall-2021
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for the .NET Framework (Windows). If you just want the package name to get started on your own, run `Install-Package Microsoft.CognitiveServices.Speech` in the NuGet console.
 
-[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
-
 ## Prerequisites
 
 This quickstart requires:
@@ -84,6 +82,3 @@ To build and run the console application, create a platform configuration that m
 
 1. Select **OK** and then **Close**.
 
-## Next steps
-
-[!INCLUDE [windows](../quickstart-list.md)]

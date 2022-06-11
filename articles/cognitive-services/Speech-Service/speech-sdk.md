@@ -26,7 +26,7 @@ The Speech software development kit (SDK) exposes many of the Speech service cap
 | [Objective-C SDK](/objectivec/cognitive-services/speech/) | iOS, macOS |
 | [Python SDK](/python/api/azure-cognitiveservices-speech/) | Windows, Linux, macOS |
 
-<sup>1 The .NET Speech SDK is based on .NET Standard 2.0, so it supports many platforms. For more information, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).</sup>
+<sup>1 The Speech SDK for C# is based on .NET Standard 2.0, so it supports many platforms. For more information, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).</sup>
 
 > [!IMPORTANT]
 > C isn't a supported programming language for the Speech SDK. Several supported programming languages, for example, C++, include C headers that are part of a common Application Binary Interface (ABI) layer. These ABI headers are *not* intended for direct use and are subject to change across versions.

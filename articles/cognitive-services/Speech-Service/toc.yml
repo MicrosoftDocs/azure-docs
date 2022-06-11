@@ -42,7 +42,7 @@ items:
   - name: Speech SDK overview
     href: speech-sdk.md
     displayName: get started, install, download
-  - name: Setup Speech SDK
+  - name: Install the Speech SDK
     href: quickstarts/setup-platform.md
     displayName: get started, install, download, get sdk, get the sdk
 - name: Speech-to-text

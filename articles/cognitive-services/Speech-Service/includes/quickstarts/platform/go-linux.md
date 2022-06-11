@@ -8,8 +8,6 @@ ms.author: eur
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Go on Linux. 
 
-[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
-
 ## System requirements
 
 Before you install the Speech SDK for Go, you need:
@@ -35,7 +33,3 @@ The following steps enable your Go environment to find the Speech SDK. In both s
    ```sh
    export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<architecture>:$LD_LIBRARY_PATH"
    ```
-
-## Next steps
-
-[!INCLUDE [windows](../quickstart-list-go.md)]

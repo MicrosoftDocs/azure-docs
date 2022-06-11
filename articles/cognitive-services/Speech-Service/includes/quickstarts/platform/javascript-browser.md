@@ -15,8 +15,6 @@ ms.custom: devx-track-js
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for JavaScript for use with a webpage.
 
-[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
-
 ## Create a folder
 
 Create a new, empty folder. If you want to host the sample on a web server, make sure that the web server can access the folder.

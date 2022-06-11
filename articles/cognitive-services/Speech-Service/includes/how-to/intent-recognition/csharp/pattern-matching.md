@@ -9,9 +9,9 @@ ms.author: ralphe
 zone_pivot_groups: programming-languages-set-two
 ---
 
-## Create a speech project in Visual Studio
+## Create a project
 
-[!INCLUDE [Create project](~/includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
+Create a new C# console application project in Visual Studio 2019.
 
 ## Start with some boilerplate code
 

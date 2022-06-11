@@ -10,8 +10,6 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 For details about using the Swift Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Swift into Swift</a>.
 
-[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
-
 
 # [Mac](#tab/mac)
 

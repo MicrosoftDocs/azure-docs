@@ -6,7 +6,7 @@ ms.date: 03/27/2020
 ms.author: eur
 ---
 
-When you develop for Android, two Speech SDKs are available. The Java Speech SDK is available natively as an Android package, or the .NET Speech SDK could be used with **Xamarin.Android** as it implements .NET Standard 2.0.
+When you develop for Android, two Speech SDKs are available. The Java Speech SDK is available natively as an Android package, or the Speech SDK for C# could be used with **Xamarin.Android** as it implements .NET Standard 2.0.
 
 # [Android Studio](#tab/android-studio)
 

@@ -6,7 +6,7 @@ ms.date: 03/27/2020
 ms.author: eur
 ---
 
-When you develop for iOS, the following Speech SDKs are available. The Objective-C/Swift Speech SDK is available natively as an iOS CocoaPod package. Alternatively, the .NET Speech SDK could be used with Xamarin.iOS and Unity application frameworks.
+When you develop for iOS, the following Speech SDKs are available. The Objective-C/Swift Speech SDK is available natively as an iOS CocoaPod package. Alternatively, the Speech SDK for C# could be used with Xamarin.iOS and Unity application frameworks.
 
 > [!TIP]
 > For details on using the Objective-C Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift</a>.

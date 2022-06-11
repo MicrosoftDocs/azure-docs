@@ -15,8 +15,6 @@ ms.author: eur
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Java. If you just want the package name to get started on your own, the Java SDK is not available in the Maven central repository. Whether you're using Gradle or a *pom.xml* dependency file, you need to add a custom repository that points to `https://azureai.azureedge.net/maven/`. (See below for the package name.)
 
-[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
-
 ## Supported operating systems
 
 The Java Speech SDK package is available for these operating systems:
