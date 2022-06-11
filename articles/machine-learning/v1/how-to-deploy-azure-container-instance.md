@@ -49,10 +49,7 @@ For information on quota and region availability for ACI, see [Quotas and region
 
 ## Limitations
 
-* When using Azure Container Instances in a virtual network, the virtual network must be in the same resource group as your Azure Machine Learning workspace.
-* When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace cannot also be in the virtual network.
-
-For more information, see [How to secure inferencing with virtual networks](../how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
+When your Azure Machine Learning workspace is configured with a private endpoint, deploying to Azure Container Instances in a VNet is not supported. Instead, consider using a [Managed online endpoint with network isolation](/azure/machine-learning/how-to-secure-online-endpoint).
 
 ## Deploy to ACI
 

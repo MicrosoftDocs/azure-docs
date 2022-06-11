@@ -119,10 +119,14 @@
     href: custom-dashboards-azure-workbooks.md
   - name: Use security recommendations to improve security
     items:
+    - name: Create custom security initiatives and policies
+      href: custom-security-policies.md
     - name: Review your security recommendations
       href: review-security-recommendations.md
     - name: Remediate recommendations
       href: implement-security-recommendations.md
+    - name: Improve your security posture with recommendation governance
+      href: governance-rules.md
     - name: Prevent misconfigurations with Enforce/Deny
       displayName: recommendations
       href: prevent-misconfigurations.md
@@ -134,8 +138,6 @@
     - name: Exempt recommendations per resource, subscription, or management group
       displayName: disable
       href: exempt-resource.md
-    - name: Create custom security initiatives and policies
-      href: custom-security-policies.md
   - name: Protect your machines
     displayName: hybrid, arc, Azure Defender for machines
     items:
@@ -413,7 +415,7 @@
       href: episode-seven.md
     - name: Microsoft Defender for IoT
       href: episode-eight.md
-    - name: Microsoft Defender for Containers in a multi-cloud environment
+    - name: Microsoft Defender for Containers in a multicloud environment
       href: episode-nine.md
     - name: Protecting containers in GCP with Defender for Containers
       href: episode-ten.md

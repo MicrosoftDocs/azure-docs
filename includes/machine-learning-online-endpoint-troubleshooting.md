@@ -68,7 +68,7 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
     ```
 
     The results should contain an entry that is similar to `*.<GUID>.inference.<region>`.
-1. If no inference value is returned, delete the private endpoint for the workspace and then recreate it. For more information, see [How to configure a private endpoint](/machine-learning/how-to-configure-private-link). 
+1. If no inference value is returned, delete the private endpoint for the workspace and then recreate it. For more information, see [How to configure a private endpoint](/azure/container-registry/container-registry-private-link). 
 
 ### Online deployments can't be scored
 
