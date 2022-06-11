@@ -1,13 +1,14 @@
 ---
 title: Quickstart for Azure Key Vault Certificate client library - Java
-description: Learn about the the Azure Key Vault Certificate client library for Java with the steps in this quickstart. 
+description: Learn about the the Azure Key Vault Certificate client library for Java with the steps in this quickstart.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api
 ms.author: mbaldwin
 ms.date: 12/18/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
+ms.devlang: java
 ---
 
 # Quickstart: Azure Key Vault Certificate client library for Java (Certificates)
@@ -109,7 +110,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 #### Grant access to your key vault
 Create an access policy for your key vault that grants certificate permissions to your user account.
 
-```console
+```azurecli
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
 ```
 
@@ -153,9 +154,9 @@ import com.azure.security.keyvault.certificates.models.KeyVaultCertificateWithPo
 ```
 
 ### Authenticate and create a client
-In this quickstart, a logged in user is used to authenticate to Key Vault, which is preferred method for local development. For applications deployed to Azure, a Managed Identity should be assigned to an App Service or Virtual Machine. For more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, a logged in user is used to authenticate to Key Vault, which is preferred method for local development. For applications deployed to Azure, a Managed Identity should be assigned to an App Service or Virtual Machine. For more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In the example below, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using the ['DefaultAzureCredential()'](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
+In the example below, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using the ['DefaultAzureCredential()'](/java/api/com.azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/java/api/overview/azure/identity-readme).
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");

@@ -29,7 +29,7 @@ This article assumes you have the Network Watcher extension installed in your VM
 
 ## Latest version
 
-The latest version of the Network Watcher extension is currently `1.4.1884.1`.
+The latest version of the Network Watcher extension is currently `1.4.2146.1`.
 
 ## Update your extension using a PowerShell script
 Customers with large deployments who need to update multiple VMs at once. For updating select VMs manually, please see the next section 
@@ -54,7 +54,7 @@ param(
     [Parameter(Mandatory=$false)]
     [Switch] $NoUpdate = $false,
     [Parameter(Mandatory=$false)]
-    [string] $MinVersion = "1.4.1654.1"
+    [string] $MinVersion = "1.4.1974.1"
 )
 
 
@@ -179,7 +179,7 @@ Run the following commands:
 Set-AzVMExtension -ResourceGroupName "myResourceGroup1" -Location "WestUS" -VMName "myVM1" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentLinux"
 
 #Windows command
-Set-AzVMExtension -ResourceGroupName "myResourceGroup1" -Location "WestUS" -VMName "myVM1" -Name "NetworkWatcherAgentWindows" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows" -ForceRerun "True"
+Set-AzVMExtension -ResourceGroupName "myResourceGroup1" -Location "WestUS" -VMName "myVM1" -Name " AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows" -ForceRerun "True"
 
 ```
 

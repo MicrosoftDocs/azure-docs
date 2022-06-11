@@ -2,13 +2,13 @@
 title: Synchronize Apache Spark for external table definitions in serverless SQL pool
 description: Overview of how to query Spark tables using serverless SQL pool
 services: synapse-analytics 
-author: julieMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
-ms.author: jrasnick
-ms.reviewer: jrasnick
+ms.date: 02/15/2022
+author: juluczni
+ms.author: juluczni
+ms.reviewer: sngun, wiassaf
 ---
 
 # Synchronize Apache Spark for Azure Synapse external table definitions in serverless SQL pool
@@ -29,34 +29,9 @@ For Spark external table queries, run a query that targets an external [spark_ta
 SELECT * FROM [db].dbo.[spark_table]
 ```
 
-> [!NOTE]
-> Add, drop, or alter Spark external table commands for a column will not be reflected in the external table in serverless SQL pool.
-
 ## Apache Spark data types to SQL data types mapping
 
-| Spark data type | SQL data type               |
-| --------------- | --------------------------- |
-| ByteType        | smallint                    |
-| Short Type      | smallint                    |
-| IntegerType     | int                         |
-| LongType        | bigint                      |
-| FloatType       | real                        |
-| DoubleType      | float                       |
-| DecimalType     | decimal                     |
-| TimestampType   | datetime2                   |
-| DateType        | date                        |
-| StringType      | varchar(max)\*               |
-| BinaryType      | varbinary                   |
-| BooleanType     | bit                         |
-| ArrayType       | varchar(max)\* (into JSON)\** |
-| MapType         | varchar(max)\* (into JSON)\** |
-| StructType      | varchar(max)\* (into JSON)\** |
-
-\* Collation used is Latin1_General_100_BIN2_UTF8.
-
-\** ArrayType, MapType, and StructType are represented as JSONs.
-
-
+For more information on mapping Apache Spark data types to SQL data types, see [Azure Synapse Analytics shared metadata tables](../metadata/table.md).
 
 ## Next steps
 

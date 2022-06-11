@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ---
 
 # Pipelines and activities in Azure Data Factory and Azure Synapse Analytics
@@ -17,6 +17,8 @@ ms.date: 08/24/2021
 > * [Version 1](v1/data-factory-create-pipelines.md)
 > * [Current version](concepts-pipelines-activities.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
 
 This article helps you understand pipelines and activities in Azure Data Factory and Azure Synapse Analytics and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.
 
@@ -27,7 +29,7 @@ The activities in a pipeline define actions to perform on your data. For example
 
 Azure Data Factory and Azure Synapse Analytics have three groupings of activities: [data movement activities](copy-activity-overview.md), [data transformation activities](transform-data.md), and [control activities](#control-flow-activities). An activity can take zero or more input [datasets](concepts-datasets-linked-services.md) and produce one or more output [datasets](concepts-datasets-linked-services.md). The following diagram shows the relationship between pipeline, activity, and dataset:
 
-![Relationship between dataset, activity, and pipeline](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
+:::image type="content" source="media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png" alt-text="Relationship between dataset, activity, and pipeline":::
 
 An input dataset represents the input for an activity in the pipeline, and an output dataset represents the output for the activity. Datasets identify data within different data stores, such as tables, files, folders, and documents. After you create a dataset, you can use it with activities in a pipeline. For example, a dataset can be an input/output dataset of a Copy Activity or an HDInsightHive Activity. For more information about datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md) article.
 
@@ -79,6 +81,38 @@ Control activity | Description
 [Wait Activity](control-flow-wait-activity.md) | When you use a Wait activity in a pipeline, the pipeline waits for the specified time before continuing with execution of subsequent activities.
 [Web Activity](control-flow-web-activity.md) | Web Activity can be used to call a custom REST endpoint from a pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
 [Webhook Activity](control-flow-webhook-activity.md) | Using the webhook activity, call an endpoint, and pass a callback URL. The pipeline run waits for the callback to be invoked before proceeding to the next activity.
+
+## Creating a pipeline with UI
+
+# [Azure Data Factory](#tab/data-factory)
+To create a new pipeline, navigate to the Author tab in Data Factory Studio (represented by the pencil icon), then click the plus sign and choose Pipeline from the menu, and Pipeline again from the submenu.
+
+:::image type="content" source="media/concepts-pipelines-activities/create-pipeline-with-ui.png" alt-text="Shows the steps to create a new pipeline using Azure Data Factory Studio.":::
+
+Data factory will display the pipeline editor where you can find:
+
+1. All activities that can be used within the pipeline.
+1. The pipeline editor canvas, where activities will appear when added to the pipeline.
+1. The pipeline configurations pane, including parameters, variables, general settings, and output.
+1. The pipeline properties pane, where the pipeline name, optional description, and annotations can be configured.  This pane will also show any related items to the pipeline within the data factory.
+
+:::image type="content" source="media/concepts-pipelines-activities/pipeline-configuration-with-ui.png" alt-text="Shows the pipeline editor pane in Azure Data Factory studio with each of the sections described above highlighted.":::
+
+# [Synapse Analytics](#tab/synapse-analytics)
+To create a new pipeline, navigate to the Integrate tab in Synapse Studio (represented by the pipeline icon), then click the plus sign and choose Pipeline from the menu.
+
+:::image type="content" source="media/concepts-pipelines-activities/create-pipeline-with-ui-synapse.png" alt-text="Shows the steps to create a new pipeline using Synapse Studio.":::
+
+Synapse will display the pipeline editor where you can find:
+
+1. All activities that can be used within the pipeline.
+1. The pipeline editor canvas, where activities will appear when added to the pipeline.
+1. The pipeline configurations pane, including parameters, variables, general settings, and output.
+1. The pipeline properties pane, where the pipeline name, optional description, and annotations can be configured.  This pane will also show any related items to the pipeline in the Synapse workspace.
+
+:::image type="content" source="media/concepts-pipelines-activities/pipeline-configuration-with-ui-synapse.png" alt-text="Shows the pipeline editor pane in Synapse studio with each of the sections described above highlighted.":::
+
+---
 
 ## Pipeline JSON
 Here is how a pipeline is defined in JSON format:
@@ -147,7 +181,7 @@ policy | Policies that affect the run-time behavior of the activity. This proper
 dependsOn | This property is used to define activity dependencies, and how subsequent activities depend on previous activities. For more information, see [Activity dependency](#activity-dependency) | No
 
 ### Activity policy
-Policies affect the run-time behavior of an activity, giving configurability options. Activity Policies are only available for execution activities.
+Policies affect the run-time behavior of an activity, giving configuration options. Activity Policies are only available for execution activities.
 
 ### Activity policy JSON definition
 
@@ -403,4 +437,4 @@ See the following tutorials for step-by-step instructions for creating pipelines
 - [Build a pipeline with a data transformation activity](tutorial-transform-data-spark-powershell.md)
 
 How to achieve CI/CD (continuous integration and delivery) using Azure Data Factory
-- [Continuous integration and delivery in Azure Data Factory](continuous-integration-deployment.md)
+- [Continuous integration and delivery in Azure Data Factory](continuous-integration-delivery.md)

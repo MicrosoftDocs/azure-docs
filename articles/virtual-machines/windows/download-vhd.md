@@ -19,7 +19,7 @@ In this article, you learn how to download a Windows virtual hard disk (VHD) fil
 
 ## Optional: Generalize the VM
 
-If you want to use the VHD as an [image](tutorial-custom-images.md) to create other VMs, you should use [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) to generalize the operating system. Otherwise, you will have to make a copy the disk for each VM you want to create.
+If you want to use the VHD as an [image](tutorial-custom-images.md) to create other VMs, you should use [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) to generalize the operating system. Otherwise, you will have to make a copy of the disk for each VM you want to create.
 
 To use the VHD as an image to create other VMs, generalize the VM.
 
@@ -51,10 +51,10 @@ Take a snapshot of the disk to download.
 5. For **Snapshot type**, select **Full** or **Incremental**.
 6. When you are done, select **Review + create**.
 
-Your snapshot will be created shortly, and may then be used to download or create another VM from.
+Your snapshot will be created shortly, and can then be used to download or create another VM.
 
 > [!NOTE]
-> If you don't stop the VM first, the snapshot will not be clean. The snapshot will be in the same state as if the VM had been power cycled or crashed at the point in time when the snapshot was made.  While usually safe, it could cause problems if the running applications running a the time were not crash resistant.
+> If you don't stop the VM first, the snapshot will not be clean. The snapshot will be in the same state as if the VM had been power cycled or crashed at the point in time when the snapshot was made.  While usually safe, it could cause problems if the running applications running at the time were not crash resistant.
 >  
 > This method is only recommended for VMs with a single OS disk. VMs with one or more data disks should be stopped before download or before creating a snapshot for the OS disk and each data disk.
 

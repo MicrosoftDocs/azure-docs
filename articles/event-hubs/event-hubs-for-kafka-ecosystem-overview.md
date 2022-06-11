@@ -79,6 +79,8 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 > [!NOTE]
 > When using SAS authentication with Kafka clients, established connections aren't disconnected when the SAS key is regenerated. 
 
+> [!NOTE]
+> [Generated shared access signature tokens](authenticate-shared-access-signature.md#generate-a-shared-access-signature-token) are not supported when using the Event Hubs for Apache Kafka endpoint.
 
 #### Samples 
 For a **tutorial** with step-by-step instructions to create an event hub and access it using SAS or OAuth, see [Quickstart: Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md).
@@ -87,7 +89,7 @@ For more **samples** that show how to use OAuth with Event Hubs for Kafka, see [
 
 ## Other Event Hubs features 
 
-The Event Hubs for Apache Kafka feature is one of three protocols concurrently available on Azure Event Hubs, complementing HTTP and AMQP. You can write with any of these protocols and read with any another, so that your current Apache Kafka producers can continue publishing via Apache Kafka, but your reader can benefit from the native integration with Event Hubs' AMQP interface, such as Azure Stream Analytics or Azure Functions. Reversely, you can readily integrate Azure Event Hubs into AMQP routing networks as a target endpoint, and yet read data through Apache Kafka integrations.  
+The Event Hubs for Apache Kafka feature is one of three protocols concurrently available on Azure Event Hubs, complementing HTTP and AMQP. You can write with any of these protocols and read with any another, so that your current Apache Kafka producers can continue publishing via Apache Kafka, but your reader can benefit from the native integration with Event Hubs' AMQP interface, such as Azure Stream Analytics or Azure Functions. Conversely, you can readily integrate Azure Event Hubs into AMQP routing networks as a target endpoint, and yet read data through Apache Kafka integrations.  
 
 Additionally, Event Hubs features such as [Capture](event-hubs-capture-overview.md), which enables extremely cost efficient long-term archival via Azure Blob Storage and Azure Data Lake Storage, and [Geo Disaster-Recovery](event-hubs-geo-dr.md) also work with the Event Hubs for Kafka feature.
 

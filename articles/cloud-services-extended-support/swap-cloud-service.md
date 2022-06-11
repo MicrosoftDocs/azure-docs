@@ -7,12 +7,11 @@ author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 04/01/2021
-ms.custom: 
 ---
 
 # Swap or switch deployments in Azure Cloud Services (extended support)
 
-You can swap between two independent cloud service deployments in Azure Cloud Services (extended support). Unlike in Azure Cloud Services (classic), the Azure Resource Manager model in Azure Cloud Services (extended support) doesn't use deployment slots. In Azure Cloud Services (extended support), when you deploy a new release of a cloud service, you can make the cloud service “swappable” with an existing cloud service in Azure Cloud Services (extended support).
+You can swap between two independent cloud service deployments in Azure Cloud Services (extended support). Unlike in Azure Cloud Services (classic), the Azure Resource Manager model in Azure Cloud Services (extended support) doesn't use deployment slots. In Azure Cloud Services (extended support), when you deploy a new release of a cloud service, you can make the cloud service "swappable" with an existing cloud service in Azure Cloud Services (extended support).
 
 After you swap the deployments, you can stage and test your new release by using the new cloud service deployment. In effect, swapping promotes a new cloud service that's staged to production release.
 
@@ -26,7 +25,6 @@ You can swap the deployments by using an Azure Resource Manager template (ARM te
 Upon deployment of the second cloud service, both the cloud services have their SwappableCloudService property set to point to each other. Any subsequent update to these cloud services will need to specify this property failing which an error will be returned indicating that the SwappableCloudService property cannot be deleted or updated.
 
 Once set, the SwappableCloudService property is treated as readonly. It cannot be deleted or changed to another value. Deleting one of the cloud services (of the swappable pair) will result in the SwappableCloudService  property of the remaining cloud service being cleared.
-
 
 ## ARM template
 
@@ -60,7 +58,7 @@ To save compute costs, you can delete one of the cloud services (designated as a
 
 ## REST API
 
-To use the [REST API](https://review.docs.microsoft.com/rest/api/compute/load-balancers/swap-public-ip-addresses?branch=net202102) to swap to a new cloud services deployment in Azure Cloud Services (extended support), use the following command and JSON configuration:
+To use the [REST API](/rest/api/load-balancer/load-balancers/swap-public-ip-addresses) to swap to a new cloud services deployment in Azure Cloud Services (extended support), use the following command and JSON configuration:
 
 ```http
 POST https://management.azure.com/subscriptions/subid/providers/Microsoft.Network/locations/westus/setLoadBalancerFrontendPublicIpAddresses?api-version=2021-02-01

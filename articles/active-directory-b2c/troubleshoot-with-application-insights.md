@@ -3,19 +3,30 @@ title: Troubleshoot custom policies with Application Insights
 titleSuffix: Azure AD B2C
 description: How to set up Application Insights to trace the execution of your custom policies.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/26/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Collect Azure Active Directory B2C logs with Application Insights
+
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 This article provides steps for collecting logs from Active Directory B2C (Azure AD B2C) so that you can diagnose problems with your custom policies. Application Insights provides a way to diagnose exceptions and visualize application performance issues. Azure AD B2C includes a feature for sending data to Application Insights.
 
@@ -31,17 +42,19 @@ If you don't already have one, create an instance of Application Insights in you
 > [!TIP]
 > A single instance of Application Insights can be used for multiple Azure AD B2C tenants. Then in your query, you can filter by the tenant, or policy name. For more information, [see the logs in Application Insights](#see-the-logs-in-application-insights) samples.
 
-To use an exiting instance of Application Insights in your subscription, follow these steps:
+To use an existing instance of Application Insights in your subscription, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure subscription (not your Azure AD B2C directory).
+1. Make sure you're using the Azure AD directory that has your Azure subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. Open the Application Insights resource that you created earlier.
 1. On the **Overview** page, and record the **Instrumentation Key**
 
 To create an instance of Application Insights in your subscription, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure subscription (not your Azure AD B2C directory).
+1. Make sure you're using the Azure AD directory that has your Azure subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. Select **Create a resource** in the left-hand navigation menu.
 1. Search for and select **Application Insights**, then select **Create**.
 1. Complete the form, select **Review + create**, and then select **Create**.
@@ -160,7 +173,7 @@ After you save the settings the Application insights logs appear on the **Azure 
 
 ## Configure Application Insights in Production
 
-To improve your production environment performance and better user experience, it's important to configure your policy to ignore messages that are unimportant. Use the following configuration in production environments. 
+To improve your production environment performance and better user experience, it's important to configure your policy to ignore messages that are unimportant. Use the following configuration in production environments and no logs will be sent to your application insights.
 
 1. Set the `DeploymentMode` attribute of the [TrustFrameworkPolicy](trustframeworkpolicy.md) to `Production`. 
 
@@ -187,4 +200,6 @@ To improve your production environment performance and better user experience, i
 
 ## Next steps
 
-- Learn how to [troubleshoot Azure AD B2C custom policies](troubleshoot-custom-policies.md)
+- Learn how to [troubleshoot Azure AD B2C custom policies](troubleshoot.md)
+
+::: zone-end

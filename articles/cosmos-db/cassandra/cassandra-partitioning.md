@@ -6,7 +6,7 @@ ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 09/03/2021
 
 ---
 
@@ -82,9 +82,20 @@ When data is returned, it is sorted by the clustering key, as expected in Apache
 
 :::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="Screenshot that shows the returned data that is sorted by the clustering key.":::
 
+> [!WARNING]
+> When querying data in a table that has a compound primary key, if you want to filter on the partition key *and* any other non-indexed fields aside from the clustering key, ensure that you *explicitly add a secondary index on the partition key*:
+>
+>    ```shell
+>    CREATE INDEX ON uprofile.user (user);
+>    ```
+>
+> Azure Cosmos DB Cassandra API does not apply indexes to partition keys by default, and the index in this scenario may significantly improve query performance. Review our article on [secondary indexing](secondary-indexing.md) for more information.
+
 With data modeled in this way, multiple records can be assigned to each partition, grouped by user. We can thus issue a query that is efficiently routed by the `partition key` (in this case, `user`) to get all the messages for a given user. 
 
 :::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="Diagram that shows how multiple records can be assigned to each partition, grouped by user." border="false":::
+
+
 
 
 ## Composite partition key

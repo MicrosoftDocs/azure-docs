@@ -4,7 +4,8 @@ description: This article walks you through using the Azure portal to create and
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc
+ms.subservice: flexible-server
+ms.custom: mvc, mode-ui
 ms.topic: quickstart
 ms.date: 04/18/2021
 ---
@@ -13,10 +14,10 @@ ms.date: 04/18/2021
 
 Azure Database for MySQL Flexible Server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. This quickstart shows you how to create a flexible server in a virtual network by using the Azure portal.
 
-> [!IMPORTANT]
-> Azure Database for MySQL Flexible Server is currently in public preview.
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
+
 
 ## Sign in to the Azure portal
 Go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
@@ -63,13 +64,13 @@ Complete these steps to create a flexible server:
 
 ## Create Azure Linux virtual machine
 
-Since the server is in virtual network, you can only connect to the server from other Azure services in the same virtual network as the server. To connect and manage the server, let's create a Linux virtual machine. The virtual machine must be created in the **same region** and **same subscription**. The Linux virtual machine can be used as SSH tunnel to manage your database server. 
+Since the server is in virtual network, you can only connect to the server from other Azure services in the same virtual network as the server. To connect and manage the server, let's create a Linux virtual machine. The virtual machine must be created in the **same region** and **same subscription**. The Linux virtual machine can be used as SSH tunnel to manage your database server.
 
 1. Go to you resource group in which the server was created. Select **Add**.
 2. Select **Ubuntu Server 18.04 LTS**
 3. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.
 
-   > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine" lightbox="../../virtual-machines/linux/media/quick-create-portal/project-details.png"::: 
+   > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine" lightbox="../../virtual-machines/linux/media/quick-create-portal/project-details.png":::
 
 2. Under **Instance details**, type *myVM* for the **Virtual machine name**, choose the same **Region** as your database server.
 
@@ -97,7 +98,7 @@ Since the server is in virtual network, you can only connect to the server from 
 
 9. Add new subnet for the virtual machine.
 
-   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png" alt-text="Screenshot of adding a new subnet for virtual machine" lightbox="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png"::: 
+   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png" alt-text="Screenshot of adding a new subnet for virtual machine" lightbox="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png":::
 
 10. After the subnet has been created successfully , close the page.
    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/subnetcreate-success.png" alt-text="Screenshot of success with adding a new subnet for virtual machine" lightbox="./media/quickstart-create-connect-server-vnet/subnetcreate-success.png":::

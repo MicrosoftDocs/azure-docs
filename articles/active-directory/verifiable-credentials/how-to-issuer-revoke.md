@@ -1,10 +1,10 @@
 ---
-title: How to Revoke a Verifiable Credential as an Issuer - Azure Active Directory Verifiable Credentials
+title: How to Revoke a Verifiable Credential as an Issuer - Azure Active Directory Verifiable Credentials (preview)
 description: Learn how to revoke a Verifiable Credential that you've issued
 documentationCenter: ''
 author: barclayn
-manager: daveba
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
@@ -13,7 +13,9 @@ ms.author: barclayn
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued
 ---
 
-# Revoke a previously issued verifiable credential (Preview)
+# Revoke a previously issued verifiable credential (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 As part of the process of working with verifiable credentials (VCs), you not only have to issue credentials, but sometimes you also have to revoke them. In this article we go over the **Status** property part of the VC specification and take a closer look at the revocation process, why we may want to revoke credentials and some data and privacy implications.
 

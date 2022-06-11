@@ -22,7 +22,7 @@ This article focuses on how to secure your AKS cluster. You learn how to:
 
 You can also read the best practices for [container image management][best-practices-container-image-management] and for [pod security][best-practices-pod-security].
 
-You can also use [Azure Kubernetes Services integration with Security Center][security-center-aks] to help detect threats and view recommendations for securing your AKS clusters.
+You can also use [Azure Kubernetes Services integration with Defender for Cloud][security-center-aks] to help detect threats and view recommendations for securing your AKS clusters.
 
 ## Secure access to the API server and cluster nodes
 
@@ -43,6 +43,34 @@ The recommended best practice is to use *groups* to provide access to files and 
 Meanwhile, let's say you bind the individual user directly to a role and their job function changes. While the Azure AD group memberships update, their permissions on the AKS cluster would not. In this scenario, the user ends up with more permissions than they require.
 
 For more information about Azure AD integration, Kubernetes RBAC, and Azure RBAC, see [Best practices for authentication and authorization in AKS][aks-best-practices-identity].
+
+## Restrict access to Instance Metadata API
+
+> **Best practice guidance** 
+> 
+> Add a network policy in all user namespaces to block pod egress to the metadata endpoint.
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: restrict-instance-metadata
+spec:
+  podSelector:
+    matchLabels: {}
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 10.10.0.0/0#example
+        except:
+        - 169.254.169.254/32
+```
+
+> [!NOTE]
+> Alternatively you can use [Pod Identity](./use-azure-ad-pod-identity.md) thought this is in Public Preview.  It has a pod (NMI) that runs as a DaemonSet on each node in the AKS cluster. NMI intercepts security token requests to the Azure Instance Metadata Service on each node, redirect them to itself and validates if the pod has access to the identity it's requesting a token for and fetch the token from the Azure AD tenant on behalf of the application.
+>
 
 ## Secure container access to resources
 
@@ -113,7 +141,7 @@ AppArmor profiles are added using the `apparmor_parser` command.
     spec:
       containers:
       - name: hello
-        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        image: mcr.microsoft.com/dotnet/runtime-deps:6.0
         command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
     ```
 
@@ -188,7 +216,7 @@ To see seccomp in action, create a filter that prevents changing permissions on 
     spec:
       containers:
       - name: chmod
-        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        image: mcr.microsoft.com/dotnet/runtime-deps:6.0
         command:
           - "chmod"
         args:
@@ -211,7 +239,7 @@ To see seccomp in action, create a filter that prevents changing permissions on 
           localhostProfile: prevent-chmod
       containers:
       - name: chmod
-        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        image: mcr.microsoft.com/dotnet/runtime-deps:6.0
         command:
           - "chmod"
         args:
@@ -281,7 +309,7 @@ Each evening, Linux nodes in AKS get security patches through their distro updat
 
 ### Node image upgrades
 
-Unattended upgrades apply updates to the Linux node OS, but the image used to create nodes for your cluster remains unchanged. If a new Linux node is added to your cluster, the original image is used to create the node. This new node will receive all the security and kernel updates available during the automatic check every night but will remain unpatched until all checks and restarts are complete. You can use node image upgrade to check for and update node images used by your cluster. For more details on nod image upgrade, see [Azure Kubernetes Service (AKS) node image upgrade][node-image-upgrade].
+Unattended upgrades apply updates to the Linux node OS, but the image used to create nodes for your cluster remains unchanged. If a new Linux node is added to your cluster, the original image is used to create the node. This new node will receive all the security and kernel updates available during the automatic check every night but will remain unpatched until all checks and restarts are complete. You can use node image upgrade to check for and update node images used by your cluster. For more details on node image upgrade, see [Azure Kubernetes Service (AKS) node image upgrade][node-image-upgrade].
 
 ## Process Windows Server node updates
 
@@ -306,5 +334,5 @@ For Windows Server nodes, regularly perform a node image upgrade operation to sa
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
-[security-center-aks]: ../security-center/defender-for-kubernetes-introduction.md
+[security-center-aks]: ../defender-for-cloud/defender-for-kubernetes-introduction.md
 [node-image-upgrade]: node-image-upgrade.md

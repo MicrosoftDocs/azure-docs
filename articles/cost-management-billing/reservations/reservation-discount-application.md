@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 09/15/2021
 ms.author: banders
 ---
 
@@ -20,7 +20,7 @@ When you shut down a resource, the reservation discount automatically applies to
 
 For example, you might later create a resource and have a matching reservation that is underutilized. The reservation discount automatically applies to the new matching resource.
 
-If the virtual machines are running in different subscriptions within your enrollment/account, then select the scope as shared. Shared scope allows the reservation discount to be applied across subscriptions. You can change the scope after you buy a reservation. For more information, see [Manage Azure Reservations](manage-reserved-vm-instance.md).
+If the virtual machines are running in different subscriptions within your enrollment/account, then select the scope as shared. Shared scope allows the reservation discount to be applied across subscriptions. You can change the scope after you buy a reservation. For more information, see [Manage Azure Reservations](manage-reserved-vm-instance.md). You can also use the management group scope. It applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 
 A reservation discount only applies to resources associated with Enterprise, Microsoft Customer Agreement, CSP, or subscriptions with pay-as-you go rates. Resources that run in a subscription with other offer types don't receive the reservation discount.
 

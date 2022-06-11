@@ -1,8 +1,9 @@
 ---
 title: 'Quickstart: Create a security module twin'
-description: In this quickstart, learn how to create a Defender for IoT module twin for use with Azure Defender for IoT.
+description: In this quickstart, learn how to create a Defender for IoT module twin for use with Microsoft Defender for IoT.
 ms.topic: quickstart
-ms.date: 05/26/2021
+ms.date: 03/28/2022
+ms.custom: mode-other
 ---
 
 # Quickstart: Create an azureiotsecurity module twin
@@ -17,8 +18,7 @@ This quickstart explains how to create individual _azureiotsecurity_ module twin
 
 For IoT solutions built in Azure, device twins play a key role in both device management and process automation.
 
-Defender for IoT offers full integration with your existing IoT device management platform, enabling you to manage your device security status and make use of existing device control capabilities.
-Defender for IoT integration is achieved by making use of the IoT Hub twin mechanism.
+Defender for IoT offers full integration with your existing IoT device management platform, enabling you to manage your device security status and make use of existing device control capabilities. Defender for IoT integration is achieved by making use of the IoT Hub twin mechanism.
 
 See [IoT Hub module twins](../../iot-hub/iot-hub-devguide-module-twins.md)[IoT Hub module twins] to learn more about the general concept of module twins in Azure IoT Hub.
 

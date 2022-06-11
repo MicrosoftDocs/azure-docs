@@ -3,20 +3,22 @@ title: Mitigate credential attacks - Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn about detection and mitigation techniques for credential attacks (password attacks) in Azure Active Directory B2C, including smart account lockout features.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/22/2021
-ms.author: mimart
+ms.date: 09/20/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Mitigate credential attacks in Azure AD B2C
+# Mitigate credential attacks in Azure AD B2C with smart lockout
 
 Credential attacks lead to unauthorized access to resources. Passwords that are set by users are required to be reasonably complex. Azure AD B2C has mitigation techniques in place for credential attacks. Mitigation includes detection of brute-force credential attacks and dictionary credential attacks. By using various signals, Azure Active Directory B2C (Azure AD B2C) analyzes the integrity of requests. Azure AD B2C is designed to intelligently differentiate intended users from hackers and botnets.
+
+## How smart lockout works
 
 Azure AD B2C uses a sophisticated strategy to lock accounts. The accounts are locked based on the IP of the request and the passwords entered. The duration of the lockout also increases based on the likelihood that it's an attack. After a password is tried 10 times unsuccessfully (the default attempt threshold), a one-minute lockout occurs. The next time a login is unsuccessful after the account is unlocked (that is, after the account has been automatically unlocked by the service once the lockout period expires), another one-minute lockout occurs and continues for each unsuccessful login. Entering the same, or similar password repeatedly doesn't count as multiple unsuccessful logins.
 
@@ -27,15 +29,16 @@ Azure AD B2C uses a sophisticated strategy to lock accounts. The accounts are lo
 
 The first 10 lockout periods are one minute long. The next 10 lockout periods are slightly longer and increase in duration after every 10 lockout periods. The lockout counter resets to zero after a successful login when the account isn’t locked. Lockout periods can last up to five hours. Users must wait for the lockout duration to expire. However, the user can unlock by using self-service [password user flow](add-password-reset-policy.md).
 
-## Manage password protection settings
+## Manage smart lockout settings
 
-To manage password protection settings, including the lockout threshold:
+To manage smart lockout settings, including the lockout threshold:
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Use the **Directory + subscription** filter in the top menu to select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Under **Security**, select **Authentication methods (Preview)**, then select **Password protection**.
-1. Under **Custom smart lockout**, enter your desired password protection settings:
+1. Under **Custom smart lockout**, enter your desired smart lockout settings:
 
    - **Lockout threshold**: The number of failed sign-in tries that are allowed before the account is first locked out. If the first sign-in after a lockout also fails, the account locks again.
    - **Lockout duration in seconds**: The minimum duration of each lockout in seconds. If an account locks repeatedly, this duration increases.
@@ -45,7 +48,7 @@ To manage password protection settings, including the lockout threshold:
 
 1. Select **Save**.
 
-## Testing the password protection settings
+## Testing smart lockout
 
 The smart lockout feature uses many factors to determine when an account should be locked, but the primary factor is the password pattern. The smart lockout feature considers slight variations of a password as a set, and they’re counted as a single try. For example:
 
@@ -57,7 +60,7 @@ When testing the smart lockout feature, use a distinctive pattern for each passw
 When the smart lockout threshold is reached, you'll see the following message while the account is locked: **Your account is temporarily locked to prevent unauthorized use. Try again later**. The error messages can be [localized](localization-string-ids.md#sign-up-or-sign-in-error-messages).
 
 > [!NOTE]
-> When you test smart lockout, your sign-in requests might be handled by different datacenters due to the geo-distributed and load-balanced nature of the Azure AD authentication service. In that scenario, because each Azure AD datacenter tracks lockout independently, it might take more than your defined lockout threshold number of attempts to cause a lockout. A user has a maximum of (threshold_limit * datacenter_count) number of bad attempts before being completely locked out.
+> When you test smart lockout, your sign-in requests might be handled by different datacenters due to the geo-distributed and load-balanced nature of the Azure AD authentication service. In that scenario, because each Azure AD datacenter tracks lockout independently, it might take more than your defined lockout threshold number of attempts to cause a lockout. A user has a maximum of (threshold_limit * datacenter_count) number of bad attempts before being completely locked out. For more information, see [Azure global infrastructure](https://azure.microsoft.com/global-infrastructure/).
 
 ## Viewing locked-out accounts
 

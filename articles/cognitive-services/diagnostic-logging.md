@@ -3,12 +3,12 @@ title: Diagnostic logging
 titleSuffix: Azure Cognitive Services
 description: This guide provides step-by-step instructions to enable diagnostic logging for an Azure Cognitive Service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2021
-ms.author: erhopf
+ms.author: pafarley
 ---
 
 # Enable diagnostic logging for Azure Cognitive Services
@@ -113,5 +113,4 @@ by bin(TimeGenerated, 10s), OperationName
 * Read these articles to learn about event hubs:
   * [What is Azure Event Hubs?](../event-hubs/event-hubs-about.md)
   * [Get started with Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
-* Read [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
 * Read [Understand log searches in Azure Monitor logs](../azure-monitor/logs/log-query-overview.md).

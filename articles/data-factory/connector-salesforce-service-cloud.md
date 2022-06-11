@@ -1,21 +1,21 @@
 ---
 title: Copy data from and to Salesforce Service Cloud
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Salesforce Service Cloud to supported sink data stores or from supported source data stores to Salesforce Service Cloud by using a copy activity in a data factory pipeline.
+description: Learn how to copy data from Salesforce Service Cloud to supported sink data stores, or from supported source data stores to Salesforce Service Cloud, using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ---
 
-# Copy data from and to Salesforce Service Cloud by using Azure Data Factory
+# Copy data from and to Salesforce Service Cloud using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Salesforce Service Cloud. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
+This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to Salesforce Service Cloud. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 ## Supported capabilities
 
@@ -35,7 +35,7 @@ The Salesforce connector is built on top of the Salesforce REST/Bulk API. By def
 
 ## Prerequisites
 
-API permission must be enabled in Salesforce. For more information, see [Enable API access in Salesforce by permission set](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
+API permission must be enabled in Salesforce.
 
 ## Salesforce request limits
 
@@ -85,12 +85,12 @@ The following properties are supported for the Salesforce linked service.
 | type |The type property must be set to **SalesforceServiceCloud**. |Yes |
 | environmentUrl | Specify the URL of the Salesforce Service Cloud instance. <br> - Default is `"https://login.salesforce.com"`. <br> - To copy data from sandbox, specify `"https://test.salesforce.com"`. <br> - To copy data from custom domain, specify, for example, `"https://[domain].my.salesforce.com"`. |No |
 | username |Specify a user name for the user account. |Yes |
-| password |Specify a password for the user account.<br/><br/>Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| password |Specify a password for the user account.<br/><br/>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | securityToken |Specify a security token for the user account. <br/><br/>To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). The security token can be skipped only if you add the Integration Runtime's IP to the [trusted IP address list](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) on Salesforce. When using Azure IR, refer to [Azure Integration Runtime IP addresses](azure-integration-runtime-ip-addresses.md).<br/><br/>For instructions on how to get and reset a security token, see [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | apiVersion | Specify the Salesforce REST/Bulk API version to use, e.g. `48.0`. By default, the connector uses [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) to copy data from Salesforce, and uses [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) to copy data to Salesforce. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No |
 
-**Example: Store credentials in Data Factory**
+**Example: Store credentials**
 
 ```json
 {
@@ -164,7 +164,7 @@ To copy data from and to Salesforce Service Cloud, the following properties are 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
 
-![Data Factory Salesforce connection API Name](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name.png" alt-text="Salesforce connection API Name":::
 
 **Example:**
 
@@ -207,7 +207,7 @@ To copy data from Salesforce Service Cloud, the following properties are support
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
 
-![Data Factory Salesforce connection API Name list](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png" alt-text="Salesforce connection API Name list":::
 
 **Example:**
 
@@ -325,9 +325,9 @@ If you hit error of "MALFORMED_QUERY: Truncated", normally it's due to you have 
 
 ## Data type mapping for Salesforce Service Cloud
 
-When you copy data from Salesforce Service Cloud, the following mappings are used from Salesforce Service Cloud data types to Data Factory interim data types. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When you copy data from Salesforce Service Cloud, the following mappings are used from Salesforce Service Cloud data types to interim data types used internally within the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Salesforce Service Cloud data type | Data Factory interim data type |
+| Salesforce Service Cloud data type | Interim service data type |
 |:--- |:--- |
 | Auto Number |String |
 | Checkbox |Boolean |
@@ -355,4 +355,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

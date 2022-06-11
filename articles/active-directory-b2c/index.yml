@@ -11,8 +11,8 @@ metadata:
   ms.subservice: B2C
   ms.topic: landing-page
   ms.collection: collection
-  author: msmimart
-  ms.author: mimart
+  author: kengaderdus
+  ms.author: kengaderdus
   ms.date: 01/28/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -29,7 +29,7 @@ landingContent:
           - text: What is Azure AD B2C?
             url: overview.md
           - text: Compare solutions for External Identities
-            url: ../active-directory/external-identities/compare-with-b2c.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+            url: ../active-directory/external-identities/external-identities-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
           - text: Get started with Azure AD B2C
             url: tutorial-create-tenant.md
           - text: Technical and feature overview
@@ -120,7 +120,7 @@ landingContent:
             url: deploy-custom-policies-devops.md
           - text: Monitoring
             url: azure-monitor.md
-          - text: Azure Sentinel with Azure AD B2C
+          - text: Microsoft Sentinel with Azure AD B2C
             url: azure-sentinel.md
           - text: Role-based access control for admins
             url: ../active-directory/roles/permissions-reference.md

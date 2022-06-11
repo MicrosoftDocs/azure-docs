@@ -11,11 +11,17 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Collect and transport metrics (Preview)
+# Collect and transport metrics
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 You can remotely monitor your IoT Edge fleet using Azure Monitor and built-in metrics integration. To enable this capability on your device, add the metrics-collector module to your deployment and configure it to collect and transport module metrics to Azure Monitor.
+
+To configure monitoring on your IoT Edge device follow the [Tutorial: Monitor IoT Edge devices](tutorial-monitor-with-workbooks.md). You'll learn how to add the metrics-collector module to your device. Otherwise, the information in this article (Collect and transport metrics) gives you an overview of the monitoring architecture and explains options you have for when it's time to configure metrics on your device.
+
+> [!VIDEO https://aka.ms/docs/player?id=94a7d988-4a35-4590-9dd8-a511cdd68bee]
+
+<a href="https://aka.ms/docs/player?id=94a7d988-4a35-4590-9dd8-a511cdd68bee" target="_blank">IoT Edge integration with Azure Monitor</a>(4:06)
 
 ## Architecture
 
@@ -50,7 +56,7 @@ You can remotely monitor your IoT Edge fleet using Azure Monitor and built-in me
 
 ## Metrics collector module
 
-A Microsoft-supplied metrics-collector module can be added to an IoT Edge deployment to collect module metrics and send them to Azure Monitor. The module code is open-source and available in the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/release/1.1/edge-modules/azure-monitor).
+A Microsoft-supplied metrics-collector module can be added to an IoT Edge deployment to collect module metrics and send them to Azure Monitor. The module code is open-source and available in the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/release/1.1/edge-modules/metrics-collector).
 
 The metrics-collector module is provided as a multi-arch Docker container image that supports Linux X64, ARM32, ARM64, and Windows X64 (version 1809). It's publicly available at **[`mcr.microsoft.com/azureiotedge-metrics-collector`](https://aka.ms/edgemon-metrics-collector)**.
 
@@ -66,8 +72,8 @@ All configuration for the metrics-collector is done using environment variables.
 |-|-|
 | `ResourceId` | Resource ID of the IoT hub that the device communicates with. For more information, see the [Resource ID](#resource-id) section.  <br><br>  **Required** <br><br> Default value: *none* |
 | `UploadTarget` |  Controls whether metrics are sent directly to Azure Monitor over HTTPS or to IoT Hub as D2C messages. For more information, see [upload target](#upload-target). <br><br>Can be either **AzureMonitor** or **IoTMessage**  <br><br>  **Not required** <br><br> Default value: *AzureMonitor* |
-| `LogAnalyticsWorkspaceId` | [Log Analytics workspace ID](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key). <br><br>**Required** only if *UploadTarget* is *AzureMonitor* <br><br>Default value: *none* |
-| `LogAnalyticsSharedKey` | [Log Analytics workspace key](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key). <br><br>**Required** only if  *UploadTarget*  is  *AzureMonitor*   <br><br> Default value: *none* |
+| `LogAnalyticsWorkspaceId` | [Log Analytics workspace ID](../azure-monitor/agents/agent-windows.md#workspace-id-and-key). <br><br>**Required** only if *UploadTarget* is *AzureMonitor* <br><br>Default value: *none* |
+| `LogAnalyticsSharedKey` | [Log Analytics workspace key](../azure-monitor/agents/agent-windows.md#workspace-id-and-key). <br><br>**Required** only if  *UploadTarget*  is  *AzureMonitor*   <br><br> Default value: *none* |
 | `ScrapeFrequencyInSecs` | Recurring time interval in seconds at which to collect and transport metrics.<br><br>  Example: *600* <br><br>  **Not required** <br><br> Default value: *300* |
 | `MetricsEndpointsCSV` | Comma-separated list of endpoints to collect Prometheus metrics from. All module endpoints to collect metrics from must appear in this list.<br><br>  Example: *http://edgeAgent:9600/metrics, http://edgeHub:9600/metrics, http://MetricsSpewer:9417/metrics* <br><br>  **Not required** <br><br> Default value: *http://edgeHub:9600/metrics, http://edgeAgent:9600/metrics* |
 | `AllowedMetrics` | List of metrics to collect, all other metrics will be ignored. Set to an empty string to disable. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>Example: *metricToScrape{quantile=0.99}[endpoint=http://MetricsSpewer:9417/metrics]*<br><br>  **Not required** <br><br> Default value: *empty* |
@@ -81,8 +87,8 @@ All configuration for the metrics-collector is done using environment variables.
 |-|-|
 | `ResourceId` | Resource ID of the IoT Central application that the device communicates with. For more information, see the [Resource ID](#resource-id) section.  <br><br>  **Required** <br><br> Default value: *none* |
 | `UploadTarget` |  Controls whether metrics are sent directly to Azure Monitor over HTTPS or to IoT Central as D2C messages. For more information, see [upload target](#upload-target). <br><br>Can be either **AzureMonitor** or **IoTMessage**  <br><br>  **Not required** <br><br> Default value: *AzureMonitor* |
-| `LogAnalyticsWorkspaceId` | [Log Analytics workspace ID](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key). <br><br>**Required** only if *UploadTarget* is *AzureMonitor* <br><br>Default value: *none* |
-| `LogAnalyticsSharedKey` | [Log Analytics workspace key](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key). <br><br>**Required** only if  *UploadTarget*  is  *AzureMonitor*   <br><br> Default value: *none* |
+| `LogAnalyticsWorkspaceId` | [Log Analytics workspace ID](../azure-monitor/agents/agent-windows.md#workspace-id-and-key). <br><br>**Required** only if *UploadTarget* is *AzureMonitor* <br><br>Default value: *none* |
+| `LogAnalyticsSharedKey` | [Log Analytics workspace key](../azure-monitor/agents/agent-windows.md#workspace-id-and-key). <br><br>**Required** only if  *UploadTarget*  is  *AzureMonitor*   <br><br> Default value: *none* |
 | `ScrapeFrequencyInSecs` | Recurring time interval in seconds at which to collect and transport metrics.<br><br>  Example: *600* <br><br>  **Not required** <br><br> Default value: *300* |
 | `MetricsEndpointsCSV` | Comma-separated list of endpoints to collect Prometheus metrics from. All module endpoints to collect metrics from must appear in this list.<br><br>  Example: *http://edgeAgent:9600/metrics, http://edgeHub:9600/metrics, http://MetricsSpewer:9417/metrics* <br><br>  **Not required** <br><br> Default value: *http://edgeHub:9600/metrics, http://edgeAgent:9600/metrics* |
 | `AllowedMetrics` | List of metrics to collect, all other metrics will be ignored. Set to an empty string to disable. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>Example: *metricToScrape{quantile=0.99}[endpoint=http://MetricsSpewer:9417/metrics]*<br><br>  **Not required** <br><br> Default value: *empty* |
@@ -110,7 +116,7 @@ You can find the resource ID in the **Properties** page of the IoT hub in the Az
 
 :::image type="content" source="./media/how-to-collect-and-transport-metrics/resource-id.png" alt-text="Retrieve resource ID from the IoT Hub properties.":::
 
-Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az_resource_show) command:
+Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az-resource-show) command:
 
 ```azurecli-interactive
 az resource show -g <resource group> -n <hub name> --resource-type "Microsoft.Devices/IoTHubs"
@@ -130,7 +136,7 @@ You can find the resource ID in the **Properties** page of the IoT Central appli
 
 :::image type="content" source="./media/how-to-collect-and-transport-metrics/resource-id-iot-central.png" alt-text="Retrieve resource ID from the IoT Central properties.":::
 
-Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az_resource_show) command:
+Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az-resource-show) command:
 
 ```azurecli-interactive
 az resource show -g <resource group> -n <application name> --resource-type "Microsoft.IoTCentral/IoTApps"
@@ -215,7 +221,7 @@ Label-based selectors (`{quantile=0.5,otherLabel=~Re[ge]*|x}`).
   * `=` Match labels exactly equal to the provided string (case sensitive).
   * `!=` Match labels not exactly equal to the provided string.
   * `=~` Match labels to a provided regex. ex: `label=~CPU|Mem|[0-9]*`
-  * `!=` Match labels that don't fit a provided regex.
+  * `!~` Match labels that don't fit a provided regex.
   * Regex is fully anchored (A ^ and $ are automatically added to the start and end of each regex)
   * This component is optional in a metrics selector.
 
@@ -224,15 +230,15 @@ Endpoint selector (`[http://VeryNoisyModule:9001/metrics]`).
 * The URL should exactly match a URL listed in `MetricsEndpointsCSV`.
 * This component is optional in a metrics selector.
 
-A metric must match all parts of a given selector to be selected. It must match the name *and* have all the same tags with matching values *and* come from the given endpoint. For example, `mem{quantile=0.5,otherLabel=foobar}[http://VeryNoisyModule:9001/metrics]` wouldn't match the selector `mem{quantile=0.5,otherLabel=~foo|bar}[http://VeryNoisyModule:9001/metrics]`. Multiple selectors should be used to create or-like behavior instead of and-like behavior.
+A metric must match all parts of a given selector to be selected. It must match the name *and* have all the same labels with matching values *and* come from the given endpoint. For example, `mem{quantile=0.5,otherLabel=foobar}[http://VeryNoisyModule:9001/metrics]` wouldn't match the selector `mem{quantile=0.5,otherLabel=~foo|bar}[http://VeryNoisyModule:9001/metrics]`. Multiple selectors should be used to create or-like behavior instead of and-like behavior.
 
-For example, to allow the metric `mem` from a module `module1` whatever tags but only allow the same metric from `module2` with the tag `agg=p99`, the following selector can be added to `AllowedMetrics`:
+For example, to allow the custom metric `mem` with any label from a module `module1` but only allow the same metric from `module2` with the label `agg=p99`, the following selector can be added to `AllowedMetrics`:
 
 ```query
 mem{}[http://module1:9001/metrics] mem{agg="p99"}[http://module2:9001/metrics]
 ```
 
-Or, to allow the metrics `mem` and `cpu` whatever the tags or endpoint, add the following to `AllowedMetrics`:
+Or, to allow the custom metrics `mem` and `cpu` for any labels or endpoint, add the following to `AllowedMetrics`:
 
 ```query
 mem cpu
@@ -271,7 +277,7 @@ This option does require [extra setup](how-to-collect-and-transport-metrics.md#s
 
 ### Sample cloud workflow
 
-A cloud workflow that delivers metrics messages from IoT Hub to Log Analytics is available as part of the [IoT Edge logging and monitoring sample](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution#monitoring-architecture-reference). The sample can be deployed on to existing cloud resources or serve as a production deployment reference.
+A cloud workflow that delivers metrics messages from IoT Hub to Log Analytics is available as part of the [IoT Edge logging and monitoring sample](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution/blob/main/docs/CloudWorkflow.md). The sample can be deployed on to existing cloud resources or serve as a production deployment reference.
 
 # [IoT Central](#tab/iotcentral)
 

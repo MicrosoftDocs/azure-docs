@@ -1,19 +1,18 @@
 ---
-title: End-user experiences for applications - Azure Active Directory
+title: End-user experiences for applications
 description: Azure Active Directory (Azure AD) provides several customizable ways to deploy applications to end users in your organization.
 services: active-directory
-author: davidmu1
+author: lnalepa
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: davidmu
-ms.reviewer: lenalepa
+ms.author: lenalepa
 ---
 
-# End-user experiences for applications in Azure Active Directory
+# End-user experiences for applications
 
 Azure Active Directory (Azure AD) provides several customizable ways to deploy applications to end users in your organization:
 
@@ -32,7 +31,7 @@ By default, all applications are listed together on a single page. But you can u
 
 My Apps is separate from the Azure portal and does not require users to have an Azure subscription or Microsoft 365 subscription.
 
-For more information on Azure AD My Apps, see the [introduction to My Apps](../user-help/my-apps-portal-end-user-access.md).
+For more information on Azure AD My Apps, see the [introduction to My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Microsoft 365 application launcher
 

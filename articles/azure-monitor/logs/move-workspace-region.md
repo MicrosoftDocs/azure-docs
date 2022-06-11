@@ -1,54 +1,82 @@
 ---
-title: Move Log Analytics workspace to another Azure region using the Azure portal
-description: Use Azure Resource Manager template to move Log Analytics workspace from one Azure region to another using the Azure portal.
-author: yossiy
+title: Move a Log Analytics workspace to another Azure region by using the Azure portal
+description: Use an Azure Resource Manager template to move a Log Analytics workspace from one Azure region to another by using the Azure portal.
+author: yossi-y
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: yossiy
 ---
 
-# Move Log Analytics workspace to another region using the Azure portal
+# Move a Log Analytics workspace to another region by using the Azure portal
 
-There are various scenarios in which you would want to move your existing Log Analytics workspace from one region to another. For example, Log Analytics recently became available in a region that is hosting most of your resources and you want the workspace to be closer and save egress charges. You may also want to move your workspace to a newly added region for data sovereignty requirement.
+There are various scenarios in which you would want to move your existing Log Analytics workspace from one region to another. For example, Log Analytics recently became available in a region that's hosting most of your resources and you want the workspace to be closer and save egress charges. You might also want to move your workspace to a newly added region for a data sovereignty requirement.
 
-Log Analytics workspace can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the workspace resource and related resources. You can then stage the resources in another region by exporting the workspace to a template, modifying the parameters to match the destination region, and then deploy the template to the new region. For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). Workspace environment can be complex and include connected sources, managed solutions, linked services, alerts and query packs. Not all resources can be exported in Resource Manager template and some will require separate configuration when moving a workspace.
+A Log Analytics workspace can't be moved from one region to another. But you can use an Azure Resource Manager template to export the workspace resource and related resources. You can then stage the resources in another region by exporting the workspace to a template, modifying the parameters to match the destination region, and then deploying the template to the new region. For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). 
+
+A workspace environment can be complex and include connected sources, managed solutions, linked services, alerts, and query packs. Not all resources can be exported in a Resource Manager template, and some require separate configuration when you're moving a workspace.
 
 ## Prerequisites
 
-- To export the workspace configuration to a template that can be deployed to another region, you need either [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) or [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) roles or higher.
+- To export the workspace configuration to a template that can be deployed to another region, you need the [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) or [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role, or higher.
 
-- Identify all the resources that currently associated to your workspace including:
-  - Connected agents -- Enter *Logs* in your workspace and query [Heartbeat](../insights/solution-agenthealth.md#heartbeat-records) table to list connected agents.
+- Identify all the resources that are currently associated with your workspace, including:
+  - *Connected agents*: Enter **Logs** in your workspace and query a [heartbeat](../insights/solution-agenthealth.md#azure-monitor-log-records) table to list connected agents.
     ```kusto
     Heartbeat
     | summarize by Computer, Category, OSType, _ResourceId
     ```
-  - Installed solutions -- Click **Solutions** in workspace navigation pane for a list of installed solutions
-  - Data collector API -- Data arriving through [Data Collector API](../logs/data-collector-api.md) is stored in custom log tables. Click ***Logs*** in workspace navigation pane, then **Custom log** in schema pane for a list of custom log tables
-  - Linked services -- Workspace may have linked services to dependent resources such as Automation account, storage account, dedicated cluster. Remove linked services from your workspace. These should be reconfigured manually in target workspace
-  - Alerts -- Click **Alerts** in your workspace navigation pane, then **Manage alert rules** in toolbar to list alerts. Alerts in workspaces created after 1-June 2019, or in workspaces that were [upgraded from legacy Log Analytics alert API to scheduledQueryRules API](../alerts/alerts-log-api-switch.md) can be included in the template. You can [check if scheduledQueryRules API is used for alerts in your workspace](../alerts/alerts-log-api-switch.md#check-switching-status-of-workspace). Alternatively, you can configure alerts manually in target workspace
-  - Query pack(s) -- A workspace can be associated with multiple query packs. To identify query pack(s) in your workspace, click **Logs** in the workspace navigation pane, **queries** on left pane, then ellipsis to the right of the search box for more settings - a dialog with selected query pack will open on the right. If your query pack(s) are in the same resource group as the workspace you are moving, you can include it with this migration
-- Verify that your Azure subscription allows you to create Log Analytics workspace in target region
+  - *Diagnostic settings*: Resources can send logs to Azure Diagnostics or dedicated tables in your workspace. Enter **Logs** in your workspace, and run this query for resources that send data to the `AzureDiagnostics` table:
+
+    ```kusto
+    AzureDiagnostics
+    | where TimeGenerated > ago(12h)
+    | summarize by  ResourceProvider , ResourceType, Resource
+    | sort by ResourceProvider, ResourceType
+    ```
+
+    Run this query for resources that send data to dedicated tables:
+
+    ```kusto
+    search *
+    | where TimeGenerated > ago(12h)
+    | where isnotnull(_ResourceId)
+    | extend ResourceProvider = split(_ResourceId, '/')[6]
+    | where ResourceProvider !in ('microsoft.compute', 'microsoft.security')
+    | extend ResourceType = split(_ResourceId, '/')[7]
+    | extend Resource = split(_ResourceId, '/')[8]
+    | summarize by tostring(ResourceProvider) , tostring(ResourceType), tostring(Resource)
+    | sort by ResourceProvider, ResourceType
+    ```
+
+  - *Installed solutions*: Select **Solutions** on the workspace navigation pane for a list of installed solutions.
+  - *Data collector API*: Data arriving through a [Data Collector API](../logs/data-collector-api.md) is stored in custom log tables. For a list of custom log tables, select **Logs** on the workspace navigation pane, and then select **Custom log** on the schema pane.
+  - *Linked services*: Workspaces might have linked services to dependent resources such as an Azure Automation account, a storage account, or a dedicated cluster. Remove linked services from your workspace. Reconfigure them manually in the target workspace.
+  - *Alerts*: To list alerts, select **Alerts** on your workspace navigation pane, and then select **Manage alert rules** on the toolbar. Alerts in workspaces created after June 1, 2019, or in workspaces that were [upgraded from the Log Analytics Alert API to the scheduledQueryRules API](../alerts/alerts-log-api-switch.md) can be included in the template. 
+  
+     You can [check if the scheduledQueryRules API is used for alerts in your workspace](../alerts/alerts-log-api-switch.md#check-switching-status-of-workspace). Alternatively, you can configure alerts manually in the target workspace.
+  - *Query packs*: A workspace can be associated with multiple query packs. To identify query packs in your workspace, select **Logs** on the workspace navigation pane, select **queries** on the left pane, and then select the ellipsis to the right of the search box. A dialog with the selected query packs opens on the right. If your query packs are in the same resource group as the workspace that you're moving, you can include it with this migration.
+- Verify that your Azure subscription allows you to create Log Analytics workspaces in the target region.
 
 ## Prepare and move
-The following steps show how to prepare the workspace and resources for the move using Resource Manager template and move them to the target region using the portal. Not all resources can be exported through a template and these will need to be configured separately once the workspace is created in target region.
+The following procedures show how to prepare the workspace and resources for the move by using a Resource Manager template, and then move them to the target region by using the portal. Follow the procedures in order.
 
-### Export the template and deploy from the portal
+> [!NOTE]
+> Not all resources can be exported through a template. You'll need to configure these separately after the workspace is created in the target region.
 
-1. Login to the [Azure portal](https://portal.azure.com), then **Resource Groups**
-2. Locate the Resource Group that contains your workspace and click on it
-3. To view alerts resource, select **Show hidden types** checkbox
-4. Click the 'Type' filter and select **Log Analytics workspace**, **Solution**, **SavedSearches**, **microsoft.insights/scheduledqueryrules** and **defaultQueryPack** as applicable, then click Apply
-5. Select the workspace, solutions, alerts, saved searches and query pack(s) that you want to move, then click **Export template** in the toolbar
+### Select resource groups and edit parameters
+
+1. Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource Groups**.
+1. Find the resource group that contains your workspace and select it.
+1. To view an alert resource, select the **Show hidden types** checkbox.
+1. Select the **Type** filter. Select **Log Analytics workspace**, **Solution**, **SavedSearches**, **microsoft.insights/scheduledqueryrules**, **defaultQueryPack**, and other workspace-related resources that you have (such as an Automation account). Then select **Apply**.
+1. Select the workspace, solutions, saved searches, alerts, query packs, and other workspace-related resources that you have (such as an Automation account). Then select **Export template** on the toolbar.
     
     > [!NOTE]
-    > Sentinel can't be exported with template and you need to [on-board Sentinel](../../sentinel/quickstart-onboard.md) to target workspace.
+    > Microsoft Sentinel can't be exported with a template. You need to [onboard Sentinel](../../sentinel/quickstart-onboard.md) to a target workspace.
    
-6. Click **Deploy** in the toolbar to edit and prepare the template for deployment
-7. Click **Edit parameters** in the toolbar to open the **parameters.json** file in the online editor
-8. To edit the parameters, change the **value** property under **parameters**
-
-    Example parameters file:
+1. Select **Deploy** on the toolbar to edit and prepare the template for deployment.
+1. Select **Edit parameters** on the toolbar to open the *parameters.json* file in the online editor.
+1. To edit the parameters, change the `value` property under `parameters`. Here's an example:
 
     ```json
     {
@@ -71,12 +99,17 @@ The following steps show how to prepare the workspace and resources for the move
     }
     ```
 
-9. Click **Save** in the editor
-10. Click **Edit template** in the toolbar to open the **template.json** file in the online editor
-11. To edit the target region where Log Analytics workspace will be deployed, change the **location** property under **resources** in the online editor. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, **Central US** = **centralus**
-12. Remove linked services resources `microsoft.operationalinsights/workspaces/linkedservices` if present in template. These should be reconfigured manually in target workspace
+1. Select **Save** in the editor.
 
-    Example template including the workspace, saved search, solutions, alert and query pack:
+### Edit the template
+
+1. Select **Edit template** on the toolbar to open the *template.json* file in the online editor.
+1. To edit the target region where the Log Analytics workspace will be deployed, change the `location` property under `resources` in the online editor. 
+
+   To get region location codes, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces. For example, **Central US** should be `centralus`.
+1. Remove linked-services resources (`microsoft.operationalinsights/workspaces/linkedservices`) if they're present in the template. You should reconfigure these resources manually in the target workspace.
+
+   The following example template includes the workspace, saved search, solutions, alerts, and query pack:
 
     ```json
     {
@@ -174,7 +207,7 @@ The following steps show how to prepare the workspace and resources for the move
         },
         {
           "type": "microsoft.insights/scheduledqueryrules",
-          "apiVersion": "2021-02-01-preview",
+          "apiVersion": "2021-08-01",
           "name": "[parameters('alertName')]",
           "location": "france central",
           "properties": {
@@ -236,27 +269,32 @@ The following steps show how to prepare the workspace and resources for the move
     }
     ```
 
-13. Click **Save** in the online editor
-14. Click **Subscription** to choose the subscription where the target workspace will be deployed
-16. Click **Resource group** to choose the resource group where the target workspace will be deployed. You can click **Create new** to create a new resource group for the target workspace
-17. Verify that the **Region** is set to the target location where you wish for the NSG to be deployed
-18. Click **Review + create** button to verify your template
-19. Click **Create** to deploy workspace and selected resource to the target region
-20. Your workspace including selected resources are now deployed in target region and you can complete the remaining configuration in the workspace for paring functionality to original workspace
-    - Connect agents -- Use any of the available options including DCR to configure the required agents on virtual machines and virtual machine scale sets and specify the new target workspace as destination
-    - Install solutions -- Some solutions such as [Azure Sentinel](../../sentinel/quickstart-onboard.md) require certain onboarding procedure and weren't included in the template. You should onboard them separately to the new workspace
-    - Data collector API -- Configure data collector API instances to send data to target workspace
-    - Alert rules -- When alerts aren't exported in template, you need to configure them manually in target workspace
-21. Very that new data isn't ingested to original workspace. Run this query in your original workspace and observe that there is no ingestion post migration time
+1. Select **Save** in the online editor.
+
+### Deploy the workspace
+
+1. Select **Subscription** to choose the subscription where the target workspace will be deployed.
+1. Select **Resource group** to choose the resource group where the target workspace will be deployed. You can select **Create new** to create a new resource group for the target workspace.
+1. Verify that **Region** is set to the target location where you want the network security group to be deployed.
+1. Select the **Review + create** button to verify your template.
+1. Select **Create** to deploy the workspace and the selected resource to the target region.
+1. Your workspace, including selected resources, is now deployed in the target region. You can complete the remaining configuration in the workspace for paring functionality to the original workspace.
+   - *Connect agents*: Use any of the available options, including Data Collection Rules, to configure the required agents on virtual machines and virtual machine scale sets and to specify the new target workspace as the destination.
+   - *Diagnostic settings*: Update diagnostic settings in identified resources, with the target workspace as the destination.
+   - *Install solutions*: Some solutions, such as [Microsoft Sentinel](../../sentinel/quickstart-onboard.md), require certain onboarding procedures and weren't included in the template. You should onboard them separately to the new workspace.
+   - *Configure the Data Collector API*: Configure Data Collector API instances to send data to the target workspace.
+   - *Configure alert rules*: When alerts aren't exported in the template, you need to configure them manually in the target workspace.
+1. Verify that new data isn't ingested to the original workspace. Run the following query in your original workspace, and observe that there's no ingestion after the migration:
 
     ```kusto
     search *
+    | where TimeGenerated > ago(12h)
     | summarize max(TimeGenerated) by Type
     ```
 
-Ingested data after data sources connection to target workspace is stored in target workspace while older data remains in original workspace. You can perform [cross workspace query](./cross-workspace-query.md#performing-a-query-across-multiple-resources) and if both were assigned with the same name, use qualified name (*subscriptionName/resourceGroup/componentName*) in workspace reference.
+After data sources are connected to the target workspace, ingested data is stored in the target workspace. Older data stays in the original workspace and is subject to the retention policy. You can perform a [cross-workspace query](./cross-workspace-query.md#performing-a-query-across-multiple-resources). If both workspaces were assigned the same name, use a qualified name (*subscriptionName/resourceGroup/componentName*) in the workspace reference.
 
-Example for query across two workspaces having the same name:
+Here's an example for a query across two workspaces that have the same name:
 
 ```kusto
 union 
@@ -269,15 +307,26 @@ union
 
 ## Discard
 
-If you wish to discard the source workspace, delete the exported resources or resource group that contains these. To do so, select the target resource group in Azure portal - if you created a new resource group for this deployment, click **Delete resource group** at the toolbar in Overview page. If template was deployed to existing resource group, select the resources that were deployed with template and click **Delete** in toolbar.
+If you want to discard the source workspace, delete the exported resources or the resource group that contains these resources:
+
+1. Select the target resource group in the Azure portal.
+1. On the **Overview** page:
+   
+   - If you created a new resource group for this deployment, select **Delete resource group** on the toolbar to delete the resource group.
+   - If the template was deployed to an existing resource group, select the resources that were deployed with the template, and then select **Delete** on the toolbar to delete selected resources.
 
 ## Clean up
 
-While new data is being ingested to your new workspace, older data in original workspace remain available for query and subjected to the retention policy defined in workspace. It's recommended to remain the original workspace for the duration older data is needed to allow you to [query across](./cross-workspace-query.md#performing-a-query-across-multiple-resources) workspaces. If you no longer need access to older data in original workspace, select the original resource group in Azure portal, then select any resources that you want to remove and click **Delete** in toolbar.
+While new data is being ingested to your new workspace, older data in the original workspace remains available for query and is subject to the retention policy defined in the workspace. We recommend that you keep the original workspace for as long as you need older data to [query across](./cross-workspace-query.md#performing-a-query-across-multiple-resources) workspaces. 
+
+If you no longer need access to older data in the original workspace:
+
+1. Select the original resource group in the Azure portal. 
+1. Select any resources that you want to remove, and then select **Delete** on the toolbar.
 
 ## Next steps
 
-In this tutorial, you moved an Log Analytics workspace and associated resources from one region to another and cleaned up the source resources. To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+In this article, you moved a Log Analytics workspace and associated resources from one region to another and cleaned up the source resources. To learn more about moving resources between regions and disaster recovery in Azure, see:
 
 - [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - [Move Azure VMs to another region](../../site-recovery/azure-to-azure-tutorial-migrate.md)

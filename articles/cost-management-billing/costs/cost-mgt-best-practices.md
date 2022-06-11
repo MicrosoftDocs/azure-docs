@@ -1,9 +1,10 @@
 ---
-title: Optimize your cloud investment with Azure Cost Management
+title: Optimize your cloud investment with Cost Management
+titleSuffix: Microsoft Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/02/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -11,9 +12,9 @@ ms.reviewer: adwise
 ms.custom: seodec18
 ---
 
-# How to optimize your cloud investment with Azure Cost Management
+# How to optimize your cloud investment with Cost Management
 
-Azure Cost Management gives you the tools to plan for, analyze and reduce your spending to maximize your cloud investment. This document provides you with a methodical approach to cost management and highlights the tools available to you as you address your organization's cost challenges. Azure makes it easy to build and deploy cloud solutions. However, it's important that those solutions are optimized to minimize the cost to your organization. Following the principles outlined in this document and using our tools will help to make sure your organization is prepared for success.
+Cost Management gives you the tools to plan for, analyze and reduce your spending to maximize your cloud investment. This document provides you with a methodical approach to cost management and highlights the tools available to you as you address your organization's cost challenges. Azure makes it easy to build and deploy cloud solutions. However, it's important that those solutions are optimized to minimize the cost to your organization. Following the principles outlined in this document and using our tools will help to make sure your organization is prepared for success.
 
 ## Methodology
 
@@ -157,7 +158,7 @@ Tags are a effective way to understand costs that span across multiple teams and
 
 Similarly, you might also have web apps or environments, such as Test or Production, that use resources across multiple subscriptions owned by different teams. To better understand the full cost of the workloads, tag the resources that they use. When tags are applied properly, you can apply them as a filter in cost analysis to better understand trends.
 
-After you plan for resource tagging, you can configure an Azure Policy definition to enforce tagging on resources. Watch the [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to understand the tools available that help you enforce scalable resource tagging. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+After you plan for resource tagging, you can configure an Azure Policy definition to enforce tagging on resources. Watch the [How to review tag policies with Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to understand the tools available that help you enforce scalable resource tagging. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 
@@ -226,4 +227,4 @@ For more information, see [Azure Hybrid Benefit savings calculator](https://azur
 Azure also has a service that allows you to build services that take advantage of surplus capacity in Azure for reduced rates. For more information, see [Use low priority VMs with Batch](../../batch/batch-low-pri-vms.md).
 
 ## Next steps
-- If you're new to Cost Management, read [What is Azure Cost Management?](../cost-management-billing-overview.md) to learn how it helps monitor and control Azure spending and to optimize resource use.
+- If you're new to Cost Management, read [What is Cost Management?](../cost-management-billing-overview.md) to learn how it helps monitor and control Azure spending and to optimize resource use.

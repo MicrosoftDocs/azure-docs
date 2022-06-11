@@ -2,10 +2,10 @@
 title: Azure Virtual Desktop screen capture protection
 titleSuffix: Azure
 description: How to set up screen capture protection for Azure Virtual Desktop.
-author: gundarev
+author: femila
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.author: denisgun
+ms.author: femila
 ms.service: virtual-desktop
 ---
 
@@ -15,17 +15,20 @@ The screen capture protection feature prevents sensitive information from being 
 
 ## Prerequisites
 
-The screen capture protection feature is configured on the session host level and enforced on the client. Only clients that support this feature can connect to the remote session. 
-Currently, only the Windows Desktop client supports screen capture protection. 
-Only full desktops are supported. 
-Suppose the user attempts to use an unsupported client to connect to the protected session host or access RemoteApp published on the protected session host. In that case, the connection will fail with error 0x1151. 
+The screen capture protection feature is configured on the session host level and enforced on the client. Only clients that support this feature can connect to the remote session.
+Following clients currently support screen capture protection:
+
+* Windows Desktop client supports screen capture protection for full desktops only.
+* macOS client version 10.7.0 or later supports screen capture protection for both RemoteApp and full desktops.
+
+Suppose the user attempts to use an unsupported client to connect to the protected session host. In that case, the connection will fail with error 0x1151.
 
 ## Configure screen capture protection
 
-1. To configure screen capture protection, you need to install administrative templates that add rules and settings for Azure Virtual Desktop. 
+1. To configure screen capture protection, you need to install administrative templates that add rules and settings for Azure Virtual Desktop.
 2. Download the [Azure Virtual Desktop policy templates file](https://aka.ms/avdgpo) (AVDGPTemplate.cab) and extract the contents of the cab file and zip archive.
-3. Copy the *terminalserver-avd.admx* file to *%windir%\PolicyDefinitions* folder
-4. Copy the *en-us\terminalserver-avd.adml* file to *%windir%\PolicyDefinitions\en-us* folder
+3. Copy the **terminalserver-avd.admx** file to **%windir%\PolicyDefinitions** folder.
+4. Copy the **en-us\terminalserver-avd.adml** file to **%windir%\PolicyDefinitions\en-us** folder.
 5. To confirm the files copied correctly, open the Group Policy Editor and navigate to **Computer Configuration** -> **Administrative Templates** -> **Windows Components** -> **Remote Desktop Services** -> **Remote Desktop Session Host** -> **Azure Virtual Desktop**
 6. You should see one or more Azure Virtual Desktop policies, as shown below.
 
@@ -39,10 +42,9 @@ Suppose the user attempts to use an unsupported client to connect to the protect
 
 ## Limitations and known issues
 
-- This feature protects the Remote Desktop window from being captured through a specific set of public operating system features and APIs. However, there's no guarantee that this feature will strictly protect content, for example, where someone takes photography of the screen.
-- Customers should use the feature together with disabling clipboard, drive, and printer redirection. Disabling redirection will help to prevent the user from copying the captured screen content from the remote session.
-- Users can't share the Remote Desktop window using local collaboration software, such as Microsoft Teams, when the feature is enabled. If Microsoft Teams is used, both the local Teams app and Teams running with media optimizations can't share the protected content.
-- When users are trying to connect to a protected resource with web client 1.0.24.14, they will receive an authentication prompt instead of the error message.
+* This feature protects the Remote Desktop window from being captured through a specific set of public operating system features and APIs. However, there's no guarantee that this feature will strictly protect content, for example, where someone takes photography of the screen.
+* Customers should use the feature together with disabling clipboard, drive, and printer redirection. Disabling redirection will help to prevent the user from copying the captured screen content from the remote session.
+* Users can't share the Remote Desktop window using local collaboration software, such as Microsoft Teams, when the feature is enabled. If Microsoft Teams is used, both the local Teams app and Teams running with media optimizations can't share the protected content.
 
 ## Next steps
 

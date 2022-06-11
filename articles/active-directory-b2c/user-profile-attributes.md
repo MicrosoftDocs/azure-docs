@@ -2,14 +2,14 @@
 title: User profile attributes in Azure Active Directory B2C
 description: Learn about the user resource type attributes that are supported by the Azure AD B2C directory user profile. Find out about built-in attributes, extensions, and how attributes map to Microsoft Graph.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/16/2021
-ms.author: mimart
+ms.date: 09/24/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -165,7 +165,7 @@ In user migration scenarios, if the accounts you want to migrate have weaker pas
 
 ## MFA phone number attribute
 
-When using a phone for multi-factor authentication (MFA), the mobile phone is used to verify the user identity. To [add](/graph/api/authentication-post-phonemethods) a new phone number programatically, [update](/graph/api/b2cauthenticationmethodspolicy-update), [get](/graph/api/b2cauthenticationmethodspolicy-get), or [delete](/graph/api/phoneauthenticationmethod-delete) the phone number, use MS Graph API [phone authentication method](/graph/api/resources/phoneauthenticationmethod).
+When using a phone for multi-factor authentication (MFA), the mobile phone is used to verify the user identity. To [add](/graph/api/authentication-post-phonemethods) a new phone number programmatically, [update](/graph/api/b2cauthenticationmethodspolicy-update), [get](/graph/api/b2cauthenticationmethodspolicy-get), or [delete](/graph/api/phoneauthenticationmethod-delete) the phone number, use MS Graph API [phone authentication method](/graph/api/resources/phoneauthenticationmethod).
 
 In Azure AD B2C [custom policies](custom-policy-overview.md), the phone number is available through `strongAuthenticationPhoneNumber` claim type.
 

@@ -1,10 +1,10 @@
 ---
 title: Set up customer-managed keys to encrypt data at rest in ISEs
-description: Create and manage your own encryption keys to secure data at rest for integration service environments (ISEs) in Azure Logic Apps
+description: Create and manage your own encryption keys to secure data at rest for integration service environments (ISEs) in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: mijos, rarayudu, azla
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/20/2021
 ---
 
@@ -25,6 +25,8 @@ This topic shows how to set up and specify your own encryption key to use when y
   * Azure Government: Arizona, Virginia, and Texas.
 
 * You can specify a customer-managed key *only when you create your ISE*, not afterwards. You can't disable this key after your ISE is created. Currently, no support exists for rotating a customer-managed key for an ISE.
+
+* The key vault that stores your customer-managed key must exist in the same Azure region as your ISE.
 
 * To support customer-managed keys, your ISE requires that you enable either the [system-assigned or user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). This identity lets your ISE authenticate access to secured resources, such as virtual machines and other systems or services, that are in or connected to an Azure virtual network. That way, you don't have to sign in with your credentials.
 

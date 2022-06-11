@@ -1,148 +1,221 @@
 ---
-title: Authorize developer accounts by using Azure Active Directory
+title: Authorize access to API Management developer portal by using Azure AD
 titleSuffix: Azure API Management
-description: Learn how to authorize users by using Azure Active Directory in API Management.
-services: api-management
-documentationcenter: API Management
-author: miaojiang
-manager: cfowler
-editor: ''
+description: Learn how to enable user sign-in to the API Management developer portal by using Azure Active Directory.
 
+author: dlepow
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/22/2021
-ms.author: apimpm
+ms.date: 05/20/2022
+ms.author: danlep
 ---
 
 # Authorize developer accounts by using Azure Active Directory in Azure API Management
 
-This article shows you how to enable access to the developer portal for users from Azure Active Directory (Azure AD). This guide also shows you how to manage groups of Azure AD users by adding external groups that contain the users.
+In this article, you'll learn how to:
+> [!div class="checklist"]
+> * Enable access to the developer portal for users from Azure Active Directory (Azure AD).
+> * Manage groups of Azure AD users by adding external groups that contain the users.
 
 ## Prerequisites
 
-- Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
-- Import and publish an Azure API Management instance. For more information, see [Import and publish](import-and-publish.md).
+- Complete the [Create an Azure API Management instance](get-started-create-service-instance.md) quickstart.
+
+- [Import and publish](import-and-publish.md) an API in the Azure API Management instance.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
-## Authorize developer accounts by using Azure AD
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. Select ![Arrow icon.](./media/api-management-howto-aad/arrow.png).
-3. Type **api** in the search box.
-4. Select **API Management services**.
-5. Select your API Management service instance.
-6. Under **Developer portal**, select **Identities**.
-7. Select **+Add** from the top.
 
-    The **Add identity provider** pane appears on the right.
-8. Under **Provider type**, select **Azure Active Directory**.
+## Enable user sign-in using Azure AD - portal
 
-    Controls that enable you to enter other necessary information appear in the pane. The controls include **Client ID** and **Client secret**. (You get information about these controls later in the article.)
-9. Make a note of the content of **Redirect URL**.
+To simplify the configuration, API Management can automatically enable an Azure AD application and identity provider for users of the developer portal. Alternatively, you can manually enable the Azure AD application and identity provider.
+
+### Automatically enable Azure AD application and identity provider
+
+1. In the left menu of your API Management instance, under **Developer portal**, select **Portal overview**.
+1. On the **Portal overview** page, scroll down to **Enable user sign-in with Azure Active Directory**. 
+1. Select **Enable Azure AD**.
+1. On the **Enable Azure AD** page, select **Enable Azure AD**.
+1. Select **Close**.
+
+    :::image type="content" source="media/api-management-howto-aad/enable-azure-ad-portal.png" alt-text="Screenshot of enabling Azure AD in the developer portal overview page.":::
+
+After the Azure AD provider is enabled:
+
+* Users in the specified Azure AD instance can [sign into the developer portal by using an Azure AD account](#log_in_to_dev_portal).
+* You can manage the Azure AD configuration on the **Developer portal** > **Identities** page in the portal.
+* Optionally configure other sign-in settings by selecting **Identities** > **Settings**. For example, you might want to redirect anonymous users to the sign-in page.
+* Republish the developer portal after any configuration change.
+
+### Manually enable Azure AD application and identity provider 
+
+1. In the left menu of your API Management instance, under **Developer portal**, select **Identities**.
+1. Select **+Add** from the top to open the **Add identity provider** pane to the right.
+1. Under **Type**, select **Azure Active Directory** from the drop-down menu.
+    * Once selected, you'll be able to enter other necessary information. 
+    * Information includes **Client ID** and **Client secret**. 
+    * See more information about these controls later in the article.
+1. Save the **Redirect URL** for later.
     
+    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad001.png" alt-text="Screenshot of adding identity provider in Azure portal.":::
 
-    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad001.png" alt-text="Add identity provider in Azure portal":::
     > [!NOTE]
     > There are two redirect URLs:<br/>
-    > **Redirect URL** - points to the latest developer portal of the API Management.<br/>
-    > **Redirect URL (deprecated portal)** - points to the deprecated developer portal of API Management.
+    > * **Redirect URL** points to the latest developer portal of the API Management.
+    > * **Redirect URL (deprecated portal)** points to the deprecated developer portal of API Management.
     >
-    > It is recommended to use the latest developer portal Redirect URL.
+    > We recommended you use the latest developer portal Redirect URL.
    
-10. In your browser, open a different tab. 
-11. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to register an app in Active Directory.
-12. Under **Manage**, select **App registrations**.
-13. Select **New registration**. On the **Register an application** page, set the values as follows:
+1. In your browser, open the Azure portal in a new tab. 
+1. Navigate to [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to register an app in Active Directory.
+1. Select **New registration**. On the **Register an application** page, set the values as follows:
     
-    * Set **Name** to a meaningful name. e.g., *developer-portal*
+    * Set **Name** to a meaningful name such as *developer-portal*
     * Set **Supported account types** to **Accounts in this organizational directory only**. 
-    * Set **Redirect URI** to the value you got from step 9. 
-    * Choose **Register**. 
+    * In **Redirect URI**, select **Web** and paste the redirect URL you saved from a previous step. 
+    * Select **Register**. 
 
-14.  After the application is registered, copy the **Application (client) ID** from the **Overview** page. 
-15. Go back to your API Management instance. In the **Add identity provider** window, paste the **Application (client) ID** value into the **Client ID** box.
-16. Switch back to the Azure AD configuration, Select **Certificates & secrets** under **Manage**. Select the **New client secret** button. Enter a value in **Description**, select any option for **Expires** and choose **Add**. Copy the client secret value before leaving the page. You will need it in the next step. 
-17. Under **Manage**, select **Authentication** and then select **ID tokens** under **Implicit Grant**
-18. Go back to your API Management instance, paste the secret into the **Client secret** box.
+1.  After you've registered the application, copy the **Application (client) ID** from the **Overview** page. 
+1. Switch to the browser tab with your API Management instance. 
+1. In the **Add identity provider** window, paste the **Application (client) ID** value into the **Client ID** box.
+1. Switch to the browser tab with the App Registration.
+1. Select the appropriate app registration.
+1. Under the **Manage** section of the side menu, select **Certificates & secrets**. 
+1. From the **Certificates & secrets** page, select the **New client secret** button under **Client secrets**. 
+    * Enter a **Description**.
+    * Select any option for **Expires**.
+    * Choose **Add**. 
+1. Copy the client **Secret value** before leaving the page. You will need it later. 
+1. Under **Manage** in the side menu, select **Authentication**.
+    1. Under the **Implicit grant and hybrid flows** section, select the **ID tokens** checkbox.
+    1. Select **Save**.
+1. Under **Manage** in the side menu, select **Token configuration** > **+ Add optional claim**.
+    1. In **Token type**, select **ID**.
+    1. Select (check) the following claims: **email**, **family_name**, **given_name**.
+    1. Select **Add**. If prompted, select **Turn on the Microsoft Graph email, profile permission**. 
+1. Switch to the browser tab with your API Management instance. 
+1. Paste the secret into the **Client secret** field in the **Add identity provider** pane.
 
     > [!IMPORTANT]
-    > Please make sure to update the **Client secret** before the key expires. 
-    >  
-    >
+    > Update the **Client secret** before the key expires. 
 
-19. The **Add identity provider** window also contains the **Allowed Tenants** text box. There, specify the domains of the Azure AD instances to which you want to grant access to the APIs of the API Management service instance. You can separate multiple domains with newlines, spaces, or commas.
+1. In the **Add identity provider** pane's **Allowed tenants** field, specify the Azure AD instance's domains to which you want to grant access to the API Management service instance APIs. 
+    * You can separate multiple domains with newlines, spaces, or commas.
 
     > [!NOTE]
-    > You can specify multiple domains in the **Allowed Tenants** section. Before any user can sign in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, the global administrator should:
-    > a. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, https://contoso.portal.azure-api.net/aadadminconsent).
-    > b. Type in the domain name of the Azure AD tenant that they want to give access to.
-    > c. Select **Submit**. 
+    > You can specify multiple domains in the **Allowed Tenants** section. A global administration must grant the application access to directory data before users can sign in from a different domain than the original app registration domain. To grant permission, the global administrator should:
+    > 1. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, `https://contoso.portal.azure-api.net/aadadminconsent`).
+    > 1. Enter the domain name of the Azure AD tenant to which they want to grant access.
+    > 1. Select **Submit**. 
 
-20.  After you specify the desired configuration, select **Add**.
+1. After you specify the desired configuration, select **Add**.
+1. Republish the developer portal for the Azure AD configuration to take effect. In the left menu, under **Developer portal**, select **Portal overview** > **Publish**. 
 
-After the changes are saved, users in the specified Azure AD instance can sign in to the developer portal by following the steps in [Sign in to the developer portal by using an Azure AD account](#log_in_to_dev_portal).
+After the Azure AD provider is enabled:
+
+* Users in the specified Azure AD instance can [sign into the developer portal by using an Azure AD account](#log_in_to_dev_portal).
+* You can manage the Azure AD configuration on the **Developer portal** > **Identities** page in the portal.
+* Optionally configure other sign-in settings by selecting **Identities** > **Settings**. For example, you might want to redirect anonymous users to the sign-in page.
+* Republish the developer portal after any configuration change.
 
 ## Add an external Azure AD group
 
-After you enable access for users in an Azure AD tenant, you can add Azure AD groups into API Management. As a result, you can control product visibility using Azure AD groups.
+Now that you've enabled access for users in an Azure AD tenant, you can:
+* Add Azure AD groups into API Management. 
+* Control product visibility using Azure AD groups.
 
-To add an external Azure AD group into APIM, you must first complete the previous section. By default, the application you registered has access to the Microsoft Graph API with the required `User.Read` Delegated permission. You must also give the application access to the Microsoft Graph API and Azure Active Directory Graph API with the `Directory.Read.All` Application permission by following these steps: 
+Follow these steps to grant:
+* `Directory.Read.All` **application** permission for Microsoft Graph API.
+* `User.Read` **delegated** permission for Microsoft Graph API. 
 
-1. Go back to your app registration that was created in the previous section.
-2. Select **API Permissions**, and then select **Add a permission**. 
-3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, and then select the **Microsoft Graph** tile. Select **Application permissions** and search for **Directory**. Select the **Directory.Read.All** permission, and then select **Add permissions** at the bottom of the pane.
-4. Select **Add a permission**. 
-5. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, scroll down, and then select the **Azure Active Directory Graph** tile. Select **Application permissions** and search for **Directory**. Select the **Directory.Read.All** permission, and then select **Add permissions**. 
-6. Select **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
+1. Update the first 3 lines of the following Azure CLI script to match your environment and run it.
+
+   ```azurecli
+   $subId = "Your Azure subscription ID" #e.g. "1fb8fadf-03a3-4253-8993-65391f432d3a"
+   $tenantId = "Your Azure AD Tenant or Organization ID" #e.g. 0e054eb4-e5d0-43b8-ba1e-d7b5156f6da8"
+   $appObjectID = "Application Object ID that has been registered in AAD" #e.g. "2215b54a-df84-453f-b4db-ae079c0d2619"
+   #Login and Set the Subscription
+   az login
+   az account set --subscription $subId
+   #Assign the following permissions: Microsoft Graph Delegated Permission: User.Read, Microsoft Graph Application Permission: Directory.ReadAll
+   az rest --method PATCH --uri "https://graph.microsoft.com/v1.0/$($tenantId)/applications/$($appObjectID)" --body "{'requiredResourceAccess':[{'resourceAccess': [{'id': 'e1fe6dd8-ba31-4d61-89e7-88639da4683d','type': 'Scope'},{'id': '7ab1d382-f21e-4acd-a863-ba3e13f7da61','type': 'Role'}],'resourceAppId': '00000003-0000-0000-c000-000000000000'}]}"
+   ```
+
+1. Sign out and sign back in to the Azure portal.
+1. Navigate to the App Registration page for the application you registered in [the previous section](#enable-user-sign-in-using-azure-ad---portal). 
+1. Select **API Permissions**. You should see the permissions granted by the Azure CLI script in step 1. 
+1. Select **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
 
 Now you can add external Azure AD groups from the **Groups** tab of your API Management instance.
 
-1. Select the **Groups** tab.
-2. Select the **Add AAD group** button.
+1. Under **Developer portal** in the side menu, select **Groups**.
+1. Select the **Add Azure AD group** button.
 
-   !["Add A A D group" button](./media/api-management-howto-aad/api-management-with-aad008.png)
-3. Select the group that you want to add.
-4. Press the **Select** button.
+   !["Screenshot showing Add Azure AD group button.](./media/api-management-howto-aad/api-management-with-aad008.png)
+1. Select the **Tenant** from the drop-down. 
+1. Search for and select the group that you want to add.
+1. Press the **Select** button.
 
-After you add an external Azure AD group, you can review and configure its properties. Select the name of the group from the **Groups** tab. From here, you can edit **Name** and **Description** information for the group.
+Once you add an external Azure AD group, you can review and configure its properties: 
+1. Select the name of the group from the **Groups** tab. 
+2. Edit **Name** and **Description** information for the group.
  
-Users from the configured Azure AD instance can now sign in to the developer portal. They can view and subscribe to any groups for which they have visibility.
+Users from the configured Azure AD instance can now:
+* Sign into the developer portal. 
+* View and subscribe to any groups for which they have visibility.
 
-## <a id="log_in_to_dev_portal"></a> Developer portal - add Azure AD account authentication
+> [!NOTE]
+> Learn more about the difference between **Delegated** and **Application** permissions types     in [Permissions and consent in the Microsoft identity platform](../active-directory/develop/v2-permissions-and-consent.md#permission-types) article.
 
-In the developer portal, sign-in with AAD is possible with the **Sign-in button: OAuth** widget. The widget is already included on the sign-in page of the default developer portal content.
+## <a id="log_in_to_dev_portal"></a> Developer portal: Add Azure AD account authentication
 
-Although a new account will be automatically created whenever a new user signs in with AAD, you may consider adding the same widget to the sign-up page.
+In the developer portal, you can sign in with Azure AD using the **Sign-in button: OAuth** widget included on the sign-in page of the default developer portal content.
 
-The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
+:::image type="content" source="media/api-management-howto-aad/developer-portal-azure-ad-signin.png" alt-text="Screenshot showing OAuth widget in developer portal.":::
+
+
+Although a new account will automatically be created when a new user signs in with Azure AD, consider adding the same widget to the sign-up page. The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
 
 > [!IMPORTANT]
-> You need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the AAD changes to take effect.
+> You need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the Azure AD changes to take effect.
 
-## Legacy developer portal - how to sign in with Azure AD
+## Legacy developer portal: How to sign in with Azure AD
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-To sign in to the developer portal by using an Azure AD account that you configured in the previous sections:
+To sign into the developer portal by using an Azure AD account that you configured in the previous sections:
 
-1. Open a new browser window by using the sign-in URL from the Active Directory application configuration, and select **Azure Active Directory**.
+1. Open a new browser window using the sign-in URL from the Active Directory application configuration. 
+2. Select **Azure Active Directory**.
 
    ![Sign-in page][api-management-dev-portal-signin]
 
-1. Enter the credentials of one of the users in Azure AD, and select **Sign in**.
+1. Enter the credentials of one of the users in Azure AD.
+2. Select **Sign in**.
 
    ![Signing in with username and password][api-management-aad-signin]
 
-1. You might be prompted with a registration form if any additional information is required. Complete the registration form, and select **Sign up**.
+1. If prompted with a registration form, complete with any additional information required. 
+2. Select **Sign up**.
 
    !["Sign up" button on registration form][api-management-complete-registration]
 
 Your user is now signed in to the developer portal for your API Management service instance.
 
 ![Developer portal after registration is complete][api-management-registration-complete]
+
+## Next Steps
+
+- Learn how to [Protect your web API backend in API Management by using OAuth 2.0 authorization with Azure AD](./api-management-howto-protect-backend-with-aad.md)
+- Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
+- Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
+- For other ways to secure your back-end service, see [Mutual Certificate authentication](./api-management-howto-mutual-certificates.md).
+- [Create an API Management service instance](./get-started-create-service-instance.md).
+- [Manage your first API](./import-and-publish.md).
 
 [api-management-dev-portal-signin]: ./media/api-management-howto-aad/api-management-dev-portal-signin.png
 [api-management-aad-signin]: ./media/api-management-howto-aad/api-management-aad-signin.png

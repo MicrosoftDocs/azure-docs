@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 08/16/2021
+ms.date: 10/11/2021
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: klaasl
@@ -27,7 +27,7 @@ The following list describes features and capabilities that are available in the
 
 - **Custom Schema**
 
-  You can choose which fields appear in reports. Choose from a list of supported fields. That list appears later in this article. 
+  You can choose which fields appear in reports. Choose from a list of supported fields. That list appears later in this article.
 
 - **CSV and Apache Parquet output format**
 
@@ -41,7 +41,7 @@ The following list describes features and capabilities that are available in the
 
 Enable blob inventory reports by adding a policy with one or more rules to your storage account. For guidance, see [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md).
 
-## Upgrading an inventory policy 
+## Upgrading an inventory policy
 
 If you are an existing Azure Storage blob inventory user who has configured inventory prior to June 2021, you can start using the new features by loading the policy, and then saving the policy back after making changes. When you reload the policy, the new fields in the policy will be populated with default values. You can change these values if you want. Also, the following two features will be available.
 
@@ -51,24 +51,24 @@ If you are an existing Azure Storage blob inventory user who has configured inve
 
 ## Inventory policy
 
-An inventory policy is a collection of rules in a JSON document.
+An inventory report is configured by adding an inventory policy with one or more rules. An inventory policy is a collection of rules in a JSON document.
 
 ```json
 {
+  "enabled": true,
+  "rules": [
+  {
     "enabled": true,
-    "rules": [
-    {
-        "enabled": true,
-        "name": "inventoryrule1",
-        "destination": "inventory-destination-container",
-        "definition": {. . .}
-    },
-    {
-        "enabled": true,
-        "name": "inventoryrule2",
-        "destination": "inventory-destination-container",
-        "definition": {. . .}
-    }]
+    "name": "inventoryrule1",
+    "destination": "inventory-destination-container",
+    "definition": {. . .}
+  },
+  {
+    "enabled": true,
+    "name": "inventoryrule2",
+    "destination": "inventory-destination-container",
+    "definition": {. . .}
+  }]
 }
 ```
 
@@ -119,43 +119,42 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 
 ```json
 {
-	"destination": "inventory-destination-container",
-	"enabled": true,
-	"rules": [
-                             {
-			"definition": {
-				"filters": {
-					"blobTypes": ["blockBlob", "appendBlob", "pageBlob"],
-					"prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"],
-					"includeSnapshots": false,
-					"includeBlobVersions": true,
-				},
-				"format": "csv",
-				"objectType": "blob",
-				"schedule": "daily",
-				"schemaFields": ["Name", "Creation-Time"]
-			}
-			"enabled": true,
-			"name": "blobinventorytest",
-			"destination": "inventorydestinationContainer"
-		},
-                             {
-			"definition": {
-				"filters": {
-					"prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"]
-				},
-				"format": "csv",
-				"objectType": "container",
-				"schedule": "weekly",
-				"schemaFields": ["Name", "HasImmutabilityPolicy", "HasLegalHold"]
-			}
-			"enabled": true,
-			"name": "containerinventorytest",
-			"destination": "inventorydestinationContainer"
-		}
-	]
+  "destination": "inventory-destination-container",
+  "enabled": true,
+  "rules": [
+  {
+    "definition": {
+      "filters": {
+        "blobTypes": ["blockBlob", "appendBlob", "pageBlob"],
+        "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"],
+        "includeSnapshots": false,
+        "includeBlobVersions": true,
+      },
+      "format": "csv",
+      "objectType": "blob",
+      "schedule": "daily",
+      "schemaFields": ["Name", "Creation-Time"]
+    },
+    "enabled": true,
+    "name": "blobinventorytest",
+    "destination": "inventorydestinationContainer"
+  },
+  {
+    "definition": {
+      "filters": {
+        "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"]
+      },
+      "format": "csv",
+      "objectType": "container",
+      "schedule": "weekly",
+      "schemaFields": ["Name", "HasImmutabilityPolicy", "HasLegalHold"]
+    },
+    "enabled": true,
+    "name": "containerinventorytest",
+    "destination": "inventorydestinationContainer"
+    }
+  ]
 }
-
 ```
 
 ### Custom schema fields supported for blob inventory
@@ -180,8 +179,6 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 - Metadata
 - LastAccessTime
 
-
-
 ### Custom schema fields supported for container inventory
 
 - Name (Required)
@@ -196,7 +193,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 
 ## Inventory run
 
-A blob inventory run is automatically scheduled every day. It can take up to 24 hours for an inventory run to complete. An inventory report is configured by adding an inventory policy with one or more rules.
+A blob inventory run is automatically scheduled every day. It can take up to 24 hours for an inventory run to complete. For hierarchical namespace enabled accounts, a run can take as long as two days, and depending on the number of files being processed, the run might not complete by end of that two days. If a run does not complete successfully, check subsequent runs to see if they complete before contacting support. The performance of a run can vary, so if a run doesn't complete, it's possible that subsequent runs will.
 
 Inventory policies are read or written in full. Partial updates aren't supported.
 
@@ -208,24 +205,24 @@ Inventory policies are read or written in full. Partial updates aren't supported
 The `BlobInventoryPolicyCompleted` event is generated when the inventory run completes for a rule. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container is not present will trigger the event. The following json shows an example `BlobInventoryPolicyCompleted` event.
 
 ```json
-{ 
-  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic", 
-  "subject": "BlobDataManagement/BlobInventory", 
-  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted", 
-  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
-  "data": { 
-    "scheduleDateTime": "2021-05-28T03:50:27Z", 
-    "accountName": "testaccount", 
-    "ruleName": "Rule_1", 
-    "policyRunStatus": "Succeeded", 
-    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.", 
+{
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic",
+  "subject": "BlobDataManagement/BlobInventory",
+  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "data": {
+    "scheduleDateTime": "2021-05-28T03:50:27Z",
+    "accountName": "testaccount",
+    "ruleName": "Rule_1",
+    "policyRunStatus": "Succeeded",
+    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.",
     "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv" 
-  }, 
-  "dataVersion": "1.0", 
-  "metadataVersion": "1", 
-  "eventTime": "2021-05-28T15:03:18Z" 
-} 
+    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv"
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2021-05-28T15:03:18Z"
+}
 ```
 
 The following table describes the schema of the `BlobInventoryPolicyCompleted` event.
@@ -254,60 +251,64 @@ Each inventory rule generates a set of files in the specified inventory destinat
 
 Each inventory run for a rule generates the following files:
 
-- **Inventory file**: An inventory run for a rule generates one or more CSV or Apache Parquet formatted files. If the matched object count is large, then multiple files are generated instead of a single file. Each such file contains matched objects and their metadata. For a CS formatted file, the first row is always the schema row. The following image shows an inventory CSV file opened in Microsoft Excel.
+- **Inventory file:** An inventory run for a rule generates one or more CSV or Apache Parquet formatted files. If the matched object count is large, then multiple files are generated instead of a single file. Each such file contains matched objects and their metadata. 
+
+  > [!NOTE]
+  > Reports in the Apache Parquet format present dates in the following format: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`.
+
+  For a CSV formatted file, the first row is always the schema row. The following image shows an inventory CSV file opened in Microsoft Excel.
 
   :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Screenshot of an inventory CSV file opened in Microsoft Excel":::
 
-  > [!NOTE] 
-  > Reports in the Apache Parquet format present dates in the following format: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`.
+  > [!IMPORTANT]
+  > The blob paths that appear in an inventory file might not appear in any particular order. 
 
+- **Checksum file:** A checksum file contains the MD5 checksum of the contents of manifest.json file. The name of the checksum file is `<ruleName>-manifest.checksum`. Generation of the checksum file marks the completion of an inventory rule run.
 
-- **Checksum file**: A checksum file contains the MD5 checksum of the contents of manifest.json file. The name of the checksum file is `<ruleName>-manifest.checksum`. Generation of the checksum file marks the completion of an inventory rule run.
+- **Manifest file:** A manifest.json file contains the details of the inventory file(s) generated for that rule. The name of the file is `<ruleName>-manifest.json`. This file also captures the rule definition provided by the user and the path to the inventory for that rule. The following json shows the contents of a sample manifest.json file.
 
-- **Manifest file**: A manifest.json file contains the details of the inventory file(s) generated for that rule. The name of the file is `<ruleName>-manifest.json`. This file also captures the rule definition provided by the user and the path to the inventory for that rule. The following json shows the contents of a sample manifest.json file.
-
-  ```json 
-  { 
-  "destinationContainer" : "inventory-destination-container", 
-  "endpoint" : "https://testaccount.blob.core.windows.net", 
-  "files" : [ 
-		{ 
-			"blob" : "2021/05/26/13-25-36/Rule_1/Rule_1.csv", 
-			"size" : 12710092 
-		} 
-	], 
-	"inventoryCompletionTime" : "2021-05-26T13:35:56Z", 
-	"inventoryStartTime" : "2021-05-26T13:25:36Z", 
-	"ruleDefinition" : { 
-		"filters" : { 
-			"blobTypes" : [ "blockBlob" ], 
-			"includeBlobVersions" : false, 
-			"includeSnapshots" : false, 
-			"prefixMatch" : [ "penner-test-container-100003" ] 
-		}, 
-		"format" : "csv", 
-		"objectType" : "blob", 
-		"schedule" : "daily", 
-		"schemaFields" : [ 
-			"Name", 
-			"Creation-Time", 
-			"BlobType", 
-			"Content-Length", 
-			"LastAccessTime", 
-			"Last-Modified", 
-			"Metadata", 
-			"AccessTier" 
-		] 
-	}, 
-	"ruleName" : "Rule_1", 
-	"status" : "Succeeded", 
-	"summary" : { 
-		"objectCount" : 110000, 
-		"totalObjectSize" : 23789775 
-	}, 
-	"version" : "1.0" 
-	} 
-   ```
+  ```json
+  {
+  "destinationContainer" : "inventory-destination-container",
+  "endpoint" : "https://testaccount.blob.core.windows.net",
+  "files" : [
+    {
+      "blob" : "2021/05/26/13-25-36/Rule_1/Rule_1.csv",
+      "size" : 12710092
+    }
+  ],
+  "inventoryCompletionTime" : "2021-05-26T13:35:56Z",
+  "inventoryStartTime" : "2021-05-26T13:25:36Z",
+  "ruleDefinition" : {
+    "filters" : {
+      "blobTypes" : [ "blockBlob" ],
+      "includeBlobVersions" : false,
+      "includeSnapshots" : false,
+      "prefixMatch" : [ "penner-test-container-100003" ]
+    },
+    "format" : "csv",
+    "objectType" : "blob",
+    "schedule" : "daily",
+    "schemaFields" : [
+      "Name",
+      "Creation-Time",
+      "BlobType",
+      "Content-Length",
+      "LastAccessTime",
+      "Last-Modified",
+      "Metadata",
+      "AccessTier"
+    ]
+  },
+  "ruleName" : "Rule_1",
+  "status" : "Succeeded",
+  "summary" : {
+    "objectCount" : 110000,
+    "totalObjectSize" : 23789775
+  },
+  "version" : "1.0"
+  }
+  ```
 
 ## Pricing and billing
 
@@ -323,13 +324,26 @@ Snapshots and versions of a blob also count towards billing even if you've set `
 
 For more information about pricing for Azure Storage blob inventory, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
+## Feature support
+
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
+
+| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Yes](../media/icons/yes-icon.png) <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
+| Premium block blobs | ![Yes](../media/icons/yes-icon.png)| ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+
+<sup>2</sup> Feature is supported at the preview level.
+
 ## Known issues
 
 This section describes limitations and known issues of the Azure Storage blob inventory feature.
 
 ### Inventory job fails to complete for hierarchical namespace enabled accounts
 
-The inventory job may not complete within 24 hours for an account with hundreds of millions of blobs and hierarchical namespace enabled. If this happens, no inventory file is created.
+The inventory job might not complete within 2 days for an account with hundreds of millions of blobs and hierarchical namespace enabled. If this happens, no inventory file is created. If a job does not complete successfully, check subsequent jobs to see if they complete before contacting support. The performance of a job can vary, so if a job doesn't complete, it's possible that subsequent jobs will.
 
 ### Inventory job cannot write inventory reports
 
@@ -339,4 +353,4 @@ An object replication policy can prevent an inventory job from writing inventory
 
 - [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md)
 - [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
-- [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
+- [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)

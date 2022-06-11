@@ -14,62 +14,11 @@ As part of creating an AKS cluster, you may need to customize your cluster confi
 
 ## OS configuration
 
-AKS now supports Ubuntu 18.04 as the default node operating system (OS) in general availability (GA) for clusters in kubernetes versions higher than 1.18 For versions below 1.18, AKS Ubuntu 16.04 is still the default base image. From kubernetes v1.18 and higher, the default base is AKS Ubuntu 18.04.
-
-> [!IMPORTANT]
-> Node pools created on Kubernetes v1.18 or greater default to `AKS Ubuntu 18.04` node image. Node pools on a supported Kubernetes version less than 1.18 receive `AKS Ubuntu 16.04` as the node image, but will be updated to `AKS Ubuntu 18.04` once the node pool Kubernetes version is updated to v1.18 or greater.
-> 
-> It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to using clusters on 1.18 or greater.
-
-
-### Use AKS Ubuntu 18.04 (GA) on new clusters
-
-Clusters created on Kubernetes v1.18 or greater default to `AKS Ubuntu 18.04` node image. Node pools on a supported Kubernetes version less than 1.18 will still receive `AKS Ubuntu 16.04` as the node image, but will be updated to `AKS Ubuntu 18.04` once the cluster or node pool Kubernetes version is updated to v1.18 or greater.
-
-It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to using clusters on 1.18 or greater.
-
-To create a cluster using `AKS Ubuntu 18.04` node image, simply create a cluster running kubernetes v1.18 or greater as shown below
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-### Use AKS Ubuntu 18.04 (GA) on existing clusters
-
-Clusters created on Kubernetes v1.18 or greater default to `AKS Ubuntu 18.04` node image. Node pools on a supported Kubernetes version less than 1.18 will still receive `AKS Ubuntu 16.04` as the node image, but will be updated to `AKS Ubuntu 18.04` once the cluster or node pool Kubernetes version is updated to v1.18 or greater.
-
-It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to using clusters on 1.18 or greater.
-
-If your clusters or node pools are ready for `AKS Ubuntu 18.04` node image, you can simply upgrade them to a v1.18 or higher as below.
-
-```azurecli
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-If you just want to upgrade just one node pool:
-
-```azurecli
-az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
-
-### Test AKS Ubuntu 18.04 (GA) on existing clusters
-
-Node pools created on Kubernetes v1.18 or greater default to `AKS Ubuntu 18.04` node image. Node pools on a supported Kubernetes version less than 1.18 will still receive `AKS Ubuntu 16.04` as the node image, but will be updated to `AKS Ubuntu 18.04` once the node pool Kubernetes version is updated to v1.18 or greater.
-
-It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to upgrading your production node pools.
-
-To create a node pool using `AKS Ubuntu 18.04` node image, simply create a node pool running kubernetes v1.18 or greater. Your cluster control plane needs to be at least on v1.18 or greater as well but your other node pools can remain on an older kubernetes version.
-Below we are first upgrading the control plane and then creating a new node pool with v1.18 that will receive the new node image OS version.
-
-```azurecli
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14 --control-plane-only
-
-az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
-```
+AKS supports Ubuntu 18.04 as the default node operating system (OS) in general availability (GA) for clusters.
 
 ## Container runtime configuration
 
-A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used for node pools using Kubernetes version 1.19 and greater, and Docker is used for node pools using Kubernetes 1.18 and earlier. For Windows Server 2019 node pools, `containerd` is available in preview and can be used in node pools using Kubernetes 1.20 and greater, but Docker is still used by default.
+A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. For Linux node pools, `containerd` is used for node pools using Kubernetes version 1.19 and greater. For Windows Server 2019 node pools, `containerd` is generally available and can be used in node pools using Kubernetes 1.20 and greater, but Docker is still used by default.
 
 [`Containerd`](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. It was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby (upstream Docker) version that AKS uses already leverages and is built on top of `containerd`, as shown above.
 
@@ -84,7 +33,7 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 > [!IMPORTANT]
 > Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`. You can still use Docker node pools and clusters on older supported versions until those fall off support.
 > 
-> Using `containerd` with Windows Server 2019 node pools is currently in preview. For more details, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
+> Using `containerd` with Windows Server 2019 node pools is generally available, although the default for node pools created on Kubernetes v1.22 and earlier is still Docker. For more details, see [Add a Windows Server node pool with `containerd`][/learn/aks-add-np-containerd].
 > 
 > It is highly recommended to test your workloads on AKS node pools with `containerd` prior to using clusters with a Kubernetes version that supports `containerd` for your node pools.
 
@@ -110,7 +59,7 @@ Additionally not all VM images support Gen2, on AKS Gen2 VMs will use the new [A
 
 ## Ephemeral OS
 
-By default, Azure automatically replicates the operating system disk for an virtual machine to Azure storage to avoid data loss should the VM need to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and higher read/write latency.
+By default, Azure automatically replicates the operating system disk for a virtual machine to Azure storage to avoid data loss should the VM need to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and higher read/write latency.
 
 By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. This provides lower read/write latency, along with faster node scaling and cluster upgrades.
 
@@ -171,6 +120,73 @@ As you work with the node resource group, keep in mind that you can't:
 - Specify names for the managed resources within the node resource group.
 - Modify or delete Azure-created tags of managed resources within the node resource group.
 
+## OIDC Issuer (Preview)
+
+This enables an OIDC Issuer URL of the provider which allows the API server to discover public signing keys. 
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+### Before you begin
+
+You must have the following resource installed:
+
+* The Azure CLI
+* The `aks-preview` extension version 0.5.50 or later
+* Kubernetes version 1.19.x or above
+
+
+#### Register the `EnableOIDCIssuerPreview` feature flag
+
+To use the OIDC Issuer feature, you must enable the `EnableOIDCIssuerPreview` feature flag on your subscription. 
+
+```azurecli
+az feature register --name EnableOIDCIssuerPreview --namespace Microsoft.ContainerService
+```
+You can check on the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableOIDCIssuerPreview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+#### Install the aks-preview CLI extension
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+### Create an AKS cluster with OIDC Issuer
+
+To create a cluster using the OIDC Issuer.
+
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
+az aks create -n aks -g myResourceGroup --enable-oidc-issuer
+```
+
+### Update an AKS cluster with OIDC Issuer
+
+To update a cluster to use OIDC Issuer.
+
+```azurecli-interactive
+az aks update -n aks -g myResourceGroup --enable-oidc-issuer
+```
+
+### Show the OIDC Issuer URL
+
+```azurecli-interactive
+az aks show -n aks -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
+```
+
 ## Next steps
 
 - Learn how [upgrade the node images](node-image-upgrade.md) in your cluster.
@@ -190,4 +206,4 @@ As you work with the node resource group, keep in mind that you can't:
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd-preview
+[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd

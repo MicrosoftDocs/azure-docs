@@ -2,7 +2,7 @@
 title: Send Defender for IoT device security messages
 description: Learn how to send your security messages using Defender for IoT.
 ms.topic: how-to
-ms.date: 2/8/2021
+ms.date: 03/28/2022
 ms.custom: devx-track-js
 ---
 
@@ -21,14 +21,14 @@ In this guide, you learn how to:
 
 ## Defender for IoT capabilities
 
-Defender for IoT can process and analyze any kind of security message data as long as the data sent conforms to the [Defender for IoT schema](https://aka.ms/iot-security-schemas) and the message is set as a security message.
+Defender for IoT can process and analyze any kind of security message data as long as the data sent conforms to the Defender for IoT schema and the message is set as a security message.
 
 ## Security message
 
 Defender for IoT defines a security message using the following criteria:
 
 - If the message was sent with Azure IoT SDK
-- If the message conforms to the [security message schema](https://aka.ms/iot-security-schemas)
+- If the message conforms to the security message schema
 - If the message was set as a security message prior to sending
 
 Each security message includes the metadata of the sender such as `AgentId`, `AgentVersion`, `MessageSchemaVersion` and a list of security events.
@@ -80,7 +80,7 @@ Send security messages *without* using Defender for IoT agent, by using the [Azu
 
 To send the device data from your devices for processing by Defender for IoT, use one of the following APIs to mark messages for correct routing to Defender for IoT processing pipeline.
 
-All data that is sent, even if marked with the correct header, must also comply with the [Defender for IoT message schema](https://aka.ms/iot-security-schemas).
+All data that is sent, even if marked with the correct header, must also comply with the Defender for IoT message schema.
 
 ### Send security message API
 
@@ -216,7 +216,7 @@ public void SendSecurityMessage(string message)
 - Read the Defender for IoT service [Overview](overview.md)
 - Learn more about Defender for IoT [What is agent-based solution for device builders](architecture-agent-based.md)
 - Enable the [service](quickstart-onboard-iot-hub.md)
-- Read the [Azure Defender for IoT agent frequently asked questions](resources-agent-frequently-asked-questions.md)
+- Read the [Microsoft Defender for IoT agent frequently asked questions](resources-agent-frequently-asked-questions.md)
 - Learn how to access [raw security data](how-to-security-data-access.md)
 - Understand [recommendations](concept-recommendations.md)
 - Understand [alerts](concept-security-alerts.md)

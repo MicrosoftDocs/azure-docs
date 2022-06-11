@@ -2,7 +2,7 @@
 title: Authorize access with a shared access signature in Azure Event Hubs
 description: This article provides information about authorizing access to Azure Event Hubs resources by using Shared Access Signatures (SAS).
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 09/20/2021
 ---
 
 # Authorizing access to Event Hubs resources using Shared Access Signatures

@@ -1,12 +1,13 @@
 ---
 title: Monitoring Azure Load Balancer
 description: Start here to learn how to monitor load balancer.
-author: asudbring
-ms.author: allensu
+author: greg-lindsay
+ms.author: greglin
 ms.service: load-balancer
 ms.topic: how-to
-ms.custom: subject-monitoring
-ms.date: 06/29/2021
+ms.custom: subject-monitoring, devx-track-azurecli
+ms.date: 06/29/2021 
+ms.devlang: azurecli
 ---
 
 # Monitoring load balancer

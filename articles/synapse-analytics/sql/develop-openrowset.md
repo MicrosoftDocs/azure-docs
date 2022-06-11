@@ -1,14 +1,14 @@
 ---
 title: How to use OPENROWSET in serverless SQL pool
 description: This article describes syntax of OPENROWSET in serverless SQL pool and explains how to use arguments.
-services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 05/07/2020
+ms.date: 03/23/2022
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
+ms.custom: ignite-fall-2021, contperf-fy22q3
 ---
 
 # How to use OPENROWSET using serverless SQL pool in Azure Synapse Analytics
@@ -16,6 +16,9 @@ ms.reviewer: jrasnick
 The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of a remote data source (for example file) and returns the content as a set of rows. Within the serverless SQL pool resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
 
 The `OPENROWSET` function can be referenced in the `FROM` clause of a query as if it were a table name `OPENROWSET`. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
+
+> [!NOTE]
+> The OPENROWSET function is not supported in dedicated SQL pool.
 
 ## Data source
 
@@ -26,7 +29,7 @@ The `OPENROWSET` function can optionally contain a `DATA_SOURCE` parameter to sp
     ```sql
     SELECT *
     FROM OPENROWSET(BULK 'http://<storage account>.dfs.core.windows.net/container/folder/*.parquet',
-                    FORMAT = 'PARQUET') AS file
+                    FORMAT = 'PARQUET') AS [file]
     ```
 
 This is a quick and easy way to read the content of the files without pre-configuration. This option enables you to use the basic authentication option to access the storage (Azure AD passthrough for Azure AD logins and SAS token for SQL logins). 
@@ -37,7 +40,7 @@ This is a quick and easy way to read the content of the files without pre-config
     SELECT *
     FROM OPENROWSET(BULK '/folder/*.parquet',
                     DATA_SOURCE='storage', --> Root URL is in LOCATION of DATA SOURCE
-                    FORMAT = 'PARQUET') AS file
+                    FORMAT = 'PARQUET') AS [file]
     ```
 
 
@@ -77,7 +80,8 @@ OPENROWSET
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ] 
     FORMAT = 'CSV'
-    [ <bulk_options> ] }  
+    [ <bulk_options> ]
+    [ , <reject_options> ] }  
 )  
 WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
@@ -93,6 +97,14 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 [ , HEADER_ROW = { TRUE | FALSE } ]
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
 [ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
+[ , ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
+
+<reject_options> ::=  
+{  
+    | MAXERRORS = reject_value,  
+    | ERRORFILE_DATA_SOURCE = <data source name>,
+    | ERRORFILE_LOCATION = '/REJECT_Directory'
+}  
 ```
 
 ## Arguments
@@ -238,15 +250,53 @@ CSV parser version 2.0 specifics:
 
 HEADER_ROW = { TRUE | FALSE }
 
-Specifies whether CSV file contains header row. Default is FALSE. Supported in PARSER_VERSION='2.0'. If TRUE, column names will be read from first row according to FIRSTROW argument. If TRUE and schema is specified using WITH, binding of column names will be done by column name, not ordinal positions.
+Specifies whether a CSV file contains header row. Default is `FALSE.` Supported in PARSER_VERSION='2.0'. If TRUE, the column names will be read from the first row according to FIRSTROW argument. If TRUE and schema is specified using WITH, binding of column names will be done by column name, not ordinal positions.
 
 DATAFILETYPE = { 'char' | 'widechar' }
 
-Specifies encoding: char is used for UTF8, widechar is used for UTF16 files.
+Specifies encoding: `char` is used for UTF8, `widechar` is used for UTF16 files.
 
 CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
 
 Specifies the code page of the data in the data file. The default value is 65001 (UTF-8 encoding). See more details about this option [here](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&preserve-view=true#codepage).
+
+ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
+
+This option will disable the file modification check during the query execution, and read the files that are updated while the query is running. This is useful option when you need to read append-only files that are appended while the query is running. In the appendable files, the existing content is not updated, and only new rows are added. Therefore, the probability of wrong results is minimized compared to the updateable files. This option might enable you to read the frequently appended files without handling the errors. See more information in [querying appendable CSV files](query-single-csv-file.md#querying-appendable-files) section.
+
+Reject Options 
+
+> [!NOTE]
+> Rejected rows feature is in Public Preview.
+> Please note that rejected rows feature works for delimited text files and PARSER_VERSION 1.0.
+
+
+You can specify reject parameters that determine how service will handle *dirty* records it retrieves from the external data source. A data record is considered 'dirty' if actual data types don't match the column definitions of the external table.
+
+When you don't specify or change reject options, service uses default values. Service will use the reject options to determine the number of rows that can be rejected before the actual query fails. The query will return (partial) results until the reject threshold is exceeded. It then fails with the appropriate error message.
+
+
+MAXERRORS = *reject_value* 
+
+Specifies the number of rows that can be rejected before the query fails. MAXERRORS must be an integer between 0 and 2,147,483,647.
+
+ERRORFILE_DATA_SOURCE = *data source*
+
+Specifies data source where rejected rows and the corresponding error file should be written.
+
+ERRORFILE_LOCATION = *Directory Location*
+
+Specifies the directory within the DATA_SOURCE, or ERROR_FILE_DATASOURCE if specified, that the rejected rows and the corresponding error file should be written. If the specified path doesn't exist, service will create one on your behalf. A child directory is created with the name "_rejectedrows". The "_" character ensures that the directory is escaped for other data processing unless explicitly named in the location parameter. Within this directory, there's a folder created based on the time of load submission in the format YearMonthDay_HourMinuteSecond_StatementID (Ex. 20180330-173205-559EE7D2-196D-400A-806D-3BF5D007F891). You can use statement id to correlate folder with query that generated it. In this folder, two files are written: error.json file and the data file. 
+
+error.json file contains json array with encountered errors related to rejected rows. Each element representing error contains following attributes:
+
+| Attribute | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| Error     | Reason why row is rejected.                                  |
+| Row       | Rejected row ordinal number in file.                         |
+| Column    | Rejected column ordinal number.                              |
+| Value     | Rejected column value. If the value is larger than 100 characters, only the first 100 characters will be displayed. |
+| File      | Path to file that row belongs to.                            |
 
 ## Fast delimited text parsing
 
@@ -256,9 +306,9 @@ There are two delimited text parser versions you can use. CSV parser version 1.0
 
 You can easily query both CSV and Parquet files without knowing or specifying schema by omitting WITH clause. Column names and data types will be inferred from files.
 
-Parquet files contain column metadata which will be read, type mappings can be found in [type mappings for Parquet](#type-mapping-for-parquet). Check [reading Parquet files without specifying schema](#read-parquet-files-without-specifying-schema) for samples.
+Parquet files contain column metadata, which will be read, type mappings can be found in [type mappings for Parquet](#type-mapping-for-parquet). Check [reading Parquet files without specifying schema](#read-parquet-files-without-specifying-schema) for samples.
 
-For CSV files column names can be read from header row. You can specify whether header row exists using HEADER_ROW argument. If HEADER_ROW = FALSE, generic column names will be used: C1, C2, ... Cn where n is number of columns in file. Data types will be inferred from first 100 data rows. Check [reading CSV files without specifying schema](#read-csv-files-without-specifying-schema) for samples.
+For the CSV files, column names can be read from header row. You can specify whether header row exists using HEADER_ROW argument. If HEADER_ROW = FALSE, generic column names will be used: C1, C2, ... Cn where n is number of columns in file. Data types will be inferred from first 100 data rows. Check [reading CSV files without specifying schema](#read-csv-files-without-specifying-schema) for samples.
 
 > [!IMPORTANT]
 > There are cases when appropriate data type cannot be inferred due to lack of information and larger data type will be used instead. This brings performance overhead and is particularly important for character columns which will be inferred as varchar(8000). For optimal performance, please [check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types) and [use appropriate data types](./best-practices-serverless-sql-pool.md#use-appropriate-data-types).
@@ -417,6 +467,24 @@ WITH (
     [population] bigint 'strict $.population' -- this one works as column name casing is valid
     --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
 )
+AS [r]
+```
+
+### Specify multiple files/folders in BULK path
+
+The following example shows how you can use multiple file/folder paths in BULK parameter:
+
+```sql
+SELECT 
+    TOP 10 *
+FROM  
+    OPENROWSET(
+        BULK (
+            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2000/*.parquet',
+            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2010/*.parquet',
+        ),
+        FORMAT='PARQUET'
+    )
 AS [r]
 ```
 

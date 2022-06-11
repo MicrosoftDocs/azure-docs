@@ -23,8 +23,11 @@ _You may not have access permissions configured correctly. Please ensure you hav
 ### Q: I'm encountering a 500-type error when importing content to the Device Update service.
 _An error code in the 500 range may indicate an issue with the Device Update service. Please wait 5 minutes, then try again. If the same error persists, please follow the instructions in the [Contacting Microsoft Support](#contact) section to file a support request with Microsoft._
 
-### Q: I'm encountering an error code when importing content and would like to parse it.
-_Please refer to the [Device Update Error Codes](./device-update-error-codes.md) documentation for information on parsing error codes._
+### Q: I want to keep the same compatibility properties (target my update to the same device type), but change the Provider or Name in the import manifest. But I get an error "Failed: error importing update due to exceeded limit" when I do so.
+_The same exact set of compatibility properties cannot be used with more than one Update Provider and Name combination. This allows the Device Update service to determine with certainty which updates should be available to deploy to a given device. If you need to update multiple components or partitions on a single device, the [proxy updates](./device-update-proxy-updates.md) feature provides that capability._
+
+### Q: I'm encountering an error message when importing content and would like to understand more about it.
+_Please refer to the [Device Update Error Codes](./device-update-error-codes.md#device-update-content-service) documentation for more detailed information on import-related error messages._
 
 ## <a name="device-failure"></a>Device failures
 

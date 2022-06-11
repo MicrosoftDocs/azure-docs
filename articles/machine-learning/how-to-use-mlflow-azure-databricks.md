@@ -1,19 +1,21 @@
 ---
 title: MLflow Tracking for Azure Databricks ML experiments
 titleSuffix: Azure Machine Learning
-description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from Azure Databricks Ml experiments.
+description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from Azure Databricks ML experiments.
 services: machine-learning
-author: nibaccam
-ms.author: nibaccam
+author: blackmist
+ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.date: 09/22/2020
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 ---
 
 # Track Azure Databricks ML experiments with MLflow and Azure Machine Learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), to connect your Azure Databricks (ADB) experiments, MLflow, and Azure Machine Learning.
 
@@ -21,7 +23,7 @@ In this article, learn how to enable MLflow's tracking URI and logging API, coll
 
 See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
-If you have an MLflow Project to train with Azure Machine Learning, see [Train ML models with MLflow Projects and Azure Machine Learning](how-to-train-mlflow-projects.md).
+If you have an MLflow Project to train with Azure Machine Learning, see [Train ML models with MLflow Projects and Azure Machine Learning (preview)](how-to-train-mlflow-projects.md).
 
 > [!TIP]
 > The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
@@ -75,16 +77,16 @@ Once your ADB cluster is set up,
 Linking your ADB workspace to your Azure Machine Learning workspace enables you to track your experiment data in the Azure Machine Learning workspace.
 
 To link your ADB workspace to a new or existing Azure Machine Learning workspace, 
-1. Sign in to [Azure portal](https://ms.portal.azure.com).
+1. Sign in to [Azure portal](https://portal.azure.com).
 1. Navigate to your ADB workspace's **Overview** page.
 1. Select the **Link Azure Machine Learning workspace** button on the bottom right. 
 
  ![Link Azure DB and Azure Machine Learning workspaces](./media/how-to-use-mlflow-azure-databricks/link-workspaces.png)
+ 
 
 ## MLflow Tracking in your workspaces
 
-After you instantiate your workspace, MLflow Tracking is automatically set to be tracked in
-all of the following places:
+After you instantiate your workspace, MLflow Tracking is automatically set to be tracked in all of the following places:
 
 * The linked Azure Machine Learning workspace.
 * Your original ADB workspace. 
@@ -127,6 +129,9 @@ experimentName = "/Users/{user_name}/{experiment_folder}/{experiment_name}"
 mlflow.set_experiment(experimentName) 
 
 ```
+
+> [!NOTE]
+> MLflow Tracking in a [private link enabled Azure Machine Learning workspace](how-to-configure-private-link.md) is not supported.
 
 ### Set MLflow Tracking to only track in your Azure Machine Learning workspace
 
@@ -210,7 +215,9 @@ display(preds)
 
 ## Clean up resources
 
-If you don't plan to use the logged metrics and artifacts in your workspace, the ability to delete them individually is currently unavailable. Instead, delete the resource group that contains the storage account and workspace, so you don't incur any charges:
+If you wish to keep your Azure Databricks workspace, but no longer need the Azure ML workspace, you can delete the Azure ML workspace. This action results in unlinking your Azure Databricks workspace and the Azure ML workspace. 
+
+If you don't plan to use the logged metrics and artifacts in your workspace, the ability to delete them individually is unavailable at this time. Instead, delete the resource group that contains the storage account and workspace, so you don't incur any charges:
 
 1. In the Azure portal, select **Resource groups** on the far left.
 

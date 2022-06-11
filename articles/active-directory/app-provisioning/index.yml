@@ -13,7 +13,7 @@ metadata:
    ms.date: 08/12/2021
    author: kenwith
    ms.author: kenwith
-   manager: mtillman
+   manager: rkarlin
 
 landingContent:
   - title: Provision users and groups to a cloud app
@@ -22,6 +22,8 @@ landingContent:
         links:
           - text: What is application provisioning?
             url: user-provisioning.md
+          - text: What is HR-driven provisioning?
+            url: what-is-hr-driven-provisioning.md  
           - text: How provisioning works
             url: how-provisioning-works.md
       - linkListType: tutorial
@@ -62,9 +64,4 @@ landingContent:
             url: ../saas-apps/workday-inbound-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
           - text: SAP SuccessFactors provisioning
             url: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-  - title: New in docs
-    linkLists:
-      - linkListType: whats-new
-        links:
-          - text: What's new in docs
-            url: whats-new-docs.md            
+      

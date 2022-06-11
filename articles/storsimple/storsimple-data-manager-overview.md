@@ -9,64 +9,47 @@ editor: ''
 
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2021
+ms.date: 03/18/2022
 ms.author: alkohli
 ---
 
-# StorSimple Data Manager solution overview
+# StorSimple Data Manager overview
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## Overview
 
-Microsoft Azure StorSimple uses cloud storage as an extension of the on-premises solution and automatically tiers data across on-premises storage and the cloud. Data is stored in the cloud in a deduped and compressed format for maximum efficiency and to lower costs. As the data is stored in StorSimple format, it is not readily consumable by other cloud applications that you may want to use.
+Microsoft Azure StorSimple uses cloud storage as an extension of the on-premises solution and automatically tiers data across on-premises storage and the cloud. Data is stored in the cloud in a deduped and compressed format for maximum efficiency. As the data is stored in StorSimple format, it isn't readily consumable by other cloud applications that you may want to use.
 
-The StorSimple Data Manager enables you to seamlessly access and use the StorSimple format data in the cloud. It does this by transforming StorSimple format into native blobs and files, which you can use with other services such as Azure Media Services, Azure HDInsight, and Azure Machine Learning.
+The StorSimple Data Manager allows you to copy your StorSimple data to Azure file shares or Azure blob storage. This article focuses on the former.
 
-This article provides an overview of the StorSimple Data Manager solution. It also explains how you can use this service to write applications that use StorSimple data and other Azure services in the cloud.
+In some scenarios, Azure blob storage can be the right choice, if file and folder structure, metadata, and backups are not important for you to preserve.
+The remainder of this article provides an overview of the StorSimple Data Manager. It also explains how you can use this service to write applications that use StorSimple data and other Azure services in the cloud.
 
-## How it works?
+> [!IMPORTANT]
+> To learn how to use the Data Manager to migrate and preserve your data, see [StorSimple 8100 and 8600 migration to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
-The StorSimple Data Manager service identifies StorSimple data in the cloud from a StorSimple 8000 series on-premises device. The StorSimple data in the cloud is deduped, compressed StorSimple format. The Data Manager service provides APIs to extract the StorSimple format data and transform it into other formats such as Azure blobs and Azure Files. This transformed data is then readily consumed by Azure HDInsight and Azure Media services. The data transformation thus enables these services to operate upon the transformed StorSimple data from StorSimple 8000 series on-premises device. This flow is illustrated in the following diagram.
+## Functional overview
+
+The StorSimple Data Manager service identifies StorSimple data in the cloud from a StorSimple 8000 series on-premises device. The StorSimple data in the cloud is deduped, compressed StorSimple format. The Data Manager service provides APIs to extract the StorSimple format data and transform it into other formats such as Azure blobs and Azure Files. This transformed data is then consumed by Azure HDInsight and Azure Media services. The data transformation enables these services to operate on the transformed StorSimple data from StorSimple 8000 series on-premises device. This flow is illustrated in the following diagram.
 
 ![High-level diagram](./media/storsimple-data-manager-overview/storsimple-data-manager-overview2.png)
 
 
 ## Data Manager use cases
 
-You can use the Data Manager with Azure Functions, Azure Automation, and Azure Data Factory to have workflows running on your data as it comes into StorSimple. You might want to process your media content that you store on StorSimple with Azure Media Services, or run a Machine Learning algorithm on that data, or bring up a Hadoop cluster to analyze the data that you store on StorSimple. With the vast array of services available on Azure combined with the data on StorSimple, you can unlock the power of your data.
-
-
-## Region availability
-
-The StorSimple Data Manager is available in the following 7 regions:
-
- - Southeast Asia
- - East US
- - West US
- - West US 2
- - West Central US
- - North Europe
- - West Europe
-
-However, the StorSimple Data Manager can be used to transform data in the following regions. 
-
-![Regions available for data](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions-m.png)
-
-This set is larger because the resource deployment in any of the above regions is capable of bringing up the transformation process in the below regions. So, as long as your data resides in any one of the 19 regions, you can transform your data using this service.
+The primary use case for a Data Manager is the build-in migration service to leave the StorSimple platform.
 
 
 ## Choosing a region
 
-We recommend that:
- - Your source storage account (the one associated with your StorSimple device) and target storage account (where you want the data in native format) are in the same Azure region.
- - You bring up your Data Manager and job definition in the region that contains the StorSimple storage account. If this is not possible, bring up the Data Manager in the nearest Azure region and then create the Job Definition in the same region as your StorSimple storage account. 
+The region of your Data Manager is not very important for copy performance. The Data Manager itself is a orchestrates migrations.
+It is far more important to choose the correct region for your job definitions (migration jobs) within your Data Manager. 
 
-    If your StorSimple storage account is not in the 26 regions that support job definition creation, we recommend that you do not run StorSimple Data Manager as you see long latencies and potential egress charges.
-    
-Microsoft strives to ensure that Azure services are always available in all regions. However, unplanned service outages may occur for short periods in a certain region. In such cases, you can bring up a Data Manager and job definition in a region that is not affected by the outage, and run the transformation job. You might encounter some additional latency in such a scenario, but this can be your recovery strategy in the rare event of a regional outage.
+Choose a region for your job definition that is either the same or near the region that contains the StorSimple storage account for your StorSimple source volumes. 
 
 ## Security considerations
 
@@ -86,19 +69,37 @@ The StorSimple Data Manager does not collect or display any personal information
 
 ## Known limitations
 
-StorSimple Data Manager has the following limitations:
-- The service doesn't work with volumes that are BitLocker encrypted. You will see job failures if you try to run the service with an encrypted drive.
-- The service can't copy data if the StorSimple snapshot is corrupted.
-- A firewall can't be enabled on the storage account where StorSimple backups are stored. If you enable a firewall on the storage account, jobs will fail. 
-- Some metadata of files (including ACLs) will not be retained in the transformed data.
-- This service works only with NTFS volumes.
-- The StorSimple Data Manager doesn't support migration of Virtual Hard Disks (VHDs). To migrate VHDs, you can use either Azure Data Box or the Azure File Sync service.
-- File path lengths need to be fewer than 256 characters else the job will fail.
+StorSimple Data Manager has different limitations, based on the storage you are moving your data into.
+The following items prevent a migration regardless of target storage:
+
+* Only NTFS volumes from your StorSimple appliance are supported.
+* The service doesn't work with volumes that are BitLocker encrypted.
+* The service can't copy data from a corrupted StorSimple backup.
+* Special networking options, such as firewalls or private endpoint-only communication can't be enabled on either the source storage account where StorSimple backups are stored, nor on the target storage account that holds you Azure file shares.
+
+### Target an Azure file share
+
+There are also limitations on what can be stored in Azure file shares. It's important to understand them before a migration.
+*File fidelity* refers to the multitude of attributes, timestamps, and data that compose a file. In a migration, file fidelity is a measure of how well the information on the source (StorSimple volume) can be translated (migrated) to the target (Azure file share).
+[Azure Files supports a subset](/rest/api/storageservices/set-file-properties) of the [NTFS file properties](/windows/win32/fileio/file-attribute-constants). ACLs, common metadata, and some timestamps will be migrated. The following items won't prevent a migration but will cause per-item issues during a migration:
+
+* Timestamps: File change time won't be set - it is currently read-only over the REST protocol. Last access timestamp on a file won't be moved, it currently isn't a supported attribute on files stored in an Azure file share.
+* [Alternate Data Streams](/openspecs/windows_protocols/ms-fscc/b134f29a-6278-4f3f-904f-5e58a713d2c5) can't be stored in Azure file shares. Files holding Alternate Data Streams will be copied, but Alternate Data Streams are stripped from the file in the process.
+* Symbolic links, hard links, junctions, and reparse points are skipped during a migration. The migration copy logs will list each skipped item and a reason.
+* EFS encrypted files will fail to copy. Copy logs will show the item failed to copy with *Access is denied*.
+* Corrupt files are skipped. The copy logs may list different errors for each item that is corrupt on the StorSimple disk: *The request failed due to a fatal device hardware error* or *The file or directory is corrupted or unreadable* or *The access control list (ACL) structure is invalid*.
+* A single file can't be larger than 4 TiB or it'll be skipped in the migration.
+* File path lengths must be equal to or fewer than 2048 characters. Files and folders with longer paths will be skipped.
+
+### Target an Azure blob container
+
 - Blob transfer limitations:
+  - You can't migrate your backup history. Only the latest StorSimple volume backup can be used as a source.
+  - File path lengths need to be fewer than 256 characters else the job will fail.
   - Maximum supported file size for a blob is 4.7 TiB.
   - Most recent available backup set will be used.
   - File metadata is not uploaded with the file content.
-  - Uploaded blobs are of the Block Blob type. Thus, any uploaded VHD can't be used in Azure Virtual Machines.
+  - Uploaded blobs are of the Block Blob type. Thus, any uploaded VHD or VHDX can't be used in Azure Virtual Machines.
 
 ## Next steps
 

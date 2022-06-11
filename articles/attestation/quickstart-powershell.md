@@ -15,7 +15,11 @@ ms.custom: devx-track-azurepowershell
 
 Follow the below steps to create and configure an attestation provider using Azure PowerShell. See [Overview of Azure PowerShell](/powershell/azure/) for information on how to install and run Azure PowerShell.
 
-Please note that, the PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. TLS 1.2 or a later version is recommended. Hence you may receive the following errors:
+> [!NOTE]
+> Az.Attestation module is now integrated into Az PowerShell module. Minimum version of Az module required to support attestation operations:
+  - Az 6.5.0
+  
+The PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. TLS 1.2 or a later version is recommended. Hence you may receive the following errors:
 
 - WARNING: Unable to resolve package source 'https://www.powershellgallery.com/api/v2'
 - PackageManagement\Install-Package: No match was found for the specified search criteria and module name 
@@ -25,60 +29,6 @@ To continue to interact with the PowerShell Gallery, run the following command b
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 ```
-
-## Install Az.Attestation PowerShell module
-
-On machine with Azure PowerShell, install the Az.Attestation PowerShell module, which contains cmdlets for Azure Attestation.  
-
-### Initial installation
-
-Terminate all existing PowerShell windows.
-
-To install for "current user", launch a non-elevated PowerShell window and run:
-
-```powershell
-Install-Module -Name Az.Attestation -AllowClobber -Scope CurrentUser
-```
-
-To install for "all users", launch an elevated PowerShell window and run:
-
-```powershell
-Install-Module -Name Az.Attestation -AllowClobber -Scope AllUsers
-```
-
-Close the elevated PowerShell console.
-
-### Update the installation
-
-Terminate all existing PowerShell windows.
-
-To update for "current user", launch a non-elevated PowerShell window and run:
-
-```powershell
-Update-Module -Name Az.Attestation
-```
-
-To update for "all users", launch an elevated PowerShell window and run:
-
-```powershell
-Update-Module -Name Az.Attestation
-```
-
-Close the elevated PowerShell console.
-
-### Get installed modules
-
-Minimum version of Az modules required to support attestation operations:
-- Az 4.5.0
-- Az.Accounts 1.9.2
-- Az.Attestation 0.1.8
-
-Run the below command to verify the installed version of all Az modules 
-
-```powershell
-Get-InstalledModule
-```
-If the versions are not matching with the minimum requirement, run Update-Module commands.
 
 ## Sign in to Azure
 

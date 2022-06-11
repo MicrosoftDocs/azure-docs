@@ -1,14 +1,14 @@
 ---
 title: Create and use views in serverless SQL pool
 description: In this section, you'll learn how to create and use views to wrap serverless SQL pool queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with serverless SQL pool.
-services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick 
+ms.reviewer: sngun, wiassaf
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
 # Create and use views using serverless SQL pool in Azure Synapse Analytics
@@ -76,7 +76,7 @@ from openrowset(
            ) as rows
 ```
 
-Delta Lake is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## Partitioned views
 
@@ -117,7 +117,52 @@ The folder name in the `OPENROWSET` function (`yellow` in this example) that is 
 > [!div class="mx-imgBorder"]
 >![Yellow Taxi Delta Lake folder](./media/shared/yellow-taxi-delta-lake.png)
 
-Delta Lake is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+
+## JSON views
+
+The views are the good choice if you need to do some additional processing on top of the result set that is fetched from the files. One example might be parsing JSON files where we need to apply the JSON functions to extract the values from the JSON documents:
+
+```sql
+CREATE OR ALTER VIEW CovidCases
+AS 
+select
+    *
+from openrowset(
+        bulk 'latest/ecdc_cases.jsonl',
+        data_source = 'covid',
+        format = 'csv',
+        fieldterminator ='0x0b',
+        fieldquote = '0x0b'
+    ) with (doc nvarchar(max)) as rows
+    cross apply openjson (doc)
+        with (  date_rep datetime2,
+                cases int,
+                fatal int '$.deaths',
+                country varchar(100) '$.countries_and_territories')
+```
+
+The `OPENJSON` function parses each line from the JSONL file containing one JSON document per line in textual format.
+
+## <a id="cosmosdb-view"></a> Cosmos DB views on containers
+
+The views can be created on top of the Azure Cosmos DB containers if the Cosmos DB analytical storage is enabled on the container. Cosmos DB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped credential that the view references.
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
+GO
+CREATE OR ALTER VIEW Ecdc
+AS SELECT *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      OBJECT = 'Ecdc',
+      CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+
+For more information, see [Query Azure Cosmos DB data with a serverless SQL pool in Azure Synapse Link](query-cosmos-db-analytical-store.md).
 
 ## Use a view
 

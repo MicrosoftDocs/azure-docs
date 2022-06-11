@@ -3,7 +3,7 @@ title: Resource forest concepts for Azure AD Domain Services | Microsoft Docs
 description: Learn what a resource forest is in Azure Active Directory Domain Services and how they benefit your organization in hybrid environment with limited user authentication options or security concerns.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
@@ -27,11 +27,11 @@ A *forest* is a logical construct used by Active Directory Domain Services (AD D
 
 In an Azure AD DS managed domain, the forest only contains one domain. On-premises AD DS forests often contain many domains. In large organizations, especially after mergers and acquisitions, you may end up with multiple on-premises forests that each then contain multiple domains.
 
-By default, a managed domain is created as a *user* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. User accounts can directly authenticate against the managed domain, such as to sign in to a domain-joined VM. A user forest works when the password hashes can be synchronized and users aren't using exclusive sign-in methods like smart card authentication.
+By default, a managed domain is created as a *user* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. User accounts can directly authenticate against the managed domain, such as to sign in to a domain-joined VM. A user forest works when the password hashes can be synchronized, and users aren't using exclusive sign-in methods like smart card authentication.
 
 In a managed domain *resource* forest, users authenticate over a one-way forest *trust* from their on-premises AD DS. With this approach, the user objects and password hashes aren't synchronized to the managed domain. The user objects and credentials only exist in the on-premises AD DS. This approach lets enterprises host resources and application platforms in Azure that depend on classic authentication such LDAPS, Kerberos, or NTLM, but any authentication issues or concerns are removed.
 
-Resource forests also provide the capability to lift-and-shift your applications one component at a time. Many legacy on-premises applications are multi-tiered, often using a web server or front end and many database-related components. These tiers make it hard to lift-and-shift the entire application to the cloud in one step. With resource forests, you can lift your application to the cloud in phased approach, which makes it easier to move your application to Azure.
+Resource forests also provide the capability to lift-and-shift your applications one component at a time. Many legacy on-premises applications are multi-tiered, often using a web server or front end and many database-related components. These tiers make it hard to lift-and-shift the entire application to the cloud in one step. With resource forests, you can lift your application to the cloud in a phased approach, which makes it easier to move your application to Azure.
 
 ## What are trusts?
 
@@ -49,7 +49,7 @@ Trusts are also be configured to handle additional trust relationships in one of
 * **Nontransitive** - The trust exists only between the two trust partner domains.
 * **Transitive** - Trust automatically extends to any other domains that either of the partners trusts.
 
-In some cases, trust relationships are automatically established when domains are created. Other times, you must choose a type of trust and explicitly establish the appropriate relationships. The specific types of trusts used and the structure of those trust relationships depend on how the AD DS directory is organized, and whether different versions of Windows coexist on the network.
+In some cases, trust relationships are automatically established when domains are created. Other times, you must choose a type of trust and explicitly establish the appropriate relationships. The specific types of trusts used and the structure of those trust relationships depend on how the AD DS directory is organized and whether different versions of Windows coexist on the network.
 
 ## Trusts between two forests
 

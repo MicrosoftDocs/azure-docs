@@ -2,7 +2,10 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 05/05/2022
+ms.service: backup
+author: v-amallick
+ms.author: v-amallick
 ---
 # Back up and restore encrypted Azure virtual machines
 
@@ -146,25 +149,11 @@ To set permissions:
 
 1. Select **Save** to provide Azure Backup with the permissions.
 
-## Restore an encrypted VM
-
-Encrypted VMs can only be restored by restoring the VM disk as explained below. **Replace existing** and **Restore VM** aren't supported.
-
-Restore encrypted VMs as follows:
-
-1. [Restore the VM disk](backup-azure-arm-restore-vms.md#restore-disks).
-
-   > [!NOTE]
-   > After you restore the VM disk, you can manually swap the OS disk of the original VM with the restored VM disk without re-creating it. [Learn more](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/).
-
-2. Recreate the virtual machine instance by doing one of the following actions:
-    1. Use the template that's generated during the restore operation to customize VM settings, and trigger VM deployment. [Learn more](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-       >[!NOTE]
-       >While deploying the template, verify the storage account containers and the public/private settings.
-    1. Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
-1. For Linux VMs, reinstall the ADE extension so the data disks are open and mounted.
+You can also set the access policy using [PowerShell](./backup-azure-vms-automation.md#enable-protection) or [CLI](./quick-backup-vm-cli.md#prerequisites-to-backup-encrypted-vms).
 
 ## Next steps
+
+[Restore encrypted Azure virtual machines](restore-azure-encrypted-virtual-machines.md)
 
 If you run into any issues, review these articles:
 

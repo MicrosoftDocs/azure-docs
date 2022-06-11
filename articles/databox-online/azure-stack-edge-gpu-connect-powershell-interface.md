@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 04/14/2022
 ms.author: alkohli
 ---
 # Manage an Azure Stack Edge Pro GPU device via Windows PowerShell
@@ -104,7 +104,7 @@ You want to perform this configuration before you configure compute from the Azu
 
     `Set-HcsKubeClusterNetworkInfo -PodSubnet <subnet details> -ServiceSubnet <subnet details>`
 
-    Replace the <subnet details> with the subnet range that you want to use. 
+    Replace the \<subnet details\> with the subnet range that you want to use. 
 
 1. Once you have run this command, you can use the `Get-HcsKubeClusterNetworkInfo` command to verify that the pod and service subnets have changed.
 
@@ -480,9 +480,11 @@ To change the memory or processor limits for Kubernetes worker node, do the foll
     
 1. To change the values of memory and processors for the worker node, run the following command:
 
-    Set-AzureDataBoxEdgeRoleCompute -Name <Name value from the output of Get-AzureDataBoxEdgeRole> -Memory <Value in Bytes> -ProcessorCount <No. of cores>
+   ```powershell
+   Set-AzureDataBoxEdgeRoleCompute -Name <Name value from the output of Get-AzureDataBoxEdgeRole> -Memory <Value in Bytes> -ProcessorCount <No. of cores>
+   ```
 
-    Here is a sample output. 
+   Here is a sample output. 
     
     ```powershell
     [10.100.10.10]: PS>Set-AzureDataBoxEdgeRoleCompute -Name IotRole -MemoryInBytes 32GB -ProcessorCount 16

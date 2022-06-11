@@ -13,7 +13,7 @@ ms.custom: inference server, local development, local debugging, devplatv2
 ms.date: 05/14/2021
 ---
 
-# Azure Machine Learning inference HTTP server (Preview)
+# Azure Machine Learning inference HTTP server (preview)
 
 The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that allows you to easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
 
@@ -118,7 +118,7 @@ The following table contains the parameters accepted by the server:
 
 The following steps explain how the Azure Machine Learning inference HTTP server works handles incoming requests:
 
-1. A python CLI wrapper sits around the server's network stack and is used to start the server.
+1. A Python CLI wrapper sits around the server's network stack and is used to start the server.
 1. A client sends a request to the server.
 1. When a request is received, it goes through the [WSGI](https://www.fullstackpython.com/wsgi-servers.html) server and is then dispatched to one of the workers.
     - [Gunicorn](https://docs.gunicorn.org/) is used on __Linux__.

@@ -37,7 +37,7 @@ If the *Microsoft Monitoring Agent* VM extension is not installing or reporting,
 3. Ensure the virtual machine can run PowerShell scripts
 4. Ensure permissions on C:\Windows\temp haven’t been changed
 5. View the status of the Microsoft Monitoring Agent by typing the following in an elevated PowerShell window on the virtual machine `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
-6. Review the Microsoft Monitoring Agent setup log files in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
+6. Review the Microsoft Monitoring Agent setup log files in `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.18053.0\`. Note that this path will change based on the version number of the agent.
 
 For more information, see [troubleshooting Windows extensions](../../virtual-machines/extensions/oms-windows.md).
 
@@ -51,8 +51,6 @@ If the *Log Analytics agent for Linux* VM extension is not installing or reporti
 2. For other unhealthy statuses, review the Log Analytics agent for Linux VM extension logs files in `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` and `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. If the extension status is healthy, but data is not being uploaded review the Log Analytics agent for Linux log files in `/var/opt/microsoft/omsagent/log/omsagent.log`
 
-For more information, see [troubleshooting Linux extensions](../../virtual-machines/extensions/oms-linux.md).
-
 ## Next steps
 
-For additional troubleshooting guidance related to the Log Analytics agent for Linux hosted on computers outside of Azure, see [Troubleshoot Azure Log Analytics Linux Agent](../agents/agent-linux-troubleshoot.md).
+For additional troubleshooting guidance related to the Log Analytics agent for Linux, see [Troubleshoot Azure Log Analytics Linux Agent](../agents/agent-linux-troubleshoot.md).

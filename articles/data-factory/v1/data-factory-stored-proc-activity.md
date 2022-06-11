@@ -2,8 +2,9 @@
 title: SQL Server Stored Procedure Activity
 description: Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database or Azure Synapse Analytics from a Data Factory pipeline.
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 author: nabhishek
 ms.author: abnarain
 robots: noindex
@@ -58,7 +59,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
     ```
     `Id` is the unique identifier, and the `datetimestamp` column is the date and time when the corresponding ID is generated.
     
-    ![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
+    :::image type="content" source="./media/data-factory-stored-proc-activity/sample-data.png" alt-text="Sample data":::
 
     In this sample, the stored procedure is in an Azure SQL Database. If the stored procedure is in Azure Synapse Analytics and SQL Server Database, the approach is similar. For a SQL Server database, you must install a [Data Management Gateway](data-factory-data-management-gateway.md).
     
@@ -81,10 +82,10 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
 1. Log in to [Azure portal](https://portal.azure.com/).
 2. Click **NEW** on the left menu, click **Intelligence + Analytics**, and click **Data Factory**.
 
-    ![New data factory 1](media/data-factory-stored-proc-activity/new-data-factory.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/new-data-factory.png" alt-text="New data factory 1":::
 3. In the **New data factory** blade, enter **SProcDF** for the Name. Azure Data Factory names are **globally unique**. You need to prefix the name of the data factory with your name, to enable the successful creation of the factory.
 
-   ![New data factory 2](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
+   :::image type="content" source="media/data-factory-stored-proc-activity/new-data-factory-blade.png" alt-text="New data factory 2":::
 4. Select your **Azure subscription**.
 5. For **Resource Group**, do one of the following steps:
    1. Click **Create new** and enter a name for the resource group.
@@ -94,7 +95,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
 8. Click **Create** on the **New data factory** blade.
 9. You see the data factory being created in the **dashboard** of the Azure portal. After the data factory has been created successfully, you see the data factory page, which shows you the contents of the data factory.
 
-   ![Data Factory home page](media/data-factory-stored-proc-activity/data-factory-home-page.png)
+   :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-home-page.png" alt-text="Data Factory home page":::
 
 ### Create an Azure SQL linked service
 After creating the data factory, you create an Azure SQL linked service that links your database in Azure SQL Database, which contains the sampletable table and usp_sample stored procedure, to your data factory.
@@ -102,7 +103,7 @@ After creating the data factory, you create an Azure SQL linked service that lin
 1. Click **Author and deploy** on the **Data Factory** blade for **SProcDF** to launch the Data Factory Editor.
 2. Click **New data store** on the command bar and choose **Azure SQL Database**. You should see the JSON script for creating an Azure SQL linked service in the editor.
 
-   ![New data store 1](media/data-factory-stored-proc-activity/new-data-store.png)
+   :::image type="content" source="media/data-factory-stored-proc-activity/new-data-store.png" alt-text="New data store 1":::
 3. In the JSON script, make the following changes:
 
    1. Replace `<servername>` with the name of your server.
@@ -110,17 +111,17 @@ After creating the data factory, you create an Azure SQL linked service that lin
    3. Replace `<username@servername>` with the user account that has access to the database.
    4. Replace `<password>` with the password for the user account.
 
-      ![New data store 2](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
+      :::image type="content" source="media/data-factory-stored-proc-activity/azure-sql-linked-service.png" alt-text="New data store 2":::
 4. To deploy the linked service, click **Deploy** on the command bar. Confirm that you see the AzureSqlLinkedService in the tree view on the left.
 
-    ![tree view with linked service 1](media/data-factory-stored-proc-activity/tree-view.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/tree-view.png" alt-text="tree view with linked service 1":::
 
 ### Create an output dataset
 You must specify an output dataset for a stored procedure activity even if the stored procedure does not produce any data. That's because it's the output dataset that drives the schedule of the activity (how often the activity is run - hourly, daily, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or Azure Synapse Analytics or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset** (a dataset that points to a table that does not really hold output of the stored procedure). This dummy dataset is used only to specify the schedule for running the stored procedure activity.
 
 1. Click **... More** on the toolbar, click **New dataset**, and click **Azure SQL**. **New dataset** on the command bar and select **Azure SQL**.
 
-    ![tree view with linked service 2](media/data-factory-stored-proc-activity/new-dataset.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/new-dataset.png" alt-text="tree view with linked service 2":::
 2. Copy/paste the following JSON script in to the JSON editor.
 
     ```JSON
@@ -141,7 +142,7 @@ You must specify an output dataset for a stored procedure activity even if the s
     ```
 3. To deploy the dataset, click **Deploy** on the command bar. Confirm that you see the dataset in the tree view.
 
-    ![tree view with linked services](media/data-factory-stored-proc-activity/tree-view-2.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/tree-view-2.png" alt-text="tree view with linked services":::
 
 ### Create a pipeline with SqlServerStoredProcedure activity
 Now, let's create a pipeline with a stored procedure activity.
@@ -191,16 +192,16 @@ Notice the following properties:
 ### Monitor the pipeline
 1. Click **X** to close Data Factory Editor blades and to navigate back to the Data Factory blade, and click **Diagram**.
 
-    ![diagram tile 1](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-diagram-tile.png" alt-text="diagram tile 1":::
 2. In the **Diagram View**, you see an overview of the pipelines, and datasets used in this tutorial.
 
-    ![diagram tile 2](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-diagram-view.png" alt-text="diagram tile 2":::
 3. In the Diagram View, double-click the dataset `sprocsampleout`. You see the slices in Ready state. There should be five slices because a slice is produced for each hour between the start time and end time from the JSON.
 
-    ![diagram tile 3](media/data-factory-stored-proc-activity/data-factory-slices.png)
+    :::image type="content" source="media/data-factory-stored-proc-activity/data-factory-slices.png" alt-text="diagram tile 3":::
 4. When a slice is in **Ready** state, run a `select * from sampletable` query against the database to verify that the data was inserted in to the table by the stored procedure.
 
-   ![Output data](./media/data-factory-stored-proc-activity/output.png)
+   :::image type="content" source="./media/data-factory-stored-proc-activity/output.png" alt-text="Output data":::
 
    See [Monitor the pipeline](data-factory-monitor-manage-pipelines.md) for detailed information about monitoring Azure Data Factory pipelines.
 
@@ -307,7 +308,7 @@ The following table describes these JSON properties:
 ## Passing a static value
 Now, let's consider adding another column named 'Scenario' in the table containing a static value called 'Document sample'.
 
-![Sample data 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
+:::image type="content" source="./media/data-factory-stored-proc-activity/sample-data-2.png" alt-text="Sample data 2":::
 
 **Table:**
 

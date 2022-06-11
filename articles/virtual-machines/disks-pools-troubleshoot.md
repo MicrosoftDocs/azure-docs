@@ -4,9 +4,10 @@ description: Troubleshoot issues with Azure disk pools. Learn about common failu
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: ignite-fall-2021
 ---
 
 # Troubleshoot Azure disk pools (preview)
@@ -34,6 +35,7 @@ Disk pools and iSCSI targets each have four states: **Unknown**, **Running**, **
 |DeploymentFailureQuotaExceeded     |The subscription used to deploy the disk pool is out of VM core quota in this region. You can [request an increase in vCPU quota limits per Azure VM series](../azure-portal/supportability/per-vm-quota-requests.md) for Dsv3 series.         |
 |DeploymentFailurePolicyViolation     |A policy on the subscription prevented the deployment of Azure resources that are required to support a disk pool. See the error for more details.         |
 |DeploymentTimeout     |This occurs when the deployment of the disk pool infrastructure gets stuck and doesn't complete in the allotted time. Retry the deployment. If the issue persists, contact Azure support and provide the tracking ID of the error message.         |
+|GoalStateApplicationTimeoutError     |Occurs when the disk pool infrastructure stops responding to the resource provider. Confirm you meet the [networking prerequisites](disks-pools-deploy.md#prerequisites) and then retry the deployment. If the issue persists, contact Azure support and provide the tracking ID of the error.         |
 |OngoingOperationInProgress     |An ongoing operation is in-progress on the disk pool. Wait until that operation completes, then retry deployment.         |
 
 ## Common failure codes when enabling iSCSI on disk pools
@@ -41,7 +43,7 @@ Disk pools and iSCSI targets each have four states: **Unknown**, **Running**, **
 |Code  |Description  |
 |---------|---------|
 |GoalStateApplicationError     |Occurs when the iSCSI target configuration is invalid and cannot be applied to the disk pool. Retry the deployment. If the issue persists, contact Azure support and provide the tracking ID of the error.         |
-|GoalStateApplicationTimeoutError     |Occurs when the disk pool infrastructure stops responding to the resource provider. Retry the deployment. If the issue persists, contact Azure support and provide the tracking ID of the error.         |
+|GoalStateApplicationTimeoutError     |Occurs when the disk pool infrastructure stops responding to the resource provider. Confirm you meet the [networking prerequisites](disks-pools-deploy.md#prerequisites) and then retry the deployment. If the issue persists, contact Azure support and provide the tracking ID of the error.         |
 |OngoingOperationInProgress     |An ongoing operation is in-progress on the disk pool. Wait until that operation completes, then retry deployment.         |
 
 ## Next steps

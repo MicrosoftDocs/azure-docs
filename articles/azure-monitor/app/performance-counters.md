@@ -3,13 +3,14 @@ title: Performance counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET performance counters in Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
+ms.devlang: csharp
 ms.custom: devx-track-csharp
-
+ms.reviewer: rijolly
 ---
 
 # System performance counters in Application Insights
 
-Windows provides a wide variety of [performance counters](/windows/desktop/perfctrs/about-performance-counters) such as CPU occupancy, memory, disk, and network usage. You can also define your own performance counters. Performance counters collection is supported as long as your application is running under IIS on an on-premises host, or virtual machine to which you have administrative access. Though applications running as Azure Web Apps don't have direct access to performance counters, a subset of available counters are collected by Application Insights.
+Windows provides a wide variety of [performance counters](/windows/desktop/perfctrs/about-performance-counters) such as processor, memory, and disk usage statistics. You can also define your own performance counters. Performance counters collection is supported as long as your application is running under IIS on an on-premises host, or virtual machine to which you have administrative access. Though applications running as Azure Web Apps don't have direct access to performance counters, a subset of available counters are collected by Application Insights.
 
 ## View counters
 
@@ -51,7 +52,7 @@ If the performance counter you want isn't included in the list of metrics, you c
    * If you added Application Insights to your app during development, edit ApplicationInsights.config in your project, and then redeploy it to your servers.
 3. Edit the performance collector directive:
 
-    ```XML
+    ```xml
 
         <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
           <Counters>
@@ -74,7 +75,6 @@ If you specify an instance, it will be collected as a dimension "CounterInstance
 
 ### Collecting performance counters in code for ASP.NET Web Applications or .NET/.NET Core Console Applications
 To collect system performance counters and send them to Application Insights, you can adapt the snippet below:
-
 
 ```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
@@ -116,17 +116,17 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ## Performance counters in Analytics
 You can search and display performance counter reports in [Analytics](../logs/log-query-overview.md).
 
-The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you'll see only the counters for that application. For example, to see what counters are available: 
+The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you'll see only the counters for that application. For example, to see what counters are available:
 
 ![Performance counters in Application Insights analytics](./media/performance-counters/analytics-performance-counters.png)
 
 ('Instance' here refers to the performance counter instance,  not the role, or server machine instance. The performance counter instance name typically segments counters such as processor time by the name of the process or application.)
 
-To get a chart of available memory over the recent period: 
+To get a chart of available memory over the recent period:
 
 ![Memory timechart in Application Insights analytics](./media/performance-counters/analytics-available-memory.png)
 
-Like other telemetry, **performanceCounters** also has a column `cloud_RoleInstance` that indicates the identity of the host server instance on which your app is running. For example, to compare the performance of your app on the different machines: 
+Like other telemetry, **performanceCounters** also has a column `cloud_RoleInstance` that indicates the identity of the host server instance on which your app is running. For example, to compare the performance of your app on the different machines:
 
 ![Performance segmented by role instance in Application Insights analytics](./media/performance-counters/analytics-metrics-role-instance.png)
 
@@ -136,11 +136,15 @@ Like other telemetry, **performanceCounters** also has a column `cloud_RoleInsta
 
 * *Exception rate* is a system performance counter. The CLR counts all the handled and unhandled exceptions that are thrown, and divides the total in a sampling interval by the length of the interval. The Application Insights SDK collects this result and sends it to the portal.
 
-* *Exceptions* is a count of the TrackException reports received by the portal in the sampling interval of the chart. It includes only the handled exceptions where you have written TrackException calls in your code, and doesn't include all [unhandled exceptions](./asp-net-exceptions.md). 
+* *Exceptions* is a count of the TrackException reports received by the portal in the sampling interval of the chart. It includes only the handled exceptions where you have written TrackException calls in your code, and doesn't include all [unhandled exceptions](./asp-net-exceptions.md).
 
-## Performance counters for applications running in Azure Web Apps
+## Performance counters for applications running in Azure Web Apps and Windows Containers on Azure App Service
 
-Both ASP.NET and ASP.NET Core applications deployed to Azure Web Apps run in a special sandbox environment. This environment does not allow direct access to system performance counters. However, a limited subset of counters are exposed as environment variables as described [here](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Application Insights SDK for ASP.NET and ASP.NET Core collects performance counters from Azure Web Apps from these special environment variables. Only a subset of counters are available in this environment, and the full list can be found [here.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/WEB/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
+Both ASP.NET and ASP.NET Core applications deployed to Azure Web Apps run in a special sandbox environment. Applications deployed to Azure App Service can utilize a [Windows container](../../app-service/quickstart-custom-container.md?pivots=container-windows&tabs=dotnet) or be hosted in a sandbox environment. If the application is deployed in a Windows Container all standard performance counters are available in the container image. 
+
+The sandbox environment does not allow direct access to system performance counters. However, a limited subset of counters are exposed as environment variables as described [here](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Only a subset of counters are available in this environment, and the full list can be found [here](https://github.com/microsoft/ApplicationInsights-dotnet/blob/main/WEB/Src/PerformanceCollector/PerformanceCollector/Implementation/WebAppPerformanceCollector/CounterFactory.cs).
+
+The Application Insights SDK for [ASP.NET](https://nuget.org/packages/Microsoft.ApplicationInsights.Web) and [ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) detect, using environment variables, if code is deployed to a Web App and non-Windows container. This determines whether it collects performance counters from applications using environment variables when in a sandbox environment or utilizing the standard collection mechanism when hosted on a Windows Container or Virtual Machine.
 
 ## Performance counters in ASP.NET Core applications
 
@@ -158,4 +162,3 @@ Like other metrics, you can [set an alert](../alerts/alerts-log.md) to warn you 
 
 * [Dependency tracking](./asp-net-dependencies.md)
 * [Exception tracking](./asp-net-exceptions.md)
-

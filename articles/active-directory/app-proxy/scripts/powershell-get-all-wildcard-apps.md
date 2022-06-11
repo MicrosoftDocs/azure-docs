@@ -3,14 +3,14 @@ title: PowerShell sample - List Azure Active Directory Application Proxy apps us
 description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications that are using wildcards.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
 ms.date: 04/29/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Get all Application Proxy apps using wildcard publishing

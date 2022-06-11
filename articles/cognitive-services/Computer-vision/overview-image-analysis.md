@@ -16,8 +16,6 @@ keywords: computer vision, computer vision applications, computer vision service
 
 # What is Image Analysis?
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
-
 The Computer Vision Image Analysis service can extract a wide variety of visual features from your images. For example, it can determine whether an image contains adult content, find specific brands or objects, or find human faces.
 
 You can use Image Analysis through a client library SDK or by calling the [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) directly. Follow the [quickstart](quickstarts-sdk/image-analysis-client-library.md) to get started.
@@ -27,7 +25,7 @@ You can use Image Analysis through a client library SDK or by calling the [REST 
 
 This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/image-analysis-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
-* The [how-to guides](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) contain instructions for using the service in more specific or customized ways.
+* The [how-to guides](./how-to/call-analyze-image.md) contain instructions for using the service in more specific or customized ways.
 * The [conceptual articles](concept-tagging-images.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
@@ -66,7 +64,7 @@ Generate a description of an entire image in human-readable language, using comp
 
 ### Detect faces
 
-Detect faces in an image and provide information about each detected face. Computer Vision returns the coordinates, rectangle, gender, and age for each detected face.<br/>Computer Vision provides a subset of the [Face](../face/index.yml) service functionality. You can use the Face service for more detailed analysis, such as facial identification and pose detection. [Detect faces](concept-detecting-faces.md)
+Detect faces in an image and provide information about each detected face. Computer Vision returns the coordinates, rectangle, gender, and age for each detected face.<br/>Computer Vision provides a subset of the [Face](./index-identity.yml) service functionality. You can use the Face service for more detailed analysis, such as facial identification and pose detection. [Detect faces](concept-detecting-faces.md)
 
 ### Detect image types
 

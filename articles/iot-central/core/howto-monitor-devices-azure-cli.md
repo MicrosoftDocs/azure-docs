@@ -1,14 +1,14 @@
 ---
 title: Monitor device connectivity using the Azure IoT Central Explorer
 description: Monitor device messages and observe device twin changes through the IoT Central Explorer CLI.
-author: viv-liu
-ms.author: viviali
-ms.date: 03/27/2020
+author: dominicbetts
+ms.author: dobett
+ms.date: 08/30/2021
 ms.topic: how-to
-ms.service: iot-central 
-ms.custom: devx-track-azurecli, device-developer
+ms.service: iot-central
+ms.tool: azure-cli
+ms.custom: device-developer
 services: iot-central
-manager: corywink
 # This topic applies to device developers and solution builders.
 ---
 
@@ -59,7 +59,7 @@ az login
 ```
 
 ### Get the Application ID of your IoT Central app
-In **Administration/Application Settings**, copy the **Application ID**. You use this value in later steps.
+In **Application > Management**, copy the **Application ID**. You use this value in later steps.
 
 ### Monitor messages
 Monitor the messages that are being sent to your IoT Central app from your devices. The output includes all headers and annotations.
@@ -77,4 +77,4 @@ az iot central device twin show --app-id <app-id> --device-id <device-id>
 
 ## Next steps
 
-A suggested next step is to read about [Device connectivity in Azure IoT Central](./concepts-get-connected.md).
+A suggested next step is to learn [how to connect Azure IoT Edge for Linux on Windows (EFLOW)](./howto-connect-eflow.md).

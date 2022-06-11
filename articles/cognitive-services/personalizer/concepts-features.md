@@ -2,8 +2,8 @@
 title: "Features: Action and context - Personalizer" 
 titleSuffix: Azure Cognitive Services
 description: Personalizer uses features, information about actions and context, to make better ranking suggestions. Features can be very generic, or specific to an item.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
@@ -63,10 +63,10 @@ The following are examples of feature namespaces used by applications:
 You can name feature namespaces following your own conventions as long as they are valid JSON keys. Namespaces are used to organize features into distinct sets, and to disambiguate features with similar names. You can think of namespaces as a 'prefix' that is added to feature names. Namespaces cannot be nested.
 
 
-In the following JSON, `user`, `state`, and `device` are feature namespaces. 
+In the following JSON, `user`, `environment`, `device`, and `activity` are feature namespaces. 
 
 > [!Note]
-> Currently we strongly recommend using names for feature namespaces that are UTF-8 based and start with different letters. For example, `user`, `state`, and `device` start with `u`, `s`, and `d`. Currently having namespaces with same first characters could result in collisions in indexes used for machine learning.
+> Currently we strongly recommend using names for feature namespaces that are UTF-8 based and start with different letters. For example, `user`, `environment`, `device`, and `activity` start with `u`, `e`, `d`, and `a`. Currently having namespaces with same first characters could result in collisions in indexes used for machine learning.
 
 JSON objects can include nested JSON objects and simple property/values. An array can be included only if the array items are numbers. 
 
@@ -94,7 +94,7 @@ JSON objects can include nested JSON objects and simple property/values. An arra
             }
         },
         {
-            "userActivity" : {
+            "activity" : {
                 "itemsInCart": 3,
                 "cartValue": 250,
                 "appliedCoupon": true
@@ -160,7 +160,7 @@ For example:
 You can use several other [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), like
 
 * [Entity Linking](../text-analytics/index.yml)
-* [Text Analytics](../text-analytics/overview.md)
+* [Language service](../language-service/index.yml)
 * [Emotion](../face/overview.md)
 * [Computer Vision](../computer-vision/overview.md)
 

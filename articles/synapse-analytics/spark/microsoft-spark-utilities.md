@@ -449,9 +449,17 @@ FS.Rm("file path", true) // Set the last parameter as True to remove all files a
 
 ::: zone-end
 
-:::zone pivot = "programming-language-python"
+
 
 ## Notebook utilities 
+
+:::zone pivot = "programming-language-csharp"
+
+Not supported.
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
 
 You can use the MSSparkUtils Notebook Utilities to run a notebook or exit a notebook with a value. 
 Run the following command to get an overview of the available methods:
@@ -469,8 +477,8 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
-### Run a notebook
-Runs a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.  
+### Reference a notebook
+Reference a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.  
 
 ```python
 
@@ -483,6 +491,10 @@ For example:
 ```python
 mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
 ```
+
+After the run finished, you will see a snapshot link named '**View notebook run: *Notebook Name***'  shown in the cell output, you can click the link to see the snapshot for this specific run.
+
+![Screenshot of a snap link python](./media/microsoft-spark-utilities/spark-utilities-run-notebook-snap-link-sample-python.png)
 
 ### Exit a notebook
 Exits a notebook with a value. You can run nesting function calls in a notebook interactively or in a pipeline. 
@@ -534,10 +546,7 @@ Sample1 run success with input is 20
 ```
 ::: zone-end
 
-
 :::zone pivot = "programming-language-scala"
-
-## Notebook utilities 
 
 You can use the MSSparkUtils Notebook Utilities to run a notebook or exit a notebook with a value. 
 Run the following command to get an overview of the available methods:
@@ -555,8 +564,8 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
-### Run a notebook
-Runs a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.  
+### Reference a notebook
+Reference a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.  
 
 ```scala
 
@@ -567,8 +576,13 @@ mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
 For example:
 
 ```scala
-mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
+mssparkutils.notebook.run("folder/Sample1", 90, Map("input" -> 20))
 ```
+
+After the run finished, you will see a snapshot link named '**View notebook run: *Notebook Name***'  shown in the cell output, you can click the link to see the snapshot for this specific run.
+
+![Screenshot of a snap link scala](./media/microsoft-spark-utilities/spark-utilities-run-notebook-snap-link-sample.png)
+
 
 ### Exit a notebook
 Exits a notebook with a value. You can run nesting function calls in a notebook interactively or in a pipeline. 
@@ -673,7 +687,7 @@ Returns Azure AD token for a given audience, name (optional). The table below li
 |--|--|
 |Audience Resolve Type|'Audience'|
 |Storage Audience Resource|'Storage'|
-|Data Warehouse Audience Resource|'DW'|
+|Dedicated SQL pools (Data warehouse)|'DW'|
 |Data Lake Audience Resource|'AzureManagement'|
 |Vault Audience Resource|'DataLakeStore'|
 |Azure OSSDB Audience Resource|'AzureOSSDB'|
@@ -1086,9 +1100,36 @@ Env.GetClusterId()
 
 ::: zone-end
 
+
+## Runtime Context
+
+Mssparkutils runtime utils exposed 3 runtime properties, you can use the mssparkutils runtime context to get the properties listed as below:
+- **Notebookname** - The name of current notebook, will always return value for both interactive mode and pipeline mode.
+- **Pipelinejobid** - The pipeline run ID, will return value in pipeline mode and return empty string in interactive mode.
+- **Activityrunid** - The notebook activity run ID, will return value in pipeline mode and return empty string in interactive mode.
+
+Currently runtime context support both Python and Scala.
+
+:::zone pivot = "programming-language-python"
+
+```python
+mssparkutils.runtime.context
+```
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+%%spark
+mssparkutils.runtime.context
+```
+::: zone-end
+
 ## Next steps
 
 - [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Azure Synapse Analytics](../index.yml)
+- [How to play with file mount/unmount API in Synapse](./synapse-file-mount-api.md)
+

@@ -8,7 +8,7 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/17/2021
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
 # Quickstart: Build a Java app to manage Azure Cosmos DB Cassandra API data (v3 Driver)
@@ -34,7 +34,7 @@ In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use
 - [Git](https://www.git-scm.com/downloads). On Ubuntu, run `sudo apt-get install git` to install Git.
 
 > [!NOTE]
-> This is a simple quickstart which uses [version 3](https://github.com/datastax/java-driver/tree/3.x) of the open-source Apache Cassandra driver for Java. In most cases, you should be able to connect an existing Apache Cassandra dependent Java application to Azure Cosmos DB Cassandra API without any changes to your existing code. However, we recommend adding our [custom Java extension](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/feature/java-driver-3%2F1.0.0), which includes custom retry and load balancing policies, for a better overall experience. This is to handle [rate limiting](/azure/cosmos-db/cassandra/scale-account-throughput#handling-rate-limiting-429-errors) and application level failover in Azure Cosmos DB respectively. You can find a comprehensive sample which implements the extension [here](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample).
+> This is a simple quickstart which uses [version 3](https://github.com/datastax/java-driver/tree/3.x) of the open-source Apache Cassandra driver for Java. In most cases, you should be able to connect an existing Apache Cassandra dependent Java application to Azure Cosmos DB Cassandra API without any changes to your existing code. However, we recommend adding our [custom Java extension](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/feature/java-driver-3%2F1.0.0), which includes custom retry and load balancing policies, for a better overall experience. This is to handle [rate limiting](./scale-account-throughput.md#handling-rate-limiting-429-errors) and application level failover in Azure Cosmos DB respectively. You can find a comprehensive sample which implements the extension [here](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample).
 
 ## Create a database account
 
@@ -70,27 +70,27 @@ This step is optional. If you're interested to learn how the code creates the da
 
 * The Cassandra host, port, user name, password, and TLS/SSL options are set. The connection string information comes from the connection string page in the Azure portal.
 
-   ```java
-   cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
-   ```
+  ```java
+  cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
+  ```
 
 * The `cluster` connects to the Azure Cosmos DB Cassandra API and returns a session to access.
 
-    ```java
-    return cluster.connect();
-    ```
+  ```java
+  return cluster.connect();
+  ```
 
 The following snippets are from the *src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java* file.
 
 * Create a new keyspace.
 
-    ```java
-    public void createKeyspace() {
-        final String query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3' } ";
-        session.execute(query);
-        LOGGER.info("Created keyspace 'uprofile'");
-    }
-    ```
+  ```java
+  public void createKeyspace() {
+      final String query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3' } ";
+      session.execute(query);
+      LOGGER.info("Created keyspace 'uprofile'");
+  }
+  ```
 
 * Create a new table.
 
@@ -104,41 +104,41 @@ The following snippets are from the *src/main/java/com/azure/cosmosdb/cassandra/
 
 * Insert user entities using a prepared statement object.
 
-    ```java
-    public PreparedStatement prepareInsertStatement() {
-        final String insertStatement = "INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (?,?,?)";
-        return session.prepare(insertStatement);
-    }
+  ```java
+  public PreparedStatement prepareInsertStatement() {
+      final String insertStatement = "INSERT INTO  uprofile.user (user_id, user_name, user_bcity) VALUES (?,?,?)";
+      return session.prepare(insertStatement);
+  }
 
-	public void insertUser(PreparedStatement statement, int id, String name, String city) {
-        BoundStatement boundStatement = new BoundStatement(statement);
-        session.execute(boundStatement.bind(id, name, city));
-    }
-    ```
+  public void insertUser(PreparedStatement statement, int id, String name, String city) {
+      BoundStatement boundStatement = new BoundStatement(statement);
+      session.execute(boundStatement.bind(id, name, city));
+  }
+  ```
 
 * Query to get all user information.
 
-    ```java
-   public void selectAllUsers() {
-        final String query = "SELECT * FROM uprofile.user";
-        List<Row> rows = session.execute(query).all();
+  ```java
+  public void selectAllUsers() {
+      final String query = "SELECT * FROM uprofile.user";
+      List<Row> rows = session.execute(query).all();
 
-        for (Row row : rows) {
-            LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-        }
-    }
-    ```
+      for (Row row : rows) {
+          LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+      }
+  }
+  ```
 
 * Query to get a single user's information.
 
-    ```java
-    public void selectUser(int id) {
-        final String query = "SELECT * FROM uprofile.user where user_id = 3";
-        Row row = session.execute(query).one();
+  ```java
+  public void selectUser(int id) {
+      final String query = "SELECT * FROM uprofile.user where user_id = 3";
+      Row row = session.execute(query).one();
 
-        LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-    }
-    ```
+      LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+  }
+  ```
 
 ## Update your connection string
 

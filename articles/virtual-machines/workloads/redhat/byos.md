@@ -1,13 +1,13 @@
 ---
 title: Red Hat Enterprise Linux bring-your-own-subscription Azure images | Microsoft Docs
 description: Learn about bring-your-own-subscription images for Red Hat Enterprise Linux on Azure.
-author: asinn826
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
-ms.author: alsin
+ms.author: mamccrea
 ---
 
 # Red Hat Enterprise Linux bring-your-own-subscription Gold Images in Azure
@@ -188,7 +188,7 @@ For steps to apply Azure Disk Encryption, see [Azure Disk Encryption scenarios o
 
     In this case, contact Microsoft or Red Hat to enable your subscription.
 
-- If you modify a snapshot from a RHEL BYOS image and attempt to publish that custom image to the [Shared Image Gallery](../../shared-image-galleries.md), you must provide plan information that matches the original source of the snapshot. For example, the command might look like this:
+- If you modify a snapshot from a RHEL BYOS image and attempt to publish that custom image to the [Azure Compute Gallery](../../shared-image-galleries.md) (formerly known as Shared Image Gallery), you must provide plan information that matches the original source of the snapshot. For example, the command might look like this:
 
     ```azurecli
     az vm create –image \

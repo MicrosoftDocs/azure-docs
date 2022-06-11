@@ -136,14 +136,13 @@ packages:
   - httpd
 ```
 > [!NOTE]
-> cloud-init has multiple [input types](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init will use first line of the customData/userData to indicate how it should process the input, for example `#cloud-config` indicates a the content should be processed as a cloud-init config.
+> cloud-init has multiple [input types](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init will use first line of the customData/userData to indicate how it should process the input, for example `#cloud-config` indicates that the content should be processed as a cloud-init config.
 
-
-Press `ctrl-X` to exit the file, type `y` to save the file and press `enter` to confirm the file name on exit.
+Press <kbd>Ctrl + X</kbd> to exit the file, type <kbd>y</kbd> to save the file, and press <kbd>Enter</kbd> to confirm the file name on exit.
 
 The final step is to create a VM with the [az vm create](/cli/azure/vm) command. 
 
-The following example creates a VM named *centos74* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. 
+The following example creates a VM named `centos74` and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. 
 
 ```azurecli-interactive 
 az vm create \
@@ -164,8 +163,21 @@ Once the VM has been provisioned, cloud-init will run through all the modules an
 > [!NOTE]
 > Not every module failure results in a fatal cloud-init overall configuration failure. For example, using the `runcmd` module, if the script fails, cloud-init will still report provisioning succeeded because the runcmd module executed.
 
-For more details of cloud-init logging, refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
+For more details of cloud-init logging, refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/topics/logging.html)
 
+## Telemetry
+cloud-init collects usage data and sends it to Microsoft to help improve our products and services. Telemetry is only collected during the provisioning process (first boot of the VM). The data collected helps us investigate provisioning failures and monitor performance and reliability. Data collected does not include any personally identifiable information. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkId=521839) to learn more. Some examples of telemetry being collected are (this is not an exhaustive list): OS-related information (cloud-init version, distro version, kernel version), performance metrics of essential VM provisioning actions (time to obtain DHCP lease, time to retrieve metadata necessary to configure the VM, etc.), cloud-init log, and dmesg log.
+
+Telemetry collection is currently enabled for a majority of our marketplace images that use cloud-init. It is enabled by specifying KVP telemetry reporter for cloud-init. In a majority of Azure marketplace images, this configuration can be found in the file /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg. Removing this file during image preparation will disable telemetry collection for any VM created from this image. 
+
+Sample content of 10-azure-kvp.cfg
+```
+reporting:
+  logging:
+    type: log
+  telemetry:
+    type: hyperv
+```
 ## Next steps
 
 [Troubleshoot issues with cloud-init](cloud-init-troubleshooting.md).

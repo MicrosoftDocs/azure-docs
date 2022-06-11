@@ -5,9 +5,9 @@ description: This topic describes how to deal with Parquet format in Azure Data 
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse
+ms.custom: synapse, contperf-fy22q2
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 03/25/2022
 ms.author: jianleishen
 ---
 
@@ -16,7 +16,42 @@ ms.author: jianleishen
 
 Follow this article when you want to **parse the Parquet files or write the data into Parquet format**. 
 
-Parquet format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md).
+Parquet format is supported for the following connectors: 
+
+- [Amazon S3](connector-amazon-simple-storage-service.md)
+- [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md)
+- [Azure Blob](connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
+- [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+- [Azure Files](connector-azure-file-storage.md)
+- [File System](connector-file-system.md)
+- [FTP](connector-ftp.md)
+- [Google Cloud Storage](connector-google-cloud-storage.md)
+- [HDFS](connector-hdfs.md)
+- [HTTP](connector-http.md)
+- [Oracle Cloud Storage](connector-oracle-cloud-storage.md)
+- [SFTP](connector-sftp.md)
+
+For a list of supported features for all available connectors, visit the [Connectors Overview](connector-overview.md) article.
+
+## Using Self-hosted Integration Runtime
+
+> [!IMPORTANT]
+> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** and **Microsoft Visual C++ 2010 Redistributable Package** on your IR machine. Check the following paragraph with more details.
+
+For copy running on Self-hosted IR with Parquet file serialization/deserialization, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
+
+- **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **To use OpenJDK**: It's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
+- **To install Visual C++ 2010 Redistributable Package**: Visual C++ 2010 Redistributable Package is not installed with self-hosted IR installations. You can find it from [here](https://www.microsoft.com/download/details.aspx?id=26999).
+
+> [!TIP]
+> If you copy data to/from Parquet format using Self-hosted Integration Runtime and hit error saying "An error occurred when invoking java, message: **java.lang.OutOfMemoryError:Java heap space**", you can add an environment variable `_JAVA_OPTIONS` in the machine that hosts the Self-hosted IR to adjust the min/max heap size for JVM to empower such copy, then rerun the pipeline.
+
+:::image type="content" source="./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png" alt-text="Set JVM heap size on Self-hosted IR":::
+
+Example: set variable `_JAVA_OPTIONS` with value `-Xms256m -Xmx16g`. The flag `Xms` specifies the initial memory allocation pool for a Java Virtual Machine (JVM), while `Xmx` specifies the maximum memory allocation pool. This means that JVM will be started with `Xms` amount of memory and will be able to use a maximum of `Xmx` amount of memory. By default, the service uses min 64 MB and max 1G.
+
 
 ## Dataset properties
 
@@ -88,7 +123,7 @@ Supported **Parquet write settings** under `formatSettings`:
 
 ## Mapping data flow properties
 
-In mapping data flows, you can read and write to parquet format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+In mapping data flows, you can read and write to parquet format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) and [SFTP](connector-sftp.md#mapping-data-flow-properties), and you can read parquet format in [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties).
 
 ### Source properties
 
@@ -109,7 +144,7 @@ The below table lists the properties supported by a parquet source. You can edit
 
 The below image is an example of a parquet source configuration in mapping data flows.
 
-![Parquet source](media/data-flow/parquet-source.png)
+:::image type="content" source="media/data-flow/parquet-source.png" alt-text="Parquet source":::
 
 The associated data flow script is:
 
@@ -134,7 +169,7 @@ The below table lists the properties supported by a parquet sink. You can edit t
 
 The below image is an example of a parquet sink configuration in mapping data flows.
 
-![Parquet sink](media/data-flow/parquet-sink.png)
+:::image type="content" source="media/data-flow/parquet-sink.png" alt-text="Parquet sink":::
 
 The associated data flow script is:
 
@@ -152,24 +187,6 @@ ParquetSource sink(
 ## Data type support
 
 Parquet complex data types (e.g. MAP, LIST, STRUCT) are currently supported only in Data Flows, not in Copy Activity. To use complex types in data flows, do not import the file schema in the dataset, leaving schema blank in the dataset. Then, in the Source transformation, import the projection.
-
-## Using Self-hosted Integration Runtime
-
-> [!IMPORTANT]
-> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** and **Microsoft Visual C++ 2010 Redistributable Package** on your IR machine. Check the following paragraph with more details.
-
-For copy running on Self-hosted IR with Parquet file serialization/deserialization, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
-
-- **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **To use OpenJDK**: It's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
-- **To install Visual C++ 2010 Redistributable Package**: Visual C++ 2010 Redistributable Package is not installed with self-hosted IR installations. You can find it from [here](https://www.microsoft.com/download/details.aspx?id=26999).
-
-> [!TIP]
-> If you copy data to/from Parquet format using Self-hosted Integration Runtime and hit error saying "An error occurred when invoking java, message: **java.lang.OutOfMemoryError:Java heap space**", you can add an environment variable `_JAVA_OPTIONS` in the machine that hosts the Self-hosted IR to adjust the min/max heap size for JVM to empower such copy, then rerun the pipeline.
-
-![Set JVM heap size on Self-hosted IR](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
-
-Example: set variable `_JAVA_OPTIONS` with value `-Xms256m -Xmx16g`. The flag `Xms` specifies the initial memory allocation pool for a Java Virtual Machine (JVM), while `Xmx` specifies the maximum memory allocation pool. This means that JVM will be started with `Xms` amount of memory and will be able to use a maximum of `Xmx` amount of memory. By default, the service uses min 64 MB and max 1G.
 
 ## Next steps
 

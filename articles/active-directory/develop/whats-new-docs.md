@@ -1,12 +1,11 @@
 ---
 title: "What's new in the Microsoft identity platform docs"
-titleSuffix: Microsoft identity platform
 description: "New and updated documentation for the Microsoft identity platform."
 services: active-directory
 author: mmacy
 manager: CelesteDG
 
-ms.date: 09/01/2021
+ms.date: 06/02/2022
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -19,53 +18,38 @@ ms.custom: has-adal-ref
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
-## August 2021
-
-### New articles
-
-- [Authorization basics](authorization-basics.md)
-- [Create a self-signed public certificate to authenticate your application](howto-create-self-signed-certificate.md)
+## May 2022
 
 ### Updated articles
 
-- [Get a complete list of apps using ADAL in your tenant](howto-get-list-of-all-active-directory-auth-library-apps.md)
-- [Microsoft Enterprise SSO plug-in for Apple devices (preview)](apple-sso-plugin.md)
-- [Microsoft identity platform code samples](sample-v2-code.md)
-- [Migrate applications to the Microsoft Authentication Library (MSAL)](msal-migration.md)
-- [Redirect URI (reply URL) restrictions and limitations](reply-url.md)
-- [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
-
-## July 2021
-
-### New articles
-
-- [Azure AD application registration security best practices](security-best-practices-for-app-registration.md)
-- [Role-based access control for application developers](custom-rbac-for-developers.md)
-
-### Updated articles
-
-- [How to migrate a JavaScript app from ADAL.js to MSAL.js](msal-compare-msal-js-and-adal-js.md)
-- [How to migrate a Node.js app from ADAL to MSAL](msal-node-migration.md)
+- [Developer guide to Conditional Access authentication context](developer-guide-conditional-access-authentication-context.md)
 - [Migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
-- [Permissions and consent in the Microsoft identity platform](v2-permissions-and-consent.md)
-- [Protected web API: Verify scopes and app roles](scenario-protected-web-api-verification-scope-app-roles.md)
-- [Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app](quickstart-v2-aspnet-core-webapp.md)
+- [Protected web API: App registration](scenario-protected-web-api-app-registration.md)
+- [Quickstart: Sign in users and call the Microsoft Graph API from an Android app](mobile-app-quickstart-portal-android.md)
+- [Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app](mobile-app-quickstart-portal-ios.md)
+- [Set up your application's Azure AD test environment](test-setup-environment.md)
+- [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md)
+- [Single sign-on with MSAL.js](msal-js-sso.md)
+- [Tutorial: Sign in users and acquire a token for Microsoft Graph in a Node.js & Express web app](tutorial-v2-nodejs-webapp-msal.md)
+- [What's new for authentication?](reference-breaking-changes.md)
 
-## June 2021
+## March 2022
 
 ### New articles
 
-- [Best practices for least privileged access for applications](secure-least-privileged-access.md)
-- [Differences between ADAL.NET and MSAL.NET apps](msal-net-differences-adal-net.md)
-- [How to: Get a complete list of apps using ADAL in your tenant](howto-get-list-of-all-active-directory-auth-library-apps.md)
-- [How to migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
+- [Secure access control using groups in Azure AD](secure-group-access-control.md)
 
 ### Updated articles
 
-- [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md)
-- [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md)
-- [Customize claims emitted in tokens for a specific app in a tenant](active-directory-claims-mapping.md)
-- [Microsoft identity platform code samples](sample-v2-code.md)
-- [Migrating applications to MSAL.NET or Microsoft.Identity.Web](msal-net-migration.md)
-- [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
-- [What's new for authentication?](reference-breaking-changes.md)
+- [Authentication flow support in MSAL](msal-authentication-flows.md)
+- [Claims mapping policy type](reference-claims-mapping-policy-type.md)
+- [Configure an app to trust an external identity provider (preview)](workload-identity-federation-create-trust.md)
+- [OAuth 2.0 and OpenID Connect in the Microsoft identity platform](active-directory-v2-protocols.md)
+- [Signing key rollover in the Microsoft identity platform](active-directory-signing-key-rollover.md)
+- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md)
+
+## February 2022
+
+### Updated articles
+
+- [Desktop app that calls web APIs: Acquire a token using WAM](scenario-desktop-acquire-token-wam.md)

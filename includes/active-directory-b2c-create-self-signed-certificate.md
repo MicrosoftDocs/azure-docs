@@ -1,10 +1,10 @@
 ---
-author: msmimart
+author: kengaderdus
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 01/27/2021
-ms.author: mimart
+ms.date: 11/12/2021
+ms.author: kengaderdus
 # Used by the identity provider (IdP) setup articles under "Custom policy".
 ---
 
@@ -14,7 +14,7 @@ If you don't already have a certificate, you can use a self-signed certificate. 
 
 On Windows, use the [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) cmdlet in PowerShell to generate a certificate.
 
-1. Run the following PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
+1. Run the following PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name such as `contosowebapp.contoso.onmicrosoft.com`. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
 
     ```PowerShell
     New-SelfSignedCertificate `
@@ -27,11 +27,15 @@ On Windows, use the [New-SelfSignedCertificate](/powershell/module/pki/new-selfs
         -CertStoreLocation "Cert:\CurrentUser\My"
     ```
 
-1. Open **Manage user certificates** > **Current User** > **Personal** > **Certificates** > *yourappname.yourtenant.onmicrosoft.com*.
+1. On Windows computer, search for and select **Manage user certificates** 
+1. Under **Certificates - Current User**, select **Personal** > **Certificates**>*yourappname.yourtenant.onmicrosoft.com*.
 1. Select the certificate, and then select **Action** > **All Tasks** > **Export**.
-1. Select **Yes** > **Next** > **Yes, export the private key** > **Next**.
-1. Accept the defaults for **Export File Format**.
-1. Provide a password for the certificate.
+1. Select **Next** > **Yes, export the private key** > **Next**.
+1. Accept the defaults for **Export File Format**, and then select **Next**.
+1. Enable **Password** option, enter a password for the certificate, and then select **Next**.
+1. To specify a location to save your certificate, select **Browse** and navigate to a directory of your choice. 
+1. On the **Save As** window, enter a **File name**, and then select **Save**.
+1. Select **Next**>**Finish**.
 
 For Azure AD B2C to accept the .pfx file password, the password must be encrypted with the TripleDES-SHA1 option in the Windows Certificate Store Export utility, as opposed to AES256-SHA256.
 

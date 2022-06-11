@@ -3,14 +3,14 @@ title: Configure SAML service provider options
 title-suffix: Azure Active Directory B2C
 description: Learn how to configure Azure Active Directory B2C SAML service provider options.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/05/2021
-ms.author: mimart
+ms.date: 10/05/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
@@ -83,7 +83,7 @@ The following example shows metadata for a SAML service provider, with `WantAsse
 
 ```xml
 <EntityDescriptor ID="id123456789" entityID="https://samltestapp2.azurewebsites.net" validUntil="2099-12-31T23:59:59Z" xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
-  <SPSSODescriptor  WantAssertionsSigned="true" AuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+  <SPSSODescriptor WantAssertionsSigned="true" AuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
   ...
   </SPSSODescriptor>
 </EntityDescriptor>
@@ -152,7 +152,7 @@ To configure the encryption method for encrypting the copy of the key that was u
 - `Rsa15` (default): RSA Public Key Cryptography Standard (PKCS) Version 1.5 algorithm.
 - `RsaOaep`: RSA Optimal Asymmetric Encryption Padding (OAEP) encryption algorithm.  
 
-The metadata controls the value of the  `<EncryptedKey>` element in the SAML response.
+The metadata controls the value of the `<EncryptedKey>` element in the SAML response.
 
 The following example shows the `EncryptedAssertion` section of a SAML assertion. The encrypted data method is `Aes128`, and the encrypted key method is `Rsa15`.
 
@@ -222,15 +222,16 @@ To enable IdP-initiated flow, set the `IdpInitiatedProfileEnabled` metadata item
 
 To sign in or sign up a user through IdP-initiated flow, use the following URL:
 
-```
-https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/generic/login?EntityId=app-identifier-uri 
+```http
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/generic/login?EntityId=<app-identifier-uri>&RelayState=<relay-state> 
 ```
 
 Replace the following values:
 
 * Replace `<tenant-name>` with your tenant name.
 * Replace `<policy-name>` with the name of your SAML relying party policy.
-* Replace `app-identifier-uri` with the `identifierUris` value in the metadata file, such as `https://contoso.onmicrosoft.com/app-name`.
+* Replace `<app-identifier-uri>` with the `identifierUris` value in the metadata file, such as `https://contoso.onmicrosoft.com/app-name`.
+* [Optional] replace `<relay-state>` with a value included in the authorization request that also is returned in the token response. The `relay-state` parameter is used to encode information about the user's state in the app before the authentication request occurred, such as the page they were on.
 
 ### Sample policy
 
@@ -290,18 +291,20 @@ For example, when `TokenNotBeforeSkewInSeconds` is set to `120` seconds:
 You can specify whether milliseconds will be removed from date and time values within the SAML response. (These values include `IssueInstant`, `NotBefore`, `NotOnOrAfter`, and `AuthnInstant`.) To remove the milliseconds, set the `RemoveMillisecondsFromDateTime` metadata key within the relying party. Possible values: `false` (default) or `true`.
 
 ```xml
-<ClaimsProvider>
-  <DisplayName>Token Issuer</DisplayName>
-  <TechnicalProfiles>
-    <TechnicalProfile Id="Saml2AssertionIssuer">
-      <DisplayName>Token Issuer</DisplayName>
-      <Protocol Name="SAML2"/>
-      <OutputTokenFormat>SAML2</OutputTokenFormat>
+  <RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="SAML2" />
       <Metadata>
         <Item Key="RemoveMillisecondsFromDateTime">true</Item>
       </Metadata>
-      ...
+      <OutputClaims>
+             ...
+      </OutputClaims>
+      <SubjectNamingInfo ClaimType="objectId" ExcludeAsClaim="true" />
     </TechnicalProfile>
+  </RelyingParty>
 ```
 
 ## Use an issuer ID to override an issuer URI

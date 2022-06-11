@@ -1,14 +1,15 @@
 ---
-title: 'What is a workspace'
+title: 'What is a workspace?'
 titleSuffix: Azure Machine Learning
 description: The workspace is the top-level resource for Azure Machine Learning. It keeps a history of all training runs, with logs, metrics, output, and a snapshot of your scripts. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2021
+ms.date: 01/04/2022
 #Customer intent: As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
@@ -30,13 +31,13 @@ The diagram shows the following components of a workspace:
 + A workspace can contain [Azure Machine Learning compute instances](concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 
 + [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams, or projects.
-+ [Compute targets](concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
++ [Compute targets](v1/concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
-+ [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  
-+ [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
-+ [Datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
++ [Experiments](v1/concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  
++ [Pipelines](v1/concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
++ [Datasets](v1/concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
 + Once you have a model you want to deploy, you create a registered model.
-+ Use the registered model and a scoring script to create a [deployment endpoint](concept-azure-machine-learning-architecture.md#endpoints).
++ Use the registered model and a scoring script to create a [deployment endpoint](v1/concept-azure-machine-learning-architecture.md#endpoints).
 
 ## Tools for workspace interaction
 
@@ -51,7 +52,7 @@ You can interact with your workspace in the following ways:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer](concept-designer.md) 
 + In any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
-+ On the command line using the Azure Machine Learning [CLI extension](./reference-azure-machine-learning-cli.md)
++ On the command line using the Azure Machine Learning [CLI extension](how-to-configure-cli.md)
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -87,7 +88,7 @@ There are multiple ways to create a workspace:
 
 * Use the [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface to walk you through each step.
 * Use the [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) to create a workspace on the fly from Python scripts or Jupyter notebooks
-* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
+* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](how-to-configure-cli.md) when you need to automate or customize the creation with corporate security standards.
 * If you work in Visual Studio Code, use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace).
 
 > [!NOTE]
@@ -114,12 +115,20 @@ When you create a new workspace, it automatically creates several Azure resource
 
   To use an existing Azure Storage account, it cannot be of type BlobStorage or a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage nor hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
   
-+ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that you use during training and when you deploy a model. To minimize costs, ACR is **lazy-loaded** until deployment images are created.
++ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that are used for the following components:
+    * [Azure Machine Learning environments](concept-environments.md) when training and deploying models
+    * [AutoML](concept-automated-ml.md) when deploying
+    * [Data profiling](how-to-connect-data-ui.md#data-profile-and-preview)
+
+    To minimize costs, ACR is **lazy-loaded** until images are needed.
 
     > [!NOTE]
     > If your subscription setting requires adding tags to resources under it, Azure Container Registry (ACR) created by Azure Machine Learning will fail, since we cannot set tags to ACR.
 
-+ [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring information about your models.
++ [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring and diagnostics information. For more information, see [Monitor and collect data from Machine Learning web service endpoints](../../articles/machine-learning/how-to-enable-app-insights.md).
+
+    > [!NOTE]
+    > You can delete the Application Insights instance after cluster creation if you want. Deleting it limits the information gathered from the workspace, and may make it more difficult to troubleshoot problems. __If you delete the Application Insights instance created by the workspace, you cannot re-create it without deleting and recreating the workspace__.
 
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
 

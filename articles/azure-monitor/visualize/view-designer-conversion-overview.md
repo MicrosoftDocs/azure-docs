@@ -45,8 +45,7 @@ While this guide offers simple steps to directly recreate several of the commonl
 
 
 ## How to start using workbooks
-Open workbooks from the 
-Workbooks are enabled in Log Analytics workspaces as an item in the side navigation bar, directly under the view designer location.
+Open workbooks from the Workbooks tile under your Log Analytics workspace.
 
 ![Workbooks navigation](media/view-designer-conversion-overview/workbooks-nav.png)
 

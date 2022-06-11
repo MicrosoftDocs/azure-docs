@@ -1,38 +1,20 @@
 ---
 title: Azure Cosmos DB .NET change feed Processor API, SDK release notes 
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
-author: anfeldma-ms
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: reference
 ms.date: 04/06/2021
-ms.author: anfeldma
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
-# .NET Change Feed Processor SDK: Download and release notes
+# .NET Change Feed Processor SDK: Download and release notes (Legacy)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-> [!div class="op_single_selector"]
->
-> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK v2](sql-api-sdk-dotnet.md)
-> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
-> * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
-> * [Async Java SDK v2](sql-api-sdk-async-java.md)
-> * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
-> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
-> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
-> * [Python](sql-api-sdk-python.md)
-> * [REST](/rest/api
-> * [REST Resource Provider](/rest/api
-> * [SQL](sql-query-getting-started.md)
-> * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
+[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
 
 |   | Links  |
 |---|---|

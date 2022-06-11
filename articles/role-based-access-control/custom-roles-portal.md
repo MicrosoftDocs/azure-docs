@@ -4,7 +4,7 @@ description: Learn how to create Azure custom roles using the Azure portal and A
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
@@ -14,7 +14,7 @@ ms.author: rolyon
 
 # Create or update Azure custom roles using the Azure portal
 
-If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own Azure custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at subscription and resource group scopes. Custom roles are stored in an Azure Active Directory (Azure AD) directory and can be shared across subscriptions. Each directory can have up to 5000 custom roles. Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API. This article describes how to create custom roles using the Azure portal.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own Azure custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group (in preview only), subscription and resource group scopes. Custom roles are stored in an Azure Active Directory (Azure AD) directory and can be shared across subscriptions. Each directory can have up to 5000 custom roles. Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API. This article describes how to create custom roles using the Azure portal.
 
 ## Prerequisites
 
@@ -179,7 +179,7 @@ Follow these steps to add or remove permissions for your custom role.
 
     ![Add permissions list](./media/shared/add-permissions-list.png)
 
-1. If you are looking for permissions that apply to the data plane, click **Data Actions**. Otherwise, leave the actions toggle set to **Actions** to list permissions that apply to the management plane. For more information, about the differences between the management plane and data plane, see [Management and data operations](role-definitions.md#management-and-data-operations).
+1. If you are looking for permissions that apply to the data plane, click **Data Actions**. Otherwise, leave the actions toggle set to **Actions** to list permissions that apply to the control plane. For more information, about the differences between the control plane and data plane, see [Control and data actions](role-definitions.md#control-and-data-actions).
 
 1. If necessary, update the search string to further refine your search.
 

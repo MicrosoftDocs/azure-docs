@@ -3,14 +3,13 @@ title: Azure Load Balancer Floating IP configuration
 description: Overview of Azure Load Balancer Floating IP
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2020
-ms.author: allensu
+ms.date: 12/2/2021
+ms.author: greglin
 
 ---
 
@@ -20,19 +19,56 @@ Load balancer provides several capabilities for both UDP and TCP applications.
 
 ## Floating IP
 
-Some application scenarios prefer or require the same port to be used by multiple application instances on a single VM in the backend pool. Common examples of port reuse include clustering for high availability, network virtual appliances, and exposing multiple TLS endpoints without re-encryption. If you want to reuse the backend port across multiple rules, you must enable Floating IP in the rule definition.
+Some application scenarios prefer or require the same port to be used by multiple application instances on a single VM in the backend pool. Common examples of port reuse include: 
+- clustering for high availability
+- network virtual appliances
+- exposing multiple TLS endpoints without re-encryption. 
 
-**Floating IP** is Azure's terminology for a portion of what is known as Direct Server Return (DSR). DSR consists of two parts:
+If you want to reuse the backend port across multiple rules, you must enable Floating IP in the rule definition.
 
-- Flow topology
-- An IP address mapping scheme
+When Floating IP is enabled, Azure changes the IP address mapping to the Frontend IP address of the Load Balancer frontend instead of backend instance's IP. 
 
-At a platform level, Azure Load Balancer always operates in a DSR flow topology regardless of whether Floating IP is enabled or not. This means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin.
-Without Floating IP, Azure exposes a traditional load balancing IP address mapping scheme for ease of use (the VM instances' IP). Enabling Floating IP changes the IP address mapping to the Frontend IP of the load Balancer to allow for additional flexibility. Learn more [here](load-balancer-multivip-overview.md).
+Without Floating IP, Azure exposes the VM instances' IP. Enabling Floating IP changes the IP address mapping to the Frontend IP of the load Balancer to allow for more flexibility. Learn more [here](load-balancer-multivip-overview.md).
+
+Floating IP can be configured on a Load Balancer rule via the Azure portal, REST API, CLI, PowerShell, or other client. In addition to the rule configuration, you must also configure your virtual machine's Guest OS in order to use Floating IP.
+
+## Floating IP Guest OS configuration
+For each VM in the backend pool, run the following commands at a Windows Command Prompt.
+
+To get the list of interface names you have on your VM, type this command:
+
+```console
+netsh interface show interface 
+```
+
+For the VM NIC (Azure managed), type this command:
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+```
+
+(replace interfacename with the name of this interface)
+
+For each loopback interface you added, repeat these commands:
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+```
+
+(replace interfacename with the name of this loopback interface)
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+```
+
+(replace **interfacename** with the name of this loopback interface)
+
+> [!IMPORTANT]
+> The configuration of the loopback interfaces is performed within the guest OS. This configuration is not performed or managed by Azure. Without this configuration, the rules will not function.
 
 ## <a name = "limitations"></a>Limitations
 
-- Floating IP is not currently supported on secondary IP configurations for Load Balancing scenarios
+- Floating IP is not currently supported on secondary IP configurations for Load Balancing scenarios.  This does not apply to Public load balancers with dual-stack configurations or to architectures that utilize a NAT Gateway for outbound connectivity.
 
 ## Next steps
 

@@ -7,6 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -19,7 +20,7 @@ This article describes how you can configure multiple Azure Functions triggers f
 
 ## Event-based architecture requirements
 
-When building serverless architectures with [Azure Functions](../../azure-functions/functions-overview.md), it's [recommended](../../azure-functions/functions-best-practices.md#avoid-long-running-functions) to create small function sets that work together instead of large long running functions.
+When building serverless architectures with [Azure Functions](../../azure-functions/functions-overview.md), it's [recommended](../../azure-functions/performance-reliability.md#avoid-long-running-functions) to create small function sets that work together instead of large long running functions.
 
 As you build event-based serverless flows using the [Azure Functions trigger for Cosmos DB](./change-feed-functions.md), you'll  run into the scenario where you want to do multiple things whenever there is a new event in a particular [Azure Cosmos container](../account-databases-containers-items.md#azure-cosmos-containers). If actions you want to trigger, are independent from one another, the ideal solution would be to **create one Azure Functions triggers for Cosmos DB per action** you want to do, all listening for changes on the same Azure Cosmos container.
 
@@ -36,7 +37,7 @@ The goal of this article is to guide you to accomplish the second option.
 
 ## Configuring a shared leases container
 
-To configure the shared leases container, the only extra configuration you need to make on your triggers is to add the `LeaseCollectionPrefix` [attribute](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#attributes-and-annotations) if you are using C# or `leaseCollectionPrefix` [attribute](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) if you are using JavaScript. The value of the attribute should be a logical descriptor of what that particular trigger.
+To configure the shared leases container, the only extra configuration you need to make on your triggers is to add the `LeaseCollectionPrefix` [attribute](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#attributes) if you are using C# or `leaseCollectionPrefix` [attribute](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) if you are using JavaScript. The value of the attribute should be a logical descriptor of what that particular trigger.
 
 For example, if you have three Triggers: one that sends emails, one that does an aggregation to create a materialized view, and one that sends the changes to another storage, for later analysis, you could assign the `LeaseCollectionPrefix` of "emails" to the first one, "materialized" to the second one, and "analytics" to the third one.
 

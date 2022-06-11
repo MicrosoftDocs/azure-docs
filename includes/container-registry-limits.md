@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: include
-ms.date: 08/12/2021
+ms.date: 10/22/2021
 ms.author: danlep
 ms.custom: include file
 ---
@@ -26,9 +26,10 @@ ms.custom: include file
 | Availability zones | N/A | N/A | [Preview][zones] |
 | Content trust | N/A | N/A | [Supported][content-trust] |
 | Private link with private endpoints | N/A | N/A | [Supported][plink] |
-| &bull; Private endpoints | N/A | N/A | 10 |
+| &bull; Private endpoints | N/A | N/A | 200 |
 | Public IP network rules | N/A | N/A | 100 |
 | Service endpoint VNet access | N/A | N/A | [Preview][vnet] |
+| &bull; Virtual network rules | N/A | N/A | 100 |
 | Customer-managed keys | N/A | N/A | [Supported][cmk] |
 | Repository-scoped permissions | N/A | N/A | [Preview][token]|
 | &bull; Tokens | N/A | N/A | 20,000 |
@@ -43,6 +44,8 @@ ms.custom: include file
 <sup>3</sup>A [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) translates to multiple read operations based on the number of layers in the image, plus the manifest retrieval.
 
 <sup>4</sup>A [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) translates to multiple write operations, based on the number of layers that must be pushed. A `docker push` includes *ReadOps* to retrieve a manifest for an existing image.
+
+<sup>5</sup> Individual *actions* of `content/delete`, `content/read`, `content/write`, `metadata/read`, `metadata/write` corresponds to the limit of Repositories per scope map. 
 
 <!-- LINKS - External -->
 [pricing]: https://azure.microsoft.com/pricing/details/container-registry/

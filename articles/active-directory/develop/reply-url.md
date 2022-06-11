@@ -1,11 +1,10 @@
 ---
 title: Redirect URI (reply URL) restrictions | Azure AD
-titleSuffix: Microsoft identity platform
 description: A description of the restrictions and limitations on redirect URI (reply URL) format enforced by the Microsoft identity platform.
-author: SureshJa
-ms.author: sureshja
+author: madansr7
+ms.author: saumadan
 manager: CelesteDG
-ms.date: 08/06/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: contperf-fy21q4-portal, aaddev
@@ -49,6 +48,11 @@ This table shows the maximum number of redirect URIs you can add to an app regis
 ## Maximum URI length
 
 You can use a maximum of 256 characters for each redirect URI you add to an app registration.
+
+## Redirect URIs in application vs. service principal objects
+
+* Always add redirect URIs to the application object only.
+* Do not add redirect URI values to a service principal because these values could be removed when the service principal object syncs with the application object. This could happen due to any update operation which triggers a sync between the two objects.
 
 ## Supported schemes
 

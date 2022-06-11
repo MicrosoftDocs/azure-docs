@@ -3,7 +3,7 @@ title: How to contribute widgets for developer portal
 titleSuffix: Azure API Management
 description: Learn about recommended guidelines to follow when you contribute a widget to the API Management developer portal repository.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to

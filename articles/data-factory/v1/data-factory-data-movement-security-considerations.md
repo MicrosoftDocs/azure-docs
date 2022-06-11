@@ -3,8 +3,9 @@ title: Security considerations for data movement in Azure Data Factory
 description: 'Learn about securing data movement in Azure Data Factory.'
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ms.author: abnarain
 robots: noindex
 ---
@@ -75,7 +76,7 @@ Salesforce supports Shield Platform Encryption that allows encryption of all fil
 ## Hybrid Scenarios (using Data Management Gateway)
 Hybrid scenarios require Data Management Gateway to be installed in an on-premises network or inside a virtual network (Azure) or a virtual private cloud (Amazon). The gateway must be able to access the local data stores. For more information about the gateway, see [Data Management Gateway](data-factory-data-management-gateway.md). 
 
-![Data Management Gateway channels](media/data-factory-data-movement-security-considerations/data-management-gateway-channels.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/data-management-gateway-channels.png" alt-text="Data Management Gateway channels":::
 
 The **command channel** allows communication between data movement services in Data Factory and Data Management Gateway. The communication contains information related to the activity. The data channel is used for transferring data between on-premises data stores and cloud data stores.    
 
@@ -95,7 +96,7 @@ You can encrypt data store credentials using [JavaScript Cryptography library](h
 #### Click-once credentials manager app
 You can launch the click-once based credential manager app from Azure portal/Copy Wizard when authoring pipelines. This application ensures that credentials are not transferred in plain text over the wire. By default, it uses the port **8050** on the machine with gateway for secure communication. If necessary, this port can be changed.  
   
-![HTTPS port for the gateway](media/data-factory-data-movement-security-considerations/https-port-for-gateway.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/https-port-for-gateway.png" alt-text="HTTPS port for the gateway":::
 
 Currently, Data Management Gateway uses a single **certificate**. This certificate is created during the gateway installation (applies to Data Management Gateway created after November 2016 and version 2.4.xxxx.x or later). You can replace this certificate with your own SSL/TLS certificate. This certificate is used by the click-once credential manager application to securely connect to the gateway machine for setting data store credentials. It stores data store credentials securely on-premises by using the Windows [DPAPI](/previous-versions/ms995355(v=msdn.10)) on the machine with gateway. 
 
@@ -127,11 +128,11 @@ The following images show the usage of Data Management Gateway for moving data b
 
 **Express Route:**
  
-![Use Express Route with gateway](media/data-factory-data-movement-security-considerations/express-route-for-gateway.png) 
+:::image type="content" source="media/data-factory-data-movement-security-considerations/express-route-for-gateway.png" alt-text="Use Express Route with gateway"::: 
 
 **IPSec VPN:**
 
-![IPSec VPN with gateway](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png" alt-text="IPSec VPN with gateway":::
 
 ### Firewall configurations and filtering IP address of gateway
 
@@ -157,14 +158,14 @@ The following table provides **inbound port** requirements for the **windows fir
 | ------------- | ----------- | 
 | 8050 (TCP) | Required by the credential manager application to securely set credentials for on-premises data stores on the gateway. | 
 
-![Gateway port requirements](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
+:::image type="content" source="media/data-factory-data-movement-security-considerations/gateway-port-requirements.png" alt-text="Gateway port requirements":::
 
 #### IP configurations/filtering in data store
 Some data stores in the cloud also require approving of IP address of the machine accessing them. Ensure that the IP address of the gateway machine is approved/configured in firewall appropriately.
 
 The following cloud data stores require approving of IP address of the gateway machine. Some of these data stores, by default, may not require approving of the IP address. 
 
-- [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
+- [Azure SQL Database](/azure/azure-sql/database/firewall-configure) 
 - [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/how-to-configure-firewall.md)

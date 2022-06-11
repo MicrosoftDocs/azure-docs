@@ -5,8 +5,8 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/01/2021
-ms.reviewer: andalmia
+ms.date: 06/06/2022
+ms.reviewer: sapnakeshari
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -26,13 +26,18 @@ When you create an Azure subscription programmatically, that subscription is gov
 A user must have an Owner role on an Enrollment Account to create a subscription. There are two ways to get the role:
 
 * The Enterprise Administrator of your enrollment can [make you an Account Owner](https://ea.azure.com/helpdocs/addNewAccount) (sign in required) which makes you an Owner of the Enrollment Account.
-* An existing Owner of the Enrollment Account can [grant you access](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
+* An existing Owner of the Enrollment Account can [grant you access](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put).
 
-To use a service principal (SPN) to create an EA subscription, an Owner of the Enrollment Account must [grant that service principal the ability to create subscriptions](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). When using an SPN to create subscriptions, use the ObjectId of the Azure AD Application Registration as the Service Principal ObjectId using [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true ) or [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az_ad_sp_list). For more information about the EA role assignment API request, see [Assign roles to Azure Enterprise Agreement service principal names](assign-roles-azure-service-principals.md). The article includes a list of roles (and role definition IDs) that can be assigned to an SPN.
+To use a service principal (SPN) to create an EA subscription, an Owner of the Enrollment Account must [grant that service principal the ability to create subscriptions](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
+
+When using an SPN to create subscriptions, use the ObjectId of the Azure AD Application Registration as the Service Principal ObjectId using [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true ) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list). You can also use the steps at [Find your SPN and tenant ID](assign-roles-azure-service-principals.md#find-your-spn-and-tenant-id) to find the object ID in the Azure portal for an existing SPN.
+
+For more information about the EA role assignment API request, see [Assign roles to Azure Enterprise Agreement service principal names](assign-roles-azure-service-principals.md). The article includes a list of roles (and role definition IDs) that can be assigned to an SPN.
 
   > [!NOTE]
   > - Ensure that you use the correct API version to give the enrollment account owner permissions. For this article and for the APIs documented in it, use the [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put) API. 
   > - If you're migrating to use the newer APIs, your previous configuration made with the [2015-07-01 version](grant-access-to-create-subscription.md) doesn't automatically convert for use with the newer APIs.
+> - The Enrollment Account information is only visible when the user's role is Account Owner. When a user has multiple roles, the API uses the user's least restrictive role.
 
 ## Find accounts you have access to
 
@@ -169,6 +174,9 @@ Using one of the following methods, you'll create a subscription alias name. We 
 - Start with a letter and end with an alphanumeric character
 - Don't use periods
 
+An alias is used for simple substitution of a user-defined string instead of the subscription GUID. In other words, you can use it as a shortcut. You can learn more about alias at [Alias - Create](/rest/api/subscription/2020-09-01/alias/create). In the following examples, `sampleAlias` is created but you can use any string you like.
+
+If you have multiple user roles in addition to the Account Owner role, then you must retrieve the account ID from the Azure portal. Then you can use the ID to programmatically create subscriptions.
 
 ### [REST](#tab/rest)
 
@@ -258,7 +266,7 @@ You get the subscriptionId as part of the response from the command.
 
 First, install the extension by running `az extension add --name account` and `az extension add --name alias`.
 
-Run the following [az account alias create](/cli/azure/account/alias#az_account_alias_create) command and provide `billing-scope` and `id` from one of your `enrollmentAccounts`. 
+Run the following [az account alias create](/cli/azure/account/alias#az-account-alias-create) command and provide `billing-scope` and `id` from one of your `enrollmentAccounts`. 
 
 ```azurecli-interactive
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/1234567/enrollmentAccounts/654321" --display-name "Dev Team Subscription" --workload "Production"
@@ -280,11 +288,11 @@ You get the subscriptionId as part of the response from the command.
 
 ---
 
-## Use ARM template
+## Use ARM template or Bicep
 
-The previous section showed how to create a subscription with PowerShell, CLI, or REST API. If you need to automate creating subscriptions, consider using an Azure Resource Manager template (ARM template).
+The previous section showed how to create a subscription with PowerShell, CLI, or REST API. If you need to automate creating subscriptions, consider using an Azure Resource Manager template (ARM template) or [Bicep file](../../azure-resource-manager/bicep/overview.md).
 
-The following template creates a subscription. For `billingScope`, provide the enrollment account ID. The subscription is created in the root management group. After creating the subscription, you can move it to another management group.
+The following ARM template creates a subscription. For `billingScope`, provide the enrollment account ID. The subscription is created in the root management group. After creating the subscription, you can move it to another management group.
 
 ```json
 {
@@ -321,7 +329,29 @@ The following template creates a subscription. For `billingScope`, provide the e
 }
 ```
 
-Deploy the template at the [management group level](../../azure-resource-manager/templates/deploy-to-management-group.md).
+Or, use a Bicep file to create the subscription.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide a name for the alias. This name will also be the display name of the subscription.')
+param subscriptionAliasName string
+
+@description('Provide the full resource ID of billing scope to use for subscription creation.')
+param billingScope string
+
+resource subscriptionAlias 'Microsoft.Subscription/aliases@2020-09-01' = {
+  scope: tenant()
+  name: subscriptionAliasName
+  properties: {
+    workload: 'Production'
+    displayName: subscriptionAliasName
+    billingScope: billingScope
+  }
+}
+```
+
+Deploy the template at the [management group level](../../azure-resource-manager/templates/deploy-to-management-group.md). The following examples show deploying the JSON ARM template, but you can deploy a Bicep file instead.
 
 ### [REST](#tab/rest)
 
@@ -376,7 +406,7 @@ az deployment mg create \
 
 ---
 
-To move a subscription to a new management group, use the following template.
+To move a subscription to a new management group, use the following ARM template.
 
 ```json
 {
@@ -410,10 +440,27 @@ To move a subscription to a new management group, use the following template.
 }
 ```
 
+Or, the following Bicep file.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide the ID of the management group that you want to move the subscription to.')
+param targetMgId string
+
+@description('Provide the ID of the existing subscription to move.')
+param subscriptionId string
+
+resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01' = {
+  scope: tenant()
+  name: '${targetMgId}/${subscriptionId}'
+}
+```
+
 ## Limitations of Azure Enterprise subscription creation API
 
 - Only Azure Enterprise subscriptions are created using the API.
-- There's a limit of 2000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. To create more subscriptions through the API, create another enrollment account. Canceled, deleted, and transferred subscriptions count toward the 2000 limit.
+- There's a limit of 5000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. To create more subscriptions through the API, create another enrollment account. Canceled, deleted, and transferred subscriptions count toward the 5000 limit.
 - Users who aren't Account Owners, but were added to an enrollment account via Azure RBAC, can't create subscriptions in the Azure portal.
 - You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

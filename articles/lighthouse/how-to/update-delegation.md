@@ -1,7 +1,7 @@
 ---
 title: Update a delegation
 description: Learn how to update a delegation for a customer previously onboarded to Azure Lighthouse.
-ms.date: 02/16/2021
+ms.date: 09/08/2021
 ms.topic: how-to
 ---
 
@@ -53,12 +53,12 @@ After the deployment has been completed, [confirm that it was successful](onboar
 
 ## Updating Managed Service offers
 
-If you onboarded your customer through a Managed Service offer published to Azure Marketplace, and you want to update authorizations, you can update the delegation by [publishing a new version of your offer](../../marketplace/update-existing-offer.md) with the [authorizations](../../marketplace/plan-managed-service-offer.md) that you want to use updated in the plan for that customer. The customer will then be able to update to the newest version in the Azure portal.
+If you onboarded your customer through a Managed Service offer published to Azure Marketplace, and you want to update authorizations, you can do so by [publishing a new version of your offer](../../marketplace/update-existing-offer.md) with the [authorizations](../../marketplace/create-managed-service-offer-plans.md#authorizations) that you want to use updated in the plan for that customer. The customer will then be able to [review the changes in the Azure portal and accept the new version](view-manage-service-providers.md#update-service-provider-offers).
 
-If you want to change the managing tenant, you will need to [create and publish a new Managed Service offer](../../marketplace/plan-managed-service-offer.md) for the customer to accept.
+If you want to change the managing tenant, you will need to [create and publish a new Managed Service offer](publish-managed-services-offers.md) for the customer to accept.
 
-> [!TIP]
-> As mentioned earlier, we recommend that you don’t use multiple different offers between the same customer and managing tenant. If you do publish a new offer for the same customer which uses the same managing tenant, be sure that the earlier offer is removed before the customer accepts the newer offer.
+> [!IMPORTANT]
+> As mentioned earlier, we recommend that you avoid using multiple offers for the same customer and managing tenant. If you do publish a new offer for the same customer which uses the same managing tenant, be sure that the earlier offer is removed before the customer accepts the newer offer.
 
 ## Next steps
 

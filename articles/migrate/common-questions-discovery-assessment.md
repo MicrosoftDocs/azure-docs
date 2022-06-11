@@ -20,7 +20,7 @@ This article answers common questions about discovery, assessment, and dependenc
 
 ## What geographies are supported for discovery and assessment with Azure Migrate?
 
-Review the supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+Review the supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
 ## How many servers can I discover with an appliance?
 
@@ -77,6 +77,16 @@ The confidence rating is calculated for "Performance-based" assessments based on
 
 - For Azure VM and AVS assessments, few servers were created after discovery had started. For example, if you are creating an assessment for the performance history of last one month, but few servers were created in the environment only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
 - For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, if you are creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
+
+## Why is my RAM utilization greater than 100%?
+
+By design, in Hyper-V if maximum memory provisioned is less than what is required by the VM, Assessment will show memory utilization to be more than 100%.
+
+## Why can't I see all Azure VM families in the Azure VM assessment properties?
+
+There could be two reasons:
+- You have chosen an Azure region where a particular series is not supported. Azure VM families shown in Azure VM assessment properties are dependent on the availability of the VM series in the chosen Azure location, storage type and Reserved Instance. 
+- The VM series is not support in the assessment and is not in the consideration logic of the assessment. We currently do not support B-series burstable, accelerated and high performance SKU series. We are trying to keep the VM series updated, and the ones mentioned are on our roadmap. 
 
 ## The number of Azure VM or AVS assessments on the Discovery and assessment tool are incorrect
 
@@ -170,7 +180,7 @@ This can happen when the target deployment type chosen in the assessment propert
 The user is recommended to create an assessment in Azure Migrate with assessment type as **Azure VM** to determine if the server on which the instance is running is ready to migrate to an Azure VM instead:
 
 - Azure VM assessments in Azure Migrate are currently lift-an-shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine.
-- When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) for SQL Server on Azure virtual machines.
+- When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist) for SQL Server on Azure virtual machines.
 
 ## I can't see some databases in my assessment even though the instance is part of the assessment
 
@@ -178,7 +188,7 @@ The Azure SQL assessment only includes databases that are in online status. In c
 
 ## I want to compare costs for running my SQL instances on Azure VM Vs Azure SQL Database/Azure SQL Managed Instance
 
-You can create an assessment with type **Azure VM** on the same group that was used in your **Azure SQL** assessment. You can then compare the two reports side by side. Though, Azure VM assessments in Azure Migrate are currently lift-and-shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) for SQL Server on Azure virtual machines.
+You can create an assessment with type **Azure VM** on the same group that was used in your **Azure SQL** assessment. You can then compare the two reports side by side. Though, Azure VM assessments in Azure Migrate are currently lift-and-shift focused and will not consider the specific performance metrics for running SQL instances and databases on the Azure virtual machine. When you run an Azure VM assessment on a server, the recommended size and cost estimates will be for all instances running on the server and can be migrated to an Azure VM using the Server Migration tool. Before you migrate, [review the performance guidelines](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist) for SQL Server on Azure virtual machines.
 
 ## The storage cost in my Azure SQL assessment is zero
 
@@ -193,7 +203,7 @@ For Azure SQL Managed Instance, there is no storage cost added for the first 32 
 
 ### Can I migrate my disks to Ultra disk using Azure Migrate?
 
-No. Currently, both Azure Migrate and Azure Sire Recovery do not support migration to Ultra disks. Find steps to deploy Ultra disk [here](https://docs.microsoft.com/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk)
+No. Currently, both Azure Migrate and Azure Site Recovery do not support migration to Ultra disks. Find steps to deploy Ultra disk [here](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal#deploy-an-ultra-disk)
 
 ### Why are the provisioned IOPS and throughput in my Ultra disk more than my on-premises IOPS and throughput?
 
@@ -205,7 +215,7 @@ IOPS to be provisioned =  (Throughput discovered) *1024/256
 
 ### Does the Ultra disk recommendation consider latency?
 
-No, currently only disk size, total throughput and total IOPS is used for sizing and costing.
+No, currently only disk size, total throughput, and total IOPS are used for sizing and costing.
 
 ### I can see M series supports Ultra disk, but in my assessment where Ultra disk was recommended, it says “No VM found for this location”?
 

@@ -2,10 +2,11 @@
 metadata:
   title: Back up Azure Files FAQ
   description: In this article, discover answers to common questions about how to protect your Azure file shares with the Azure Backup service.
-  ms.date: 04/22/2020
-  ms.topic: article
+  ms.date: 04/05/2022
+  ms.topic: faq
   ms.service: backup
-    
+  author: v-amallick
+  ms.author: v-amallick
 title: Questions about backing up Azure Files
 summary: |
   This article answers common questions about backing up Azure Files. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [Microsoft Q&A question page for discussion](/answers/topics/azure-backup.html).
@@ -25,6 +26,11 @@ sections:
           Why can't I see some of my Azure file shares in the Storage Account when I'm trying to configure backup?
         answer: |
           Check if the Azure file share is already protected in the same Recovery Services vault or if it has been deleted recently.
+          
+      - question: |
+          Why is it recommended to enable lock on the storage account?
+        answer: |
+          The current Azure Files backup solution keeps snapshots in the same storage account as the backed-up file share. If the storage account gets deleted, you will lose all your snapshots. To protect your account against accidental deletion, Azure Backup takes a Delete lock on the storage account. It means authorized users can still read and modify a resource, but they can't delete it. The lock also restricts the deletion of any file share under the storage account. Hence, you get protection from the accidental deletion of both the storage account and files shares.
 
       - question: |
           Can I protect File Shares connected to a Sync Group in Azure Files Sync?
@@ -39,7 +45,7 @@ sections:
       - question: |
           Why can't I change the vault to configure backup for the file share?
         answer: |
-          If the storage account is already registered with a vault or other file shares in the storage account are protected using a vault , you aren't given an option to change it. All file shares in a storage account can be protected only by the same vault. If you want to change the vault, you'll need to [stop protection for all file shares in the storage account](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) the Storage Account, and then choose a different vault for protection.
+          If the storage account is already registered with a vault or other file shares in the storage account are protected using a vault, you aren't given an option to change it. All file shares in a storage account can be protected only by the same vault. If you want to change the vault, you'll need to [stop protection for all file shares in the storage account](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) the Storage Account, and then choose a different vault for protection.
           
       - question: |
           Can I change the Vault to which I back up my file shares?
@@ -75,6 +81,11 @@ sections:
         answer: |
           If an ongoing restore job is canceled, the restore process stops and all files restored before the cancellation, stay in configured destination (original or alternate location) without any rollbacks.
 
+      - question: |
+          Why can't I see a specific recovery point?
+        answer: |
+          If a recovery point isn't listed, it must have expired. We recommend you checking the retention configured in the backup policy to understand the retention duration for recovery points of your backed-up file share.
+
   - name: Manage backup
     questions:
       - question: |
@@ -83,12 +94,22 @@ sections:
           Yes. Refer to the detailed documentation [here](backup-azure-afs-automation.md).
           
       - question: |
+          Why data transferred in MB is 0 for the backup jobs?
+        answer: |
+           In the current backup solution for Azure Files, no data is transferred to the vault, and snapshots are retained in the same storage account as the backed-up file share. So, the data transferred in MB is 0.
+       
+      - question: |
+          Why Azure Files backups doesn't replicate based on the Storage Replication Type setting of the vault?
+        answer: |
+          The Storage Replication setting of the vault isn't relevant for Azure Files backup. This is because the current solution is snapshot-based and there's no data transferred to the vault. Snapshots are stored in the same storage account as the backed-up file share, and therefore replicated as per the replication setting of storage account.
+          
+      - question: |
           Can I access the snapshots taken by Azure Backups and mount them?
         answer: |
           All snapshots taken by Azure Backup can be accessed by viewing snapshots in the portal, PowerShell, or CLI. To learn more about Azure Files share snapshots, see [Overview of share snapshots for Azure Files](../storage/files/storage-snapshots-files.md).
           
       - question: |
-          What happens after I move a backed up file share to a different subscription?
+          What happens after I move a backed-up file share to a different subscription?
         answer: |
           Once a file share is moved to a different subscription, it's considered as a new file share by Azure Backup. These are the recommended steps:
            
@@ -102,9 +123,9 @@ sections:
           Note that after reconfiguring backup with V2, the snapshots that were taken with V1 will no longer be managed by Azure Backup. So you'll have to delete those snapshots manually according to your requirements.
           
       - question: |
-          Can I move my backed up file share to a different resource group?
+          Can I move my backed-up file share to a different resource group?
         answer: |
-          Yes, you can move your backed up file share to a different resource group. However, you'll need to reconfigure backup for the file share as it will be treated as a new resource by Azure Backup. Also, the snapshots that were created before the resource group move will no longer be managed by Azure backup. So you'll have to delete those snapshots manually according to your requirements.
+          Yes, you can move your backed-up file share to a different resource group. However, you'll need to reconfigure backup for the file share as it will be treated as a new resource by Azure Backup. Also, the snapshots that were created before the resource group move will no longer be managed by Azure backup. So you'll have to delete those snapshots manually according to your requirements.
 
       - question: |
           What is the maximum retention I can configure for backups?
@@ -156,7 +177,7 @@ sections:
       - question: |
           What is the impact on existing recovery points when I modify an existing GFS Policy?
         answer: |
-          When a new policy is applied on file shares, all the future scheduled backups will be taken according to the schedule configured in the modified policy.  The retention of all existing recovery points is aligned according to the new retention values configured. So if the retention is extended, existing recovery points are marked to be retained according to the new policy. If the retention is reduced, they're marked for clean-up in the next cleanup job and then deleted.
+          When a new policy is applied on file shares, all the future scheduled backups will be taken according to the schedule configured in the modified policy.  The retention of all existing recovery points is aligned according to the new retention values configured. So, if the retention is extended, existing recovery points are marked to be retained according to the new policy. If the retention is reduced, they're marked for clean-up in the next cleanup job and then deleted.
           
           Here's an example of how this works:
           
@@ -187,6 +208,84 @@ sections:
 
           >[!NOTE]
           >The policy changes will affect only the recovery points created as part of the scheduled backup. For on-demand backups, retention is determined by the **Retain Till** value specified at the time of taking the backup.
+
+      - question: |
+          What does the duration attribute in Azure Files backup policy signify?
+        answer: |
+          The **duration** attribute helps to determine the timestamp for last backup of the day. 
+
+          For example, if the **start time** is “x AM” and **duration** is “y hours”, the backups will be scheduled between “x AM” and (x AM + y hours) based on the **schedule** attribute defined in the policy. This attribute enables you to ensure backups are only triggered during your working hours when there're frequent update operations on file share contents; therefore, taking multiple snapshots will safeguard data from any accidental changes.
+
+      - question: |
+          How are the backups scheduled based on the attributes - start time, schedule, and duration?
+        answer: |
+          For example, you created a policy with the following configuration:
+
+          - **Start time**: 9 AM
+          - **Schedule**: Every 4 hours
+          - **Duration**: 12 hours
+
+          Based on these values, the backup window is calculated as 9 AM – (9 AM + 12 hours), that is, 9 AM – 9 PM. Therefore, all backups will be scheduled within this window.
+
+          The first backup of the day is triggered at the start time mentioned in the policy, that is, 9 AM, and the **schedule** determines the time difference between consecutive backups, that is, 4 hours. With this calculation, your backup schedule would be: 9 AM, 1 PM (9 AM + 4 hours), 5 PM (1 PM + 4 hours), and 9 PM (5 PM + 4 hours).
+
+          Since the end time of the backup window we calculated was 9 PM, no backup would be triggered after this time.
+
+      - question: |
+          Why am I getting the error “The selected configuration will trigger only 1 backup per day”?
+        answer: |
+          This error occurs if you specified a **schedule** that's greater than the **duration**. For example, you've configured **start time** as 9 AM, **schedule** as 6 hours, and **duration** as 4 hours. In this scenario, the only time when backup job can trigger is 9 AM, since the next backup time of 3 PM (9 AM + 6 hours) is outside the backup window: 9 AM – 1 PM (9 AM + 4 hours).
+
+          To fix this, we recommend you adjust your schedule or duration, or select **Daily** frequency instead of **Hourly**.
+
+      - question: |
+          Why am I getting the error “The selected configuration extends backup window to next day”?
+        answer: |
+          This error occurs if the backup window's **start time** and **end time**, determined based on the backup **schedule** and **duration**, falls on two different days.
+
+          For example, you configured a policy with the following parameters:
+
+          - **Schedule**: Every 4 hours
+          - **Start time**: 12 PM
+          - **Duration**: 15 hours
+
+          Based on this configuration, the backup window will be: 12 PM – 3 AM (12 PM + 15 hours). Since the start and end times are falling on two different days, we recommend you adjust the **start time** or **duration** to ensure they are on the same day.
+
+          Let’s assume, you change the start time to 6 AM in the above configuration. Now, the backup window will be 6 AM – 9 PM (6 AM + 15 hours). This is a supported configuration.
+
+      - question: |
+          What’s the impact on the existing recovery points when I switch from “Daily” to “Hourly” frequency?
+        answer: |
+          When you switch from **Daily** to **Hourly** frequency, the behavior is as follows:
+
+          - **Retention**: If you're adding weekly/monthly/yearly retention as part of modifying the policy, all the future recovery points created as part of the scheduled backup will be tagged according to the new policy. All the existing recovery points will still be considered as daily recovery points; so, they won’t be tagged as weekly/monthly/yearly.
+
+          - **Snapshots and recovery points cleanup**:
+
+            - If daily retention is extended, the expiration date of the existing daily recovery points is updated according to the daily retention value configured in the new policy.
+            - If daily retention is reduced, the existing daily recovery points and snapshots are marked for deletion in the next cleanup run job according to the daily retention value configured in the new policy, and then deleted.
+
+  - name: Lease snapshots
+    questions:
+      - question: |
+          Will the storage account deletion be blocked if there’s an active lease on the snapshots?
+        answer: |
+          No, the storage account deletion isn’t blocked by a lease on snapshots.
+
+      - question: |
+          What’s the recommended way to delete a backed-up file share with a lease on snapshots?
+        answer: |
+          We recommend you to perform the _stop protection with delete data_ operation on the backed-up file share.   <br><br>   After this operation, Azure Backup will release the lease and delete all snapshots. Then you can delete the file share.
+
+      - question: |
+          Does Azure Backup take the lease retroactively?
+        answer: |
+          No, Azure Backup only takes a lease on the snapshots that are taken after the release of this capability.
+
+      - question: |
+          Is the lease effective on snapshots in a file share undeleted from the soft delete state?
+        answer: |
+          No. If you delete a file share containing leased snapshots, the lease won’t be in place when the file share is undeleted.
 
 additionalContent: |
 

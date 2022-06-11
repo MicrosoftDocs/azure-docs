@@ -1,12 +1,12 @@
 ---
 title: Mv2-series - Azure Virtual Machines
 description: Specifications for the Mv2-series VMs.
-author: ayshakeen
+author: lauradolan
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.author: jushiman
+ms.author: ayshak
 ---
 
 # Mv2-series
@@ -24,7 +24,8 @@ Mv2-series VM’s feature Intel® Hyper-Threading Technology
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Write Accelerator](./how-to-enable-write-accelerator.md): Supported<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): No Supported <br>
 <br>
 
 |Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs | Expected network bandwidth (Mbps) |
@@ -38,8 +39,9 @@ Mv2-series VM’s feature Intel® Hyper-Threading Technology
 
 - Windows Server 2019 or later
 - SUSE Linux Enterprise Server 12 SP4 and later or SUSE Linux Enterprise Server 15 SP1 and later
-- Red Hat Enterprise Linux 7.6, 7.7, 8.1 or later 
-- Oracle Enterprise Linux 7.7 or later
+- Red Hat Enterprise Linux 7.6 or later, and 8.1 or later
+- Oracle Enterprise Linux 7.7 or later, and 8.1 or later
+- Ubuntu 18.04 with the 5.4.0-azure kernel or later
 
 <sup>2</sup> [Constrained core sizes available](./constrained-vcpu.md).
 
@@ -57,7 +59,7 @@ Mv2-series VM’s feature Intel® Hyper-Threading Technology
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disks)
 
 
 ## Next steps

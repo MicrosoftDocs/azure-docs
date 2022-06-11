@@ -2,7 +2,10 @@
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 12/09/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 # Restore SQL Server databases on Azure VMs
 
@@ -26,10 +29,8 @@ Before you restore a database, note the following:
 - If you have multiple instances running on a server, all the instances should be up and running. Otherwise the server won't appear in the list of destination servers for you to restore the database to. For more information, refer to [the troubleshooting steps](backup-sql-server-azure-troubleshoot.md#faulty-instance-in-a-vm-with-multiple-sql-server-instances).
 - To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - [CDC](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) enabled databases should be restored using the [Restore as files](#restore-as-files) option.
-- Before you restore the "master" database, start the SQL Server instance in single-user mode by using the startup option **-m AzureWorkloadBackup**.
-  - The value for **-m** is the name of the client.
-  - Only the specified client name can open the connection.
-- For all system databases (model, master, msdb), stop the SQL Server Agent service before you trigger the restore.
+- We strongly recommended to restore the "master" database using the [Restore as files](#restore-as-files) option and then restore [using T-SQL commands](/sql/relational-databases/backup-restore/restore-the-master-database-transact-sql).
+- For all system databases (model, msdb), stop the SQL Server Agent service before you trigger the restore.
 - Close any applications that might try to take a connection to any of these databases.
 
 ## Restore a database
@@ -44,26 +45,16 @@ To restore, you need the following permissions:
 
 Restore as follows:
 
-1. Open the vault in which the SQL Server VM is registered.
-2. On the vault dashboard, under **Usage**, select **Backup Items**.
-3. In **Backup Items**, under **Backup Management Type**, select **SQL in Azure VM**.
+1. In the Azure portal, go to **Backup center** and click **Restore**.
 
-    ![Select SQL in Azure VM](./media/backup-azure-sql-database/sql-restore-backup-items.png)
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-restore-inline.png" alt-text="Screenshot showing the start the restore process." lightbox="./media/backup-azure-sql-database/backup-center-restore-expanded.png":::
 
-4. Select the database to restore.
+1. Select **SQL in Azure VM** as the datasource type, select a database to restore, and click **Continue**.
 
-    ![Select the database to restore](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
+   :::image type="content" source="./media/backup-azure-sql-database/sql-restore.png" alt-text="Screenshot showing to select the datasource type.":::
 
-5. Review the database menu. It provides information about the database backup, including:
-
-    - The oldest and latest restore points.
-    - The log backup status for the last 24 hours for databases that are in full and bulk-logged recovery mode and that are configured for transactional log backups.
-
-6. Select **Restore**.
-
-    ![Select Restore](./media/backup-azure-sql-database/restore-db.png)
-
-7. In **Restore Configuration**, specify where (or how) to restore the data:
+1. In **Restore Configuration**, specify where (or how) to restore the data:
+   
    - **Alternate Location**: Restore the database to an alternate location and keep the original source database.
    - **Overwrite DB**: Restore the data to the same SQL Server instance as the original source. This option overwrites the original database.
 
@@ -71,7 +62,6 @@ Restore as follows:
         > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
         >
    - **Restore as files**: Instead of restoring as a database, restore the backup files that can be recovered as a database later on any machine where the files are present using SQL Server Management Studio.
-     ![Restore Configuration menu](./media/backup-azure-sql-database/restore-configuration.png)
 
 ### Restore to an alternate location
 
@@ -81,9 +71,9 @@ Restore as follows:
 1. If applicable, select **Overwrite if the DB with the same name already exists on selected SQL instance**.
 1. Select **Restore Point**, and select whether to [restore to a specific point in time](#restore-to-a-specific-point-in-time) or to [restore to a specific recovery point](#restore-to-a-specific-restore-point).
 
-    ![Select Restore Point](./media/backup-azure-sql-database/select-restore-point.png)
+   :::image type="content" source="./media/backup-azure-sql-database/sql-alternate-location-recovery.png" alt-text="Screenshot showing to select Restore Point.":::
 
-    ![Restore to point in time](./media/backup-azure-sql-database/restore-to-point-in-time.png)
+   :::image type="content" source="./media/backup-azure-sql-database/restore-points-sql-inline.png" alt-text="Screenshot showing restore to point in time." lightbox="./media/backup-azure-sql-database/restore-points-sql-expanded.png":::
 
 1. On the **Advanced Configuration** menu:
 
@@ -116,13 +106,14 @@ To restore the backup data as .bak files instead of a database, choose **Restore
 1. Select the SQL Server name to which you want to restore the backup files.
 1. In the **Destination path on the server** input the folder path on the server selected in step 2. This is the location where the service will dump all the necessary backup files. Typically, a network share path, or path of a mounted Azure file share when specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.<BR>
 
-    >To restore the database backup files on an Azure File Share mounted on the target registered VM, make sure that NT AUTHORITY\SYSTEM has access to the file share. You can perform the steps given below to grant the read/write permissions to the AFS mounted on the VM:
-    >
-    >- Run `PsExec -s cmd` to enter into NT AUTHORITY\SYSTEM shell
-    >   - Execute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
-    >   - Verify access with `dir \\<storageacct>.file.core.windows.net\<filesharename>`
-    >- Kick off a restore as files from the Backup Vault to `\\<storageacct>.file.core.windows.net\<filesharename>` as the path<BR>
-    You can Download PsExec from the [Sysinternals](/sysinternals/downloads/psexec) page.
+   >[!Note]
+   >To restore the database backup files on an Azure File Share mounted on the target registered VM, make sure that NT AUTHORITY\SYSTEM has access to the file share. You can perform the steps given below to grant the read/write permissions to the AFS mounted on the VM:
+   >
+   >- Run `PsExec -s cmd` to enter into NT AUTHORITY\SYSTEM shell
+   >   - Execute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
+   >   - Verify access with `dir \\<storageacct>.file.core.windows.net\<filesharename>`
+   >- Kick off a restore as files from the Backup Vault to `\\<storageacct>.file.core.windows.net\<filesharename>` as the path<BR>
+   >You can Download PsExec from the [Sysinternals](/sysinternals/downloads/psexec) page.
 
 1. Select **OK**.
 
@@ -169,7 +160,7 @@ As one of the restore options, Cross Region Restore (CRR) allows you to restore 
 
 To onboard to the feature, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
 
-To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
+To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore)
 
 ### View backup items in secondary region
 
@@ -199,10 +190,10 @@ The secondary region restore user experience will be similar to the primary regi
 
 ### Monitoring secondary region restore jobs
 
-1. From the portal, go to **Recovery Services vault** > **Backup Jobs**
-1. Select **Secondary Region** to view the items in the secondary region.
+1. In the Azure portal, go to **Backup center** > **Backup Jobs**.
+1. Filter operation for **CrossRegionRestore** to view the jobs in the secondary region.
 
-    ![Backup jobs filtered](./media/backup-azure-sql-database/backup-jobs-secondary-region.png)
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-jobs-inline.png" alt-text="Screenshot showing the filtered Backup jobs." lightbox="./media/backup-azure-sql-database/backup-center-jobs-expanded.png":::
 
 ## Next steps
 

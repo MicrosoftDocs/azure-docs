@@ -1,10 +1,8 @@
 ---
 title: Check for job and task errors
 description: Learn about errors to check for and how to troubleshoot jobs and tasks.
-author: mscurrell
 ms.topic: how-to
-ms.date: 11/23/2020
-ms.author: markscu
+ms.date: 09/08/2021
 ---
 
 # Job and task error checking
@@ -20,7 +18,7 @@ A job is a grouping of one or more tasks, with the tasks actually specifying the
 When adding a job, the following parameters can be specified which can influence how the job can fail:
 
 - [Job Constraints](/rest/api/batchservice/job/add#jobconstraints)
-  - The `maxWallClockTime` property can optionally be specified to set the maximum amount of time a job can be active or running. If exceeded, the job will be terminated with the `terminateReason` property set in the [executionInfo](/rest/api/batchservice/job/get#cloudjob) for the job.
+  - The `maxWallClockTime` property can optionally be specified to set the maximum amount of time a job can be active or running. If exceeded, the job will be terminated with the `terminateReason` property set in the [executionInfo](/rest/api/batchservice/job/get#jobexecutioninformation) for the job.
 - [Job Preparation Task](/rest/api/batchservice/job/add#jobpreparationtask)
   - If specified, a job preparation task is run the first time a task is run for a job on a node. The job preparation task can fail, which will lead to the task not being run and the job not completing.
 - [Job Release Task](/rest/api/batchservice/job/add#jobreleasetask)
@@ -36,7 +34,7 @@ The following job properties should be checked for errors:
 
 ### Job preparation tasks
 
-If a job preparation task is specified for a job, then an instance of that task will be run the first time a task for the job is run on a node. The job preparation task configured on the job can be thought of as a task template, with multiple job preparation task instances being run, up to the number of nodes in a pool.
+If a [job preparation task](batch-job-prep-release.md#job-preparation-task) is specified for a job, then an instance of that task will be run the first time a task for the job is run on a node. The job preparation task configured on the job can be thought of as a task template, with multiple job preparation task instances being run, up to the number of nodes in a pool.
 
 The job preparation task instances should be checked to determine if there were errors:
 
@@ -46,7 +44,7 @@ The job preparation task instances should be checked to determine if there were 
 
 ### Job release tasks
 
-If a job release task is specified for a job, then when a job is being terminated, an instance of the job release task is run on each pool node where a job preparation task was run. The job release task instances should be checked to determine if there were errors:
+If a [job release task](batch-job-prep-release.md#job-release-task) is specified for a job, then when a job is being terminated, an instance of the job release task is run on each pool node where a job preparation task was run. The job release task instances should be checked to determine if there were errors:
 
 - All the instances of the job release task being run can be obtained from the job using the API [List Preparation and Release Task Status](/rest/api/batchservice/job/listpreparationandreleasetaskstatus). As with any task, there is [execution information](/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) available with properties such as `failureInfo`, `exitCode`, and `result`.
 - If one or more job release tasks fail, then the job will still be terminated and move to a `completed` state.
@@ -87,4 +85,4 @@ On every file upload, Batch writes two log files to the compute node, `fileuploa
 ## Next steps
 
 - Check that your application implements comprehensive error checking; it can be critical to promptly detect and diagnose issues.
-- Learn more about [jobs and tasks](jobs-and-tasks.md).
+- Learn more about [jobs and tasks](jobs-and-tasks.md) and [job preparation and release tasks](batch-job-prep-release.md).

@@ -7,7 +7,7 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/27/2021
+ms.date: 03/22/2022
 ms.author: banders
 ---
 
@@ -103,7 +103,7 @@ There's no service downtime for any users associated with the subscription. Howe
 
 #### Quota increases are reset
 
-When you switch offers, any [limit or quota increases above the default limit](../../azure-portal/supportability/resource-manager-core-quotas-request.md) are reset. There's no service downtime, even if you have more resources beyond the default limit. For example, you're using 200 cores on your subscription, then switching offers resets your cores quota back to the default of 20 cores. The VMs that use the 200 cores are unaffected and would continue to run. If you don't make another quota increase request, however, you can't provision any more cores.
+When you switch offers, any [limit or quota increases above the default limit](../../azure-portal/supportability/regional-quota-requests.md) are reset. There's no service downtime, even if you have more resources beyond the default limit. For example, you're using 200 cores on your subscription, then switching offers resets your cores quota back to the default of 20 cores. The VMs that use the 200 cores are unaffected and would continue to run. If you don't make another quota increase request, however, you can't provision any more cores.
 
 #### Billing
 

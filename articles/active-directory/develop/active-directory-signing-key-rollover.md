@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 8/16/2021
+ms.date: 09/03/2021
 ms.author: ryanwi
-ms.reviewer: paulgarn, hirsin
+ms.reviewer: paulgarn, ludwignick
 ms.custom: aaddev
 ---
 
@@ -40,7 +40,6 @@ How your application handles key rollover depends on variables such as the type 
 * [Web applications protecting resources and created with Visual Studio 2013](#vs2013)
 * Web APIs protecting resources and created with Visual Studio 2013
 * [Web applications protecting resources and created with Visual Studio 2012](#vs2012)
-* [Web applications protecting resources and created with Visual Studio 2010, 2008 o using Windows Identity Foundation](#vs2010)
 * [Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols](#other)
 
 This guidance is **not** applicable for:
@@ -49,12 +48,12 @@ This guidance is **not** applicable for:
 * On-premises applications published via application proxy don't have to worry about signing keys.
 
 ### <a name="nativeclient"></a>Native client applications accessing resources
-Applications that are only accessing resources (i.e Microsoft Graph, KeyVault, Outlook API, and other Microsoft APIs) generally only obtain a token and pass it along to the resource owner. Given that they are not protecting any resources, they do not inspect the token and therefore do not need to ensure it is properly signed.
+Applications that are only accessing resources (for example, Microsoft Graph, KeyVault, Outlook API, and other Microsoft APIs) generally only obtain a token and pass it along to the resource owner. Given that they are not protecting any resources, they do not inspect the token and therefore do not need to ensure it is properly signed.
 
 Native client applications, whether desktop or mobile, fall into this category and are thus not impacted by the rollover.
 
 ### <a name="webclient"></a>Web applications / APIs accessing resources
-Applications that are only accessing resources (i.e Microsoft Graph, KeyVault, Outlook API, and other Microsoft APIs) generally only obtain a token and pass it along to the resource owner. Given that they are not protecting any resources, they do not inspect the token and therefore do not need to ensure it is properly signed.
+Applications that are only accessing resources (such as Microsoft Graph, KeyVault, Outlook API, and other Microsoft APIs) generally only obtain a token and pass it along to the resource owner. Given that they are not protecting any resources, they do not inspect the token and therefore do not need to ensure it is properly signed.
 
 Web applications and web APIs that are using the app-only flow (client credentials / client certificate) to request tokens fall into this category and are thus not impacted by the rollover.
 
@@ -284,27 +283,96 @@ Follow the steps below to verify that the key rollover logic is working.
 2. In the **\<add thumbprint="">** setting, change the thumbprint value by replacing any character with a different one. Save the **Web.config** file.
 3. Build the application, and then run it. If you can complete the sign-in process, your application is successfully updating the key by downloading the required information from your directory’s federation metadata document. If you are having issues signing in, ensure the changes in your application are correct by reading the [Adding Sign-On to Your Web Application Using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) article, or downloading and inspecting the following code sample: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
-### <a name="vs2010"></a>Web applications protecting resources and created with Visual Studio 2008 or 2010 and Windows Identity Foundation (WIF) v1.0 for .NET 3.5
-If you built an application on WIF v1.0, there is no provided mechanism to automatically refresh your application’s configuration to use a new key.
-
-* *Easiest way* Use the FedUtil tooling included in the WIF SDK, which can retrieve the latest metadata document and update your configuration.
-* Update your application to .NET 4.5, which includes the newest version of WIF located in the System namespace. You can then use the [Validating Issuer Name Registry (VINR)](/previous-versions/dotnet/framework/windows-identity-foundation/validating-issuer-name-registry) to perform automatic updates of the application’s configuration.
-* Perform a manual rollover as per the instructions at the end of this guidance document.
-
-Instructions to use the FedUtil to update your configuration:
-
-1. Verify that you have the WIF v1.0 SDK installed on your development machine for Visual Studio 2008 or 2010. You can [download it from here](https://www.microsoft.com/download/details.aspx?id=17331) if you have not yet installed it.
-2. In Visual Studio, open the solution, and then right-click the applicable project and select **Update federation metadata**. If this option is not available, FedUtil and/or the WIF v1.0 SDK has not been installed.
-3. From the prompt, select **Update** to begin updating your federation metadata. If you have access to the server environment where the application is hosted, you can optionally use FedUtil’s [automatic metadata update scheduler](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10)).
-4. Click **Finish** to complete the update process.
-
 ### <a name="other"></a>Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols
 If you are using some other library or manually implemented any of the supported protocols, you'll need to review the library or your implementation to ensure that the key is being retrieved from either the OpenID Connect discovery document or the federation metadata document. One way to check for this is to do a search in your code or the library's code for any calls out to either the OpenID discovery document or the federation metadata document.
 
-If they key is being stored somewhere or hardcoded in your application, you can manually retrieve the key and update it accordingly by performing a manual rollover as per the instructions at the end of this guidance document. **It is strongly encouraged that you enhance your application to support automatic rollover** using any of the approaches outline in this article to avoid future disruptions and overhead if the Microsoft identity platform increases its rollover cadence or has an emergency out-of-band rollover.
+If the key is being stored somewhere or hardcoded in your application, you can manually retrieve the key and update it accordingly by performing a manual rollover as per the instructions at the end of this guidance document. **It is strongly encouraged that you enhance your application to support automatic rollover** using any of the approaches outline in this article to avoid future disruptions and overhead if the Microsoft identity platform increases its rollover cadence or has an emergency out-of-band rollover.
 
 ## How to test your application to determine if it will be affected
-You can validate whether your application supports automatic key rollover by downloading the scripts and following the instructions in [this GitHub repository.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
+
+You can validate whether your application supports automatic key rollover by using the following PowerShell scripts.
+
+To check and update signing keys with PowerShell, you'll need the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module.
+
+1. Install the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module:
+
+    ```powershell
+    Install-Module -Name MSIdentityTools
+    ```
+
+1. Sign in by using the Connect-MgGraph command with an admin account to consent to the required scopes:
+
+   ```powershell
+    Connect-MgGraph -Scope "Application.ReadWrite.All"
+   ```
+
+1. Get the list of available signing key thumbprints:
+
+    ```powershell
+    Get-MsIdSigningKeyThumbprint
+    ```
+
+1. Pick any of the key thumbprints and configure Azure Active Directory to use that key with your application (get the app ID from the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)):
+
+    ```powershell
+    Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId> -KeyThumbprint <Thumbprint>
+    ```
+
+1. Test the web application by signing in to get a new token. The key update change is instantaneous, but make sure you use a new browser session (using, for example, Internet Explorer's "InPrivate," Chrome's "Incognito," or Firefox's "Private" mode) to ensure you are issued a new token.
+
+1. For each of the returned signing key thumbprints, run the `Update-MsIdApplicationSigningKeyThumbprint` cmdlet and test your web application sign-in process.
+
+1. If the web application signs you in properly, it supports automatic rollover. If it doesn't, modify your application to support manual rollover. Check out [Establishing a manual rollover process](#how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover) for more information.
+
+1. Run the following script to revert to normal behavior:
+
+    ```powershell
+    Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId> -Default
+    ```
 
 ## How to perform a manual rollover if your application does not support automatic rollover
-If your application does **not** support automatic rollover, you will need to establish a process that periodically monitors Microsoft identity platform's signing keys and performs a manual rollover accordingly. [This GitHub repository](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contains scripts and instructions on how to do this.
+If your application doesn't support automatic rollover, you need to establish a process that periodically monitors Microsoft identity platform's signing keys and performs a manual rollover accordingly.
+
+To check and update signing keys with PowerShell, you'll need the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module.
+
+1. Install the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module:
+
+    ```powershell
+    Install-Module -Name MSIdentityTools
+    ```
+
+1. Get the latest signing key (get the tenant ID from the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)):
+
+    ```powershell
+    Get-MsIdSigningKeyThumbprint -Tenant <tenandId> -Latest
+    ```
+
+1. Compare this key against the key your application is currently hardcoded or configured to use.
+
+1. If the latest key is different from the key your application is using, download the latest signing key:
+
+    ```powershell
+    Get-MsIdSigningKeyThumbprint -Latest -DownloadPath <DownloadFolderPath>
+    ```
+
+1. Update your application's code or configuration to use the new key.
+
+1. Configure Azure Active Directory to use that latest key with your application (get the app ID from the [portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)):
+
+    ```powershell
+    Get-MsIdSigningKeyThumbprint -Latest | Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId>
+    ```
+
+1. Test the web application by signing in to get a new token. The key update change is instantaneous, but make sure you use a new browser session (using, for example, Internet Explorer's "InPrivate," Chrome's "Incognito," or Firefox's "Private" mode) to ensure you are issued a new token.
+
+1. If you experience any issues, revert to the previous key you were using and contact Azure support:
+
+    ```powershell
+    Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId> -KeyThumbprint <PreviousKeyThumbprint>
+    ```
+
+1. After you update your application to support manual rollover, revert to normal behavior:
+
+    ```powershell
+    Update-MsIdApplicationSigningKeyThumbprint -ApplicationId <ApplicationId> -Default
+    ```

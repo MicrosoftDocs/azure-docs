@@ -41,7 +41,7 @@ When you use the MARS agent to back up data, the agent takes a snapshot of the d
 Size |  Free space in the cache folder should be at least 5 to 10 percent of the overall size of your backup data.
 Location | The cache folder must be locally stored on the machine that's being backed up, and it must be online. The cache folder shouldn't be on a network share, on removable media, or on an offline volume.
 Folder | The cache folder shouldn't be encrypted on a deduplicated volume or in a folder that's compressed, that's sparse, or that has a reparse point.
-Location changes | You can change the cache location by stopping the backup engine (`net stop bengine`) and copying the cache folder to a new drive. (Ensure the new drive has sufficient space.) Then update two registry entries under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** and **Config/CloudBackupProvider/ScratchLocation**) to the new location and restart the engine.
+Location changes | You can change the cache location by stopping the backup engine (`net stop obengine`) and copying the cache folder to a new drive. (Ensure the new drive has sufficient space.) Then update two registry entries under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** and **Config/CloudBackupProvider/ScratchLocation**) to the new location and restart the engine.
 
 ## Networking and access support
 
@@ -61,7 +61,9 @@ The operating systems must be 64 bit and should be running the latest services p
 
 **Operating system** | **Files/folders** | **System state** | **Software/Module requirements**
 --- | --- | --- | ---
+Windows 11 (Enterprise, Pro, Home) | Yes | No |  Check the corresponding server version for software/module requirements
 Windows 10 (Enterprise, Pro, Home) | Yes | No |  Check the corresponding server version for software/module requirements
+Windows Server 2022 (Standard, Datacenter, Essentials) | Yes | Yes |  Check the corresponding server version for software/module requirements
 Windows 8.1 (Enterprise, Pro)| Yes |No | Check the corresponding server version for software/module requirements
 Windows 8 (Enterprise, Pro) | Yes | No | Check the corresponding server version for software/module requirements
 Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0

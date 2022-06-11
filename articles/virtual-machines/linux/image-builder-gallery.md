@@ -1,6 +1,6 @@
 ---
-title: Use Azure Image Builder & Shared Image Gallery for Linux VMs
-description: Learn how to use the Azure Image Builder, and the Azure CLI, to create an image version in a Shared Image Gallery, and then distribute the image globally.
+title: Use Azure Image Builder & Azure Compute Gallery for Linux VMs
+description: Learn how to use the Azure Image Builder, and the Azure CLI, to create an image version in an Azure Compute Gallery, and then distribute the image globally.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
@@ -11,16 +11,16 @@ ms.subservice: image-builder
 
 ---
 
-# Create a Linux image and distribute it to a Shared Image Gallery
+# Create a Linux image and distribute it to an Azure Compute Gallery
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in a [Shared Image Gallery](../shared-image-galleries.md), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
+This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIG.json](https://github.com/azure/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
-To distribute the image to a Shared Image Gallery, the template uses [sharedImage](image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
+To distribute the image to an Azure Compute Gallery, the template uses [sharedImage](image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
 
 ## Register the features
@@ -60,7 +60,7 @@ sigResourceGroup=ibLinuxGalleryRG
 location=westus2
 # Additional region to replicate the image to - we are using East US in this example
 additionalregion=eastus
-# name of the shared image gallery - in this example we are using myGallery
+# name of the Azure Compute Gallery - in this example we are using myGallery
 sigName=myIbGallery
 # name of the image definition to be created - in this example we are using myImageDef
 imageDefName=myIbImageDef
@@ -81,18 +81,18 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 ## Create a user-assigned identity and set permissions on the resource group
-Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into the Azure Shared Image Gallery (SIG). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
+Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into the Azure Compute Gallery. In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the gallery. The role definition will then be assigned to the user-identity.
 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
-idenityName=aibBuiUserId$(date +'%s')
-az identity create -g $sigResourceGroup -n $idenityName
+identityName=aibBuiUserId$(date +'%s')
+az identity create -g $sigResourceGroup -n $identityName
 
 # get identity id
 imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
-imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
+imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName
 
 # this command will download an Azure role definition template, and update the template with the parameters specified earlier.
 curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
@@ -110,16 +110,16 @@ az role definition create --role-definition ./aibRoleImageCreation.json
 # grant role definition to the user assigned identity
 az role assignment create \
     --assignee $imgBuilderCliId \
-    --role $imageRoleDefName \
+    --role "$imageRoleDefName" \
     --scope /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup
 ```
 
 
 ## Create an image definition and gallery
 
-To use Image Builder with a shared image gallery, you need to have an existing image gallery and image definition. Image Builder will not create the image gallery and image definition for you.
+To use Image Builder with an Azure Compute Gallery, you need to have an existing gallery and image definition. Image Builder will not create the gallery and image definition for you.
 
-If you don't already have a gallery and image definition to use, start by creating them. First, create an image gallery.
+If you don't already have a gallery and image definition to use, start by creating them. First, create a gallery.
 
 ```azurecli-interactive
 az sig create \
@@ -222,7 +222,7 @@ If you want to now try re-customizing the image version to create a new version 
 
 This will delete the image that was created, along with all of the other resource files. Make sure you are finished with this deployment before deleting the resources.
 
-When deleting image gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
+When deleting gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
 
 Delete the image builder template.
 
@@ -286,4 +286,4 @@ az group delete -n $sigResourceGroup -y
 
 ## Next steps
 
-Learn more about [Azure Shared Image Galleries](../shared-image-galleries.md).
+Learn more about [Azure Compute Galleries](../shared-image-galleries.md).

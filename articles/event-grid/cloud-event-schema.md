@@ -11,7 +11,7 @@ In addition to its [default event schema](event-schema.md), Azure Event Grid nat
 
 CloudEvents simplifies interoperability by providing a common event schema for publishing, and consuming cloud based events. This schema allows for uniform tooling, standard ways of routing & handling events, and universal ways of deserializing the outer event schema. With a common schema, you can more easily integrate work across platforms.
 
-CloudEvents is being built by several [collaborators](https://github.com/cloudevents/spec/blob/master/community/contributors.md), including Microsoft, through the [Cloud Native Computing Foundation](https://www.cncf.io/). It's currently available as version 1.0.
+CloudEvents is being built by several [collaborators](https://github.com/cloudevents/spec/blob/main/docs/contributors.md), including Microsoft, through the [Cloud Native Computing Foundation](https://www.cncf.io/). It's currently available as version 1.0.
 
 This article describes CloudEvents schema with Event Grid.
 
@@ -26,8 +26,7 @@ Here is an example of an Azure Blob Storage event in CloudEvents format:
     "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-account}",
     "id": "9aeb0fdf-c01e-0131-0922-9eb54906e209",
     "time": "2019-11-18T15:13:39.4589254Z",
-    "subject": "blobServices/default/containers/{storage-container}/blobs/{new-file}",
-    "dataschema": "#",
+    "subject": "blobServices/default/containers/{storage-container}/blobs/{new-file}",    
     "data": {
         "api": "PutBlockList",
         "clientRequestId": "4c5dd7fb-2c48-4a27-bb30-5361b5de920a",

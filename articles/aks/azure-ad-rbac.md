@@ -10,7 +10,7 @@ ms.date: 03/17/2021
 
 # Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service
 
-Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you sign in to an AKS cluster using an Azure AD authentication token. Once authenticated, you can use the built-in Kubernetes role-based access control (Kubernetes RBAC) to manage access to namespaces and cluster resources based a user's identity or group membership.
+Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you sign in to an AKS cluster using an Azure AD authentication token. Once authenticated, you can use the built-in Kubernetes role-based access control (Kubernetes RBAC) to manage access to namespaces and cluster resources based on a user's identity or group membership.
 
 This article shows you how to control access using Kubernetes RBAC in an AKS cluster based on Azure AD group membership. Example groups and users are created in Azure AD, then Roles and RoleBindings are created in the AKS cluster to grant the appropriate permissions to create and view resources.
 
@@ -201,6 +201,9 @@ subjects:
   namespace: dev
   name: groupObjectId
 ```
+
+> [!TIP]
+> If you want to create the RoleBinding for a single user, specify *kind: User* and replace *groupObjectId* with the user principal name (UPN) in the above sample.
 
 Create the RoleBinding using the [kubectl apply][kubectl-apply] command and specify the filename of your YAML manifest:
 
@@ -423,7 +426,7 @@ For best practices on identity and resource control, see [Best practices for aut
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
-[azure-ad-aks-cli]: azure-ad-integration-cli.md
+[azure-ad-aks-cli]: managed-aad.md
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-ad-group-create]: /cli/azure/ad/group#az_ad_group_create
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create

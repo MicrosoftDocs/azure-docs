@@ -121,6 +121,5 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
 ## Next steps
 
-- To view audit logs, see [Audit operations with Resource Manager](../management/view-activity-logs.md).
 - To troubleshoot deployment errors, see [View deployment operations](deployment-history.md).
 - To export a template from a deployment or resource group, see [Export ARM templates](export-template-portal.md).

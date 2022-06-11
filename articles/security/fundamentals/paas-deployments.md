@@ -10,7 +10,6 @@ editor: techlake
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -49,7 +48,7 @@ At the top of the stack, data governance and rights management, you take on one 
 
 The Azure platform also provides you strong DDoS protection by using various network-based technologies. However, all types of network-based DDoS protection methods have their limits on a per-link and per-datacenter basis. To help avoid the impact of large DDoS attacks, you can take advantage of Azure’s core cloud capability of enabling you to quickly and automatically scale out to defend against DDoS attacks. We'll go into more detail on how you can do this in the recommended practices articles.
 
-## Modernizing the defender’s mindset
+## Modernizing the Defender for Cloud’s mindset
 With PaaS deployments come a shift in your overall approach to security. You shift from needing to control everything yourself to sharing responsibility with Microsoft.
 
 Another significant difference between PaaS and traditional on-premises deployments, is a new view of what defines the primary security perimeter. Historically, the primary on-premises security perimeter was your network and most on-premises security designs use the network as its primary security pivot. For PaaS deployments, you are better served by considering identity to be the primary security perimeter.
@@ -118,10 +117,10 @@ Following are best practices for using App Service.
 **Detail**: Azure Key Vault helps safeguard cryptographic keys and secrets that cloud applications and services use. With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs. See [Azure Key Vault](../../key-vault/general/overview.md) to learn more. You can also use Key Vault to manage your TLS certificates with auto-renewal.
 
 **Best practice**: Restrict incoming source IP addresses.   
-**Detail**: [App Service Environment](../../app-service/environment/intro.md) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups. Virtual networks enable you to place Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure virtual network](../../app-service/web-sites-integrate-with-vnet.md).
+**Detail**: [App Service Environment](../../app-service/environment/intro.md) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups. Virtual networks enable you to place Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure virtual network](../../app-service/overview-vnet-integration.md).
 
 **Best practice**: Monitor the security state of your App Service environments.   
-**Detail**: Use Azure Security Center to monitor your App Service environments. When Security Center identifies potential security vulnerabilities, it creates [recommendations](../../security-center/asset-inventory.md) that guide you through the process of configuring the needed controls.
+**Detail**: Use Microsoft Defender for Cloud to monitor your App Service environments. When Defender for Cloud identifies potential security vulnerabilities, it creates [recommendations](../../security-center/asset-inventory.md) that guide you through the process of configuring the needed controls.
 
 ## Azure Cloud Services
 [Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md) is an example of a PaaS. Like Azure App Service, this technology is designed to support applications that are scalable, reliable, and inexpensive to operate. In the same way that App Service is hosted on virtual machines (VMs), so too is Azure Cloud Services. However, you have more control over the VMs. You can install your own software on VMs that use Azure Cloud Services, and you can access them remotely.

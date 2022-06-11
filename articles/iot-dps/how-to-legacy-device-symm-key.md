@@ -1,8 +1,8 @@
 ---
 title: Provision devices using symmetric keys - Azure IoT Hub Device Provisioning Service
 description: How to use symmetric keys to provision devices with your Device Provisioning Service (DPS) instance
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 04/23/2021
 ms.topic: conceptual
 ms.service: iot-dps
@@ -12,7 +12,7 @@ manager: lizross
 
 # How to provision devices using symmetric key enrollment groups
 
-This article demonstrates how to securely provision multiple symmetric key devices to a single IoT Hub using an enrollment group.
+This article demonstrates how to securely provision multiple simulated symmetric key devices to a single IoT Hub using an enrollment group.
 
 Some devices may not have a certificate, TPM, or any other security feature that can be used to securely identify the device. The Device Provisioning Service includes [symmetric key attestation](concepts-symmetric-key-attestation.md). Symmetric key attestation can be used to identify a device based off unique information like the MAC address or a serial number.
 
@@ -23,7 +23,7 @@ This article also assumes that the device update takes place in a secure environ
 This article is oriented toward a Windows-based workstation. However, you can perform the procedures on Linux. For a Linux example, see [How to provision for multitenancy](how-to-provision-multitenant.md).
 
 > [!NOTE]
-> The sample used in this article is written in C. There is also a [C# device provisioning symmetric key sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) available. To use this sample, download or clone the [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) repository and follow the in-line instructions in the sample code. You can follow the instructions in this article to create a symmetric key enrollment group using the portal and to find the ID Scope and enrollment group primary and secondary keys needed to run the sample. You can also create individual enrollments using the sample.
+> The sample used in this article is written in C. There is also a [C# device provisioning symmetric key sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/provisioning/Samples/device/SymmetricKeySample) available. To use this sample, download or clone the [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) repository and follow the in-line instructions in the sample code. You can follow the instructions in this article to create a symmetric key enrollment group using the portal and to find the ID Scope and enrollment group primary and secondary keys needed to run the sample. You can also create individual enrollments using the sample.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ A unique registration ID will be defined for each device based on information th
 
 An enrollment group that uses [symmetric key attestation](concepts-symmetric-key-attestation.md) will be created with the Device Provisioning Service. The enrollment group will include a group master key. That master key will be used to hash each unique registration ID to produce a unique device key for each device. The device will use that derived device key with its unique registration ID to attest with the Device Provisioning Service and be assigned to an IoT hub.
 
-The device code demonstrated in this article will follow the same pattern as the [Quickstart: Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md). The code will simulate a device using a sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The simulated device will attest with an enrollment group instead of an individual enrollment as demonstrated in the quickstart.
+The device code demonstrated in this article will follow the same pattern as the [Quickstart: Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md). The code will simulate a device using a sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The simulated device will attest with an enrollment group instead of an individual enrollment as demonstrated in the quickstart.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -108,7 +108,7 @@ The SDK includes the sample code for the simulated device. This simulated device
 
 3. On **Add Enrollment Group**, enter the following information, and click the **Save** button.
 
-   - **Group name**: Enter **mylegacydevices**.
+   - **Group name**: Enter **mylegacydevices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
    - **Attestation Type**: Select **Symmetric Key**.
 
@@ -135,7 +135,7 @@ In this example, we use a combination of a MAC address and serial number forming
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Create unique registration IDs for each device. Valid characters are lowercase alphanumeric and dash ('-').
+Create unique registration IDs for each device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
 
 ## Derive a device key 
@@ -148,7 +148,7 @@ To generate device keys, use the enrollment group master key to compute an [HMAC
 
 # [Azure CLI](#tab/azure-cli)
 
-The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) command for generating derived device keys. This command can be used from a Windows-based or Linux systems, in PowerShell or a Bash shell.
+The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps#az-iot-dps-compute-device-key) command for generating derived device keys. This command can be used from a Windows-based or Linux systems, in PowerShell or a Bash shell.
 
 Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
 
@@ -219,9 +219,9 @@ In this section, you will update a provisioning sample named **prov\_dev\_client
 
 This sample code simulates a device boot sequence that sends the provisioning request to your Device Provisioning Service instance. The boot sequence will cause the device to be recognized and assigned to the IoT hub you configured on the enrollment group. This would be completed for each device that would be provisioned using the enrollment group.
 
-1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and note down the **_ID Scope_** value.
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service and note down the **_ID Scope_** value.
 
-    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/copy-id-scope.png) 
 
 2. In Visual Studio, open the **azure_iot_sdks.sln** solution file that was generated by running CMake earlier. The solution file should be in the following location:
 
@@ -302,7 +302,7 @@ Be aware that this leaves the derived device key included as part of the image f
 > [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md)
+> [Quickstart: Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md)
 
 * To learn more about Deprovisioning, see
 

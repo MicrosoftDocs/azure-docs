@@ -3,11 +3,11 @@ title: 'On-demand provisioning in Azure AD Connect cloud sync'
 description: This article describes how to use the cloud sync feature of Azure AD Connect to test configuration changes.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -19,6 +19,10 @@ You can use the cloud sync feature of Azure Active Directory (Azure AD) Connect 
 
 > [!IMPORTANT] 
 > When you use on-demand provisioning, the scoping filters are not applied to the user that you selected. You can use on-demand provisioning on users who are outside the organization units that you specified.
+
+For additional information and an example see the following video.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mW]
 
 ## Validate a user
 To use on-demand provisioning, follow these steps:

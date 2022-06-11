@@ -5,13 +5,13 @@ services: virtual-machines-linux
 documentationcenter: 
 author: rdeltcheva
 manager: juergent
-editor:
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/26/2021
+ms.date: 05/10/2022
 ms.author: radeltch
+ms.custom: ignite-fall-2021
 ---
 
 # High availability of SAP HANA Scale-up with Azure NetApp Files on Red Hat Enterprise Linux
@@ -20,10 +20,8 @@ ms.author: radeltch
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-azure-doc]:/azure/azure-netapp-files/
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
-[anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
@@ -112,12 +110,10 @@ Mounted on node2 (**hanadb2**)
 > [!NOTE]
 > File systems /hana/shared, /hana/data and /hana/log are not shared between the two nodes. Each cluster node has its own, separate file systems.   
 
-The SAP HANA System Replication configuration uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer:
+The SAP HANA System Replication configuration uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The  presented configuration shows a load balancer with:
 
-- Front-end configuration: IP address 10.32.0.10 for hn1-db
-- Back-end configuration: Connected to primary network interfaces of all virtual machines that should be part of HANA System Replication
-- Probe Port: Port 62503
-- Load-balancing rules: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP (if using Basic Azure Load balancer)  
+- Front-end IP address: 10.32.0.10 for hn1-db
+- Probe Port: 62503 
 
 ## Set up the Azure NetApp File infrastructure
 
@@ -127,23 +123,19 @@ Azure NetApp Files is available in several [Azure regions](https://azure.microso
 
 For information about the availability of Azure NetApp Files by Azure region, see [Azure NetApp Files Availability by Azure Region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all).
 
-Before you deploy Azure NetApp Files, request onboarding to Azure NetApp Files by going to [Register for Azure NetApp Files instructions](../../../azure-netapp-files/azure-netapp-files-register.md).
-
 ### Deploy Azure NetApp Files resources
 
 The following instructions assume that you've already deployed your [Azure virtual network](../../../virtual-network/virtual-networks-overview.md). The Azure NetApp Files resources and VMs, where the Azure NetApp Files resources will be mounted, must be deployed in the same Azure virtual network or in peered Azure virtual networks.
 
-1. If you haven't already deployed the resources, request [onboarding to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).
+1. Create a NetApp account in your selected Azure region by following the instructions in [Create a NetApp account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
 
-2. Create a NetApp account in your selected Azure region by following the instructions in [Create a NetApp account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
-
-3.	Set up an Azure NetApp Files capacity pool by following the instructions in [Set up an Azure NetApp Files capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
+2.	Set up an Azure NetApp Files capacity pool by following the instructions in [Set up an Azure NetApp Files capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
 
 	The HANA architecture presented in this article uses a single Azure NetApp Files capacity pool at the *Ultra* Service level. For HANA workloads on Azure, we recommend using an Azure NetApp Files *Ultra* or *Premium* [service Level](../../../azure-netapp-files/azure-netapp-files-service-levels.md).
 
-4.	Delegate a subnet to Azure NetApp Files, as described in the instructions in [Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
+3.	Delegate a subnet to Azure NetApp Files, as described in the instructions in [Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
-5.	Deploy Azure NetApp Files volumes by following the instructions in [Create an NFS volume for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).
+4.	Deploy Azure NetApp Files volumes by following the instructions in [Create an NFS volume for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).
 
 	As you are deploying the volumes, be sure to select the NFSv4.1 version. Deploy the volumes in the designated Azure NetApp Files subnet. The IP addresses of the Azure NetApp volumes are assigned automatically.
 
@@ -230,7 +222,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 > [!NOTE] 
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
-8.	If using standard load balancer, follow these configuration steps:
+8.	To set up standard load balancer, follow these configuration steps:
 	1.	First, create a front-end IP pool:
 		1.	Open the load balancer, select **frontend IP pool**, and select **Add**.
 		1.	Enter the name of the new front-end IP pool (for example, **hana-frontend**).
@@ -258,7 +250,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 		1.	Select **OK**.
 
 
-9. Alternatively, if your scenario dictates using basic load balancer, follow these configuration steps:
+9. Alternatively, ***only if*** your scenario dictates using basic load balancer, follow these configuration steps instead:
 	1.	Configure the load balancer. First, create a front-end IP pool:
 		1.	Open the load balancer, select **frontend IP pool**, and select **Add**.
 		1.	Enter the name of the new front-end IP pool (for example, **hana-frontend**).
@@ -397,18 +389,15 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    10.32.0.5   hanadb2
    ```
 
-3. **[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]. Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
+3. **[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
 
     <pre><code>
     vi /etc/sysctl.d/netapp-hana.conf
     # Add the following entries in the configuration file
     net.core.rmem_max = 16777216
     net.core.wmem_max = 16777216
-    net.core.rmem_default = 16777216
-    net.core.wmem_default = 16777216
-    net.core.optmem_max = 16777216
-    net.ipv4.tcp_rmem = 65536 16777216 16777216
-    net.ipv4.tcp_wmem = 65536 16777216 16777216
+    net.ipv4.tcp_rmem = 4096 131072 16777216
+    net.ipv4.tcp_wmem = 4096 16384 16777216
     net.core.netdev_max_backlog = 300000 
     net.ipv4.tcp_slow_start_after_idle=0 
     net.ipv4.tcp_no_metrics_save = 1
@@ -432,7 +421,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
     > [!TIP]
     > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more details see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
-5. **[A]** Adjust the sunrpc settings, as recommended in the [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].  
+5. **[A]** Adjust the sunrpc settings, as recommended in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346).    
 
     <pre><code>
     vi /etc/modprobe.d/sunrpc.conf
@@ -548,10 +537,14 @@ This is important step to optimize the integration with the cluster and improve 
 
 2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
     ```bash
-    cat << EOF > /etc/sudoers.d/20-saphana
-    # Needed for SAPHanaSR python hook
-    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
-    EOF
+    sudo visudo -f /etc/sudoers.d/20-saphana
+    # Insert the following lines and then save
+    Cmnd_Alias SITE1_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE1 -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias SITE1_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE1 -v SFAIL -t crm_config -s SAPHanaSR
+    Cmnd_Alias SITE2_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE2 -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias SITE2_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE2 -v SFAIL -t crm_config -s SAPHanaSR
+    hn1adm ALL=(ALL) NOPASSWD: SITE1_SOK, SITE1_SFAIL, SITE2_SOK, SITE2_SFAIL
+    Defaults!SITE1_SOK, SITE1_SFAIL, SITE2_SOK, SITE2_SFAIL !requiretty
     ```
 
 3. **[A]** Start SAP HANA on both nodes. Execute as <sid\>adm.  

@@ -1,9 +1,12 @@
+items:
 - name: Azure Firewall documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Azure Firewall?
     href: overview.md
+  - name: Well-Architected review of Azure Firewall
+    href: /azure/architecture/framework/services/networking/azure-firewall?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -31,16 +34,20 @@
     href: sample-powershell.md
 - name: Concepts
   items:
-    - name: Azure Firewall features
+    - name: Azure Firewall Standard features
       href: features.md
     - name: Azure Firewall Premium features
       href: premium-features.md
+    - name: Azure Firewall preview features
+      href: firewall-preview.md
+    - name: IDPS signature rule categories
+      href: idps-signature-categories.md
     - name: Azure Firewall Premium in the portal
       href: premium-portal.md
     - name: Azure Firewall Premium certificates
       href: premium-certificates.md
     - name: Azure Firewall web categories
-      href: web-categories.md   
+      href: web-categories.md
     - name: FQDN tags
       href: fqdn-tags.md
     - name: Infrastructure FQDNs
@@ -49,6 +56,8 @@
       href: logs-and-metrics.md
     - name: Threat intelligence
       href: threat-intel.md
+    - name: Policy rule sets
+      href: policy-rule-sets.md
     - name: Rule processing logic
       href: rule-processing.md
     - name: Service tags
@@ -69,8 +78,10 @@
       href: dns-details.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
-    - name: Active FTP support
-      href: active-ftp-support.md
+    - name: FTP support
+      href: ftp-support.md
+    - name: Performance
+      href: firewall-performance.md
 - name: How-to guides
   items:
     - name: Deploy and configure - classic
@@ -99,8 +110,8 @@
       href: snat-private-range.md
     - name: Create IP Groups
       href: create-ip-group.md
-    - name: Protect Windows Virtual Desktop
-      href: protect-windows-virtual-desktop.md
+    - name: Protect Azure Virtual Desktop
+      href: protect-azure-virtual-desktop.md
     - name: Protect Azure Kubernetes Service (AKS)
       href: protect-azure-kubernetes-service.md
     - name: DNS settings
@@ -120,6 +131,8 @@
       href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
     - name: Scale Outbound SNAT Ports
       href: integrate-with-nat-gateway.md
+    - name: Add or modify rules using PowerShell
+      href: deploy-rules-powershell.md
 - name: Reference
   items:
   - name: Azure CLI

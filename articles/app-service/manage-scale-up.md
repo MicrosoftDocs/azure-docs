@@ -63,7 +63,7 @@ If your app depends on other services, such as Azure SQL Database or Azure Stora
    
     ![Navigate to resource group page to scale up your Azure app](./media/web-sites-scale/ResourceGroup.png)
 
-    To scale up the related resource, see the documentation for the specific resource type. For example, to scale up a single SQL Database, see [Scale single database resources in Azure SQL Database](../azure-sql/database/single-database-scale.md). To scale up a Azure Database for MySQL resource, see [Scale MySQL resources](../mysql/concepts-pricing-tiers.md#scale-resources).
+    To scale up the related resource, see the documentation for the specific resource type. For example, to scale up a single SQL Database, see [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale). To scale up a Azure Database for MySQL resource, see [Scale MySQL resources](../mysql/concepts-pricing-tiers.md#scale-resources).
 
 <a name="OtherFeatures"></a>
 <a name="devfeatures"></a>
@@ -78,9 +78,9 @@ For a table of service limits, quotas, and constraints, and supported features i
 
 ## More resources
 
-[Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md)  
-[Configure PremiumV3 tier for App Service](app-service-configure-premium-tier.md)
-
+* [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md)
+* [Configure PremiumV3 tier for App Service](app-service-configure-premium-tier.md)
+* [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
 [SQLaccountsbilling]:https://go.microsoft.com/fwlink/?LinkId=234930

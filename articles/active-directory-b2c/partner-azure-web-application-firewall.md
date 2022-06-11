@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: Tutorial to configure Azure Active Directory B2C with Azure Web application firewall to protect your applications from malicious attacks 
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
@@ -29,15 +30,15 @@ To get started, you'll need:
 
 - [An Azure AD B2C tenant](tutorial-create-tenant.md) – The authorization server, responsible for verifying the user’s credentials using the custom policies defined in the tenant.  It's also known as the identity provider.
 
-- [Azure Front Door (AFD)](https://docs.microsoft.com/azure/frontdoor/) – Responsible for enabling custom domains for Azure AD B2C tenant.  
+- [Azure Front Door (AFD)](../frontdoor/index.yml) – Responsible for enabling custom domains for Azure AD B2C tenant.  
 
 - [Azure WAF](https://azure.microsoft.com/services/web-application-firewall/#overview) – Manages all traffic that is sent to the authorization server.
 
 ## Azure AD B2C setup
 
-To use custom domains in Azure AD B2C, it's required to use custom domain feature provided by AFD. Learn how to [enable Azure AD B2C custom domains](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow).  
+To use custom domains in Azure AD B2C, it's required to use custom domain feature provided by AFD. Learn how to [enable Azure AD B2C custom domains](./custom-domain.md?pivots=b2c-user-flow).  
 
-After custom domain for Azure AD B2C is successfully configured using AFD, [test the custom domain](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-custom-policy#test-your-custom-domain) before proceeding further.  
+After custom domain for Azure AD B2C is successfully configured using AFD, [test the custom domain](./custom-domain.md?pivots=b2c-custom-policy#test-your-custom-domain) before proceeding further.  
 
 ## Onboard with Azure WAF
 
@@ -76,7 +77,7 @@ Create a basic WAF policy with managed Default Rule Set (DRS) in the [Azure port
 
 ### Change policy mode from detection to prevention
 
-When a WAF policy is created, by default the policy is in Detection mode. In Detection mode, WAF doesn't block any requests, instead, requests matching the WAF rules are logged in the WAF logs. For more information about WAF logging, see [Azure WAF monitoring and logging](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor).
+When a WAF policy is created, by default the policy is in Detection mode. In Detection mode, WAF doesn't block any requests, instead, requests matching the WAF rules are logged in the WAF logs. For more information about WAF logging, see [Azure WAF monitoring and logging](../web-application-firewall/afds/waf-front-door-monitor.md).
 
 The sample query shows all the requests that were blocked by the WAF policy in the past 24 hours. The details include, rule name, request data, action taken by the policy, and the policy mode.
 
@@ -84,7 +85,7 @@ The sample query shows all the requests that were blocked by the WAF policy in t
 
 ![Image shows the blocked requests details](./media/partner-azure-web-application-firewall/blocked-requests-details.png)
 
-It's recommended that you let the WAF capture requests in Detection mode. Review the WAF logs to determine if there are any rules in the policy that are causing false positive results. Then after [exclude the WAF rules based on the WAF logs](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-exclusion#define-exclusion-based-on-web-application-firewall-logs).
+It's recommended that you let the WAF capture requests in Detection mode. Review the WAF logs to determine if there are any rules in the policy that are causing false positive results. Then after [exclude the WAF rules based on the WAF logs](../web-application-firewall/afds/waf-front-door-exclusion.md#define-exclusion-based-on-web-application-firewall-logs).
 
 To see WAF in action, use Switch to prevention mode to change from Detection to Prevention mode. All requests that match the rules defined in the Default Rule Set (DRS) are blocked and logged in the WAF logs.
 
@@ -96,6 +97,6 @@ In case you want to switch back to the detection mode, you can do so by using Sw
 
 ## Next steps
 
-- [Azure WAF monitoring and logging](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor/)
+- [Azure WAF monitoring and logging](../web-application-firewall/afds/waf-front-door-monitor.md)
 
-- [WAF with Front Door service exclusion lists](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-exclusion/)
+- [WAF with Front Door service exclusion lists](../web-application-firewall/afds/waf-front-door-exclusion.md)

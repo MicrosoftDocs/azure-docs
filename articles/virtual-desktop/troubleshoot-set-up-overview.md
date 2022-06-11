@@ -3,7 +3,7 @@ title: Azure Virtual Desktop troubleshooting overview - Azure
 description: An overview for troubleshooting issues while setting up an Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 12/04/2020
+ms.date: 10/14/2021
 ms.author: helohr
 manager: femila
 ---
@@ -13,6 +13,10 @@ manager: femila
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 This article provides an overview of the issues you may encounter when setting up an Azure Virtual Desktop environment and provides ways to resolve the issues.
+
+## Troubleshoot deployment and connection issues
+
+[Azure Monitor for Azure Virtual Desktop](azure-monitor.md) is a dashboard built on Azure Monitor workbooks that can quickly troubleshoot and identify issues in your Azure Virtual Desktop environment for you. If you prefer working with Kusto queries, we recommend using the built-in diagnostic feature, [Log Analytics](diagnostics-log-analytics.md), instead.
 
 ## Report issues
 
@@ -24,7 +28,7 @@ When you make a post asking for help or propose a new feature, make sure you des
 
 Before doing anything else, make sure to check the [Azure status page](https://status.azure.com/status) and [Azure Service Health](https://azure.microsoft.com/features/service-health/) to make sure your Azure service is running properly.
 
-Use the following table to identify and resolve issues you may encounter when setting up an environment using Remote Desktop client. Once your environment's set up, you can use our new [Diagnostics service](diagnostics-role-service.md) to identify issues for common scenarios.
+Use the following table to identify and resolve issues you may encounter when setting up an environment using Remote Desktop client. Once your environment's set up, you can use our new [Diagnostics service]() to identify issues for common scenarios.
 
 | **Issue**                                                            | **Suggested Solution**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
@@ -53,5 +57,5 @@ Use the following table to identify and resolve issues you may encounter when se
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md).
 - To learn about actions to determine errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

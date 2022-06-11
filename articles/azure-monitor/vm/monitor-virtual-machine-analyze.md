@@ -6,11 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
+ms.reviewer: Xema Pathak
 
 ---
 
 # Monitor virtual machines with Azure Monitor: Analyze monitoring data
 This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes how to analyze monitoring data for your virtual machines after you've completed their configuration.
+
+> [!NOTE]
+> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md) or [Tutorial: Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md). 
 
 After you've enabled VM insights on your virtual machines, data will be available for analysis. This article describes the different features of Azure Monitor that you can use to analyze the health and performance of your virtual machines. Several of these features provide a different experience depending on whether you're analyzing a single machine or multiple. Each experience is described here with any unique behavior of each feature depending on which experience is being used.
 
@@ -18,11 +22,13 @@ After you've enabled VM insights on your virtual machines, data will be availabl
 > This article includes guidance on analyzing data that's collected by Azure Monitor and VM insights. For data that you configure to monitor workloads running on virtual machines, see [Monitor workloads](monitor-virtual-machine-workloads.md).
 
 ## Single machine experience
-Access the single machine analysis experience from the **Monitoring** section of the menu in the Azure portal for each Azure virtual machine and Azure Arc–enabled server. These options either limit the data that you're viewing to that machine or at least set an initial filter for it. In this way, you can focus on a particular machine, view its current performance and its trending over time, and help to identify any issues it might be experiencing.
+Access the single machine analysis experience from the **Monitoring** section of the menu in the Azure portal for each Azure virtual machine and Azure Arc-enabled server. These options either limit the data that you're viewing to that machine or at least set an initial filter for it. In this way, you can focus on a particular machine, view its current performance and its trending over time, and help to identify any issues it might be experiencing.
 
-:::image type="content" source="media/monitor-virtual-machines/vm-menu.png" alt-text="Screenshot that shows analyzing a VM in the Azure portal." lightbox="media/monitor-virtual-machines/vm-menu.png":::
+:::image type="content" source="media/monitor-virtual-machines/vm-menu.png" alt-text="Screenshot that shows analyzing a VM in the Azure portal.":::
 
-- **Overview page**: Select the **Monitoring** tab to display [platform metrics](../essentials/data-platform-metrics.md) for the virtual machine host. You get a quick view of the trend over different time periods for important metrics, such as CPU, network, and disk. Because these are host metrics though, counters from the guest operating system such as memory aren't included. Select a graph to work with this data in [metrics explorer](../essentials/metrics-getting-started.md) where you can perform different aggregations, and add more counters for analysis.
+- **Overview page**: Select the **Monitoring** tab to display alerts, [platform metrics](../essentials/data-platform-metrics.md), and other monitoring information for the virtual machine host. You can see the number of active alerts on the tab. In the **Monitoring** tab, you get a quick view of:
+    - **Alerts:** the alerts fired in the last 24 hours, with some important statistics about those alerts. If you do not have any alerts set up for this VM, there is a link to help you quickly create new alerts for your VM. 
+    - **Key metrics:** the trend over different time periods for important metrics, such as CPU, network, and disk. Because these are host metrics though, counters from the guest operating system such as memory aren't included. Select a graph to work with this data in [metrics explorer](../essentials/metrics-getting-started.md) where you can perform different aggregations, and add more counters for analysis.
 - **Activity log**: See [activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for the current virtual machine. Use this log to view the recent activity of the machine, such as any configuration changes and when it was stopped and started. 
 - **Insights**: Open [VM insights](../vm/vminsights-overview.md) with the map for the current virtual machine selected. The map shows you running processes on the machine, dependencies on other machines, and external processes. For details on how to use the Map view for a single machine, see [Use the Map feature of VM insights to understand application components](vminsights-maps.md#view-a-map-from-a-vm).
 
@@ -37,7 +43,7 @@ Access the single machine analysis experience from the **Monitoring** section of
 - **Workbooks**: Open the workbook gallery with the VM insights workbooks for single machines. For a list of the VM insights workbooks designed for individual machines, see [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks).
 
 ## Multiple machine experience
-Access the multiple machine analysis experience from the **Monitor** menu in the Azure portal for each Azure virtual machine and Azure Arc–enabled server. These options provide access to all data so that you can select the virtual machines that you're interested in comparing.
+Access the multiple machine analysis experience from the **Monitor** menu in the Azure portal for each Azure virtual machine and Azure Arc-enabled server. These options provide access to all data so that you can select the virtual machines that you're interested in comparing.
 
 :::image type="content" source="media/monitor-virtual-machines/monitor-menu.png" alt-text="Screenshot that shows analyzing multiple VMs in the Azure portal." lightbox="media/monitor-virtual-machines/monitor-menu.png":::
 
@@ -89,10 +95,10 @@ Three namespaces are used by virtual machines.
 |:---|:---|:---|
 | Virtual Machine Host | Host metrics automatically collected for all Azure virtual machines. Detailed list of metrics at [Microsoft.Compute/virtualMachines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines). | Collected automatically with no configuration required. |
 | Guest (classic) | Limited set of guest operating system and application performance data. Available in metrics explorer but not other Azure Monitor features, such as metric alerts.  | [Diagnostic extension](../agents/diagnostics-extension-overview.md) installed. Data is read from Azure Storage.  |
-| Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) installed with a [Data Collection Rule](../agents/data-collection-rule-overview.md). |
+| Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) installed with a [Data Collection Rule](../essentials/data-collection-rule-overview.md). |
 
 ## Analyze log data with Log Analytics
-By using Log Analytics, you can perform custom analysis of your log data. Use Log Analytics when you want to dig deeper into the data used to create the views in VM insights. You might want to analyze different logic and aggregations of that data, correlate security data collected by Azure Security Center and Azure Sentinel with your health and availability data, or work with data collected for your [workloads](monitor-virtual-machine-workloads.md).
+By using Log Analytics, you can perform custom analysis of your log data. Use Log Analytics when you want to dig deeper into the data used to create the views in VM insights. You might want to analyze different logic and aggregations of that data, correlate security data collected by Microsoft Defender for Cloud and Microsoft Sentinel with your health and availability data, or work with data collected for your [workloads](monitor-virtual-machine-workloads.md).
 
 You don't necessarily need to understand how to write a log query to use Log Analytics. There are multiple prebuilt queries that you can select and either run without modification or use as a start to a custom query. Select **Queries** at the top of the Log Analytics screen, and view queries with a **Resource type** of **Virtual machines** or **Virtual machine scale sets**. For information on how to use these queries, see [Using queries in Azure Monitor Log Analytics](../logs/queries.md). For a tutorial on how to use Log Analytics to run queries and work with their results, see [Log Analytics tutorial](../logs/log-analytics-tutorial.md).
 

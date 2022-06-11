@@ -2,8 +2,8 @@
 title: Encrypt registry with a customer-managed key
 description: Learn about encryption-at-rest of your Azure container registry, and how to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault
 ms.topic: how-to
-ms.date: 08/16/2021
-ms.custom: subject-rbac-steps
+ms.date: 09/13/2021
+ms.custom: subject-rbac-steps, devx-track-azurecli
 ---
 
 # Encrypt registry using a customer-managed key
@@ -12,7 +12,7 @@ When you store images and other artifacts in an Azure container registry, Azure 
 
 Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/general/overview.md): 
 
-* You can create your own encryption keys and store them in a key vault, or use Azure Key Vault's APIs to generate keys. 
+* You can create your own encryption keys and store them in a key vault, or use Azure Key Vault APIs to generate keys. 
 * With Azure Key Vault, you can also audit key usage.
 * Azure Container Registry supports automatic rotation of registry encryption keys when a new key version is available in Azure Key Vault. You can also manually rotate registry encryption keys.
 
@@ -129,9 +129,9 @@ az keyvault set-policy \
 ```
 #### Assign RBAC role
 
-Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity using the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command:
+Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command:
 
-```azurecli 
+```azurecli
 az role assignment create --assignee $identityPrincipalID \
   --role "Key Vault Crypto Service Encryption User" \
   --scope $keyvaultID
@@ -149,7 +149,7 @@ az keyvault key create \
 
 In the command output, take note of the key's ID, `kid`. You use this ID in the next step:
 
-```JSON
+```output
 [...]
   "key": {
     "crv": null,
@@ -315,7 +315,7 @@ You can also use a Resource Manager template to create a registry and enable enc
 
 The following template creates a new container registry and a user-assigned managed identity. Copy the following contents to a new file and save it using a filename such as `CMKtemplate.json`.
 
-```JSON
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -425,7 +425,7 @@ Follow the steps in the previous sections to create the following resources:
 
 Run the following [az deployment group create][az-deployment-group-create] command to create the registry using the preceding template file. Where indicated, provide a new registry name and managed identity name, as well as the key vault name and key ID you created.
 
-```bash
+```azurecli
 az deployment group create \
   --resource-group <resource-group-name> \
   --template-file CMKtemplate.json \
@@ -541,7 +541,7 @@ You will also be unable to change (rotate) the encryption key. The resolution st
 
 **User-assigned identity**
 
-If this issue occurs with a user-assigned identity, first reassign the identity using the [az acr identity assign](/cli/azure/acr/identity/#az_acr_identity_assign) command. Pass the identity's resource ID, or use the identity's name when it is in the same resource group as the registy. For example:
+If this issue occurs with a user-assigned identity, first reassign the identity using the [az acr identity assign](/cli/azure/acr/identity/#az-acr-identity-assign) command. Pass the identity's resource ID, or use the identity's name when it is in the same resource group as the registry. For example:
 
 ```azurecli
 az acr identity assign -n myRegistry \
@@ -559,6 +559,12 @@ If this issue occurs with a system-assigned identity, please [create an Azure su
 If you enable a key vault firewall or virtual network after creating an encrypted registry, you might see HTTP 403 or other errors with image import or automated key rotation. To correct this problem, reconfigure the managed identity and key you used initially for encryption. See steps in [Rotate key](#rotate-key). 
 
 If the problem persists, please contact Azure Support.
+
+### Accidental deletion of key vault or key
+
+Deletion of the key vault, or the key, used to encrypt a registry with a customer-managed key will make the registry's content inaccessible. If [soft delete](../key-vault/general/soft-delete-overview.md) is enabled in the key vault (the default option), you can recover a deleted vault or key vault object and resume registry operations.
+
+For key vault deletion and recovery scenarios, see [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md).
 
 ## Next steps
 

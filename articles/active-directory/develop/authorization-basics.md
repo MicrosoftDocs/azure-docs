@@ -1,6 +1,5 @@
 ---
-title: Authorization basics | Azure
-titleSuffix: Microsoft identity platform
+title: Authorization basics
 description: Learn about the basics of authorization in the Microsoft identity platform.
 services: active-directory
 author: Chrispine-Chiedo
@@ -48,7 +47,7 @@ Role-based access control (RBAC) is possibly the most common approach to enforci
 In advanced RBAC implementations, roles may be mapped to collections of permissions, where a permission describes a granular action or activity that can be performed. Roles are then configured as combinations of permissions. You compute the entities’ overall permission set for an application by intersecting the permissions granted to the various roles the entity is assigned. A good example of this approach is the RBAC implementation that governs access to resources in Azure subscriptions.
 
 > [!NOTE]
-> [Application RBAC](./custom-rbac-for-developers.md) differs from [Azure RBAC](/azure/role-based-access-control/overview) and [Azure AD RBAC](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which helps you manage Azure resources. Azure AD RBAC allows you to manage Azure AD resources.
+> [Application RBAC](./custom-rbac-for-developers.md) differs from [Azure RBAC](../../role-based-access-control/overview.md) and [Azure AD RBAC](../roles/custom-overview.md#understand-azure-ad-role-based-access-control). Azure custom roles and built-in roles are both part of Azure RBAC, which helps you manage Azure resources. Azure AD RBAC allows you to manage Azure AD resources.
 
 ### Attribute-based access control 
 
@@ -73,4 +72,4 @@ It's not strictly necessary for developers to embed authorization logic entirely
 
 - To learn about custom role-based access control implementation in applications, see [Role-based access control for application developers](./custom-rbac-for-developers.md).
 - To learn about the process of registering your application so it can integrate with the Microsoft identity platform, see [Application model](./application-model.md).
-- For an example of configuring simple authentication-based authorization, see [Configure your App Service or Azure Functions app to use Azure AD login](/azure/app-service/configure-authentication-provider-aad).
+- For an example of configuring simple authentication-based authorization, see [Configure your App Service or Azure Functions app to use Azure AD login](../../app-service/configure-authentication-provider-aad.md).

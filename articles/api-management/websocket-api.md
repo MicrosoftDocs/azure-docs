@@ -6,19 +6,17 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 08/25/2021
-ms.custom: template-how-to 
+ms.date: 11/2/2021
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Import a WebSocket API (preview)
+# Import a WebSocket API
 
 With API Management’s WebSocket API solution, you can now manage, protect, observe, and expose both WebSocket and REST APIs with API Management and provide a central hub for discovering and consuming all APIs. API publishers can quickly add a WebSocket API in API Management via:
 * A simple gesture in the Azure portal, and 
 * The Management API and Azure Resource Manager. 
 
 You can secure WebSocket APIs by applying existing access control policies, like [JWT validation](./api-management-access-restriction-policies.md#ValidateJWT). You can also test WebSocket APIs using the API test consoles in both Azure portal and developer portal. Building on existing observability capabilities, API Management provides metrics and logs for monitoring and troubleshooting WebSocket APIs. 
-
-[!INCLUDE [preview](./includes/preview/preview-callout-websocket-api.md)]
 
 In this article, you will:
 > [!div class="checklist"]
@@ -110,11 +108,13 @@ For example, the following screenshot shows  recent WebSocket API responses with
 
 ## Limitations
 
-WebSocket APIs are available and supported in public preview through Azure portal, Management API, and Azure Resource Manager. Below are the current restrictions of WebSocket support in API Management:
+Below are the current restrictions of WebSocket support in API Management:
 
-* WebSocket APIs are not supported in the Consumption tier.
-* WebSocket APIs are not supported in the [self-hosted gateway](./how-to-deploy-self-hosted-gateway-azure-arc.md).
-* Azure CLI, PowerShell, and SDK do not support management operations of WebSocket APIs.
+* WebSocket APIs are not supported yet in the Consumption tier.
+* WebSocket APIs are not supported yet in the [self-hosted gateway](./self-hosted-gateway-overview.md).
+* Azure CLI, PowerShell, and SDK currently do not support management operations of WebSocket APIs.
+* 200 active connections limit per unit.
+* Websockets APIs support the following valid buffer types for messages: Close, BinaryFragment, BinaryMessage, UTF8Fragment, and UTF8Message.
 
 ### Unsupported policies
 

@@ -2,7 +2,7 @@
 title: Choose VM sizes and images for pools
 description: How to choose from the available VM sizes and OS versions for compute nodes in Azure Batch pools
 ms.topic: conceptual
-ms.date: 08/27/2021
+ms.date: 09/02/2021
 ms.custom: seodec18
 
 ---
@@ -15,7 +15,16 @@ When you select a node size for an Azure Batch pool, you can choose from almost 
 
 ### Pools in Virtual Machine configuration
 
-Batch pools in the Virtual Machine configuration support almost all [VM sizes](../virtual-machines/sizes.md). See the following table to learn more about supported sizes and restrictions.
+Batch pools in the Virtual Machine configuration support almost all [VM sizes](../virtual-machines/sizes.md). The supported VM sizes in a region can be obtained via [Batch Management APIs](batch-apis-tools.md#batch-management-apis), as well as the [command line tools](batch-apis-tools.md#batch-command-line-tools) (PowerShell cmdlets and Azure CLI).  For example, the [Azure Batch CLI command](/cli/azure/batch/location#az-batch-location-list-skus) to list supported VM sizes in a region is:
+
+```azurecli-interactive
+az batch location list-skus --location
+                            [--filter]
+                            [--maxresults]
+                            [--subscription] 
+```
+
+For each VM series, the following table also lists whether the VM series and VM sizes are supported by Batch.
 
 | VM series  | Supported sizes |
 |------------|---------|

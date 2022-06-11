@@ -4,7 +4,7 @@ description: Explains how to add, modify, monitor, and delete StorSimple volumes
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 01/05/2022
 ms.author: alkohli
 
 ---
@@ -165,8 +165,9 @@ Modify a volume when you need to expand it or change the hosts that access the v
    3. In the list of disks, select the volume that you updated, right-click, and then select **Extend Volume**. The Extend Volume wizard starts. Click **Next**.
    4. Complete the wizard, accepting the default values. After the wizard is finished, the volume should show the increased size.
       
-      > [!NOTE]
-      > If you expand a locally pinned volume and then expand another locally pinned volume immediately afterwards, the volume expansion jobs run sequentially. The first volume expansion job must finish before the next volume expansion job can begin.
+> [!NOTE]
+> - Expansion of a volume typically takes about 30 minutes.
+> - If you expand a locally pinned volume and then expand another locally pinned volume immediately afterwards, the volume expansion jobs run sequentially. The first volume expansion job must finish before the next volume expansion job can begin.
       
 
 ## Change the volume type

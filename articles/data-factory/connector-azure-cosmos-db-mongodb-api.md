@@ -1,21 +1,21 @@
 ---
 title: Copy data from Azure Cosmos DB's API for MongoDB
+description: Learn how to copy data from supported source data stores to or from Azure Cosmos DB's API for MongoDB to supported sink stores using Azure Data Factory or Synapse Analytics pipelines.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from supported source data stores to or from Azure Cosmos DB's API for MongoDB to supported sink stores by using Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
+ms.date: 02/17/2022
 ---
 
-# Copy data to or from Azure Cosmos DB's API for MongoDB by using Azure Data Factory
+# Copy data to or from Azure Cosmos DB's API for MongoDB using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Cosmos DB's API for MongoDB. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to Azure Cosmos DB's API for MongoDB. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 >[!NOTE]
 >This connector only supports copy data to/from Azure Cosmos DB's API for MongoDB. For SQL API, refer to [Cosmos DB SQL API connector](connector-azure-cosmos-db.md). Other API types are not supported now.
@@ -48,7 +48,7 @@ Use the following steps to create a linked service to Azure Cosmos DB's API for 
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
-2. Search for Cosmos and select the Azure Cosmos DB's API for MongoDB connector.
+2. Search for Azure Cosmos DB (MongoDB API) and select the Azure Cosmos DB's API for MongoDB connector.
 
     :::image type="content" source="media/connector-azure-cosmos-db-mongodb-api/azure-cosmos-db-mongodb-api-connector.png" alt-text="Select the Azure Cosmos DB's API for MongoDB connector.":::    
 
@@ -188,7 +188,7 @@ The following properties are supported in the Copy Activity **sink** section:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity sink must be set to **CosmosDbMongoDbApiSink**. |Yes |
-| writeBehavior |Describes how to write data to Azure Cosmos DB. Allowed values: **insert** and **upsert**.<br/><br/>The behavior of **upsert** is to replace the document if a document with the same `_id` already exists; otherwise, insert the document.<br /><br />**Note**: Data Factory automatically generates an `_id` for a document if an `_id` isn't specified either in the original document or by column mapping. This means that you must ensure that, for **upsert** to work as expected, your document has an ID. |No<br />(the default is **insert**) |
+| writeBehavior |Describes how to write data to Azure Cosmos DB. Allowed values: **insert** and **upsert**.<br/><br/>The behavior of **upsert** is to replace the document if a document with the same `_id` already exists; otherwise, insert the document.<br /><br />**Note**: The service automatically generates an `_id` for a document if an `_id` isn't specified either in the original document or by column mapping. This means that you must ensure that, for **upsert** to work as expected, your document has an ID. |No<br />(the default is **insert**) |
 | writeBatchSize | The **writeBatchSize** property controls the size of documents to write in each batch. You can try increasing the value for **writeBatchSize** to improve performance and decreasing the value if your document size being large. |No<br />(the default is **10,000**) |
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out. The allowed value is timespan. | No<br/>(the default is **00:30:00** - 30 minutes) |
 
@@ -232,7 +232,7 @@ The following properties are supported in the Copy Activity **sink** section:
 You can use this Azure Cosmos DB connector to easily:
 
 * Copy documents between two Azure Cosmos DB collections as-is.
-* Import JSON documents from various sources to Azure Cosmos DB, including from MongoDB, Azure Blob storage, Azure Data Lake Store, and other file-based stores that Azure Data Factory supports.
+* Import JSON documents from various sources to Azure Cosmos DB, including from MongoDB, Azure Blob storage, Azure Data Lake Store, and other file-based stores that the service supports.
 * Export JSON documents from an Azure Cosmos DB collection to various file-based stores.
 
 To achieve schema-agnostic copy:
@@ -246,7 +246,7 @@ To copy data from Azure Cosmos DB's API for MongoDB to tabular sink or reversed,
 
 Specifically for writing into Cosmos DB, to make sure you populate Cosmos DB with the right object ID from your source data, for example, you have an "id" column in SQL database table and want to use the value of that as the document ID in MongoDB for insert/upsert, you need to set the proper schema mapping according to MongoDB strict mode definition (`_id.$oid`) as the following:
 
-![Map ID in MongoDB sink](./media/connector-azure-cosmos-db-mongodb-api/map-id-in-mongodb-sink.png)
+:::image type="content" source="./media/connector-azure-cosmos-db-mongodb-api/map-id-in-mongodb-sink.png" alt-text="Map ID in MongoDB sink":::
 
 After copy activity execution, below BSON ObjectId is generated in sink:
 
@@ -258,4 +258,4 @@ After copy activity execution, below BSON ObjectId is generated in sink:
 
 ## Next steps
 
-For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that Copy Activity supports as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

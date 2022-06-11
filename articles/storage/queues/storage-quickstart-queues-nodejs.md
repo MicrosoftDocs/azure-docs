@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Azure Queue Storage client library v12 - JavaScript'
 description: Learn how to use the Azure Queue Storage client library v12 for JavaScript to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 12/13/2019
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom:
-  - devx-track-js
-  - mode-api
+ms.devlang: javascript
+ms.custom: devx-track-js, mode-api
 ---
 
 # Quickstart: Azure Queue Storage client library v12 for JavaScript

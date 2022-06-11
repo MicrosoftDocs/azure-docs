@@ -3,17 +3,21 @@ title: Monitor with multi-step web tests - Azure Application Insights
 description: Set up multi-step web tests to monitor your web applications with Azure Application Insights
 ms.topic: conceptual
 ms.date: 07/21/2021
+ms.reviewer: shyamala
 ---
 
 # Multi-step web tests
 
 You can monitor a recorded sequence of URLs and interactions with a website via multi-step web tests. This article will walk you through the process of creating a multi-step web test with Visual Studio Enterprise.
 
+> [!IMPORTANT]
+> [Multi-step web tests have been deprecated](https://azure.microsoft.com/updates/retirement-notice-transition-to-custom-availability-tests-in-application-insights/). We recommend using [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) to submit [custom availability tests](availability-azure-functions.md) instead of multi-step web tests. With TrackAvailability() and custom availability tests, you can run tests on any compute you want and use C# to easily author new tests.
+
 > [!NOTE]
 > Multi-step web tests **are not supported** in the [Azure Government](../../azure-government/index.yml) cloud.
 
-> [!NOTE]
-> Multi-step web tests are categorized as classic tests and can be found under **Add Classic Test** in the Availability pane.
+
+Multi-step web tests are categorized as classic tests and can be found under **Add Classic Test** in the Availability pane.
 
 ## Multi-step webtest alternative
 

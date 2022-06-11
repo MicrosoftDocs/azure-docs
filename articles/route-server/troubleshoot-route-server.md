@@ -2,11 +2,11 @@
 title: Troubleshoot Azure Route Server issues
 description: Learn how to troubleshoot issues for Azure Route Server.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: how-to
-ms.date: 09/01/2021
-ms.author: duau
+ms.date: 09/23/2021
+ms.author: halkazwini
 ---
 
 # Troubleshooting Azure Route Server issues
@@ -21,7 +21,7 @@ When your NVA advertises the default route, Azure Route Server programs it for a
 | 0.0.0.0/0 | Internet |
 
 
-### Why can I ping from my NVA to the BGP peer IP on Azure Route Server but after I set up the BGP peering between them, I can’t ping the same IP anymore? Why does the BGP peering go down?
+### Why can I ping from my NVA to the BGP peer IP on Azure Route Server but after I set up the BGP peering between them, I can’t ping the same IP anymore? Or, why is the BGP peering flapping?
 
 In some NVA, you need to add a static route for the Azure Route Server subnet. For example, if Azure Route Server is in 10.0.255.0/27 and your NVA is in 10.0.1.0/24, you need to add the following route to the routing table in the NVA:
 
@@ -35,10 +35,6 @@ In some NVA, you need to add a static route for the Azure Route Server subnet. F
 When you deploy Azure Route Server to a virtual network, we need to update the control plane between the gateways and the virtual network. During this update, there's a period of time when the VMs in the virtual network will lose connectivity to the on-premises network. We strongly recommend that you schedule a maintenance to deploy Azure Route Server in your production environment.  
 
 ## Control plane issues
-
-### Why is the BGP peering between my NVA and the Azure Route Server going up and down (“flapping”)?
-
-The cause of the flapping could be because of the BGP timer setting. By default, the Keep-alive timer on Azure Route Server is set to 60 seconds and the Hold-down timer is 180 seconds.
 
 ### Why does my on-premises network connected to Azure VPN gateway not receive the default route advertised by Azure Route Server?
 
@@ -62,7 +58,7 @@ The ASN that Azure Route Server uses is 65515. Make sure you configure a differe
 
 ### Why is the Equal-Cost Multi-Path (ECMP) function of my ExpressRoute turned off after I deploy Azure Route Server to the virtual network?
 
-When you advertise the same routes from your on-premises network to Azure over multiple ExpressRoute connections, normally ECMP is enabled by default for the traffic destined for these routes from Azure back to your premises. However, after the route server is deployed, the multiple-path information is lost in the BGP exchange between ExpressRoute and Azure Route Server, and consequently traffic from Azure will traverse only on one of the ExpressRoute connections. This limitation will be lifed in the future release of Azure Route Server.  
+When you advertise the same routes from your on-premises network to Azure over multiple ExpressRoute connections, normally ECMP is enabled by default for the traffic destined for these routes from Azure back to your premises. However, after the route server is deployed, the multiple-path information is lost in the BGP exchange between ExpressRoute and Azure Route Server, and consequently traffic from Azure will traverse only on one of the ExpressRoute connections. This limitation will be lifted in the future release of Azure Route Server.  
 
 ## Next steps
 

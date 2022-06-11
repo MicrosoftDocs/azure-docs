@@ -5,7 +5,6 @@ services: network-watcher
 documentationcenter: na
 author: damendo
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
@@ -56,7 +55,7 @@ The account that you use must have the necessary [permissions](required-rbac-per
     az group create --name NetworkWatcherRG --location eastus
     ```
 
-2. Create a network watcher with [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure). The following example creates a network watcher in the *eastus* region:
+2. Create a network watcher with [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure). The following example creates a network watcher in the *eastus* region:
 
     ```azurecli-interactive
     az network watcher configure \
@@ -65,7 +64,7 @@ The account that you use must have the necessary [permissions](required-rbac-per
       --enabled true
     ```
 
-3. View the topology with [az network watcher show-topology](/cli/azure/network/watcher#az_network_watcher_show_topology). The following example views the topology for a resource group named *MyResourceGroup*:
+3. View the topology with [az network watcher show-topology](/cli/azure/network/watcher#az-network-watcher-show-topology). The following example views the topology for a resource group named *MyResourceGroup*:
 
     ```azurecli-interactive
     az network watcher show-topology --resource-group MyResourceGroup
@@ -139,6 +138,10 @@ All resources returned in a topology have the following properties:
     - **AssociationType**: References the relationship between the child object and the parent. Valid values are *Contains* or *Associated*.
     - **Name**: The name of the referenced resource.
     - **ResourceId**:  - The URI of the resource referenced in the association.
+
+## Supported resources
+
+The Network Watcher Topology supports a limited set of resources. There are Virtual Network, Subnet, Network Interface, Network Security Group, Load Balancer, Load Balancer Health probe, Public IP, Virtual Network Peering, Virtual network gateway, VPN Gateway Connection, Virtual Machine, and Virtual Machine Scale Set.
 
 ## Next steps
 

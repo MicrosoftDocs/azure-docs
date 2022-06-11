@@ -1,33 +1,34 @@
 ---
-title: How to start WebSocket connection to the Azure Web PubSub service
-description: An instruction on how to start WebSocket connection to the Azure Web PubSub service in different languages
+title: How to start a WebSocket connection to Azure Web PubSub
+description: Learn how to start a WebSocket connection to the Azure Web PubSub service in different languages.
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: how-to 
-ms.date: 08/26/2021
+ms.date: 11/08/2021
 ---
 
-#  How to start WebSocket connection to the Azure Web PubSub service
+#  Start a WebSocket connection to Azure Web PubSub
 
-Clients connect to the Azure Web PubSub service using the standard [WebSocket](https://tools.ietf.org/html/rfc6455) protocol. So languages having WebSocket client support can be used to write a client for the service. In below sections, we show several WebSocket client samples in different languages.
+Clients connect to the Azure Web PubSub service by using the standard [WebSocket](https://tools.ietf.org/html/rfc6455) protocol. You can use languages that have WebSocket client support to write a client for the service. In this article, you'll see several WebSocket client samples in different languages.
 
-## Auth
-The Web PubSub service uses [JWT token](https://tools.ietf.org/html/rfc7519.html) to validate and auth the clients. Clients can either put the token in the `access_token` query parameter, or put it in `Authorization` header when connecting to the service.
+## Authorization
 
-A typical workflow is the client communicates with its app server first to get the URL of the service and the token. And then the client opens the WebSocket connection to the service using the URL and token it receives.
+Web PubSub uses a [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519.html) to validate and authorize clients. Clients can either put the token in the `access_token` query parameter, or put it in the `Authorization` header when connecting to the service.
 
-The portal also provides a dynamically generated *Client URL* with token for clients to start a quick test:
+Typically, the client communicates with its app server first, to get the URL of the service and the token. Then, the client opens the WebSocket connection to the service by using the URL and token it receives.
+
+The portal also provides a tool to generate the client URL with the token dynamically. This tool can be useful to do a quick test.
 
 :::image type="content" source="./media/howto-websocket-connect/generate-client-url.png" alt-text="Screenshot showing where to find the Client URL Generator.":::
 
 > [!NOTE]
-> Make sure to only include necessary roles when generating the token.
+> Make sure to only include necessary roles when you're generating the token.
 >
 
-To simplify the sample workflow, in below sections, we use this temporarily generated URL from portal for the client to connect, using `<Client_URL_From_Portal>` to represent the value. The token generated expires in 50 minutes by default, so don't forget to regenerate one when the token expires.
+In the following sections, to simplify the sample workflow, we use this temporarily generated URL from the portal for the client to connect. We use `<Client_URL_From_Portal>` to represent the value. The token generated expires in 60 minutes by default, so don't forget to regenerate one when the token expires.
 
-The service supports two types of WebSocket clients, one is the simple WebSocket client, and the other is the PubSub WebSocket client. Here we show how these two kinds of clients connect to the service. Check [WebSocket client protocols for Azure Web PubSub](./concept-client-protocols.md) for the details of these two kinds of clients.
+The service supports two types of WebSocket clients: one is the simple WebSocket client, and the other is the PubSub WebSocket client. Here we show how these two kinds of clients connect to the service. For more information about these clients, see [WebSocket client protocols for Azure Web PubSub](./concept-client-protocols.md).
 
 ## Dependency
 
@@ -36,7 +37,7 @@ In most modern browsers, `WebSocket` API is natively supported.
 
 # [Node.js](#tab/javascript)
 
-* [Node.js 12.x or above](https://nodejs.org)
+* [Node.js 12.x or later](https://nodejs.org)
 * `npm install ws`
 
 # [Python](#tab/python)
@@ -45,21 +46,21 @@ In most modern browsers, `WebSocket` API is natively supported.
 
 # [C#](#tab/csharp)
 
-* [.NET Core 2.1 or above](https://dotnet.microsoft.com/download)
+* [.NET Core 2.1 or later](https://dotnet.microsoft.com/download)
 * `dotnet add package Websocket.Client`
-    * [Websocket.Client](https://github.com/Marfusios/websocket-client) is a third-party WebSocket client with built-in reconnection and error handling
+    * [Websocket.Client](https://github.com/Marfusios/websocket-client) is a third-party WebSocket client with built-in reconnection and error handling.
 
 # [Java](#tab/java)
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above.
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or later.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
 ---
 
-## Simple WebSocket Client
+## Simple WebSocket client
 
 # [In Browser](#tab/browser)
 
-Inside the `script` block of the html page:
+Inside the `script` block of the HTML page:
 ```html
 <script>
     // Don't forget to replace this <Client_URL_From_Portal> with the value fetched from the portal
@@ -124,7 +125,7 @@ namespace subscriber
             // Don't forget to replace this <Client_URL_From_Portal> with the value fetched from the portal
             using (var client = new WebsocketClient(new Uri("<Client_URL_From_Portal>")))
             {
-                // Disable the auto disconnect and reconnect because the sample would like the client to stay online even no data comes in
+                // Disable the auto disconnect and reconnect because the sample would like the client to stay online even if no data comes in
                 client.ReconnectTimeout = null;
                 client.MessageReceived.Subscribe(msg => Console.WriteLine($"Message received: {msg}"));
                 await client.Start();
@@ -194,11 +195,11 @@ public final class SimpleClient {
 
 ---
 
-## PubSub WebSocket Client
+## PubSub WebSocket client
 
 # [In Browser](#tab/browser)
 
-Inside the `script` block of the html page:
+Inside the `script` block of the HTML page:
 ```html
 <script>
     // Don't forget to replace this <Client_URL_From_Portal> with the value fetched from the portal
@@ -265,7 +266,7 @@ namespace subscriber
                 return inner;
             }))
             {
-                // Disable the auto disconnect and reconnect because the sample would like the client to stay online even no data comes in
+                // Disable the auto disconnect and reconnect because the sample would like the client to stay online even if no data comes in
                 client.ReconnectTimeout = null;
                 client.MessageReceived.Subscribe(msg => Console.WriteLine($"Message received: {msg}"));
                 await client.Start();
@@ -335,9 +336,9 @@ public final class SubprotocolClient {
 
 ---
 
-## Next step
+## Next steps
 
-In this article, we show how to connect to the service using the URL generated from the portal.  Check below tutorials to see how the clients communicate with the app server to get the URL in real-world applications.
+In this article, you learned how to connect to the service by using the URL generated from the portal. To see how the clients communicate with the app server to get the URL in real-world applications, read these tutorials and check out the samples.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create a chatroom with Azure Web PubSub](./tutorial-build-chat.md)

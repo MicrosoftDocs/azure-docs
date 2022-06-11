@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with Python"
 description: In this quickstart, you use Python to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 08/17/2021
+ms.date: 10/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-python
 ---
@@ -35,7 +35,7 @@ Python can be used, including [bash on Windows 10](/windows/wsl/install-win10) o
    > [!NOTE]
    > Azure CLI is required to enable Python to use the **CLI-based authentication** in the following
    > examples. For information about other options, see
-   > [Authenticate using the Azure management libraries for Python](/azure/developer/python/azure-sdk-authenticate).
+   > [Authenticate using the Azure management libraries for Python](/azure/developer/python/sdk/authentication-overview).
 
 1. Authenticate through Azure CLI.
 
@@ -54,6 +54,9 @@ Python can be used, including [bash on Windows 10](/windows/wsl/install-win10) o
 
    # Add the CLI Core library for Python for authentication (development only!)
    pip install azure-cli-core
+
+   # Add the Azure identity library for Python
+   pip install azure.identity
    ```
 
    > [!NOTE]
@@ -65,7 +68,7 @@ Python can be used, including [bash on Windows 10](/windows/wsl/install-win10) o
 
    ```bash
    # Check each installed library
-   pip show azure-mgmt-policyinsights azure-mgmt-resource azure-cli-core
+   pip show azure-mgmt-policyinsights azure-mgmt-resource azure-cli-core azure.identity
    ```
 
 ## Create a policy assignment
@@ -78,16 +81,21 @@ Run the following code to create a new policy assignment:
 
 ```python
 # Import specific methods and models from other libraries
-from azure.common.credentials import get_azure_cli_credentials
-from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.resource.policy import PolicyClient
-from azure.mgmt.resource.policy.models import PolicyAssignment
+from azure.mgmt.resource.policy.models import PolicyAssignment, Identity, UserAssignedIdentitiesValue, PolicyAssignmentUpdate
+from azure.identity import AzureCliCredential
+
+# Set subscription
+subId = "{subId}"
+assignmentLocation = "westus2"
 
 # Get your credentials from Azure CLI (development only!) and get your subscription list
-policyClient = get_client_from_cli_profile(PolicyClient)
+credential = AzureCliCredential()
+policyClient = PolicyClient(credential, subId, base_url=none)
 
 # Create details for the assignment
-policyAssignmentDetails = PolicyAssignment(display_name="Audit VMs without managed disks Assignment", policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d", scope="{scope}", description="Shows all virtual machines not using managed disks")
+policyAssignmentIdentity = Identity(type="SystemAssigned")
+policyAssignmentDetails = PolicyAssignment(display_name="Audit VMs without managed disks Assignment", policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d", description="Shows all virtual machines not using managed disks", identity=policyAssignmentIdentity, location=assignmentLocation)
 
 # Create new policy assignment
 policyAssignment = policyClient.policy_assignments.create("{scope}", "audit-vm-manageddisks", policyAssignmentDetails)
@@ -99,6 +107,8 @@ print(policyAssignment)
 The preceding commands use the following information:
 
 Assignment details:
+- **subId** - Your subscription. Needed for authentication. Replace `{subId}` with your
+  subscription.
 - **display_name** - Display name for the policy assignment. In this case, you're using _Audit VMs
   without managed disks Assignment_.
 - **policy_definition_id** - The policy definition path, based on which you're using to create the
@@ -131,25 +141,29 @@ you created. Run the following code:
 
 ```python
 # Import specific methods and models from other libraries
-from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.policyinsights._policy_insights_client import PolicyInsightsClient
 from azure.mgmt.policyinsights.models import QueryOptions
+from azure.identity import AzureCliCredential
+
+# Set subscription
+subId = "{subId}"
 
 # Get your credentials from Azure CLI (development only!) and get your subscription list
-policyInsightsClient = get_client_from_cli_profile(PolicyInsightsClient)
+credential = AzureCliCredential()
+policyClient = PolicyInsightsClient(credential, subId, base_url=none)
 
 # Set the query options
 queryOptions = QueryOptions(filter="IsCompliant eq false and PolicyAssignmentId eq 'audit-vm-manageddisks'",apply="groupby((ResourceId))")
 
 # Fetch 'latest' results for the subscription
-results = policyInsightsClient.policy_states.list_query_results_for_subscription(policy_states_resource="latest", subscription_id="{subscriptionId}", query_options=queryOptions)
+results = policyInsightsClient.policy_states.list_query_results_for_subscription(policy_states_resource="latest", subscription_id=subId, query_options=queryOptions)
 
 # Show results
 print(results)
 ```
 
-Replace `{subscriptionId}` with the subscription you want to see the compliance results for this
-policy assignment. For a list of other scopes and ways to summarize the data, see
+Replace `{subId}` with the subscription you want to see the compliance results for this policy
+assignment. For a list of other scopes and ways to summarize the data, see
 [Policy State methods](/python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights.operations.policystatesoperations#methods).
 
 Your results resemble the following example:
@@ -174,11 +188,15 @@ To remove the assignment created, use the following command:
 
 ```python
 # Import specific methods and models from other libraries
-from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.resource.policy import PolicyClient
+from azure.identity import AzureCliCredential
+
+# Set subscription
+subId = "{subId}"
 
 # Get your credentials from Azure CLI (development only!) and get your subscription list
-policyClient = get_client_from_cli_profile(PolicyClient)
+credential = AzureCliCredential()
+policyClient = PolicyClient(credential, subId, base_url=none)
 
 # Delete the policy assignment
 policyAssignment = policyClient.policy_assignments.delete("{scope}", "audit-vm-manageddisks")
@@ -187,7 +205,8 @@ policyAssignment = policyClient.policy_assignments.delete("{scope}", "audit-vm-m
 print(policyAssignment)
 ```
 
-Replace `{scope}` with the same scope you used to create the policy assignment.
+Replace `{subId}` with your subscription and `{scope}` with the same scope you used to create the
+policy assignment.
 
 ## Next steps
 

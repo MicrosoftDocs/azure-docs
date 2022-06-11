@@ -1,16 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure Maps Documentation
-summary: Microsoft Azure Maps provides developers from all industries with powerful geospatial capabilities. Those geospatial capabilities are packed with the freshest mapping data. Azure Maps is available for both web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs. The following are only a high-level overview of the services which Azure Maps offers - Maps, Search, Routing, Traffic, Mobility, Weather, Time Zones, Geolocation, Geofencing, Map Data, Creator, and Spatial Operations. The Web and Android SDKs make development easy, flexible, and portable across multiple platforms.
+summary: Microsoft Azure Maps provides developers from all industries with powerful geospatial capabilities. Those geospatial capabilities are packed with the freshest mapping data. Azure Maps is available for both web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs. The following are only a high-level overview of the services which Azure Maps offers - Maps, Search, Routing, Traffic, Weather, Time Zones, Geolocation, Geofencing, Map Data, Creator, and Spatial Operations. The Web and Android SDKs make development easy, flexible, and portable across multiple platforms.
 
 metadata:
   title:  Azure Maps Documentation | Microsoft Docs
   description: Learn about Azure Maps and how to use it to provide geospatial services to your web or mobile application.
   ms.service: azure-maps
   ms.topic: landing-page
-  author: anastasia-ms
-  ms.author: v-stharr
-  ms.date: 1/15/2020
+  author: stevemunk
+  ms.author: v-munksteve
+  ms.date: 10/13/2021
+
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -44,6 +45,8 @@ landingContent:
             url: quick-demo-map-app.md
           - text: Create an Android app using Azure Maps
             url: quick-android-map.md
+          - text: Create an iOS app using Azure Maps
+            url: quick-iOS-app.md  
       - linkListType: concept
         links:
           - text: Choose the right pricing tier for Maps account
@@ -165,6 +168,18 @@ landingContent:
             url: data-driven-style-expressions-android-sdk.md
 
   # Card
+  - title: Developing with iOS SDK
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an iOS app using Azure Maps
+            url: quick-iOS-app.md  
+      - linkListType: how-to-guide
+        links:
+          - text: Getting started with the iOS map control
+            url: how-to-use-ios-map-control-library.md
+
+  # Card
   - title: Developing with Location-Based Services
     linkLists:
       - linkListType: concept
@@ -247,24 +262,6 @@ landingContent:
         links:
           - text: Interactive map component
             url: /powerapps/maker/canvas-apps/geospatial-component-map
-
-  # Card
-  - title: Developing with Mobility services
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Mobility services
-            url: mobility-service-data-structure.md
-      - linkListType: how-to-guide
-        links:
-          - text: Request public transit routes
-            url: how-to-request-transit-data.md
-          - text: Request real-time public transit data
-            url: how-to-request-real-time-data.md
-      - linkListType: reference
-        links:
-          - text: Mobility services
-            url: /rest/api/maps/mobility
 
   # Card
   - title: Developing with Weather services

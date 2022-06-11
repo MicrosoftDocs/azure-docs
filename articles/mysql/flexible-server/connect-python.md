@@ -4,7 +4,8 @@ description: This quickstart provides several Python code samples you can use to
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc
+ms.subservice: flexible-server
+ms.custom: mvc, mode-api
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 9/21/2020
@@ -14,16 +15,15 @@ ms.date: 9/21/2020
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
-
 In this quickstart, you connect to an Azure Database for MySQL Flexible Server by using Python. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms. 
 
 This article assumes that you're familiar with developing using Python, but you're new to working with Azure Database for MySQL Flexible Server.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure account with an active subscription. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 * An Azure Database for MySQL Flexible Server. To create flexible server, refer to [Create an Azure Database for MySQL Flexible Server using Azure portal](./quickstart-create-server-portal.md) or [Create an Azure Database for MySQL Flexible Server using Azure CLI](./quickstart-create-server-cli.md).
 
 ## Preparing your client workstation

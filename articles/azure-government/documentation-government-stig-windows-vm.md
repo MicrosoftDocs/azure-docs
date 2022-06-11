@@ -1,11 +1,12 @@
 ---
 title: Deploy STIG-compliant Windows Virtual Machines (Preview)
-description: This quickstart shows you how to deploy a STIG-compliant Windows VM (Preview) from Azure Marketplace
+description: This quickstart shows you how to deploy a STIG-compliant Windows VM (Preview) from the Azure portal or Azure Government portal.
 author: stevevi
 ms.author: stevevi
 ms.service: azure-government
 ms.topic: quickstart
 ms.date: 06/14/2021
+ms.custom: mode-other, kr2b-contr-experiment
 ---
 
 # Deploy STIG-compliant Windows Virtual Machines (Preview)
@@ -24,7 +25,7 @@ This quickstart shows how to deploy a STIG-compliant Windows virtual machine (Pr
 
 ## Sign in to Azure
 
-Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government portal](https://portal.azure.us/) depending on your subscription.
+Sign in at the [Azure portal](https://portal.azure.com/) or [Azure Government portal](https://portal.azure.us/) depending on your subscription.
 
 ## Create a STIG-compliant virtual machine
 

@@ -2,13 +2,13 @@
 title: Configure authentication in a sample Python web application by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in a Python web application.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/11/2021
-ms.author: mimart
+ms.date: 06/08/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -56,8 +56,9 @@ During app registration, you'll specify the *Redirect URI*. The redirect URI is 
 To create the web app registration, do the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
-1. Search for and select **Azure AD B2C**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *webapp1*).
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. 
@@ -97,7 +98,7 @@ Open the *app_config.py* file. This file contains information about your Azure A
 |---------|---------|
 |`b2c_tenant`| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso`).|
 |`CLIENT_ID`| The web API application ID from [step 2.1](#step-21-register-the-app).|
-|`CLIENT_SECRET`| The client secret you created in [step 2.2](#step-22-create-a-web-app-client-secret). To help increase security, consider storing it instead in an environment variable, as recommended in the comments. |
+|`CLIENT_SECRET`| The client secret value you created in [step 2.2](#step-22-create-a-web-app-client-secret). To help increase security, consider storing it instead in an environment variable, as recommended in the comments. |
 |`*_user_flow`|The user flows or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
 | | |
 
@@ -143,11 +144,11 @@ CLIENT_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxx" # Placeholder - for use ONLY during t
        WARNING: This is a development server. Do not use it in a production deployment.
        Use a production WSGI server instead.
      * Debug mode: off
-     * Running on http://localhost:5000/ (Press CTRL+C to quit)
+     * Running on `http://localhost:5000/` (Press CTRL+C to quit)
     ```
 
  
-1. To view the web application running on your local machine, go to [http://localhost:5000](http://localhost:5000). 
+1. To view the web application running on your local machine, go to `http://localhost:5000`. 
 
 1. Select **Sign In**.
 
@@ -197,7 +198,7 @@ Open the *app_config.py* file. This file contains information about your Azure A
 
 |Key  |Value  |
 |---------|---------|
-|`ENDPOINT`| The URI of your web API (for example, https://localhost:44332/hello).|
+|`ENDPOINT`| The URI of your web API (for example, `https://localhost:44332/hello`).|
 |`SCOPE`| The web API [scopes](#step-62-configure-scopes) that you created.|
 | | |
 
@@ -243,5 +244,4 @@ You can add and modify redirect URIs in your registered applications at any time
 * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. 
 
 ## Next steps
-
 * Learn how to [Configure authentication options in a Python web app by using Azure AD B2C](enable-authentication-python-web-app-options.md).

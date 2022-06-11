@@ -12,37 +12,37 @@ ms.reviewer: dineshm
 
 # Copy blobs between Azure storage accounts by using AzCopy
 
-You can copy blobs, directories, and containers between storage accounts by using the AzCopy v10 command-line utility. 
+You can copy blobs, directories, and containers between storage accounts by using the AzCopy v10 command-line utility.
 
 To see examples for other types of tasks such as uploading files, downloading blobs, and synchronizing with Blob storage, see the links presented in the [Next Steps](#next-steps) section of this article.
 
 AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
 
-To download AzCopy and learn about the ways that you can provide authorization credentials to the storage service, see [Get started with AzCopy](storage-use-azcopy-v10.md). 
+To download AzCopy and learn about the ways that you can provide authorization credentials to the storage service, see [Get started with AzCopy](storage-use-azcopy-v10.md).
 
 ## Guidelines
 
-Apply the following guidelines to your AzCopy commands. 
+Apply the following guidelines to your AzCopy commands.
 
 - Your client must have network access to both the source and destination storage accounts. To learn how to configure the network settings for each storage account, see [Configure Azure Storage firewalls and virtual networks](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
 
-- Append a SAS token to each source URL. 
+- Append a SAS token to each source URL.
 
-  If you provide authorization credentials by using Azure Active Directory (Azure AD), you can omit the SAS token only from the destination URL. Make sure that you've set up the proper roles in your destination account. See [Option 1: Use Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory). 
+  If you provide authorization credentials by using Azure Active Directory (Azure AD), you can omit the SAS token only from the destination URL. Make sure that you've set up the proper roles in your destination account. See [Option 1: Use Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 
   The examples in this article assume that you've authenticated your identity by using Azure AD so the examples omit the SAS tokens from the destination URL.
 
--  If you copy to a premium block blob storage account, omit the access tier of a blob from the copy operation by setting the `s2s-preserve-access-tier` to `false` (For example: `--s2s-preserve-access-tier=false`). Premium block blob storage accounts don't support access tiers. 
+-  If you copy to a premium block blob storage account, omit the access tier of a blob from the copy operation by setting the `s2s-preserve-access-tier` to `false` (For example: `--s2s-preserve-access-tier=false`). Premium block blob storage accounts don't support access tiers.
 
-- If you copy to or from an account that has a hierarchical namespace, use `blob.core.windows.net` instead of `dfs.core.windows.net` in the URL syntax. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use `blob.core.windows.net`, and it is the only supported syntax for account to account copy scenarios. 
+- If you copy to or from an account that has a hierarchical namespace, use `blob.core.windows.net` instead of `dfs.core.windows.net` in the URL syntax. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use `blob.core.windows.net`, and it is the only supported syntax for account to account copy scenarios.
 
-- You can increase the throughput of copy operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Increase Concurrency](storage-use-azcopy-optimize.md#increase-concurrency). 
+- You can increase the throughput of copy operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Increase Concurrency](storage-use-azcopy-optimize.md#increase-concurrency).
 
 - If the source blobs have index tags, and you want to retain those tags, you'll have to reapply them to the destination blobs. For information about how to set index tags, see the [Copy blobs to another storage account with index tags](#copy-between-accounts-and-add-index-tags) section of this article.
 
 ## Copy a blob
 
-Copy a blob to another storage account by using the [azcopy copy](storage-ref-azcopy-copy.md) command. 
+Copy a blob to another storage account by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -57,11 +57,11 @@ Copy a blob to another storage account by using the [azcopy copy](storage-ref-az
 azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
-The copy operation is synchronous so when the command returns, that indicates that all files have been copied. 
+The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
 
 ## Copy a directory
 
-Copy a directory to another storage account by using the [azcopy copy](storage-ref-azcopy-copy.md) command. 
+Copy a directory to another storage account by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -124,9 +124,9 @@ Copy blobs to another storage account and add [blob index tags(preview)](../blob
 
 If you're using Azure AD authorization, your security principal must be assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role or it must be given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role. If you're using a Shared Access Signature (SAS) token, that token must provide access to the blob's tags via the `t` SAS permission.
 
-To add tags, use the `--blob-tags` option along with a URL encoded key-value pair. 
+To add tags, use the `--blob-tags` option along with a URL encoded key-value pair.
 
-For example, to add the key `my tag` and a value `my tag value`, you would add `--blob-tags='my%20tag=my%20tag%20value'` to the destination parameter. 
+For example, to add the key `my tag` and a value `my tag value`, you would add `--blob-tags='my%20tag=my%20tag%20value'` to the destination parameter.
 
 Separate multiple index tags by using an ampersand (`&`).  For example, if you want to add a key `my second tag` and a value `my second tag value`, the complete option string would be `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`.
 
@@ -175,7 +175,7 @@ You can tweak your copy operation by using optional flags. Here's a few examples
 |Copy to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
 |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
 
-For a complete list, see [options](storage-ref-azcopy-copy.md#options). 
+For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ## Next steps
 
@@ -193,4 +193,5 @@ See these articles to configure settings, optimize performance, and troubleshoot
 
 - [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
 - [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
-- [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
+- [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
+- [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)

@@ -2,13 +2,15 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 08/31/2021
+ms.date: 12/16/2021
 ms.author: tomfitz
 ---
 
 ## Limitations
 
 When exporting from a resource group or resource, the exported template is generated from the [published schemas](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) for each resource type. Occasionally, the schema doesn't have the latest version for a resource type. Check your exported template to make sure it includes the properties you need. If necessary, edit the exported template to use the API version you need.
+
+Some password parameters might be missing from the exported templates. You need to check [template reference](/azure/templates), and manually add these parameters before you can use the templates to deploy resources.
 
 The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](../articles/data-factory/copy-clone-data-factory.md).
 

@@ -3,7 +3,7 @@ title: NV series migration guide
 description: NV series migration guide
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
@@ -85,7 +85,7 @@ Follow the guide to [request an increase in vCPU quota by VM family](../azure-po
 
 ### Resize the current VM
 
-You can [resize the VM through the Azure portal or PowerShell](./windows/resize-vm.md). You can also [resize the VM by using the Azure CLI](./linux/change-vm-size.md). 
+You can [resize the VM](resize-vm.md).
 
 ## FAQ
 **Q:** Which GPU driver should I use for the target VM size? 

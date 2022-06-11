@@ -1,13 +1,13 @@
 ---
 title: Use Windows client images in Azure 
 description: How to use Visual Studio subscription benefits to deploy Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios
-author: mimckitt
+author: ebolton-cyber
+ms.author: edewebolton
 ms.subservice: imaging
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
-ms.author: mimckitt
 
 ---
 # Use Windows client in Azure for dev/test scenarios
@@ -28,7 +28,7 @@ Certain Windows client images are available from the Azure Marketplace. Visual S
 The following table details the offer IDs that are eligible to deploy Windows client images through the Azure Marketplace. The Windows client images are only visible to the following offers. 
 
 > [!NOTE]
-> Image offers are under **Windows Client** in the Azure Marketplace. Use **Windows Client** when searching for client images available to Visual Studio subscribers. 
+> Image offers are under **Windows Client** in the Azure Marketplace. Use **Windows Client** when searching for client images available to Visual Studio subscribers. If you need to purchase a Visual Stuido subscription, see the various options at [Buy Visual Studio](https://visualstudio.microsoft.com/vs/pricing/?tab=business)
 
 | Offer Name | Offer Number | Available client images | 
 |:--- |:---:|:---:|
@@ -36,10 +36,11 @@ The following table details the offer IDs that are eligible to deploy Windows cl
 | [Visual Studio Enterprise (MPN) subscribers](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N with SP1 (x64) |
 | [Visual Studio Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N with SP1 (x64) |
 | [Visual Studio Test Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N with SP1 (x64) |
-| [Visual Studio Premium with MSDN (benefit)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N with SP1 (x64) |
 | [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N with SP1 (x64) |
 | [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N with SP1 (x64) |
 | [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N with SP1 (x64) |
+
+For more information, see [Understand Microsoft offer types](../../cost-management-billing/costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers)
 
 ## Check your Azure subscription
 If you do not know your offer ID, you can obtain it through the Azure portal.  

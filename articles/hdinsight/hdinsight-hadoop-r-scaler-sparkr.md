@@ -16,15 +16,13 @@ This document shows how to predict flight arrival delays using a **ScaleR** logi
 
 Although both packages run on Apache Hadoop's Spark execution engine, they're blocked from in-memory data sharing as they each require their own respective Spark sessions. Until this issue is addressed in an upcoming version of ML Server, the workaround is to maintain non-overlapping Spark sessions, and to exchange data through intermediate files. The instructions here show that these requirements are straightforward to achieve.
 
-This example was initially shared in a talk at Strata 2016 by Mario Inchiosa and Roni Burd. You can find this talk at [Building a Scalable Data Science Platform with R](https://channel9.msdn.com/blogs/Cloud-and-Enterprise-Premium/Building-A-Scalable-Data-Science-Platform-with-R-and-Hadoop).
-
 The code was originally written for ML Server running on Spark in an HDInsight cluster on Azure. But the concept of mixing the use of SparkR and ScaleR in one script is also valid in the context of on-premises environments.
 
 The steps in this document assume that you have an intermediate level of knowledge of R and R the [ScaleR](/machine-learning-server/r/concept-what-is-revoscaler) library of ML Server. You're introduced to [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) while walking through this scenario.
 
 ## The airline and weather datasets
 
-The flight data is available from the [U.S. government archives](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). It's also available as a zip from [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+The flight data is available from the [U.S. government archives](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236).
 
 The weather data can be downloaded as zip files in raw form, by month, from the [National Oceanic and Atmospheric Administration repository](https://www.ncdc.noaa.gov/orders/qclcd/). For this example, download the data for May 2007 – December 2012. Use the hourly data files and `YYYYMMMstation.txt` file within each of the zips.
 

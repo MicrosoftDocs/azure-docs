@@ -1,21 +1,16 @@
 ---
 title: High availability for SAP NetWeaver on Azure VMs
 description: High-availability guide for SAP NetWeaver on Azure Virtual Machines
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-
+ms.custom: H1Hack27Feb2017, ignite-fall-2021
 ---
 
 # High availability for SAP NetWeaver on Azure VMs
@@ -69,8 +64,8 @@ ms.custom: H1Hack27Feb2017
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:https://docs.microsoft.com/powershell/azure/
-[azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
+[azure-ps]:/powershell/azure/
+[azure-quickstart-templates-github]: https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 [azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -406,8 +401,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-manage-availability]:../../windows/manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../virtual-machines-windows-ps-create.md
 [virtual-machines-sizes]:../../virtual-machines-windows-sizes.md
-[virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
-[virtual-machines-windows-portal-sql-alwayson-int-listener]:../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+[virtual-machines-windows-portal-sql-alwayson-int-listener]:/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
@@ -558,7 +552,7 @@ You need cluster shared storage for a high-availability SAP ASCS/SCS instance. A
 2. Run SIOS DataKeeper Cluster Edition on both virtual machine nodes.
 3. Configure SIOS DataKeeper Cluster Edition so that it mirrors the content of the additional VHD attached volume from the source virtual machine to the additional VHD attached volume of the target virtual machine. SIOS DataKeeper abstracts the source and target local volumes, and then presents them to Windows Server Failover Clustering as one shared disk.
 
-Get more information about [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
+Get more information about [SIOS DataKeeper](https://us.sios.com/products/windows/datakeeper-cluster/).
 
 ![Figure 3: Windows Server Failover Clustering configuration in Azure with SIOS DataKeeper][sap-ha-guide-figure-1002]
 
@@ -623,7 +617,7 @@ _**Figure 7:** Example of a high-availability SAP DBMS, with SQL Server Always O
 
 For more information about clustering SQL Server in Azure by using the Azure Resource Manager deployment model, see these articles:
 
-* [Configure Always On availability group in Azure Virtual Machines manually by using Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
+* [Configure Always On availability group in Azure Virtual Machines manually by using Resource Manager](/azure/azure-sql/virtual-machines/windows/availability-group-overview)
 * [Configure an Azure internal load balancer for an Always On availability group in Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
 ## <a name="045252ed-0277-4fc8-8f46-c5a29694a816"></a> End-to-end high-availability deployment scenarios
@@ -1606,7 +1600,7 @@ It's easy to test and monitor an SAP ASCS/SCS instance failover and SIOS disk re
 
 The **SAP PR1** cluster group is running on cluster node A. For example, on **pr1-ascs-0**. Assign the shared disk drive S, which is part of the **SAP PR1** cluster group, and which the ASCS/SCS instance uses, to cluster node A.
 
-![Figure 61: Failover Cluster Manager: The SAP <SID> cluster group is running on cluster node A][sap-ha-guide-figure-5000]
+![Figure 61: Failover Cluster Manager: The SAP \<SID\> cluster group is running on cluster node A][sap-ha-guide-figure-5000]
 
 _**Figure 61:** Failover Cluster Manager: The SAP <*SID*> cluster group is running on cluster node A_
 
@@ -1635,7 +1629,7 @@ _**Figure 62:** In SIOS DataKeeper, replicate the local volume from cluster node
 
    After failover, the SAP <*SID*> cluster group is running on cluster node B. For example, it's running on **pr1-ascs-1**.
 
-   ![Figure 63: In Failover Cluster Manager, the SAP <SID> cluster group is running on cluster node B][sap-ha-guide-figure-5002]
+   ![Figure 63: In Failover Cluster Manager, the SAP \<SID\> cluster group is running on cluster node B][sap-ha-guide-figure-5002]
 
    _**Figure 63**: In Failover Cluster Manager, the SAP <*SID*> cluster group is running on cluster node B_
 

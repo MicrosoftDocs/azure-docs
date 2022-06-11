@@ -2,7 +2,7 @@
 title: Tutorial - Create & deploy template
 description: Create your first Azure Resource Manager template (ARM template). In the tutorial, you learn about the template file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 12/17/2020
+ms.date: 12/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
@@ -20,6 +20,9 @@ This tutorial is the first of a series. As you progress through the series, you 
 If you want to learn about the benefits of using templates and why you should automate deployment with templates, see [ARM template overview](overview.md). To learn about ARM templates through a guided set of modules on Microsoft Learn, see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
+> [!TIP]
+> If you're new to ARM templates, you might consider learning Bicep instead. Bicep is a new language that offers the same capabilities as ARM templates but with a syntax that's easier to use. To start learning Bicep, see [Quickstart: Create Bicep files with Visual Studio Code](../bicep/quickstart-create-bicep-use-visual-studio-code.md).
 
 ## Get tools
 
@@ -98,18 +101,18 @@ az login
 
 ---
 
-If you have multiple Azure subscriptions, select the subscription you want to use. Replace `[SubscriptionID/SubscriptionName]` and the square brackets `[]` with your subscription information:
+If you have multiple Azure subscriptions, select the subscription you want to use. Replace `SubscriptionName` with your subscription name. You can also use the subscription ID instead of the subscription name.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzContext [SubscriptionID/SubscriptionName]
+Set-AzContext SubscriptionName
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az account set --subscription [SubscriptionID/SubscriptionName]
+az account set --subscription SubscriptionName
 ```
 
 ---
@@ -155,7 +158,7 @@ New-AzResourceGroupDeployment `
 To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
 
 ```azurecli
-$templateFile="{provide-the-path-to-the-template-file}"
+templateFile="{provide-the-path-to-the-template-file}"
 az deployment group create \
   --name blanktemplate \
   --resource-group myResourceGroup \

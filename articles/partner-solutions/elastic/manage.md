@@ -1,11 +1,10 @@
 ---
 title: Manage an Elastic integration with Azure - Azure partner solutions
 description: This article describes management of Elastic on the Azure portal. How to configure diagnostic settings and delete the resource.
-ms.service: partner-services
 ms.topic: conceptual
-ms.date: 05/20/2021
-author: tfitzmac
-ms.author: tomfitz
+ms.date: 09/02/2021
+author: davidsmatlak
+ms.author: davidsmatlak
 ---
 
 # Manage the Elastic integration with Azure
@@ -68,6 +67,12 @@ To configure the diagnostic settings for a resource, select that resource. In th
 In the destination details section, check the option to send to partner solutions to select Elastic as a destination target. This option is only available after an Elastic resource has been created.
 
 :::image type="content" source="media/manage/diagnostic-settings.png" alt-text="Configure diagnostic settings":::
+
+## Private link management
+
+You can limit network access to a [private link](../../private-link/private-link-overview.md). To enable private link access, select **Configuration** in the left navigation. Under **Networking**, select **Private Link** and the name of the private link.
+
+:::image type="content" source="media/manage/private-link.png" alt-text="Screenshot of enabling private link":::
 
 ## Delete Elastic resource
 

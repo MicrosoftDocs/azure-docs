@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 09/02/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with SpaceIQ
@@ -32,6 +32,7 @@ To configure Azure AD integration with SpaceIQ, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * SpaceIQ supports **IDP** initiated SSO.
+* SpaceIQ supports [Automated user provisioning](spaceiq-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -143,14 +144,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, you create a user called Britta Simon in SpaceIQ. Work [SpaceIQ support team](mailto:eng@spaceiq.com) to add the users in the SpaceIQ platform. Users must be created and activated before you use single sign-on.
 
+SpaceIQ also supports automatic user provisioning, you can find more details [here](./spaceiq-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the SpaceIQ for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the SpaceIQ tile in the My Apps, you should be automatically signed in to the SpaceIQ for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the SpaceIQ tile in the My Apps, you should be automatically signed in to the SpaceIQ for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure SpaceIQ you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure SpaceIQ you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

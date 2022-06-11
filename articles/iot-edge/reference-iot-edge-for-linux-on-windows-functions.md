@@ -1,19 +1,18 @@
 ---
 title: PowerShell functions for Azure IoT Edge for Linux on Windows | Microsoft Docs 
 description: Reference information for Azure IoT Edge for Linux on Windows PowerShell functions to deploy, provision, and status IoT Edge for Linux on Windows virtual machines.
-author: v-tcassi
+author: PatAltimore
 
 ms.author: fcabrera
-ms.date: 06/18/2021
+ms.date: 10/15/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
-monikerRange: "=iotedge-2018-06"
 ---
 
 # PowerShell functions for IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Understand the PowerShell functions that deploy, provision, and get the status of your IoT Edge for Linux on Windows (EFLOW) virtual machine.
 
@@ -45,17 +44,56 @@ If you don't have the **AzureEflow** folder in your PowerShell directory, use th
    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
-## Connect-EflowVM
+## Add-EflowNetwork
 
-The **Connect-EflowVM** command connects to the virtual machine using SSH. The only account allowed to SSH to the virtual machine is the user that created it.
+The **Add-EflowNetwork** command adds a new network to the EFLOW virtual machine. This command takes two parameters. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
+| vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
+
+It returns an object that contains four properties:
+
+* Name
+* AllocationMethod
+* Cidr
+* Type
+
+For more information, use the command `Get-Help Add-EflowNetwork -full`.
+
+## Add-EflowVmEndpoint
+
+The **Add-EflowVmEndpoint** command adds a new network endpoint to the EFLOW virtual machine. Use the optional parameters to set a Static IP.
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
+| vendpointName | Name of the virtual endpoint | Name of the virtual endpoint assigned to the EFLOW VM. |
+| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
+| ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified. |
+| ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified. |
+
+It returns an object that contains four properties:
+
+* Name
+* MacAddress
+* HealthStatus
+* IpConfiguration
+
+For more information, use the command `Get-Help Add-EflowVmEndpoint -full`.
+
+## Connect-EflowVm
+
+The **Connect-EflowVm** command connects to the virtual machine using SSH. The only account allowed to SSH to the virtual machine is the user that created it.
 
 This command only works on a PowerShell session running on the host device. It won't work when using Windows Admin Center or PowerShell ISE.
 
-For more information, use the command `Get-Help Connect-EflowVM -full`.
+For more information, use the command `Get-Help Connect-EflowVm -full`.
 
 ## Copy-EflowVmFile
 
-The **Copy-EflowVmFile** command copies file to or from the virtual machine using SCP. Use the optional parameters to specify the source and destination file paths as well as the direction of the copy.
+The **Copy-EflowVmFile** command copies file to or from the virtual machine using SCP. Use the optional parameters to specify the source and destination file paths and the direction of the copy.
 
 The user **iotedge-user** must have read permission to any origin directories or write permission to any destination directories on the virtual machine.
 
@@ -69,23 +107,52 @@ For more information, use the command `Get-Help Copy-EflowVMFile -full`.
 
 ## Deploy-Eflow
 
-The **Deploy-Eflow** command is the main deployment method. The deployment command creates the virtual machine, provisions files, and deploys the IoT Edge agent module. While none of the parameters are required, they can be used to provision your IoT Edge device during the deployment and modify settings for the virtual machine during creation.
+The **Deploy-Eflow** command is the main deployment method. The deployment command creates the virtual machine, provisions files, and deploys the IoT Edge agent module. While none of the parameters are required, they can be used to modify settings for the virtual machine during creation.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
 | acceptEula | **Yes** or **No** | A shortcut to accept/deny EULA and bypass the EULA prompt. |
 | acceptOptionalTelemetry | **Yes** or **No** |  A shortcut to accept/deny optional telemetry and bypass the telemetry prompt. |
 | cpuCount | Integer value between 1 and the device's CPU cores |  Number of CPU cores for the VM.<br><br>**Default value**: 1 vCore. |
-| memoryInMB | Integer value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
-| vmDiskSize | Between 8 GB and 256 GB | Maximum disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 10 GB. |
+| memoryInMB | Integer **even** value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
+| vmDiskSize | Between 8 GB and 2 TB | Maximum logical disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 16 GB. |
 | vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
 | vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
-| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. _NOTE: Only supported with ICS Default Switch_. |
-| ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified.  _NOTE: Only supported with ICS Default Switch_. |
-| ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified.  _NOTE: Only supported with ICS Default Switch_. |
+| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
+| ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified. |
+| ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified. |
 | gpuName | GPU Device name |  Name of GPU device to be used for passthrough. |
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (CPU only) |  GPU Passthrough type |
 | gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
+| customSsh | None | Determines whether user wants to use their custom OpenSSH.Client installation. If present, ssh.exe must be available to the EFLOW PSM |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| acceptEula | **Yes** or **No** | A shortcut to accept/deny EULA and bypass the EULA prompt. |
+| acceptOptionalTelemetry | **Yes** or **No** |  A shortcut to accept/deny optional telemetry and bypass the telemetry prompt. |
+| cpuCount | Integer value between 1 and the device's CPU cores |  Number of CPU cores for the VM.<br><br>**Default value**: 1 vCore. |
+| memoryInMB | Integer **even** value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
+| vmDiskSize | Between 21 GB and 2 TB | Maximum logical disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 29 GB. <br><br>**Note**: Either _vmDiskSize_ or _vmDataSize_ can be used, but not both together. |
+| vmDataSize | Between 2 GB and 2 TB | Maximum data partition size of the resulting hard disk, in GB.<br><br>**Default value**: 10 GB. <br><br>**Note**: Either _vmDiskSize_ or _vmDataSize_ can be used, but not both together. |
+| vmLogSize | **Small** or **Large** | Specificy the log partition size. Small = 1GB, Large = 6GB.<br><br>**Default value**: Small.  |
+| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
+| vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
+| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
+| ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified. |
+| ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified. |
+| gpuName | GPU Device name |  Name of GPU device to be used for passthrough. |
+| gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (CPU only) |  GPU Passthrough type |
+| gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
+| customSsh | None | Determines whether user wants to use their custom OpenSSH.Client installation. If present, ssh.exe must be available to the EFLOW PSM |
+:::moniker-end
+<!-- end 1.2 -->
+
 
 For more information, use the command `Get-Help Deploy-Eflow -full`.  
 
@@ -100,18 +167,35 @@ The **Get-EflowHostConfiguration** command returns the host configuration. This 
 
 For more information, use the command `Get-Help Get-EflowHostConfiguration -full`.
 
-
 ## Get-EflowLogs
 
 The **Get-EflowLogs** command collects and bundles logs from the IoT Edge for Linux on Windows deployment and installation. It outputs the bundled logs in the form of a `.zip` folder.
 
 For more information, use the command `Get-Help Get-EflowLogs -full`.
 
+## Get-EflowNetwork
+
+The **Get-EflowNetwork** command returns a list of the networks assigned to the EFLOW virtual machine. Use the optional parameter to get a specific network. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
+
+It returns a list of objects that contains four properties:
+
+* Name
+* AllocationMethod
+* Cidr
+* Type
+
+For more information, use the command `Get-Help Get-EflowNetwork -full`.
+
 ## Get-EflowVm
 
 The **Get-EflowVm** command returns the virtual machine's current configuration. This command takes no parameters. It returns an object that contains four properties:
 
 * VmConfiguration
+* VmPowerState
 * EdgeRuntimeVersion
 * EdgeRuntimeStatus
 * SystemStatistics
@@ -130,13 +214,32 @@ The **Get-EflowVmAddr** command is used to query the virtual machine's current I
 
 For additional information, use the command `Get-Help Get-EflowVmAddr -full`.
 
+
+## Get-EflowVmEndpoint
+
+The **Get-EflowVmEndpoint** command returns a list of the network endpoints assigned to the EFLOW virtual machine. Use the optional parameter to get a specific network endpoint. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
+
+It returns a list of objects that contains four properties:
+
+* Name
+* MacAddress
+* HealthStatus
+* IpConfiguration
+
+For more information, use the command `Get-Help Get-EflowVmEndpoint -full`.
+
+
 ## Get-EflowVmFeature
 
 The **Get-EflowVmFeature** command returns the status of the enablement of IoT Edge for Linux on Windows features.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| feature | **DpsTpm** | Feature name to toggle. |
+| feature | **DpsTpm** | Feature name to query. |
 
 For more information, use the command `Get-Help Get-EflowVmFeature -full`.
 
@@ -152,17 +255,14 @@ The **Get-EflowVmTelemetryOption** command displays the status of the telemetry 
 
 For more information, use the command `Get-Help Get-EflowVmTelemetryOption -full`.
 
-
 ## Get-EflowVmTpmProvisioningInfo
 
 The **Get-EflowVmTpmProvisioningInfo** command returns the TPM provisioning information. This command takes no parameters. It returns an object that contains two properties:
 
 * Endorsement Key
-* Registration Id 
+* Registration ID
 
 For more information, use the command `Get-Help Get-EflowVmTpmProvisioningInfo -full`.
-
-
 
 ## Invoke-EflowVmCommand
 
@@ -189,11 +289,33 @@ The **Provision-EflowVm** command adds the provisioning information for your IoT
 | deviceId | The device ID of an existing IoT Edge device | Device ID for provisioning an IoT Edge device (**ManualX509**). |
 | scopeId | The scope ID for an existing DPS instance. | Scope ID for provisioning an IoT Edge device (**DpsTPM**, **DpsX509**, or **DpsSymmetricKey**). |
 | symmKey | The primary key for an existing DPS enrollment or the primary key of an existing IoT Edge device registered using symmetric keys | Symmetric key for provisioning an IoT Edge device (**DpsSymmetricKey**). |
-| registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DpsSymmetricKey**). |
+| registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DpsSymmetricKey**, **DpsTPM**). |
 | identityCertPath | Directory path | Absolute destination path of the identity certificate on your Windows host machine (**ManualX509**, **DpsX509**). |
 | identityPrivKeyPath | Directory path | Absolute source path of the identity private key on your Windows host machine (**ManualX509**, **DpsX509**). |
+| globalEndpoint | Device Endpoint URL | URL for Global Endpoint to be used for DPS provisioning. |
 
 For more information, use the command `Get-Help Provision-EflowVm -full`.
+
+## Remove-EflowNetwork
+
+The **Remove-EflowNetwork** command removes an existing network attached to the EFLOW virtual machine. This command takes one parameter. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
+
+For more information, use the command `Get-Help Remove-EflowNetwork -full`.
+
+## Remove-EflowVmEndpoint
+
+The **Remove-EflowVmEndpoint** command removes an existing network endpoint attached to the EFLOW virtual machine. This command takes one parameter. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vendpointName | Name of the virtual endpoint | Name of the virtual endpoint assigned to the EFLOW VM. |
+
+For more information, use the command `Get-Help Remove-EflowVmEndpoint -full`.
+
 
 ## Set-EflowVM
 
@@ -201,7 +323,7 @@ The **Set-EflowVM** command updates the virtual machine configuration with the r
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| cpuCount | Integer value between 1 and the device's GPU cores | Number of CPU cores for the VM. |
+| cpuCount | Integer value between 1 and the device's CPU cores | Number of CPU cores for the VM. |
 | memoryInMB | Integer value between 1024 and the maximum amount of free memory of the device | Memory allocated for the VM. |
 | gpuName | GPU device name |  Name of the GPU device to be used for passthrough. |
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (no passthrough) |  GPU Passthrough type |
@@ -210,14 +332,40 @@ The **Set-EflowVM** command updates the virtual machine configuration with the r
 
 For more information, use the command `Get-Help Set-EflowVM -full`.
 
+
+## Set-EflowVmDNSServers
+
+The **Set-EflowVmDNSServers** command configures the DNS servers for EFLOW virtual machine.
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vendpointName | String value of the virtual endpoint name | Use the _Get-EflowVmEndpoint_ to obtain the virtual interfaces assigned to the EFLOW VM. E.g. **DESKTOP-CONTOSO-EflowInterface** |
+| dnsServers | List of DNS server IPAddress to use for name resolution | E.g. **@("10.0.10.1")** |
+
+For more information, use the command `Get-Help Set-EflowVmDNSServers -full`.
+
+
 ## Set-EflowVmFeature
 
 The **Set-EflowVmFeature** command enables or disables the status of IoT Edge for Linux on Windows features.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
 | feature | **DpsTpm** | Feature name to toggle. |
 | enable | None | If this flag is present, the command enables the feature. |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| feature | **DpsTpm**, **Defender** | Feature name to toggle. |
+| enable | None | If this flag is present, the command enables the feature. |
+:::moniker-end
+<!-- end 1.2 -->
 
 For more information, use the command `Get-Help Set-EflowVmFeature -full`.
 
@@ -253,4 +401,4 @@ For more information, use the command `Get-Help Verify-EflowVm -full`.
 
 Learn how to use these commands to install and provision IoT Edge for Linux on Windows in the following article:
 
-* [Install Azure IoT Edge for Linux on Windows](./how-to-install-iot-edge-windows-on-windows.md)
+* [Install Azure IoT Edge for Linux on Windows](./how-to-provision-single-device-linux-on-windows-symmetric.md)

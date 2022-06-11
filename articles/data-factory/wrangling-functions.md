@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 04/16/2021
+ms.date: 10/06/2021
 ---
 
 # Transformation functions in Power Query for data wrangling
@@ -14,9 +14,6 @@ ms.date: 04/16/2021
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Data Wrangling in Azure Data Factory allows you to do code-free agile data preparation and wrangling at cloud scale by translating Power Query ```M``` scripts into Data Flow script. ADF integrates with [Power Query Online](/powerquery-m/power-query-m-reference) and makes Power Query ```M``` functions available for data wrangling via Spark execution using the data flow Spark infrastructure. 
-
-> [!NOTE]
-> Power Query in ADF is currently available in public preview
 
 Currently not all Power Query M functions are supported for data wrangling despite being available during authoring. While building your mash-ups, you'll be prompted with the following error message if a function isn't supported:
 
@@ -73,10 +70,10 @@ The following M functions add or transform columns: [Table.AddColumn](/powerquer
     step, but the user must ensure that there are no duplicate column names
     among the joined tables
 * Supported Join Kinds:
-    [Inner](/powerquery-m/joinkind-inner),
-    [LeftOuter](/powerquery-m/joinkind-leftouter),
-    [RightOuter](/powerquery-m/joinkind-rightouter),
-    [FullOuter](/powerquery-m/joinkind-fullouter)
+    Inner,
+    LeftOuter,
+    RightOuter,
+    FullOuter
 * Both
     [Value.Equals](/powerquery-m/value-equals)
     and
@@ -120,29 +117,69 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 | Table.CombineColumns | This is a common scenario that isn't directly supported but can be achieved by adding a new column that concatenates two given columns.  For example, Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName]) |
 | Table.TransformColumnTypes | This is supported in most cases. The following scenarios are unsupported: transforming string to currency type, transforming string to time type, transforming string to Percentage type. |
 | Table.NestedJoin | Just doing a join will result in a validation error. The columns must be expanded for it to work. |
-| Table.Distinct | Remove duplicate rows isn't supported. |
 | Table.RemoveLastN | Remove bottom rows isn't supported. |
 | Table.RowCount | Not supported, but can be achieved by adding a custom column containing the value 1, then aggregating that column with List.Sum. Table.Group is supported. | 
-| Row level error handling | Row level error handling is currently not supported. For example, to filter out non-numeric values from a column, one approach would be to transform the text column to a number. Every cell which fails to transform will be in an error state and need to be filtered. This scenario isn't possible in scaled-out M. |
+| Row level error handling | Row level error handling is currently not supported. For example, to filter out non-numeric values from a column, one approach would be to transform the text column to a number. Every cell, which fails to transform will be in an error state and need to be filtered. This scenario isn't possible in scaled-out M. |
 | Table.Transpose | Not supported |
-| Table.Pivot | Not supported |
-| Table.SplitColumn | Partially supported |
 
 ## M script workarounds
 
-### For ```SplitColumn``` there is an alternate for split by length and by position
+### ```SplitColumn```
+
+An alternate for split by length and by position is listed below
 
 * Table.AddColumn(Source, "First characters", each Text.Start([Email], 7), type text)
 * Table.AddColumn(#"Inserted first characters", "Text range", each Text.Middle([Email], 4, 9), type text)
 
 This option is accessible from the Extract option in the ribbon
 
-![Power Query Add Column](media/wrangling-data-flow/pq-split.png)
+:::image type="content" source="media/wrangling-data-flow/power-query-split.png" alt-text="Power Query Add Column":::
 
-### For ```Table.CombineColumns```
+### ```Table.CombineColumns```
 
 * Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName])
 
+### Pivots
+
+* Select Pivot transformation from the PQ editor and select your pivot column
+
+![Power Query Pivot Common](media/wrangling-data-flow/power-query-pivot-1.png)
+
+* Next, select the value column and the aggregate function
+
+![Power Query Pivot Selector](media/wrangling-data-flow/power-query-pivot-2.png)
+
+* When you click OK, you'll see the data in the editor updated with the pivoted values
+* You'll also see a warning message that the transformation may be unsupported
+* To fix this warning, expand the pivoted list manually using the PQ editor
+* Select Advanced Editor option from the ribbon
+* Expand the list of pivoted values manually
+* Replace List.Distinct() with the list of values like this:
+```
+#"Pivoted column" = Table.Pivot(Table.TransformColumnTypes(#"Changed column type 1", {{"genres", type text}}), {"Drama", "Horror", "Comedy", "Musical", "Documentary"}, "genres", "Rating", List.Average)
+in
+  #"Pivoted column"
+```
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNbBf]
+
+### Formatting date/time columns
+
+To set the date/time format when using Power Query ADF, please follow these sets to set the format.
+
+![Power Query Change Type](media/data-flow/power-query-date-2.png)
+
+1. Select the column in the Power Query UI and choose Change Type > Date/Time
+2. You'll see a warning message
+3. Open Advanced Editor and change ```TransformColumnTypes``` to ```TransformColumns```. Specify the format and culture based on the input data.
+
+![Power Query Editor](media/data-flow/power-query-date-3.png)
+
+```
+#"Changed column type 1" = Table.TransformColumns(#"Duplicated column", {{"start - Copy", each DateTime.FromText(_, [Format = "yyyy-MM-dd HH:mm:ss", Culture = "en-us"]), type datetime}})
+```
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNdQg]
 
 ## Next steps
 

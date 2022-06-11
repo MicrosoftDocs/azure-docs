@@ -3,7 +3,7 @@ title: How to design your Application Insights deployment - One vs many resource
 description: Direct telemetry to different resources for development, test, and production stamps.
 ms.topic: conceptual
 ms.date: 05/11/2020
-
+ms.reviewer: rijolly
 ---
 
 # How many Application Insights resources should I deploy
@@ -11,6 +11,8 @@ ms.date: 05/11/2020
 When you are developing the next version of a web application, you don't want to mix up the [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetry from the new version and the already released version. To avoid confusion, send the telemetry from different development stages to separate Application Insights resources, with separate instrumentation keys (ikeys). To make it easier to change the instrumentation key as a version moves from one stage to another, it can be useful to set the ikey in code instead of in the configuration file.
 
 (If your system is an Azure Cloud Service, there's [another method of setting separate ikeys](../../azure-monitor/app/cloudservices.md).)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## About resources and instrumentation keys
 
@@ -20,23 +22,23 @@ Each Application Insights resource comes with metrics that are available out-of-
 
 ### When to use a single Application Insights resource
 
--	For application components that are deployed together. Usually developed by a single team, managed by the same set of DevOps/ITOps users.
--	If it makes sense to aggregate Key Performance Indicators (KPIs) such as response durations, failure rates in dashboard etc., across all of them by default (you can choose to segment by role name in the Metrics Explorer experience).
--	If there is no need to manage Azure role-based access control (Azure RBAC) differently between the application components.
--	If you don’t need metrics alert criteria that are different between the components.
--	If you do not need to manage continuous exports differently between the components.
--	If you do not need to manage billing/quotas differently between the components.
--	If it is okay to have an API key have the same access to data from all components. And 10 API keys are sufficient for the needs across all of them.
--	If it is okay to have the same smart detection and work item integration settings across all roles.
+- For application components that are deployed together. Usually developed by a single team, managed by the same set of DevOps/ITOps users.
+- If it makes sense to aggregate Key Performance Indicators (KPIs) such as response durations, failure rates in dashboard etc., across all of them by default (you can choose to segment by role name in the Metrics Explorer experience).
+- If there is no need to manage Azure role-based access control (Azure RBAC) differently between the application components.
+- If you don't need metrics alert criteria that are different between the components.
+- If you do not need to manage continuous exports differently between the components.
+- If you do not need to manage billing/quotas differently between the components.
+- If it is okay to have an API key have the same access to data from all components. And 10 API keys are sufficient for the needs across all of them.
+- If it is okay to have the same smart detection and work item integration settings across all roles.
 
 > [!NOTE]
 > If you want to consolidate multiple Application Insights Resources, you may point your existing application components to a new, consolidated Application Insights Resource. The telemetry stored in your old resource will not be transfered to the new resource, so only delete the old resource when you have enough telemetry in the new resource for business continuity.
 
 ### Other things to keep in mind
 
--	You may need to add custom code to ensure that meaningful values are set into the [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name) attribute. Without meaningful values set for this attribute, *NONE* of the portal experiences will work.
+- You may need to add custom code to ensure that meaningful values are set into the [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name) attribute. Without meaningful values set for this attribute, *NONE* of the portal experiences will work.
 - For Service Fabric applications and classic cloud services, the SDK automatically reads from the Azure Role Environment and sets these. For all other types of apps, you will likely need to set this explicitly.
--	Live Metrics experience does not support splitting by role name.
+- Live Metrics experience does not support splitting by role name.
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
@@ -95,7 +97,7 @@ There are several different methods of setting the Application Version property.
 * Wrap that line in a [telemetry initializer](../../azure-monitor/app/api-custom-events-metrics.md#defaults) to ensure that all TelemetryClient instances are set consistently.
 * [ASP.NET] Set the version in `BuildInfo.config`. The web module will pick up the version from the BuildLabel node. Include this file in your project and remember to set the Copy Always property in Solution Explorer.
 
-    ```XML
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <DeploymentEvent xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
@@ -109,7 +111,7 @@ There are several different methods of setting the Application Version property.
     ```
 * [ASP.NET] Generate BuildInfo.config automatically in MSBuild. To do this, add a few lines to your `.csproj` file:
 
-    ```XML
+    ```xml
     <PropertyGroup>
       <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
     </PropertyGroup>
@@ -122,9 +124,9 @@ There are several different methods of setting the Application Version property.
     To allow MSBuild to generate version numbers, set the version like `1.0.*` in AssemblyReference.cs
 
 ## Version and release tracking
-To track the application version, make sure `buildinfo.config` is generated by your Microsoft Build Engine process. In your `.csproj` file, add:  
+To track the application version, make sure `buildinfo.config` is generated by your Microsoft Build Engine process. In your `.csproj` file, add:
 
-```XML
+```xml
 <PropertyGroup>
   <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>
   <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
@@ -136,7 +138,8 @@ When it has the build info, the Application Insights web module automatically ad
 However, notice that the build version number is generated only by the Microsoft Build Engine, not by the developer build from Visual Studio.
 
 ### Release annotations
-If you use Azure DevOps, you can [get an annotation marker](../../azure-monitor/app/annotations.md) added to your charts whenever you release a new version. 
+
+If you use Azure DevOps, you can [get an annotation marker](../../azure-monitor/app/annotations.md) added to your charts whenever you release a new version.
 
 ## Next steps
 

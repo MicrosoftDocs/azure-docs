@@ -1,14 +1,14 @@
 ---
-title: Create and encrypt a Linux VM with Azure Powershell
-description: In this quickstart, you learn how to use Azure Powershell to create and encrypt a Linux virtual machine
+title: Create and encrypt a Linux VM with Azure PowerShell
+description: In this quickstart, you learn how to use Azure PowerShell to create and encrypt a Linux virtual machine
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: linux
 ms.topic: quickstart
-ms.date: 05/17/2019 
-ms.custom: devx-track-azurepowershell
+ms.date: 05/17/2019
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create and encrypt a Linux VM in Azure with Azure PowerShell
@@ -44,7 +44,7 @@ It will take a few minutes for your VM to be deployed.
 Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault). To enable the Key Vault to store encryption keys, use the -EnabledForDiskEncryption parameter.
 
 > [!Important]
-> Every key vault must have a name that is unique across Azure. In the examples below, replace <your-unique-keyvault-name> with the  name you choose.
+> Every key vault must have a name that is unique across Azure. In the examples below, replace \<your-unique-keyvault-name\> with the  name you choose.
 
 ```azurepowershell-interactive
 New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup" -Location EastUS -EnabledForDiskEncryption

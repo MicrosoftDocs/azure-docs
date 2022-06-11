@@ -3,12 +3,12 @@ metadata:
   title: Azure Virtual Desktop FAQ - Azure
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
   author: Heidilohr
-  ms.topic: conceptual
-  ms.date: 03/09/2021
+  ms.topic: faq
+  ms.service: virtual-desktop
+  ms.date: 12/17/2021
   ms.author: helohr 
   ms.custom: devx-track-azurepowershell
   manager: femila
-    
 title: Azure Virtual Desktop FAQ
 summary: This article answers frequently asked questions and explains best practices for Azure Virtual Desktop.
 
@@ -100,7 +100,7 @@ sections:
 
       - question: |
          How does Azure Virtual Desktop handle backups?
-        answer: There are multiple options in Azure for handling backup. You can use Azure backup, Site Recovery, and snapshots.
+        answer: There are multiple options in Azure Virtual Desktop for handling backup. At the Compute level, backup is recommended only for Personal Host Pools through [Azure Backup](../backup/backup-azure-vms-introduction.md). At the Storage level, recomemmended backup solution varies based on the backend storage used to store user profiles. If Azure Files Share is used, [Azure Backup for File Share](../backup/azure-file-share-backup-overview.md) is recommended. If Azure NetApp Files is used, [Snaphots/Policies](../azure-netapp-files/snapshots-manage-policy.md) or [Azure NetApp Files Backup](/azure/azure-netapp-files/backup-introduction) are tools available.
 
       - question: |
          Does Azure Virtual Desktop support third-party collaboration apps?
@@ -154,20 +154,30 @@ sections:
         answer: |
           Yes. Azure Virtual Desktop host pools have an option for selecting either availability set or availability zones when you create a VM. These availability options are the same as the ones Azure Compute uses. If you select a zone for the VM you create in a host pool, the setting automatically applies to all VMs you create in that zone. If you'd prefer to spread your host pool VMs across multiple zones, you'll need to follow the directions in [Add virtual machines with the Azure portal](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) to manually select a new zone for each new VM you create.
           
+          Make sure that [your Azure availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) are available in the region where your VMs are located.
+          
       - question: |
          Which availability option is best for me?
         answer: |
-          The availability option you should use for your VMs depends on your image's location and its managed disk fields. The following table explains the relationship each setting has with these variables to help you figure out which option is best for your deployment. 
+          The availability option you should use for your VMs depends on your image's location. The following table explains the relationship each setting has with these variables to help you figure out which option is best for your deployment. 
           
-          | Availability option | Image location | Use managed disk option button (radio button) |
-          |---|---|---|
-          | None | Gallery | Disabled with "Yes" as default |
-          | None | Blob storage | Enabled with "No" as default |
-          | Availability zone | Gallery (blob storage option disabled) | Disabled with "Yes" as default |
-          | Availability set with managed SKU (managed disk) | Gallery | Disabled with "Yes" as default |
-          | Availability set with managed SKU (managed disk) | Blob storage | Enabled with "No" as default |
-          | Availability set with managed SKU (managed disk) | Blob storage (Gallery option disabled) | Disabled with "No" as default |
-          | Availability set (newly created by user) | Gallery | Disabled with "Yes" as default |
-          | Availability set (newly created by user) | Blob storage | Enabled with "No" as default |
+          | Availability option | Image location |
+          |---|---|
+          | None | Gallery | 
+          | None | Blob storage | 
+          | Availability zone | Gallery (blob storage option disabled) |
+          | Availability set with managed SKU (managed disk) | Gallery | 
+          | Availability set with managed SKU (managed disk) | Blob storage | 
+          | Availability set with managed SKU (managed disk) | Blob storage (Gallery option disabled) | 
+          | Availability set (newly created by user) | Gallery | 
+          | Availability set (newly created by user) | Blob storage |
           
-          
+      - question: |
+         Should I use Windows Defender Application Control or AppLocker to control which applications and drivers are allowed to run on my Windows 10 devices?
+        answer: |
+          We recommend you use Windows Defender Application Control instead of AppLocker. 
+
+      - question: |
+         When I'm testing migration, can I have the two different Azure Virtual Desktop environments exist in the same tenant?
+        answer: |
+          Yes. You can have both deployments within the same Azure Active Directory tenant.

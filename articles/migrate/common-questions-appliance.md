@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 11/01/2021
 ---
 
 # Azure Migrate appliance: Common questions
@@ -52,7 +52,7 @@ The Azure Migrate appliance profiles on-premises servers continuously to measure
 
 ## Can I harden the appliance?
 
-When you use the downloaded template to create the appliance, you can add components (antivirus, for example) to the template if you leave in place the communication and firewall rules that are required for the Azure Migrate appliance.
+When you use the downloaded template to create the appliance, you can add components (antivirus, for example) to the template. Ensure that you have allowed access to the correct [URLs](migrate-appliance.md#public-cloud-urls) through Azure Firewall and that the *%ProgramData%\MicrosoftAzure* folder is excluded from antivirus scanning.
 
 ## What network connectivity is required?
 
@@ -62,9 +62,9 @@ The appliance needs access to Azure URLs. [Review](migrate-appliance.md#url-acce
 
 See the following articles for information about data that the Azure Migrate appliance collects on servers:
 
-- **Servers in VMware environment**: [Review](migrate-appliance.md#collected-data---vmware) collected data.
-- **Servers in Hyper-V environment**: [Review](migrate-appliance.md#collected-data---hyper-v) collected data.
-- **Physical or virtual servers**:[Review](migrate-appliance.md#collected-data---physical) collected data.
+- **Servers in VMware environment**: [Review](discovered-metadata.md#collected-metadata-for-vmware-servers) collected data.
+- **Servers in Hyper-V environment**: [Review](discovered-metadata.md#collected-metadata-for-hyper-v-servers) collected data.
+- **Physical or virtual servers**: [Review](discovered-metadata.md#collected-data-for-physical-servers) collected data.
 
 ## How is data stored?
 
@@ -98,11 +98,17 @@ These steps describe how the appliance connects to VMware vCenter Server:
 
 ## Can the Azure Migrate appliance connect to multiple vCenter Servers?
 
-No. There's a one-to-one mapping between an [Azure Migrate appliance](migrate-appliance.md) and vCenter Server. To discover servers on multiple vCenter Server instances, you must deploy multiple appliances.
+Yes. If the version of appliance configuration manager is  6.1.265.1 or above, you can connect to up to 10 vCenter Servers and perform discovery, assessment, and migration of servers running across multiple vCenter Servers using a single Azure Migrate appliance. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
 
 ## Can a project have multiple appliances?
 
 A project can have multiple appliances registered to it. However, one appliance can only be registered with one project.
+
+## How do I find the Azure Migrate appliances registered to the project?
+1. From the Azure portal, navigate to [Azure Migrate homepage](https://portal.azure.com/?feature.customportal=false&feature.showassettypes=Microsoft_Azure_Migrate_AzureMigrationHub&feature.smsMigrationTool=true&feature.cloudamizeAssessmentTool=true&feature.sasAssessmentTool=true&feature.firstPartyDiscoveredMachines=true#blade/Microsoft_Azure_Migrate/AmhResourceMenuBlade/getStarted) and from the left menu, select **Servers, databases and web apps**.
+1. Select **Change** in the upper-right corner to choose your project.
+1. In the Azure Migrate project, select **Overview** from the Azure Migrate: Discovery & assessment.
+1. In **Overview**, select **Appliances** in left menu to see the appliances registered with the project and the connectivity status of the agents on the appliance.
 
 ## Can the Azure Migrate appliance/Replication appliance connect to the same vCenter?
 

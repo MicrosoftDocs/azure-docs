@@ -1,11 +1,13 @@
 ---
 title: Share gallery images across tenants in Azure 
-description: Learn how to share VM images across Azure tenants using Shared Image Galleries and PowerShell.
+description: Learn how to share VM images across Azure tenants using Azure Compute Galleries and PowerShell.
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/15/2019
+author: sandeepraichura
+ms.author: saraic
 ms.reviewer: cynthn 
 ms.custom: devx-track-azurepowershell
 ---
@@ -13,13 +15,13 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Shared Image Galleries let you share images using Azure RBAC. You can use Azure RBAC to share images within your tenant, and even to individuals outside of your tenant. For more information about this simple sharing option, see the [Share the gallery](./shared-images-portal.md#share-the-gallery).
+Azure Compute Galleries let you share images using Azure RBAC. You can use Azure RBAC to share images within your tenant, and even to individuals outside of your tenant. For more information about this simple sharing option, see the [Share the gallery](../share-gallery.md).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
 
 > [!IMPORTANT]
-> You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the [Azure CLI](../linux/share-images-across-tenants.md) or Powershell.
+> You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the [Azure CLI](../linux/share-images-across-tenants.md) or PowerShell.
 
 ## Create a VM using PowerShell
 
@@ -45,7 +47,7 @@ $resourceGroup = "myResourceGroup"
 $location = "South Central US"
 $vmName = "myVMfromImage"
 
-# Set a variable for the image version in Tenant 1 using the full image ID of the shared image version
+# Set a variable for the image version in Tenant 1 using the full image ID of the image version
 $image = "/subscriptions/<Tenant 1 subscription>/resourceGroups/<Resource group>/providers/Microsoft.Compute/galleries/<Gallery>/images/<Image definition>/versions/<version>"
 
 # Create user object
@@ -68,7 +70,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $l
 $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
-# Create a virtual machine configuration using the $image variable to specify the shared image
+# Create a virtual machine configuration using the $image variable to specify the image
 $vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
 Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
 Set-AzVMSourceImage -Id $image | `
@@ -80,4 +82,4 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## Next steps
 
-You can also create shared image gallery resources using the [Azure portal](shared-images-portal.md).
+Create [Azure Compute Gallery resources](../image-version.md).

@@ -4,12 +4,13 @@ titleSuffix: Azure AD B2C
 description: Tutorial to configure Azure Active Directory B2C with BioCatch to identify risky and fraudulent users
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -80,7 +81,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 2. Create a new file, which inherits from the extensions file.
 
-    ```XML
+    ```xml
     <BasePolicy> 
 
         <TenantId>tenant.onmicrosoft.com</TenantId> 
@@ -92,7 +93,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 3. Create a reference to the custom UI to hide the input box, under the BuildingBlocks resource.
 
-    ```XML
+    ```xml
     <ContentDefinitions> 
 
         <ContentDefinition Id="api.selfasserted"> 
@@ -108,7 +109,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 4. Add the following claims under the BuildingBlocks resource.
 
-    ```XML
+    ```xml
     <ClaimsSchema> 
 
           <ClaimType Id="riskLevel"> 
@@ -142,7 +143,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 5. Configure self-asserted claims provider for the client session ID field.
 
-    ```XML
+    ```xml
     <ClaimsProvider> 
 
           <DisplayName>Client Session ID Claims Provider</DisplayName> 
@@ -186,7 +187,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 6. Configure REST API claims provider for BioCatch. 
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="BioCatch-API-GETSCORE"> 
 
           <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
@@ -232,8 +233,8 @@ document.getElementById("clientSessionId").style.display = 'none';
       </TechnicalProfiles>
     ```
 
-    > [!Note]
-    > BioCatch will provide you the URL, customer ID and unique user ID (uuID) to configure. The customer SessionID claim is passed through as a querystring parameter to BioCatch. You can choose the activity type, for example *MAKE_PAYMENT*.
+    > [!NOTE]
+    > BioCatch will provide you the URL, customer ID and unique user ID (UUID) to configure. The customer SessionID claim is passed through as a query string parameter to BioCatch. You can choose the activity type, for example *MAKE_PAYMENT*.
 
 7. Configure the userjourney; follow the example
 
@@ -243,7 +244,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
    1. If the returned claim *risk* equals *low*, skip the step for MFA, else force user MFA
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
           <ClaimsExchanges> 
@@ -291,7 +292,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
     It is useful to pass the BioCatch returned information to your application as claims in the token, specifically *risklevel* and *score*.
 
-    ```XML
+    ```xml
     <RelyingParty> 
 
     <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
@@ -348,24 +349,18 @@ document.getElementById("clientSessionId").style.display = 'none';
 Follow these steps to add the policy files to Azure AD B2C
 
 1. Sign in to the [**Azure portal**](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
-
-3. Choose **All services** in the top-left corner of the Azure portal, search for and select Azure AD B2C.
-
-4. Navigate to **Azure AD B2C** > **Identity Experience Framework**
-
-3. Upload all the policy files to your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select Azure AD B2C.
+1. Navigate to **Azure AD B2C** > **Identity Experience Framework**
+1. Upload all the policy files to your tenant.
 
 ## Test the solution
 
 1. [Register a dummy application, which redirects to JWT.MS](./tutorial-register-applications.md?tabs=app-reg-ga)  
-
-2. Under the **Identity Experience Framework**, select the policy you created
-
-3. In the policy window, select the dummy JWT.MS application, and select **run now**
-
-4. Go through sign-up flow and create an account. Token returned to JWT.MS should have 2x claims for riskLevel and score. Follow the example.  
+1. Under the **Identity Experience Framework**, select the policy you created
+1. In the policy window, select the dummy JWT.MS application, and select **run now**
+1. Go through sign-up flow and create an account. Token returned to JWT.MS should have 2x claims for riskLevel and score. Follow the example.  
 
     ```JavaScript
     { 

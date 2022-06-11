@@ -50,7 +50,7 @@ This table lists the methods that you can use to create a network interface.
 
 ## IP addresses
 
-You can assign these types of [IP addresses](../virtual-network/public-ip-addresses.md) to a network interface in Azure:
+You can assign these types of [IP addresses](./ip-services/public-ip-addresses.md) to a network interface in Azure:
 
 - **Public IP addresses** - Used to communicate inbound and outbound (without network address translation (NAT)) with the Internet and other Azure resources not connected to a virtual network. Assigning a public IP address to a NIC is optional. Public IP addresses have a nominal charge, and there's a maximum number that can be used per subscription.
 - **Private IP addresses** - Used for communication within a virtual network, your on-premises network, and the Internet (with NAT). At least one private IP address must be assigned to a VM. To learn more about NAT in Azure, read [Understanding outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md).
@@ -75,9 +75,9 @@ This table lists the methods that you can use to create an IP address.
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | By default, public IP addresses are dynamic. The IP address may change when the VM is stopped or deleted. To guarantee that the VM always uses the same public IP address, create a static public IP address. By default, the portal assigns a dynamic private IP address to a NIC when creating a VM. You can change this IP address to static after the VM is created.|
-| [Azure PowerShell](../virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | You use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) with the **`-AllocationMethod`** parameter as Dynamic or Static. |
-| [Azure CLI](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | You use [az network public-ip create](/cli/azure/network/public-ip) with the **`--allocation-method`** parameter as Dynamic or Static. |
+| [Azure portal](./ip-services/virtual-network-deploy-static-pip-arm-portal.md) | By default, public IP addresses are dynamic. The IP address may change when the VM is stopped or deleted. To guarantee that the VM always uses the same public IP address, create a static public IP address. By default, the portal assigns a dynamic private IP address to a NIC when creating a VM. You can change this IP address to static after the VM is created.|
+| [Azure PowerShell](./ip-services/virtual-network-deploy-static-pip-arm-ps.md) | You use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) with the **`-AllocationMethod`** parameter as Dynamic or Static. |
+| [Azure CLI](./ip-services/virtual-network-deploy-static-pip-arm-cli.md) | You use [az network public-ip create](/cli/azure/network/public-ip) with the **`--allocation-method`** parameter as Dynamic or Static. |
 | [Template](../virtual-network/template-samples.md) | For more information on deploying a public IP address using a template, see [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/nic-publicip-dns-vnet). |
 
 After you create a public IP address, you can associate it with a VM by assigning it to a NIC.
@@ -170,10 +170,6 @@ This table lists the methods that you can use to create an internal load balance
 | [Azure CLI](../load-balancer/quickstart-load-balancer-standard-internal-cli.md) | Use the [az network lb create](/cli/azure/network/lb) command to create the initial load balancer configuration. To define the private IP address, use [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) with the **`--private-ip-address`** parameter. Use [az network lb address-pool create](/cli/azure/network/lb/address-pool) to add the configuration of the back-end address pool. Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) to add NAT rules. Use [az network lb rule create](/cli/azure/network/lb/rule) to add the load balancer rules. Use [az network lb probe create](/cli/azure/network/lb/probe) to add the probes.|
 | [Template](../load-balancer/quickstart-load-balancer-standard-internal-template.md) | Use [2 VMs in a Load Balancer](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer) as a guide for deploying a load balancer using a template. |
 
-## Virtual machine scale sets
-
-For more information on load balancer and virtual machine scale sets, see [Networking for Azure virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
-
 ## Virtual machines
 
 Virtual machines can be created in the same virtual network and they can connect to each other using private IP addresses. Virtual machines can connect if they're in different subnets. They connect without the need to configure a gateway or use public IP addresses. To put VMs into a virtual network, you create the virtual network. As you create each VM, you assign it to the virtual network and subnet. Virtual machines acquire their network settings during deployment or startup.
@@ -200,15 +196,17 @@ NAT is compatible with standard SKU public IP address resources or public IP pre
 
 All outbound traffic for the subnet is processed by NAT automatically without any customer configuration. User-defined routes aren't necessary. NAT takes precedence over other outbound scenarios and replaces the default Internet destination of a subnet.
 
+Virtual machines created by Virtual machine scale sets Flexible Orchestration mode don't have default outbound access. Virtual network NAT is the recommended outbound access method for Virtual machine scale sets Flexible Orchestration Mode.
+
 For more information about the NAT gateway resource and virtual network NAT, see [What is Azure Virtual Network NAT?](./nat-gateway/nat-overview.md).
 
 This table lists the methods that you can use to create a NAT gateway resource.
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](./nat-gateway/tutorial-create-nat-gateway-portal.md) | Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
-| [Azure PowerShell](./nat-gateway/tutorial-create-nat-gateway-powershell.md) | Includes the use of [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
-| [Azure CLI](./nat-gateway/tutorial-create-nat-gateway-cli.md) | Includes the use of [az network nat gateway create](/cli/azure/network/nat#az_network_nat_gateway_create) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure portal](./nat-gateway/quickstart-create-nat-gateway-portal.md) | Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure PowerShell](./nat-gateway/quickstart-create-nat-gateway-powershell.md) | Includes the use of [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
+| [Azure CLI](./nat-gateway/quickstart-create-nat-gateway-cli.md) | Includes the use of [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create) to create a NAT gateway resource. Creates a virtual network, subnet, public IP, NAT gateway, and a virtual machine to test the NAT gateway resource. |
 | [Template](./nat-gateway/quickstart-create-nat-gateway-template.md) | Creates a virtual network, subnet, public IP, and NAT gateway resource. |
 
 ## Azure Bastion 
@@ -223,7 +221,7 @@ This table lists the methods you can use to create an Azure Bastion deployment.
 | ------ | ----------- |
 | [Azure portal](../bastion/quickstart-host-portal.md) | Creates a virtual network, subnets, public IP, bastion host, and virtual machines. |
 | [Azure PowerShell](../bastion/bastion-create-host-powershell.md) | Creates a virtual network, subnets, public IP, and bastion host. Includes the use of [New-AzBastion](/powershell/module/az.network/new-azbastion) to create the bastion host. |
-| [Azure CLI](../bastion/create-host-cli.md) | Creates a virtual network, subnets, public IP, and bastion host. Includes the use of [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create the bastion host. |
+| [Azure CLI](../bastion/create-host-cli.md) | Creates a virtual network, subnets, public IP, and bastion host. Includes the use of [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create the bastion host. |
 | [Template](../virtual-network/template-samples.md) | For an example of a template deployment that integrates an Azure Bastion host with a sample deployment, see [Quickstart: Create a public load balancer to load balance VMs by using an ARM template](../load-balancer/quickstart-load-balancer-standard-public-template.md). |
 
 ## Next steps

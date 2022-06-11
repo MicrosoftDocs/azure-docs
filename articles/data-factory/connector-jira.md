@@ -1,20 +1,20 @@
 ---
-title: Copy data from Jira using Azure Data Factory 
+title: Copy data from Jira
+description: Learn how to copy data from Jira to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Jira to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
-# Copy data from Jira using Azure Data Factory
+# Copy data from Jira using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Jira. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Jira. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
@@ -25,7 +25,7 @@ This Jira connector is supported for the following activities:
 
 You can copy data from Jira to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
+The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
 ## Getting started
 
@@ -68,7 +68,7 @@ The following properties are supported for Jira linked service:
 | host | The IP address or host name of the Jira service. (for example, jira.example.com)  | Yes |
 | port | The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.  | No |
 | username | The user name that you use to access Jira Service.  | Yes |
-| password | The password corresponding to the user name that you provided in the username field. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| password | The [Atlassian API token](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/) (if two-step verification is enabled on the Atlassian account) or password corresponding to the user name that you provided in the username field. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over TLS. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over TLS. The default value is true.  | No |
@@ -171,4 +171,4 @@ To copy data from Jira, set the source type in the copy activity to **JiraSource
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

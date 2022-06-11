@@ -4,9 +4,11 @@
   items:
     - name: What is Azure Managed Instance for Apache Cassandra?
       href: introduction.md
+    - name: Management operations
+      href: management-operations.md
 - name: Quickstarts
   items:
-    - name: Create a cluster - Portal
+    - name: Create a cluster - portal
       href: create-cluster-portal.md
     - name: Create a cluster - CLI
       displayName: az managed-cassandra, cluster, datacenter, connect
@@ -17,25 +19,33 @@
       href: configure-hybrid-cluster.md       
     - name: Deploy Spark Cluster with Databricks
       href: deploy-cluster-databricks.md
-- name: Concepts
-  items:
-    - name: Frequently asked questions
-      displayName: cost, region, monitor, backup
-      href: faq.md  
-    - name: Managed instance Vs Azure Cosmos DB Cassandra API
-      href: compare-cosmosdb-managed-instance.md                
-- name: How-to guides
+- name: Tutorials
   items:
     - name: Migration
       items:
-        - name: Live migration
-          items:
-            - name: Using dual-write proxy
-              href: dual-write-proxy-migration.md          
-        - name: Offline migration
-          items:
-            - name: Using Apache Spark
-              href: spark-migration.md    
+      - name: Use dual-write proxy - live
+        href: dual-write-proxy-migration.md  
+      - name: Use Apache Spark - offline 
+        href: spark-migration.md  
+- name: Concepts
+  items:
+    - name: Security overview
+      href: security.md       
+    - name: Compare to Azure Cosmos DB Cassandra API
+      href: compare-cosmosdb-managed-instance.md
+    - name: Frequently asked questions
+      displayName: cost, region, monitor, backup
+      href: faq.md  
+- name: How-to guides
+  items: 
+    - name: Add service principal for deployment
+      href: add-service-principal.md 
+    - name: Configure Customer-Managed Keys
+      href: customer-managed-keys.md  
+    - name: Enable LDAP authentication
+      href: ldap.md        
+    - name: Monitor Managed Instance
+      href: monitor-clusters.md   
     - name: Manage with Azure CLI
       displayName: az managed-cassandra, cluster, datacenter
       href: manage-resources-cli.md           
@@ -43,6 +53,10 @@
       href: network-rules.md
     - name: Visualize metrics in Prometheus with Grafana
       href: visualize-prometheus-grafana.md
+    - name: Enable materialized views
+      href: materialized-views.md
+    - name: Nodetool commands
+      href: dba-commands.md               
 - name: Reference
   items:
     - name: REST API

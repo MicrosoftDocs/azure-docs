@@ -1,14 +1,12 @@
 ---
-title: 'Troubleshoot Azure Bastion | Microsoft Docs'
+title: 'Troubleshoot Azure Bastion'
 description: Learn how to troubleshoot Azure Bastion.
 services: bastion
 author: charwen
-
 ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-
 ---
 
 # Troubleshoot Azure Bastion
@@ -17,7 +15,7 @@ This article shows you how to troubleshoot Azure Bastion.
 
 ## <a name="nsg"></a>Unable to create an NSG on AzureBastionSubnet
 
-**Q:** When I try to create an NSG on the Azure Bastion subnet, I get the following error: *'Network security group <NSG name> does not have necessary rules for Azure Bastion Subnet AzureBastionSubnet"*.
+**Q:** When I try to create an NSG on the Azure Bastion subnet, I get the following error: *'Network security group \<NSG name\> does not have necessary rules for Azure Bastion Subnet AzureBastionSubnet"*.
 
 **A:** If you create and apply an NSG to *AzureBastionSubnet*, make sure you have added the required rules to the NSG. For a list of required rules, see [Working with NSG access and Azure Bastion](./bastion-nsg.md). If you do not add these rules, the NSG creation/update will fail.
 
@@ -70,7 +68,7 @@ The key's randomart image is:
 
 **Q:** I am unable to connect to my virtual machine (and I'm not experiencing the problems above).
 
-**A:** You can troubleshoot your connectivity issues by navigating to the **Connection Troubleshoot** tab (in the **Monitoring** section) of your Azure Bastion resource in the Azure portal. Network Watcher Connection Troubleshoot provides the capability to check a direct TCP connection from a virtual machine (VM) to a VM, fully qualified domain name (FQDN), URI, or IPv4 address. To start, choose a source to start the connection from, and the destination you wish to connect to and select "Check". [Learn more](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview).
+**A:** You can troubleshoot your connectivity issues by navigating to the **Connection Troubleshoot** tab (in the **Monitoring** section) of your Azure Bastion resource in the Azure portal. Network Watcher Connection Troubleshoot provides the capability to check a direct TCP connection from a virtual machine (VM) to a VM, fully qualified domain name (FQDN), URI, or IPv4 address. To start, choose a source to start the connection from, and the destination you wish to connect to and select "Check". [Learn more](../network-watcher/network-watcher-connectivity-overview.md).
 
 
 ## <a name="filetransfer"></a>File transfer issues

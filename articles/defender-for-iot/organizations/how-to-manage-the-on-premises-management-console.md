@@ -1,7 +1,7 @@
 ---
 title: Manage the on-premises management console 
 description: Learn about on-premises management console options like backup and restore, defining the host name, and setting up a proxy to sensors.
-ms.date: 1/12/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 
@@ -11,15 +11,29 @@ This article covers on-premises management console options like backup and resto
 
 You onboard the on-premises management console from the Azure portal.
 
+## Download software for the on-premises management console
+
+This procedure describes how to use the Azure portal to download software for you to install on your own appliances for an on-premises management console.
+
+1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **On-premises management console**.
+
+1. Make sure that you have a supported appliance available. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+
+1. Under **Select version**, select the software version you want to install. We recommend that you always select the most recent version.
+
+1. Select **Download**. Download the sensor software and save it in a location that you can access from your selected appliance.
+
+1. Install your software. For more information, see [Defender for IoT installation](how-to-install-software.md).
+
 ## Upload an activation file
 
 When you first sign in, an activation file for the on-premises management console is downloaded. This file contains the aggregate committed devices that are defined during the onboarding process. The list includes sensors associated with multiple subscriptions.
 
 After initial activation, the number of monitored devices might exceed the number of committed devices defined during onboarding. This event might happen, for example, if you connect more sensors to the management console. If there's a discrepancy between the number of monitored devices and the number of committed devices, a warning appears in the management console. If this event occurs, you should upload a new activation file.
 
-To upload an activation file:
+**To upload an activation file:**
 
-1. Go to the Azure Defender for IoT **Pricing** page.
+1. Go to the Microsoft Defender for IoT **Pricing** page.
 1. Select the **Download the activation file for the management console** tab. The activation file is downloaded.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Download the activation file.":::
@@ -30,225 +44,33 @@ To upload an activation file:
 
 ## Manage certificates
 
-After installation of the on-premises management console, a local self-signed certificate is generated and used to access the management console's web application. When administrator users sign in to the management console for the first time, they're prompted to provide an SSL/TLS certificate. For more information about first-time setup, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
+Following on-premises management console installation, a local self-signed certificate is generated and used to access the web application. When logging in to the on-premises management console for the first time, Administrator users are prompted to provide an SSL/TLS certificate. 
 
-The following sections provide information on updating certificates, working with certificate CLI commands, and supported certificates and certificate parameters.
+Administrators may be required to update certificates that were uploaded after initial login. This may happen for example if a certificate expired.
 
-### About certificates
-
-Azure Defender for IoT uses SSL and TLS certificates to:
-
-- Meet specific certificate and encryption requirements requested by your organization by uploading the CA-signed certificate.
-
-- Allow validation between the management console and connected sensors, and between a management console and a high-availability management console. Validation is evaluated against a certificate revocation list and the certificate expiration date. *If validation fails, communication between the management console and the sensor is halted and a validation error appears in the console*. This option is enabled by default after installation.
-
-   When validation is `ON`, the appliance should be able to establish connection to the CRL server defined by the certificate.
-
-Third-party forwarding rules aren't validated. Examples are alert information sent to SYSLOG, Splunk, or ServiceNow; and communication with Active Directory.
-
-#### SSL certificates
-
-The Defender for IoT sensor, and on-premises management console use SSL, and TLS certificates for the following functions: 
-
- - Secure communications between users, and the web console of the appliance. 
- 
- - Secure communications to the REST API on the sensor and on-premises management console.
- 
- - Secure communications between the sensors and an on-premises management console. 
-
-Once installed, the appliance generates a local self-signed certificate to allow preliminary access to the web console. Enterprise SSL, and TLS certificates may be installed using the [`cyberx-xsense-certificate-import`](#cli-commands) command-line tool. 
-
- > [!NOTE]
- > For integrations and forwarding rules where the appliance is the client and initiator of the session, specific certificates are used and are not related to the system certificates.  
- >
- >In these cases, the certificates are typically received from the server, or use asymmetric encryption where a specific certificate will be provided to set up the integration. 
-
-### Update certificates
-
-Administrator users of the on-premises management console can update certificates.
-
-To update a certificate:  
+**To update a certificate:**
 
 1. Select **System Settings**.
 
-1. Select **SSL/TLS Certificates**.
-1. Delete or edit the certificate and add a new one.
-   
-   - Add a certificate name.
-   
-   - Upload a CRT file and key file, and enter a passphrase.
-   - Upload a PEM file if necessary.
+1. Select **SSL/TLS Certificates.**
 
-To change the validation setting:
+    :::image type="content" source="media/how-to-manage-individual-sensors/certificate-upload.png" alt-text="Upload a certificate":::
 
-1. Turn on or turn off the **Enable Certificate Validation** toggle.
+1. In the SSL/TLS Certificates dialog box, delete the existing certificate and add a new one.
+
+    - Add a certificate name.
+    - Upload a CRT file and key file.
+    - Upload a PEM file if necessary.
+
+If the upload fails, contact your security or IT administrator, or review the information in [About Certificates](how-to-deploy-certificates.md).
+
+**To change the certificate validation setting:**
+
+1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for more information.
 
 1. Select **Save**.
 
-If the option is enabled and validation fails, communication between the management console and the sensor is halted and a validation error appears in the console.
-
-### Certificate support
-
-The following certificates are supported:
-
-- Private and Enterprise Key Infrastructure (Private PKI)
- 
-- Public Key Infrastructure (Public PKI) 
-
-- Locally generated on the appliance (locally self-signed) 
-
-  > [!IMPORTANT]
-  > We don't recommend using a self-signed certificates. This type of connection is not secure and should be used for test environments only. Since, the owner of the certificate can't be validated, and the security of your system can't be maintained, self-signed certificates should never be used for production networks.
-
-### Supported SSL Certificates 
-
-The following parameters are supported: 
-
-**Certificate CRT**
-
-- The primary certificate file for your domain name
-
-- Signature Algorithm = SHA256RSA
-- Signature Hash Algorithm = SHA256
-- Valid from = Valid past date
-- Valid To = Valid future date
-- Public Key = RSA 2048 bits (Minimum) or 4096 bits
-- CRL Distribution Point = URL to .crl file
-- Subject CN = URL, can be a wildcard certificate; for example, Sensor.contoso.<span>com,or *.contoso.<span>com
-- Subject (C)ountry = defined, for example, US
-- Subject (OU) Org Unit = defined; for example, Contoso Labs
-- Subject (O)rganization = defined; for example, Contoso Inc
-
-**Key file**
-
-- The key file generated when you created the CSR
-
-- RSA 2048 bits (minimum) or 4096 bits
-
- > [!Note]
- > Using a key length of 4096bits:
- > - The SSL handshake at the start of each connection will be slower.  
- > - There's an increase in CPU usage during handshakes. 
-
-**Certificate chain**
-
-- The intermediate certificate file (if any) that was supplied by your CA.
-
-- The CA certificate that issued the server's certificate should be first in the file, followed by any others up to the root. 
-- The chain can include bag attributes.
-
-**Passphrase**
-
-- One key is supported.
-
-- Set up when you're importing the certificate.
-
-Certificates with other parameters might work, but Microsoft doesn't support them.
-
-#### Encryption key artifacts
-
-**.pem: certificate container file**
-
-Privacy Enhanced Mail (PEM) files were the general file type used to secure emails. Nowadays, PEM files are used with certificates and use x509 ASN1 keys.  
-
-The container file is defined in RFCs 1421 to 1424, a container format that may include the public certificate only. For example, Apache installs, a CA certificate, files, ETC, SSL, or CERTS. This can include an entire certificate chain including public key, private key, and root certificates.  
-
-It may also encode a CSR as the PKCS10 format, which can be translated into PEM.
-
-**.cert .cer .crt: certificate container file**
-
-A `.pem`, or `.der` formatted file with a different extension. The file is recognized by Windows Explorer as a certificate. The `.pem` file is not recognized by Windows Explorer.
-
-**.key: private key file**
-
-A key file is in the same format as a PEM file, but it has a different extension. 
-
-#### Other commonly available key artifacts
-
-**.csr - certificate signing request**.  
-
-This file is used for submission to certificate authorities. The actual format is PKCS10, which is defined in RFC 2986, and may include some, or all of the key details of the requested certificate. For example, subject, organization, and state. It is the public key of the certificate that gets signed by the CA, and receives a certificate in return.  
-
-The returned certificate is the public certificate, which includes the public key but not the private key. 
-
-**.pkcs12 .pfx .p12 – password container**. 
-
-Originally defined by RSA in the Public-Key Cryptography Standards (PKCS), the 12-variant was originally enhanced by Microsoft, and later submitted as RFC 7292.  
-
-This container format requires a password that contains both public and private certificate pairs. Unlike `.pem` files, this container is fully encrypted.  
-
-You can use OpenSSL to turn the file into a `.pem` file with both public and private keys: `openssl pkcs12 -in file-to-convert.p12 -out converted-file.pem -nodes`  
-
-**.der – binary encoded PEM**.
-
-The way to encode ASN.1 syntax in binary, is through a `.pem` file, which is just a Base64 encoded `.der` file. 
-
-OpenSSL can convert these files to a `.pem`: `openssl x509 -inform der -in to-convert.der -out converted.pem`.  
-
-Windows will recognize these files as certificate files. By default, Windows will export certificates as `.der` formatted files with a different extension.
-
-**.crl - certificate revocation list**.  
-
-Certificate authorities produce these as a way to de-authorize certificates before their expiration. 
-
-#### CLI commands
-
-Use the `cyberx-xsense-certificate-import` CLI command to import certificates. To use this tool, you need to upload certificate files to the device, by using tools such as WinSCP or Wget.
-
-The command supports the following input flags:
-
-- `-h`:  Shows the command-line help syntax.
-
-- `--crt`:  Path to a certificate file (.crt extension).
-
-- `--key`:  \*.key file. Key length should be a minimum of 2,048 bits.
-
-- `--chain`:  Path to a certificate chain file (optional).
-
-- `--pass`:  Passphrase used to encrypt the certificate (optional).
-
-- `--passphrase-set`:  Default = `False`, unused. Set to `True` to use the previous passphrase supplied with the previous certificate (optional).
-
-When you're using the CLI command:
-
-- Verify that the certificate files are readable on the appliance.
-
-- Verify that the domain name and IP in the certificate match the configuration that the IT department has planned.
-
-### Use OpenSSL to manage certificates
-
-Manage your certificates with the following commands:
-
-| Description | CLI Command |
-|--|--|
-| Generate a new private key and Certificate Signing Request | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
-| Generate a self-signed certificate | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
-| Generate a certificate signing request (CSR) for an existing private key | `openssl req -out CSR.csr -key privateKey.key -new` |
-| Generate a certificate signing request based on an existing certificate | `openssl x509 -x509toreq -in certificate.crt -out CSR.csr -signkey privateKey.key` |
-| Remove a passphrase from a private key | `openssl rsa -in privateKey.pem -out newPrivateKey.pem` |
-
-If you need to check the information within a Certificate, CSR or Private Key, use these commands;
-
-| Description | CLI Command |
-|--|--|
-| Check a Certificate Signing Request (CSR) | `openssl req -text -noout -verify -in CSR.csr` |
-| Check a private key | `openssl rsa -in privateKey.key -check` |
-| Check a certificate | `openssl x509 -in certificate.crt -text -noout`  |
-
-If you receive an error that the private key doesn’t match the certificate, or that a certificate that you installed to a site is not trusted, use these commands to fix the error;
-
-| Description | CLI Command |
-|--|--|
-| Check an MD5 hash of the public key to ensure that it matches with what is in a CSR or private key | 1. `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> 2. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> 3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
-
-To convert certificates and keys to different formats to make them compatible with specific types of servers, or software, use these commands;
-
-| Description | CLI Command |
-|--|--|
-| Convert a DER file (.crt .cer .der) to PEM  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
-| Convert a PEM file to DER | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |
-| Convert a PKCS#12 file (.pfx .p12) containing a private key and certificates to PEM | `openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes` <br />You can add `-nocerts` to only output the private key, or add `-nokeys` to only output the certificates. |
-| Convert a PEM certificate file and a private key to PKCS#12 (.pfx .p12) | `openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt` |
+For more information about first-time certificate upload, see [First-time sign-in and activation checklist](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist).
 
 ## Define backup and restore settings
 
@@ -404,7 +226,7 @@ If you are working with an on-premises management console and managed sensors, *
 
 1. Select **Download** and save the file.
 
-1. Log into on-premises management console and select **System Settings** from the side menu.
+1. Sign into the on-premises management console and select **System Settings** from the side menu.
 
 1. On the **Version Update** pane, select **Update**.
 
@@ -419,13 +241,15 @@ To define:
 1. Sign in to the CLI for the on-premises management with administrative credentials.
 1. Type ```nano /var/cyberx/properties/remote-interfaces.properties```.
 1. Select enter. The following prompts appear.
-```mail.smtp_server= ```
-```mail.port=25 ```
-```mail.sender=```
+   `mail.smtp_server=`
+   `mail.port=25`
+   `mail.sender=`
 1. Enter the SMTP server name  and sender and select enter.
 
-## See also
+## Next steps
 
-[Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+For more information, see:
 
-[Manage individual sensors](how-to-manage-individual-sensors.md)
+- [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+
+- [Manage individual sensors](how-to-manage-individual-sensors.md)

@@ -1,15 +1,15 @@
 ---
 title: Technical and feature overview - Azure Active Directory B2C
-description: An in-depth introduction to the features and technologies in Azure Active Directory B2C.
+description: An in-depth introduction to the features and technologies in Azure Active Directory B2C. Azure Active Directory B2C has high availability globally. 
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/07/2021
-ms.author: mimart
+ms.date: 10/01/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -56,11 +56,14 @@ With a *consumer* account, users can sign in to the applications that you've sec
 A consumer account can be associated with these identity types:
 
 * **Local** identity, with the username and password stored locally in the Azure AD B2C directory. We often refer to these identities as "local accounts."
-* **Social** or **enterprise** identities, where the identity of the user is managed by a federated identity provider. For example, Facebook, Microsoft, ADFS, or Salesforce.
+* **Social** or **enterprise** identities, where the identity of the user is managed by a federated identity provider. For example, Facebook, Google, Microsoft, ADFS, or Salesforce.
 
 A user with a consumer account can sign in with multiple identities. For example username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social.
 
-![Consumer account identities](media/technical-overview/identities.png)<br/>*Figure: A single consumer account with multiple identities in Azure AD B2C*
+
+
+:::image type="content" source="media/technical-overview/identities.png" alt-text="Consumer account identities.":::
+<br/>*Figure: A single consumer account with multiple identities in Azure AD B2C*
 
 For more information, see [Overview of user accounts in Azure Active Directory B2C](user-overview.md).
 
@@ -74,7 +77,7 @@ Learn more about [sign-in options](sign-in-options.md) or how to [set up the loc
 
 Azure AD B2C lets you manage common attributes of consumer account profiles. For example display name, surname, given name, city, and others.
 
-You can also extend the Azure AD schema to store additional information about your users. For example, their country/region of residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multi-factor authentication. For more information, see:
+You can also extend the Azure AD schema to store additional information about your users. For example, their country/region of residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multifactor authentication. For more information, see:
 
 * [User profile attributes](user-profile-attributes.md)
 * [Add user attributes and customize user input in](configure-user-input.md)
@@ -83,13 +86,17 @@ You can also extend the Azure AD schema to store additional information about yo
 
 You can configure Azure AD B2C to allow users to sign in to your application with credentials from social and enterprise identity providers. Azure AD B2C can federate with identity providers that support OAuth 1.0, OAuth 2.0, OpenID Connect, and SAML protocols. For example, Facebook, Microsoft account, Google, Twitter, and AD-FS.
 
-![External identity providers](media/technical-overview/external-idps.png)
+
+
+:::image type="content" source="media/technical-overview/external-idps.png" alt-text="External identity providers.":::
 
 With external identity provider federation, you can offer your consumers the ability to sign in with their existing social or enterprise accounts, without having to create a new account just for your application.
 
 On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers the user can choose for sign-in. Once they select one of the external identity providers, they're taken (redirected) to the selected provider's website to complete the sign in process. After the user successfully signs in, they're returned to Azure AD B2C for authentication of the account in your application.
 
-![Mobile sign-in example with a social account (Facebook)](media/technical-overview/external-idp.png)
+
+
+:::image type="content" source="media/technical-overview/external-idp.png" alt-text="Mobile sign-in example with a social account (Facebook).":::
 
 To see how to add identity providers in Azure AD B2C, see [Add identity providers to your applications in Azure Active Directory B2C](add-identity-provider.md).
 
@@ -111,9 +118,11 @@ Read the [User flows and custom policies overview](user-flow-overview.md) articl
 
 ## User interface
 
-In Azure AD B2C, you can craft your users' identity experiences so that the pages are shown blend seamlessly with the look and feel of your brand. You get nearly full control of the HTML and CSS content presented to your users when they proceed through your application's identity journeys. With this flexibility, you can maintain brand and visual consistency between your application and Azure AD B2C.
+In Azure AD B2C, you can craft your users' identity experiences so that the pages that are shown blend seamlessly with the look and feel of your brand. You get nearly full control of the HTML and CSS content presented to your users when they proceed through your application's identity journeys. (Customizing the pages rendered by third parties when using social accounts is limited to the options provided by the identity provider, and these are outside the control of Azure AD B2C.) With this flexibility, you can maintain brand and visual consistency between your application and Azure AD B2C.
 
-![Screenshots of brand-customized sign-up sign-in page](media/technical-overview/seamless-ux.png)
+
+
+:::image type="content" source="media/technical-overview/seamless-ux.png" alt-text="Screenshots of brand-customized sign-up sign-in page.":::
 
 For information on UI customization, see:
 
@@ -123,7 +132,7 @@ For information on UI customization, see:
 
 ## Custom domain
 
-You can customize your Azure AD B2C domain in the redirect URLs for Azure AD B2C. Custom domain allows you to create a seamless experience so that the pages are shown blend seamlessly with the domain name of your application.
+You can customize your Azure AD B2C domain in the redirect URLs for Azure AD B2C. Custom domain allows you to create a seamless experience so that the pages that are shown blend seamlessly with the domain name of your application.
 
 ![Screenshots of Azure AD B2C custom domain](media/technical-overview/custom-domain.png)
 
@@ -148,9 +157,9 @@ You can customize the email to users that sign up to use your applications. By u
 * [Custom email verification with Mailjet](custom-email-mailjet.md)
 * [Custom email verification with SendGrid](custom-email-sendgrid.md)
 
-## Add your own business logic
+## Add your own business logic and call RESTful API
 
-If you choose to use custom policies, you can integrate with a RESTful API in a user journey to add your own business logic to the journey. For example, Azure AD B2C can exchange data with a RESTful service to:
+You can integrate with a RESTful API in both user flows and custom policies. The difference is, in user flows, you make calls at specified places, whereas in custom policies, you add your own business logic to the journey. This feature allows you to retrieve and use data from external identity sources. Azure AD B2C can exchange data with a RESTful service to:
 
 * Display custom user-friendly error messages.
 * Validate user input to prevent malformed data from persisting in your user directory. For example, you can modify the data entered by the user, such as capitalizing their first name if they entered it in all lowercase.
@@ -161,7 +170,9 @@ Loyalty programs are another scenario enabled by Azure AD B2C's support for call
 
 The return data can be stored in the user's directory account in Azure AD B2C. The data then can be further evaluated in subsequent steps in the policy, or be included in the access token.
 
-![Line-of-business integration in a mobile application](media/technical-overview/lob-integration.png)
+
+
+:::image type="content" source="media/technical-overview/lob-integration.png" alt-text="Line-of-business integration in a mobile application.":::
 
 You can add a REST API call at any step in the user journey defined by a custom policy. For example, you can call a REST API:
 
@@ -189,21 +200,21 @@ The following diagram shows how Azure AD B2C can communicate using various proto
 
 ## Application integration
 
-When a user wants to sign in to your application, the application initiates an authorization request to a user flow- or custom policy-provided endpoint. The user flow or custom policy defines and controls the user's experience. When they complete a user flow, for example the *sign-up or sign-in* flow, Azure AD B2C generates a token, then redirects the user back to your application.
+When a user wants to sign in to your application, the application initiates an authorization request to a user-flow or custom policy-provided endpoint. The user flow or custom policy defines and controls the user's experience. When they complete a user flow, for example the *sign up or sign in* flow, Azure AD B2C generates a token, then redirects the user back to your application. This token is specific to Azure AD B2C and is not to be confused with the token issued by third-party identity providers when using social accounts. For information about how to use third-party tokens, see [Pass an identity provider access token to your application in Azure Active Directory B2C](idp-pass-through-user-flow.md).
 
-![Mobile app with arrows showing flow between Azure AD B2C sign-in page](media/technical-overview/app-integration.png)
+:::image type="content" source="media/technical-overview/app-integration.png" alt-text="Mobile app with arrows showing flow between Azure AD B2C sign-in page.":::
 
 Multiple applications can use the same user flow or custom policy. A single application can use multiple user flows or custom policies.
 
 For example, to sign in to an application, the application uses the *sign up or sign in* user flow. After the user has signed in, they may want to edit their profile, so the application initiates another authorization request, this time using the *profile edit* user flow.
 
-## Multi-factor authentication (MFA)
+## Multifactor authentication (MFA)
 
-Azure AD B2C multi-factor authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. It provides extra security by requiring a second form of authentication, and delivers strong authentication by offering a range of easy-to-use authentication methods. 
+Azure AD B2C Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. It provides extra security by requiring a second form of authentication, and delivers strong authentication by offering a range of easy-to-use authentication methods. 
 
 Your users may or may not be challenged for MFA based on configuration decisions that you can make as an administrator.
 
-See how to enable MFA in user flows in [Enable multi-factor authentication in Azure Active Directory B2C](multi-factor-authentication.md).
+See how to enable MFA in user flows in [Enable multifactor authentication in Azure Active Directory B2C](multi-factor-authentication.md).
 
 ## Conditional Access
 
@@ -211,11 +222,11 @@ Azure AD Identity Protection risk-detection features, including risky users and 
 
 ![Conditional access flow](media/technical-overview/conditional-access-flow.png)
 
-Azure AD B2C evaluates each sign-in event and ensures that all policy requirements are met before granting the user access. Risky users or sign-ins may be blocked, or challenged with a specific remediation like multi-factor authentication (MFA). For more information, see [Identity Protection and Conditional Access](conditional-access-identity-protection-overview.md).
+Azure AD B2C evaluates each sign-in event and ensures that all policy requirements are met before granting the user access. Risky users or sign-ins may be blocked, or challenged with a specific remediation like multifactor authentication (MFA). For more information, see [Identity Protection and Conditional Access](conditional-access-identity-protection-overview.md).
 
 ## Password complexity
 
-During sign up or password reset, your users must supply a password that meets complexity rules. By default, Azure AD B2C enforces a strong password policy. Azure AD B2C also provides configuration options for specifying the complexity requirements of the passwords your customers use.
+During sign up or password reset, your users must supply a password that meets complexity rules. By default, Azure AD B2C enforces a strong password policy. Azure AD B2C also provides configuration options for specifying the complexity requirements of the passwords your customers use when they use local accounts.
 
 ![Screenshot of password complexity user experience](media/technical-overview/password-complexity.png)
 
@@ -225,7 +236,9 @@ For more information, see [Configure complexity requirements for passwords in Az
 
 As an Azure AD B2C tenant administrator, you can [reset a user's password](manage-users-portal.md#reset-a-users-password) if the user forgets their password. Or you would like to force them to reset the password periodically. For more information, see [Set up a force password reset flow](force-password-reset.md).
 
-![Force password reset flow](media/technical-overview/force-password-reset-flow.png)
+
+
+:::image type="content" source="media/technical-overview/force-password-reset-flow.png" alt-text="Force password reset flow.":::
 
 ## Smart account lockout
 
@@ -241,11 +254,12 @@ Azure AD B2C complies with the security, privacy, and other commitments describe
 
 Sessions are modeled as encrypted data, with the decryption key known only to the Azure AD B2C Security Token Service. A strong encryption algorithm, AES-192, is used. All communication paths are protected with TLS for confidentiality and integrity. Our Security Token Service uses an Extended Validation (EV) certificate for TLS. In general, the Security Token Service mitigates cross-site scripting (XSS) attacks by not rendering untrusted input.
 
-![Diagram of secure data in transit and at rest](media/technical-overview/user-data.png)
+
+:::image type="content" source="media/technical-overview/user-data.png" alt-text="Diagram of secure data in transit and at rest.":::
 
 ### Access to user data
 
-Azure AD B2C tenants share many characteristics with enterprise Azure Active Directory tenants used for employees and partners. Shared aspects include mechanisms for viewing administrative roles, assigning roles, and auditing activities.
+Azure AD B2C tenants share many characteristics with enterprise Azure Active Directory tenants used for employees and partners. Shared aspects include mechanisms for viewing administrative roles, assigning roles, and auditing activities. 
 
 You can assign roles to control who can perform certain administrative actions in Azure AD B2C, including:
 
@@ -282,6 +296,23 @@ By integrating Azure Application Insights into Azure AD B2C custom policies, you
 
 For more information, see [Track user behavior in Azure Active Directory B2C using Application Insights](analytics-with-application-insights.md).
 
+## Region availability and data residency
+Azure AD B2C service is generally available worldwide with the option for data residency in regions as specified in [Products available by region](https://azure.microsoft.com/regions/services/). Data residency is determined by the country/region you select when you [create your tenant](tutorial-create-tenant.md). 
+
+Learn more about [Azure Active Directory B2C service Region availability & data residency](data-residency.md) and [Service Level Agreement (SLA) for Azure Active Directory B2C](https://azure.microsoft.com/support/legal/sla/active-directory-b2c/v1_1).
+
+## Automation using Microsoft Graph API
+
+Use MS graph API to manage your Azure AD B2C directory. You can also create the Azure AD B2C directory itself. You can manage users, identity providers, user flows, custom policies and many more. 
+
+Learn more about how to [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md). 
+
+## Azure AD B2C service limits and restrictions
+Learn more about [Azure AD B2C service limits and restrictions](service-limits.md)
+
 ## Next steps
 
-Now that you have deeper view into the features and technical aspects of Azure Active Directory B2C, get started with our [tutorial for creating an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
+Now that you have deeper view into the features and technical aspects of Azure Active Directory B2C:
+- Get started with our [tutorial for creating an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
+- [Set up sign in for a single-page app using Azure Active Directory B2C](quickstart-single-page-app.md)
+- [Azure Active Directory B2C concepts](application-types.md) 

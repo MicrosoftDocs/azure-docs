@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how to apply differential privacy best practices to Azure Machine Learning models by using the SmartNoise open-source libraries.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: responsible-ml
 ms.author: slbird
 author: slbird
-ms.reviewer: luquinta
-ms.date: 01/21/2020
+ms.reviewer: ssalgado
+ms.date: 10/21/2021
 # Customer intent: As an experienced data scientist, I want to use differential privacy in Azure Machine Learning.
 ---
 
@@ -38,7 +38,7 @@ Use pip to install the [SmartNoise Python packages](https://pypi.org/project/ope
 
 `pip install opendp-smartnoise`
 
-To verify that the packages are installed, launch a python prompt and type:
+To verify that the packages are installed, launch a Python prompt and type:
 
 ```python
 import opendp.smartnoise.core

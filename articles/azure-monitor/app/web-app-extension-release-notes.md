@@ -2,27 +2,45 @@
 title: Release Notes for Azure web app extension - Application Insights
 description: Releases notes for Azure Web Apps Extension for runtime instrumentation with Application Insights.
 ms.topic: conceptual
-author: MS-jgol
-ms.author: jgol
 ms.date: 06/26/2020
-
+ms.reviewer: rajrang
 ---
 
 # Release notes for Azure Web App extension for Application Insights
 
 This article contains the releases notes for Azure Web Apps Extension for runtime instrumentation with Application Insights. This is applicable only for pre-installed extensions.
 
-[Learn](azure-web-apps.md) more about Azure Web App Extension for Application Insights.
+Learn more about [Azure Web App Extension for Application Insights](azure-web-apps.md)).
 
 ## Frequently asked questions
 
 - How to find which version of the extension I am currently on?
-    - Go to `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visit [the step by step troubleshooting guide for extension/agent based monitoring](./azure-web-apps.md?tabs=net#troubleshooting) for more information.
+    - Go to `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visit the step by step troubleshooting guide for extension/agent based monitoring for [ASP.NET Core](./azure-web-apps-net-core.md#troubleshooting), [ASP.NET](./azure-web-apps-net.md#troubleshooting), [Java](./azure-web-apps-java.md#troubleshooting), or [Node.js](./azure-web-apps-nodejs.md#troubleshooting) ) for more information.
 
 - What if I'm using private extensions?
     - Uninstall private site extensions since it's no longer supported.
 
 ## Release notes
+
+### 2.8.42
+
+- JAVA extension: Upgraded to [Java Agent 3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0) from 2.5.1.
+- Node.js extension: Updated AI SDK to [2.1.8](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/2.1.8) from 2.1.7. Added support for User and System assigned AAD Managed Identities.
+- .NET Core: Added self-contained deployments and .NET 6.0 support using [.NET Startup Hook](https://github.com/dotnet/runtime/blob/main/docs/design/features/host-startup-hook.md).
+
+### 2.8.41
+
+- Node.js extension: Updated AI SDK to [2.1.7](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/2.1.7) from 2.1.3.
+- .NET Core: Removed out-of-support version (2.1). Supported versions are 3.1 and 5.0.
+
+### 2.8.40
+
+- JAVA extension: Upgraded to [Java Agent 3.1.1 (GA)](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.1) from 3.0.2.
+- Node.js extension: Updated AI SDK to [2.1.3](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/2.1.3) from 1.8.8.
+
+### 2.8.39
+
+- .NET Core: Added .NET Core 5.0 support.
 
 ### 2.8.38
 
@@ -32,7 +50,7 @@ This article contains the releases notes for Azure Web Apps Extension for runtim
 
 ### 2.8.37
 
-- AppSvc Windows extension: Made .Net Core work with any version of System.Diagnostics.DiagnosticSource.dll.
+- AppSvc Windows extension: Made .NET Core work with any version of System.Diagnostics.DiagnosticSource.dll.
 
 ### 2.8.36
 
@@ -89,4 +107,4 @@ This article contains the releases notes for Azure Web Apps Extension for runtim
 
 ## Next steps
 
-- Visit the [Azure App Service documentation](azure-web-apps.md) for more information on how to configuring monitoring for Azure App Services. 
+- Visit the [Application Monitoring for Azure App Service documentation](azure-web-apps.md) for more information on how to configuring monitoring for Azure App Services. 

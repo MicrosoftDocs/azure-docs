@@ -1,7 +1,7 @@
 ---
 title: Work with large data sets
 description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
-ms.date: 08/17/2021
+ms.date: 09/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
@@ -46,13 +46,7 @@ The control that is _most restrictive_ will win. For example, if your query uses
 would be equal to **First**. Likewise, if **top** or **limit** is smaller than **First**, the record
 set returned would be the smaller value configured by **top** or **limit**.
 
-**First** currently has a maximum allowed value of _5000_, which it achieves by
-[paging results](#paging-results) _1000_ records at a time.
-
-> [!IMPORTANT]
-> When **First** is configured to be greater than _1000_ records, the query must **project** the
-> **id** field in order for pagination to work. If it's missing from the query, the response won't
-> get [paged](#paging-results) and the results are limited to _1000_ records.
+**First** has a maximum allowed value of _1000_.
 
 ## Skipping records
 
@@ -71,7 +65,7 @@ of the data set instead.
 The following examples show how to skip the first _10_ records a query would result in, instead
 starting the returned result set with the 11th record:
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | project name | order by name asc" --skip 10 --output table
 ```
 
@@ -93,14 +87,17 @@ consumer if there are more records not returned in the response. This condition 
 identified when the **count** property is less than the **totalRecords** property. **totalRecords**
 defines how many records that match the query.
 
-**resultTruncated** is **true** when either paging is disabled or not possible because no `id`
-column or when there are less resources available than a query is requesting. When
-**resultTruncated** is **true**, the **$skipToken** property isn't set.
+**resultTruncated** is **true** when there are less resources available than a query is requesting or when paging is disabled or when paging is not possible because:
+
+- The query contains a `limit` or `sample`/`take` operator.
+- **All** output columns are either `dynamic` or `null` type.
+
+When **resultTruncated** is **true**, the **$skipToken** property isn't set.
 
 The following examples show how to **skip** the first 3,000 records and return the **first** 1,000
 records after those records skipped with Azure CLI and Azure PowerShell:
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
 ```
 
@@ -109,8 +106,9 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 ```
 
 > [!IMPORTANT]
-> The query must **project** the **id** field in order for pagination to work. If it's missing from
-> the query, the response won't include the **$skipToken**.
+> The response won't include the **$skipToken** if:
+> - The query contains a `limit` or `sample`/`take` operator.
+> - **All** output columns are either `dynamic` or `null` type.
 
 For an example, see
 [Next page query](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#next-page-query)

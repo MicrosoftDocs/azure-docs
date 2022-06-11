@@ -3,14 +3,14 @@ title: Security considerations for Azure Active Directory Application Proxy
 description: Covers security considerations for using Azure AD Application Proxy
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/21/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Security considerations for accessing apps remotely with Azure Active Directory Application Proxy
@@ -39,7 +39,7 @@ Apply richer policy controls before connections to your network are established.
 
 With [Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md), you can define restrictions on how users are allowed to access your applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
 
-You can also use Conditional Access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. Additionally, your applications can also be routed to Microsoft Cloud App Security via Azure AD Conditional Access to provide real-time monitoring and controls, via [access](/cloud-app-security/access-policy-aad) and [session](/cloud-app-security/session-policy-aad) policies
+You can also use Conditional Access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. Additionally, your applications can also be routed to Microsoft Defender for Cloud Apps via Azure AD Conditional Access to provide real-time monitoring and controls, via [access](/cloud-app-security/access-policy-aad) and [session](/cloud-app-security/session-policy-aad) policies
 
 ### Traffic termination
 
@@ -153,9 +153,9 @@ The request includes items from the application, such as the request headers, da
 
 Based on the request, Application Proxy performs one of the following actions:
 
-* If the request is a simple operation (for example, there is no data within the body as is with a RESTful *GET* request), the connector makes a connection to the target internal resource and then waits for a response.
+* If the request is a simple operation (for example, there is no data within the body as is with a RESTful API `GET` request), the connector makes a connection to the target internal resource and then waits for a response.
 
-* If the request has data associated with it in the body (for example, a RESTful *POST* operation), the connector makes an outbound connection by using the client certificate to the Application Proxy instance. It makes this connection to request the data and open a connection to the internal resource. After it receives the request from the connector, the Application Proxy service begins accepting content from the user and forwards data to the connector. The connector, in turn, forwards the data to the internal resource.
+* If the request has data associated with it in the body (for example, a RESTful API `POST` operation), the connector makes an outbound connection by using the client certificate to the Application Proxy instance. It makes this connection to request the data and open a connection to the internal resource. After it receives the request from the connector, the Application Proxy service begins accepting content from the user and forwards data to the connector. The connector, in turn, forwards the data to the internal resource.
 
 #### 4. The connector waits for a response.
 
@@ -166,7 +166,6 @@ After it receives a response, the connector makes an outbound connection to the 
 #### 5. The service streams data to the user. 
 
 Some processing of the application may occur here. If you configured Application Proxy to translate headers or URLs in your application, that processing happens as needed during this step.
-
 
 ## Next steps
 

@@ -1,9 +1,9 @@
 ---
-author: laujan
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/20/2020
-ms.author: lajanuar
+ms.date: 01/24/2022
+ms.author: eur
 ---
 
 ## Install the Speech SDK
@@ -18,12 +18,11 @@ Before you can do anything, you'll need to install the Speech SDK. Depending on 
 
 ## Create voice signatures
 
-(You can skip this step if you do not want to use pre-enrolled user profiles to identify specific participants.)
+If you want to enroll user profiles, the first step is to create voice signatures for the conversation participants so that they can be identified as unique speakers. This is not required if you do not want to use pre-enrolled user profiles to identify specific participants.
 
-If you want to enroll user profiles, the first step is to create voice signatures for the conversation participants so that they can be identified as unique speakers. The input `.wav` audio file for creating voice signatures must be 16-bit, 16 kHz sample rate, in single channel (mono) format. The recommended length for each audio sample is between thirty seconds and two minutes. An audio sample that is too short will result in reduced accuracy when recognizing the speaker. The `.wav` file should be a sample of **one person's** voice so that a unique voice profile is created.
+The input `.wav` audio file for creating voice signatures must be 16-bit, 16 kHz sample rate, in single channel (mono) format. The recommended length for each audio sample is between thirty seconds and two minutes. An audio sample that is too short will result in reduced accuracy when recognizing the speaker. The `.wav` file should be a sample of one person's voice so that a unique voice profile is created.
 
-The following example shows how to create a voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in C#
-. Note that you need to substitute real information for your `subscriptionKey`, `region`, and the path to a sample `.wav` file.
+The following example shows how to create a voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in C#. Note that you need to insert your `subscriptionKey`, `region`, and the path to a sample `.wav` file.
 
 ```csharp
 using System;
@@ -107,6 +106,10 @@ This sample code does the following:
 * Creates a `ConversationTranscriber` using the constructor, and subscribes to the necessary events.
 * Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above from the function `GetVoiceSignatureString()`.
 * Joins the conversation and begins transcription.
+* If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
+
+> [!NOTE]
+> `AudioStreamReader` is a helper class you can get on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/AudioStreamReader.cs).
 
 Call the function `TranscribeConversationsAsync()` to start conversation transcription.
 
@@ -130,7 +133,9 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
 
     var config = SpeechConfig.FromSubscription(subscriptionKey, region);
     config.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
-    // config.SpeechRecognitionLanguage = "zh-cn"; // en-us by default. This code specifies Chinese.
+
+    // en-us by default. Adding this code to specify other languages, like zh-cn.
+    // config.SpeechRecognitionLanguage = "zh-cn";
     var stopRecognition = new TaskCompletionSource<int>();
 
     using (var audioInput = AudioConfig.FromWavFileInput(filepath))
@@ -166,7 +171,7 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
                     {
                         Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
                         Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
-                        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                        Console.WriteLine($"CANCELED: Did you set the speech resource key and region values?");
                         stopRecognition.TrySetResult(0);
                     }
                 };
@@ -197,8 +202,9 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
                 Task.WaitAny(new[] { stopRecognition.Task });
                 await conversationTranscriber.StopTranscribingAsync().ConfigureAwait(false);
             }
-        }
-    }
-}
+         }
+      }
+   }
 }
 ```
+

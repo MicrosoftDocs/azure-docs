@@ -2,7 +2,7 @@
 title: Use Bicep to deploy resources to resource groups
 description: Describes how to deploy resources in a Bicep file. It shows how to target more than one resource group.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/02/2021
 ---
 
 # Resource group deployments with Bicep files
@@ -29,7 +29,7 @@ To deploy to a resource group, use the resource group deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create). The following example deploys a template to create a resource group:
+For Azure CLI, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create). The following example deploys a template to create a resource group:
 
 ```azurecli-interactive
 az deployment group create \
@@ -186,7 +186,7 @@ For more information, see [Management group](deploy-to-management-group.md#manag
 
 To deploy resources in the target resource group, define those resources in the `resources` section of the template. The following template creates a storage account in the resource group that is specified in the deployment operation.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/get-started-with-bicep-files/add-output/azuredeploy.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/create-storage-account/azuredeploy.bicep":::
 
 ## Deploy to multiple resource groups
 

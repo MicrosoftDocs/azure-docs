@@ -126,7 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. Click **Copy** to copy the Entity ID value and paste it into the **Identifier (Entity ID)** textbox in the **Basic SAML Configuration** section in the Azure portal.
 
-    b. In the **Azure Federation Metadata URL** textbox, paste the App Federation Metadata Url value, which you have copied from the Azure portal and then click **Save**.
+    b. In the **Azure Federation Metadata URL** textbox, paste the App Federation Metadata URL value, which you have copied from the Azure portal and then click **Save**.
 
 5. To complete the setup, click **Authenticate With Microsoft to complete setup** and authenticate with microsoft account.
 
@@ -158,8 +158,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to ClickUp Productivity Platform Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the ClickUp Productivity Platform tile in the My Apps, this will redirect to ClickUp Productivity Platform Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the ClickUp Productivity Platform tile in the My Apps, this will redirect to ClickUp Productivity Platform Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure ClickUp Productivity Platform you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure ClickUp Productivity Platform you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

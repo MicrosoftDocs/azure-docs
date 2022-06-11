@@ -3,19 +3,15 @@ title: Intent recognition overview - Speech service
 titleSuffix: Azure Cognitive Services
 description: Intent recognition allows you to recognize user objectives you have pre-defined. This article is an overview of the benefits and capabilities of the intent recognition service.
 services: cognitive-services
-author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 10/13/2020
-ms.author: v-demjoh
 keywords: intent recognition
 ---
 
 # What is intent recognition?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 In this overview, you will learn about the benefits and capabilities of intent recognition. The Cognitive Services Speech SDK provides two ways to recognize intents, both described below. An intent is something the user wants to do: book a flight, check the weather, or make a call. Using intent recognition, your applications, tools, and devices can determine what the user wants to initiate or do based on options you define in the Intent Recognizer or LUIS.
 
@@ -54,6 +50,5 @@ Sample code for intent recognition:
 
 ## Next steps
 
-* Complete the intent recognition [quickstart](get-started-intent-recognition.md)
-* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
+* [Intent recognition quickstart](get-started-intent-recognition.md)
 * [Get the Speech SDK](speech-sdk.md)

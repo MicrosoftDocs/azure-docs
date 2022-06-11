@@ -2,13 +2,13 @@
 title: Build large-scale data copy pipelines with metadata-driven approach in copy data tool 
 description: 'Provides information about the metadata-driven approach in ADF copy data tool'
 author: dearandyxu
-
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 06/19/2021
+ms.date: 02/25/2022
 ms.author: yexu
 ---
-# Build large-scale data copy pipelines with metadata-driven approach in copy data tool (Preview)
+# Build large-scale data copy pipelines with metadata-driven approach in copy data tool
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 When you want to copy huge amounts of objects (for example, thousands of tables) or load data from large variety of sources, the appropriate approach is to input the name list of the objects with required copy behaviors in a control table, and then use parameterized pipelines to read the same from the control table and apply them to the jobs accordingly.  By doing so, you can maintain (for example, add/remove) the objects list to be copied easily by just updating the object names in control table instead of redeploying the pipelines. What’s more, you will have single place to easily check which objects copied by which pipelines/triggers with defined copy behaviors. 
@@ -21,18 +21,18 @@ Copy data tool in ADF eases the journey of building such metadata driven data co
 
    You need to input the connection and table name of your control table, so that the generated pipeline will read metadata from that.
 
-   ![Select task type](./media/copy-data-tool-metadata-driven/select-task-type.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/select-task-type.png" alt-text="Select task type":::
 
 2. Input the **connection of your source database**. You can use [parameterized linked service](parameterize-linked-services.md) as well.
 
-   ![Select parameterized linked service](./media/copy-data-tool-metadata-driven/select-parameterized-linked-service.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/select-parameterized-linked-service.png" alt-text="Select parameterized linked service":::
 
 3. Select the **table name** to copy.
 
-   ![Select table](./media/copy-data-tool-metadata-driven/select-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/select-table.png" alt-text="Select table":::
 
    > [!NOTE]
-   > If you select tabular data store, you will have chance to further select either full load or incremental load in the next page. If you select storage store, you can further select full load only in the next page. Incrementally loading new files only from storage store is currently not supported.  
+   > If you select tabular data store, you will have chance to further select either full load or delta load in the next page. If you select storage store, you can further select full load only in the next page. Incrementally loading new files only from storage store is currently not supported.  
 
 4. Choose **loading behavior**.
    >[!TIP]
@@ -42,11 +42,11 @@ Copy data tool in ADF eases the journey of building such metadata driven data co
 
 6. In **Settings** page, You can decide the max number of copy activities to copy data from your source store concurrently via **Number of concurrent copy tasks**. The default value is 20. 
 
-   ![Settings page](./media/copy-data-tool-metadata-driven/settings.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/settings.png" alt-text="Settings page":::
 
 7. After pipeline deployment, you can copy or download the SQL scripts from UI for creating control table and store procedure. 
 
-   ![Download scripts](./media/copy-data-tool-metadata-driven/download-scripts.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/download-scripts.png" alt-text="Download scripts":::
 
    You will see two SQL scripts.
    
@@ -55,15 +55,15 @@ Copy data tool in ADF eases the journey of building such metadata driven data co
 
 8. Open **SSMS** to connect to your control table server, and run the two SQL scripts to create control tables and store procedure.
 
-   ![Create control table script](./media/copy-data-tool-metadata-driven/create-control-table-script.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/create-control-table-script.png" alt-text="Create control table script":::
 
 9. Query the main control table and connection control table to review the metadata in it.
 
    **Main control table**
-   ![Query control table script1](./media/copy-data-tool-metadata-driven/query-control-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/query-control-table.png" alt-text="Query control table script1":::
 
    **Connection control table**
-   ![Query control table script2](./media/copy-data-tool-metadata-driven/query-connection-control-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/query-connection-control-table.png" alt-text="Query control table script2":::
 
 10. Go back to ADF portal to view and debug pipelines. You will see a folder created by naming "MetadataDrivenCopyTask_###_######". **Click** the pipeline naming with "MetadataDrivenCopyTask_###_TopLevel" and click **debug run**. 
 
@@ -80,7 +80,7 @@ Copy data tool in ADF eases the journey of building such metadata driven data co
 
 11. Enable the trigger to operationalize the pipelines.
 
-    ![Enable trigger](./media/copy-data-tool-metadata-driven/enable-trigger.png)
+    :::image type="content" source="./media/copy-data-tool-metadata-driven/enable-trigger.png" alt-text="Enable trigger":::
 
 
 ## Update control table by copy data tool
@@ -88,15 +88,15 @@ You can always directly update the control table by adding or removing the objec
 
 1. Right-click the top-level pipeline: **MetadataDrivenCopyTask_xxx_TopLevel**, and then select **Edit control table**.
 
-   ![Edit control table1](./media/copy-data-tool-metadata-driven/edit-control-table.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/edit-control-table.png" alt-text="Edit control table1":::
 
 2. Select rows from the control table to edit.
 
-   ![Edit control table2](./media/copy-data-tool-metadata-driven/edit-control-table-select-tables.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/edit-control-table-select-tables.png" alt-text="Edit control table2":::
 
 3. Go throughput the copy data tool, and it will come up with a new SQL script for you. Rerun the SQL script to update your control table.
 
-   ![Edit control table3](./media/copy-data-tool-metadata-driven/edit-control-table-create-script.png)
+   :::image type="content" source="./media/copy-data-tool-metadata-driven/edit-control-table-create-script.png" alt-text="Edit control table3":::
 
    > [!NOTE]
    > The pipeline will NOT be redeployed. The new created SQL script help you to update the control table only. 
@@ -160,7 +160,7 @@ This pipeline will copy one batch of objects. The objects belonging to this batc
 | Parameters name | Description | 
 |:--- |:--- |
 | MaxNumberOfObjectsReturnedFromLookupActivity | In order to avoid reaching the limit of output lookup activity, there is a way to define the max number of objects returned by lookup activity.  In most case, the default value is not required to be changed.  | 
-| TopLayerPipelineName | The name of top layer pipeline. | 
+| TopLevelPipelineName | The name of top layer pipeline. | 
 | TriggerName | The name of trigger. | 
 | CurrentSequentialNumberOfBatch | The ID of sequential batch. | 
 | SumOfObjectsToCopy | The total number of objects to copy. | 

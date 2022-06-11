@@ -45,7 +45,7 @@ Luckily, there are many frameworks out there that support the listed capabilitie
 
 Once you've evaluated and chosen an inner loop dev framework, build seamless inner loop to outer loop transition.
 
-As described in the [CI/CD workflow using GitOps](conceptual-gitops-ci-cd.md) article's example, an application developer works on application code within an application repository. This application repository also holds high-level deployment Helm and/or Kustomize templates. CI\CD pipelines:
+As described in the [CI/CD workflow using GitOps](conceptual-gitops-flux2-ci-cd.md) article's example, an application developer works on application code within an application repository. This application repository also holds high-level deployment Helm and/or Kustomize templates. CI\CD pipelines:
 
 * Generate the low-level manifests from the high-level templates, adding environment-specific values
 * Create a pull request that merges the low-level manifests with the GitOps repo that holds desired state for the specific environment. 
@@ -84,6 +84,6 @@ Suppose Alice wants to update, run, and debug the application either in local or
 > [!NOTE]
 > Find the sample code for above workflow at this [GitHub repo](https://github.com/Azure/arc-cicd-demo-src)
 
-
 ## Next steps
-Learn more about creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc enabled Kubernetes](./conceptual-configurations.md)
+
+Learn more about creating connections between your cluster and a Git repository as a [configuration resource with Azure Arc-enabled Kubernetes](./conceptual-gitops-flux2.md)

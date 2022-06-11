@@ -4,47 +4,27 @@ description: Quickstart showing how to set and retrieve a certificate from Azure
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-ui
 ms.date: 03/24/2020
 ms.author: mbaldwin
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
 ---
 # Quickstart: Set and retrieve a certificate from Azure Key Vault using the Azure portal
 
 Azure Key Vault is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you create a key vault, then use it to store a certificate. For more information on Key Vault, review the [Overview](../general/overview.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
+
+To access Azure Key Vault, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+All access to secrets takes place through Azure Key Vault. For this quickstart, create a key vault using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
 
 ## Sign in to Azure
 
 Sign in to the Azure portal at https://portal.azure.com.
-
-## Create a vault
-
-1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
-2. In the Search box, enter **Key Vault**.
-3. From the results list, choose **Key Vault**.
-4. On the Key Vault section, choose **Create**.
-5. On the **Create key vault** section provide the following information:
-    - **Name**: A unique name is required. For this quickstart, we use **Example-Vault**. 
-    - **Subscription**: Choose a subscription.
-    - Under **Resource Group**, choose **Create new** and enter a resource group name.
-    - In the **Location** pull-down menu, choose a location.
-    - Leave the other options to their defaults.
-6. After providing the information above, select **Create**.
-
-Take note of the two properties listed below:
-
-* **Vault Name**: In the example, this is **Example-Vault**. You will use this name for other steps.
-* **Vault URI**: In the example, this is `https://example-vault.vault.azure.net/`. Applications that use your vault through its REST API must use this URI.
-
-At this point, your Azure account is the only one authorized to perform operations on this new vault.
-
-![Output after Key Vault creation completes](../media/certificates/quick-create-portal/vault-properties.png)
 
 ## Add a certificate to Key Vault
 
@@ -64,6 +44,7 @@ Once that you receive the message that the certificate has been successfully cre
 ![Certificate properties](../media/certificates/quick-create-portal/current-version-hidden.png)
 
 ## Export certificate from Key Vault
+
 By clicking "Download in CER format" or "Download in PFX/PEM format" button, you can download the certificate. 
 
 ![Certificate download](../media/certificates/quick-create-portal/current-version-shown.png)

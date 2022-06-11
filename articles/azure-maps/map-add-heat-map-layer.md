@@ -1,15 +1,15 @@
 ---
 title: Add a heat map layer to a map | Microsoft Azure Maps
 description: Learn how to create a heat map. See how to use the Azure Maps Web SDK to add a heat map layer to a map. Find out how to customize heat map layers.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 07/29/2019
-ms.topic: conceptual
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/06/2021
+ms.topic: how-to
 ms.service: azure-maps
 ms.custom: codepen, devx-track-js
 ---
 
-# Add a heat map layer
+# Add a heat map layer to a map
 
 Heat maps, also known as point density maps, are a type of data visualization. They're used to represent the density of data using a range of colors and show the data "hot spots" on a map. Heat maps are a great way to render datasets with large number of points.
 
@@ -26,7 +26,7 @@ You can use heat maps in many different scenarios, including:
 
 </br>
 
->[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player?format=ny]
+>[!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player?format=ny]
 
 ## Add a heat map layer
 
@@ -60,14 +60,14 @@ Here's the complete running code sample of the preceding code.
 
 The previous example customized the heat map by setting the radius and opacity options. The heat map layer provides several options for customization, including:
 
-* `radius`: Defines a pixel radius in which to render each data point. You can set the radius as a fixed number or as an expression. By using an expression, you can scale the radius based on the zoom level, and represent a consistent spatial area on the map (for example, a 5-mile radius).
-* `color`: Specifies how the heat map is colorized. A color gradient is a common feature of heat maps. You can achieve the effect with an `interpolate` expression. You can also use a `step` expression for colorizing the heat map, breaking up the density visually into ranges that resemble a contour or radar style map. These color palettes define the colors from the minimum to the maximum density value.
+- `radius`: Defines a pixel radius in which to render each data point. You can set the radius as a fixed number or as an expression. By using an expression, you can scale the radius based on the zoom level, and represent a consistent spatial area on the map (for example, a 5-mile radius).
+- `color`: Specifies how the heat map is colorized. A color gradient is a common feature of heat maps. You can achieve the effect with an `interpolate` expression. You can also use a `step` expression for colorizing the heat map, breaking up the density visually into ranges that resemble a contour or radar style map. These color palettes define the colors from the minimum to the maximum density value.
 
   You specify color values for heat maps as an expression on the `heatmap-density` value. The color of area where there's no data is defined at index 0 of the "Interpolation" expression, or the default color of a "Stepped" expression. You can use this value to define a background color. Often, this value is set to transparent, or a semi-transparent black.
 
   Here are examples of color expressions:
 
-  | Interpolation color expression | Stepped color expression | 
+  | Interpolation color expression | Stepped color expression |
   |--------------------------------|--------------------------|
   | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'green',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, 'yellow',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, 'red'<br/>\] |
 
@@ -114,11 +114,13 @@ The `zoom` expression can only be used in `step` and `interpolate` expressions. 
 
 > [!TIP]
 > When you enable clustering on the data source, points that are close to one another are grouped together as a clustered point. You can use the point count of each cluster as the weight expression for the heat map. This can significantly reduce the number of points to be rendered. The point count of a cluster is stored in a `point_count` property of the point feature:
+>
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']
 > });
 > ```
+>
 > If the clustering radius is only a few pixels, there would be a small visual difference in the rendering. A larger radius groups more points into each cluster, and improves the performance of the heatmap.
 
 ## Next steps
@@ -126,7 +128,7 @@ The `zoom` expression can only be used in `step` and `interpolate` expressions. 
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
 
 > [!div class="nextstepaction"]
 > [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)

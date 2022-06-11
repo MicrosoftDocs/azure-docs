@@ -1,8 +1,6 @@
 ---
 title: Customize Azure AD tenant app claims (PowerShell)
-titleSuffix: Microsoft identity platform
 description: Learn how to customize claims emitted in tokens for an application in a specific Azure Active Directory tenant.
-services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
@@ -12,7 +10,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/16/2021
 ms.author: ryanwi
-ms.reviewer: paulgarn, hirsin, jeedes, luleon
+ms.reviewer: ludwignick
 ---
 
 # Customize claims emitted in tokens for a specific app in a tenant
@@ -42,7 +40,7 @@ When creating a claims-mapping policy, you can also emit a claim from a director
 To get started, do the following steps:
 
 1. Download the latest [Azure AD PowerShell Module public preview release](https://www.powershellgallery.com/packages/AzureADPreview).
-1. Run the [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0-preview) command to sign in to your Azure AD admin account. Run this command each time you start a new session.
+1. Run the [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0-preview&preserve-view=true) command to sign in to your Azure AD admin account. Run this command each time you start a new session.
 
    ``` powershell
    Connect-AzureAD -Confirm
@@ -220,7 +218,7 @@ To run this script you need:
     - password for the private key (pfx file)
 
 > [!IMPORTANT]
-> The private key must be in PKCS#12 format since Azure AD does not support other format types. Using the wrong format can result in the the error “Invalid certificate: Key value is invalid certificate” when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate info.
+> The private key must be in PKCS#12 format since Azure AD does not support other format types. Using the wrong format can result in the the error "Invalid certificate: Key value is invalid certificate" when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate info.
 
 ```powershell
 

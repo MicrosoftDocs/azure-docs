@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 05/24/2022
 ms.author: tamram
-ms.subservice: blobs 
+ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -28,18 +28,22 @@ The following diagram shows how object replication replicates block blobs from a
 
 To learn how to configure object replication, see [Configure object replication](object-replication-configure.md).
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
-## Prerequisites for object replication
+## Prerequisites and caveats for object replication
 
 Object replication requires that the following Azure Storage features are also enabled:
 
 - [Change feed](storage-blob-change-feed.md): Must be enabled on the source account. To learn how to enable change feed, see [Enable and disable the change feed](storage-blob-change-feed.md#enable-and-disable-the-change-feed).
 - [Blob versioning](versioning-overview.md): Must be enabled on both the source and destination accounts. To learn how to enable versioning, see [Enable and manage blob versioning](versioning-enable.md).
 
-Enabling change feed and blob versioning may incur additional costs. For more details, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
+Enabling change feed and blob versioning may incur additional costs. For more information, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
-Object replication is supported only for general-purpose v2 storage accounts. Both the source and destination accounts must be general-purpose v2. Object replication supports block blobs only; append blobs and page blobs are not supported.
+Object replication is supported for general-purpose v2 storage accounts and premium block blob accounts. Both the source and destination accounts must be either general-purpose v2 or premium block blob accounts. Object replication supports block blobs only; append blobs and page blobs aren't supported.
+
+Object replication is supported for accounts that are encrypted with customer-managed keys. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md).
+
+Object replication isn't supported for blobs in the source account that are encrypted with a customer-provided key. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
+
+Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
 
 ## How object replication works
 
@@ -50,17 +54,21 @@ Object replication asynchronously copies block blobs in a container according to
 
 ### Blob versioning
 
-Object replication requires that blob versioning is enabled on both the source and destination accounts. When a replicated blob in the source account is modified, a new version of the blob is created in the source account that reflects the previous state of the blob, before modification. The current version (or base blob) in the source account reflects the most recent updates. Both the updated current version and the new previous version are replicated to the destination account. For more information about how write operations affect blob versions, see [Versioning on write operations](versioning-overview.md#versioning-on-write-operations).
+Object replication requires that blob versioning is enabled on both the source and destination accounts. When a replicated blob in the source account is modified, a new version of the blob is created in the source account that reflects the previous state of the blob, before modification. The current version in the source account reflects the most recent updates. Both the current version and any previous versions are replicated to the destination account. For more information about how write operations affect blob versions, see [Versioning on write operations](versioning-overview.md#versioning-on-write-operations).
 
-When a blob in the source account is deleted, the current version of the blob is captured in a previous version, and then deleted. All previous versions of the blob persist even after the current version is deleted. This state is replicated to the destination account. For more information about how delete operations affect blob versions, see [Versioning on delete operations](versioning-overview.md#versioning-on-delete-operations).
+When a blob in the source account is deleted, the current version of the blob becomes a previous version, and there's no longer a current  version. All existing previous versions of the blob are preserved. This state is replicated to the destination account. For more information about how to delete operations affect blob versions, see [Versioning on delete operations](versioning-overview.md#versioning-on-delete-operations).
 
 ### Snapshots
 
-Object replication does not support blob snapshots. Any snapshots on a blob in the source account are not replicated to the destination account.
+Object replication doesn't support blob snapshots. Any snapshots on a blob in the source account aren't replicated to the destination account.
+
+## Blob index tags
+
+Object replication does not copy the source blob's index tags to the destination blob.
 
 ### Blob tiering
 
-Object replication is supported when the source and destination accounts are in the hot or cool tier. The source and destination accounts may be in different tiers. However, object replication will fail if a blob in either the source or destination account has been moved to the archive tier. For more information on blob tiers, see [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md).
+Object replication is supported when the source and destination accounts are in the hot or cool tier. The source and destination accounts may be in different tiers. However, object replication will fail if a blob in either the source or destination account has been moved to the archive tier. For more information on blob tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 ### Immutable blobs
 
@@ -78,23 +86,98 @@ After you configure object replication, Azure Storage checks the change feed for
 
 ### Replication policies
 
-When you configure object replication, a replication policy is created on both the source account and the destination account via the Azure Storage resource provider. The replication policy is identified by a policy ID. The policy on the source and destination accounts must have the same policy ID in order for replication to take place.
+When you configure object replication, you create a replication policy on the destination account via the Azure Storage resource provider. After the replication policy is created, Azure Storage assigns it a policy ID. You must then associate that replication policy with the source account by using the policy ID. The policy ID on the source and destination accounts must be the same in order for replication to take place.
 
 A source account can replicate to no more than two destination accounts, with one policy for each destination account. Similarly, an account may serve as the destination account for no more than two replication policies.
 
-The source and destination accounts may be in the same region or in different regions. They may also reside in different subscriptions and in different Azure Active Directory (Azure AD) tenants. Only one replication policy may be created for each source account/destination account pair.
+The source and destination accounts may be in the same region or in different regions. They may also reside in the same subscription or in different subscriptions. Optionally, the source and destination accounts may reside in different Azure Active Directory (Azure AD) tenants. Only one replication policy may be created for each source account/destination account pair.
 
 ### Replication rules
 
-Replication rules specify how Azure Storage will replicate blobs from a source container to a destination container. You can specify up to 10 replication rules for each replication policy. Each replication rule defines a single source and destination container, and each source and destination container can be used in only one rule, meaning that a maximum of 10 source containers and 10 destination containers may participate in a single replication policy.
+Replication rules specify how Azure Storage will replicate blobs from a source container to a destination container. You can specify up to 1000 replication rules for each replication policy. Each replication rule defines a single source and destination container, and each source and destination container can be used in only one rule, meaning that a maximum of 1000 source containers and 1000 destination containers may participate in a single replication policy.
 
 When you create a replication rule, by default only new block blobs that are subsequently added to the source container are copied. You can specify that both new and existing block blobs are copied, or you can define a custom copy scope that copies block blobs created from a specified time onward.
 
 You can also specify one or more filters as part of a replication rule to filter block blobs by prefix. When you specify a prefix, only blobs matching that prefix in the source container will be copied to the destination container.
 
-The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, write operations to the  destination container are not permitted. Any attempts to write to the destination container fail with error code 409 (Conflict). To write to a destination container for which a replication rule is configured, you must either delete the rule that is configured for that container, or remove the replication policy. Read and delete operations to the destination container are permitted when the replication policy is active.
+The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, write operations to the destination container aren't permitted. Any attempts to write to the destination container fail with error code 409 (Conflict). To write to a destination container for which a replication rule is configured, you must either delete the rule that is configured for that container, or remove the replication policy. Read and delete operations to the destination container are permitted when the replication policy is active.
 
-You can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md#archive-access-tier).
+You can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md#archive-access-tier).
+
+## Policy definition file
+
+An object replication policy is defined by JSON file. You can get the policy definition file from an existing object replication policy. You can also create an object replication policy by uploading a policy definition file.
+
+### Sample policy definition file
+
+The following example defines a replication policy on the destination account with a single rule that matches the prefix *b* and sets the minimum creation time for blobs that are to be replicated. Remember to replace values in angle brackets with your own values:
+
+```json
+{
+  "properties": {
+    "policyId": "default",
+    "sourceAccount": "/subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
+    "destinationAccount": "/subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
+    "rules": [
+      {
+        "ruleId": "",
+        "sourceContainer": "<source-container>",
+        "destinationContainer": "<destination-container>",
+        "filters": {
+          "prefixMatch": [
+            "b"
+          ],
+          "minCreationTime": "2021-08-028T00:00:00Z"
+        }
+      }
+    ]
+  }
+}
+```
+
+### Specify full resource IDs for the source and destination accounts
+
+When you create the policy definition file, specify the full Azure Resource Manager resource IDs for the **sourceAccount** and **destinationAccount** entries, as shown in the example in the previous section. To learn how to locate the resource ID for a storage account, see [Get the resource ID for a storage account](../common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account).
+
+The full resource ID is in the following format:
+
+```http
+/subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
+```
+
+The policy definition file previously required only the account name, instead of the full resource ID for the storage account. With the introduction of the **AllowCrossTenantReplication** security property in version 2021-02-01 of the Azure Storage resource provider REST API, you must now provide the full resource ID for any object replication policies that are created when cross-tenant replication is disallowed for a storage account that participates in the replication policy. Azure Storage uses the full resource ID to verify whether the source and destination accounts reside within the same tenant. To learn more about disallowing cross-tenant replication policies, see [Prevent replication across Azure AD tenants](#prevent-replication-across-azure-ad-tenants).
+
+While providing only the account name is still supported when cross-tenant replication is allowed for a storage account, Microsoft recommends always providing the full resource ID as a best practice. All previous versions of the Azure Storage resource provider REST API support using the full resource ID path in object replication policies.
+
+The following table describes what happens when you create a replication policy with the full resource ID specified, versus the account name, in the scenarios where cross-tenant replication is allowed or disallowed for the storage account.
+
+| Storage account identifier in policy definition | Cross-tenant replication allowed | Cross-tenant replication disallowed |
+|--|--|--|
+| Full resource ID | Same-tenant policies can be created.<br /><br /> Cross-tenant policies can be created. | Same-tenant policies can be created.<br /><br /> Cross-tenant policies can't be created. |
+| Account name only | Same-tenant policies can be created.<br /><br /> Cross-tenant policies can be created. | Neither same-tenant nor cross-tenant policies can be created. An error occurs, because Azure Storage can't verify that source and destination accounts are in the same tenant. The error indicates that you must specify the full resource ID for the **sourceAccount** and **destinationAccount** entries in the policy definition file. |
+
+### Specify the policy and rule IDs
+
+The following table summarizes which values to use for the **policyId** and **ruleId** entries in the policy definition file in each scenario.
+
+| When you're creating the policy definition file for this account... | Set the policy ID to this value | Set rule IDs to this value |
+|-|-|-|
+| Destination account | The string value *default*. Azure Storage will create the policy ID value for you. | An empty string. Azure Storage will create the rule ID values for you. |
+| Source account | The value of the policy ID returned when you download the policy definition file for the destination account. | The values of the rule IDs returned when you download the policy definition file for the destination account. |
+
+## Prevent replication across Azure AD tenants
+
+An Azure Active Directory (Azure AD) tenant is a dedicated instance of Azure AD that represents an organization for identity and access management. Each Azure subscription has a trust relationship with a single Azure AD tenant. All resources in a subscription, including storage accounts, are associated with the same Azure AD tenant. For more information, see [What is Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
+
+By default, a user with appropriate permissions can configure object replication with a source storage account that is in one Azure AD tenant and a destination account that is in a different tenant. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow replication across tenants by setting a security property, the **AllowCrossTenantReplication** property (preview). When you disallow cross-tenant object replication for a storage account, then for any object replication policy that is configured with that storage account as the source or destination account, Azure Storage requires that both the source and destination accounts reside within the same Azure AD tenant. For more information about disallowing cross-tenant object replication, see [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md).
+
+To disallow cross-tenant object replication for a storage account, set the **AllowCrossTenantReplication** property to *false*. If the storage account doesn't currently participate in any cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* prevents future configuration of cross-tenant object replication policies with this storage account as the source or destination.
+
+If the storage account currently participates in one or more cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* isn't permitted. You must delete the existing cross-tenant policies before you can disallow cross-tenant replication.
+
+By default, the **AllowCrossTenantReplication** property isn't set for a storage account, and its value is *null*, which is equivalent to *true*. When the value of the **AllowCrossTenantReplication** property for a storage account is *null* or *true*, then authorized users can configure cross-tenant object replication policies with this account as the source or destination. For more information about how to configure cross-tenant policies, see [Configure object replication for block blobs](object-replication-configure.md).
+
+You can use Azure Policy to audit a set of storage accounts to ensure that the **AllowCrossTenantReplication** property is set to prevent cross-tenant object replication. You can also use Azure Policy to enforce governance for a set of storage accounts. For example, you can create a policy with the deny effect to prevent a user from creating a storage account where the **AllowCrossTenantReplication** property is set to *true*, or from modifying an existing storage account to change the property value to *true*.
 
 ## Replication status
 
@@ -106,6 +189,17 @@ If the replication status for a blob in the source account indicates failure, th
 - Verify that the destination container still exists.
 - If the source blob has been encrypted with a customer-provided key as part of a write operation, then object replication will fail. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
+## Feature support
+
+This table shows how this feature is supported in your account and the effect on support when you enable certain capabilities.
+
+| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+
 ## Billing
 
 Object replication incurs additional costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed.
@@ -113,5 +207,6 @@ Object replication incurs additional costs on read and write transactions agains
 ## Next steps
 
 - [Configure object replication](object-replication-configure.md)
+- [Prevent object replication across Azure Active Directory tenants](object-replication-prevent-cross-tenant-policies.md)
+- [Blob versioning](versioning-overview.md)
 - [Change feed support in Azure Blob Storage](storage-blob-change-feed.md)
-- [Enable and manage blob versioning](versioning-enable.md)

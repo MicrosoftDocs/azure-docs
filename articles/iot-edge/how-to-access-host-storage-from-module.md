@@ -1,9 +1,9 @@
 ---
 title: Use IoT Edge device local storage from a module - Azure IoT Edge | Microsoft Docs
 description: Use environment variables and create options to enable module access to IoT Edge device local storage.
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
@@ -71,14 +71,25 @@ Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module 
 
 For example, on a Linux system, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` means the directory **/etc/iotedge/storage** on your host system is mapped to the directory **/iotedge/storage/** in the container. On a Windows system, as another example, `"Binds":["C:\\temp:C:\\contemp"]` means the directory **C:\\temp** on your host system is mapped to the directory **C:\\contemp** in the container.
 
-Additionally, on Linux devices, make sure that the user profile for your module has the required read, write, and execute permissions to the host system directory. Returning to the earlier example of enabling IoT Edge hub to store messages in your device's local storage, you need to grant permissions to its user profile, UID 1000. (The IoT Edge agent operates as root, so it doesn't need additional permissions.) There are several ways to manage directory permissions on Linux systems, including using `chown` to change the directory owner and then `chmod` to change the permissions, such as:
+You can find more details about create options from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+
+## Host system permissions
+
+On Linux devices, make sure that the user profile for your module has the required read, write, and execute permissions to the host system directory. Returning to the earlier example of enabling IoT Edge hub to store messages in your device's local storage, you need to grant permissions to its user profile, UID 1000. There are several ways to manage directory permissions on Linux systems, including using `chown` to change the directory owner and then `chmod` to change the permissions, such as:
 
 ```bash
 sudo chown 1000 <HostStoragePath>
 sudo chmod 700 <HostStoragePath>
 ```
 
-You can find more details about create options from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+On Windows devices, you will also need to configure permissions on the host system directory. You can use PowerShell to set permissions:
+
+```powershell
+$acl = get-acl <HostStoragePath>
+$ace = new-object system.security.AccessControl.FileSystemAccessRule('Authenticated Users','FullControl','Allow')
+$acl.AddAccessRule($ace)
+$acl | Set-Acl
+```
 
 ## Encrypted data in module storage
 

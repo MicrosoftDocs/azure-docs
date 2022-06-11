@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 11/10/2021
 ms.author: victorh
 ---
 
@@ -97,6 +97,10 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 3. Select the hub, and navigate to **Security Configurations**.
 
    When you deploy a third-party provider into the hub, it converts the hub into a *secured virtual hub*. This ensures that the third-party provider is advertising a 0.0.0.0/0 (default) route to the hub. However, VNet connections and sites connected to the hub don’t get this route unless you opt-in on which connections should get this default route.
+
+   > [!NOTE]
+   > Do not manually create a 0.0.0.0/0 (default) route over BGP for branch advertisements. This is automatically done for secure virtual hub deployments with 3rd party security providers. Doing so may break the deployment process.
+
 4. Configure virtual WAN security by setting **Internet Traffic** via Azure Firewall and **Private Traffic** via a trusted security partner. This automatically secures individual connections in the Virtual WAN.
 
    :::image type="content" source="media/deploy-trusted-security-partner/security-configuration.png" alt-text="Security configuration":::

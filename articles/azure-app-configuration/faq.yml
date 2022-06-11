@@ -5,11 +5,10 @@ metadata:
   services: azure-app-configuration
   author: AlexandraKemperMS
   ms.service: azure-app-configuration
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 02/19/2020
   ms.author: alkemper
   ms.custom: references_regions
-    
 title: Azure App Configuration FAQ
 summary: This article answers frequently asked questions about Azure App Configuration.
 
@@ -50,7 +49,10 @@ sections:
           You can also import and export settings between App Service and App Configuration. This capability allows you to quickly set up a new App Configuration store based on existing App Service settings. You can also share configuration with an existing app that relies on App Service settings.
           
       - question: Are there any size limitations on keys and values stored in App Configuration?
-        answer: There's a limit of 10 KB for a single key-value item.
+        answer: |
+          There's a limit of 10 KB for a single key-value, including attributes such as label, content-type, tags, and other metadata.
+
+          This limit should be sufficient for a single setting in most applications. If you find that your setting is larger than this limit, you may consider storing your data elsewhere and [add a reference of that data](./howto-best-practices.md#references-to-external-data) in App Configuration.
 
       - question: How should I store configurations for multiple environments (test, staging, production, and so on)?
         answer: |
@@ -67,7 +69,7 @@ sections:
           There are two pricing tiers:
           
           - Free tier
-          - Standard tier.
+          - Standard tier
           
           If you created a store prior to the introduction of the Standard tier, it automatically moved to the Free tier upon general availability. You can choose to upgrade to the Standard tier or remain on the Free tier.
           
@@ -103,18 +105,17 @@ sections:
       - question: How does App Configuration ensure high data availability? 
         answer: |
           Azure App Configuration supports Azure Availability Zones to protect your application and data from single datacenter failures. All Availability Zone enabled regions consist of a minimum of 3 availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Following are regions that App Configuration has enabled Availability Zone support. For more information, see [Regions and Availability Zones in Azure.](../availability-zones/az-overview.md)
-          - Central US
-          - East US
-          - East US 2
-          - West US 2
-          - Canada Central
-          - France Central
-          - Germany West Central
-          - North Europe
-          - UK South
-          - West Europe
-          - Southeast Asia
-          - Japan East
+          
+          | Americas | Europe | Africa | Asia Pacific |
+          |--------------------|----------------------|---------------------|----------------|
+          | Brazil South | France Central | | Australia East |
+          | Canada Central | Germany West Central | | Central India |
+          | Central US | North Europe | | Japan East |
+          | East US | Norway East | | Korea Central |
+          | East US 2 | UK South | | Southeast Asia |
+          | South Central US | West Europe | | East Asia |
+          | West US 2 | Sweden Central | | |
+          | West US 3 | | | |
           
       - question: Are there any limits on the number of requests made to App Configuration?
         answer: |
@@ -129,23 +130,27 @@ sections:
           You'll receive an HTTP status code 429 response under these circumstances:
           
           * Exceeding the daily request limit for a store in the Free tier.
-          * Temporary throttling due to a high request rate for a store in the Standard tier.
+          * Exceeding the hourly request limit for a store in the standard tier.
+          * Momentary throttling due to a large burst of requests†.
           * Excessive bandwidth usage.
-          * Attempting to create or modify a key when the storage quote is exceeded.
+          * Attempting to create or modify a key when the storage quota is exceeded.
           
           Check the body of the 429 response for the specific reason why the request failed.
+          
+          †A configuration store may experience momentary throttling if it receives a large burst of requests. App Configuration clients, such as the Azure SDK, configuration provider libraries, and Azure Pipeline tasks, automatically retry on throttled requests. For any applications using one of these clients, or a custom client that retries on throttled requests, this momentary throttling should go unnoticed, should it occur.
 
       - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
         answer: |
-          When a standard tier App Configuration store is deleted the name is reserved for seven days after deletion. It is possible to recreate a store with the same name before the reservation period has elapsed but it must be in the same subscription, resource group, and region as the original store. If the resource group that contained the store was deleted it will need to be recreated in the same subscription first before recreating the store inside of it.
+          All App Configuration stores in the standard tier have automatically enabled the [soft-delete](concept-soft-delete.md) feature. When a standard tier App Configuration store is deleted, its name is reserved for the retention period. To recreate a store with the same name before the retention period expires, you need to [purge the soft-deleted store](howto-recover-deleted-stores-in-azure-app-configuration.md#list-recover-or-purge-a-soft-deleted-app-configuration-store) first, provided the store doesn't have purge protection enabled. If the purge protection is enabled, you must wait for the retention period to elapse.
 
-          The App Configuration store cannot be created in a different subscription/resource group until the retention period has elapsed. However, the resource can be recreated in the original subscription/resource group and then moved to a new subscription/resource group by following [these instructions](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-portal).
-
-          Recreating an App Configuration store during the retention period is currently only supported by the Azure CLI using the `az appconfig create` command detailed [here](/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create).
+          App Configuration previously offered an option to overwrite a soft-deleted store as instructed below. This option will be retired on April 30, 2022. Migrate to use the purge function or set a shorter retention period if you often need to recreate a store with the same name.
+          * It is possible to recreate a store with the same name before the retention period has elapsed, but it must be in the same subscription, resource group, and region as the original store. If the resource group that contained the store was deleted it will need to be recreated in the same subscription first before recreating the store inside of it.
+          * The App Configuration store cannot be created in a different subscription/resource group until the retention period has elapsed. However, the resource can be recreated in the original subscription/resource group and then moved to a new subscription/resource group by following [these instructions](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal).
+          * Recreating an App Configuration store during the retention period is currently only supported by the Azure CLI using the `az appconfig create` [command](/cli/azure/appconfig#az_appconfig_create).
 
       - question: How can I restore an App Configuration store that I deleted mistakenly?
         answer: |
-          Standard tier App Configuration stores can be recovered within seven days of being deleted. To recover a mistakenly deleted App Configuration store contact Microsoft Support.
+          All App Configuration stores in the standard tier support the [soft-delete](concept-soft-delete.md) feature, which cannot be disabled. You can recover a deleted store within its retention period. Follow these [instructions](howto-recover-deleted-stores-in-azure-app-configuration.md) to recover a mistakenly deleted App Configuration store.
 
       - question: How can I receive announcements on new releases and other information related to App Configuration?
         answer: |

@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/06/2020
+ms.reviewer: aul
 
 ---
 
@@ -14,15 +15,20 @@ ms.date: 07/06/2020
 
 This article describes how to set up and use the Container Monitoring solution in Azure Monitor, which helps you view and manage your Docker and Windows container hosts in a single location. Docker is a software virtualization system used to create containers that automate software deployment to their IT infrastructure.
 
+> [!IMPORTANT]
+> The Container Monitoring solution is being phased out, to monitor your Kubernetes environments, we recommend using [Azure Monitor Container insights](container-insights-onboard.md)
+
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 The solution shows which containers are running, what container image they’re running, and where containers are running. You can view detailed audit information showing commands used with containers. And, you can troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker or Windows hosts. You can find containers that may be noisy and consuming excess resources on a host. And, you can view centralized CPU, memory, storage, and network usage and performance information for containers. On computers running Windows, you can centralize and compare logs from Windows Server, Hyper-V, and Docker containers. The solution supports the following container orchestrators:
 
 - Docker Swarm
 - DC/OS
-- Kubernetes
 - Service Fabric
-- Red Hat OpenShift
+
+We recommend using Azure Monitor Container insights for monitoring your Kubernetes and Red Hat OpenShift:
+- AKS ([Configure Container insights for AKS](container-insights-enable-existing-clusters.md))
+- Red Hat OpenShift ([Configure Container insights using Azure Arc](container-insights-enable-arc-enabled-clusters.md))
 
 If you have containers deployed in [Azure Service Fabric](../../service-fabric/service-fabric-overview.md), we recommend enabling both the [Service Fabric solution](../../service-fabric/service-fabric-diagnostics-oms-setup.md) and this solution to include monitoring of cluster events. Before enabling the Service Fabric solution, review [Using the Service Fabric solution](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) to understand what it provides and how to use it.
 
@@ -87,7 +93,7 @@ The following table outlines the Docker orchestration and operating system monit
 
 Use the following information to install and configure the solution.
 
-1. Add the Container Monitoring solution to your Log Analytics workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](../insights/solutions.md).
+1. Add the Container Monitoring solution to your Log Analytics workspace from Azure Marketplace or by using the process described in [Add monitoring solutions from the Solutions Gallery](../insights/solutions.md).
 
 2. Install and use Docker with a Log Analytics agent. Based on your operating system and Docker orchestrator, you can use the following methods to configure your agent.
    - For standalone hosts:
@@ -122,7 +128,7 @@ After you've installed Docker, use the following settings for your container hos
 Start the container that you want to monitor. Modify and use the following example:
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
 ```
 
 **For all Azure Government Linux container hosts including CoreOS:**
@@ -130,7 +136,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 Start the container that you want to monitor. Modify and use the following example:
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
 ```
 
 **Switching from using an installed Linux agent to one in a container**
@@ -144,7 +150,7 @@ You can run the Log Analytics agent as a global service on Docker Swarm. Use the
 - Run the following on the master node.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
     ```
 
 ##### Secure secrets for Docker Swarm
@@ -173,7 +179,7 @@ For Docker Swarm, once the secret for Workspace ID and Primary Key is created, u
 3. Run the following command to mount the secrets to the containerized Log Analytics agent.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest
     ```
 
 #### Configure a Log Analytics agent for Red Hat OpenShift
@@ -210,7 +216,7 @@ In this section we cover the steps required to install the Log Analytics agent a
     ```
     [ocpadmin@khm-0 ~]$ oc describe ds oms  
     Name:           oms  
-    Image(s):       microsoft/oms  
+    Image(s):       mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest  
     Selector:       name=omsagent  
     Node-Selector:  zone=default  
     Labels:         agentVersion=1.4.0-12  
@@ -274,7 +280,7 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
     Name:           oms  
-    Image(s):       microsoft/oms  
+    Image(s):       mcr.microsoft.com/azuremonitor/containerinsights/ciprod:microsoft-oms-latest  
     Selector:       name=omsagent  
     Node-Selector:  zone=default  
     Labels:         agentVersion=1.4.0-12  
@@ -631,6 +637,9 @@ It's often useful to build queries starting with an example or two and then modi
 Saving queries is a standard feature in Azure Monitor. By saving them, you'll have those that you've found useful handy for future use.
 
 After you create a query that you find useful, save it by clicking **Favorites** at the top of the Log Search page. Then you can easily access it later from the **My Dashboard** page.
+
+## Removing solution from your workspace
+To remove the Container Monitoring Solution, follow the instructions for removing solutions using one of the following: [Azure portal](../insights/solutions.md?tabs=portal#remove-a-monitoring-solution), [PowerShell](/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution), or [Azure CLI](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete)
 
 ## Next steps
 

@@ -1,11 +1,12 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Machine Learning
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Machine Learning. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 08/27/2021
+ms.date: 05/10/2022
 ms.topic: sample
 author: BlackMist
 ms.author: larryfr
 ms.service: machine-learning
+ms.subservice: enterprise-readiness
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Machine Learning

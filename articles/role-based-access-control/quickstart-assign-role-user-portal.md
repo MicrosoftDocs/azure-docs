@@ -4,7 +4,7 @@ description: In this tutorial, learn how to grant a user access to Azure resourc
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.service: role-based-access-control
@@ -12,7 +12,7 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/07/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 
@@ -67,7 +67,7 @@ In Azure RBAC, to grant access, you assign an Azure role.
    ![Access control (IAM) page for resource group.](./media/shared/rg-role-assignments.png)
 
 
-1. Click **Add** > **Add role assignment (Preview)**.
+1. Click **Add** > **Add role assignment**.
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 

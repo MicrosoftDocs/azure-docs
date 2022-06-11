@@ -1,12 +1,12 @@
 ---
 title: Request unit charges for Azure Cosmos DB as a key value store
 description: Learn about the request unit charges of Azure Cosmos DB for simple write and read operations when it’s used as a key/value store.
-author: SnehaGunda
+author: deborahc
+ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/23/2019
-ms.author: sngun
 ms.custom: seodec18
 ---
 

@@ -11,12 +11,15 @@ ms.date: 04/28/2020
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2+](functions-host-json.md)
 
-The *host.json* metadata file contains global configuration options that affect all functions for a function app. This article lists the settings that are available starting with version 2.x of the Azure Functions runtime.  
+The host.json metadata file contains configuration options that affect all functions in a function app instance. This article lists the settings that are available starting with version 2.x of the Azure Functions runtime.  
 
 > [!NOTE]
 > This article is for Azure Functions 2.x and later versions.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
-Other function app configuration options are managed in your [app settings](functions-app-settings.md) (for deployed apps) or your [local.settings.json](functions-develop-local.md#local-settings-file) file (for local development).
+Other function app configuration options are managed depending on where the function app runs:
+
++ **Deployed to Azure**: in your [application settings](functions-app-settings.md) 
++ **On your local computer**: in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 
 Configurations in host.json related to bindings are applied equally to each function in the function app. 
 
@@ -235,12 +238,12 @@ This setting is a child of [logging](#logging). It controls the console logging 
 
 |Property  |Default | Description |
 |---------|---------|---------| 
-|DisableColors|false| Supresses log formatting in the container logs on Linux. Set to true if you are seeing unwanted ANSI control characters in the container logs when running on Linux. |
+|DisableColors|false| Suppresses log formatting in the container logs on Linux. Set to true if you are seeing unwanted ANSI control characters in the container logs when running on Linux. |
 |isEnabled|false|Enables or disables console logging.| 
 
 ## cosmosDb
 
-Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2-output.md#host-json).
+Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#hostjson-settings).
 
 ## customHandler
 
@@ -337,7 +340,7 @@ Configuration settings for [Host health monitor](https://github.com/Azure/azure-
 
 ## http
 
-Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook-output.md#hostjson-settings).
+Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook.md#hostjson-settings).
 
 ## logging
 
@@ -384,7 +387,7 @@ Configuration settings can be found in [Storage queue triggers and bindings](fun
 
 ## retry
 
-Controls the [retry policy](./functions-bindings-error-pages.md#retry-policies-preview) options for all executions in the app.
+Controls the [retry policy](./functions-bindings-error-pages.md#retry-policies) options for all executions in the app.
 
 ```json
 {
@@ -410,7 +413,7 @@ Configuration setting can be found in [SendGrid triggers and bindings](functions
 
 ## serviceBus
 
-Configuration setting can be found in [Service Bus triggers and bindings](functions-bindings-service-bus.md#host-json).
+Configuration setting can be found in [Service Bus triggers and bindings](functions-bindings-service-bus.md).
 
 ## singleton
 

@@ -1,11 +1,11 @@
 ---
 title: Tutorial - Extend Windows file servers with Azure File Sync | Microsoft Docs
 description: Learn how to extend Windows file servers with Azure File Sync, from start to finish.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: tutorial
 ms.date: 04/13/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 #Customer intent: As an IT Administrator, I want see how to extend Windows file servers with Azure File Sync, so I can evaluate the process for extending storage capacity of my Windows servers.
 ---
@@ -15,12 +15,12 @@ ms.subservice: files
 The article demonstrates the basic steps for extending the storage capacity of a Windows server by using Azure File Sync. Although the tutorial features Windows Server as an Azure virtual machine (VM), you would typically do this process for your on-premises servers. You can find instructions for deploying Azure File Sync in your own environment in the [Deploy Azure File Sync](file-sync-deployment-guide.md) article.
 
 > [!div class="checklist"]
-> * Deploy the Storage Sync Service
-> * Prepare Windows Server to use with Azure File Sync
-> * Install the Azure File Sync agent
-> * Register Windows Server with the Storage Sync Service
-> * Create a sync group and a cloud endpoint
-> * Create a server endpoint
+> - Deploy the Storage Sync Service
+> - Prepare Windows Server to use with Azure File Sync
+> - Install the Azure File Sync agent
+> - Register Windows Server with the Storage Sync Service
+> - Create a sync group and a cloud endpoint
+> - Create a server endpoint
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -38,7 +38,7 @@ For this tutorial, you need to do the following before you can deploy Azure File
 
 ### Create a folder and .txt file
 
-On your local computer, create a new folder named _FilesToSync_ and add a text file named _mytestdoc.txt_. You'll upload that file to the file share later in this tutorial.
+On your local computer, create a new folder named *FilesToSync* and add a text file named *mytestdoc.txt*. You'll upload that file to the file share later in this tutorial.
 
 ### Create a storage account
 
@@ -57,7 +57,7 @@ After you deploy an Azure storage account, you create a file share.
 
     ![Select the add file share button](./media/storage-sync-files-extend-servers/create-file-share-portal2.png)
 
-1. Name the new file share _afsfileshare_. Enter "5120" for the **Quota**, and then select **Create**. The quota can be a maximum of 100 TiB, but you only need 5 TiB for this tutorial.
+1. Name the new file share *afsfileshare*. Enter "5120" for the **Quota**, and then select **Create**. The quota can be a maximum of 100 TiB, but you only need 5 TiB for this tutorial.
 
     ![Provide a name and quota for the new file share](./media/storage-sync-files-extend-servers/create-file-share-portal3.png)
 
@@ -65,7 +65,7 @@ After you deploy an Azure storage account, you create a file share.
 
     ![Upload a file](./media/storage-sync-files-extend-servers/create-file-share-portal5.png)
 
-1. Browse to the _FilesToSync_ folder where you created your .txt file, select _mytestdoc.txt_ and select **Upload**.
+1. Browse to the *FilesToSync* folder where you created your .txt file, select *mytestdoc.txt* and select **Upload**.
 
     ![Browse file share](./media/storage-sync-files-extend-servers/create-file-share-portal6.png)
 
@@ -79,7 +79,7 @@ At this point, you've created a storage account and a file share with one file i
 
    ![Enter basic information about your VM on the portal blade](./media/storage-sync-files-extend-servers/vm-resource-group-and-subscription.png)
 
-1. Under **Instance details**, provide a VM name. For example, use _myVM_.
+1. Under **Instance details**, provide a VM name. For example, use *myVM*.
 1. Don't change the default settings for **Region**, **Availability options**, **Image**, and **Size**.
 1. Under **Administrator account**, provide a **Username** and **Password** for the VM.
 1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down menu.
@@ -136,7 +136,7 @@ In the Windows Server 2016 Datacenter VM, Server Manager opens automatically.  I
 
    !["Local Server" on the left side of the Server Manager UI](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-1.png)
 
-1. On the **Properties** pane, select the link for **IE Enhanced Security Configuration**.  
+1. On the **Properties** pane, select the link for **IE Enhanced Security Configuration**.
 
     ![The "IE Enhanced Security Configuration" pane in the Server Manager UI](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-2.png)
 
@@ -160,9 +160,9 @@ Now you can add the data disk to the VM.
    At this point, you've brought the disk online and created a volume. Open File Explorer in the Windows Server VM to confirm the presence of the recently added data disk.
 
 1. In File Explorer in the VM, expand **This PC** and open the new drive. It's the F: drive in this example.
-1. Right-click and select **New** > **Folder**. Name the folder _FilesToSync_.
+1. Right-click and select **New** > **Folder**. Name the folder *FilesToSync*.
 1. Open the **FilesToSync** folder.
-1. Right-click and select **New** > **Text Document**. Name the text file _MyTestFile_.
+1. Right-click and select **New** > **Text Document**. Name the text file *MyTestFile*.
 
     ![Add a new text file](media/storage-sync-files-extend-servers/new-file.png)
 
@@ -213,9 +213,9 @@ To deploy Azure File Sync, you first place a **Storage Sync Service** resource i
 
    | Value | Description |
    | ----- | ----- |
-   | **Name** | A unique name (per subscription) for the Storage Sync Service.<br><br>Use _afssyncservice02_ for this tutorial. |
+   | **Name** | A unique name (per subscription) for the Storage Sync Service.<br><br>Use *afssyncservice02* for this tutorial. |
    | **Subscription** | The Azure subscription you use for this tutorial. |
-   | **Resource group** | The resource group that contains the Storage Sync Service.<br><br>Use _afsresgroup101918_ for this tutorial. |
+   | **Resource group** | The resource group that contains the Storage Sync Service.<br><br>Use *afsresgroup101918* for this tutorial. |
    | **Location** | East US |
 
 1. When you're finished, select **Create** to deploy the **Storage Sync Service**.
@@ -258,8 +258,8 @@ The Server Registration UI should open automatically after you install the Azure
    | Value | Description |
    | ----- | ----- |
    | **Azure Subscription** | The subscription that contains the Storage Sync Service for this tutorial. |
-   | **Resource Group** | The resource group that contains the Storage Sync Service. Use _afsresgroup101918_ for this tutorial. |
-   | **Storage Sync Service** | The name of the Storage Sync Service. Use _afssyncservice02_ for this tutorial. |
+   | **Resource Group** | The resource group that contains the Storage Sync Service. Use *afsresgroup101918* for this tutorial. |
+   | **Storage Sync Service** | The name of the Storage Sync Service. Use *afssyncservice02* for this tutorial. |
 
 1. Select **Register** to complete the server registration.
 1. As part of the registration process, you're prompted for an additional sign-in. Sign in and select **Next**.

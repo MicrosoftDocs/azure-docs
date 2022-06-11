@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/10/2021
+ms.date: 10/18/2021
 ms.author: alkohli
 ms.custom: "contperf-fy21q4"
 ---
@@ -22,9 +22,28 @@ This article describes how to run diagnostics, collect a Support package, gather
 
 To diagnose and troubleshoot any device errors, you can run the diagnostics tests. Do the following steps in the local web UI of your device to run diagnostic tests.
 
-1. In the local web UI, go to **Troubleshooting > Diagnostic tests**. Select the test you want to run and select **Run test**. The test diagnoses any possible issues with your network, device, web proxy, time, or cloud settings. You are notified that the device is running tests.
+1. In the local web UI, go to **Troubleshooting > Diagnostic tests**. Select the test you want to run and select **Run test**. You are notified that the device is running tests. 
 
     ![Select tests ](media/azure-stack-edge-gpu-troubleshoot/run-diag-1.png)
+
+    Here is a table that describes each of the diagnostics test that is run on your Azure Stack Edge device.
+
+    | Test Name                        | Description        |
+    |----------------------------------|---------------------------------------------------------------------------------------------------------|
+    | Azure portal connectivity        | The test validates the connectivity of your Azure Stack Edge device to Azure portal.      |
+    | Azure consistent health services | Several services such as Azure Resource Manager, Compute resource provider, Network resource provider, and Blob storage service run on your device. These services together provide an Azure consistent stack. The health check ensures that these Azure consistent services are up and running. |
+    | Certificates                     | The test validates the expiration date and the device and DNS domain change impact on certificates. The health check verified that  all the certificates are imported and applied on all the device nodes.                                                                                      |
+    | Azure Edge Compute runtime       | The test validates that the Azure Stack Edge Kubernetes service is functioning as expected. This includes checking the Kubernetes VM health as well as the status of the Kubernetes services deployed by your device.  |
+    | Disks                            | The test validates that all the device disks are connected and functional. This includes checking that the disks have the right firmware installed and Bitlocker is configured correctly. |
+    | Power supply units (PSUs)                             | The test validates all the power supplies are connected and working.  |
+    | Network interfaces               | The test validates that all the network interfaces are connected on your device and that the network topology for that system is as expected.    |
+    | Central Processing Units (CPUs)                             | The test validates that CPUs on the system have the right configuration and that they are up and functional.    |
+    | Compute acceleration             | The test validates that the compute acceleration is functioning as expected in terms of both hardware and software. Depending on the device model, the compute acceleration could be a Graphical Processing Unit (GPU) or Vision Processing Unit (VPU) or a Field Programmable Gate Array (FPGA).   |
+    | Network settings                 | This test validates the network configuration of the device.    |
+    | Internet connectivity            | This test validates the internet connectivity of the device.   |
+    | System software                  | This test validates that the system storage and software stack is functioning as expected.   |
+    | Time sync                        | This test validates the device time settings and checks that the time server configured on the device is valid and accessible.     |
+    | Software Update readiness        | This test validates that the update server configured is valid and accessible.   |
  
 2. After the tests have completed, the results are displayed. 
 

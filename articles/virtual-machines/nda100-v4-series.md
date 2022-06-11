@@ -1,15 +1,17 @@
 ---
 title: ND A100 v4-series 
 description: Specifications for the ND A100 v4-series VMs.
-author: iafinder
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
+author: sherrywangms
+ms.author: sherrywang
 ms.topic: conceptual
 ms.date: 05/26/2021
-ms.author: iafinder
 ---
 
 # ND A100 v4-series
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 The ND A100 v4 series virtual machine is a new flagship addition to the Azure GPU family, designed for high-end Deep Learning training and tightly-coupled scale-up and scale-out HPC workloads. 
 
@@ -28,14 +30,15 @@ These instances provide excellent performance for many AI, ML, and analytics too
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Ultra Disks](disks-types.md#ultra-disk): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage, and performance) <br>
+[Ultra Disks](disks-types.md#ultra-disks): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage, and performance) <br>
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported ([In preview](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 InfiniBand: Supported, GPUDirect RDMA, 8 x 200 Gigabit HDR<br>
 Nvidia NVLink Interconnect: Supported<br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
 The ND A100 v4 series supports the following kernel versions: <br>
 CentOS 7.9 HPC: 3.10.0-1160.24.1.el7.x86_64 <br>
@@ -47,12 +50,9 @@ Ubuntu 20.04: 5.4.0-1046-azure <br>
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_ND96asr_v4 | 96 | 900 | 6000 | 8 A100 40 GB GPUs (NVLink 3.0) | 40 | 32 | 80,000 / 800 | 24,000 Mbps | 8 |
 
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-
-
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)] <br>
-
-## Other sizes
+## Other sizes and information
 
 - [General purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)
@@ -60,6 +60,10 @@ Ubuntu 20.04: 5.4.0-1046-azure <br>
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
 ## Next steps
 

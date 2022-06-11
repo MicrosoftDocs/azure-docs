@@ -4,18 +4,20 @@ titleSuffix: Azure Machine Learning
 description: In this article, learn how to create a batch endpoint in Azure Machine Learning studio. Batch endpoints are used to continuously batch score large data.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 author: shivanissambare
 ms.author: ssambare
 ms.reviewer: larryfr
-ms.date: 08/16/2021
-ms.custom: how-to, studio, managed-batch-endpoints
+ms.date: 04/26/2022
+ms.custom: how-to, studio, managed-batch-endpoints, event-tier1-build-2022
 ---
 
-# How to use batch endpoints (preview) in Azure Machine Learning studio
+# How to use batch endpoints in Azure Machine Learning studio
 
-In this article, you learn how to use batch endpoints (preview) to do batch scoring in [Azure Machine Learning studio](https://ml.azure.com). For more, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
+In this article, you learn how to use batch endpoints to do batch scoring in [Azure Machine Learning studio](https://ml.azure.com). For more, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
+
+
 
 In this article, you learn about:
 
@@ -25,7 +27,7 @@ In this article, you learn about:
 > * Start a batch scoring job
 > * Overview of batch endpoint features in Azure machine learning studio
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 ## Prerequisites
 
@@ -47,12 +49,12 @@ There are two ways to create Batch Endpoints in Azure Machine Learning studio:
 
 OR
 
-* From the **Models** page, select the model you want to deploy and then select **Deploy to batch endpoint (preview)**.
+* From the **Models** page, select the model you want to deploy and then select **Deploy to batch endpoint**.
 
     :::image type="content" source="media/how-to-use-batch-endpoints-studio/models-page-deployment.png" alt-text="Screenshot of creating a batch endpoint/deployment from Models page":::
 
 > [!TIP]
-> If you're using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated. For more, see [Train and track ML models with MLflow and Azure Machine Learning (preview)](how-to-use-mlflow.md).
+> If you're using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated. For more, see [Train and track ML models with MLflow and Azure Machine Learning](how-to-use-mlflow.md).
 > 
 > :::image type="content" source="media/how-to-use-batch-endpoints-studio/mlflow-model-wizard.png" alt-text="Screenshot of deploying an MLflow model":::
 
@@ -80,7 +82,7 @@ A batch scoring workload runs as an offline job. By default, batch scoring store
 
 ### Overwrite settings
 
-Some settings can be overwritten when you start a batch scoring job. For example, you might overwrite settings to make better use of the compute resource, or to improve performance. To override settings, select __Override deployment settings__ and provide the settings. For more information, see [Use batch endpoints](how-to-use-batch-endpoint.md#overwrite-settings).
+Some settings can be overwritten when you start a batch scoring job. For example, you might overwrite settings to make better use of the compute resource, or to improve performance. To override settings, select __Override deployment settings__ and provide the settings. For more information, see [Use batch endpoints](how-to-use-batch-endpoint.md#configure-the-output-location-and-overwrite-settings).
 
 :::image type="content" source="media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job":::
 
@@ -133,7 +135,7 @@ In Azure machine learning studio, there are two ways to add a deployment to an e
 
 OR
 
-* From the **Models** page, select the model you want to deploy. Then select **Deploy to batch endpoint (preview)** option from the drop-down. In the wizard, on the **Endpoint** screen, select **Existing**. Complete the wizard to add the new deployment.
+* From the **Models** page, select the model you want to deploy. Then select **Deploy to batch endpoint** option from the drop-down. In the wizard, on the **Endpoint** screen, select **Existing**. Complete the wizard to add the new deployment.
 
     :::image type="content" source="media/how-to-use-batch-endpoints-studio/add-deployment-models-page.png" alt-text="Screenshot of selecting an existing batch endpoint to add new deployment":::
 
@@ -159,4 +161,4 @@ To delete a **deployment**, select the endpoint from the **Endpoints** page, sel
 In this article, you learned how to create and call batch endpoints. See these other articles to learn more about Azure Machine Learning:
 
 * [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)
-* [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
+* [Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)

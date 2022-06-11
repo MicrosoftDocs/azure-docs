@@ -50,6 +50,8 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_F1s  | 1  | 2  | 4  | 4  | 4000/32 (12)    | 3200/48   | 2/750   |
@@ -71,6 +73,8 @@ The NVv2-series virtual machines are powered by [NVIDIA Tesla M60](https://image
 
 Each GPU in NVv2 instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
 
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_NV6s_v2  | 6  | 112 | 320  | 1 | 8  | 12 | 4 | 1 | 25  |
@@ -81,7 +85,7 @@ Each GPU in NVv2 instances comes with a GRID license. This license gives you the
 
 This section provides information on older generations of virtual machine sizes. These sizes are still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
 
-For more information on resizing a Linux VM, see [Resize a Linux VM](linux/change-vm-size.md).  
+For more information on resizing a Linux VM, see [Resize a VM](resize-vm.md).  
 
 <br>
 
@@ -159,7 +163,7 @@ The A8-A11 and H-series sizes are also known as *compute-intensive instances*. T
 | Standard_A10 | 8  | 56  | 382 | 32 | 32x500 | 2 |
 | Standard_A11 | 16 | 112 | 382 | 64 | 64x500 | 4 |
 
-<sup>1</sup>For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.  
+<sup>1</sup> For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.  
 
 > [!NOTE]
 > The [A8 – A11 VMs are planned for retirement on 3/2021](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/). We strongly recommend not creating any new A8 – A11 VMs. Please migrate any existing A8 – A11 VMs to newer and powerful high-performance computing VM sizes such as H, HB, HC, HBv2 as well as general purpose compute VM sizes such as D, E, and F for better price-performance. 
@@ -216,6 +220,8 @@ Premium Storage caching:  Not Supported
 Premium Storage: Supported
 
 Premium Storage caching: Supported
+
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
 
 The DC-series uses the latest generation of 3.7GHz Intel XEON E-2176G Processor with SGX technology, and with the Intel Turbo Boost Technology can go up to 4.7GHz. 
 
@@ -286,6 +292,8 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Not Supported
 
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+
 | Size | vCPU | Memory (GiB) | Temp storage (GiB) | Max data disks | Max temp storage throughput (IOPS/MBps) | Max uncached disk throughput (IOPS/MBps) | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_L4s   | 4  | 32  | 678  | 16 | 20000/200 | 5000/125  | 2/4000  |
@@ -307,6 +315,8 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_GS1 | 2 | 28  | 56  | 8  | 10000/100 (264)  | 5000/ 125  | 2/2000 |
@@ -317,7 +327,7 @@ Premium Storage caching:  Supported
 
 <sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a GS series VM may be limited by the number, size and striping of the attached disk(s). For details, see [Design for high performance](premium-storage-performance.md).
 
-<sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
+<sup>2</sup> Isolation feature retired on 2/28/2022. For information, see the [retirement announcement](https://azure.microsoft.com/updates/the-g5-and-gs5-azure-vms-will-no-longer-be-hardwareisolated-on-28-february-2022/).
 
 <sup>3</sup> Constrained core sizes available.
 
@@ -341,7 +351,7 @@ Premium Storage caching:  Not Supported
 | Standard_G4  | 16 | 224 | 3072 | 48000/750/375 | 64/64x500 | 8/16000 |
 | Standard_G5&nbsp;<sup>1</sup> | 32 | 448 | 6144 | 96000/1500/750| 64/64x500 | 8/20000 |
 
-<sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
+<sup>1</sup> Isolation feature retired on 2/28/2022. For information, see the [retirement announcement](https://azure.microsoft.com/updates/the-g5-and-gs5-azure-vms-will-no-longer-be-hardwareisolated-on-28-february-2022/).
 <br>
 
 ### NV-series
@@ -407,8 +417,9 @@ The NC24rs v2 configuration provides a low latency, high-throughput network inte
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 
-> For this VM series, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../azure-portal/supportability/resource-manager-core-quotas-request.md) for this series in an [available region](https://azure.microsoft.com/regions/services/).
+> For this VM series, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../azure-portal/supportability/regional-quota-requests.md) for this series in an [available region](https://azure.microsoft.com/regions/services/).
 >
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs |
 |---|---|---|---|---|---|---|---|---|
@@ -433,8 +444,9 @@ The ND-series virtual machines are a new addition to the GPU family designed for
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 
-> For this VM series, the vCPU (core) quota per region in your subscription is initially set to 0. [Request a vCPU quota increase](../azure-portal/supportability/resource-manager-core-quotas-request.md) for this series in an [available region](https://azure.microsoft.com/regions/services/).
+> For this VM series, the vCPU (core) quota per region in your subscription is initially set to 0. [Request a vCPU quota increase](../azure-portal/supportability/regional-quota-requests.md) for this series in an [available region](https://azure.microsoft.com/regions/services/).
 >
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs |
 |---|---|---|---|---|---|---|---|---|

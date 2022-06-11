@@ -5,7 +5,7 @@ ms.service:  cosmos-db
 ms.topic: how-to
 ms.author: esarroyo
 author: StefArroyo 
-ms.date: 04/09/2020
+ms.date: 09/16/2021
 ---
 
 # How to monitor throughput or request unit usage of an operation in Azure Cosmos DB
@@ -38,11 +38,11 @@ If you notice certain queries are taking more request units, you can take action
 
 1. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos accounts, and select **Apply**.
 
-   :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Choose the Azure Cosmos DB account to view metrics":::
+   :::image type="content" source="./media/monitor-account-key-updates/select-account-scope.png" alt-text="Select the account scope to view metrics" border="true":::
 
 1. Next select the **Total Request Units** metric from the list of available metrics. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let's select **Total Request Units** and **Avg** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Choose a metric from the Azure portal":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Choose a metric from the Azure portal" border="true":::
 
 ## Filters for request unit usage
 
@@ -54,7 +54,7 @@ To get the request unit usage of each operation either by total(sum) or average,
 
 If you want to see the request unit usage by collection, select **Apply splitting** and choose the collection name as a filter. You will see a chat like the following with a choice of collections within the dashboard. You can then select a specific collection name to view more details:
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Cosmos DB Request units for all operations by the collection in Azure monitor":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Cosmos DB Request units for all operations by the collection in Azure monitor" border="true":::
 
 ## Next steps
 

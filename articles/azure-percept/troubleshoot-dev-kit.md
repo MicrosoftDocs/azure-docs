@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot the Azure Percept DK device
 description: Get troubleshooting tips for some of the more common issues with Azure Percept DK and IoT Edge
-author: juniem
-ms.author: amiyouss
+author: nkhuyent
+ms.author: juniem
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 08/10/2021
@@ -43,6 +43,9 @@ In this section, you'll get guidance on which logs to collect and how to collect
 |*edgeAgent logs* - records the version numbers of all modules running on your device.|Collect when one or more modules aren't working.|```sudo iotedge logs edgeAgent```|
 |*Module container logs* - records details about specific IoT Edge module containers|Collect when you find issues with a module|```sudo iotedge logs [container name]```|
 |*Network logs* - a set of logs covering Wi-Fi services and the network stack.|Collect when you find Wi-Fi or network issues.|```sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd > network_log.txt```<br><br>```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version && rpm -q ztpd > system_ver.txt```<br><br>Run both commands. Each command collects multiple logs and puts them into a single output.|
+
+> [!WARNING]
+> Output from the `support-bundle` command can contain host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
 
 ## Troubleshooting commands
 Here's a set of commands that can be used for troubleshooting issues you may find with the dev kit. To run these commands, you must first connect to your dev kit [over SSH](./how-to-ssh-into-percept-dk.md). 

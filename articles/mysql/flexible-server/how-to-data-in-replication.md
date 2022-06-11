@@ -4,6 +4,7 @@ description: This article describes how to set up Data-in replication for Azure 
 author: SudheeshGH
 ms.author: sunaray 
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 06/08/2021 
 ---
@@ -15,7 +16,7 @@ ms.date: 06/08/2021
 This article describes how to set up [Data-in replication](concepts-data-in-replication.md) in Azure Database for MySQL Flexible Server by configuring the source and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 To create a replica in the Azure Database for MySQL Flexible service, [Data-in replication](concepts-data-in-replication.md) synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services. Data-in replication is based on the binary log (binlog) file position-based. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
@@ -23,7 +24,7 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 
 ## Create an Azure Database for MySQL Flexible Server instance to use as a replica
 
-1. Create a new instance of Azure Database for MySQL Flexible Server (ex. "replica.mysql.database.azure.com"). Refer to [Create an Azure Database for MySQL Flexible Server server by using the Azure portal](quickstart-create-server-portal.md) for server creation. This server is the "replica" server for Data-in replication.
+1. Create a new instance of Azure Database for MySQL Flexible Server (for example, `replica.mysql.database.azure.com`). Refer to [Create an Azure Database for MySQL Flexible Server server by using the Azure portal](quickstart-create-server-portal.md) for server creation. This server is the "replica" server for Data-in replication.
 
 2. Create the same user accounts and corresponding privileges.
 
@@ -159,6 +160,8 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    Restore the dump file to the server created in the Azure Database for MySQL Flexible Server service. Refer to [Dump & Restore](../concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL Flexible Server server from the virtual machine.
 
+>[!Note]
+>* If you want to avoid setting the database to read only when you dump and restore, you can use [mydumper/myloader](../concepts-migrate-mydumper-myloader.md).
 
 ## Link source and replica servers to start Data-in replication
 
@@ -184,7 +187,8 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
      It's recommended to pass this parameter in as a variable. For more information, see the following examples.
 
    > [!NOTE]
-   > If the source server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the source and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. For more information, see [Manage firewall rules using the portal](how-to-manage-firewall-portal.md) .
+   > * If the source server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the source and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. For more information, see [Manage firewall rules using the portal](how-to-manage-firewall-portal.md).
+   > * If you used mydumper/myloader to dump the database then you can get the master_log_file and master_log_pos from the */backup/metadata* file. 
 
    **Examples**
 

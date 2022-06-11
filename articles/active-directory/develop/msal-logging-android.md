@@ -1,6 +1,5 @@
 ---
 title: Logging errors and exceptions in MSAL for Android.
-titleSuffix: Microsoft identity platform
 description: Learn how to log errors and exceptions in MSAL for Android.
 services: active-directory
 author: mmacy

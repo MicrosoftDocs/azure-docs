@@ -2,7 +2,7 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.author: tomfitz
 ---
 
@@ -12,7 +12,7 @@ There are two ways to export a template:
 
 * **Export from resource group or resource**. This option generates a new template from existing resources. The exported template is a "snapshot" of the current state of the resource group. You can export an entire resource group or specific resources within that resource group.
 
-* **Export from history**. This option retrieves an exact copy of a template used for deployment.
+* **Save from history**. This option retrieves an exact copy of a template used for deployment. You specify the deployment from the deployment history. 
 
 Depending on the option you choose, the exported templates have different qualities.
 
@@ -28,6 +28,7 @@ Export the template from a resource group or resource, when:
 
 * You need to capture changes to the resources that were made after the original deployment.
 * You want to select which resources are exported.
+* The resources weren't created with a template.
 
 Export the template from the history, when:
 

@@ -1,8 +1,7 @@
 ---
-title: 'Common Key Vault errors in Application Gateway'
+title: Common key vault errors in Application Gateway
 titleSuffix: Azure Application Gateway
-description: This article helps identifying Key Vault-related issues and resolve them for smooth operations of Application Gateway.
-services: application-gateway
+description: This article identifies key vault-related problems, and helps you resolve them for smooth operations of Application Gateway.
 author: jaesoni
 ms.service: application-gateway
 ms.topic: reference
@@ -11,117 +10,128 @@ ms.author: jaysoni
 
 ---
 
-# Common Key Vault errors in Application Gateway
+# Common key vault errors in Azure Application Gateway
 
-This troubleshooting guide will help you to understand the details of the Key Vault error codes, their cause and the associated Key Vault resource which is causing the problem. It also includes step by step guide for the resolution of such misconfigurations.
+Application Gateway enables customers to securely store TLS certificates in Azure Key Vault. When using a key vault resource, it is important that the gateway always has access to the linked key vault. If your Application Gateway is unable to fetch the certificate, the associated HTTPS listeners will be placed in a disabled state. [Learn more](../application-gateway/disabled-listeners.md).
 
-> [!NOTE]
-> The logs for Key Vault Diagnostics in Application Gateway are generated at every four-hour interval. Therefore, in some cases, you may have to wait for the logs to be refreshed, if the diagnostic continues to show the error after you have fixed the configuration.
+This article helps you understand the details of the error codes and the steps to resolve such key vault misconfigurations.
 
 > [!TIP]
-> We recommend using a version-less Secret Identifier. This way, Application Gateway will automatically rotate the certificate, if a newer version is available in the Key Vault.  An example of Secret URI without version `https://myvault.vault.azure.net/secrets/mysecret/`.
+> Use a secret identifier that doesn't specify a version. This way, Azure Application Gateway will automatically rotate the certificate, if a newer version is available in Azure Key Vault. An example of a secret URI without a version is: `https://myvault.vault.azure.net/secrets/mysecret/`.
 
-### List of error codes and their details
+## List of error codes and their details
+
+The following sections describe the various errors you might encounter. You can verify if your gateway has any such problem by visting [**Azure Advisor**](./key-vault-certs.md#investigating-and-resolving-key-vault-errors) for your account, and use this troubleshooting article to fix the problem. We recommend configuring Azure Advisor alerts to stay informed when a key vault problem is detected for your gateway.
+
+> [!NOTE]
+> Azure Application Gateway generates logs for key vault diagnostics every four hours. If the diagnostic continues to show the error after you have fixed the configuration, you might have to wait for the logs to be refreshed.
 
 [comment]: # (Error Code 1)
-#### **1) Error Code:** UserAssignedIdentityDoesNotHaveGetPermissionOnKeyVault 
+### Error code: UserAssignedIdentityDoesNotHaveGetPermissionOnKeyVault 
 
-**Description:** The associated User-Assigned Managed Identity doesn't have GET permission. 
+**Description:** The associated user-assigned managed identity doesn't have the required permission. 
 
-**Resolution:** Configure Key Vault's Access Policy to grant the associated User-Assigned Managed Identity GET permissions on Secrets. 
-1. Navigate to the linked Key Vault in Azure portal
-2. Open the Access Policies blade
-3. Select "Vault Access policy" for Permission model
-4. Select "Get" permission for Secret for the given User-Assigned Managed Identity
-5. Save the configuration
+**Resolution:** Configure the access policies of your key vault to grant the user-assigned managed identity permission on secrets. You may do so in any of the following ways:
 
+  **Vault access policy**
+  1. Go to the linked key vault in the Azure portal.
+  1. Open the **Access policies** blade.
+  1. For **Permission model**, select **Vault access policy**.
+  1. Under **Secret Management Operations**, select the **Get** permission.
+  1. Select **Save**.
 
-:::image type="content" source="./media/application-gateway-key-vault-common-errors/no-get-permssion-for-managed-identity.png " alt-text=" User-Assigned Identity does not have Get permission on Key Vault.":::
+:::image type="content" source="./media/application-gateway-key-vault-common-errors/no-get-permssion-for-managed-identity.png " alt-text=" Screenshot that shows how to resolve the Get permission error.":::
 
-For complete guide on Key Vault's Access policy, refer to this [article](../key-vault/general/assign-access-policy-portal.md)
-</br></br>
+For more information, see [Assign a Key Vault access policy by using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
 
+  **Azure role-based access control**
+  1. Go to the linked key vault in the Azure portal.
+  1. Open the **Access policies** blade.
+  1. For **Permission model**, select **Azure role-based access control**.
+  1. After this, navigate to **Access Control (IAM)** blade to configure permissions.
+  1. **Add role assignment** for your managed identity by choosing the following<br>
+    a. **Role**: Key Vault Secrets User<br>
+    b. **Assign access to**: Managed identity<br>
+    c. **Members**: select the user-assigned managed identity which you've associated with your application gateway.<br>
+  1. Select **Review + assign**.
 
+For more information, see [Azure role-based access control in Key Vault](../key-vault/general/rbac-guide.md).
+
+> [!NOTE]
+> Portal support for adding a new key vault-based certificate is currently not available when using **Azure role-based access control**. You can accomplish it by using ARM template, CLI, or PowerShell. Visit [this page](./key-vault-certs.md#key-vault-azure-role-based-access-control-permission-model) for guidance.
 
 [comment]: # (Error Code 2)
-#### **2) Error Code:** SecretDisabled 
+### Error code: SecretDisabled 
 
-**Description:** The associated Certificate has been disabled in Key Vault. 
+**Description:** The associated certificate has been disabled in Key Vault. 
 
 **Resolution:** Re-enable the certificate version that is currently in use for Application Gateway.
-1. Navigate to the linked Key Vault in Azure portal
-2. Open the Certificates blade
-3. Click on the required certificate name, and then the disabled version
-4. Use the toggle on the management page to enable that certificate version
+1. Go to the linked key vault in the Azure portal.
+1. Open the **Certificates** pane.
+1. Select the required certificate name, and then select the disabled version.
+1. On the management page, use the toggle to enable that certificate version.
 
-:::image type="content" source="./media/application-gateway-key-vault-common-errors/secret-disabled.png" alt-text="Re-enable a Secret.":::
-</br></br>
-
+:::image type="content" source="./media/application-gateway-key-vault-common-errors/secret-disabled.png" alt-text="Screenshot that shows how to re-enable a secret.":::
 
 [comment]: # (Error Code 3)
-#### **3) Error Code:** SecretDeletedFromKeyVault 
+### Error code: SecretDeletedFromKeyVault 
 
-**Description:** The associated Certificate has been deleted from Key Vault. 
+**Description:** The associated certificate has been deleted from Key Vault. 
 
-**Resolution:** The deleted certificate object within a Key Vault can be restored using its Soft-Delete recovery feature. To recovery a deleted certificate, 
-1. Navigate to the linked Key Vault in Azure portal
-2. Open the Certificates blade
-3. Use "Managed Deleted Certificates" tab to recover a deleted certificate.
+**Resolution:** To recover a deleted certificate: 
+1. Go to the linked key vault in the Azure portal.
+1. Open the **Certificates** pane.
+1. Use the **Managed deleted certificates** tab to recover a deleted certificate.
 
-On the other hand, if a certificate object is permanently deleted, you will need to create a new certificate and update the Application Gateway with the new certificate details. When configuring through Azure CLI or Azure PowerShell, it is recommended to use a version-less secret identifier URI to allow instances to retrieve a renewed version of the certificate, if it exists.
+On the other hand, if a certificate object is permanently deleted, you will need to create a new certificate and update Application Gateway with the new certificate details. When you're configuring through the Azure CLI or Azure PowerShell, use a secret identifier URI without a version. This choice allows instances to retrieve a renewed version of the certificate, if it exists.
 
-:::image type="content" source="./media/application-gateway-key-vault-common-errors/secret-deleted.png " alt-text="Recover a deleted certificate in Key Vault.":::
-</br></br>
-
+:::image type="content" source="./media/application-gateway-key-vault-common-errors/secret-deleted.png " alt-text="Screenshot that shows how to recover a deleted certificate in Key Vault.":::
 
 [comment]: # (Error Code 4)
-#### **4) Error Code:** UserAssignedManagedIdentityNotFound 
+### Error code: UserAssignedManagedIdentityNotFound 
 
-**Description:** The associated User-Assigned Managed Identity has been deleted. 
+**Description:** The associated user-assigned managed identity has been deleted. 
 
-**Resolution:** Follow the guidance below to resolve this issue.
-1. Re-create a Managed Identity with the same name that was used earlier and under the same Resource Group. You can refer to resource Activity Logs for details. 
-2. Once created, assign that new Managed Identity the Reader role, at a minimum, under Application Gateway - Access Control (IAM).
-3. Finally, navigate to the desired Key Vault resource and set its Access Policies to grant GET Secret Permissions for this new Managed Identity. 
-
-[More information](./key-vault-certs.md#how-integration-works)
-</br></br>
+**Resolution:** Create a new managed identity and use it with the key vault.
+1. Re-create a managed identity with the same name that was previously used, and under the same resource group. (**TIP**: Refer to resource Activity Logs for naming details). 
+1. Go to the desired key vault resource, and set its access policies to grant this new managed identity the required permission. You can follow the same steps as mentioned under [UserAssignedIdentityDoesNotHaveGetPermissionOnKeyVault](./application-gateway-key-vault-common-errors.md#error-code-userassignedidentitydoesnothavegetpermissiononkeyvault). 
 
 [comment]: # (Error Code 5)
-#### **5) Error Code:** KeyVaultHasRestrictedAccess
+### Error code: KeyVaultHasRestrictedAccess
 
-**Description:** Restricted Network setting for Key Vault. 
+**Description:** There's a restricted network setting for Key Vault. 
 
-**Resolution:** You will encounter this issue upon enabling Key Vault Firewall for restricted access. You can still configure your Application Gateway in a restricted network of Key Vault in the following manner.
-1. Under Key Vault’s Networking blade
-2. Choose Private endpoint and selected networks in "Firewall and Virtual Networks" tab
-3. Finally, select “Yes” to allow Trusted Services to bypass Key Vault’s firewall.
+**Resolution:** You will encounter this error when you enable the Key Vault firewall for restricted access. You can still configure Application Gateway in a restricted network of Key Vault, by following these steps:
+1. In Key Vault, open the **Networking** pane.
+1. Select the **Firewalls and virtual networks** tab, and select **Private endpoint and selected networks**.
+1. Then, using Virtual Networks, add your Application Gateway's virtual network and subnet. During the process, also configure 'Microsoft.KeyVault' service endpoint by selecting its checkbox.
+1. Finally, select **Yes** to allow Trusted Services to bypass Key Vault's firewall.
 
-:::image type="content" source="./media/application-gateway-key-vault-common-errors/key-vault-restricted-access.png" alt-text="Key Vault Has Restricted Access.":::
-</br></br>
-
+:::image type="content" source="./media/application-gateway-key-vault-common-errors/key-vault-restricted-access.png" alt-text="Screenshot that shows how to work around the restricted network error.":::
 
 [comment]: # (Error Code 6)
-#### **6) Error Code:** KeyVaultSoftDeleted 
+### Error code: KeyVaultSoftDeleted 
 
-**Description:** The associated Key Vault is in soft-delete state. 
+**Description:** The associated key vault is in soft-delete state. 
 
-**Resolution:** Recovering a soft-deleted Key Vault is quite easy. In Azure portal, go to Key Vaults service page.
+**Resolution:** In the Azure portal, search for *key vault*. Under **Services**, select **Key vaults**.
 
-:::image type="content" source="./media/application-gateway-key-vault-common-errors/key-vault-soft-deleted-1.png" alt-text="Search for Key Vault service.":::
-</br></br>
-Click on Managed Deleted Vaults tab. From here, you can find the deleted Key Vault resource and recover it.
-:::image type="content" source="./media/application-gateway-key-vault-common-errors/key-vault-soft-deleted-2.png" alt-text="Recover a deleted Key Vault using Soft Delete.":::
-</br></br>
+:::image type="content" source="./media/application-gateway-key-vault-common-errors/key-vault-soft-deleted-1.png" alt-text="Screenshot that shows how to search for the Key Vault service.":::
 
+Select **Managed deleted vaults**. From here, you can find the deleted Key Vault resource and recover it.
+:::image type="content" source="./media/application-gateway-key-vault-common-errors/key-vault-soft-deleted-2.png" alt-text="Screenshot that shows how to recover a deleted key vault.":::
 
 [comment]: # (Error Code 7)
-#### **7) Error Code:** CustomerKeyVaultSubscriptionDisabled 
+### Error code: CustomerKeyVaultSubscriptionDisabled 
 
-**Description:** The Subscription for Key Vault is disabled. 
+**Description:** The subscription for Key Vault is disabled. 
 
-**Resolution:** Your Azure subscription can get disabled due to various reasons. Please refer to the guide for [Reactivating a disabled Azure subscription](../cost-management-billing/manage/subscription-disabled.md) and take the necessary action.
-</br></br>
+**Resolution:** Your Azure subscription can get disabled for various reasons. To take the necessary action to resolve, see [Reactivating a disabled Azure subscription](../cost-management-billing/manage/subscription-disabled.md).
 
+## Next steps
 
+These troubleshooting articles might be helpful as you continue to use Application Gateway:
+
+- [Understanding and fixing disabled listeners](disabled-listeners.md)
+- [Azure Application Gateway Resource Health overview](resource-health-overview.md)
 

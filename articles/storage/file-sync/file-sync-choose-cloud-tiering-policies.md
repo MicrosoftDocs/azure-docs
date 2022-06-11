@@ -1,11 +1,11 @@
 ---
 title: Choose Azure File Sync cloud tiering policies | Microsoft Docs
 description: Details on what to keep in mind when choosing Azure File Sync cloud tiering policies.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
 ms.date: 04/13/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -14,9 +14,10 @@ ms.subservice: files
 This article provides guidance for users who are selecting and adjusting their cloud tiering policies. Before reading through this article, ensure that you understand how cloud tiering works. For cloud tiering fundamentals, see [Understand Azure File Sync cloud tiering](file-sync-cloud-tiering-overview.md). For an in-depth explanation of cloud tiering policies with examples, see [Azure File Sync cloud tiering policies](file-sync-cloud-tiering-policy.md).
 
 ## Limitations
+
 - Cloud tiering is not supported on the Windows system volume.
 
-- You can still enable cloud tiering if you have a volume-level FSRM quota. Once an FSRM quota is set, the free space query APIs that get called automatically report the free space on the volume as per the quota setting. 
+- You can still enable cloud tiering if you have a volume-level FSRM quota. Once an FSRM quota is set, the free space query APIs that get called automatically report the free space on the volume as per the quota setting.
 
 ### Minimum file size for a file to tier
 
@@ -49,7 +50,7 @@ Azure File Sync is supported on NTFS volumes with Windows Server 2012 R2 and new
 
 It is possible that upon creation of the volume, you manually formatted the volume with a different cluster size. If your volume stems from an older version of Windows, default cluster sizes may also be different. [This article has more details on default cluster sizes.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Even if you choose a cluster size smaller than 4 KiB, an 8 KiB limit as the smallest file size that can be tiered, still applies. (Even if technically 2x cluster size would equate to less than 8 KiB.)
 
-The reason for the absolute minimum is found in the way NTFS stores extremely small files - 1 KiB to 4 KiB sized files. Depending on other parameters of the volume, it is possible that small files are not stored in a cluster on disk at all. It's possibly more efficient to store such files directly in the volume's Master File Table or "MFT record". The cloud tiering reparse point is always stored on disk and takes up exactly one cluster. Tiering such small files could end up with no space savings. Extreme cases could even end up using more space with cloud tiering enabled. To safeguard against that, the smallest size of a file that cloud tiering will tier, is 8 KiB on a 4 KiB or smaller cluster size. 
+The reason for the absolute minimum is found in the way NTFS stores extremely small files - 1 KiB to 4 KiB sized files. Depending on other parameters of the volume, it is possible that small files are not stored in a cluster on disk at all. It's possibly more efficient to store such files directly in the volume's Master File Table or "MFT record". The cloud tiering reparse point is always stored on disk and takes up exactly one cluster. Tiering such small files could end up with no space savings. Extreme cases could even end up using more space with cloud tiering enabled. To safeguard against that, the smallest size of a file that cloud tiering will tier, is 8 KiB on a 4 KiB or smaller cluster size.
 
 ## Selecting your initial policies
 
@@ -63,7 +64,7 @@ After setting your policies, monitor egress and adjust both policies accordingly
 
 If the amount of files constantly recalled from Azure is larger than you want, you may have more hot files than you have space to save them on the local server volume. Increase your local volume size if possible, and/or decrease your volume free space policy percentage in small increments. Decreasing the volume free space percentage too much can also have negative consequences. Higher churn in your dataset requires more free space - for new files and recall of "cold" files. Tiering kicks in with a delay of up to one hour and then needs processing time, which is why you should always have ample free space on your volume.
 
-Keeping more data local means lower egress costs as fewer files will be recalled from Azure, but also requires a larger amount of on-premises storage which comes at its own cost. 
+Keeping more data local means lower egress costs as fewer files will be recalled from Azure, but also requires a larger amount of on-premises storage which comes at its own cost.
 
 When adjusting your volume free space policy, the amount of data you should keep local is determined by the following factors: your bandwidth, dataset's access pattern, and budget. With a low-bandwidth connection, you may want more local data, to ensure minimal lag for users. Otherwise, you can base it on the churn rate during a given period. As an example, if you know that 10% of your 1 TiB dataset changes or is actively accessed each month, then you may want to keep 100 GiB local so you are not frequently recalling files. If your volume is 2 TiB, then you would want to keep 5% (or 100 GiB) local, meaning the remaining 95% is your volume free space percentage. However, you should add a buffer for periods of higher churn – in other words, starting with a larger volume free space percentage, and then adjusting it if needed later.
 
@@ -71,9 +72,9 @@ When adjusting your volume free space policy, the amount of data you should keep
 
 - When first migrating to Azure Files via Azure File Sync, cloud tiering is dependent on initial upload
 - Cloud tiering checks compliance with the volume free space and date policies every sixty minutes
-- Using the /LFSM switch on Robocopy when migrating files will allow files to sync and cloud tiering to make space during initial upload 
+- Using the /LFSM switch on Robocopy when migrating files will allow files to sync and cloud tiering to make space during initial upload
 - If tiering occurs before a heatmap is formed, files will be tiered by last modified timestamp
 
 ## Next steps
 
-* [Planning for an Azure File Sync deployment](file-sync-planning.md)
+- [Planning for an Azure File Sync deployment](file-sync-planning.md)

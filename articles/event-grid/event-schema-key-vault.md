@@ -2,7 +2,7 @@
 title: Azure Key Vault as Event Grid source
 description: Describes the properties and schema provided for Azure Key Vault events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 09/15/2021
 ---
 
 # Azure Key Vault as Event Grid source
@@ -20,7 +20,7 @@ An Azure Key Vault account generates the following event types:
 | Microsoft.KeyVault.CertificateNearExpiry | Certificate Near Expiry | Triggered when the current version of certificate is about to expire. (The event is triggered 30 days before the expiration date.) |
 | Microsoft.KeyVault.CertificateExpired | Certificate Expired | Triggered when the current version of a certificate is expired. |
 | Microsoft.KeyVault.KeyNewVersionCreated | Key New Version Created | Triggered when a new key or new key version is created. |
-| Microsoft.KeyVault.KeyNearExpiry | Key Near Expiry | Triggered when the current version of a key is about to expire. (The event is triggered 30 days before the expiration date.) |
+| Microsoft.KeyVault.KeyNearExpiry | Key Near Expiry | Triggered when the current version of a key is about to expire. The event time can be configured using [key rotation policy](../key-vault/keys/how-to-configure-key-rotation.md) |
 | Microsoft.KeyVault.KeyExpired | Key Expired | Triggered when the current version of a key is expired. |
 | Microsoft.KeyVault.SecretNewVersionCreated | Secret New Version Created | Triggered when a new secret or new secret version is created. |
 | Microsoft.KeyVault.SecretNearExpiry | Secret Near Expiry | Triggered when the current version of a secret is about to expire. (The event is triggered  30 days before the expiration date.) |
@@ -45,8 +45,8 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
          "VaultName":"sample-kv",
          "ObjectType":"Secret",
-         "ObjectName ":"newsecret",
-         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "ObjectName":"newsecret",
+         "Version":"ee059b2bb5bc48398a53b168c6cdcb10",
          "NBF":"1559081980",
          "EXP":"1559082102"
       },
@@ -72,8 +72,8 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
          "VaultName":"sample-kv",
          "ObjectType":"Secret",
-         "ObjectName ":"newsecret",
-         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "ObjectName":"newsecret",
+         "Version":"ee059b2bb5bc48398a53b168c6cdcb10",
          "NBF":"1559081980",
          "EXP":"1559082102"
       },

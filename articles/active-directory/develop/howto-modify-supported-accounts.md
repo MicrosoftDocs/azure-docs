@@ -1,6 +1,5 @@
 ---
-title: "How to: Change the account types supported by an application | Azure"
-titleSuffix: Microsoft identity platform
+title: "How to: Change the account types supported by an application"
 description: In this how-to, you configure an application registered with the Microsoft identity platform to change who, or what accounts, can access the application.
 services: active-directory
 author: rwike77
@@ -32,7 +31,7 @@ In the following sections, you learn how to modify your app's registration in th
 To specify a different setting for the account types supported by an existing app registration:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which the app is registered.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**, then select your application.
 1. Now, specify who can use the application, sometimes referred to as the *sign-in audience*.

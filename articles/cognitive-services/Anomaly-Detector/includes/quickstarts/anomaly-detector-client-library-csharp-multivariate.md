@@ -18,13 +18,13 @@ Use the Anomaly Detector multivariate client library for C# to:
 * When any individual time series won't tell you much and you have to look at all signals to detect a problem.
 * Predicative maintenance of expensive physical assets with tens to hundreds of different types of sensors measuring various aspects of system health.
 
-[Library reference documentation](/dotnet/api/azure.ai.anomalydetector) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/anomalydetector/Azure.AI.AnomalyDetector) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3)
+[Library reference documentation](/dotnet/api/azure.ai.anomalydetector) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button.
     * You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. Paste your key and endpoint into the code below later in the quickstart.
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 

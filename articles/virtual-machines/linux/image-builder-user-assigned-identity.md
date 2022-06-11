@@ -15,9 +15,9 @@ ms.subservice: image-builder
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-Azure Image Builder supports using scripts, or copying files from multiple locations, such as GitHub and Azure storage etc. To use these, they must have been externally accessible to Azure Image Builder, but you could protect Azure Storage blobs using SAS Tokens.
+Azure Image Builder supports using scripts, or copying files from multiple locations, such as GitHub and Azure storage etc. To use these, they must have been externally accessible to Azure Image Builder.
 
-This article shows how to create a customized image using the Azure VM Image Builder, where the service will use a [User-assigned Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) to access files in Azure storage for the image customization, without you having to make the files publicly accessible, or setting up SAS tokens.
+This article shows how to create a customized image using the Azure VM Image Builder, where the service will use a [User-assigned Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) to access files in Azure storage for the image customization, without you having to make the files publicly accessible.
 
 In the example below, you will create two resource groups, one will be used for the custom image, and the other will host an Azure Storage Account, that contains a script file. This simulates a real life scenario, where you may have build artifacts, or image files in different storage accounts, outside of Image Builder. You will create a user-assigned identity, then grant that read permissions on the script file, but you will not set any public access to that file. You will then use the Shell customizer to download and run that script from the storage account.
 
@@ -96,14 +96,14 @@ Image Builder will use the [user-identity](../../active-directory/managed-identi
 
 ```console
 # create user assigned identity for image builder to access the storage account where the script is located
-idenityName=aibBuiUserId$(date +'%s')
-az identity create -g $imageResourceGroup -n $idenityName
+identityName=aibBuiUserId$(date +'%s')
+az identity create -g $imageResourceGroup -n $identityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
-imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
+imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName
 
 # download preconfigured role definition example
 curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json

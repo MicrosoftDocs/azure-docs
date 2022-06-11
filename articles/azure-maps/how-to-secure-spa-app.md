@@ -2,13 +2,12 @@
 title: How to secure a single-page web application with non-interactive sign-in in Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: How to configure a single-page web application with non-interactive Azure role-based access control (Azure RBAC) and Azure Maps Web SDK.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/21/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-
 ms.custom: devx-track-js, subject-rbac-steps
 ---
 
@@ -64,11 +63,11 @@ To create a secured web service application that's responsible for authenticatio
    1. [Create a function access key](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#authorization-keys)
    1. [Secure HTTP endpoint](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production) for the Azure function in production.
 
-7. Configure a web application Azure Maps Web SDK. 
+7. Configure a web application Azure Maps Web SDK.
 
     ```javascript
     //URL to custom endpoint to fetch Access token
-    var url = 'https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>';
+    var url = 'https://{App-Name}.azurewebsites.net/api/{Function-Name}?code={API-Key}';
 
     var map = new atlas.Map('myMap', {
                 center: [-122.33, 47.6],

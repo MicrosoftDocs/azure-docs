@@ -2,18 +2,19 @@
 title: Assign roles to Azure Enterprise Agreement service principal names
 description: This article helps you assign roles to service principal names by using PowerShell and REST APIs.
 author: bandersmsft
-ms.reviewer: ruturajd
+ms.reviewer: sapnakeshari
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/01/2021
+ms.date: 10/22/2021
 ms.author: banders
 ---
 
 # Assign roles to Azure Enterprise Agreement service principal names
 
-You can manage your Enterprise Agreement (EA) enrollment in the [Azure Enterprise portal](https://ea.azure.com/). You can create different roles to manage your organization, view costs, and create subscriptions. This article helps you automate some of those tasks by using Azure PowerShell and REST APIs with Azure service principal names (SPNs).
+You can manage your Enterprise Agreement (EA) enrollment in the [Azure Enterprise portal](https://ea.azure.com/). Direct Enterprise customer can now manage Enterprise Agreement(EA) enrollment in [Azure portal](https://portal.azure.com/).
+You can create different roles to manage your organization, view costs, and create subscriptions. This article helps you automate some of those tasks by using Azure PowerShell and REST APIs with Azure service principal names (SPNs).
 
 Before you begin, ensure that you're familiar with the following articles:
 
@@ -201,6 +202,15 @@ Now you can use the SPN to automatically access EA APIs. The SPN has the Departm
    A `200 OK` response shows that the SPN has been successfully added.
 
 Now you can use the SPN to automatically access EA APIs. The SPN has the SubscriptionCreator role.
+
+## Troubleshoot
+
+You must identify and use the Enterprise application object ID where you granted the EA role. If you use the Object ID from some other application, API calls will fail. Verify that you’re using the correct Enterprise application object ID.
+
+If you receive the following error when making your API call, then you may be incorrectly using the SPN object ID value located in App Registrations. To resolve this error, ensure you're using the SPN object ID from Enterprise Applications, not App Registrations.
+
+`The provided principal Tenant Id = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx and principal Object Id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx are not valid`
+
 
 ## Next steps
 

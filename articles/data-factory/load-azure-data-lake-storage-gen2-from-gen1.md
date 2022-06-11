@@ -28,17 +28,17 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Azure Data Lake Storage Gen1 account with data in it.
-* Azure Storage account with Data Lake Storage Gen2 enabled. If you don't have a Storage account, [create an account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
+* Azure Storage account with Data Lake Storage Gen2 enabled. If you don't have a Storage account, [create an account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 
 ## Create a data factory
 
 1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**.
    
-   ![Screenshot showing the Data Factory selection in the New pane.](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png" alt-text="Screenshot showing the Data Factory selection in the New pane.":::
 
 2. On the **New data factory** page, provide values for the fields that are shown in the following image: 
       
-   ![Screenshot showing the New Data factory page.](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
+   :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png" alt-text="Screenshot showing the New Data factory page.":::
  
     * **Name**: Enter a globally unique name for your Azure data factory. If you receive the error "Data factory name \"LoadADLSDemo\" is not available," enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. Create the data factory again. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
     * **Subscription**: Select your Azure subscription in which to create the data factory. 
@@ -57,7 +57,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 1. On the home page, select the **Ingest** tile to launch the copy data tool. 
 
-   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png )
+   :::image type="content" source="./media/doc-common-process/get-started-page.png " alt-text="Screenshot that shows the ADF home page.":::
 
 2. On the **Properties** page, choose **Built-in copy task** under **Task type**, and choose **Run once now** under **Task cadence or task schedule**, then select **Next**.
 
@@ -65,7 +65,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
     
 4. Select **Azure Data Lake Storage Gen1** from the connector gallery, and select **Continue**.
     
-    ![Screenshot showing the page of selecting the Azure Data Lake Storage Gen1 connection.](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png" alt-text="Screenshot showing the page of selecting the Azure Data Lake Storage Gen1 connection.":::
     
 5. On the **New connection (Azure Data Lake Storage Gen1)** page, follow these steps:
    1. Select your Data Lake Storage Gen1 for the account name, and specify or validate the **Tenant**.
@@ -74,7 +74,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
    > [!IMPORTANT]
    > In this walk-through, you use a managed identity for Azure resources to authenticate your Azure Data Lake Storage Gen1. To grant the managed identity the proper permissions in Azure Data Lake Storage Gen1, follow [these instructions](connector-azure-data-lake-store.md#managed-identity).
    
-   ![Screenshot showing the configuration of the Azure Data Lake Storage Gen1 connection.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
+   :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png" alt-text="Screenshot showing the configuration of the Azure Data Lake Storage Gen1 connection.":::
       
 6. On the **Source data store** page, complete the following steps. 
     1. Select the newly created connection in the **Connection** section.
@@ -85,13 +85,13 @@ This article shows you how to use the Data Factory copy data tool to copy data f
     
 7. On the **Destination data store** page, select **+ New connection** > **Azure Data Lake Storage Gen2** > **Continue**.
 
-    ![Screenshot showing the page of selecting the Azure Data Lake Storage Gen2 connection.](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page-adls-gen2.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page-adls-gen2.png" alt-text="Screenshot showing the page of selecting the Azure Data Lake Storage Gen2 connection.":::
 
 8. On the **New connection (Azure Data Lake Storage Gen2)** page, follow these steps:
    1. Select your Data Lake Storage Gen2 capable account from the **Storage account name** drop-down list.
    1. Select **Create** to create the connection. 
 
-   ![Screenshot showing the configuration of the Azure Data Lake Storage Gen2 connection.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
+   :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png" alt-text="Screenshot showing the configuration of the Azure Data Lake Storage Gen2 connection.":::
 
 9. On the **Destination data store** page, complete the following steps. 
     1. Select the newly created connection in the **Connection** block. 
@@ -104,19 +104,19 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 11. On the **Summary** page, review the settings, and select **Next**.
 
-    ![Screenshot showing the Summary page.](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png" alt-text="Screenshot showing the Summary page.":::
 
 12. On the **Deployment page**, select **Monitor** to monitor the pipeline.
 
-    ![Screenshot showing the Deployment page.](./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png" alt-text="Screenshot showing the Deployment page.":::
 
 13. Notice that the **Monitor** tab on the left is automatically selected. The **Pipeline name** column includes links to view activity run details and to rerun the pipeline.
 
-    ![Screenshot showing the page of monitoring pipeline runs.](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png" alt-text="Screenshot showing the page of monitoring pipeline runs.":::
 
 14. To view activity runs that are associated with the pipeline run, select the link in the **Pipeline name** column. There's only one activity (copy activity) in the pipeline, so you see only one entry. To switch back to the pipeline runs view, select the **All pipeline runs** link in the breadcrumb menu at the top. Select **Refresh** to refresh the list. 
 
-    ![Screenshot showing the page of monitoring activity runs.](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png" alt-text="Screenshot showing the page of monitoring activity runs.":::
 
 15. To monitor the execution details for each copy activity, select the **Details** link (eyeglasses image) under the **Activity name** column in the activity monitoring view. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configurations.
 

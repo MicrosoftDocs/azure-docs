@@ -120,7 +120,7 @@ After you re-enable GRS for your storage account, Microsoft begins replicating t
 - The available resources for background replication, such as CPU, memory, disk, and WAN capacity. Live traffic takes priority over geo replication.
 - If using Blob storage, the number of snapshots per blob.
 - If using Table storage, the [data partitioning strategy](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage). The replication process can't scale beyond the number of partition keys that you use.
-  
+
 ## Next steps
 
 - [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md)

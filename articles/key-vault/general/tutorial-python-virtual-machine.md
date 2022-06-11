@@ -1,14 +1,13 @@
 ---
 title: Tutorial - Use Azure Key Vault with a virtual machine in Python | Microsoft Docs
 description: In this tutorial, you configure a virtual machine a Python application to read a secret from your key vault.
-services: key-vault
 author: msmbaldwin
-
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
+ms.devlang: python
 ms.custom: mvc, devx-track-python, devx-track-azurecli
 
 # Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
@@ -80,7 +79,7 @@ Note the value of `publicIpAddress` in the output.
 
 ## Assign an identity to the VM
 
-Create a system-assigned identity for the virtual machine by using the Azure CLI [az vm identity assign](/cli/azure/vm/identity#az_vm_identity_assign) command:
+Create a system-assigned identity for the virtual machine by using the Azure CLI [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) command:
 
 ```azurecli
 az vm identity assign --name "myVM" --resource-group "myResourceGroup"
@@ -108,7 +107,7 @@ az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<system
 To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Linux](../../virtual-machines/linux/login-using-aad.md) or [Connect and sign in to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md).
 
 
-To log into a Linux VM, you can use the ssh command with the "<publicIpAddress>" given in the [Create a virtual machine](#create-a-virtual-machine) step:
+To log into a Linux VM, you can use the ssh command with the \<publicIpAddress\> given in the [Create a virtual machine](#create-a-virtual-machine) step:
 
 ```terminal
 ssh azureuser@<PublicIpAddress>
@@ -128,7 +127,7 @@ pip3 install azure.identity
 
 ## Create and edit the sample Python script
 
-On the virtual machine, create a Python file called **sample.py**. Edit the file to contain the following code, replacing "<your-unique-keyvault-name>" with the name of your key vault:
+On the virtual machine, create a Python file called **sample.py**. Edit the file to contain the following code, replacing \<your-unique-keyvault-name\> with the name of your key vault:
 
 ```python
 from azure.keyvault.secrets import SecretClient

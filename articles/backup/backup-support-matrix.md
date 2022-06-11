@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 06/08/2022
 ms.custom: references_regions 
 ---
 
@@ -34,7 +34,7 @@ The following table describes the features of Recovery Services vaults:
 **Move vaults** | You can [move vaults](./backup-azure-move-recovery-services-vault.md) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn't supported.
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
-**Zone-redundant storage (ZRS)** | Supported in preview in UK South, South East Asia, Australia East, North Europe, Central US, East US 2, Brazil South and Japan East.
+**Zone-redundant storage (ZRS)** | Supported in preview in UK South, South East Asia, Australia East, North Europe, Central US, East US 2, Brazil South, South Central US, Korea Central, Norway East, France Central, West Europe, East Asia, Sweden Central, Canada Central, India Central, South Africa North, West US 2, Japan East, East US, US Gov Virginia and West US 3.
 **Private Endpoints** | See [this section](./private-endpoints.md#before-you-start) for requirements to create private endpoints for a recovery service vault.  
 
 ## On-premises backup support
@@ -43,7 +43,7 @@ Here's what's supported if you want to back up on-premises machines:
 
 **Machine** | **What's backed up** | **Location** | **Features**
 --- | --- | --- | ---
-**Direct backup of Windows machine with MARS agent** | Files, folders, system state | Back up to Recovery Services vault. | Back up three times a day<br/><br/> No app-aware backup<br/><br/> Restore file, folder, volume
+**Direct backup of Windows machine with MARS agent** | - Files, folders <br><br> - System state | Back up to Recovery Services vault. | - Back up three times a day<br/><br/> - Back up once a day. <br><br> No app-aware backup<br/><br/> Restore file, folder, volume
 **Direct backup of Linux machine with MARS agent** | Backup not supported
 **Back up to DPM** | Files, folders, volumes, system state, app data | Back up to local DPM storage. DPM then backs up to vault. | App-aware snapshots<br/><br/> Full granularity for backup and recovery<br/><br/> Linux supported for VMs (Hyper-V/VMware)<br/><br/> Oracle not supported
 **Back up to MABS** | Files, folders, volumes, system state, app data | Back up to MABS local storage. MABS then backs up to the vault. | App-aware snapshots<br/><br/> Full granularity for backup and recovery<br/><br/> Linux supported for VMs (Hyper-V/VMware)<br/><br/> Oracle not supported
@@ -64,7 +64,7 @@ Here's what's supported if you want to back up Azure VMs:
 **Machine** | **What's backed up** | **Location** | **Features**
 --- | --- | --- | ---
 **Azure VM backup by using VM extension** | Entire VM | Back up to vault. | Extension installed when you enable backup for a VM.<br/><br/> Back up once a day.<br/><br/> App-aware backup for Windows VMs; file-consistent backup for Linux VMs. You can configure app-consistency for Linux machines by using custom scripts.<br/><br/> Restore VM or disk.<br/><br/>[Backup and restore of Active Directory domain controllers](active-directory-backup-restore.md) is supported.<br><br> Can't back up an Azure VM to an on-premises location.
-**Azure VM backup by using MARS agent** | Files, folders, system state | Back up to vault. | Back up three times a day.<br/><br/> If you want to back up specific files or folders rather than the entire VM, the MARS agent can run alongside the VM extension.
+**Azure VM backup by using MARS agent** | - Files, folders <br><br> - System state | Back up to vault. | - Back up three times a day. <br><br> - Back up once a day. <br/><br/> If you want to back up specific files or folders rather than the entire VM, the MARS agent can run alongside the VM extension.
 **Azure VM with DPM** | Files, folders, volumes, system state, app data | Back up to local storage of Azure VM that's running DPM. DPM then backs up to vault. | App-aware snapshots.<br/><br/> Full granularity for backup and recovery.<br/><br/> Linux supported for VMs (Hyper-V/VMware).<br/><br/> Oracle not supported.
 **Azure VM with MABS** | Files, folders, volumes, system state, app data | Back up to local storage of Azure VM that's running MABS. MABS then backs up to the vault. | App-aware snapshots.<br/><br/> Full granularity for backup and recovery.<br/><br/> Linux supported for VMs (Hyper-V/VMware).<br/><br/> Oracle not supported.
 
@@ -146,8 +146,8 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Supported for Azure VMs (including encrypted Azure VMs) with both managed and unmanaged disks. Not supported for classic VMs. | Available in all Azure public regions and sovereign regions, except for UG IOWA and UG Virginia. |
-| SQL /SAP HANA | Available      | Available in all Azure public regions and sovereign regions, except for France Central, UG IOWA, and UG Virginia. |
+| Azure VM               | Supported for Azure VMs (including encrypted Azure VMs) with both managed and unmanaged disks. Not supported for classic VMs. | Available in all Azure public regions and sovereign regions, except for UG IOWA. |
+| SQL /SAP HANA | Available      | Available in all Azure public regions and sovereign regions, except for France Central and UG IOWA. |
 | MARS Agent/On premises  | No                                                           | N/A               |
 | AFS (Azure file shares)                 | No                                                           | N/A               |
 
@@ -155,10 +155,10 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 
 The resource health check functions in following conditions:
 
-|     |     |
+| Resource health check    | Details    |
 | --- | --- |
 | **Supported Resources** | Recovery Services vault |
-| **Supported Regions** | East US 2, Central US, North Europe, France Central, East Asia, Japan East, Japan West, Australia East, South Africa North. |
+| **Supported Regions** | East US, East US 2, Central US, South Central US, North Central US, West Central US, West US, West US 2, West US 3, Canada East, Canada Central, North Europe, West Europe, UK West, UK South, France Central, France South, Sweden Central, Sweden South, East Asia, South East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia Central, Australia Central 2, Australia South East, South Africa North, South Africa West, UAE North, UAE Central, Brazil South East, Brazil South, Switzerland North, Switzerland West, Norway East, Norway West, Germany North, Germany West Central, West India, Central India, South India, Jio India West, Jio India Central. |
 | **For unsupported regions** | The resource health status is shown as "Unknown". |
 
 

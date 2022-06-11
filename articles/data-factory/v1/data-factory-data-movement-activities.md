@@ -1,11 +1,12 @@
 ---
 title: Move data by using Copy Activity 
 description: 'Learn about data movement in Data Factory pipelines: data migration between cloud stores, and between an on-premises store and a cloud store. Use Copy Activity.'
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 12/05/2017
-ms.author: jingwang
+ms.date: 10/22/2021
+ms.author: jianleishen
 robots: noindex
 ---
 # Move data by using Copy Activity
@@ -19,7 +20,7 @@ robots: noindex
 ## Overview
 In Azure Data Factory, you can use Copy Activity to copy data between on-premises and cloud data stores. After the data is copied, it can be further transformed and analyzed. You can also use Copy Activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
 
-![Role of Copy Activity](media/data-factory-data-movement-activities/copy-activity.png)
+:::image type="content" source="media/data-factory-data-movement-activities/copy-activity.png" alt-text="Role of Copy Activity":::
 
 Copy Activity is powered by a secure, reliable, scalable, and [globally available service](#global). This article provides details on data movement in Data Factory and Copy Activity.
 
@@ -39,14 +40,14 @@ When both source and sink data stores are in the cloud, Copy Activity goes throu
 
 The service automatically chooses the optimal region to perform the data movement. This region is usually the one closest to the sink data store.
 
-![Cloud-to-cloud copy](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
+:::image type="content" source="./media/data-factory-data-movement-activities/cloud-to-cloud.png" alt-text="Cloud-to-cloud copy":::
 
 ### Copy data between an on-premises data store and a cloud data store
 To securely move data between an on-premises data store and a cloud data store, install Data Management Gateway on your on-premises machine. Data Management Gateway is an agent that enables hybrid data movement and processing. You can install it on the same machine as the data store itself, or on a separate machine that has access to the data store.
 
 In this scenario, Data Management Gateway performs the serialization/deserialization, compression/decompression, column mapping, and type conversion. Data does not flow through the Azure Data Factory service. Instead, Data Management Gateway directly writes the data to the destination store.
 
-![On-premises-to-cloud copy](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
+:::image type="content" source="./media/data-factory-data-movement-activities/onprem-to-cloud.png" alt-text="On-premises-to-cloud copy":::
 
 See [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud.md) for an introduction and walkthrough. See [Data Management Gateway](data-factory-data-management-gateway.md) for detailed information about this agent.
 

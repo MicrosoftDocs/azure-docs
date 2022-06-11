@@ -4,16 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Learn how to assess and mitigate the fairness of your machine learning models using Fairlearn and the Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: mesameki
 author: mesameki
-ms.reviewer: luquinta
-ms.date: 11/16/2020
+ms.reviewer: ssalgado
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, responsible-ml
+ms.custom: devx-track-python, responsible-ml, sdkv1, event-tier1-build-2022
 ---
 
 # Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models (preview)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this how-to guide, you will learn to use the [Fairlearn](https://fairlearn.github.io/) open-source Python package with Azure Machine Learning to perform the following tasks:
 
@@ -124,8 +126,7 @@ The following example shows how to use the fairness package. We will upload mode
 
     # (Optional) View this model in the fairness dashboard, and see the disparities which appear:
     from raiwidgets import FairnessDashboard
-    FairnessDashboard(sensitive_features=A_test, 
-                      sensitive_feature_names=['Race', 'Sex'],
+    FairnessDashboard(sensitive_features=A_test,
                       y_true=y_test,
                       y_pred={"lr_model": lr_predictor.predict(X_test)})
     ```
@@ -279,8 +280,7 @@ To compare multiple models and see how their fairness assessments differ, you ca
 
     from raiwidgets import FairnessDashboard
 
-    FairnessDashboard(sensitive_features=A_test, 
-                      sensitive_feature_names=['Race', 'Sex'],
+    FairnessDashboard(sensitive_features=A_test,
                       y_true=y_test.tolist(),
                       y_pred=ys_pred)
     ```

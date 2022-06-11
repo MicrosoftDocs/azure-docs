@@ -4,11 +4,11 @@ description: Learn how to create a MongoDB app with React and Node.js on Azure C
 author: johnpapa
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: jopapa
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.custom: devx-track-js
 ---
 # Create a MongoDB app with React and Azure Cosmos DB  

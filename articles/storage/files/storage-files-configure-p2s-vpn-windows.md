@@ -1,11 +1,11 @@
 ---
 title: Configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files | Microsoft Docs
 description: How to configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/19/2019
-ms.author: rogarana
+ms.date: 05/27/2022
+ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
 ---
@@ -31,8 +31,10 @@ The article details the steps to configure a Point-to-Site VPN on Windows (Windo
 
 - A virtual network with a private endpoint for the storage account containing the Azure file share you want to mount on-premises. To learn more about how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-powershell). 
 
+- A [gateway subnet](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub) must be created on the virtual network.
+
 ## Collect environment information
-In order to set up the point-to-site VPN, we first need to collect some information about your environment for use throughout the guide. See the [prerequisites](#prerequisites) section if you have not already created a storage account, virtual network, and/or private endpoints.
+In order to set up the point-to-site VPN, we first need to collect some information about your environment for use throughout the guide. See the [prerequisites](#prerequisites) section if you have not already created a storage account, virtual network, gateway subnet, and/or private endpoints.
 
 Remember to replace `<resource-group>`, `<vnet-name>`, `<subnet-name>`, and `<storage-account-name>` with the appropriate values for your environment.
 
@@ -118,9 +120,14 @@ foreach($line in $rawRootCertificate) {
 ```
 
 ## Deploy virtual network gateway
-The Azure virtual network gateway is the service that your on-premises Windows machines will connect to. Deploying this service requires two basic components: a public IP that will identify the gateway to your clients wherever they are in the world and a root certificate you created earlier which will be used to authenticate your clients.
+The Azure virtual network gateway is the service that your on-premises Windows machines will connect to. Before deploying the virtual network gateway, a [gateway subnet](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub) must be created on the virtual network.
 
-Remember to replace `<desired-vpn-name-here>` with the name you would like for these resources.
+Deploying this service requires two basic components:
+
+1. A public IP address that will identify the gateway to your clients wherever they are in the world
+2. The root certificate you created earlier, which will be used to authenticate your clients
+
+Remember to replace `<desired-vpn-name-here>` and `<desired-region-here>` in the below script with the proper values for these variables.
 
 > [!Note]  
 > Deploying the Azure virtual network gateway can take up to 45 minutes. While this resource is being deployed, this PowerShell script will block for the deployment to be completed. This is expected.
@@ -128,6 +135,7 @@ Remember to replace `<desired-vpn-name-here>` with the name you would like for t
 ```PowerShell
 $vpnName = "<desired-vpn-name-here>" 
 $publicIpAddressName = "$vpnName-PublicIP"
+$region = "<desired-region-here>"
 
 $publicIPAddress = New-AzPublicIpAddress `
     -ResourceGroupName $resourceGroupName `
@@ -328,6 +336,65 @@ Invoke-Command `
     }
 ```
 
+## Rotate VPN Root Certificate
+If a root certificate needs to be rotated due to expiration or new requirements, you can add a new root certificate to the existing virtual network gateway without the need for redeploying the virtual network gateway.  Once the root certificate is added using the following sample script, you will need to re-create [VPN client certificate](#create-client-certificate).  
+
+Replace `<resource-group-name>`, `<desired-vpn-name-here>`, and `<new-root-cert-name>` with your own values, then run the script.
+
+```PowerShell
+#Creating the new Root Certificate
+$ResourceGroupName = "<resource-group-name>"
+$vpnName = "<desired-vpn-name-here>"
+$NewRootCertName = "<new-root-cert-name>"
+
+$rootcertname = "CN=$NewRootCertName"
+$certLocation = "Cert:\CurrentUser\My"
+$date = get-date -Format "MM_yyyy"
+$vpnTemp = "C:\vpn-temp_$date\"
+$exportedencodedrootcertpath = $vpnTemp + "P2SRootCertencoded.cer"
+$exportedrootcertpath = $vpnTemp + "P2SRootCert.cer"
+
+if (-Not (Test-Path $vpnTemp)) {
+    New-Item -ItemType Directory -Force -Path $vpnTemp | Out-Null
+}
+
+$rootcert = New-SelfSignedCertificate `
+    -Type Custom `
+    -KeySpec Signature `
+    -Subject $rootcertname `
+    -KeyExportPolicy Exportable `
+    -HashAlgorithm sha256 `
+    -KeyLength 2048 `
+    -CertStoreLocation $certLocation `
+    -KeyUsageProperty Sign `
+    -KeyUsage CertSign
+
+Export-Certificate `
+    -Cert $rootcert `
+    -FilePath $exportedencodedrootcertpath `
+    -NoClobber | Out-Null
+
+certutil -encode $exportedencodedrootcertpath $exportedrootcertpath | Out-Null
+
+$rawRootCertificate = Get-Content -Path $exportedrootcertpath
+
+[System.String]$rootCertificate = ""
+foreach($line in $rawRootCertificate) { 
+    if ($line -notlike "*Certificate*") { 
+        $rootCertificate += $line 
+    } 
+}
+
+#Fetching gateway details and adding the newly created Root Certificate.
+$gateway = Get-AzVirtualNetworkGateway -Name $vpnName -ResourceGroupName $ResourceGroupName
+
+Add-AzVpnClientRootCertificate `
+    -PublicCertData $rootCertificate `
+    -ResourceGroupName $ResourceGroupName `
+    -VirtualNetworkGatewayName $gateway `
+    -VpnClientRootCertificateName $NewRootCertName
+
+```
 ## See also
 - [Networking considerations for direct Azure file share access](storage-files-networking-overview.md)
 - [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)

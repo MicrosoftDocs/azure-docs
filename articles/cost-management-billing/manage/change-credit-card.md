@@ -2,36 +2,44 @@
 title:  Change your credit card for Azure
 description: Describes how to change the credit card used to pay for an Azure subscription.
 author: bandersmsft
-ms.reviewer: judupont
+ms.reviewer: lishepar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/27/2021
+ms.date: 03/11/2022
 ms.author: banders
 ---
 
-# Add or update a credit card for Azure
+# Add or update a credit card
 
 This document applies to customers who signed up for Azure online with a credit card.
 
-In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. You must be an [Account Administrator](../understand/subscription-transfer.md#whoisaa) or you must have the correct [MCA permissions](understand-mca-roles.md) to make these changes. You can also replace your current credit card for all subscriptions.
+In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. 
+
+- For a Microsoft Online Service Program (pay-as-you-go) account, you must be an [Account Administrator](add-change-subscription-administrator.md#whoisaa). 
+- For a Microsoft Customer Agreement, you must have the correct [MCA permissions](understand-mca-roles.md) to make these changes.
 
 If you want to a delete credit card, see [Delete an Azure billing payment method](delete-azure-payment-method.md).
 
-The supported payment methods for Microsoft Azure are credit cards and check/wire transfer. To get approved to pay by check/wire transfer, see [Pay for Azure subscriptions by invoice](pay-by-invoice.md).
-
-With a Microsoft Customer Agreement, your payment methods are associated with billing profiles. Learn how to [check access to a Microsoft Customer Agreement](#check-the-type-of-your-account). If you have an MCA, skip to [manage credit cards for a Microsoft Customer Agreement](#manage-credit-cards-for-a-microsoft-customer-agreement).
+The supported payment methods for Microsoft Azure are credit cards, debit cards, and check wire transfer. To get approved to pay by check wire transfer, see [Pay for your Azure subscription by check or wire transfer](pay-by-invoice.md).
 
 >[!NOTE]
-> When you create a new subscription, you can specify a new credit card. When you do so, no other subscriptions get associated with the new credit card. However, if you later make any of the following changes, *all subscriptions* will use the payment method you select.
-  >- Make a payment method active with the **Set active** option
-  >- Use the **Replace** payment option for any subscription
-  >- Change the default payment method
+> Credit cards are accepted and debit cards are accepted by most countries or regions. However, Hong Kong and Brazil only support credit cards.
+
+With a Microsoft Customer Agreement, your payment methods are associated with billing profiles. Learn how to [check access to a Microsoft Customer Agreement](#check-the-type-of-your-account).
+
+When you create a new subscription, you can specify a new credit card. When you do so, no other subscriptions get associated with the new credit card. However, if you later make any of the following changes, *all subscriptions* will use the payment method you select.
+  - Make a payment method active with the **Set active** option
+  - Use the **Replace** payment option for any subscription
+  - Change the default payment method
+
+> [!NOTE]
+> The Reserve Bank of India has new regulations, [Tokenisation – Card Transactions: Permitting Card-on-File Tokenisation (CoFT) Services](https://rbi.org.in/Scripts/BS_CircularIndexDisplay.aspx?Id=12159), for storing credit card information that may affect credit card users in India. To summarize, customers in India can't store credit card information in Azure for recurring charges. Instead, they must enter their credit card information each time they want to pay for Azure services. For more information, see [Reserve Bank of India](../understand/pay-bill.md#reserve-bank-of-india).
 
 <a id="addcard"></a>
 
-## Manage credit cards for an Azure subscription
+## Manage pay-as-you-go credit cards
 
 The following sections apply to customers who have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Services Program, payment methods are associated with individual Azure subscriptions. If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](./troubleshoot-declined-card.md).
 
@@ -85,7 +93,7 @@ If your credit card gets renewed and the number stays the same, update the exist
 1. Update the credit card details.
 1. Select **Next**.
 
-## Manage credit cards for a Microsoft Customer Agreement
+## Manage Microsoft Customer Agreement credit cards
 
 The following sections apply to customers who have a Microsoft Customer Agreement and signed up for Azure online with a credit card and to those that have the correct [MCA permissions](understand-mca-roles.md). [Learn how to check if you have a Microsoft Customer Agreement](#check-the-type-of-your-account).
 
@@ -93,7 +101,7 @@ The following sections apply to customers who have a Microsoft Customer Agreemen
 
 If you have a Microsoft Customer Agreement, your credit card is associated with a billing profile. To change the payment method for a billing profile, you must be the person who signed up for Azure and created the billing account or you must have the correct [MCA permissions](understand-mca-roles.md).
 
-If you'd like to change your billing profile's default payment method to check/wire transfer, see [Pay for Azure subscriptions by invoice](pay-by-invoice.md).
+If you'd like to change your billing profile's default payment method to check wire transfer, see [Pay for Azure subscriptions by invoice](pay-by-invoice.md).
 
 To change your credit card, follow these steps:
 

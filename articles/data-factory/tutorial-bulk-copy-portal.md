@@ -34,7 +34,7 @@ This tutorial uses Azure portal. To learn about using other tools/SDKs to create
 ## End-to-end workflow
 In this scenario, you have a number of tables in Azure SQL Database that you want to copy to Azure Synapse Analytics. Here is the logical sequence of steps in the workflow that happens in pipelines:
 
-![Workflow](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
+:::image type="content" source="media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png" alt-text="Workflow":::
 
 * The first pipeline looks up the list of tables that needs to be copied over to the sink data stores.  Alternatively you can maintain a metadata table that lists all the tables to be copied to the sink data store. Then, the pipeline triggers another pipeline, which iterates over each table in the database and performs the data copy operation.
 * The second pipeline performs the actual copy. It takes the list of tables as a parameter. For each table in the list, copy the specific table in Azure SQL Database to the corresponding table in Azure Synapse Analytics using [staged copy via Blob storage and PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) for best performance. In this example, the first pipeline passes the list of tables as a value for the parameter. 
@@ -43,7 +43,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 * **Azure Storage account**. The Azure Storage account is used as staging blob storage in the bulk copy operation. 
-* **Azure SQL Database**. This database contains the source data. Create a database in SQL Database with Adventure Works LT sample data following [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to an Azure Synapse Analytics.
+* **Azure SQL Database**. This database contains the source data. Create a database in SQL Database with Adventure Works LT sample data following [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) article. This tutorial copies all the tables from this sample database to an Azure Synapse Analytics.
 * **Azure Synapse Analytics**. This data warehouse holds the data copied over from the SQL Database. If you don't have an Azure Synapse Analytics workspace, see the [Get started with Azure Synapse Analytics](..\synapse-analytics\get-started.md) article for steps to create one.
 
 ## Azure services to access SQL server
@@ -58,7 +58,7 @@ To verify and turn on this setting, go to your server > Security > Firewalls and
 1. Go to the [Azure portal](https://portal.azure.com). 
 1. On the left of the Azure portal menu, select **Create a resource** > **Integration** > **Data Factory**. 
 
-   ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 1. On the **New data factory** page, enter **ADFTutorialBulkCopyDF** for **name**. 
  
    The name of the Azure data factory must be **globally unique**. If you see the following error for the name field, change the name of the data factory (for example, yournameADFTutorialBulkCopyDF). See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
@@ -159,7 +159,7 @@ In this tutorial, the source and destination SQL tables are not hard-coded in th
 
 1. Select the **+** (plus) in the left pane, and then select **Dataset**. 
 
-    ![New dataset menu](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/new-dataset-menu.png" alt-text="New dataset menu":::
 1. In the **New Dataset** window, select **Azure SQL Database**, and then click **Continue**. 
     
 1. In the **Set properties** window, under **Name**, enter **AzureSqlDatabaseDataset**. Under **Linked service**, select **AzureSqlDatabaseLinkedService**. Then click **OK**.
@@ -177,7 +177,7 @@ In this tutorial, the source and destination SQL tables are not hard-coded in th
 
     1. For **Table**, check the **Edit** option. Select into the first input box and click the **Add dynamic content** link below. In the **Add Dynamic Content** page, click the **DWSchema** under **Parameters**, which will automatically populate the top expression text box `@dataset().DWSchema`, and then click **Finish**.  
     
-        ![Dataset connection tablename](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
+        :::image type="content" source="./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png" alt-text="Dataset connection tablename":::
 
     1. Select into the second input box and click the **Add dynamic content** link below. In the **Add Dynamic Content** page, click the **DWTAbleName** under **Parameters**, which will automatically populate the top expression text box `@dataset().DWTableName`, and then click **Finish**. 
     
@@ -198,7 +198,7 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
 
 1. In the left pane, click **+ (plus)**, and click **Pipeline**.
 
-    ![New pipeline menu](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/new-pipeline-menu.png" alt-text="New pipeline menu":::
  
 1. In the General panel under **Properties**, specify **IterateAndCopySQLTables** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
@@ -218,15 +218,15 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
 
     c. In the **Add Dynamic Content** page, collapse the **System Variables** and **Functions** sections, click the **tableList** under **Parameters**, which will automatically populate the top expression text box as `@pipeline().parameter.tableList`. Then click **Finish**. 
 
-    ![Foreach parameter builder](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png" alt-text="Foreach parameter builder":::
     
     d. Switch to **Activities** tab, click the **pencil icon** to add a child activity to the **ForEach** activity.
     
-    ![Foreach activity builder](./media/tutorial-bulk-copy-portal/for-each-activity-builder.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/for-each-activity-builder.png" alt-text="Foreach activity builder":::
 
 1. In the **Activities** toolbox, expand **Move & Transfer**, and drag-drop **Copy data** activity into the pipeline designer surface. Notice the breadcrumb menu at the top. The **IterateAndCopySQLTable** is the pipeline name and **IterateSQLTables** is the ForEach activity name. The designer is in the activity scope. To switch back to the pipeline editor from the ForEach editor, you can click the link in the breadcrumb menu. 
 
-    ![Copy in ForEach](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/copy-in-for-each.png" alt-text="Copy in ForEach":::
 
 1. Switch to the **Source** tab, and do the following steps:
 
@@ -252,7 +252,7 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
         IF EXISTS (SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]) TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
 
-        ![Copy sink settings](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
+        :::image type="content" source="./media/tutorial-bulk-copy-portal/copy-sink-settings.png" alt-text="Copy sink settings":::
 
 1. Switch to the **Settings** tab, and do the following steps: 
 
@@ -289,12 +289,12 @@ Here are the steps to create the pipeline:
         ```
     1. Clear the checkbox for the **First row only** field.
 
-        ![Lookup activity - settings page](./media/tutorial-bulk-copy-portal/lookup-settings-page.png)
+        :::image type="content" source="./media/tutorial-bulk-copy-portal/lookup-settings-page.png" alt-text="Lookup activity - settings page":::
 1. Drag-drop **Execute Pipeline** activity from the Activities toolbox to the pipeline designer surface, and set the name to **TriggerCopy**.
 
 1. To **Connect** the **Lookup** activity to the **Execute Pipeline** activity, drag the **green box** attached to the Lookup activity to the left of Execute Pipeline activity.
 
-    ![Connect Lookup and Execute Pipeline activities](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png" alt-text="Connect Lookup and Execute Pipeline activities":::
 
 1. Switch to the **Settings** tab of **Execute Pipeline** activity, and do the following steps: 
 
@@ -302,7 +302,7 @@ Here are the steps to create the pipeline:
     1. Clear the checkbox for **Wait on completion**.
     1. In the **Parameters** section, click the input box under VALUE -> select the **Add dynamic content** below -> enter `@activity('LookupTableList').output.value` as table name value -> select **Finish**. You're setting the result list from the Lookup activity as an input to the second pipeline. The result list contains the list of tables whose data needs to be copied to the destination. 
 
-        ![Execute pipeline activity - settings page](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
+        :::image type="content" source="./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png" alt-text="Execute pipeline activity - settings page":::
 
 1. To validate the pipeline, click **Validate** on the toolbar. Confirm that there are no validation errors. To close the **Pipeline Validation Report**, click **>>**.
 
@@ -319,7 +319,7 @@ Here are the steps to create the pipeline:
 1. Switch to the **Monitor** tab. Click **Refresh** until you see runs for both the pipelines in your solution. Continue refreshing the list until you see the **Succeeded** status. 
 
 1. To view activity runs associated with the **GetTableListAndTriggerCopyData** pipeline, click the pipeline name link for the pipeline. You should see two activity runs for this pipeline run. 
-    ![Monitor Pipeline run](./media/tutorial-bulk-copy-portal/monitor-pipeline.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/monitor-pipeline.png" alt-text="Monitor Pipeline run":::
 1. To view the output of the **Lookup** activity, click the **Output** link next to the activity under the **ACTIVITY NAME** column. You can maximize and restore the **Output** window. After reviewing, click **X** to close the **Output** window.
 
     ```json

@@ -1,23 +1,22 @@
 ---
 title: Quickstart to create an Azure IoT Edge device on Windows | Microsoft Docs
 description: In this quickstart, learn how to create an IoT Edge device and then deploy prebuilt code remotely from the Azure portal.
-author: kgremban
+author: PatAltimore
 manager: lizross
-ms.author: kgremban
+ms.author: patricka
 ms.reviewer: fcabrera
-ms.date: 06/18/2021
+ms.date: 01/25/2022
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc, devx-track-azurecli
-monikerRange: "=iotedge-2018-06"
+ms.custom: mvc, devx-track-azurecli, mode-other
 ---
 
 # Quickstart: Deploy your first IoT Edge module to a Windows device
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Try out Azure IoT Edge in this quickstart by deploying containerized code to a Linux on Windows IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using your own device to see how easy it is to use Azure IoT Edge for Linux on Windows.
+Try out Azure IoT Edge in this quickstart by deploying containerized code to a Linux on Windows IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using your own Windows Client device to see how easy it is to use Azure IoT Edge for Linux on Windows. If you wish to use Windows Server or an Azure VM to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md).
 
 In this quickstart, you'll learn how to:
 
@@ -46,17 +45,20 @@ Create a cloud resource group to manage all the resources you'll use in this qui
 
 Make sure your IoT Edge device meets the following requirements:
 
-* Editions
-  * Windows 10 version 1809 or later; build 17763 or later
-    * Professional, Enterprise, IoT Enterprise
-  * Windows Server 2019 build 17763 or later
+* System Requirements
+   * Windows 10<sup>1</sup>/11 (Pro, Enterprise, IoT Enterprise)
+   <sub><sup>1</sup> Windows 10 minimum build 17763 with all current cumulative updates installed.</sub>
 
 * Hardware requirements
   * Minimum Free Memory: 1 GB
   * Minimum Free Disk Space: 10 GB
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 >[!NOTE]
->This quickstart uses PowerShell to create a deployment of IoT Edge for Linux on Windows. You can also use Windows Admin Center. If you wish to use Windows Admin Center to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md?tabs=windowsadmincenter).
+>This quickstart uses PowerShell to create a deployment of IoT Edge for Linux on Windows. You can also use Windows Admin Center. If you wish to use Windows Admin Center to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md?tabs=windowsadmincenter).
+:::moniker-end
+<!-- end 1.1 -->
 
 ## Create an IoT hub
 
@@ -110,13 +112,41 @@ Install IoT Edge for Linux on Windows on your device, and configure it with the 
 
 Run the following PowerShell commands on the target device where you want to deploy Azure IoT Edge for Linux on Windows. To deploy to a remote target device using PowerShell, use [Remote PowerShell](/powershell/module/microsoft.powershell.core/about/about_remote) to establish a connection to a remote device and run these commands remotely on that device.
 
+1. In an elevated PowerShell session, run the following command to enable Hyper-V. For more information, check [Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
+
+   ```powershell
+   Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+   ```
+
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
 
+      <!-- 1.1 -->
+   :::moniker range="iotedge-2018-06"
    ```powershell
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
    ​Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
    ```
+   :::moniker-end
+   <!-- end 1.1 -->
+
+   <!-- 1.2 -->
+   :::moniker range=">=iotedge-2020-11"
+      * **X64/AMD64**
+         ```powershell
+         $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+         $ProgressPreference = 'SilentlyContinue'
+         Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-X64" -OutFile $msiPath
+         ```
+
+      * **ARM64**
+         ```powershell
+         $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+         $ProgressPreference = 'SilentlyContinue'
+         Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-ARM64" -OutFile $msiPath
+         ```
+   :::moniker-end
+   <!-- end 1.2 -->
 
 1. Install IoT Edge for Linux on Windows on your device.
 
@@ -146,7 +176,7 @@ Run the following PowerShell commands on the target device where you want to dep
 
 1. Enter 'O' or 'R' to toggle **Optional diagnostic data** on or off, depending on your preference. A successful deployment is pictured below.
 
-   ![A successful deployment will say 'Deployment successful' at the end of the messages](./media/how-to-install-iot-edge-on-windows/successful-powershell-deployment-2.png)
+   ![A successful deployment will say 'Deployment successful' at the end of the messages](./media/quickstart/successful-powershell-deployment.png)
 
 1. Provision your device using the device connection string that you retrieved in the previous section. Replace the placeholder text with your own value.
 
@@ -176,7 +206,7 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to your IoT hub.
 
-1. From the menu on the left, under **Automatic Device Management**, select **IoT Edge**.
+1. From the menu on the left, under **Device Management**, select **IoT Edge**.
 
 1. Select the device ID of the target device from the list of devices.
 
@@ -274,16 +304,8 @@ You can confirm that the resource group is removed by using this command to view
 az group list
 ```
 
-### Remove Azure IoT Edge for Linux on Windows
-
-Use the dashboard extension in Windows Admin Center to uninstall Azure IoT Edge for Linux on Windows.
-
-1. Connect to the IoT Edge device in Windows Admin Center. The Azure dashboard tool extension loads.
-
-1. Select **Uninstall**. After Azure IoT Edge is removed, Windows Admin Center removes the Azure IoT Edge device connection entry from the **Start** page.
-
->[!Note]
->Another way to remove Azure IoT Edge from your Windows system is to select **Start** > **Settings** > **Apps** > **Azure IoT Edge LTS** > **Uninstall** on your IoT Edge device. This method removes Azure IoT Edge from your IoT Edge device, but leaves the connection behind in Windows Admin Center. To complete the removal, uninstall Windows Admin Center from the **Settings** menu as well.
+<!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
+[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](../../includes/iot-edge-uninstall-linux-on-windows.md)]
 
 ## Next steps
 

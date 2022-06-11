@@ -1,11 +1,11 @@
 ### YamlMime:Landing
-title:  Flexible Server documentation
+title: Flexible Server documentation
 summary: "Azure Database for MySQL - Flexible Server is a fully managed MySQL database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MySQL leveraging the open-source tools and platform of your choice. Learn how to use Azure Database for MySQL with our quickstarts, tutorials, and samples."
-metadata: 
+metadata:
   description: "Azure Database for MySQL - Flexible Server is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition."
   author: mksuni
   ms.author: sumuth
-  ms.date: 09/21/2020
+  ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
 
@@ -16,7 +16,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Flexible Server (Preview)
+  - title: About Flexible Server
     linkLists:
       - linkListType: overview
         links:
@@ -32,12 +32,12 @@ landingContent:
         links:
           - text: Create a PHP app with flexible server
             url: tutorial-php-database-app.md
+          - text: Deploy Spring Boot app on AKS with flexible server
+            url: tutorial-deploy-springboot-on-aks-vnet.md
       - linkListType: whats-new
         links:
           - text: What's new in Flexible Server?
             url: whats-new.md
-
-
 
 # Card
   - title: Manage
@@ -61,11 +61,11 @@ landingContent:
           - text: Manage server
             url: how-to-manage-server-portal.md
           - text: Stop/Start server
-            url: how-to-stop-start-server-portal.md        
-          - text: Configure and access logs
-            url: how-to-configure-slow-query-logs-portal.md
+            url: how-to-stop-start-server-portal.md
           - text: Schedule maintenance
             url: how-to-maintenance-portal.md
+          - text: Move servers between regions
+            url: how-to-move-regions.md
 
 # Card
   - title: Business continuity
@@ -82,6 +82,8 @@ landingContent:
         links:
           - text: Restore a server
             url: how-to-restore-server-portal.md
+          - text: Restore a deleted server
+            url: how-to-restore-dropped-server.md
 
 # Card
   - title: Network and Connectivity
@@ -122,12 +124,22 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Choose the right tools for migration to Azure Database for MySQL
+            url: ../how-to-decide-on-right-migration-tools.md
+          - text: Migrate from single server to flexible server
+            url: ../howto-migrate-single-flexible-minimum-downtime.md 
           - text: Migrate online
             url: ../howto-migrate-online.md
+          - text: Migrate RDS for MySQL using Data-in replication
+            url: ../how-to-migrate-rds-mysql-data-in-replication.md
 
 # Card
   - title: Reference
     linkLists:
+      - linkListType: sample
+        links:
+          - text: Azure CLI samples
+            url: sample-scripts-azure-cli.md
       - linkListType: reference
         links:
           - text: Azure CLI developer reference

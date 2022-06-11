@@ -3,11 +3,11 @@ title: Azure Cognitive Services development options
 description: Learn how to use Azure Cognitive Services with different development and deployment options such as client libraries, REST APIs, Logic Apps, Power Automate, Azure Functions, Azure App Service, Azure Databricks, and many more.
 services: cognitive-services
 manager: nitinme
-author: erhopf
-ms.author: erhopf
+author: PatrickFarley
+ms.author: pafarley
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 10/28/2021
 ---
 
 # Cognitive Services development options
@@ -34,7 +34,6 @@ The tools that you will use to customize and configure models are different from
 
 * You can send an image to the Computer Vision service to detect words and phrases or count the number of people in the frame
 * You can send an audio file to the Speech service and get transcriptions and translate the speech to text at the same time
-* You can send a PDF to the Form Recognizer service and detect tables, cells, and text inside of those cells, and you get a JSON output with coordinates and details
 
 Azure offers a wide range of tools that are designed for different types of users, many of which can be used with Cognitive Services. Designer-driven tools are the easiest to use, and are quick to set up and automate, but may have limitations when it comes to customization. Our REST APIs and client libraries provide users with more control and flexibility, but require more effort, time, and expertise to build a solution. If you use REST APIs and client libraries, there is an expectation that you're comfortable working with modern programming languages like C#, Java, Python, JavaScript, or another popular programming language. 
 
@@ -91,7 +90,7 @@ Power Automate is a service in the [Power Platform](/power-platform/) that helps
 
 ### AI Builder 
 
-[AI Builder](/ai-builder/overview) is a Microsoft Power Platform capability you can use to improve business performance by automating processes and predicting outcomes. AI Builder brings the power of AI to your solutions through a point-and-click experience. Many cognitive services such as Form Recognizer, Text Analytics, and Computer Vision have been directly integrated here and you don't need to create your own Cognitive Services. 
+[AI Builder](/ai-builder/overview) is a Microsoft Power Platform capability you can use to improve business performance by automating processes and predicting outcomes. AI Builder brings the power of AI to your solutions through a point-and-click experience. Many cognitive services such as the Language service, and Computer Vision have been directly integrated here and you don't need to create your own Cognitive Services. 
 
 * **Target user(s)**: Business users (analysts) and SharePoint administrators
 * **Benefits**: A turnkey solution that brings the power of AI through a point-and-click experience. No coding or data science skills required.
@@ -120,8 +119,6 @@ The tools that you will use to train and configure models are different from tho
 | Pillar | Service | Customization UI | Quickstart |
 |--------|---------|------------------|------------|
 | Vision | Custom Vision | https://www.customvision.ai/ | [Quickstart](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
-| Vision | Form Recognizer | [Sample labeling tool](https://aka.ms/fott-2.1-ga) | [How-to article](./form-recognizer/label-tool.md?tabs=v2-0) |
-| Decision | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Quickstart](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | Decision | Personalizer | UI is available in the Azure portal under your Personalizer resource. | [Quickstart](./personalizer/quickstart-personalizer-sdk.md) |
 | Language | Language Understanding (LUIS) | https://www.luis.ai/ | |
 | Language | QnA Maker | https://www.qnamaker.ai/ | [Quickstart](./qnamaker/quickstarts/create-publish-knowledge-base.md) |

@@ -5,9 +5,9 @@ metadata:
   author: ssabat
   ms.author: susabat
   ms.service: data-factory
-  ms.topic: conceptual
+  ms.subservice: 
+  ms.topic: faq
   ms.date: 07/23/2021
-    
 title: Azure Data Factory FAQ
 summary: |
   [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]

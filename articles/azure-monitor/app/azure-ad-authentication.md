@@ -3,12 +3,15 @@ title: Azure AD authentication for Application Insights (Preview)
 description: Learn how to enable Azure Active Directory (Azure AD) authentication to ensure that only authenticated telemetry is ingested in your Application Insights resources.
 ms.topic: conceptual
 ms.date: 08/02/2021
-
+ms.devlang: csharp, java, javascript, python
+ms.reviewer: rijolly
 ---
+
 # Azure AD authentication for Application Insights (Preview)
+
 Application Insights now supports Azure Active Directory (Azure AD) authentication. By using Azure AD, you can ensure that only authenticated telemetry is ingested in your Application Insights resources. 
 
-Typically, using various authentication systems can be cumbersome and pose risk since it’s difficult to manage credentials at a large scale. You can now choose to opt-out of local authentication and ensure only telemetry that is exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your Application Insights resource. This feature is a step to enhance the security and reliability of the telemetry used to make both critical operational (alerting/autoscale etc.) and business decisions.
+Typically, using various authentication systems can be cumbersome and pose risk since it's difficult to manage credentials at a large scale. You can now choose to opt-out of local authentication and ensure only telemetry that is exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your Application Insights resource. This feature is a step to enhance the security and reliability of the telemetry used to make both critical operational (alerting/autoscale etc.) and business decisions.
 
 > [!IMPORTANT]
 > Azure AD authentication is currently in PREVIEW.
@@ -22,6 +25,8 @@ Below are SDKs/scenarios not supported in the Public Preview:
 - On by default Codeless monitoring (for languages) for App Service, VM/Virtual machine scale sets, Azure Functions etc.
 - [Availability tests](availability-overview.md).
 - [Profiler](profiler-overview.md).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Prerequisites to enable Azure AD authentication ingestion
 
@@ -52,7 +57,7 @@ Below are SDKs/scenarios not supported in the Public Preview:
 
 1. Follow the configuration guidance per language below.
 
-### [ASP.NET and .NET](#tab/net)
+### [.NET](#tab/net)
 
 > [!NOTE]
 > Support for Azure AD in the Application Insights .NET SDK is included starting with [version 2.18-Beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.18.0-beta3).
@@ -71,14 +76,14 @@ Below is an example of manually creating and configuring a `TelemetryConfigurati
 ```csharp
 var config = new TelemetryConfiguration
 {
-	ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/"
+    ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/"
 }
 var credential = new DefaultAzureCredential();
 config.SetAzureTokenCredential(credential);
 
 ```
 
-Below is an example of configuring the `TelemetryConfiguration` using ASP.NET Core:
+Below is an example of configuring the `TelemetryConfiguration` using .NET Core:
 ```csharp
 services.Configure<TelemetryConfiguration>(config =>
 {
@@ -87,7 +92,7 @@ services.Configure<TelemetryConfiguration>(config =>
 });
 services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
 {
-	ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/"
+    ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/"
 });
 ```
 ### [Node.js](#tab/nodejs)
@@ -105,7 +110,7 @@ import { DefaultAzureCredential } from "@azure/identity";
  
 const credential = new DefaultAzureCredential();
 appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
-appInsights.defaultClient.aadTokenCredential = credential;
+appInsights.defaultClient.config.aadTokenCredential = credential;
 
 ```
 
@@ -121,7 +126,7 @@ const credential = new ClientSecretCredential(
     "<YOUR_CLIENT_SECRET>"
   );
 appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
-appInsights.defaultClient.aadTokenCredential = credential;
+appInsights.defaultClient.config.aadTokenCredential = credential;
 
 ```
 
@@ -130,10 +135,10 @@ appInsights.defaultClient.aadTokenCredential = credential;
 > [!NOTE]
 > Support for Azure AD in the Application Insights Java agent is included starting with [Java 3.2.0-BETA](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0-BETA). 
 
-1. [Configure your application with the Java agent.](java-in-process-agent.md#quickstart)
+1. [Configure your application with the Java agent.](java-in-process-agent.md#get-started)
 
     > [!IMPORTANT]
-    > Use the full connection string which includes “IngestionEndpoint” while configuring your app with Java agent. For example `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.
+    > Use the full connection string which includes "IngestionEndpoint" while configuring your app with Java agent. For example `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.
 
     > [!NOTE]
     >  For more information about migrating from 2.X SDK to 3.X Java agent, see [Upgrading from Application Insights Java 2.x SDK](java-standalone-upgrade-from-2x.md).
@@ -169,7 +174,7 @@ Below is an example on how to configure Java agent to use user-assigned managed 
       "type": "UAMI", 
       "clientId":"<USER-ASSIGNED MANAGED IDENTITY CLIENT ID>" 
     } 
-  }	 
+  }     
 } 
 ```
 :::image type="content" source="media/azure-ad-authentication/user-assigned-managed-identity.png" alt-text="Screenshot of User-assigned managed identity." lightbox="media/azure-ad-authentication/user-assigned-managed-identity.png":::
@@ -182,12 +187,12 @@ Below is an example on how to configure Java agent to use service principal for 
 { 
   "connectionString": "App Insights Connection String with IngestionEndpoint",
    "preview": { 
-    	"authentication": { 
-      	"enabled": true, 
-      	"type": "CLIENTSECRET", 
-      	"clientId":"<YOUR CLIENT ID>", 
-      	"clientSecret":"<YOUR CLIENT SECRET>", 
-      	"tenantId":"<YOUR TENANT ID>" 
+        "authentication": { 
+          "enabled": true, 
+          "type": "CLIENTSECRET", 
+          "clientId":"<YOUR CLIENT ID>", 
+          "clientSecret":"<YOUR CLIENT SECRET>", 
+          "tenantId":"<YOUR TENANT ID>" 
     } 
   } 
 } 
@@ -202,11 +207,9 @@ Below is an example on how to configure Java agent to use service principal for 
 > Azure AD authentication is only available for Python v2.7, v3.6 and v3.7. Support for Azure AD in the Application Insights Opencensus Python SDK
 is included starting with beta version [opencensus-ext-azure 1.1b0](https://pypi.org/project/opencensus-ext-azure/1.1b0/).
 
-
-Construct the appropriate [credentials](/python/api/overview/azure/identity-readme?view=azure-python#credentials) and pass it into the constructor of the Azure Monitor exporter. Make sure your connection string is set up with the instrumentation key and ingestion endpoint of your resource.
+Construct the appropriate [credentials](/python/api/overview/azure/identity-readme#credentials) and pass it into the constructor of the Azure Monitor exporter. Make sure your connection string is set up with the instrumentation key and ingestion endpoint of your resource.
 
 Below are the following types of authentication that are supported by the Opencensus Azure Monitor exporters. Managed identities are recommended to be used in production environments.
-
 
 #### System-assigned managed identity
 
@@ -274,21 +277,21 @@ You can disable local authentication by using the Azure portal, Azure Policy, or
 
 ### Azure portal
 
-1.	From your Application Insights resource, select **Properties** under the *Configure* heading in the left-hand menu. Then select **Enabled (click to change)** if the local authentication is enabled. 
+1. From your Application Insights resource, select **Properties** under the *Configure* heading in the left-hand menu. Then select **Enabled (click to change)** if the local authentication is enabled. 
 
-    :::image type="content" source="./media/azure-ad-authentication/enabled.png" alt-text="Screenshot of Properties under the *Configure* selected and enabled (click to change) local authentication button.":::
+   :::image type="content" source="./media/azure-ad-authentication/enabled.png" alt-text="Screenshot of Properties under the *Configure* selected and enabled (click to change) local authentication button.":::
 
-1. Select **Disabled** and apply changes. 
+1. Select **Disabled** and apply changes.
 
-    :::image type="content" source="./media/azure-ad-authentication/disable.png" alt-text="Screenshot of local authentication with the enabled/disabled button highlighted.":::
+   :::image type="content" source="./media/azure-ad-authentication/disable.png" alt-text="Screenshot of local authentication with the enabled/disabled button highlighted.":::
 
 1. Once your resource has disabled local authentication, you'll see the corresponding info in the **Overview** pane.
 
-    :::image type="content" source="./media/azure-ad-authentication/overview.png" alt-text="Screenshot of overview tab with the disabled(click to change) highlighted.":::
+   :::image type="content" source="./media/azure-ad-authentication/overview.png" alt-text="Screenshot of overview tab with the disabled(click to change) highlighted.":::
 
 ### Azure Policy 
 
-Azure Policy for ‘DisableLocalAuth’ will deny from users to create a new Application Insights resource without this property setting to ‘true’. The policy name is ‘Application Insights components should block non-AAD auth ingestion’.
+Azure Policy for 'DisableLocalAuth' will deny from users to create a new Application Insights resource without this property setting to 'true'. The policy name is 'Application Insights components should block non-AAD auth ingestion'.
 
 To apply this policy definition to your subscription, [create a new policy assignment and assign the policy](../../governance/policy/assign-policy-portal.md).
 
@@ -426,14 +429,14 @@ Next steps should be to review the Application Insights resource's access contro
 
 ### Language specific troubleshooting
 
-### [ASP.NET and .NET](#tab/net)
+### [.NET](#tab/net)
 
 #### Event Source
 
 The Application Insights .NET SDK emits error logs using event source. To learn more about collecting event source logs visit, [Troubleshooting no data- collect logs with PerfView](asp-net-troubleshoot-no-data.md#PerfView).
 
 If the SDK fails to get a token, the exception message is logged as:
-“Failed to get AAD Token. Error message: ”
+"Failed to get AAD Token. Error message: "
 
 ### [Node.js](#tab/nodejs)
 
@@ -459,7 +462,7 @@ You can inspect network traffic using a tool like Fiddler. To enable the traffic
 
 Or add following jvm args while running your application:`-Djava.net.useSystemProxies=true -Dhttps.proxyHost=localhost -Dhttps.proxyPort=8888`
 
-If Azure AD is enabled in the agent, outbound traffic will include the HTTP Header “Authorization”.
+If Azure AD is enabled in the agent, outbound traffic will include the HTTP Header "Authorization".
 
 
 #### 401 Unauthorized 
@@ -496,25 +499,25 @@ If the following exception is seen in the log file `com.microsoft.aad.msal4j.Msa
 
 #### Invalid ClientId
 
-If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Application with identifier <CLIENT_ID> was not found in the directory`, it indicates the agent wasn't successful in acquiring the access token and the probable reason might be you've provided invalid/wrong “clientId” in your client secret configuration
+If the following exception is seen in the log file `com.microsoft.aad.msal4j.MsalServiceException: Application with identifier <CLIENT_ID> was not found in the directory`, it indicates the agent wasn't successful in acquiring the access token and the probable reason might be you've provided invalid/wrong "clientId" in your client secret configuration
 
  This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.
 
 ### [Python](#tab/python)
 
-#### Error starts with “credential error” (with no status code)
+#### Error starts with "credential error" (with no status code)
 
 Something is incorrect about the credential you're using and the client isn't able to obtain a token for authorization. It's usually due to lacking the required data for the state. An example would be passing in a system ManagedIdentityCredential but the resource isn't configured to use system-managed identity.
 
-#### Error starts with “authentication error” (with no status code)
+#### Error starts with "authentication error" (with no status code)
 
 Client failed to authenticate with the given credential. Usually occurs when the credential used doesn't have correct role assignments.
 
-#### I’m getting a status code 400 in my error logs
+#### I'm getting a status code 400 in my error logs
 
 You're probably missing a credential or your credential is set to `None`, but your Application Insights resource is configured with `DisableLocalAuth: true`. Make sure you're passing in a valid credential and that it has permission to access your Application Insights resource.
 
-#### I’m getting a status code 403 in my error logs
+#### I'm getting a status code 403 in my error logs
 
 Usually occurs when the provided credentials don't grant access to ingest telemetry for the Application Insights resource. Make sure your AI resource has the correct role assignments.
 

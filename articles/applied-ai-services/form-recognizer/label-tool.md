@@ -1,33 +1,33 @@
 ---
 title: "How-to: Analyze documents, Label forms, train a model, and analyze forms with Form Recognizer"
 titleSuffix: Azure Applied AI Services
-description: In this how-to, you'll use the Form Recognizer sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key value pairs from documents.
+description: In this how-to, you'll use the Form Recognizer sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key-value pairs from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 keywords: document processing
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
-# Train a custom model using the sample labeling tool
+# Train a custom model using the Sample Labeling tool
 
-In this article, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom document processing model with manually labeled data. See the [Train with labels](overview.md#train-with-labels) section of the overview to learn more about supervised learning with Form Recognizer.
+In this article, you'll use the Form Recognizer REST API with the Sample Labeling tool to train a custom model with manually labeled data. 
 
-> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
 ## Prerequisites
 
 To complete this quickstart, you must have:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
@@ -38,31 +38,31 @@ To complete this quickstart, you must have:
 
 ## Try it out
 
-Try out the [**Form Recognizer sample labeling tool**](https://fott-2-1.azurewebsites.net/) online:
+Try out the [**Form Recognizer Sample Labeling tool**](https://fott-2-1.azurewebsites.net/) online:
 
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://fott-2-1.azurewebsites.net/)
 
-You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
+You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
 
-## Set up the sample labeling tool
+## Set up the Sample Labeling tool
 
 > [!NOTE]
 >
-> If your storage data is behind a VNet or firewall, you must deploy the **Form Recognizer sample labeling tool** behind your VNet or firewall and grant access by creating a [system-assigned managed identity](managed-identity-byos.md "Azure managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources").
+> If your storage data is behind a VNet or firewall, you must deploy the **Form Recognizer Sample Labeling tool** behind your VNet or firewall and grant access by creating a [system-assigned managed identity](managed-identity-byos.md "Azure managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources").
 
-You'll use the Docker engine to run the sample labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
+You'll use the Docker engine to run the Sample Labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a TypeScript web application built using React + Redux. To learn more or contribute, see the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) repo. To try out the tool online, go to the [Form Recognizer sample labeling tool website](https://fott-2-1.azurewebsites.net/).
+> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a TypeScript web application built using React + Redux. To learn more or contribute, see the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) repo. To try out the tool online, go to the [Form Recognizer Sample Labeling tool website](https://fott-2-1.azurewebsites.net/).
 
-1. First, install Docker on a host computer. This guide will show you how to use local computer as a host. If you want to use a Docker hosting service in Azure, see the [Deploy the sample labeling tool](deploy-label-tool.md) how-to guide.
+1. First, install Docker on a host computer. This guide will show you how to use local computer as a host. If you want to use a Docker hosting service in Azure, see the [Deploy the Sample Labeling tool](deploy-label-tool.md) how-to guide.
 
    The host computer must meet the following hardware requirements:
 
     | Container | Minimum | Recommended|
     |:--|:--|:--|
-    |Sample labeling tool|2 core, 4-GB memory|4 core, 8-GB memory|
+    |Sample Labeling tool|2 core, 4-GB memory|4 core, 8-GB memory|
 
     Install Docker on your machine by following the appropriate instructions for your operating system:
 
@@ -70,7 +70,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
    * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/)
 
-1. Get the sample labeling tool container with the `docker pull` command.
+1. Get the Sample Labeling tool container with the `docker pull` command.
 
     ```console
      docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1
@@ -82,7 +82,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
      docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1 eula=accept
     ```
 
-   This command will make the sample labeling tool available through a web browser. Go to `http://localhost:3000`.
+   This command will make the Sample Labeling tool available through a web browser. Go to `http://localhost:3000`.
 
 > [!NOTE]
 > You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
@@ -104,9 +104,9 @@ Enable CORS on your storage account. Select your storage account in the Azure po
 > [!div class="mx-imgBorder"]
 > ![CORS setup in the Azure portal](media/label-tool/cors-setup.png)
 
-## Connect to the sample labeling tool
+## Connect to the Sample Labeling tool
 
- The sample labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data).
+ The Sample Labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data).
 
 Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers.
 
@@ -120,21 +120,21 @@ Fill in the fields with the following values:
 
    :::image type="content" source="media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 
-:::image type="content" source="media/label-tool/connections.png" alt-text="Connection settings of sample labeling tool.":::
+:::image type="content" source="media/label-tool/connections.png" alt-text="Connection settings of Sample Labeling tool.":::
 
 ## Create a new project
 
-In the sample labeling tool, projects store your configurations and settings. Create a new project and fill in the fields with the following values:
+In the Sample Labeling tool, projects store your configurations and settings. Create a new project and fill in the fields with the following values:
 
 * **Display Name** - the project display name
-* **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
+* **Security Token** - Some project settings can include sensitive values, such as keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
 * **Source Connection** - The Azure Blob Storage connection you created in the previous step that you would like to use for this project.
 * **Folder Path** - Optional - If your source forms are located in a folder on the blob container, specify the folder name here
 * **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
-* **API Key** - Your Form Recognizer subscription key.
+* **Key** - Your Form Recognizer key.
 * **Description** - Optional - Project description
 
-:::image type="content" source="media/label-tool/new-project.png" alt-text="New project page on sample labeling tool.":::
+:::image type="content" source="media/label-tool/new-project.png" alt-text="New project page on Sample Labeling tool.":::
 
 ## Label your forms
 
@@ -150,7 +150,7 @@ Select **Run OCR on all files** on the left pane to get the text and table layou
 
 The labeling tool will also show which tables have been automatically extracted. Select the table/grid icon on the left hand of the document to see the extracted table. In this quickstart, because the table content is automatically extracted, we will not be labeling the table content, but rather rely on the automated extraction.
 
-:::image type="content" source="media/label-tool/table-extraction.png" alt-text="Table visualization in sample labeling tool.":::
+:::image type="content" source="media/label-tool/table-extraction.png" alt-text="Table visualization in Sample Labeling tool.":::
 
 In v2.1, if your training document does not have a value filled in, you can draw a box where the value should be. Use **Draw region** on the upper left corner of the window to make the region taggable.
 
@@ -177,7 +177,7 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
     > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
     >
 
-:::image type="content" source="media/label-tool/main-editor-2-1.png" alt-text="Main editor window of sample labeling tool.":::
+:::image type="content" source="media/label-tool/main-editor-2-1.png" alt-text="Main editor window of Sample Labeling tool.":::
 
 Follow the steps above to label at least five of your forms.
 
@@ -186,7 +186,7 @@ Follow the steps above to label at least five of your forms.
 You can set the expected data type for each tag. Open the context menu to the right of a tag and select a type from the menu. This feature allows the detection algorithm to make assumptions that will improve the text-detection accuracy. It also ensures that the detected values will be returned in a standardized format in the final JSON output. Value type information is saved in the **fields.json** file in the same path as your label files.
 
 > [!div class="mx-imgBorder"]
-> ![Value type selection with sample labeling tool](media/whats-new/value-type.png)
+> ![Value type selection with Sample Labeling tool](media/whats-new/value-type.png)
 
 The following value types and variations are currently supported:
 
@@ -248,7 +248,7 @@ Once you have defined your table tag, tag the cell values.
 
 Choose the Train icon on the left pane to open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1) or [client library guide](quickstarts/client-library.md).
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1) or [client library guide](./quickstarts/try-sdk-rest-api.md).
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
@@ -264,7 +264,7 @@ After training finishes, examine the **Average Accuracy** value. If it's low, yo
 
 With Model Compose, you can compose up to 100 models to a single model ID. When you call Analyze with the composed `modelID`, Form Recognizer will first classify the form you submitted, choose the best matching model, and then return results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
-To compose models in the sample labeling tool, select the Model Compose (merging arrow) icon on the left. On the left, select the models you wish to compose together. Models with the arrows icon are already composed models.
+To compose models in the Sample Labeling tool, select the Model Compose (merging arrow) icon on the left. On the left, select the models you wish to compose together. Models with the arrows icon are already composed models.
 Choose the **Compose button**. In the pop-up, name your new composed model and select **Compose**. When the operation completes, your newly composed model should appear in the list.
 
 :::image type="content" source="media/label-tool/model-compose.png" alt-text="Model compose UX view.":::
@@ -302,10 +302,10 @@ Finally, go to the main page (house icon) and select **Open Cloud Project**. The
 
 ## Next steps
 
-In this quickstart, you've learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. If you'd like to build your own utility to label training data, use the REST APIs that deal with labeled data training.
+In this quickstart, you've learned how to use the Form Recognizer Sample Labeling tool to train a model with manually labeled data. If you'd like to build your own utility to label training data, use the REST APIs that deal with labeled data training.
 
 > [!div class="nextstepaction"]
 > [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [What is Form Recognizer?](overview.md)
-* [Form Recognizer quickstart](quickstarts/client-library.md)
+* [Form Recognizer quickstart](./quickstarts/try-sdk-rest-api.md)

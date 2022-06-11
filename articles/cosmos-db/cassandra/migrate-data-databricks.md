@@ -33,7 +33,7 @@ There are many ways to migrate database workloads from one platform to another. 
 
 * Ensure you've already created empty keyspaces and tables in your target Azure Cosmos DB Cassandra API account.
 
-* [Use cqlsh or hosted shell for validation](cassandra-support.md#hosted-cql-shell-preview).
+* [Use cqlsh for validation](cassandra-support.md#cql-shell).
 
 ## Provision an Azure Databricks cluster
 
@@ -51,6 +51,9 @@ Select **Install**, and then restart the cluster when installation is complete.
 
 > [!NOTE]
 > Make sure that you restart the Databricks cluster after the Cassandra Connector library has been installed.
+
+> [!WARNING]
+> The samples shown in this article have been tested with Spark **version 3.0.1** and the corresponding Cassandra Spark Connector **com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0**. Later versions of Spark and/or the Cassandra connector may not function as expected.
 
 ## Create Scala Notebook for migration
 

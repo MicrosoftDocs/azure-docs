@@ -10,6 +10,8 @@ ms.author: rifox
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 
+Note that if you're planning on using phone numbers, you can't use the free trial account. Check that your subscription meets all the [requirements](../../concepts/telephony/plan-solution.md) if you plan to purchase phone numbers before creating your resource. 
+
 ## Create Azure Communication Services resource
 
 To create an Azure Communication Services resource, first sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the page, select **+ Create a resource**. 
@@ -27,7 +29,7 @@ Select **Communication Services** in the results, and then select **Create**.
 You can now configure your Communication Services resource. On the first page in the create process, you'll be asked to specify:
 
 * The subscription
-* The resource group (you can create a new one or choose an existing resource group)
+* The [resource group](../../../azure-resource-manager/management/manage-resource-groups-portal.md) (you can create a new one or choose an existing resource group)
 * The name of the Communication Services resource
 * The geography the resource will be associated with
 

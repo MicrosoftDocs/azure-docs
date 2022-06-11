@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
-ms.date: 04/27/2021
+ms.topic: how-to
+ms.date: 10/14/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
@@ -20,14 +20,17 @@ keywords: on-premises, OCR, Docker, container
 
 Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run Computer Vision containers.
 
-The *Read* OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md).
+The *Read* OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](how-to/call-read-api.md).
+
+## What's new
+The `3.2-model-2022-04-30` GA version of the Read container is available with support for [164 languages and other enhancements](./whats-new.md#may-2022). If you are an existing customer, please follow the [download instructions](#docker-pull-for-the-read-ocr-container) to get started.
 
 ## Read 3.2 container
 
-The Read 3.2 OCR container provides:
+The Read 3.2 OCR container latest GA model provides:
 * New models for enhanced accuracy.
 * Support for multiple languages within the same document.
-* Support for a total of 73 languages. See the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr).
+* Support for a total of 164 languages. See the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr).
 * A single operation for both documents and images.
 * Support for larger documents and images.
 * Confidence scores.
@@ -81,22 +84,22 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 Container images for Read are available.
 
-| Container | Container Registry / Repository / Image Name |
-|-----------|------------|
-| Read 2.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Read 3.2 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2` |
+| Container | Container Registry / Repository / Image Name | Tags |
+|-----------|------------|-----------------------------------------|
+| Read 3.2 GA | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30` | 	latest, 3.2, 3.2-model-2022-04-30 |
+| Read 2.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |2.0.019300020-amd64-preview |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
 ### Docker pull for the Read OCR container
 
-# [Version 3.2](#tab/version-3-2)
+# [Version 3.2 GA](#tab/version-3-2)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30
 ```
 
-# [Version 2.0-preview](#tab/version-2)
+# [Version 2.0 preview](#tab/version-2)
 
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
@@ -115,15 +118,15 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 
 ## Run the container with `docker run`
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gather required parameters](#gather-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
 # [Version 3.2](#tab/version-3-2)
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -131,19 +134,19 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs the Read OCR container from the container image.
-* Allocates 8 CPU core and 18 gigabytes (GB) of memory.
+* Runs the Read OCR latest GA container from the container image.
+* Allocates 8 CPU core and 16 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
 You can alternatively run the container using environment variables:
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
 --env Eula=accept \
 --env Billing={ENDPOINT_URI} \
 --env ApiKey={API_KEY} \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30
 ```
 
 # [Version 2.0-preview](#tab/version-2)
@@ -194,24 +197,17 @@ To find your connection string:
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. 
 
-# [Version 3.2](#tab/version-3-2)
-
-Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v3.2-read/swagger.json`.
-
-# [Version 2.0-preview](#tab/version-2)
-
-Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v2.0-preview-read/swagger.json`.
+Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/`.
 
 ---
 
-### Asynchronous read
-
+### Asynchronous Read
 
 # [Version 3.2](#tab/version-3-2)
 
@@ -440,6 +436,8 @@ For an example use-case, see the <a href="https://aka.ms/ts-read-api-types" targ
 If you run the container with an output [mount](./computer-vision-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
 
 ## Billing
 

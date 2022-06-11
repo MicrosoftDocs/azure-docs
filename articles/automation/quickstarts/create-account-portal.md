@@ -1,69 +1,94 @@
 ---
-title: Azure Quickstart - Create an Azure Automation account
-description: This article helps you get started creating an Azure Automation account and running a runbook.
+title: Quickstart - Create an Azure Automation account using the portal
+description: This quickstart helps you get started creating an Azure Automation account using the portal
 services: automation
-ms.date: 09/01/2021
+ms.date: 10/26/2021
 ms.topic: quickstart
 ms.subservice: process-automation
-ms.custom: mvc
+ms.custom: mvc, mode-ui
+#Customer intent: As an administrator, I want to create an Automation account so that I can further use the Automation services.
 ---
 
-# Create an Azure Automation account
+# Quickstart: Create an Automation account using the Azure portal
 
-You can create an Azure Automation account through Azure, using the Azure portal, a browser-based user interface allowing access to a number of resources. One Automation account can manage resources across all regions and subscriptions for a given tenant. 
+You can create an Azure [Automation account](../automation-security-overview.md) using the Azure portal, a browser-based user interface allowing access to a number of resources. One Automation account can manage resources across all regions and subscriptions for a given tenant. This Quickstart guides you in creating an Automation account.
 
-This quickstart guides you in creating an Automation account and running a runbook in the account. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
 
-## Sign in to Azure
-
-[Sign in to Azure](https://portal.azure.com).
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Create Automation account
 
-1. Choose a name for your Azure account. Automation account names are unique per region and resource group. Names for Automation accounts that have been deleted might not be immediately available.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-    > [!NOTE]
-    > You can't change the account name once it has been entered in the user interface. 
+1. From the top menu, select **+ Create a resource**.
 
-2. Click **Create a resource** found in the upper left corner of Azure portal.
+1. Under **Categories**, select **IT & Management Tools**, and then select **Automation**.
 
-3. Select **IT & Management Tools**, and then select **Automation**.
+   :::image type="content" source="./media/create-account-portal/automation-account-portal.png" alt-text="Locating Automation accounts in portal.":::
 
-4. Enter the account information, including the selected account name. For **Create Azure Run As account**, choose **Yes** so that the artifacts to simplify authentication to Azure are enabled automatically. When the information is complete, click **Create** to start the Automation account deployment.
+Options for your new Automation account are organized into tabs in the **Create an Automation Account** page. The following sections describe each of the tabs and their options.
 
-    ![Enter information about your Automation account in the page](./media/create-account-portal/create-automation-account-portal-blade.png)  
+### Basics
 
-    > [!NOTE]
-    > For an updated list of locations that you can deploy an Automation account to, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
+On the **Basics** tab, provide the essential information for your Automation account. After you complete the **Basics** tab, you can choose to further customize your new Automation account by setting options on the other tabs, or you can select **Review + create** to accept the default options and proceed to validate and create the account.
 
-5. When the deployment has completed, click **All Services**.
+> [!NOTE]
+> By default, a system-assigned managed identity is enabled for the Automation account.
 
-6. Select **Automation Accounts** and then choose the Automation account you've created.
+The following table describes the fields on the **Basics** tab.
 
-    ![Automation account overview](./media/create-account-portal/automation-account-overview.png)
+| **Field** | **Required**<br> **or**<br> **optional** |**Description** |
+|---|---|---|
+|Subscription|Required |From the drop-down list, select the Azure subscription for the account.|
+|Resource group|Required |From the drop-down list, select your existing resource group, or select **Create new**.|
+|Automation account name|Required |Enter a name unique for it's location and resource group. Names for Automation accounts that have been deleted might not be immediately available. You can't change the account name once it has been entered in the user interface. |
+|Region|Required |From the drop-down list, select a region for the account. For an updated list of locations that you can deploy an Automation account to, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).|
 
-## Run a runbook
+The following image shows a standard configuration for a new Automation account.
 
-Run one of the tutorial runbooks.
+:::image type="content" source="./media/create-account-portal/create-account-basics.png" alt-text="Required fields for creating the Automation account on Basics tab":::
 
-1. Click **Runbooks** under **Process Automation**. The list of runbooks is displayed. By default, several tutorial runbooks are enabled in the account.
+### Advanced
 
-    ![Automation account runbooks list](./media/create-account-portal/automation-runbooks-overview.png)
+On the **Advanced** tab, you can configure the managed identity option for your new Automation account. The user-assigned managed identity option can also be configured after the Automation account is created.
 
-1. Select the **AzureAutomationTutorialScript** runbook. This action opens the runbook overview page.
+For instructions on how to create a user-assigned managed identity, see [Create a user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
-    ![Runbook overview](./media/create-account-portal/automation-tutorial-script-runbook-overview.png)
+The following table describes the fields on the **Advanced** tab.
 
-1. Click **Start**, and on the Start Runbook page, click **OK** to start the runbook.
+| **Field** | **Required**<br> **or**<br> **optional** |**Description** |
+|---|---|---|
+|System-assigned |Optional |An Azure Active Directory identity that is tied to the lifecycle of the Automation account. |
+|User-assigned |Optional |A managed identity represented as a standalone Azure resource that is managed separately from the resources that use it.|
 
-    ![Runbook job page](./media/create-account-portal/automation-tutorial-script-job.png)
+You can chose to enable managed identities later, and the Automation account is created without one. To enable a managed identity after the account is created, see [Enable managed identity](enable-managed-identity.md). If you select both options, for the user-assigned identity, select the **Add user assigned identities** option. On the **Select user assigned managed identity** page, select a subscription and add one or more user-assigned identities created in that subscription to assign to the Automation account.
 
-1. After the job status becomes `Running`, click **Output** or **All Logs** to view the runbook job output. For this tutorial runbook, the output is a list of your Azure resources.
+The following image shows a standard configuration for a new Automation account.
+
+:::image type="content" source="./media/create-account-portal/create-account-advanced.png" alt-text="Required fields for creating the Automation account on Advanced tab":::
+
+### Tags tab
+
+On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../../azure-resource-manager/management/tag-resources.md).
+
+### Review + create tab
+
+When you navigate to the **Review + create** tab, Azure runs validation on the Automation account settings that you have chosen. If validation passes, you can proceed to create the Automation account.
+
+If validation fails, then the portal indicates which settings need to be modified.
+
+Review your new Automation account.
+
+:::image type="content" source="./media/create-account-portal/automation-account-overview.png" alt-text="Automation account overview page":::
+
+## Clean up resources
+
+If you're not going to continue to use the Automation account, select **Delete** from the **Overview** page, and then select **Yes** when prompted.
 
 ## Next steps
 
-In this quickstart, you’ve deployed an Automation account, started a runbook job, and viewed the job results. To learn more about Azure Automation, continue to the quickstart for creating your first PowerShell runbook.
+In this Quickstart, you created an Automation account. To use managed identities with your Automation account, continue to the next Quickstart:
 
 > [!div class="nextstepaction"]
-> [Quickstart - Create an Azure Automation PowerShell runbook](create-powershell-runbook.md)
-
+> [Tutorial - Create Automation PowerShell runbook using managed identity](../learn/powershell-runbook-managed-identity.md)

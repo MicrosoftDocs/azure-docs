@@ -1,19 +1,18 @@
 ---
-title: Troubleshoot SAML-based single sign-on in Azure Active Directory
+title: Troubleshoot SAML-based single sign-on
 description: Troubleshoot issues with an Azure AD app that's configured for SAML-based single sign-on.
 services: active-directory
-author: davidmu1
+author: AllisonAm
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: davidmu
-ms.reviewer: ergreenl
+ms.author: alamaral
 ---
 
-# Troubleshoot SAML-based single sign-on in Azure Active Directory
+# Troubleshoot SAML-based single sign-on
 
 If you encounter a problem when configuring an application. Verify you have followed all the steps in the tutorial for the application. In the application’s configuration, you have inline documentation on how to configure the application. Also, you can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](../saas-apps/tutorial-list.md) for a detail step-by-step guidance.
 

@@ -3,14 +3,14 @@ title: Page layout versions
 titleSuffix: Azure AD B2C
 description: Page layout version history for UI customization in custom policies.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/25/2021
-ms.author: mimart
+ms.date: 04/12/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -52,6 +52,32 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 ## Self-asserted page (selfasserted)
 
+**2.1.10**
+
+- Correcting to the tab index
+- Fixing WCAG 2.1 accessibility and screen reader issues   
+
+**2.1.9**
+
+- TOTP multifactor authentication support. Adding links that allows users to download and install the Microsoft authenticator app to complete the enrollment of the TOTP on the authenticator.
+
+**2.1.8**
+
+- The claim name is added to the `class` attribute of the `<li>` HTML element that surrounding the user's attribute input elements. The class name allows you to create a CSS selector to select the parent `<li>` for a certain user attribute input element. The following HTML markup shows the class attribute for the sign-up page:
+  
+  ```html
+  <div id="attributeList" class="attr">
+    <ul>
+      <li class="EmailBox email_li">...</li>
+      <li class="Password newPassword_li">...</li>
+      <li class="Password reenterPassword_li">...</li>
+      <li class="TextBox displayName_li">...</li>
+      <li class="TextBox givenName_li">...</li>
+      <li class="TextBox surname_li">...</li>
+      <li class="TextBox extension_age_li">...</li>
+    </ul>
+  </div>
+  ```
 **2.1.7**
 - Fixed a language encoding issue that is causing the request to fail.
 - Fixed an accessibility bug to show inline error messages only on form submission.
@@ -121,6 +147,16 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 > [!TIP]
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
+
+
+**2.1.7**
+
+- Accessibility fix - correcting to the tab index
+
+**2.1.6**
+
+- Accessibility fix - set the focus on the input field for verification. 
+- Updates to the UI elements and CSS classes
 
 **2.1.5**
 - Fixed an issue on tab order when idp selector template is used on sign in page.

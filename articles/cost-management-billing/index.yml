@@ -1,17 +1,18 @@
 ### YamlMime:Landing
 
-title: Azure Cost Management + Billing documentation
-summary: Azure Cost Management + Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
+title: Cost Management + Billing documentation
+summary: Cost Management + Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
 metadata:
-  title: Azure Cost Management + Billing
-  description: Azure Cost Management + Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
+  title: Cost Management + Billing
+  titleSuffix: Microsoft Cost Management
+  description: Cost Management + Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 07/14/2021
+  ms.date: 10/13/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -31,7 +32,7 @@ landingContent:
       links:
       - text: Learn at your own pace
         url: /learn/paths/control-spending-manage-bills/?WT.mc_id=ignite2020_collections
-      - text: Azure Cost Management videos
+      - text: Cost Management videos
         url: https://www.youtube.com/c/AzureCostManagement
       - text: Start analyzing costs
         url: costs/quick-acm-cost-analysis.md
@@ -87,7 +88,7 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-      - text: Azure Cost Management best practices
+      - text: Cost Management best practices
         url: costs/cost-mgt-best-practices.md
       - text: Save money with Azure Reservations
         url: reservations/save-compute-costs-reservations.md

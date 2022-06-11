@@ -1,21 +1,194 @@
-﻿---
-title: Archived release notes for Azure HDInsight 
+---
+title: Archived release notes for Azure HDInsight
 description: Archived release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive and more.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: 
-   - hdinsightactive
-   - references_regions
-ms.date: 07/27/2021
+ms.custom: hdinsightactive, references_regions
+ms.date: 06/07/2022
 ---
 
 # Archived release notes
 
 ## Summary
 
-Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure.
+Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
+If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-## Price Correction for HDInsight Dv2 Virtual Machines
+## Release date: 03/10/2022
+
+This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+
+The OS versions for this release are: 
+- 	HDInsight 4.0: Ubuntu 18.04.5 
+
+## Spark 3.1 is now generally available
+
+Spark 3.1 is now Generally Available on HDInsight 4.0 release.  This release includes 
+
+* Adaptive Query Execution, 
+* Convert Sort Merge Join to Broadcast Hash Join, 
+* Spark Catalyst Optimizer,
+* Dynamic Partition Pruning, 
+* Customers will be able to create new Spark 3.1 clusters and not Spark 3.0 (preview) clusters.
+
+For more details, see the [Apache Spark 3.1](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/spark-3-1-is-now-generally-available-on-hdinsight/ba-p/3253679) is now Generally Available on HDInsight - Microsoft Tech Community.
+
+For a complete list of improvements, see the [Apache Spark 3.1 release notes.](https://spark.apache.org/releases/spark-release-3-1-2.html)
+
+For more details on migration, see the [migration guide.](https://spark.apache.org/docs/latest/migration-guide.html)
+
+## Kafka 2.4 is now generally available
+
+Kafka 2.4.1 is now Generally Available.  For more information, please see [Kafka 2.4.1 Release Notes.](http://kafka.apache.org/24/documentation.html) 
+Other features include MirrorMaker 2 availability, new metric category AtMinIsr topic partition, Improved broker start-up time by lazy on demand mmap of index files, More consumer metrics to observe user poll behavior.
+
+## Map Datatype in HWC is now supported in HDInsight 4.0 
+
+This release includes Map Datatype Support for HWC 1.0 (Spark 2.4) Via the spark-shell  application, and all other all spark clients that HWC supports. Following improvements are included like any other data types:
+
+A user can 
+*	Create a Hive table with any column(s) containing Map datatype, insert data into it and read the results from it.
+*	Create an Apache Spark dataframe with Map Type and do batch/stream reads and writes.
+
+### New regions
+
+HDInsight has now expanded its geographical presence to two new regions: China East 3 and China North 3.
+
+### OSS backport changes
+
+OSS backports that are included in Hive including HWC 1.0 (Spark 2.4) which supports Map data type.
+
+### Here are the OSS backported Apache JIRAs for this release:
+
+| Impacted Feature    |   Apache JIRA                                                      |
+|---------------------|--------------------------------------------------------------------|
+| Metastore direct sql queries with IN/(NOT IN) should be split based on max parameters allowed by SQL DB   | [HIVE-25659](https://issues.apache.org/jira/browse/HIVE-25659)     |
+| Upgrade log4j 2.16.0 to 2.17.0                    | [HIVE-25825](https://issues.apache.org/jira/browse/HIVE-25825)     |
+| Update Flatbuffer version                    | [HIVE-22827](https://issues.apache.org/jira/browse/HIVE-22827)     |
+| Support Map data-type natively in Arrow format                    | [HIVE-25553](https://issues.apache.org/jira/browse/HIVE-25553)     |
+| LLAP external client - Handle nested values when the parent struct is null                    | [HIVE-25243](https://issues.apache.org/jira/browse/HIVE-25243)     |
+| Upgrade arrow version to 0.11.0                    | [HIVE-23987](https://issues.apache.org/jira/browse/HIVE-23987)     |
+
+## Deprecation notices
+### Azure Virtual Machine Scale Sets on HDInsight  
+
+HDInsight will no longer use Azure Virtual Machine Scale Sets to provision the clusters, no breaking change is expected. Existing HDInsight clusters on virtual machine scale sets will have no impact, any new clusters on latest images will no longer use Virtual Machine Scale Sets.  
+
+### Scaling of Azure HDInsight HBase workloads will now be supported only using manual scale
+
+Starting from March 01, 2022, HDInsight will only support manual scale for HBase, there's no impact on running clusters.  New HBase clusters won't be able to enable schedule based Autoscaling.  For more information on how to  manually scale your HBase cluster, refer our documentation on [Manually scaling Azure HDInsight clusters](./hdinsight-scaling-best-practices.md)
+
+
+## Release date: 12/27/2021
+
+This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+
+The OS versions for this release are:
+- HDInsight 4.0: Ubuntu 18.04.5 LTS
+
+HDInsight 4.0 image has been updated to mitigate Log4j vulnerability as described in [Microsoft’s Response to CVE-2021-44228 Apache Log4j 2.](https://msrc-blog.microsoft.com/2021/12/11/microsofts-response-to-cve-2021-44228-apache-log4j2/)
+
+> [!Note]
+> * Any HDI 4.0 clusters created post 27 Dec 2021 00:00 UTC are created with an updated version of the image which mitigates the log4j vulnerabilities. Hence, customers need not patch/reboot these clusters.
+> * For new HDInsight 4.0 clusters created between 16 Dec 2021 at 01:15 UTC and 27 Dec 2021 00:00 UTC, HDInsight 3.6 or in pinned subscriptions after 16 Dec 2021 the patch is auto applied within the hour in which the cluster is created, however customers must then reboot their nodes for the patching to complete (except for Kafka Management nodes, which are automatically rebooted).
+
+## Release date: 07/27/2021
+
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+
+The OS versions for this release are:
+- HDInsight 3.6: Ubuntu 16.04.7 LTS
+- HDInsight 4.0: Ubuntu 18.04.5 LTS
+
+### New features
+#### Azure HDInsight support for Restricted Public Connectivity is generally available on Oct 15 2021
+Azure HDInsight now supports restricted public connectivity in all regions. Below are some of the key highlights of this capability: 
+
+- Ability to reverse resource provider to cluster communication such that it's outbound from the cluster to the resource provider 
+- Support for bringing your own Private Link enabled resources (e.g. storage, SQL, key vault) for HDinsight cluster to access the resources over private network only 
+- No public IP addresses are resource provisioned 
+
+By using this new capability, you can also skip the inbound network security group (NSG) service tag rules for HDInsight management IPs. Learn more about [restricting public connectivity](./hdinsight-restrict-public-connectivity.md)
+
+#### Azure HDInsight support for Azure Private Link is generally available on Oct 15 2021
+You can now use private endpoints to connect to your HDInsight clusters over private link. Private link can be leveraged in cross VNET scenarios where VNET peering is not available or enabled. 
+
+Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. 
+
+Traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. 
+
+Let more at [enable private link](./hdinsight-private-link.md).  
+
+#### New Azure Monitor integration experience (Preview)
+The new Azure monitor integration experience will be Preview in East US and West Europe with this release. Learn more details about the new Azure monitor experience [here](./log-analytics-migration.md#migrate-to-the-new-azure-monitor-integration).
+
+### Deprecation
+#### Basic support for HDInsight 3.6 starting July 1, 2021
+Starting July 1, 2021, Microsoft offers [Basic support](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) for certain HDInsight 3.6 cluster types. The Basic support plan will be available until 3 April 2022. You are automatically enrolled in Basic support starting July 1, 2021. No action is required by you to opt in. See [our documentation](hdinsight-36-component-versioning.md) for which cluster types are included under Basic support. 
+
+We don't recommend building any new solutions on HDInsight 3.6, freeze changes on existing 3.6 environments. We recommend that you [migrate your clusters to HDInsight 4.0](hdinsight-version-release.md#how-to-upgrade-to-hdinsight-40). Learn more about [what's new in HDInsight 4.0](hdinsight-version-release.md#whats-new-in-hdinsight-40).
+
+### Behavior changes
+#### HDInsight Interactive Query only supports schedule-based Autoscale
+As customer scenarios grow more mature and diverse, we have identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users may see their queries run slower on LLAP clusters when Autoscale is enabled. The effect on performance can outweigh the cost benefits of Autoscale.
+
+Starting from July 2021, the Interactive Query workload in HDInsight only supports schedule-based Autoscale. You can no longer enable load-based autoscale on new Interactive Query clusters. Existing running clusters can continue to run with the known limitations described above. 
+
+Microsoft recommends that you move to a schedule-based Autoscale for LLAP.  You can analyze your cluster's current usage pattern through the Grafana Hive dashboard. For more information, see [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md). 
+
+### Upcoming changes
+The following changes will happen in upcoming releases.
+
+#### Built-in LLAP component in ESP Spark cluster will be removed
+HDInsight 4.0 ESP Spark cluster has built-in LLAP components running on both head nodes. The LLAP components in ESP Spark cluster were originally added for HDInsight 3.6 ESP Spark, but has no real user case for HDInsight 4.0 ESP Spark. In the next release scheduled in Sep 2021, HDInsight will remove the built-in LLAP component from HDInsight 4.0 ESP Spark cluster. This change will help to offload head node workload and avoid confusion between ESP Spark and ESP Interactive Hive cluster type.
+
+### New region
+- West US 3
+- Jio India West
+- Australia Central
+
+### Component version change
+The following component version has been changed with this release:
+- ORC version from 1.5.1 to 1.5.9
+
+You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
+
+### Back ported JIRAs
+Here are the back ported Apache JIRAs for this release:
+
+| Impacted Feature    |   Apache JIRA                                                      |
+|---------------------|--------------------------------------------------------------------|
+| Date / Timestamp    | [HIVE-25104](https://issues.apache.org/jira/browse/HIVE-25104)     |
+|                     | [HIVE-24074](https://issues.apache.org/jira/browse/HIVE-24074)     |
+|                     | [HIVE-22840](https://issues.apache.org/jira/browse/HIVE-22840)     |
+|                     | [HIVE-22589](https://issues.apache.org/jira/browse/HIVE-22589)     |
+|                     | [HIVE-22405](https://issues.apache.org/jira/browse/HIVE-22405)     |
+|                     | [HIVE-21729](https://issues.apache.org/jira/browse/HIVE-21729)     |
+|                     | [HIVE-21291](https://issues.apache.org/jira/browse/HIVE-21291)     |
+|                     | [HIVE-21290](https://issues.apache.org/jira/browse/HIVE-21290)     |
+| UDF                 | [HIVE-25268](https://issues.apache.org/jira/browse/HIVE-25268)     |
+|                     | [HIVE-25093](https://issues.apache.org/jira/browse/HIVE-25093)     |
+|                     | [HIVE-22099](https://issues.apache.org/jira/browse/HIVE-22099)     |
+|                     | [HIVE-24113](https://issues.apache.org/jira/browse/HIVE-24113)     |
+|                     | [HIVE-22170](https://issues.apache.org/jira/browse/HIVE-22170)     |
+|                     | [HIVE-22331](https://issues.apache.org/jira/browse/HIVE-22331)     |
+| ORC                 | [HIVE-21991](https://issues.apache.org/jira/browse/HIVE-21991)     |
+|                     | [HIVE-21815](https://issues.apache.org/jira/browse/HIVE-21815)     |
+|                     | [HIVE-21862](https://issues.apache.org/jira/browse/HIVE-21862)     |
+| Table Schema        | [HIVE-20437](https://issues.apache.org/jira/browse/HIVE-20437)     |
+|                     | [HIVE-22941](https://issues.apache.org/jira/browse/HIVE-22941)     |
+|                     | [HIVE-21784](https://issues.apache.org/jira/browse/HIVE-21784)     |
+|                     | [HIVE-21714](https://issues.apache.org/jira/browse/HIVE-21714)     |
+|                     | [HIVE-18702](https://issues.apache.org/jira/browse/HIVE-18702)     |
+|                     | [HIVE-21799](https://issues.apache.org/jira/browse/HIVE-21799)     |
+|                     | [HIVE-21296](https://issues.apache.org/jira/browse/HIVE-21296)     |
+| Workload Management | [HIVE-24201](https://issues.apache.org/jira/browse/HIVE-24201)     |
+| Compaction          | [HIVE-24882](https://issues.apache.org/jira/browse/HIVE-24882)     |
+|                     | [HIVE-23058](https://issues.apache.org/jira/browse/HIVE-23058)     |
+|                     | [HIVE-23046](https://issues.apache.org/jira/browse/HIVE-23046)     |
+| Materialized view   | [HIVE-22566](https://issues.apache.org/jira/browse/HIVE-22566)     |
+
+### Price Correction for HDInsight Dv2 Virtual Machines
 
 A pricing error was corrected on April 25th, 2021, for the Dv2 VM series on HDInsight. The pricing error resulted in a reduced charge on some customer's bills prior to April 25th, and with the correction, prices now match what had been advertised on the HDInsight pricing page and the HDInsight pricing calculator. The pricing error impacted customers in the following regions who used Dv2 VMs:
 
@@ -155,14 +328,14 @@ This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release
 HDInsight added Dav4-series support in this release. Learn more about [Dav4-series here](../virtual-machines/dav4-dasv4-series.md).
 
 #### Kafka REST Proxy GA 
-Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTPS. Kafka Rest Proxy is general available starting from this release. Learn more about [Kafka REST Proxy here](./kafka/rest-proxy.md).
+Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTPS. Kafka REST Proxy is general available starting from this release. Learn more about [Kafka REST Proxy here](./kafka/rest-proxy.md).
 
 #### Moving to Azure virtual machine scale sets
 HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ### Deprecation
 #### Disabled VM sizes
-Starting form January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+Starting from January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
 
 ### Behavior changes
 #### Default cluster VM size changes to Ev3-series 
@@ -184,7 +357,7 @@ Starting February 2021, the default version of HDInsight cluster will be changed
 HDInsight is upgrading OS version from Ubuntu 16.04 to 18.04. The upgrade will complete before April 2021.
 
 #### HDInsight 3.6 end of support on June 30 2021
-HDInsight 3.6 will be end of support. Starting form June 30 2021, customers can't create new HDInsight 3.6 clusters. Existing clusters will run as is without the support from Microsoft. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+HDInsight 3.6 will be end of support. Starting from June 30 2021, customers can't create new HDInsight 3.6 clusters. Existing clusters will run as is without the support from Microsoft. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
 
 ### Component version change
 No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
@@ -208,7 +381,7 @@ HDInsight now uses Azure virtual machines to provision the cluster. Starting fro
 HDInsight 3.6 ML Services cluster type will be end of support by December 31 2020. Customers won't be able to create new 3.6 ML Services clusters after December 31 2020. Existing clusters will run as is without the support from Microsoft. Check the support expiration for HDInsight versions and cluster types [here](./hdinsight-component-versioning.md).
 
 #### Disabled VM sizes
-Starting from November 16 2020, HDInsight will block new customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing customers who have used these VM sizes in the past three months won't be affected. Starting form January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+Starting from November 16 2020, HDInsight will block new customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing customers who have used these VM sizes in the past three months won't be affected. Starting from January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
 
 ### Behavior changes
 #### Add NSG rule checking before scaling operation
@@ -237,7 +410,7 @@ HDInsight now uses Azure virtual machines to provision the cluster. Starting fro
 HDInsight 3.6 ML Services cluster type will be end of support by December 31 2020. Customers won't create new 3.6 ML Services clusters after December 31 2020. Existing clusters will run as is without the support from Microsoft. Check the support expiration for HDInsight versions and cluster types [here](./hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 #### Disabled VM sizes
-Starting from November 16 2020, HDInsight will block new customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing customers who have used these VM sizes in the past three months won't be affected. Starting form January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+Starting from November 16 2020, HDInsight will block new customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing customers who have used these VM sizes in the past three months won't be affected. Starting from January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
 
 ### Behavior changes
 No behavior change for this release.
@@ -252,7 +425,7 @@ HDInsight today doesn't support customizing Zookeeper node size for Spark, Hadoo
 Starting February 2021, the default version of HDInsight cluster will be changed from 3.6 to 4.0. For more information about available versions, see [supported versions](./hdinsight-component-versioning.md#supported-hdinsight-versions). Learn more about what is new in [HDInsight 4.0](./hdinsight-version-release.md)
 
 #### HDInsight 3.6 end of support on June 30 2021
-HDInsight 3.6 will be end of support. Starting form June 30 2021, customers can't create new HDInsight 3.6 clusters. Existing clusters will run as is without the support from Microsoft. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+HDInsight 3.6 will be end of support. Starting from June 30 2021, customers can't create new HDInsight 3.6 clusters. Existing clusters will run as is without the support from Microsoft. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
 
 ### Bug fixes
 HDInsight continues to make cluster reliability and performance improvements. 
@@ -437,7 +610,7 @@ This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made a
 HDInsight uses Azure virtual machines to provision the cluster now. From this release, new-created HDInsight clusters start using Azure virtual machine scale set. The change is rolling out gradually. You should expect no breaking change. See more about [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md).
  
 #### Reboot VMs in HDInsight cluster
-In this release, we support rebooting VMs in HDInsight cluster to reboot unresponsive nodes. Currently you can only do it through API, PowerShell and CLI support is on the way. For more information about the API, see [this doc](https://github.com/Azure/azure-rest-api-specs/codeowners/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/virtualMachines.json).
+In this release, we support rebooting VMs in HDInsight cluster to reboot unresponsive nodes. Currently you can only do it through API, PowerShell and CLI support is on the way. For more information about the API, see [this doc](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2021-06-01/virtualMachines.json).
  
 ### Deprecation
 #### Deprecation of Spark 2.1 and 2.2 in HDInsight 3.6 Spark cluster
@@ -460,7 +633,7 @@ A minimum 4-core VM is required for Head Node to ensure the high availability an
 #### Cluster worker node provisioning change
 When 80% of the worker nodes are ready, the cluster enters **operational** stage. At this stage, customers can do all the data plane operations like running scripts and jobs. But customers can't do any control plane operation like scaling up/down. Only deletion is supported.
  
-After the **operational** stage, the cluster waits another 60 minutes for the remaining 20% worker nodes. At the end of this 60 minutes, the cluster moves to the **running** stage, even if all of worker nodes are still not available. Once a cluster enters the **running** stage, you can use it as normal. Both control plan operations like scaling up/down, and data plan operations like running scripts and jobs are accepted. If some of the requested worker nodes are not available, the cluster will be marked as partial success. You are charged for the nodes that were deployed successfully. 
+After the **operational** stage, the cluster waits another 60 minutes for the remaining 20% worker nodes. At the end of this 60 minute, the cluster moves to the **running** stage, even if all of worker nodes are still not available. Once a cluster enters the **running** stage, you can use it as normal. Both control plan operations like scaling up/down, and data plan operations like running scripts and jobs are accepted. If some of the requested worker nodes are not available, the cluster will be marked as partial success. You are charged for the nodes that were deployed successfully. 
  
 #### Create new service principal through HDInsight
 Previously, with cluster creation, customers can create a new service principal to access the connected ADLS Gen 1 account in Azure portal. Starting June 15 2020, customers cannot create new service principal in HDInsight creation workflow, only existing service principal is supported. See [Create Service Principal and Certificates using Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
@@ -497,7 +670,7 @@ This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made a
 
 ### New features
 #### TLS 1.2 enforcement
-Transport Layer Security (TLS) and Secure Sockets Layer (SSL) are cryptographic protocols that provide communications security over a computer network. Learn more about [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HDInsight uses TLS 1.2 on public HTTPs endpoints but TLS 1.1 is still supported for backward compatibility. 
+Transport Layer Security (TLS) and Secure Sockets Layer (SSL) are cryptographic protocols that provide communications security over a computer network. Learn more about [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HDInsight uses TLS 1.2 on public HTTP's endpoints but TLS 1.1 is still supported for backward compatibility. 
 
 With this release, customers can opt into TLS 1.2 only for all connections through the public cluster endpoint. To support this, the new property **minSupportedTlsVersion** is introduced and can be specified during cluster creation. If the property is not set, the cluster still supports TLS 1.0, 1.1 and 1.2, which is the same as today's behavior. Customers can set the value for this property to "1.2", which means that the cluster only supports TLS 1.2 and above. For more information, see [Transport Layer Security](./transport-layer-security.md).
 
@@ -573,7 +746,7 @@ The following changes will happen in upcoming releases.
 #### Transport Layer Security (TLS) 1.2 enforcement
 Transport Layer Security (TLS) and Secure Sockets Layer (SSL) are cryptographic protocols that provide communications security over a computer network. For more information, see [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). While Azure HDInsight clusters accept TLS 1.2 connections on public HTTPS endpoints, TLS 1.1 is still supported for backward compatibility with older clients.
 
-Starting from the next release, you will be able to opt-in and configure your new HDInsight clusters to only accept TLS 1.2 connections. 
+Starting from the next release, you will be able to opt in and configure your new HDInsight clusters to only accept TLS 1.2 connections. 
 
 Later in the year, starting on 6/30/2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. We recommend that you ensure that all your clients are ready to handle TLS 1.2 or later versions.
 
@@ -616,9 +789,9 @@ This release applies both for HDInsight 3.6 and 4.0.
 
 HDInsight Identity Broker (HIB) enables users to sign in to Apache Ambari using multi-factor authentication (MFA) and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (AAD-DS). Currently HIB is only available for clusters deployed through Azure Resource Management (ARM) template.
 
-#### Kafka Rest API Proxy (Preview)
+#### Kafka REST API Proxy (Preview)
 
-Kafka Rest API Proxy provides one-click deployment of highly available REST proxy with Kafka cluster via secured Azure AD authorization and OAuth protocol. 
+Kafka REST API Proxy provides one-click deployment of highly available REST proxy with Kafka cluster via secured Azure AD authorization and OAuth protocol. 
 
 #### Auto scale
 
@@ -638,7 +811,7 @@ HDInsight now offers a new capacity to enable customers to use their own SQL DB 
 
 #### F-series virtual machines are now available with HDInsight
 
-F-series virtual machines(VMs) are good choice to get started with HDInsight with light processing requirements. At a lower per-hour list price, the F-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per vCPU. For more information, see [Selecting the right VM size for your Azure HDInsight cluster](./hdinsight-selecting-vm-size.md).
+F-series virtual machines(VMs) is a good choice to get started with HDInsight with light processing requirements. At a lower per-hour list price, the F-series are  the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per vCPU. For more information, see [Selecting the right VM size for your Azure HDInsight cluster](./hdinsight-selecting-vm-size.md).
 
 ### Deprecation
 
@@ -923,7 +1096,7 @@ HDP 2.6.4 provided Hadoop Common 2.7.3 and the following Apache patches:
 
 -   [YARN-5641](https://issues.apache.org/jira/browse/YARN-5641): Localizer leaves behind tarballs after container is complete.
 
--   [YARN-6004](https://issues.apache.org/jira/browse/YARN-6004): Refactor TestResourceLocalizationService\#testDownloadingResourcesOnContainer so that it is less than 150 lines.
+-   [YARN-6004](https://issues.apache.org/jira/browse/YARN-6004): Refactor TestResourceLocalizationService\#testDownloadingResourcesOnContainer so that it is fewer  than 150 lines.
 
 -   [YARN-6078](https://issues.apache.org/jira/browse/YARN-6078): Containers stuck in Localizing state.
 
@@ -975,9 +1148,9 @@ This release provides HBase 1.1.2 and the following Apache patches.
 
 -   [HBASE-18164](https://issues.apache.org/jira/browse/HBASE-18164): Much faster locality cost function and candidate generator.
 
--   [HBASE-18212](https://issues.apache.org/jira/browse/HBASE-18212): In Standalone mode with local filesystem HBase logs Warning message: Failed to invoke 'unbuffer' method in class class org.apache.hadoop.fs.FSDataInputStream.
+-   [HBASE-18212](https://issues.apache.org/jira/browse/HBASE-18212): In Standalone mode with local filesystem HBase logs Warning message: Failed to invoke 'unbuffer' method in class org.apache.hadoop.fs.FSDataInputStream.
 
--   [HBASE-18808](https://issues.apache.org/jira/browse/HBASE-18808): Ineffective config check in BackupLogCleaner\#getDeletableFiles().
+-   [HBASE-18808](https://issues.apache.org/jira/browse/HBASE-18808): Ineffective config check-in BackupLogCleaner\#getDeletableFiles().
 
 -   [HBASE-19052](https://issues.apache.org/jira/browse/HBASE-19052): FixedFileTrailer should recognize CellComparatorImpl class in branch-1.x.
 
@@ -1033,7 +1206,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-17013*](https://issues.apache.org/jira/browse/HIVE-17013): Delete request with a subquery based on select over a view.
 
--   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): insert overwrite partition onto an external table fail when drop partition first.
+-   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): insert overwrite partition onto an external table fails when drop partition first.
 
 -   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259): Hive JDBC does not recognize UNIONTYPE columns.
 
@@ -1075,7 +1248,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-18352*](https://issues.apache.org/jira/browse/HIVE-18352): introduce a METADATAONLY option while doing REPL DUMP to allow integrations of other tools.
 
--   [*HIVE-18353*](https://issues.apache.org/jira/browse/HIVE-18353): CompactorMR should call jobclient.close() to trigger cleanup (Prabhu Joseph via Thejas Nair).
+-   [*HIVE-18353*](https://issues.apache.org/jira/browse/HIVE-18353): CompactorMR should call jobclient.close() to trigger cleanup.
 
 -   [*HIVE-18390*](https://issues.apache.org/jira/browse/HIVE-18390): IndexOutOfBoundsException when query a partitioned view in ColumnPruner.
 
@@ -1185,7 +1358,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-18327*](https://issues.apache.org/jira/browse/HIVE-18327): Remove the unnecessary HiveConf dependency for MiniHiveKdc.
 
--   [*HIVE-18331*](https://issues.apache.org/jira/browse/HIVE-18331): Add relogin when TGT expire and some logging/lambda.
+-   [*HIVE-18331*](https://issues.apache.org/jira/browse/HIVE-18331): Add relogin when TGT expires and some logging/lambda.
 
 -   [*HIVE-18341*](https://issues.apache.org/jira/browse/HIVE-18341): Add repl load support for adding "raw" namespace for TDE with same encryption keys.
 
@@ -1543,7 +1716,7 @@ This release provides Storm 1.1.1 and the following Apache patches:
 
 -   [STORM-2841](https://issues.apache.org/jira/browse/STORM-2841): testNoAcksIfFlushFails UT fails with NullPointerException.
 
--   [STORM-2854](https://issues.apache.org/jira/browse/STORM-2854): Expose IEventLogger to make event logging pluggable.
+-   [STORM-2854](https://issues.apache.org/jira/browse/STORM-2854): Expose IEventLogger to make event log pluggable.
 
 -   [STORM-2870](https://issues.apache.org/jira/browse/STORM-2870): FileBasedEventLogger leaks non-daemon ExecutorService which prevents process to be finished.
 
@@ -2000,7 +2173,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-94901              | [HBASE-19285](https://issues.apache.org/jira/browse/HBASE-19285)                                                                                                                                                                                                               | Add per-table latency histograms                                                                                                                             |
 | BUG-94908              | [ATLAS-1921](https://issues.apache.org/jira/browse/ATLAS-1921)                                                                                                                                                                                                                 | UI: Search using entity and trait attributes: UI doesn't perform range check and allows providing out of bounds values for integral and float data types.  |
 | BUG-95086              | [RANGER-1953](https://issues.apache.org/jira/browse/RANGER-1953)                                                                                                                                                                                                               | improvement on user-group page listing                                                                                                                       |
-| BUG-95193              | [SLIDER-1252](https://issues.apache.org/jira/browse/SLIDER-1252)                                                                                                                                                                                                               | Slider agent fails with SSL validation errors with python 2.7.5-58                                                                                           |
+| BUG-95193              | [SLIDER-1252](https://issues.apache.org/jira/browse/SLIDER-1252)                                                                                                                                                                                                               | Slider agent fails with SSL validation errors with Python 2.7.5-58                                                                                           |
 | BUG-95314              | [YARN-7699](https://issues.apache.org/jira/browse/YARN-7699)                                                                                                                                                                                                                   | queueUsagePercentage is coming as INF for getApp REST api call                                                                                               |
 | BUG-95315              | [HBASE-13947](https://issues.apache.org/jira/browse/HBASE-13947), [HBASE-14517](https://issues.apache.org/jira/browse/HBASE-14517), [HBASE-17931](https://issues.apache.org/jira/browse/HBASE-17931)                                                                           | Assign system tables to servers with highest version                                                                                                         |
 | BUG-95392              | [ATLAS-2421](https://issues.apache.org/jira/browse/ATLAS-2421)                                                                                                                                                                                                                 | Notification updates to support V2 data structures                                                                                                           |
@@ -2145,7 +2318,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
     
   **Workaround**
     
-  - **Option \#1: Create/Update policy via Ranger Rest API**
+  - **Option \#1: Create/Update policy via Ranger REST API**
         
       REST URL: http://&lt;host&gt;:6080/service/plugins/policies
         

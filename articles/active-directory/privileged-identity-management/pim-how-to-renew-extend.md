@@ -4,16 +4,16 @@ description: Learn how to extend or renew Azure Active Directory role assignment
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
-editor: markwahl-msft
+manager: karenhoran
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 08/06/2021
+ms.date: 10/19/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -40,11 +40,14 @@ The following steps outline the process for requesting, resolving, or administer
 
 ### Self-extend expiring assignments
 
-Users or groups assigned to a role can extend expiring role assignments directly from the **Eligible** or **Active** tab on the **My roles** page, either under **Azure AD roles** or from the top level **My roles** page of the Privileged Identity Management portal. Users or groups can request to extend eligible and active role assignments that expire in the next 14 days.
+Users assigned to a role can extend expiring role assignments directly from the **Eligible** or **Active** tab on the **My roles** page, either under **Azure AD roles** or from the top level **My roles** page of the Privileged Identity Management portal. In the portal, users can request to extend eligible or active (assigned) roles that expire in the next 14 days.
 
 ![Azure AD roles - My roles page listing eligible roles with an Action column](./media/pim-how-to-renew-extend/pim-extend-link-in-portal.png)
 
 When the assignment end date and time is within 14 days, the button to **Extend** becomes an active link in the user interface. In the following example, assume the current date is March 27.
+
+>[!Note]
+>For a group assigned to a role, the **Extend** link never becomes available so that a user with an inherited assignment can't extend the group assignment.
 
 ![Action column with links to Activate or Extend](./media/pim-how-to-renew-extend/pim-extend-within-fourteen.png)
 
@@ -86,6 +89,74 @@ If a user assigned to a role doesn't request an extension for the role assignmen
 To extend a role assignment, browse to the role or assignment view in Privileged Identity Management. Find the assignment that requires an extension. Then select **Extend** in the action column.
 
 ![Azure AD Roles - Assignments page listing eligible roles with links to extend](./media/pim-how-to-renew-extend/extend-admin-extend.png)
+
+## Extend role assignments using Microsoft Graph API
+
+In the following request, an administrator extends an active assignment using Microsoft Graph API.
+
+#### HTTP request
+
+````HTTP
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentScheduleRequests 
+ 
+{
+    "action": "adminExtend",
+    "justification": "TEST",
+    "roleDefinitionId": "31392ffb-586c-42d1-9346-e59415a2cc4e",
+    "directoryScopeId": "/",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "scheduleInfo": {
+        "startDateTime": "2022-04-10T00:00:00Z",
+        "expiration": {
+            "type": "afterDuration",
+            "duration": "PT3H"
+        }
+    }
+}
+````
+
+#### HTTP response
+
+````HTTP
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity",
+    "id": "c3a3aa36-22e2-4240-8e4c-ea2a3af7c30f",
+    "status": "Provisioned",
+    "createdDateTime": "2022-05-13T16:18:36.3647674Z",
+    "completedDateTime": "2022-05-13T16:18:40.0835993Z",
+    "approvalId": null,
+    "customData": null,
+    "action": "adminExtend",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "roleDefinitionId": "31392ffb-586c-42d1-9346-e59415a2cc4e",
+    "directoryScopeId": "/",
+    "appScopeId": null,
+    "isValidationOnly": false,
+    "targetScheduleId": "c3a3aa36-22e2-4240-8e4c-ea2a3af7c30f",
+    "justification": "TEST",
+    "createdBy": {
+        "application": null,
+        "device": null,
+        "user": {
+            "displayName": null,
+            "id": "3fbd929d-8c56-4462-851e-0eb9a7b3a2a5"
+        }
+    },
+    "scheduleInfo": {
+        "startDateTime": "2022-05-13T16:18:40.0835993Z",
+        "recurrence": null,
+        "expiration": {
+            "type": "afterDuration",
+            "endDateTime": null,
+            "duration": "PT3H"
+        }
+    },
+    "ticketInfo": {
+        "ticketNumber": null,
+        "ticketSystem": null
+    }
+}
+````
 
 ## Renew role assignments
 

@@ -5,8 +5,9 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 09/13/2021
 ms.author: maquaran
+ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ---
 
@@ -23,7 +24,7 @@ The .NET V3 SDK has several breaking changes, the following are the key steps to
 1. Customizations that use `WithProcessorOptions` should be updated to use `WithLeaseConfiguration` and `WithPollInterval` for intervals, `WithStartTime` [for start time](./change-feed-processor.md#starting-time), and `WithMaxItems` to define the maximum item count.
 1. Set the `processorName` on `GetChangeFeedProcessorBuilder` to match the value configured on `ChangeFeedProcessorOptions.LeasePrefix`, or use `string.Empty` otherwise.
 1. The changes are no longer delivered as a `IReadOnlyList<Document>`, instead, it's a `IReadOnlyCollection<T>` where `T` is a type you need to define, there is no base item class anymore.
-1. To handle the changes, you no longer need an implementation, instead you need to [define a delegate](change-feed-processor.md#implementing-the-change-feed-processor). The delegate can be a static Function or, if you need to maintain state across executions, you can create your own class and pass an instance method as delegate.
+1. To handle the changes, you no longer need an implementation of `IChangeFeedObserver`, instead you need to [define a delegate](change-feed-processor.md#implementing-the-change-feed-processor). The delegate can be a static Function or, if you need to maintain state across executions, you can create your own class and pass an instance method as delegate.
 
 For example, if the original code to build the change feed processor looks as follows:
 
@@ -33,7 +34,11 @@ The migrated code will look like:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=ChangeFeedProcessorMigrated)]
 
-And the delegate, can be a static method:
+For the delegate, you can have a static method to receive the events. If you were consuming information from the `IChangeFeedObserverContext` you can migrate to use the `ChangeFeedProcessorContext`:
+
+* `ChangeFeedProcessorContext.LeaseToken` can be used instead of `IChangeFeedObserverContext.PartitionKeyRangeId`
+* `ChangeFeedProcessorContext.Headers` can be used instead of `IChangeFeedObserverContext.FeedResponse`
+* `ChangeFeedProcessorContext.Diagnostics` contains detailed information about request latency for troubleshooting
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=Delegate)]
 

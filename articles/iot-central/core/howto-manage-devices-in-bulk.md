@@ -5,7 +5,7 @@ ms.service: iot-central
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/08/2021
+ms.date: 12/27/2021
 ms.topic: how-to
 ---
 
@@ -15,7 +15,7 @@ You can use Azure IoT Central to manage your connected devices at scale through 
 
 ## Create and run a job
 
-The following example shows you how to create and run a job to set the light threshold for a group of logistic gateway devices. You use the job wizard to create and run jobs. You can save a job to run later.
+The following example shows you how to create and run a job to set the light threshold for a group of devices. You use the job wizard to create and run jobs. You can save a job to run later.
 
 1. On the left pane, select **Jobs**.
 
@@ -23,11 +23,13 @@ The following example shows you how to create and run a job to set the light thr
 
 1. On the **Configure your job** page, enter a name and description to identify the job you're creating.
 
-1. Select the target device group that you want your job to apply to. You can see how many devices your job configuration applies to below your **Device group** selection.
+1. If your application uses [organizations](howto-create-organizations.md), select the organization to associate the job to. Only users in the organization can view or modify the job. The user's role determines the permissions the user has.
 
-1. Choose **Cloud property**, **Property**, or **Command** as the **Job type**:
+1. Select the target device group that you want your job to apply to. If your application uses organizations, the selected organization determines the available device groups. You can see how many devices your job configuration applies to below your **Device group** selection.
 
-    To configure a **Property** job, select a property and set its new value. To configure a **Command** job, choose the command to run. A property job can set multiple properties.
+1. Choose **Cloud property**, **Property**, **Command**, or **Change device template** as the **Job type**:
+
+    To configure a **Property** job, select a property and set its new value. A property job can set multiple properties. To configure a **Command** job, choose the command to run. To configure a **Change device template** job, select the device template to assign to the devices in the device group.
 
     :::image type="content" source="media/howto-manage-devices-in-bulk/configure-job.png" alt-text="Screenshot that shows selections for creating a property job called Set Light Threshold":::
 
@@ -164,7 +166,7 @@ Enter a job name and description, and then select **Rerun job**. A new job is su
 
 ## Import devices
 
-To connect large number of devices to your application, you can bulk import devices from a CSV file. You can find an example CSV file in the [Azure Samples repository](https://github.com/Azure-Samples/iot-central-docs-samples/tree/master/bulk-upload-devices). The CSV file should include the following column headers:
+To register a large number of devices to your application, you can bulk import devices from a CSV file. You can find an example CSV file in the [Azure Samples repository](https://github.com/Azure-Samples/iot-central-docs-samples/tree/master/bulk-upload-devices). The CSV file should include the following column headers:
 
 | Column | Description |
 | - | - |
@@ -184,15 +186,22 @@ To bulk-register devices in your application:
 
     :::image type="content" source="media/howto-manage-devices-in-bulk/bulk-import-1.png" alt-text="Screenshot showing import action settings.":::
 
-1. Select the CSV file that has the list of Device IDs to be imported.
+1. Select an organization to assign the devices to. All the devices you're importing are assigned to the same organization. To assign devices to different organizations, create multiple import files, one for each organization. Alternatively, upload them all to the root organization and then in the UI reassign them to the correct organizations.
 
-1. Device import starts once the file has been uploaded. You can track the import status in the Device Operations panel. This panel appears automatically after the import starts or you can access it through the bell icon in the top right-hand corner.
+1. Select the CSV file that has the list of device IDs to be imported.
 
-1. Once the import completes, a success message is shown in the Device Operations panel.
+1. Device import starts once the file has been uploaded. You can track the import status in the **Device Operations** panel. This panel appears automatically after the import starts or you can access it through the bell icon in the top right-hand corner.
+
+1. Once the import completes, a success message is shown in the **Device Operations** panel.
 
     :::image type="content" source="media/howto-manage-devices-in-bulk/bulk-import-2.png" alt-text="Screenshot showing import success.":::
 
-If the device import operation fails, you see an error message on the Device Operations panel. A log file capturing all the errors is generated that you can download.
+If the device import operation fails, you see an error message on the **Device Operations** panel. A log file capturing all the errors is generated that you can download.
+
+If your devices use SAS tokens to authenticate, [export a CSV file from your IoT Central application](#export-devices). The exported CSV file includes the device IDs and the SAS keys.
+
+If your devices use X.509 certificates to authenticate, generate X.509 leaf certificates for your devices using the root or intermediate certificate in your X.509 enrollment group. Use the device IDs you imported as the `CNAME` value in the leaf certificates.
+
 
 ## Export devices
 
@@ -208,7 +217,7 @@ To bulk export devices from your application:
 
     :::image type="content" source="media/howto-manage-devices-in-bulk/export-1.png" alt-text="Screenshot showing export action settings.":::
 
-1. The export process starts. You can track the status using the Device Operations panel.
+1. The export process starts. You can track the status using the **Device Operations** panel.
 
 1. When the export completes, a success message is shown along with a link to download the generated file.
 
@@ -225,7 +234,7 @@ To bulk export devices from your application:
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-For more information about connecting real devices to your IoT Central application, see [Device connectivity in Azure IoT Central](concepts-get-connected.md).
+For more information about connecting real devices to your IoT Central application, see [How devices connect](overview-iot-central-developer.md#how-devices-connect).
 
 ## Next steps
 

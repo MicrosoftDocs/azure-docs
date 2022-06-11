@@ -1,5 +1,5 @@
 ---
-title: Use private endpoints 
+title: Use private endpoints
 titleSuffix: Azure Storage
 description: Overview of private endpoints for secure access to storage accounts from virtual networks.
 services: storage
@@ -15,7 +15,10 @@ ms.subservice: common
 
 # Use private endpoints for Azure Storage
 
-You can use [private endpoints](../../private-link/private-endpoint-overview.md) for your Azure Storage accounts to allow clients on a virtual network (VNet) to securely access data over a [Private Link](../../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your storage account service. Network traffic between the clients on the VNet and the storage account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+You can use [private endpoints](../../private-link/private-endpoint-overview.md) for your Azure Storage accounts to allow clients on a virtual network (VNet) to securely access data over a [Private Link](../../private-link/private-link-overview.md). The private endpoint uses a separate IP address from the VNet address space for each storage account service. Network traffic between the clients on the VNet and the storage account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+
+> [!NOTE]
+> Private endpoints are not available for general-purpose v1 storage accounts.   
 
 Using private endpoints for your storage account enables you to:
 
@@ -35,15 +38,15 @@ Private endpoints can be created in subnets that use [Service Endpoints](../../v
 
 When you create a private endpoint for a storage service in your VNet, a consent request is sent for approval to the storage account owner. If the user requesting the creation of the private endpoint is also an owner of the storage account, this consent request is automatically approved.
 
-Storage account owners can manage consent requests and the private endpoints, through the '*Private endpoints*' tab for the storage account in the [Azure portal](https://portal.azure.com).
+Storage account owners can manage consent requests and the private endpoints through the '*Private endpoints*' tab for the storage account in the [Azure portal](https://portal.azure.com).
 
 > [!TIP]
 > If you want to restrict access to your storage account through the private endpoint only, configure the storage firewall to deny or control access through the public endpoint.
 
-You can secure your storage account to only accept connections from your VNet, by [configuring the storage firewall](storage-network-security.md#change-the-default-network-access-rule) to deny access through its public endpoint by default. You don't need a firewall rule to allow traffic from a VNet that has a private endpoint, since the storage firewall only controls access through the public endpoint. Private endpoints instead rely on the consent flow for granting subnets access to the storage service.
+You can secure your storage account to only accept connections from your VNet by [configuring the storage firewall](storage-network-security.md#change-the-default-network-access-rule) to deny access through its public endpoint by default. You don't need a firewall rule to allow traffic from a VNet that has a private endpoint, since the storage firewall only controls access through the public endpoint. Private endpoints instead rely on the consent flow for granting subnets access to the storage service.
 
 > [!NOTE]
-> When copying blobs between storage accounts, your client must have network access to both accounts. So if you choose to use a private link for only one account (either the source or the destination), make sure that your client has network access to the other account. To learn about other ways to configure network access, see [Configure Azure Storage firewalls and virtual networks](storage-network-security.md?toc=/azure/storage/blobs/toc.json). 
+> When copying blobs between storage accounts, your client must have network access to both accounts. So if you choose to use a private link for only one account (either the source or the destination), make sure that your client has network access to the other account. To learn about other ways to configure network access, see [Configure Azure Storage firewalls and virtual networks](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
 
 <a id="private-endpoints-for-azure-storage"></a>
 
@@ -57,11 +60,9 @@ To create a private endpoint by using PowerShell or the Azure CLI, see either of
 
 - [Create a private endpoint using Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
+When you create a private endpoint, you must specify the storage account and the storage service to which it connects.
 
-
-When you create a private endpoint, you must specify the storage account and the storage service to which it connects. 
-
-You need a separate private endpoint for each storage resource that you need to access, namely [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md), or [Static Websites](../blobs/storage-blob-static-website.md). On the private endpoint, these storage services are defined as the **target sub-resource** of the associated storage account. 
+You need a separate private endpoint for each storage resource that you need to access, namely [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md), or [Static Websites](../blobs/storage-blob-static-website.md). On the private endpoint, these storage services are defined as the **target sub-resource** of the associated storage account.
 
 If you create a private endpoint for the Data Lake Storage Gen2 storage resource, then you should also create one for the Blob storage resource. That's because operations that target the Data Lake Storage Gen2 endpoint might be redirected to the Blob endpoint. By creating a private endpoint for both resources, you ensure that operations can complete successfully.
 
@@ -75,12 +76,12 @@ For read access to the secondary region with a storage account configured for ge
 
 ## Connecting to a private endpoint
 
-Clients on a VNet using the private endpoint should use the same connection string for the storage account, as clients connecting to the public endpoint. We rely upon DNS resolution to automatically route the connections from the VNet to the storage account over a private link.
+Clients on a VNet using the private endpoint should use the same connection string for the storage account as clients connecting to the public endpoint. We rely upon DNS resolution to automatically route the connections from the VNet to the storage account over a private link.
 
 > [!IMPORTANT]
-> Use the same connection string to connect to the storage account using private endpoints, as you'd use otherwise. Please don't connect to the storage account using its `privatelink` subdomain URL.
+> Use the same connection string to connect to the storage account using private endpoints as you'd use otherwise. Please don't connect to the storage account using its `privatelink` subdomain URL.
 
-We create a [private DNS zone](../../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints, by default. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
+By default, We create a [private DNS zone](../../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
 
 ## DNS changes for private endpoints
 
@@ -92,25 +93,25 @@ For the illustrated example above, the DNS resource records for the storage acco
 
 | Name                                                  | Type  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
-| ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
+| `StorageAccountA.blob.core.windows.net`             | CNAME | `StorageAccountA.privatelink.blob.core.windows.net` |
+| `StorageAccountA.privatelink.blob.core.windows.net` | CNAME | \<storage service public endpoint\>                   |
 | \<storage service public endpoint\>                   | A     | \<storage service public IP address\>                 |
 
 As previously mentioned, you can deny or control access for clients outside the VNet through the public endpoint using the storage firewall.
 
 The DNS resource records for StorageAccountA, when resolved by a client in the VNet hosting the private endpoint, will be:
 
-| Name                                                  | Type  | Value                                                 |
-| :---------------------------------------------------- | :---: | :---------------------------------------------------- |
-| ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
+| Name  | Type | Value |
+| :--- | :---: | :--- |
+| `StorageAccountA.blob.core.windows.net` | CNAME | `StorageAccountA.privatelink.blob.core.windows.net` |
+| `StorageAccountA.privatelink.blob.core.windows.net` | A | `10.1.1.5` |
 
 This approach enables access to the storage account **using the same connection string** for clients on the VNet hosting the private endpoints, as well as clients outside the VNet.
 
-If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the storage account endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for '*StorageAccountA.privatelink.blob.core.windows.net*' with the private endpoint IP address.
+If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the storage account endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for `StorageAccountA.privatelink.blob.core.windows.net` with the private endpoint IP address.
 
 > [!TIP]
-> When using a custom or on-premises DNS server, you should configure your DNS server to resolve the storage account name in the `privatelink` subdomain to the private endpoint IP address. You can do this by delegating the `privatelink` subdomain to the private DNS zone of the VNet, or configuring the DNS zone on your DNS server and adding the DNS A records.
+> When using a custom or on-premises DNS server, you should configure your DNS server to resolve the storage account name in the `privatelink` subdomain to the private endpoint IP address. You can do this by delegating the `privatelink` subdomain to the private DNS zone of the VNet or by configuring the DNS zone on your DNS server and adding the DNS A records.
 
 The recommended DNS zone names for private endpoints for storage services, and the associated endpoint target sub-resources, are:
 
@@ -148,9 +149,9 @@ Currently, you can't configure [Network Security Group](../../virtual-network/ne
 
 ### Copying blobs between storage accounts
 
-You can copy blobs between storage accounts by using private endpoints only if you use the Azure REST API, or tools that use the REST API. These tools include AzCopy, Storage Explorer, Azure PowerShell, Azure CLI, and the Azure Blob Storage SDKs. 
+You can copy blobs between storage accounts by using private endpoints only if you use the Azure REST API, or tools that use the REST API. These tools include AzCopy, Storage Explorer, Azure PowerShell, Azure CLI, and the Azure Blob Storage SDKs.
 
-Only private endpoints that target the Blob storage resource are supported. Private endpoints that target the Data Lake Storage Gen2 or the File resource are not yet supported. Also, copying between storage accounts by using the Network File System (NFS) protocol is not yet supported. 
+Only private endpoints that target the Blob storage resource are supported. Private endpoints that target the Data Lake Storage Gen2 or the File resource are not yet supported. Also, copying between storage accounts by using the Network File System (NFS) protocol is not yet supported.
 
 ## Next steps
 

@@ -1,12 +1,13 @@
 ---
 title: Configure parameters - Azure Database for PostgreSQL - Flexible Server
 description: This article describes how to configure Postgres parameters in Azure Database for PostgreSQL - Flexible Server using the Azure CLI.
-author: sunilagarwal
 ms.author: sunila
+author: sunilagarwal
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 9/22/2020
+ms.date: 11/30/2021
 ms.custom: devx-track-azurecli
 ---
 

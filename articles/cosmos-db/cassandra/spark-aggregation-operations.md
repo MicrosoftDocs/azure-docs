@@ -3,7 +3,7 @@ title: Aggregate operations on Azure Cosmos DB Cassandra API tables from Spark
 description: This article covers basic aggregation operations against Azure Cosmos DB Cassandra API tables from Spark
 author: TheovanKraay
 ms.author: thvankra
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to

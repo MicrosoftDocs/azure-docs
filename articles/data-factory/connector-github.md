@@ -2,21 +2,20 @@
 title: Connect to GitHub
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Use GitHub to specify your Common Data Model entity references
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.author: jingwang
+ms.date: 09/09/2021
+ms.author: jianleishen
 ---
-
 
 # Use GitHub to read Common Data Model entity references
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The GitHub connector in Azure Data Factory is only used to receive the entity reference schema for the [Common Data Model](format-common-data-model.md) format in mapping data flow.
+The GitHub connector in Azure Data Factory and Synapse Analytics pipelines is only used to receive the entity reference schema for the [Common Data Model](format-common-data-model.md) format in mapping data flow.
 
 ## Create a linked service to GitHub using UI
 
@@ -52,6 +51,6 @@ The following properties are supported for the GitHub linked service.
 | userName | GitHub username | yes |
 | password | GitHub password | yes |
 
-## Next Steps
+## Next steps
 
 Create a [source dataset](data-flow-source.md) in mapping data flow.

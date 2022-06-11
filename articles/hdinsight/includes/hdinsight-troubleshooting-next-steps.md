@@ -1,9 +1,9 @@
 ---
-author: hrasheed-msft
+author: jasonwhowell
 ms.service: hdinsight
 ms.topic: include
-ms.date: 11/02/2020
-ms.author: hrasheed
+ms.date: 11/07/2021
+ms.author: jasonh
 ---
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:

@@ -1,9 +1,9 @@
 ---
-author: DCtheGeek
+author: timwarner-msft
 ms.service: resource-graph
 ms.topic: include
-ms.date: 08/31/2021
-ms.author: dacoulte
+ms.date: 03/08/2022
+ms.author: timwarner
 ms.custom: generated
 ---
 
@@ -23,7 +23,7 @@ PatchAssessmentResources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "PatchAssessmentResources | where type !has 'softwarepatches' | extend machineName = tostring(split(id, '/', 8)), resourceType = tostring(split(type, '/', 0)), tostring(rgName = split(id, '/', 4)) | extend prop = parse_json(properties) | extend lTime = todatetime(prop.lastModifiedDateTime), OS = tostring(prop.osType), installedPatchCount = tostring(prop.installedPatchCount), failedPatchCount = tostring(prop.failedPatchCount), pendingPatchCount = tostring(prop.pendingPatchCount), excludedPatchCount = tostring(prop.excludedPatchCount), notSelectedPatchCount = tostring(prop.notSelectedPatchCount) | where lTime > ago(7d) | project lTime, RunID=name,machineName, rgName, resourceType, OS, installedPatchCount, failedPatchCount, pendingPatchCount, excludedPatchCount, notSelectedPatchCount"
 ```
 
@@ -55,7 +55,7 @@ HealthResources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "HealthResources | where type =~ 'microsoft.resourcehealth/availabilitystatuses' | summarize count() by subscriptionId, AvailabilityState = tostring(properties.availabilityState)"
 ```
 
@@ -87,7 +87,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines' | summarize count() by PowerState = tostring(properties.extended.instanceView.powerState.code)"
 ```
 
@@ -119,7 +119,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
@@ -152,7 +152,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
@@ -172,6 +172,38 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ---
 
+### Get all New alerts from the past 30 days
+
+This query provides a list of all the user's New alerts, from the past 30 days.
+
+```kusto
+iotsecurityresources
+| where type == 'microsoft.iotsecurity/locations/devicegroups/alerts'
+| where todatetime(properties.startTimeUtc) > ago(30d) and properties.status == 'New'
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az graph query -q "iotsecurityresources | where type == 'microsoft.iotsecurity/locations/devicegroups/alerts' | where todatetime(properties.startTimeUtc) > ago(30d) and properties.status == 'New'"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "iotsecurityresources | where type == 'microsoft.iotsecurity/locations/devicegroups/alerts' | where todatetime(properties.startTimeUtc) > ago(30d) and properties.status == 'New'"
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="../../../../articles/governance/resource-graph/media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/iotsecurityresources%0a%7c%20where%20type%20%3d%3d%20%27microsoft.iotsecurity%2flocations%2fdevicegroups%2falerts%27%0a%7c%20where%20todatetime(properties.startTimeUtc)%20%3e%20ago(30d)%20and%20properties.status%20%3d%3d%20%27New%27" target="_blank">portal.azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/iotsecurityresources%0a%7c%20where%20type%20%3d%3d%20%27microsoft.iotsecurity%2flocations%2fdevicegroups%2falerts%27%0a%7c%20where%20todatetime(properties.startTimeUtc)%20%3e%20ago(30d)%20and%20properties.status%20%3d%3d%20%27New%27" target="_blank">portal.azure.us</a>
+- Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/iotsecurityresources%0a%7c%20where%20type%20%3d%3d%20%27microsoft.iotsecurity%2flocations%2fdevicegroups%2falerts%27%0a%7c%20where%20todatetime(properties.startTimeUtc)%20%3e%20ago(30d)%20and%20properties.status%20%3d%3d%20%27New%27" target="_blank">portal.azure.cn</a>
+
+---
+
 ### Get virtual machine scale set capacity and size
 
 This query looks for virtual machine scale set resources and gets various details including the virtual machine size and the capacity of the scale set. The query uses the `toint()` function to cast the capacity to a number so that it can be sorted. Finally, the columns are renamed into custom named properties.
@@ -186,7 +218,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
@@ -208,7 +240,7 @@ Search-AzGraph -Query "Resources | where type=~ 'microsoft.compute/virtualmachin
 
 ### List all extensions installed on a virtual machine
 
-First, this query uses `extend` on the virtual machines resource type to get the ID in uppercase (`toupper()`) the ID, get the operating system name and type, and get the virtual machine size. Getting the resource ID in upper case is a good way to prepare to join to another property. Then, the query uses `join` with **kind** as _leftouter_ to get virtual machine extensions by matching an upper cased `substring` of the extension ID. The portion of the ID before "/extensions/\<ExtensionName\>" is the same format as the virtual machines ID, so we use this property for the `join`. `summarize` is then used with `make_list` on the name of the virtual machine extension to combine the name of each extension where _id_, _OSName_, _OSType_, and _VMSize_ are the same into a single array property. Lastly, we `order by` the lower cased _OSName_ with **asc**. By default, `order by` is descending.
+First, this query uses `extend` on the virtual machines resource type to get the ID in uppercase (`toupper()`) the ID, get the operating system name and type, and get the virtual machine size. Getting the resource ID in uppercase is a good way to prepare to join to another property. Then, the query uses `join` with **kind** as _leftouter_ to get virtual machine extensions by matching an uppercase `substring` of the extension ID. The portion of the ID before "/extensions/\<ExtensionName\>" is the same format as the virtual machines ID, so we use this property for the `join`. `summarize` is then used with `make_list` on the name of the virtual machine extension to combine the name of each extension where _id_, _OSName_, _OSType_, and _VMSize_ are the same into a single array property. Lastly, we `order by` lowercase _OSName_ with **asc**. By default, `order by` is descending.
 
 ```kusto
 Resources
@@ -221,7 +253,7 @@ Resources
 | join kind=leftouter(
 	Resources
 	| where type == 'microsoft.compute/virtualmachines/extensions'
-	| extend 
+	| extend
 		VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
 		ExtensionName = name
 ) on $left.JoinID == $right.VMId
@@ -231,8 +263,8 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
-az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines' | extend JoinID = toupper(id), OSName = tostring(properties.osProfile.computerName), OSType = tostring(properties.storageProfile.osDisk.osType), VMSize = tostring(properties.hardwareProfile.vmSize) | join kind=leftouter( Resources | where type == 'microsoft.compute/virtualmachines/extensions' | extend  VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),  ExtensionName = name ) on $left.JoinID == $right.VMId | summarize Extensions = make_list(ExtensionName) by id, OSName, OSType, VMSize | order by tolower(OSName) asc"
+```azurecli
+az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines' | extend JoinID = toupper(id), OSName = tostring(properties.osProfile.computerName), OSType = tostring(properties.storageProfile.osDisk.osType), VMSize = tostring(properties.hardwareProfile.vmSize) | join kind=leftouter( Resources | where type == 'microsoft.compute/virtualmachines/extensions' | extend  VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),  ExtensionName = name ) on \$left.JoinID == \$right.VMId | summarize Extensions = make_list(ExtensionName) by id, OSName, OSType, VMSize | order by tolower(OSName) asc"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -266,7 +298,7 @@ PatchAssessmentResources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "PatchAssessmentResources | where type !has 'softwarepatches' | extend prop = parse_json(properties) | extend lastTime = properties.lastModifiedDateTime | extend updateRollupCount = prop.availablePatchCountByClassification.updateRollup, featurePackCount = prop.availablePatchCountByClassification.featurePack, servicePackCount = prop.availablePatchCountByClassification.servicePack, definitionCount = prop.availablePatchCountByClassification.definition, securityCount = prop.availablePatchCountByClassification.security, criticalCount = prop.availablePatchCountByClassification.critical, updatesCount = prop.availablePatchCountByClassification.updates, toolsCount = prop.availablePatchCountByClassification.tools, otherCount = prop.availablePatchCountByClassification.other, OS = prop.osType | project lastTime, id, OS, updateRollupCount, featurePackCount, servicePackCount, definitionCount, securityCount, criticalCount, updatesCount, toolsCount, otherCount"
 ```
 
@@ -303,7 +335,7 @@ PatchAssessmentResources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "PatchAssessmentResources | where type has 'softwarepatches' and properties has 'version' | extend machineName = tostring(split(id, '/', 8)), resourceType = tostring(split(type, '/', 0)), tostring(rgName = split(id, '/', 4)), tostring(RunID = split(id, '/', 10)) | extend prop = parse_json(properties) | extend lTime = todatetime(prop.lastModifiedDateTime), patchName = tostring(prop.patchName), version = tostring(prop.version), installationState = tostring(prop.installationState), classifications = tostring(prop.classifications) | where lTime > ago(7d) | project lTime, RunID, machineName, rgName, resourceType, patchName, version, classifications, installationState | sort by RunID"
 ```
 
@@ -323,6 +355,40 @@ Search-AzGraph -Query "PatchAssessmentResources | where type has 'softwarepatche
 
 ---
 
+### List of unattached disks with details
+
+Returns the list of disks that have a status of unattached with details. The query also includes the disk name, resource group, and location to enable triaging and mitigation as part of auditing or cost optimization efforts.
+
+```kusto
+Resources
+| where type == "microsoft.compute/disks"
+| where properties['diskState'] == "Unattached"
+| project name,resourceGroup,id,type,kind,location,subscriptionId,tags,properties['diskState']
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az graph query -q "Resources | where type == "microsoft.compute/disks" | where properties['diskState'] == "Unattached" | project name,resourceGroup,id,type kind,location,subscriptionId,tags,properties['diskState']"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "Resources | where type == "microsoft.compute/disks" | where properties['diskState'] == "Unattached" | project name,resourceGroup,id,type,kind,location,subscriptionId,tags,properties['diskState']"
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="../../../../articles/governance/resource-graph/media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%22microsoft.compute%2Fdisks%22%20%7C%20where%20properties%5B%27diskState%27%5D%20%3D%3D%20%22Unattached%22%20%7C%20project%20name%2CresourceGroup%2Cid%2Ctype%2Ckind%2Clocation%2CsubscriptionId%2Ctags%2Cproperties%5B%27diskState%27%5D" target="_blank">portal.azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%22microsoft.compute%2Fdisks%22%20%7C%20where%20properties%5B%27diskState%27%5D%20%3D%3D%20%22Unattached%22%20%7C%20project%20name%2CresourceGroup%2Cid%2Ctype%2Ckind%2Clocation%2CsubscriptionId%2Ctags%2Cproperties%5B%27diskState%27%5D" target="_blank">portal.azure.us</a>
+- Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%22microsoft.compute%2Fdisks%22%20%7C%20where%20properties%5B%27diskState%27%5D%20%3D%3D%20%22Unattached%22%20%7C%20project%20name%2CresourceGroup%2Cid%2Ctype%2Ckind%2Clocation%2CsubscriptionId%2Ctags%2Cproperties%5B%27diskState%27%5D" target="_blank">portal.azure.cn</a>
+
+
+---
+
 ### List of virtual machines and associated availability states by Resource Ids
 
 Returns the latest list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated by availability state. The query also provides the associated Resource Id based on `properties.targetResourceId`, for easy debugging and mitigation. Availability states can be one of four values: Available, Unavailable, Degraded and Unknown. For more details on what each of the availability states mean, please see [Azure Resource Health overview](../../../../articles/service-health/resource-health-overview.md#health-status).
@@ -335,7 +401,7 @@ HealthResources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "HealthResources | where type =~ 'microsoft.resourcehealth/availabilitystatuses' | summarize by ResourceId = tolower(tostring(properties.targetResourceId)), AvailabilityState = tostring(properties.availabilityState)"
 ```
 
@@ -349,9 +415,9 @@ Search-AzGraph -Query "HealthResources | where type =~ 'microsoft.resourcehealth
 
 :::image type="icon" source="../../../../articles/governance/resource-graph/media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
 
-- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/HealthResources%0a%7c%20where%20type%20%3d%7e%20%27microsoft.resourcehealth%2favailabilitystatuses%27%0a%7c%20summarize%20by%20ResourceId%20%3d%20tolower(tostring(properties.targetResourceId))%2c%20AvailabilityState%20%3d%20tostring(properties.availabilityState)" target="_blank">portal.azure.com</a>
-- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/HealthResources%0a%7c%20where%20type%20%3d%7e%20%27microsoft.resourcehealth%2favailabilitystatuses%27%0a%7c%20summarize%20by%20ResourceId%20%3d%20tolower(tostring(properties.targetResourceId))%2c%20AvailabilityState%20%3d%20tostring(properties.availabilityState)" target="_blank">portal.azure.us</a>
-- Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/HealthResources%0a%7c%20where%20type%20%3d%7e%20%27microsoft.resourcehealth%2favailabilitystatuses%27%0a%7c%20summarize%20by%20ResourceId%20%3d%20tolower(tostring(properties.targetResourceId))%2c%20AvailabilityState%20%3d%20tostring(properties.availabilityState)" target="_blank">portal.azure.cn</a>
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/HealthResources%20%7C%20where%20type%20%3D~%20%27microsoft.resourcehealth%2Favailabilitystatuses%27%20%7C%20summarize%20by%20ResourceId%20%3D%20tolower%28tostring%28properties.targetResourceId%29%29%2C%20AvailabilityState%20%3D%20tostring%28properties.availabilityState%29" target="_blank">portal.azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/HealthResources%20%7C%20where%20type%20%3D~%20%27microsoft.resourcehealth%2Favailabilitystatuses%27%20%7C%20summarize%20by%20ResourceId%20%3D%20tolower%28tostring%28properties.targetResourceId%29%29%2C%20AvailabilityState%20%3D%20tostring%28properties.availabilityState%29" target="_blank">portal.azure.us</a>
+- Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/HealthResources%20%7C%20where%20type%20%3D~%20%27microsoft.resourcehealth%2Favailabilitystatuses%27%20%7C%20summarize%20by%20ResourceId%20%3D%20tolower%28tostring%28properties.targetResourceId%29%29%2C%20AvailabilityState%20%3D%20tostring%28properties.availabilityState%29" target="_blank">portal.azure.cn</a>
 
 ---
 
@@ -375,8 +441,8 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
-az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' | project resourceGroup, Id = tolower(id), PowerState = tostring( properties.extended.instanceView.powerState.code) | join kind=leftouter ( HealthResources | where type =~ 'microsoft.resourcehealth/availabilitystatuses' | where tostring(properties.targetResourceType) =~ 'microsoft.compute/virtualmachines' | project targetResourceId = tolower(tostring(properties.targetResourceId)), AvailabilityState = tostring(properties.availabilityState)) on $left.Id == $right.targetResourceId | project-away targetResourceId | where PowerState != 'PowerState/deallocated'"
+```azurecli
+az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' | project resourceGroup, Id = tolower(id), PowerState = tostring( properties.extended.instanceView.powerState.code) | join kind=leftouter ( HealthResources | where type =~ 'microsoft.resourcehealth/availabilitystatuses' | where tostring(properties.targetResourceType) =~ 'microsoft.compute/virtualmachines' | project targetResourceId = tolower(tostring(properties.targetResourceId)), AvailabilityState = tostring(properties.availabilityState)) on \$left.Id == \$right.targetResourceId | project-away targetResourceId | where PowerState != 'PowerState/deallocated'"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -408,7 +474,7 @@ HealthResources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "HealthResources | where type =~ 'microsoft.resourcehealth/availabilitystatuses' | where tostring(properties.availabilityState) != 'Available' | summarize by ResourceId = tolower(tostring(properties.targetResourceId)), AvailabilityState = tostring(properties.availabilityState)"
 ```
 
@@ -445,7 +511,7 @@ PatchAssessmentResources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "PatchAssessmentResources | where type has 'softwarepatches' and properties !has 'version' | extend machineName = tostring(split(id, '/', 8)), resourceType = tostring(split(type, '/', 0)), tostring(rgName = split(id, '/', 4)), tostring(RunID = split(id, '/', 10)) | extend prop = parse_json(properties) | extend lTime = todatetime(prop.lastModifiedDateTime), patchName = tostring(prop.patchName), kbId = tostring(prop.kbId), installationState = tostring(prop.installationState), classifications = tostring(prop.classifications) | where lTime > ago(7d) | project lTime, RunID, machineName, rgName, resourceType, patchName, kbId, classifications, installationState | sort by RunID"
 ```
 
@@ -496,7 +562,7 @@ on publicIpId
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' | extend nics=array_length(properties.networkProfile.networkInterfaces) | mv-expand nic=properties.networkProfile.networkInterfaces | where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) | project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) | join kind=leftouter ( Resources | where type =~ 'microsoft.network/networkinterfaces' | extend ipConfigsCount=array_length(properties.ipConfigurations) | mv-expand ipconfig=properties.ipConfigurations | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true' | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id)) on nicId | project-away nicId1 | summarize by vmId, vmName, vmSize, nicId, publicIpId | join kind=leftouter ( Resources | where type =~ 'microsoft.network/publicipaddresses' | project publicIpId = id, publicIpAddress = properties.ipAddress) on publicIpId | project-away publicIpId1"
 ```
 
@@ -529,7 +595,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | project name, location, type | where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
@@ -562,7 +628,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
@@ -594,7 +660,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines' | summarize count() by tostring(properties.extended.instanceView.powerState.code)"
 ```
 
@@ -638,8 +704,8 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
-az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
+```azurecli
+az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+\$' | project name | order by name asc"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)

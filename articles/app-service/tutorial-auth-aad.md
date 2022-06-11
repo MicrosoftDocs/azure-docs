@@ -2,9 +2,9 @@
 title: 'Tutorial: Authenticate users E2E' 
 description: Learn how to use App Service authentication and authorization to secure your App Service apps end-to-end, including access to remote APIs.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/26/2021
+ms.date: 09/23/2021
 ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
@@ -95,7 +95,7 @@ In this step, you deploy the project to two App Service apps. One is the front-e
 
 ::: zone pivot="platform-windows"  
 
-In the Cloud Shell, run the following commands to create two Windows web apps. Replace _\<front-end-app-name>_ and _\<back-end-app-name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md).
+In the Cloud Shell, run the following commands to create two Windows web apps. Replace _\<front-end-app-name>_ and _\<back-end-app-name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [Host a RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
@@ -125,11 +125,11 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### Push to Azure from Git
 
-1. Since you're deploying the `main` branch, you need to set the default deployment branch for your two App Service apps to `main` (see [Change deployment branch](deploy-local-git.md#change-deployment-branch)). In the Cloud Shell, set the `DEPLOYMENT_BRANCH` app setting with the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command. 
+1. Since you're deploying the `main` branch, you need to set the default deployment branch for your two App Service apps to `main` (see [Change deployment branch](deploy-local-git.md#change-deployment-branch)). In the Cloud Shell, set the `DEPLOYMENT_BRANCH` app setting with the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command. 
 
     ```azurecli-interactive
-    az webapp config appsettings set --name <front-end-app-name> --resource-group myAuthResourceGroup --settings DEPLOYMENT_BRANCH='main'
-    az webapp config appsettings set --name <back-end-app-name> --resource-group myAuthResourceGroup --settings DEPLOYMENT_BRANCH='main'
+    az webapp config appsettings set --name <front-end-app-name> --resource-group myAuthResourceGroup --settings DEPLOYMENT_BRANCH=main
+    az webapp config appsettings set --name <back-end-app-name> --resource-group myAuthResourceGroup --settings DEPLOYMENT_BRANCH=main
     ```
 
 1. Back in the _local terminal window_, run the following Git commands to deploy to the back-end app. Replace _\<deploymentLocalGitUrl-of-back-end-app>_ with the URL of the Git remote that you saved from [Create Azure resources](#create-azure-resources). When prompted for credentials by Git Credential Manager, make sure that you enter [your deployment credentials](deploy-configure-credentials.md), not the credentials you use to sign in to the Azure portal.
@@ -155,7 +155,7 @@ http://<back-end-app-name>.azurewebsites.net
 http://<front-end-app-name>.azurewebsites.net
 ```
 
-:::image type="content" source="./media/tutorial-auth-aad/azure-run.png" alt-text="Screenshot of an Azure App Service Rest API Sample in a browser window, which shows a To do list app.":::
+:::image type="content" source="./media/tutorial-auth-aad/azure-run.png" alt-text="Screenshot of an Azure App Service REST API Sample in a browser window, which shows a To do list app.":::
 
 > [!NOTE]
 > If your app restarts, you may have noticed that new data has been erased. This behavior by design because the sample ASP.NET Core app uses an in-memory database.
@@ -235,7 +235,7 @@ In this step, you point the front-end app's server code to access the back-end A
 
 1. Navigate to `http://<back-end-app-name>.azurewebsites.net` to see the items added from the front-end app. Also, add a few items, such as `from back end 1` and `from back end 2`, then refresh the front-end app to see if it reflects the changes.
 
-    :::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Screenshot of an Azure App Service Rest API Sample in a browser window, which shows a To do list app with items added from the front-end app.":::
+    :::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Screenshot of an Azure App Service REST API Sample in a browser window, which shows a To do list app with items added from the front-end app.":::
 
 ## Configure auth
 
@@ -255,13 +255,7 @@ You use Azure Active Directory as the identity provider. For more information, s
 
 1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
 
-1. For **App registration** > **App registration type**, select **Create new app registration**.
-
-1. For **App registration** > **Supported account types**, select **Current tenant-single tenant**.
-
-1. In the **App Service authentication settings** section, leave **Authentication** set to **Require authentication** and **Unauthenticated requests** set to **HTTP 302 Found redirect: recommended for websites**.
-
-1. At the bottom of the **Add an identity provider** page, click **Add** to enable authentication for your web app.
+1. Accept the default settings and click **Add**.
 
     :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the back-end app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
 
@@ -273,7 +267,7 @@ If you stop here, you have a self-contained app that's already secured by the Ap
 
 ### Enable authentication and authorization for front-end app
 
-Follow the same steps for the front-end app, but skip the last step. You don't need the client ID for the front-end app.
+Follow the same steps for the front-end app, but skip the last step. You don't need the client ID for the front-end app. However, stay on the **Authentication** page for the front-end app because you'll use it in the next step.
 
 If you like, navigate to `http://<front-end-app-name>.azurewebsites.net`. It should now direct you to a secured sign-in page. After you sign in, *you still can't access the data from the back-end app*, because the back-end app now requires Azure Active Directory sign-in from the front-end app. You need to do three things:
 
@@ -288,13 +282,9 @@ If you like, navigate to `http://<front-end-app-name>.azurewebsites.net`. It sho
 
 Now that you've enabled authentication and authorization to both of your apps, each of them is backed by an AD application. In this step, you give the front-end app permissions to access the back end on the user's behalf. (Technically, you give the front end's _AD application_ the permissions to access the back end's _AD application_ on the user's behalf.)
 
-1. In the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory** or search for and select *Azure Active Directory* from any page.
+1. In the **Authentication** page for the front-end app, select your front-end app name under **Identity provider**. This app registration was automatically generated for you. Select **API permissions** in the left menu.
 
-1. Select **App registrations** > **Owned applications** > **View all applications in this directory**. Select your front-end app name, then select **API permissions**.
-
-    :::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Screenshot of Microsoft - App registrations window with Owned applications, a front-end app name, and API permissions selected.":::
-
-1. Select **Add a permission**, then select **APIs my organization uses** > **\<back-end-app-name>**.
+1. Select **Add a permission**, then select **My APIs** > **\<back-end-app-name>**.
 
 1. In the **Request API permissions** page for the back-end app, select **Delegated permissions** and **user_impersonation**, then select **Add permissions**.
 
@@ -304,25 +294,38 @@ Now that you've enabled authentication and authorization to both of your apps, e
 
 The front-end app now has the required permissions to access the back-end app as the signed-in user. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's client ID, which you copied from [Enable authentication and authorization for back-end app](#enable-authentication-and-authorization-for-back-end-app).
 
-1. Navigate to [Azure Resource Explorer](https://resources.azure.com) and using the resource tree, locate your front-end web app.
+In the Cloud Shell, run the following commands on the front-end app to add the `scope` parameter to the authentication setting `identityProviders.azureActiveDirectory.login.loginParameters`. Replace *\<front-end-app-name>* and *\<back-end-client-id>*.
 
-1. The [Azure Resource Explorer](https://resources.azure.com) is now opened with your front-end app selected in the resource tree. At the top of the page, click **Read/Write** to enable editing of your Azure resources.
+```azurecli-interactive
+authSettings=$(az webapp auth show -g myAuthResourceGroup -n <front-end-app-name>)
+authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope=openid profile email offline_access api://<back-end-client-id>/user_impersonation"]}')
+az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-name> --body "$authSettings"
+```
 
-    :::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Screenshot of the Read Only and Read/Write buttons at the top of the Azure Resource Explorer page, with the Read/Write button selected.":::
+The commands effectively adds a `loginParameters` property with additional custom scopes. Here's an explanation of the requested scopes:
 
-1. In the left browser, drill down to **config** > **authsettings**.
+- `openid`, `profile`, and `email` are requested by App Service by default already. For information, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
+- `api://<back-end-client-id>/user_impersonation` is an exposed API in your back-end app registration. It's the scope that gives you a JWT token that includes the back end app as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token). 
+- [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access) is included here for convenience (in case you want to [refresh tokens](#when-access-tokens-expire)).
 
-1. In the **authsettings** view, click **Edit**. Set `additionalLoginParams` to the following JSON string, using the client ID you copied. 
+> [!TIP]
+> - To view the `api://<back-end-client-id>/user_impersonation` scope in the Azure portal, go to the **Authentication** page for the back-end app, click the link under **Identity provider**, then click **Expose an API** in the left menu.
+> - To configure the required scopes using a web interface instead, see the Microsoft steps at [Refresh auth tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
+> - Some scopes require admin or user consent. This requirement causes the consent request page to be displayed when a user signs into the front-end app in the browser. To avoid this consent page, add the front end's app registration as an authorized client application in the **Expose an API** page by clicking **Add a client application** and supplying the client ID of the front end's app registration.
 
-    ```json
-    "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
-    ```
+::: zone pivot="platform-linux"
 
-    :::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="Screenshot of a code example in the authsettings view showing the additionalLoginParams string with an example of a client ID.":::
+> [!NOTE]
+> For Linux apps, There's a temporary requirement to configure a versioning setting for the back-end app registration. In the Cloud Shell, configure it with the following commands. Be sure to replace *\<back-end-client-id>* with your back end's client ID.
+>
+> ```azurecli-interactive
+> id=$(az ad app show --id <back-end-client-id> --query objectId --output tsv)
+> az rest --method PATCH --url https://graph.microsoft.com/v1.0/applications/$id --body "{'api':{'requestedAccessTokenVersion':2}}" 
+> ```    
 
-1. Save your settings by clicking **PUT**.
-
-    Your apps are now configured. The front end is now ready to access the back end with a proper access token.
+::: zone-end
+    
+Your apps are now configured. The front end is now ready to access the back end with a proper access token.
 
 For information on how to configure the access token for other providers, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
@@ -376,7 +379,7 @@ While the server code has access to request headers, client code can access `GET
 
 ### Configure CORS
 
-In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az_webapp_cors_add) command. Replace the _\<back-end-app-name>_ and _\<front-end-app-name>_ placeholders.
+In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add) command. Replace the _\<back-end-app-name>_ and _\<front-end-app-name>_ placeholders.
 
 ```azurecli-interactive
 az webapp cors add --resource-group myAuthResourceGroup --name <back-end-app-name> --allowed-origins 'https://<front-end-app-name>.azurewebsites.net'

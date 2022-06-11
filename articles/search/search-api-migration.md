@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Search
 description: Review differences in API versions and learn which actions are required to migrate existing code to the newest Azure Cognitive Search service REST API version.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 09/16/2021
 ---
 
 # Upgrade to the latest REST API in Azure Cognitive Search

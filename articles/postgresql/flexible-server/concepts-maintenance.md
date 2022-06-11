@@ -1,19 +1,20 @@
 ---
 title: Scheduled maintenance - Azure Database for PostgreSQL - Flexible server
 description: This article describes the scheduled maintenance feature in Azure Database for PostgreSQL - Flexible server.
-author: niklarin
-ms.author: nlarin
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.author: gennadyk
+author: GennadNY
+ms.reviewer: 
+ms.date: 11/30/2021
 ---
 
 # Scheduled maintenance in Azure Database for PostgreSQL – Flexible server
  
 Azure Database for PostgreSQL - Flexible server performs periodic maintenance to keep your managed database secure, stable, and up-to-date. During maintenance, the server gets new features, updates, and patches.
  
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible server is in preview
+
  
 ## Selecting a maintenance window
  
@@ -32,7 +33,7 @@ When specifying preferences for the maintenance schedule, you can pick a day of 
 > [!IMPORTANT]
 > Normally there are at least 30 days between successful scheduled maintenance events for a server.
 >
-> However, in case of a critical emergency update such as a severe vulnerability, the notification window could be shorter than five days. The critical update may be applied to your server even if a successful scheduled maintenance was performed in the last 30 days.
+> However, in case of a critical emergency update such as a severe vulnerability, the notification window could be shorter than five days or be omitted. The critical update may be applied to your server even if a successful scheduled maintenance was performed in the last 30 days.
 
 You can update scheduling settings at any time. If there is a maintenance scheduled for your Flexible server and you update scheduling preferences, the current rollout will proceed as scheduled and the scheduling settings change will become effective upon its successful completion for the next scheduled maintenance.
 

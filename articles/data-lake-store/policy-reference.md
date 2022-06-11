@@ -1,10 +1,10 @@
 ---
 title: Built-in policy definitions for Azure Data Lake Storage Gen1
 description: Lists Azure Policy built-in policy definitions for Azure Data Lake Storage Gen1. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 08/27/2021
+ms.date: 05/11/2022
 ms.topic: reference
-author: twooley 
-ms.author: twooley
+author: normesta 
+ms.author: normesta
 ms.service: data-lake-store
 ms.custom: subject-policy-reference
 ---

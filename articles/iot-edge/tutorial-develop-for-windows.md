@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial - Develop module for Windows devices using Azure IoT Edge'
 description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules using Windows containers for Windows devices
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
@@ -45,7 +45,7 @@ A development machine:
 
 An Azure IoT Edge device on Windows:
 
-* [Install and manage Azure IoT Edge with Windows containers](how-to-install-iot-edge-windows-on-windows.md).
+* [Install and manage Azure IoT Edge with Windows containers](how-to-provision-single-device-windows-symmetric.md).
 * We recommend that you don't run IoT Edge on your development machine, but instead use a separate device if possible. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
 
 Cloud resources:

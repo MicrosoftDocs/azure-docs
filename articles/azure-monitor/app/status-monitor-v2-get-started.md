@@ -2,11 +2,9 @@
 title: Azure Application Insights Agent - getting started | Microsoft Docs
 description: A quickstart guide for Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-author: TimothyMothra
-ms.author: tilee
 ms.date: 01/22/2021 
 ms.custom: devx-track-azurepowershell
-
+ms.reviewer: abinetabate
 ---
 
 # Get started with Azure Monitor Application Insights Agent for on-premises servers
@@ -37,30 +35,30 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 Install-Module -Name PowerShellGet -Force
-```	
+```    
 Close PowerShell.
 
 ### Install Application Insights Agent
 Run PowerShell as Admin.
-```powershell	
+```powershell    
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
-```	
+```    
 
 > [!NOTE]
 > `AllowPrerelease` switch in `Install-Module` cmdlet allows installation of beta release. 
 >
-> For additional information, see [Install-Module](/powershell/module/powershellget/install-module?view=powershell-7.1#parameters).
+> For additional information, see [Install-Module](/powershell/module/powershellget/install-module#parameters).
 >
 
 ### Enable monitoring
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/'
 ```
-	
-		
+    
+        
 ## Download and install manually (offline option)
 ### Download the module
 Manually download the latest version of the module from [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
@@ -76,7 +74,7 @@ Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ### Enable monitoring
 
 ```powershell
-Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/'
 ```
 
 

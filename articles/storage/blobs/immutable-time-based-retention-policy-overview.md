@@ -1,13 +1,13 @@
 ---
-title: Time-based retention policies for immutable blob data 
+title: Time-based retention policies for immutable blob data
 titleSuffix: Azure Storage
-description: Time-based retention policies store blob data in a Write-Once, Read-Many (WORM) state for a specified interval. You can configure a time-based retention policy that is scoped to a blob version (preview) or to a container.
+description: Time-based retention policies store blob data in a Write-Once, Read-Many (WORM) state for a specified interval. You can configure a time-based retention policy that is scoped to a blob version or to a container.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/22/2021
+ms.date: 05/02/2022
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -24,7 +24,7 @@ The minimum retention interval for a time-based retention policy is one day, and
 
 When you configure a time-based retention policy, the affected objects will stay in the immutable state for the duration of the *effective* retention period. The effective retention period for objects is equal to the difference between the blob's creation time and the user-specified retention interval. Because a policy's retention interval can be extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
-For example, suppose that a user creates a time-based retention policy with a retention interval of five years. An existing blob in that container, _testblob1_, was created one year ago, so the effective retention period for _testblob1_ is four years. When a new blob, _testblob2_, is uploaded to the container, the effective retention period for _testblob2_ is five years from the time of its creation.
+For example, suppose that a user creates a time-based retention policy with a retention interval of five years. An existing blob in that container, *testblob1*, was created one year ago, so the effective retention period for *testblob1* is four years. When a new blob, *testblob2*, is uploaded to the container, the effective retention period for *testblob2* is five years from the time of its creation.
 
 ## Locked versus unlocked policies
 
@@ -41,50 +41,48 @@ You cannot delete a locked time-based retention policy. You can extend the reten
 
 A time-based retention policy can be configured at either of the following scopes:
 
-- Version-level policy (preview): A time-based retention policy can be configured to apply to a blob version for granular management of sensitive data. You can apply the policy to an individual version, or configure a default policy for a container that will apply by default to all blobs uploaded to that container.
+- Version-level policy: A time-based retention policy can be configured to apply to a blob version for granular management of sensitive data. You can apply the policy to an individual version, or configure a default policy for a storage account or individual container that will apply by default to all blobs uploaded to that account or container.
 - Container-level policy: A time-based retention policy that is configured at the container level applies to all objects in that container. Individual objects cannot be configured with their own immutability policies.
 
 Audit logs are available on the container for both version-level and container-level time-based retention policies. Audit logs are not available for a policy that is scoped to a blob version.
 
-### Version-level policy scope (preview)
+### Version-level policy scope
 
-To configure version-level retention policies, you must first enable version-level immutability on the parent container. Version-level immutability cannot be disabled after it is enabled, although unlocked policies can be deleted. For more information, see [Enable support for version-level immutability on a container](immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability-on-a-container).
+To configure version-level retention policies, you must first enable version-level immutability on the storage account or parent container. Version-level immutability cannot be disabled after it is enabled, although unlocked policies can be deleted. For more information, see [Enable support for version-level immutability](immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability).
 
-You can enable support for version-level immutability at the time that you create a container. Existing containers can also support version-level immutability, but must undergo a migration process first. This process may take some time and is not reversible. For more information about migrating a container to support version-level immutability, see [Migrate an existing container to support version-level immutability](immutable-policy-configure-version-scope.md#migrate-an-existing-container-to-support-version-level-immutability).
+Version-level immutability on the storage account must be enabled when you create the account. When you enable version-level immutability for a new storage account, all containers subsequently created in that account automatically support version-level immutability. It's not possible to disable support for version-level immutability on a storage account after you've enabled it, nor is it possible to create a container without version-level immutability support when it's enabled for the account.
+
+If you have not enabled support for version-level immutability on the storage account, then you can enable support for version-level immutability on an individual container at the time that you create the container. Existing containers can also support version-level immutability, but must undergo a migration process first. This process may take some time and is not reversible. You can migrate ten containers at a time per storage account. For more information about migrating a container to support version-level immutability, see [Migrate an existing container to support version-level immutability](immutable-policy-configure-version-scope.md#migrate-an-existing-container-to-support-version-level-immutability).
 
 Version-level time-based retention policies require that [blob versioning](versioning-overview.md) is enabled for the storage account. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md). Keep in mind that enabling versioning may have a billing impact. For more information, see the **Pricing and billing** section in [Blob versioning](versioning-overview.md#pricing-and-billing).
 
 After versioning is enabled, when a blob is first uploaded, that version of the blob is the current version. Each time the blob is overwritten, a new version is created that stores the previous state of the blob. When you delete the current version of a blob, the current version becomes a previous version and is retained until explicitly deleted. A previous blob version possesses the time-based retention policy that was in effect when the current version became a previous version.
 
-If a default policy is in effect for the container, then when an overwrite operation creates a previous version, the new current version inherits the default policy for the container.
+If a default policy is in effect for the storage account or container, then when an overwrite operation creates a previous version, the new current version inherits the default policy for the account or container.
 
 Each version may have only one time-based retention policy configured. A version may also have one legal hold configured. For more details about supported immutability policy configurations based on scope, see [Immutability policy scope](immutable-storage-overview.md#immutability-policy-scope).
 
-To learn how to configure version-level time-based retention policies, see [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md).
-
-> [!IMPORTANT]
-> Version-level time-based retention policies are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> It may take up to 30 seconds after version-level immutability is enabled before you can configure version-level time-based retention policies
+To learn how to configure version-level time-based retention policies, see [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md).
 
 #### Configure a policy on the current version
 
-After you enable support for version-level immutability for a container, you have the option to configure a default time-based retention policy for the container. When you configure a default time-based retention policy for the container and then upload a blob, the blob inherits that policy by default. You can also choose to override the default policy for any blob on upload by configuring a custom policy for that blob.
+After you enable support for version-level immutability for a storage account or container, then you have the option to configure a default time-based retention policy for the account or container. When you configure a default time-based retention policy for the account or container and then upload a blob, the blob inherits that default policy. You can also choose to override the default policy for any blob on upload by configuring a custom policy for that blob.
 
-If the default time-based retention policy for the container is unlocked, then the current version of a blob that inherits the default policy will also have an unlocked policy. After an individual blob is uploaded, you can shorten or extend the retention period for the policy on the current version of the blob, or delete the current version. You can also lock the policy for the current version, even if the default policy on the container remains unlocked.
+If the default time-based retention policy for the account or container is unlocked, then the current version of a blob that inherits the default policy will also have an unlocked policy. After an individual blob is uploaded, you can shorten or extend the retention period for the policy on the current version of the blob, or delete the current version. You can also lock the policy for the current version, even if the default policy on the account or container remains unlocked.
 
-If the default time-based retention policy for the container is locked, then the current version of a blob that inherits the default policy will also have an locked policy. However, if you override the default policy when you upload a blob by setting a policy only for that blob, then that blob's policy will remain unlocked until you explicitly lock it. When the policy on the current version is locked, you can extend the retention interval, but you cannot delete the policy or shorten the retention interval.
+If the default time-based retention policy for the account or container is locked, then the current version of a blob that inherits the default policy will also have an locked policy. However, if you override the default policy when you upload a blob by setting a policy only for that blob, then that blob's policy will remain unlocked until you explicitly lock it. When the policy on the current version is locked, you can extend the retention interval, but you cannot delete the policy or shorten the retention interval.
 
-If there is no default policy configured for a container, then you can upload a blob either with a custom policy or with no policy.
+If there is no default policy configured for either the storage account or the container, then you can upload a blob either with a custom policy or with no policy.
 
-If the default policy on a container is modified, policies on objects within that container remain unchanged, even if those policies were inherited from the default policy.
+If the default policy on a storage account or container is modified, policies on objects within that container remain unchanged, even if those policies were inherited from the default policy.
 
 The following table shows the various options available for setting a time-based retention policy on a blob on upload:
 
-| Default policy status on container | Upload a blob with the default policy | Upload a blob with a custom policy | Upload a blob with no policy |
+| Default policy status on account or container | Upload a blob with the default policy | Upload a blob with a custom policy | Upload a blob with no policy |
 |--|--|--|--|
-| Default policy on container (unlocked) | Blob is uploaded with default unlocked policy | Blob is uploaded with custom unlocked policy | Blob is uploaded with no policy |
-| Default policy on container (locked) | Blob is uploaded with default locked policy | Blob is uploaded with custom unlocked policy | Blob is uploaded with no policy |
-| No default policy on container | N/A | Blob is uploaded with custom unlocked policy | Blob is uploaded with no policy |
+| Default policy on account or container (unlocked) | Blob is uploaded with default unlocked policy | Blob is uploaded with custom unlocked policy | Blob is uploaded with no policy |
+| Default policy on account or container (locked) | Blob is uploaded with default locked policy | Blob is uploaded with custom unlocked policy | Blob is uploaded with no policy |
+| No default policy on either account or container | N/A | Blob is uploaded with custom unlocked policy | Blob is uploaded with no policy |
 
 #### Configure a policy on a previous version
 
@@ -94,7 +92,7 @@ If the policy inherited by a previous version is unlocked, then the retention in
 
 If the policy inherited by a previous version is locked, then the retention interval can be lengthened. The policy cannot be deleted, nor can the retention interval be shortened.
 
-If there is no policy configured on the current version, then the previous version does not inherit any policy. You can configure a custom policy for the version.  
+If there is no policy configured on the current version, then the previous version does not inherit any policy. You can configure a custom policy for the version.
 
 If the policy on a current version is modified, the policies on existing previous versions remain unchanged, even if the policy was inherited from a current version.
 
@@ -120,9 +118,9 @@ Only time-based retention policies have an the **AllowProtectedAppendWrites** pr
 
 As this setting is part of a time-based retention policy, the append blobs remain in the immutable state for the duration of the *effective* retention period. Since new data can be appended beyond the initial creation of the append blob, there is a slight difference in how the retention period is determined. The effective retention is the difference between append blob's last modification time and the user-specified retention interval. Similarly, when the retention interval is extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
-For example, suppose that a user creates a time-based retention policy with the **AllowProtectedAppendWrites** property enabled and a retention interval of 90 days. An append blob, _logblob1_, is created in the container today, new logs continue to be added to the append blob for the next 10 days, so that the effective retention period for _logblob1_ is 100 days from today (the time of its last append + 90 days).
+For example, suppose that a user creates a time-based retention policy with the **AllowProtectedAppendWrites** property enabled and a retention interval of 90 days. An append blob, *logblob1*, is created in the container today, new logs continue to be added to the append blob for the next 10 days, so that the effective retention period for *logblob1* is 100 days from today (the time of its last append + 90 days).
 
-Unlocked time-based retention policies allow the the **AllowProtectedAppendWrites** property setting to be enabled and disabled at any time. Once the time-based retention policy is locked, the **AllowProtectedAppendWrites** property setting cannot be changed.
+Unlocked time-based retention policies allow the **AllowProtectedAppendWrites** property setting to be enabled and disabled at any time. Once the time-based retention policy is locked, the **AllowProtectedAppendWrites** property setting cannot be changed.
 
 ## Audit logging
 
@@ -137,5 +135,5 @@ Changes to time-based retention policies at the version level are not audited.
 - [Data protection overview](data-protection-overview.md)
 - [Store business-critical blob data with immutable storage](immutable-storage-overview.md)
 - [Legal holds for immutable blob data](immutable-legal-hold-overview.md)
-- [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md)
+- [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md)
 - [Configure immutability policies for containers](immutable-policy-configure-container-scope.md)

@@ -40,10 +40,10 @@ The following table shows Azure Database Migration Service support for offline m
 | Target  | Source | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
-|   | RDS SQL | X |  |
+|   | RDS SQL | ✔ | GA |
 |   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | RDS SQL | X |  |
+|   | RDS SQL | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure SQL VM** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
@@ -71,7 +71,7 @@ The following table shows Azure Database Migration Service support for online mi
 |   | RDS SQL | X |  |
 |   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | RDS SQL | X |  |
+|   | RDS SQL | ✔ | GA |
 |   | Oracle | X |  |
 | **Azure SQL VM** | SQL Server | X |   |
 |   | Oracle  | X |  |

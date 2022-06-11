@@ -32,7 +32,7 @@ Azure Metrics Advisor monitors the performance of your organization's growth eng
 | Free: first 25 time series | $- |
 | 26 time series - 1k time series | $0.75 |
 | 1k time series - 5k time series | $0.50 |
-| 5k time series - 10k time series | $0.25|
+| 5k time series - 20k time series | $0.25|
 | 20k time series - 50k time series| $0.10|
 | >50k time series | $0.05 |
 

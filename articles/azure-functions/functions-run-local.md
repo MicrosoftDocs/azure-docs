@@ -3,7 +3,7 @@ title: Work with Azure Functions Core Tools
 description: Learn how to code and test Azure Functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 10/05/2021
 ms.custom: "devx-track-csharp, 80e4ff38-5174-43"
 ---
 
@@ -24,46 +24,81 @@ Developing functions on your local computer and publishing them to Azure using C
 > * [Run the function locally.](#start)
 > * [Publish the project to Azure.](#publish)
 
-## Core Tools versions
-
-There are three versions of Azure Functions Core Tools.<sup>*</sup> The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required:
-
-+ [**Version 3.x/2.x**](#v2): Supports either [version 3.x or 2.x of the Azure Functions runtime](functions-versions.md). These versions support [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2), and [Linux](?tabs=linux#v2) and use platform-specific package managers or npm for installation.
-
-+ **Version 1.x**: Supports version 1.x of the Azure Functions runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://www.npmjs.com/package/azure-functions-core-tools).
-
-You can only install one version of Core Tools on a given computer. Unless otherwise noted, the examples in this article are for version 3.x.
-
-<sup>*</sup> An experimental version of Azure Functions is available that lets you run C# functions on the .NET 6.0 preview. To learn more, see the [Azure Functions v4 early preview](https://aka.ms/functions-dotnet6earlypreview-wiki) page.
-
 ## Prerequisites
 
-Azure Functions Core Tools currently depends on either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) for authenticating with your Azure account. 
-This means that you must install one of these tools to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
+The specific prerequisites for Core Tools depend on the features you plan to use:
+
+**[Publish](#publish)**: Core Tools currently depends on either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) for authenticating with your Azure account. This means that you must install one of these tools to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
+
+**[Install extensions](#install-extensions)**: To manually install extensions by using Core Tools, you must have the [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) installed. The .NET Core SDK is used by Core Tools to install extensions from NuGet. You don't need to know .NET to use Azure Functions extensions.
+
+## <a name="v2"></a>Core Tools versions
+
+There are four versions of Azure Functions Core Tools. The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required.
+
+Choose a version tab below to learn about each specific version and for detailed installation instructions:
+
+# [Version 4.x](#tab/v4)
+
+Supports [version 4.x](functions-versions.md) of the Functions runtime. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. This is the recommended version of the Functions runtime and Core Tools.
+
+# [Version 3.x](#tab/v3)
+
+Supports [version 3.x](functions-versions.md) of the Azure Functions runtime. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. 
+
+# [Version 2.x](#tab/v2)
+
+Supports [version 2.x](functions-versions.md) of the Azure Functions runtime. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. 
+
+# [Version 1.x](#tab/v1) 
+
+Supports version 1.x of the Azure Functions runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://www.npmjs.com/package/azure-functions-core-tools).
+
+---
+
+You can only install one version of Core Tools on a given computer.  Unless otherwise noted, the examples in this article are for version 3.x.
 
 ## Install the Azure Functions Core Tools
 
-[Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
+[Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools) includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
 
-### <a name="v2"></a>Version 3.x and 2.x
+Starting with version 2.x, Core Tools runs on [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2), and [Linux](?tabs=linux#v2).
 
-Version 3.x/2.x of the tools uses the Azure Functions runtime that is built on .NET Core. This version is supported on all platforms .NET Core supports, including [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2), and [Linux](?tabs=linux#v2). 
+# [Windows](#tab/windows/v4)
 
-> [!IMPORTANT]
-> You can bypass the requirement for installing the .NET Core SDK by using [extension bundles].
+The following steps use a Windows installer (MSI) to install Core Tools v4.x. For more information about other package-based installers, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-# [Windows](#tab/windows)
+Download and run the Core Tools installer, based on your version of Windows:
 
-The following steps use a Windows installer (MSI) to install Core Tools v3.x. For more information about other package-based installers, which are required to install Core Tools v2.x, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+- [v4.x - Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2174087) (Recommended. [Visual Studio Code debugging](functions-develop-vs-code.md#debugging-functions-locally) requires 64-bit.)
+- [v4.x - Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2174159)
 
-1. Download and run the Core Tools installer, based on your version of Windows:
+# [Windows](#tab/windows/v3)
 
-    - [v3.x - Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2135274) (Recommended. [Visual Studio Code debugging](functions-develop-vs-code.md#debugging-functions-locally) requires 64-bit.)
-    - [v3.x - Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2135275)
+The following steps use a Windows installer (MSI) to install Core Tools v3.x. For more information about other package-based installers, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for Windows](https://dotnet.microsoft.com/download).
+Download and run the Core Tools installer, based on your version of Windows:
 
-# [macOS](#tab/macos)
+- [v3.x - Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2135274) (Recommended. [Visual Studio Code debugging](functions-develop-vs-code.md#debugging-functions-locally) requires 64-bit.)
+- [v3.x - Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2135275)
+
+# [Windows](#tab/windows/v2)
+
+Installing version 2.x of the Core Tools requires npm. You can also [use Chocolatey to install the package](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#azure-functions-core-tools).
+
+1. If you haven't already done so, [install Node.js with npm](https://nodejs.org/en/download/). 
+
+1. Run the following npm command to install the Core Tools package:
+
+    ```
+    npm install -g azure-functions-core-tools@2 --unsafe-perm true
+    ```
+
+# [Windows](#tab/windows/v1)
+
+If you need to install version 1.x of the Core Tools, see the [GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/v1.x/README.md#installing) for more information.
+
+# [macOS](#tab/macos/v4)
 
 The following steps use Homebrew to install the Core Tools on macOS.
 
@@ -71,89 +106,90 @@ The following steps use Homebrew to install the Core Tools on macOS.
 
 1. Install the Core Tools package:
 
-    ##### v3.x (recommended)
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools@4
+    # if upgrading on a machine that has 2.x or 3.x installed:
+    brew link --overwrite azure-functions-core-tools@4
+    ```
+
+# [macOS](#tab/macos/v3)
+
+The following steps use Homebrew to install the Core Tools on macOS.
+
+1. Install [Homebrew](https://brew.sh/), if it's not already installed.
+
+1. Install the Core Tools package:
 
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools@3
-    # if upgrading on a machine that has 2.x installed
+    # if upgrading on a machine that has 2.x installed:
     brew link --overwrite azure-functions-core-tools@3
     ```
-    
-    ##### v2.x
+
+# [macOS](#tab/macos/v2)
+
+The following steps use Homebrew to install the Core Tools on macOS.
+
+1. Install [Homebrew](https://brew.sh/), if it's not already installed.
+
+1. Install the Core Tools package:
 
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools@2
     ```
-    
-1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for macOS](https://dotnet.microsoft.com/download).
 
-# [Linux](#tab/linux)
+# [macOS](#tab/macos/v1)
 
-The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
+Version 1.x of the Core Tools isn't supported on macOS. Use version 2.x or a later version on macOS.
 
-1. Install the Microsoft package repository GPG key, to validate package integrity:
+# [Linux](#tab/linux/v4)
+
+[!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
+
+5. Install the Core Tools package:
 
     ```bash
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    sudo apt-get install azure-functions-core-tools-4
     ```
 
-1. Set up the APT source list before doing an APT update.
+# [Linux](#tab/linux/v3)
 
-    ##### Ubuntu
+[!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
 
-    ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-    ```
-
-    ##### Debian
+5. Install the Core Tools package:
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-    ```
-
-1. Check the `/etc/apt/sources.list.d/dotnetdev.list` file for one of the appropriate Linux version strings listed below:
-
-    | Linux distribution | Version |
-    | --------------- | ----------- |
-    | Debian 10 | `buster`  |
-    | Debian 9  | `stretch` |
-    | Ubuntu 20.04    | `focal`     |
-    | Ubuntu 19.04    | `disco`     |
-    | Ubuntu 18.10    | `cosmic`    |
-    | Ubuntu 18.04    | `bionic`    |
-    | Ubuntu 17.04    | `zesty`     |
-    | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
-
-1. Start the APT source update:
-
-    ```bash
-    sudo apt-get update
-    ```
-
-1. Install the Core Tools package:
-
-    ##### v3.x (recommended)
-    ```bash
-    sudo apt-get update
     sudo apt-get install azure-functions-core-tools-3
     ```
-    
-    ##### v2.x
+
+# [Linux](#tab/linux/v2)
+
+[!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
+
+5. Install the Core Tools package:
+
     ```bash
-    sudo apt-get update
     sudo apt-get install azure-functions-core-tools-2
     ```
 
-1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install [.NET Core 3.x SDK for Linux](https://dotnet.microsoft.com/download).
+# [Linux](#tab/linux/v1)
+
+Version 1.x of the Core Tools isn't supported on Linux. Use version 2.x or a later version on Linux.
 
 ---
 
-### Version 1.x
+## Changing Core Tools versions
 
-If you need to install version 1.x of the Core Tools, which runs only on Windows, see the [GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/v1.x/README.md#installing) for more information.
+When changing to a different version of Core Tools, you should use the same package manager as the original installation to move to a different package version. For example, if you installed Core Tools version 2.x using npm, you should use the following command to upgrade to version 3.x:
+
+```bash
+npm install -g azure-functions-core-tools@3 --unsafe-perm true
+```
+
+If you used Windows installer (MSI) to install Core Tools on Windows, you should uninstall the old version from Add Remove Programs before installing a different version.
 
 ## Create a local Functions project
 
@@ -182,7 +218,7 @@ The following considerations apply to project initialization:
 
 + When you don't provide a project name, the current folder is initialized. 
 
-+ If you plan to publish your project to a custom Linux container, use the `--dockerfile` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). 
++ If you plan to publish your project to a custom Linux container, use the `--docker` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). 
 
 Certain languages may have additional considerations:
 
@@ -218,21 +254,17 @@ There are no additional considerations for PowerShell.
 
 ## Register extensions
 
-Starting with runtime version 2.x, Functions bindings are implemented as .NET extension (NuGet) packages. For compiled C# projects, you simply reference the NuGet extension packages for the specific triggers and bindings you are using. HTTP bindings and timer triggers don't require extensions. 
+Starting with runtime version 2.x, [Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. For compiled C# projects, you simply reference the NuGet extension packages for the specific triggers and bindings you are using. HTTP bindings and timer triggers don't require extensions. 
 
-To improve the development experience for non-C# projects, Functions lets you reference a versioned extension bundle in your host.json project file. [Extension bundles](functions-bindings-register.md#extension-bundles) makes all extensions available to your app and removes the chance of having package compatibility issues between extensions. Extension bundles also removes the requirement of installing the .NET Core 2.x SDK and having to deal with the extensions.csproj file.
+To improve the development experience for non-C# projects, Functions lets you reference a versioned extension bundle in your host.json project file. [Extension bundles](functions-bindings-register.md#extension-bundles) makes all extensions available to your app and removes the chance of having package compatibility issues between extensions. Extension bundles also removes the requirement of installing the .NET Core 3.1 SDK and having to deal with the extensions.csproj file. 
 
-Extension bundles is the recommended approach for functions projects other than C# complied projects. For these projects, the extension bundle setting is generated in the _host.json_ file during initialization. If this works for you, you can skip this entire section.  
-
-### Use extension bundles
+Extension bundles is the recommended approach for functions projects other than C# complied projects, as well as C# script. For these projects, the extension bundle setting is generated in the _host.json_ file during initialization. If bundles aren't enabled, you need to update the project's host.json file.
 
 [!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
 
- When supported by your language, extension bundles should already be enabled after you call `func init`. You should add extension bundles to the host.json before you add bindings to the function.json file. To learn more, see [Register Azure Functions binding extensions](functions-bindings-register.md#extension-bundles). 
+To learn more, see [Register Azure Functions binding extensions](functions-bindings-register.md#extension-bundles). 
 
-### Explicitly install extensions
-
-There may be cases in a non-.NET project when you can't use extension bundles, such as when you need to target a specific version of an extension not in the bundle. In these rare cases, you can use Core Tools to install locally the specific extension packages required by your project. To learn more, see [Explicitly install extensions](functions-bindings-register.md#explicitly-install-extensions).
+There may be cases in a non-.NET project when you can't use extension bundles, such as when you need to target a specific version of an extension not in the bundle. In these rare cases, you can use Core Tools to locally install the specific extension packages required by your project. To learn more, see [Install extensions](#install-extensions).
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -314,7 +346,7 @@ func new --template "Http Trigger" --name MyHttpTrigger
 This example creates a Queue Storage trigger named `MyQueueTrigger`:
 
 ```
-func new --template "Queue Trigger" --name MyQueueTrigger
+func new --template "Azure Queue Storage Trigger" --name MyQueueTrigger
 ```
 
 To learn more, see the [`func new` command](functions-core-tools-reference.md#func-new).
@@ -424,7 +456,7 @@ You can make GET requests from a browser passing data in the query string. For a
 
 For all functions other than HTTP and Event Grid triggers, you can test your functions locally using REST by calling a special endpoint called an _administration endpoint_. Calling this endpoint with an HTTP POST request on the local server triggers the function. 
 
-To test Event Grid triggered functions locally, see [Local testing with viewer web app](functions-bindings-event-grid-trigger.md#local-testing-with-viewer-web-app).
+To test Event Grid triggered functions locally, see [Local testing with viewer web app](event-grid-how-tos.md#local-testing-with-viewer-web-app).
 
 You can optionally pass test data to the execution in the body of the POST request. This functionality is similar to the **Test** tab in the Azure portal.
 
@@ -458,13 +490,12 @@ When you call an administrator endpoint on your function app in Azure, you must 
 
 ## <a name="publish"></a>Publish to Azure
 
-The Azure Functions Core Tools supports three types of deployment:
+The Azure Functions Core Tools supports two types of deployment:
 
 | Deployment type | Command | Description |
 | ----- | ----- | ----- |
 | Project files | [`func azure functionapp publish`](functions-core-tools-reference.md#func-azure-functionapp-publish) | Deploys function project files directly to your function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). |
-| Custom container | `func deploy` | Deploys your project to a Linux function app as a custom Docker container.  |
-| Kubernetes cluster | `func kubernetes deploy` | Deploys your Linux function app as a customer Docker container to a Kubernetes cluster. | 
+| Kubernetes cluster | `func kubernetes deploy` | Deploys your Linux function app as a custom Docker container to a Kubernetes cluster. | 
 
 ### Before you publish 
 
@@ -506,13 +537,11 @@ The following considerations apply to this kind of deployment:
 
 ### Kubernetes cluster
 
-Functions also lets you define your Functions project to run in a Docker container. Use the [`--docker` option][func init] of `func init` to generate a Dockerfile for your specific language. This file is then used when creating a container to deploy. 
+Functions also lets you define your Functions project to run in a Docker container. Use the [`--docker` option][func init] of `func init` to generate a Dockerfile for your specific language. This file is then used when creating a container to deploy. To learn how to publish a custom container to Azure without Kubernetes, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md).
 
-Core Tools can be used to deploy your project as a custom container image to a Kubernetes cluster. The command you use depends on the type of scaler used in the cluster.  
+Core Tools can be used to deploy your project as a custom container image to a Kubernetes cluster. 
 
 The following command uses the Dockerfile to generate a container and deploy it to a Kubernetes cluster. 
-
-# [KEDA](#tab/keda)
 
 ```command
 func kubernetes deploy --name <DEPLOYMENT_NAME> --registry <REGISTRY_USERNAME> 
@@ -520,19 +549,44 @@ func kubernetes deploy --name <DEPLOYMENT_NAME> --registry <REGISTRY_USERNAME>
 
 To learn more, see [Deploying a function app to Kubernetes](functions-kubernetes-keda.md#deploying-a-function-app-to-kubernetes). 
 
-# [Default/KNative](#tab/default)
+## Install extensions
+
+If you aren't able to use [extension bundles](functions-bindings-register.md#extension-bundles), you can use Azure Functions Core Tools locally to install the specific extension packages required by your project.
+
+> [!IMPORTANT]
+> You can't explicitly install extensions in a function app with extension bundles enabled. First, remove the `extensionBundle` section in *host.json* before explicitly installing extensions.
+
+The following items describe some reasons you might need to install extensions manually:
+
+* You need to access a specific version of an extension not available in a bundle.
+* You need to access a custom extension not available in a bundle.
+* You need to access a specific combination of extensions not available in a single bundle.
+
+When you explicitly install extensions, a .NET project file named extensions.csproj is added to the root of your project. This file defines the set of NuGet packages required by your functions. While you can work with the [NuGet package references](/nuget/consume-packages/package-references-in-project-files) in this file, Core Tools lets you install extensions without having to manually edit this C# project file.
+
+There are several ways to use Core Tools to install the required extensions in your local project. 
+
+### Install all extensions 
+
+Use the following command to automatically add all extension packages used by the bindings in your local project:
 
 ```command
-func deploy --name <FUNCTION_APP> --platform kubernetes --registry <REGISTRY_USERNAME> 
+func extensions install
 ```
 
-In the example above, replace `<FUNCTION_APP>` with the name of the function app in Azure and `<REGISTRY_USERNAME>` with your registry account name, such as you Docker username. The container is built locally and pushed to your Docker registry account with an image name based on `<FUNCTION_APP>`. You must have the Docker command line tools installed.
+The command reads the *function.json* file to see which packages you need, installs them, and rebuilds the extensions project (extensions.csproj). It adds any new bindings at the current version but doesn't update existing bindings. Use the `--force` option to update existing bindings to the latest version when installing new ones. To learn more, see the [`func extensions install` command](functions-core-tools-reference.md#func-extensions-install).
 
-To learn more, see the [`func deploy` command](functions-core-tools-reference.md#func-deploy).
+If your function app uses bindings or NuGet packages that Core Tools does not recognize, you must manually install the specific extension.
 
----
+### Install a specific extension
 
-To learn how to publish a custom container to Azure without Kubernetes, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md).
+Use the following command to install a specific extension package at a specific version, in this case the Storage extension:
+
+```command
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.0.0
+```
+
+You can use this command to install any compatible NuGet package. To learn more, see the [`func extensions install` command](functions-core-tools-reference.md#func-extensions-install).
 
 ## Monitoring functions
 

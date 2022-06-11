@@ -3,10 +3,10 @@ title: NC-series - Azure Virtual Machines
 description: Specifications for the NC-series VMs.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: jushiman
+ms.author: vikancha
 ---
 
 # NC-series
@@ -23,6 +23,7 @@ NC-series VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/conte
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 Nvidia NVLink Interconnect: Not Supported<br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
@@ -36,8 +37,6 @@ Nvidia NVLink Interconnect: Not Supported<br>
 
 *RDMA capable
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
-
 ## Supported operating systems and drivers
 
 To take advantage of the GPU capabilities of Azure N-series VMs, NVIDIA GPU drivers must be installed.
@@ -46,7 +45,9 @@ The [NVIDIA GPU Driver Extension](./extensions/hpccompute-gpu-windows.md) instal
 
 If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver setup for Windows](./windows/n-series-driver-setup.md) or [N-series GPU driver setup for Linux](./linux/n-series-driver-setup.md) for supported operating systems, drivers, installation, and verification steps.
 
-## Other sizes
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## Other sizes and information
 
 - [General purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)
@@ -54,6 +55,10 @@ If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver s
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
 ## Next steps
 

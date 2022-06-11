@@ -36,6 +36,8 @@
       href: total-costs.md
     - name: Estimate per-user app streaming costs 
       href: streaming-costs.md
+    - name: Tag Azure Virtual Desktop resources
+      href: ../tag-virtual-desktop-resources.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Deploy apps with Microsoft Intune
       href: /mem/intune/apps/apps-windows-10-app-deploy?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Serve Intune managed endpoint clients
@@ -124,8 +126,6 @@
             href: ../app-attach-msixmgr.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Configure automatic updates
       href: ../configure-automatic-updates.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-    - name: Use Azure Advisor
-      href: ../azure-advisor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Resolve recommendations
       href: ../azure-advisor-recommendations.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Use Azure Monitor for Azure Virtual Desktop
@@ -203,7 +203,7 @@
   - name: Troubleshooting overview, feedback, and support
     href: ../troubleshoot-set-up-overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Identify and diagnose issues
-    href: ../diagnostics-role-service.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+    href: ../troubleshoot-set-up-overview.md?bc=%2fazure%2fvirtual-desktop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-desktop%2fremote-app-streaming%2ftoc.json
   - name: Getting started feature
     href: ../troubleshoot-getting-started.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Host pool creation
@@ -236,7 +236,7 @@
     href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
-  - name: Azure command-line interface (CLI)
+  - name: Azure CLI
     href: /cli/azure/
   - name: Azure example scenarios
     href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop

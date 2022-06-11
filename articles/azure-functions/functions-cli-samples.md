@@ -1,11 +1,12 @@
 ---
-title: Azure CLI Samples - Azure Functions 
-description: Azure CLI Samples - Azure Functions
+title: Azure CLI samples for Azure Functions | Microsoft Docs
+description: Find links to bash scripts for Azure Functions that use the Azure CLI. Learn how to create a function app that allows integration and deployment.
 
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
-ms.date: 01/09/2018
-ms.custom: mvc, devx-track-azurecli
+ms.date: 09/17/2021
+ms.custom: mvc, devx-track-azurecli, seo-azure-cli
+keywords: functions, azure cli samples, azure cli examples, azure cli code samples
 ---
 
 # Azure CLI Samples
@@ -30,4 +31,3 @@ The following table includes links to bash scripts for Azure Functions that use 
 | Continuous deployment | Description|
 |---|---|
 | [Deploy from GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Create a function app that deploys from a GitHub repository.  |
-| [Deploy from Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Create a function app that deploys from an Azure DevOps repository.  |

@@ -161,13 +161,13 @@ The following are the code snippets for CRUD operations:
 
 Where *_repo* is the object of repository and *doc* is the POJO class’s object. You can use `.save` to insert or upsert (if document with specified ID found). The following code snippet shows how to insert or update a doc object:
 
-```_repo.save(doc);```
+`_repo.save(doc);`
 
 ### Delete Operation
 
 Consider the following code snippet, where doc object will have ID and partition key mandatory to locate and delete the object:
 
-```_repo.delete(doc);```
+`_repo.delete(doc);`
 
 ### Read Operation
 
@@ -182,7 +182,7 @@ That’s it, you can now use your application with Azure Cosmos DB. Complete cod
 
 N1QL queries is the way to define queries in the Couchbase.
 
-|N1QL Query | Azure CosmosDB Query|
+|N1QL Query | Azure Cosmos DB Query|
 |-------------------|-------------------|
 |SELECT META(`TravelDocument`).id AS id, `TravelDocument`.* FROM `TravelDocument` WHERE `_type` = "com.xx.xx.xx.xxx.xxx.xxxx " and country = 'India’ and ANY m in Visas SATISFIES m.type == 'Multi-Entry' and m.Country IN ['India', Bhutan’] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0 | SELECT c.id,c FROM c JOIN m in  c.country=’India’ WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" and c.country = 'India' and m.type = 'Multi-Entry' and m.Country IN ('India', 'Bhutan') ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
 

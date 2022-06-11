@@ -2,13 +2,26 @@
 title: How to Troubleshoot Container insights | Microsoft Docs
 description: This article describes how you can troubleshoot and resolve issues with Container insights.
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 05/24/2022
+ms.reviewer: aul
 
 ---
 
 # Troubleshooting Container insights
 
 When you configure monitoring of your Azure Kubernetes Service (AKS) cluster with Container insights, you may encounter an issue preventing data collection or reporting status. This article details some common issues and troubleshooting steps.
+
+## Known error messages
+
+The table below summarizes known errors you may encounter while using Container insights.
+
+| Error messages  | Action |
+| ---- | --- |
+| Error Message `No data for selected filters`  | It may take some time to establish monitoring data flow for newly created clusters. Allow at least 10 to 15 minutes for data to appear for your cluster.<br><br>If data still doesn't show up, check if the configured log analytics workspace is configured for *disableLocalAuth = true*, if  yes, update back to *disableLocalAuth = false*.<br><br>`az resource show  --ids "/subscriptions/[Your subscription ID]/resourcegroups/[Your resource group]/providers/microsoft.operationalinsights/workspaces/[Your workspace name]"`<br><br>`az resource update --ids "/subscriptions/[Your subscription ID]/resourcegroups/[Your resource group]/providers/microsoft.operationalinsights/workspaces/[Your workspace name]" --api-version "2021-06-01" --set properties.features.disableLocalAuth=False` |
+| Error Message `Error retrieving data` | While Azure Kubernetes Service cluster is setting up for health and performance monitoring, a connection is established between the cluster and Azure Log Analytics workspace. A Log Analytics workspace is used to store all monitoring data for your cluster. This error may occur when your Log Analytics workspace has been deleted. Check if the workspace was deleted. If it was, you'll need to re-enable monitoring of your cluster with Container insights and either specify an existing workspace or create a new one. To re-enable, you'll need to [disable](container-insights-optout.md) monitoring for the cluster and [enable](container-insights-enable-new-cluster.md) Container insights again. |
+| `Error retrieving data` after adding Container insights through az aks cli | When enable monitoring using `az aks cli`, Container insights may not be properly deployed. Check whether the solution is deployed. To verify, go to your Log Analytics workspace and see if the solution is available by selecting **Solutions** from the pane on the left-hand side. To resolve this issue, you'll need to redeploy the solution by following the instructions on [how to deploy Container insights](container-insights-onboard.md) |
+
+To help diagnose the problem, we've provided a [troubleshooting script](https://github.com/microsoft/Docker-Provider/tree/ci_dev/scripts/troubleshoot).
 
 ## Authorization error during onboarding or update operation
 
@@ -18,16 +31,12 @@ During the onboarding or update process, granting the **Monitoring Metrics Publi
 
 You can also manually grant this role from the Azure portal by performing the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Kubernetes**. As you begin typing, the list filters based on your input. Select **Azure Kubernetes**.
-3. In the list of Kubernetes clusters, select one from the list.
-2. From the left-hand menu, click **Access control (IAM)**.
-3. Select **+ Add** to add a role assignment and select the **Monitoring Metrics Publisher** role and under the **Select** box type **AKS** to filter the results on just the clusters service principals defined in the subscription. Select the one from the list that is specific to that cluster.
-4. Select **Save** to finish assigning the role.
+1. Assign the **Publisher** role to the **Monitoring Metrics** scope.
+
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md). 
 
 ## Container insights is enabled but not reporting any information
-
-If Container insights is successfully enabled and configured, but you cannot view status information or no results are returned from a log query, you diagnose the problem by following these steps:
+Use the following steps to  diagnose the problem if you can't view status information or no results are returned from a log query:
 
 1. Check the status of the agent by running the command:
 
@@ -63,7 +72,7 @@ If Container insights is successfully enabled and configured, but you cannot vie
     omsagent   1         1         1            1            3h
     ```
 
-4. Check the status of the pod to verify that it is running using the command: `kubectl get pods --namespace=kube-system`
+4. Check the status of the pod to verify that it's running using the command: `kubectl get pods --namespace=kube-system`
 
     The output should resemble the following example with a status of *Running* for the omsagent:
 
@@ -78,19 +87,7 @@ If Container insights is successfully enabled and configured, but you cannot vie
     omsagent-win-6drwq                  1/1       Running   0          1d
     ```
 
-## Error messages
-
-The table below summarizes known errors you may encounter while using Container insights.
-
-| Error messages  | Action |
-| ---- | --- |
-| Error Message `No data for selected filters`  | It may take some time to establish monitoring data flow for newly created clusters. Allow at least 10 to 15 minutes for data to appear for your cluster. |
-| Error Message `Error retrieving data` | While Azure Kubernetes Service cluster is setting up for health and performance monitoring, a connection is established between the cluster and Azure Log Analytics workspace. A Log Analytics workspace is used to store all monitoring data for your cluster. This error may occur when your Log Analytics workspace has been deleted. Check if the workspace was deleted and if it was, you will need to re-enable monitoring of your cluster with Container insights and specify an existing or create a new workspace. To re-enable, you will need to [disable](container-insights-optout.md) monitoring for the cluster and [enable](container-insights-enable-new-cluster.md) Container insights again. |
-| `Error retrieving data` after adding Container insights through az aks cli | When enable monitoring using `az aks cli`, Container insights may not be properly deployed. Check whether the solution is deployed. To verify, go to your Log Analytics workspace and see if the solution is available by selecting **Solutions** from the pane on the left-hand side. To resolve this issue, you will need to redeploy the solution by following the instructions on [how to deploy Container insights](container-insights-onboard.md) |
-
-To help diagnose the problem, we have provided a [troubleshooting script](https://github.com/microsoft/Docker-Provider/tree/ci_dev/scripts/troubleshoot).
-
-## Container insights agent ReplicaSet Pods are not scheduled on non-Azure Kubernetes cluster
+## Container insights agent ReplicaSet Pods aren't scheduled on non-Azure Kubernetes cluster
 
 Container insights agent ReplicaSet Pods has a dependency on the following node selectors on the worker (or agent) nodes for the scheduling:
 
@@ -104,9 +101,9 @@ If your worker nodes don’t have node labels attached, then agent ReplicaSet Po
 
 ## Performance charts don't show CPU or memory of nodes and containers on a non-Azure cluster
 
-Container insights agent Pods uses the cAdvisor endpoint on the node agent to gather the performance metrics. Verify the containerized agent on the node is configured to allow `cAdvisor port: 10255` to be opened on all nodes in the cluster to collect performance metrics.
+Container insights agent pods use the cAdvisor endpoint on the node agent to gather the performance metrics. Verify the containerized agent on the node is configured to allow `cAdvisor port: 10255` to be opened on all nodes in the cluster to collect performance metrics.
 
-## Non-Azure Kubernetes cluster are not showing in Container insights
+## Non-Azure Kubernetes cluster aren't showing in Container insights
 
 To view the non-Azure Kubernetes cluster in Container insights, Read access is required on the Log Analytics workspace supporting this Insight and on the Container Insights solution resource **ContainerInsights (*workspace*)**.
 
@@ -119,7 +116,7 @@ To view the non-Azure Kubernetes cluster in Container insights, Read access is r
     ``` azurecli
     az role assignment list --assignee "SP/UserassignedMSI for omsagent" --scope "/subscriptions/<subid>/resourcegroups/<RG>/providers/Microsoft.ContainerService/managedClusters/<clustername>" --role "Monitoring Metrics Publisher"
     ```
-    For clusters with MSI, the user assigned client id for omsagent changes every time monitoring is enabled and disabled, so the role assignment should exist on the current msi client id. 
+    For clusters with MSI, the user assigned client ID for omsagent changes every time monitoring is enabled and disabled, so the role assignment should exist on the current msi client ID. 
 
 3. For clusters with Azure Active Directory pod identity enabled and using MSI:
 
@@ -156,6 +153,31 @@ To view the non-Azure Kubernetes cluster in Container insights, Read access is r
         kubernetes.azure.com/managedby: aks
         ```
 
+## Installation of Azure Monitor Containers Extension fail with an error containing “manifests contain a resource that already exists” on Azure Arc Enabled Kubernetes cluster
+The error _manifests contain a resource that already exists_ indicates that resources of the Container Insights agent already exist on the Azure Arc Enabled Kubernetes cluster. This indicates that the container insights agent is already installed, either through azuremonitor-containers HELM chart or Monitoring Addon if it's AKS Cluster that's connected Azure Arc. The solution to this issue is to clean up the existing resources of container insights agent if it exists. Then enable Azure Monitor Containers Extension.
+
+### For non-AKS clusters 
+1.	Against the K8s cluster that's connected to Azure Arc,  run below command to verify whether the azmon-containers-release-1  helm chart release exists or not:
+
+    `helm list  -A`
+
+2.	If the output of the above command indicates that azmon-containers-release-1  exists, delete the helm chart release:
+
+    `helm del azmon-containers-release-1`
+
+### For AKS clusters
+1.	Run the following commands and look for omsagent addon profile to verify whether the AKS monitoring addon is enabled:
+
+    ```
+    az  account set -s <clusterSubscriptionId>
+    az aks show -g <clusterResourceGroup> -n <clusterName>
+    ```
+
+2.	If the output includes an omsagent addon profile config with a log analytics workspace resource ID, this indicates that AKS Monitoring addon is enabled and needs to be disabled:
+
+    `az aks disable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName>`
+
+If above steps didn’t resolve the installation of Azure Monitor Containers Extension issues, create a ticket to Microsoft for further investigation.
 
 
 ## Next steps

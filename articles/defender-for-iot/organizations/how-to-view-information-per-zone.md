@@ -1,10 +1,10 @@
 ---
 title: Learn about devices on specific zones
 description: Use the on-premises management console to get a comprehensive view information per specific zone 
-author: shhazam-ms
+author: rkarlin
 manager: rkarlin
-ms.author: shhazam
-ms.date: 03/21/2021
+ms.author: rkarlin
+ms.date: 11/09/2021
 ms.topic: how-to
 ms.service: azure
 ---
@@ -51,7 +51,7 @@ The following tools are available for viewing devices and device information fro
 
 To view alerts associated with a specific zone:
 
-- Select the alert icon form the **Zone** window. 
+- Select the alert icon from the **Zone** window. 
 
   :::image type="content" source="media/how-to-work-with-asset-inventory-information/business-unit-view-v2.png" alt-text="The default Business Unit view with examples.":::
 
@@ -77,7 +77,7 @@ The following additional zone information is available:
 
 - **Connectivity status**: If a sensor is disconnected, connect from the sensor. See [Connect sensors to the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console). 
 
-- **Update progress**: If the connected sensor is being upgraded, upgrade statuses will appear. During upgrade, the on-premises management console does not receive device information from the sensor.
+- **Update progress**: If the connected sensor is being upgraded, upgrade statuses will appear. During upgrade, the on-premises management console doesn't receive device information from the sensor.
 
 ## Next steps
 

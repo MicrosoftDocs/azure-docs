@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB's API for MongoDB 4.0 server version su
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 08/26/2021
+ms.date: 04/05/2022
 author: gahl-levy
 ms.author: gahllevy
 ---
@@ -190,6 +190,9 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 ### Comparison expressions
 
+> [!NOTE]
+> The API for MongoDB does not support comparison expressions with an array literal in the query.
+
 | Command | Supported |
 |---------|---------|
 | $cmp | Yes |
@@ -308,9 +311,9 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $dateToString | Yes |
 | $isoDayOfWeek | Yes |
 | $isoWeek | Yes |
-| $dateFromParts | No | 
-| $dateToParts | No |
-| $dateFromString | No |
+| $dateFromParts | Yes | 
+| $dateToParts | Yes |
+| $dateFromString | Yes |
 | $isoWeekYear | Yes |
 
 ### Conditional expressions
@@ -396,7 +399,7 @@ In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to
 |---------|---------|
 | TTL | Yes |
 | Unique | Yes |
-| Partial | No |
+| Partial | Only supported with unique indexes |
 | Case Insensitive | No |
 | Sparse | No |
 | Background | Yes |
@@ -423,7 +426,7 @@ In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to
 
 | Command | Supported |
 |---------|---------|
-| $expr | No |
+| $expr | Yes |
 | $jsonSchema | No |
 | $mod | Yes |
 | $regex | Yes |
@@ -527,36 +530,10 @@ $polygon | No |
 
 ## Sort operations
 
-When using the `findOneAndUpdate` operation, sort operations on a single field are supported but sort operations on multiple fields are not supported.
+When using the `findOneAndUpdate` operation with Mongo API version 4.0, sort operations on a single field and multiple fields are supported. Sort operations on multiple fields was a limitation of previous wire protocols.
 
-## Unique indexes
-
-[Unique indexes](mongodb-indexing.md#unique-indexes) ensure that a specific field doesn't have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. You can create unique indexes in Azure Cosmos DB by using the `createIndex` command with the `unique` constraint parameter:
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
-{
-    "_t" : "CreateIndexesResponse",
-    "ok" : 1,
-    "createdCollectionAutomatically" : false,
-    "numIndexesBefore" : 1,
-    "numIndexesAfter" : 4
-}
-```
-
-## Compound indexes
-
-[Compound indexes](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) provide a way to create an index for groups of fields for up to eight fields. This type of index differs from the native MongoDB compound indexes. In Azure Cosmos DB, compound indexes are used for sorting operations that are applied to multiple fields. To create a compound index, you need to specify more than one property as the parameter:
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
-{
-    "createdCollectionAutomatically" : false, 
-    "numIndexesBefore" : 1,
-    "numIndexesAfter" : 2,
-    "ok" : 1
-}
-```
+## Indexing
+The API for MongoDB [supports a variety of indexes](mongodb-indexing.md) to enable sorting on multiple fields, improve query performance, and enforce uniqueness.
 
 ## GridFS
 
@@ -580,7 +557,7 @@ Azure Cosmos DB does not yet support server-side sessions commands.
 
 ## Time-to-live (TTL)
 
-Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections by going to the [Azure portal](https://portal.azure.com).
+Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections from the [Azure portal](https://portal.azure.com).
 
 ## Transactions
 
@@ -600,5 +577,5 @@ Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/refe
 - Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB's API for MongoDB.
 - Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB's API for MongoDB.
 - Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+    - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)

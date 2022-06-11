@@ -1,23 +1,23 @@
 ---
-title: Copy data from DB2 using Azure Data Factory 
+title: Copy data from DB2
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from DB2 to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+description: Learn how to copy data from DB2 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 06/07/2022
 ms.author: jianleishen
 ---
-# Copy data from DB2 by using Azure Data Factory
+# Copy data from DB2 using Azure Data Factory or Synapse Analytics
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-db2-connector.md)
 > * [Current version](connector-db2.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a DB2 database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a DB2 database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
@@ -97,12 +97,12 @@ Typical properties inside the connection string:
 | database |Name of the DB2 database. |Yes |
 | authenticationType |Type of authentication used to connect to the DB2 database.<br/>Allowed value is: **Basic**. |Yes |
 | username |Specify user name to connect to the DB2 database. |Yes |
-| password |Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| packageCollection    | Specify under where the needed packages are auto created by ADF when querying the database. If this is not set, Data Factory uses the {username} as the default value. | No |
+| password |Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| packageCollection    | Specify under where the needed packages are auto created by the service when querying the database. If this is not set, the service uses the {username} as the default value. | No |
 | certificateCommonName | When you use Secure Sockets Layer (SSL) or Transport Layer Security (TLS) encryption, you must enter a value for Certificate common name. | No |
 
 > [!TIP]
-> If you receive an error message that states `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, the reason is a needed package is not created for the user. By default, ADF will try to create a the package under collection named as the user you used to connect to the DB2. Specify the package collection property to indicate under where you want ADF to create the needed packages when querying the database.
+> If you receive an error message that states `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, the reason is a needed package is not created for the user. By default, the service will try to create the package under the collection named as the user you used to connect to the DB2. Specify the package collection property to indicate under where you want the service to create the needed packages when querying the database. If you can't determine the package collection name, try to set `packageCollection=NULLID`.
 
 **Example:**
 
@@ -256,9 +256,9 @@ If you were using `RelationalSource` typed source, it is still supported as-is, 
 
 ## Data type mapping for DB2
 
-When copying data from DB2, the following mappings are used from DB2 data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from DB2, the following mappings are used from DB2 data types to interim data types used internally within the service. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-| DB2 Database type | Data factory interim data type |
+| DB2 Database type | Interim service data type |
 |:--- |:--- |
 | BigInt |Int64 |
 | Binary |Byte[] |
@@ -292,4 +292,4 @@ When copying data from DB2, the following mappings are used from DB2 data types 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,27 +1,27 @@
 ---
 title: Monitor SAP on Azure (preview) | Microsoft Docs
 description: Start here to learn how to monitor SAP on Azure.
-author: Ajayan1008
+author: mamccrea
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
 ms.custom: subject-monitoring
-ms.date: 08/24/2021
-ms.author: v-hborys
+ms.date: 10/13/2021
+ms.author: mamccrea
 
 ---
 
 # Monitor SAP on Azure (preview)
 
-When you have critical applications and business processes relying on Azure resources, you want to monitor those resources for their availability, performance, and operation. 
+When you have critical applications and business processes relying on Azure resources, you'll want to monitor those resources for their availability, performance, and operation. 
 
 This article describes how to monitor SAP running on Azure using Azure Monitor for SAP Solutions. Azure Monitor for SAP Solutions uses specific parts of the [Azure Monitor](../../../azure-monitor/overview.md) infrastructure.
 
 ## Overview
 
-Azure Monitor for SAP Solutions is an Azure-native monitoring product for anyone running their SAP landscapes on Azure. The product works with both [SAP on Azure Virtual Machines](./hana-get-started.md) and [SAP on Azure Large Instances](./hana-overview-architecture.md).
+Azure Monitor for SAP Solutions is an Azure-native monitoring product for anyone running their SAP landscapes on Azure. It works with both [SAP on Azure Virtual Machines](./hana-get-started.md) and [SAP on Azure Large Instances](./hana-overview-architecture.md).
 
-With Azure Monitor for SAP Solutions, you can collect telemetry data from Azure infrastructure and databases in one central location and visually correlate telemetry data for faster troubleshooting.
+With Azure Monitor for SAP Solutions, you can collect telemetry data from Azure infrastructure and databases in one central location and visually correlate the data for faster troubleshooting.
 
 You can monitor different components of an SAP landscape, such as Azure virtual machines (VMs), high-availability cluster, SAP HANA database, SAP NetWeaver, and so on, by adding the corresponding **provider** for that component. For more information, see [Deploy Azure Monitor for SAP Solutions by using the Azure portal](azure-monitor-sap-quickstart.md).
 
@@ -34,21 +34,19 @@ Supported databases:
 - SAP HANA Database
 - Microsoft SQL server
 
-Azure Monitor for SAP Solutions uses the [Azure Monitor](../../../azure-monitor/overview.md) capabilities of [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) and [Workbooks](../../../azure-monitor/visualize/workbooks-overview.md).
-
-With it, you can:
+Azure Monitor for SAP Solutions uses the [Azure Monitor](../../../azure-monitor/overview.md) capabilities of [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) and [Workbooks](../../../azure-monitor/visualize/workbooks-overview.md). With it, you can:
 
 - Create [custom visualizations](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) by editing the default Workbooks provided by Azure Monitor for SAP Solutions. 
 - Write [custom queries](../../../azure-monitor/logs/log-analytics-tutorial.md).
 - Create [custom alerts](../../../azure-monitor/alerts/alerts-log.md) by using Azure Log Analytics workspace. 
-- Take advantage of the [flexible retention period](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) in Azure Monitor Logs/Log Analytics. 
+- Take advantage of the [flexible retention period](../../../azure-monitor/logs/data-retention-archive.md) in Azure Monitor Logs/Log Analytics. 
 - Connect monitoring data with your ticketing system.
 
 ## What data does Azure Monitor for SAP Solutions collect?
 
 Azure Monitor for SAP Solutions doesn't collect Azure Monitor metrics or resource log data as does many other Azure resources. Instead, it sends custom logs directly to the Azure Monitor Logs system, where you can then use the built-in features of Log Analytics.
 
-Data collection in Azure Monitor for SAP Solutions depends on the providers that you configure. During public preview, the following data is being collected.
+Data collection in Azure Monitor for SAP Solutions depends on the providers that you configure. During public preview, the following data is collected.
 
 High-availability Pacemaker cluster telemetry:
 - Node, resource, and STONITH block device (SBD) status
@@ -107,7 +105,7 @@ The key components of the architecture are:
 - **Azure portal** – Your starting point. You can navigate to marketplace within Azure portal and discover Azure Monitor for SAP Solutions.
 - **Azure Monitor for SAP Solutions resource** - A landing place for you to view monitoring telemetry.
 - **Managed resource group** – Deployed automatically as part of the Azure Monitor for SAP Solutions resource deployment. The resources deployed within managed resource group help with collection of telemetry. Key resources deployed and their purposes are:
-   - **Azure virtual machine**: Also known as *collector VM*, it's a Standard_B2ms VM. The main purpose of this VM is to host the *monitoring payload*. Monitoring payload refers to the logic of collecting telemetry from the source systems and transferring the data to the monitoring framework. In the above diagram, the monitoring payload contains the logic to connect to SAP HANA database over SQL port.
+   - **Azure virtual machine**: Also known as *collector VM*, it's a Standard_B2ms VM. The main purpose of this VM is to host the *monitoring payload*. Monitoring payload refers to the logic of collecting telemetry from the source systems and transferring the data to the monitoring framework. In the preceding diagram, the monitoring payload contains the logic to connect to SAP HANA database over SQL port.
    - **[Azure Key Vault](../../../key-vault/general/basic-concepts.md)**: This resource is deployed to securely hold SAP HANA database credentials and to store information about [providers](./azure-monitor-providers.md).
    - **Log Analytics Workspace**: The destination where the telemetry data is stored.
       - Visualization is built on top of telemetry in Log Analytics using [Azure Workbooks](../../../azure-monitor/visualize/workbooks-overview.md). You can customize visualization. You can also pin your Workbooks or specific visualization within Workbooks to Azure dashboard for autorefresh. The maximum frequency for refresh is every 30 minutes.

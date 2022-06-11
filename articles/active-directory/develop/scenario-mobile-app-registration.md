@@ -1,6 +1,5 @@
 ---
-title: Register mobile apps that call web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Register mobile apps that call web APIs
 description: Learn how to build a mobile app that calls web APIs (app's registration)
 services: active-directory
 author: jmprieur
@@ -29,9 +28,9 @@ The account types that your mobile applications support depend on the experience
 
 Most mobile applications use interactive authentication. If your app uses this form of authentication, you can sign in users from any [account type](quickstart-register-app.md).
 
-### Audience for Integrated Windows authentication, username-password, and B2C
+### Audience for integrated Windows authentication, username-password, and B2C
 
-If you have a Universal Windows Platform (UWP) app, you can use Integrated Windows authentication (IWA) to sign in users. To use IWA or username-password authentication, your application needs to sign in users in your own line-of-business (LOB) developer tenant. In an independent software vendor (ISV) scenario, your application can sign in users in Azure Active Directory organizations. These authentication flows aren't supported for Microsoft personal accounts.
+If you have a Universal Windows Platform (UWP) app, you can use integrated Windows authentication (IWA) to sign in users. To use IWA or username-password authentication, your application needs to sign in users in your own line-of-business (LOB) developer tenant. In an independent software vendor (ISV) scenario, your application can sign in users in Azure Active Directory organizations. These authentication flows aren't supported for Microsoft personal accounts.
 
 You can also sign in users by using social identities that pass a B2C authority and policy. To use this method, you can use only interactive authentication and username-password authentication. Username-password authentication is currently supported only on Xamarin.iOS, Xamarin.Android, and UWP.
 

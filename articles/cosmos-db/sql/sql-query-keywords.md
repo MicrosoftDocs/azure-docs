@@ -1,12 +1,13 @@
 ---
 title: SQL keywords for Azure Cosmos DB
 description: Learn about SQL keywords for Azure Cosmos DB.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.author: tisande
+ms.date: 10/05/2021
+ms.author: sidandrews
+ms.reviewer: jucocchi
 
 ---
 # Keywords in Azure Cosmos DB
@@ -97,11 +98,31 @@ The results are:
 ]
 ```
 
-Queries with an aggregate system function and a subquery with `DISTINCT` are not supported. For example, the following query is not supported:
+Queries with an aggregate system function and a subquery with `DISTINCT` are only supported in specific SDK versions. For example, queries with the following shape are only supported in the below specific SDK versions:
 
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
+
+**Supported SDK versions:**
+
+|**SDK**|**Supported versions**|
+|-------|----------------------|
+|.NET SDK|3.18.0 or later|
+|Java SDK|4.19.0 or later|
+|Node.js SDK|Unsupported|
+|Python SDK|Unsupported|
+
+There are some additional restrictions on queries with an aggregate system function and a subquery with `DISTINCT`. The below queries are unsupported:
+
+|**Restriction**|**Example**|
+|-------|----------------------|
+|WHERE clause in the outer query|SELECT COUNT(1) FROM (SELECT DISTINCT VALUE c.lastName FROM c) AS lastName WHERE lastName = "Smith"|
+|ORDER BY clause in the outer query|SELECT VALUE COUNT(1) FROM (SELECT DISTINCT VALUE c.lastName FROM c) AS lastName ORDER BY lastName|
+|GROUP BY clause in the outer query|SELECT COUNT(1) as annualCount, d.year FROM (SELECT DISTINCT c.year, c.id FROM c) AS d GROUP BY d.year|
+|Nested subquery|SELECT COUNT(1) FROM (SELECT y FROM (SELECT VALUE StringToNumber(SUBSTRING(d.date, 0, 4 FROM (SELECT DISTINCT c.date FROM c) d) AS y WHERE y > 2012)|
+|Multiple aggregations|SELECT COUNT(1) as AnnualCount, SUM(d.sales) as TotalSales FROM (SELECT DISTINCT c.year, c.sales, c.id FROM c) AS d|
+|COUNT() must have 1 as a parameter|SELECT COUNT(lastName) FROM (SELECT DISTINCT VALUE c.lastName FROM c) AS lastName|
 
 ## LIKE
 

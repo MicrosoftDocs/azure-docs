@@ -3,7 +3,7 @@ title: Private availability testing - Azure Monitor Application Insights
 description: Learn how to use availability tests on internal servers that run behind a firewall with private testing.
 ms.topic: conceptual
 ms.date: 05/14/2021
-
+ms.reviewer: shyamala
 ---
 
 # Private testing
@@ -28,7 +28,7 @@ Configure your firewall to permit incoming requests from our service.
 
         :::image type="content" source="media/availability-private-test/service-tag.png" alt-text="Screenshot of the Add inbound security rules tab with a source of service tag.":::
 
-- If your endpoints are hosted outside of Azure or Service Tags aren't available for your scenario, then you'll need to individually allowlist the [IP addresses of our web test agents](ip-addresses.md). You can query the IP ranges directly from PowerShell, Azure CLI, or a REST call using the [Service tag API](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) You can also download a [JSON file](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) to get a list of current service tags with IP addresses details.
+- If your endpoints are hosted outside of Azure or Service Tags aren't available for your scenario, then you'll need to individually allowlist the [IP addresses of our web test agents](ip-addresses.md). You can query the IP ranges directly from PowerShell, Azure CLI, or a REST call using the [Service tag API](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) You can also download a [JSON file](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) to get a list of current service tags with IP addresses details.
     1. In your Network Security group resource and select **inbound security rules** under *Settings*, then select **Add**.
     1. Next, select *IP Addresses* as your source then add your IP addresses in a comma delimited list in source IP address/CIRD ranges.
 

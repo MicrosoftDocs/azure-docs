@@ -1,17 +1,31 @@
 - name: Azure Resiliency
   items:
   - name: Azure Resiliency feature page
-    href: https://azure.microsoft.com/features/resiliency
+    href: https://azure.microsoft.com/features/
+  - name: Resiliency in Azure
+    href: overview.md
   - name: Design resilient applications for Azure
     href: /azure/architecture/framework/resiliency/app-design
+- name: Availability Zones fundamentals
+  items:
+  - name: Regions and Availability Zones in Azure
+    href: az-overview.md
+  - name: Azure Services
+    href: region-types-service-categories-azure.md
+  - name: Azure Services that support Availability Zones
+    href: az-region.md
+  - name: Migration Guidance
+    items:
+    - name: Virtual Machines and Virtual Machine Scale Sets
+      href: migrate-vm.md
+    - name: Storage accounts
+      href: migrate-storage.md
+  - name: Terminology
+    href: glossary.md
 - name: High Availability
   items:
-  - name: Regions and Availability Zones
-    href: az-overview.md
-  - name: Availability Zones Documentation
+  - name: Quickstart guides
     items:
-    - name: Azure Services that support Availability Zones
-      href: az-region.md
     - name: Virtual machines
       items:
       - name: Create a Linux VM in an Availability Zone with CLI
@@ -51,18 +65,18 @@
         - name: Create a zonal redundant public Standard Load Balancer (CLI)
           href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
       - name: Load balance VMs across availability zones
-        href: ../load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md
+        href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
         items:
         - name: Load balance VMs across availability zones with Azure (CLI)
           href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
     - name: Public IP address
-      href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
+      href: ../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address
     - name: SQL Database
       items:
       - name: Availability zones with SQL Database general purpose tier
-        href: ../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview
+        href: /azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability
       - name: Availability zones with SQL Database premium & business critical tiers
-        href: ../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability
+        href: /azure/azure-sql/database/high-availability-sla#premium-and-business-critical-service-tier-zone-redundant-availability
     - name: Storage
       items:
       - name: Zone-redundant storage
@@ -90,22 +104,22 @@
     - name: Identity
       items:
       - name: Create an Azure Active Directory Domain Services instance
-        href: ../active-directory-domain-services/tutorial-create-instance.md
-  - name: Azure Orbital Documentation
-    items:
-    - name: What is Azure Orbital?
-      href: ../networking/azure-orbital-overview.md
+        href: ../active-directory-domain-services/tutorial-create-instance.md 
 - name: Disaster Recovery
-  items:
+  items:  
+  - name: Business continuity management in Azure
+    href: business-continuity-management-program.md
+  - name: Cross-region replication in Azure
+    href: cross-region-replication-azure.md
   - name: Use Azure Site Recovery
     href: ../site-recovery/index.yml
-- name: Azure Backup
-  items:
   - name: Use Azure Backup
     href: ../backup/index.yml
+  - name: Microsoft Azure Well-Architected Framework
+    href: /azure/architecture/framework/
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Azure Regions
-    href: https://azure.microsoft.com/regions/
+    href: https://azure.microsoft.com/global-infrastructure/geographies/

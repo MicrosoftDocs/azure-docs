@@ -1,19 +1,18 @@
 ---
-title: Data loading best practices
-description: Recommendations and performance optimizations for loading data into a dedicated SQL pool Azure Synapse Analytics.
-services: synapse-analytics
-author: julieMSFT 
+title: Data loading best practices for dedicated SQL pools
+description: Recommendations and performance optimizations for loading data into a dedicated SQL pool in Azure Synapse Analytics.
+author: joannapea 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
-ms.author: jrasnick
-ms.reviewer: igorstan
+ms.date: 08/26/2021
+ms.author: joanpo
+ms.reviewer: wiassaf
 ms.custom: azure-synapse
 ---
 
-# Best practices for loading data into a dedicated SQL pool Azure Synapse Analytics
+# Best practices for loading data into a dedicated SQL pool in Azure Synapse Analytics
 
 In this article, you'll find recommendations and performance optimizations for loading data.
 
@@ -35,27 +34,46 @@ For fastest loading speed, run only one load job at a time. If that is not feasi
 
 To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class or workload group. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
 
+
 ### Create a loading user
 
-This example creates a loading user for the staticrc20 resource class. The first step is to **connect to master** and create a login.
+This example creates a loading user classified to a specific workload group. The first step is to **connect to master** and create a login.
 
 ```sql
    -- Connect to master
-   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+   CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Connect to the data warehouse and create a user. The following code assumes you are connected to the database called mySampleDataWarehouse. It shows how to create a user called LoaderRC20, give the user control permission on a database. It then adds the user as a member of the staticrc20 database role.  
+Connect to the dedicated SQL pool and create a user. The following code assumes you're connected to the database called mySampleDataWarehouse. It shows how to create a user called loader and gives the user permissions to create tables and load using the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true). Then it classifies the user to the DataLoads workload group with maximum resources. 
 
 ```sql
-   -- Connect to the database
-   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+   -- Connect to the dedicated SQL pool
+   CREATE USER loader FOR LOGIN loader;
+   GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
+   GRANT INSERT ON <yourtablename> TO loader;
+   GRANT SELECT ON <yourtablename> TO loader;
+   GRANT CREATE TABLE TO loader;
+   GRANT ALTER ON SCHEMA::dbo TO loader;
+   
+   CREATE WORKLOAD GROUP DataLoads
+   WITH ( 
+       MIN_PERCENTAGE_RESOURCE = 0
+       ,CAP_PERCENTAGE_RESOURCE = 100
+       ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 100
+	);
+
+   CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
+   WITH (
+	     WORKLOAD_GROUP = 'DataLoads'
+       ,MEMBERNAME = 'loader'
+   );
 ```
 
-To run a load with resources for the staticRC20 resource classes, sign in as LoaderRC20 and run the load.
+<br><br>
+>[!IMPORTANT] 
+>This is an extreme example of allocating 100% resources of the SQL pool to a single load. This will give you a maximum concurrency of 1. Be aware that this should be used only for the initial load where you will need to create additional workload groups with their own configurations to balance resources across your workloads. 
 
-Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](resource-consumption-models.md). If you use a dynamic resource class, the resources vary according to your service level. For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
+To run a load with resources for the loading workload group, sign in as loader and run the load. 
 
 ## Allow multiple users to load
 
@@ -85,13 +103,17 @@ Columnstore indexes require large amounts of memory to compress data into high-q
 
 ## Increase batch size when using SQLBulkCopy API or BCP
 
-As mentioned before, loading with PolyBase will provide the highest throughput with Synapse SQL pool. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP), you should consider increasing batch size for better throughput - a good rule of thumb is a batch size between 100K to 1M rows.
+
+Loading with the COPY statement will provide the highest throughput with dedicated SQL pools. If you cannot use the COPY to load and must use the [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), you should consider increasing batch size for better throughput.
+
+> [!TIP]
+> A batch size between 100 K to 1M rows is the recommended baseline for determining optimal batch size capacity. 
 
 ## Manage loading failures
 
 A load using an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This message indicates that your external data contains dirty records. A data record is considered dirty if the data types and number of columns do not match the column definitions of the external table, or if the data doesn't conform to the specified external file format.
 
-To fix the dirty records, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE.
+To fix the dirty records, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in ['CREATE EXTERNAL TABLE'](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true) .
 
 ## Insert data into a production table
 

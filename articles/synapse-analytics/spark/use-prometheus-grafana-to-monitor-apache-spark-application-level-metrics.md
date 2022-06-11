@@ -1,17 +1,17 @@
 ---
-title: Tutorial - Monitor Apache Spark Application-level metrics with Prometheus and Grafana
+title: Tutorial - Monitor Apache Spark Applications metrics with Prometheus and Grafana
 description: Tutorial - Learn how to deploy the Apache Spark application metrics solution to an Azure Kubernetes Service (AKS) cluster and learn how to integrate the Grafana dashboards.
 services: synapse-analytics 
 author: hrasheed-msft
 ms.author: jejiang
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
 ---
 
-# Tutorial: Monitor Apache Spark Application-level metrics with Prometheus and Grafana
+# Monitor Apache Spark Applications metrics with Prometheus and Grafana
 
 ## Overview
 
@@ -30,7 +30,7 @@ Or use the [Azure Cloud Shell](https://shell.azure.com/), which already includes
 
 ## Log in to Azure
 
-```bash
+```azurecli
 az login
 az account set --subscription "<subscription_id>"
 ```
@@ -48,8 +48,8 @@ Note: This step can be skipped if you already have an AKS cluster.
 
 ## Create a service principal and grant permission to Synapse workspace
 
-```bash
-az ad sp create-for-rbac --name <service_principal_name>
+```azurecli
+az ad sp create-for-rbac --name <service_principal_name> --role Contributor --scopes /subscriptions/<subscription_id>
 ```
 
 The result should look like:
@@ -81,6 +81,9 @@ Note down the appId, password, and tenantID.
 6. For Select user, input your **<service_principal_name>** and click your service principal
 
 7. Click **Apply** (Wait 3 minutes for permission to take effect.)
+
+> [!NOTE]
+> Please make sure your service principal is at least "Reader" role in your Synapse workspace. Go to Access Control (IAM) tab of the Azure portal and check the permission settings.
 
 ## Install connector, Prometheus server, Grafana dashboard
 
@@ -124,7 +127,7 @@ Get service ip, copy & paste the external ip to browser, and login with username
 
 Find Synapse Dashboard on the upper left corner of the Grafana page (Home -> Synapse Workspace / Synapse Application), try to run an example code in Synapse Studio and wait a few seconds for the metrics pulling.
 
-Also, you can use the "Synapse Workspace / Workspace" and "Synapse Workspace / Spark pools" dashboards to get an overview of your workspace and your Apache Spark pools.
+Also, you can use the "Synapse Workspace / Workspace" and "Synapse Workspace / Apache Spark pools" dashboards to get an overview of your workspace and your Apache Spark pools.
 
 ## Uninstall
 
@@ -136,7 +139,7 @@ helm delete <release_name> -n <namespace>
 
 Delete the AKS cluster.
 
-```bash
+```azurecli
 az aks delete --name <kubernetes_cluster_name> --resource-group <kubernetes_cluster_rg>
 ```
 
@@ -152,7 +155,7 @@ Synapse Prometheus Connector helps to connect Azure Synapse Apache Spark pool an
 2.	Apache Spark application discovery: When you submit applications in the target workspace, Synapse Prometheus Connector can automatically discover these applications.
 3.	Apache Spark application metadata: It collects basic application information and exports the data to Prometheus.
 
-Synapse Prometheus Connector is released as a docker image hosted on [Microsoft Container Registry](https://github.com/microsoft/containerregistry). It is open-source and is located in [Azure Synapse Spark application metrics](https://github.com/microsoft/azure-synapse-spark-metrics).
+Synapse Prometheus Connector is released as a docker image hosted on [Microsoft Container Registry](https://github.com/microsoft/containerregistry). It is open-source and is located in [Azure Synapse Apache Spark application metrics](https://github.com/microsoft/azure-synapse-spark-metrics).
 
 ### Prometheus server
 
@@ -166,12 +169,12 @@ The "Synapse Workspace / Workspace" dashboard provides a workspace level view of
 
 [![screenshot dashboard workspace](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-workspace.png)](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-workspace.png#lightbox)
 
-The "Synapse Workspace / Spark pools" dashboard contains the metrics of Apache Spark applications running in the selected Apache Spark pool during the time period.
+The "Synapse Workspace / Apache Spark pools" dashboard contains the metrics of Apache Spark applications running in the selected Apache Spark pool during the time period.
 
 [![screenshot dashboard sparkpool](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-sparkpool.png)](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-sparkpool.png#lightbox)
 
-The "Synapse Workspace / Spark Application" dashboard contains the selected Apache Spark application.
+The "Synapse Workspace / Apache Spark Application" dashboard contains the selected Apache Spark application.
 
 [![screenshot dashboard application](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-application.png)](./media/monitor-azure-synapse-spark-application-level-metrics/screenshot-dashboard-application.png#lightbox)
 
-The above dashboard templates have been open-sourced in [Azure Synapse Spark application metrics](https://github.com/microsoft/azure-synapse-spark-metrics/tree/main/helm/synapse-prometheus-operator/grafana_dashboards).
+The above dashboard templates have been open-sourced in [Azure Synapse Apache Spark application metrics](https://github.com/microsoft/azure-synapse-spark-metrics/tree/main/helm/synapse-prometheus-operator/grafana_dashboards).

@@ -31,7 +31,7 @@ This tutorial uses Azure PowerShell. To learn about using other tools/SDKs to cr
 ## End-to-end workflow
 In this scenario, we have a number of tables in Azure SQL Database that we want to copy to Azure Synapse Analytics. Here is the logical sequence of steps in the workflow that happens in pipelines:
 
-![Workflow](media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png)
+:::image type="content" source="media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png" alt-text="Workflow":::
 
 * The first pipeline looks up the list of tables that needs to be copied over to the sink data stores.  Alternatively you can maintain a metadata table that lists all the tables to be copied to the sink data store. Then, the pipeline triggers another pipeline, which iterates over each table in the database and performs the data copy operation.
 * The second pipeline performs the actual copy. It takes the list of tables as a parameter. For each table in the list, copy the specific table in Azure SQL Database to the corresponding table in Azure Synapse Analytics using [staged copy via Blob storage and PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) for best performance. In this example, the first pipeline passes the list of tables as a value for the parameter. 
@@ -51,7 +51,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 **Prepare the source Azure SQL Database**:
 
-Create a database with the Adventure Works LT sample data in SQL Database by following [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to Azure Synapse Analytics.
+Create a database with the Adventure Works LT sample data in SQL Database by following [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) article. This tutorial copies all the tables from this sample database to Azure Synapse Analytics.
 
 **Prepare the sink Azure Synapse Analytics**:
 
@@ -89,9 +89,9 @@ For both SQL Database and Azure Synapse Analytics, allow Azure services to acces
 2. Run the **Set-AzDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command. 
 
     ```powershell
-	$resourceGroupName = "<your resource group to create the factory>"
-	$dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>"
-	Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
+    $resourceGroupName = "<your resource group to create the factory>"
+    $dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>"
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
     ```
 
     Note the following points:
@@ -478,31 +478,31 @@ This pipeline performs two steps:
 2. 	Run the following script to continuously check the run status of pipeline **GetTableListAndTriggerCopyData**, and print out the final pipeline run and activity run result.
 
     ```powershell
-	while ($True) {
+    while ($True) {
         $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
             if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
-                Write-Host "Pipeline run details:" -foregroundcolor "Yellow"
+                Write-Host "Pipeline run finished. The status is: " $run.Status -ForegroundColor "Yellow"
+                Write-Host "Pipeline run details:" -ForegroundColor "Yellow"
                 $run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Host  "Pipeline is running...status: InProgress" -ForegroundColor "Yellow"
         }
 
         Start-Sleep -Seconds 15
     }
 
 	$result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
-    Write-Host "Activity run details:" -foregroundcolor "Yellow"
+    Write-Host "Activity run details:" -ForegroundColor "Yellow"
     $result
     ```
 
     Here is the output of the sample run:
 
-    ```console
-	Pipeline run details:
+    ```output
+    Pipeline run details:
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
     RunId             : 0000000000-00000-0000-0000-000000000000
@@ -548,7 +548,7 @@ This pipeline performs two steps:
 3. You can get the run ID of pipeline "**IterateAndCopySQLTables**", and check the detailed activity run result as the following.
 
     ```powershell
-    Write-Host "Pipeline 'IterateAndCopySQLTables' run result:" -foregroundcolor "Yellow"
+    Write-Host "Pipeline 'IterateAndCopySQLTables' run result:" -ForegroundColor "Yellow"
     ($result | Where-Object {$_.ActivityName -eq "TriggerCopy"}).Output.ToString()
     ```
 
@@ -568,6 +568,7 @@ This pipeline performs two steps:
 3. Connect to your sink Azure Synapse Analytics and confirm that data has been copied from Azure SQL Database properly.
 
 ## Next steps
+
 You performed the following steps in this tutorial: 
 
 > [!div class="checklist"]
@@ -579,5 +580,6 @@ You performed the following steps in this tutorial:
 > * Monitor the pipeline and activity runs.
 
 Advance to the following tutorial to learn about copy data incrementally from a source to a destination:
+
 > [!div class="nextstepaction"]
->[Copy data incrementally](tutorial-incremental-copy-powershell.md)
+> [Copy data incrementally](tutorial-incremental-copy-powershell.md)

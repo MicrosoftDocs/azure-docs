@@ -8,7 +8,8 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ---
-# Transfer data with AzCopy and file storage 
+
+# Transfer data with AzCopy and file storage
 
 AzCopy is a command-line utility that you can use to copy files to or from a storage account. This article contains example commands that work with Azure Files.
 
@@ -40,10 +41,10 @@ You can use the [azcopy copy](storage-ref-azcopy-copy.md) command to upload file
 This section contains the following examples:
 
 > [!div class="checklist"]
-> * Upload a file
-> * Upload a directory
-> * Upload the contents of a directory
-> * Upload a specific file
+> - Upload a file
+> - Upload a directory
+> - Upload the contents of a directory
+> - Upload a specific file
 
 > [!TIP]
 > You can tweak your upload operation by using optional flags. Here's a few examples.  
@@ -52,7 +53,7 @@ This section contains the following examples:
 > |---|---|
 > |Copy access control lists (ACLs) along with the files.|**--preserve-smb-permissions**=\[true\|false\]|
 > |Copy SMB property information along with the files.|**--preserve-smb-info**=\[true\|false\]|
-> 
+>
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 > [!NOTE]
@@ -107,7 +108,7 @@ You can upload the contents of a directory without copying the containing direct
 **Example**
 
 ```azcopy
-azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --preserve-smb-permissions=true --preserve-smb-info=true
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' --preserve-smb-permissions=true --preserve-smb-info=true
 ```
 
 > [!NOTE]
@@ -153,9 +154,9 @@ You can also exclude files by using the `--exclude-pattern` option. To learn mor
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `--recursive` option to get the entire directory tree, and then use the `--include-pattern` and specify `*.txt` to get all of the text files.
 
-#### Upload files that were modified after a date and time 
+#### Upload files that were modified after a date and time
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-after` option. Specify a date and time in ISO 8601 format (For example: `2020-08-19T15:04:00Z`). 
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-after` option. Specify a date and time in ISO 8601 format (For example: `2020-08-19T15:04:00Z`).
 
 **Syntax**
 
@@ -176,20 +177,20 @@ You can use the [azcopy copy](storage-ref-azcopy-copy.md) command to download fi
 This section contains the following examples:
 
 > [!div class="checklist"]
-> * Download a file
-> * Download a directory
-> * Download the contents of a directory
-> * Download specific files
+> - Download a file
+> - Download a directory
+> - Download the contents of a directory
+> - Download specific files
 
 > [!TIP]
-> You can tweak your download operation by using optional flags. Here's a few examples.
+> You can tweak your download operation by using optional flags. Here are a few examples:
 >
 > |Scenario|Flag|
 > |---|---|
 > |Copy access control lists (ACLs) along with the files.|**--preserve-smb-permissions**=\[true\|false\]|
 > |Copy SMB property information along with the files.|**--preserve-smb-info**=\[true\|false\]|
 > |Automatically decompress files.|**--decompress**|
-> 
+>
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 > [!NOTE]
@@ -278,9 +279,9 @@ You can also exclude files by using the `--exclude-pattern` option. To learn mor
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `--recursive` option to get the entire directory tree, and then use the `--include-pattern` and specify `*.txt` to get all of the text files.
 
-#### Download files that were modified after a date and time 
+#### Download files that were modified after a date and time
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`). 
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`).
 
 **Syntax**
 
@@ -296,7 +297,7 @@ For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) refere
 
 #### Download from a share snapshot
 
-You can download a specific version of a file or directory by referencing the **DateTime** value of a share snapshot. To learn more about share snapshots see [Overview of share snapshots for Azure Files](../files/storage-snapshots-files.md). 
+You can download a specific version of a file or directory by referencing the **DateTime** value of a share snapshot. To learn more about share snapshots see [Overview of share snapshots for Azure Files](../files/storage-snapshots-files.md).
 
 **Syntax**
 
@@ -320,15 +321,15 @@ You can use AzCopy to copy files to other storage accounts. The copy operation i
 
 AzCopy uses [server-to-server](/rest/api/storageservices/put-block-from-url) [APIs](/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer. You can increase the throughput of these operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Increase Concurrency](storage-use-azcopy-optimize.md#increase-concurrency).
 
-You can also copy specific versions of a files by referencing the **DateTime** value of a share snapshot. To learn more about share snapshots see [Overview of share snapshots for Azure Files](../files/storage-snapshots-files.md). 
+You can also copy specific versions of a files by referencing the **DateTime** value of a share snapshot. To learn more about share snapshots see [Overview of share snapshots for Azure Files](../files/storage-snapshots-files.md).
 
 This section contains the following examples:
 
 > [!div class="checklist"]
-> * Copy a file to another storage account
-> * Copy a directory to another storage account
-> * Copy a file share to another storage account
-> * Copy all file shares, directories, and files to another storage account
+> - Copy a file to another storage account
+> - Copy a directory to another storage account
+> - Copy a file share to another storage account
+> - Copy all file shares, directories, and files to another storage account
 
 > [!TIP]
 > You can tweak your copy operation by using optional flags. Here's a few examples.
@@ -337,7 +338,7 @@ This section contains the following examples:
 > |---|---|
 > |Copy access control lists (ACLs) along with the files.|**--preserve-smb-permissions**=\[true\|false\]|
 > |Copy SMB property information along with the files.|**--preserve-smb-info**=\[true\|false\]|
-> 
+>
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ### Copy a file to another storage account
@@ -417,7 +418,10 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt
 You can synchronize the contents of a local file system with a file share or synchronize the contents of a file share with another file share. You can also synchronize the contents of a directory in a file share with the contents of a directory that is located in another file share. Synchronization is one way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server to server APIs.
 
 > [!NOTE]
-> Currently, this scenario is supported only for accounts that don't have a hierarchical namespace. The current release of AzCopy doesn't synchronize between Azure Files and Blob Storage.
+> Currently, this scenario is supported for accounts that have enabled hierarchical namespace via the blob endpoint.
+
+> [!Warning]  
+> AzCopy sync is supported but not fully recommended for Azure Files. AzCopy sync doesn't support differential copies at scale, and some file fidelity might be lost. To learn more, see [Migrate to Azure file shares](../files/storage-files-migration-overview.md#file-copy-tools).
 
 ### Guidelines
 
@@ -426,7 +430,7 @@ You can synchronize the contents of a local file system with a file share or syn
 - If you set the `--delete-destination` flag to `true`, AzCopy deletes files without providing a prompt. If you want a prompt to appear before AzCopy deletes a file, set the `--delete-destination` flag to `prompt`.
 
 - If you plan to set the `--delete-destination` flag to `prompt` or `false`, consider using the [copy](storage-ref-azcopy-copy.md) command instead of the 
-[sync](storage-ref-azcopy-sync.md) command and set the `--overwrite` parameter to `ifSourceNewer`. The [copy](storage-ref-azcopy-copy.md) command consumes less memory and incurs less billing costs because a copy operation doesn't have to index the source or destination prior to moving files. 
+[sync](storage-ref-azcopy-sync.md) command and set the `--overwrite` parameter to `ifSourceNewer`. The [copy](storage-ref-azcopy-copy.md) command consumes less memory and incurs less billing costs because a copy operation doesn't have to index the source or destination prior to moving files.
 
 - The machine on which you run the sync command should have an accurate system clock because the last modified times are critical in determining whether a file should be transferred. If your system has significant clock skew, avoid modifying files at the destination too close to the time that you plan to run a sync command.
 
@@ -439,12 +443,12 @@ You can synchronize the contents of a local file system with a file share or syn
 > |Copy SMB property information along with the files.|**--preserve-smb-info**=\[true\|false\]|
 > |Exclude files based on a pattern.|**--exclude-path**|
 > |Specify how detailed you want your sync-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
-> 
+>
 > For a complete list, see [options](storage-ref-azcopy-sync.md#options).
 
 ### Update a file share with changes to a local file system
 
-In this case, the file share is the destination, and the local file system is the source. 
+In this case, the file share is the destination, and the local file system is the source.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -516,7 +520,7 @@ The first file share that appears in this command is the source. At the end of t
 
 ```azcopy
 azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-03-03T20%3A24%3A13.0000000Z' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive --preserve-smb-permissions=true --preserve-smb-info=true
-``` 
+```
 
 To learn more about share snapshots, see [Overview of share snapshots for Azure Files](../files/storage-snapshots-files.md).
 
@@ -531,5 +535,5 @@ See these articles to configure settings, optimize performance, and troubleshoot
 
 - [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
 - [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
-- [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
-
+- [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
+- [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)

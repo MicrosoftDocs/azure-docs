@@ -7,6 +7,7 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Central
@@ -16,7 +17,7 @@ ms.date: 06/02/2021
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
-In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT.
+In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (from now on, MXCHIP DevKit) to Azure IoT.
 
 You'll complete the following tasks:
 
@@ -26,7 +27,7 @@ You'll complete the following tasks:
 
 ## Prerequisites
 
-* A PC running Microsoft Windows 10
+* A PC running Windows 10
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
 
@@ -229,6 +230,9 @@ Select **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
 
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
+
 ## Troubleshoot and debug
 
 If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
@@ -258,4 +262,3 @@ As a next step, explore the following articles to learn more about using the IoT
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
-

@@ -6,7 +6,6 @@ cloud: gov
 documentationcenter: ''
 
 ms.service: azure-government
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
@@ -606,7 +605,7 @@ Response:
    }
 ]
 ```
-For more information, see [public documentation](../cognitive-services/Face/index.yml), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
+For more information, see [public documentation](../cognitive-services/computer-vision/index-identity.yml), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
 
 ## Text Analytics
@@ -719,7 +718,7 @@ namespace TextTranslator
     }
 }
 ```
-For more information, see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](../cognitive-services/translator/reference/v3-0-reference.md) for Translator.
+For more information, see [public documentation](../cognitive-services/translator/translator-overview.md) and [public API documentation](../cognitive-services/translator/reference/v3-0-reference.md) for Translator.
 
 
 ### Next Steps

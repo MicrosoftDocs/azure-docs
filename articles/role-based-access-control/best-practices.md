@@ -3,11 +3,11 @@ title: Best practices for Azure RBAC
 description: Best practices for using Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/16/2020
+ms.date: 11/15/2021
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to best use Azure RBAC.
@@ -31,7 +31,7 @@ For information about how to assign roles, see [Assign Azure roles using the Azu
 
 ## Limit the number of subscription owners
 
-You should have a maximum of 3 subscription owners to reduce the potential for breach by a compromised owner. This recommendation can be monitored in Azure Security Center. For other identity and access recommendations in Security Center, see [Security recommendations - a reference guide](../security-center/recommendations-reference.md).
+You should have a maximum of 3 subscription owners to reduce the potential for breach by a compromised owner. This recommendation can be monitored in Microsoft Defender for Cloud. For other identity and access recommendations in Defender for Cloud, see [Security recommendations - a reference guide](../security-center/recommendations-reference.md).
 
 ## Use Azure AD Privileged Identity Management
 
@@ -41,7 +41,18 @@ For more information, see [What is Azure AD Privileged Identity Management?](../
 
 ## Assign roles to groups, not users
 
-To make role assignments more manageable, avoid assigning roles directly to users. Instead, assign roles to groups. Assigning roles to groups instead of users also helps minimize the number of role assignments, which has a [limit of 2,000 role assignments per subscription](troubleshooting.md#azure-role-assignments-limit). 
+To make role assignments more manageable, avoid assigning roles directly to users. Instead, assign roles to groups. Assigning roles to groups instead of users also helps minimize the number of role assignments, which has a [limit of role assignments per subscription](troubleshooting.md#azure-role-assignments-limit).
+
+## Assign roles using the unique role ID instead of the role name
+
+There are a couple of times when a role name might change, for example:
+
+- You are using your own custom role and you decide to change the name.
+- You are using a preview role that has **(Preview)** in the name. When the role is released, the role is renamed.
+
+Even if a role is renamed, the role ID does not change. If you are using scripts or automation to create your role assignments, it's a best practice to use the unique role ID instead of the role name. Therefore, if a role is renamed, your scripts are more likely to work.
+
+For more information, see [Assign a role using the unique role ID and Azure PowerShell](role-assignments-powershell.md#assign-a-role-for-a-user-using-the-unique-role-id-at-a-resource-group-scope) and [Assign a role using the unique role ID and Azure CLI](role-assignments-cli.md#assign-a-role-for-a-user-using-the-unique-role-id-at-a-resource-group-scope).
 
 ## Next steps
 

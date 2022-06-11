@@ -186,4 +186,4 @@ Follow the [Service Fabric blog](https://techcommunity.microsoft.com/t5/azure-se
 
 ## Next steps
 
-Learn about [core Service Fabric concepts](service-fabric-technical-overview.md) and [best practices](./service-fabric-best-practices-security.md)
+Learn about [Service Fabric runtime concepts and best practices](/shows/building-microservices-applications-on-azure-service-fabric/run-time-concepts)

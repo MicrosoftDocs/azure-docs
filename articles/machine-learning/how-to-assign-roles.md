@@ -4,14 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how to access to an Azure Machine Learning workspace using Azure role-based access control (Azure RBAC).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: Blackmist
-ms.author: nigup
-author: nishankgu
-ms.date: 03/26/2021
-ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-
+ms.author: johwu
+author: johnwu0604
+ms.date: 03/23/2022
+ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2, event-tier1-build-2022
 ---
 
 
@@ -31,19 +30,18 @@ In this article, you learn how to manage access (authorization) to an Azure Mach
 
 ## Default roles
 
-An Azure Machine Learning workspace is an Azure resource. Like other Azure resources, when a new Azure Machine Learning workspace is created, it comes with three default roles. You can add users to the workspace and assign them to one of these built-in roles.
+Azure Machine Learning workspaces have a four built-in roles that are available by default. When adding users to a workspace, they can be assigned one of the built-in roles described below.
 
 | Role | Access level |
 | --- | --- |
+| **AzureML Data Scientist** | Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself. |
 | **Reader** | Read-only actions in the workspace. Readers can list and view assets, including [datastore](how-to-access-data.md) credentials, in a workspace. Readers can't create or update these assets. |
 | **Contributor** | View, create, edit, or delete (where applicable) assets in a workspace. For example, contributors can create an experiment, create or attach a compute cluster, submit a run, and deploy a web service. |
 | **Owner** | Full access to the workspace, including the ability to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can change role assignments. |
-| **Custom Role** | Allows you to customize access to specific control or data plane operations within a workspace. For example, submitting a run, creating a compute, deploying a model or registering a dataset. |
 
 > [!IMPORTANT]
 > Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](../role-based-access-control/overview.md#how-azure-rbac-works).
 
-Currently there are no additional built-in roles that are specific to Azure Machine Learning. For more information on built-in roles, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
 ## Manage workspace access
 
@@ -53,21 +51,6 @@ If you're an owner of a workspace, you can add and remove roles for the workspac
 - [Azure CLI](../role-based-access-control/role-assignments-cli.md)
 - [REST API](../role-based-access-control/role-assignments-rest.md)
 - [Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)
-
-If you have installed the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), you can use CLI commands to assign roles to users:
-
-```azurecli-interactive 
-az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
-```
-
-The `user` field is the email address of an existing user in the instance of Azure Active Directory where the workspace parent subscription lives. Here is an example of how to use this command:
-
-```azurecli-interactive 
-az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
-```
-
-> [!NOTE]
-> "az ml workspace share" command does not work for federated account by Azure Active Directory B2B. Please use Azure UI portal instead of command.
 
 ## Create custom role
 
@@ -115,11 +98,7 @@ To deploy this custom role, use the following Azure CLI command:
 az role definition create --role-definition data_scientist_role.json
 ```
 
-After deployment, this role becomes available in the specified workspace. Now you can add and assign this role in the Azure portal. Or, you can assign this role to a user by using the `az ml workspace share` CLI command:
-
-```azurecli-interactive
-az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist Custom" --user jdoe@contoson.com
-```
+After deployment, this role becomes available in the specified workspace. Now you can add and assign this role in the Azure portal.
 
 For more information on custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md). 
 
@@ -171,19 +150,29 @@ The following table is a summary of Azure Machine Learning activities and the pe
 
 | Activity | Subscription-level scope | Resource group-level scope | Workspace-level scope |
 | ----- | ----- | ----- | ----- |
-| Create new workspace | Not required | Owner or contributor | N/A (becomes Owner or inherits higher scope role after creation) |
+| Create new workspace <sub>1</sub> | Not required | Owner or contributor | N/A (becomes Owner or inherits higher scope role after creation) |
 | Request subscription level Amlcompute quota or set workspace level quota | Owner, or contributor, or custom role </br>allowing `/locations/updateQuotas/action`</br> at subscription scope | Not Authorized | Not Authorized |
 | Create new compute cluster | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 | Create new compute instance | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 | Submitting any type of run | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
 | Publishing pipelines and endpoints | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Attach an AKS resource <sub>2</sub> | Not required | Owner or contributor on the resource group that contains AKS | 
 | Deploying a registered model on an AKS/ACI resource | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (when you are not using Azure Active Directory auth) OR `"/workspaces/read"` (when you are using token auth) |
-| Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listStorageAccountKeys/action"` |
+| Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listStorageAccountKeys/action", "/workspaces/listNotebookAccessToken/read"`|
 | Create new custom role | Owner, contributor, or custom role allowing `Microsoft.Authorization/roleDefinitions/write` | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
+| Create/manage online endpoints and deployments | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*` |
+| Retrieve authentication credentials for online endpoints | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action`.
 
-> [!TIP]
-> If you receive a failure when trying to create a workspace for the first time, make sure that your role allows `Microsoft.MachineLearningServices/register/action`. This action allows you to register the Azure Machine Learning resource provider with your Azure subscription.
+1: If you receive a failure when trying to create a workspace for the first time, make sure that your role allows `Microsoft.MachineLearningServices/register/action`. This action allows you to register the Azure Machine Learning resource provider with your Azure subscription.
+
+2: When attaching an AKS cluster, you also need to the [Azure Kubernetes Service Cluster Admin Role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) on the cluster.
+
+### Create a workspace using a customer-managed key
+
+When using a customer-managed key (CMK), an Azure Key Vault is used to store the key. The user or service principal used to create the workspace must have owner or contributor access to the key vault.
+
+Within the key vault, the user or service principal must have create, get, delete, and purge access to the key through a key vault access policy. For more information, see [Azure Key Vault security](../key-vault/general/security-features.md#controlling-access-to-key-vault-data).
 
 ### User-assigned managed identity with Azure ML compute cluster
 
@@ -439,10 +428,11 @@ Allows you to define a role scoped only to labeling data:
     "Actions": [
         "Microsoft.MachineLearningServices/workspaces/read",
         "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"
+        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
+        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"   
     ],
-    "NotActions": [
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+    "NotActions": [        
     ],
     "AssignableScopes": [
         "/subscriptions/<subscription_id>"
@@ -503,11 +493,10 @@ Here are a few things to be aware of while you use Azure role-based access contr
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking).
 
 - It can sometimes take up to 1 hour for your new role assignments to take effect over cached permissions across the stack.
-- [Conditional access](../role-based-access-control/conditional-access-azure-management.md) is currently not supported with Azure Machine Learning.
 
 ## Next steps
 
 - [Enterprise security overview](concept-enterprise-security.md)
 - [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
-- [Tutorial: Train models](tutorial-train-models-with-aml.md)
+- [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
 - [Resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)

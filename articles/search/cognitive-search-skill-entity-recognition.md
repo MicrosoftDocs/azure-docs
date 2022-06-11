@@ -6,11 +6,11 @@ description: Extract different types of entities from text in an enrichment pipe
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 06/17/2020
+ms.topic: reference
+ms.date: 09/24/2021
 ---
 
-#    Entity Recognition cognitive skill
+# Entity Recognition cognitive skill
 
 The **Entity Recognition** skill extracts entities of different types from text. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
 

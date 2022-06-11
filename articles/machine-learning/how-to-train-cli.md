@@ -1,33 +1,34 @@
 ---
-title: 'Train models (create jobs) with the CLI (v2)'
+title: 'Train models with the CLI (v2)'
 titleSuffix: Azure Machine Learning
 description: Learn how to train models (create jobs) using Azure CLI extension for Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: lostmygithubaccount
-ms.author: copeters
-ms.date: 06/18/2021
-ms.reviewer: laobri
-ms.custom: devx-track-azurecli, devplatv2
+author: amibp
+ms.author: amipatel
+ms.date: 05/26/2022
+ms.reviewer: nibaccam
+ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 ---
 
-# Train models (create jobs) with the CLI (v2)
+# Train models with the CLI (v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 
 The Azure Machine Learning CLI (v2) is an Azure CLI extension enabling you to accelerate the model training process while scaling up and out on Azure compute, with the model lifecycle tracked and auditable.
 
-Training a machine learning model is typically an iterative process. Modern tooling makes it easier than ever to train larger models on more data faster. Previously tedious manual processes like hyperparameter tuning and even algorithm selection are often automated. With the Azure Machine Learning CLI you can track your jobs (and models) in a [workspace](concept-workspace.md) with hyperparameter sweeps, scale-up on high-performance Azure compute, and scale-out utilizing distributed training.
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+Training a machine learning model is typically an iterative process. Modern tooling makes it easier than ever to train larger models on more data faster. Previously tedious manual processes like hyperparameter tuning and even algorithm selection are often automated. With the Azure Machine Learning CLI (v2), you can track your jobs (and models) in a [workspace](concept-workspace.md) with hyperparameter sweeps, scale-up on high-performance Azure compute, and scale-out utilizing distributed training.
 
 ## Prerequisites
 
-- To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
-- [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
+- To use the CLI (v2), you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
+- [Install and set up CLI (v2)](how-to-configure-cli.md).
 
 > [!TIP]
-> For a full-featured development environment, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md) to [manage Azure Machine Learning resources](how-to-manage-resources-vscode.md) and [train machine learning models](tutorial-train-deploy-image-classification-model-vscode.md).
+> For a full-featured development environment with schema validation and autocompletion for job YAMLs, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md).
 
 ### Clone examples repository
 
@@ -35,23 +36,19 @@ To run the training examples, first clone the examples repository and change int
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
 
-Note that `--depth 1` clones only the latest commit to the repository which reduces time to complete the operation.
+Using `--depth 1` clones only the latest commit to the repository, which reduces time to complete the operation.
 
 ### Create compute
 
 You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/create-compute.sh" id="create_computes":::
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-compute.sh" id="create_computes":::
 
-Note that you are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at 0 nodes until a job is submitted. Learn more about how to [manage and optimize cost for AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
+You are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at zero nodes until a job is submitted. Learn more about how to [manage and optimize cost for AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
-The following example jobs in this article use one of `cpu-cluster` or `gpu-cluster`. Adjust these as needed to the name of your cluster(s).
+The following example jobs in this article use one of `cpu-cluster` or `gpu-cluster`. Adjust these names in the example jobs throughout this article as needed to the name of your cluster(s). Use `az ml compute create -h` for more details on compute create options.
 
-Use `az ml compute create -h` for more details on compute create options.
-
-[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
-
-## Introducing jobs
+## Hello world
 
 For the Azure Machine Learning CLI (v2), jobs are authored in YAML format. A job aggregates:
 
@@ -61,146 +58,380 @@ For the Azure Machine Learning CLI (v2), jobs are authored in YAML format. A job
 
 The "hello world" job has all three:
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/misc/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world.yml":::
+
+> [!WARNING]
+> Python must be installed in the environment used for jobs. Run `apt-get update -y && apt-get install python3 -y` in your Dockerfile to install if needed, or derive from a base image with Python installed already.
+
+> [!TIP]
+> The `$schema:` throughout examples allows for schema validation and autocompletion if authoring YAML files in [VSCode with the Azure Machine Learning extension](how-to-setup-vs-code.md).
 
 Which you can run:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world":::
 
-However this is just an example job which doesn't output anything other than a line in the log file. Typically you want to generate additional artifacts, such as model binaries and accompanying metadata, in addition to the system-generated logs.
+> [!TIP]
+> The `--web` parameter will attempt to open your job in the Azure Machine Learning studio using your default web browser. The `--stream` parameter can be used to stream logs to the console and block further commands.
 
-Azure Machine Learning captures the following artifacts automatically:
+## Overriding values on create or update
 
-- The `./outputs` and `./logs` directories receive special treatment by Azure Machine Learning. If you write any files to these directories during your job, these files will get uploaded to the job's run history so that you can still access them once the job is complete. The `./outputs` folder is uploaded at the end of the job, while the files written to `./logs` are uploaded in real time. Use the latter if you want to stream logs during the job, such as TensorBoard logs.
-- Azure Machine Learning integrates with MLflow's tracking functionality. You can use `mlflow.autolog()` for several common ML frameworks to log model parameters, performance metrics, model artifacts, and even feature importance graphs. You can also use the `mlflow.log_*()` methods to explicitly log parameters, metrics, and artifacts. All MLflow-logged metrics and artifacts will be saved in the job's run history.
+YAML job specification values can be overridden using `--set` when creating or updating a job. For instance:
 
-Often, a job involves running some source code that is edited and controlled locally. You can specify a source code directory to include in the job, from which the command will be run.
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_set":::
 
-For instance, look at the `jobs/train/lightgbm/iris` project directory in the examples repository:
+## Job names
 
-```tree
-.
-├── job-sweep.yml
-├── job.yml
-└── src
-    └── main.py
+Most `az ml job` commands other than `create` and `list` require `--name/-n`, which is a job's name or "Run ID" in the studio. You typically should not directly set a job's `name` property during creation as it must be unique per workspace. Azure Machine Learning generates a random GUID for the job name if it is not set that can be obtained from the output of job creation in the CLI or by copying the "Run ID" property in the studio and MLflow APIs.
+
+To automate jobs in scripts and CI/CD flows, you can capture a job's name when it is created by querying and stripping the output by adding `--query name -o tsv`. The specifics will vary by shell, but for Bash:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_name":::
+
+Then use `$run_id` in subsequent commands like `update`, `show`, or `stream`:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_show":::
+
+## Organize jobs
+
+To organize jobs, you can set a display name, experiment name, description, and tags. Descriptions support markdown syntax in the studio. These properties are mutable after a job is created. A full example:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml":::
+
+You can run this job, where these properties will be immediately visible in the studio:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_org":::
+
+Using `--set` you can update the mutable values after the job is created:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_org_set":::
+
+## Environment variables
+
+You can set environment variables for use in your job:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-env-var.yml":::
+
+You can run this job:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_env_var":::
+
+> [!WARNING]
+> You should use `inputs` for parameterizing arguments in the `command`. See [inputs and outputs](#inputs-and-outputs).
+
+## Track models and source code
+
+Production machine learning models need to be auditable (if not reproducible). It is crucial to keep track of the source code for a given model. Azure Machine Learning takes a snapshot of your source code and keeps it with the job. Additionally, the source repository and commit are tracked if you are running jobs from a Git repository.
+
+> [!TIP]
+> If you're following along and running from the examples repository, you can see the source repository and commit in the studio on any of the jobs run so far.
+
+You can specify the `code` field in a job with the value as the path to a source code directory. A snapshot of the directory is taken and uploaded with the job. The contents of the directory are directly available from the working directory of the job.
+
+> [!WARNING]
+> The source code should not include large data inputs for model training. Instead, [use data inputs](#data-inputs). You can use a `.gitignore` file in the source code directory to exclude files from the snapshot. The limits for snapshot size are 300 MB or 2000 files.
+
+Let's look at a job that specifies code:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-mlflow.yml":::
+
+The Python script is in the local source code directory. The command then invokes `python` to run the script. The same pattern can be applied for other programming languages.
+
+> [!WARNING]
+> The "hello" family of jobs shown in this article are for demonstration purposes and do not necessarily follow recommended best practices. Using `&&` or similar to run many commands in a sequence is not recommended -- instead, consider writing the commands to a script file in the source code directory and invoking the script in your `command`. Installing dependencies in the `command`, as shown above via `pip install`, is not recommended -- instead, all job dependencies should be specified as part of your environment. See [how to manage environments with the CLI (v2)](how-to-manage-environments-v2.md) for details.
+
+### Model tracking with MLflow
+
+While iterating on models, data scientists need to be able to keep track of model parameters and training metrics. Azure Machine Learning integrates with MLflow tracking to enable the logging of models, artifacts, metrics, and parameters to a job. To use MLflow in your Python scripts add `import mlflow` and call `mlflow.log_*` or `mlflow.autolog()` APIs in your training code.
+
+> [!WARNING]
+> The `mlflow` and `azureml-mlflow` packages must be installed in your Python environment for MLflow tracking features.
+
+> [!TIP]
+> The `mlflow.autolog()` call is supported for many popular frameworks and takes care of the majority of logging for you.
+
+Let's take a look at Python script invoked in the job above that uses `mlflow` to log a parameter, a metric, and an artifact:
+
+:::code language="python" source="~/azureml-examples-main/cli/jobs/basics/src/hello-mlflow.py":::
+
+You can run this job in the cloud via Azure Machine Learning, where it is tracked and auditable:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_mlflow":::
+
+### Query metrics with MLflow
+
+After running jobs, you might want to query the jobs' run results and their logged metrics. Python is better suited for this task than a CLI. You can query runs and their metrics via `mlflow` and load into familiar objects like Pandas dataframes for analysis.
+
+First, retrieve the MLflow tracking URI for your Azure Machine Learning workspace:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="mlflow_uri":::
+
+Use the output of this command in `mlflow.set_tracking_uri(<YOUR_TRACKING_URI>)` from a Python environment with MLflow imported. MLflow calls will now correspond to jobs in your Azure Machine Learning workspace.
+
+## Inputs and outputs
+
+Jobs typically have inputs and outputs. Inputs can be model parameters, which might be swept over for hyperparameter optimization, or cloud data inputs that are mounted or downloaded to the compute target. Outputs (ignoring metrics) are artifacts that can be written or copied to the default outputs or a named data output.
+
+### Literal inputs
+
+Literal inputs are directly resolved in the command. You can modify our "hello world" job to use literal inputs:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-input.yml":::
+
+You can run this job:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_input":::
+
+You can use `--set` to override inputs:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_input_set":::
+
+Literal inputs to jobs can be [converted to search space inputs](#search-space-inputs) for hyperparameter sweeps on model training.
+
+### Search space inputs
+
+For a sweep job, you can specify a search space for literal inputs to be chosen from. For the full range of options for search space inputs, see the [sweep job YAML syntax reference](reference-yaml-job-sweep.md).
+
+Let's demonstrate the concept with a simple Python script that takes in arguments and logs a random metric:
+
+:::code language="python" source="~/azureml-examples-main/cli/jobs/basics/src/hello-sweep.py":::
+
+And create a corresponding sweep job:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-sweep.yml":::
+
+And run it:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_sweep":::
+
+### Data inputs
+
+Data inputs are resolved to a path on the job compute's local filesystem. Let's demonstrate with the classic Iris dataset, which is hosted publicly in a blob container at `https://azuremlexamples.blob.core.windows.net/datasets/iris.csv`.
+
+You can author a Python script that takes the path to the Iris CSV file as an argument, reads it into a dataframe, prints the first 5 lines, and saves it to the `outputs` directory.
+
+:::code language="python" source="~/azureml-examples-main/cli/jobs/basics/src/hello-iris.py":::
+
+Azure storage URI inputs can be specified, which will mount or download data to the local filesystem. You can specify a single file:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-file.yml":::
+
+And run:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="iris_file":::
+
+Or specify an entire folder:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-folder.yml":::
+
+And run:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="iris_folder":::
+
+Make sure you accurately specify the input `type` field to either `type: uri_file` or `type: uri_folder` corresponding to whether the data points to a single file or a folder. The default if the `type` field is omitted is `uri_folder`.
+
+#### Private data
+
+For private data in Azure Blob Storage or Azure Data Lake Storage connected to Azure Machine Learning through a datastore, you can use Azure Machine Learning URIs of the format `azureml://datastores/<DATASTORE_NAME>/paths/<PATH_TO_DATA>` for input data. For instance, if you upload the Iris CSV to a directory named `/example-data/` in the Blob container corresponding to the datastore named `workspaceblobstore` you can modify a previous job to use the file in the datastore:
+
+> [!WARNING]
+> Running these jobs will fail for you if you have not copied the Iris CSV to the same location in `workspaceblobstore`.
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-file.yml":::
+
+Or the entire directory:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-folder.yml":::
+
+### Default outputs
+
+The `./outputs` and `./logs` directories receive special treatment by Azure Machine Learning. If you write any files to these directories during your job, these files will get uploaded to the job so that you can still access them once the job is complete. The `./outputs` folder is uploaded at the end of the job, while the files written to `./logs` are uploaded in real time. Use the latter if you want to stream logs during the job, such as TensorBoard logs.
+
+In addition, any files logged from MLflow via autologging or `mlflow.log_*` for artifact logging will get automatically persisted as well. Collectively with the aforementioned `./outputs` and `./logs` directories, this set of files and directories will be persisted to a directory that corresponds to that job's default artifact location.
+
+You can modify the "hello world" job to output to a file in the default outputs directory instead of printing to `stdout`:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output.yml":::
+
+You can run this job:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_output":::
+
+And download the logs, where `helloworld.txt` will be present in the `<RUN_ID>/outputs/` directory:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_world_output_download":::
+
+### Data outputs
+
+You can specify named data outputs. This will create a directory in the default datastore which will be read/write mounted by default.
+
+You can modify the earlier "hello world" job to write to a named data output:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output-data.yml":::
+
+## Hello pipelines
+
+Pipeline jobs can run multiple jobs in parallel or in sequence. If there are input/output dependencies between steps in a pipeline, the dependent step will run after the other completes.
+
+You can split a "hello world" job into two jobs:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline.yml":::
+
+And run it:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_pipeline":::
+
+The "hello" and "world" jobs respectively will run in parallel if the compute target has the available resources to do so.
+
+To pass data between steps in a pipeline, define a data output in the "hello" job and a corresponding input in the "world" job, which refers to the prior's output:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-io.yml":::
+
+And run it:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_pipeline_io":::
+
+This time, the "world" job will run after the "hello" job completes.
+
+To avoid duplicating common settings across jobs in a pipeline, you can set them outside the jobs:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-settings.yml":::
+
+You can run this:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_pipeline_settings":::
+
+The corresponding setting on an individual job will override the common settings for a pipeline job. The concepts so far can be combined into a three-step pipeline job with jobs "A", "B", and "C". The "C" job has a data dependency on the "B" job, while the "A" job can run independently. The "A" job will also use an individually set environment and bind one of its inputs to a top-level pipeline job input:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-pipeline-abc.yml":::
+
+You can run this:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="hello_pipeline_abc":::
+
+## Train a model
+
+In Azure Machine Learning you basically have two possible ways to train a model:
+
+1. Leverage automated ML to train models with your data and get the best model for you. This approach maximizes productivity by automating the iterative process of tuning hyperparameters and trying out different algorithms. 
+1. Train a model with your own custom training script. This approach offers the most control and allows you to customize your training.  
+
+
+### Train a model with automated ML
+
+Automated ML is the easiest way to train a model because you don't need to know how training algorithms work exactly but you just need to provide your training/validation/test datasets and some basic configuration parameters such as 'ML Task', 'target column', 'primary metric, 'timeout' etc, and the service will train multiple models and try out various algorithms and hyperparameter combinations for you.
+
+When you train with automated ML via the CLI (v2), you just need to create a .YAML file with an AutoML configuration and provide it to the CLI for training job creation and submission.
+
+The following example shows an AutoML configuration file for training a classification model where, 
+* The primary metric is `accuracy` 
+* The training has a time out of 180 minutes 
+* The data for training is in the folder "./training-mltable-folder". Automated ML jobs only accept data in the form of an `MLTable`. 
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-automl/hello-automl-job-basic.yml":::
+
+That mentioned MLTable definition is what points to the training data file, in this case a local .csv file that will be uploaded automatically:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-automl/training-mltable-folder/MLTable":::
+
+Finally, you can run it (create the AutoML job) with this CLI command:
+
+```
+/> az ml job create --file ./hello-automl-job-basic.yml 
 ```
 
-This directory contains two job files and a source code subdirectory `src`. While this example only has a single file under `src`, the entire subdirectory is recursively uploaded and available for use in the job.
+Or like the following if providing workspace IDs explicitly instead of using the by default workspace:
 
-The command job is configured via the `job.yml`:
+```
+/> az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
+```
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
+To investigate additional AutoML model training examples using other ML-tasks such as regression, time-series forecasting, image classification, object detection, NLP text-classification, etc., see the complete list of [AutoML CLI examples](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/automl-standalone-jobs).
 
-Which you can run:
+### Train a model with a custom script
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris":::
+When training by using your own custom script, the first thing you need is that python script (.py), so let's add some `sklearn` code into a Python script with MLflow tracking to train a model on the Iris CSV:
 
-## Basic Python training job
+:::code language="python" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/src/main.py":::
 
-Let's review the job YAML file in detail:
+The scikit-learn framework is supported by MLflow for autologging, so a single `mlflow.autolog()` call in the script will log all model parameters, training metrics, model artifacts, and some extra artifacts (in this case a confusion matrix image).
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
+To run this in the cloud, specify as a job:
 
-| Key | Description |
-| --- | ----------- |
-| `$schema` | [Optional] The YAML schema. You can view the [schema](https://azuremlschemas.azureedge.net/latest/commandJob.schema.json) in the above example in a browser to see all available options for a command job YAML file. If you use the Azure Machine Learning VS Code extension to author the YAML file, including this `$schema` property at the top of your file enables you to invoke schema and resource completions. |
-| `code.local_path` | [Optional] The local path to the source directory, relative to the YAML file, to be uploaded and used with the job. Consider using `src` in the same directory as the job file(s) for consistency. |
-| `command` | The command to execute. The `>` convention allows for authoring readable multiline commands by folding newlines to spaces. Command-line arguments can be explicitly written into the command or inferred from other sections, specifically `inputs` or `search_space`, using curly braces notation. |
-| `inputs` | [Optional] A dictionary of the input data bindings, where the key is a name that you specify for the input binding. The value for each element is the input binding, which consists of `data` and `mode` fields. `data` can either be 1) a reference to an existing versioned Azure Machine Learning data asset by using the `azureml:` prefix (e.g. `azureml:iris-url:1` to point to version 1 of a data asset named "iris-url") or 2) an inline definition of the data. Use `data.path` to specify a cloud location. Use `data.local_path` to specify data from the local filesystem which will be uploaded to the default datastore. `mode` indicates how you want the data made available on the compute for the job. "mount" and "download" are the two supported options. <br><br> An input can be referred to in the command by its name, such as `{inputs.my_input_name}`. Azure Machine Learning will then resolve that parameterized notation in the command to the location of that data on the compute target during runtime. For example, if the data is configured to be mounted, `{inputs.my_input_name}` will resolve to the mount point. |
-| `environment` | The environment to execute the command on the compute target with. You can define the environment inline by specifying the Docker image to use or the Dockerfile for building the image. You can also refer to an existing versioned environment in the workspace, or one of Azure ML's curated environments, using the `azureml:` prefix. For instance, `azureml:AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36:1` would refer to version 1 of a curated environment for TensorFlow with GPU support. <br><br> Python must be installed in the environment used for training. Run `apt-get update -y && apt-get install python3 -y` in your Dockerfile to install if needed. |
-| `compute.target` | The compute target. Specify `local` for local execution, or use the `azureml:` prefix to reference an existing compute resource in your workspace. For instance, `azureml:cpu-cluster` would point to a compute target named "cpu-cluster". |
-| `experiment_name` | [Optional] Tags the job for better organization in the Azure Machine Learning studio. Each job's run record will be organized under the corresponding experiment in the studio's "Experiment" tab. If omitted, it will default to the name of the working directory where the job was created. |
-| `name` | [Optional] The name of the job, which must be unique across all jobs in a workspace. Unless a name is specified either in the YAML file via the `name` field or the command line via `--name/-n`, a GUID/UUID is automatically generated and used for the name. The job name corresponds to the Run ID in the studio UI of the job's run record. |
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job.yml":::
 
-Creating this job uploads any specified local assets, like the source code directory, validates the YAML file, and submits the run. If needed, the environment is built, then the compute is scaled up and configured for running the job.
+And run it:
 
-To run the lightgbm/iris training job:
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="sklearn_iris":::
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris":::
+To register a model, you can upload the model files from the run to the model registry:
 
-Once the job is complete, you can download the outputs:
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="sklearn_download_register_model":::
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="download_outputs":::
-
-> [!IMPORTANT]
-> Replace `$run_id` with your run ID, which can be found in the console output or in the studio's run details page.
-
-This will download the logs and any captured artifacts locally in a directory named `$run_id`. For this example, the MLflow-logged model subdirectory will be downloaded.
+For the full set of configurable options for running command jobs, see the [command job YAML schema reference](reference-yaml-job-command.md).
 
 ## Sweep hyperparameters
 
-Azure Machine Learning also enables you to more efficiently tune the hyperparameters for your machine learning models. You can configure a hyperparameter tuning job, called a sweep job, and submit it via the CLI.
+You can modify the previous job to sweep over hyperparameters:
 
-You can modify the `job.yml` into `job-sweep.yml` to sweep over hyperparameters:
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job-sweep.yml":::
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
+And run it:
 
-| Key | Description |
-| --- | ----------- |
-| `$schema` | [Optional] The YAML schema, which has changed and now points to the sweep job [schema](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json). |
-| `type` | The job type. |
-| `algorithm` | The sampling algorithm - "random" is often a good choice. See the schema for the enumeration of options. |
-| `trial` | The command job configuration for each trial to be run. The command (`trial.command`) has been modified from the previous example to use the `{search_space.<hyperparameter_name>}` notation to reference the hyperparameters defined in the `search_space`. Azure Machine Learning will then resolve each parameterized notation to the value for the corresponding hyperparameter that it generates for each trial. |
-| `search_space` | A dictionary of the hyperparameters to sweep over. The key is a name for the hyperparameter, for example, `search_space.learning_rate`. Note that the name does not have to match the training script's argument itself, it just has to match the search space reference in the curly braces notation in the command, e.g. `{search_space.learning_rate}`. The value is the hyperparameter distribution. See the schema for the enumeration of options. |
-| `objective.primary_metric` | The optimization metric, which must match the name of a metric logged from the training code. `objective.goal` specifies the direction ("minimize"/"maximize"). See the schema for the full enumeration of options. |
-| `max_total_trials` | The maximum number of individual trials to run. |
-| `max_concurrent_trials` | [Optional] The maximum number of trials to run concurrently on your compute cluster. |
-| `timeout_minutes` | [Optional] The maximum number of minutes to run the sweep job for. |
-| `experiment_name` | [Optional] The experiment to track the sweep job under. If omitted, it will default to the name of the working directory when the job is created. |
-
-Create job and open in the studio:
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris_sweep":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="sklearn_sweep":::
 
 > [!TIP]
-> Hyperparameter sweeps can be used with distributed command jobs.
+> Check the "Child runs" tab in the studio to monitor progress and view parameter charts..
+
+For the full set of configurable options for sweep jobs, see the [sweep job YAML schema reference](reference-yaml-job-sweep.md).
 
 ## Distributed training
 
-You can specify the `distribution` section in a command job. Azure ML supports distributed training for PyTorch, Tensorflow, and MPI compatible frameworks. PyTorch and TensorFlow enable native distributed training for the respective frameworks, such as `tf.distributed.Strategy` APIs for TensorFlow.
+Azure Machine Learning supports PyTorch, TensorFlow, and MPI-based distributed training. See the [distributed section of the command job YAML syntax reference](reference-yaml-job-command.md#distribution-configurations) for details.
 
-Be sure to set the `compute.instance_count`, which defaults to 1, to the desired number of nodes for the job.
+As an example, you can train a convolutional neural network (CNN) on the CIFAR-10 dataset using distributed PyTorch. The full script is [available in the examples repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/pytorch/cifar-distributed).
 
-### PyTorch
+The CIFAR-10 dataset in `torchvision` expects as input a directory that contains the `cifar-10-batches-py` directory. You can download the zipped source and extract into a local directory:
 
-An example YAML file for distributed PyTorch training on the CIFAR-10 dataset:
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-datasets.sh" id="download_untar_cifar":::
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/pytorch/cifar-distributed/job.yml":::
+Then create an Azure Machine Learning data asset from the local directory, which will be uploaded to the default datastore:
 
-Notice this refers to local data, which is not present in the cloned examples repository. You first need to download, extract, and relocate the CIFAR-10 dataset locally, placing it in the proper location in the project directory:
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-datasets.sh" id="create_cifar":::
 
-:::code language="bash" source="~/azureml-examples-main/cli/train.sh" id="download_cifar":::
+Optionally, remove the local file and directory:
 
-Create the job and open in the studio:
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/create-datasets.sh" id="cleanup_cifar":::
+
+Registered data assets can be used as inputs to job using the `path` field for a job input. The format is `azureml:<data_name>:<data_version>`, so for the CIFAR-10 dataset just created, it is `azureml:cifar-10-example:1`. You can optionally use the `azureml:<data_name>@latest` syntax instead if you want to reference the latest version of the data asset. Azure ML will resolve that reference to the explicit version.
+
+With the data asset in place, you can author a distributed PyTorch job to train our model:
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
+
+And run it:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="pytorch_cifar":::
 
-### TensorFlow
+## Build a training pipeline
 
-An example YAML file for distributed TensorFlow training on the MNIST dataset:
+The CIFAR-10 example above translates well to a pipeline job. The previous job can be split into three jobs for orchestration in a pipeline:
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/tensorflow/mnist-distributed/job.yml":::
+- "get-data" to run a Bash script to download and extract `cifar-10-batches-py`
+- "train-model" to take the data and train a model with distributed PyTorch
+- "eval-model" to take the data and the trained model and evaluate accuracy
 
-Create the job and open in the studio:
+Both "train-model" and "eval-model" will have a dependency on the "get-data" job's output. Additionally, "eval-model" will have a dependency on the "train-model" job's output. Thus the three jobs will run sequentially.
+<!-- 
+You can orchestrate these three jobs within a pipeline job:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="tensorflow_mnist":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/cifar-10/job.yml":::
 
-### MPI
+And run:
 
-Azure ML supports launching an MPI job across multiple nodes and multiple processes per node. It launches the job via `mpirun`. If your training code uses the Horovod framework for distributed training, for example, you can leverage this job type to train on Azure ML.
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="pipeline_cifar"::: -->
 
-To launch an MPI job, specify `mpi` as the type and the number of processes per node to launch (`process_count_per_instance`) in the `distribution` section. If this field is not specified, Azure ML will default to launching one process per node.
-
-An example YAML specification, which runs a TensorFlow job on MNIST using Horovod:
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/tensorflow/mnist-distributed-horovod/job.yml":::
-
-Create the job and open in the studio:
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="tensorflow_mnist_horovod":::
+Pipelines can also be written using reusable components. For more, see [Create and run components-based machine learning pipelines with the Azure Machine Learning CLI (Preview)](how-to-create-component-pipelines-cli.md).
 
 ## Next steps
 
 - [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
-- [Train models with REST (preview)](how-to-train-with-rest.md)

@@ -28,7 +28,7 @@ In this tutorial, you do the following steps:
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from selected networks.* 
-* **Azure SQL Database**. You use the database as a *sink* data store. If you don't have an Azure SQL database, see [Create a SQL database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one. *Ensure the SQL Database account allows access only from selected networks.* 
+* **Azure SQL Database**. You use the database as a *sink* data store. If you don't have an Azure SQL database, see [Create a SQL database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one. *Ensure the SQL Database account allows access only from selected networks.* 
 
 ### Create a blob and a SQL table
 
@@ -97,14 +97,14 @@ In this step, you create an Azure integration runtime and enable Data Factory Ma
 
 1. In the Data Factory portal, go to **Manage** and select **New** to create a new Azure integration runtime.
 
-   ![Screenshot that shows creating a new Azure integration runtime.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/create-new-azure-ir.png" alt-text="Screenshot that shows creating a new Azure integration runtime.":::
 1. On the **Integration runtime setup** page, choose what integration runtime to create based on required capabilities. In this tutorial, select **Azure, Self-Hosted** and then click **Continue**. 
 1. Select **Azure** and then click **Continue** to create an Azure Integration runtime.
 
-   ![Screenshot that shows a new Azure integration runtime.](./media/tutorial-copy-data-portal-private/azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/azure-ir.png" alt-text="Screenshot that shows a new Azure integration runtime.":::
 1. Under **Virtual network configuration (Preview)**, select **Enable**.
 
-   ![Screenshot that shows enabling a new Azure integration runtime.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/enable-managed-vnet.png" alt-text="Screenshot that shows enabling a new Azure integration runtime.":::
 1. Select **Create**.
 
 ## Create a pipeline
@@ -118,12 +118,12 @@ In this tutorial, you start by creating a pipeline. Then you create linked servi
 
 1. On the home page, select **Orchestrate**.
 
-   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
 1. In the properties pane for the pipeline, enter **CopyPipeline** for the pipeline name.
 
 1. In the **Activities** tool box, expand the **Move and Transform** category, and drag the **Copy data** activity from the tool box to the pipeline designer surface. Enter **CopyFromBlobToSql** for the name.
 
-    ![Screenshot that shows the copy activity.](./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png" alt-text="Screenshot that shows the copy activity.":::
 
 ### Configure a source
 
@@ -146,7 +146,7 @@ In this tutorial, you start by creating a pipeline. Then you create linked servi
 
 1. Make sure you enable **Interactive authoring**. It might take around one minute to be enabled.
 
-    ![Screenshot that shows Interactive authoring.](./media/tutorial-copy-data-portal-private/interactive-authoring.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/interactive-authoring.png" alt-text="Screenshot that shows Interactive authoring.":::
 
 1. Select **Test connection**. It should fail when the storage account allows access only from **Selected networks** and requires Data Factory to create a private endpoint to it that should be approved prior to using it. In the error message, you should see a link to create a private endpoint that you can follow to create a managed private endpoint. An alternative is to go directly to the **Manage** tab and follow instructions in the [next section](#create-a-managed-private-endpoint) to create a managed private endpoint.
 
@@ -164,7 +164,7 @@ In this tutorial, you start by creating a pipeline. Then you create linked servi
 
 1. Select **OK**. It automatically goes to the pipeline page. On the **Source** tab, confirm that **SourceBlobDataset** is selected. To preview data on this page, select **Preview data**.
 
-    ![Screenshot that shows the source dataset.](./media/tutorial-copy-data-portal-private/source-dataset-selected.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/source-dataset-selected.png" alt-text="Screenshot that shows the source dataset.":::
 
 #### Create a managed private endpoint
 
@@ -179,7 +179,7 @@ If you didn't select the hyperlink when you tested the connection, follow the pa
 
 1. Select **+ New** under **Managed private endpoints**.
 
-    ![Screenshot that shows the Managed private endpoints New button.](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png" alt-text="Screenshot that shows the Managed private endpoints New button."::: 
 
 1. Select the **Azure Blob Storage** tile from the list, and select **Continue**.
 
@@ -191,14 +191,14 @@ If you didn't select the hyperlink when you tested the connection, follow the pa
 
 1. Select the private endpoint that you created. You can see a hyperlink that will lead you to approve the private endpoint at the storage account level.
 
-    ![Screenshot that shows the Managed private endpoint pane.](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/manage-private-endpoint.png" alt-text="Screenshot that shows the Managed private endpoint pane."::: 
 
 #### Approval of a private link in a storage account
 1. In the storage account, go to **Private endpoint connections** under the **Settings** section.
 
 1. Select the check box for the private endpoint you created, and select **Approve**.
 
-    ![Screenshot that shows the Approve button for the private endpoint.](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/approve-private-endpoint.png" alt-text="Screenshot that shows the Approve button for the private endpoint.":::
 
 1. Add a description, and select **yes**.
 1. Go back to the **Managed private endpoints** section of the **Manage** tab in Data Factory.
@@ -235,7 +235,7 @@ If you didn't select the hyperlink when you tested the connection, follow the pa
 
 1. Go to the tab with the pipeline, and in **Sink dataset**, confirm that **OutputSqlDataset** is selected.
 
-    ![Screenshot that shows the Pipeline tab.](./media/tutorial-copy-data-portal-private/pipeline-tab-2.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/pipeline-tab-2.png" alt-text="Screenshot that shows the Pipeline tab.":::
 
 You can optionally map the schema of the source to the corresponding schema of the destination by following [Schema mapping in copy activity](./copy-activity-schema-and-type-mapping.md).
 
@@ -247,7 +247,7 @@ If you didn't select the hyperlink when you tested the connection, follow the pa
 1. Go to the **Managed private endpoints** section.
 1. Select **+ New** under **Managed private endpoints**.
 
-    ![Screenshot that shows the Managed private endpoints New button.](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png" alt-text="Screenshot that shows the Managed private endpoints New button."::: 
 
 1. Select the **Azure SQL Database** tile from the list, and select **Continue**.
 1. Enter the name of the SQL server you selected.

@@ -3,7 +3,7 @@ title: IP addresses used by Azure Monitor
 description: Server firewall exceptions required by Application Insights
 ms.topic: conceptual
 ms.date: 01/27/2020
-
+ms.reviewer: saars
 ---
 
 # IP addresses used by Azure Monitor
@@ -14,9 +14,9 @@ ms.date: 01/27/2020
 > Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhooks which require inbound firewall rules.
 
 > [!TIP]
-> You can use Azure [network service tags](../../virtual-network/service-tags-overview.md) to manage access if you are using Azure Network Security Groups. If you are managing access for hybrid/on premises resources you can download the equivalent IP address lists as [JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) which are updated each week: . To cover all the exceptions in this article you would need to use the service tags: `ActionGroup`, `ApplicationInsightsAvailability`, and `AzureMonitor`.
+> You can use Azure [network service tags](../../virtual-network/service-tags-overview.md) to manage access if you are using Azure Network Security Groups. If you are managing access for hybrid/on premises resources you can download the equivalent IP address lists as [JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) which are updated each week. To cover all the exceptions in this article you would need to use the service tags: `ActionGroup`, `ApplicationInsightsAvailability`, and `AzureMonitor`.
 
-Alternatively, you can subscribe to this page as a RSS feed by adding https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom to your favorite RSS/ATOM reader to get notified of the latest changes.
+Alternatively, you can subscribe to this page as a RSS feed by adding https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-monitor/app/ip-addresses.md to your favorite RSS/ATOM reader to get notified of the latest changes.
 
 
 ## Outgoing ports
@@ -25,7 +25,7 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
-| Telemetry |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>*.in.applicationinsights.azure.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64 <br/>13.86.218.255 <br/>20.37.74.240 <br/>65.52.250.236 <br/>13.69.229.240 <br/>52.236.186.210<br/>52.167.107.65<br/>40.71.12.237<br/>40.78.229.32<br/>40.78.229.33<br/>51.105.67.161<br/>40.124.64.192<br/>20.44.12.194<br/>20.189.172.0<br/>13.69.106.208<br/>40.78.253.199<br/>40.78.253.198<br/>40.78.243.19 | 443 |
+| Telemetry |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>*.in.applicationinsights.azure.com | | 443 |
 | Live Metrics Stream | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com|23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207<br/>157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113| 443 |
 
 ## Status Monitor
@@ -86,113 +86,71 @@ Download [China Cloud IP addresses](https://www.microsoft.com/download/details.a
 ```
 Australia East
 20.40.124.176/28
-20.40.124.240/28
-20.40.125.80/28
+
 
 Brazil South
 191.233.26.176/28
-191.233.26.128/28
-191.233.26.64/28
+
 
 France Central (Formerly France South)
 20.40.129.96/28
-20.40.129.112/28
-20.40.129.128/28
-20.40.129.144/28
+
 
 France Central
 20.40.129.32/28
-20.40.129.48/28
-20.40.129.64/28
-20.40.129.80/28
+
 
 East Asia
 52.229.216.48/28
-52.229.216.64/28
-52.229.216.80/28
+
 
 North Europe
 52.158.28.64/28
-52.158.28.80/28
-52.158.28.96/28
-52.158.28.112/28
+
 
 Japan East
 52.140.232.160/28
-52.140.232.176/28
-52.140.232.192/28
+
 
 West Europe
 51.144.56.96/28
-51.144.56.112/28
-51.144.56.128/28
-51.144.56.144/28
-51.144.56.160/28
-51.144.56.176/28
+
 
 UK South
 51.105.9.128/28
-51.105.9.144/28
-51.105.9.160/28
+
 
 UK West
 20.40.104.96/28
-20.40.104.112/28
-20.40.104.128/28
-20.40.104.144/28
+
 
 Southeast Asia
 52.139.250.96/28
-52.139.250.112/28
-52.139.250.128/28
-52.139.250.144/28
+
 
 West US
 40.91.82.48/28
-40.91.82.64/28
-40.91.82.80/28
-40.91.82.96/28
-40.91.82.112/28
-40.91.82.128/28
+
 
 Central US
 13.86.97.224/28
-13.86.97.240/28
-13.86.98.48/28
-13.86.98.0/28
-13.86.98.16/28
-13.86.98.64/28
+
 
 North Central US
 23.100.224.16/28
-23.100.224.32/28
-23.100.224.48/28
-23.100.224.64/28
-23.100.224.80/28
-23.100.224.96/28
-23.100.224.112/28
-23.100.225.0/28
+
 
 South Central US
 20.45.5.160/28
-20.45.5.176/28
-20.45.5.192/28
-20.45.5.208/28
-20.45.5.224/28
-20.45.5.240/28
 
 East US
 20.42.35.32/28
-20.42.35.64/28
-20.42.35.80/28
-20.42.35.96/28
-20.42.35.112/28
-20.42.35.128/28
+
 
 ```
 
 ### Discovery API
-You may also want to [programmatically retrieve](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) the current list of service tags together with IP address range details.
+You may also want to [programmatically retrieve](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) the current list of service tags together with IP address range details.
 
 ## Application Insights & Log Analytics APIs
 

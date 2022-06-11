@@ -3,6 +3,7 @@ title: Improve throughput performance of Python apps in Azure Functions
 description: Learn how to develop Azure Functions apps using Python that are highly performant and scale well under load. 
 ms.topic: article
 ms.date: 10/13/2020
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 # Improve throughput performance of Python apps in Azure Functions
@@ -81,14 +82,14 @@ Here are a few examples of client libraries that has implemented async pattern:
 - [Janus Queue](https://pypi.org/project/janus/) - Thread-safe asyncio-aware queue for Python
 - [pyzmq](https://pypi.org/project/pyzmq/) - Python bindings for ZeroMQ
  
-##### Understanding async in python worker
+##### Understanding async in Python worker
 
 When you define `async` in front of a function signature, Python will mark the function as a coroutine. When calling the coroutine, it can be scheduled as a task into an event loop. When you call `await` in an async function, it registers a continuation into the event loop and allow event loop to process next task during the wait time.
 
 In our Python Worker, the worker shares the event loop with the customer's `async` function and it is capable for handling multiple requests concurrently. We strongly encourage our customers to make use of asyncio compatible libraries (e.g. [aiohttp](https://pypi.org/project/aiohttp/), [pyzmq](https://pypi.org/project/pyzmq/)). Employing these recommendations will greatly increase your function's throughput compared to those libraries implemented in synchronous fashion.
 
 > [!NOTE]
->  If your function is declared as `async` without any `await` inside its implementation, the performance of your function will be severely impacted since the event loop will be blocked which prohibit the python worker to handle concurrent requests.
+>  If your function is declared as `async` without any `await` inside its implementation, the performance of your function will be severely impacted since the event loop will be blocked which prohibit the Python worker to handle concurrent requests.
 
 #### Use multiple language worker processes
 

@@ -78,7 +78,7 @@ Now, the application is now staged and you can create the Resource Manager templ
 
 ### Create the Resource Manager template
 
-The sample application contains [Azure Resource Manager templates](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) you can use to deploy the application. The template file names are *UserApp.json* and *UserApp.Parameters.json*.
+The sample application contains [Azure Resource Manager templates](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM-Managed-Cluster) you can use to deploy the application. The template file names are *UserApp.json* and *UserApp.Parameters.json*.
 
 > [!NOTE]
 > The *UserApp.Parameters.json* file must be updated with the name of your cluster.
@@ -137,7 +137,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 You might upgrade an application that's already deployed to a Service Fabric cluster for one of these reasons:
 
-* A new service is added to the application. A service definition must be added to *service-manifest.xml* and *application-manifest.xml* files when a service is added to the application. To reflect a new version of an application, you also must change the application type version from 1.0.0 to 1.0.1 in [UserApp.Parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
+* A new service is added to the application. A service definition must be added to *service-manifest.xml* and *application-manifest.xml* files when a service is added to the application. To reflect a new version of an application, you also must change the application type version from 1.0.0 to 1.0.1 in [UserApp.Parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM-Managed-Cluster/UserApp.Parameters.json):
 
     ```json
     "applicationTypeVersion": {
@@ -156,7 +156,7 @@ You might upgrade an application that's already deployed to a Service Fabric clu
     ```json
      "applicationTypeVersion": {
         "value": "1.0.1"
-    },
+    }
     ```
 ## Delete Service Fabric application resources
 > [!NOTE]

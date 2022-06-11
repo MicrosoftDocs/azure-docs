@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
+ms.date: 05/26/2022
 ---
 
 # Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics
@@ -35,7 +35,13 @@ Specifically, this Salesforce connector supports:
 - Salesforce Developer, Professional, Enterprise, or Unlimited editions.
 - Copying data from and to Salesforce production, sandbox, and custom domain.
 
-The Salesforce connector is built on top of the Salesforce REST/Bulk API. By default, when copying data from Salesforce, the connector uses [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) and automatically chooses between REST and Bulk APIs based on the data size – when the result set is large, Bulk API is used for better performance; when writing data to Salesforce, the connector uses [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) of Bulk API. You can also explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service.
+>[!NOTE]
+>This function supports copy of any schema from the above mentioned Salesforce environments, including the [Nonprofit Success Pack](https://www.salesforce.org/products/nonprofit-success-pack/) (NPSP). This allows you to bring your Salesforce nonprofit data into Azure, work with it in Azure data services, unify it with other data sets, and visualize it in Power BI for rapid insights.
+
+The Salesforce connector is built on top of the Salesforce REST/Bulk API. When copying data from Salesforce, the connector automatically chooses between REST and Bulk APIs based on the data size – when the result set is large, Bulk API is used for better performance; You can explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service. When copying data to Salesforce, the connector uses BULK API v1.
+
+>[!NOTE]
+>The connector no longer sets default version for Salesforce API. For backward compatibility, if a default API version was set before, it keeps working. The default value is 45.0 for source, and 40.0 for sink.
 
 ## Prerequisites
 
@@ -91,7 +97,7 @@ The following properties are supported for the Salesforce linked service.
 | username |Specify a user name for the user account. |Yes |
 | password |Specify a password for the user account.<br/><br/>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | securityToken |Specify a security token for the user account. <br/><br/>To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). The security token can be skipped only if you add the Integration Runtime's IP to the [trusted IP address list](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) on Salesforce. When using Azure IR, refer to [Azure Integration Runtime IP addresses](azure-integration-runtime-ip-addresses.md).<br/><br/>For instructions on how to get and reset a security token, see [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
-| apiVersion | Specify the Salesforce REST/Bulk API version to use, e.g. `48.0`. By default, the connector uses [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) to copy data from Salesforce, and uses [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) to copy data to Salesforce. | No |
+| apiVersion | Specify the Salesforce REST/Bulk API version to use, e.g. `52.0`. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No |
 
 **Example: Store credentials**
@@ -168,7 +174,7 @@ To copy data from and to Salesforce, set the type property of the dataset to **S
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
 
-![Salesforce connection API Name](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name.png" alt-text="Salesforce connection API Name":::
 
 **Example:**
 
@@ -214,7 +220,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
 
-![Salesforce connection API Name list](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png" alt-text="Salesforce connection API Name list":::
 
 **Example:**
 

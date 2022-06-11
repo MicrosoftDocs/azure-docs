@@ -3,7 +3,7 @@ title: Operating system upgrade for the SAP HANA on Azure (Large Instances)| Mic
 description: Learn to do an operating system upgrade for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter:
-author: Ajayan1008
+author: mamccrea
 manager: juergent
 editor:
 ms.service: virtual-machines-sap
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/24/2021
-ms.author: madhukan
+ms.author: mamccrea
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -23,7 +23,7 @@ This article describes the details of operating system (OS) upgrades on HANA Lar
 >Upgrading the OS is your responsibility. Microsoft operations support can guide you in key areas of the upgrade, but consult your operating system vendor as well when planning an upgrade.
 
 During HLI provisioning, the Microsoft operations team installs the operating system.
-You're required to maintain the operating system. For example, you need to do the patching, tuning, upgrading, and so on, on the HLI. Before you make major changes to the operating system, for example, upgrade SP1 to SP2, contact the Microsoft Operations team by opening a support ticket. Then they can consult with you. We recommend opening this ticket at least one week before the upgrade. 
+You're required to maintain the operating system. For example, you need to do the patching, tuning, upgrading, and so on, on the HLI. Before you make major changes to the operating system, for example, upgrade SP1 to SP2, contact the Microsoft Operations team by opening a support ticket. They will consult with you. We recommend opening this ticket at least one week before the upgrade. 
 
 Include in your ticket:
 

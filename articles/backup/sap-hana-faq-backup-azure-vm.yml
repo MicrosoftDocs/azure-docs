@@ -1,11 +1,12 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQ - Back up SAP HANA databases on Azure VMs
-  description: In this article, discover answers to common questions about backing up SAP HANA databases using the Azure Backup service.
-  ms.topic: article
+  title: FAQ — Back up SAP HANA databases on Azure VMs
+  description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
+  ms.topic: faq
   ms.service: backup
-  ms.date: 09/01/2021
-    
+  ms.date: 03/18/2022
+  author: v-amallick
+  ms.author: v-amallick
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
 summary: This article answers common questions about backing up SAP HANA databases using the Azure Backup service.
 
@@ -14,7 +15,7 @@ sections:
   - name: Backup
     questions:
       - question: |
-          How many full backups are supported per day?
+          How many backups are supported per day?
         answer: |
           You can have one schedule full backup and multiple on-demand backups in a day.
 
@@ -27,12 +28,50 @@ sections:
           Where can I find backup related alerts?
         answer: |
           Today, successful backup jobs don’t generate alerts. Alerts are generated only for backup jobs that fail. [Learn how](backup-azure-monitoring-built-in-monitor.md) to use the Azure portal to view Backup alerts.
+
+      - question: |
+          How do I check if my backup (scheduled/on-demand) is executed successfully?
+        answer: |
+          You can check the status of your backups (scheduled/on-demand) from any of the following locations:
+
+          1. **Backup jobs**: Azure Backup shows all manually triggered jobs in the Backup jobs section in the Azure portal.  <br><br>   The jobs you see in the Azure portal include database discovery and registering operations, and backup and restore operations. Scheduled jobs, including log backups aren't shown in this section. Manually triggered backups from the SAP HANA native clients (Studio/Cockpit/DBA Cockpit), are also not shown here.
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/manually-triggered-jobs.png" alt-text="Screenshot showing manually triggered jobs in the Backup jobs section in the Azure portal.":::
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/jobs-and-operations-list.png" alt-text="Screenshot showing jobs including database discovery and registering, and backup and restore operations.":::
+           
+          1. **Backup alerts**: Alerts help you monitor backups of SAP HANA databases. These help you to focus on the required events, thus eliminating the effort to frequently check multitude of events that a backup generates. For more details, see [View backup alerts](./sap-hana-db-manage.md#view-backup-alerts).
+
+          1. **Backup Reports**: Reports are another way to view the status of your backup jobs. Your reports will be as follows:
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/backup-reports.png" alt-text="Screenshot showing a type of report in Azure portal.":::
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/backup-reports-mabs.png" alt-text="Screenshot showing the other type of report in Azure portal.":::
+
+             Learn about [how to configure Azure Backup reports](./configure-reports.md).
+
+          1. **SAP HANA Native clients**: If you're a SAP HANA customer, you can also use HANA Studio, one of the most common HANA clients. In this client, navigate to **Backup Console** -> **Backup Catalog** to see the **Backup status**.
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/sap-hana-native-client-reports.png" alt-text="Screenshot showing reports in SAP HANA Native clients.":::
           
       - question: |
           Can I see scheduled backup jobs in the Backup Jobs menu?
         answer: |
           The Backup Job menu will only show on-demand backup jobs that are either in progress, have succeeded or failed. For scheduled jobs, use [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
           
+      - question: |
+          What’s the retention period of Auto-heal full backups triggered due to the LSNValidation errors?
+        answer: |
+          Azure Backup doesn’t set an explicit retention period on the Auto-heal full backups. This backup is retained till the time you retain the dependent Delta (differential or incremental) and Log backups. Once you delete the last dependent backup on this Auto-heal backup, the Auto-heal backup is also deleted.
+
+      - question: | 
+          Can a full backup and a log backup run parallelly?
+        answer: |
+          Yes, a full backup and a log backup can run parallelly. This instance occurs in one of the following ways:
+
+          - **Full backup is in progress and a log backup is triggered**: The log backup should succeed irrespective of an ongoing full backup. Unless, the full backup triggered was a remedial full to handle any LSN chain break.
+          - **Log backup is in progress, and a full backup is triggered**: Both backups should run parallelly and succeed.
+
       - question: |
           Are future databases automatically added for backup?
         answer: |
@@ -75,22 +114,34 @@ sections:
           Currently we don't have the capability to set up the solution against a virtual IP or Proxy. We need a virtual machine to execute the solution.
 
       - question: |
-          How can I move an on-demand backup to the local file system instead of the Azure vault?
+          How can I move on-demand backups (triggered from HANA native clients) to the local file system instead of the Azure vault?
         answer: |
           1. Wait for the currently running backup to complete on the desired database (check from studio for completion).
-          1. Disable log backups and set the catalog backup to **Filesystem** for the desired DB using the following steps:
+          1. Disable log backups and set the catalog backup to **Filesystem** for the desired database using the following steps:
           1. Double-click **SYSTEMDB** -> **configuration** -> **Select Database** -> **Filter (log)**
               1. Set enable_auto_log_backup to **no**.
               1. Set catalog_backup_using_backint to **false**.
           1. Take an on-demand backup (full / differential/ incremental) on the desired database, and wait for the backup and catalog backup to complete.
-          1. If you want to also move the log backups to the Filesystem, set enable_auto_log_backup to **yes**.
+          1. If you want to also move the log backups to the Filesystem, set enable_auto_log_backup to **yes** and log_backup_using_backint to **false**.
           1. Revert to the previous settings to allow backups to flow to the Azure vault:
               1. Set enable_auto_log_backup to **yes**.
               1. Set catalog_backup_using_backint to **true**.
+              1. Set log_backup_using_backint to **true**, if it's set to **false**.
           
           > [!NOTE]
           > Moving backups to the local Filesystem and switching back again to the Azure vault may cause a log chain break of the log backups in the vault. This will trigger a full backup, which once successfully completed will start backing up the logs.
-          
+
+      - question: |
+          How can I manage or clean-up the HANA catalog for database with Azure Backup enabled?
+        answer: |
+          - SAP recommends the catalog retention should be determined by your business need (retention policy). The most common is _30 days_ retention.
+          - You can trigger clean-up/pruning of HANA catalog through HANA native clients (such as cockpit or studio) or through SQL commands.
+          - This clean-up task generates a catalog backup that's not moved to the Azure Backup vault (as there is no associated data backup).
+          - The catalog backup is therefore shown as a failure in the Cockpit/Studio. However, note that this catalog backup failure doesn't mean  the catalog clean-up activity has failed.
+          - Note that this **catalog backup failure also doesn't affect your point-in-time recoverability**.
+          - The catalog clean-up activity may cause the log backups triggered at the same time to be queued. These logs are then moved to the vault after the catalog backup (triggered by catalog clean-up) fails.
+          - Manually check the success of the catalog clean-up activity.
+
       - question: |
           How can I use SAP HANA Backup with my HANA Replication set-up?
         answer: |
@@ -101,7 +152,7 @@ sections:
           To perform this **switch protection**, follow these steps:
           
           - [Stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) (with retain data) on primary
-          - Run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the secondary node
+          - Run the [pre-registration script](https://go.microsoft.com/fwlink/?linkid=2173610) on the secondary node
           - [Discover the databases](tutorial-backup-sap-hana-db.md#discover-the-databases) on the secondary node and [configure backups](tutorial-backup-sap-hana-db.md#configure-backup) on them
           
           These steps must be performed manually after every fail-over. You can perform these steps through command line / HTTP REST in addition to the Azure portal. To automate these steps, you can use an Azure runbook.
@@ -127,10 +178,40 @@ sections:
           Then full backup will again be triggered on Node 1 and after that completes, log backups start.
 
           >[!Note]
-          >[Running the pre-registration script](/azure/backup/tutorial-backup-sap-hana-db#prerequisites) with custom backup user as input could help you manage your HSR backups better. This is because it ensures that both the nodes of the HSR set up have the same backup key, thereby reduces the backup sync and failure issues.
+          >[Running the pre-registration script](./tutorial-backup-sap-hana-db.md#prerequisites) with custom backup user as input could help you manage your HSR backups better. This is because it ensures that both the nodes of the HSR set up have the same backup key, thereby reduces the backup sync and failure issues.
+
+      - question: |
+          What happens if I don’t Stop protection (with retain data) on the secondary/inactive node on the HSR set-up?
+        answer: |
+          1. For HANA system replication (HSR), the secondary node doesn’t accept any connections at all. Once the backup is configured, the Azure Backup service  pings periodically and fails. Sometimes, these failed attempts reflect on the primary node. After multiple failures, the user is locked, and then the primary node starts to fail with _ODBCConnectionError_.   <br><br>We’ve observed that all users don’t experience this issue. We recommend you/SAP to investigate the cause of users getting locked in the primary node when user connection fails on the secondary node.
+          
+          1. Once you run the pre-registration script, the user information is updated with new password on the primary node. Then  the connection to attempt backup will be re-established. But, you might again experience the same scenario.
+          
+          1. Also, the backups (full backups) that fail on the secondary node create alerts.
+          
+          To avoid the above issues, we recommend you to stop protection for a node after it becomes secondary (so that connections aren’t attempted and user is not locked) and resume protection on it, once it becomes primary. If you don’t face this locking situation on their HSR setups and are comfortable with alerts being raised, you can configure backups on both the nodes so that the service handles the take-over and fail-back.
+
+      - question: |
+          What’s the backup and restore throughput performance that Azure Backup provides and how to set up my HANA system to use this maximum throughput?
+        answer: |
+          Refer to [the backup and restore throughput performance](./tutorial-backup-sap-hana-db.md#understanding-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads. <br><br> To set up your HANA system to leverage the improved performance, use the following resources:
+          
+           - [Select a disk type for Azure IaaS VMs - managed disks](../virtual-machines/disks-types.md)
+           - [Performance tiers for Azure managed disks](../virtual-machines/disks-change-performance.md)
+           - [M-series](../virtual-machines/m-series.md)
+           - [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
+
+          >[!Note]
+          >You can also limit the backup throughput performance. [Learn more](./tutorial-backup-sap-hana-db.md#limiting-backup-throughput-performance).
 
   - name: Restore
     questions:
+
+      - question: |
+          How many restores are supported per day?
+        answer: |
+          You can perform a maximum of 10 restores per HANA system or instance in a day. Note that if a restore is cancelled or fails, it's also considered as a restore attempt.
+           
       - question: |
           Why can't I see the HANA system I want my database to be restored to?
         answer: |

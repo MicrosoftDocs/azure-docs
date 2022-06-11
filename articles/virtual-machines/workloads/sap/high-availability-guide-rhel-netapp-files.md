@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/11/2021
+ms.date: 06/08/2022
 ms.author: radeltch
 
 ---
@@ -25,7 +25,6 @@ ms.author: radeltch
 
 [anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:../../../azure-netapp-files/azure-netapp-files-register.md
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
@@ -82,6 +81,7 @@ Read the following SAP Notes and papers first:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
+* [NetApp NFS Best Practices](https://www.netapp.com/media/10720-tr-4067.pdf)
 
 ## Overview
 
@@ -92,59 +92,30 @@ Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-rhel/high-availability-guide-rhel-anf.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The following list shows the configuration of the load balancer with separate front-end IPs for (A)SCS and ERS.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The presented configuration shows a load balancer with:  
 
-### (A)SCS
-
-* Frontend configuration
-  * IP address 192.168.14.9
-* Probe Port
-  * Port 620<strong>&lt;nr&gt;</strong>
-* Load-balancing rules
-  * If using Standard Load Balancer, select **HA ports**
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 36<strong>&lt;nr&gt;</strong> TCP
-  * 39<strong>&lt;nr&gt;</strong> TCP
-  * 81<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-### ERS
-
-* Frontend configuration
-  * IP address 192.168.14.10
-* Probe Port
-  * Port 621<strong>&lt;nr&gt;</strong>
-* Load-balancing rules
-  * If using Standard Load Balancer, select **HA ports**
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 33<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
+* Frontend IP address 192.168.14.9 for ASCS
+* Frontend IP address 192.168.14.10 for ERS
+* Probe port 62000 for ASCS
+* Probe port 62101 for ERS
 
 ## Setting up the Azure NetApp Files infrastructure 
 
 SAP NetWeaver requires shared storage for the transport and profile directory.  Before proceeding with the setup for Azure NetApp files infrastructure, familiarize yourself with the [Azure NetApp Files documentation][anf-azure-doc]. 
 Check if your selected Azure region offers Azure NetApp Files. The following link shows the availability of Azure NetApp Files by Azure region: [Azure NetApp Files Availability by Azure Region][anf-avail-matrix].
 
-Azure NetApp files are available in several [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Before deploying Azure NetApp Files, request onboarding to Azure NetApp Files, following the [Register for Azure NetApp files instructions][anf-register]. 
+Azure NetApp files are available in several [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). 
 
 ### Deploy Azure NetApp Files resources  
 
 The steps assume that you have already deployed [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). The Azure NetApp Files resources and the VMs, where the Azure NetApp Files resources will be mounted must be deployed in the same Azure Virtual Network or in peered Azure Virtual Networks.  
 
-1. If you haven't done that already, request [onboarding to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).  
-2. Create the NetApp account in the selected Azure region, following the [instructions to create NetApp Account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
-3. Set up Azure NetApp Files capacity pool, following the [instructions on how to set up Azure NetApp Files capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).  
+1. Create the NetApp account in the selected Azure region, following the [instructions to create NetApp Account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
+2. Set up Azure NetApp Files capacity pool, following the [instructions on how to set up Azure NetApp Files capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).  
 The SAP Netweaver architecture presented in this article uses single Azure NetApp Files capacity pool, Premium SKU. We recommend Azure NetApp Files Premium SKU for SAP Netweaver application workload on Azure.  
-4. Delegate a subnet to Azure NetApp files as described in the [instructions Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
+3. Delegate a subnet to Azure NetApp files as described in the [instructions Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
 
-5. Deploy Azure NetApp Files volumes, following the [instructions to create a volume for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md). Deploy the volumes in the designated Azure NetApp Files [subnet](/rest/api/virtualnetwork/subnets). The IP addresses of the Azure NetApp volumes are assigned automatically. Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure Virtual Network or in peered Azure Virtual Networks. In this example we use two Azure NetApp Files volumes: sap<b>QAS</b> and transSAP. The file paths that are mounted to the corresponding mount points are /usrsap<b>qas</b>/sapmnt<b>QAS</b>, /usrsap<b>qas</b>/usrsap<b>QAS</b>sys, etc.  
+4. Deploy Azure NetApp Files volumes, following the [instructions to create a volume for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md). Deploy the volumes in the designated Azure NetApp Files [subnet](/rest/api/virtualnetwork/subnets). The IP addresses of the Azure NetApp volumes are assigned automatically. Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure Virtual Network or in peered Azure Virtual Networks. In this example we use two Azure NetApp Files volumes: sap<b>QAS</b> and transSAP. The file paths that are mounted to the corresponding mount points are /usrsap<b>qas</b>/sapmnt<b>QAS</b>, /usrsap<b>qas</b>/usrsap<b>QAS</b>sys, etc.  
 
    1. volume sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>qas</b>/sapmnt<b>QAS</b>)
    2. volume sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>qas</b>/usrsap<b>QAS</b>ascs)
@@ -154,16 +125,17 @@ The SAP Netweaver architecture presented in this article uses single Azure NetAp
    6. volume sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>qas</b>/usrsap<b>QAS</b>pas)
    7. volume sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>qas</b>/usrsap<b>QAS</b>aas)
   
-In this example, we used Azure NetApp Files for all SAP Netweaver file systems to demonstrate how Azure NetApp Files can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](../../disks-types.md#premium-ssd) . In this example <b>a-e</b> must be on Azure NetApp Files and <b>f-g</b> (that is, /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) could be deployed as Azure disk storage. 
+In this example, we used Azure NetApp Files for all SAP Netweaver file systems to demonstrate how Azure NetApp Files can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](../../disks-types.md#premium-ssds) . In this example <b>a-e</b> must be on Azure NetApp Files and <b>f-g</b> (that is, /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) could be deployed as Azure disk storage. 
 
 ### Important considerations
 
-When considering Azure NetApp Files for the SAP Netweaver on SUSE High Availability architecture, be aware of the following important considerations:
+When considering Azure NetApp Files for the SAP Netweaver on RHEL High Availability architecture, be aware of the following important considerations:
 
 - The minimum capacity pool is 4 TiB. The capacity pool size can be increased in 1 TiB increments.
 - The minimum volume is 100 GiB
 - Azure NetApp Files and all virtual machines, where Azure NetApp Files volumes will be mounted, must be in the same Azure Virtual Network or in [peered virtual networks](../../../virtual-network/virtual-network-peering-overview.md) in the same region. Azure NetApp Files access over VNET peering in the same region is supported now. Azure NetApp access over global peering is not yet supported.
 - The selected virtual network must have a subnet, delegated to Azure NetApp Files.
+- The throughput and performance characteristics of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). While sizing the SAP Azure NetApp volumes, make sure that the resulting throughput meets the application requirements.  
 - Azure NetApp Files offers [export policy](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
 - Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. 
 - Azure NetApp Files volumes can be deployed as NFSv3 or NFSv4.1 volumes. Both protocols are supported for the SAP application layer (ASCS/ERS, SAP application servers). 
@@ -209,7 +181,7 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **lb.QAS.ERS**)
-1. Alternatively, if your scenario requires basic load balancer (internal), follow these steps:  
+1. Alternatively, ***only if*** your scenario requires basic load balancer (internal),  follow these configuration steps instead to create basic load balancer:  
    1. Create the frontend IP addresses
       1. IP address 192.168.14.9 for the ASCS
          1. Open the load balancer, select frontend IP pool, and click Add
@@ -470,11 +442,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # If using NFSv4.1
    sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
      directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
-     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
+     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=105 \
      --group g-QAS_ASCS
    
    sudo pcs resource create vip_QAS_ASCS IPaddr2 \
-     ip=192.168.14.9 cidr_netmask=24 \
+     ip=192.168.14.9 \
      --group g-QAS_ASCS
    
    sudo pcs resource create nc_QAS_ASCS azure-lb port=62000 \
@@ -533,11 +505,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # If using NFSv4.1
    sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
      directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
-     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
+     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=105 \
     --group g-QAS_AERS
    
    sudo pcs resource create vip_QAS_AERS IPaddr2 \
-     ip=192.168.14.10 cidr_netmask=24 \
+     ip=192.168.14.10 \
     --group g-QAS_AERS
    
    sudo pcs resource create nc_QAS_AERS azure-lb port=62101 \
@@ -644,8 +616,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    If using enqueue server 1 architecture (ENSA1), define the resources as follows:
 
    ```
-   sudo pcs property set maintenance-mode=true
+    sudo pcs property set maintenance-mode=true
    
+    # If using NFSv3
     sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
@@ -654,14 +627,31 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
    
+    # If using NFSv4.1
+    sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
+    InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
+    op monitor interval=20 on-fail=restart timeout=105 \
+    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
+    --group g-QAS_ASCS
+
     sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
 
+    # If using NFSv3
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
-     
+
+    # If using NFSv4.1
+    sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
+    InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
+    AUTOMATIC_RECOVER=false IS_ERS=true \
+    op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
+    --group g-QAS_AERS
+
     sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
     sudo pcs constraint location rsc_sap_QAS_ASCS00 rule score=2000 runs_ers_QAS eq 1
     sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
@@ -676,6 +666,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     ```
     sudo pcs property set maintenance-mode=true
     
+    # If using NFSv3
     sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
@@ -684,14 +675,31 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
    
+    # If using NFSv4.1
+    sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
+    InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000 \
+    op monitor interval=20 on-fail=restart timeout=105 \
+    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
+    --group g-QAS_ASCS
+    
     sudo pcs resource meta g-QAS_ASCS resource-stickiness=3000
 
+    # If using NFSv3
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
-      
+    
+    # If using NFSv4.1
+    sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
+    InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
+    AUTOMATIC_RECOVER=false IS_ERS=true \
+    op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
+    --group g-QAS_AERS
+
     sudo pcs resource meta rsc_sap_QAS_ERS01  resource-stickiness=3000
 
     sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
@@ -705,6 +713,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    > [!NOTE]
+   > The higher timeouts, suggested when using NFSv4.1 are necessary due to protocol-specific pause, related to NFSv4.1 lease renewals. 
+   > For more information see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf).  
    > The timeouts in the above configuration are just examples and may need to be adapted to the specific SAP setup. 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.

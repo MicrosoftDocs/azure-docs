@@ -4,12 +4,13 @@ titleSuffix: Azure Machine Learning
 description: 'Securely use Azure Machine Learning: authentication, authorization, network security, data encryption, and monitoring.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.author: jmartens
+ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 06/02/2021
+ms.date: 10/21/2021
 ---
 
 # Enterprise security and governance for Azure Machine Learning
@@ -46,8 +47,7 @@ Each workspace has an associated system-assigned [managed identity](../active-di
 
 The system-assigned managed identity is used for internal service-to-service authentication between Azure Machine Learning and other Azure resources. The identity token is not accessible to users and cannot be used by them to gain access to these resources. Users can only access the resources through [Azure Machine Learning control and data plane APIs](how-to-assign-roles.md), if they have sufficient RBAC permissions.
 
-The managed identity needs Contributor permissions on the resource group containing the workspace in order to provision the associated resources, 
-and to [deploy Azure Container Instances for web service endpoints](how-to-deploy-azure-container-instance.md).
+The managed identity needs Contributor permissions on the resource group containing the workspace in order to provision the associated resources, and to [deploy Azure Container Instances for web service endpoints](v1/how-to-deploy-azure-container-instance.md).
 
 We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the [resync keys operation](how-to-change-storage-access-key.md).
 
@@ -88,7 +88,9 @@ For more information, see the following documents:
 * [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 * [Secure workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure training environment](how-to-secure-training-vnet.md)
-* [Secure inference environment](how-to-secure-inferencing-vnet.md)
+* For securing inference, see the following documents:
+    * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+    * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 * [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Configure firewall](how-to-access-azureml-behind-firewall.md)
@@ -103,7 +105,7 @@ When deploying models as web services, you can enable transport-layer security (
 
 ## Vulnerability scanning
 
-[Azure Security Center](../security-center/security-center-introduction.md) provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure machine learning, you should enable scanning of your [Azure Container Registry](../container-registry/container-registry-intro.md) resource and Azure Kubernetes Service resources. For more information, see [Azure Container Registry image scanning by Security Center](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
+[Microsoft Defender for Cloud](../security-center/security-center-introduction.md) provides unified security management and advanced threat protection across hybrid cloud workloads. For Azure machine learning, you should enable scanning of your [Azure Container Registry](../container-registry/container-registry-intro.md) resource and Azure Kubernetes Service resources. For more information, see [Azure Container Registry image scanning by Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services integration with Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
 
 ## Audit and manage compliance
 
@@ -111,6 +113,7 @@ When deploying models as web services, you can enable transport-layer security (
 
 ## Next steps
 
+* [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security)
 * [Secure Azure Machine Learning web services with TLS](how-to-secure-web-service.md)
 * [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [Use Azure Machine Learning with Azure Firewall](how-to-access-azureml-behind-firewall.md)

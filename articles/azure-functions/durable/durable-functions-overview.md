@@ -3,8 +3,9 @@ title: Durable Functions Overview - Azure
 description: Introduction to the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 12/23/2020
+ms.date: 05/24/2022
 ms.author: cgillum
+ms.custom: devdivchpfy22
 ms.reviewer: azfuncdf
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -15,17 +16,15 @@ ms.reviewer: azfuncdf
 
 ## <a name="language-support"></a>Supported languages
 
-Durable Functions currently supports the following languages:
+Durable Functions is designed to work with all Azure Functions programming languages but may have different minimum requirements for each language. The following table shows the minimum supported app configurations:
 
-* **C#**: both [precompiled class libraries](../functions-dotnet-class-library.md) and [C# script](../functions-reference-csharp.md).
-* **JavaScript**: supported only for version 2.x or later of the Azure Functions runtime. Requires version 1.7.0 of the Durable Functions extension, or a later version. 
-* **Python**: requires version 2.3.1 of the Durable Functions extension, or a later version.
-* **F#**: precompiled class libraries and F# script. F# script is only supported for version 1.x of the Azure Functions runtime.
-* **PowerShell**: Supported only for version 3.x of the Azure Functions runtime and PowerShell 7. Requires version 2.x of the bundle extensions.
-
-To access the latest features and updates, it is recommended you use the latest versions of the Durable Functions extension and the language-specific Durable Functions libraries. Learn more about [Durable Functions versions](durable-functions-versions.md).
-
-Durable Functions has a goal of supporting all [Azure Functions languages](../supported-languages.md). See the [Durable Functions issues list](https://github.com/Azure/azure-functions-durable-extension/issues) for the latest status of work to support additional languages.
+| Language stack | Azure Functions Runtime versions | Language worker version | Minimum bundles version |
+| - | - | - | - |
+| .NET / C# / F# | Functions 1.0+ | In-process (GA) <br/> Out-of-process ([preview](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions)) | N/A |
+| JavaScript/TypeScript | Functions 2.0+ | Node 8+ | 2.x bundles |
+| Python | Functions 2.0+ | Python 3.7+ | 2.x bundles |
+| PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
+| Java (coming soon) | Functions 3.0+ | Java 8+ | 4.x bundles |
 
 Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
@@ -244,7 +243,7 @@ $Total = ($Outputs | Measure-Object -Sum).Sum
 Invoke-DurableActivity -FunctionName 'F3' -Input $Total
 ```
 
-The fan-out work is distributed to multiple instances of the `F2` function. Please note the usage of the `NoWait` switch on the `F2` function invocation: this switch allows the orchestrator to proceed invoking `F2` without for activity completion. The work is tracked by using a dynamic list of tasks. The `Wait-ActivityFunction` command is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
+The fan-out work is distributed to multiple instances of the `F2` function. Please note the usage of the `NoWait` switch on the `F2` function invocation: this switch allows the orchestrator to proceed invoking `F2` without waiting for activity completion. The work is tracked by using a dynamic list of tasks. The `Wait-ActivityFunction` command is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
 
 The automatic checkpointing that happens at the `Wait-ActivityFunction` call ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
@@ -794,15 +793,22 @@ You can get started with Durable Functions in under 10 minutes by completing one
 
 In these quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
 
+## Publications
+
+Durable Functions is developed in collaboration with Microsoft Research. As a result, the Durable Functions team actively produces research papers and artifacts; these include:
+
+* [Durable Functions: Semantics for Stateful Serverless](https://www.microsoft.com/en-us/research/uploads/prod/2021/10/DF-Semantics-Final.pdf) _(OOPSLA'21)_
+* [Serverless Workflows with Durable Functions and Netherite](https://arxiv.org/pdf/2103.00033.pdf) _(pre-print)_
+
 ## Learn more
 
 The following video highlights the benefits of Durable Functions:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
 
 For a more in-depth discussion of Durable Functions and the underlying technology, see the following video (it's focused on .NET, but the concepts also apply to other supported languages):
 
-> [!VIDEO https://channel9.msdn.com/Events/dotnetConf/2018/S204/player]
+> [!VIDEO https://docs.microsoft.com/Events/dotnetConf/2018/S204/player]
 
 Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 

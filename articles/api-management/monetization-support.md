@@ -1,9 +1,9 @@
 ---
 title: Azure API Management support for monetization 
 description: Learn how Azure API Management supports monetization strategies for your API products.
-author: v-hhunter
-ms.author: v-hhunter
-ms.date: 08/23/2021
+author: dlepow
+ms.author: danlep
+ms.date: 02/10/2022
 ms.topic: article
 ms.service: api-management
 ---
@@ -127,7 +127,7 @@ The sample projects use the API to programmatically:
 - Retrieve API Management products and policies to enable synchronized configuration of similar concepts in payment providers, such as Stripe.
 - Poll API Management regularly to retrieve API usage metrics for each subscription and drive the billing process.
 
-For more information, see [the REST API Azure API Management](https://docs.microsoft.com/rest/api/apimanagement/#rest-operation-groups) overview.
+For more information, see [the REST API Azure API Management](/rest/api/apimanagement/#rest-operation-groups) overview.
 
 ## DevOps
 
@@ -145,6 +145,15 @@ In example projects, the Azure Resource Manager scripts are augmented by a JSON 
 API Management can be deployed either through:
 * The Azure portal UI, or
 * An "infrastructure as code" approach using [Azure Resource Manager templates](https://azure.microsoft.com/services/arm-templates). 
+
+## Videos
+
+### Integrate API Management with Adyen payment gateway
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWSSq2]
+
+### Integrate API Management with Stripe payment gateway
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWSTfp]
+
 
 ## Next steps
 

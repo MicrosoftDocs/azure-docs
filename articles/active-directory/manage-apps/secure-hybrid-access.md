@@ -1,5 +1,5 @@
 ---
-title: Azure AD secure hybrid access | Microsoft Docs
+title: Secure hybrid access
 description: This article describes partner solutions for integrating your legacy on-premises, public cloud, or private cloud applications with Azure AD. 
 services: active-directory
 author: gargi-sinha
@@ -12,7 +12,6 @@ ms.date: 8/17/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
-
 # Secure hybrid access: Secure legacy apps with Azure Active Directory
 
 You can now protect your on-premises and cloud legacy authentication applications by connecting them to Azure Active Directory (AD) with:
@@ -21,48 +20,52 @@ You can now protect your on-premises and cloud legacy authentication application
 
 - [Secure hybrid access partners](#secure-hybrid-access-through-azure-ad-partner-integrations)
 
-You can bridge the gap and strengthen your security posture across all applications with Azure AD capabilities like [Azure AD Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) and [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection). By having Azure AD as an Identity provider (IDP), you can use modern authentication and authorization methods like [single sign-on (SSO)](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) and [multifactor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) to secure your on-premises legacy applications.
+You can bridge the gap and strengthen your security posture across all applications with Azure AD capabilities like [Azure AD Conditional Access](../conditional-access/overview.md) and [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). By having Azure AD as an Identity provider (IDP), you can use modern authentication and authorization methods like [single sign-on (SSO)](what-is-single-sign-on.md) and [multifactor authentication (MFA)](../authentication/concept-mfa-howitworks.md) to secure your on-premises legacy applications.
 
 ## Secure hybrid access through Azure AD Application Proxy
   
-Using [Application Proxy](https://docs.microsoft.com/azure/active-directory/app-proxy/what-is-application-proxy) you can provide [secure remote access](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-add-on-premises-application) to your on-premises web applications. Your users don’t need to use a VPN. Users benefit by easily connecting to their applications from any device after a [SSO](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-config-sso-how-to#how-to-configure-single-sign-on). Application Proxy provides remote access as a service and allows you to [easily publish your on-premise applications](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-add-on-premises-application) to users outside the corporate network. It helps you scale your cloud access management without requiring you to modify your on-premises applications. [Plan an Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-deployment-plan) deployment as a next step.
+Using [Application Proxy](../app-proxy/what-is-application-proxy.md) you can provide [secure remote access](../app-proxy/application-proxy-add-on-premises-application.md) to your on-premises web applications. Your users don’t need to use a VPN. Users benefit by easily connecting to their applications from any device after a [SSO](../app-proxy/application-proxy-config-sso-how-to.md#how-to-configure-single-sign-on). Application Proxy provides remote access as a service and allows you to [easily publish your on-premise applications](../app-proxy/application-proxy-add-on-premises-application.md) to users outside the corporate network. It helps you scale your cloud access management without requiring you to modify your on-premises applications. [Plan an Azure AD Application Proxy](../app-proxy/application-proxy-deployment-plan.md) deployment as a next step.
 
 ## Secure hybrid access through Azure AD partner integrations  
 
-In addition to [Azure AD Application Proxy](https://aka.ms/whyappproxy), Microsoft partners with third-party providers to enable secure access to your on-premises applications and applications that use legacy authentication.
+In addition to [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md), Microsoft partners with third-party providers to enable secure access to your on-premises applications and applications that use legacy authentication.
 
-![Image shows secure hybrid access with app proxy and partners](./media/secure-hybrid-access/secure-hybrid-access.png)
+![Illustration of Secure Hybrid Access partner integrations and Application Proxy providing access to legacy and on-premises applications after authentication with Azure AD.](./media/secure-hybrid-access/secure-hybrid-access.png)
 
-The following partners offer pre-built solutions to support conditional access policies per application and provide detailed guidance for integrating with Azure AD. 
+The following partners offer pre-built solutions to support **conditional access policies per application** and provide detailed guidance for integrating with Azure AD. 
 
-- [Akamai Enterprise Application Access](https://docs.microsoft.com/azure/active-directory/saas-apps/akamai-tutorial)
+- [Akamai Enterprise Application Access](../saas-apps/akamai-tutorial.md)
 
-- [Citrix Application Delivery Controller (ADC)](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial)  
+- [Citrix Application Delivery Controller (ADC)](../saas-apps/citrix-netscaler-tutorial.md)  
 
-- [Datawiza Access Broker](datawiza-with-azure-ad.md)
+- [Datawiza Access Broker](../manage-apps/datawiza-with-azure-ad.md)
 
-- [F5 Big-IP APM ADC](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+- [F5 BIG-IP APM (ADC)](../manage-apps/f5-aad-integration.md)
 
-- [F5 Big-IP APM VPN](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)
+- [F5 BIG-IP APM VPN](../manage-apps/f5-aad-password-less-vpn.md)
 
-- [Kemp](https://docs.microsoft.com/azure/active-directory/saas-apps/kemp-tutorial)
+- [Kemp](../saas-apps/kemp-tutorial.md)
 
-- [Perimeter 81](https://docs.microsoft.com/azure/active-directory/saas-apps/perimeter-81-tutorial)
+- [Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
 
-- [Silverfort Authentication Platform](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
+- [Silverfort Authentication Platform](../manage-apps/silverfort-azure-ad-integration.md)
 
-- [Strata](https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial)
+- [Strata](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
 
-The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD. 
+The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD.
 
-- [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
+- [AWS](../saas-apps/aws-clientvpn-tutorial.md)
 
-- [Fortinet](https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial)
+- [Check Point](../saas-apps/check-point-remote-access-vpn-tutorial.md)
 
-- [Palo Alto Networks Global Protect](https://docs.microsoft.com/azure/active-directory/saas-apps/paloaltoadmin-tutorial)
+- [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
 
-- [Pulse Secure Pulse Connect Secure (PCS)](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-pcs-tutorial)
+- [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
 
-- [Pulse Secure Virtual Traffic Manager (VTM)](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-virtual-traffic-manager-tutorial)
+- [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)
 
-- [Zscaler Private Access (ZPA)](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial)
+- [Pulse Secure Pulse Connect Secure (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)
+
+- [Pulse Secure Virtual Traffic Manager (VTM)](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
+
+- [Zscaler Private Access (ZPA)](../saas-apps/zscalerprivateaccess-tutorial.md)

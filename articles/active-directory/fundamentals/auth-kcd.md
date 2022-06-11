@@ -3,7 +3,7 @@ title: Kerberos constrained delegation with Azure Active Directory
 description: Architectural guidance on achieving Kerberos constrained delegation with Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 
 ms.service: active-directory
 ms.workload: identity
@@ -22,7 +22,7 @@ Kerberos Constrained Delegation (KCD) provides constrained delegation between re
 
 Azure Active Directory Application Proxy can provide single sign-on (SSO) and remote access to KCD-based applications that require a Kerberos ticket for access and Kerberos Constrained Delegation (KCD).
 
-You enable SSO to your on-premises KCD applications that use Integrated Windows Authentication (IWA) by giving Application Proxy connectors permission to impersonate users in Active Directory. The Application Proxy connector uses this permission to send and receive tokens on the users' behalf.
+You enable SSO to your on-premises KCD applications that use integrated Windows authentication (IWA) by giving Application Proxy connectors permission to impersonate users in Active Directory. The Application Proxy connector uses this permission to send and receive tokens on the users' behalf.
 
 ## Use when
 

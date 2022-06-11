@@ -1,8 +1,6 @@
 ---
 title: Secure Azure Computing Architecture
 description: Learn about the Secure Azure Computing Architecture (SACA). Using SACA allows US DoD and civilian customers to comply with the SCCA FRD.
-author: jahender
-ms.author: jahender 
 ms.date: 08/27/2021
 ms.topic: article
 ms.service: azure-government
@@ -23,7 +21,7 @@ The SCCA has four components:
 
 Microsoft has developed a solution that helps customers meet the SCCA requirements for both [DoD IL4](/azure/compliance/offerings/offering-dod-il4) and [DoD IL5](/azure/compliance/offerings/offering-dod-il5) workloads that run in Azure. This Azure-specific solution is called the Secure Azure Computing Architecture (SACA), and it can help customers comply with the SCCA FRD. It can enable DoD customers to move workloads into Azure after they're connected.
 
-SCCA guidance and architectures are specific to DoD customers, but they also help civilian customers comply with [Trusted Internet Connections](/azure/azure-government/compliance/compliance-tic) (TIC) guidance and help commercial customers that want to implement a secure DMZ to protect their Azure environments.
+SCCA guidance and architectures are specific to DoD customers, but they also help civilian customers comply with [Trusted Internet Connections](./compliance-tic.md) (TIC) guidance and help commercial customers that want to implement a secure DMZ to protect their Azure environments.
 
 
 ## Secure Cloud Computing Architecture components
@@ -111,7 +109,7 @@ As mentioned earlier, you can build this SACA reference by using a variety of ap
 - We recommend that you use as many Azure native tools as possible. They're built with cloud security in mind and seamlessly integrate with the rest of the Azure platform. Use the Azure native tools in the following list to meet various requirements of SCCA:
 
     - [Azure Monitor](../../azure-monitor/overview.md)
-    - [Azure Security Center](../../security-center/security-center-introduction.md) 
+    - [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) 
     - [Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) 
     - [Azure Key Vault](../../key-vault/general/overview.md) 
     - [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
@@ -120,7 +118,7 @@ As mentioned earlier, you can build this SACA reference by using a variety of ap
     - [Azure Front Door](../../frontdoor/front-door-overview.md)
     - [Network security groups](../../virtual-network/network-security-groups-overview.md)
     - [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)
-    - [Azure Sentinel](../../sentinel/overview.md)
+    - [Microsoft Sentinel](../../sentinel/overview.md)
 - Sizing
     - A sizing exercise must be completed. Look at the number of concurrent connections you might have through the SACA instance and the network throughput requirements. 
     - This step is critical. It helps to size the VMs, Azure ExpressRoute circuits, and identify the licenses that are required from the various vendors you use in your SACA deployment. 
@@ -168,7 +166,7 @@ As previously mentioned, Microsoft has partnered with vendors to create automate
 
 You can use the Mission Landing Zone deployment template to deploy into one or multiple subscriptions, depending on the requirements of your environment. It uses built-in Azure services that have no dependencies on third-party licenses. The template uses Azure Firewall and other security services to deploy an architecture that is SCCA-compliant. 
 
-[ ![Diagram of the Mission Landing Zone SACA template.](media/mission-landing-zone.png) ](media/mission-landing-zone.png#lightbox)
+[![Diagram of the Mission Landing Zone SACA template.](media/mission-landing-zone.png)](media/mission-landing-zone.png#lightbox)
 
 For the Azure documentation and deployment scripts, see [this GitHub link](https://github.com/Azure/missionlz).
 
@@ -200,4 +198,3 @@ A Citrix deployment template deploys two layers of highly available Citrix ADC a
 
 
 For the Citrix documentation and deployment script, see [this GitHub link](https://github.com/citrix/netscaler-azure-templates/tree/master/templates/saca).
-

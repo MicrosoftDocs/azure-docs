@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 09/15/2021
 ms.author: banders
 ---
 
@@ -49,7 +49,7 @@ Filter on **Additional Info** and type in your **Reservation ID**. The following
 1. **ReservationId** in the **Additional Info** field is the reservation that's applied to the VM.
 2. **ConsumptionMeter** is the meter ID for the VM.
 3. The **Reservation-Base VM** **Meter Subcategory** line represents the $0 cost in statement section. The cost of running this VM is already paid by the reservation.
-4. **Meter ID** is the meter ID for the reservation. The cost of this meter is $0. This meter id appears for any VM that qualifies for the reservation discount.
+4. **Meter ID** is the meter ID for the reservation. The cost of this meter is $0. This meter ID appears for any VM that qualifies for the reservation discount.
 5. Standard_DS1_v2 is one vCPU VM and the VM is deployed without Azure Hybrid Benefit. So, this meter covers the extra charge of the Windows software. To find the meter corresponding to D series 1 core VM, see [Azure Reserve VM Instances Windows software costs](reserved-instance-windows-software-costs.md). If you have the Azure Hybrid Benefit, this extra charge is not applied.
 
 ## Usage for SQL Database & Cosmos DB reservations
@@ -93,7 +93,7 @@ To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

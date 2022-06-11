@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2020
+ms.date: 05/10/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
@@ -21,26 +21,37 @@ ms.custom: H1Hack27Feb2017
 # SAP ASCS/SCS instance multi-SID high availability with Windows server failover clustering and Azure shared disk
 
 > ![Windows OS][Logo_Windows] Windows
->
 
 This article focuses on how to move from a single ASCS/SCS installation to an SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster with Azure shared disk. When this process is completed, you have configured an SAP multi-SID cluster.
 
 ## Prerequisites and limitations
 
-Currently you can use Azure Premium SSD disks as an Azure shared disk for the SAP ASCS/SCS instance. 
-The following limitations are in place:
+Currently you can use Azure Premium SSD disks as an Azure shared disk for the SAP ASCS/SCS instance. The following limitations are currently in place:
 
--  [Azure Ultra disk](../../disks-types.md#ultra-disk) is not supported as Azure Shared Disk for SAP workloads. Currently it is not possible to place Azure VMs, using Azure Ultra Disk in Availability Set
--  [Azure Shared disk](../../disks-shared.md) with Premium SSD disks is only supported with VMs in Availability Set. It is not supported in Availability Zones deployment. 
+-  [Azure Ultra disk](../../disks-types.md#ultra-disks) and [Standard SSD disks](../../disks-types.md#standard-ssds) are not supported as Azure Shared Disk for SAP workloads.
+-  [Azure Shared disk](../../disks-shared.md) with [Premium SSD disks](../../disks-types.md#premium-ssds) is supported for SAP deployment in availability set and availability zones.
+-  Azure shared disk with Premium SSD disks comes with two storage SKUs.
+   - Locally redundant storage (LRS) for premium shared disk (skuName - Premium_LRS) is supported with deployment in availability set.
+   - Zone-redundant storage (ZRS) for premium shared disk (skuName - Premium_ZRS) is supported with deployment in availability zones.
 -  Azure shared disk value [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. Typically for SAP ASCS/SCS instance you will configure two nodes in Windows Failover Cluster, therefore the value for `maxShares` must be set to two.
--  All SAP ASCS/SCS cluster VMs must be deployed in the same [Azure proximity placement group](../../windows/proximity-placement-groups.md).   
-   Although you can deploy Windows cluster  VMs in Availability Set with Azure shared disk without PPG, PPG will ensure close physical proximity of Azure shared disks and the cluster VMs, therefore achieving lower latency between the VMs and the storage layer.    
+-  [Azure proximity placement group](../../windows/proximity-placement-groups.md) is not required for Azure shared disk. But for SAP deployment with PPG, follow below guidelines:
+   -  If you are using PPG for SAP system deployed in a region then all virtual machines sharing a disk must be part of the same PPG.
+   -  If you are using PPG for SAP system deployed across zones like described in the document [Proximity placement groups with zonal deployments](sap-proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach Premium_ZRS storage to virtual machines sharing a disk.
 
-For further details on limitations for Azure shared disk, review carefully the [Limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.  
+For further details on limitations for Azure shared disk, please review carefully the [limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.
 
-> [!IMPORTANT]
-> When deploying SAP ASCS/SCS Windows Failover cluster with Azure shared disk, be aware that your deployment will be operating with a single shared disk in one storage cluster. 
-> Your SAP ASCS/SCS instance will be impacted, in case of issues with the storage cluster, where the Azure shared disk is deployed.  
+#### Important consideration for Premium shared disk
+
+Following are some of the important points to consider with respect to Azure Premium shared disk:
+
+- LRS for Premium shared disk
+  - SAP deployment with LRS for premium shared disk will be operating with a single Azure shared disk on one storage cluster. Your SAP ASCS/SCS instance would be impacted, in case of issues with the storage cluster, where the Azure shared disk is deployed.
+
+- ZRS for Premium shared disk
+  - Write latency for ZRS is higher than that of LRS due to cross-zonal copy of data.
+  - The distance between availability zones in different region varies and with that ZRS disk latency across availability zones as well. [Benchmark your disks](../../disks-benchmarks.md) to identify the latency of ZRS disk in your region.
+  - ZRS for Premium shared disk synchronously replicates data across three availability zones in the region. In case of any issue in one of the storage clusters, your SAP ASCS/SCS will continue to run as storage failover is transparent to the application layer.
+  - Review the [limitations](../../disks-redundancy.md#limitations) section of ZRS for managed disks for more details.
 
 > [!IMPORTANT]
 > The setup must meet the following conditions:
@@ -96,15 +107,33 @@ We'll install a new SAP SID **PR2**, in addition to the **existing clustered** S
 
 ### Host names and IP addresses
 
-| Host name role | Host name | Static IP address | Availability set | Proximity placement group |
-| --- | --- | --- |---| ---|
-| 1st cluster node ASCS/SCS cluster |pr1-ascs-10 |10.0.0.4 |pr1-ascs-avset |PR1PPG |
-| 2nd cluster node ASCS/SCS cluster |pr1-ascs-11 |10.0.0.5 |pr1-ascs-avset |PR1PPG |
-| Cluster Network Name | pr1clust |10.0.0.42(**only** for Win 2016 cluster) | n/a | n/a |
-| **SID1** ASCS cluster network name | pr1-ascscl |10.0.0.43 | n/a | n/a |
-| **SID1** ERS cluster network name (**only** for ERS2) | pr1-erscl |10.0.0.44 | n/a | n/a |
-| **SID2** ASCS cluster network name | pr2-ascscl |10.0.0.45 | n/a | n/a |
-| **SID2** ERS cluster network name (**only** for ERS2) | pr1-erscl |10.0.0.46 | n/a | n/a |
+Based on your deployment type, the host names and the IP addresses of the scenario would be like:
+
+**SAP deployment in Azure availability set**
+
+| Host name role                                        | Host name   | Static IP address                        | Availability set | Disk SkuName |
+| ----------------------------------------------------- | ----------- | ---------------------------------------- | ---------------- | ------------ |
+| 1st cluster node ASCS/SCS cluster                     | pr1-ascs-10 | 10.0.0.4                                 | pr1-ascs-avset   | Premium_LRS  |
+| 2nd cluster node ASCS/SCS cluster                     | pr1-ascs-11 | 10.0.0.5                                 | pr1-ascs-avset   |              |
+| Cluster Network Name                                  | pr1clust    | 10.0.0.42(**only** for Win 2016 cluster) | n/a              |              |
+| **SID1** ASCS cluster network name                    | pr1-ascscl  | 10.0.0.43                                | n/a              |              |
+| **SID1** ERS cluster network name (**only** for ERS2) | pr1-erscl   | 10.0.0.44                                | n/a              |              |
+| **SID2** ASCS cluster network name                    | pr2-ascscl  | 10.0.0.45                                | n/a              |              |
+| **SID2** ERS cluster network name (**only** for ERS2) | pr1-erscl   | 10.0.0.46                                | n/a              |              |
+
+**SAP deployment in Azure availability zones**
+
+| Host name role                                        | Host name   | Static IP address                        | Availability zone | Disk SkuName |
+| ----------------------------------------------------- | ----------- | ---------------------------------------- | ----------------- | ------------ |
+| 1st cluster node ASCS/SCS cluster                     | pr1-ascs-10 | 10.0.0.4                                 | AZ01              | Premium_ZRS  |
+| 2nd cluster node ASCS/SCS cluster                     | pr1-ascs-11 | 10.0.0.5                                 | AZ02              |              |
+| Cluster Network Name                                  | pr1clust    | 10.0.0.42(**only** for Win 2016 cluster) | n/a               |              |
+| **SID1** ASCS cluster network name                    | pr1-ascscl  | 10.0.0.43                                | n/a               |              |
+| **SID2** ERS cluster network name (**only** for ERS2) | pr1-erscl   | 10.0.0.44                                | n/a               |              |
+| **SID2** ASCS cluster network name                    | pr2-ascscl  | 10.0.0.45                                | n/a               |              |
+| **SID2** ERS cluster network name (**only** for ERS2) | pr1-erscl   | 10.0.0.46                                | n/a               |              |
+
+The steps mentioned in the document remain same for both deployment type. But if your cluster is running in availability set, you need to deploy LRS for Azure  premium shared disk (Premium_LRS) and if cluster is running in availability zone deploy ZRS for Azure premium shared disk (Premium_ZRS). 
 
 ### Create Azure internal load balancer
 
@@ -123,7 +152,7 @@ You will need to add configuration to the existing load balancer for the second 
     Leave the default option for Protocol (TCP), Interval (5), Unhealthy threshold (2)
 - Load-balancing rules
     - If using Standard Load Balancer, select HA ports
-    - If using Basic Load Balancer, create Load balancing rules for the following ports
+    - If using Basic Load Balancer, create Load-balancing rules for the following ports
         - 32**nr** TCP [**3202**]
         - 36**nr** TCP [**3602**]
         - 39**nr** TCP [**3902**]
@@ -150,7 +179,7 @@ As Enqueue Replication Server 2 (ERS2) is also clustered, ERS2 virtual IP addres
 
 - New Load-balancing rules
     - If using Standard Load Balancer, select HA ports
-    - If using Basic Load Balancer, create Load balancing rules for the following ports
+    - If using Basic Load Balancer, create Load-balancing rules for the following ports
         - 32**nr** TCP [**3212**]
         - 33**nr** TCP [**3312**]
         - 5**nr**13 TCP [**51212**]
@@ -158,7 +187,7 @@ As Enqueue Replication Server 2 (ERS2) is also clustered, ERS2 virtual IP addres
         - 5**nr**16 TCP [**51212**]
         - Associate with the **PR2** ERS2 Frontend IP, health probe and the existing backend pool.  
 
-    - Make sure that Idle timeout (minutes) is set to max value e.g. 30, and that Floating IP (direct server return) is Enabled.
+    - Make sure that Idle timeout (minutes) is set to max value, e.g.,  30, and that Floating IP (direct server return) is Enabled.
 
 
 ### Create and attach second Azure shared disk
@@ -166,33 +195,42 @@ As Enqueue Replication Server 2 (ERS2) is also clustered, ERS2 virtual IP addres
 Run this command on one of the cluster nodes. You will need to adjust the values for your resource group, Azure region, SAPSID, and so on.  
 
 ```powershell
-    $ResourceGroupName = "MyResourceGroup"
-    $location = "MyRegion"
-    $SAPSID = "PR2"
-    $DiskSizeInGB = 512
-    $DiskName = "$($SAPSID)ASCSSharedDisk"
-    $NumberOfWindowsClusterNodes = 2
-    $diskConfig = New-AzDiskConfig -Location $location -SkuName Premium_LRS  -CreateOption Empty  -DiskSizeGB $DiskSizeInGB -MaxSharesCount $NumberOfWindowsClusterNodes
+$ResourceGroupName = "MyResourceGroup"
+$location = "MyRegion"
+$SAPSID = "PR2"
+$DiskSizeInGB = 512
+$DiskName = "$($SAPSID)ASCSSharedDisk"
+$NumberOfWindowsClusterNodes = 2
+
+# For SAP deployment in availability set, use below storage SkuName
+$SkuName = "Premium_LRS"
+# For SAP deployment in availability zone, use below storage SkuName
+$SkuName = "Premium_ZRS"
+
+$diskConfig = New-AzDiskConfig -Location $location -SkuName $SkuName  -CreateOption Empty  -DiskSizeGB $DiskSizeInGB -MaxSharesCount $NumberOfWindowsClusterNodes
     
-    $dataDisk = New-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName -Disk $diskConfig
-    ##################################
-    ## Attach the disk to cluster VMs
-    ##################################
-    # ASCS Cluster VM1
-    $ASCSClusterVM1 = "pr1-ascs-10"
-    # ASCS Cluster VM2
-    $ASCSClusterVM2 = "pr1-ascs-11"
-    # next free LUN number
-    $LUNNumber = 1
-    # Add the Azure Shared Disk to Cluster Node 1
-    $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM1 
-    $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
-    Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
-    # Add the Azure Shared Disk to Cluster Node 2
-    $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM2
-    $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
-    Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
-   ```
+$dataDisk = New-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName -Disk $diskConfig
+##################################
+## Attach the disk to cluster VMs
+##################################
+# ASCS Cluster VM1
+$ASCSClusterVM1 = "pr1-ascs-10"
+# ASCS Cluster VM2
+$ASCSClusterVM2 = "pr1-ascs-11"
+# next free LUN number
+$LUNNumber = 1
+
+# Add the Azure Shared Disk to Cluster Node 1
+$vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM1 
+$vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
+Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
+
+# Add the Azure Shared Disk to Cluster Node 2
+$vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM2
+$vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
+Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
+```
+
 ### Format the shared disk with PowerShell
 1. Get the disk number. Run the PowerShell commands on one of the cluster nodes:
 
@@ -204,7 +242,7 @@ Run this command on one of the cluster nodes. You will need to adjust the values
     # 3      Msft Virtual Disk               Healthy      Online                512 GB RAW            
 
    ```
-2. Format the disk. In this example it is disk number 3. 
+2. Format the disk. In this example, it is disk number 3. 
 
    ```powershell
     # Format SAP ASCS Disk number '3', with drive letter 'S'
@@ -235,7 +273,7 @@ Run this command on one of the cluster nodes. You will need to adjust the values
 
 4. Register the disk in the cluster.  
    ```powershell
-     # Add the disk to cluster 
+    # Add the disk to cluster 
     Get-ClusterAvailableDisk -All | Add-ClusterDisk
     # Example output 
     # Name           State  OwnerGroup        ResourceType 
@@ -290,13 +328,13 @@ If you are running Enqueue Replication Server 1, add  SAP profile parameter `enq
 
 Use the internal load balancer's probe functionality to make the entire cluster configuration work with Azure Load Balancer. The Azure internal load balancer usually distributes the incoming workload equally between participating virtual machines.
 
-However, this won't work in some cluster configurations because only one instance is active. The other instance is passive and can't accept any of the workload. A probe functionality helps when the Azure internal load balancer detect which instance is active, and only target the active instance.  
+However, this won't work in some cluster configurations because only one instance is active. The other instance is passive and can't accept any of the workload. A probe functionality helps when the Azure internal load balancer detects which instance is active, and only target the active instance.  
 
 > [!IMPORTANT]
 > In this example configuration, the **ProbePort** is set to 620**Nr**. For SAP ASCS instance with number **02** it is 620**02**.
 > You will need to adjust the configuration to match your SAP instance numbers and your SAP SID.
 
-To add a probe port run this PowerShell Module on one of the cluster VMs:
+To add a probe port, run this PowerShell Module on one of the cluster VMs:
 
 - In the case of SAP ASC/SCS Instance with instance number **02** 
    ```powershell
@@ -461,7 +499,7 @@ To add a probe port run this PowerShell Module on one of the cluster VMs:
 ## Test the SAP ASCS/SCS instance failover
 For the outlined failover tests, we assume that SAP ASCS is active on node A.  
 
-1. Verify that the SAP system can successfully failover from node A to node B. In this example, the test is done for SAPSID **PR2**.  
+1. Verify that the SAP system can successfully fail over from node A to node B. In this example, the test is done for SAPSID **PR2**.  
    Make sure that each of SAPSID can successfully move to the other cluster node.   
    Choose one of these options to initiate a failover of the SAP \<SID\> cluster group from cluster node A to cluster node B:
     - Failover Cluster Manager  
@@ -624,8 +662,8 @@ For the outlined failover tests, we assume that SAP ASCS is active on node A.
 [sap-ha-guide-figure-6005]:media/virtual-machines-shared-sap-high-availability-guide/6005-sap-multi-sid-azure-portal.png
 [sap-ha-guide-figure-6006]:media/virtual-machines-shared-sap-high-availability-guide/6006-sap-multi-sid-sios-replication.png
 
-[sap-ha-guide-figure-6007]:media/virtual-machines-shared-sap-high-availability-guide/6007-sap-multi-sid-ascs-azure-shared-disk-sid1.png
-[sap-ha-guide-figure-6008]:media/virtual-machines-shared-sap-high-availability-guide/6008-sap-multi-sid-ascs-azure-shared-disk-sid2.png
+[sap-ha-guide-figure-6007]:media/virtual-machines-shared-sap-high-availability-guide/6007-sap-multi-sid-ascs-azure-shared-disk-sid-1.png
+[sap-ha-guide-figure-6008]:media/virtual-machines-shared-sap-high-availability-guide/6008-sap-multi-sid-ascs-azure-shared-disk-sid-2.png
 [sap-ha-guide-figure-6009]:media/virtual-machines-shared-sap-high-availability-guide/6009-sap-multi-sid-ascs-azure-shared-disk-dns1.png
 [sap-ha-guide-figure-6010]:media/virtual-machines-shared-sap-high-availability-guide/6010-sap-multi-sid-ascs-azure-shared-disk-dns2.png
 [sap-ha-guide-figure-6011]:media/virtual-machines-shared-sap-high-availability-guide/6011-sap-multi-sid-ascs-azure-shared-disk-dns3.png

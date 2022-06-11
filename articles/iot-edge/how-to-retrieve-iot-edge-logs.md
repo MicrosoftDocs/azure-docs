@@ -1,9 +1,9 @@
 ---
 title: Retrieve IoT Edge logs - Azure IoT Edge
 description: IoT Edge module log retrieval and upload to Azure Blob Storage. 
-author: v-tcassi
+author: PatAltimore
 
-ms.author: v-tcassi
+ms.author: patricka
 ms.date: 11/12/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
@@ -77,7 +77,7 @@ This method accepts a JSON payload with the following schema:
 |-|-|-|
 | schemaVersion | string | Set to `1.0` |
 | items | JSON array | An array with `id` and `filter` tuples. |
-| ID | string | A regular expression that supplies the module name. It can match multiple modules on an edge device. [.NET Regular Expressions](/dotnet/standard/base-types/regular-expressions) format is expected. |
+| id | string | A regular expression that supplies the module name. It can match multiple modules on an edge device. [.NET Regular Expressions](/dotnet/standard/base-types/regular-expressions) format is expected. In case there are multiple items whose ID matches the same module, only the filter options of the first matching ID will be applied to that module. |
 | filter | JSON section | Log filters to apply to the modules matching the `id` regular expression in the tuple. |
 | tail | integer | Number of log lines in the past to retrieve starting from the latest. OPTIONAL. |
 | since | string | Only return logs since this time, as a duration (1 d, 90 m, 2 days 3 hours 2 minutes), rfc3339 timestamp, or UNIX timestamp.  If both `tail` and `since` are specified, the logs are retrieved using the `since` value first. Then, the `tail` value is applied to the result, and the final result is returned. OPTIONAL. |
@@ -380,7 +380,7 @@ A successful request to upload logs returns a **"status": 200** followed by a pa
 
 | Name | Type | Description |
 |-|-|-|
-| status | string | One of `NotStarted`, `Running`, `Completed`, `Failed`, or `Unknown`. |
+| status | string | One of `NotStarted`, `Running`, `Completed`, `Failed`, 'Cancelled', or `Unknown`. |
 | message | string | Message if error, empty string otherwise. |
 | correlationId | string   | ID to query to status of the upload request. |
 

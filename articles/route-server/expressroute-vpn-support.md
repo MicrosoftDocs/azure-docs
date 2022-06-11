@@ -2,11 +2,11 @@
 title: 'About Azure Route Server supports for ExpressRoute and Azure VPN'
 description: Learn about how Azure Route Server interacts with ExpressRoute and Azure VPN gateways.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: conceptual
-ms.date: 09/01/2021
-ms.author: duau
+ms.date: 10/01/2021
+ms.author: halkazwini
 ---
 
 # About Azure Route Server support for ExpressRoute and Azure VPN
@@ -29,10 +29,15 @@ For example, in the following diagram:
 You can also replace the SDWAN appliance with Azure VPN gateway. Since Azure VPN gateway and ExpressRoute are fully managed, you only need to enable the route exchange for the two on-premises networks to talk to each other.
 
 > [!IMPORTANT] 
-> Azure VPN gateway must be configured in [**active-active**](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md) mode.
+> Azure VPN gateway must be configured in [**active-active**](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md) mode and have the ASN set to 65515.
 >
 
 ![Diagram showing ExpressRoute and VPN gateway configured with Route Server.](./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png)
+
+> [!IMPORTANT] 
+> When the same route is learned over ExpressRoute, Azure VPN or an SDWAN appliance, the ExpressRoute network will be preferred.
+>
+
 
 ## Next steps
 

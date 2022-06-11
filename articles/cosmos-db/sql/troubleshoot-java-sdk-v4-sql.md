@@ -1,10 +1,10 @@
 ---
 title: Diagnose and troubleshoot Azure Cosmos DB Java SDK v4
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Java SDK v4.
-author: anfeldma-ms
+author: TheovanKraay
 ms.service: cosmos-db
-ms.date: 06/11/2020
-ms.author: anfeldma
+ms.date: 04/01/2022
+ms.author: thvankra
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
@@ -34,34 +34,171 @@ Start with this list:
 * Review the [performance tips](performance-tips-java-sdk-v4-sql.md) for Azure Cosmos DB Java SDK v4, and follow the suggested practices.
 * Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-sdk-for-java/issues). If there is an option to add tags to your GitHub issue, add a *cosmos:v4-item* tag.
 
-### Retry Logic <a id="retry-logics"></a>
-Cosmos DB SDK on any IO failure will attempt to retry the failed operation if retry in the SDK is feasible. Having a retry in place for any failure is a good practice but specifically handling/retrying write failures is a must. It's recommended to use the latest SDK as retry logic is continuously being improved.
+## Capture the diagnostics
 
-1. Read and query IO failures will get retried by the SDK without surfacing them to the end user.
-2. Writes (Create, Upsert, Replace, Delete) are "not" idempotent and hence SDK cannot always blindly retry the failed write operations. It is required that user's application logic to handle the failure and retry.
-3. [Trouble shooting sdk availability](troubleshoot-sdk-availability.md) explains retries for multi-region Cosmos DB accounts.
+Database, container, item, and query responses in the Java V4 SDK have a Diagnostics property. This property records all the information related to the single request, including if there were retries or any transient failures.
 
-### Retry design
+The Diagnostics are returned as a string. The string changes with each version as it is improved to better troubleshooting different scenarios. With each version of the SDK, the string will have breaking changes to the formatting. Do not parse the string to avoid breaking changes. 
 
-The application should be designed to retry on any exception unless it is a known issue where retrying will not help. For example, the application should retry on 408 request timeouts, this timeout is possibly transient so a retry may result in success. The application should not retry on 400s, this typically means that there is an issue with the request that must first be resolved. Retrying on the 400 will not fix the issue and will result in the same failure if retried again. The table below shows known failures and which ones to retry on.
+The following code sample shows how to read diagnostic logs using the Java V4 SDK:
 
-## Common error status codes <a id="error-codes"></a>
+> [!IMPORTANT]
+> We recommend validating the minimum recommended version of the Java V4 SDK and ensure you are using this version or higher. You can check recommended version [here](./sql-api-sdk-java-v4.md#recommended-version). 
 
-| Status Code | Retryable | Description | 
-|----------|-------------|-------------|
-| 400 | No | Bad request (i.e. invalid json, incorrect headers, incorrect partition key in header)| 
-| 401 | No | [Not authorized](troubleshoot-unauthorized.md) | 
-| 403 | No | [Forbidden](troubleshoot-forbidden.md) |
-| 404 | No | [Resource is not found](troubleshoot-not-found.md) |
-| 408 | Yes | [Request timed out](troubleshoot-request-timeout-java-sdk-v4-sql.md) |
-| 409 | No | Conflict failure is when the ID provided for a resource on a write operation has been taken by an existing resource. Use another ID for the resource to resolve this issue as ID must be unique within all documents with the same partition key value. |
-| 410 | Yes | Gone exceptions (transient failure that should not violate SLA) |
-| 412 | No | Precondition failure is where the operation specified an eTag that is different from the version available at the server. It's an optimistic concurrency error. Retry the request after reading the latest version of the resource and updating the eTag on the request.
-| 413 | No | [Request Entity Too Large](../concepts-limits.md#per-item-limits) |
-| 429 | Yes | It is safe to retry on a 429. This can be avoided by following the link for [too many requests](troubleshoot-request-rate-too-large.md).|
-| 449 | Yes | Transient error that only occurs on write operations, and is safe to retry. This can point to a design issue where too many concurrent operations are trying to update the same object in Cosmos DB. |
-| 500 | Yes | The operation failed due to an unexpected service error. Contact support by filing an [Azure support issue](https://aka.ms/azure-support). |
-| 503 | Yes | [Service unavailable](troubleshoot-service-unavailable-java-sdk-v4-sql.md) |
+# [Sync](#tab/sync)
+
+#### Database Operations
+
+```Java      
+CosmosDatabaseResponse databaseResponse = client.createDatabaseIfNotExists(databaseName);
+CosmosDiagnostics diagnostics = databaseResponse.getDiagnostics();
+logger.info("Create database diagnostics : {}", diagnostics); 
+``` 
+
+#### Container Operations
+
+```Java
+CosmosContainerResponse containerResponse = database.createContainerIfNotExists(containerProperties,
+                  throughputProperties);
+CosmosDiagnostics diagnostics = containerResponse.getDiagnostics();
+logger.info("Create container diagnostics : {}", diagnostics);
+``` 
+
+#### Item Operations
+
+```Java
+// Write Item
+CosmosItemResponse<Family> item = container.createItem(family, new PartitionKey(family.getLastName()),
+                    new CosmosItemRequestOptions());
+        
+CosmosDiagnostics diagnostics = item.getDiagnostics();
+logger.info("Create item diagnostics : {}", diagnostics);
+        
+// Read Item
+CosmosItemResponse<Family> familyCosmosItemResponse = container.readItem(documentId,
+                    new PartitionKey(documentLastName), Family.class);
+        
+CosmosDiagnostics diagnostics = familyCosmosItemResponse.getDiagnostics();
+logger.info("Read item diagnostics : {}", diagnostics);
+```
+
+#### Query Operations
+
+```Java
+String sql = "SELECT * FROM c WHERE c.lastName = 'Witherspoon'";
+        
+CosmosPagedIterable<Family> filteredFamilies = container.queryItems(sql, new CosmosQueryRequestOptions(),
+                    Family.class);
+        
+//  Add handler to capture diagnostics
+filteredFamilies = filteredFamilies.handle(familyFeedResponse -> {
+    logger.info("Query Item diagnostics through handle : {}", 
+    familyFeedResponse.getCosmosDiagnostics());
+});
+        
+//  Or capture diagnostics through iterableByPage() APIs.
+filteredFamilies.iterableByPage().forEach(familyFeedResponse -> {
+    logger.info("Query item diagnostics through iterableByPage : {}",
+    familyFeedResponse.getCosmosDiagnostics());
+});
+``` 
+
+#### Cosmos Exceptions
+
+```Java
+try {
+  CosmosItemResponse<Family> familyCosmosItemResponse = container.readItem(documentId,
+                    new PartitionKey(documentLastName), Family.class);
+} catch (CosmosException ex) {
+  CosmosDiagnostics diagnostics = ex.getDiagnostics();
+  logger.error("Read item failure diagnostics : {}", diagnostics);
+}
+```
+
+# [Async](#tab/async)
+
+#### Database Operations
+
+```Java
+Mono<CosmosDatabaseResponse> databaseResponseMono = client.createDatabaseIfNotExists(databaseName);
+databaseResponseMono.map(databaseResponse -> {
+  CosmosDiagnostics diagnostics = databaseResponse.getDiagnostics();
+  logger.info("Create database diagnostics : {}", diagnostics);
+}).subscribe();
+``` 
+
+#### Container Operations
+
+```Java
+Mono<CosmosContainerResponse> containerResponseMono = database.createContainerIfNotExists(containerProperties,
+                    throughputProperties);
+containerResponseMono.map(containerResponse -> {
+  CosmosDiagnostics diagnostics = containerResponse.getDiagnostics();
+  logger.info("Create container diagnostics : {}", diagnostics);
+}).subscribe();
+``` 
+
+#### Item Operations
+
+```Java
+// Write Item
+Mono<CosmosItemResponse<Family>> itemResponseMono = container.createItem(family,
+                    new PartitionKey(family.getLastName()),
+                    new CosmosItemRequestOptions());
+        
+itemResponseMono.map(itemResponse -> {
+  CosmosDiagnostics diagnostics = itemResponse.getDiagnostics();
+  logger.info("Create item diagnostics : {}", diagnostics);
+}).subscribe();
+        
+// Read Item
+Mono<CosmosItemResponse<Family>> itemResponseMono = container.readItem(documentId,
+                    new PartitionKey(documentLastName), Family.class);
+
+itemResponseMono.map(itemResponse -> {
+  CosmosDiagnostics diagnostics = itemResponse.getDiagnostics();
+  logger.info("Read item diagnostics : {}", diagnostics);
+}).subscribe();
+```
+
+#### Query Operations
+
+```Java
+String sql = "SELECT * FROM c WHERE c.lastName = 'Witherspoon'";
+CosmosPagedFlux<Family> filteredFamilies = container.queryItems(sql, new CosmosQueryRequestOptions(),
+                    Family.class);
+//  Add handler to capture diagnostics
+filteredFamilies = filteredFamilies.handle(familyFeedResponse -> {
+  logger.info("Query Item diagnostics through handle : {}",
+  familyFeedResponse.getCosmosDiagnostics());
+});
+        
+//  Or capture diagnostics through byPage() APIs.
+filteredFamilies.byPage().map(familyFeedResponse -> {
+  logger.info("Query item diagnostics through byPage : {}",
+  familyFeedResponse.getCosmosDiagnostics());
+}).subscribe();
+``` 
+
+#### Cosmos Exceptions
+
+```Java
+Mono<CosmosItemResponse<Family>> itemResponseMono = container.readItem(documentId,
+                    new PartitionKey(documentLastName), Family.class);
+
+itemResponseMono.onErrorResume(throwable -> {
+  if (throwable instanceof CosmosException) {
+    CosmosException cosmosException = (CosmosException) throwable;
+    CosmosDiagnostics diagnostics = cosmosException.getDiagnostics();
+    logger.error("Read item failure diagnostics : {}", diagnostics);
+  }
+  return Mono.error(throwable);
+}).subscribe();
+```
+---
+
+## Retry design <a id="retry-logics"></a><a id="retry-design"></a><a id="error-codes"></a>
+See our guide to [designing resilient applications with Azure Cosmos SDKs](conceptual-resilient-sdk-applications.md) for guidance on how to design resilient applications and learn which are the retry semantics of the SDK.
 
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
 
@@ -106,6 +243,10 @@ GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.docume
 If you have a firewall running on your app machine, open port range 10,000 to 20,000 which are used by the direct mode.
 Also follow the [Connection limit on a host machine](#connection-limit-on-host).
 
+#### UnknownHostException
+
+UnknownHostException means that the Java framework cannot resolve the DNS entry for the Cosmos DB endpoint in the affected machine. You should verify that the machine can resolve the DNS entry or if you have any custom DNS resolution software (such as VPN or Proxy, or a custom solution), make sure it contains the right configuration for the DNS endpoint that the error is claiming cannot be resolved. If the error is constant, you can verify the machine's DNS resolution through a `curl` command to the endpoint described in the error.
+
 #### HTTP proxy
 
 If you use an HTTP proxy, make sure it can support the number of connections configured in the SDK `ConnectionPolicy`.
@@ -143,6 +284,14 @@ This failure is a server-side failure. It indicates that you consumed your provi
 * **Implement backoff at getRetryAfterInMilliseconds intervals**
 
     During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries.
+
+### Error handling from Java SDK Reactive Chain
+
+Error handling from Cosmos DB Java SDK is important when it comes to client's application logic. There are different error handling mechanism provided by [reactor-core framework](https://projectreactor.io/docs/core/release/reference/#error.handling) which can be used in different scenarios. We recommend customers to understand these error handling operators in detail and use the ones which fit their retry logic scenarios the best.
+
+> [!IMPORTANT]
+> We do not recommend using [`onErrorContinue()`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#onErrorContinue-java.util.function.BiConsumer-) operator, as it is not supported in all scenarios.
+> Note that `onErrorContinue()` is a specialist operator that can make the behaviour of your reactive chain unclear. It operates on upstream, not downstream operators, it requires specific operator support to work, and the scope can easily propagate upstream into library code that didn't anticipate it (resulting in unintended behaviour.). Please refer to [documentation](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#onErrorContinue-java.util.function.BiConsumer-) of `onErrorContinue()` for more details on this special operator.
 
 ### Failure connecting to Azure Cosmos DB Emulator
 

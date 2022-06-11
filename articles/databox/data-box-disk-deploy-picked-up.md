@@ -7,9 +7,8 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/07/2021
+ms.date: 01/25/2022
 ms.author: alkohli
-ms.localizationpriority: high
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -46,9 +45,13 @@ Before you begin, make sure you've completed the [Tutorial: Copy data to Azure D
     - We recommend that you pack disks using a well-secured bubbled wrap.
     - Make sure the fit is snug to reduce any movements within the box.
 
-The next steps are determined by where you are returning the device. The instructions are different for US/Canada, European Union (EU), Australia, or countries/regions in Asia.
+The next steps are determined by where you are returning the device. In many countries/regions, you can use [Microsoft managed shipping](#microsoft-managed-shipping) or [self-managed shipping](#self-managed-shipping).
 
-### [US or Canada](#tab/in-us-or-canada)
+### Microsoft managed shipping
+
+Follow the guidelines for the region you're shipping from if you're using Microsoft managed shipping.
+
+### [US & Canada](#tab/in-us-canada)
 
 Take the following steps if returning the device in US or Canada.
 
@@ -64,8 +67,7 @@ Take the following steps if returning the device in US or Canada.
     - If the tracking number isn't quoted, UPS will require you to pay an additional charge during pickup.
     - Instead of scheduling the pickup, you can also drop off the Data Box Disk at the nearest drop-off location.
 
-
-### [Europe or UK](#tab/in-europe-or-uk)
+### [EU & UK](#tab/in-europe-uk)
 
 Take the following steps if returning the device in Europe or the UK.
 
@@ -91,7 +93,7 @@ Azure datacenters in Australia have an additional security notification. All the
 2. Email Quantium solution using the following email template.
 
     ```
-    To: Customerservice.JP@quantiumsolutions.com
+    To: azure.qsjp@quantiumsolutions.com
     Subject: Pickup request for Microsoft Azure Data Box Disk｜Job Name： 
     Body: 
     - Japan Post Yu-Pack tracking number (reference number)：
@@ -109,7 +111,7 @@ Azure datacenters in Australia have an additional security notification. All the
 
 If needed, you can contact Quantium Solution Support (Japanese language) at the following information: 
 
-- Email：[Customerservice.JP@quantiumsolutions.com](mailto:Customerservice.JP@quantiumsolutions.com)
+- Email：[azure.qsjp@quantiumsolutions.com](mailto:azure.qsjp@quantiumsolutions.com)
 - Telephone：03-5755-0150 
 
 ### [Korea](#tab/in-korea)
@@ -135,7 +137,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 2. To request pickup, email SingPost Customer Service by using the following template with the tracking number (the tracking number can be found on the return label provided in the delivered package).
 
     ```
-    To: kadcustcare@singpost.com
+    To: g-corpsgcs@singpost.com
     Subject: Microsoft Azure Pickup - XZ00001234567
     Body:
      a.    Requestor name
@@ -153,37 +155,6 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
    If you come across any issues, contact Data Box Operations Asia at [adbo@microsoft.com](mailto:adbo@microsoft.com). Provide the job name in the subject header and the issue encountered.
 
 3. Hand over to the courier.
-
-### [South Africa](#tab/in-sa)
-
-Take the following steps if returning the device in South Africa.
-
-1. Attach the provided shipping label on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > Download shipping label**.
-
-2. Seal the shipping box and ensure that the return shipping label is visible.
-
-3. Request a return code from Azure Data Box Operations. A return code is required for delivering the package back to the datacenter. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com). Note this code on the shipping label next to the return address so it is clearly visible.
-
-4. Book a pickup with DHL using one of the following methods:
-   * Book a pickup online by going to [DHL Express South Africa, **Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference).
-   * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) using the following template:
-
-     ```output
-     To: Priority.Support@dhl.com
-     Subject: Pickup request for Microsoft Azure
-     Body: Need pick up for the below shipment
-       *  DHL tracking number: (reference number/waybill number)
-       *  Requested pickup date: yyyy/mm/dd;time:HH MM
-       *  Shipper contact: (company name)
-       *  Contact person: 
-       *  Phone number: 
-       *  Full physical address: 
-       *  Item to be collected: Azure Dt
-     ```
-
-    * Or drop off the package at the nearest DHL service point.
-
-5. If you come across any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s), and put the waybill number in the Subject: line. You can also call +27(0)119213902.
 
 ### [China](#tab/in-china)
 
@@ -225,9 +196,43 @@ Take the following steps if returning the device in China.
 |Phone:      | 400.889.6066 ext. 3603 |
 |E-mail:     | [739951@fedex.com](mailto:739951@fedex.com) |
 
-### [Self-Managed](#tab/in-selfmanaged)
 
-If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United Kingdom, West Europe, Australia, South Africa, India, or Brazil, and have selected the self-managed shipping option during order creation, follow these instructions.
+### [S Africa](#tab/in-sa)
+
+Take the following steps if returning the device in South Africa. 
+
+1. Attach the provided shipping label on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > Download shipping label**.
+
+2. Seal the shipping box and ensure that the return shipping label is visible.
+
+3. Request a return code from Azure Data Box Operations. A return code is required for delivering the package back to the datacenter. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com). Note this code on the shipping label next to the return address so it is clearly visible.
+
+4. Book a pickup with DHL using one of the following methods:
+   * Book a pickup online by going to [DHL Express South Africa, **Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference).
+   * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) using the following template:
+
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
+
+    * Or drop off the package at the nearest DHL service point.
+
+5. If you come across any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s), and put the waybill number in the Subject: line. You can also call +27(0)119213902.
+
+---
+
+### Self-managed shipping
+
+If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United Kingdom, West Europe, Australia, South Africa, India, or Brazil, and have selected the self-managed shipping option during order creation, follow these instructions. For detailed steps, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
 
 1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
 

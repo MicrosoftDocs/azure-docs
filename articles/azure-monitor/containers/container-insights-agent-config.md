@@ -3,6 +3,7 @@ title: Configure Container insights agent data collection | Microsoft Docs
 description: This article describes how you can configure the Container insights agent to control stdout/stderr and environment variables log collection.
 ms.topic: conceptual
 ms.date: 10/09/2020
+ms.reviewer: aul
 ---
 
 # Configure agent data collection for Container insights
@@ -36,7 +37,7 @@ The following table describes the settings you can configure to control data col
 | `[log_collection_settings.stderr] exclude_namespaces =` | String | Comma-separated array | Array of Kubernetes namespaces for which stderr logs will not be collected.<br> This setting is effective only if<br> `log_collection_settings.stdout.enabled` is set to `true`.<br> If not specified in ConfigMap, the default value is<br> `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.env_var] enabled =` | Boolean | true or false | This setting controls environment variable collection<br> across all pods/nodes in the cluster<br> and defaults to `enabled = true` when not specified<br> in ConfigMaps.<br> If collection of environment variables is globally enabled, you can disable it for a specific container<br> by setting the environment variable<br> `AZMON_COLLECT_ENV` to **False** either with a Dockerfile setting or in the [configuration file for the Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under the **env:** section.<br> If collection of environment variables is globally disabled, then you cannot enable collection for a specific container (that is, the only override that can be applied at the container level is to disable collection when it's already enabled globally.). |
 | `[log_collection_settings.enrich_container_logs] enabled =` | Boolean | true or false | This setting controls container log enrichment to populate the Name and Image property values<br> for every log record written to the ContainerLog table for all container logs in the cluster.<br> It defaults to `enabled = false` when not specified in ConfigMap. |
-| `[log_collection_settings.collect_all_kube_events]` | Boolean | true or false | This setting allows the collection of Kube events of all types.<br> By default the Kube events with type *Normal* are not collected. When this setting is set to `true`, the *Normal* events are no longer filtered and all events are collected.<br> By default, this is set to `false`. |
+| `[log_collection_settings.collect_all_kube_events] enabled =` | Boolean | true or false | This setting allows the collection of Kube events of all types.<br> By default the Kube events with type *Normal* are not collected. When this setting is set to `true`, the *Normal* events are no longer filtered and all events are collected.<br> It defaults to `enabled = false` when not specified in the ConfigMap |
 
 ### Metric collection settings
 

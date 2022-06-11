@@ -77,7 +77,7 @@ Once the ping is verified, repeat the steps you used for adding the primary stor
     - **Credential Name**: Provide a name that identifies username and sudoers.
     - **Authentication**: Linux
     - **Username**: Provide newly created username.
-    - **Password**: <Enter Password>
+    - **Password**: \<enter password\>
     - Check **Use sudo privileges** box
     
 7. Select **Ok**.

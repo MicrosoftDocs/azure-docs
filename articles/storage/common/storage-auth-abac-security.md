@@ -24,7 +24,7 @@ To fully secure resources using [Azure attribute-based access control (Azure ABA
 
 This article describes security considerations that you should factor into your role assignment conditions.
 
-## Use of other authorization mechanisms 
+## Use of other authorization mechanisms
 
 Role assignment conditions are only evaluated when using Azure RBAC for authorization. These conditions can be bypassed if you allow access using alternate authorization methods:
 - [Shared Key](/rest/api/storageservices/authorize-with-shared-key) authorization
@@ -77,7 +77,7 @@ When using tags to query and filter blobs in a container, only the base blobs ar
 
 ## Roles and permissions
 
-If you’re using role assignment conditions for [Azure built-in roles](../../role-based-access-control/built-in-roles.md), you should carefully review all the permissions that the role grants to a principal.
+If you're using role assignment conditions for [Azure built-in roles](../../role-based-access-control/built-in-roles.md), you should carefully review all the permissions that the role grants to a principal.
 
 ### Inherited role assignments
 
@@ -112,4 +112,3 @@ Conditions don't apply for access to the blob specified by the `prevsnapshot` UR
 - [Authorize access to blobs using Azure role assignment conditions (preview)](storage-auth-abac.md)
 - [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
 - [What is Azure attribute-based access control (Azure ABAC)? (preview)](../../role-based-access-control/conditions-overview.md)
-

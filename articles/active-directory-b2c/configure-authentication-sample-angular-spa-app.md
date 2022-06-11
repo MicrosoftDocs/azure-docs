@@ -2,13 +2,13 @@
 title: Configure authentication in a sample Angular SPA by using Azure Active Directory B2C
 description: Learn how to use Azure Active Directory B2C to sign in and sign up users in an Angular SPA.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
-ms.date: 07/29/2021
-ms.author: mimart
+ms.topic: how-to
+ms.date: 03/30/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -21,11 +21,11 @@ This article uses a sample Angular single-page application (SPA) to illustrate h
 
 OpenID Connect (OIDC) is an authentication protocol built on OAuth 2.0 that you can use to securely sign in a user to an application. This Angular sample uses [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular) and the [MSAL Browser](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser). MSAL is a Microsoft-provided library that simplifies adding authentication and authorization support to Angular SPAs.
 
-### Sign-in flow
+### Sign in flow
 
 The sign-in flow involves the following steps:
 
-1. The user opens the app and selects **Sign-in**. 
+1. The user opens the app and selects **Sign in**. 
 1. The app starts an authentication request and redirects the user to Azure AD B2C.
 1. The user [signs up or signs in](add-sign-up-and-sign-in-policy.md) and [resets the password](add-password-reset-policy.md), or signs in with a [social account](add-identity-provider.md).
 1. Upon successful sign-in, Azure AD B2C returns an authorization code to the app. The app takes the following actions:
@@ -49,7 +49,7 @@ The following diagram describes the app registrations and the app architecture.
 
 [!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-app-integration-call-api.md)]
 
-### Sign-out flow
+### Sign out flow
 
 [!INCLUDE [active-directory-b2c-app-integration-sign-out-flow](../../includes/active-directory-b2c-app-integration-sign-out-flow.md)]
 
@@ -59,7 +59,7 @@ Before you follow the procedures in this article, make sure that your computer i
 
 * [Visual Studio Code](https://code.visualstudio.com/) or another code editor.
 * [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
-* [Angular LCI](https://angular.io/cli).
+* [Angular CLI](https://angular.io/cli).
 
 ## Step 1: Configure your user flow
 
@@ -82,7 +82,8 @@ In this step, you create the registrations for the Angular SPA and the web API a
 Follow these steps to create the Angular app registration:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon on the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. For **Name**, enter a name for the application. For example, enter **MyApp**.
@@ -144,7 +145,7 @@ export const b2cPolicies = {
 export const msalConfig: Configuration = {
      auth: {
          clientId: '<your-MyApp-application-ID>',
-         authority: b2cPolicies.authorities.signUpSignIn.
+         authority: b2cPolicies.authorities.signUpSignIn.authority,
          knownAuthorities: [b2cPolicies.authorityDomain],
          redirectUri: '/', 
      },

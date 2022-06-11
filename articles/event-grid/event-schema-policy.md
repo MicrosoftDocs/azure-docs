@@ -4,7 +4,7 @@ description: This article describes how to use Azure Policy as an Event Grid eve
 ms.topic: conceptual
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/29/2021
+ms.date: 09/15/2021
 ---
 
 # Azure Policy as an Event Grid source

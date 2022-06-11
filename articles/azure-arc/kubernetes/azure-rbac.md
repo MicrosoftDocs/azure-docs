@@ -1,19 +1,19 @@
 ---
-title: "Azure RBAC for Azure Arc enabled Kubernetes clusters"
+title: "Azure RBAC for Azure Arc-enabled Kubernetes clusters"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 04/05/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
-description: "Use Azure RBAC for authorization checks on Azure Arc enabled Kubernetes clusters."
+description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
 ---
 
-# Integrate Azure Active Directory with Azure Arc enabled Kubernetes clusters
+# Integrate Azure Active Directory with Azure Arc-enabled Kubernetes clusters
 
 Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. By using this feature, you can use Azure Active Directory (Azure AD) and role assignments in Azure to control authorization checks on the cluster. This implies that you can now use Azure role assignments to granularly control who can read, write, and delete Kubernetes objects like deployment, pod, and service.
 
-A conceptual overview of this feature is available in the [Azure RBAC on Azure Arc enabled Kubernetes](conceptual-azure-rbac.md) article.
+A conceptual overview of this feature is available in the [Azure RBAC on Azure Arc-enabled Kubernetes](conceptual-azure-rbac.md) article.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -33,7 +33,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     az extension update --name connectedk8s
     ```
 
-- Connect an existing Azure Arc enabled Kubernetes cluster:
+- Connect an existing Azure Arc-enabled Kubernetes cluster:
     - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
     - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.1.0 or later.
 
@@ -47,8 +47,9 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
     ```azurecli
-    CLUSTERNAME="<clusterName>"
-    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTERNAME}Server" --identifier-uris "https://${CLUSTERNAME}Server" --query appId -o tsv)
+    CLUSTER_NAME="<clusterName>"
+    TENANT_ID="<tenant>"
+    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/ClientAnyUniqueSuffix" --query appId -o tsv)
     echo $SERVER_APP_ID
     ```
 
@@ -82,7 +83,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
 
     ```azurecli
-    CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTERNAME}Client" --native-app --reply-urls "https://${CLUSTERNAME}Client" --query appId -o tsv)
+    CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Client" --native-app --reply-urls "api://${TENANT_ID}/ServerAnyUniqueSuffix" --query appId -o tsv)
     echo $CLIENT_APP_ID
     ```
 
@@ -142,9 +143,9 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 
 ## Enable Azure RBAC on the cluster
 
-Enable Azure role-based access control (RBAC) on your Arc enabled Kubernetes cluster by running the following command:
+Enable Azure role-based access control (RBAC) on your Azure Arc-enabled Kubernetes cluster by running the following command:
 
-```console
+```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
     
@@ -157,6 +158,10 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 1. SSH into every master node of the cluster and take the following steps:
 
+    **If your `kube-apiserver` is a [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/):**
+
+    1. The `azure-arc-guard-manifests` secret in the `kube-system` namespace contains two files `guard-authn-webhook.yaml` and `guard-authz-webhook.yaml`. Copy these files to the `/etc/guard` directory of the node.
+
     1. Open the `apiserver` manifest in edit mode:
         
         ```console
@@ -164,10 +169,35 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
         ```
 
     1. Add the following specification under `volumes`:
-        
+    
         ```yml
         - name: azure-rbac
-          secret:
+            hostPath:
+            path: /etc/guard
+            type: Directory
+        ```
+
+    1. Add the following specification under `volumeMounts`:
+
+        ```yml
+        - mountPath: /etc/guard
+            name: azure-rbac
+            readOnly: true
+        ```
+
+    **If your `kube-apiserver` is a not a static pod:**
+
+    1. Open the `apiserver` manifest in edit mode:
+        
+        ```console
+        sudo vi /etc/kubernetes/manifests/kube-apiserver.yaml
+        ```
+
+    1. Add the following specification under `volumes`:
+    
+        ```yml
+        - name: azure-rbac
+            secret:
             secretName: azure-arc-guard-manifests
         ```
 
@@ -175,28 +205,28 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
         ```yml
         - mountPath: /etc/guard
-          name: azure-rbac
-          readOnly: true
+            name: azure-rbac
+            readOnly: true
         ```
 
-    1. Add the following `apiserver` arguments:
+1. Add the following `apiserver` arguments:
 
-        ```yml
-        - --authentication-token-webhook-config-file=/etc/guard/guard-authn-webhook.yaml
-        - --authentication-token-webhook-cache-ttl=5m0s
-        - --authorization-webhook-cache-authorized-ttl=5m0s
-        - --authorization-webhook-config-file=/etc/guard/guard-authz-webhook.yaml
-        - --authorization-webhook-version=v1
-        - --authorization-mode=Node,Webhook,RBAC
-        ```
-    
-        If the Kubernetes cluster is version 1.19.0 or later, you also need to set the following `apiserver` argument:
+    ```yml
+    - --authentication-token-webhook-config-file=/etc/guard/guard-authn-webhook.yaml
+    - --authentication-token-webhook-cache-ttl=5m0s
+    - --authorization-webhook-cache-authorized-ttl=5m0s
+    - --authorization-webhook-config-file=/etc/guard/guard-authz-webhook.yaml
+    - --authorization-webhook-version=v1
+    - --authorization-mode=Node,RBAC,Webhook
+    ```
 
-        ```yml
-        - --authentication-token-webhook-version=v1
-        ```
+    If the Kubernetes cluster is version 1.19.0 or later, you also need to set the following `apiserver` argument:
 
-    1. Save and close the editor to update the `apiserver` pod.
+    ```yml
+    - --authentication-token-webhook-version=v1
+    ```
+
+1. Save and close the editor to update the `apiserver` pod.
 
 
 ### Cluster created by using Cluster API
@@ -255,7 +285,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
         authentication-token-webhook-cache-ttl: 5m0s
         authentication-token-webhook-config-file: /etc/guard/guard-authn-webhook.yaml
         authentication-token-webhook-version: v1
-        authorization-mode: Node,Webhook,RBAC
+        authorization-mode: Node,RBAC,Webhook
         authorization-webhook-cache-authorized-ttl: 5m0s
         authorization-webhook-config-file: /etc/guard/guard-authz-webhook.yaml
         authorization-webhook-version: v1
@@ -266,7 +296,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 ## Create role assignments for users to access the cluster
 
-Owners of the Azure Arc enabled Kubernetes resource can use either built-in roles or custom roles to grant other users access to the Kubernetes cluster.
+Owners of the Azure Arc-enabled Kubernetes resource can use either built-in roles or custom roles to grant other users access to the Kubernetes cluster.
 
 ### Built-in roles
 
@@ -277,7 +307,7 @@ Owners of the Azure Arc enabled Kubernetes resource can use either built-in role
 | [Azure Arc Kubernetes Admin](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-admin) | Allows admin access. It's intended to be granted within a namespace through `RoleBinding`. If you use it in `RoleBinding`, it allows read/write access to most resources in a namespace, including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
 | [Azure Arc Kubernetes Cluster Admin](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-cluster-admin) | Allows superuser access to execute any action on any resource. When you use it in `ClusterRoleBinding`, it gives full control over every resource in the cluster and in all namespaces. When you use it in `RoleBinding`, it gives full control over every resource in the role binding's namespace, including the namespace itself.|
 
-You can create role assignments scoped to the Arc enabled Kubernetes cluster in the Azure portal, on the **Access Control (IAM)** pane of the cluster resource. You can also use the following Azure CLI commands:
+You can create role assignments scoped to the Azure Arc-enabled Kubernetes cluster in the Azure portal, on the **Access Control (IAM)** pane of the cluster resource. You can also use the following Azure CLI commands:
 
 ```azurecli
 az role assignment create --role "Azure Arc Kubernetes Cluster Admin" --assignee <AZURE-AD-ENTITY-ID> --scope $ARM_ID
@@ -320,13 +350,13 @@ Copy the following JSON object into a file called *custom-role.json*. Replace th
 
 1. Create the role definition by running the following command from the folder where you saved *custom-role.json*:
 
-    ```bash
+    ```azurecli
     az role definition create --role-definition @custom-role.json
     ```
 
 1. Create a role assignment by using this custom role definition:
 
-    ```bash
+    ```azurecli
     az role assignment create --role "Arc Deployment Viewer" --assignee <AZURE-AD-ENTITY-ID> --scope $ARM_ID/namespaces/<namespace-name>
     ```
 
@@ -334,14 +364,14 @@ Copy the following JSON object into a file called *custom-role.json*. Replace th
 
 There are two ways to get the *kubeconfig* file that you need to access the cluster:
 
-- You use the [Cluster Connect](cluster-connect.md) feature (`az connectedk8s proxy`) of the Azure Arc enabled Kubernetes cluster.
+- You use the [Cluster Connect](cluster-connect.md) feature (`az connectedk8s proxy`) of the Azure Arc-enabled Kubernetes cluster.
 - The cluster admin shares the *kubeconfig* file with every other user.
 
 ### If you're accessing the cluster by using the Cluster Connect feature
 
 Run the following command to start the proxy process:
 
-```console
+```azurecli
 az connectedk8s proxy -n <clusterName> -g <resourceGroupName>
 ```
 
@@ -399,7 +429,7 @@ After the proxy process is running, you can open another tab in your console to 
 
 ## Use Conditional Access with Azure AD
 
-When you're integrating Azure AD with your Arc enabled Kubernetes cluster, you can also use [Conditional Access](../../active-directory/conditional-access/overview.md) to control access to your cluster.
+When you're integrating Azure AD with your Azure Arc-enabled Kubernetes cluster, you can also use [Conditional Access](../../active-directory/conditional-access/overview.md) to control access to your cluster.
 
 > [!NOTE]
 > Azure AD Conditional Access is an Azure AD Premium capability.

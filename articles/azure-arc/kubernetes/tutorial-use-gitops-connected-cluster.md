@@ -1,20 +1,23 @@
 ---
-title: 'Tutorial: Deploy configurations using GitOps on an Azure Arc enabled Kubernetes cluster'
-description: This tutorial demonstrates applying configurations on an Azure Arc enabled Kubernetes cluster. For a conceptual take on this process, see the Configurations and GitOps - Azure Arc enabled Kubernetes article. 
-author: shashankbarsin
-ms.author: shasb
+title: 'Tutorial: Deploy configurations using GitOps on an Azure Arc-enabled Kubernetes cluster'
+description: This tutorial demonstrates applying configurations on an Azure Arc-enabled Kubernetes cluster. For a conceptual take on this process, see the Configurations and GitOps - Azure Arc-enabled Kubernetes article. 
+author: csand-msft
+ms.author: csand
 ms.service: azure-arc
 ms.topic: tutorial 
-ms.date: 03/02/2021
-ms.custom: template-tutorial , devx-track-azurecli
+ms.date: 05/24/2022
+ms.custom: template-tutorial, devx-track-azurecli
 ---
 
-# Tutorial: Deploy configurations using GitOps on an Azure Arc enabled Kubernetes cluster 
+# Tutorial: Deploy configurations using GitOps on an Azure Arc-enabled Kubernetes cluster 
 
-In this tutorial, you will apply configurations using GitOps on an Azure Arc enabled Kubernetes cluster. You'll learn how to:
+> [!NOTE]
+> This tutorial is for GitOps with Flux v1.  GitOps with Flux v2 is now available for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the tutorial for GitOps with Flux v2](./tutorial-use-gitops-flux2.md). Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
+
+In this tutorial, you will apply configurations using GitOps on an Azure Arc-enabled Kubernetes cluster. You'll learn how to:
 
 > [!div class="checklist"]
-> * Create a configuration on an Azure Arc enabled Kubernetes cluster using an example Git repository.
+> * Create a configuration on an Azure Arc-enabled Kubernetes cluster using an example Git repository.
 > * Validate that the configuration was successfully created.
 > * Apply configuration from a private Git repository.
 > * Validate the Kubernetes configuration.
@@ -22,9 +25,9 @@ In this tutorial, you will apply configurations using GitOps on an Azure Arc ena
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An existing Azure Arc enabled Kubernetes connected cluster.
-    - If you haven't connected a cluster yet, walk through our [Connect an Azure Arc enabled Kubernetes cluster quickstart](quickstart-connect-cluster.md).
-- An understanding of the benefits and architecture of this feature. Read more in [Configurations and GitOps - Azure Arc enabled Kubernetes article](conceptual-configurations.md).
+- An existing Azure Arc-enabled Kubernetes connected cluster.
+    - If you haven't connected a cluster yet, walk through our [Connect an Azure Arc-enabled Kubernetes cluster quickstart](quickstart-connect-cluster.md).
+- An understanding of the benefits and architecture of this feature. Read more in [Configurations and GitOps - Azure Arc-enabled Kubernetes article](conceptual-configurations.md).
 - Install the `k8s-configuration` Azure CLI extension of version >= 1.0.0:
   
   ```azurecli
@@ -147,7 +150,7 @@ Just like private keys, you can provide your known_hosts content directly or in 
 >[!NOTE]
 >* Helm operator chart version 1.2.0+ supports the HTTPS Helm release private auth.
 >* HTTPS Helm release is not supported for AKS managed clusters.
->* If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md#4a-connect-using-an-outbound-proxy-server).
+>* If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
 
 
 ## Additional Parameters
@@ -184,7 +187,7 @@ For more information, see the [Flux documentation](https://aka.ms/FluxcdReadme).
 > Flux defaults to sync from the `master` branch of the git repo. However, newer git repositories have the root branch named `main`, in which case you need to set `--git-branch=main` in the --operator-params. 
 
 > [!TIP]
-> You can create a configuration in the Azure portal in the **GitOps** tab of the Azure Arc enabled Kubernetes resource.
+> You can create a configuration in the Azure portal in the **GitOps** tab of the Azure Arc-enabled Kubernetes resource.
 
 ## Validate the configuration
 
@@ -262,8 +265,8 @@ If you generated your own SSH keys, then you already have the private and public
 
 Use the following in Azure CLI if Flux is generating the keys.
 
-```console
-$ az k8s-configuration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --cluster-type connectedClusters --query 'repositoryPublicKey' 
+```azurecli
+az k8s-configuration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --cluster-type connectedClusters --query 'repositoryPublicKey' 
 "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAREDACTED"
 ```
 

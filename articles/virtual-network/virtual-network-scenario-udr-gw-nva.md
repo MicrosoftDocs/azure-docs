@@ -3,18 +3,17 @@ title: Hybrid connection with 2-tier application | Microsoft Docs
 description: Learn how to deploy virtual appliances and UDR to create a multi-tier application environment in Azure
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: mbender-ms
 manager: carmonm
 
 
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
-ms.author: kumud
+ms.author: mbender
 
 ---
 # Virtual appliance scenario

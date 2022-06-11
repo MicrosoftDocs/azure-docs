@@ -6,7 +6,6 @@ keywords: applied ai services, artificial intelligence, applied ai, ai services,
 author: jeffme
 manager: nitinme
 ms.service: applied-ai-services
-ms.subservice:
 ms.topic: overview
 ms.date: 05/04/2021
 ms.author: jeffme
@@ -22,7 +21,7 @@ Enabling organizations in all industries to consume information hidden within do
 
 Form Recognizer is composed of custom document processing models, prebuilt models for invoices, receipts, IDs and business cards, and the layout model. 
 
-[Learn more about Azure Form Recognizer](../cognitive-services/form-recognizer/index.yml)​​
+[Learn more about Azure Form Recognizer](./form-recognizer/index.yml)​​
 
 ## Azure Metrics Advisor
 

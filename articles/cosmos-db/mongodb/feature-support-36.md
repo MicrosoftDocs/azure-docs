@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB's API for MongoDB (3.6 version) support
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 04/04/2022
 author: gahl-levy
 ms.author: gahllevy
 ---
@@ -175,6 +175,9 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 ### Comparison expressions
 
+> [!NOTE]
+> The API for MongoDB does not support comparison expressions with an array literal in the query.
+
 | Command | Supported |
 |---------|---------|
 | $cmp | Yes |
@@ -290,9 +293,9 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $dateToString | Yes |
 | $isoDayOfWeek | Yes |
 | $isoWeek | Yes |
-| $dateFromParts | No | 
-| $dateToParts | No |
-| $dateFromString | No |
+| $dateFromParts | Yes | 
+| $dateToParts | Yes |
+| $dateFromString | Yes |
 | $isoWeekYear | Yes |
 
 ### Conditional expressions
@@ -374,7 +377,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |---------|---------|
 | TTL | Yes |
 | Unique | Yes |
-| Partial | No |
+| Partial | Only supported with unique indexes |
 | Case Insensitive | No |
 | Sparse | No |
 | Background | Yes |
@@ -401,7 +404,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 | Command | Supported |
 |---------|---------|
-| $expr | No |
+| $expr | Yes |
 | $jsonSchema | No |
 | $mod | Yes |
 | $regex | Yes |
@@ -412,7 +415,7 @@ In the $regex queries, left-anchored expressions allow index search. However, us
 
 When there's a need to include '$' or '|', it is best to create two (or more) regex queries. For example, given the following original query: ```find({x:{$regex: /^abc$/})```, it has to be modified as follows:
 
-```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```
+`find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})`
 
 The first part will use the index to restrict the search to those documents beginning with ^abc and the second part will match the exact entries. The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^abc |^def/})``` matches the documents in which field 'x' has values that begin with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
@@ -508,34 +511,8 @@ $polygon | No |
 
 When using the `findOneAndUpdate` operation, sort operations on a single field are supported but sort operations on multiple fields are not supported.
 
-## Unique indexes
-
-[Unique indexes](mongodb-indexing.md#unique-indexes) ensure that a specific field doesn't have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. You can create unique indexes in Cosmos DB by using the `createIndex` command with the `unique` constraint parameter:
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
-{
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 4
-}
-```
-
-## Compound indexes
-
-[Compound indexes](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) provide a way to create an index for groups of fields for up to 8 fields. This type of index differs from the native MongoDB compound indexes. In Azure Cosmos DB, compound indexes are used for sorting operations that are applied to multiple fields. To create a compound index you need to specify more than one property as the parameter:
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
-{
-        "createdCollectionAutomatically" : false, 
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 2,
-        "ok" : 1
-}
-```
+## Indexing
+The API for MongoDB [supports a variety of indexes](mongodb-indexing.md) to enable sorting on multiple fields, improve query performance, and enforce uniqueness.
 
 ## GridFS
 
@@ -544,10 +521,6 @@ Azure Cosmos DB supports GridFS through any GridFS-compatible MongoDB driver.
 ## Replication
 
 Cosmos DB supports automatic, native replication at the lowest layers. This logic is extended out to achieve low-latency, global replication as well. Cosmos DB does not support manual replication commands.
-
-
-
-
 
 ## Retryable Writes
 

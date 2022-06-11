@@ -9,12 +9,14 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/24/2021
+ms.date: 03/25/2022
 ---
 
 # Sink transformation in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 After you finish transforming your data, write it into a destination store by using the sink transformation. Every data flow requires at least one sink transformation, but you can write to as many sinks as necessary to complete your transformation flow. To write to additional sinks, create new streams via new branches and conditional splits.
 
@@ -30,7 +32,7 @@ Inline datasets are recommended when you use flexible schemas, one-off sink inst
 
 To use an inline dataset, select the format you want in the **Sink type** selector. Instead of selecting a sink dataset, you select the linked service you want to connect to.
 
-![Screenshot that shows Inline selected.](media/data-flow/inline-selector.png "Screenshot that shows Inline selected.")
+:::image type="content" source="media/data-flow/inline-selector.png" alt-text="Screenshot that shows Inline selected.":::
 
 ## Workspace DB (Synapse workspaces only)
 
@@ -39,7 +41,7 @@ When using data flows in Azure Synapse workspaces, you will have an additional o
 > [!NOTE]
 > The Azure Synapse Workspace DB connector is currently in public preview and can only work with Spark Lake databases at this time
 
-![Screenshot that shows workspace db selected.](media/data-flow/syms-sink.png "Screenshot that shows Inline selected.")
+:::image type="content" source="media/data-flow/syms-sink.png" alt-text="Screenshot that shows workspace db selected.":::
 
 ##  <a name="supported-sinks"></a> Supported sink types
 
@@ -53,9 +55,14 @@ Mapping data flow follows an extract, load, and transform (ELT) approach and wor
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br/>[Common Data Model](format-common-data-model.md#sink-properties)<br>[Delimited text](format-delimited-text.md#mapping-data-flow-properties) <br>[Delta](format-delta.md) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br>-/✓ <br>✓/- <br>-/✓ <br>✓/-<br>✓/✓ <br>✓/- |
 | [Azure Database for MySQL](connector-azure-database-for-mysql.md) |  | ✓/✓ |
 | [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md) |  | ✓/✓ |
+| [Azure Data Explorer](connector-azure-data-explorer.md) |  | ✓/✓ |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/✓ |
 | [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Dataverse](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
+| [Dynamics 365](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
+| [Dynamics CRM](connector-dynamics-crm-office-365.md#mapping-data-flow-properties) | | ✓/✓ |
+| [SFTP](connector-sftp.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br>[Delimited text](format-delimited-text.md#mapping-data-flow-properties) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/✓ <br>✓/✓ <br>✓/✓ <br>✓/✓<br>✓/✓|
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 | [SQL Server](connector-sql-server.md) | | ✓/✓ |
 
@@ -71,11 +78,12 @@ The following video explains a number of different sink options for text-delimit
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 
-![Screenshot that shows Sink settings.](media/data-flow/sink-settings.png "Screenshot that shows Sink settings.")
+:::image type="content" source="media/data-flow/sink-settings.png" alt-text="Screenshot that shows Sink settings.":::
 
 **Schema drift**: [Schema drift](concepts-data-flow-schema-drift.md) is the ability of the service to natively handle flexible schemas in your data flows without needing to explicitly define column changes. Enable **Allow schema drift** to write additional columns on top of what's defined in the sink data schema.
 
-**Validate schema**: If validate schema is selected, the data flow will fail if any column of the incoming source schema isn't found in the source projection, or if the data types don't match. Use this setting to enforce that the source data meets the contract of your defined projection. It's useful in database source scenarios to signal that column names or types have changed.
+**Validate schema**: If validate schema is selected, the data flow will fail if any column in sink projection isn't found in the sink store, or if the data types don't match. Use this setting to enforce that the sink schema meets the contract of your defined projection. It's useful in database sink scenarios to signal that column names or types have changed.
+
 
 ## Cache sink
 
@@ -85,11 +93,11 @@ A *cache sink* is when a data flow writes data into the Spark cache instead of a
 
 To write to a cache sink, add a sink transformation and select **Cache** as the sink type. Unlike other sink types, you don't need to select a dataset or linked service because you aren't writing to an external store. 
 
-![Select cache sink](media/data-flow/select-cache-sink.png "Select cache sink")
+:::image type="content" source="media/data-flow/select-cache-sink.png" alt-text="Select cache sink":::
 
 In the sink settings, you can optionally specify the key columns of the cache sink. These are used as matching conditions when using the `lookup()` function in a cache lookup. If you specify key columns, you can't use the `outputs()` function in a cache lookup. To learn more about the cache lookup syntax, see [cached lookups](concepts-data-flow-expression-builder.md#cached-lookup).
 
-![Cache sink key columns](media/data-flow/cache-sink-key-columns.png "Cache sink key columns")
+:::image type="content" source="media/data-flow/cache-sink-key-columns.png" alt-text="Cache sink key columns":::
 
 For example, if I specify a single key column of `column1` in a cache sink called `cacheExample`, calling `cacheExample#lookup()` would have one parameter specifies which row in the cache sink to match on. The function outputs a single complex column with subcolumns for each column mapped.
 
@@ -108,24 +116,30 @@ When you turn off automapping, you can add either fixed column-based mappings or
 
 By default, data is written to multiple sinks in a nondeterministic order. The execution engine writes data in parallel as the transformation logic is completed, and the sink ordering might vary each run. To specify an exact sink ordering, enable **Custom sink ordering** on the **General** tab of the data flow. When enabled, sinks are written sequentially in increasing order.
 
-![Screenshot that shows Custom sink ordering.](media/data-flow/custom-sink-ordering.png "Screenshot that shows Custom sink ordering.")
+:::image type="content" source="media/data-flow/custom-sink-ordering.png" alt-text="Screenshot that shows Custom sink ordering.":::
 
 > [!NOTE]
 > When utilizing [cached lookups](./concepts-data-flow-expression-builder.md#cached-lookup), make sure that your sink ordering has the cached sinks set to 1, the lowest (or first) in ordering.
 
-![Custom sink ordering](media/data-flow/cache-2.png "Custom sink ordering")
+:::image type="content" source="media/data-flow/cache-2.png" alt-text="Custom sink ordering":::
 
 ### Sink groups
 
 You can group sinks together by applying the same order number for a series of sinks. The service will treat those sinks as groups that can execute in parallel. Options for parallel execution will surface in the pipeline data flow activity.
 
-## Error row handling
+## Errors
+
+On the sink errors tab you can configure error row handling to capture and redirect output for database driver errors and failed assertions.
 
 When writing to databases, certain rows of data may fail due to constraints set by the destination. By default, a data flow run will fail on the first error it gets. In certain connectors, you can choose to **Continue on error** that allows your data flow to complete even if individual rows have errors. Currently, this capability is only available in Azure SQL Database and Azure Synapse. For more information, see [error row handling in Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
 
 Below is a video tutorial on how to use database error row handling automatically in your sink transformation.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
+
+For assert failure rows, you can use the Assert transformation upstream in your data flow and then redirect failed assertions to an output file here in the sink errors tab.
+
+:::image type="content" source="media/data-flow/assert-errors.png" alt-text="Assert failure rows":::
 
 ## Data preview in sink
 

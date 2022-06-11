@@ -1,11 +1,11 @@
 ---
 title: Planning for an Azure File Sync deployment | Microsoft Docs
 description: Plan for a deployment with Azure File Sync, a service that allows you to cache several Azure file shares on an on-premises Windows Server or cloud VM.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/13/2021
-ms.author: rogarana
+ms.date: 06/01/2022
+ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
 ---
@@ -50,7 +50,7 @@ A sync group contains one cloud endpoint, or Azure file share, and at least one 
 > You can make changes to the namespace of any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#afs-change-detection).
 
 ### Consider the count of Storage Sync Services needed
-A previous section discusses the core resource to configure for Azure File Sync: a *Storage Sync Service*. A Windows Server can only be registered to one Storage Sync Service. So it is often best to only deploy a single Storage Sync Service and register all servers that it. 
+A previous section discusses the core resource to configure for Azure File Sync: a *Storage Sync Service*. A Windows Server can only be registered to one Storage Sync Service. So it is often best to only deploy a single Storage Sync Service and register all servers on it. 
 
 Create multiple Storage Sync Services only if you have:
 * distinct sets of servers that must never exchange data with one another. In this case, you want to design the system to exclude certain sets of servers to sync with an Azure file share that is already in use as a cloud endpoint in a sync group in a different Storage Sync Service. Another way to look at this is that Windows Servers registered to different storage sync service cannot sync with the same Azure file share.
@@ -69,6 +69,7 @@ Azure File Sync is supported with the following versions of Windows Server:
 
 | Version | Supported SKUs | Supported deployment options |
 |---------|----------------|------------------------------|
+| Windows Server 2022 | Azure, Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2019 | Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2016 | Datacenter, Standard, and Storage Server | Full and Core |
 | Windows Server 2012 R2 | Datacenter, Standard, and Storage Server | Full and Core |
@@ -79,7 +80,7 @@ Future versions of Windows Server will be added as they are released.
 > We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
 
 ### Minimum system resources
-Azure File Sync requires a server, either physical or virtual, with at least one CPU and a minimum of 2 GiB of memory.
+Azure File Sync requires a server, either physical or virtual, with at least one CPU, minimum of 2 GiB of memory and a locally attached volume formatted with the NTFS file system.
 
 > [!Important]  
 > If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum of 2048 MiB of memory.
@@ -110,8 +111,6 @@ In the following table, we have provided both the size of the namespace as well 
 > Initial synchronization of a namespace is an intensive operation and we recommend allocating more memory until initial synchronization is complete. This isn't required but, may speed up initial sync. 
 > 
 > Typical churn is 0.5% of the namespace changing per day. For higher levels of churn, consider adding more CPU. 
-
-- A locally attached volume formatted with the NTFS file system.
 
 ### Evaluation cmdlet
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation cmdlet. This cmdlet checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported operating system version. Its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
@@ -197,28 +196,30 @@ We'll use an example to illustrate how to estimate the amount of free space woul
 1. NTFS allocates a cluster size for each of the tiered files. 1 million files * 4 KiB cluster size = 4,000,000 KiB (4 GiB)
 > [!Note]  
 > The space occupied by tiered files is allocated by NTFS. Therefore, it will not show up in any UI.
-3. Sync metadata occupies a cluster size per item. (1 million files + 100,000 directories) * 4 KiB cluster size = 4,400,000 KiB (4.4 GiB)
+3. Sync metadata occupies a cluster size per item. (1 million files + 100,000 directories) * 4 KB cluster size = 4,400,000 KiB (4.4 GiB)
 4. Azure File Sync heatstore occupies 1.1 KiB per file. 1 million files * 1.1 KiB = 1,100,000 KiB (1.1 GiB)
 5. Volume free space policy is 20%. 1000 GiB * 0.2 = 200 GiB
 
 In this case, Azure File Sync would need about 209,500,000 KiB (209.5 GiB) of space for this namespace. Add this amount to any additional free space that is desired in order to figure out how much free space is required for this disk.
 
 ### Failover Clustering
-Windows Server Failover Clustering is supported by Azure File Sync for the "File Server for general use" deployment option. Failover Clustering is not supported on "Scale-Out File Server for application data" (SOFS) or on Clustered Shared Volumes (CSVs).
+1. Windows Server Failover Clustering is supported by Azure File Sync for the "File Server for general use" deployment option. For more information on how to configure the "File Server for general use" role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
+2. The only scenario supported by Azure File Sync is Windows Server Failover Cluster with Clustered Disks
+3. Failover Clustering is not supported on "Scale-Out File Server for application data" (SOFS) or on Clustered Shared Volumes (CSVs) or local disks.
 
 > [!Note]  
 > The Azure File Sync agent must be installed on every node in a Failover Cluster for sync to work correctly.
 
 ### Data Deduplication
-**Windows Server 2016 and Windows Server 2019**   
-Data Deduplication is supported irrespective of whether cloud tiering is enabled or disabled on one or more server endpoints on the volume for Windows Server 2016 and Windows Server 2019. Enabling Data Deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage. 
+**Windows Server 2022, Windows Server 2019, and Windows Server 2016**   
+Data Deduplication is supported irrespective of whether cloud tiering is enabled or disabled on one or more server endpoints on the volume for Windows Server 2016, Windows Server 2019, and Windows Server 2022. Enabling Data Deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage. 
 
 When Data Deduplication is enabled on a volume with cloud tiering enabled, Dedup optimized files within the server endpoint location will be tiered similar to a normal file based on the cloud tiering policy settings. Once the Dedup optimized files have been tiered, the Data Deduplication garbage collection job will run automatically to reclaim disk space by removing unnecessary chunks that are no longer referenced by other files on the volume.
 
 Note the volume savings only apply to the server; your data in the Azure file share will not be deduped.
 
 > [!Note]  
-> To support Data Deduplication on volumes with cloud tiering enabled on Windows Server 2019, Windows update [KB4520062 - October 2019](https://support.microsoft.com/help/4520062) or a later monthly rollup update must be installed and Azure File Sync agent version 12.0.0.0 or newer is required.
+> To support Data Deduplication on volumes with cloud tiering enabled on Windows Server 2019, Windows update [KB4520062 - October 2019](https://support.microsoft.com/help/4520062) or a later monthly rollup update must be installed.
 
 **Windows Server 2012 R2**  
 Azure File Sync does not support Data Deduplication and cloud tiering on the same volume on Windows Server 2012 R2. If Data Deduplication is enabled on a volume, cloud tiering must be disabled. 
@@ -231,9 +232,9 @@ Azure File Sync does not support Data Deduplication and cloud tiering on the sam
 - For ongoing Deduplication optimization jobs, cloud tiering with date policy will get delayed by the Data Deduplication [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume) setting, if the file is not already tiered. 
     - Example: If the MinimumFileAgeDays setting is seven days and cloud tiering date policy is 30 days, the date policy will tier files after 37 days.
     - Note: Once a file is tiered by Azure File Sync, the Deduplication optimization job will skip the file.
-- If a server running Windows Server 2012 R2 with the Azure File Sync agent installed is upgraded to Windows Server 2016 or Windows Server 2019, the following steps must be performed to support Data Deduplication and cloud tiering on the same volume:  
+- If a server running Windows Server 2012 R2 with the Azure File Sync agent installed is upgraded to Windows Server 2016, Windows Server 2019 or Windows Server 2022, the following steps must be performed to support Data Deduplication and cloud tiering on the same volume:  
     - Uninstall the Azure File Sync agent for Windows Server 2012 R2 and restart the server.
-    - Download the Azure File Sync agent for the new server operating system version (Windows Server 2016 or Windows Server 2019).
+    - Download the Azure File Sync agent for the new server operating system version (Windows Server 2016, Windows Server 2019, or Windows Server 2022).
     - Install the Azure File Sync agent and restart the server.  
     
     Note: The Azure File Sync configuration settings on the server are retained when the agent is uninstalled and reinstalled.
@@ -253,6 +254,7 @@ For Azure File Sync and DFS-R to work side by side:
 
 1. Azure File Sync cloud tiering must be disabled on volumes with DFS-R replicated folders.
 2. Server endpoints should not be configured on DFS-R read-only replication folders.
+3. Only a single server endpoint can overlap with a DFS-R location. Multiple server endpoints overlapping with other active DFS-R locations may lead to conflicts.
 
 For more information, see [DFS Replication overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)).
 
@@ -261,6 +263,9 @@ Using sysprep on a server that has the Azure File Sync agent installed is not su
 
 ### Windows Search
 If cloud tiering is enabled on a server endpoint, files that are tiered are skipped and not indexed by Windows Search. Non-tiered files are indexed properly.
+
+> [!Note]  
+> Windows clients will cause recalls when searching the file share if the **Always search file names and contents** setting is enabled on the client machine. This setting is disabled by default.
 
 ### Other Hierarchical Storage Management (HSM) solutions
 No other HSM solutions should be used with Azure File Sync.
@@ -346,7 +351,7 @@ The following regions require you to request access to Azure Storage before you 
 - South Africa West
 - UAE Central
 
-To request access for these regions, follow the process in [this document](https://azure.microsoft.com/global-infrastructure/geographies/).
+To request access for these regions, follow the process in [this document](/troubleshoot/azure/general/region-access-request-process).
 
 ## Redundancy
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
@@ -360,7 +365,7 @@ If you have an existing Windows file server 2012R2 or newer, Azure File Sync can
 Check out the [Azure File Sync and Azure file share migration overview](../files/storage-files-migration-overview.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) article where you can find detailed guidance for your scenario.
 
 ## Antivirus
-Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files, resulting in high egress charges. In versions 4.0 and above of the Azure File Sync agent, tiered files have the secure Windows attribute FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS set. We recommend consulting with your software vendor to learn how to configure their solution to skip reading files with this attribute set (many do it automatically). 
+Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files, resulting in high egress charges. Tiered files have the secure Windows attribute FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS set and we recommend consulting with your software vendor to learn how to configure their solution to skip reading files with this attribute set (many do it automatically). 
 
 Microsoft's in-house antivirus solutions, Windows Defender and System Center Endpoint Protection (SCEP), both automatically skip reading files that have this attribute set. We have tested them and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files will remain on the new server and will not be tiered since they do not meet the tiering size requirement (>64kb).
 
@@ -372,14 +377,11 @@ If cloud tiering is enabled, solutions that directly back up the server endpoint
 
 If you prefer to use an on-premises backup solution, backups should be performed on a server in the sync group that has cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will be synced to all endpoints in the sync group and existing files will be replaced with the version restored from backup.  Volume-level restores will not replace newer file versions in the Azure file share or other server endpoints.
 
-> [!WARNING]
-> If you need to use Robocopy /B with an Azure File Sync agent running on either source or target server, please upgrade to Azure File Sync agent version v12.0 or above. Using Robocopy /B with agent versions less than v12.0 will lead to the corruption of tiered files during the copy.
-
 > [!Note]  
 > Bare-metal (BMR) restore can cause unexpected results and is not currently supported.
 
 > [!Note]  
-> With Version 9 of the Azure File Sync agent, VSS snapshots (including Previous Versions tab) are now supported on volumes which have cloud tiering enabled. However, you must enable previous version compatibility through PowerShell. [Learn how](file-sync-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
+> VSS snapshots (including Previous Versions tab) are supported on volumes which have cloud tiering enabled. However, you must enable previous version compatibility through PowerShell. [Learn how](file-sync-deployment-guide.md#optional-self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
 ## Data Classification
 If you have data classification software installed, enabling cloud tiering may result in increased cost for two reasons:

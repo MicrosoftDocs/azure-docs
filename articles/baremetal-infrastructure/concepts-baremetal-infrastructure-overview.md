@@ -3,7 +3,7 @@ title: What is BareMetal Infrastructure on Azure?
 description: Provides an overview of the BareMetal Infrastructure on Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 09/27/2021
 ---
 
 #  What is BareMetal Infrastructure on Azure?
@@ -16,13 +16,13 @@ BareMetal Infrastructure is made up of dedicated BareMetal instances (compute in
  
 This environment also has special VLANs you can access if you're running virtual machines (VMs) on one or more Azure Virtual Networks (VNets) in your Azure subscription. The entire environment is represented as a resource group in your Azure subscription.
 
-BareMetal Infrastructure is offered in over 30 SKUs from 2-socket to 24-socket servers and memory ranging from 1.5 TBs up to 24 TBs. A large set of SKUs is also available with Octane memory. Azure offers the largest range of bare metal instances in a hyperscale cloud.
+BareMetal Infrastructure is offered in over 30 SKUs from 2-socket to 24-socket servers and memory ranging from 1.5 TBs up to 24 TBs. A large set of SKUs is also available with Optane memory. Azure offers the largest range of bare metal instances in a hyperscale cloud.
 
 ## Why BareMetal Infrastructure?  
 
-Some workloads in the enterprise are made up of technologies that just aren't designed to run in a typical virtualized cloud setting. They require special architecture, certified hardware, or extraordinarily large sizes. Although those technologies have the most sophisticated data protection and business continuity features, those features aren't built for the virtualized cloud. They're more sensitive to latencies and noisy neighbors and require more control over change management and maintenance activity.
+Some workloads in the enterprise consist of technologies that just aren't designed to run in a typical virtualized cloud setting. They require special architecture, certified hardware, or extraordinarily large sizes. Although those technologies have the most sophisticated data protection and business continuity features, those features aren't built for the virtualized cloud. They're more sensitive to latencies and noisy neighbors and require more control over change management and maintenance activity.
 
-BareMetal Infrastructure is built, certified, and tested for a select set of such applications. Azure was the first to offer such solutions, and has since lead with the largest portfolio and most sophisticated systems.
+BareMetal Infrastructure is built, certified, and tested for a select set of such applications. Azure was the first to offer such solutions, and has since led with the largest portfolio and most sophisticated systems.
 
 ### BareMetal benefits  
 
@@ -31,8 +31,8 @@ BareMetal Infrastructure is intended for critical workloads that require certifi
 BareMetal Infrastructure offers these benefits:
 
 - Certified hardware for specialized workloads
-    - SAP (Refer to [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533))
-    - Oracle (Refer to [Oracle document ID #948372.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=52088246571495&id=948372.1&_adf.ctrl-state=kwnkj1hzm_52))
+    - SAP (Refer to [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533). You'll need an SAP account for access.)
+    - Oracle (You'll need an Oracle account for access.)
 - Non-hypervised BareMetal instance, single tenant ownership
 - Low latency between Azure hosted application VMs to BareMetal instances (0.35 ms)
 - All Flash SSD and NVMe
@@ -69,9 +69,9 @@ BareMetal Infrastructure for specialized workloads is available in the following
 
 Depending on your needs, the application topologies of BareMetal Infrastructure can be complex. You may deploy multiple instances in one or more locations. The instances can have shared or dedicated storage, and specialized LAN and WAN connections. So for BareMetal Infrastructure, Azure offers a consultation by a CSA/GBB in the field to work with you. 
 
-By the time your BareMetal Infrastructure is provisioned, the OS, networks, storage volumes, placements in zones and regions, and WAN connections between locations are already pre-configured. You're set to register your OS licenses (BYOL), configure the OS, and install the application layer.
+By the time your BareMetal Infrastructure is provisioned, the OS, networks, storage volumes, placements in zones and regions, and WAN connections between locations have already been configured. You're set to register your OS licenses (BYOL), configure the OS, and install the application layer.
 
-You'll see all the BareMetal resources,and their state and attributes, in the Azure portal. You can also operate the instances and open service requests and support tickets from there. 
+You'll see all the BareMetal resources, and their state and attributes, in the Azure portal. You can also operate the instances and open service requests and support tickets from there. 
 
 ## Operational model
 

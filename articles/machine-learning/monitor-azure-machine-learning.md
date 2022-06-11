@@ -3,13 +3,13 @@ title: Monitoring Azure Machine Learning | Microsoft Docs
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
-ms.date: 10/01/2020
+ms.date: 10/21/2021
 ---
 
 # Monitor Azure Machine Learning
@@ -67,9 +67,34 @@ You can configure the following logs for Azure Machine Learning:
 | Category | Description |
 |:---|:---|
 | AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters. |
-| AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
+| AmlComputeClusterNodeEvent (deprecated) | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
+| AmlComputeCpuGpuUtilization | ML services compute CPU and GPU utilizaion logs. |
+| AmlRunStatusChangedEvent | ML run status changes. |
+| ModelsChangeEvent | Events when ML model is accessed created or deleted. |
+| ModelsReadEvent | Events when ML model is read. |
+| ModelsActionEvent | Events when ML model is accessed. |
+| DeploymentReadEvent | Events when a model deployment is read. |
+| DeploymentEventACI | Events when a model deployment happens on ACI (very chatty). |
+| DeploymentEventAKS | Events when a model deployment happens on AKS (very chatty). |
+| InferencingOperationAKS | Events for inference or related operation on AKS compute type. |
+| InferencingOperationACI | Events for inference or related operation on ACI compute type. |
+| EnvironmentChangeEvent | Events when ML environment configurations are created or deleted. |
+| EnvironmentReadEvent | Events when ML environment configurations are read (very chatty). |
+| DataLabelChangeEvent | Events when data label(s) or its projects is created or deleted.  |
+| DataLabelReadEvent | Events when data label(s) or its projects is read.  |
+| ComputeInstanceEvent | Events when ML Compute Instance is accessed (very chatty). |
+| DataStoreChangeEvent | Events when ML datastore is created or deleted. |
+| DataStoreReadEvent | Events when ML datastore is read. |
+| DataSetChangeEvent | Events when ML datastore is created or deleted. |
+| DataSetReadEvent | Events when ML datastore is read.  |
+| PipelineChangeEvent | Events when ML pipeline draft or endpoint or module are created or deleted.  |
+| PipelineReadEvent | Events when ML pipeline draft or endpoint or module are read.  |
+| RunEvent | Events when ML experiments are created or deleted. |
+| RunReadEvent | Events when ML experiments are read. |
 
+> [!NOTE]
+> Effective February 2022, the AmlComputeClusterNodeEvent category will be deprecated. We recommend that you instead use the AmlComputeClusterEvent category.
 
 > [!NOTE]
 > When you enable metrics in a diagnostic setting, dimension information is not currently included as part of the information sent to a storage account, event hub, or log analytics.
@@ -108,7 +133,7 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 | Table | Description |
 |:---|:---|
 | AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters.|
-| AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
+| AmlComputeClusterNodeEvent (deprecated) | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
 | AmlComputeInstanceEvent | Events when ML Compute Instance is accessed (read/write). Category includes:ComputeInstanceEvent (very chatty). |
 | AmlDataLabelEvent | Events when data label(s) or its projects is accessed (read, created, or deleted). Category includes:DataLabelReadEvent,DataLabelChangeEvent.  |
@@ -121,6 +146,8 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 | AmlRunEvent | Events when ML experiments are accessed (read, created, or deleted). Category includes:RunReadEvent,RunEvent. |
 | AmlEnvironmentEvent | Events when ML environment configurations (read, created, or deleted). Category includes:EnvironmentReadEvent (very chatty),EnvironmentChangeEvent. |
 
+> [!NOTE]
+> Effective February 2022, the AmlComputeClusterNodeEvent table will be deprecated. We recommend that you instead use the AmlComputeClusterEvent table.
 
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Machine Learning menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
@@ -158,12 +185,12 @@ Following are queries that you can use to help you monitor your Azure Machine Le
     | project  ClusterName , InitialNodeCount , MaximumNodeCount , QuotaAllocated , QuotaUtilized
     ```
 
-+ Get nodes allocated in the last eight days:
++ Get the cluster node allocations in the last eight days::
 
     ```Kusto
-    AmlComputeClusterNodeEvent
-    | where TimeGenerated > ago(8d) and NodeAllocationTime  > ago(8d)
-    | distinct NodeId
+    AmlComputeClusterEvent
+    | where TimeGenerated > ago(8d) and TargetNodeCount  > CurrentNodeCount
+    | project TimeGenerated, ClusterName, CurrentNodeCount, TargetNodeCount
     ```
 
 When you connect multiple Azure Machine Learning workspaces to the same Log Analytics workspace, you can query across all resources. 
@@ -176,6 +203,12 @@ When you connect multiple Azure Machine Learning workspaces to the same Log Anal
     | summarize avgRunningNodes=avg(TargetNodeCount), maxRunningNodes=max(TargetNodeCount)
              by Workspace=tostring(split(_ResourceId, "/")[8]), ClusterName, ClusterType, VmSize, VmPriority
     ```
+
+### Create a workspace monitoring dashboard by using a template
+
+A dashboard is a focused and organized view of your cloud resources in the Azure portal. For more information about creating dashboards, see [Create, view, and manage metric alerts using Azure Monitor](../azure-portal/azure-portal-dashboards.md).
+
+To deploy a sample dashboard, you can use a publicly available [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-monitoring-dashboard). The sample dashboard is based on [Kusto queries](../machine-learning/monitor-azure-machine-learning.md#sample-kusto-queries), so you must enable [Log Analytics data collection](../machine-learning/monitor-azure-machine-learning.md#collection-and-routing) for your Azure Machine Learning workspace before you deploy the dashboard.
 
 ## Alerts
 

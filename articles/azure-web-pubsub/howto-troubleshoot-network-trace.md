@@ -5,7 +5,7 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: how-to 
-ms.date: 03/22/2021
+ms.date: 11/08/2021
 ---
 
 # How to collect a network trace

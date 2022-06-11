@@ -1,17 +1,18 @@
 ---
-title: Run shell scripts in a Linux VM on Azure
+title: Run scripts in a Linux VM in Azure using action Run Commands
 description: This topic describes how to run scripts within an Azure Linux virtual machine by using the Run Command feature
 services: automation
 ms.service: virtual-machines
 ms.collection: linux
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/26/2019
-ms.topic: how-to 
-ms.custom: devx-track-azurepowershell
-manager: carmonm
+author: cynthn
+ms.author: cynthn
+ms.date: 10/27/2021
+ms.topic: how-to  
+ms.reviewer: jushiman
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
-# Run shell scripts in your Linux VM by using Run Command
+# Run scripts in your Linux VM by using action Run Commands
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
@@ -19,9 +20,9 @@ The Run Command feature uses the virtual machine (VM) agent to run shell scripts
 
 ## Benefits
 
-You can access your virtual machines in multiple ways. Run Command can run scripts on your virtual machines remotely by using the VM agent. You use Run Command through the Azure portal, [REST API](/rest/api/compute/virtual-machines-run-commands/run-command), or [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke) for Linux VMs.
+You can access your virtual machines in multiple ways. Run Command can run scripts on your virtual machines remotely by using the VM agent. You use Run Command through the Azure portal, [REST API](/rest/api/compute/virtual-machine-run-commands), or [Azure CLI](/cli/azure/vm/run-command#az-vm-run-command-invoke) for Linux VMs.
 
-This capability is useful in all scenarios where you want to run a script within a virtual machine. It's one of the only ways to troubleshoot and remediate a virtual machine that doesn't have the RDP or SSH port open because of improper network or administrative user configuration.
+This capability is useful in all scenarios where you want to run a script within a virtual machine. It's one of the only ways to troubleshoot and remediate a virtual machine that doesn't have the RDP or SSH port open because of network or administrative user configuration.
 
 ## Restrictions
 
@@ -54,7 +55,7 @@ The entity was not found in this Azure location
 
 ## Azure CLI
 
-The following example uses the [az vm run-command](/cli/azure/vm/run-command#az_vm_run_command_invoke) command to run a shell script on an Azure Linux VM.
+The following example uses the [az vm run-command](/cli/azure/vm/run-command#az-vm-run-command-invoke) command to run a shell script on an Azure Linux VM.
 
 ```azurecli-interactive
 az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "apt-get update && apt-get install -y nginx"

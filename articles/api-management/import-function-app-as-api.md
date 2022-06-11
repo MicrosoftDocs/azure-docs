@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: This article shows you how to import an Azure Function App into Azure API Management as an API.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: cfowler
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/16/2021
-ms.author: apimpm
+ms.author: danlep
 
 ---
 
@@ -122,7 +122,7 @@ Import of an Azure Function App automatically generates:
 * Host key inside the Function App with the name apim-{*your Azure API Management service instance name*},
 * Named value inside the Azure API Management instance with the name {*your Azure Function App instance name*}-key, which contains the created host key.
 
-For APIs created after April 4th 2019, the host key is passed in HTTP requests from API Management to the Function App in a header. Older APIs pass the host key as [a query parameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). You can change this behavior through the `PATCH Backend` [REST API call](/rest/api/apimanagement/2020-12-01/backend/update#backendcredentialscontract) on the *Backend* entity associated with the Function App.
+For APIs created after April 4th 2019, the host key is passed in HTTP requests from API Management to the Function App in a header. Older APIs pass the host key as [a query parameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). You can change this behavior through the `PATCH Backend` [REST API call](/rest/api/apimanagement/current-ga/backend/update#backendcredentialscontract) on the *Backend* entity associated with the Function App.
 
 > [!WARNING]
 > Removing or changing either the Azure Function App host key value or the Azure API Management named value will break the communication between the services. The values do not sync automatically.

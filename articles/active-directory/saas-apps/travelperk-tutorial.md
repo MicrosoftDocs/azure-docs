@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TravelPerk | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with TravelPerk'
 description: Learn how to configure single sign-on between Azure Active Directory and TravelPerk.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/11/2021
+ms.date: 05/11/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with TravelPerk
+# Tutorial: Azure AD SSO integration with TravelPerk
 
 In this tutorial, you'll learn how to integrate TravelPerk with Azure Active Directory (Azure AD). When you integrate TravelPerk with Azure AD, you can:
 
@@ -28,6 +28,8 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A TravelPerk account with Premium subscription.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
@@ -36,6 +38,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * TravelPerk supports **SP** initiated SSO.
 
 * TravelPerk supports **Just In Time** user provisioning.
+
+* TravelPerk supports [Automated user provisioning](travelperk-provisioning-tutorial.md).
 
 ## Add TravelPerk from the gallery
 
@@ -69,7 +73,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -83,19 +87,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<COMPANY>.travelperk.com/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. The values can be found inside your TravelPerk account: go to **Company Settings** > **Integrations** > **Single Sign On**. For assistance, visit the [TravelPerk helpcenter](https://support.travelperk.com/hc/articles/360052450271-How-can-I-setup-SSO-for-Azure-SAML).
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. The values can be found inside your TravelPerk account: go to **Company Settings** > **Integrations** > **Single Sign On**. For assistance, visit the [TravelPerk helpcenter](https://support.travelperk.com/hc/articles/360052450271-How-can-I-setup-SSO-for-Azure-SAML).
 
 1. Your TravelPerk application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. In the default mapping, **emailaddress** is mapped with **user.mail**. However, the TravelPerk application expects **emailaddress** to be mapped with **user.userprincipalname**. For TravelPerk, you must edit the attribute mapping: click the **Edit** icon, and then change the attribute mapping. To edit an attribute, just click the attribute to open edit mode.
 
-	![image](common/default-attributes.png)
+	![Screenshot shows the image of TravelPerk application.](common/default-attributes.png "Attributes")
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+	![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
 1. On the **Set up TravelPerk** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot shows to copy configuration appropriate U R L.](common/copy-configuration-urls.png "Configuration")
 
 ### Create an Azure AD test user
 
@@ -123,11 +127,25 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure TravelPerk SSO
 
-To configure single sign-on on **TravelPerk** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [TravelPerk support team](mailto:trex@travelperk.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **TravelPerk** side, you need to set up the integration in the TravelPerk app.
+
+1. Go to https://app.travelperk.com as an Admin user, and under **Account Settings** > **Integrations** open **Single sign-on (SSO)**.
+
+1. Select **SAML** as the option, and click **New Integration** then perform the following steps:
+
+    a. In the **IdP entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+
+    b. In the **IdP SSO service URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+
+    c. In the **IdP x509 cert** textbox, paste the **Federation Metadata XML** file (Without the X509Certificate tag) from the Azure portal.
+
+    d. Save and proceed with the testing.
 
 ### Create TravelPerk test user
 
 In this section, a user called B.Simon is created in TravelPerk. TravelPerk supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in TravelPerk, a new one is created when you attempt to access TravelPerk.
+
+TravelPerk also supports automatic user provisioning, you can find more details [here](./travelperk-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
@@ -137,8 +155,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to TravelPerk Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the TravelPerk tile in the My Apps, this will redirect to TravelPerk Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the TravelPerk tile in the My Apps, this will redirect to TravelPerk Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure TravelPerk you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure TravelPerk you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

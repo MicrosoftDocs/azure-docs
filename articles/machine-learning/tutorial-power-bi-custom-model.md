@@ -9,12 +9,15 @@ ms.topic: tutorial
 ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
-ms.date: 12/11/2020
+ms.date: 12/22/2021
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Tutorial: Power BI integration - Create the predictive model with a Jupyter Notebook (part 1 of 2)
 
-In part 1 of this tutorial, you train and deploy a predictive machine learning model by using code in a Jupyter Notebook. You will also create a scoring script to define the input and output schema of the model for integration into Power BI.  In part 2, you'll use the model to predict outcomes in Microsoft Power BI.
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+In part 1 of this tutorial, you train and deploy a predictive machine learning model by using code in a Jupyter Notebook. You also create a scoring script to define the input and output schema of the model for integration into Power BI.  In part 2, you use the model to predict outcomes in Microsoft Power BI.
 
 In this tutorial, you:
 
@@ -225,7 +228,7 @@ def run(data):
         return error
 ```
 
-### Define the custom environment
+## Define the custom environment
 
 Next, define the environment to score the model. In the environment, define the Python packages, such as pandas and scikit-learn, that the scoring script (*score.py*) requires.
 
@@ -249,7 +252,7 @@ environment.python.conda_dependencies = CondaDependencies.create(pip_packages=[
 inference_config = InferenceConfig(entry_script='./score.py',environment=environment)
 ```
 
-### Deploy the model
+## Deploy the model
 
 To deploy the model, copy the following code and paste it into a new *code cell* in your notebook:
 

@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: data-factory
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 12/18/2020
-ms.author: jingwang
+ms.date: 09/29/2021
+ms.author: jianleishen
 ms.custom: include file
 ---
 
@@ -25,10 +25,12 @@ ms.custom: include file
 | &nbsp; |[Azure Databricks Delta Lake](../connector-azure-databricks-delta-lake.md) |✓ |✓ |✓ |✓ |
 | &nbsp; |[Azure Files](../connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Database](../connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure SQL Managed Instance](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Table storage](../connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
-| **Database** |[Amazon Redshift](../connector-amazon-redshift.md) |✓ | |✓ |✓  |
+| **Database** |[Amazon RDS for Oracle](../connector-amazon-rds-for-oracle.md) |✓ | |✓ |✓  |
+| &nbsp; |[Amazon RDS for SQL Server](../connector-amazon-rds-for-sql-server.md) |✓ | |✓ |✓  |
+| &nbsp; |[Amazon Redshift](../connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../connector-db2.md) |✓ | |✓ |✓  |
 | &nbsp; |[Drill](../connector-drill.md) |✓ | |✓ |✓  |
 | &nbsp; |[Google BigQuery](../connector-google-bigquery.md) |✓ | |✓ |✓  |
@@ -47,7 +49,7 @@ ms.custom: include file
 | &nbsp; |[Presto](../connector-presto.md) |✓ | |✓ |✓  |
 | &nbsp; |[SAP Business Warehouse via Open Hub](../connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  |
 | &nbsp; |[SAP Business Warehouse via MDX](../connector-sap-business-warehouse.md) |✓ | | |✓  |
-| &nbsp; |[SAP HANA](../connector-sap-hana.md) |✓ |✓ | |✓  |
+| &nbsp; |[SAP HANA](../connector-sap-hana.md) |✓ | Sink supported only with the [ODBC Connector and the SAP HANA ODBC driver](../connector-sap-hana.md#sap-hana-sink) | |✓  |
 | &nbsp; |[SAP table](../connector-sap-table.md) |✓ | | |✓  |
 | &nbsp; |[Snowflake](../connector-snowflake.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Spark](../connector-spark.md) |✓ | |✓ |✓  |

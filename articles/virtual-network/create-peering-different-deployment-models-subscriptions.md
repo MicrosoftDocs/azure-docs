@@ -4,14 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Learn how to create a virtual network peering between virtual networks created through different Azure deployment models that exist in different Azure subscriptions.
 services: virtual-network
 documentationcenter: ''
-author: KumudD
+author: mbender-ms
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
-ms.author: kumud
+ms.author: mbender
 ms.reviewer: anavin
 
 ---
@@ -31,7 +30,7 @@ A virtual network peering cannot be created between two virtual networks deploye
 
 When creating a virtual network peering between virtual networks that exist in different subscriptions, the subscriptions can associated to the same Azure Active Directory tenant. If you don't already have an Azure Active Directory tenant, you can quickly [create one](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant).
 
-You can use the [Azure portal](#portal), the Azure [command-line interface](#cli) (CLI), or Azure [PowerShell](#powershell) to create a virtual network peering. Click any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
+You can use the [Azure portal](#portal), the [Azure CLI](#cli), or [Azure PowerShell](#powershell) to create a virtual network peering. Click any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
 
 ## <a name="portal"></a>Create peering - Azure portal
 

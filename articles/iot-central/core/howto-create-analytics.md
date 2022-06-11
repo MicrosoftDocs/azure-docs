@@ -1,31 +1,35 @@
 ---
 title: Analyze device data in your Azure IoT Central application | Microsoft Docs
 description: Analyze device data in your Azure IoT Central application.
-author: ankitscribbles
-ms.author: ankitgup
-ms.date: 08/16/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 12/21/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
+ms.custom: [iot-central-frontdoor]
 
 # This article applies to operators, builders, and administrators.
 ---
 
-# How to use analytics to analyze device data
+# How to use data explorer to analyze device data
 
-Azure IoT Central provides rich analytics capabilities to analyze historical trends and correlate telemetry from your devices. To get started, select **Analytics** on the left pane.
+Azure IoT Central provides rich analytics capabilities to analyze historical trends and correlate telemetry from your devices. To get started, select **Data explorer** on the left pane.
 
-## Understand the analytics UI
+## Understand the data explorer UI
 
 The analytics user interface has three main components:
 
 - **Data configuration panel:** On the configuration panel, select the device group for which you want to analyze the data. Next, select the telemetry that you want to analyze and select the aggregation method for each telemetry. The **Group By** control helps to group the data by using device properties as dimensions.
 
+    > [!TIP]
+    > If your device uses organizations, the device groups you see depend on your organization membership.
+
 - **Time control:** Use the time control to select the duration for which you want to analyze the data. You can drag either end of the time slider to select the time span. The time control also has an **Interval size** slider that controls the bucket or the interval size used to aggregate the data.
 
 - **Chart control:** The chart control visualizes the data as a line chart. You can toggle the visibility of specific lines by interacting with the chart legend.
 
-  :::image type="content" source="media/howto-create-analytics/analytics-ui.png" alt-text="Screenshot that shows the three areas of the analytics UI.":::
+  :::image type="content" source="media/howto-create-analytics/analytics-ui.png" alt-text="Screenshot that shows the three areas of the data explorer UI.":::
 
 ## Query your data
 
@@ -36,7 +40,7 @@ Choose a **Device group** to get started and then the telemetry you want to anal
 - **Telemetry:** Select the telemetry that you want to analyze and explore. You can select multiple telemetry types to analyze together. The default aggregation method is set to **Average** for numerical data types and **Count** for strings. Aggregation methods for numeric data types are **Average**, **Maximum**, **Minimum**, **Count** and, **Sum**. **Count** is the only aggregation method for strings.
 
     > [!NOTE]
-    > Historic data points are only shown when the conditions of the query are true. For example, a device was upgraded from **Template1** to **Template2** yesterday. Today, if you query device groups that contain **Template1** devices, you see device data from yesterday and before. If you query device groups that contain **Template2** devices, you see the device and data from when it was upgraded going forward.
+    > Historical data points are only shown when the conditions of the query are true. For example, a device was upgraded from **Template1** to **Template2** yesterday. Today, if you query device groups that contain **Template1** devices, you see device data from yesterday and before. If you query device groups that contain **Template2** devices, you see the device and data from when it was upgraded going forward.
 
 - **Group by:** The **Group by** control helps to group the data by using the device properties as dimensions. Device telemetry and properties are combined with cloud properties when the device sends data. If the cloud or device property is updated, then you see the telemetry grouped by different values on the chart.
 
@@ -46,6 +50,8 @@ Choose a **Device group** to get started and then the telemetry you want to anal
 ## Interact with your data
 
 After you've queried your data, you can visualize it on the line chart. You can show or hide telemetry, change the time duration, or view the data in a grid.
+
+Select **Save** to save an analytics query. Later, you can retrieve any queries you saved.
 
 - **Time editor panel:** By default you see data from the last day. You can drag either end of the slider to change the time duration. You can also use the calendar control to select one of the predefined time buckets or select a custom time range. The time control also has an **Interval size** slider that controls the interval size used to aggregate the data.
 
@@ -59,7 +65,7 @@ After you've queried your data, you can visualize it on the line chart. You can 
 
   - **Interval-size slider**: Use the slider to zoom in and out of intervals over the same time span. This control gives more precise control of movement between large slices of time. You can use it to see granular, high-resolution views of your data, even down to milliseconds. The default start point of the slider gives you an optimal view of the data from your selection. This view balances resolution, query speed, and granularity.
   
-  - **Date range picker**: Use this control, to select the date and time ranges you want. You can also use the control to switch between different time zones. After you make the changes to apply to your current workspace, select **Save**.
+  - **Timeframe**: Use this control, to select the date and time ranges you want. You can also use the control to switch between different time zones. After you make the changes to apply to your current workspace, select **Save**.
 
   > [!TIP]
   > Interval size is determined dynamically based on the selected time span. Smaller time spans let you aggregate the data into very granular intervals of up to a few seconds.
@@ -74,13 +80,13 @@ After you've queried your data, you can visualize it on the line chart. You can 
 
   :::image type="content" source="media/howto-create-analytics/y-axis-control.png" alt-text="A screenshot that highlights the y-axis control.":::
 
-- **Zoom control:** The zoom control lets you drill further into your data. If you find a time period you'd like to focus on within your result set, use your mouse pointer to highlight the area. Then right-click on the selected area and select **Zoom**.
+- **Zoom control:** The zoom control lets you drill further into your data. If you find a time period you'd like to focus on within your result set, use your mouse pointer to highlight the area. Then  select **Zoom in**.
 
   :::image type="content" source="media/howto-create-analytics/zoom.png" alt-text="A Screenshot that shows the use of the zoom control.":::
 
 Select the ellipsis, for more chart controls:
 
-- **Display Grid:** Display your results in a table format that lets you view the value for each data point.
+- **View Data as Table:** Display your results in a table format that lets you view the value for each data point.
 
 - **Download as CSV:** Export your results as a comma-separated values (CSV) file. The CSV file contains data for each device. Results are exported by using the interval and timeframe specified.
 
@@ -90,4 +96,4 @@ Select the ellipsis, for more chart controls:
 
 ## Next steps
 
-Now that you've learned how to visualize your data with the built-in analytics capabilities, a suggested next step is to learn how to [Export IoT data to cloud destinations using data export](howto-export-data.md).
+Now that you've learned how to visualize your data with the built-in analytics capabilities, a suggested next step is to learn how to [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).

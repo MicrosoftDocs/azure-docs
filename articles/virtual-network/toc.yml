@@ -28,7 +28,23 @@
 - name: Samples
   items:
   - name: Azure CLI
-    href: cli-samples.md
+    items:
+    - name: Samples overview
+      href: cli-samples.md
+    - name: Create a virtual network for multi-tier applications
+      href: ./scripts/virtual-network-cli-sample-multi-tier-application.md
+    - name: Peer two virtual networks
+      href: ./scripts/virtual-network-cli-sample-peer-two-virtual-networks.md
+    - name: Route traffic through nva
+      href: ./scripts/virtual-network-cli-sample-route-traffic-through-nva.md
+    - name: Filter network traffic
+      href: ./scripts/virtual-network-cli-sample-filter-network-traffic.md
+    - name: Basic load balancer with IPv4 + IPv6 dual stack 
+      href: ./scripts/virtual-network-cli-sample-ipv6-dual-stack.md
+    - name: Standard load balancer with IPv4 + IPv6 dual stack 
+      href: ./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md
+    - name: Create and test a NAT gateway
+      href: ./nat-gateway/quickstart-create-nat-gateway-cli.md
   - name: Azure PowerShell
     href: powershell-samples.md
   - name: Resource Manager templates
@@ -71,28 +87,6 @@
       href: virtual-network-service-endpoints-overview.md
     - name: Service tags
       href: service-tags-overview.md
-  - name: IP services
-    items:
-    - name: Public IPs
-      href: public-ip-addresses.md
-    - name: Private IPs
-      href: private-ip-addresses.md
-    - name: Public IP prefix
-      href: public-ip-address-prefix.md
-    - name: Manage public IP addresses
-      href: virtual-network-public-ip-address.md
-    - name: Manage public IP prefix
-      href: manage-public-ip-address-prefix.md
-    - name: IPv6 for Azure VNet
-      href: ipv6-overview.md
-    - name: Default outbound access
-      href: default-outbound-access.md
-    - name: Routing preference
-      href: routing-preference-overview.md
-    - name: Routing preference Unmetered
-      href: routing-preference-unmetered.md   
-    - name: Public IP security baseline
-      href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
   - name: Security
     items:
     - name: Virtual network security baseline
@@ -202,92 +196,6 @@
       href: tutorial-tap-virtual-network-cli.md
     - name: Deploy Container networking
       href: deploy-container-networking.md
-  - name: IP services
-    items:
-    - name: Resource management
-      items:
-      - name: Load balancer
-        href: configure-public-ip-load-balancer.md
-      - name: NAT gateway
-        href: configure-public-ip-nat-gateway.md
-      - name: Firewall
-        href: configure-public-ip-firewall.md
-      - name: VPN gateway
-        href: configure-public-ip-vpn-gateway.md
-      - name: Application gateway
-        href: configure-public-ip-application-gateway.md
-      - name: Virtual machine
-        href: configure-public-ip-vm.md
-      - name: Bastion
-        href: configure-public-ip-bastion.md
-    - name: Create public IP address
-      items:
-      - name: Create public IP address - Portal
-        href: create-public-ip-portal.md
-      - name: Create public IP address - PowerShell
-        href: create-public-ip-powershell.md
-      - name: Create public IP address - Azure CLI
-        href: create-public-ip-cli.md
-      - name: Create public IP address - ARM template
-        href: create-public-ip-template.md
-    - name: Create public IP prefix
-      items:
-      - name: Create public IP prefix - Portal
-        href: create-public-ip-prefix-portal.md
-      - name: Create public IP prefix - PowerShell
-        href: create-public-ip-prefix-powershell.md
-      - name: Create public IP prefix - Azure CLI
-        href: create-public-ip-prefix-cli.md
-    - name: Upgrade a public IP address
-      items:
-      - name: Upgrade a public IP address - Portal
-        href: public-ip-upgrade-portal.md
-      - name: Upgrade a public IP address - PowerShell
-        href: public-ip-upgrade-powershell.md
-      - name: Upgrade a public IP address - Azure CLI
-        href: public-ip-upgrade-cli.md
-      - name: Migrate a classic reserved IP
-        href: public-ip-upgrade-classic.md
-    - name: Load balancer
-      items:
-      - name: Standard public
-        items: 
-        - name: Standard Public Load Balancer with IPv6 - PowerShell
-          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-        - name: Standard Public Load Balancer with IPv6 - Azure CLI
-          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
-        - name: Standard Public Load Balancer with IPv6 - ARM template
-          href: ipv6-configure-standard-load-balancer-template-json.md
-      - name: Standard internal
-        items:
-        - name: Standard Internal Load Balancer with IPv6 - PowerShell
-          href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
-      - name: Add IPv6 to an IPv4 application- PowerShell
-        href: ipv6-add-to-existing-vnet-powershell.md
-      - name: Add IPv6 to an IPv4 application - Azure CLI
-        href: ipv6-add-to-existing-vnet-cli.md    
-    - name: Routing preference
-      items:
-      - name: Create public IP address
-        items:
-        - name: Azure portal
-          href: routing-preference-portal.md
-        - name: Azure PowerShell
-          href: routing-preference-powershell.md
-        - name: Azure CLI
-          href: routing-preference-cli.md
-      - name: Configure VM with internet routing preference
-        items:
-        - name: Azure portal
-          href: tutorial-routing-preference-virtual-machine-portal.md
-        - name: Azure PowerShell
-          href: configure-routing-preference-virtual-machine-powershell.md
-        - name: Azure CLI
-          href: configure-routing-preference-virtual-machine-cli.md
-      - name: Configure mixed Routing Preference for a VM
-        href: routing-preference-mixed-network-adapter-portal.md
-      - name: Configure Routing Preference for an AKS cluster
-        href: routing-preference-azure-kubernetes-service-cli.md
   - name: Security
     items:
     - name: Filter network traffic
@@ -338,63 +246,33 @@
         href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json
   - name: VM networking
     items:      
-    - name: Create VM - static public IP
+    - name: Migrate a virtual machine public IP address
+      href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-network/toc.json
+    - name: Add or remove network interfaces
+      href: virtual-network-network-interface-vm.md
+    - name: Create VM - multiple NICs
       items:
-      - name: Azure portal
-        href: virtual-network-deploy-static-pip-arm-portal.md
       - name: Azure PowerShell
-        href: virtual-network-deploy-static-pip-arm-ps.md
+        href: ../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
       - name: Azure CLI
-        href: virtual-network-deploy-static-pip-arm-cli.md
-      - name: Add public IP address to existing VM
-        href: associate-public-ip-address-vm.md
-      - name: Dissociate public IP address from a VM
-        href: remove-public-ip-address-vm.md
-    - name: Create VM - static private IP
+        href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+    - name: Accelerated Networking (AccelNet)
       items:
-      - name: Azure portal
-        href: virtual-networks-static-private-ip-arm-pportal.md
-      - name: Azure PowerShell
-        href: virtual-networks-static-private-ip-arm-ps.md
-      - name: Azure CLI
-        href: virtual-networks-static-private-ip-arm-cli.md
-    - name: Create VM - static private IP (classic)
-      items:
-      - name: Azure portal
-        href: virtual-networks-static-private-ip-classic-pportal.md
-      - name: Azure PowerShell
-        href: virtual-networks-static-private-ip-classic-ps.md
-    - name: Create VM - multiple IPs
-      items:
-      - name: Azure portal
-        href: virtual-network-multiple-ip-addresses-portal.md
-      - name: Azure PowerShell
-        href: virtual-network-multiple-ip-addresses-powershell.md
-      - name: Azure CLI
-        href: virtual-network-multiple-ip-addresses-cli.md
-      - name: Add or remove network interfaces
-        href: virtual-network-network-interface-vm.md
-      - name: Create VM - multiple NICs
-        items:
-        - name: Azure PowerShell
-          href: ../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-        - name: Azure CLI
-          href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-    - name: Create VM - accelerated networking
-      items:
-      - name: Azure PowerShell
+      - name: Accelerated Networking overview
+        href: accelerated-networking-overview.md
+      - name: Creating an AccelNet VM with PowerShell
         href: create-vm-accelerated-networking-powershell.md
-      - name: Azure CLI
+      - name: Creating an AccelNet VM with Azure CLI
         href: create-vm-accelerated-networking-cli.md
         items:
+        - name: How Accelerated Networking works
+          href: accelerated-networking-how-it-works.md
         - name: Setup DPDK
           href: setup-dpdk.md
     - name: TCP/IP Performance Tuning for Azure VMs
       href: virtual-network-tcpip-performance-tuning.md
     - name: Virtual machine network throughput
       href: virtual-machine-network-throughput.md
-    - name: Virtual machine scale set with IPv6
-      href: ipv6-virtual-machine-scale-set.md 
   - name: Move across regions
     items:
     - name: Network security groups (NSG)
@@ -402,8 +280,6 @@
     - name: Virtual networks
       href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Network interfaces (NICs)
-      href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-    - name: Public IPs
       href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Manual move
       items:
@@ -451,6 +327,8 @@
     href: monitor-virtual-network.md
   - name: Classic deployment
     href: /previous-versions/azure/virtual-network/create-virtual-network-classic
+  - name: Migrate from classic to Resource Manager
+    href: migrate-classic-vnet-powershell.md
 - name: Reference
   items:
   - name: Monitor data reference
@@ -487,7 +365,7 @@
   - name: Microsoft Q&A question page for Networking
     href: /answers/topics/azure-virtual-network.html
   - name: Networking feedback
-    href: https://feedback.azure.com/forums/217313-networking?category_id=77469
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-network
   - name: Pricing calculator

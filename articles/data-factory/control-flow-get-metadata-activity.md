@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/22/2021
 ms.author: jianleishen
 ---
 
@@ -16,6 +16,24 @@ ms.author: jianleishen
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 You can use the Get Metadata activity to retrieve the metadata of any data in Azure Data Factory or a Synapse pipeline. You can use the output from the Get Metadata activity in conditional expressions to perform validation, or consume the metadata in subsequent activities.
+
+## Create a Get Metadata activity with UI
+
+To use a Get Metadata activity in a pipeline, complete the following steps:
+
+1. Search for _Get Metadata_ in the pipeline Activities pane, and drag a Fail activity to the pipeline canvas.
+1. Select the new Get Metadata activity on the canvas if it is not already selected, and its  **Dataset** tab, to edit its details.
+1. Choose a dataset, or create a new one with the New button.  Then you can specify filter options and add columns from the available metadata for the dataset.
+
+   :::image type="content" source="media/control-flow-get-metadata-activity/get-metadata-activity.png" alt-text="Shows the UI for a Get Metadata activity.":::
+
+1. Use the output of the activity as an input to another activity, like a Switch activity in this example.  You can reference the output of the Metadata Activity anywhere dynamic content is supported in the other activity.
+
+   :::image type="content" source="media/control-flow-get-metadata-activity/using-metadata-in-another-activity.png" alt-text="Shows the pipeline with a Switch activity added to handle the output of the Get Metadata activity.":::
+
+1. In the dynamic content editor, select the Get Metadata activity output to reference it in the other activity.
+
+   :::image type="content" source="media/control-flow-get-metadata-activity/dynamic-content-editor-using-metadata.png" alt-text="Shows the dynamic content editor with the output of the Get Metadata activity as the dynamic content.":::
 
 ## Supported capabilities
 
@@ -61,8 +79,9 @@ Note the following:
 
 | Connector/Metadata | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
+| [Amazon RDS for SQL Server](connector-amazon-rds-for-sql-server.md) | √ | √ | √ |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
-| [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) | √ | √ | √ |
+| [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) | √ | √ | √ |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 

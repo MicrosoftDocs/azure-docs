@@ -3,7 +3,9 @@ title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Monitor dependency calls from your on-premises or Microsoft Azure web application with Application Insights.
 ms.topic: conceptual
 ms.date: 08/26/2020
+ms.devlang: csharp
 ms.custom: devx-track-csharp
+ms.reviewer: casocha
 ---
 
 # Dependency Tracking in Azure Application Insights 
@@ -211,7 +213,7 @@ dependencies
 In the Log Analytics query view `timestamp` represents the moment the TrackDependency() call was initiated which occurs immediately after the dependency call response is received. To calculate the time when the dependency call began, you would take `timestamp` and subtract the recorded `duration` of the dependency call.
 
 ## Open-source SDK
-Like every Application Insights SDK, dependency collection module is also open-source. Read and contribute to the code, or report issues at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
+Like every Application Insights SDK, dependency collection module is also open-source. Read and contribute to the code, or report issues at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet).
 
 ## Next steps
 

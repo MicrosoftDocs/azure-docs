@@ -51,6 +51,9 @@ For example:
 > [!NOTE]
 > You can use Azure Data Studio [view the SQL managed instance dashboards](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards).
 
+> [!NOTE]
+> In order to connect to a managed instance that was created using a Kubernetes manifest, the username and password need to be provided to sqlcmd in base64 encoded form.
+
 To connect using SQLCMD or Linux or Windows you can use a command like this. Enter the SQL password when prompted:
 
 ```bash

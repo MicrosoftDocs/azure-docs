@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
 # Copy data from an HTTP endpoint by using Azure Data Factory or Azure Synapse Analytics
@@ -23,7 +23,7 @@ This article outlines how to use Copy Activity in Azure Data Factory and Azure S
 The difference among this HTTP connector, the [REST connector](connector-rest.md) and the [Web table connector](connector-web-table.md) are:
 
 - **REST connector** specifically support copying data from RESTful APIs; 
-- **HTTP connector** is generic to retrieve data from any HTTP endpoint, e.g. to download file. Before REST connector becomes available, you may happen to use the HTTP connector to copy data from RESTful API, which is supported but less functional comparing to REST connector.
+- **HTTP connector** is generic to retrieve data from any HTTP endpoint, e.g. to download file. Before REST connector becomes available, you may happen to use the HTTP connector to copy data from RESTful APIs, which is supported but less functional comparing to REST connector.
 - **Web table connector** extracts table content from an HTML webpage.
 
 ## Supported capabilities
@@ -139,7 +139,11 @@ If you use **certThumbprint** for authentication and the certificate is installe
 1. Open the Microsoft Management Console (MMC). Add the **Certificates** snap-in that targets **Local Computer**.
 2. Expand **Certificates** > **Personal**, and then select **Certificates**.
 3. Right-click the certificate from the personal store, and then select **All Tasks** > **Manage Private Keys**.
-3. On the **Security** tab, add the user account under which the Integration Runtime Host Service (DIAHostService) is running, with read access to the certificate.
+4. On the **Security** tab, add the user account under which the Integration Runtime Host Service (DIAHostService) is running, with read access to the certificate.
+5. The HTTP connector loads only trusted certificates. If you're using a self-signed or nonintegrated CA-issued certificate, to enable trust, the certificate must also be installed in one of the following stores:
+   - Trusted People
+   - Third-Party Root Certification Authorities
+   - Trusted Root Certification Authorities
 
 **Example 1: Using certThumbprint**
 
