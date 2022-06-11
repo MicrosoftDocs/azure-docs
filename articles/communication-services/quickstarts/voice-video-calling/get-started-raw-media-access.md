@@ -84,7 +84,7 @@ The following is an overview of the steps required to create a virtual video str
     virtualRawOutgoingVideoStream = new VirtualRawOutgoingVideoStream(rawOutgoingVideoStreamOptions);
     ```
 
-7.  Once outgoingVideoStreamState is equal to `OutgoingVideoStreamState.STARTED` create and instance of `FrameGenerator` class this will start a non-UI thread and will send frames, call `FrameGenerator.SetVideoFrameSender` each time we get an updated `VideoFrameSender` on the previous delegate, cast the `VideoFrameSender` to the appropriate type defined by the `VideoFrameKind` property of `VideoFormat`. For example, cast it to `SoftwareBasedVideoFrameSender` and then call the `send` method according to the number of planes defined by the MediaFormat.
+7.  Once outgoingVideoStreamState is equal to `OutgoingVideoStreamState.STARTED` create and instance of `FrameGenerator` class this will start a non-UI thread and will send frames, call `FrameGenerator.SetVideoFrameSender` each time we get an updated `VideoFrameSender` on the previous delegate, cast the `VideoFrameSender` to the appropriate type defined by the `VideoFrameKind` property of `VideoFormat`. For example, cast it to `SoftwareBasedVideoFrameSender` and then call the `send` method according to the number of planes defined by the VideoFormat.
 After that, create the ByteBuffer backing the video frame if needed. Then, update the content of the video frame. Finally, send the video frame to other participants with the `sendFrame` API.
 
     ```java
@@ -164,9 +164,10 @@ After that, create the ByteBuffer backing the video frame if needed. Then, updat
             Thread.sleep((long) (1000.0f / videoFormat.getFramesPerSecond()));
         } catch (InterruptedException ex) {
 
-            ex.printStackTrace();
+            Log.d("FrameGenerator", String.format("FrameGenerator.GenerateFrame, %s", ex.getMessage()));
         } catch (ExecutionException ex2) {
-            ex2.getMessage();
+        
+            Log.d("FrameGenerator", String.format("FrameGenerator.GenerateFrame, %s", ex2.getMessage()));
         }
 
         return plane;
@@ -191,7 +192,7 @@ After that, create the ByteBuffer backing the video frame if needed. Then, updat
             }
         } catch (InterruptedException ex) {
 
-            ex.getMessage();
+            Log.d("FrameGenerator", String.format("FrameGenerator.StopFrameIterator, %s", ex.getMessage()));
         }
     }
     ```
@@ -200,7 +201,7 @@ After that, create the ByteBuffer backing the video frame if needed. Then, updat
 
 Repeat steps `1 to 4` from the previous VirtualRawOutgoingVideoStream tutorial.
 
-Since the Android system generates the frames, you must implement your own foreground service to capture the frames and send them through using our API
+Since the Android system generates the frames, you must implement your own foreground service to capture the frames and send them through using our Azure Communication Services Calling API
 
 The following is an overview of the steps required to create a screen share video stream.
 
@@ -230,6 +231,7 @@ The following is an overview of the steps required to create a screen share vide
         } catch (Exception e) {
 
             String error = "Could not start screen share due to failure to startActivityForResult for mediaProjectionManager screenCaptureIntent";
+            Log.d("FrameGenerator", error);
         }
     }
 
