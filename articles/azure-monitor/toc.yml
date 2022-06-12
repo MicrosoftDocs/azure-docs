@@ -255,7 +255,6 @@ items:
         displayName: Log Analytics workspace
         href: logs/log-analytics-workspace-overview.md
       - name: Create workspaces
-        displayName: Azure portal
         href: logs/quick-create-workspace.md
       - name: Configure
         items:
