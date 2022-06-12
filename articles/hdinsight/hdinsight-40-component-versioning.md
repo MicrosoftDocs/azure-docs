@@ -3,7 +3,7 @@ title: Apache Hadoop components and versions - Azure HDInsight 4.0
 description: Learn about the Apache Hadoop components and versions in Azure HDInsight 4.0.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 06/10/2022
 ---
 
 # HDInsight 4.0 component versions

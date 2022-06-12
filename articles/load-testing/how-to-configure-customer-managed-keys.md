@@ -29,7 +29,7 @@ Azure Load Testing uses the customer-managed key to encrypt the following data i
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- An existing user-assigned managed identity. For more information about creating a user-assigned managed identity, see (Manage user-assigned managed identities)[/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity].
+- An existing user-assigned managed identity. For more information about creating a user-assigned managed identity, see [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
 ## Limitations
 
@@ -149,7 +149,7 @@ To configure customer-managed keys for a new Azure Load Testing resource, follow
 
 1. In the Azure portal, navigate to the **Azure Load Testing** page, and select the **Create** button to create a new resource.
 
-1. Follow the steps outlined in [create an Azure Load Testing resource](./quickstart-create-and-run-load-test.md#create_resource) to fill out the fields on the **Basics** tab.
+1. Follow the steps outlined in [create an Azure Load Testing resource](./quickstart-create-and-run-load-test.md#create-an-azure-load-testing-resource) to fill out the fields on the **Basics** tab.
 
 1. Go to the **Encryption** tab. In the **Encryption type** field, select **Customer-managed keys (CMK)**.
 

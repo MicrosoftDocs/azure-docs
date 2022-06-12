@@ -43,7 +43,19 @@ Before you begin the prerequisites, review the [Performance best practices](#per
 
 ## Supported regions
 
-Azure VMware Solution currently supports the following regions: East US, Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany West Central, Japan West, North Central US, North Europe, Southeast Asia, Switzerland West, UK South, UK West, US South Central, and West US. The list of supported regions will expand as the preview progresses. 
+Azure VMware Solution currently supports the following regions:
+
+**America**   : East US, West US, Central US, South Central US, North Central US, Canada East, Canada Central .
+
+**Europe**    : North Europe, UK West, UK South, France Central, Switzerland West, Germany West Central.
+
+**Asia**      : Southeast Asia, Japan West.
+
+**Australia** : Australia East, Australia Southeast.
+
+**Brazil**    : Brazil South.
+
+The list of supported regions will expand as the preview progresses. 
 
 ## Performance best practices
 
