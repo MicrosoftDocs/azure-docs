@@ -1,6 +1,6 @@
 ---
-title: Customize a Brands model in Azure Video Indexer (formerly Azure Video Analyzer for Media) - Azure  
-description: This article gives an overview of what is a Brands model in Azure Video Indexer (formerly Azure Video Analyzer for Media) and how to customize it. 
+title: Customize a Brands model in Azure Video Indexer - Azure  
+description: This article gives an overview of what is a Brands model in Azure Video Indexer and how to customize it. 
 
 ms.topic: conceptual
 ms.date: 12/15/2019
@@ -9,7 +9,7 @@ ms.author: juliako
 
 # Customize a Brands model in Azure Video Indexer
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) supports brand detection from speech and visual text during indexing and reindexing of video and audio content. The brand detection feature identifies mentions of products, services, and companies suggested by Bing's brands database. For example, if Microsoft is mentioned in a video or audio content or if it shows up in visual text in a video, Azure Video Indexer detects it as a brand in the content. Brands are disambiguated from other terms using context.
+Azure Video Indexer supports brand detection from speech and visual text during indexing and reindexing of video and audio content. The brand detection feature identifies mentions of products, services, and companies suggested by Bing's brands database. For example, if Microsoft is mentioned in a video or audio content or if it shows up in visual text in a video, Azure Video Indexer detects it as a brand in the content. Brands are disambiguated from other terms using context.
 
 Brand detection is useful in a wide variety of business scenarios such as contents archive and discovery, contextual advertising, social media analysis, retail compete analysis, and many more. Azure Video Indexer brand detection enables you to index brand mentions in speech and visual text, using Bing's brands database as well as with customization by building a custom Brands model for each Azure Video Indexer account. The custom Brands model feature allows you to select whether or not Azure Video Indexer will detect brands from the Bing brands database, exclude certain brands from being detected (essentially creating a list of unapproved brands), and include brands that should be part of your model that might not be in Bing's brands database (essentially creating a list of approved brands). The custom Brands model that you create will only be available in the account in which you created the model.
 

@@ -4,6 +4,7 @@ description: Describes disaster recovery for Azure Arc-enabled SQL Managed Insta
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -11,11 +12,9 @@ ms.date: 04/06/2022
 ms.topic: conceptual
 ---
 
-# Azure Arc-enabled SQL Managed Instance - disaster recovery (preview)
+# Azure Arc-enabled SQL Managed Instance - disaster recovery 
 
 To configure disaster recovery in Azure Arc-enabled SQL Managed Instance, set up failover groups.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Background
 

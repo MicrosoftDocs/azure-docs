@@ -14,8 +14,6 @@
       href: add-application-portal.md
     - name: Assign a user
       href: add-application-portal-assign-users.md
-    - name: Enable single sign-on
-      href: add-application-portal-setup-sso.md
     - name: View applications
       href: view-applications-portal.md
     - name: Delete applications
@@ -246,6 +244,8 @@
       href: methods-for-removing-user-access.md
   - name: Resources
     items:
+        - name: Video learning
+          href: app-management-videos.md
         - name: Support and help options for developers
           href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
         - name: Azure feedback forum
@@ -258,5 +258,3 @@
           href: https://azure.microsoft.com/updates/?product=active-directory
         - name: Stack Overflow
           href: https://stackoverflow.com/questions/tagged/azure-active-directory
-        - name: Videos
-          href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

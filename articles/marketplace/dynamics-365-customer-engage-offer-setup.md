@@ -6,18 +6,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/18/2022
+ms.date: 05/25/2022
 ---
 
 # Create a Dynamics 365 apps on Dataverse and Power Apps offer
 
-This article describes how to create a Dynamics 365 apps on Dataverse and Power Apps offer. All offers for Dynamics 365 go through our certification process. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
-
-Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
+This article describes how to create a _Dynamics 365 apps on Dataverse and Power Apps_ offer. Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
 
 ## Before you begin
 
-Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
+Review [Plan a Microsoft Dynamics 365 offer](marketplace-dynamics-365.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 
 ## Create a new offer
 
@@ -59,20 +57,30 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
 
 ## Setup details
 
-For **How do you want potential customers to interact with this listing offer?**, select the option you want to use for this offer:
+1. On the _Offer setup_ page, choose one of the following options:
 
-- **Enable app license management through Microsoft** – Manage your app licenses through Microsoft. To let customers run your app’s base functionality without a license and run premium features after they’ve purchased a license, select the **Allow customers to install my app even if licenses are not assigned box**. If you select this second box, you need to configure your solution package to not require a license.
+    - Select **Yes** to sell through Microsoft and have Microsoft host transactions on your behalf. 
+    
+        If you choose this option, the Enable app license management through Microsoft check box is enabled and cannot be changed.
 
-    > [!NOTE]
-    > You cannot change this setting after you publish your offer. To learn more about this setting, see [ISV app license management](isv-app-license.md).
+        > [!NOTE]
+        > This capability is currently in Public Preview.
 
-- **Get it now (free)** – List your offer to customers for free.
-- **Free trial (listing)** – List your offer to customers with a link to a free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+    - Select **No**, if you prefer to only list your offer through the marketplace and process transactions independently.
 
-    > [!NOTE]
-    > The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
+        If you choose this option, you can use the **Enable app license management through Microsoft** check box to choose whether or not to enable app license management through Microsoft. For more information, see [ISV app license management](isv-app-license.md).
 
-- **Contact me** – Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
+1. To let customers run your app’s base functionality without a license and run premium features after they’ve purchased a license, select the **Allow customers to install my app even if licenses are not assigned** box. If you select this second box, you need to configure your solution package to not require a license.
+
+1. If you chose **No** in step 1 and chose not to enable app license management through Microsoft, then you can select one of the following:
+
+    - **Get it now (free)** – List your offer to customers for free.
+    - **Free trial (listing)** – List your offer to customers with a link to a free trial. The trial experience lets users deploy your solution to a live Dynamics 365 environment. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+
+        > [!NOTE]
+        > The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
+
+    - **Contact me** – Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
 
 ## Test drive
 

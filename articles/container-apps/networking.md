@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Networking architecture in Azure Container Apps
 
-Azure Container Apps run in the context of an [environment](environment.md), which is supported by a virtual network (VNET). When you create an environment, you can provide a custom VNET, otherwise a VNET is automatically generated for you. Generated VNETs are inaccessible to you as they're created in Microsoft's tenent. To take full control over your VNET, provide an existing VNET to Container Apps as you create your environment.
+Azure Container Apps run in the context of an [environment](environment.md), which is supported by a virtual network (VNET). When you create an environment, you can provide a custom VNET, otherwise a VNET is automatically generated for you. Generated VNETs are inaccessible to you as they're created in Microsoft's tenant. To take full control over your VNET, provide an existing VNET to Container Apps as you create your environment.
 
 The following articles feature step-by-step instructions for creating Container Apps environments with different accessibility levels.
 
@@ -36,7 +36,7 @@ As you create a custom VNET, keep in mind the following situations:
   - Each [revision](revisions.md) is assigned an IP address in the subnet.
   - You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as [internal](vnet-custom-internal.md).
 
-As you begin to design the network around your container app, refer to [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm) for important concerns surrounding running virtual networks on Azure.
+As you begin to design the network around your container app, refer to [Plan virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md) for important concerns surrounding running virtual networks on Azure.
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Diagram of how Azure Container Apps environments use an existing V NET, or you can provide your own.":::
 
@@ -46,7 +46,7 @@ https://docs.microsoft.com/azure/azure-functions/functions-networking-options
 https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-virtual-network-integration/ba-p/3096932
 -->
 
-### HTTP edge proxy behavior
+## HTTP edge proxy behavior
 
 Azure Container Apps uses [Envoy proxy](https://www.envoyproxy.io/) as an edge HTTP proxy. TLS is terminated on the edge and requests are routed based on their traffic split rules and routes traffic to the correct application.
 
@@ -97,7 +97,7 @@ Once you're satisfied with the latest revision, you can lock traffic to that rev
 
 #### Update existing revision
 
-Consider a situation where you have a known good revision that's serving 100% of your traffic, but you want to issue and update to your app. You can deploy and test new revisions using their direct endpoints without affecting the main revision serving the app.
+Consider a situation where you have a known good revision that's serving 100% of your traffic, but you want to issue an update to your app. You can deploy and test new revisions using their direct endpoints without affecting the main revision serving the app.
 
 Once you're satisfied with the updated revision, you can shift a portion of traffic to the new revision for testing and verification.
 

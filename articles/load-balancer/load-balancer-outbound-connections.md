@@ -3,12 +3,12 @@ title: Source Network Address Translation (SNAT) for outbound connections
 titleSuffix: Azure Load Balancer
 description: Learn how Azure Load Balancer is used for outbound internet connectivity (SNAT).
 services: load-balancer
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 03/01/2022
-ms.author: allensu
+ms.author: greglin
 ---
 
 # Use Source Network Address Translation (SNAT) for outbound connections

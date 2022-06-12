@@ -26,7 +26,7 @@ For Batch workloads, the main benefits of using ephemeral OS disks are reduced c
 
 To determine whether a VM series supports ephemeral OS disks, check the documentation for each VM instance. For example, the [Ddv4 and Ddsv4-series](../virtual-machines/ddv4-ddsv4-series.md) supports ephemeral OS disks.
 
-Alternately, you can programmatically query to check the 'EphemeralOSDiskSupported' capability. An example PowerShell cmdlet to query this capability is provided in the [ephemeral OS disk frequently asked questions](../virtual-machines/ephemeral-os-disks.md#frequently-asked-questions).
+Alternately, you can programmatically query to check the 'EphemeralOSDiskSupported' capability. An example PowerShell cmdlet to query this capability is provided in the [ephemeral OS disk frequently asked questions](../virtual-machines/ephemeral-os-disks-faq.md).
 
 ## Create a pool that uses ephemeral OS disks
 

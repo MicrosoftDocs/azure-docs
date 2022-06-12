@@ -3,10 +3,11 @@ title: What's new in Azure Database for MySQL - Flexible Server
 description: Learn about recent updates to Azure Database for MySQL - Flexible Server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 author: hjtoland3
 ms.service: mysql
+ms.subservice: flexible-server
 ms.author: jtoland
-ms.custom: mvc, references_regions
+ms.custom: mvc, references_regions, event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 05/24/2022
 ---
 
 # What's new in Azure Database for MySQL - Flexible Server?
@@ -17,12 +18,30 @@ ms.date: 10/12/2021
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
+## June 2022
+
+**Known Issues**
+
+On few servers where audit or slow logs are enabled, you may no longer see logs being uploaded to data sinks configured under diagnostics settings. Please verify whether your logs have the latest updated timestamp for the events, based on the [data sink](./tutorial-query-performance-insights.md#set-up-diagnostics) you have configured. If your server is affected by this issue, please open a [support ticket](https://azure.microsoft.com/support/create-ticket/) so that we can apply a quick fix on the server to resolve the issue. Alternatively, you can wait for our next deployment cycle, during which we will apply a permanent fix in all regions.
+
+## May 2022
+
+- **Announcing Azure Database for MySQL - Flexible Server for business-critical workloads**
+    Azure Database for MySQL – Flexible Server Business Critical service tier is now generally available. Business Critical service tier is ideal for Tier 1 production workloads that require low latency, high concurrency, fast failover, and high scalability, such as gaming, e-commerce, and Internet-scale applications, to learn more about [Business Critical service Tier](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/announcing-azure-database-for-mysql-flexible-server-for-business/ba-p/3361718).
+
+- **Announcing the addition of new Burstable compute instances for Azure Database for MySQL - Flexible Server**
+    We are announcing the addition of new Burstable compute instances to support customers’ auto-scaling compute requirements from 1 vCore up to 20 vCores. learn more about [Compute Option for Azure Database for MySQL - Flexible Server](./concepts-compute-storage.md).
+
+- **Known issues**
+  - The Reserved instances (RI) feature in Azure Database for MySQL – Flexible server is not working properly for the Business Critical service tier, after its rebranding from the Memory Optimized service tier. Specifically, instance reservation has stopped working, and we are currently working to fix the issue.
+  - Private DNS integration details are not displayed on few Azure Database for MySQL Database flexible servers which have HA option enabled. This issue does not have any impact on availability of the server or name resolution. We are working on a permanent fix to resolve the issue and it will be available in the next deployment. Meanwhile, if you want to view the Private DNS Zone details, you can either search under [Private DNS zones](../../dns/private-dns-getstarted-portal.md) in the Azure portal or you can perform a [manual failover](concepts-high-availability.md#planned-forced-failover) of the HA enabled flexible server and refresh the Azure portal.
+
 ## April 2022
 
 - **Minor version upgrade for Azure Database for MySQL - Flexible server to 8.0.28**
     Azure Database for MySQL - Flexible Server 8.0 now is running on minor version 8.0.28*, to learn more about changes coming in this minor version [visit Changes in MySQL 8.0.28 (2022-01-18, General Availability)](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-28.html)
 
-- **Minor version upgrade for Azure Database for MySQL - Single server to 5.7.37**
+- **Minor version upgrade for Azure Database for MySQL - Flexible server to 5.7.37**
     Azure Database for MySQL - Flexible Server 5.7 now is running on minor version 5.7.37*, to learn more about changes coming in this minor version [visit Changes in MySQL 5.7.37 (2022-01-18, General Availability](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-37.html)
 
 * Please note that some regions are still running older minor versions of the Azure Database for MySQL and will be patched by end of April 2022.
@@ -114,7 +133,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
     You won’t be able to create new or maintain existing read replicas on the Burstable tier server. In the interest of providing a good query and development experience for Burstable SKU tiers, the support for creating and maintaining read replica for servers in the Burstable pricing tier will be discontinued. 
 
-    If you have an existing Azure Database for MySQL - Flexible Server with read replica enabled, you’ll have to scale up your server to either General Purpose or Memory Optimized pricing tiers or delete the read replica within 60 days. After the 60-day period, while you can continue to use the primary server for your read-write operations, replication to read replica servers will be stopped. For newly created servers, read replica option will be available only for the General Purpose and Memory Optimized pricing tiers.  
+    If you have an existing Azure Database for MySQL - Flexible Server with read replica enabled, you’ll have to scale up your server to either General Purpose or Business Critical pricing tiers or delete the read replica within 60 days. After the 60-day period, while you can continue to use the primary server for your read-write operations, replication to read replica servers will be stopped. For newly created servers, read replica option will be available only for the General Purpose and Business Critical pricing tiers.  
 
  - **Monitoring Azure Database for MySQL - Flexible Server with Azure Monitor Workbooks**
 
@@ -253,9 +272,9 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
     Flexible Server now supports [Data-in Replication](concepts-data-in-replication.md). Use this feature to synchronize and migrate data from a MySQL server running on-premises, in virtual machines, on Azure Database for MySQL Single Server, or on database services outside Azure to Azure Database for MySQL – Flexible Server. Learn more about [How to configure Data-in Replication](how-to-data-in-replication.md).
 
-- **GitHub actions support with Azure CLI**
+- **GitHub Actions support with Azure CLI**
 
-  Flexible Server CLI now allows customers to automate workflows to deploy updates with GitHub actions. This feature helps set up and deploy database updates with MySQL GitHub Actions workflow. These CLI commands assist with setting up a repository to enable continuous deployment for ease of development. [Learn more](/cli/azure/mysql/flexible-server/deploy).
+  Flexible Server CLI now allows customers to automate workflows to deploy updates with GitHub Actions. This feature helps set up and deploy database updates with MySQL GitHub Actions workflow. These CLI commands assist with setting up a repository to enable continuous deployment for ease of development. [Learn more](/cli/azure/mysql/flexible-server/deploy).
 
 - **Zone redundant HA forced failover fixes**
 

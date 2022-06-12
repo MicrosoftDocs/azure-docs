@@ -4,7 +4,7 @@ title: Cost Management + Billing documentation
 summary: Cost Management + Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
 metadata:
   title: Cost Management + Billing
-  titleSuffix: Azure Cost Management + Billing documentation
+  titleSuffix: Microsoft Cost Management
   description: Cost Management + Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
   ms.service: cost-management-billing
   ms.subservice: common

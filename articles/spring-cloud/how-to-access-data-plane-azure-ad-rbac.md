@@ -1,23 +1,26 @@
 ---
 title: "Access Config Server and Service Registry"
-titleSuffix: Azure Spring Cloud
+titleSuffix: Azure Spring Apps
 description: How to access Config Server and Service Registry Endpoints with Azure Active Directory role-based access control.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.custom: devx-track-java, subject-rbac-steps
+ms.custom: devx-track-java, subject-rbac-steps, event-tier1-build-2022
 ---
 
 # Access Config Server and Service Registry
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
 
-This article explains how to access the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Cloud using Azure Active Directory (Azure AD) role-based access control (RBAC).
+This article explains how to access the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Apps using Azure Active Directory (Azure AD) role-based access control (RBAC).
 
 > [!NOTE]
-> Applications deployed and running inside the Azure Spring Cloud service are automatically wired up with certificate-based authentication and authorization when accessing the managed Spring Cloud Config Server and Service Registry. You don't need to follow this guidance for these applications. The related certificates are fully managed by the Azure Spring Cloud platform, and are automatically injected in your application when connected to Config Server and Service Registry.
+> Applications deployed and running inside the Azure Spring Apps service are automatically wired up with certificate-based authentication and authorization when accessing the managed Spring Cloud Config Server and Service Registry. You don't need to follow this guidance for these applications. The related certificates are fully managed by the Azure Spring Apps platform, and are automatically injected in your application when connected to Config Server and Service Registry.
 
 ## Assign role to Azure AD user/group, MSI, or service principal
 
@@ -25,10 +28,10 @@ Assign the role to the [user | group | service-principal | managed-identity] at 
 
 | Role name                                       | Description                                                                  |
 |-------------------------------------------------|------------------------------------------------------------------------------|
-| Azure Spring Cloud Config Server Reader         | Allow read access to Azure Spring Cloud Config Server.                       |
-| Azure Spring Cloud Config Server Contributor    | Allow read, write, and delete access to Azure Spring Cloud Config Server.    |
-| Azure Spring Cloud Service Registry Reader      | Allow read access to Azure Spring Cloud Service Registry.                    |
-| Azure Spring Cloud Service Registry Contributor | Allow read, write, and delete access to Azure Spring Cloud Service Registry. |
+| Azure Spring Apps Config Server Reader         | Allow read access to Azure Spring Apps Config Server.                       |
+| Azure Spring Apps Config Server Contributor    | Allow read, write, and delete access to Azure Spring Apps Config Server.    |
+| Azure Spring Apps Service Registry Reader      | Allow read access to Azure Spring Apps Service Registry.                    |
+| Azure Spring Apps Service Registry Contributor | Allow read, write, and delete access to Azure Spring Apps Service Registry. |
 
 For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
@@ -43,7 +46,7 @@ After the role is assigned, the assignee can access the Spring Cloud Config Serv
     az account get-access-token
     ```
 
-1. Compose the endpoint. We support the default endpoints of the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Cloud.
+1. Compose the endpoint. We support the default endpoints of the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Apps.
 
     * *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/{path}'*
     * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/{path}'*
@@ -67,11 +70,11 @@ For Eureka endpoints, see [Eureka-REST-operations](https://github.com/Netflix/eu
 
 For config server endpoints and detailed path information, see [ResourceController.java](https://github.com/spring-cloud/spring-cloud-config/blob/main/spring-cloud-config-server/src/main/java/org/springframework/cloud/config/server/resource/ResourceController.java) and [EncryptionController.java](https://github.com/spring-cloud/spring-cloud-config/blob/main/spring-cloud-config-server/src/main/java/org/springframework/cloud/config/server/encryption/EncryptionController.java).
 
-## Register Spring Boot apps to Spring Cloud Config Server and Service Registry managed by Azure Spring Cloud
+## Register Spring Boot apps to Spring Cloud Config Server and Service Registry managed by Azure Spring Apps
 
-After the role is assigned, you can register Spring Boot apps to Spring Cloud Config Server and Service Registry managed by Azure Spring Cloud with Azure AD token authentication. Both Config Server and Service Registry support [custom REST template](https://cloud.spring.io/spring-cloud-config/reference/html/#custom-rest-template) to inject the bearer token for authentication.
+After the role is assigned, you can register Spring Boot apps to Spring Cloud Config Server and Service Registry managed by Azure Spring Apps with Azure AD token authentication. Both Config Server and Service Registry support [custom REST template](https://cloud.spring.io/spring-cloud-config/reference/html/#custom-rest-template) to inject the bearer token for authentication.
 
-For more information, see the samples [Access Azure Spring Cloud managed Config Server](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/custom-config-server-client) and [Access Azure Spring Cloud managed Spring Cloud Service Registry](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/custom-eureka-client). The following sections explain some important details in these samples.
+For more information, see the samples [Access Azure Spring Apps managed Config Server](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/custom-config-server-client) and [Access Azure Spring Apps managed Service Registry](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/custom-eureka-client). The following sections explain some important details in these samples.
 
 **In *AccessTokenManager.java*:**
 
