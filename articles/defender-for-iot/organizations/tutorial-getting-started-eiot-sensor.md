@@ -229,8 +229,9 @@ Alerts, vulnerabilities, and recommendations for Enterprise IoT devices are curr
 
 For more information, see:
 
-- Alerts - [View and organize the Microsoft Defender for Endpoint Alerts queue](/microsoft-365/security/defender-endpoint/alerts-queue)
-- Vulnerabilities and recommendations - [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/)
+- [View and organize the Microsoft Defender for Endpoint Alerts queue](/microsoft-365/security/defender-endpoint/alerts-queue)
+- [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/)
+- [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
 
 
 ## Remove the sensor (optional)
