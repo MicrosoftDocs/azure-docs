@@ -39,7 +39,7 @@ The token was obtained from the original tenant, but the service is in guest ten
 
 You should use the token issued from guest tenant. For example, you have to assign the same Azure Active Directory to be your guest tenant and your DevOps, so it can correctly set token behavior and use the correct tenant.
 
-### Template parameters in the parameters file are not valid
+### Template parameters in the parameters file aren't  valid
 
 #### Issue
 
@@ -293,7 +293,7 @@ After some amount of time, new pipeline runs begin to succeed without any user a
 
 #### Cause
 
-There are several scenarios which can trigger this behavior, all of which involve a new version of a dependent resource being called by the old version of the parent resource. For example, suppose an existing child pipeline called by “Execute pipeline” is updated to have required parameters and the existing parent pipeline is updated to pass these parameters. If the deployment occurs during a parent pipeline execution, but before the **Execute Pipeline** activity, the old version of the pipeline will call the new version of the child pipeline, and the expected parameters will not be passed. This will cause the pipeline to fail with a *UserError*. This can also occur with other types of dependencies, such as if a breaking change is made to linked service during a pipeline run that references it. 
+There are several scenarios, which can trigger this behavior, all of which involve a new version of a dependent resource being called by the old version of the parent resource. For example, suppose an existing child pipeline called by “Execute pipeline” is updated to have required parameters and the existing parent pipeline is updated to pass these parameters. If the deployment occurs during a parent pipeline execution, but before the **Execute Pipeline** activity, the old version of the pipeline will call the new version of the child pipeline, and the expected parameters will not be passed. This will cause the pipeline to fail with a *UserError*. This can also occur with other types of dependencies, such as if a breaking change is made to linked service during a pipeline run that references it. 
 
 #### Resolution
 
@@ -305,7 +305,7 @@ New runs of the parent pipeline will automatically begin succeeding, so typicall
 Need to parameterize linked service integration run time
 
 #### Cause
-This feature is not supported. 
+This feature isn't  supported. 
 
 #### Resolution
 You have to select manually and set an integration runtime. You can use PowerShell API to change as well.  This change can have downstream implications. 
@@ -316,7 +316,7 @@ You have to select manually and set an integration runtime. You can use PowerShe
 Changing Integration runtime name during CI/CD deployment.  
  
 #### Cause
-Parameterizing an entity reference (Integration runtime in Linked service, Dataset in activity, Linked Service in dataset) is not supported.  Changing the runtime name during deployment will cause the depended resource (Resource referencing the Integration runtime) to become malformed with invalid reference.  
+Parameterizing an entity reference (Integration runtime in Linked service, Dataset in activity, Linked Service in dataset) isn't  supported.  Changing the runtime name during deployment will cause the depended resource (Resource referencing the Integration runtime) to become malformed with invalid reference.  
  
 #### Resolution
 Data Factory requires you to have the same name and type of integration runtime across all stages of CI/CD. 
@@ -324,10 +324,10 @@ Data Factory requires you to have the same name and type of integration runtime 
 ### ARM template deployment failing with error DataFactoryPropertyUpdateNotSupported
 
 ##### Issue
-ARM template deployment fails with an error such as DataFactoryPropertyUpdateNotSupported: Updating property type is not supported. 
+ARM template deployment fails with an error such as DataFactoryPropertyUpdateNotSupported: Updating property type isn't  supported. 
 
 ##### Cause
-The ARM template deployment is attempting to change the type of an existing integration runtime. This is not allowed and will cause a deployment failure because data factory requires the same name and type of integration runtime across all stages of CI/CD.
+The ARM template deployment is attempting to change the type of an existing integration runtime. This isn't  allowed and will cause a deployment failure because data factory requires the same name and type of integration runtime across all stages of CI/CD.
 
 ##### Resolution
 If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type. For more information, refer to [Continuous integration and delivery - Azure Data Factory](./continuous-integration-delivery.md#best-practices-for-cicd)
@@ -335,7 +335,7 @@ If you want to share integration runtimes across all stages, consider using a te
 ### GIT publish may fail because of PartialTempTemplates files
 
 #### Issue
-When you have 1000 s of old temporary ARM json files in PartialTemplates folder, publish may fail.
+When you've 1000 s of old temporary ARM json files in PartialTemplates folder, publish may fail.
 
 #### Cause
 On publish, ADF fetches every file inside each folder in the collaboration branch. In the past, publishing generated two folders in the publish branch: PartialArmTemplates and LinkedTemplates. PartialArmTemplates files are no longer generated. However, because there can be many old files (thousands) in the PartialArmTemplates folder, this may result in many requests being made to GitHub on publish and the rate limit being hit. 
