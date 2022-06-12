@@ -1,7 +1,7 @@
 ---
 title: Install the Speech SDK
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to install the Speech SDK for your preferred combination of platform and programming language.
+description: In this quickstart, you'll learn how to install the Speech SDK for your preferred programming language.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
@@ -10,7 +10,6 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/10/2022
 ms.author: eur
-ms.devlang: cpp, csharp, golang, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other
 zone_pivot_groups: programming-languages-speech-sdk
 ---
@@ -50,3 +49,9 @@ zone_pivot_groups: programming-languages-speech-sdk
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python include](./../includes/quickstarts/platform/python.md)]
 ::: zone-end
+
+## Next steps
+
+* [Speech-to-text quickstart](../get-started-speech-to-text.md)
+* [Text-to-speech quickstart](../get-started-text-to-speech.md)
+* [Speech translation quickstart](../get-started-speech-translation.md)
