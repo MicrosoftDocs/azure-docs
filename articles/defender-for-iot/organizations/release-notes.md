@@ -45,7 +45,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 **Cloud-only updates**:
 
-- [Microsoft Sentinel and Defender for IoT alert status synch](#microsoft-sentinel-and-defender-for-iot-alert-status-synch)
+- [Microsoft Sentinel incident synch with Defender for IoT alerts](#microsoft-sentinel-incident-synch-with-defender-for-iot-alerts)
 
 ### Microsoft Sentinel incident synch with Defender for IoT alerts
 
