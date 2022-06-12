@@ -22,7 +22,7 @@ The Speech SDK for C++ can be installed with the following `Install-Package` com
 Install-Package Microsoft.CognitiveServices.Speech
 ```
 
-Otherwise, you can follow a guide below for additional options.
+You can follow a guide below for additional options.
 
 **Choose your target environment**
 

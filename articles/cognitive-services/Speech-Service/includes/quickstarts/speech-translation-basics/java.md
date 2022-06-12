@@ -27,7 +27,7 @@ To complete the steps in this quickstart, you must also install [Apache Maven](h
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=Speech-translation&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Translate speech from a microphone
-
+To complete the steps in this quickstart, you must also install [Apache Maven](https://maven.apache.org/install.html).
 Follow these steps to create a new console application for speech recognition.
 
 1. Open a command prompt where you want the new project, and create a new `pom.xml` file. 

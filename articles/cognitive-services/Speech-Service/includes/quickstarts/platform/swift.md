@@ -19,7 +19,7 @@ Before you do anything, see the [platform requirements and instructions](~/artic
 
 # [Mac](#tab/mac)
 
-The Swift Speech SDK is available natively as a CocoaPod package for Mac x64 and ARM-based silicons. 
+The Speech SDK for Swift is available natively as a CocoaPod package for Mac x64 and ARM-based silicons. 
 
 System requirements for Mac:
 
@@ -41,7 +41,7 @@ Alternatively, .NET developers can build native macOS applications by using the 
 
 # [iOS](#tab/ios)
 
-The Swift Speech SDK is available natively as a CocoaPod package.
+The Speech SDK for Swift is available natively as a CocoaPod package.
 
 System requirements for iOS:
 

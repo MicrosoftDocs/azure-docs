@@ -220,9 +220,9 @@ ms.author: eur
 
 - **All**: Fixed [GitHub issue #842](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/842) for ServiceTimeout. You can now transcribe very long audio files using the Speech SDK without the connection to the service terminating with this error. However, we still recommend you use [batch transcription](../../batch-transcription.md) for long files.
 - **C#**: Fixed [GitHub issue #947](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/947) where no speech input could leave your app in a bad state.
-- **Java**: Fixed [GitHub Issue #997](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/997) where the Java Speech SDK 1.16 crashes when using DialogServiceConnector without a network connection or an invalid subscription key.
+- **Java**: Fixed [GitHub Issue #997](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/997) where the Speech SDK for Java 1.16 crashes when using DialogServiceConnector without a network connection or an invalid subscription key.
 - Fixed a crash when abruptly stopping speech recognition (for example, using CTRL+C on console app).
-- **Java**: Added a fix to delete temporary files on Windows when using Java Speech SDK.
+- **Java**: Added a fix to delete temporary files on Windows when using Speech SDK for Java.
 - **Java**: Fixed [GitHub issue #994](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/994) where calling `DialogServiceConnector.stopListeningAsync` could result in an error.
 - **Java**: Fixed a customer issue in the [virtual assistant quickstart](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre/virtual-assistant).
 - **JavaScript**: Fixed [GitHub issue #366](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/366) where `ConversationTranslator` threw an error 'this.cancelSpeech is not a function'.

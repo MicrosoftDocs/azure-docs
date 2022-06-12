@@ -12,6 +12,8 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 Before you do anything, see the [platform requirements and instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#platform-requirements).
 
+You must install a Java Development Kit such as [Azul Zulu OpenJDK](https://www.azul.com/downloads/?package=jdk). The [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk) or your preferred JDK should also work. 
+
 ## Install the Speech SDK
 
 **Choose your target environment**

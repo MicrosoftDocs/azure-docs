@@ -13,10 +13,7 @@ ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C# .NET Core. 
-
-> [!NOTE]
-> .NET Core is an open-source, cross-platform .NET platform that implements the [.NET Standard](/dotnet/standard/net-standard) specification.
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for a .NET Core console app. .NET Core is an open-source, cross-platform .NET platform that implements the .NET Standard specification.
 
 ## Prerequisites
 

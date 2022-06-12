@@ -13,10 +13,9 @@ ms.author: eur
 ms.custom: devx-track-csharp, ignite-fall-2021
 ---
 
-This guide shows how to create a [Xamarin](/xamarin/get-started/what-is-xamarin) forms project and install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C#. Xamarin is an open-source platform for building modern and performant applications for iOS, Android, and Windows by using .NET. 
+This guide shows how to create a [Xamarin](/xamarin/get-started/what-is-xamarin) forms project and install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md). Xamarin is an open-source platform for building modern and performant applications for iOS, Android, and Windows by using .NET. 
 
-> [!NOTE]
-> With Xamarin, the Speech SDK supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64), and iOS (x64 simulator and ARM64).
+For Xamarin development, the Speech SDK supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64), and iOS (x64 simulator and ARM64).
 
 ### Prerequisites
 
