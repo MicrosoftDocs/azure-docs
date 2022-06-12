@@ -25,7 +25,7 @@ For more information, see [Devices monitored by Defender for IoT](architecture.m
 
 ## View device attributes in the inventory
 
-This section describes device details available from the inventory and describes how to work with inventory filters and view contextual information about each device.
+This section describes device details available from the inventory, how to work with inventory filters, and how to view contextual information about each device.
 
 **To view the device inventory:**
 
@@ -42,12 +42,13 @@ The following columns are available for each device.
 | **FQDN lookup time** | The device's FQDN lookup time |
 | **Groups** | The groups that this device participates in. |
 | **IP Address** | The IP address of the device. |
-| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been |
+| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been authorized. |
 | **Is Known as Scanner** | Defined as a network scanning device by the user. |
 | **Is Programming device** | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
 | **Last Activity** | The last activity that the device performed. |
 | **MAC Address** | The MAC address of the device. |
-| **Name** | The name of the device as the sensor discovered it, or as entered by the user. |
+| **Name** | The name of the device as the sensor discovered it, 
+or as entered by the user. |
 | **Operating System** | The OS of the device, if detected. |
 | **PLC mode** (preview) | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. If both states are the same, only one state is presented. |
 | **Protocols** | The protocols that the device uses. |
@@ -130,7 +131,7 @@ Certain device properties can be updated manually. Information manually entered 
  
 ## Learn Windows registry details
 
-In addition to learning OT devices, you can discover Microsoft Windows workstations, and servers. These devices are also displayed in Device Inventory. After you learn devices, you can enrich the Device Inventory with detailed Windows information, such as:
+In addition to learning OT devices, you can discover Microsoft Windows workstations and servers. These devices are also displayed in the Device Inventory. After you learn devices, you can enrich the Device Inventory with detailed Windows information, such as:
 
 - Windows version installed
 
@@ -263,9 +264,9 @@ You can filter the inventory to display devices that are inactive:
 
 ### Delete inactive devices
 
-Devices you delete from the Inventory are removed from the map and won't be calculated when generating Defender for IoT reports, for example Data Mining, Risk Assessment, and Attack Vector reports.
+Devices you delete from the Inventory are removed from the map and won't be calculated when generating Defender for IoT reports, for example, Data Mining, Risk Assessment, and Attack Vector reports. 
 
-You'll be prompted to record a reason for deleting devices. This information, as well as the time/date and number of devices deleted, appears in the Event timeline.
+You'll be prompted to record a reason for deleting devices. This information, as well as the date/time and number of devices deleted, appears in the Event timeline.
 
 **To delete inactive devices:**
   

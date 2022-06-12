@@ -1,7 +1,7 @@
 ---
 title: Learn about devices discovered by all sensors
 description: Use the device inventory in the on-premises management console to get a comprehensive view of device information from connected sensors. Use import, export, and filtering tools to manage this information. 
-ms.date: 11/09/2021
+ms.date: 06/12/2022 
 ms.topic: how-to
 ---
 

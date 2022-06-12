@@ -1,7 +1,7 @@
 ---
 title: Set up high availability
 description: Increase the resiliency of your Defender for IoT deployment by installing an on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
-ms.date: 11/09/2021
+ms.date: 06/12/2022 
 ms.topic: how-to
 ---
 # About high availability
@@ -29,9 +29,9 @@ When a primary and secondary on-premises management console is paired:
 
 ## About failover and failback
 
-If a sensor can't connect to the primary on-premises management console, it automatically connects to the secondary. Your system will be supported by both the primary and secondary simultaneously, if less than half of the sensors are communicating with the secondary. The secondary takes over when more than half of the sensors are communicating with it. Fail over from the primary to the secondary takes approximately three minutes. When the failover occurs, the primary on-premises management console freezes. When this happens, you can sign in to the secondary using the same sign-in credentials.
+If a sensor can't connect to the primary on-premises management console, it automatically connects to the secondary. Your system will be supported by both the primary and secondary simultaneously, if less than half of the sensors are communicating with the secondary. The secondary takes over when more than half of the sensors are communicating with it. Failover from the primary to the secondary takes approximately three minutes. When the failover occurs, the primary on-premises management console freezes. When this happens, you can sign in to the secondary using the same sign-in credentials.
 
-During failover, sensors continue attempting to communicate with the primary appliance. When more than half the managed sensors succeed to communicate with the primary, the primary is restored. The following message appears on the secondary console when the primary is restored:
+During failover sensors continue attempts to communicate with the primary appliance. When more than half the managed sensors succeed to communicate with the primary, the primary is restored. The following message appears on the secondary console when the primary is restored:
 
 :::image type="content" source="media/how-to-set-up-high-availability/secondary-console-message.png" alt-text="Screenshot of a message that appears at the secondary console when the primary is restored.":::
 
@@ -67,7 +67,7 @@ Verify that you've met the following high availability requirements:
 
 ### Network access requirements
 
-Verify if your organizational security policy allows you to have access to the following services on the primary and secondary on-premises management console. These services also allow the connection between the sensors and secondary on-premises management console:
+Verify if your organizational security policy allows you to have access to the following services, on the primary and secondary on-premises management console. These services also allow the connection between the sensors and secondary on-premises management console:
 
 |Port|Service|Description|
 |----|-------|-----------|
