@@ -138,6 +138,64 @@
     - name: Exempt recommendations per resource, subscription, or management group
       displayName: disable
       href: exempt-resource.md
+  - name: View recommendations and alerts in Windows Admin Center
+    href: windows-admin-center-integration.md
+  - name: Integrate security solutions and data sources
+    href: partner-integration.md
+  - name: Maintain network security best practices
+    displayName: map, network map
+    href: protect-network-resources.md
+  - name: Enforce and manage MFA
+    displayName: identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords
+    href: multi-factor-authentication-enforcement.md
+  - name: Additional threat protections
+    href: other-threat-protections.md
+  - name: Manage subscriptions, users, and permissions
+    items:
+    - name: Organize management groups and subscriptions
+      href: management-groups-roles.md
+    - name: Grant and request tenant-wide permissions
+      displayName: global admin, Azure Active Directory (AD), AAD
+      href: tenant-wide-permissions-management.md
+    - name: Enable Defender for Cloud for a management group
+      href: onboard-management-group.md
+    - name: Set up cross-tenant management
+      href: cross-tenant-management.md
+    - name: Automate onboarding using PowerShell
+      href: powershell-onboarding.md
+  - name: Manage alerts, incidents, and threat reports
+    items:
+    - name: Respond to security alerts
+      href: managing-and-responding-alerts.md
+    - name: Create and manage alerts suppression rules
+      href: alerts-suppression-rules.md
+    - name: Export alerts and recommendations
+      items:
+      - name: Export to a SIEM, SOAR, or ITSM
+        displayName: continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,
+        href: export-to-siem.md
+      - name: Prepare Azure resources for exporting to Splunk and QRadar
+        href: export-to-splunk-or-qradar.md
+      - name: Export to a Log Analytics workspace or Azure Event Hubs
+        displayName: continuous
+        href: continuous-export.md
+      - name: Download a CSV report of all alerts
+        href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
+      - name: Alerts schemas
+        href: alerts-schemas.md
+    - name: Manage security incidents
+      href: incidents.md
+    - name: Generate threat intelligence reports
+      href: threat-intelligence-reports.md
+    - name: Validate your alert configuration
+      displayname: eicar, Kubernetes, Linux
+      href: alert-validation.md
+    - name: Automate responses to alerts
+      displayName: workflow
+      href: workflow-automation.md
+
+- name: Protect your workloads
+  items:
   - name: Protect your machines
     displayName: hybrid, arc, Azure Defender for machines
     items:
@@ -257,9 +315,11 @@
     - name: Defender for container registries (deprecated)
       displayName: ACR, registry, images
       href: defender-for-container-registries-introduction.md
-  - name: Protect your Azure App Service web apps and APIs
-    displayName: Azure Defender for App Service, defender for app
-    href: defender-for-app-service-introduction.md
+  - name: Protect your hosted web apps
+    items:
+    - name: Protect your Azure App Service web apps and APIs
+      displayName: Azure Defender for App Service, defender for app
+      href: defender-for-app-service-introduction.md
   - name: Protect your Azure Storage accounts
     items:
     - name: Overview of Defender for Storage
@@ -268,7 +328,7 @@
     - name: Exclude a storage account
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
       href: defender-for-storage-exclude.md
-  - name: Protect your Key Vault keys and secrets
+  - name: Protect your Azure Key Vault keys and secrets
     items:
     - name: Overview of Defender for Key Vault
       displayName: KV, akv
@@ -276,7 +336,7 @@
     - name: Handle Defender for Key Vault alerts
       displayName: akv, kv
       href: defender-for-key-vault-introduction.md#respond-to-microsoft-defender-for-key-vault-alerts
-  - name: Monitor your resource management operations
+  - name: Protect your resource management operations
     items:
     - name: Overview of Defender for Resource Manager
       displayName: ARM
@@ -284,68 +344,13 @@
     - name: Handle Defender for Resource Manager alerts
       displayName: arm
       href: defender-for-resource-manager-usage.md
-  - name: Monitor DNS queries from your Azure resources
+  - name: Protect your DNS services
     items:
     - name: Overview of Defender for DNS
       displayName: domain, Defender for DNS
       href: defender-for-dns-introduction.md
     - name: Respond to Microsoft Defender for DNS alerts
       href: defender-for-dns-introduction.md#respond-to-microsoft-defender-for-dns-alerts
-  - name: Protect your Windows Admin Center servers
-    href: windows-admin-center-integration.md
-  - name: Integrate security solutions and data sources
-    href: partner-integration.md
-  - name: Protect network resources
-    displayName: map, network map
-    href: protect-network-resources.md
-  - name: Enforce and manage MFA
-    displayName: identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords
-    href: multi-factor-authentication-enforcement.md
-  - name: Additional threat protections
-    href: other-threat-protections.md
-  - name: Manage subscriptions, users, and permissions
-    items:
-    - name: Organize management groups and subscriptions
-      href: management-groups-roles.md
-    - name: Grant and request tenant-wide permissions
-      displayName: global admin, Azure Active Directory (AD), AAD
-      href: tenant-wide-permissions-management.md
-    - name: Enable Defender for Cloud for a management group
-      href: onboard-management-group.md
-    - name: Set up cross-tenant management
-      href: cross-tenant-management.md
-    - name: Automate onboarding using PowerShell
-      href: powershell-onboarding.md
-  - name: Manage alerts, incidents, and threat reports
-    items:
-    - name: Respond to security alerts
-      href: managing-and-responding-alerts.md
-    - name: Create and manage alerts suppression rules
-      href: alerts-suppression-rules.md
-    - name: Export alerts and recommendations
-      items:
-      - name: Export to a SIEM, SOAR, or ITSM
-        displayName: continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,
-        href: export-to-siem.md
-      - name: Prepare Azure resources for exporting to Splunk and QRadar
-        href: export-to-splunk-or-qradar.md
-      - name: Export to a Log Analytics workspace or Azure Event Hubs
-        displayName: continuous
-        href: continuous-export.md
-      - name: Download a CSV report of all alerts
-        href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
-      - name: Alerts schemas
-        href: alerts-schemas.md
-    - name: Manage security incidents
-      href: incidents.md
-    - name: Generate threat intelligence reports
-      href: threat-intelligence-reports.md
-    - name: Validate your alert configuration
-      displayname: eicar, Kubernetes, Linux
-      href: alert-validation.md
-    - name: Automate responses to alerts
-      displayName: workflow
-      href: workflow-automation.md
 
 - name: Reference
   items:
