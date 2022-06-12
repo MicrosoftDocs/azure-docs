@@ -14,7 +14,5 @@ ms.author: eur
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Linux.
 
-## System requirements
-
 [!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
 

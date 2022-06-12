@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Speech SDK for C# (Xamarin) platform setup - Speech service'
+title: 'Speech SDK for C# (Xamarin) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
 description: 'Use this guide to set up your platform for C# Xamarin with the Speech service SDK.'
 services: cognitive-services
@@ -13,26 +13,26 @@ ms.author: eur
 ms.custom: devx-track-csharp, ignite-fall-2021
 ---
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for [Xamarin](/xamarin/get-started/what-is-xamarin). Xamarin is an open-source platform for building modern and performant applications for iOS, Android, and Windows by using .NET. If you just want the package name to get started on your own, run `Install-Package Microsoft.CognitiveServices.Speech` in the NuGet console.
+This guide shows how to create a [Xamarin](/xamarin/get-started/what-is-xamarin) forms project and install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C#. Xamarin is an open-source platform for building modern and performant applications for iOS, Android, and Windows by using .NET. 
 
 > [!NOTE]
-> The Speech SDK for Xamarin supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64), and iOS (x64 simulator and ARM64).
+> With Xamarin, the Speech SDK supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64), and iOS (x64 simulator and ARM64).
 
-## Prerequisites
+### Prerequisites
 
-This quickstart requires:
+This guide requires:
 
 * [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for the Windows platform. Installing it for the first time might require a restart.
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 
-## Create a Visual Studio project and install the Speech SDK
+### Create a Visual Studio project and install the Speech SDK
 
 To create a Visual Studio project for cross-platform mobile app development with .NET and Xamarin, you need to:
 - Set up Visual Studio development options.
 - Create the project and select the target architecture. 
 - Install the Speech SDK.
 
-### Set up Visual Studio development options
+#### Set up Visual Studio development options
 
 To start, make sure you're set up correctly in Visual Studio for cross-platform mobile development with .NET:
 
@@ -50,7 +50,7 @@ To start, make sure you're set up correctly in Visual Studio for cross-platform 
 
 1. Close Visual Studio Installer.
 
-### Create the project
+#### Create the project
 
 Next, create your project and select the target architecture:
 
@@ -86,7 +86,7 @@ Next, create your project and select the target architecture:
    
    In the **Start-up Projects** drop-down box, select **helloworld.UWP (Universal Windows)**.
 
-### Install the Speech SDK
+#### Install the Speech SDK
 
 Install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and reference the Speech SDK in your project:
 

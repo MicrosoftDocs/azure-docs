@@ -6,9 +6,16 @@ ms.date: 06/10/2022
 ms.author: eur
 ---
 
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C#. 
 
 The Speech SDK for C# is available as a NuGet package and implements .NET Standard 2.0. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech</a>.
 
+### System requirements
+
+Before you do anything, see the [platform requirements and instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#platform-requirements).
+
+
+### Install the Speech SDK
 
 The Speech SDK for C# can be installed from the **.NET Core CLI** with the following `dotnet add` command:
 
@@ -16,11 +23,13 @@ The Speech SDK for C# can be installed from the **.NET Core CLI** with the follo
 dotnet add package Microsoft.CognitiveServices.Speech
 ```
 
-The Speech SDK for C# can be installed from the **Package Manager** with the following `Install-Package` command:
+The Speech SDK for C# can be installed with the following `Install-Package` command:
 
 ```powershell
 Install-Package Microsoft.CognitiveServices.Speech
 ```
+
+Otherwise, you can follow a guide below for additional options.
 
 **Choose your target environment**
 
@@ -40,12 +49,8 @@ Install-Package Microsoft.CognitiveServices.Speech
 
 [!INCLUDE [uwp](csharp-uwp.md)]
 
-# [Xamarin](#tab/xaml)
+# [Xamarin](#tab/xamarin)
 
 [!INCLUDE [xamarin](csharp-xamarin.md)]
-
-# [Linux](#tab/linux)
-
-[!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
 
 * * *

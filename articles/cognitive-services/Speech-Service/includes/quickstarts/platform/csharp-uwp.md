@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Speech SDK for C# Universal Windows Platform (UWP) platform setup - Speech service'
+title: 'Speech SDK for C# Universal Windows Platform (UWP) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
 description: 'Use this guide to set up your platform for C# under Universal Windows Platform (UWP) with the Speech service SDK.'
 services: cognitive-services
@@ -13,14 +13,14 @@ ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C# Universal Windows Platform (UWP). If you just want the package name to get started on your own, run `Install-Package Microsoft.CognitiveServices.Speech` in the NuGet console.
+This guide shows how to create a Universal Windows Platform (UWP) project and install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C#. 
 
 > [!NOTE]
 > The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
 
-## Prerequisites
+### Prerequisites
 
-This quickstart requires:
+This guide requires:
 
 * [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for the Windows platform. Installing this for the first time might require a restart.
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition).

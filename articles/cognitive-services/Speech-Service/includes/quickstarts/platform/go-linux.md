@@ -6,15 +6,10 @@ ms.date: 02/14/2022
 ms.author: eur
 ---
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Go on Linux. 
-
-## System requirements
-
-Before you install the Speech SDK for Go, you need the [Go binary version 1.13 or later](https://go.dev/dl/) installed.
 
 [!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
 
-## Configure the Go environment
+### Configure the Go environment
 
 The following steps enable your Go environment to find the Speech SDK. In both steps, replace `<architecture>` with the processor architecture of your CPU. This will be `x86`, `x64`, `arm32`, or `arm64`.
 
