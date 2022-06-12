@@ -64,7 +64,7 @@ The following columns are available for each device.
 **To view additional details:**
 
 1. Select an alert from the inventory and the select **View full details** in the dialog box that opens.
-1. Navigate to additional information such as firmware details, and view contextual information such alerts related to the device, or a timeline of events associated with the device.
+1. Navigate to additional information such as firmware details, view contextual information such as alerts related to the device, or a timeline of events associated with the device.
 
 ## Filter the inventory
 
@@ -130,7 +130,7 @@ Certain device properties can be updated manually. Information manually entered 
  
 ## Learn Windows registry details
 
-In addition to learning OT devices, you can discover Microsoft Windows workstations, and servers. These devices are also displayed in Device Inventory. After you learn devices, you can enrich the Device Inventory with detailed Windows information, such as:
+In addition to learning OT devices, you can discover Microsoft Windows workstations and servers. These devices are also displayed in Device Inventory. After you learn devices, you can enrich the Device Inventory with detailed Windows information, such as:
 
 - Windows version installed
 
