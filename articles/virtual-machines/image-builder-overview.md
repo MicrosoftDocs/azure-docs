@@ -35,7 +35,7 @@ While it is possible to create custom VM images by hand or by other tools, the p
 ### Infrastructure As Code
 
 - There is no need to manage long-term infrastructure (*like Storage Accounts to hold customization data*) or transient infrastructure (*like temporary Virtual Machine to build the image*). 
-- Image Builder stores your VM image build specification and customization artifacts as Azure resources removing the need of maintaining offline definitions and the risk of environment drifts caused by accidental deletions or updates.
+- Image Builder stores your VM image build artifacts as Azure resources which removes the need to maintain offline definitions and the risk of environment drifts caused by accidental deletions or updates.
 
 ### Security
 
@@ -43,7 +43,7 @@ While it is possible to create custom VM images by hand or by other tools, the p
 - You do not have to make your customization artifacts publicly accessible for Image Builder to be able to fetch them. Image Builder can use your [Azure Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) to fetch these resources and you can restrict the privileges of this identity as tightly as required using Azure-RBAC. This not only means you can keep your artifacts secret, but they also cannot be tampered with by unauthorized actors.
 - Copies of customization artifacts, transient compute & storage resources, and resulting images are all stored securely within your subscription with access controlled by Azure-RBAC. This includes the build VM used to create the customized image and ensuring your customization scripts and files are not being copied to an unknown VM in an unknown subscription. Furthermore, you can achieve a high degree of isolation from other customers’ workloads using [Isolated VM offerings](./isolation.md) for the build VM.
 - You can connect Image Builder to your existing virtual networks so you can communicate with existing configuration servers (DSC, Chef, Puppet, etc.), file shares, or any other routable servers & services.
-- You can configure Image Builder to assign your User Assigned Identities to the Image Builder Build VM (*that is created by the Image Builder service in your subscription and is used to build and customize the image*). You can then use these identities at customization time to access Azure resources, including secrets, in your subscription. There is no need to assign Image Builder direct access to those resources.
+- You can configure Image Builder to assign your User Assigned Identities to the Image Builder Build VM. The Image Builder Build VM is created by the Image Builder service in your subscription and is used to build and customize the image. You can then use these identities at customization time to access Azure resources, including secrets, in your subscription. There is no need to assign Image Builder direct access to those resources.
 
 ## Regions
 
@@ -81,6 +81,16 @@ The Azure Image Builder Service is available in the following regions: regions.
 - East Asia
 - Korea Central
 - South Africa North
+- USGov Arizona (Public Preview)
+- USGov Virginia (Public Preview)
+
+> [!IMPORTANT]
+> Register the feature "Microsoft.VirtualMachineImages/FairfaxPublicPreview" to access the Azure Image Builder public preview in Fairfax regions (USGov Arizona and USGov Virginia).
+
+Use the following command to register the feature for Azure Image Builder in Fairfax regions (USGov Arizona and USGov Virginia).
+```azurecli-interactive
+az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPublicPreview
+```
 
 
 ## OS support
@@ -94,6 +104,7 @@ Azure Image Builder will support Azure Marketplace base OS images:
 - Windows 10 RS5 Enterprise/Enterprise multi-session/Professional
 - Windows 2016
 - Windows 2019
+- CBL-Mariner
 
 >[!IMPORTANT]
 > Listed operating systems have been tested and now work with Azure Image Builder. However, Azure Image Builder should work with any Linux or Windows image in the marketplace.

@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use a Resource Manager templat
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 06/14/2021
+ms.date: 06/10/2022
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: devx-track-azurepowershell, mvc, subject-armqs, mode-arm
@@ -20,8 +20,6 @@ In this quickstart, you use an Azure Resource Manager template (ARM template) to
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 You can also complete this quickstart using the [Azure portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), or [Azure CLI](quick-create-cli.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
