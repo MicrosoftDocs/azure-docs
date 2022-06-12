@@ -20,97 +20,60 @@ The **Device inventory** page displays all detected IT, IoT, and OT devices in y
 > [!NOTE]
 > Alternately, view detected devices [on each sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md or on [the on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
 
-
 ## View the device inventory
 
-1. Open the [Azure portal](https://portal.azure.com).
+This procedure describes how to view detected devices in the **Device inventory** page in the Azure portal.
 
-1. Navigate to **Defender for IoT** > **Device inventory**.
+1. In Defender for IoT in the Azure portal, select **Device inventory**.
 
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png" alt-text="Select device inventory from the left side menu under Defender for IoT.":::
 
+    Use any of the following options to modify or filter the devices shown:
 
-## Customize the device inventory table
+    |Option  |Steps  |
+    |---------|---------|
+    | **Sort devices** | Select a column header to sort the devices by that column. |
+    |**Filter devices shown**    |   Either use the **Search** box to search for specific device details, or select **Add filter** to filter the devices shown. <br><br>In the **Add filter** box, define your filter by column name, operator, and value. Select **Apply** to apply your filter.<br><br>You can apply multiple filters at the same time. Search results and filters aren't saved when you refresh the **Device inventory** page.|
+    |**Modify columns shown**     |    **Edit columns**. In the **Edit columns** pane:<br><br>        - Select **Add Column** to add new columns to the grid<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
+    | **Group devices** | From the **Device grouping** drop-down menu at the top-right, select either **Type** or **Class** to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
 
-In the device inventory table, you can add or remove columns. You can also change the column order by dragging and dropping a field.
+1. Select a device row to view more details about that device. Initial details are shown in a pane on the right, where you can also select **View full details** to drill down more.
 
-**To customize the device inventory table**:
+    For example:
 
-1. Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: button.
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Select a device to see all of that device's information." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
 
-1. In the Edit columns tab, select the drop-down menu to change the value of a column.
+### Identify devices that aren't connecting successfully
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-drop-down-menu.png" alt-text="Select the drop-down menu to change the value of a given column.":::
+If you suspect that certain devices aren't actively communicating with Azure, verify whether those devices have communicated in a specific time period. For example:
 
-1. Add a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/add-column-icon.png" border="false"::: button.
+1. In the Defender for IoT **Device inventory**, select **Edit columns** > **Add column** > **Last Activity** > **Save**.
 
-1. Reorder the columns by dragging a column parameter to a new location.
+1. On the main Device inventory page, select the **Last activity** column header to sort the page by last activity.
 
-1. Delete a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: button.
+1. Select **Add filter**. Filter by the **Last activity** column, and select a specific time period or custom date range. 
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/delete-a-column.png" alt-text="Select the trash can icon to delete a column.":::
-
-1. Select **Save** to save any changes made.
-
-If you want to reset the device inventory to the default settings, in the Edit columns window, select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false"::: button.
-
-## Filter the device inventory
-
-You can search, and filter the device inventory to define what information the table displays.
-
-**To filter the device inventory**:
-
-1. Select **Add filter**
-
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/add-filter.png" alt-text="Select  the add filter button to specify what you want to appear in the device inventory.":::
-
-1. In the Add filter window, select the column drop-down menu to choose which column to filter.
-
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/add-filter-window.png" alt-text="Select which column you want to filter in the device inventory.":::
-
-1. Enter a value in the filter field to filter by.
-
-1. Select the **Apply button**.
-
-Multiple filters can be applied at one time. The filters aren't saved when you leave the Device inventory page.
-
-## View device information
-
-To view a specific devices information, select the device and the device information window appears.
-
-:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Select a device to see all of that device's information." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
+1. Select **Apply** and search for your devices in that filtered data.
 
 ## Edit device details
 
-As you manage your devices, you may need to update their details, such as to modify security value as assets change, to personalize an inventory so that you can better identify specific devices, or if a device was classified incorrectly.
+As you manage your network devices, you may need to update their details. For example, you may want to modify security value as assets change, or personalize the inventory to better identify devices, or if a device was classified incorrectly.
 
-You can edit device details for each device, one at a time, or select multiple devices to edit details together.
+**To edit device details**:
 
-**To edit details for a single device**:
+1. Select one or more devices in the grid, and then select **Edit** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/edit-device-details.png" border="false":::.
 
-1. In the **Device inventory** page, select the device you want to edit, and then select **Edit** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/edit-device-details.png" border="false"::: in the toolbar at the top of the page.
+1. If you've selected multiple devices, select **Add field type** and add the fields you want to edit, for all selected devices.
 
-    The **Edit** pane opens at the right.
-
-1. Modify any of the field values as needed. For more information, see [Reference of editable fields](#reference-of-editable-fields).
-
-1. Select **Save** when you're finished editing the device details.
-
-**To edit details for multiple devices simultaneously**:
-
-1. In the **Device inventory** page, select the devices you want to edit, and then select **Edit** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/edit-device-details.png" border="false"::: in the toolbar at the top of the page.
-
-    The **Edit** pane opens at the right.
-
-1. Select **Add field type**, and then select one or more fields to edit.
-
-1. Update your field definitions as needed, and then select **Save**. For more information, see [Reference of editable fields](#reference-of-editable-fields).
+1. Modify the device fields as needed, and then select **Save** when you're done.
 
 Your updates are saved for all selected devices.
 
+For more information, see [Reference of editable fields](#reference-of-editable-fields).
+
 ### Reference of editable fields
 
-The following device fields are supported for editing in the Device inventory page:
+The following device fields are supported for editing in the **Device inventory** page:
 
 **General information**:
 
@@ -137,31 +100,13 @@ The following device fields are supported for editing in the Device inventory pa
 
 ## Export the device inventory to CSV
 
-You can export your device inventory to a CSV file. Any filters that you apply to the device inventory table will be exported, when you export the table.
+Export your device inventory to a CSV file to manage or share data outside of the Azure portal.
 
-Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false"::: button to export your current device inventory to a CSV file.
+To export device inventory data, select **Export** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false":::.
 
-## How to identify devices that haven't recently communicated with the Azure cloud
+The device inventory is exported with any filters currently applied, and you can save the file locally.
 
-If you are under the impression that certain devices aren't actively communicating, there's a way to check, and see which devices haven't communicated in a specified time period.
 
-**To identify all devices that have not communicated recently**:
-
-1. Open the [Azure portal](https://portal.azure.com).
-
-1. Navigate to **Defender for IoT** > **Device inventory**.
-
-1. Select **Edit columns** > **Add column** > **Last Activity** > **Save**.
-
-1. On the main Device inventory page, select **Last activity** to sort the page by last activity.
-
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/last-activity.png" alt-text="Screenshot of the device inventory organized by last activity." lightbox="media/how-to-manage-device-inventory-on-the-cloud/last-activity.png":::
-
-1. Select **Add filter** to add a filter on the last activity column.
-
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/last-activity-filter.png" alt-text="Screenshot of the add filter screen where you can select the time period to see the last activity.":::
-
-1. Enter a time period, or a custom date range, and select **Apply**.
 
 ## Delete a device
 
