@@ -31,7 +31,7 @@ To configure a CORS setting in the FHIR service, specify the following settings:
 
 - **Allow credentials (Access-Control-Allow-Credentials)**. CORS requests normally don’t include cookies to prevent [cross-site request forgery (CSRF)](https://en.wikipedia.org/wiki/Cross-site_request_forgery) attacks. If you select this setting, the request can be made to include credentials, such as cookies. You can't configure this setting if you already set Origins with an asterisk (*).
 
-![Cross-origin resource sharing (CORS) settings](media/cors/cors.png)
+:::image type="content" source="media/dicom-cors-settings.png" alt-text="Screenshot of DICOM cross origin resource settings." lightbox="./media/dicom-cors-settings.png":::
 
 >[!NOTE]
 > You can't specify different settings for different domain origins. All settings (**Headers**, **Methods**, **Max age**, and **Allow credentials**) apply to all origins specified in the Origins setting.
