@@ -101,7 +101,7 @@ moviesAltered sink(
 ### Delta sink with partition pruning
 With this option under Update method above (i.e. update/upsert/delete), you can limit the number of partitions that are inspected. Only partitions satisfying this condition will be fetched from the target store.  You can specify fixed set of values that a partition column may take.
 
-:::image type="content" source="media/format-delta/delta_pruning.png" alt-text="Partition pruning options are available to limit the inspection.":::
+:::image type="content" source="media/format-delta/delta-pruning.png" alt-text="Partition pruning options are available to limit the inspection.":::
 
 ### Delta sink script example with partition pruning
 
