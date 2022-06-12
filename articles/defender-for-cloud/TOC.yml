@@ -1,5 +1,6 @@
 - name: Microsoft Defender for Cloud documentation
   href: index.yml
+
 - name: Overview
   expanded: true
   items:
@@ -102,22 +103,21 @@
 
 - name: How-to guides
   items:
-  - name: Use the Overview dashboard
+  - name: Security posture at-a-glance with the Overview dashboard
     displayName: overview, compliance, inventory
     href: overview-page.md
-  - name: Use the Workload protections dashboard
+  - name: See all of your workloads in the workload protections dashboard
     href: workload-protections-dashboard.md
-  - name: Access and track your secure score
+  - name: Programmatic ways to track your secure score
     href: secure-score-access-and-track.md
-  - name: Prioritize security actions by data sensitivity
-    displayName: sensitivity, data, purview, inventory, information protection
-    href: information-protection.md
-  - name: Manage your resources with asset inventory
-    href: asset-inventory.md
-  - name: Build interactive reports
+  - name: Build interactive reports with Azure Monitor workbooks
     displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
     href: custom-dashboards-azure-workbooks.md
-  - name: Use security recommendations to improve security
+  - name: View recommendations and alerts in Windows Admin Center
+    href: windows-admin-center-integration.md
+  - name: Integrate security solutions and data sources
+    href: partner-integration.md
+  - name: Security recommendations
     items:
     - name: Create custom security initiatives and policies
       href: custom-security-policies.md
@@ -138,19 +138,22 @@
     - name: Exempt recommendations per resource, subscription, or management group
       displayName: disable
       href: exempt-resource.md
-  - name: View recommendations and alerts in Windows Admin Center
-    href: windows-admin-center-integration.md
-  - name: Integrate security solutions and data sources
-    href: partner-integration.md
-  - name: Maintain network security best practices
-    displayName: map, network map
-    href: protect-network-resources.md
-  - name: Enforce and manage MFA
-    displayName: identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords
-    href: multi-factor-authentication-enforcement.md
-  - name: Additional threat protections
-    href: other-threat-protections.md
-  - name: Manage subscriptions, users, and permissions
+  - name: Built-in security protections
+    items:
+    - name: Leverage Purview to protect sensitive data
+      displayName: sensitivity, data, purview, inventory, information protection
+      href: information-protection.md
+    - name: Mitigate risks on specific resources in the asset inventory
+      href: asset-inventory.md
+    - name: Maintain network security best practices
+      displayName: map, network map
+      href: protect-network-resources.md
+    - name: Lockdown logins with multi-factor authentication
+      displayName: identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords
+      href: multi-factor-authentication-enforcement.md
+    - name: Additional threat protections
+      href: other-threat-protections.md
+  - name: Manage security by subscriptions, users, and permissions
     items:
     - name: Organize management groups and subscriptions
       href: management-groups-roles.md
@@ -163,7 +166,7 @@
       href: cross-tenant-management.md
     - name: Automate onboarding using PowerShell
       href: powershell-onboarding.md
-  - name: Manage alerts, incidents, and threat reports
+  - name: Alerts, incidents, and threat reports
     items:
     - name: Respond to security alerts
       href: managing-and-responding-alerts.md
@@ -194,10 +197,10 @@
       displayName: workflow
       href: workflow-automation.md
 
-- name: Protect your workloads
+- name: Resource-specific protections
   items:
-  - name: Protect your machines
-    displayName: hybrid, arc, Azure Defender for machines
+  - name: Defender for Servers
+    displayName: hybrid, arc, Defender for Servers
     items:
     - name: Overview of Defender for Servers
       displayName: VM
@@ -256,7 +259,7 @@
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
-  - name: Protect your databases
+  - name: Defender for Databases
     items:
     - name: Enable protection on all of your databases
       href: quickstart-enable-database-protections.md
@@ -290,7 +293,7 @@
         href: concept-defender-for-cosmos.md
       - name: Enable Microsoft Defender for Azure Cosmos DB
         href: quickstart-enable-defender-for-cosmos.md
-  - name: Protect your containerized environments
+  - name: Defender for Containers
     items:
     - name: Overview of Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
@@ -315,12 +318,12 @@
     - name: Defender for container registries (deprecated)
       displayName: ACR, registry, images
       href: defender-for-container-registries-introduction.md
-  - name: Protect your hosted web apps
+  - name: Defender for App Service
     items:
     - name: Protect your Azure App Service web apps and APIs
       displayName: Azure Defender for App Service, defender for app
       href: defender-for-app-service-introduction.md
-  - name: Protect your Azure Storage accounts
+  - name: Defender for Storage
     items:
     - name: Overview of Defender for Storage
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
@@ -328,7 +331,7 @@
     - name: Exclude a storage account
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
       href: defender-for-storage-exclude.md
-  - name: Protect your Azure Key Vault keys and secrets
+  - name: Defender for Azure Key Vault
     items:
     - name: Overview of Defender for Key Vault
       displayName: KV, akv
@@ -336,7 +339,7 @@
     - name: Handle Defender for Key Vault alerts
       displayName: akv, kv
       href: defender-for-key-vault-introduction.md#respond-to-microsoft-defender-for-key-vault-alerts
-  - name: Protect your resource management operations
+  - name: Defender for Resource Manager
     items:
     - name: Overview of Defender for Resource Manager
       displayName: ARM
@@ -344,7 +347,7 @@
     - name: Handle Defender for Resource Manager alerts
       displayName: arm
       href: defender-for-resource-manager-usage.md
-  - name: Protect your DNS services
+  - name: Defender for DNS
     items:
     - name: Overview of Defender for DNS
       displayName: domain, Defender for DNS
@@ -386,6 +389,7 @@
     href: /cli/azure/security
   - name: Azure PowerShell
     href: /powershell/module/az.security/
+
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
