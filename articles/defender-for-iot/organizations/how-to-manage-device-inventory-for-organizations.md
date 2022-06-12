@@ -1,29 +1,25 @@
 ---
-title: Manage your IoT devices with the device inventory for organizations
-description: Learn how to manage your IoT devices with the device inventory for organizations.
-ms.date: 03/09/2022
+title: View OT / IoT devices from the Azure portal's Device inventory
+description: Learn how to view and manage OT and IoT devices (assets) from the Device inventory page in the Azure portal.
+ms.date: 06/12/2022
 ms.topic: how-to
 ---
 
-# Manage your IoT devices with the device inventory for organizations
+# View devices from the Azure portal
 
 > [!NOTE]
 > The **Device inventory** page in Defender for IoT on the Azure portal is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-The device inventory can be used to view device systems, and network information. The search, filter, edit columns, and export tools can be used to manage this information.
+Use Microsoft Defender for IoT's **Device inventory** page in the Azure portal to view detected network devices and related details.
 
 :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png" alt-text="A total overview of Defender for IoT's device inventory screen."  lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png":::
 
-Some of the benefits of the device inventory include:
+The **Device inventory** page displays all detected IT, IoT, and OT devices in your network, and allowing you to identify new devices detected, devices that might need troubleshooting, and more.
 
-- Identify all IT, IoT, and OT devices from different inputs. For example, to identify new devices detected in the last day or which devices aren't communicating and might require troubleshooting.
+> [!NOTE]
+> Alternately, view detected devices [on each sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md or on [the on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
 
-- Group, and filter devices by site, type, or vendor.
-
-- Gain visibility into each device, and investigate the different threats, and alerts for each one.
-
-- Export the entire device inventory to a CSV file for your reports.
 
 ## View the device inventory
 

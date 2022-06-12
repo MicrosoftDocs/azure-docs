@@ -45,17 +45,18 @@
         href: concept-supported-protocols.md
 - name: How-to guides
   items:
-  - name: Visualize network assets
+  - name: Visualize network devices
+    displayName: assets
     items:
-    - name: View assets from the Azure portal
+    - name: View devices from the Azure portal
       href: how-to-manage-device-inventory-for-organizations.md
-    - name: View OT assets from a sensor console
+    - name: View OT devices from a sensor console
       href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-    - name: View OT assets on a sensor device map
+    - name: View OT devices on a sensor device map
       href: how-to-work-with-the-sensor-device-map.md
-    - name: View OT assets on a sensor per zone
+    - name: View OT devices on a sensor per zone
       href: how-to-view-information-per-zone.md
-    - name: View OT assets from an on-premises management console
+    - name: View OT devices from an on-premises management console
       href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
   - name: Manage alerts
     items:
