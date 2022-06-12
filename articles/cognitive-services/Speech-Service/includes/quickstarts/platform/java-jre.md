@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/15/2020
+ms.date: 06/12/2022
 ms.custom: devx-track-java
 ms.author: eur
 ---
@@ -127,7 +127,7 @@ Follow these steps to install the Speech SDK for Java using Maven:
 
 Gradle configurations require both a custom repository and an explicit reference to the .jar dependency extension:
 
-```groovy
+```gradle
 // build.gradle
 
 repositories {
