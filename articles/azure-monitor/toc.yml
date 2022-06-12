@@ -117,6 +117,8 @@ items:
       href: logs/data-collection-rule-sample-custom-logs.md
   - name: Monitor Logs in Azure CLI
     href: logs\azure-cli-log-analytics-workspace-sample.md
+  - name: Configure workspaces using PowerShell
+    href: logs/powershell-workspace-configuration.md
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
   - name: Azure CLI metric alerts
@@ -252,14 +254,9 @@ items:
       - name: Overview
         displayName: Log Analytics workspace
         href: logs/log-analytics-workspace-overview.md
-      - name: Create
-        items:
-        - name: Azure portal
-          href: logs/quick-create-workspace.md
-        - name: PowerShell
-          href: logs/powershell-workspace-configuration.md
-        - name: Resource Manager template
-          href: logs/resource-manager-workspace.md
+      - name: Create workspaces
+        displayName: Azure portal
+        href: logs/quick-create-workspace.md
       - name: Configure
         items:
         - name: Manage access
