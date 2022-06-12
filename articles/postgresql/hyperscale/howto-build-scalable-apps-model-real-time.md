@@ -11,6 +11,8 @@ ms.date: 04/28/2022
 
 # Model real-time analytics apps
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 ## Colocate large tables with shard key
 
 To pick the shard key for a real-time operational analytics application, follow

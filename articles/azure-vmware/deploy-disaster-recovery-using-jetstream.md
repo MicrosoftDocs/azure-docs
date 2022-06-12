@@ -2,16 +2,17 @@
 title: Deploy disaster recovery using JetStream DR
 description: Learn how to implement JetStream DR for your Azure VMware Solution private cloud and on-premises VMware workloads. 
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 04/11/2022
 ms.custom: references_regions
 ---
 
-# Deploy disaster recovery using JetStream DR
+# Deploy disaster recovery using JetStream DR software
 
 
 [JetStream DR](https://www.jetstreamsoft.com/product-portfolio/jetstream-dr/) is a cloud-native disaster recovery solution designed to minimize downtime of virtual machines (VMs) if there was a disaster. Instances of JetStream DR are deployed at both the protected and recovery sites. 
 
-JetStream is built on the foundation of Continuous Data Protection (CDP), using [VMware VAIO framework](https://core.vmware.com/resource/vmware-vsphere-apis-io-filtering-vaio), which enables minimal or close to no data loss. JetStream DR provides the level of protection wanted for business and mission-critical applications. It also enables cost-effective DR by using minimal resources at the DR site and using cost-effective cloud storage, such as [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/).
+JetStream is built on the foundation of Continuous Data Protection (CDP), using [VMware vSphere API for I/O filtering (VAIO) framework](https://core.vmware.com/resource/vmware-vsphere-apis-io-filtering-vaio), which enables minimal or close to no data loss. JetStream DR provides the level of protection wanted for business and mission-critical applications. It also enables cost-effective DR by using minimal resources at the DR site and using cost-effective cloud storage, such as [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/).
 
 In this article, you'll implement JetStream DR for your Azure VMware Solution private cloud and on-premises VMware workloads.
 
@@ -22,7 +23,6 @@ To learn more about JetStream DR, see:
 - [JetStream DR on Azure Marketplace](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/jetstreamsoftware1596597632545.jsdravs-111721)
 
 - [JetStream knowledge base articles](https://www.jetstreamsoft.com/resources/knowledge-base/)
-
 
 ## Core components of the JetStream DR solution
 
@@ -56,8 +56,47 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 :::image type="content" source="media/jetstream-disaster-recovery/jetstream-cloud-to-cloud-diagram.png" alt-text="Diagram showing the Azure VMware Solution private cloud to private cloud JetStream deployment." border="false" lightbox="media/jetstream-disaster-recovery/jetstream-cloud-to-cloud-diagram.png":::
 
 
-## Prerequisites
+## Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution 
 
+Disaster Recovery to cloud is a resilient and cost-effective way of protecting the workloads against site outages and data corruption events like ransomware. Leveraging the VMware VAIO framework, on-premises VMware workloads can be replicated to Azure Blob storage and recovered with minimal or close to no data loss and near-zero Recovery Time Objective (RTO). JetStream DR can seamlessly recover workloads replicated from on-premises to Azure VMware Solution and specifically to Azure NetApp Files. 
+
+JetStream DR enables cost-effective disaster recovery by consuming minimal resources at the DR site and using cost-effective cloud storage. JetStream DR automates recovery to Azure NetApp Files (ANF) datastores using Azure Blob Storage. It can recover independent VMs or groups of related VMs into the recovery site infrastructure according to runbook settings. It also provides point-in-time recovery for ransomware protection. 
+
+### Install JetStream DR 
+To install JetStream DR in the on-premises data center and in the Azure VMware Solution private cloud:
+
+- Install JetStream DR in the on-premises data center: 
+
+  - Download the JetStream DR bundle from Azure Marketplace (ZIP) and deploy the JetStream DR MSA (OVA) in the designated cluster.
+  - Configure the cluster with the IO filter package (install JetStream VIB). 
+  - Provision Azure Blob (Azure Storage Account) in the same region as the DR Azure VMware Solution cluster.
+  - Deploy the disaster recovery virtual appliance (DRVA) and assign a replication log volume (VMDK from existing datastore or shared iSCSI storage). 
+  - Create protected domains (groups of related VMs) and assign DRVAs and the Azure Blob Storage/ANF.
+  - Start protection. 
+
+- Install JetStream DR in the Azure VMware Solution private cloud: 
+
+   - Use the Run command to install and configure JetStream DR.
+   - Add the same Azure Blob container and discover domains using the Scan Domain option.
+   - Deploy the DRVA appliance. 
+   - Create a replication log volume using an available vSAN or ANF datastore.
+   - Import protected domains and configure RocVA (recovery VA) to use ANF datastore for VM placements. 
+   - Select the appropriate failover option and start continuous rehydration for near-zero RTO domains/VMs. 
+
+- During a disaster event, trigger failover to Azure NetApp Files datastores in the designated Azure VMware Solution DR site. 
+
+- Invoke failback to the protected site after the protected site has been recovered. 
+
+### Ransomware recovery 
+
+Recovering from ransomware can be a daunting task. Specifically, it can be hard for IT organizations to pinpoint what the “safe point of return is,”. After that safe point is determined, how to ensure that recovered workloads are safeguarded from the attacks re-occurring by sleeping malware or through vulnerable applications. 
+
+JetStream DR for Azure VMware Solution together with Azure NetApp Files datastores can address these concerns by allowing organizations to recover from an available point-in-time. It ensures that workloads are recovered to a functional and isolated network if required, allows the applications to function and communicate with each other without exposing them to any North-South traffic. It also gives security teams a safe place to perform forensics, and conduct other recovery measures. 
+
+For full details, refer to the article: [Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/). 
+
+
+## Prerequisites
 
 ### Scenario 1: On-premises VMware vSphere to Azure VMware Solution DR 
 
@@ -76,11 +115,14 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
    >[!NOTE]
    >The **Enable hierarchical namespace** option on the blob isn't supported.   
 
-- An NSX-T Data Center network segment configured on Azure VMware Solution private cloud and optionally enable DHCP on the segment for the JetStream Virtual appliances.  
+- An NSX-T network segment configured on Azure VMware Solution private cloud with DHCP enabled on the segment for the transient JetStream Virtual appliances employed during recovery or failover.  
 
 - A DNS server configured to resolve the IP addresses of Azure VMware Solution vCenter Server, Azure VMware Solution ESXi hosts, Azure Storage account, and the JetStream Marketplace service for the JetStream virtual appliances. 
 
+- (Optional) Azure NetApp Files volume(s) are created and attached to the Azure VMware Solution private cloud for recovery or failover of protected VMs to Azure NetApp Files backed datastores.  
 
+  - [Integrate Azure NetApp Files with Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/netapp-files-with-azure-vmware-solution)
+  - [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/)  
 
 ### Scenario 2: Azure VMware Solution to Azure VMware Solution DR
 
@@ -95,14 +137,14 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
    >[!NOTE]
    >The **Enable hierarchical namespace** option on the blob isn't supported.   
 
-- An NSX-T Data Center network segment configured on Azure VMware Solution private cloud and optionally enable DHCP on the segment for the JetStream Virtual appliances.  
+- An NSX-T network segment configured on Azure VMware Solution private cloud with DHCP enabled on the segment for the transient JetStream Virtual appliances employed during recovery or failover.   
 
-- A DNS server configured on both the primary and DR sites to resolve the IP addresses of Azure VMware Solution vCenter Server, Azure VMware Solution ESXi hosts, Azure Storage account, and the JetStream Marketplace service for the JetStream virtual appliances. 
-
+- A DNS server configured on both the primary and DR sites to resolve the IP addresses of Azure VMware Solution vCenter Server, Azure VMware Solution ESXi hosts, Azure Storage account, and the JetStream Marketplace service for the JetStream virtual appliances.
+- (Optional) Azure NetApp Files volume(s) are created and attached to the Azure VMware Solution private cloud for recovery or failover of protected VMs to Azure NetApp Files backed datastores.
+  - [Integrate Azure NetApp Files with Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/netapp-files-with-azure-vmware-solution) 
+  - [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://docs.microsoft.com/azure/azure-vmware/netapp-files-with-azure-vmware-solution)   
 
 For more on-premises JetStream DR prerequisites, see the [JetStream Pre-Installation Guide](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/pre-installation-guidelines/).
-
-
 
 
 
@@ -161,7 +203,7 @@ Azure VMware Solution supports the installation of JetStream using either static
    | **Credential**  |  Credentials of the root user of the JetStream MSA VM.   |
    | **HostName** | Hostname (FQDN) of the JetStream MSA VM.  |
    | **Network**  | Name of the NSX-T Data Center network segment where you must deploy the JetStream MSA. |
-   | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Install-JetDRWithStaticIP-Exec1**.   It's used to verify if the cmdlet ran successfully.  |
+   | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Install-JetDRWithStaticIP-Exec1**.   It's used to verify if the cmdlet ran successfully and should be unique for each run.  |
 
 
 1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
@@ -184,7 +226,7 @@ This step also installs JetStream vSphere Installation Bundle (VIB) on the clust
    | **Credential**  |  Credentials of the root user of the JetStream MSA VM.   |
    | **HostName** | Hostname (FQDN) of the JetStream MSA VM.  |
    | **Network**  | Name of the NSX-T Data Center network segment where you must deploy the JetStream MSA. |
-   | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Install-JetDRWithDHCP-Exec1**.   It's used to verify if the cmdlet ran successfully.  |
+   | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Install-JetDRWithDHCP-Exec1**.   It's used to verify if the cmdlet ran successfully and should be unique for each run. |
  
  
 1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
@@ -202,7 +244,7 @@ This step also installs JetStream vSphere Installation Bundle (VIB) on the clust
    | **ProtectedCluster** | Name of the Azure VMware Solution private cloud cluster to be protected, for example, **Cluster-1**.  You can only provide one cluster name during the install. |
    | **Credential**  |  Credentials of the root user of the JetStream MSA VM.   |
    | **MSIp** | IP address of the JetStream MSA VM.   |
-   | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Enable-JetDRForCluster-Exec1**.   It's used to verify if the cmdlet ran successfully.  |
+   | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Enable-JetDRForCluster-Exec1**.   It's used to verify if the cmdlet ran successfully and should be unique for each run.  |
   
 1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
  
@@ -248,7 +290,7 @@ This cmdlet disables JetStream DR only on one of the clusters and doesn't comple
    | **ProtectedCluster** | Name of the Azure VMware Solution private cloud cluster to be protected, for example, **Cluster-1**.  You can only provide one cluster name during the install. |
    | **Credential**  |  Credentials of the root user of the JetStream MSA VM.   |
    | **MSIp** | IP address of the JetStream MSA VM.   |
-   | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Disable-JetDRForCluster-Exec1**.   It's used to verify if the cmdlet ran successfully.  |
+   | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Disable-JetDRForCluster-Exec1**.   It's used to verify if the cmdlet ran successfully and should be unique for each run.  |
 
 1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
 
@@ -265,7 +307,7 @@ This cmdlet disables JetStream DR only on one of the clusters and doesn't comple
    | **ProtectedCluster** | Name of the Azure VMware Solution private cloud cluster to be protected, for example, **Cluster-1**.  You can only provide one cluster name during the install. |
    | **Credential**  |  Credentials of the root user of the JetStream MSA VM.   |
    | **MSIp** | IP address of the JetStream MSA VM.   |
-   | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Invoke-PreflightJetDRUninstall-Exec1**.   It's used to verify if the cmdlet ran successfully.  |
+   | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Invoke-PreflightJetDRUninstall-Exec1**.   It's used to verify if the cmdlet ran successfully and should be unique for each run.|
 
 1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
 
@@ -276,12 +318,11 @@ This cmdlet disables JetStream DR only on one of the clusters and doesn't comple
    | **ProtectedCluster** | Name of the Azure VMware Solution private cloud cluster to be protected, for example, **Cluster-1**.  You can only provide one cluster name during the install. |
    | **Credential**  |  Credentials of the root user of the JetStream MSA VM.   |
    | **MSIp** | IP address of the JetStream MSA VM.   |
-   | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Uninstall-JetDR-Exec1**.   It's used to verify if the cmdlet ran successfully.  |
+   | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Uninstall-JetDR-Exec1**.   It's used to verify if the cmdlet ran successfully and should be unique for each run.|
 
  1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
 
 
- 
 ## Support  
  
 JetStream DR is a solution that [JetStream Software](https://www.jetstreamsoft.com/) supports. For any product or support issues with JetStream, contact support-avs@jetstreamsoft.com.  

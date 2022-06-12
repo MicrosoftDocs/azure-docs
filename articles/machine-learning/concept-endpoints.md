@@ -214,8 +214,6 @@ You can use the following options for input data when invoking a batch endpoint:
 
 For more information on supported input options, see [Batch scoring with batch endpoint](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-with-different-input-options).
 
-For more information on supported input options, see [Batch scoring with batch endpoint](how-to-use-batch-endpoint.md#invoke-the-batch-endpoint-with-different-input-options).
-
 Specify the storage output location to any datastore and path. By default, batch endpoints store their output to the workspace's default blob store, organized by the Job Name (a system-generated GUID).
 
 ### Security

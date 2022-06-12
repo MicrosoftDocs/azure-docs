@@ -9,6 +9,10 @@ ms.topic: how-to
 
 You can view device information from connected sensors by using the *device inventory* in the on-premises management console. This feature gives you a comprehensive view of all network information. Use import, export, and filtering tools to manage this information. The status information about the connected sensor versions also appears.
 
+For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
+
+## View the device inventory from an on-premises management console
+
 :::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png" alt-text="Screenshot of the device inventory data table.":::
 
 The following table describes the table columns in the device inventory.
@@ -39,18 +43,7 @@ The following table describes the table columns in the device inventory.
 | **Discovered** | When this device was first seen in the network. |
 | **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only one state is presented. |
 
-## What is an Inventory device?
-
-The Defender for IoT Device Inventory displays an extensive range of device attributes that are detected by sensors monitoring organizational networks and managed endpoints. Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
-
-1. Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
-1. Devices composed of multiple backplane components (including all racks/slots/modules)
-1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
-
-Public internet IP addresses, multicast groups, and broadcast groups aren't considered inventory devices.
-Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
-
-## Integrate data into the device inventory
+## Integrate data into the enterprise device inventory
 
 Data integration capabilities let you enhance the data in the device inventory with information from other resources. These sources include CMDBs, DNS, firewalls, and Web APIs.
 

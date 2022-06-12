@@ -6,7 +6,7 @@ ms.author: govindk
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/02/2022
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 
 ---
 
@@ -38,7 +38,7 @@ The `RestoreParameters` resource contains the restore operation details includin
 |---------|---------|
 |restoreMode  | The restore mode should be *PointInTime* |
 |restoreSource   |  The instanceId of the source account from which the restore will be initiated.       |
-|restoreTimestampInUtc  | Point in time in UTC to which the account should be restored to. |
+|restoreTimestampInUtc  | Point in time in UTC to restore the account. |
 |databasesToRestore   | List of `DatabaseRestoreResource` objects to specify which databases and containers should be restored. Each resource represents a single database and all the collections under that database, see the [restorable SQL resources](#restorable-sql-resources) section for more details. If this value is empty, then the entire account is restored.   |
 |gremlinDatabasesToRestore | List of `GremlinDatabaseRestoreResource` objects to specify which databases and graphs should be restored. Each resource represents a single database and all the graphs under that database. See the [restorable Gremlin resources](#restorable-graph-resources) section for more details. If this value is empty, then the entire account is restored. |
 |tablesToRestore  | List of `TableRestoreResource` objects to specify which tables should be restored. Each resource represents a table under that database, see the [restorable Table resources](#restorable-table-resources) section for more details. If this value is empty, then the entire account is restored. |
@@ -126,7 +126,7 @@ Each resource contains information of a mutation event such as creation and dele
 | eventTimestamp | The time in UTC when the database is created or deleted. |
 | ownerId | The name of the SQL database. |
 | ownerResourceId | The resource ID of the SQL database|
-| operationType | The operation type of this database event. Here are the possible values:<br/><ul><li>Create: database creation event</li><li>Delete: database deletion event</li><li>Replace: database modification event</li><li>SystemOperation: database modification event triggered by the system. This event is not initiated by the user</li></ul> |
+| operationType | The operation type of this database event. Here are the possible values:<br/><ul><li>Create: database creation event</li><li>Delete: database deletion event</li><li>Replace: database modification event</li><li>SystemOperation: database modification event triggered by the system. This event isn't initiated by the user</li></ul> |
 | database |The properties of the SQL database at the time of the event|
 
 To get a list of all database mutations, see [Restorable Sql Databases - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-sql-databases/list) article.
@@ -140,7 +140,7 @@ Each resource contains information of a mutation event such as creation and dele
 | eventTimestamp	| The time in UTC when this container event happened.|
 | ownerId| The name of the SQL container.|
 | ownerResourceId	| The resource ID of the SQL container.|
-| operationType	| The operation type of this container event. Here are the possible values: <br/><ul><li>Create: container creation event</li><li>Delete: container deletion event</li><li>Replace: container modification event</li><li>SystemOperation: container modification event triggered by the system. This event is not initiated by the user</li></ul> |
+| operationType	| The operation type of this container event. Here are the possible values: <br/><ul><li>Create: container creation event</li><li>Delete: container deletion event</li><li>Replace: container modification event</li><li>SystemOperation: container modification event triggered by the system. This event isn't initiated by the user</li></ul> |
 | container | The properties of the SQL container at the time of the event.|
 
 To get a list of all container mutations under the same database, see [Restorable Sql Containers - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-sql-containers/list) article.
@@ -165,7 +165,7 @@ Each resource contains information of a mutation event such as creation and dele
 |eventTimestamp| The time in UTC when this database event happened.|
 | ownerId| The name of the MongoDB database. |
 | ownerResourceId	| The resource ID of the MongoDB database. |
-| operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
+| operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event isn't initiated by the user </li></ul> |
 
 To get a list of all database mutation, see [Restorable Mongodb Databases - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-mongodb-databases/list) article.
 
@@ -178,9 +178,9 @@ Each resource contains information of a mutation event such as creation and dele
 | eventTimestamp |The time in UTC when this collection event happened. |
 | ownerId| The name of the MongoDB collection. |
 | ownerResourceId	| The resource ID of the MongoDB collection. |
-| operationType |The operation type of this collection event. Here are the possible values:<br/><ul><li>Create: collection creation event</li><li>Delete: collection deletion event</li><li>Replace: collection modification event</li><li>SystemOperation: collection modification event triggered by the system. This event is not initiated by the user</li></ul> |
+| operationType |The operation type of this collection event. Here are the possible values:<br/><ul><li>Create: collection creation event</li><li>Delete: collection deletion event</li><li>Replace: collection modification event</li><li>SystemOperation: collection modification event triggered by the system. This event isn't initiated by the user</li></ul> |
 
-To get a list of all container mutations under the same database, see [Restorable Mongodb Collections - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-mongodb-collections/list) article.
+To get a list of all container mutations under the same database see [Restorable Mongodb Collections - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-mongodb-collections/list) article.
 
 ### Restorable MongoDB resources
 
@@ -213,9 +213,9 @@ Each resource contains information about a mutation event, such as a creation an
 |eventTimestamp| The time in UTC when this database event happened.|
 | ownerId| The name of the Graph database. |
 | ownerResourceId	| The resource ID of the Graph database. |
-| operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user. </li></ul> |
+| operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event isn't initiated by the user. </li></ul> |
 
-To get a event feed of all mutations on the Gremlin database for the account, see the [Restorable Graph Databases - List]( /rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-gremlin-databases/list) article.
+To get an event feed of all mutations on the Gremlin database for the account, see the [Restorable Graph Databases - List]( /rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-gremlin-databases/list) article.
 
 ### Restorable Graphs 
 
@@ -226,19 +226,19 @@ Each resource contains information of a mutation event such as creation and dele
 | eventTimestamp |The time in UTC when this collection event happened. |
 | ownerId| The name of the Graph collection. |
 | ownerResourceId	| The resource ID of the Graph collection. |
-| operationType |The operation type of this collection event. Here are the possible values:<br/><ul><li>Create: Graph creation event</li><li>Delete: Graph deletion event</li><li>Replace: Graph modification event</li><li>SystemOperation: collection modification event triggered by the system. This event is not initiated by the user.</li></ul> |
+| operationType |The operation type of this collection event. Here are the possible values:<br/><ul><li>Create: Graph creation event</li><li>Delete: Graph deletion event</li><li>Replace: Graph modification event</li><li>SystemOperation: collection modification event triggered by the system. This event isn't initiated by the user.</li></ul> |
 
 To get a list of all container mutations under the same database, see graph [Restorable Graphs - List](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-gremlin-graphs/list) article.
 
 ### Restorable Table resources 
 
-Lists all the restorable Azure Cosmos DB Tables available for a specific database account at a given time and location. Note the Table API does not specify an explicit database.
+Lists all the restorable Azure Cosmos DB Tables available for a specific database account at a given time and location. Note the Table API doesn't specify an explicit database.
 
 |Property Name |Description  |
 |---------|---------|
 | TableNames | The list of Table containers under this account. |
 
-To get a list of Table that exist on the account at the given timestamp and location, see [Restorable Table Resources - List](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-table-resources/list) article. 
+To get a list of tables that exist on the account at the given timestamp and location, see [Restorable Table Resources - List](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-table-resources/list) article. 
 
 ### Restorable Table  
 
@@ -249,7 +249,7 @@ Each resource contains information of a mutation event such as creation and dele
 |eventTimestamp| The time in UTC when this database event happened.|
 | ownerId| The name of the Table database. |
 | ownerResourceId	| The resource ID of the Table resource. |
-| operationType |	The operation type of this Table event. Here are the possible values:<br/><ul><li> Create: Table creation event</li><li> Delete: Table deletion event</li><li> Replace: Table modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
+| operationType |	The operation type of this Table event. Here are the possible values:<br/><ul><li> Create: Table creation event</li><li> Delete: Table deletion event</li><li> Replace: Table modification event</li><li> SystemOperation: database modification event triggered by the system. This event isn't initiated by the user </li></ul> |
 
 To get a list of all table mutations under the same database, see [Restorable Table - List](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-tables/list) article. 
 

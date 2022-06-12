@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 06/08/2022
 ---
 
 # Automated publishing for continuous integration and delivery
@@ -144,7 +144,7 @@ Follow these steps to get started:
    
    - task: NodeTool@0
      inputs:
-       versionSpec: '10.x'
+       versionSpec: '14.x'
      displayName: 'Install Node.js'
    
    - task: Npm@1
