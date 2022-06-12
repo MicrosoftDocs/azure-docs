@@ -30,9 +30,15 @@ A data collection endpoint includes the following components.
 Data collection endpoints are ARM resources created within specific regions. An endpoint in a given region can only be **associated with machines in the same region**, although you can have more than one endpoint within the same region as per your needs.
 
 ## Limitations
-Data collection endpoints only support Log Analytics as a destination for collected data. [Custom Metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via the Azure Monitor Agent are not currently controlled by DCEs nor can they be configured over private links.
+Data collection endpoints only support Log Analytics workspaces as a destination for collected data. [Custom Metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via the Azure Monitor Agent are not currently controlled by DCEs nor can they be configured over private links.
 
-## Create endpoint in Azure portal
+## Create endpoint 
+
+> [!IMPORTANT]
+> If agents will connect to your DCE, it must be created in the same region. If you have agents in different regions, then you'll need multiple DCEs.
+
+# [Azure portal](#tab/portal)
+
 
 1. In the **Azure Monitor** menu in the Azure portal, select **Data Collection Endpoint** from the **Settings** section. Click **Create** to create a new Data Collection Rule and assignment.
 
@@ -44,14 +50,13 @@ Data collection endpoints only support Log Analytics as a destination for collec
 
 3. Click **Review + create** to review the details of the data collection endpoint. Click **Create** to create it.
 
-## Create endpoint and association using REST API
+# [REST API](#tab/restapi)
 
-> [!NOTE]
-> The data collection endpoint should be created in the **same region** where your virtual machines exist.  
 
 1. Create data collection endpoint(s) using these [DCE REST APIs](/cli/azure/monitor/data-collection/endpoint).
 2. Create association(s) to link the endpoint(s) to your target machines or resources, using these [DCRA REST APIs](/rest/api/monitor/datacollectionruleassociations/create#examples).
 
+---
 
 ## Sample data collection endpoint
 The sample data collection endpoint below is for virtual machines with Azure Monitor agent, with public network access disabled so that agent only uses private links to communicate and send data to Azure Monitor/Log Analytics.
