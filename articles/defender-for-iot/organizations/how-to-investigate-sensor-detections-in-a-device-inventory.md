@@ -1,29 +1,19 @@
 ---
-title: Gain insight into devices discovered by a specific sensor
-description: The device inventory displays an extensive range of device attributes that a sensor detects. 
-ms.date: 03/09/2022
+title: View detected devices from an OT sensor console - Microsoft Defender for IoT
+description: Learn about how to view detected devices on an OT sensor console.
+ms.date: 06/12/2022
 ms.topic: how-to
 ---
 
-# Investigate sensor detections in an inventory
+# View detected devices from an OT sensor console
 
-The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and full visibility into the devices on your network. 
+Use the **Device inventory** page on a sensor console to view the network devices detected by the sensor, and their related details.
 
 :::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="Screenshot that shows the Device inventory main screen.":::
 
-Options are available to:
+The **Device inventory** page displays all detected OT devices in your network, and allows you to identify new devices detected, devices that might need troubleshooting, and more.
 
- - Customize and filter the inventory.
-
- - Export information to a CSV file.
-
- - Import Windows registry details.
-
- - Create groups for display in the device map.
-
-For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
-
-## View device attributes in the inventory
+## View the device inventory
 
 This section describes device details available from the inventory and describes how to work with inventory filters and view contextual information about each device.
 
@@ -31,30 +21,6 @@ This section describes device details available from the inventory and describes
 
 In the console left pane, select **Device inventory**.
 
-The following columns are available for each device.
-
-| Name | Description |
-|--|--|
-| **Description** | A description of the device |
-| **Discovered** | When this device was first seen in the network. |
-| **Firmware version** | The device's firmware, if detected. |
-| **FQDN** | The device's FQDN value |
-| **FQDN lookup time** | The device's FQDN lookup time |
-| **Groups** | The groups that this device participates in. |
-| **IP Address** | The IP address of the device. |
-| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been |
-| **Is Known as Scanner** | Defined as a network scanning device by the user. |
-| **Is Programming device** | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
-| **Last Activity** | The last activity that the device performed. |
-| **MAC Address** | The MAC address of the device. |
-| **Name** | The name of the device as the sensor discovered it, or as entered by the user. |
-| **Operating System** | The OS of the device, if detected. |
-| **PLC mode** (preview) | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. If both states are the same, only one state is presented. |
-| **Protocols** | The protocols that the device uses. |
-| **Type** | The type of device as determined by the sensor, or as entered by the user. |
-| **Unacknowledged Alerts** | The number of unacknowledged alerts associated with this device. |
-| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
-| **VLAN** | The VLAN of the device. For more information, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names). |
 
 **To hide and display columns:**
 
@@ -107,6 +73,51 @@ You can display devices from saved filters in the Device map.
 1. After creating and saving an Inventory filter, navigate to the Device map.
 1. In the map page, open the Groups pane on the left.
 1. Scroll down to the **Asset Inventory Filters** group.  The groups you saved from the Inventory appear.
+
+## Create device groups
+
+## Edit device details
+
+## Export the device inventory to CSV
+
+## Import Windows registry details
+
+## Manage device notifications
+
+
+## Delete a device
+
+## Device inventory column reference
+
+The following columns are available for each device.
+
+| Name | Description |
+|--|--|
+| **Description** | A description of the device |
+| **Discovered** | When this device was first seen in the network. |
+| **Firmware version** | The device's firmware, if detected. |
+| **FQDN** | The device's FQDN value |
+| **FQDN lookup time** | The device's FQDN lookup time |
+| **Groups** | The groups that this device participates in. |
+| **IP Address** | The IP address of the device. |
+| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been |
+| **Is Known as Scanner** | Defined as a network scanning device by the user. |
+| **Is Programming device** | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
+| **Last Activity** | The last activity that the device performed. |
+| **MAC Address** | The MAC address of the device. |
+| **Name** | The name of the device as the sensor discovered it, or as entered by the user. |
+| **Operating System** | The OS of the device, if detected. |
+| **PLC mode** (preview) | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. If both states are the same, only one state is presented. |
+| **Protocols** | The protocols that the device uses. |
+| **Type** | The type of device as determined by the sensor, or as entered by the user. |
+| **Unacknowledged Alerts** | The number of unacknowledged alerts associated with this device. |
+| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
+| **VLAN** | The VLAN of the device. For more information, see [Define VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names). |
+
+## Next steps
+
+
+
 
 
 ### Update device properties

@@ -15,7 +15,7 @@ Use Microsoft Defender for IoT's **Device inventory** page in the Azure portal t
 
 :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png" alt-text="A total overview of Defender for IoT's device inventory screen."  lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png":::
 
-The **Device inventory** page displays all detected IT, IoT, and OT devices in your network, and allowing you to identify new devices detected, devices that might need troubleshooting, and more.
+The **Device inventory** page displays all detected IT, IoT, and OT devices in your network, and allows you to identify new devices detected, devices that might need troubleshooting, and more.
 
 > [!NOTE]
 > Alternately, view detected devices [on each sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md or on [the on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
@@ -36,6 +36,8 @@ This procedure describes how to view detected devices in the **Device inventory*
     |**Filter devices shown**    |   Either use the **Search** box to search for specific device details, or select **Add filter** to filter the devices shown. <br><br>In the **Add filter** box, define your filter by column name, operator, and value. Select **Apply** to apply your filter.<br><br>You can apply multiple filters at the same time. Search results and filters aren't saved when you refresh the **Device inventory** page.|
     |**Modify columns shown**     |    **Edit columns**. In the **Edit columns** pane:<br><br>        - Select **Add Column** to add new columns to the grid<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
     | **Group devices** | From the **Device grouping** drop-down menu at the top-right, select either **Type** or **Class** to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
+
+    For more information, see [Device inventory column reference](#device-inventory-column-reference).
 
 1. Select a device row to view more details about that device. Initial details are shown in a pane on the right, where you can also select **View full details** to drill down more.
 
@@ -107,7 +109,6 @@ To export device inventory data, select **Export** :::image type="icon" source="
 The device inventory is exported with any filters currently applied, and you can save the file locally.
 
 
-
 ## Delete a device
 
 If you have devices no longer in use, delete them from the device inventory so that they're no longer connected to Defender for IoT.
@@ -118,9 +119,11 @@ Devices must be inactive for 14 days or more in order for you to be able to dele
 
 In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
 
-If your device has had activity in the past 14 days, it isn't considered inactive, and the **Delete** button will be grayed-out.
-
 At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
+
+> [!NOTE]
+> If your device has had activity in the past 14 days, it isn't considered inactive, and the **Delete** button will be inactive.
+>
 
 ## Device inventory column reference
 
@@ -169,4 +172,9 @@ The following table describes the device properties shown in the device inventor
 
 ## Next steps
 
-For more information, see [Welcome to Microsoft Defender for IoT for device builders](overview.md).
+For more information, see:
+
+- [View detected devices from an OT sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [View detected devices from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+- [Device builders: View detected devices in the Azure portal](/azure/defender-for-iot/device-builders/how-to-manage-device-inventory-on-the-cloud)
+- [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
