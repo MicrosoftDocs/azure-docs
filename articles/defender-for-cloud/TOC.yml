@@ -103,20 +103,22 @@
 
 - name: How-to guides
   items:
-  - name: Security posture at-a-glance with the Overview dashboard
-    displayName: overview, compliance, inventory
-    href: overview-page.md
-  - name: See all of your workloads in the workload protections dashboard
-    href: workload-protections-dashboard.md
-  - name: Programmatic ways to track your secure score
-    href: secure-score-access-and-track.md
-  - name: Build interactive reports with Azure Monitor workbooks
-    displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
-    href: custom-dashboards-azure-workbooks.md
-  - name: View recommendations and alerts in Windows Admin Center
-    href: windows-admin-center-integration.md
-  - name: Integrate security solutions and data sources
-    href: partner-integration.md
+  - name: Cloud security posture
+    items:
+    - name: Security posture at-a-glance with the Overview dashboard
+      displayName: overview, compliance, inventory
+      href: overview-page.md
+    - name: See all of your workloads in the workload protections dashboard
+      href: workload-protections-dashboard.md
+    - name: Programmatic ways to track your secure score
+      href: secure-score-access-and-track.md
+    - name: Build interactive reports with Azure Monitor workbooks
+      displayName: workbooks, Secure Score Over Time, Vulnerability Assessment Findings
+      href: custom-dashboards-azure-workbooks.md
+    - name: View recommendations and alerts in Windows Admin Center
+      href: windows-admin-center-integration.md
+    - name: Integrate security solutions and data sources
+      href: partner-integration.md
   - name: Security recommendations
     items:
     - name: Create custom security initiatives and policies
@@ -197,7 +199,7 @@
       displayName: workflow
       href: workflow-automation.md
 
-- name: Resource-specific protections
+- name: Workload-specific protections
   items:
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
