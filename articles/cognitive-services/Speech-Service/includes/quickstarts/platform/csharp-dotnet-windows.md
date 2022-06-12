@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/15/2020
+ms.date: 06/11/2022
 ms.author: eur
 ms.custom: devx-track-dotnet, ignite-fall-2021
 ---

@@ -19,7 +19,7 @@ zone_pivot_groups: programming-languages-speech-sdk
 
 Before you do anything, see the [platform requirements and instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#platform-requirements).
 
-[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-license-notice.md)]
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](../includes/quickstarts/platform/csharp.md)]
