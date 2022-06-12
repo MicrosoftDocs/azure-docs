@@ -146,7 +146,7 @@ ms.author: eur
 
 ### Speech SDK 1.18.0: 2021-July release
 
-**Note**: Get started with the Speech SDK [here](../../setup-platform.md).
+**Note**: Get started with the Speech SDK [here](../../quickstarts/setup-platform.md).
 
 #### Highlights summary
 - Ubuntu 16.04 reached end of life in April of 2021. In conjunction with Azure DevOps and GitHub, we will drop support for 16.04 in September 2021.  Please migrate ubuntu-16.04 workflows to ubuntu-18.04 or newer before then. 
@@ -184,7 +184,7 @@ ms.author: eur
 ### Speech SDK 1.17.0: 2021-May release
 
 >[!NOTE]
->Get started with the Speech SDK [here](../../setup-platform.md).
+>Get started with the Speech SDK [here](../../quickstarts/setup-platform.md).
 
 #### Highlights summary
 

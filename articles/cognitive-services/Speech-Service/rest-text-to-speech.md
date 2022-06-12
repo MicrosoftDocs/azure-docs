@@ -28,7 +28,7 @@ The text-to-speech REST API supports neural text-to-speech voices, which support
 
 Before you use the text-to-speech REST API, understand that you need to complete a token exchange as part of authentication to access the service.
 
-[!INCLUDE [](/includes/cognitive-services-speech-service-rest-auth.md)]
+[!INCLUDE [](includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## Get a list of voices
 
