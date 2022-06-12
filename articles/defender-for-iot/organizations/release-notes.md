@@ -41,6 +41,25 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
+## July 2022
+
+**Cloud-only updates**:
+
+- [Microsoft Sentinel and Defender for IoT alert status synch](#microsoft-sentinel-and-defender-for-iot-alert-status-synch)
+
+### Microsoft Sentinel incident synch with Defender for IoT alerts
+
+The **IoT OT Threat Monitoring with Defender for IoT** solution now ensures that alerts in Defender for IoT are updated with any related incident **Status** changes from Microsoft Sentinel.
+
+This synchronization overrides any status defined in Defender for IoT, in the Azure portal or the sensor console, so that the alert statuses match that of the related incident.
+
+Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use the latest synchronization support, including the new **AD4IoT-AutoAlertStatusSync** playbook. For more information, see:
+
+- [Tutorial: Integrate Defender for Iot and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
+- [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
+- [View alerts on your sensor](how-to-view-alerts.md)
+
+
 ## May 2022
 
 We've recently optimized and enhanced our documentation as follows:
