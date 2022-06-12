@@ -10,9 +10,9 @@ ms.custom: devx-track-azurecli
 
 ---
 
-# Quickstart: Create an Azure Front Door Premium - Azure CLI
+# Quickstart: Create an Azure Front Door Standard/Premium - Azure CLI
 
-In this quickstart, you'll learn how to create an Azure Front Door Premium profile using  Azure CLI. You'll create this profile using two Web Apps as your origin, and add a WAF security policy. You can then verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
+In this quickstart, you'll learn how to create an Azure Front Door Standard/Premium profile using  Azure CLI. You'll create this profile using two Web Apps as your origin, and add a WAF security policy. You can then verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
 
 > [!NOTE]
 > This documentation is for Azure Front Door Standard/Premium. Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
@@ -242,14 +242,15 @@ To test instant global failover, we'll use the following steps:
 1. Open a browser, as described above, and go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`.
 
 2. Stop one of the Web Apps by running [az webapp stop](/cli/azure/webapp#az-webapp-stop&preserve-view=true)
+
 ```azurecli
 az webapp stop --name WebAppContoso-01 --resource-group myRGFD
 ```
 
 4. Refresh your browser. You should see the same information page.
 
-   >[!TIP]
-   >There is a little bit of delay for these actions. You might need to refresh again.
+>[!TIP]
+>There is a little bit of delay for these actions. You might need to refresh again.
 
 5. Find the other web app, and stop it as well.
 
