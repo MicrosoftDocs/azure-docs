@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 04/18/2022
+ms.date: 06/12/2022
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in Azure Data Factory and Synapse Analytics 
@@ -243,17 +243,7 @@ Following section is not valid because package.json folder is not valid.
   displayName: 'Validate'
 ```
 It should have DataFactory included in customCommand like *'run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'*. Make sure the generated YAML file for higher stage should have required JSON artifacts.
-
-### Git Repository or Microsoft Purview connection disconnected
-
-#### Issue
-When deploying a service instance, the git repository or purview connection is disconnected.
-
-#### Cause
-If you have **Include in ARM template** selected for deploying global parameters, your service instance is included in the ARM template. As a result, other properties will be removed upon deployment.
-
-#### Resolution
-Unselect **Include in ARM template** and deploy global parameters with PowerShell as described in Global parameters in CI/CD. 
+ 
  
 ### Extra  left "[" displayed in published JSON file
 
