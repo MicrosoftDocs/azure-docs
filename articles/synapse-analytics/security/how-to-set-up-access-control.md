@@ -168,7 +168,7 @@ The *workspace creator* is automatically assigned as *SQL Active Directory Admin
 
 - Open Azure portal
 - Navigate to `workspace1`
-- Under **Settings**, select **SQL Active Directory admin**
+- Under **Settings**, select **Azure Active Directory**
 - Select **Set admin** and choose **`workspace1_SQLAdmins`**
 
 >[!Note]
