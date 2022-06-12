@@ -14,12 +14,18 @@ Follow these steps to install the Speech CLI on Windows:
 
 1. Install the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Installing it for the first time might require a restart.
 1. Install [.NET Core 3.1 SDK](/dotnet/core/install/windows).
-2. Install the Speech CLI via the .NET CLI by entering this command:
+1. Install the Speech CLI via the .NET CLI by entering this command:
 
    ```dotnetcli
    dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI
    ```
-Enter `spx` to see help for the Speech CLI.
+   To update the Speech CLI, enter this command:
+
+   ```dotnetcli
+   dotnet tool update --global Microsoft.CognitiveServices.Speech.CLI
+   ```
+
+Enter `spx` or `spx help` to see help for the Speech CLI.
 
 > [!NOTE]
 > As an alternative, you can download and extract the Speech CLI for Windows as a [.zip file](https://aka.ms/speech/spx-windows).
@@ -49,6 +55,11 @@ Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 
    ```dotnetcli
    dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI
+   ```
+   To update the Speech CLI, enter this command:
+
+   ```dotnetcli
+   dotnet tool update --global Microsoft.CognitiveServices.Speech.CLI
    ```
 
 3. On RHEL/CentOS Linux, [Configure OpenSSL for Linux](../how-to-configure-openssl-linux.md).

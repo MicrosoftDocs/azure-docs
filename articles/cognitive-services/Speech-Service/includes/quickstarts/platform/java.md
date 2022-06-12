@@ -8,9 +8,11 @@ ms.author: eur
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Java. 
 
-### System requirements
+## System requirements
 
 Before you do anything, see the [platform requirements and instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#platform-requirements).
+
+## Install the Speech SDK
 
 **Choose your target environment**
 

@@ -8,8 +8,14 @@ ms.author: eur
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Objective-C. 
 
-For details about using the Objective-C Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift</a>.
+> [!TIP]
+> For details about using the Objective-C Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift</a>.
 
+### System requirements
+
+Before you do anything, see the [platform requirements and instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#platform-requirements).
+
+## Install the Speech SDK
 
 # [Mac](#tab/mac)
 
@@ -26,7 +32,7 @@ platform :osx, 10.14
 use_frameworks!
 
 target 'MyApp' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.15.0'
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.22.0'
 end
 ```
 
@@ -49,7 +55,7 @@ platform :ios, '9.3'
 use_frameworks!
 
 target 'AppName' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.10.0'
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.22.0'
 end
 ```
 

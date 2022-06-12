@@ -20,7 +20,7 @@ This setup guide requires:
 * [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for the Windows platform. Installing it for the first time might require a restart.
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 
-## Create a Visual Studio project and install the Speech SDK
+### Create a project in Visual Studio and install the Speech SDK
 
 To create a Visual Studio project for C++ desktop development, you need to:
 
@@ -29,7 +29,7 @@ To create a Visual Studio project for C++ desktop development, you need to:
 - Select the target architecture.
 - Install the Speech SDK.
 
-### Set up Visual Studio development options
+#### Set up Visual Studio development options
 
 To start, make sure you're set up correctly in Visual Studio for C++ desktop development:
 
@@ -53,7 +53,7 @@ To start, make sure you're set up correctly in Visual Studio for C++ desktop dev
 
 1. Close Visual Studio Installer.
 
-### Create the project
+#### Create the project
 
 Next, create your project and select the target architecture:
 
@@ -75,7 +75,7 @@ Next, create your project and select the target architecture:
 
    If you're running 64-bit Windows, select **x64** in the drop-down box. 64-bit Windows can also run 32-bit applications, so you can choose **x86** if you prefer.
 
-### Install the Speech SDK
+#### Install the Speech SDK
 
 Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and reference the Speech SDK in your project:
 
