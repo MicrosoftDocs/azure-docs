@@ -97,6 +97,8 @@ items:
       href: containers/resource-manager-container-insights.md
     - name: Data collection rules
       href: agents/resource-manager-data-collection-rules.md
+    - name: Data collection endpoints
+      href: essentials/data-collection-endpoint-sample.md
     - name: Diagnostic settings
       href: essentials/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
@@ -488,7 +490,7 @@ items:
         - name: Collect text and IIS Logs
           displayName: data collection rule,Azure Monitor agent
           href: agents/data-collection-text-log.md
-      - name: Use data collection endpoints
+      - name: Enable network isolation
         href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Migrate from Log Analytics agent
         displayName: Migrate to Azure Monitor agent

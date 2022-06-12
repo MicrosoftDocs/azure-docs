@@ -28,7 +28,7 @@ To view your data collection rules in the Azure portal, select **Data Collection
 Data collection rules are formatted in JSON. While you may not need to interact with them directly, there are scenarios where you may need to directly edit a data collection rule. See [Data collection rule structure](data-collection-rule-structure.md) for a description of this structure and the different elements used for different workflows.
 
 
-## Creating a data collection rule
+## Create a data collection rule
 The following articles describe different scenarios for creating data collection rules. In some cases, the data collection rule may be created for you, while in others you may need to create and edit it yourself. 
 
 | Workflow | Resources | Description |

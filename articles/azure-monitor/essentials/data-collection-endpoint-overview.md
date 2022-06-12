@@ -32,7 +32,7 @@ Data collection endpoints are ARM resources created within specific regions. An 
 ## Limitations
 Data collection endpoints only support Log Analytics workspaces as a destination for collected data. [Custom Metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via the Azure Monitor Agent are not currently controlled by DCEs nor can they be configured over private links.
 
-## Create endpoint 
+## Create data collection endpoint 
 
 > [!IMPORTANT]
 > If agents will connect to your DCE, it must be created in the same region. If you have agents in different regions, then you'll need multiple DCEs.
@@ -59,40 +59,7 @@ Data collection endpoints only support Log Analytics workspaces as a destination
 ---
 
 ## Sample data collection endpoint
-The sample data collection endpoint below is for virtual machines with Azure Monitor agent, with public network access disabled so that agent only uses private links to communicate and send data to Azure Monitor/Log Analytics.
-
-```json
-{
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionEndpoints/myCollectionEndpoint",
-  "name": "myCollectionEndpoint",
-  "type": "Microsoft.Insights/dataCollectionEndpoints",
-  "location": "eastus",
-  "tags": {
-    "tag1": "A",
-    "tag2": "B"
-  },
-  "properties": {
-    "configurationAccess": {
-      "endpoint": "https://mycollectionendpoint-abcd.eastus-1.control.monitor.azure.com"
-    },
-    "logsIngestion": {
-      "endpoint": "https://mycollectionendpoint-abcd.eastus-1.ingest.monitor.azure.com"
-    },
-    "networkAcls": {
-      "publicNetworkAccess": "Disabled"
-    }
-  },
-  "systemData": {
-    "createdBy": "user1",
-    "createdByType": "User",
-    "createdAt": "yyyy-mm-ddThh:mm:ss.sssssssZ",
-    "lastModifiedBy": "user2",
-    "lastModifiedByType": "User",
-    "lastModifiedAt": "yyyy-mm-ddThh:mm:ss.sssssssZ"
-  },
-  "etag": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-}
-```
+See [Sample data collection endpoint](data-collection-endpoint-sample.md) for a sample data collection endpoint.
 
 ## Next steps
 - [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal)
