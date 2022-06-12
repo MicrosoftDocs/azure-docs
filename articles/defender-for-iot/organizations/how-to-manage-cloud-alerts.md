@@ -181,19 +181,25 @@ Defender for IoT provides remediation steps you can carry out for the alert. Rem
 
 ## Manage alert status and severity
 
-You can change the alert status and severity for a single alert or for a group of alerts.
+You can update alert status or severity for a single alert or for a group of alerts.
 
-**To change the alert status:**
+*Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network. For more information, see [Learn and unlearn alert traffic](how-to-manage-the-alert-event.md#learn-and-unlearn-alert-traffic).
 
-1. Select an alert or group of alerts.
-1. Select **Change status** and select a status (New, Active, Closed).
+- **To manage a single alert**:
 
-Changes to status aren't reflected in the on-premises management console or sensor.
+    1. Select an alert in the grid.
+    1. Either on the details pane on the right, or in an alert details page itself, select the new status and/or severity.
 
-**To change the alert severity:**
+- **To manage multiple alerts in bulk**:
 
-1. Select an alert or group of alerts.
-1. Select **Change severity** and select a severity.
+    1. Select the alerts in the grid that you want to modify.
+    1. Use the :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Change status** and/or :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/severity-icon.png" border="false"::: **Change severity** options in the toolbar to update the status and/or the severity for all the selected alerts.
+
+- **To learn one or more alerts**:
+
+    - Select one or more alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
+    - On an alert details page, in the **Take Action** tab, select **Learn**.
+
 
 Changes to severity aren't reflected in the on-premises management console or sensor.
 
@@ -207,7 +213,7 @@ Alert management across all interfaces functions as follows:
 
     Setting an alert status to **Closed** or **Muted** on a sensor updates the alert status to **Closed** on the Azure portal. Alert statuses are also synchronized between the sensor and the on-premises management console to keep all management sources updated with the correct alert statuses.
 
-    Learning an alert in Azure also updates the alert in the sensor console.
+    [Learning](#manage-alert-status-and-severity) an alert in Azure also updates the alert in the sensor console.
 
 - **Alert Exclusion rules**: If you're working with an on-premises management console, you may have defined alert *Exclusion rules* to determine the rules detected by relevant sensors.
 
