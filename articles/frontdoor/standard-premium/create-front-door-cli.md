@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Front Door Premium with the Azure CLI
-description: Learn how to create an Azure Front Door Premium with Azure CLI. Use Azure Front Door to deliver content to your global user base and protect your web apps against vulnerabilities.
+title: Create an Azure Front Door Standard/Premium with the Azure CLI
+description: Learn how to create an Azure Front Door Standard/Premium with Azure CLI. Use Azure Front Door to deliver content to your global user base and protect your web apps against vulnerabilities.
 ms.topic: sample
 author: duau
 ms.author: duau
@@ -33,6 +33,9 @@ az group create --name myRGFD --location centralus
 ## Create an Azure Front Door profile
 
 Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to create an Azure Front Door profile.
+
+> [!NOTE]
+> If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with Standard_AzureFrontDoor. You won't be able to deploy Managed Rules with WAF Policy, if you choose Standard SKU. For detailed  comparison, view [Azure Front Door tier comparison](./tier-comparison.md).
 
 ```azurecli
 az afd profile create \
@@ -169,6 +172,9 @@ az afd route create \
 ### Create a WAF policy
 
 Run [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az-network-front-door-waf-policy-create) to create a new WAF policy for your Front Door. This example creates a policy that is enabled and in prevention mode.
+
+> [!NOTE]
+> Managed rules will only work with Front Door Premium SKU. You can opt for Standard SKU below to use custom rules.
     
 ```azurecli
 az network front-door waf-policy create \
@@ -182,6 +188,25 @@ az network front-door waf-policy create \
 > [!NOTE]
 > If you select `Detection` mode, your WAF doesn't block any requests.
 
+### Assign Managed Rules to the WAF Policy
+Run [az network front-door waf-policy managed-rules add](/cli/azure/network/front-door/waf-policy/managed-rules#az-network-front-door-waf-policy-managed-rules-add) to add Managed Rules to your WAF Policy. This example adds Microsoft_DefaultRuleSet_1.2 and Microsoft_BotManagerRuleSet_1.0 to your policy.
+
+
+```azurecli
+az network front-door waf-policy managed-rules add \
+    --policy-name contosoWAF \
+    --resource-group myRGFD \
+    --type Microsoft_DefaultRuleSet \
+    --version 1.2 
+```
+
+```azurecli
+az network front-door waf-policy managed-rules add \
+    --policy-name contosoWAF \
+    --resource-group myRGFD \
+    --type Microsoft_BotManagerRuleSet \
+    --version 1.0
+```
 ### Create the security policy
 
 Run [az afd security-policy create](/cli/azure/afd/security-policy#az-afd-security-policy-create) to apply your WAF policy to the endpoint's default domain.
@@ -210,7 +235,7 @@ az afd endpoint show --resource-group myRGFD --profile-name contosoafd --endpoin
 ```
 In a browser, go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`. Your request will automatically get routed to the least latent Web App in the origin group.
 
-
+:::image type="content" source="../media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Your web app is running and waiting for your content":::
 
 To test instant global failover, we'll use the following steps:
 
@@ -233,6 +258,9 @@ az webapp stop --name WebAppContoso-02 --resource-group myRGFD
 ```
 
 6. Refresh your browser. This time, you should see an error message.
+
+:::image type="content" source="../media/create-front-door-portal/web-app-stopped-message.png" alt-text="Both instances of the web app stopped":::
+
 
 7. Restart one of the Web Apps by running [az webapp start](/cli/azure/webapp#az-webapp-start&preserve-view=true). Refresh your browser and the page will go back to normal.
 
