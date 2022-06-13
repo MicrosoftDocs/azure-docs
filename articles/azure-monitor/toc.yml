@@ -1556,7 +1556,7 @@ items:
       - name: Web app extension
         href: app/web-app-extension-release-notes.md
       - name: Snapshot Debugger
-        href: app/snapshot-collector-release-notes.md
+        href: snapshot-debugger/snapshot-collector-release-notes.md
     - name: Data model
       items:
       - name: Overview

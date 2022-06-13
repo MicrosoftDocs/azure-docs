@@ -14,11 +14,11 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
 
 ## Configure snapshot collection for ASP.NET applications
 
-1. [Enable Application Insights in your web app](./asp-net.md), if you haven't done it yet.
+1. [Enable Application Insights in your web app](../app/asp-net.md), if you haven't done it yet.
 
 2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
-3. If needed, customized the Snapshot Debugger configuration added to [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). The default Snapshot Debugger configuration is mostly empty and all settings are optional. Here is an example showing a configuration equivalent to the default configuration:
+3. If needed, customized the Snapshot Debugger configuration added to [ApplicationInsights.config](../app/configuration-with-applicationinsights-config.md). The default Snapshot Debugger configuration is mostly empty and all settings are optional. Here is an example showing a configuration equivalent to the default configuration:
 
     ```xml
     <TelemetryProcessors>
@@ -52,12 +52,12 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
     </TelemetryProcessors>
     ```
 
-4. Snapshots are collected only on exceptions that are reported to Application Insights. In some cases (for example, older versions of the .NET platform), you might need to [configure exception collection](./asp-net-exceptions.md#exceptions) to see exceptions with snapshots in the portal.
+4. Snapshots are collected only on exceptions that are reported to Application Insights. In some cases (for example, older versions of the .NET platform), you might need to [configure exception collection](../app/asp-net-exceptions.md#exceptions) to see exceptions with snapshots in the portal.
 
 
 ## Configure snapshot collection for applications using ASP.NET Core LTS or above
 
-1. [Enable Application Insights in your ASP.NET Core web app](./asp-net-core.md), if you haven't done it yet.
+1. [Enable Application Insights in your ASP.NET Core web app](../app/asp-net-core.md), if you haven't done it yet.
 
     > [!NOTE]
     > Be sure that your application references version 2.1.1, or newer, of the Microsoft.ApplicationInsights.AspNetCore package.
@@ -144,7 +144,7 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
 
 ## Configure snapshot collection for other .NET applications
 
-1. If your application isn't already instrumented with Application Insights, get started by [enabling Application Insights and setting the instrumentation key](./windows-desktop.md).
+1. If your application isn't already instrumented with Application Insights, get started by [enabling Application Insights and setting the instrumentation key](../app/windows-desktop.md).
 
 2. Add the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
