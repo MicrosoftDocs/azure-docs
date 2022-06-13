@@ -581,6 +581,8 @@ groups:
     title: JavaScript
   - id: programming-language-rest-api
     title: REST API
+  - id: vision-studio
+    title: Vision Studio
 - id: programming-languages-set-diberry-3core
   title: Programming languages
   prompt: Choose a programming language
@@ -693,6 +695,8 @@ groups:
     title: Python
   - id: programming-language-rest-api
     title: REST API
+  - id: vision-studio
+    title: Vision Studio
 - id: programming-languages-set-two-with-js
 # Owner: erhopf
   title: Programming languages

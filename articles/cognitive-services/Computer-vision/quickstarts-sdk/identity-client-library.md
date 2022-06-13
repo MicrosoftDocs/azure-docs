@@ -41,3 +41,9 @@ keywords: face search by image, facial recognition search, facial recognition, f
 [!INCLUDE [cURL quickstart](../includes/identity-curl-quickstart.md)]
 
 ::: zone-end
+
+::: zone pivot="vision-studio"
+
+[!INCLUDE [Vision Studio quickstart](../includes/identity-studio-quickstart.md)]
+
+::: zone-end

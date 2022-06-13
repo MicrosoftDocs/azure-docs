@@ -49,3 +49,9 @@ Get started with the Image Analysis REST API or client libraries. The Analyze Im
 [!INCLUDE [REST API quickstart](../includes/image-analysis-curl-quickstart.md)]
 
 ::: zone-end
+
+::: zone pivot="vision-studio"
+
+[!INCLUDE [Vision Studio quickstart](../includes/image-analysis-studio-quickstart.md)]
+
+::: zone-end

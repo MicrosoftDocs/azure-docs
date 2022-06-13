@@ -49,3 +49,9 @@ Get started with the Computer Vision Read REST API or client libraries. The Read
 [!INCLUDE [REST API quickstart](../includes/curl-quickstart.md)]
 
 ::: zone-end
+
+::: zone pivot="vision-studio"
+
+[!INCLUDE [Vision Studio quickstart](../includes/ocr-studio-quickstart.md)]
+
+::: zone-end
