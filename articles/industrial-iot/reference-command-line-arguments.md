@@ -388,6 +388,184 @@ There are a couple of environment variables, which can be used to control the ap
       --at, --appcertstoretype=VALUE
                                        the own application cert store type  (allowed: Directory, X509Store).
 ```
+
+## OPC Publisher Command-line Arguments for Version 2.8.2 and above
+
+The following OPC Publisher configuration can be applied by Command Line Interface (CLI) options or as environment variable settings.
+The `Alternative` field, where present, refers to the CLI argument applicable in **standalone mode only**. When both environment variable and CLI argument are provided, the latest will overrule the env variable.
+
+        PublishedNodesFile=VALUE
+                                  The file used to store the configuration of the nodes to be published
+                                  along with the information to connect to the OPC UA server sources
+                                  When this file is specified, or the default file is accessible by
+                                  the module, OPC Publisher will start in standalone mode
+                                  Alternative: --pf, --publishfile
+                                  Mode: Standalone only
+                                  Type: string - file name, optionally prefixed with the path
+                                  Default: publishednodes.json
+
+         site=VALUE
+                                  The site OPC Publisher is assigned to
+                                  Alternative: --s, --site
+                                  Mode: Standalone and Orchestrated
+                                  Type: string
+                                  Default: <not set>
+
+        LogFileName==VALUE
+                                  The filename of the logfile to use
+                                  Alternative: --lf, --logfile
+                                  Mode: Standalone only
+                                  Type: string - file name, optionally prefixed with the path
+                                  Default: <not set>
+
+        LogFileFlushTimeSpan=VALUE
+                                  The time span in seconds when the logfile should be flushed in the storage
+                                  Alternative: --lt, --logflushtimespan
+                                  Mode: Standalone only
+                                  Environment variable type: time span string {[d.]hh:mm:ss[.fffffff]}
+                                  Alternative argument type: integer in seconds
+                                  Default: {00:00:30}
+
+        loglevel=Value
+                                  The level for logs to pe persisted in the logfile
+                                  Alternative: --ll --loglevel
+                                  Mode: Standalone only
+                                  Type: string enum - Fatal, Error, Warning, Information, Debug, Verbose
+                                  Default: info
+
+        EdgeHubConnectionString=VALUE
+                                  An IoT Edge Device or IoT Edge module connection string to use,
+                                  when deployed as module in IoT Edge, the environment variable
+                                  is already set as part of the container deployment
+                                  Alternative: --dc, --deviceconnectionstring
+                                               --ec, --edgehubconnectionstring
+                                  Mode: Standalone and Orchestrated
+                                  Type: connection string
+                                  Default: <not set> <set by iotedge runtime>
+
+        Transport=VALUE
+                                  Protocol to use for upstream communication to edgeHub or IoTHub
+                                  Alternative: --ih, --iothubprotocol
+                                  Mode: Standalone and Orchestrated
+                                  Type: string enum: Any, Amqp, Mqtt, AmqpOverTcp, AmqpOverWebsocket,
+                                    MqttOverTcp, MqttOverWebsocket, Tcp, Websocket.
+                                  Default: MqttOverTcp
+
+        BypassCertVerification=VALUE
+                                  Enables/disables bypass of certificate verification for upstream communication to edgeHub
+                                  Alternative: N/A
+                                  Mode: Standalone and Orchestrated
+                                  Type: boolean
+                                  Default: false
+
+        EnableMetrics=VALUE
+                                  Enables/disables upstream metrics propagation
+                                  Alternative: N/A
+                                  Mode: Standalone and Orchestrated
+                                  Type: boolean
+                                  Default: true
+
+        DefaultPublishingInterval=VALUE
+                                  Default value for the OPC UA publishing interval of OPC UA subscriptions
+                                  created to an OPC UA server. This value is used when no explicit setting
+                                  is configured.
+                                  Alternative: --op, --opcpublishinginterval
+                                  Mode: Standalone only
+                                  Environment variable type: time span string {[d.]hh:mm:ss[.fffffff]}
+                                  Alternative argument type: integer in milliseconds
+                                  Default: {00:00:01} (1000)
+
+        DefaultSamplingInterval=VALUE
+                                  Default value for the OPC UA sampling interval of nodes to publish.
+                                  This value is used when no explicit setting is configured.
+                                  Alternative: --oi, --opcsamplinginterval
+                                  Mode: Standalone only
+                                  Environment variable type: time span string {[d.]hh:mm:ss[.fffffff]}
+                                  Alternative argument type: integer in milliseconds
+                                  Default: {00:00:01} (1000)
+
+        DefaultQueueSize=VALUE
+                                  Default setting value for the monitored item's queue size to be used when
+                                  not explicitly specified in pn.json file
+                                  Alternative: --mq, --monitoreditemqueuecapacity
+                                  Mode: Standalone only
+                                  Type: integer
+                                  Default: 1
+
+        DefaultHeartbeatInterval=VALUE
+                                  Default value for the heartbeat interval setting of published nodes
+                                  having no explicit setting for heartbeat interval.
+                                  Alternative: --hb, --heartbeatinterval
+                                  Mode: Standalone
+                                  Environment variable type: time span string {[d.]hh:mm:ss[.fffffff]}
+                                  Alternative argument type: integer in seconds
+                                  Default: {00:00:00} meaning heartbeat is disabled
+
+        MessageEncoding=VALUE
+                                  The messaging encoding for outgoing telemetry.
+                                  Alternative: --me, --messageencoding
+                                  Mode: Standalone only
+                                  Type: string enum - Json, Uadp
+                                  Default: Json
+
+        MessagingMode=VALUE
+                                  The messaging mode for outgoing telemetry.
+                                  Alternative: --mm, --messagingmode
+                                  Mode: Standalone only
+                                  Type: string enum - PubSub, Samples
+                                  Default: Samples
+
+        FetchOpcNodeDisplayName=VALUE
+                                  Fetches the DisplayName for the nodes to be published from
+                                  the OPC UA Server when not explicitly set in the configuration.
+                                  Note: This has high impact on OPC Publisher startup performance.
+                                  Alternative: --fd, --fetchdisplayname
+                                  Mode: Standalone only
+                                  Type: boolean
+                                  Default: false
+
+        FullFeaturedMessage=VALUE
+                                  The full featured mode for messages (all fields filled in the telemetry).
+                                  Default is 'false' for legacy compatibility.
+                                  Alternative: --fm, --fullfeaturedmessage
+                                  Mode: Standalone only
+                                  Type:boolean
+                                  Default: false
+
+        BatchSize=VALUE
+                                  The number of incoming OPC UA data change messages to be cached for batching.
+                                  When BatchSize is 1 or TriggerInterval is set to 0 batching is disabled.
+                                  Alternative: --bs, --batchsize
+                                  Mode: Standalone and Orchestrated
+                                  Type: integer
+                                  Default: 50
+
+        BatchTriggerInterval=VALUE
+                                  The batching trigger interval.
+                                  When BatchSize is 1 or TriggerInterval is set to 0 batching is disabled.
+                                  Alternative: --si, --iothubsendinterval
+                                  Mode: Standalone and Orchestrated
+                                  Environment variable type: time span string {[d.]hh:mm:ss[.fffffff]}
+                                  Alternative argument type: integer in seconds
+                                  Default: {00:00:10}
+
+        IoTHubMaxMessageSize=VALUE
+                                  The maximum size of the (IoT D2C) telemetry message.
+                                  Alternative: --ms, --iothubmessagesize
+                                  Mode: Standalone and Orchestrated
+                                  Type: integer
+                                  Default: 0
+
+        DiagnosticsInterval=VALUE
+                                  Shows publisher diagnostic info at the specified interval in seconds
+                                  (need log level info). -1 disables remote diagnostic log and
+                                  diagnostic output
+                                  Alternative: --di, --diagnosticsinterval
+                                  Mode: Standalone only
+                                  Environment variable type: time span string {[d.]hh:mm:ss[.fffffff]}
+                                  Alternative argument type: integer in seconds
+                                  Default: {00:00:60}
+
 ## Next steps
 Further resources can be found in the GitHub repositories:
 
