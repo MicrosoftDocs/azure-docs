@@ -5,13 +5,17 @@ ms.date: 06/12/2022
 ms.topic: how-to
 ---
 
-# View detected devices from an OT sensor console
+# View detected devices on-premises
 
-Use the **Device inventory** page on a sensor console to view the network devices detected by the sensor, and their related details.
+Use the **Device inventory** page on a sensor to new network devices detected by that sensor, or on an on-premises management console to view network devices detected by connected sensors.
+
+The **Device inventory** page displays all detected OT devices in your network, and allows you to identify new devices detected, devices that might need troubleshooting, and more.
+
+Select one of the following options, depending on where you're viewing your network devices:
+
 
 :::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="Screenshot that shows the Device inventory main screen.":::
 
-The **Device inventory** page displays all detected OT devices in your network, and allows you to identify new devices detected, devices that might need troubleshooting, and more.
 
 ## View the device inventory
 
