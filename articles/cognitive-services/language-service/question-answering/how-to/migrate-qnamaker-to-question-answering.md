@@ -71,7 +71,7 @@ With the Language service, QnA Maker customers now benefit from a single service
 - A unified set of APIs across all the capabilities
 - A cohesive, simpler, and powerful product
 
-Lean how to get started in [Language Studio](../../language-studio.md)
+Learn how to get started in [Language Studio](../../language-studio.md)
 
 ## Migration Phases
 
@@ -115,9 +115,9 @@ Once migrated to Question Answering:
   - Retaining of prompts
   - Customers can use the batch testing tool post migration to test the newly created project in custom question answering.
 
-Old QnA Maker resources need to be manually deleted
+Old QnA Maker resources need to be manually deleted.
 
-Here are some [detailed steps](migrate-qnamaker.md) on migration scenario 1
+Here are some [detailed steps](migrate-qnamaker.md) on migration scenario 1.
 
 ### Migration scenario 2
 
@@ -139,7 +139,7 @@ Once migrated to Question Answering:
   - Response time for Questions answered in v1 vs v2
   - Retaining of prompts
    - Batch testing pre and post migration
-- Old QnA Maker resources need to be manually deleted
+- Old QnA Maker resources need to be manually deleted.
 
 Additionally, for customers who have to migrate and upgrade Bot, upgrade bot code is published as NuGet package.
 
