@@ -19,7 +19,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 Don't include any values in an output that could potentially expose secrets. For example, secure parameters of type secureString or secureObject, or [`list*`](./bicep-functions-resource.md#list) functions such as listKeys.
 
-The output from a template is stored in the deployment history, so a malicious user could find that information.
+The output from a template is stored in the deployment history, so a user with read-only permissions could gain access to information otherwise not available with read-only permission.
 
 The following example fails because it includes a secure parameter in an output value.
 
@@ -49,7 +49,7 @@ The following example fails because the output name contains 'password', indicat
 output accountPassword string = '...'
 ```
 
-To fix it, you will need to remove the secret data from the output.
+To fix it, you will need to remove the secret data from the output.  The recommended practice is to output the resourceId of the resource containing the secret and retrieve the secret when the resource needing the information is created or updated.  Secrets may also be stored in KeyVault for more complex deployment scenarios.
 
 ## Silencing false positives
 
