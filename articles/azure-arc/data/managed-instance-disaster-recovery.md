@@ -14,28 +14,28 @@ ms.topic: conceptual
 
 # Azure Arc-enabled SQL Managed Instance - disaster recovery 
 
-To configure disaster recovery in Azure Arc-enabled SQL Managed Instance, set up failover groups.
+To configure disaster recovery in Azure Arc-enabled SQL Managed Instance, set up Azure failover groups.
 
 ## Background
 
-The distributed availability groups used in Azure Arc-enabled SQL Managed Instance is the same technology that is in SQL Server. Because Azure Arc-enabled SQL Managed Instance runs on Kubernetes, there's no Windows failover cluster involved.  For more information, see [Distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups).
+Azure Failover Groups uses the same distributed availability groups technology that is in SQL Server. Because Azure Arc-enabled SQL Managed Instance runs on Kubernetes, there's no Windows failover cluster involved.  For more information, see [Distributed availability groups](/sql/database-engine/availability-groups/windows/distributed-availability-groups).
 
 > [!NOTE]
 > - The Azure Arc-enabled SQL Managed Instance in both geo-primary and geo-secondary sites need to be identical in terms of their compute & capacity, as well as service tiers they are deployed in.
 > - Distributed availability groups can be setup for either General Purpose or Business Critical service tiers. 
 
-To configure disaster recovery:
+To configure Azure Failover Group:
 
 1. Create custom resource for distributed availability group at the primary site
 1. Create custom resource for distributed availability group at the secondary site
-1. Copy the mirroring certificates
+1. Copy the binary data from the mirroring certificates
 1. Set up the distributed availability group between the primary and secondary sites
 
 The following image shows a properly configured distributed availability group:
 
 ![A properly configured distributed availability group](.\media\business-continuity\dag.png)
 
-### Configure distributed availability groups 
+### Configure Azure Failover Group 
 
 1. Provision the managed instance in the primary site.
 
