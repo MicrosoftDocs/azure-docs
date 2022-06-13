@@ -140,7 +140,7 @@ Once both resources are on the same virtual or peered VNet, next provision a per
           type: nfs
     ```
 
-    Replace the values for **NFS_NAME** with the actual setting from your NFS Server.
+    Replace the value for **NFS_NAME** with the actual setting from your NFS Server.
 
 ## Troubleshooting
 
