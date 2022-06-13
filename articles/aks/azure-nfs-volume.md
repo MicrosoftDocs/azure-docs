@@ -127,7 +127,7 @@ Once both resources are on the same virtual or peered VNet, next provision a per
     apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
-      name: NFS_Name
+      name: NFS_NAME
     spec:
       accessModes:
         - ReadWriteMany
@@ -139,6 +139,8 @@ Once both resources are on the same virtual or peered VNet, next provision a per
         matchLabels:
           type: nfs
     ```
+
+    Replace the values for **NFS_NAME** with the actual setting from your NFS Server.
 
 ## Troubleshooting
 
