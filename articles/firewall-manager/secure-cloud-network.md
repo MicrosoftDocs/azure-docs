@@ -42,18 +42,18 @@ The two virtual networks will each have a workload server in them and will be pr
 
 1. From the Azure portal home page, select **Create a resource**.
 2. Search for **Virtual network**, and select **Create**.
-2. For **Subscription**, select your subscription.
-1. For **Resource group**, select **Create new**, and type **fw-manager-rg** for the name and select **OK**.
-2. For **Name**, type **Spoke-01**.
-3. For **Region**, select **(US) East US**.
-4. Select **Next: IP Addresses**.
-1. For **Address space**, type **10.0.0.0/16**.
-1. Select **Add subnet**.
-1. For **Subnet name**, type  **Workload-01-SN**.
-1. For **Subnet address range**, type **10.0.1.0/24**.
-1. Select **Add**.
-1. Select **Review + create**.
-1. Select **Create**.
+3. For **Subscription**, select your subscription.
+4. For **Resource group**, select **Create new**, and type **fw-manager-rg** for the name and select **OK**.
+5. For **Name**, type **Spoke-01**.
+6. For **Region**, select **(US) East US**.
+7. Select **Next: IP Addresses**.
+8. For **Address space**, type **10.0.0.0/16**.
+9. Select **Add subnet**.
+10. For **Subnet name**, type  **Workload-01-SN**.
+11. For **Subnet address range**, type **10.0.1.0/24**.
+12. Select **Add**.
+13. Select **Review + create**.
+14. Select **Create**.
 
 Repeat this procedure to create another similar virtual network:
 
@@ -71,7 +71,7 @@ Create your secured virtual hub using Firewall Manager.
 3. On the **Firewall Manager** page under **Deployments**, select **Virtual hubs**.
 4. On the **Firewall Manager | Virtual hubs** page, select **Create new secured virtual hub**.
 
-:::image type="content" source="./media/secure-cloud-network/1-create-new-secured-virtual-hub.png" alt-text="Create new secured virtual hub." lightbox="./media/secure-cloud-network/1-create-new-secured-virtual-hub.png":::
+    :::image type="content" source="./media/secure-cloud-network/1-create-new-secured-virtual-hub.png" alt-text="Create new secured virtual hub." lightbox="./media/secure-cloud-network/1-create-new-secured-virtual-hub.png":::
 
 5. For **Resource group**, select **fw-manager-rg**.
 6. For **Region**, select **East US**.
@@ -81,7 +81,7 @@ Create your secured virtual hub using Firewall Manager.
 10. Select **New vWAN** and select **Standard** for "Type"
 11. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
 
-:::image type="content" source="./media/secure-cloud-network/2-create-new-secured-virtual-hub.png" alt-text="Create new virtual hub with properties." lightbox="./media/secure-cloud-network/2-create-new-secured-virtual-hub.png":::
+    :::image type="content" source="./media/secure-cloud-network/2-create-new-secured-virtual-hub.png" alt-text="Create new virtual hub with properties." lightbox="./media/secure-cloud-network/2-create-new-secured-virtual-hub.png":::
 
 12. Select **Next: Azure Firewall**.
 13. Accept the default **Azure Firewall** **Enabled** setting.
@@ -91,17 +91,17 @@ Create your secured virtual hub using Firewall Manager.
 > [!IMPORTANT]
 > Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many Virtual WAN per their need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services is automatically deployed across Availability Zones except Azure Firewall, if the region supports Availability Zones. To align with Azure Virtual WAN resiliency, it is recommended to select all available Availability Zones, where available.
 
-:::image type="content" source="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png" alt-text="Configure Azure Firewall parameters." lightbox="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png":::
+   :::image type="content" source="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png" alt-text="Configure Azure Firewall parameters." lightbox="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png":::
 
 16. Select the **Firewall Policy** to apply at the new Azure Firewall instance. Select **Default Deny Policy**, you will refine your settings later in this article.
 17. Select **Next: Trusted Security Partner**.
 
-:::image type="content" source="./media/secure-cloud-network/4-trusted-security-partner.png" alt-text="Configure Trusted Partners parameters." lightbox="./media/secure-cloud-network/4-trusted-security-partner.png":::
+    :::image type="content" source="./media/secure-cloud-network/4-trusted-security-partner.png" alt-text="Configure Trusted Partners parameters." lightbox="./media/secure-cloud-network/4-trusted-security-partner.png":::
 
 18. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
 19. Select **Create**. 
 
-:::image type="content" source="./media/secure-cloud-network/5-confirm-and-create.png" alt-text="Create the Firewall instance." lightbox="./media/secure-cloud-network/5-confirm-and-create.png":::
+    :::image type="content" source="./media/secure-cloud-network/5-confirm-and-create.png" alt-text="Create the Firewall instance." lightbox="./media/secure-cloud-network/5-confirm-and-create.png":::
 
 > [!NOTE]
 > Creating a secured virtual hub may take up to 30 minutes.
@@ -111,8 +111,8 @@ You can get the firewall public IP address after the deployment completes.
 1. Open **Firewall Manager**.
 2. Select **Virtual hubs**.
 3. Select **hub-01**.
-7. Select **Public IP configuration**.
-8. Note the public IP address to use later.
+4. Select **Public IP configuration**.
+5. Note the public IP address to use later.
 
 ### Connect the hub and spoke virtual networks
 
@@ -144,13 +144,13 @@ Repeat to connect the **Spoke-02** virtual network: connection name - **hub-spok
    |Password     |type a password|
 
 4. Under **Inbound port rules**, for **Public inbound ports**, select **None**.
-6. Accept the other defaults and select **Next: Disks**.
-7. Accept the disk defaults and select **Next: Networking**.
-8. Select **Spoke-01** for the virtual network and select **Workload-01-SN** for the subnet.
-9. For **Public IP**, select **None**.
-11. Accept the other defaults and select **Next: Management**.
-12. Select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
-13. Review the settings on the summary page, and then select **Create**.
+5. Accept the other defaults and select **Next: Disks**.
+6. Accept the disk defaults and select **Next: Networking**.
+7. Select **Spoke-01** for the virtual network and select **Workload-01-SN** for the subnet.
+8. For **Public IP**, select **None**.
+9. Accept the other defaults and select **Next: Management**.
+10. Select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
+11. Review the settings on the summary page, and then select **Create**.
 
 Use the information in the following table to configure another virtual machine named **Srv-Workload-02**. The rest of the configuration is the same as the **Srv-workload-01** virtual machine.
 
