@@ -64,7 +64,7 @@ There's a link in the exception pane of the end-to-end trace view that takes you
 
 The interactive, chat-like interface looks for common problems and guides you to fix them.
 
-![Health Check](./media/snapshot-debugger/healthcheck.png)
+![Health Check](./media/snapshot-debugger/health-check.png)
 
 If that doesn't solve the problem, then refer to the following manual troubleshooting steps.
 
@@ -104,7 +104,7 @@ To check the setting, open your web.config file and find the system.web section.
 If you're using a preview version of .NET Core or your application references Application Insights SDK, directly or indirectly via a dependent assembly, follow the instructions for [Enable Snapshot Debugger for other environments](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json).
 
 ## Check the Diagnostic Services site extension' Status Page
-If Snapshot Debugger was enabled through the [Application Insights pane](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) in the portal, it was enabled by the Diagnostic Services site extension.
+If Snapshot Debugger was enabled through the [Application Insights pane](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json) in the portal, it was enabled by the Diagnostic Services site extension.
 
 > [!NOTE]
 > Codeless installation of Application Insights Snapshot Debugger follows the .NET Core support policy.
@@ -132,7 +132,7 @@ It will display a Status Page similar like the below:
 ## Upgrade to the latest version of the NuGet package
 Based on how Snapshot Debugger was enabled, see the following options:
 
-* If Snapshot Debugger was enabled through the [Application Insights pane in the portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), then your application should already be running the latest NuGet package.
+* If Snapshot Debugger was enabled through the [Application Insights pane in the portal](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json), then your application should already be running the latest NuGet package.
 
 * If Snapshot Debugger was enabled by including the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package, use Visual Studio's NuGet Package Manager to make sure you're using the latest version of Microsoft.ApplicationInsights.SnapshotCollector.
 

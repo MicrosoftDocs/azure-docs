@@ -94,7 +94,7 @@ A point release to address a couple of high-impact issues.
 
 ## [1.3.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.5)
 - Add support for Sovereign clouds (Older versions won't work in sovereign clouds)
-- Adding snapshot collector made easier by using AddSnapshotCollector(). More information can be found [here](./snapshot-debugger-appservice.md).
+- Adding snapshot collector made easier by using AddSnapshotCollector(). More information can be found [here](./snapshot-debugger-app-service.md).
 - Use FISMA MD5 setting for verifying blob blocks. This avoids the default .NET MD5 crypto algorithm, which is unavailable when the OS is set to FIPS-compliant mode.
 - Ignore .NET Framework frames when deoptimizing function calls. This behavior can be controlled by the DeoptimizeIgnoredModules configuration setting.
 - Add `DeoptimizeMethodCount` configuration setting that allows deoptimization of more than one function call. More information here

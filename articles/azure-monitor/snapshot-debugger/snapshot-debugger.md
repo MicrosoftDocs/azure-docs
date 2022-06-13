@@ -24,7 +24,7 @@ We don't recommend using .NET Core versions prior to LTS since they're out of su
 
 The following environments are supported:
 
-* [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Function](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running OS family 4 or later
 * [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running on Windows Server 2012 R2 or later
@@ -76,7 +76,7 @@ Snapshots might include sensitive information, and by default they aren't viewab
 
 3. After you open the snapshot file, the Minidump Debugging page in Visual Studio appears. Click **Debug Managed Code** to start debugging the snapshot. The snapshot opens to the line of code where the exception was thrown so that you can debug the current state of the process.
 
-    ![View debug snapshot in Visual Studio](./media/snapshot-debugger/open-snapshot-visualstudio.png)
+    ![View debug snapshot in Visual Studio](./media/snapshot-debugger/open-snapshot-visual-studio.png)
 
 The downloaded snapshot includes any symbol files that were found on your web application server. These symbol files are required to associate snapshot data with source code. For App Service apps, make sure to enable symbol deployment when you publish your web apps.
 
@@ -127,7 +127,7 @@ However, in Azure App Services, the Snapshot Collector can deoptimize throwing m
 ## Next steps
 Enable Application Insights Snapshot Debugger for your application:
 
-* [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Function](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
