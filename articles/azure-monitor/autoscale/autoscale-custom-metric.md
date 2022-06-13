@@ -4,6 +4,7 @@ description: Learn how to scale your resource by custom metric in Azure.
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
+ms.reviewer: riroloff
 ---
 # Get started with auto scale by custom metric in Azure
 This article describes how to scale your resource by a custom metric in Azure portal.

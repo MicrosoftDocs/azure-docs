@@ -134,7 +134,7 @@ sections:
       
       - question: Can I restore the files and folders from an encrypted VM backup?
         answer: |
-          Restoring files and folders from encrypted VM backup is currently not supported, you must recover the entire VM to restore files and folders. See, [steps to restore an encrypted Azure Virtual machine](restore-azure-encrypted-virtual-machines.md).
+          Restoring files and folders from encrypted VM backup is currently not supported, you must recover the entire VM to restore files and folders. See, [steps to restore an encrypted Azure Virtual machine](restore-azure-encrypted-virtual-machines.md). However you can recover files from backups before they were encrypted.
 
       - question: Can I stop a VM and scale it up during the Transfer data to vault phase?
         answer: |

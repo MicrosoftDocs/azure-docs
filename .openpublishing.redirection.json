@@ -750,6 +750,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/create-front-door-cli.md",
+      "redirect_url": "/azure/frontdoor/create-front-door-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
       "redirect_url": "/aspnet/core/security/authorization/secure-data",
       "redirect_document_id": false
@@ -6929,6 +6934,11 @@
     {
       "source_path_from_root": "/articles/azure-functions/functions-bindings-event-iot-output.md",
       "redirect_url": "/azure/azure-functions/functions-bindings-event-hubs-output",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-bindings-errors.md",
+      "redirect_url": "/azure/azure-functions/functions-bindings-error-pages",
       "redirect_document_id": false
     },
     {
@@ -18976,7 +18986,11 @@
       "redirect_url": "/connectors/todo",
       "redirect_document_id": false
     },
-    
+    {
+      "source_path_from_root": "/articles/logic-apps/logic-apps-scenario-error-and-exception-handling.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-exception-handling",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/cognitive-services/LinguisticAnalysisAPI/AnalyzeMethod.md",
       "redirect_url": "/azure/machine-learning/classic-module-reference/text-analytics",
@@ -33103,6 +33117,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToCallVisionAPI.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/how-to/call-analyze-image",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/how-to/analyze-video",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/call-read-api.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/how-to/call-read-api",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false
@@ -35394,22 +35423,17 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-translate-speech-cpp.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-translate-speech-cpp-windows",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-translate-speech",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-translate-speech-csharp.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-translate-speech-dotnetcore-windows",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-translate-speech.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-translate-speech-dotnetframework-windows",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-translate-speech",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-translate-speech-java.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-translate-speech-java-jre",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-translate-speech",
       "redirect_document_id": false
     },
     {
@@ -35495,6 +35519,11 @@
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-studio-role-based-access-control.md",
       "redirect_url": "/azure/cognitive-services/speech-service/role-based-access-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-speech-translation.yml",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-translation",
       "redirect_document_id": false
     },
     {
@@ -37506,6 +37535,111 @@
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest.md",
       "redirect_url": "/azure/cognitive-services/form-recognizer/encrypt-data-at-rest",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Overview.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/overview-identity",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/ReleaseNotes.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/whats-new",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/build-enrollment-app.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/Tutorials/build-enrollment-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/encrypt-data-at-rest.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/identity-encrypt-data-at-rest",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/enrollment-overview.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/enrollment-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/index.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/index-identity",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/APIReference.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/identity-api-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/HowtoAnalyzeVideo_face.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/identity-analyze-video",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/HowtoDetectFacesinImage.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/identity-detect-faces",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/find-similar faces.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/find-similar-faces",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/how-to-add-faces.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/add-faces",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/how-to-migrate-face-data.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/migrate-face-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/how-to-mitigate-latency.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/mitigate-latency",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/how-to-use-headpose.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/use-headpose",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/how-to-use-large-scale.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/use-large-scale",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/specity-detection-model.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/specify-detection-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/specify-recognition-model.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/specify-recognition-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/use-persondirectory.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/use-persondirectory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/QuickStarts/client-libraries.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/quickstarts-sdk/identity-client-library",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/concepts/face-detection.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/concept-face-detection",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/concepts/face-recognition.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/concept-face-recognition",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/azure-monitor/learn/tutorial-response.md",
