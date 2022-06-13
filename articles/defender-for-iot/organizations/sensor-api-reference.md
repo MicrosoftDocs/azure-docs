@@ -111,9 +111,9 @@ request:
 
 | **Name** | **Type** | **Nullable** |
 |--|--|--|
-| **username** | String | No |
-| **password** | String | No |
-| **new_password** | String | No |
+| **username** | String | Required |
+| **password** | String | Required |
+| **new_password** | String | Required |
 
 # [Response](#tab/set-password-response)
 
@@ -187,10 +187,10 @@ request:
 
 | **Name** | **Type** | **Nullable** |
 |--|--|--|
-| **admin_username** | String | No |
-| **admin_password** | String | No |
-| **username** | String | No |
-| **new_password** | String | No |
+| **admin_username** | String | Required |
+| **admin_password** | String | Required |
+| **username** | String | Required |
+| **new_password** | String | Required |
 
 # [Response](#tab/set-password-by-admin-response)
 
@@ -270,19 +270,19 @@ Array of JSON objects that represent device connections.
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
-| **firstDeviceId** | Numeric | No | - |
-| **secondDeviceId** | Numeric | No | - |
-| **lastSeen** | Numeric | No | Epoch (UTC) |
-| **discovered** | Numeric | No | Epoch (UTC) |
-| **ports** | Number array | No | - |
-| **protocols** | JSON array | No | Protocol field |
+| **firstDeviceId** | Numeric | Required | - |
+| **secondDeviceId** | Numeric | Required | - |
+| **lastSeen** | Numeric | Required | Epoch (UTC) |
+| **discovered** | Numeric | Required | Epoch (UTC) |
+| **ports** | Number array | Required | - |
+| **protocols** | JSON array | Required | Protocol field |
 
 **Protocol fields**:
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
-| **name** | String | No | - |
-| **commands** | String array | No | - |
+| **name** | String | Required | - |
+| **commands** | String array | Required | - |
 
 **Response example:**
 
@@ -401,11 +401,11 @@ Array of JSON objects that represent CVEs identified on IP addresses.
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
-| **cveId** | String | No | - |
-| **ipAddress** | String | No | IP address |
-| **score** | String | No | 0.0 - 10.0 |
-| **attackVector** | String | No | Network, Adjacent Network, Local, or Physical |
-| **description** | String | No | - |
+| **cveId** | String | Required | - |
+| **ipAddress** | String | Required | IP address |
+| **score** | String | Required | 0.0 - 10.0 |
+| **attackVector** | String | Required | Network, Adjacent Network, Local, or Physical |
+| **description** | String | Required | - |
 
 **Response example:**
 
@@ -504,18 +504,18 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
-| **ID** | Numeric | No | - |
-| **time** | Numeric | No | Epoch (UTC) |
-| **title** | String | No | - |
-| **message** | String | No | - |
-| **severity** | String | No | Warning, Minor, Major, or Critical |
-| **engine** | String | No | Protocol Violation, Policy Violation, Malware, Anomaly, or Operational |
-| **sourceDevice** | Numeric | Yes | Device ID |
-| **destinationDevice** | Numeric | Yes | Device ID |
-| **sourceDeviceAddress** | Numeric | Yes | IP, MAC |
-| **destinationDeviceAddress** | Numeric | Yes | IP, MAC |
-| **remediationSteps** | String | Yes | Remediation steps described in alert |
-| **additionalInformation** | Additional information object | Yes | - |
+| **ID** | Numeric | Required | - |
+| **time** | Numeric | Required | Epoch (UTC) |
+| **title** | String | Required | - |
+| **message** | String | Required | - |
+| **severity** | String | Required | Warning, Minor, Major, or Critical |
+| **engine** | String | Required | Protocol Violation, Policy Violation, Malware, Anomaly, or Operational |
+| **sourceDevice** | Numeric | Optional | Device ID |
+| **destinationDevice** | Numeric | Optional | Device ID |
+| **sourceDeviceAddress** | Numeric | Optional | IP, MAC |
+| **destinationDeviceAddress** | Numeric | Optional | IP, MAC |
+| **remediationSteps** | String | Optional | Remediation steps described in alert |
+| **additionalInformation** | Additional information object | Optional | - |
 
 > [!NOTE]
 > The **/api/v2/** is required to return values for `sourceDeviceAddress`, `destinationDeviceAddress`, and `remediationSteps`.
@@ -524,8 +524,8 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
-| **description** | String | No | - |
-| **information** | JSON array | No | String |
+| **description** | String | Required | - |
+| **information** | JSON array | Required | String |
 
 **Response example**
 
@@ -607,11 +607,11 @@ Array of JSON objects that represent alerts.
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|--|
-| **timestamp** | Numeric | No | Epoch (UTC) |
-| **title** | String | No | - |
-| **severity** | String | No | INFO, NOTICE, or ALERT |
-| **owner** | String | Yes | If the event was created manually, this field will include the username that created the event |
-| **content** | String | No | - |
+| **timestamp** | Numeric | Required | Epoch (UTC) |
+| **title** | String | Required | - |
+| **severity** | String | Required | INFO, NOTICE, or ALERT |
+| **owner** | String | Optional | If the event was created manually, this field will include the username that created the event |
+| **content** | String | Required | - |
 
 **Response example**:
 
@@ -687,74 +687,74 @@ Array of JSON objects that represent assessed devices.
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
-| **name** | String | No | - |
-| **ipAddresses** | JSON array | No | - |
-| **securityScore** | Numeric | No | - |
-| **vendor** | String | Yes |  |
-| **firmwareVersion** | String | Yes | - |
-| **model** | String | Yes | - |
-| **isWirelessAccessPoint** | Boolean | No | True or false |
-| **operatingSystem** | Operating system object | Yes | - |
-| **vulnerabilities** | Vulnerabilities object | Yes | - |
+| **name** | String | Required | - |
+| **ipAddresses** | JSON array | Required | - |
+| **securityScore** | Numeric | Required | - |
+| **vendor** | String | Optional |  |
+| **firmwareVersion** | String | Optional | - |
+| **model** | String | Optional | - |
+| **isWirelessAccessPoint** | Boolean | Required | True or false |
+| **operatingSystem** | Operating system object | Optional | - |
+| **vulnerabilities** | Vulnerabilities object | Optional | - |
 
 **Operating system fields**:
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
-| **Name** | String | Yes | - |
-| **Type** | String | Yes | - |
-| **Version** | String | Yes | - |
-| **latestVersion** | String | Yes | - |
+| **Name** | String | Optional | - |
+| **Type** | String | Optional | - |
+| **Version** | String | Optional | - |
+| **latestVersion** | String | Optional | - |
 
 **Vulnerabilities fields**:
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
-| **antiViruses** | JSON array | Yes | Antivirus names |
-| **plainTextPasswords** | JSON array | Yes | Password objects |
-| **remoteAccess** | JSON array | Yes | Remote access objects |
-| **isBackupServer** | Boolean | No | True or false |
-| **openedPorts** | JSON array | Yes | Opened port objects |
-| **isEngineeringStation** | Boolean | No | True or false |
-| **isKnownScanner** | Boolean | No | True or false |
-| **cves** | JSON array | Yes | CVE objects |
-| **isUnauthorized** | Boolean | No | True or false |
-| **malwareIndicationsDetected** | Boolean | No | True or false |
-| **weakAuthentication** | JSON array | Yes | Detected applications that are using weak authentication |
+| **antiViruses** | JSON array | Optional | Antivirus names |
+| **plainTextPasswords** | JSON array | Optional | Password objects |
+| **remoteAccess** | JSON array | Optional | Remote access objects |
+| **isBackupServer** | Boolean | Required | True or false |
+| **openedPorts** | JSON array | Optional | Opened port objects |
+| **isEngineeringStation** | Boolean | Required | True or false |
+| **isKnownScanner** | Boolean | Required | True or false |
+| **cves** | JSON array | Optional | CVE objects |
+| **isUnauthorized** | Boolean | Required | True or false |
+| **malwareIndicationsDetected** | Boolean | Required | True or false |
+| **weakAuthentication** | JSON array | Optional | Detected applications that are using weak authentication |
 
 **Password fields**:
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
-| **password** | String | No | - |
-| **protocol** | String | No | - |
-| **strength** | String | No | Very weak, Weak, Medium, or Strong |
+| **password** | String | Required | - |
+| **protocol** | String | Required | - |
+| **strength** | String | Required | Very weak, Weak, Medium, or Strong |
 
 **Remote access fields**:
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
-| **port** | Numeric | No | - |
-| **transport** | String | No | TCP or UDP |
-| **client** | String | No | IP address |
-| **clientSoftware** | String | No | SSH, VNC, Remote desktop, or Team viewer |
+| **port** | Numeric | Required | - |
+| **transport** | String | Required | TCP or UDP |
+| **client** | String | Required | IP address |
+| **clientSoftware** | String | Required | SSH, VNC, Remote desktop, or Team viewer |
 
 **Open port fields**
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
-| **port** | Numeric | No | - |
-| **transport** | String | No | TCP or UDP |
-| **protocol** | String | Yes | - |
-| **isConflictingWithFirewall** | Boolean | No | True or false |
+| **port** | Numeric | Required | - |
+| **transport** | String | Required | TCP or UDP |
+| **protocol** | String | Optional | - |
+| **isConflictingWithFirewall** | Boolean | Required | True or false |
 
 **CVE fields**
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
-| **ID** | String | No | - |
-| **score** | Numeric | No | Double |
-| **description** | String | No | - |
+| **ID** | String | Required | - |
+| **score** | Numeric | Required | Double |
+| **description** | String | Required | - |
 
 **Response example**:
 

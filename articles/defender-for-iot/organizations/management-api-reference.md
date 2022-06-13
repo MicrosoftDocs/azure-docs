@@ -73,11 +73,11 @@ response:
 
 **Device fields**:
 
-| **Name** | **Type** | **Nullable** |
+| **Name** | **Type** | **Required / Optional** |
 |--|--|--|
-| **username** | String | No |
-| **password** | String | No |
-| **new_password** | String | No |
+| **username** | String | Required |
+| **password** | String | Required |
+| **new_password** | String | Required |
 
 # [Curl command](#tab/set-password-curl)
 
@@ -163,12 +163,12 @@ response:
 
 **Device fields**
 
-| **Name** | **Type** | **Nullable** |
+| **Name** | **Type** | **Required / Optional** |
 |--|--|--|
-| **admin_username** | String | No |
-| **admin_password** | String | No |
-| **username** | String | No |
-| **new_password** | String | No |
+| **admin_username** | String | Required |
+| **admin_password** | String | Required |
+| **username** | String | Required |
+| **new_password** | String | Required |
 
 # [Curl command](#tab/set-password-by-admin-curl)
 
@@ -233,40 +233,40 @@ Array of JSON objects that represent devices.
 
 **Device fields**
 
-| Name | Type | Nullable | List of values |
+| Name | Type | Required / Optional | List of values |
 |--|--|--|--|
-| **id** | Numeric | No | - |
-| **ipAddresses** | JSON array | Yes | IP addresses (can be more than one address in case of internet addresses or a device with dual NICs) |
-| **name** | String | No | - |
-| **type** | String | No | Unknown, Engineering Station, PLC, HMI, Historian, Domain Controller, DB Server, Wireless Access Point, Router, Switch, Server, Workstation, IP Camera, Printer, Firewall, Terminal station, VPN Gateway, Internet, or Multicast and Broadcast |
-| **macAddresses** | JSON array | Yes | MAC addresses (can be more than one address in case of a device with dual NICs) |
-| **operatingSystem** | String | Yes | - |
-| **engineeringStation** | Boolean | No | True or false |
-| **scanner** | Boolean | No | True or false |
-| **authorized** | Boolean | No | True or false |
-| **vendor** | String | Yes | - |
-| **protocols** | JSON array | Yes | Protocol object |
-| **firmware** | JSON array | Yes | Firmware object |
+| **id** | Numeric | Required | - |
+| **ipAddresses** | JSON array | Optional | IP addresses (can be more than one address in case of internet addresses or a device with dual NICs) |
+| **name** | String | Required | - |
+| **type** | String | Required | Unknown, Engineering Station, PLC, HMI, Historian, Domain Controller, DB Server, Wireless Access Point, Router, Switch, Server, Workstation, IP Camera, Printer, Firewall, Terminal station, VPN Gateway, Internet, or Multicast and Broadcast |
+| **macAddresses** | JSON array | Optional | MAC addresses (can be more than one address in case of a device with dual NICs) |
+| **operatingSystem** | String | Optional | - |
+| **engineeringStation** | Boolean | Required | True or false |
+| **scanner** | Boolean | Required | True or false |
+| **authorized** | Boolean | Required | True or false |
+| **vendor** | String | Optional | - |
+| **protocols** | JSON array | Optional | Protocol object |
+| **firmware** | JSON array | Optional | Firmware object |
 
 **Protocol fields**
 
-| Name | Type | Nullable | List of values |
+| Name | Type | Required / Optional | List of values |
 |--|--|--|--|
-| **Name** | String | No |  |
-| **Addresses** | JSON array | Yes | `Master`, or numeric values |
+| **Name** | String | Required |  |
+| **Addresses** | JSON array | Optional | `Master`, or numeric values |
 
 **Firmware fields**
 
-| Name | Type | Nullable | List of values |
+| Name | Type | Required / Optional | List of values |
 |--|--|--|--|
-| **serial** | String | No | N/A, or the actual value |
-| **model** | String | No | N/A, or the actual value |
-| **firmwareVersion** | Double | No | N/A, or the actual value |
-| **additionalData** | String | No | N/A, or the actual value |
-| **moduleAddress** | String | No | N/A, or the actual value |
-| **rack** | String | No | N/A, or the actual value |
-| **slot** | String | No | N/A, or the actual value |
-| **address** | String | No | N/A, or the actual value |
+| **serial** | String | Required | N/A, or the actual value |
+| **model** | String | Required | N/A, or the actual value |
+| **firmwareVersion** | Double | Required | N/A, or the actual value |
+| **additionalData** | String | Required | N/A, or the actual value |
+| **moduleAddress** | String | Required | N/A, or the actual value |
+| **rack** | String | Required | N/A, or the actual value |
+| **slot** | String | Required | N/A, or the actual value |
+| **address** | String | Required | N/A, or the actual value |
 
 **Response example**
 
@@ -394,10 +394,10 @@ Message string with the operation status details:
 
 **Device fields**:
 
-| **Name** | **Type** | **Nullable** |
+| **Name** | **Type** | **Required / Optional** |
 |--|--|--|
-| **username** | String | No |
-| **password** | String | No |
+| **username** | String | Required |
+| **password** | String | Required |
 
 **Response example**:
 
@@ -456,42 +456,42 @@ Array of JSON objects that represent devices.
 
 **Device fields**
 
-| Name | Type | Nullable | List of values |
+| Name | Type | Required / Optional | List of values |
 |--|--|--|--|
-| **sensorId** | Numeric | No | - |
-| **zoneId** | Numeric | Yes | - |
-| **siteId** | Numeric | Yes | - |
-| **ipAddresses** | JSON array | Yes | IP addresses (can be more than one address in case of internet addresses or a device with dual NICs) |
-| **name** | String | No | - |
-| **type** | String | No | Unknown, Engineering Station, PLC, HMI, Historian, Domain Controller, DB Server, Wireless Access Point, Router, Switch, Server, Workstation, IP Camera, Printer, Firewall, Terminal station, VPN Gateway, Internet, or Multicast and Broadcast |
-| **macAddresses** | JSON array | Yes | MAC addresses (can be more than one address in case of a device with dual NICs) |
-| **operatingSystem** | String | Yes | - |
-| **engineeringStation** | Boolean | No | True or false |
-| **scanner** | Boolean | No | True or false |
-| **authorized** | Boolean | No | True or false |
-| **vendor** | String | Yes | - |
-| **Protocols** | JSON array | Yes | Protocol object |
-| **firmware** | JSON array | Yes | Firmware object |
+| **sensorId** | Numeric | Required | - |
+| **zoneId** | Numeric | Optional | - |
+| **siteId** | Numeric | Optional | - |
+| **ipAddresses** | JSON array | Optional | IP addresses (can be more than one address in case of internet addresses or a device with dual NICs) |
+| **name** | String | Required | - |
+| **type** | String | Required | Unknown, Engineering Station, PLC, HMI, Historian, Domain Controller, DB Server, Wireless Access Point, Router, Switch, Server, Workstation, IP Camera, Printer, Firewall, Terminal station, VPN Gateway, Internet, or Multicast and Broadcast |
+| **macAddresses** | JSON array | Optional | MAC addresses (can be more than one address in case of a device with dual NICs) |
+| **operatingSystem** | String | Optional | - |
+| **engineeringStation** | Boolean | Required | True or false |
+| **scanner** | Boolean | Required | True or false |
+| **authorized** | Boolean | Required | True or false |
+| **vendor** | String | Optional | - |
+| **Protocols** | JSON array | Optional | Protocol object |
+| **firmware** | JSON array | Optional | Firmware object |
 
 **Protocol fields**
 
-| Name | Type | Nullable | List of values |
+| Name | Type | Required / Optional | List of values |
 |--|--|--|--|
-| **Name** | String | No | - |
-| **Addresses** | JSON array | Yes | `Master`, or numeric values |
+| **Name** | String | Required | - |
+| **Addresses** | JSON array | Optional | `Master`, or numeric values |
 
 **Firmware fields**
 
-| Name | Type | Nullable | List of values |
+| Name | Type | Required / Optional | List of values |
 |--|--|--|--|
-| **serial** | String | No | N/A, or the actual value |
-| **model** | String | No | N/A, or the actual value |
-| **firmwareVersion** | Double | No | N/A, or the actual value |
-| **additionalData** | String | No | N/A, or the actual value |
-| **moduleAddress** | String | No | N/A, or the actual value |
-| **rack** | String | No | N/A, or the actual value |
-| **slot** | String | No | N/A, or the actual value |
-| **address** | String | No | N/A, or the actual value |
+| **serial** | String | Required | N/A, or the actual value |
+| **model** | String | Required | N/A, or the actual value |
+| **firmwareVersion** | Double | Required | N/A, or the actual value |
+| **additionalData** | String | Required | N/A, or the actual value |
+| **moduleAddress** | String | Required | N/A, or the actual value |
+| **rack** | String | Required | N/A, or the actual value |
+| **slot** | String | Required | N/A, or the actual value |
+| **address** | String | Required | N/A, or the actual value |
 
 **Response example**:
 
@@ -679,23 +679,23 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 
 **Alert fields**
 
-| Name | Type | Nullable | List of values |
+| Name | Type | Required / Optional | List of values |
 |--|--|--|--|
-| **ID** | Numeric | No | - |
-| **time** | Numeric | No | Epoch (UTC) |
-| **title** | String | No | - |
-| **message** | String | No | - |
-| **severity** | String | No | Warning, Minor, Major, or Critical |
-| **engine** | String | No | Protocol Violation, Policy Violation, Malware, Anomaly, or Operational |
-| **sourceDevice** | Numeric | Yes | Device ID |
-| **destinationDevice** | Numeric | Yes | Device ID |
-| **sourceDeviceAddress** | Numeric | Yes | IP, MAC |
-| **destinationDeviceAddress** | Numeric | Yes | IP, MAC |
-| **remediationSteps** | String | Yes | Remediation steps shown in alert|
-| **sensorName** | String | Yes | Name of sensor defined by user |
-|**zoneName** | String | Yes | Name of zone associated with sensor|
-| **siteName** | String | Yes | Name of site associated with sensor |
-| **additionalInformation** | Additional information object | Yes | - |
+| **ID** | Numeric | Required | - |
+| **time** | Numeric | Required | Epoch (UTC) |
+| **title** | String | Required | - |
+| **message** | String | Required | - |
+| **severity** | String | Required | Warning, Minor, Major, or Critical |
+| **engine** | String | Required | Protocol Violation, Policy Violation, Malware, Anomaly, or Operational |
+| **sourceDevice** | Numeric | Optional | Device ID |
+| **destinationDevice** | Numeric | Optional | Device ID |
+| **sourceDeviceAddress** | Numeric | Optional | IP, MAC |
+| **destinationDeviceAddress** | Numeric | Optional | IP, MAC |
+| **remediationSteps** | String | Optional | Remediation steps shown in alert|
+| **sensorName** | String | Optional | Name of sensor defined by user |
+|**zoneName** | String | Optional | Name of zone associated with sensor|
+| **siteName** | String | Optional | Name of site associated with sensor |
+| **additionalInformation** | Additional information object | Optional | - |
 
 > [!NOTE]
 > /api/v2/ is needed for the following information:
@@ -710,10 +710,10 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 
 **Additional information fields**
 
-| Name | Type | Nullable | List of values |
+| Name | Type | Required / Optional | List of values |
 |--|--|--|--|
-| **description** | String | No | - |
-| **information** | JSON array | No | String |
+| **description** | String | Required | - |
+| **information** | JSON array | Required | String |
 
 # [Response](#tab/alerts-get-response)
 
@@ -802,9 +802,9 @@ JSON object that represents the action to perform on the alert that contains the
 
 **Action fields**
 
-| Name | Type | Nullable | List of values |
+| Name | Type | Required / Optional | List of values |
 |--|--|--|--|
-| **action** | String | No | handle or handleAndLearn |
+| **action** | String | Required | handle or handleAndLearn |
 
 **Request example**
 
@@ -823,9 +823,9 @@ Array of JSON objects that represent devices.
 
 **Response fields**:
 
-| Name | Type | Nullable | Description |
+| Name | Type | Required / Optional | Description |
 |--|--|--|--|
-| **content / error** | String | No | If the request is successful, the content property appears. Otherwise, the error property appears. |
+| **content / error** | String | Required | If the request is successful, the content property appears. Otherwise, the error property appears. |
 
 **Possible content values**:
 
@@ -1054,16 +1054,16 @@ Array of JSON objects that represent maintenance window operations.
 
 **Response structure**:
 
-| Name | Type | Comment | Nullable |
+| Name | Type | Comment | Required / Optional |
 |--|--|--|--|
-| **dateTime** | String | Example: "2012-04-23T18:25:43.511Z" | no |
-| **ticketId** | String | Example: "9a5fe99c-d914-4bda-9332-307384fe40bf" | no |
-| **tokenName** | String | - | no |
-| **engines** | Array of string | - | yes |
-| **sensorIds** | Array of string | - | yes |
-| **subnets** | Array of string | - | yes |
-| **ttl** | Numeric | - | yes |
-| **operationType** | String | Values are "OPEN", "UPDATE", and "CLOSE" | no |
+| **dateTime** | String | Example: "2012-04-23T18:25:43.511Z" | Required |
+| **ticketId** | String | Example: "9a5fe99c-d914-4bda-9332-307384fe40bf" | Required |
+| **tokenName** | String | - | Required |
+| **engines** | Array of string | - | Optional |
+| **sensorIds** | Array of string | - | Optional |
+| **subnets** | Array of string | - | Optional |
+| **ttl** | Numeric | - | Optional |
+| **operationType** | String | Values are "OPEN", "UPDATE", and "CLOSE" | Required |
 
 # [Curl command](#tab/maintenanceWindow-get-curl)
 
@@ -1113,13 +1113,13 @@ Message string with the operation status details:
 
 #### Data fields
 
-|Name|Type|Nullable|
+|Name|Type|Required / Optional|
 |-|-|-|
-|id|Numeric|No|
-|xsenseId|Numeric|No|
-|xsenseAlertId|Numeric|No|
-|downloadUrl|String|No|
-|token|String|No|
+|**id**|Numeric|Required|
+|**xsenseId**|Numeric|Required|
+|**xsenseAlertId**|Numeric|Required|
+|**downloadUrl**|String|Required|
+|**token**|String|Required|
 
 
 **Response example**: Success

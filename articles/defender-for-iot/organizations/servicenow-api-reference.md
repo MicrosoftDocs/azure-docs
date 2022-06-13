@@ -5,6 +5,8 @@ ms.date: 05/25/2022
 ms.topic: reference
 ---
 
+<!--no nullable values-->
+
 # ServiceNow integration API reference (Public preview)
 
 This article lists API supported with the Microsoft Defender for IoT integration with ServiceNow, via the ServiceNow Service Graph Connector for Defender for IoT.
