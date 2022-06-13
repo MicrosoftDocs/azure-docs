@@ -30,7 +30,6 @@ items:
     items:
     - name: Configure Azure RBAC for the DICOM service 
       href: dicom-configure-azure-rbac.md#assign-roles-for-the-dicom-service
-    items:
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
   - name: Diagnostic logging
