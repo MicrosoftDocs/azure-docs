@@ -13,7 +13,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/10/2022
+ms.date: 06/13/2022
 ms.author: markvi
 ms.reviewer: davey  
 
@@ -43,11 +43,11 @@ Each card represents a currently active event or a resolved one which will be di
 
  
 
-For more information on the new Azure Service Health tenant events, see [Azure Service Health portal updates](link) 
+For more information on the new Azure Service Health tenant events, see [Azure Service Health portal updates](../../service-health/service-health-portal-update.md) 
 
 ## Who will see the notifications 
 
-Most of the built-in admin roles will have access to see these notifications. For the complete list of all authorized roles, see [Azure Service Health Tenant Admin authorized roles](link).  Currently custom roles are not supported. 
+Most of the built-in admin roles will have access to see these notifications. For the complete list of all authorized roles, see [Azure Service Health Tenant Admin authorized roles](../../service-health/admin-access-reference.md).  Currently custom roles are not supported. 
 
 ## What you should know 
 
