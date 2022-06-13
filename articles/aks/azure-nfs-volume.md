@@ -11,7 +11,7 @@ ms.author: obboms
 
 # Manually create and use a Linux NFS (Network File System) Server with Azure Kubernetes Service (AKS)
 
-Sharing data between containers is often a necessary component of container-based services and applications. You usually have various pods that need access to the same information on an external persistent volume. While Azure Files are an option, creating an NFS Server on an Azure VM is another form of persistent shared storage.
+Sharing data between containers is often a necessary component of container-based services and applications. You usually have various pods that need access to the same information on an external persistent volume. While Azure Files is an option, creating an NFS Server on an Azure VM is another form of persistent shared storage.
 
 This article will show you how to create an NFS Server on an Azure Ubuntu virtual machine, and setup your AKS cluster with access to this shared file system as a persistent volume.
 
@@ -71,7 +71,7 @@ If you deploy your AKS cluster first, Azure automatically populates the virtual 
     nohup service nfs-kernel-server restart
     ```
 
-    The NFS Server restarts because of the scrip and afterwards you can mount the NFS Server to AKS.
+    The script initiates a restart of the NFS Server, and afterwards you can proceed with connecting to the NFS Server from your AKS cluster.
 
 2. After creating your Linux VM, copy the file created in the previous step from your local machine to the VM using the following command:
 
