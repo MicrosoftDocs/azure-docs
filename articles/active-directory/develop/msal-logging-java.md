@@ -1,6 +1,5 @@
 ---
 title: Logging errors and exceptions in MSAL for Java
-titleSuffix: Microsoft identity platform
 description: Learn how to log errors and exceptions in MSAL for Java
 services: active-directory
 author: mmacy

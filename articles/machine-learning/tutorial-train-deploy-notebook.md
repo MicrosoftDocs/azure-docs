@@ -9,11 +9,13 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 01/05/2022
-
-#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook. 
+ms.custom: sdkv1, event-tier1-build-2022
+#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
 # Tutorial: Train and deploy an image classification model with an example Jupyter Notebook
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning in a Python Jupyter Notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. 
 
@@ -56,8 +58,6 @@ You complete the following experiment setup and run steps in Azure Machine Learn
 
 1. At the top, select the **Samples** tab.
 
-1. Open the **Python** folder.
-
 1. Open the folder with a version number on it. This number represents the current release for the Python SDK.
 
 1. Select the **...** button at the right of the **tutorials** folder, and then select **Clone**.
@@ -73,7 +73,7 @@ You complete the following experiment setup and run steps in Azure Machine Learn
     > [!IMPORTANT]
     > You can view notebooks in the **samples** folder but you can't run a notebook from there. To run a notebook, make sure you open the cloned version of the notebook in the **User Files** section.
     
-1. Select the **quickstart-azureml-in-10mins.ipynb** file from your **compute-instance-quickstarts/quickstart-azureml-in-10mins** folder. 
+1. Select the **quickstart-azureml-in-10mins.ipynb** file from your **tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins** folder. 
 
     :::image type="content" source="media/tutorial-train-deploy-notebook/expand-folder.png" alt-text="Screenshot shows the Open tutorials folder.":::
 

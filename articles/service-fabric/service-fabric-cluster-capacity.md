@@ -157,7 +157,7 @@ The capacity needs of your cluster will be determined by your specific workload 
 - Partial / single core VM sizes like Standard A0 are not supported.
 - *A-series* VM sizes are not supported for performance reasons.
 - Low-priority VMs are not supported.
-- [B-Series Burstable SKU's](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable) are not supported.
+- [B-Series Burstable SKU's](../virtual-machines/sizes-b-series-burstable.md) are not supported.
 
 #### Primary node type
 

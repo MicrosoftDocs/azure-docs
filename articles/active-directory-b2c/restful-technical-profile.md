@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/03/2021
+ms.date: 06/08/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -223,7 +223,7 @@ If the type of authentication is set to `ApiKeyHeader`, the **CryptographicKeys*
 | The name of the HTTP header, such as `x-functions-key`, or `x-api-key`. | Yes | The key that is used to authenticate. |
 
 > [!NOTE]
-> At this time, Azure AD B2C supports only one HTTP header for authentication. If your RESTful call requires multiple headers, such as a client ID and client secret, you will need to proxy the request in some manner.
+> At this time, Azure AD B2C supports only one HTTP header for authentication. If your RESTful call requires multiple headers, such as a client ID and client secret value, you will need to proxy the request in some manner.
 
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">

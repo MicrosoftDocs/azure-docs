@@ -3,7 +3,7 @@ title: Provision a user on demand by using Azure Active Directory
 description: Learn how to provision users on demand in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity

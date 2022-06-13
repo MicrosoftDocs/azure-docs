@@ -1,6 +1,5 @@
 ---
 title: Provide optional claims to Azure AD apps
-titleSuffix: Microsoft identity platform
 description: How to add custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Microsoft identity platform.
 author: rwike77
 manager: CelesteDG
@@ -351,7 +350,7 @@ This section covers the configuration options under optional claims for changing
             {
                 "name": "groups",
                 "additionalProperties": [
-                    "netbios_name_and_sam_account_name",
+                    "netbios_domain_and_sam_account_name",
                     "emit_as_roles"
                 ]
             }
@@ -360,7 +359,7 @@ This section covers the configuration options under optional claims for changing
             {
                 "name": "groups",
                 "additionalProperties": [
-                    "netbios_name_and_sam_account_name",
+                    "netbios_domain_and_sam_account_name",
                     "emit_as_roles"
                 ]
             }

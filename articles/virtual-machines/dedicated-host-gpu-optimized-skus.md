@@ -37,7 +37,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## NVsv3
 ### NVsv3-Type1
 
-The NVsv3-Type1 is a Dedicated Host SKU utilizing the Intel® Broadwell (E5-2690 v4) processor with NVDIDIA Tesla M60 GPUs and NVIDIA GRID technology. It offers 28 physical cores, 48 vCPUs, and 448 GiB of RAM. The NVsv3-Type1 runs [NVv3-series](nvv3-series.md) VMs.
+The NVsv3-Type1 is a Dedicated Host SKU utilizing the Intel® Broadwell (E5-2690 v4) processor with NVIDIA Tesla M60 GPUs and NVIDIA GRID technology. It offers 28 physical cores, 48 vCPUs, and 448 GiB of RAM. The NVsv3-Type1 runs [NVv3-series](nvv3-series.md) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a NVsv3-Type1 host.
 

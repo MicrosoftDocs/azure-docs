@@ -177,18 +177,20 @@ var fork_images []training.ImageFileCreateEntry
 for file, region := range forkImageRegions {
     imageFile, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "fork", file))
 
-    imageRegion := training.Region { 
-        TagID:forkTag.ID,
-        Left:&region[0],
-        Top:&region[1],
-        Width:&region[2],
-        Height:&region[3],
+    regiontest := forkImageRegions[file]
+    imageRegion := training.Region{
+        TagID:  forkTag.ID,
+        Left:   &regiontest[0],
+        Top:    &regiontest[1],
+        Width:  &regiontest[2],
+        Height: &regiontest[3],
     }
+    var fileName string = file
 
-    fork_images = append(fork_images, training.ImageFileCreateEntry {
-        Name: &file,
+    fork_images = append(fork_images, training.ImageFileCreateEntry{
+        Name:     &fileName,
         Contents: &imageFile,
-        Regions: &[]training.Region{ imageRegion },
+        Regions:  &[]training.Region{imageRegion}
     })
 }
     

@@ -19,7 +19,7 @@ In the unlikely event of a full region outage, you have the option of using one 
 
 - **Manual recovery**: Manually deploy to a new region, or wait for the region to recover, and then manually redeploy all environments and apps.
 
-- **Resilient recovery**: First, deploy your container apps in advance to multiple regions. Next, use Azure Front Door or Azure Traffic Manager to handle incoming requests, pointing traffic to your primary region. Then, should an outage occur, you can redirect traffic away from the affected region. See [Cross-region replication in Azure](/azure/availability-zones/cross-region-replication-azure) for more information.
+- **Resilient recovery**: First, deploy your container apps in advance to multiple regions. Next, use Azure Front Door or Azure Traffic Manager to handle incoming requests, pointing traffic to your primary region. Then, should an outage occur, you can redirect traffic away from the affected region. See [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md) for more information.
 
 > [!NOTE]
 > Regardless of which strategy you choose, make sure your deployment configuration files are in source control so you can easily redeploy if necessary.
