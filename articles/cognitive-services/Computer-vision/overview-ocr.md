@@ -9,9 +9,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/05/2022
+ms.date: 06/13/2022
 ms.author: pafarley
-ms.devlang: csharp
 ms.custom: "seodec18, devx-track-csharp"
 ---
 

@@ -91,7 +91,7 @@ public class Example {
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Key-phrase-extraction&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
 
 
-## Output
+### Output
 
 ```console
 Recognized phrases: 
