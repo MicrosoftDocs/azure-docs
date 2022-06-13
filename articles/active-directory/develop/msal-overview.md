@@ -31,7 +31,7 @@ MSAL gives you many ways to get tokens, with a consistent API for a number of pl
 > [!VIDEO https://www.youtube.com/embed/zufQ0QRUHUk]
 
 ## Application types and scenarios
-Using MSAL, a token can be acquired from a number of application types: web applications, web APIs, single-page apps (JavaScript), mobile and native applications, and daemons and server-side applications.
+Using MSAL, a token can be acquired for a number of application types: web applications, web APIs, single-page apps (JavaScript), mobile and native applications, and daemons and server-side applications.
 
 MSAL can be used in many application scenarios, including the following:
 
