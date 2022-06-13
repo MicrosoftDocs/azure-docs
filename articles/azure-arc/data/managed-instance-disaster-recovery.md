@@ -8,7 +8,7 @@ ms.custom: event-tier1-build-2022
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 04/06/2022
+ms.date: 06/13/2022
 ms.topic: conceptual
 ---
 
@@ -43,25 +43,46 @@ The following image shows a properly configured distributed availability group:
    az sql mi-arc create --name <primaryinstance> --tier bc --replicas 3 --k8s-namespace <namespace> --use-k8s
    ```
 
-2. Provision the managed instance in the secondary site and configure as a disaster recovery instance. At this point, the system databases are not part of the contained availability group.
+2. Switch context to the secondary cluster by running ```kubectl config use-context <secondarycluster>``` and provision the managed instance in the secondary site that will be the disaster recovery instance. At this point, the system databases are not part of the contained availability group.
 
    ```azurecli
    az sql mi-arc create --name <secondaryinstance> --tier bc --replicas 3 –license-type DisasterRecovery --k8s-namespace <namespace> --use-k8s
    ```
 
-3. Copy the mirroring certificates from each site to a location that's accessible to both the geo-primary and geo-secondary instances. 
+3. Mirroring certificates - The binary data inside the Mirroring Certificate property of the Arc SQL MI is needed for the Instance Failover Group CR (Custom Resource) creation. 
 
-   ```azurecli
-   az sql mi-arc get-mirroring-cert --name <primaryinstance> --cert-file $HOME/sqlcerts/<name>.pem​ --k8s-namespace <namespace> --use-k8s
-   az sql mi-arc get-mirroring-cert --name <secondaryinstance> --cert-file $HOME/sqlcerts/<name>.pem --k8s-namespace <namespace> --use-k8s
-   ```
+    This can be achieved in a few ways:
 
-   Example:
+    (a) If using ```az``` CLI, generate the mirroring certificate file first, and then point to that file while configuring the Instance Failover Group so the binary data is read from the file and copied over into the CR. The cert files are not needed post FOG creation. 
 
-   ```azurecli
-   az sql mi-arc get-mirroring-cert --name sqlprimary --cert-file $HOME/sqlcerts/sqlprimary.pem​ --k8s-namespace my-namespace --use-k8s
-   az sql mi-arc get-mirroring-cert --name sqlsecondary --cert-file $HOME/sqlcerts/sqlsecondary.pem --k8s-namespace my-namespace --use-k8s
-   ```
+    (b) If using ```kubectl```, directly copy and paste the binary data from the Arc SQL MI CR into the yaml file that will be used to create the Instance Failover Group. 
+
+
+    Using (a) above: 
+
+    Create the mirroring certificate file for primary instance:
+    ```azurecli
+    az sql mi-arc get-mirroring-cert --name <primaryinstance> --cert-file </path/name>.pem​ --k8s-namespace <namespace> --use-k8s
+    ```
+
+    Example:
+    ```azurecli
+    az sql mi-arc get-mirroring-cert --name sqlprimary --cert-file $HOME/sqlcerts/sqlprimary.pem​ --k8s-namespace my-namespace --use-k8s
+    ```
+
+    Connect to the secondary cluster and create the mirroring certificate file for secondary instance:
+
+    ```azurecli
+    az sql mi-arc get-mirroring-cert --name <secondaryinstance> --cert-file </path/name>.pem --k8s-namespace <namespace> --use-k8s
+    ```
+
+    Example:
+
+    ```azurecli
+    az sql mi-arc get-mirroring-cert --name sqlsecondary --cert-file $HOME/sqlcerts/sqlsecondary.pem --k8s-namespace my-namespace --use-k8s
+    ```
+
+    Once the mirroring certificate files are created, copy the certificate from the secondary instance to a shared/local path on the primary instance cluster and vice-versa. 
 
 4. Create the failover group resource on both sites. 
 
@@ -70,22 +91,29 @@ The following image shows a properly configured distributed availability group:
    If the managed instance names are different between the two sites, use the `--shared-name <name of failover group>` parameter. 
 
    The following examples use the `--shared-name <name of failover group>...` to complete the task. The command seeds system databases in the disaster recovery instance, from the primary instance.
- 
+
    > [!NOTE]
    > The `shared-name` value should be identical on both sites.
-   
+
+    On the primary cluster, run the following command to setup the FOG CR. The ```--partner-mirroring-cert-file``` should point to a path that has the mirroring certificate file generated from the secondary instance as described in 3(a) above.
+
     ```azurecli
     az sql instance-failover-group-arc create --shared-name <name of failover group> --name <name for primary DAG resource> --mi <local SQL managed instance name> --role primary --partner-mi <partner SQL managed instance name>  --partner-mirroring-url tcp://<secondary IP> --partner-mirroring-cert-file <secondary.pem> --k8s-namespace <namespace> --use-k8s
+    ```
 
+    Example:
+    ```azurecli
+    az sql instance-failover-group-arc create --shared-name myfog --name primarycr --mi sqlinstance1 --role primary --partner-mi sqlinstance2  --partner-mirroring-url tcp://10.20.5.20:970 --partner-mirroring-cert-file $HOME/sqlcerts/sqlinstance2.pem --k8s-namespace my-namespace --use-k8s
+    ```
 
+    On the secondary instance, run the following command to setup the FOG CR. The ```--partner-mirroring-cert-file``` in this case should point to a path that has the mirroring certificate file generated from the primary instance as described in 3(a) above.
+
+    ```azurecli
     az sql instance-failover-group-arc create --shared-name <name of failover group> --name <name for secondary DAG resource> --mi <local SQL managed instance name> --role secondary --partner-mi <partner SQL managed instance name>  --partner-mirroring-url tcp://<primary IP> --partner-mirroring-cert-file <primary.pem> --k8s-namespace <namespace> --use-k8s
     ```
 
     Example:
-
     ```azurecli
-    az sql instance-failover-group-arc create --shared-name myfog --name primarycr --mi sqlinstance1 --role primary --partner-mi sqlinstance2  --partner-mirroring-url tcp://10.20.5.20:970 --partner-mirroring-cert-file $HOME/sqlcerts/sqlinstance2.pem --k8s-namespace my-namespace --use-k8s
-
     az sql instance-failover-group-arc create --shared-name myfog --name secondarycr --mi sqlinstance2 --role secondary --partner-mi sqlinstance1  --partner-mirroring-url tcp://10.10.5.20:970 --partner-mirroring-cert-file $HOME/sqlcerts/sqlinstance1.pem --k8s-namespace my-namespace --use-k8s
     ```
 
