@@ -654,7 +654,7 @@ items:
     - name: Create a new alert rule
       href: alerts/alerts-create-new-alert-rule.md
     - name: View and manage alert instances
-      href: alerts/alerts-managing-alert-instances.md
+      href: alerts/alerts-page.md
     - name: Metric alert rules
       items:
       - name: Manage metric alerts
