@@ -208,8 +208,38 @@
   items:
   - name: Learning path
     items:
+      - name: Introduction to Azure VMware Solution
+        href: /learn/modules/intro-azure-vmware-solution/
       - name: Run VMware workloads on Azure VMware Solution
         href: /learn/paths/run-vmware-workloads-azure-vmware-solution/
+      - name: Prepare to migrate VMware workloads to Azure by deploying Azure VMware Solution
+        href: /learn/modules/deploy-azure-vmware-solution/
+      - name: Migrate VMware workloads on-premises to Azure VMware Solution
+        href: /learn/modules/migrate-vmware-workloads-on-premises-azure-vmware-solution/
+      - name: Deploy disaster recovery using VMware Site Recovery Manager and Azure VMware Solution
+        href: /learn/modules/deploy-disaster-recovery-vmware-srm-azure-vmware-solution/
+- name: Hands-on Labs
+    items:
+      - name: Azure VMware Solution Private Cloud Deployment and Connectivity
+        href: https://labs.hol.vmware.com/HOL/catalogs/lab/10713
+      - name: Azure VMware Solution Workload Migration with VMware HCX
+        href: https://labs.hol.vmware.com/HOL/catalogs/lab/10895
+      - name: Disaster Protection with Azure VMware Solution and VMware Site Recovery
+        href: https://labs.hol.vmware.com/HOL/catalogs/lab/10707
+- name: Cloud Adoption Framework
+    items:
+      - name: Azure VMware Solution landing zone accelerator
+        href: https://aka.ms/avsaccelerator
+      - name: Enterprise-Scale for AVS repository
+        href: https://github.com/Azure/Enterprise-Scale-for-AVS
+- name: Regional availability
+    items:
+      - name: Azure VMware Solution regional availability
+        href: https://aka.ms/avsregions
+- name: Pricing
+    items:
+      - name: Azure VMware Solution pricing        
+        href: https://azure.microsoft.com/en-us/pricing/details/azure-vmware/
   - name: Troubleshooting
     items:
     - name: Open a support request for deployment failures
