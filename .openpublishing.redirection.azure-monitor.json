@@ -1,6 +1,42 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/azure-monitor/app/snapshot-debugger.md",
+            "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/snapshot-debugger-vm.md",
+            "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/snapshot-debugger-upgrade.md",
+            "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger-upgrade",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/snapshot-debugger-troubleshoot.md",
+            "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/snapshot-debugger-function-app.md",
+            "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger-function-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/snapshot-debugger-appservice.md",
+            "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger-appservice",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/snapshot-debugger-release-notes.md",
+            "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger-release-notes",
+            "redirect_document_id": false
+        },
+
+        {
             "source_path_from_root": "/articles/azure-monitor/app/profiler.md",
             "redirect_url": "/azure/azure-monitor/profiler/profiler",
             "redirect_document_id": false
