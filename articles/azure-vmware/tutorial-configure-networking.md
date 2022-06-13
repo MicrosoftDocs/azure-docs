@@ -3,6 +3,7 @@ title: Tutorial - Configure networking for your VMware private cloud in Azure
 description: Learn to create and configure the networking needed to deploy your private cloud in Azure
 ms.topic: tutorial
 ms.custom: contperf-fy22q1
+ms.service: azure-vmware
 ms.date: 05/31/2022
 
 ---

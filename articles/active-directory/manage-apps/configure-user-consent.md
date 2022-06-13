@@ -1,6 +1,5 @@
 ---
 title: Configure how users consent to applications
-titleSuffix: Microsoft Entra
 description: Learn how to manage how and when users can consent to applications that will have access to your organization's data.
 services: active-directory
 author: psignoret

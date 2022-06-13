@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-api
 ms.author: mikaelw
-ms.date: 05/03/2022
+ms.date: 06/03/2022
 ---
 
 # Quickstart: Use an ARM template to deploy Azure API for FHIR
@@ -246,3 +246,5 @@ In this quickstart guide, you've deployed the Azure API for FHIR into your subsc
 
 >[!div class="nextstepaction"]
 >[Configure Private Link](configure-private-link.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

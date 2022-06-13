@@ -1,7 +1,6 @@
 ---
 title: Secure hybrid access
 description: This article describes partner solutions for integrating your legacy on-premises, public cloud, or private cloud applications with Azure AD. 
-titleSuffix: Microsoft Entra
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -54,6 +53,10 @@ The following partners offer pre-built solutions to support **conditional access
 - [Strata](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
 
 The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD.
+
+- [AWS](../saas-apps/aws-clientvpn-tutorial.md)
+
+- [Check Point](../saas-apps/check-point-remote-access-vpn-tutorial.md)
 
 - [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
 

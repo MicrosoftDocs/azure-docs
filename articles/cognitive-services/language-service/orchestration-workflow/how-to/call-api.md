@@ -21,7 +21,7 @@ You can query the deployment programmatically [Prediction API](https://aka.ms/ct
 
 ## Test deployed model
 
-You can use the Language Studio to submit an utterance, get predictions and visualize the results.
+You can use Language Studio to submit an utterance, get predictions and visualize the results.
 
 [!INCLUDE [Test model](../includes/language-studio/test-model.md)]
 

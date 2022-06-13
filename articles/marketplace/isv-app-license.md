@@ -55,13 +55,13 @@ The ISV creates a solution package for the offer that includes license plan info
 
 | Transactable offers | Licensable-only offers |
 | ------------ | ------------- |
-| Customers discover the ISV’s offer in AppSource, purchase a subscription to the offer from AppSource, and get licenses for the ISV app. | - Customers discover the ISV’s offer in AppSource or directly on the ISV’s website. Customers purchase licenses for the plans they want directly from the ISV.<br>- The ISV registers the purchase with Microsoft in Partner Center. As part of [deal registration](/partner-center/csp-commercial-marketplace-licensing#register-isv-connect-deal-in-deal-registration), the ISV will specify the type and quantity of each licensing plan purchased by the customer. |
+| Customers discover the ISV’s offer in AppSource, purchase a subscription to the offer from AppSource, and get licenses for the ISV app. | - Customers discover the ISV’s offer in AppSource or directly on the ISV’s website. Customers purchase licenses for the plans they want directly from the ISV.<br>- The ISV registers the purchase with Microsoft in Partner Center. As part of [deal registration](/partner-center/register-deals), the ISV will specify the type and quantity of each licensing plan purchased by the customer. |
 
 ### Step 4: Manage subscription
 
 | Transactable offers | Licensable-only offers |
 | ------------ | ------------- |
-| Customers can manage subscriptions for the Apps they purchased in [Microsoft 365 admin center](https://admin.microsoft.com/), just like they normally do for any of their Microsoft Office or Dynamics subscriptions. | ISVs activate and manage deals in Partner Center ([deal registration portal(https://partner.microsoft.com/)]) |
+| Customers can manage subscriptions for the Apps they purchased in [Microsoft 365 admin center](https://admin.microsoft.com/), just like they normally do for any of their Microsoft Office or Dynamics subscriptions. | ISVs activate and manage deals in Partner Center [deal registration portal](https://partner.microsoft.com/) |
 
 ### Step 5: Assign licenses
 
