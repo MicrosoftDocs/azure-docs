@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 06/13/2022
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
@@ -19,18 +19,17 @@ ms.custom: aaddev
 
 Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an administrator grants permissions to roles, and not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to what content and functionality.
 
-Using RBAC with Application Role and Role Claims, developers can securely enforce authorization in their apps with less effort.
+Using RBAC with application role and role claims, developers can securely enforce authorization in their apps with less effort.
 
-Another approach is to use Azure Active Directory (Azure AD) Groups and Group Claims as shown in the [active-directory-aspnetcore-webapp-openidconnect-v2](https://aka.ms/groupssample) code sample on GitHub. Azure AD Groups and Application Roles are not mutually exclusive; they can be used in tandem to provide even finer-grained access control.
+Another approach is to use Azure Active Directory (Azure AD) groups and group claims as shown in the [active-directory-aspnetcore-webapp-openidconnect-v2](https://aka.ms/groupssample) code sample on GitHub. Azure AD groups and application roles are not mutually exclusive; they can be used in tandem to provide even finer-grained access control.
 
 ## Declare roles for an application
 
 You define app roles by using the [Azure portal](https://portal.azure.com) during the [app registration process](quickstart-register-app.md). App roles are defined on an application registration representing a service, app or API. When a user signs in to the application, Azure AD emits a `roles` claim for each role that the user or service principal has been granted individually to the user and the user's group memberships. This can be used to implement claim-based authorization. App roles can be assigned [to a user or a group of users](../manage-apps/add-application-portal-assign-users.md). App roles can also be assigned to the service principal for another application, or [to the service principal for a managed identity](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
 
-> [!IMPORTANT]
-> Currently if you add a service principal to a group, and then assign an app role to that group, Azure AD doesn't add the `roles` claim to tokens it issues.
+Currently, if you add a service principal to a group, and then assign an app role to that group, Azure AD doesn't add the `roles` claim to tokens it issues.
 
-App roles are declared using the app roles by using[App roles UI](#app-roles-ui) in the Azure portal:
+App roles are declared using the app roles by using [App roles UI](#app-roles-ui) in the Azure portal:
 
 The number of roles you add counts toward application manifest limits enforced by Azure AD. For information about these limits, see the [Manifest limits](./reference-app-manifest.md#manifest-limits) section of [Azure Active Directory app manifest reference](reference-app-manifest.md).
 
@@ -123,11 +122,11 @@ To learn how to add authorization to your web API, see [Protected web API: Verif
 
 Though you can use app roles or groups for authorization, key differences between them can influence which you decide to use for your scenario.
 
-| App roles                                                                                                    | Groups                                                      |
-| ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
-| They are specific to an application and are defined in the app registration. They move with the application. | They are not specific to an app, but to an Azure AD tenant. |
-| App roles are removed when their app registration is removed.                                                | Groups remain intact even if the app is removed.            |
-| Provided in the `roles` claim.                                                                               | Provided in `groups` claim.                                 |
+| App roles                                                                                                    | Groups                                                     |
+| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| They are specific to an application and are defined in the app registration. They move with the application. | They aren't specific to an app, but to an Azure AD tenant. |
+| App roles are removed when their app registration is removed.                                                | Groups remain intact even if the app is removed.           |
+| Provided in the `roles` claim.                                                                               | Provided in `groups` claim.                                |
 
 Developers can use app roles to control whether a user can sign in to an app or an app can obtain an access token for a web API. To extend this security control to groups, developers and admins can also assign security groups to app roles.
 
