@@ -261,40 +261,38 @@
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
-  - name: Defender for Databases
-    items:
-    - name: Enable protection on all of your databases
+  - name: Microsoft Defender for Azure SQL databases
+    items: 
+    - name: Overview of Defender for SQL
+      displayName: database
+      href: defender-for-sql-introduction.md
+    - name: Enable protection on your SQL databases
       href: quickstart-enable-database-protections.md
-    - name: Microsoft Defender for Azure SQL databases
-      items: 
-      - name: Overview of Defender for SQL
-        displayName: database
-        href: defender-for-sql-introduction.md
-      - name: Scan your SQL resources for vulnerabilities
-        href: defender-for-sql-on-machines-vulnerability-assessment.md
-        displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
-      - name: Customize SQL information protection policy
-        displayName: sql, database, data discovery
-        href: sql-information-protection-policy.md
-    - name: Microsoft Defender for SQL servers on machines
-      items:
-      - name: Enable Defender for SQL servers on machines
-        href: defender-for-sql-usage.md
-        displayName: hybrid, arc, Azure Defender
-    - name: Microsoft Defender for open-source relational databases
-      items: 
-      - name: Overview of Defender for open-source relational databases
-        displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
-        href: defender-for-databases-introduction.md
-      - name: Enable Defender for OSS RDBs and respond to alerts
-        displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
-        href: defender-for-databases-usage.md
-    - name: Microsoft Defender for Azure Cosmos DB
-      items: 
-      - name: Overview of Microsoft Defender for Azure Cosmos DB
-        href: concept-defender-for-cosmos.md
-      - name: Enable Microsoft Defender for Azure Cosmos DB
-        href: quickstart-enable-defender-for-cosmos.md
+    - name: Scan your SQL resources for vulnerabilities
+      href: defender-for-sql-on-machines-vulnerability-assessment.md
+      displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
+    - name: Customize SQL information protection policy
+      displayName: sql, database, data discovery
+      href: sql-information-protection-policy.md
+  - name: Microsoft Defender for SQL servers on machines
+    items:
+    - name: Enable Defender for SQL servers on machines
+      href: defender-for-sql-usage.md
+      displayName: hybrid, arc, Azure Defender
+  - name: Microsoft Defender for open-source relational databases
+    items: 
+    - name: Overview of Defender for open-source relational databases
+      displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
+      href: defender-for-databases-introduction.md
+    - name: Enable Defender for OSS RDBs and respond to alerts
+      displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
+      href: defender-for-databases-usage.md
+  - name: Microsoft Defender for Azure Cosmos DB (Preview)
+    items: 
+    - name: Overview of Microsoft Defender for Azure Cosmos DB
+      href: concept-defender-for-cosmos.md
+    - name: Enable Microsoft Defender for Azure Cosmos DB
+      href: quickstart-enable-defender-for-cosmos.md
   - name: Defender for Containers
     items:
     - name: Overview of Defender for Containers
