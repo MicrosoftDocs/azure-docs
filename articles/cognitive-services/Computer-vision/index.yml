@@ -23,7 +23,7 @@ highlightedContent:
       - title: What's new in Computer Vision?
         itemType: whats-new
         url: whats-new.md
-      - title: Vision studio
+      - title: Vision Studio
         itemType: get-started
         url: overview-vision-studio.md
       - title: Language support
