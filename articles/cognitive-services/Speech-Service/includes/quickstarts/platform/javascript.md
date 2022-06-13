@@ -59,6 +59,15 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 ### HTML script tag
 
+Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK for JavaScript</a> *microsoft.cognitiveservices.speech.sdk.bundle.js* file. Place it in a folder that your HTML file can access.
+
+```html
+<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
+```
+
+> [!TIP]
+> If you're targeting a web browser and using the `<script>` tag, the `sdk` prefix is not needed. The `sdk` prefix is an alias that's used to name the `require` module.
+
 Alternatively, you could directly include a `<script>` tag in the HTMLs `<head>` element, relying on the <a href="https://www.jsdelivr.com/package/npm/microsoft-cognitiveservices-speech-sdk" target="_blank">**JSDelivr** NPM syndicate</a>.
 
 ```html
@@ -68,22 +77,12 @@ Alternatively, you could directly include a `<script>` tag in the HTMLs `<head>`
 
 For more information, see the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser" target="_blank">browser-based samples</a>.
 
-## Use the Speech SDK
+---
 
-Depending on the target environment, use one of the following elements:
+## Import and use the SDK
 
-# [script](#tab/script)
+Add the following import statement to use the Speech SDK in your JavaScript project:
 
-Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK for JavaScript </a> *microsoft.cognitiveservices.speech.sdk.bundle.js* file. Place it in a folder that your HTML file can access.
-
-```html
-<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
-```
-
-> [!TIP]
-> If you're targeting a web browser and using the `<script>` tag, the `sdk` prefix is not needed. The `sdk` prefix is an alias that's used to name the `require` module.
-
-# [import](#tab/import)
 
 ```javascript
 import * as sdk from "microsoft-cognitiveservices-speech-sdk";
@@ -91,12 +90,10 @@ import * as sdk from "microsoft-cognitiveservices-speech-sdk";
 
 For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">Export and Import</a> on the JavaScript website.
 
-# [require](#tab/require)
+Alternatively, you could use a require statement:
 
 ```javascript
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
 For more information on `require`, see <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">What is require?</a> on the Node.js website.
-
----
