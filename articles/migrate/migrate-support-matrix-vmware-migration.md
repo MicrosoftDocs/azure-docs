@@ -73,7 +73,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 >  - Double quotation mark (")
 >  - Single quotation mark (')
 >  - Circumflex (^)
->  - Backslash (\)
+>  - Backslash (\\)
 >  - Percentage (%)
 >  - Angle brackets (<,>)
 >  - Pound (£)
