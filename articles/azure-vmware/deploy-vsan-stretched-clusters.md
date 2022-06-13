@@ -15,3 +15,17 @@ Waiting on intro from Ashwin
 
 ## Deploy a Stretched Cluster SDDC
 
+Currently, Azure VMware Solution Stretched Clusters is in a limited availability phase. In this phase, you must contact Microsoft to request and qualify for support.
+
+## Prerequisites
+
+To request support, send an email request to avsStretchedClusterLA@microsoft.com with the following details:
+
+- Company name
+- Point of contact (email)
+- Subscription
+- Region requested
+- Number of nodes in first stretched cluster (minimum 6, maximum 16 - in multiples of 2)
+- Estimated provisioning date (this will be used for billing purposes)
+
+Once the request support details are received, quota will be reserved for a stretched cluster environment in the region requested. The subscription gets enabled to deploy a stretched cluster SDDC through the Azure portal. A confirmation email will be sent to the designated point of contact within 2 business days upon which you should be able to self-deploy a stretched cluster SDDC using the Azure portal. 
