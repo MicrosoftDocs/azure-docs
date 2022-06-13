@@ -126,9 +126,6 @@ You can use the Kudu management site for App Service to get the base url of this
 4. Once you are on the Kudu management site, in the URL, **append the following `/DiagnosticServices` and press enter**.
  It will end like this: `https://<kudu-url>/DiagnosticServices`
 
-It will display a Status Page similar like the below:
-![Diagnostic Services Status Page](./media/diagnostic-services-site-extension/status-page.png)
-
 ## Upgrade to the latest version of the NuGet package
 Based on how Snapshot Debugger was enabled, see the following options:
 
