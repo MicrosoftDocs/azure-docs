@@ -68,7 +68,7 @@ The following predefined groups are available:
 | **non-standard ports (default)** | Devices that use non-standard ports or ports that haven't been assigned an alias. |
 | **OT protocols (default)** | Devices that handle known OT traffic. |
 | **Authorization (default)** | Devices that were discovered in the network during the learning process or were officially authorized on the network. |
-| **Device inventory filters** | Devices grouped according to the filter save in the Device Inventory table. |
+| **Device inventory filters** | Devices grouped according to the filters saved in the Device Inventory table. |
 | **Polling intervals** | Devices grouped by polling intervals. The polling intervals are generated automatically according to cyclic channels or periods. For example, 15.0 seconds, 3.0 seconds, 1.5 seconds, or any other interval. Reviewing this information helps you learn if systems are polling too quickly or slowly. |
 | **Programming** | Engineering stations, and programming machines. |
 | **Subnets** | Devices that belong to a specific subnet. |
