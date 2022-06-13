@@ -715,7 +715,7 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 | **description** | String | No | - |
 | **information** | JSON array | No | String |
 
-# [Response](#tab/devices-get-response)
+# [Response](#tab/alerts-get-response)
 
 **Response example**
 
@@ -768,7 +768,7 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
     }
 ]
 ```
-# [Curl command](#tab/devices-get-curl)
+# [Curl command](#tab/alerts-get-curl)
 
 **Type**: GET
 
