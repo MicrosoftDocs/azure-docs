@@ -63,6 +63,10 @@ The following image shows an example of a database named `"myfriends"`. Each gro
 
 After you create and train a group, you can do identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
 
+Try out the capabilities of face identification quickly and easily using Vision Studio.
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
+
 ### Verification
 
 The verification operation answers the question, "Do these two faces belong to the same person?". 
@@ -70,7 +74,9 @@ The verification operation answers the question, "Do these two faces belong to t
 Verification is also a "one-to-one" matching of a face in an image to a single face from a secure repository or photo to verify that they're the same individual. Verification can be used for Identity Verification, such as a banking app that enables users to open a credit account remotely by taking a new picture of themselves and sending it with a picture of their photo ID.
 
 For more information about identity verification, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API reference documentation.
-
+Try out the capabilities of face verification quickly and easily using Vision Studio.
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
 
 ## Find similar faces
 
