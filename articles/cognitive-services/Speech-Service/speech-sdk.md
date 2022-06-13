@@ -16,6 +16,12 @@ ms.author: eur
 
 The Speech SDK (software development kit) exposes many of the Speech service capabilities you can use to develop speech-enabled applications. The Speech SDK is available [in many programming languages](quickstarts/setup-platform.md) and across all platforms. The Speech SDK is ideal for both real-time and non-real-time scenarios, by using local devices, files, Azure Blob Storage, and even input and output streams.
 
+In some cases, you can't or shouldn't use the [Speech SDK](speech-sdk.md). In those cases, you can use REST APIs to access the Speech service. For example, use REST APIs for [batch transcription](batch-transcription.md) and [speaker recognition](/rest/api/speakerrecognition/) REST APIs.
+
+## Supported languages
+
+The Speech SDK supports the following languages and platforms:
+
 | Programming language | Reference | Platform support |
 |----------------------|----------|----------|
 | [C#](quickstarts/setup-platform.md?pivots=programming-language-csharp) <sup>1</sup> | [.NET](/dotnet/api/overview/azure/cognitiveservices/client/speechservice) | Windows, Linux, macOS, Mono, Xamarin.iOS, Xamarin.Mac, Xamarin.Android, UWP, Unity |
@@ -27,9 +33,9 @@ The Speech SDK (software development kit) exposes many of the Speech service cap
 | [Python](quickstarts/setup-platform.md?pivots=programming-language-python) | [Python](/python/api/azure-cognitiveservices-speech/) | Windows, Linux, macOS |
 | [Swift](quickstarts/setup-platform.md?pivots=programming-language-swift) | [Objective-C](/objectivec/cognitive-services/speech/) <sup>3</sup> | iOS, macOS |
 
-<sup>1 The Speech SDK for C# is based on .NET Standard 2.0, so it supports many platforms. For more information, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).</sup>
-<sup>2 C isn't a supported programming language for the Speech SDK.</sup>
-<sup>3 The Speech SDK for Swift shares client libraries and reference documentation with the Speech SDK for Objective-C.</sup>
+<sup>1 C# code samples are available in the documentation. The Speech SDK for C# is based on .NET Standard 2.0, so it supports many platforms and programming languages. For more information, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).</sup>  
+<sup>2 C isn't a supported programming language for the Speech SDK.</sup>  
+<sup>3 The Speech SDK for Swift shares client libraries and reference documentation with the Speech SDK for Objective-C.</sup>  
 
 [!INCLUDE [License Notice](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -47,14 +53,32 @@ Before you install the Speech SDK on Windows or Linux, make sure you have the fo
 
 ---
 
-## REST API
+## Code samples
 
-In some cases, you can't or shouldn't use the [Speech SDK](speech-sdk.md). In those cases, you can use REST APIs to access the Speech service. For example, use REST APIs for [batch transcription](batch-transcription.md) and [speaker recognition](/rest/api/speakerrecognition/) REST APIs.
+Speech SDK code samples are available in the documentation and GitHub. 
 
+### Docs samples
 
-## Code examples
+At the top of documentation pages that contain samples, options to select include C#, C++, Go, Java, JavaScript, Objective-C, Python, or Swift.
 
-The Speech SDK team actively maintains a large set of examples in an open-source repository. For the sample source code repository, see the <a href="https://aka.ms/csspeech/samples" target="_blank">Microsoft Cognitive Services Speech SDK on GitHub <span class="docon docon-navigate-external x-hidden-focus"></span></a>. There are samples for C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity, and Xamarin.
+:::image type="content" source="./media/sdk/pivot-programming-languages-speech-sdk.png" alt-text="Screenshot showing how to select a programming language in the documentation.":::
+
+If a sample is not available in your preferred programming language, you can select another programming language to get started and learn about the concepts, or see the reference and samples linked from the beginning of the article.
+
+### GitHub samples
+
+In depth samples are available in the <a href="https://aka.ms/csspeech/samples" target="_blank">Azure-Samples/cognitive-services-speech-sdk<span class="docon docon-navigate-external x-hidden-focus"></span></a> repository on GitHub. There are samples for C# (including UWP, Unity, and Xamarin), C++, Java, JavaScript (including Browser and Node.js), Objective-C, Python, and Swift. Code samples for Go are available in the <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-go" target="_blank">Microsoft/cognitive-services-speech-sdk-go<span class="docon docon-navigate-external x-hidden-focus"></span></a> repository on GitHub.
+
+## Help options
+
+The [Microsoft Q&A](/answers/topics/azure-speech.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-speech) forums are available for the developer community to ask and answer questions about Azure Cognitive Speech and other services. Microsoft monitors the forums and replies to questions that the community has not yet answered. To make sure that we see your question, tag it with 'azure-speech'.  
+
+You can suggest an idea or report a bug by creating an issue on GitHub:
+- [Azure-Samples/cognitive-services-speech-sdk](https://aka.ms/GHspeechissues)
+- [Microsoft/cognitive-services-speech-sdk-go](https://github.com/microsoft/cognitive-services-speech-sdk-go/issues)
+- [Microsoft/cognitive-services-speech-sdk-js](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues)
+
+See also [Azure Cognitive Services support and help options](../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context) to get support, stay up-to-date, give feedback, and report bugs for Cognitive Services.
 
 ## Next steps
 
