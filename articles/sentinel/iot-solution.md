@@ -279,15 +279,15 @@ This synchronization overrides any status defined in Defender for IoT, in the Az
 
 To use this playbook:
 
-1. Add the **Security Admin** role to the Azure subscription where the playbook is installed. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current).
+- Add the **Security Admin** role to the Azure subscription where the playbook is installed. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current).
 
-1. In Microsoft Sentinel, add a new automation rule with the following configuration:
+- In Microsoft Sentinel, add a new automation rule with the following configuration:
 
     |Rule field  |Value  |
     |---------|---------|
-    |**Trigger**     | When an incident is updated        |
-    |**Conditions**     |  **If**: Analytic rule name: Contains | All <br>**And**: Status | Changed       |
-    |**Actions**     |   Run playbook: `IncidentUpdateTriggerPlaybook`      |
+    |**Trigger**     | `When an incident is updated`        |
+    |**Conditions**     |  **If**: Analytic rule name: `Contains | All` <br>**And**: `Status | Changed`       |
+    |**Actions**     |   **Run playbook**: `IncidentUpdateTriggerPlaybook`      |
 
     For example:
 
