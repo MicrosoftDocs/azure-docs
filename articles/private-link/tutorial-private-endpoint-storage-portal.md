@@ -188,6 +188,18 @@ In this section, you'll create a storage account and configure the private endpo
 
 14. Select **Show keys**, then select copy on the **Connection string** for **key1**.
 
+### Add a container
+
+1. Select **Go to resource** or in the left-hand menu of the Azure portal, select **All Resources** > **mystorageaccount**.
+
+2. Under the **Data storage** section, select **Containers**.
+
+3. Select **+ Container** to create a new container.
+
+4. Enter **mycontainer** in **Name** and select **Private (no anonymous access)** under **Public access level**.
+
+5. Select **Create**.
+
 ## Test connectivity to private endpoint
 
 In this section, you'll use the virtual machine you created in the previous steps to connect to the storage account across the private endpoint using **Microsoft Azure Storage Explorer**.
@@ -234,9 +246,11 @@ In this section, you'll use the virtual machine you created in the previous step
 
 15. Verify the settings are correct in **Summary**.  
 
-16. Select **Connect**.
+16. Select **Connect**, then select **myStorageAccount** from the **Storage Accounts** left-hand menu.
 
-17. Close the connection to **myVM**.
+17. Under **Blob Containers**, you'll see **mycontainer** that you created in the previous steps.
+
+18. Close the connection to **myVM**.
 
 ## Clean up resources
 
