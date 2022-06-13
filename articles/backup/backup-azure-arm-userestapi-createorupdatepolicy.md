@@ -320,14 +320,14 @@ The following is an example of a policy that takes a differential backup everyda
 
 The following is an example request body for SQL in Azure VM backup.
 
-The policy says:
+This policy:
 
-- Take a full backup every day at 19:30 UTC and a log backup every 2 hours.
-- Retain the daily backups for 180 days.
-- Retain the weekly backups for 104 weeks.
-- Retain the monthly backups for 60 months.
-- Retain the yearly backups for 10 years.
-- Retain the log backups for 15 days.
+- Takes a full backup every day at 19:30 UTC and a log backup every 2 hours.
+- Retains the daily backups for 180 days.
+- Retains the weekly backups for 104 weeks.
+- Retains the monthly backups for 60 months.
+- Retains the yearly backups for 10 years.
+- Retains the log backups for 15 days.
 
 ```json
 {
@@ -595,7 +595,7 @@ This policy:
 
 The backup policy creation/update is a [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created. Then 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
