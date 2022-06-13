@@ -7,7 +7,7 @@ author: santoshc
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/16/2022
+ms.date: 05/24/2022
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
@@ -75,7 +75,7 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 > | **Description** | All blob read operations excluding list. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 > | **Suboperation** | NOT `Blob.List` |
-> | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
+> | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})`<br/>[Example: Read blobs in named containers with a path](storage-auth-abac-examples.md#example-read-blobs-in-named-containers-with-a-path) |
@@ -89,7 +89,7 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 > | **Description** | Read blobs with tags. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 > | **Suboperation** | `Blob.Read.WithTagConditions` |
-> | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys)<br/>[Encryption scope name](#encryption-scope-name) |
+> | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})`<br/>[Example: Read blobs with a blob index tag](storage-auth-abac-examples.md#example-read-blobs-with-a-blob-index-tag) |
@@ -104,7 +104,7 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 > | **Description** | DataAction for reading blob index tags. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` |
 > | **Suboperation** |  |
-> | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys) |
+> | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
 > | **Learn more** | [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md) |
@@ -145,7 +145,7 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 > | **Description** | DataAction for writing to blobs. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |
 > | **Suboperation** | `Blob.Write.Tier` |
-> | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
+> | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Encryption scope name](#encryption-scope-name) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.Tier'})` |
@@ -188,7 +188,7 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 > | **Description** | DataAction for writing blob index tags. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` |
 > | **Suboperation** |  |
-> | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys) |
+> | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path)<br/>[Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys) |
 > | **Request attributes** | [Blob index tags [Values in key]](#blob-index-tags-values-in-key)<br/>[Blob index tags [Keys]](#blob-index-tags-keys)<br/>[Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write'})`<br/>[Example: Existing blobs must have blob index tag keys](storage-auth-abac-examples.md#example-existing-blobs-must-have-blob-index-tag-keys) |
@@ -216,7 +216,7 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 > | **Description** | DataAction for deleting blobs. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |
 > | **Suboperation** |  |
-> | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
+> | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
 > | **Examples** | `!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'})`<br/>[Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers) |
@@ -244,7 +244,7 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 > | **Description** | DataAction for permanently deleting a blob overriding soft-delete. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/permanentDelete/action` |
 > | **Suboperation** |  |
-> | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
+> | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** | [Version ID](#version-id)<br/>[Snapshot](#snapshot) |
 > | **Principal attributes support** | True |
 
@@ -296,10 +296,10 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 > | **Description** | DataAction for all data operations on storage accounts with hierarchical namespace enabled.<br/>If your role definition includes the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` action, you should target this action in your condition. Targeting this action ensures the condition will still work as expected if hierarchical namespace is enabled for a storage account. |
 > | **DataAction** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` |
 > | **Suboperation** |  |
-> | **Resource attributes** | [Account name](#account-name)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
+> | **Resource attributes** | [Account name](#account-name)<br/>[Is Current Version](#is-current-version)<br/>[Is hierarchical namespace enabled](#is-hierarchical-namespace-enabled)<br/>[Container name](#container-name)<br/>[Blob path](#blob-path) |
 > | **Request attributes** |  |
 > | **Principal attributes support** | True |
-> | **Examples** | [Example: Read only storage accounts with hierarchical namespace enabled](storage-auth-abac-examples.md#example-read-only-storage-accounts-with-hierarchical-namespace-enabled)<br/>[Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers)<br/>[Example: Read blobs in named containers with a path](storage-auth-abac-examples.md#example-read-blobs-in-named-containers-with-a-path)<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path)<br/>[Example: Write blobs in named containers with a path](storage-auth-abac-examples.md#example-write-blobs-in-named-containers-with-a-path) |
+> | **Examples** | [Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers)<br/>[Example: Read blobs in named containers with a path](storage-auth-abac-examples.md#example-read-blobs-in-named-containers-with-a-path)<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path)<br/>[Example: Write blobs in named containers with a path](storage-auth-abac-examples.md#example-write-blobs-in-named-containers-with-a-path)<br/>[Example: Read only current blob versions](storage-auth-abac-examples.md#example-read-only-current-blob-versions)<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots)<br/>[Example: Read only storage accounts with hierarchical namespace enabled](storage-auth-abac-examples.md#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) |
 > | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
 
 ## Azure Queue storage actions
@@ -471,6 +471,18 @@ This section lists the Azure Blob storage attributes you can use in your conditi
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/encryptionScopes:name] ForAnyOfAnyValues:StringEquals {'validScope1', 'validScope2'}`<br/>[Example: Read blobs with specific encryption scopes](storage-auth-abac-examples.md#example-read-blobs-with-specific-encryption-scopes) |
 > | **Learn more** | [Create and manage encryption scopes](../blobs/encryption-scope-manage.md) |
 
+### Is Current Version
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Property | Value |
+> | --- | --- |
+> | **Display name** | Is Current Version |
+> | **Description** | Identifies if the resource is the current version of the blob, in contrast of a snapshot or a specific blob version. |
+> | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion` |
+> | **Attribute source** | Resource |
+> | **Attribute type** | Boolean |
+> | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:isCurrentVersion] BoolEquals true`<br/>[Example: Read only current blob versions](storage-auth-abac-examples.md#example-read-only-current-blob-versions)<br/>[Example: Read current blob versions and a specific blob version](storage-auth-abac-examples.md#example-read-current-blob-versions-and-a-specific-blob-version) |
+
 ### Is hierarchical namespace enabled
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -490,14 +502,14 @@ This section lists the Azure Blob storage attributes you can use in your conditi
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Snapshot |
-> | **Description** | The Snapshot identifier for the Blob snapshot. |
+> | **Description** | The Snapshot identifier for the Blob snapshot.<br/>Available for storage accounts where hierarchical namespace is not enabled and currently in preview for storage accounts where hierarchical namespace is enabled. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot` |
 > | **Attribute source** | Request |
 > | **Attribute type** | DateTime |
 > | **Exists support** | True |
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]`<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots) |
-> | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
+> | **Learn more** | [Blob snapshots](../blobs/snapshots-overview.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
 
 ### Version ID
 
@@ -511,7 +523,7 @@ This section lists the Azure Blob storage attributes you can use in your conditi
 > | **Attribute type** | DateTime |
 > | **Exists support** | True |
 > | **Hierarchical namespace support** | False |
-> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T23:38:32.8883645Z'`<br/>[Example: Read current blob versions and a specific blob version](storage-auth-abac-examples.md#example-read-current-blob-versions-and-a-specific-blob-version) |
+> | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T23:38:32.8883645Z'`<br/>[Example: Read current blob versions and a specific blob version](storage-auth-abac-examples.md#example-read-current-blob-versions-and-a-specific-blob-version)<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots) |
 > | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
 
 ## Azure Queue storage attributes

@@ -12,7 +12,7 @@ items:
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator
   - name: What's new?
     href: whats-new.md
-  - name: FAQ
+  - name: Translator Service FAQ
     href: translator-faq.md
 - name: Text Translation
   expanded: true
@@ -139,7 +139,7 @@ items:
         href: document-translation/reference/get-translation-status.md
       - name: Cancel translation
         href: document-translation/reference/cancel-translation.md
-    - name: FAQ
+    - name: Document Translation FAQ
       href: document-translation/faq.md
 - name: Custom Translator
   items:
@@ -209,7 +209,7 @@ items:
         href: custom-translator/sentence-alignment.md
       - name: Data filtering
         href: custom-translator/data-filtering.md
-      - name: Training and model
+      - name: Training and modeling
         href: custom-translator/training-and-model.md
       - name: BLEU score
         href: custom-translator/what-is-bleu-score.md
@@ -219,7 +219,7 @@ items:
     items:
     - name: Release notes
       href: custom-translator/release-notes.md
-  - name: FAQ
+  - name: Custom Translator FAQ
     href: custom-translator/faq.md
 - name: Resources
   items:

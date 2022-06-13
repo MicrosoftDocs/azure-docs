@@ -1,15 +1,16 @@
 ---
-title: Observability in Azure Container Apps Preview
-description: Monitor your running app in Azure Container Apps Preview
+title: Observability in Azure Container Apps
+description: Monitor your running app in Azure Container Apps
 services: container-apps
 author: cebundy
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 05/02/2022
 ms.author: v-bcatherine
 ---
 
-# Observability in Azure Container Apps Preview
+# Observability in Azure Container Apps
 
 Azure Container Apps provides several built-in observability features that give you a holistic view of your container app’s health throughout its application lifecycle.  These features help you monitor and diagnosis the state of your app to improve performance and respond to critical problems.
 
@@ -212,6 +213,8 @@ Container Apps provides these metrics.
 |Network in bytes|Network received bytes|RxBytes|bytes|
 |Network out bytes|Network transmitted bytes|TxBytes|bytes|
 |Requests|Requests processed|Requests|n/a|
+|Replica count| Number of active replicas| Replicas | n/a |
+|Replica Restart Count| Number of replica restarts | RestartCount | n/a |
 
 The metrics namespace is `microsoft.app/containerapps`.
 
@@ -237,7 +240,7 @@ You can filter your metrics by revision or replica.  For example, to filter by a
 
 :::image type="content" source="media/observability/metrics-add-filter.png" alt-text="Screenshot of the metrics explorer showing the chart filter options.":::
 
-You can split the information in your chart by revision or replica. For example, to split by revision, select **Apply splitting** and select **Revision** from the **Values** drop-down list. Splitting is only available when the chart contains a single metric.
+When applying splitting, you can split the metric information in your chart by revision or replica (except for Replica count, which you can only split by revision). The requests metric can also be split by status code and status code category. For example, to split by revision, select **Apply splitting** and select **Revision** from the **Values** drop-down list. Splitting is only available when the chart contains a single metric.
 
 :::image type="content" source="media/observability/metrics-apply-splitting.png" alt-text="Screenshot of the metrics explorer that shows a chart with metrics split by revision.":::
 
@@ -393,5 +396,5 @@ Container Apps manages updates to your container app by creating [revisions](rev
 
 ## Next steps
 
-- [Monitor an app in Azure Container Apps Preview](monitor.md)
+- [Monitor an app in Azure Container Apps](monitor.md)
 - [Health probes in Azure Container Apps](health-probes.md)

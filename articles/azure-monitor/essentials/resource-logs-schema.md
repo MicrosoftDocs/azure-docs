@@ -90,7 +90,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Storage | [Blobs](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [Files](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [Queues](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview),  [Tables](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
 | Azure Stream Analytics |[Job logs](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Azure Traffic Manager | [Traffic Manager log schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
-| Azure Video Indexer|[Monitor Azure Video Indexer data reference](/azure/azure-video-indexer/monitor-video-indexer-data-reference)|
+| Azure Video Indexer|[Monitor Azure Video Indexer data reference](../../azure-video-indexer/monitor-video-indexer-data-reference.md)|
 | Azure Virtual Network | Schema not available |
 | Virtual network gateways | [Logging for Virtual Network Gateways](../../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md)|
 
