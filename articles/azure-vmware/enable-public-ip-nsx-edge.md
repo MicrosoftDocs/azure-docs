@@ -1,6 +1,6 @@
 ---
 title: Enable Public IP to the NSX Edge for Azure VMware Solution (Preview)
-description: This article explains how to enable internet access for your Azure VMware Solution.
+description: This article shows how to enable internet access for your Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 05/12/2022
@@ -13,7 +13,13 @@ In this article, you'll learn how to enable Public IP to the NSX Edge for your A
 >[!TIP]
 >Before you enable Internet access to your Azure VMware Solution, review the [Internet connectivity design considerations](concepts-design-public-internet-access.md).
 
-Public IP to the NSX Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment. The Public IP is configured in Azure VMware Solution through the Azure portal and the NSX-T Data center interface within your Azure VMware Solution private cloud.
+Public IP to the NSX Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment. 
+
+>[!IMPORTANT]
+>To enable this feature for your subscription, register the ```PIPOnNSXEnabled``` flag and follow these steps to [set up the preview feature in your Azure subscription](https://docs.microsoft.com/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
+
+The Public IP is configured in Azure VMware Solution through the Azure portal and the NSX-T Data center interface within your Azure VMware Solution private cloud.
+
 With this capability, you have the following features:
 - A cohesive and simplified experience for reserving and using a Public IP down to the NSX Edge.
 - The ability to receive up to 1000 or more Public IPs, enabling Internet access at scale.
@@ -115,7 +121,7 @@ For example, the following rule is set to Match External Address, and this setti
     :::image type="content" source="media/public-ip-nsx-edge/gateway-specific-rules-match-external-connectivity.png" alt-text="Screenshot Internet connectivity inbound Public IP." lightbox="media/public-ip-nsx-edge/gateway-specific-rules-match-external-connectivity-expanded.png":::
      
 If **Match Internal Address** was specified, the destination would be the internal or private IP address of the VM. 
-For more information on the NSX-T Gateway Firewall see the [NSX-T Gateway Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-A52E1A6F-F27D-41D9-9493-E3A75EC35481.html)
+For more information on the NSX-T Gateway Firewall see the [NSX-T Gateway Firewall Administration Guide]( https://docs.vmware.com/VMware-NSX-T-Data-Center/3.1/administration/GUID-A52E1A6F-F27D-41D9-9493-E3A75EC35481.html)
 The Distributed Firewall could be used to filter traffic to VMs. This feature is outside the scope of this document. For more information, see [NSX-T Distributed Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-6AB240DB-949C-4E95-A9A7-4AC6EF5E3036.html)git status.
 
 ## Next steps 
