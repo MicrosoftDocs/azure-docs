@@ -24,13 +24,13 @@ Each month, Azure Arc-enabled data services is released on the second Tuesday of
 - 14 days before the release date, the *test* pre-release version is made available.
 - 7 days before the release date, the *preview* pre-release version is made available.
 
-The main difference between the test and preview pre-release versions is typically just quality and stability, but in some exceptional cases there may be new features introduced in between the test and preview releases.
+The main difference between the test and preview pre-release versions is usually just quality and stability, but in some exceptional cases there may be new features introduced in between the test and preview releases.
 
-Pre-release version binaries are typically made available starting around 10:00 AM Pacific Time. Documentation follows later in the day.
+Normally, pre-release version binaries are available around 10:00 AM Pacific Time. Documentation follows later in the day.
 
 ## Artifacts for a pre-release version
 
-For each pre-release version, there will typically be the following artifacts, which are designed to work together:
+Pre-releases version typically include artifacts, which are designed to work together:
 
 - Container images hosted on the Microsoft Container Registry (MCR)
   - `mcr.microsoft.com/arcdata/preview` is the repository that hosts the **preview** pre-release builds
@@ -79,7 +79,7 @@ If you use the Azure Data Studio extension to install:
 
 If you install using the Azure CLI, follow the instructions to [create a custom configuration profile](create-custom-configuration-template.md). Once created, edit this custom configuration profile file enter the `docker` property values as required based on the information provided in the version history table on this page.
 
-Example:
+For example:
 
 ```json
 
