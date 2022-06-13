@@ -31,7 +31,7 @@ To create a new virtual WAN and a new hub, use the steps in the following articl
 
 The **Overview** page for your virtual WAN shows a list of virtual hubs and secured hubs. The following figure shows a virtual WAN with no secured hubs.
 
-:::image type="content" source="./media/howto-firewall/vwan-overview1.png" alt-text="Screenshot shows the Overview page for a virtual WAN with a list of virtual hubs." lightbox="./media/howto-firewall/vwan-overview1.png":::
+:::image type="content" source="./media/howto-firewall/vwan-overview1.jpg" alt-text="Screenshot shows the Overview page for a virtual WAN with a list of virtual hubs." lightbox="./media/howto-firewall/vwan-overview1.jpg":::
 
 ## Convert to secured hub
 
