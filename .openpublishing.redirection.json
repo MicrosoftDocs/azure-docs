@@ -750,6 +750,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/create-front-door-cli.md",
+      "redirect_url": "/azure/frontdoor/create-front-door-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
       "redirect_url": "/aspnet/core/security/authorization/secure-data",
       "redirect_document_id": false
