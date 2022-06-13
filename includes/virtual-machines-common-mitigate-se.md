@@ -96,7 +96,7 @@ To validate enabled protections against these vulnerabilities, see [Understandin
 
 #### Option 2
 
-**Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM might choose to disable hyper-threading or move to a non-hyper-threaded VM size. Reference [this doc](../articles/virtual-machines/acu.md)for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if your VM has hyper-threading enabled, refer to the below script using the Windows command line from within the VM.
+**Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM might choose to disable hyper-threading or move to a non-hyper-threaded VM size. Reference [this doc](../articles/virtual-machines/acu.md) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if your VM has hyper-threading enabled, refer to the below script using the Windows command line from within the VM.
 
 Type `wmic` to enter the interactive interface. Then type the following command to view the amount of physical and logical processors on the VM.
 
