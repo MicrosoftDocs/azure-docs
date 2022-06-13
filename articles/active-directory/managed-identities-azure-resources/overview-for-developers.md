@@ -367,35 +367,17 @@ dr.Close();
 ```
 
 #### [Java](#tab/java)
-_replace with info on spring cloud_
-```java
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
-import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+If you use [Azure Spring Apps](/azure/spring-cloud/), you can connect to Azure SQL Server with a managed identity without needing to make any changes to your code.
 
-public class Connect_to_Azure_SQL {
-    public static void main(String[] args) throws Exception {
+Open the `src/main/resources/application.properties` file, and add `Authentication=ActiveDirectoryMSI;` at the end of the following line. Be sure to use the correct value for $AZ_DATABASE_NAME variable.
 
-        SQLServerDataSource ds = new SQLServerDataSource();
-        ds.setServerName("<your-database-server-name>.database.windows.net");
-        ds.setDatabaseName("<your database name>");
-        ds.setAuthentication("ActiveDirectoryMSI");
-        ds.setMSIClientId("<your-user-assigned-identity-client-id>");
-        
-        String rowValue;
-
-        try (Connection connection = ds.getConnection();
-                Statement stmt = connection.createStatement();
-                ResultSet rs = stmt.executeQuery("select top 1 ColumnName from TableName")) {
-            if (rs.next()) {
-                rowValue = rs.getString(1);
-            }
-        }
-    }
-}
+```properties
+spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;
 ```
+
+Read more about how to [use a managed identity to connect Azure SQL Database to an Azure Spring Apps app](azure/spring-cloud/connect-managed-identity-to-azure-sql).
+
 ---
 
 ## Connecting to resources that don't support Azure Active Directory or token based authentication in libraries
@@ -409,7 +391,9 @@ To avoid storing credentials in your code or your application configuration, you
 In some scenarios, you may want to acquire tokens for Managed identities manually instead of using a built-in method to connect to the target resource. This may be because there's no client library for the programming language that you're using or for the target resource you're connecting to. When acquiring tokens manually, we provide the following guidelines:
 
 ### Cache the tokens you acquire
-For performance and reliability, we recommend that your application caches tokens in local memory, or encrypted if you want to save them to disk. As Managed identity tokens are valid for 24 hours, there's no benefit in requesting new tokens regularly, as a cached one will be returned from the token issuing endpoint. If you exceed the request limits, you'll be rate limited and receive an HTTP 429 error. When you acquire a token, you can set your token cache to expire 5 minutes before the `expires_on` or equivalent value that will be returned when the token is generated.
+For performance and reliability, we recommend that your application caches tokens in local memory, or encrypted if you want to save them to disk. As Managed identity tokens are valid for 24 hours, there's no benefit in requesting new tokens regularly, as a cached one will be returned from the token issuing endpoint. If you exceed the request limits, you'll be rate limited and receive an HTTP 429 error. 
+
+When you acquire a token, you can set your token cache to expire 5 minutes before the `expires_on` (or equivalent property) that will be returned when the token is generated.
 
 ### Token inspection
 Your application shouldn't rely on the contents of a token. The token's content is intended only for the audience (target resource) that is being accessed, not the client that's requesting the token. The token content may change or be encrypted in the future.
