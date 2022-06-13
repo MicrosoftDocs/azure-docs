@@ -12,17 +12,20 @@ ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Azure Cosmos DB SQL API client library for .NET
+
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
+>
 > * [.NET](quickstart-dotnet.md)
+>
 
 Get started with the Azure Cosmos DB client library for .NET to create databases, containers, and items within your account. Follow these steps to  install the package and try out example code for basic tasks.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/azure-cosmos-db-dotnet-quickstart) are available on GitHub as a .NET project.
 
-[API reference documentation](/dotnet/api/microsoft.azure.cosmos) | [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+[API reference documentation](/dotnet/api/microsoft.azure.cosmos) | [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) | [Samples](samples-dotnet.md)
 
 ## Prerequisites
 
@@ -37,7 +40,7 @@ Get started with the Azure Cosmos DB client library for .NET to create databases
 
 ## Setting up
 
-This section walks you through creating an Azure Cosmos account and setting up a project that uses Azure Cosmos DB SQL API client library for .NET to manage resources. 
+This section walks you through creating an Azure Cosmos account and setting up a project that uses Azure Cosmos DB SQL API client library for .NET to manage resources.
 
 ### Create an Azure Cosmos DB account
 
@@ -113,7 +116,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 
 1. If you haven't already, sign in to Azure PowerShell using the [``Connect-AzAccount``](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
-1. Use the [``New-AzResourceGroup``](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a new resource group in your subscription. 
+1. Use the [``New-AzResourceGroup``](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a new resource group in your subscription.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -123,7 +126,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
     New-AzResourceGroup @parameters    
     ```
 
-1. Use the [``New-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new Azure Cosmos DB SQL API account with default settings. 
+1. Use the [``New-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new Azure Cosmos DB SQL API account with default settings.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -194,7 +197,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 
 1. Review the settings you provide, and then select **Create**. It takes a few minutes to create the account. Wait for the portal page to display **Your deployment is complete** before moving on.
 
-1. Select **Go to resource** to go to the Azure Cosmos DB account page. 
+1. Select **Go to resource** to go to the Azure Cosmos DB account page.
 
    :::image type="content" source="media/create-account-portal/cosmos-deployment-complete.png" lightbox="media/create-account-portal/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos D B SQL A P I resource.":::
 
@@ -274,23 +277,23 @@ For more information about the hierarchy of different resources, see [working wi
 
 You'll use the following .NET classes to interact with these resources:
 
-- [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
-- [``Database``](/dotnet/api/microsoft.azure.cosmos.database) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
-- [``Container``](/dotnet/api/microsoft.azure.cosmos.container) - This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it.
-- [``QueryDefinition``](/dotnet/api/microsoft.azure.cosmos.querydefinition) - This class represents a SQL query and any query parameters.
-- [``FeedIterator<>``](/dotnet/api/microsoft.azure.cosmos.feediterator-1) - This class represents an iterator that can track the current page of results and get a new page of results.
-- [``FeedResponse<>``](/dotnet/api/microsoft.azure.cosmos.feedresponse-1) - This class represents a single page of responses from the iterator. This type can be iterated over using a ``foreach`` loop.
+* [``CosmosClient``](/dotnet/api/microsoft.azure.cosmos.cosmosclient) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
+* [``Database``](/dotnet/api/microsoft.azure.cosmos.database) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
+* [``Container``](/dotnet/api/microsoft.azure.cosmos.container) - This class is a reference to a container that also may not exist in the service yet. The container is validated server-side when you attempt to work with it.
+* [``QueryDefinition``](/dotnet/api/microsoft.azure.cosmos.querydefinition) - This class represents a SQL query and any query parameters.
+* [``FeedIterator<>``](/dotnet/api/microsoft.azure.cosmos.feediterator-1) - This class represents an iterator that can track the current page of results and get a new page of results.
+* [``FeedResponse<>``](/dotnet/api/microsoft.azure.cosmos.feedresponse-1) - This class represents a single page of responses from the iterator. This type can be iterated over using a ``foreach`` loop.
 
 ## Code examples
 
-- [Authenticate the client](#authenticate-the-client)
-- [Create a database](#create-a-database)
-- [Create a container](#create-a-container)
-- [Create an item](#create-an-item)
-- [Get an item](#get-an-item)
-- [Query items](#query-items)
+* [Authenticate the client](#authenticate-the-client)
+* [Create a database](#create-a-database)
+* [Create a container](#create-a-container)
+* [Create an item](#create-an-item)
+* [Get an item](#get-an-item)
+* [Query items](#query-items)
 
-The sample code described in this article creates a database named ``adventureworks`` with a container named ``products``. The ``products`` database is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
+The sample code described in this article creates a database named ``adventureworks`` with a container named ``products``. The ``products`` table is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
 For this sample code, the container will use the category as a logical partition key.
 
@@ -366,7 +369,7 @@ Created item:   68719518391     [gear-surf-surfboards]
 
 When you no longer need the Azure Cosmos DB SQL API account, you can delete the corresponding resource group.
 
-#### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 Use the [``az group delete``](/cli/azure/group#az-group-delete) command to delete the resource group.
 
@@ -374,7 +377,7 @@ Use the [``az group delete``](/cli/azure/group#az-group-delete) command to delet
 az group delete --name $resourceGroupName
 ```
 
-#### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 Use the [``Remove-AzResourceGroup``](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to delete the resource group.
 
@@ -385,7 +388,7 @@ $parameters = @{
 Remove-AzResourceGroup @parameters
 ```
 
-#### [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 1. Navigate to the resource group you previously created in the Azure portal.
 
