@@ -21,7 +21,7 @@ This tutorial will help you learn how to integrate, and use ServiceNow with Micr
 
 The Defender for IoT integration with ServiceNow provides a new level of centralized visibility, monitoring, and control for the IoT and OT landscape. These bridged platforms enable automated device visibility and threat management to previously unreachable ICS & IoT devices.
 
-The ServiceNow Configuration Management Database (CMDB) is enriched, and supplemented with a rich set of device attributes that are endorsed by the Defender for IoT platform. This ensures a comprehensive, and continuous visibility into the device landscape. This visibility lets you monitor, and respond from a single-pane-of-glass. 
+The ServiceNow Configuration Management Database (CMDB) is enriched, and supplemented with a rich set of device attributes that are pushed by the Defender for IoT platform. This ensures a comprehensive, and continuous visibility into the device landscape. This visibility lets you monitor, and respond from a single-pane-of-glass. 
 
 In this tutorial, you learn how to:
 
