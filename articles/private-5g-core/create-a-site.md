@@ -44,7 +44,7 @@ In this step, you'll create the mobile network site resource representing the ph
 1. In the **Packet core** section, set the fields as follows:
 
     - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) to fill out the **Technology type** and **Custom location** fields.
-    - Leave the **Version** field blank unless you've been instructed to do otherwise by your support representative.
+    - Select the recommended packet core version in the **Version** field.
 
 1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following:
 
