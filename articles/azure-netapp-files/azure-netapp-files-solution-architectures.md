@@ -20,7 +20,7 @@ This article provides references to best practices that can help you understand 
 
 The following diagram summarizes the categories of solution architectures that Azure NetApp Files offers:
 
-:::image type="content" source="../media/azure-netapp-files/solution-architecture-categories.png)" alt-text="Solution architecture categories." lightbox="../media/azure-netapp-files/solution-architecture-categories.png":::
+:::image type="content" source="../media/azure-netapp-files/solution-architecture-categories.png" alt-text="Solution architecture categories." lightbox="../media/azure-netapp-files/solution-architecture-categories.png":::
 
 ## Linux OSS Apps and Database solutions
 
