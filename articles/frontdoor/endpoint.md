@@ -14,7 +14,7 @@ ms.author: jodowns
 
 In Azure Front Door Standard/Premium, an *endpoint* is a logical grouping of one or more routes that are associate with domains.
 
-TODO What are endpoints and how do they fit into the resource model?
+<!-- TODO What are endpoints and how do they fit into the resource model? -->
 
 ## How many endpoints should I create?
 
@@ -29,32 +29,32 @@ A Front Door profile can contain multiple endpoints, but in many situations you 
 Endpoint domain names are automatically generated when you create a new endpoint. Front Door generates a unique domain name based on several components, including:
 
 - The endpoint's name.
-- A unique hash value, which is determined by Front Door.
+- A pseudorandom hash value, which is determined by Front Door. By using hash values as part of the domain name, Front Door helps to protect against [subdomain takeover](../security/fundamentals/subdomain-takeover.md) attacks.
 - The base domain name for your Front Door environment. This is generally `z01.azurefd.net`.
 
-For example, suppose you have created an endpoint named `myendpoint`. The endpoint domain name might be `myendpoint-TODO.z01.azurefd.net`.
-
-By using unique hash values as part of the domain name, Front Door helps to protect against [subdomain takeover](../security/fundamentals/subdomain-takeover.md) attacks.
+For example, suppose you have created an endpoint named `myendpoint`. The endpoint domain name might be `myendpoint-mdjf2jfgjf82mnzx.z01.azurefd.net`.
 
 The endpoint domain is accessible when you associate it with a route.
 
 ### Reuse of an endpoint domain name
 
-TODO should this refer just to the hash?
+When you delete and redeploy an endpoint, you might expect to get the same pseudorandom hash value, and therefore the same endpoint domain name. Front Door enables you to control how the pseudorandom hash values are reused on an endpoint-by-endpoint basis.
 
-An endpoint domain can be reused within the same tenant, subscription, or resource group scope level. You can also choose to not allow the reuse of an endpoint domain. The Azure portal default settings allow tenant level reuse of the endpoint domain. You can use command line to configure the scope level of the endpoint domain reuse. The Azure portal will use the scope level you define through the command line once it has been changed.
+An endpoint's domain can be reused within the same tenant, subscription, or resource group scope level. You can also choose to not allow the reuse of an endpoint domain. By default, your allow reuse of the endpoint domain within the same Azure Active Directory tenant.
 
-| Value | Behavior |
+You can use Bicep, an Azure Resource Manager template (ARM template), the Azure CLI, or Azure PowerShell to configure the scope level of the endpoint's domain reuse behavior. You can also configure it for all Front Door endpoints in your whole organization by using Azure Policy. The Azure portal uses the scope level you define through the command line once it has been changed.
+
+The following table lists the allowable values for the endpoint's domain reuse behavior:
+
+| Value | Description |
 |--|--|
-| TenantReuse | This is the default value. Object with the same name in the same tenant will receive the same domain label. |
-| SubscriptionReuse | Object with the same name in the same subscription will receive the same domain label. |
-| ResourceGroupReuse | Object with the same name in the same resource group will receive the same domain label. |
-| NoReuse | Object with the same will receive a new domain label for each new instance. |
-
-TODO mention can be configured by using Azure Policy
+| `TenantReuse` | This is the default value. Endpoints with the same name in the same Azure Active Directory tenant receive the same domain label. |
+| `SubscriptionReuse` | Endpoints with the same name in the same Azure subscription receive the same domain label. |
+| `ResourceGroupReuse` | Endpoints with the same name in the same resource group will receive the same domain label. |
+| `NoReuse` | Endpoints will always receive a new domain label. |
 
 > [!NOTE]
-> When you modify the reuse behavior of your Front Door profile, any existing endpoint domain names are not updated.
+> You can't modify the reuse behavior of an existing Front Door endpoint. The reuse behavior only applies to newly created endpoints.
 
 ## Next steps
 
