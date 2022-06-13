@@ -35,13 +35,13 @@ The following sample creates an association between an Azure virtual machine and
 # [Bicep](#tab/bicep)
 
 ```bicep
-@description('Name of the virtual machine.')
+@description('The name of the virtual machine.')
 param vmName string
 
-@description('Name of the association.')
+@description('The name of the association.')
 param associationName string
 
-@description('Resource ID of the data collection rule.')
+@description('The resource ID of the data collection rule.')
 param dataCollectionRuleId string
 
 resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' existing = {
@@ -68,19 +68,19 @@ resource vmName_microsoft_insights_associationName 'Microsoft.Insights/dataColle
     "vmName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the virtual machine."
+        "description": "The name of the virtual machine."
       }
     },
     "associationName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the association."
+        "description": "The name of the association."
       }
     },
     "dataCollectionRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Resource ID of the data collection rule."
+        "description": "The resource ID of the data collection rule."
       }
     }
   },
@@ -108,15 +108,15 @@ resource vmName_microsoft_insights_associationName 'Microsoft.Insights/dataColle
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "vmName": {
-        "value": "my-azure-vm"
-      },
-      "associationName": {
-        "value": "my-windows-vm-my-dcr"
-      },
-      "dataCollectionRuleId": {
-        "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
-      }
+    "vmName": {
+      "value": "my-azure-vm"
+    },
+    "associationName": {
+      "value": "my-windows-vm-my-dcr"
+    },
+    "dataCollectionRuleId": {
+      "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
+    }
    }
 }
 ```
@@ -130,13 +130,13 @@ The following sample creates an association between an Azure Arc-enabled server 
 # [Bicep](#tab/bicep)
 
 ```bicep
-@description('Name of the virtual machine.')
+@description('The name of the virtual machine.')
 param vmName string
 
-@description('Name of the association.')
+@description('The name of the association.')
 param associationName string
 
-@description('Resource ID of the data collection rule.')
+@description('The resource ID of the data collection rule.')
 param dataCollectionRuleId string
 
 resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' existing = {
@@ -163,19 +163,19 @@ resource vmName_microsoft_insights_associationName 'Microsoft.Insights/dataColle
     "vmName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the virtual machine."
+        "description": "The name of the virtual machine."
       }
     },
     "associationName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the association."
+        "description": "The name of the association."
       }
     },
     "dataCollectionRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Resource ID of the data collection rule."
+        "description": "The resource ID of the data collection rule."
       }
     }
   },
@@ -203,15 +203,15 @@ resource vmName_microsoft_insights_associationName 'Microsoft.Insights/dataColle
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "vmName": {
-        "value": "my-hybrid-vm"
-      },
-      "associationName": {
-        "value": "my-windows-vm-my-dcr"
-      },
-      "dataCollectionRuleId": {
-        "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
-      }
+    "vmName": {
+      "value": "my-hybrid-vm"
+    },
+    "associationName": {
+      "value": "my-windows-vm-my-dcr"
+    },
+    "dataCollectionRuleId": {
+      "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
+    }
    }
 }
 ```
