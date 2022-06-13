@@ -7,7 +7,7 @@ ms.author: benmansheim
 author: bmansheim
 ---
 
-# Introduction to Microsoft Defender for Resource Manager
+# Overview of Microsoft Defender for Resource Manager
 
 [Azure Resource Manager](../azure-resource-manager/management/overview.md) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 

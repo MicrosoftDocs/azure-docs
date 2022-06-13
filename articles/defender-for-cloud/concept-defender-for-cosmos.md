@@ -8,7 +8,7 @@ author: bmansheim
 ms.date: 03/01/2022
 ---
 
-# Introduction to Microsoft Defender for Azure Cosmos DB
+# Overview of Microsoft Defender for Azure Cosmos DB
 
 Microsoft Defender for Azure Cosmos DB detects potential SQL injections, known bad actors based on Microsoft Threat Intelligence, suspicious access patterns, and potential exploitation of your database through compromised identities, or malicious insiders.
 

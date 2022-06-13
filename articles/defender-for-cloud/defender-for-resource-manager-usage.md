@@ -42,6 +42,6 @@ When you receive an alert from Microsoft Defender for Resource Manager, we recom
 
 This page explained the process of responding to an alert from Microsoft Defender for Resource Manager. For related information see the following pages:
 
-- [Introduction to Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+- [Overview of Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md)
 - [Suppress security alerts](alerts-suppression-rules.md)
 - [Continuously export Defender for Cloud data](continuous-export.md)

@@ -351,7 +351,7 @@
       href: defender-for-resource-manager-usage.md
   - name: Defender for DNS
     items:
-    - name: Overview of Defender for DNS
+    - name: Overview
       displayName: domain, Defender for DNS
       href: defender-for-dns-introduction.md
     - name: Respond to Microsoft Defender for DNS alerts
