@@ -342,6 +342,21 @@ On publish, ADF fetches every file inside each folder in the collaboration branc
 
 #### Resolution
 Delete the PartialTemplates folder and republish. You can delete the temporary files in that folder as well.
+ Error code: InvalidTemplate
+
+
+	
+### Message: Unable to parse expression
+	
+#### Issue
+The expression passed in the dynamic content of an activity isn't being processed correctly because of a syntax error.
+
+#### Cause
+Dynamic content is not written as per expression language requirements. 
+
+#### Resolution 
+* For debug run, check expressions in pipeline within current git branch.
+* For Triggered run, check expressions in pipeline within *Live* mode .
  
 ## Next steps
 
