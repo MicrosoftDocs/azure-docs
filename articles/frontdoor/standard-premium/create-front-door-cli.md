@@ -275,8 +275,7 @@ When you don't need the resources for the Front Door, delete both resource group
 Run [az group delete](/cli/azure/group#az-group-delete&preserve-view=true):
 
 ```azurecli
-az group delete \
-    --name myRGFD
+az group delete --name myRGFD
 ```
 
 ## Next steps
