@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 2/23/2022
 ---
 
-# Metric Alerts with Dynamic Thresholds in Azure Monitor
+# Using Dynamic Thresholds in Metric Alerts
 
 Metric Alert with Dynamic Thresholds detection leverages advanced machine learning (ML) to learn metrics' historical behavior, identify patterns and anomalies that indicate possible service issues. It provides support of both a simple UI and operations at scale by allowing users to configure alert rules through the Azure Resource Manager API, in a fully automated manner.
 
