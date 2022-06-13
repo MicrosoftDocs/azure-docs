@@ -4,18 +4,16 @@ titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer by using an Azure Resource Manager template.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: greg-lindsay
 manager: KumudD
-# Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/09/2020
-ms.author: allensu
-ms.custom: mvc,subject-armqs
-
+ms.author: greglin
+ms.custom: mvc, subject-armqs, mode-arm
+#Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs by using an ARM template

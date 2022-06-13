@@ -1,9 +1,9 @@
 ---
 title: Planning a Power BI visual offer in Partner Center for Microsoft AppSource
 description: Learn what information you'll need on hand to submit your Power BI visual offer in Partner Center.
-author: KesemSharabi
-ms.author: kesharab
-ms.reviewer: ""
+author: posurnis
+ms.author: posurnis
+ms.reviewer: pooja.surnis
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.date: 09/21/2021
 
 This article highlights the content and requirements you need to have ready or completed to publish a Power BI visual offer in Partner Center for Microsoft [AppSource](https://appsource.microsoft.com). Power BI visuals are packages that help users visualize the data served to them. Anyone can create a custom visual and package it as a single PBIVIZ file that can be imported into a Power BI report.
 
-Before you start, [create a commercial marketplace account](/azure/marketplace/create-account) in Partner Center and ensure it is enrolled in the commercial marketplace program. Also, review the publishing [process](https://aka.ms/PBIvisualavailability) and [guidelines](/legal/marketplace/rating-review-policies).
+Before you start, [create a commercial marketplace account](./create-account.md) in Partner Center and ensure it is enrolled in the commercial marketplace program. Also, review the publishing [process](/office/dev/store/submit-to-appsource-via-partner-center) and [guidelines](/legal/marketplace/rating-review-policies).
 
 ## Publishing benefits
 
@@ -31,7 +31,7 @@ Read the following to ensure you're properly prepared before starting the creati
 These are the key publishing steps covered in the next several topics:
 
 1. [Package](/power-bi/developer/visuals/package-visual) your Power BI visual.
-2. Prepare the [marketing details](/azure/marketplace/gtm-offer-listing-best-practices#online-store-offer-details), such as the official name, description, and logos.
+2. Prepare the [marketing details](./gtm-offer-listing-best-practices.md#online-store-offer-details), such as the official name, description, and logos.
 3. Gather links to the offer's legal and support documents, such as terms of use, privacy policy, support policy, and user help.
 4. Create the visual – Use Partner Center to enter the details, including the visual description, marketing materials, legal information, support information, and asset specifications.
 5. Monitor the process in Partner Center, where the AppSource onboarding team tests, validates, and certifies your visual. After it's certified, review the app in its test environment and release it. This "go live" will list it on AppSource.
@@ -53,11 +53,11 @@ Provide an **End-User License Agreement (EULA)** file for your Power BI visual.
 
 To help create your offer more easily, prepare these items ahead of time. All are required except where noted.
 
-For the most effective Power BI visual offer, see these [guidelines](https://aka.ms/PBIvisualeffectivelisting).
+For the most effective Power BI visual offer, see these [guidelines](./power-bi-visual-offer-listing.md).
 
-- **Name** – The [name](https://aka.ms/PBIvisualreservename) will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and is limited to 50 characters.
+- **Name** – The [name](/office/dev/store/reserve-solution-name) will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and is limited to 50 characters.
 - **Summary** – The purpose or function of your offer as a single sentence with no line breaks in 100 characters or less. This is used in the commercial marketplace listing(s) search results.
-- **Description** – This displays in the commercial marketplace listings overview. Consider including a value proposition, key benefits, intended user base, category or industry associations, [in-app purchase](https://aka.ms/PBIvisuaadditionlapurchasesetup) opportunities, any required disclosures, and a link to learn more. This text box has rich text editor controls to make your description more engaging. Optionally, use HTML tags for formatting.
+- **Description** – This displays in the commercial marketplace listings overview. Consider including a value proposition, key benefits, intended user base, category or industry associations, [in-app purchase](./power-bi-visual-offer-setup.md) opportunities, any required disclosures, and a link to learn more. This text box has rich text editor controls to make your description more engaging. Optionally, use HTML tags for formatting.
 - **Help/Privacy policy links** – The URL for your company’s help and privacy policy. You are responsible for ensuring your offer complies with privacy laws and regulations.
 - **Media** – 
     - **Logos** – A PNG file for the **Large** logo. Partner Center will use this to create other required logo sizes. You can optionally replace these with different images later.
@@ -65,7 +65,7 @@ For the most effective Power BI visual offer, see these [guidelines](https://aka
     - **Videos** (optional) – Up to four videos that demonstrate your offer. Include a name, URL for YouTube or Vimeo, and a 1280 x 720 pixel PNG thumbnail.
 
 >[!NOTE]
-> Review the offer listing [guidelines](/azure/marketplace/marketplace-criteria-content-validation) and [best practices](/azure/marketplace/gtm-offer-listing-best-practices) carefully before submitting your offer.
+> Review the offer listing [guidelines](./marketplace-criteria-content-validation.md) and [best practices](./gtm-offer-listing-best-practices.md) carefully before submitting your offer.
 >
 > Your offer must conform to the general [commercial marketplace certification policies](/legal/marketplace/certification-policies#100-general) to be published to the commercial marketplace.
 

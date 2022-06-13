@@ -2,14 +2,15 @@
 title: Create a Log Analytics workspace in the Azure portal | Microsoft Docs
 description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments in the Azure portal.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 03/18/2021
+author: guywi-ms
+ms.author: guywild
+ms.date: 03/28/2022
+ms.reviewer: yossiy
 
 ---
 
 # Create a Log Analytics workspace in the Azure portal
-Use the **Log Analytics workspaces** menu to create a Log Analytics workspace using the Azure portal. A Log Analytics workspace is a unique environment for Azure Monitor log data. Each workspace has its own data repository and configuration, and data sources and solutions are configured to store their data in a particular workspace. You require a Log Analytics workspace if you intend on collecting data from the following sources:
+Use the **Log Analytics workspaces** menu to create a Log Analytics workspace in the Azure portal. Log Analytics workspace is the environment for Azure Monitor log data. Each workspace has its own data repository and configuration, and data sources and solutions are configured to store their data in a particular workspace. A workspace has unique workspace ID and resource ID. You can reuse the same workspace name when in different resource groups. You require a Log Analytics workspace if you intend on collecting data from the following sources:
 
 * Azure resources in your subscription
 * On-premises computers monitored by System Center Operations Manager
@@ -37,7 +38,7 @@ Click **Add**, and then provide values for the following options:
         ![Create Log Analytics resource blade](media/quick-create-workspace/create-workspace.png)  
 
 
-Click **Review + create** to review the settings and then **Create** to create the workspace. This will select a default pricing tier of Pay-as-you-go which will not incur any changes until you start collecting a sufficient amount of data. For more information about other pricing tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
+Click **Review + create** to review the settings and then **Create** to create the workspace. This will select a default pricing tier of Pay-as-you-go which will not incur any charges until you start collecting a sufficient amount of data. For more information about other pricing tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 
 

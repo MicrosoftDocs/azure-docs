@@ -4,8 +4,8 @@
   items:
     - name: What is Azure Managed Instance for Apache Cassandra?
       href: introduction.md
-    - name: Compare to Azure Cosmos DB Cassandra API
-      href: compare-cosmosdb-managed-instance.md
+    - name: Management operations
+      href: management-operations.md
 - name: Quickstarts
   items:
     - name: Create a cluster - portal
@@ -29,11 +29,23 @@
         href: spark-migration.md  
 - name: Concepts
   items:
+    - name: Security overview
+      href: security.md       
+    - name: Compare to Azure Cosmos DB Cassandra API
+      href: compare-cosmosdb-managed-instance.md
     - name: Frequently asked questions
       displayName: cost, region, monitor, backup
       href: faq.md  
 - name: How-to guides
-  items:   
+  items: 
+    - name: Add service principal for deployment
+      href: add-service-principal.md 
+    - name: Configure Customer-Managed Keys
+      href: customer-managed-keys.md  
+    - name: Enable LDAP authentication
+      href: ldap.md        
+    - name: Monitor Managed Instance
+      href: monitor-clusters.md   
     - name: Manage with Azure CLI
       displayName: az managed-cassandra, cluster, datacenter
       href: manage-resources-cli.md           
@@ -41,6 +53,10 @@
       href: network-rules.md
     - name: Visualize metrics in Prometheus with Grafana
       href: visualize-prometheus-grafana.md
+    - name: Enable materialized views
+      href: materialized-views.md
+    - name: Nodetool commands
+      href: dba-commands.md               
 - name: Reference
   items:
     - name: REST API

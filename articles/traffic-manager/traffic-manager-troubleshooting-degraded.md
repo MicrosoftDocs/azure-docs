@@ -3,15 +3,14 @@ title: Troubleshooting degraded status on Azure Traffic Manager
 description: How to troubleshoot Traffic Manager profiles when it shows as degraded status.
 services: traffic-manager
 documentationcenter: ''
-author: duongau
+author: asudbring
 manager: kumudD
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: duau
+ms.author: allensu
 ---
 
 # Troubleshooting degraded state on Azure Traffic Manager

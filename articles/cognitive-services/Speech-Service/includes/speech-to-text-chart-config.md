@@ -3,13 +3,13 @@ title: Install Speech containers
 titleSuffix: Azure Cognitive Services
 description: Details the speech-to-text helm chart configuration options.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/05/2020
-ms.author: pafarley
+ms.author: eur
 ---
 
 ### Speech-to-Text (sub-chart: charts/speechToText)
@@ -38,7 +38,7 @@ To override the "umbrella" chart, add the prefix `speechToText.` on any paramete
 
 #### Sentiment analysis (sub-chart: charts/speechToText)
 
-Starting with v2.2.0 of the speech-to-text container and v0.2.0 of the Helm chart, the following parameters are used for sentiment analysis using the Text Analytics API.
+Starting with v2.2.0 of the speech-to-text container and v0.2.0 of the Helm chart, the following parameters are used for sentiment analysis using the Language service API.
 
 |Parameter|Description|Values|Default|
 | --- | --- | --- | --- |

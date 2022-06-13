@@ -2,6 +2,7 @@
 title: 'Tutorial: Deploy WordPress on AKS cluster with MySQL Flexible Server by using Azure CLI'
 description: Learn how to quickly build and deploy WordPress  on AKS with Azure Database for MySQL - Flexible Server.
 ms.service: mysql
+ms.subservice: flexible-server
 author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
@@ -11,15 +12,13 @@ ms.custom: vc, devx-track-azurecli
 
 # Tutorial: Deploy WordPress app on AKS with Azure Database for MySQL - Flexible Server
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-In this quickstart, you deploy a WordPress application on Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL - Flexible Server (Preview) using the Azure CLI. 
-**[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for MySQL - Flexible Server (Preview)](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. Currently Flexible server is in Preview.
+In this quickstart, you deploy a WordPress application on Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL - Flexible Server using the Azure CLI.
+**[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for MySQL - Flexible Server](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings.
 
 > [!NOTE]
->
-> - Azure Database for MySQL Flexible Server is currently in public preview
-> - This quickstart assumes a basic understanding of Kubernetes concepts, WordPress and MySQL.
+> This quickstart assumes a basic understanding of Kubernetes concepts, WordPress and MySQL.
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
@@ -58,7 +57,7 @@ The following example output shows the resource group created successfully:
 
 ## Create AKS cluster
 
-Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
 
 ```azurecli-interactive
 az aks create --resource-group wordpress-project --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -71,13 +70,13 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command:
+To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command:
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group wordpress-project --name myAKSCluster
@@ -137,7 +136,7 @@ Download the [latest WordPress](https://wordpress.org/download/) version. Create
 
 ```
 
-Rename ```wp-config-sample.php```  to ```wp-config.php``` and replace lines 21 to 32 with this code snippet. The code snippet below is reading the database host , username and password from the Kubernetes manifest file.
+Rename ```wp-config-sample.php```  to ```wp-config.php``` and replace lines from beginingin of ```// ** MySQL settings - You can get this info from your web host ** //``` until the line ```define( 'DB_COLLATE', '' );``` with the code snippet below. The code below is reading the database host, username and password from the Kubernetes manifest file.
 
 ```php
 //Using environment variables for DB connection information
@@ -148,9 +147,10 @@ Rename ```wp-config-sample.php```  to ```wp-config.php``` and replace lines 21 t
 $connectstr_dbhost = getenv('DATABASE_HOST');
 $connectstr_dbusername = getenv('DATABASE_USERNAME');
 $connectstr_dbpassword = getenv('DATABASE_PASSWORD');
+$connectst_dbname = getenv('DATABASE_NAME');
 
 /** MySQL database name */
-define('DB_NAME', 'flexibleserverdb');
+define('DB_NAME', $connectst_dbname);
 
 /** MySQL database username */
 define('DB_USER', $connectstr_dbusername);
@@ -233,11 +233,11 @@ spec:
         - containerPort: 80
         env:
         - name: DATABASE_HOST
-          value: "SERVERNAME.mysql.database.azure.com"
+          value: "SERVERNAME.mysql.database.azure.com" #Update here
         - name: DATABASE_USERNAME
-          value: "YOUR-DATABASE-USERNAME"
+          value: "YOUR-DATABASE-USERNAME"  #Update here
         - name: DATABASE_PASSWORD
-          value: "YOUR-DATABASE-PASSWORD"
+          value: "YOUR-DATABASE-PASSWORD"  #Update here
         - name: DATABASE_NAME
           value: "flexibleserverdb"
       affinity:
@@ -285,20 +285,20 @@ When the application runs, a Kubernetes service exposes the application front en
 To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
 ```azurecli-interactive
-kubectl get service wordpress-blog --watch
+kubectl get service php-svc --watch
 ```
 
 Initially the *EXTERNAL-IP* for the *wordpress-blog* service is shown as *pending*.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
-wordpress-blog   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
+php-svc  LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
 
 ```output
-wordpress-blog  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
+  php-svc  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
 ### Browse WordPress
@@ -314,14 +314,14 @@ Open a web browser to the external IP address of your service to see your WordPr
 
 ## Clean up the resources
 
-To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, and all related resources.
+To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name wordpress-project --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#additional-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#other-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Next steps
 

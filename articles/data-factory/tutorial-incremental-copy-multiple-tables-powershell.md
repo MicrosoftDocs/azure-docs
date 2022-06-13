@@ -49,7 +49,7 @@ Here are the important steps to create this solution:
 
     b. Create two lookup activities. Use the first Lookup activity to retrieve the last watermark value. Use the second Lookup activity to retrieve the new watermark value. These watermark values are passed to the Copy activity.
 
-	c. Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to Azure Blob storage as a new file.
+	c. Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than or equal to the new watermark value. Then, it copies the delta data from the source data store to Azure Blob storage as a new file.
 
 	d. Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time. 
 
@@ -63,7 +63,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## Prerequisites
 
 * **SQL Server**. You use a SQL Server database as the source data store in this tutorial. 
-* **Azure SQL Database**. You use a database in Azure SQL Database as the sink data store. If you don't have a SQL database, see [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one. 
+* **Azure SQL Database**. You use a database in Azure SQL Database as the sink data store. If you don't have a SQL database, see [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one. 
 
 ### Create source tables in your SQL Server database
 
@@ -125,7 +125,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Project varchar(255),
         Creationtime datetime
     );
-	```
+    ```
 
 ### Create another table in Azure SQL Database to store the high watermark value
 
@@ -296,7 +296,7 @@ In this step, you link your SQL Server database to the data factory.
 
     If you use SQL authentication, copy the following JSON definition:
 
-	```json
+    ```json
     {  
         "name":"SqlServerLinkedService",
         "properties":{  
@@ -800,9 +800,9 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
     ```
 2. Run the pipeline IncrementalCopyPipeline by using the **Invoke-AzDataFactoryV2Pipeline** cmdlet. Replace placeholders with your own resource group and data factory name.
 
-	```powershell
+    ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
-	``` 
+    ```
 
 ## Monitor the pipeline
 

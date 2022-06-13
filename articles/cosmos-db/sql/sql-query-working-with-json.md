@@ -1,12 +1,13 @@
 ---
 title: Working with JSON in Azure Cosmos DB
 description: Learn about to query and access nested JSON properties and use special characters in Azure Cosmos DB
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/19/2020
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ---
 
 # Working with JSON in Azure Cosmos DB
@@ -162,7 +163,7 @@ Azure Cosmos DB supports two helpful type checking system functions for `null` a
 * [IS_NULL](sql-query-is-null.md) - checks if a property value is `null`
 * [IS_DEFINED](sql-query-is-defined.md) - checks if a property value is defined
 
-You can learn about [supported operators](sql-query-operators.md) and their behavior for `null` and `undefined` values.
+You can learn about [supported operators](sql-query-equality-comparison-operators.md) and their behavior for `null` and `undefined` values.
 
 ## Reserved keywords and special characters in JSON
 

@@ -22,7 +22,6 @@ Learn more about the Azure AD integration flow on the [Azure Active Directory in
 * AKS-managed Azure AD integration can't be disabled
 * Changing a AKS-managed Azure AD integrated cluster to legacy AAD is not supported
 * Clusters without Kubernetes RBAC enabled aren't supported for AKS-managed Azure AD integration
-* Changing the Azure AD tenant associated with AKS-managed Azure AD integration isn't supported
 
 ## Prerequisites
 
@@ -191,7 +190,7 @@ When deploying an AKS Cluster, local accounts are enabled by default. Even when 
 > On clusters with Azure AD integration enabled, users belonging to a group specified by `aad-admin-group-object-ids` will still be able to gain access via non-admin credentials. On clusters without Azure AD integration enabled and `properties.disableLocalAccounts` set to true, obtaining both user and admin credentials will fail.
 
 > [!NOTE]
-> After disabling local accounts users on an already existing AKS cluster where users might have used local account/s, admin must [rotate the cluster certificates](https://docs.microsoft.com/azure/aks/certificate-rotation#rotate-your-cluster-certificates), in order to revoke the certificates those users might have access to.  If this is a new cluster than no action is required.
+> After disabling local accounts users on an already existing AKS cluster where users might have used local account/s, admin must [rotate the cluster certificates](certificate-rotation.md), in order to revoke the certificates those users might have access to.  If this is a new cluster then no action is required.
 
 ### Create a new cluster without local accounts
 

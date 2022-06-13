@@ -3,8 +3,8 @@ title: Send alerts from Azure Application Insights | Microsoft Docs
 description: Tutorial to send alerts in response to errors in your application using Azure Application Insights.
 ms.topic: tutorial
 ms.date: 04/10/2019
-
 ms.custom: mvc
+ms.reviewer: vitalyg
 ---
 
 # Monitor and alert on application health with Azure Application Insights

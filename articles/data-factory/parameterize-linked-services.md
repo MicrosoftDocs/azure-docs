@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 06/09/2022
 author: chez-charlie
 ms.author: chez
 ---
@@ -27,7 +27,7 @@ You can use the UI in the Azure portal or a programming interface to parameteriz
 
 For a seven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
+> [!VIDEO https://docs.microsoft.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
 ## Supported linked service types
 
@@ -40,19 +40,32 @@ All the linked service types are supported for parameterization.
 - Amazon S3 Compatible Storage
 - Azure Blob Storage
 - Azure Cosmos DB (SQL API)
+- Azure Data Explorer
+- Azure Data Lake Storage Gen1
 - Azure Data Lake Storage Gen2
 - Azure Database for MySQL
+- Azure Database for PostgreSQL
 - Azure Databricks
+- Azure File Storage
+- Azure Function
 - Azure Key Vault
 - Azure SQL Database
 - Azure SQL Managed Instance
 - Azure Synapse Analytics 
 - Azure Table Storage
+- File System
+- FTP
 - Generic HTTP
 - Generic REST
 - MySQL
+- OData 
 - Oracle
 - Oracle Cloud Storage
+- PostgreSQL
+- Salesforce
+- Salesforce Service Cloud
+- SFTP
+- SharePoint Online List
 - SQL Server
 
 **Advanced authoring:** For other linked service types that are not in above list, you can parameterize the linked service by editing the JSON on UI:
@@ -66,15 +79,15 @@ Refer to the [JSON sample](#json) to add ` parameters` section to define paramet
 
 # [Azure Data Factory](#tab/data-factory)
 
-:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-1.png" alt-text="Add dynamic content to the Linked Service definition":::
+:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-1.png" alt-text="Add dynamic content to the Linked Service definition" lightbox="media/parameterize-linked-services/parameterize-linked-services-image-1.png":::
 
-:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-2.png" alt-text="Create a new parameter":::
+:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-2.png" alt-text="Create a new parameter" lightbox="media/parameterize-linked-services/parameterize-linked-services-image-2.png":::
 
 # [Azure Synapse](#tab/synapse-analytics)
 
-:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-1-synapse.png" alt-text="Add dynamic content to the Linked Service definition":::
+:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-1-synapse.png" alt-text="Add dynamic content to the Linked Service definition" lightbox="media/parameterize-linked-services/parameterize-linked-services-image-1-synapse.png":::
 
-:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-2-synapse.png" alt-text="Create a new parameter":::
+:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-2-synapse.png" alt-text="Create a new parameter" lightbox="media/parameterize-linked-services/parameterize-linked-services-image-2-synapse.png":::
 
 ---
 

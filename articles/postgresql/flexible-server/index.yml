@@ -1,13 +1,14 @@
 ### YamlMime:Landing
-title:  Flexible Server (Preview) documentation
-summary: "Azure Database for PostgreSQL - Flexible Server (Preview) is a fully managed PostgreSQL database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for PostgreSQL leveraging the open-source tools and platform of your choice. Learn how to use Flexible servers with our quickstarts, tutorials, and samples."
+title:  Flexible Server documentation
+summary: "Azure Database for PostgreSQL - Flexible Server is a fully managed PostgreSQL database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for PostgreSQL leveraging the open-source tools and platform of your choice. Learn how to use Flexible servers with our quickstarts, tutorials, and samples."
 metadata:
-  title: Azure Database for PostgreSQL - Flexible Server (Preview)
-  description: "Azure Database for PostgreSQL - Flexible Server (Preview) is a relational database service in the Microsoft cloud that is built for developers and powered by the PostgreSQL community edition."
+  title: Azure Database for PostgreSQL - Flexible Server
+  description: "Azure Database for PostgreSQL - Flexible Server  is a relational database service in the Microsoft cloud that is built for developers and powered by the PostgreSQL community edition."
   author: sunilagarwal
   ms.author: sunila
-  ms.date: 09/22/2020
+  ms.date: 11/30/2021
   ms.service: postgresql
+  ms.subservice: flexible-server
   ms.topic: landing-page
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -16,7 +17,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Flexible Server (Preview)
+  - title: About Flexible Server 
     linkLists:
       - linkListType: overview
         links:
@@ -62,6 +63,8 @@ landingContent:
             url: concepts-logical.md
           - text: Intelligent tuning
             url: concepts-intelligent-tuning.md
+          - text: Azure Advisor recommendations
+            url: concepts-azure-advisor-recommendations.md
       - linkListType: how-to-guide
         links:
           - text: Manage server

@@ -1,25 +1,21 @@
 ---
-title: 'Tutorial: Create Azure Database for MySQL Flexible Server (Preview) and Azure App Service Web App in same virtual network'
-description: Quickstart guide to create Azure Database for MySQL Flexible Server (Preview) with Web App in a virtual network
+title: 'Tutorial: Create Azure Database for MySQL Flexible Server and Azure App Service Web App in same virtual network'
+description: Quickstart guide to create Azure Database for MySQL Flexible Server with Web App in a virtual network
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Tutorial: Create an Azure Database for MySQL - Flexible Server (Preview) with App Services Web App in virtual network
+# Tutorial: Create an Azure Database for MySQL - Flexible Server with App Services Web App in virtual network
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
-
-
-This tutorial shows you how create a Azure App Service Web App with  MySQL Flexible Server (Preview) inside a [Virtual network](../../virtual-network/virtual-networks-overview.md).
+This tutorial shows you how create a Azure App Service Web App with  MySQL Flexible Server inside a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 
 In this tutorial you will learn how to:
 >[!div class="checklist"]
@@ -27,7 +23,7 @@ In this tutorial you will learn how to:
 > * Create a subnet to delegate to App Service
 > * Create a web app
 > * Add the web app to the virtual network
-> * Connect to Postgres from the web app 
+> * Connect to Postgres from the web app
 
 ## Prerequisites
 
@@ -35,7 +31,7 @@ In this tutorial you will learn how to:
 
 This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to login to your account using the [az login](/cli/azure/reference-index#az_login) command. Note the **id** property from the command output for the corresponding subscription name.
+You'll need to login to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property from the command output for the corresponding subscription name.
 
 ```azurecli
 az login
@@ -51,13 +47,13 @@ az account set --subscription <subscription ID>
 
 Create a private flexible server inside a virtual network (VNET) using the following command:
 ```azurecli
-az mysql flexible-server create --resource-group myresourcegroup --location westus2
+az mysql flexible-server create --resource-group myresourcegroup --location westus2 --vnet VNETName
 ```
 Copy the connection string and the name of the newly created virtual network. This command performs the following actions, which may take a few minutes:
 
 - Create the resource group if it doesn't already exist.
 - Generates a server name if it is not provided.
-- Create a new virtual network for your new MySQL server. Make a note of virtual network name and subnet name created for your server since you need to add the web app to the same virtual network.
+- Create a new virtual network, ```VNETName``` for your new MySQL server and subnet within this virtual network for the database server. Make sure the name is unique.
 - Creates admin username , password for your server if not provided.
 - Creates an empty database called **flexibleserverdb**
 
@@ -65,12 +61,12 @@ Copy the connection string and the name of the newly created virtual network. Th
 > Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az mysql flexible-server update``` command
 
 ## Create Subnet for App Service Endpoint
-We now need to have subnet that is delegated to App Service Web App endpoint. Run the following command to create a new subnet in the same virtual network as the database server was created. 
+We now need to have subnet that is delegated to App Service Web App endpoint. Run the following command to create a new subnet in the same virtual network as the database server was created.
 
 ```azurecli
 az network vnet subnet create -g myresourcegroup --vnet-name VNETName --name webappsubnetName  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms --service-endpoints Microsoft.Web
 ```
-Make a note of the virtual network name and subnet name after this command as would need it to add VNET integration rule for the web app after it is created. 
+Make a note of the virtual network name and subnet name after this command as would need it to add VNET integration rule for the web app after it is created.
 
 ## Create a web app
 
@@ -115,6 +111,12 @@ az webapp config appsettings set --settings DBHOST="<mysql-server-name>.mysql.da
 - Replace _&lt;username>_ and _&lt;password>_ with the credentials that the command also generated for you.
 - The resource group and app name are drawn from the cached values in the .azure/config file.
 - The command creates settings named DBHOST, DBNAME, DBUSER, and DBPASS. If your application code is using different name for the database information then use those names for the app settings as mentioned in the code.
+
+
+Configure the web app to allow all outbound connections from within the virtual network.
+```azurecli
+az webapp config set --name mywebapp --resource-group myresourcesourcegroup --generic-configurations '{"vnetRouteAllEnabled": true}'
+```
 
 ## Clean up resources
 

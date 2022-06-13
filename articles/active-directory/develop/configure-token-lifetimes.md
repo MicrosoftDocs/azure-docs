@@ -1,6 +1,5 @@
 ---
 title: Set lifetimes for tokens
-titleSuffix: Microsoft identity platform
 description: Learn how to set lifetimes for tokens issued by Microsoft identity platform. Learn how to learn how to manage an organization's default policy, create a policy for web sign-in, create a policy for a native app that calls a web API, and manage an advanced policy.
 services: active-directory
 author: rwike77
@@ -12,8 +11,8 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/08/2021
 ms.author: ryanwi
-ms.custom: aaddev, content-perf, FY21Q1
-ms.reviewer: hirsin, jlu, annaba
+ms.custom: aaddev, contperf-fy21q1
+ms.reviewer: ludwignick, jlu, annaba
 ---
 # Configure token lifetime policies (preview)
 You can specify the lifetime of an access, SAML, or ID token issued by Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. For more info, read [configurable token lifetimes](active-directory-configurable-token-lifetimes.md).

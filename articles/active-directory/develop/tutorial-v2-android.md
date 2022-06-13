@@ -1,6 +1,5 @@
 ---
-title: "Tutorial: Create an Android app that uses the Microsoft identity platform for authentication | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Create an Android app that uses the Microsoft identity platform for authentication"
 description: In this tutorial, you build an Android app that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
 author: mmacy
@@ -137,12 +136,12 @@ If you do not already have an Android application, follow these steps to set up 
     ```
 
     Substitute the package name you registered in the Azure portal for the `android:host=` value.
-    Substitute the key hash you registered in the Azure portal for the `android:path=` value. The Signature Hash should **not** be URL encoded. Ensure that there is a leading `/` at the beginning of your Signature Hash.
+    Substitute the key hash you registered in the Azure portal for the `android:path=` value. The Signature Hash should **not** be URL-encoded. Ensure that there is a leading `/` at the beginning of your Signature Hash.
     
-    The "Package Name" you will replace the `android:host` value with should look similar to: "com.azuresamples.msalandroidapp".
-    The "Signature Hash" you will replace your `android:path` value with should look similar to: "/1wIqXSqBj7w+h11ZifsnqwgyKrY=".
+    The "Package Name" you will replace the `android:host` value with should look similar to: `com.azuresamples.msalandroidapp`.
+    The "Signature Hash" you will replace your `android:path` value with should look similar to: `/1wIqXSqBj7w+h11ZifsnqwgyKrY=`.
     
-    You will also be able to find these values in the Authentication blade of your app registration. Note that your redirect URI will look similar to: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". While the Signature Hash is URL encoded at the end of this value, the Signature Hash should **not** be URL encoded in your `android:path` value.
+    You will also be able to find these values in the Authentication blade of your app registration. Note that your redirect URI will look similar to: `msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D`. While the Signature Hash is URL-encoded at the end of this value, the Signature Hash should **not** be URL-encoded in your `android:path` value.
 
 ## Use MSAL
 

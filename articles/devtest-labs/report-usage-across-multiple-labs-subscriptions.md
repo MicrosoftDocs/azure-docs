@@ -2,12 +2,14 @@
 title: Azure DevTest Labs usage across multiple labs and subscriptions
 description: Learn how to report Azure DevTest Labs usage across multiple labs and subscriptions.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 
 # Report Azure DevTest Labs usage across multiple labs and subscriptions
 
-Most large organizations want to track resource usage to be more effective with those resources by visualizing trends and outliers in the usage. Based on resource usage the lab owners or managers can customize the labs to [improve resource usage and costs](../cost-management-billing/cost-management-billing-overview.md). In Azure DevTest Labs, you can download resource usage per lab allowing a deeper historical look into the usage patterns. These usage patterns can help pinpoint changes to improve efficiency. Most enterprises want both individual lab usage and overall usage across [multiple labs and subscriptions](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+Most large organizations want to track resource usage, to be more effective in visualizing trends and outliers. Based on resource usage, lab owners or managers can customize labs to [improve resource usage and costs](../cost-management-billing/cost-management-billing-overview.md). In Azure DevTest Labs, you can download resource usage per lab, allowing a deeper historical look into usage patterns. These usage patterns help pinpoint changes to improve efficiency. Most enterprises want both individual lab usage and overall usage across [multiple labs and subscriptions](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 This article discusses how to handle resource usage information across multiple labs and subscriptions.
 
@@ -17,7 +19,7 @@ This article discusses how to handle resource usage information across multiple 
 
 This section discusses how to export resource usage for a single lab.
 
-Before you can export resource usage of DevTest Labs, you have to set up an Azure Storage account to allow the different files that contain the usage data to be stored. There are two common ways to execute the export of data:
+Before you can export DevTest Labs resource usage, you have to set up an Azure Storage account for the files that contain the usage data. There are two common ways to run data export:
 
 * [DevTest Labs REST API](/rest/api/dtl/labs/exportresourceusage) 
 * The PowerShell Az.Resource module [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) with the action of `exportResourceUsage`, the lab resource ID, and the necessary parameters. 
@@ -34,21 +36,21 @@ Currently there are two CSV files:
 * *virtualmachines.csv* - contains information about the virtual machines in the lab
 * *disks.csv* - contains information about the different disks in the lab 
 
-These files are stored in the *labresourceusage* blob container under the lab name, Lab unique ID, date executed, and either full or the start date that was based into the export request. An example blob structure would be:
+These files are stored in the *labresourceusage* blob container. The files are under the lab name, lab unique ID, date executed, and either `full` or the start date of the export request. An example blob structure is:
 
 * `labresourceusage/labname/1111aaaa-bbbb-cccc-dddd-2222eeee/<End>DD26-MM6-2019YYYY/full/virtualmachines.csv`
 * `labresourceusage/labname/1111aaaa-bbbb-cccc-dddd-2222eeee/<End>DD-MM-YYYY/26-6-2019/20-6-2019<Start>DD-MM-YYYY/virtualmachines.csv`
 
 ## Exporting usage for all labs
 
-To export the usage information for multiple labs consider using 
+To export the usage information for multiple labs, consider using: 
 
 * [Azure Functions](../azure-functions/index.yml), available in many languages, including PowerShell, or 
 * [Azure Automation runbook](../automation/index.yml), use PowerShell, Python, or a custom graphical designer to write the export code.
 
 Using these technologies, you can execute the individual lab exports on all the labs at a specific date and time. 
 
-Your Azure function should push the data to the longer-term storage. When exporting data for multiple labs the export may take some time. To help with performance and reduce the possibility of duplication of information, we recommend to execute each lab in parallel. To accomplish parallelism, run Azure Functions asynchronously. Also take advantage of the timer trigger that Azure Functions offer.
+Your Azure function should push the data to the longer-term storage. When you export data for multiple labs, the export may take some time. To help with performance and reduce the possibility of duplication of information, we recommend executing each lab in parallel. To accomplish parallelism, run Azure Functions asynchronously. Also take advantage of the timer trigger that Azure Functions offers.
 
 ## Using a long-term storage
 
@@ -56,11 +58,11 @@ A long-term storage consolidates the export information from different labs into
 
 The long-term storage can be used to do any text manipulation, for example: 
 
-* adding friendly names
-* creating complex groupings
-* aggregating the data.
+* Adding friendly names
+* Creating complex groupings
+* Aggregating the data
 
-Some common storage solutions are: [SQL Server](https://azure.microsoft.com/services/sql-database/), [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/), and [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Choosing which long-term storage solution you choose, depends on preference. You might consider choosing the tool depending what it offers in terms of interaction availability when visualizing the data.
+Some common storage solutions are: [SQL Server](https://azure.microsoft.com/services/sql-database/), [Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/), and [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). The long-term storage solution you choose depends on preference. You might consider choosing the tool depending what it offers for interaction availability when visualizing the data.
 
 ## Visualizing data and gathering insights
 
@@ -70,7 +72,7 @@ You can use [Azure Data Factory](https://azure.microsoft.com/services/data-facto
 
 ## Next Steps
 
-Once the system is set up and data is moving to the long-term storage, the next step is to come up with the questions that the data needs to answer. For example: 
+Once you set up the system and data is moving to the long-term storage, the next step is to come up with the questions that the data needs to answer. For example: 
 
 -	What is the VM size usage?
 

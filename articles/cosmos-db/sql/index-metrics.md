@@ -1,12 +1,13 @@
 ---
 title: Azure Cosmos DB indexing metrics
 description:  Learn how to obtain and interpret the indexing metrics in Azure Cosmos DB
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 10/05/2021
-ms.author: tisande
+ms.date: 10/25/2021
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ---
 # Indexing metrics in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -23,36 +24,23 @@ You can enable indexing metrics for a query by setting the `PopulateIndexMetrics
 ### .NET SDK example
 
 ```csharp
-    string sqlQuery = "SELECT TOP 10 c.id FROM c WHERE c.Item = 'value1234' AND c.Price > 2";
+    string sqlQueryText = "SELECT TOP 10 c.id FROM c WHERE c.Item = 'value1234' AND c.Price > 2";
 
-    List<Result> results = new List<Result>(); //Individual Benchmark results
+    QueryDefinition query = new QueryDefinition(sqlQueryText);
 
-    QueryDefinition query = new QueryDefinition(sqlQuery);
-
-    FeedIterator<Item> resultSetIterator = exampleApp.container.GetItemQueryIterator<Item>(
+    FeedIterator<Item> resultSetIterator = container.GetItemQueryIterator<Item>(
                 query, requestOptions: new QueryRequestOptions
         {
             PopulateIndexMetrics = true
         });
 
-    double requestCharge = 0;
-    tring indexMetrics = "";
-
     FeedResponse<Item> response = null;
 
     while (resultSetIterator.HasMoreResults)
         {
-            response = await resultSetIterator.ReadNextAsync();
-            requestCharge = requestCharge + response.RequestCharge;
-
-            if (indexMetrics != "")
-                {
-                    indexMetrics = response.IndexMetrics;
-                }
+          response = await resultSetIterator.ReadNextAsync();
+          Console.WriteLine(response.IndexMetrics);
         }
-
-    Console.WriteLine(response.IndexMetrics);
-    Console.WriteLine($"RU charge: " + response.RequestCharge);
 ```
 
 ### Example output
@@ -144,7 +132,7 @@ Index Utilization Information
     Index Impact Score: High
     ---
 ```
-These index metrics show that the query used the indexed paths `/name/?`, `/age/?`, `/town/?`, and `/timestamp/?`. The index metrics also indicate that there's a high likelihood that adding the composite indexes (`/name` ASC, `(/town ASC, /age ASC)` and `(/name ASC, /town ASC, /timestamp ASC)` will further improve performance.
+These index metrics show that the query used the indexed paths `/name/?`, `/age/?`, `/town/?`, and `/timestamp/?`. The index metrics also indicate that there's a high likelihood that adding the composite indexes `(/name ASC, /town ASC, /age ASC)` and `(/name ASC, /town ASC, /timestamp ASC)` will further improve performance.
 
 ## Next steps
 

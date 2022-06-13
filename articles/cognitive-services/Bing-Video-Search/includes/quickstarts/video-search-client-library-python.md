@@ -19,7 +19,7 @@ Use this quickstart to begin searching for news with the Bing Video Search clien
 - [Python](https://www.python.org/) 2.x or 3.x
 - The Bing Video Search client library for python
 
-It is recommended that you use a python [virtual environment](https://docs.python.org/3/tutorial/venv.html). You can install and initialize a virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). Install virtualenv for Python 2.7 with:
+It is recommended that you use a Python [virtual environment](https://docs.python.org/3/tutorial/venv.html). You can install and initialize a virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). Install virtualenv for Python 2.7 with:
 
 ```console
 python -m venv mytestenv

@@ -3,11 +3,11 @@ title: Configure your consulting service pricing and availability for the commer
 description: Configure consulting service offer price details and market availability in the Microsoft commercial marketplace using Partner Center. 
 author:  Microsoft-BradleyWright
 ms.author: brwrigh
-ms.reviewer: anbene
+ms.reviewer: emuench
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 11/30/2021
 ---
 
 # Configure consulting service offer pricing and availability

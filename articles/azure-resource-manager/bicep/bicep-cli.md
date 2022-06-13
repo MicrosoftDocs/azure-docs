@@ -2,13 +2,14 @@
 title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 03/15/2022
 ---
+
 # Bicep CLI commands
 
 This article describes the commands you can use in the Bicep CLI. You must have the [Bicep CLI installed](./install.md) to run the commands.
 
-This article shows how to run the commands in Azure CLI. If you're not using Azure CLI, run the commands without `az` at the start of the command. For example, `az bicep version` becomes ``bicep version``.
+You can either run the Bicep CLI commands through Azure CLI or by calling Bicep directly. This article shows how to run the commands in Azure CLI. When running through Azure CLI, you start the commands with `az`. If you're not using Azure CLI, run the commands without `az` at the start of the command. For example, `az bicep build` becomes `bicep build`.
 
 ## build
 
@@ -68,7 +69,7 @@ For more information about using this command, see [Decompiling ARM template JSO
 
 ## install
 
-The `install` command adds the Bicep CLI to your local environment. For more information, see [Install Bicep tools](install.md).
+The `install` command adds the Bicep CLI to your local environment. For more information, see [Install Bicep tools](install.md). This command is only available through Azure CLI.
 
 To install the latest version, use:
 
@@ -84,7 +85,7 @@ az bicep install --version v0.3.255
 
 ## list-versions
 
-The `list-versions` command returns all available versions of the Bicep CLI. Use this command to see if you want to [upgrade](#upgrade) or [install](#install) a new version.
+The `list-versions` command returns all available versions of the Bicep CLI. Use this command to see if you want to [upgrade](#upgrade) or [install](#install) a new version. This command is only available through Azure CLI.
 
 ```azurecli
 az bicep list-versions
@@ -123,16 +124,16 @@ To use the publish command, you must have Bicep CLI version **0.4.1008 or later*
 To publish a module to a registry, use:
 
 ```azurecli
-az bicep publish <bicep-file> --target br:<registry-name>.azurecr.io/<module-path>:<tag>
+az bicep publish --file <bicep-file> --target br:<registry-name>.azurecr.io/<module-path>:<tag>
 ```
 
 For example:
 
 ```azurecli
-az bicep publish storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
+az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
 ```
 
-The `publish` command doesn't recognize aliases that you've defined in a [bicepconfig.json](bicep-config.md) file. Provide the full module path.
+The `publish` command doesn't recognize aliases that you've defined in a [bicepconfig.json](bicep-config-modules.md) file. Provide the full module path.
 
 > [!WARNING]
 > Publishing to the same target overwrites the old module. We recommend that you increment the version when updating.
@@ -141,12 +142,14 @@ The `publish` command doesn't recognize aliases that you've defined in a [bicepc
 
 When your Bicep file uses modules that are published to a registry, the `restore` command gets copies of all the required modules from the registry. It stores those copies in a local cache. A Bicep file can only be built when the external files are available in the local cache. Typically, you don't need to run `restore` because it's called automatically by `build`.
 
-To use the restore command, you must have Bicep CLI version **0.4.1008 or later**.
+To restore external modules to the local cache, the account must have the correct permissions to access the registry. You can configure the credential precedence for authenticating to the registry in the [Bicep config file](./bicep-config-modules.md#credentials-for-publishingrestoring-modules).
+
+To use the restore command, you must have Bicep CLI version **0.4.1008 or later**. This command is currently only available when calling the Bicep CLI directly. It's not currently available through the Azure CLI command.
 
 To manually restore the external modules for a file, use:
 
-```azurecli
-az bicep restore <bicep-file>
+```powershell
+bicep restore <bicep-file>
 ```
 
 The Bicep file you provide is the file you wish to deploy. It must contain a module that links to a registry. For example, you can restore the following file:
@@ -160,15 +163,23 @@ module stgModule 'br:exampleregistry.azurecr.io/bicep/modules/storage:v1' = {
 }
 ```
 
-The local cache is found at:
+The local cache is found in:
 
-```path
-%USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
-```
+- On Windows
+
+    ```path
+    %USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
+    ```
+
+- On Linux
+
+    ```path
+    /home/<username>/.bicep
+    ```
 
 ## upgrade
 
-The `upgrade` command updates your installed version with the latest version.
+The `upgrade` command updates your installed version with the latest version. This command is only available through Azure CLI.
 
 ```azurecli
 az bicep upgrade
@@ -185,7 +196,13 @@ az bicep version
 The command shows the version number.
 
 ```azurecli
-Bicep CLI version 0.4.1 (e2387595c9)
+Bicep CLI version 0.4.1008 (223b8d227a)
+```
+
+To call this command directly through the Bicep CLI, use:
+
+```powershell
+bicep --version
 ```
 
 If you haven't installed Bicep CLI, you see an error indicating Bicep CLI wasn't found.
@@ -194,6 +211,6 @@ If you haven't installed Bicep CLI, you see an error indicating Bicep CLI wasn't
 
 To learn about deploying a Bicep file, see:
 
-* [Azure CLI](deploy-cli.md)
-* [Cloud Shell](deploy-cloud-shell.md)
-* [PowerShell](deploy-powershell.md)
+- [Azure CLI](deploy-cli.md)
+- [Cloud Shell](deploy-cloud-shell.md)
+- [PowerShell](deploy-powershell.md)

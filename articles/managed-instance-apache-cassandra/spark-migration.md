@@ -5,15 +5,11 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: tutorial
-ms.date: 08/17/2021
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Migrate to Azure Managed Instance for Apache Cassandra using Apache Spark
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Where possible, we recommend using Apache Cassandra native replication to migrate data from your existing cluster into Azure Managed Instance for Apache Cassandra by configuring a [hybrid cluster](configure-hybrid-cluster.md). This approach will use Apache Cassandra's gossip protocol to replicate data from your source data-center into your new managed instance datacenter. However, there may be some scenarios where your source database version isn't compatible, or a hybrid cluster setup is otherwise not feasible. 
 
@@ -99,7 +95,7 @@ DFfromSourceCassandra
 ```
 
 > [!NOTE]
-> If you have a need to preserve or backdate the `writetime` of each row, refer to the [live migration](dual-write-proxy-migration.md) article. 
+> If you have a need to preserve the original `writetime` of each row, refer to the [cassandra migrator](https://github.com/Azure-Samples/cassandra-migrator) sample. 
 
 ## Next steps
 

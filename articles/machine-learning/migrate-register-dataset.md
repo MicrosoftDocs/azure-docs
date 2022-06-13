@@ -4,11 +4,12 @@ description: Rebuild Studio (classic) datasets in Azure Machine Learning designe
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 02/04/2021
+ms.date: 10/21/2021
 ---
 
 # Migrate a Studio (classic) dataset to Azure Machine Learning
@@ -26,7 +27,7 @@ You have three options to migrate a dataset to Azure Machine Learning. Read each
 |Cloud storage     | Option 2: [Register a dataset from a cloud source](#import-data-from-cloud-sources). <br><br>  Option 3: [Use the Import Data module to get data from a cloud source](#import-data-from-cloud-sources).        |
 
 > [!NOTE]
-> Azure Machine Learning also supports [code-first workflows](how-to-create-register-datasets.md) for creating and managing datasets. 
+> Azure Machine Learning also supports [code-first workflows](./v1/how-to-create-register-datasets.md) for creating and managing datasets. 
 
 ## Prerequisites
 
@@ -53,7 +54,7 @@ To download datasets directly:
 1. Select the dataset(s) you want to download.
 1. In the bottom action bar, select **Download**.
 
-    ![Screenshot showing how to download a dataset in Studio (classic)](./media/migrate-register-dataset/download-dataset.png)
+    :::image type="content" source="./media/migrate-register-dataset/download-dataset.png" alt-text="AScreenshot showing how to download a dataset in Studio (classic)." lightbox = "./media/migrate-register-dataset/download-dataset.png":::
 
 For the following data types, you must use the **Convert to CSV** module to download datasets.
 
@@ -73,7 +74,7 @@ To convert your dataset to a CSV and download the results:
 1. Right-click the **Convert to CSV** module.
 1. Select **Results dataset** > **Download**.
 
-    ![Screenshot showing how to setup a convert to CSV pipeline](./media/migrate-register-dataset/csv-download-dataset.png)
+    :::image type="content" source="./media/migrate-register-dataset/csv-download-dataset.png" alt-text="Screenshot showing how to setup a convert to CSV pipeline." lightbox = "./media/migrate-register-dataset/csv-download-dataset.png":::
 
 ### Upload your dataset to Azure Machine Learning
 
@@ -82,7 +83,8 @@ After you download the data file, you can register the dataset in Azure Machine 
 1. Go to Azure Machine Learning studio ([ml.azure.com](https://ml.azure.com)).
 1. In the left navigation pane, select the **Datasets** tab.
 1. Select **Create dataset** > **From local files**.
-    ![Screenshot showing the datasets tab and the button for creating a local file](./media/migrate-register-dataset/register-dataset.png)
+
+    :::image type="content" source="./media/migrate-register-dataset/register-dataset.png" alt-text="Screenshot showing the datasets tab and the button for creating a local file.":::
 1. Enter a name and description.
 1. For **Dataset type**, select **Tabular**.
 

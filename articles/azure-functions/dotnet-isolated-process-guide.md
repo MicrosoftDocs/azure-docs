@@ -1,34 +1,32 @@
 ---
-title: .NET isolated process guide for .NET 5.0 in Azure Functions
-description: Learn how to use a .NET isolated process to run your C# functions on .NET 5.0 out-of-process in Azure.  
+title: Guide for running C# Azure Functions in an isolated process
+description: Learn how to use a .NET isolated process to run your C# functions in Azure, which supports .NET 5.0 and later versions.  
 
 ms.service: azure-functions
 ms.topic: conceptual 
-ms.date: 06/01/2021
+ms.date: 05/24/2022
 ms.custom: template-concept 
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated process so that I can run my function code on current (not LTS) releases of .NET.
 ---
 
-# Guide for running functions on .NET 5.0 in Azure
+# Guide for running C# Azure Functions in an isolated process
 
-This article is an introduction to using C# to develop .NET isolated process functions, which run out-of-process in Azure Functions. Running out-of-process lets you decouple your function code from the Azure Functions runtime. It also provides a way for you to create and run functions that target the current .NET 5.0 release. 
+This article is an introduction to using C# to develop .NET isolated process functions, which run out-of-process in Azure Functions. Running out-of-process lets you decouple your function code from the Azure Functions runtime. Isolated process C# functions run on .NET 5.0, .NET 6.0, and .NET Framework 4.8 (preview support). [In-process C# class library functions](functions-dotnet-class-library.md) aren't supported on .NET 5.0. 
 
 | Getting started | Concepts| Samples |
 |--|--|--| 
 | <ul><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md?tabs=isolated-process)</li><li>[Using command line tools](create-first-function-cli-csharp.md?tabs=isolated-process)</li><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md?tabs=isolated-process)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Reference samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
-If you don't need to support .NET 5.0 or run your functions out-of-process, you might want to instead [develop C# class library functions](functions-dotnet-class-library.md).
-
 ## Why .NET isolated process?
 
-Previously Azure Functions has only supported a tightly integrated mode for .NET functions, which run [as a class library](functions-dotnet-class-library.md) in the same process as the host. This mode provides deep integration between the host process and the functions. For example, .NET class library functions can share binding APIs and types. However, this integration also requires a tighter coupling between the host process and the .NET function. For example, .NET functions running in-process are required to run on the same version of .NET as the Functions runtime. To enable you to run outside these constraints, you can now choose to run in an isolated process. This process isolation also lets you develop functions that use current .NET releases (such as .NET 5.0), not natively supported by the Functions runtime.
+Previously Azure Functions has only supported a tightly integrated mode for .NET functions, which run [as a class library](functions-dotnet-class-library.md) in the same process as the host. This mode provides deep integration between the host process and the functions. For example, .NET class library functions can share binding APIs and types. However, this integration also requires a tighter coupling between the host process and the .NET function. For example, .NET functions running in-process are required to run on the same version of .NET as the Functions runtime. To enable you to run outside these constraints, you can now choose to run in an isolated process. This process isolation also lets you develop functions that use current .NET releases (such as .NET 5.0), not natively supported by the Functions runtime. Both isolated process and in-process C# class library functions run on .NET 6.0. To learn more, see [Supported versions](#supported-versions). 
 
 Because these functions run in a separate process, there are some [feature and functionality differences](#differences-with-net-class-library-functions) between .NET isolated function apps and .NET class library function apps.
 
 ### Benefits of running out-of-process
 
-When running out-of-process, your .NET functions can take advantage of the following benefits: 
+When your .NET functions run out-of-process, you can take advantage of the following benefits: 
 
 + Fewer conflicts: because the functions run in a separate process, assemblies used in your app won't conflict with different version of the same assemblies used by the host process.  
 + Full control of the process: you control the start-up of the app and can control the configurations used and the middleware started.
@@ -38,16 +36,22 @@ When running out-of-process, your .NET functions can take advantage of the follo
 
 ## .NET isolated project
 
-A .NET isolated function project is basically a .NET console app project that targets .NET 5.0. The following are the basic files required in any .NET isolated project:
+A .NET isolated function project is basically a .NET console app project that targets a supported .NET runtime. The following are the basic files required in any .NET isolated project:
 
 + [host.json](functions-host-json.md) file.
 + [local.settings.json](functions-develop-local.md#local-settings-file) file.
 + C# project file (.csproj) that defines the project and dependencies.
 + Program.cs file that's the entry point for the app.
++ Any code files [defining your functions](#bindings).
+ 
+For complete examples, see the [.NET 6 isolated sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/FunctionApp) and the [.NET Framework 4.8 isolated sample project](https://go.microsoft.com/fwlink/p/?linkid=2197310).
+
+> [!NOTE]
+> To be able to publish your isolated function project to either a Windows or a Linux function app in Azure, you must set a value of `dotnet-isolated` in the remote [FUNCTIONS_WORKER_RUNTIME](functions-app-settings.md#functions_worker_runtime) application setting. To support [zip deployment](deployment-zip-push.md) and [running from the deployment package](run-functions-from-deployment-package.md) on Linux, you also need to update the `linuxFxVersion` site config setting to `DOTNET-ISOLATED|6.0`. To learn more, see [Manual version updates on Linux](set-runtime-version.md#manual-version-updates-on-linux). 
 
 ## Package references
 
-When running out-of-process, your .NET project uses a unique set of packages, which implement both core functionality and binding extensions. 
+When your functions run out-of-process, your .NET project uses a unique set of packages, which implement both core functionality and binding extensions. 
 
 ### Core packages 
 
@@ -64,7 +68,7 @@ You'll find these extension packages under [Microsoft.Azure.Functions.Worker.Ext
 
 ## Start-up and configuration 
 
-When using .NET isolated functions, you have access to the start-up of your function app, which is usually in Program.cs. You're responsible for creating and starting your own host instance. As such, you also have direct access to the configuration pipeline for your app. When running out-of-process, you can much more easily add configurations, inject dependencies, and run your own middleware. 
+When using .NET isolated functions, you have access to the start-up of your function app, which is usually in Program.cs. You're responsible for creating and starting your own host instance. As such, you also have direct access to the configuration pipeline for your app. When you run your functions out-of-process, you can much more easily add configurations, inject dependencies, and run your own middleware. 
 
 The following code shows an example of a [HostBuilder] pipeline:
 
@@ -75,6 +79,9 @@ This code requires `using Microsoft.Extensions.DependencyInjection;`.
 A [HostBuilder] is used to build and return a fully initialized [IHost] instance, which you run asynchronously to start your function app. 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
+
+> [!IMPORTANT]
+> If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. See [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework) for more information.
 
 ### Configuration
 
@@ -111,6 +118,22 @@ The [ConfigureFunctionsWorkerDefaults] extension method has an overload that let
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
 
+ The `UseWhen` extension method can be used to register a middleware which gets executed conditionally. A predicate which returns a boolean value needs to be passed to this method and the middleware will be participating in the invocation processing pipeline if the return value of the predicate is true.
+
+The following extension methods on [FunctionContext] make it easier to work with middleware in the isolated model.
+
+| Method | Description |
+| ---- | ---- |
+| **`GetHttpRequestDataAsync`** | Gets the `HttpRequestData` instance when called by an HTTP trigger. This method returns an instance of `ValueTask<HttpRequestData?>`, which is useful when you want to read message data, such as request headers and cookies. |
+| **`GetHttpResponseData`** | Gets the `HttpResponseData` instance when called by an HTTP trigger. |
+|  **`GetInvocationResult`** | Gets an instance of `InvocationResult`, which represents the result of the current function execution. Use the `Value` property to get or set the value as needed. |
+|  **` GetOutputBindings`** | Gets the output binding entries for the current function execution. Each entry in the result of this method is of type `OutputBindingData`. You can use the `Value` property to get or set the value as needed. | 
+|  **` BindInputAsync`** | Binds an input binding item for the requested `BindingMetadata` instance. For example, you can use this method when you have a function with a `BlobInput` input binding that needs to be accessed or updated by your middleware. |
+
+The following is an example of a middleware implementation which reads the `HttpRequestData` instance and updates the `HttpResponseData` instance during function execution. This middleware checks for the presence of a specific request header(x-correlationId), and when present uses the header value to stamp a response header. Otherwise, it generates a new GUID value and uses that for stamping the response header.
+ 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/StampHttpHeaderMiddleware.cs" id="docsnippet_middleware_example_stampheader" :::
+ 
 For a more complete example of using custom middleware in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
 
 ## Execution context
@@ -173,13 +196,62 @@ Use various methods of [ILogger] to write various log levels, such as `LogWarnin
 
 An [ILogger] is also provided when using [dependency injection](#dependency-injection).
 
+## Debugging when targeting .NET Framework
+
+If your isolated project targets .NET Framework 4.8, the current preview scope requires manual steps to enable debugging. These steps are not required if using another target framework.
+
+Your app should start with a call to `FunctionsDebugger.Enable();` as its first operation. This occurs in the `Main()` method before initializing a HostBuilder. Your `Program.cs` file should look similar to the following:
+
+```csharp
+using System;
+using System.Diagnostics;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Azure.Functions.Worker;
+using NetFxWorker;
+
+namespace MyDotnetFrameworkProject
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            FunctionsDebugger.Enable();
+
+            var host = new HostBuilder()
+                .ConfigureFunctionsWorkerDefaults()
+                .Build();
+
+            host.Run();
+        }
+    }
+}
+```
+
+Next, you need to manually attach to the process using a .NET Framework debugger. Visual Studio doesn't do this automatically for isolated process .NET Framework apps yet, and the "Start Debugging" operation should be avoided.
+
+In your project directory (or its build output directory), run:
+
+```azurecli
+func host start --dotnet-isolated-debug
+```
+
+This will start your worker, and the process will stop with the following message:
+
+```azurecli
+Azure Functions .NET Worker (PID: <process id>) initialized in debug mode. Waiting for debugger to attach...
+```
+
+Where `<process id>` is the ID for your worker process. You can now use Visual Studio to manually attach to the process. For instructions on this operation, see [How to attach to a running process](/visualstudio/debugger/attach-to-running-processes-with-the-visual-studio-debugger#BKMK_Attach_to_a_running_process).
+
+Once the debugger is attached, the process execution will resume and you will be able to debug.
+
 ## Differences with .NET class library functions
 
-This section describes the current state of the functional and behavioral differences running on .NET 5.0 out-of-process compared to .NET class library functions running in-process:
+This section describes the current state of the functional and behavioral differences running on out-of-process compared to .NET class library functions running in-process:
 
-| Feature/behavior |  In-process (.NET Core 3.1) | Out-of-process (.NET 5.0) |
+| Feature/behavior |  In-process | Out-of-process  |
 | ---- | ---- | ---- |
-| .NET versions | LTS (.NET Core 3.1) | Current (.NET 5.0) |
+| .NET versions | .NET Core 3.1<br/>.NET 6.0 | .NET 5.0<br/>.NET 6.0<br/>.NET Framework 4.8 (Preview) |
 | Core packages | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | Binding extension packages | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | Under [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | Logging | [ILogger] passed to the function | [ILogger] obtained from [FunctionContext] |
@@ -188,18 +260,14 @@ This section describes the current state of the functional and behavioral differ
 | Output binding types |  `IAsyncCollector`, [DocumentClient], [BrokeredMessage], and other client-specific types | Simple types, JSON serializable types, and arrays. |
 | Multiple output bindings | Supported | [Supported](#multiple-output-bindings) |
 | HTTP trigger | [HttpRequest]/[ObjectResult] | [HttpRequestData]/[HttpResponseData] |
-| Durable Functions | [Supported](durable/durable-functions-overview.md) | Not supported | 
+| Durable Functions | [Supported](durable/durable-functions-overview.md) | [Supported (public preview)](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions) | 
 | Imperative bindings | [Supported](functions-dotnet-class-library.md#binding-at-runtime) | Not supported |
 | function.json artifact | Generated | Not generated |
 | Configuration | [host.json](functions-host-json.md) | [host.json](functions-host-json.md) and custom initialization |
 | Dependency injection | [Supported](functions-dotnet-dependency-injection.md)  | [Supported](#dependency-injection) |
 | Middleware | Not supported | Supported |
 | Cold start times | Typical | Longer, because of just-in-time start-up. Run on Linux instead of Windows to reduce potential delays. |
-| ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | _TBD_ |
-
-## Known issues
-
-For information on workarounds to know issues running .NET isolated process functions, see [this known issues page](https://aka.ms/AAbh18e). To report problems, [create an issue in this GitHub repository](https://github.com/Azure/azure-functions-dotnet-worker/issues/new/choose).  
+| ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | _TBD_ | 
 
 ## Next steps
 

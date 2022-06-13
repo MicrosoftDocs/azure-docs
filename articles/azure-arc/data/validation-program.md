@@ -62,7 +62,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| OpenShift 7.13 | 1.20.0 | v1.0.0_2021-07-30 | 15.0.2148.140 | postgres 12.3 (Ubuntu 12.3-1)|
+| OpenShift 4.7.13 | 1.20.0 | v1.0.0_2021-07-30 | 15.0.2148.140 | postgres 12.3 (Ubuntu 12.3-1)|
 
 ### VMware
 
@@ -107,4 +107,6 @@ More tests will be added in future releases of Azure Arc-enabled data services.
 
 ## Next steps
 
-[Create a data controller](create-data-controller.md)
+- [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
+- [Create a data controller - indirectly connected with the CLI](create-data-controller-indirect-cli.md)
+- To create a directly connected data controller, start with [Prerequisites to deploy the data controller in direct connectivity mode](create-data-controller-direct-prerequisites.md).

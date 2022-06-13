@@ -1,8 +1,8 @@
 ---
 title: Provision devices using symmetric keys - Azure IoT Hub Device Provisioning Service
 description: How to use symmetric keys to provision devices with your Device Provisioning Service (DPS) instance
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 04/23/2021
 ms.topic: conceptual
 ms.service: iot-dps
@@ -108,7 +108,7 @@ The SDK includes the sample code for the simulated device. This simulated device
 
 3. On **Add Enrollment Group**, enter the following information, and click the **Save** button.
 
-   - **Group name**: Enter **mylegacydevices**.
+   - **Group name**: Enter **mylegacydevices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
    - **Attestation Type**: Select **Symmetric Key**.
 
@@ -135,7 +135,7 @@ In this example, we use a combination of a MAC address and serial number forming
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Create unique registration IDs for each device. Valid characters are lowercase alphanumeric and dash ('-').
+Create unique registration IDs for each device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
 
 ## Derive a device key 
@@ -148,7 +148,7 @@ To generate device keys, use the enrollment group master key to compute an [HMAC
 
 # [Azure CLI](#tab/azure-cli)
 
-The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) command for generating derived device keys. This command can be used from a Windows-based or Linux systems, in PowerShell or a Bash shell.
+The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps#az-iot-dps-compute-device-key) command for generating derived device keys. This command can be used from a Windows-based or Linux systems, in PowerShell or a Bash shell.
 
 Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
 

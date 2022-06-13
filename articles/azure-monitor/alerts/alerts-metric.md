@@ -4,7 +4,7 @@ description: Learn how to use Azure portal or CLI to create, view, and manage me
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 2/23/2022
 ---
 # Create, view, and manage metric alerts using Azure Monitor
 
@@ -18,30 +18,30 @@ The following procedure describes how to create a metric alert rule in Azure por
 
 1. In [Azure portal](https://portal.azure.com), click on **Monitor**. The Monitor blade consolidates all your monitoring settings and data in one view.
 
-2. Click **Alerts** then click **+ New alert rule**.
+2. Click **Alerts**, then expand the **+ Create** menu and select **Alert rule**.
 
     > [!TIP]
-    > Most resource blades also have **Alerts** in their resource menu under **Monitoring**, you could create alerts from there as well.
+    > Most resource blades also have **Alerts** in their resource menu under **Monitoring**, you could create alert rules from there as well.
 
-3. Click **Select target**, in the context pane that loads, select a target resource that you want to alert on. Use **Subscription** and **Resource type** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
+3. In the **Scope** tab, click **Select scope**. Then, in the context pane that loads, select the target resource(s) that you want to alert on. Use **Filter by subscription**, **Filter by resource type**, and **Filter by location** drop-downs to find the resourcevirtual you want to monitor. You can also use the search bar to find your resource.
 
-4. If the selected resource has metrics you can create alerts on, **Available signals** on the bottom right will include metrics. You can view the full list of resource types supported for metric alerts in this [article](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+4. If the selected resource has metrics you can create alert rules on, **Available signal types** on the bottom right will include metrics. You can view the full list of resource types supported for metric alerts in this [article](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-5. Once you have selected a target resource, click on **Add condition**.
+5. Once you have selected a target resource, click **Done**.
 
-6. You will see a list of signals supported for the resource, select the metric you want to create an alert on.
+6. Proceed to the **Condition** tab. Then, in the context pane that loads, you will see a list of signals supported for the resource. Select the metric you want to create an alert on.
 
-7. You will see a chart for the metric for the last six hours. Use the **Chart period** dropdown to select to see longer history for the metric.
+7. You will see a chart showing the metric's behavior for the last six hours. Use the **Chart period** dropdown to select to see longer history for the metric.
 
-8. If the metric has dimensions, you will see a dimensions table presented. Select one or more values per dimension.
+8. If the metric has dimensions, you will see a dimensions table presented. Optionally, select one or more values per dimension.
     - The displayed dimension values are based on metric data from the last day.
     - If the dimension value you're looking for isn't displayed, click "Add custom value" to add a custom dimension value.
-    - You can also **Select all current and future values** for any of the dimensions. This will dynamically scale the selection to all current and future values for a dimension.
+    - You can also choose **Select all current and future values** for any of the dimensions. This will dynamically scale the selection to all current and future values for the dimension.
 
     The metric alert rule will evaluate the condition for all combinations of values selected. [Learn more about how alerting on multi-dimensional metrics works](./alerts-metric-overview.md).
     
     > [!NOTE]
-    > Using "All" as a dimension value is equivalent to selecting "All current and future values".
+    > Using "All" as a dimension value is equivalent to choosing "Select all current and future values".
 
 9. Select the **Threshold** type, **Operator**, and **Aggregation type**. This will determine the logic that the metric alert rule will evaluate.
     - If you are using a **Static** threshold, continue to define a **Threshold value**. The metric chart can help determine what might be a reasonable threshold.
@@ -53,34 +53,35 @@ The following procedure describes how to create a metric alert rule in Azure por
 
 12. Optionally, add another criteria if you want to monitor a complex alert rule. Currently users can have alert rules with Dynamic Thresholds criteria as a single criterion.
 
-13. Fill in **Alert details** like **Alert rule name**, **Description**, and **Severity**.
+13. Proceed to the **Actions** tab, where you can define what actions and notifications are triggered when the alert rule generates an alert. You can add an action group to the alert rule either by selecting an existing action group or by creating a new action group.
 
-14. Add an action group to the alert either by selecting an existing action group or creating a new action group.
+14. Proceed to the **Details** tab. Under **Project details**, select the subscription and resource group in which the alert rule resource will be saved. Under **Alert rule details**, specify the **Severity** and **Alert rule name**. You can also provide an **Alert rule description**, select if the alert rule should be enabled when created, and if it should **Automatically resolve alerts** (instructs the alert rule to maintain a state, and not fire continuously if there's already a fired alert on the same condition).
 
-15. Click **Done** to save the metric alert rule.
+15. Proceed to the **Tags**, where you can set tags on the alert rule you're creating.
+16. Proceed to the **Review + create** tab, where you can review your selections before creating the alert rule. A quick automatic validation will also be performed, notifying you in case any information or missing or needs to be correct. Once you're ready to create the alert rule, Click **Create**.
 
 
 ## View and manage with Azure portal
 
 You can view and manage metric alert rules using the Manage Rules blade under Alerts. The procedure below shows you how to view your metric alert rules and edit one of them.
 
-1. In Azure portal, navigate to **Monitor**
+1. In Azure portal, navigate to **Monitor**.
 
-2. Click on **Alerts** and **Manage rules**
+2. Click on **Alerts**, and then on **Alert rules**.
 
-3. In the **Manage rules** blade, you can view all your alert rules across subscriptions. You can further filter the rules using  **Resource group**, **Resource type**, and **Resource**. If you want to see only metric alerts, select **Signal type** as Metrics.
+3. In the **Alert rules** blade, you can view all your alert rules across subscriptions. You can further filter the rules using  **Resource group**, **Resource type**, and **Resource**. If you want to see only metric alerts, select **Signal type** as *Metrics*.
 
     > [!TIP]
-    > In the **Manage rules** blade, you can select multiple alert rules and enable/disable them. This might be useful when certain target resources need to be put under maintenance
+    > In the **Alert rules** blade, you can select multiple alert rules and enable/disable them. This might be useful when certain target resources need to be put under maintenance.
 
-4. Click on the name of the metric alert rule you want to edit
+4. Click on the name of the metric alert rule you want to edit.
 
-5. In the Edit Rule, click on the **Alert criteria** you want to edit. You can change the metric, threshold condition and other fields as required
+5. In this page, you can change various settingd of the alert rule.
 
     > [!NOTE]
     > You can't edit the **Alert Rule Name** after the metric alert rule is created.
 
-6. Click **Done** to save your edits.
+6. Click **Save** to save your edits.
 
 
 ## With Azure CLI

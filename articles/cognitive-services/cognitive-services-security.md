@@ -3,12 +3,12 @@ title: Azure Cognitive Services security
 titleSuffix: Azure Cognitive Services
 description: Learn about the various security considerations for Cognitive Services usage.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/28/2020
-ms.author: erhopf
+ms.author: pafarley
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 ---
 
@@ -197,6 +197,10 @@ NSString* value =
 Customer Lockbox is available for this service:
 
 * Translator
+* Conversational language understanding
+* Custom text classification
+* Custom named entity recognition
+* Orchestration workflow
 
 For the following services, Microsoft engineers will not access any customer data in the E0 tier: 
 

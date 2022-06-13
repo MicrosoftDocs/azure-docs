@@ -1,7 +1,6 @@
 ---
 title: Primary, foreign, and unique keys  
 description: Table constraints support using dedicated SQL pool in Azure Synapse Analytics
-services: synapse-analytics
 author: mstehrani
 manager: craigg 
 ms.service: synapse-analytics
@@ -9,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 09/05/2019
 ms.author: emtehran 
-ms.reviewer: nibruno; jrasnick
+ms.reviewer: nibruno; wiassaf
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
@@ -21,7 +20,7 @@ Learn about table constraints in dedicated SQL pool, including primary key, fore
 
 Dedicated SQL pool supports these table constraints: 
 - PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.    
-- UNIQUE constraint is only supported with NOT ENFORCED is used.
+- UNIQUE constraint is only supported when NOT ENFORCED is used.
 
 For syntax, check [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) and [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 

@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: v-erkel
+ms.author: v-erinkelly
 ---
 
 # Azure HPC Cache data ingest - parallel copy script method

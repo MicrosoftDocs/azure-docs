@@ -158,7 +158,7 @@ In order to enable Azure AD users to sign into Adobe Creative Cloud, they must b
 
 2. Add the user within Adobe’s console as Federated ID and assign them to a Product Profile. For detailed information on adding users, see [Add users in Adobe Admin Console](https://helpx.adobe.com/enterprise/using/users.html#Addusers).
 
-3. At this point, type your email address/upn into the Adobe sign in form, press tab, and you should be federated back to Azure AD:
+3. At this point, type your email address/UPN into the Adobe sign in form, press tab, and you should be federated back to Azure AD:
    * Web access: www\.adobe.com > sign-in
    * Within the desktop app utility > sign-in
    * Within the application > help > sign-in
@@ -175,4 +175,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Adobe Creative Cloud you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app)
+Once you configure Adobe Creative Cloud you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

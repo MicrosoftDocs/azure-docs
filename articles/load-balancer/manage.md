@@ -1,12 +1,12 @@
 ---
 title: Azure Load Balancer portal settings
 description: Get started learning about Azure Load Balancer portal settings
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/16/2021
-ms.author: allensu
+ms.author: greglin
 ---
 
 # Azure Load Balancer portal settings
@@ -157,11 +157,11 @@ If you selected **Create new** in the health probe configuration of the load-bal
 
 :::image type="content" source="./media/manage/add-health-probe.png" alt-text="Screenshot of add health probe." border="true":::
 
-In the **Inbound rules** tab of the create load balancer portal page, select **+ Add a an inbound nat rule** to open the creation page.
+In the **Inbound rules** tab of the create load balancer portal page, select **+ Add an inbound NAT rule** to open the creation page.
 
-#### **+ Add a an inbound nat rule**
+#### **+ Add an inbound NAT rule**
 
-The following is displayed in the **+ Add inbound NAT rule** creation page:
+The following is displayed in the **+ Add an inbound NAT rule** creation page:
 
 | Setting | Details |
 | ---------- | ---------- |

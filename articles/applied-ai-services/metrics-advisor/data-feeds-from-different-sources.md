@@ -195,13 +195,13 @@ The following sections specify the parameters required for all authentication ty
      
 * **Query**: To get and formulate data into multi-dimensional time series data, see [Kusto Query Language](/azure/data-explorer/kusto/query). You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted as follows: `yyyy-MM-ddTHH:mm:ssZ`.
 
-    Sample query:
+  Sample query:
     
-    ``` Kusto
-   [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
-   ```
+  ```kusto
+  [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
+  ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
+  For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
 
 ## <span id="adl">Azure Data Lake Storage Gen2</span>
 

@@ -1,8 +1,9 @@
 ---
 title: Red Hat JBoss EAP on Azure Best Practices
 description: The guide provides information on the best practices for using Red Hat JBoss Enterprise Application Platform in Microsoft Azure.
-author: theresa-nguyen
-ms.author: bicnguy
+author: m-reza-rahman
+ms.author: rezar
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jboss-eap, devx-track-javaee-jboss-eap-vms
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: redhat
@@ -101,7 +102,7 @@ The six plans include:
 - JBoss EAP 7.3 on RHEL 8.3 Clustered virtual machine scale sets (PAYG)
 - JBoss EAP 7.3 on RHEL 8.3 Clustered virtual machine scale sets (BYOS)
 
-:::image type="content" source="./media/red-hat-marketplace-image-1.png" alt-text="Image shows the the option to deploy the Red Hat image using the GitHub deploy link.":::
+:::image type="content" source="./media/red-hat-marketplace-image-1.png" alt-text="Image shows the option to deploy the Red Hat image using the GitHub deploy link.":::
 
 ### Azure Quickstart Templates
 
@@ -182,7 +183,7 @@ Configure JBoss EAP with load-balancing environment. Ensure that all balancers a
 
 ## Other best practices
 
-- As an administrator of a JBoss EAP setup on VM, ensuring that your VM is secure is important. It will significantly lower the risk of your guest and host OSs being infected by malicious software. Securing your VM reduces attack on JBoss EAP and malfunctioning of applications hosted on JBoss EAP. Control the access to the Azure VMs using features like [Azure Policy](https://azure.microsoft.com/services/azure-policy/) and [Azure Build-in Roles](../../../role-based-access-control/built-in-roles.md) in [Azure Role-Based Access control (RBAC)](../../../role-based-access-control/overview.md). Protect your VM against malware by installing Microsoft Antimalware or a Microsoft partner’s endpoint protection solution and integrating your antimalware solution with [Azure Security Center](https://azure.microsoft.com/services/security-center/) to monitor the status of your protection. In RHEL VMs, you can protect it by blocking port forwarding and blocking root login, which can be disabled in the */
+- As an administrator of a JBoss EAP setup on VM, ensuring that your VM is secure is important. It will significantly lower the risk of your guest and host OSs being infected by malicious software. Securing your VM reduces attack on JBoss EAP and malfunctioning of applications hosted on JBoss EAP. Control the access to the Azure VMs using features like [Azure Policy](https://azure.microsoft.com/services/azure-policy/) and [Azure Build-in Roles](../../../role-based-access-control/built-in-roles.md) in [Azure Role-Based Access control (RBAC)](../../../role-based-access-control/overview.md). Protect your VM against malware by installing Microsoft Antimalware or a Microsoft partner’s endpoint protection solution and integrating your antimalware solution with [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) to monitor the status of your protection. In RHEL VMs, you can protect it by blocking port forwarding and blocking root login, which can be disabled in the */
 
 
 - Use environment variables to make your experience easy and smooth with JBoss EAP on Azure VMs. For example, you can use EAP_HOME to denote the path to the JBoss EAP installation, which will be used several times. In such cases, environment variables will come in handy. Environment variables are also a common means of configuring services and handling web application secrets. When an environment variable is set from the shell using the export command, its existence ends when the user’s sessions ends. It's problematic when we need the variable to persist across sessions. To make an environment persistent for a user’s environment, we export the variable from the user’s profile script. Add the export command for every environment variable you want to persist in the bash_profile. If you want to set permanent Global environment variable for all the users who have access to the VM, you can add it to the default profile. It's recommended to store global environment variables in a directory named `/etc/profile.d`. The directory contains a list of files that are used to set environment variables for the entire system. Using the set command to set system environment variables in a Windows Server command prompt won't permanently set the environment variable. Use either the *setx* command, or the System interface in the Control Panel.
@@ -203,7 +204,7 @@ Once you've installed the JBoss EAP server, and you've created a management user
 
 ## Resource links and support
 
-For any support-related questions, issues or customization requirements, contact [Red Hat Support](https://access.redhat.com/support) or [Microsoft Azure Support](https://ms.portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+For any support-related questions, issues or customization requirements, contact [Red Hat Support](https://access.redhat.com/support) or [Microsoft Azure Support](https://portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 * Learn more about [JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/getting_started_with_jboss_eap_for_openshift_online/index)
 * Red Hat Subscription Manager (RHSM) [Cloud Access](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html-single/red_hat_cloud_access_reference_guide/index)

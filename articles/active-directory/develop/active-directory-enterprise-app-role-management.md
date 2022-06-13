@@ -1,6 +1,5 @@
 ---
-title: Configure role claim for enterprise Azure AD apps | Azure
-titleSuffix: Microsoft identity platform
+title: Configure role claim for enterprise Azure AD apps
 description: Learn how to configure the role claim issued in the SAML token for enterprise applications in Azure Active Directory
 services: active-directory
 author: jeevansd
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/15/2021
+ms.date: 11/11/2021
 ms.author: jeedes
 ---
 
@@ -89,6 +88,9 @@ Use this feature if your application expects custom roles in the SAML response r
         ![Details of the appRoles property](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
         If you're using the custom app (not the Azure Marketplace app), you see two default roles: user and msiam_access. For the Marketplace app, msiam_access is the only default role. You don't need to make any changes in the default roles.
+
+        > [!NOTE]
+        > When you are creating multiple roles, please don't modify the default role content just add the new msiam_access block of code for the new role.
 
     1. Generate new roles for your application.
 

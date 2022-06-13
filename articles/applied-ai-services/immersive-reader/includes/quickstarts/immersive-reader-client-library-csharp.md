@@ -3,13 +3,13 @@ title: Immersive Reader C# client library quickstart
 titleSuffix: Azure Applied AI Services
 description: In this quickstart, you build a web app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
-author: nitinme
+author: rwallerms
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
-ms.author: nitinme
+ms.author: rwaller
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -52,6 +52,9 @@ Right-click on the project in the _Solution Explorer_ and choose **Manage User S
 
 The following code uses objects from the **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet package so you'll need to add a reference to that package in your project.
 
+> [!IMPORTANT]
+> The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](/azure/active-directory/develop/msal-migration) for more details.
+
 Open the NuGet Package Manager Console from **Tools -> NuGet Package Manager -> Package Manager Console** and run the following command:
 
 ```powershell
@@ -72,7 +75,7 @@ Now, we'll configure the controller to obtain the Azure AD values from _secrets.
 private readonly string TenantId;     // Azure subscription TenantId
 private readonly string ClientId;     // Azure AD ApplicationId
 private readonly string ClientSecret; // Azure AD Application Service Principal password
-private readonly string Subdomain;    // Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
+private readonly string Subdomain;    // Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI PowerShell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 
 public HomeController(Microsoft.Extensions.Configuration.IConfiguration configuration)
 {
@@ -220,7 +223,7 @@ At the bottom of _Views\Home\Index.cshtml_, add the following code:
 ```html
 @section Scripts
 {
-    <script src="https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js"></script>
+    <script src="https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js"></script>
     <script>
         function getTokenAndSubdomainAsync() {
             return new Promise(function (resolve, reject) {

@@ -3,7 +3,7 @@ title: About service meshes
 description: Obtain an overview of service meshes, supported scenarios, selection criteria, and next steps to explore.
 author: pgibson
 ms.topic: article
-ms.date: 07/29/2021
+ms.date: 01/04/2022
 ms.author: pgibson
 ---
 
@@ -15,21 +15,21 @@ A service mesh provides capabilities like traffic management, resiliency, policy
 
 These are some of the scenarios that can be enabled for your workloads when you use a service mesh:
 
-- **Encrypt all traffic in cluster** - Enable mutual TLS between specified services in the cluster. This can be extended to ingress and egress at the network perimeter. Provides a secure by default option with no changes needed for application code and infrastructure.
+- **Encrypt all traffic in cluster** - Enable mutual TLS between specified services in the cluster. This can be extended to ingress and egress at the network perimeter, and provides a secure by default option with no changes needed for application code and infrastructure.
 
 - **Canary and phased rollouts** - Specify conditions for a subset of traffic to be routed to a set of new services in the cluster. On successful test of canary release, remove conditional routing and phase gradually increasing % of all traffic to new service. Eventually all traffic will be directed to new service.
 
-- **Traffic management and manipulation** - Create a policy on a service that will rate limit all traffic to a version of a service from a specific origin. Or a policy that applies a retry strategy to  classes of failures between specified services. Mirror live traffic to new versions of services during a migration or to debug issues. Inject faults between services in a test environment to test resiliency.
+- **Traffic management and manipulation** - Create a policy on a service that will rate limit all traffic to a version of a service from a specific origin, or a policy that applies a retry strategy to classes of failures between specified services. Mirror live traffic to new versions of services during a migration or to debug issues. Inject faults between services in a test environment to test resiliency.
 
-- **Observability** - Gain insight into how your services are connected the traffic that flows between them. Obtain metrics, logs, and traces for all traffic in cluster, and ingress/egress. Add distributed tracing abilities to your applications.
+- **Observability** - Gain insight into how your services are connected and the traffic that flows between them. Obtain metrics, logs, and traces for all traffic in cluster, including ingress/egress. Add distributed tracing abilities to your applications.
 
 ## Selection criteria
 
-Before you select a service mesh, ensure that you understand your requirements and the reasons for installing a service mesh. Ask the following questions.
+Before you select a service mesh, ensure that you understand your requirements and the reasons for installing a service mesh. Ask the following questions:
 
-- **Is an Ingress Controller sufficient for my needs?** - Sometimes having a capability like a/b testing or traffic splitting at the ingress is sufficient to support the required scenario. Don't add complexity to your environment with no upside.
+- **Is an Ingress Controller sufficient for my needs?** - Sometimes having a capability like A/B testing or traffic splitting at the ingress is sufficient to support the required scenario. Don't add complexity to your environment with no upside.
 
-- **Can my workloads and environment tolerate the additional overheads?** - All the additional components required to support the service mesh require additional resources like cpu and memory. In addition, all the proxies and their associated policy checks add latency to your traffic. If you have workloads that are very sensitive to latency or cannot provide the additional resources to cover the service mesh components, then re-consider.
+- **Can my workloads and environment tolerate the additional overheads?** - All the additional components required to support the service mesh require additional resources like CPU and memory. In addition, all the proxies and their associated policy checks add latency to your traffic. If you have workloads that are very sensitive to latency or cannot provide the additional resources to cover the service mesh components, then re-consider.
 
 - **Is this adding additional complexity unnecessarily?** - If the reason for installing a service mesh is to gain a capability that is not necessarily critical to the business or operational teams, then consider whether the additional complexity of installation, maintenance, and configuration is worth it.
 

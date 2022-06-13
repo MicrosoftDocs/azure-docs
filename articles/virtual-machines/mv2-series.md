@@ -1,12 +1,12 @@
 ---
 title: Mv2-series - Azure Virtual Machines
 description: Specifications for the Mv2-series VMs.
-author: ayshakeen
+author: lauradolan
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.author: jushiman
+ms.author: ayshak
 ---
 
 # Mv2-series
@@ -24,7 +24,8 @@ Mv2-series VM’s feature Intel® Hyper-Threading Technology
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Write Accelerator](./how-to-enable-write-accelerator.md): Supported<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): No Supported <br>
 <br>
 
 |Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs | Expected network bandwidth (Mbps) |

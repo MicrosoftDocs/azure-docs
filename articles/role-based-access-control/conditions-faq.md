@@ -3,12 +3,12 @@ title: FAQ for Azure role assignment conditions (preview)
 description: Frequently asked questions for Azure role assignment conditions (preview)
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/13/2021
+ms.date: 11/16/2021
 ms.author: rolyon
 
 #Customer intent: 
@@ -30,10 +30,6 @@ You must write the storage container name, blob path, tag name, or values in the
 **Can you group expressions?**
 
 If you add three or more expressions for a targeted action, you must define the logical grouping of those expressions in the code editor, Azure PowerShell, or Azure CLI. A logical grouping of `a AND b OR c` can be either `(a AND b) OR c` or `a AND (b OR c )`.
-
-**Can you add role assignments conditions at the management group scope?**
-  
-The Azure portal does not allow you to edit or view a condition at the management group scope. The **Condition** column isn't displayed for the management group scope. Azure PowerShell and Azure CLI does allow you to add conditions at management group scope.
 
 **Are conditions supported via Privileged Identity Management (PIM) for Azure resources in preview?**
 

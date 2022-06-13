@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Overview of the guest configuration extension
 
-The Guest Configuration extension is a component Azure Policy that performs audit and configuration operations inside virtual machines.
+The Guest Configuration extension is a component of Azure Policy that performs audit and configuration operations inside virtual machines.
 Policies such as security baseline definitions for 
 [Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd)
 and [Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc)
@@ -59,6 +59,13 @@ of property _autoUpgradeMinorVersion_ defaults to "true" unless it is otherwise
 specified. You do not need to worry about updating your code when
 new versions of the extension are released.
 
+## Automatic upgrade
+
+The guest configuration extension supports property `enableAutomaticUpgrade`. When this
+property is set to `true`, Azure will automatically upgrade to the latest version
+of the extension as future releases become available. For more information, see the page
+[Automatic Extension Upgrade for VMs and Scale Sets in Azure](../automatic-extension-upgrade.md)
+
 ### Azure Policy
 
 To deploy the latest version of the extension at scale including identity requirements,
@@ -72,13 +79,13 @@ To deploy the extension for Linux:
 
 
 ```azurecli
-az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforLinux --extension-instance-name AzurePolicyforLinux --resource-group myResourceGroup --vm-name myVM
+az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforLinux --extension-instance-name AzurePolicyforLinux --resource-group myResourceGroup --vm-name myVM --enable-auto-upgrade true
 ```
 
 To deploy the extension for Windows:
 
 ```azurecli
-az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforWindows --extension-instance-name AzurePolicyforWindows --resource-group myResourceGroup --vm-name myVM
+az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforWindows --extension-instance-name AzurePolicyforWindows --resource-group myResourceGroup --vm-name myVM --enable-auto-upgrade true
 ```
 
 ### PowerShell
@@ -92,7 +99,7 @@ Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'Configuration
 To deploy the extension for Windows:
 
 ```powershell
-Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM' --enable-auto-upgrade
+Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM' -EnableAutomaticUpgrade $true
 ```
 
 ### Resource Manager template
@@ -228,6 +235,20 @@ resources. For example, the
 and
 [ConfigurationSetting](/rest/api/guestconfiguration/guestconfigurationassignments/createorupdate#configurationsetting)
 properties are each managed per-configuration rather than on the VM extension.
+
+## Guest Configuration resource provider error codes
+
+See below for a list of the possible error messages when enabling the extension
+
+|Error Code|Description|
+|-|-|
+|NoComplianceReport|VM has not reported the compliance data.|
+|GCExtensionMissing|Guest Configuration extension is missing.|
+|ManagedIdentityMissing|Managed identity is missing.|
+|UserIdentityMissing|User assigned identity is missing.|
+|GCExtensionManagedIdentityMissing|Guest Configuration extension and managed identity is missing.|
+|GCExtensionUserIdentityMissing|Guest Configuration extension and user identity is missing.|
+|GCExtensionIdentityMissing|Guest Configuration extension, managed identity and user identity are missing.|
 
 ## Next steps
 

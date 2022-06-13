@@ -547,9 +547,9 @@
 			<text x="4" y="465.1" class="st43">8 NCLs applied</text>		</g>
 		<g id="shape1228-158" transform="translate(301.281,-127.986)">
 			<title>Art caption, FL.1228</title>
-			<desc>4 NCLs applied</desc>
+			<desc>8 NCLs applied</desc>
 			<rect x="0" y="453" width="69.8766" height="19.2771" class="st36"/>
-			<text x="4" y="465.1" class="st43">4 NCLs applied</text>		</g>
+			<text x="4" y="465.1" class="st43">8 NCLs applied</text>		</g>
 		<g id="shape1229-161" transform="translate(490.544,-173.625)">
 			<title>Art caption, FL.1229</title>
 			<desc>Customer bill</desc>
@@ -612,15 +612,15 @@
 			<text x="4" y="465.1" class="st46">Standard AHB <tspan x="4" dy="1.2em" class="st38">meter $0*8</tspan></text>		</g>
 		<g id="shape1243-220" transform="translate(412.719,-133.459)">
 			<title>Art caption, FL.1243</title>
-			<desc>Hyperscale AHB meter $0*4</desc>
+			<desc>Hyperscale AHB meter $0*8</desc>
 			<rect x="0" y="453" width="69.8766" height="19.2771" class="st36"/>
-			<text x="4" y="465.1" class="st46">Hyperscale AHB <tspan x="4" dy="1.2em" class="st38">meter $0*4</tspan></text>		</g>
+			<text x="4" y="465.1" class="st46">Hyperscale AHB <tspan x="4" dy="1.2em" class="st38">meter $0*8</tspan></text>		</g>
 		<g id="shape1244-224" transform="translate(34.6758,-373.875)">
 			<title>Art caption, FL.1244</title>
 			<desc>Assigned SQL Enterprise licenses: 5 Assigned SQL Standard lic...</desc>
 			<rect x="0" y="453" width="156.438" height="19.2771" class="st36"/>
 			<text x="4" y="465.1" class="st43">Assigned SQL Enterprise licenses: 5<tspan x="4" dy="1.2em" class="st38">Assigned SQL Standard licenses: 15 </tspan><tspan
-						x="4" dy="1.2em" class="st38">NCL count: 35 </tspan><tspan x="4" dy="1.2em" class="st38">Unused NLCs: 7</tspan></text>		</g>
+						x="4" dy="1.2em" class="st38">NCL count: 35 </tspan><tspan x="4" dy="1.2em" class="st38">Unused NLCs: 3</tspan></text>		</g>
 		<g id="shape1245-230" transform="translate(346.875,-315.375)">
 			<title>Arrow Dyn Connector.1245</title>
 			<path d="M0 472.28 L0 402.53 A4.5 4.5 -180 0 0 -4.5 398.03 L-124.34 398.03" class="st44"/>

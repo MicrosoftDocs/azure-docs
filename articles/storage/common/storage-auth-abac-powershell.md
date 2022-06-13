@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: rolyon
 ms.reviewer: 
 ms.subservice: common
-ms.date: 05/06/2021
+ms.date: 11/16/2021
 
 #Customer intent:
 
@@ -51,7 +51,7 @@ Here is what the condition looks like in code:
     (
         !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}
         AND
-        @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})
+        SubOperationMatches{'Blob.Read.WithTagConditions'})
     )
     OR
     (
@@ -172,7 +172,7 @@ Here is what the condition looks like in code:
 1. Initialize the condition.
 
     ```azurepowershell
-    $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
+    $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
     ```
 
     In PowerShell, if your condition includes a dollar sign ($), you must prefix it with a backtick (\`). For example, this condition uses dollar signs to delineate the tag key name.
@@ -206,7 +206,7 @@ Here is what the condition looks like in code:
     Description        : Read access to blobs with the tag Project=Cascade
     ConditionVersion   : 2.0
     Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND
-                         @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR
+                         SubOperationMatches{'Blob.Read.WithTagConditions'})) OR
                          (@Resource[Microsoft.Storage/storageAccounts/blobServices/co
                          ntainers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'))
     ```
@@ -299,7 +299,7 @@ Here is what the condition looks like in code:
 1. Edit the condition.
 
     ```azurepowershell
-    $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade' OR @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Baker'))"
+    $condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade' OR @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Baker'))"
     ```
 
 1. Initialize the condition and description.
@@ -331,7 +331,7 @@ Here is what the condition looks like in code:
     Description        : Read access to blobs with the tag Project=Cascade or Project=Baker
     ConditionVersion   : 2.0
     Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND
-                         @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})) OR
+                         SubOperationMatches{'Blob.Read.WithTagConditions'})) OR
                          (@Resource[Microsoft.Storage/storageAccounts/blobServices/co
                          ntainers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade' OR @Resource[Microsoft.S
                          torage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]

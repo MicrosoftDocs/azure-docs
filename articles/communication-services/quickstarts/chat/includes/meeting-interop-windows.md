@@ -42,13 +42,13 @@ Install-Package Azure.Communication.Identity -Version 1.0.1
 5. With the Communication Services resource procured in pre-requisites, add the connectionstring to the **ChatTeamsInteropQuickStart/MainPage.xaml.cs** file. 
 
 ``` csharp
-//ACS resource connection string i.e = "endpoint=https://your-resource.communication.azure.net/;accesskey=your-access-key";
+//Azure Communication Services resource connection string i.e = "endpoint=https://your-resource.communication.azure.net/;accesskey=your-access-key";
 private const string connectionString_ = "";
 ```
 
 > [!IMPORTANT]
 > * Select the proper platform from the 'Solution Platforms' dropdown list in Visual Studio <b>before</b> running the code. i.e `x64`
-> * Make sure you have the 'Developer Mode' in Windows 10 enabled [(Developer Settings)](https://docs.microsoft.com/windows/apps/get-started/enable-your-device-for-development)
+> * Make sure you have the 'Developer Mode' in Windows 10 enabled [(Developer Settings)](/windows/apps/get-started/enable-your-device-for-development)
 >  
 >  *The next steps will not work if this is not configured properly*
 
@@ -63,7 +63,7 @@ private const string connectionString_ = "";
 
 ```csharp
         /// <summary>
-        /// Backgroung task that keeps polling for chat messages while the call connection is stablished
+        /// Background task that keeps polling for chat messages while the call connection is stablished
         /// </summary>
         private async Task StartPollingForChatMessages()
         {
@@ -110,7 +110,7 @@ private const string connectionString_ = "";
                         }
 
                         await SetInCallState(true);
-                        Thread.Sleep(3000);
+                        await Task.Delay(3000);
                     }
                     catch (Exception e)
                     {

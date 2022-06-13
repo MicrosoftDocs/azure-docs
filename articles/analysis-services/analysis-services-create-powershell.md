@@ -7,10 +7,7 @@ ms.reviewer: minewiskan
 ms.date: 10/12/2021
 ms.topic: quickstart
 ms.service: azure-analysis-services
-ms.custom: devx-track-azurepowershell
-  - references_regions
-  - devx-track-azurepowershell
-  - mode-api
+ms.custom: references_regions, devx-track-azurepowershell, mode-api
 #Customer intent: As a BI developer, I want to create an Azure Analysis Services server by using PowerShell.
 ---
 

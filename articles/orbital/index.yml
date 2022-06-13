@@ -1,0 +1,77 @@
+### YamlMime:Landing
+
+title: Azure Orbital documentation
+summary: Azure Orbital is a cloud-based Ground Station as a Service that allows you to streamline your operations by ingesting space data directly into Azure.
+
+metadata:
+  title: Azure Orbital documentation
+  description: Azure Orbital is a cloud-based Ground Station as a Service that allows you to streamline your operations by ingesting space data directly into Azure.
+  ms.service: orbital
+  ms.topic: landing-page
+  author: wamota
+  ms.author: wamota
+  ms.date: 11/16/2021
+  ms.custom: public-preview
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Orbital
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Why use Azure Orbital?
+            url: overview.md
+
+  # Card
+  - title: Get started with Earth Observation
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Onboard to the Azure Orbital Preview
+            url: orbital-preview.md
+      - linkListType: quickstart
+        links:
+          - text: Register Spacecraft 
+            url: register-spacecraft.md
+          - text: Configure a Contact Profile
+            url: contact-profile.md
+          - text: Schedule a Contact
+            url: schedule-contact.md
+
+  # Card
+  - title: Manage your resources
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Update the Spacecraft TLE
+            url: update-tle.md
+          - text: Cancel a Contact
+            url: delete-contact.md
+
+  # Card
+  - title: Azure Space Partner Program
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the Space Partner Program?
+            url: space-partner-program-overview.md
+            
+  # Card
+  - title: Learn how to downlink from a public satellite
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Schedule a contact with NASA's AQUA public satellite
+            url: howto-downlink-aqua.md
+
+  # Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Geospatial Reference Architecture
+            url: geospatial-reference-architecture.md

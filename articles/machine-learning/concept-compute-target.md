@@ -8,7 +8,8 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2021
+ms.date: 10/21/2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -52,7 +53,6 @@ You can create Azure Machine Learning compute instances or compute clusters from
     * [Compute instance](how-to-create-manage-compute-instance.md).
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
 * An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
-* A machine learning [extension for the Azure CLI](reference-azure-machine-learning-cli.md#resource-management).
 
 When created, these compute resources are automatically part of your workspace, unlike other kinds of compute targets.
 
@@ -88,6 +88,7 @@ See the following table to learn more about supported series and restrictions.
 | [DSv3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | None.| General purpose | Compute clusters and instance |
 | [EAv4](../virtual-machines/eav4-easv4-series.md) | None. | Memory optimized | Compute clusters and instance |
 | [Ev3](../virtual-machines/ev3-esv3-series.md) | None. | Memory optimized | Compute clusters and instance |
+| [ESv3](../virtual-machines/ev3-esv3-series.md) | None. | Memory optimized | Compute clusters and instance |
 | [FSv2](../virtual-machines/fsv2-series.md) | None. | Compute optimized | Compute clusters and instance |
 | [FX](../virtual-machines/fx-series.md) | Requires approval. | Compute optimized | Compute clusters |
 | [H](../virtual-machines/h-series.md) | None. | High performance compute | Compute clusters and instance |
@@ -95,7 +96,7 @@ See the following table to learn more about supported series and restrictions.
 | [HBv2](../virtual-machines/hbv2-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
 | [HBv3](../virtual-machines/hbv3-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
 | [HC](../virtual-machines/hc-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
-| [LSv2](../virtual-machines/lsv2-series.md) | None. |  Storage oprimized | Compute clusters and instance |
+| [LSv2](../virtual-machines/lsv2-series.md) | None. |  Storage optimized | Compute clusters and instance |
 | [M](../virtual-machines/m-series.md) | Requires approval. | Memory optimized | Compute clusters and instance |
 | [NC](../virtual-machines/nc-series.md) | None. |  GPU | Compute clusters and instance |
 | [NC Promo](../virtual-machines/nc-series.md) | None. | GPU | Compute clusters and instance |
@@ -114,7 +115,7 @@ While Azure Machine Learning supports these VM series, they might not be availab
 > [!NOTE]
 > Azure Machine Learning doesn't support all VM sizes that Azure Compute supports. To list the available VM sizes, use one of the following methods:
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
+> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#azureml-core-compute-amlcompute-amlcompute-supported-vmsizes)
 >
 
 If using the GPU-enabled compute targets, it is important to ensure that the correct CUDA drivers are installed in the training environment. Use the following table to determine the correct CUDA version to use:
@@ -130,8 +131,8 @@ If using the GPU-enabled compute targets, it is important to ensure that the cor
 
 In addition to ensuring the CUDA version and hardware are compatible, also ensure that the CUDA version is compatible with the version of the machine learning framework you are using: 
 
-- For PyTorch, you can check the compatibility [here](https://pytorch.org/get-started/previous-versions/). 
-- For Tensorflow, you can check the compatibility [here](https://www.tensorflow.org/install/source#gpu).
+- For PyTorch, you can check the compatibility by visiting [Pytorch's previous versions page](https://pytorch.org/get-started/previous-versions/). 
+- For Tensorflow, you can check the compatibility by visiting [Tensorflow's build from source page](https://www.tensorflow.org/install/source#gpu).
 
 ### Compute isolation
 
@@ -161,7 +162,7 @@ Azure Machine Learning supports the following unmanaged compute types:
 * Azure Databricks
 * Azure Data Lake Analytics
 * Azure Container Instance
-* Azure Kubernetes Service & Azure Arc-enabled Kubernetes (preview)
+* Kubernetes
 
 For more information, see [set up compute targets for model training and deployment](how-to-attach-compute-targets.md)
 

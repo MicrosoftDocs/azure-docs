@@ -6,8 +6,9 @@ ms.author: mansha
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-ms.date: 12/03/2018
-ms.reviewer: sngun
+ms.date: 02/16/2022
+ms.reviewer: mjbrown
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -23,7 +24,7 @@ This article covers the following tasks:
 
 ## Prerequisites
 
-For these queries to work, you must have an Azure Cosmos DB account and have graph data in the container. Don't have any of those? Complete the [5-minute quickstart](create-graph-dotnet.md) or the [developer tutorial](tutorial-query-graph.md) to create an account and populate your database. You can run the following queries using the [Gremlin console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), or your favorite Gremlin driver.
+For these queries to work, you must have an Azure Cosmos DB account and have graph data in the container. Don't have any of those? Complete the [5-minute quickstart](create-graph-dotnet.md) to create an account and populate your database. You can run the following queries using the [Gremlin console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), or your favorite Gremlin driver.
 
 ## Count vertices in the graph
 
@@ -46,7 +47,7 @@ g.V().hasLabel('person').has('age', gt(40))
 You can project certain properties in the query results using the `values` step:
 
 ```
-g.V().hasLabel('person').values('firstName')
+g.V().hasLabel('person').values('name')
 ```
 
 ## Find related edges and vertices

@@ -1,13 +1,13 @@
 ---
 title: Upgrade Azure IoT Hub | Microsoft Docs
 description: Change the pricing and scale tier for IoT Hub to get more messaging and device management capabilities. 
-author: robinsh
+author: kgremban
 
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: robinsh
+ms.author: kgremban
 ---
 # How to upgrade your IoT hub
 
@@ -31,13 +31,9 @@ These examples are meant to help you understand how to adjust your IoT hub as yo
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT hub.
 
-2. Select **Pricing and scale**.
-
-   ![Pricing and scale](./media/iot-hub-upgrade/pricing-scale.png)
+2. Select **Pricing and scale** from the left navigation pane.
 
 3. To change the tier for your hub, select **Pricing and scale tier**. Choose the new tier, then click **select**.
-
-   ![Pricing and scale tier](./media/iot-hub-upgrade/select-tier.png)
 
 4. To change the number of units in your hub, enter a new value under **IoT Hub units**.
 

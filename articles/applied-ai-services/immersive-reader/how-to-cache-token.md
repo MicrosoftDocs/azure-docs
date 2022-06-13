@@ -2,14 +2,14 @@
 title: "Cache the authentication token"
 titleSuffix: Azure Applied AI Services
 description: This article will show you how to cache the authentication token.
-author: metanMSFT
-manager: guillasi
+author: rwallerms
+manager: nitinme
 
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 01/14/2020
-ms.author: metang
+ms.author: rwaller
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -20,6 +20,10 @@ This article demonstrates how to cache the authentication token in order to impr
 ## Using ASP.NET
 
 Import the **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet package, which is used to acquire a token. Next, use the following code to acquire an `AuthenticationResult`, using the authentication values you got when you [created the Immersive Reader resource](./how-to-create-immersive-reader.md).
+
+> [!IMPORTANT]
+> The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](/azure/active-directory/develop/msal-migration) for more details.
+
 
 ```csharp
 private async Task<AuthenticationResult> GetTokenAsync()

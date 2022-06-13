@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with X-point Cloud | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with X-point Cloud'
 description: Learn how to configure single sign-on between Azure Active Directory and X-point Cloud.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/23/2021
+ms.date: 11/16/2021
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with X-point Cloud
+# Tutorial: Azure A SSO integration with X-point Cloud
 
 In this tutorial, you'll learn how to integrate X-point Cloud with Azure Active Directory (Azure AD). When you integrate X-point Cloud with Azure AD, you can:
 
@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.atledcloud.jp/xpoint`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [X-point Cloud Client support team](mailto:x-point@atled.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Please match the `<SUBDOMAIN>` part of `https://<SUBDOMAIN>.atledcloud.jp` with the URL of the X-point you are using. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
@@ -117,11 +117,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure X-point Cloud SSO
 
-To configure single sign-on on **X-point Cloud** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [X-point Cloud support team](mailto:x-point@atled.jp). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the X-point Cloud side, you can use the downloaded **Certificate (Raw)** and the **Login URL** copied from the Azure portal into the **SAML service settings** in the X-point Cloud domain management menu. Set to Certificate of public key used by IdP to sign and SSO endpoint URL for IdP.
 
 ### Create X-point Cloud test user
 
-In this section, you create a user called Britta Simon in X-point Cloud. Work with [X-point Cloud support team](mailto:x-point@atled.jp) to add the users in the X-point Cloud platform. Users must be created and activated before you use single sign-on.
+In this section, you can use the **email addresses** of users registered with Azure AD in X-point Cloud.
+Create a user who has removed @ and beyond.
+For example "username@companydomain.extension", add "username" to X-point Cloud,
+Before you can use single sign-on, you must create and enable users.
+
 
 ## Test SSO 
 
@@ -135,4 +139,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure X-point Cloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure X-point Cloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

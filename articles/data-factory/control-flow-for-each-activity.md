@@ -17,6 +17,35 @@ ms.date: 09/09/2021
 
 The ForEach Activity defines a repeating control flow in an Azure Data Factory or Synapse pipeline. This activity is used to iterate over a collection and executes specified activities in a loop. The loop implementation of this activity is similar to Foreach looping structure in programming languages.
 
+## Create a ForEach activity with UI
+
+To use a ForEach activity in a pipeline, complete the following steps:
+
+1. You can use any array type variable or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions) as the input for your ForEach activity.  To create an array variable, select the background of the pipeline canvas and then select the **Variables** tab to add an array type variable as shown below.
+
+   :::image type="content" source="media/control-flow-activities-common/pipeline-array-variable.png" alt-text="Shows an empty pipeline canvas with an array type variable added to the pipeline.":::
+
+1. Search for _ForEach_ in the pipeline Activities pane, and drag a ForEach activity to the pipeline canvas.
+1. Select the new ForEach activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-for-each-activity/for-each-activity.png" alt-text="Shows the UI for a Filter activity.":::
+
+1. Select the **Items** field and then select the **Add dynamic content** link to open the dynamic content editor pane.
+
+   :::image type="content" source="media/control-flow-for-each-activity/add-dynamic-content-link.png" alt-text="Shows the &nbsp;Add dynamic content&nbsp; link for the Items property.":::
+
+1. Select your input array to be filtered in the dynamic content editor.  In this example, we select the variable created in the first step.
+
+   :::image type="content" source="media/control-flow-activities-common/add-dynamic-content-pane.png" alt-text="Shows the dynamic content editor with the variable created in the first step selected":::
+
+1. Select the Activities editor on the ForEach activity to add one or more activities to be executed for each item in the input **Items** array.
+
+   :::image type="content" source="media/control-flow-for-each-activity/activity-editor-button.png" alt-text="Shows the Activities editor button on the ForEach activity in the pipeline editor window.":::
+
+1. In any activities you create within the ForEach activity, you can reference the current item the ForEach activity is iterating through from the **Items** list.  You can reference the current item anywhere you can use a dynamic expression to specify a property value.  In the dynamic content editor, select the ForEach iterator to return the current item.
+
+   :::image type="content" source="media/control-flow-for-each-activity/add-dynamic-content-for-each-iterator.png" alt-text="Shows the dynamic content editor with the ForEach iterator selected.":::
+
 ## Syntax
 The properties are described later in this article. The items property is the collection and each item in the collection is referred to by using the `@item()` as shown in the following syntax:  
 

@@ -5,9 +5,9 @@ keywords: deploy SQL Edge
 services: sql-edge
 ms.service: sql-edge
 ms.topic: conceptual
-author: SQLSourabh
-ms.author: sourabha
-ms.reviewer: sstein
+author: rothja
+ms.author: jroth
+ms.reviewer: jroth
 ms.date: 09/22/2020
 ---
 
@@ -112,10 +112,10 @@ The following steps use the Azure SQL Edge command-line tool, **sqlcmd**, inside
 > [!NOTE]      
 > SQL Command line tools (sqlcmd) are not available inside the ARM64 version of Azure SQL Edge containers.
 
-1. Use the `docker exec -it` command to start an interactive bash shell inside your running container. In the following example `azuresqledge` is name specified by the `Name` parameter of your IoT Edge Module.
+1. Use the `docker exec -it` command to start an interactive bash shell inside your running container. In the following example `AzureSQLEdge` is name specified by the `Name` parameter of your IoT Edge Module.
 
    ```bash
-   sudo docker exec -it azuresqledge "bash"
+   sudo docker exec -it AzureSQLEdge "bash"
    ```
 
 2. Once inside the container, connect locally with sqlcmd. Sqlcmd is not in the path by default, so you have to specify the full path.

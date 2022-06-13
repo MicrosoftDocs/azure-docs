@@ -5,7 +5,7 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 11/09/2021
 
 ms.author: kengaderdus
 author: kengaderdus
@@ -72,6 +72,7 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
+ "objectId": "11111111-0000-0000-0000-000000000000"
  "givenName":"John",
  "surname":"Smith",
  "jobTitle":"Supplier",
@@ -142,6 +143,7 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
+ "objectId": "11111111-0000-0000-0000-000000000000",
  "givenName":"John",
  "lastName":"Smith",
  "step": "PostFederationSignup",
@@ -195,6 +197,7 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
+ "objectId": "11111111-0000-0000-0000-000000000000",
  "givenName":"John",
  "surname":"Smith",
  "jobTitle":"Supplier",

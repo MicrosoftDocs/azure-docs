@@ -59,7 +59,7 @@ Azure virtual machine scale sets provide the management capabilities for applica
     - Autoscale also minimizes the number of unnecessary VM instances that run your application when demand is low, while customers continue to receive an acceptable level of performance as demand grows and additional VM instances are automatically added. This ability helps reduce costs and efficiently create Azure resources as required.
 
 - **Works at large-scale**
-    - Scale sets support up to 1,000 VM instances for standard marketplace images and custom images through the Shared Image Gallery. If you create a scale set using a managed image, the limit is 600 VM instances.
+    - Scale sets support up to 1,000 VM instances for standard marketplace images and custom images through the Azure Compute Gallery (formerly known as Shared Image Gallery). If you create a scale set using a managed image, the limit is 600 VM instances.
     - For the best performance with production workloads, use [Azure Managed Disks](../virtual-machines/managed-disks-overview.md).
 
 
@@ -93,6 +93,10 @@ Flexible orchestration mode can be used with VM SKUs that support [memory preser
 az vm list-skus -l eastus --size standard_d2s_v3 --query "[].capabilities[].[name, value]" -o table
 ```
 
+> [!IMPORTANT]
+> Networking behavior will vary depending on how you choose to create virtual machines within your scale set. For more information, see [scalable network connectivity](../virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity).
+
+
 ## Features
 The following tables list the Flexible orchestration mode features and links to the appropriate documentation.
 
@@ -105,19 +109,22 @@ The following tables list the Flexible orchestration mode features and links to 
 | SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) are not supported |
 | Full control over VM, NICs, Disks  | Yes  |
 | RBAC Permissions Required  | Compute VMSS Write, Compute VM Write, Network |
+| Cross tenant shared image gallery | No |
 | Accelerated networking  | Yes  |
 | Spot instances and pricing   | Yes, you can have both Spot and Regular priority instances  |
 | Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  |
 | Disk Types  | Managed disks only, all storage types  |
+| Disk Server Side Encryption with Customer Managed Keys | Yes |
 | Write Accelerator   | No  |
 | Proximity Placement Groups   | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) |
 | Azure Dedicated Hosts   | No  |
-| Managed Identity  | User Assigned Identity Only  |
+| Managed Identity  | [User Assigned Identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) only<sup>1</sup>  |
 | Add/remove existing VM to the group  | No  |
 | Service Fabric  | No  |
-| Azure Kubernetes Service (AKS) / AKE / k8s node pool  | No  |
-| UserData  | Partial, UserData can be specified for individual VMs |
+| Azure Kubernetes Service (AKS) / AKE  | No  |
+| UserData  | Yes |
 
+<sup>1</sup> For Uniform scale sets, the `GET VMSS` response will have a reference to the *identity*, *clientID*, and *principalID*. For Flexible scale sets, the response will only get a reference the *identity*. You can make a call to `Identity` to get the *clientID* and *PrincipalID*. 
 
 ### Autoscaling and instance orchestration
 
@@ -135,7 +142,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Instance Protection | No, use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) |
 | Scale In Policy | No |
 | VMSS Get Instance View | No |
-| VM Batch Operations (Start all, Stop all, delete subset, etc.) | No (can trigger operations on each instance using VM API) |
+| VM Batch Operations (Start all, Stop all, delete subset, etc.) | Partial, Batch delete is supported. Other operations can be triggered on each instance using VM API) |
 
 ### High availability 
 
@@ -158,7 +165,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Azure Load Balancer Standard SKU | Yes |
 | Application Gateway | Yes |
 | Infiniband Networking | No |
-| Basic SLB | No |
+| Azure Load Balancer Basic SKU | No |
 | Network Port Forwarding | Yes (NAT Rules for individual instances) |
 
 ### Backup and recovery 

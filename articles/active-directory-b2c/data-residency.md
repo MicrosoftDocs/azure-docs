@@ -1,7 +1,7 @@
 ---
 title: Region availability and data residency
 titleSuffix: Azure AD B2C
-description: Region availability, data residency, and information about Azure Active Directory B2C preview tenants.
+description: Region availability, data residency, high availability, SLA, and information about Azure Active Directory B2C preview tenants.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -29,8 +29,7 @@ Azure AD B2C is **generally available worldwide** with the option for **data res
 
 ## Region availability
 
-Azure AD B2C is available worldwide via the Azure public cloud. You can see examples of this feature in both Azure's [Products Available By Region](https://azure.microsoft.com/regions/services/) page and the [Active Directory B2C pricing calculator](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
-
+Azure AD B2C is available worldwide via the Azure public cloud. You can see availability of this service in both Azure's [Products Available By Region](https://azure.microsoft.com/regions/services/) page and the [Active Directory B2C pricing calculator](https://azure.microsoft.com/pricing/details/active-directory-b2c/). Also, Azure AD B2C service is highly available. Learn more about [Service Level Agreement (SLA) for Azure Active Directory B2C](https://azure.microsoft.com/support/legal/sla/active-directory-b2c/v1_1).
 ## Data residency
 
 Azure AD B2C stores user data in the United States, Europe, the Asia Pacific region, or Australia.
@@ -53,7 +52,7 @@ Data resides in **Asia Pacific** for the following countries/regions:
 
 Data resides in **Australia** for the following countries/regions:
 
-> Australia and New Zealand
+> Australia (AU) and New Zealand (NZ)
 
 The following countries/regions are in the process of being added to the list. For now, you can still use Azure AD B2C by picking any of the countries/regions above.
 

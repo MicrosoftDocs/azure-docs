@@ -2,25 +2,27 @@
 
 title: 'Azure Cosmos DB SQL API: Java SDK v4 examples'
 description: Find Java examples on GitHub for common tasks using the Azure Cosmos DB SQL API, including CRUD operations.
-author: anfeldma-ms
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 08/26/2021
+ms.devlang: java
 ms.custom: devx-track-java
-ms.author: anfeldma
+ms.author: sidandrews
+ms.reviewer: mjbrown
 
 ---
 # Azure Cosmos DB SQL API: Java SDK v4 examples
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)
 > * [.NET V3 SDK Examples](sql-api-dotnet-v3sdk-samples.md)
 > * [Java V4 SDK Examples](sql-api-java-sdk-samples.md)
 > * [Spring Data V3 SDK Examples](sql-api-spring-data-sdk-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
 > * [Python Examples](sql-api-python-samples.md)
+> * [.NET V2 SDK Examples (Legacy)](sql-api-dotnet-v2sdk-samples.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
@@ -159,6 +161,7 @@ The [Document CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/
 | [Delete a document](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L303-L310) | CosmosContainer.deleteItem |
 | [Replace a document with conditional ETag check](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L227-L264) | AccessCondition.setType<br>AccessCondition.setCondition |
 | [Read document only if document has changed](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L266-L300) | AccessCondition.setType<br>AccessCondition.setCondition |
+| [Partial document update](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/patch/sync/SamplePatchQuickstart.java) | CosmosContainer.patchItem |
 
 ## Indexing examples
 The [Collection CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) file shows how to perform the following tasks. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](../index-policy.md), [indexing types](../index-overview.md#index-types), and [indexing paths](../index-policy.md#include-exclude-paths) conceptual articles. 

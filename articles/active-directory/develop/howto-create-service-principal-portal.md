@@ -1,6 +1,5 @@
 ---
 title: Create an Azure AD app and service principal in the portal
-titleSuffix: Microsoft identity platform
 description: Create a new Azure Active Directory app and service principal to manage access to resources with role-based access control in Azure Resource Manager.
 services: active-directory
 author: rwike77
@@ -153,7 +152,7 @@ To upload the certificate:
 1. Select **Azure Active Directory**.
 1. From **App registrations** in Azure AD, select your application.
 1. Select **Certificates & secrets**.
-1. Select **Upload certificate** and select the certificate (an existing certificate or the self-signed certificate you exported).
+1. Select **Certificates** > **Upload certificate** and select the certificate (an existing certificate or the self-signed certificate you exported).
 
     ![Select Upload certificate and select the one you want to add](./media/howto-create-service-principal-portal/upload-cert.png)
 

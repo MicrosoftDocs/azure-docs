@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Change the size of a virtual machine 
 
-**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 This article shows you how to move a VM to a different [VM size](sizes.md).
 
@@ -33,6 +33,12 @@ If your VM uses Premium Storage, make sure that you choose an **s** version of t
 If the virtual machine is currently running, changing its size will cause it to be restarted. 
 
 If your VM is still running and you don't see the size you want in the list, stopping the virtual machine may reveal more sizes.
+
+   > [!WARNING]
+   > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
+   > 
+   > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region. 
+  
 
 ### [CLI](#tab/cli)
 
@@ -79,6 +85,8 @@ To resize a VM, you need the latest [Azure CLI](/cli/azure/install-az-cli2) inst
    
    > [!WARNING]
    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
+   > 
+   > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region. 
 
 ### [PowerShell](#tab/powershell)
 
@@ -115,10 +123,11 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 ```
 
-> [!WARNING]
-> Deallocating the VM releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected. 
-> 
-> 
+   > [!WARNING]
+   > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
+   > 
+   > If you are resizing a production VM, consider using [Azure Capacity Reservations](capacity-reservation-overview.md) to reserve Compute capacity in the region.
+
 
 **Use PowerShell to resize a VM in an availability set**
 

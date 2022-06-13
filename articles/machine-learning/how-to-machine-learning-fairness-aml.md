@@ -7,13 +7,15 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.author: mesameki
 author: mesameki
-ms.reviewer: luquinta
-ms.date: 11/16/2020
+ms.reviewer: ssalgado
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, responsible-ml
+ms.custom: devx-track-python, responsible-ml, sdkv1, event-tier1-build-2022
 ---
 
 # Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models (preview)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this how-to guide, you will learn to use the [Fairlearn](https://fairlearn.github.io/) open-source Python package with Azure Machine Learning to perform the following tasks:
 

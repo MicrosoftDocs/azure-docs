@@ -11,9 +11,6 @@ ms.author: cachai
 
 This article describes the concurrency behaviors of event-driven triggers in Azure Functions. It also describes a new dynamic model for optimizing concurrency behaviors. 
 
->[!NOTE]
->The dynamic concurrency model is currently in preview. Support for dynamic concurrency is limited to specific binding extensions, which are also in preview.  
-
 The hosting model for Functions allows multiple function invocations to run concurrently on a single compute instance. For example, consider a case where you have three different functions in your function app, which is scaled out and running on multiple instances. In this scenario, each function processes invocations on each VM instance on which your function app is running. The function invocations on a single instance share the same VM compute resources, such as memory, CPU, and connections. When your app is hosted in a dynamic plan (Consumption or Premium), the platform scales the number of function app instances up or down based on the number of incoming events. To learn more, see [Event Driven Scaling](./Event-Driven-Scaling.md)). When you host your functions in a Dedicated (App Service) plan, you manually configure your instances or [set up an autoscale scheme](dedicated-plan.md#scaling).
 
 Because multiple function invocations can run on each instance concurrently, each function needs to have a way to throttle how many concurrent invocations it's processing at any given time.
@@ -28,12 +25,12 @@ While such concurrency configurations give you control of certain trigger behavi
 
 Ideally, we want the system to allow instances to process as much work as they can while keeping each instance healthy and latencies low, which is what dynamic concurrency is designed to do.
 
-## Dynamic concurrency (preview)
+## Dynamic concurrency
 
 Functions now provides a dynamic concurrency model that simplifies configuring concurrency for all function apps running in the same plan. 
 
 > [!NOTE]
-> Dynamic concurrency is currently only supported for the Service Bus trigger and requires you to use [version 5.0.0-beta.6 (or higher)](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.0.0-beta.6) of the **Microsoft.Azure.WebJobs.Extensions.ServiceBus** extension.
+> Dynamic concurrency is currently only supported for the Azure Blob, Azure Queue, and Service Bus triggers and requires you to use the versions listed in the [extension support section below](#extension-support).
 
 ### Benefits
 
@@ -74,7 +71,20 @@ When dynamic concurrency is enabled, you'll see dynamic concurrency decisions in
 
 ### Extension support 
 
-Dynamic concurrency is enabled for a function app at the host level, and any extensions that support dynamic concurrency run in that mode. Dynamic concurrency requires collaboration between the host and individual trigger extensions. For preview, only the latest (preview) versions of the following extensions support dynamic concurrency.
+Dynamic concurrency is enabled for a function app at the host level, and any extensions that support dynamic concurrency run in that mode. Dynamic concurrency requires collaboration between the host and individual trigger extensions. Only the listed versions of the following extensions support dynamic concurrency.
+
+#### Azure Queues
+
+The Azure Queue storage trigger has its own message polling loop. When using static config, concurrency is governed by the `BatchSize`/`NewBatchThreshold` config options. When using dynamic concurrency, those configuration values are ignored. Dynamic concurrency is integrated into the message loop, so the number of messages fetched per iteration are dynamically adjusted. When throttles are enabled (host is overloaded), message processing will be paused until throttles are disabled. When throttles are disabled, concurrency will increase.
+
+To use dynamic concurrency for Queues, you must use [version 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) of the storage extension.
+
+#### Azure Blobs
+
+Internally, the Azure Blob storage trigger uses the same infrastructure that the Azure Queue Trigger uses. When new/updated blobs need to be processed, messages are written to a platform managed control queue, and that queue is processed using the same logic used for QueueTrigger. When dynamic concurrency is enabled, concurrency for the processing of that control queue will be dynamically managed.
+
+To use dynamic concurrency for Blobs, you must use [version 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) of the storage extension.
+
 
 #### Service Bus 
 
@@ -84,7 +94,7 @@ The Service Bus trigger currently supports three execution models. Dynamic concu
 - **Session based single dispatch topic/queue processing**: Each invocation of your function processes a single message. Depending on the number of active sessions for your topic/queue, each instance leases one or more sessions. Messages in each session are processed serially, to guarantee ordering in a session. When not using dynamic concurrency, concurrency is governed by the `MaxConcurrentSessions` setting. With dynamic concurrency enabled, `MaxConcurrentSessions` is ignored and the number of sessions each instance is processing is dynamically adjusted. 
 - **Batch processing**: Each invocation of your function processes a batch of messages, governed by the `MaxMessageCount` setting. Because batch invocations are serial, concurrency for your batch-triggered function is always one and dynamic concurrency doesn't apply. 
 
-To enable your Service Bus trigger to use dynamic concurrency, you must use [version 5.0.0-beta.6 (or higher)](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.0.0-beta.6) of the **Microsoft.Azure.WebJobs.Extensions.ServiceBus** extension. 
+To enable your Service Bus trigger to use dynamic concurrency, you must use [version 5.x](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) of the Service Bus extension. 
 
 ## Next steps
 

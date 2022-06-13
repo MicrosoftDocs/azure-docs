@@ -1,195 +1,97 @@
 ---
-title: What's new in Azure Defender for IoT for device builders
-description: Learn about the latest releases, and the newest features of Defender for IoT device builders.
-ms.topic: overview
-ms.date: 10/20/2021
+title: What's new in Microsoft Defender for IoT for device builders
+description: Learn about the latest updates for Defender for IoT device builders.
+ms.topic: conceptual
+ms.date: 02/20/2022
 ---
 
-# What's new in Azure Defender for IoT for device builders?  
+# What's new
 
-This article lists new features and feature enhancements for Defender for IoT.
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
+
+This article lists new features and feature enhancements in Microsoft Defender for IoT for device builders.
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Versioning and support for Azure Defender for IoT
+## Versioning and support
 
-Listed below are the support, breaking change policies for Defender for IoT, and the versions of Azure Defender for IoT that are currently available.
+Listed below are the support, breaking change policies for Defender for IoT, and the versions of Defender for IoT that are currently available.
 
-### Servicing information and timelines
+## February 2022
 
-Microsoft plans to release updates for Azure Defender for IoT no less than once per quarter. Each general availability (GA) version of the Azure Defender for IoT sensor, and on premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
+**Version 4.1.2**:
 
-### Versions and support dates
+- **Micro agent for Edge is now in Public Preview**: The micro-agent supports IoT Edge devices, with an easy installation and identity provisioning process that uses an automatically provisioned module identity to authenticate Edge devices without the need to perform any manual authentication.
 
-| Version | Date released | End support date |
-|--|--|--|
-| 10.0 | 01/2021 | 10/2021 |
-| 10.3 | 04/2021 | 02/2022 |
-| 10.5.2 | 11/2021 | 07/2022 |
+    For more information, see [Install Defender for IoT micro agent for Edge (Preview)](how-to-install-micro-agent-for-edge.md).
 
-## April 2021
+- **New directory structure**: Now aligned with the standard Linux installation directory structure.
 
-### Work with automatic threat intelligence updates (Public Preview)
+    Due to this change, updates to version 4.1.2 require you to reauthenticate the micro agent and save your connection string in the new location. For more information, see [Upgrade the Microsoft Defender for IoT micro agent](upgrade-micro-agent.md).
 
-New threat intelligence packages can now be automatically pushed to cloud connected sensors as they are released by Microsoft Defender for IoT. This is in addition to downloading threat intelligence packages and then uploading them to sensors.
+- **SBoM collector**: The SBoM collector now collects the packages installed on the device periodically. For more information, see [Micro agent event collection (Preview)](concept-event-aggregation.md).
 
-Working with automatic updates helps reduce operational efforts and ensure greater security.
+- **CIS benchmarks**: The micro agent now supports recommendations based on CIS Distribution Independent Linux Benchmarks, version 2.0.0, and the ability to disable specific CIS Benchmark checks or groups using twin configurations. For more information, see [Micro agent configurations (Preview)](concept-micro-agent-configuration.md).
 
-Enable automatic updating by onboarding your cloud connected sensor on the Defender for IoT portal with the **Automatic Threat Intelligence Updates** toggle turned on.
+- **Micro agent supported devices list expands**: The micro agent now supports Debian 11 AMD64 and ARM32v7 devices, and Ubuntu Server 18.04 ARM32 Linux devices & Ubuntu Server 20.04 ARM32 & ARM64 Linux devices.
 
-If you would like to take a more conservative approach to updating your threat intelligence data, you can manually push packages from the Azure Defender for IoT portal to cloud connected sensors only when you feel it is required.
-This gives you the ability to control when a package is installed, without the need to download and then upload it to your sensors. Manually push updates to sensors from the Defender for IoT **Sites and Sensors** page.
+    For more information, see [Agent portfolio overview and OS support (Preview)](concept-agent-portfolio-overview-os-support.md).
 
-You can also review the following information about threat intelligence packages:
+- **DNS hit count**: network collector now includes DNS hit count field that can be visible through Log Analytics, which can help indicate if a DNS request was part of an automatic query.
 
-- Package version installed
-- Threat intelligence update mode 
-- Threat intelligence update status
+    For more information, see [Network Connection events (event-based collector)](concept-event-aggregation.md#network-connection-events-event-based-collector).
 
-### View cloud connected sensor information (Public Preview)
+- **Login Collector**: Now supporting login collector using: SYSLOG collecting SSH login events and PAM collecting SSH, telnet and local login events using the pluggable authentication modules stack. For more information, see [Micro agent event collection (Preview)](concept-event-aggregation.md).
 
-View important operational information about cloud connected sensors on the **Sites and Sensors** page.
 
-- The sensor version installed
-- The sensor connection status to the cloud.
-- The last time the sensor was detected connecting to the cloud.
+## November 2021
 
-### Alert API enhancements
+**Version 3.13.1**:
 
-New fields are available for users working with alert APIs.
+- DNS network activity on managed devices is now supported. Microsoft threat intelligence security graph can now detect suspicious activity based on DNS traffic.
 
-**On-premises management console**
+- [Leaf device proxying](../../iot-edge/how-to-connect-downstream-iot-edge-device.md#integrate-microsoft-defender-for-iot-with-iot-edge-gateway): There's now an enhanced integration with IoT Edge. This integration enhances the connectivity between the agent, and the cloud using leaf device proxying.
 
-- Source and destination address
-- Remediation steps
-- The name of sensor defined by the user
-- The name of zone associated with the sensor
-- The name of site associated with the sensor
+## October 2021
 
-**Sensor**
+**Version 3.12.2**:
 
-- Source and destination address
-- Remediation steps
+- More CIS benchmark checks are now supported for Debian 9: These extra checks allow you to make sure your network is compliant with the CIS best practices used to protect against pervasive cyber threats.
 
-API version 2 is required when working with the new fields.
+- **[Twin configuration](concept-micro-agent-configuration.md)**: The micro agent’s behavior is configured by a set of module twin properties. You can configure the micro agent to best suit your needs.
 
-### Features delivered as Generally Available (GA)
+## September 2021
 
-The following features were previously available for Public Preview, and are now Generally Available (GA) features:
+**Version 3.11**:
 
-- Sensor - enhanced custom alert rules
-- On-premises management console - export alerts
-- Add second network interface to On-premises management console
-- Device builder - new micro agent
+- **[Login collector](concept-event-aggregation.md#login-collector-event-based-collector)** - The login collectors gather user logins, logouts, and failed login attempts. Such as SSH & telnet.
+
+- **[System information collector](concept-event-aggregation.md#system-information-trigger-based-collector)** - The system information collector gatherers information related to the device’s operating system and hardware details.
+
+- **[Event aggregation](concept-event-aggregation.md#how-does-event-aggregation-work)** - The Defender for IoT agent aggregates events such as process, login, network events that reduce the number of messages sent and costs, all while maintaining your device's security.  
+
+- **[Twin configuration](concept-micro-agent-configuration.md)** - The micro agent's behavior is configured by a set of module twin properties. (e.g event sending frequency and Aggregation mode). You can configure the micro agent to best suit your needs.
 
 ## March 2021
-
-### Sensor - enhanced custom alert rules (Public Preview)
-
-You can now create custom alert rules based on the day, group of days and time-period network activity was detected.  Working with day and time rule conditions is useful, for example in cases where alert severity is derived by the time the alert event takes place. For example, create a custom rule that triggers a high severity alert when network activity is detected on a weekend or in the evening.
-
-This feature is available on the sensor with the release of version 10.2.
-
-### On-premises management console - export alerts (Public Preview)
-
-Alert information can now be exported to a .csv file from the on-premises management console. You can export information of all alerts detected or export information based on the filtered view.
-
-This feature is available on the on-premises management console with the release of version 10.2.
-
-### Add second network interface to On-premises management console (Public Preview)
-
-You can now enhance the security of your deployment by adding a second network interface to your on-premises management console. This feature allows your on-premises management to have its connected sensors on one secure network, while allowing your users to access the on-premises management console through a second separate network interface.
-
-This feature is available on the on-premises management console with the release of version 10.2.
 
 ### Device builder - new micro agent (Public preview)
 
 A new device builder module is available. The module, referred to as a micro-agent, allows:
 
-- **Integration with Azure IoT Hub and Azure Defender for IoT** - build stronger endpoint security directly into your IoT devices by integrating it with the monitoring option provided by both the Azure IoT Hub and Azure Defender for IoT.
+- **Integration with Azure IoT Hub and Defender for IoT** - build stronger endpoint security directly into your IoT devices by integrating it with the monitoring option provided by both the Azure IoT Hub and Defender for IoT.
+
 - **Flexible deployment options with support for standard IoT operating systems** - can be deployed either as a binary package or as modifiable source code, with support for standard IoT operating systems like Linux and Azure RTOS.
+
 - **Minimal resource requirements with no OS kernel dependencies** - small footprint, low CPU consumption, and no OS kernel dependencies.
+
 - **Security posture management** – proactively monitor the security posture of your IoT devices.
+
 - **Continuous, real-time IoT/OT threat detection** - detect threats such as botnets, brute force attempts, crypto miners, and suspicious network activity
 
-The deprecated Defender-IoT-micro-agent documentation will be moved to the *Agent-based solution for device builders>Classic* folder.
+The deprecated Defender-IoT-micro-agent documentation will be moved to the *Agent-based solution for device builders>Legacy* folder.
 
 This feature set is available with the current public preview cloud release.
 
-## January 2021
-
-- [Security](#security)
-- [Onboarding](#onboarding)
-- [Usability](#usability)
-- [Other updates](#other-updates)
-
-### Security
-
-Certificate and password recovery enhancements were made for this release.
-
-#### Certificates
-  
-This version lets you:
-
-- Upload SSL certificates directly to the sensors and on-premises management consoles.
-- Perform validation between the on-premises management console and connected sensors, and between a management console and a High Availability management console. Validation is based on expiration dates, root CA authenticity, and Certificate Revocation Lists.  If validation fails, the session will not continue.
-
-For upgrades:
-
-- There is no change in SSL certificate or validation functionality during the upgrade.
-- After upgrading, sensor and on-premises management console administrative users can replace SSL certificates, or activate SSL certificate validation from the System Settings, SSL Certificate window.  
-
-For Fresh Installations:
-
-- During first-time login, users are required to either use an SSL Certificate (recommended) or a locally generated self-signed certificate (not recommended)
-- Certificate validation is turned on by default for fresh installations.
-
-#### Password recovery
-  
-Sensor and on-premises management console Administrative users can now recover passwords from the Azure Defender for IoT portal. Previously password recovery required intervention by the support team.
-
-### Onboarding
-
-#### On-premises management console - committed devices
-
-Following initial sign-in to the on-premises management console, users are now required to upload an activation file. The file contains the aggregate number of devices to be monitored on the organizational  network. This number is referred to as the number of committed devices.
-Committed devices are defined during the onboarding process on the Azure Defender for IoT portal, where the activation file is generated.
-First-time users and users upgrading are required to upload the activation file.
-After initial activation, the number of devices detected on the network might exceed the number of committed devices. This event might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of detected devices and the number of committed devices, a warning appears in the management console. If this event occurs, you should upload a new activation file.
-
-#### Pricing page options
-
-Pricing page lets you onboard new subscriptions to Azure Defender for IoT and define committed devices in your network.  
-Additionally, the Pricing page now lets you manage existing subscriptions associated with a sensor and update device commitment.
-
-#### View and manage onboarded sensors
-
-A new Site and Sensors portal page lets you:
-
-- Add descriptive information about the sensor. For example, a zone associated with the sensor, or free-text tags.
-- View and filter sensor information. For example, view details about sensors that are cloud connected or locally managed or view information about sensors in a specific zone.  
-
-### Usability
-
-#### Azure Sentinel new connector page
-
-The Azure Defender for IoT data connector page in Azure Sentinel has been redesigned. The data connector is now based on subscriptions rather than IoT Hubs; allowing customers to better manage their configuration connection to Azure Sentinel.
-
-#### Azure portal permission updates  
-
-Security Reader and Security Administrator support has been added.
-
-### Other updates
-
-#### Access group - zone permissions
-  
-The on-premises management console Access Group rules will not include the option to grant access to a specific zone. There is no change in defining rules that use sites, regions, and business units.   Following upgrade, Access Groups that contained rules allowing access to specific zones will be modified to allow access to its parent site, including all its zones.
-
-#### Terminology changes
-
-The term asset has been renamed device in the sensor and on-premises management console, reports, and other solution interfaces.
-In sensor and on-premises management console Alerts,  the term Manage this Event has been named Remediation Steps.
-
 ## Next steps
 
-[What is agent-based solution for device builders](architecture-agent-based.md)
+[Onboard to Defender for IoT](quickstart-onboard-iot-hub.md)

@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: pafarley
 #Customer intent: As a developer, I want to use a custom vision model with Windows ML.

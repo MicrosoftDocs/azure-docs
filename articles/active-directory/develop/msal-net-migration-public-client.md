@@ -1,9 +1,8 @@
 ---
 title: Migrate public client applications to MSAL.NET
-titleSuffix: Microsoft identity platform
 description: Learn how to migrate a public client application from Azure Active Directory Authentication Library for .NET to Microsoft Authentication Library for .NET.
 services: active-directory
-author: sahmalik
+author: CelesteDG
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2021
-ms.author: sahmalik
+ms.author: celested
 ms.reviewer: saeeda, shermanouko, jmprieur
 ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
 #Customer intent: As an application developer, I want to migrate my public client app from ADAL.NET to MSAL.NET.
@@ -52,7 +51,7 @@ Interactive scenarios are where your public client application shows a login use
 The ADAL code for your app in a public client application that uses interactive authentication instantiates `AuthenticationContext` and includes a call to `AcquireTokenAsync`, with the following parameters.
  - A `clientId` which is a GUID representing your application registration
  - A `resourceUrl` which indicates the resource you are asking the token for
- - A Uri that is the reply URL
+ - A URI that is the reply URL
  - A `PlatformParameters` object. 
 
  #### Update the code for interactive scenarios
@@ -221,7 +220,7 @@ result = await context.AcquireTokenAsync(resource, clientId,
       // AcquireTokenByIntegratedWindowsAuth form that takes in the username
 
       // Error Code: integrated_windows_auth_not_supported_managed_user
-      // Explanation: This method relies on an a protocol exposed by Active Directory (AD). If a user was created in Azure
+      // Explanation: This method relies on a protocol exposed by Active Directory (AD). If a user was created in Azure
       // Active Directory without AD backing ("managed" user), this method will fail. Users created in AD and backed by
       // AAD ("federated" users) can benefit from this non-interactive method of authentication.
       // Mitigation: Use interactive authentication

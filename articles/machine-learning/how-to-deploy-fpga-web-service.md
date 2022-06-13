@@ -6,14 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.reviewer: larryfr
-ms.author: jordane
-author: jpe316
-ms.date: 09/24/2020
+ms.author: larryfr
+author: blackmist
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: contperf-fy21q2, devx-track-python, deploy
+ms.custom: contperf-fy21q2, devx-track-python, deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Deploy ML models to field-programmable gate arrays (FPGAs) with Azure Machine Learning 
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn about FPGAs and how to deploy your ML models to an Azure FPGA using the [hardware-accelerated models Python package](/python/api/azureml-accel-models/azureml.accel) from [Azure Machine Learning](overview-what-is-azure-machine-learning.md).
 
@@ -361,9 +363,7 @@ converted_model.delete()
 
 + Learn about FPGA and [Azure Machine Learning pricing and costs](https://azure.microsoft.com/pricing/details/machine-learning/).
 
-+ [Hyperscale hardware: ML at scale on top of Azure + FPGA: Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
-
-+ [Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
++ [Hyperscale hardware: ML at scale on top of Azure + FPGA: Build 2018 (video)](/events/Build/2018/BRK3202)
 
 + [Project Brainwave for real-time AI](https://www.microsoft.com/research/project/project-brainwave/)
 

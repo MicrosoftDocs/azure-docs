@@ -2,14 +2,16 @@
 title: Linter rule - prefer interpolation
 description: Linter rule - prefer interpolation
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 11/18/2021
 ---
 
 # Linter rule - prefer interpolation
 
 This rule finds uses of the concat function that can be replaced by string interpolation.
 
-## Returned code
+## Linter rule code
+
+Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
 
 `prefer-interpolation`
 

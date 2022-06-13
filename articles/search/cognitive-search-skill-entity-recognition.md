@@ -6,7 +6,7 @@ description: Extract different types of entities from text in an enrichment pipe
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/24/2021
 ---
 

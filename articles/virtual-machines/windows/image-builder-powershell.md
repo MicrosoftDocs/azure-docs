@@ -7,8 +7,8 @@ ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subervice: image-builder
-ms.colletion: windows
+ms.subservice: image-builder
+ms.collection: windows
 ms.custom: devx-track-azurepowershell
 ---
 # Create a Windows VM with Azure Image Builder using PowerShell
@@ -164,7 +164,7 @@ New-AzRoleAssignment @RoleAssignParams
 > definitions can be created._", see
 > [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md).
 
-## Create a Shared Image Gallery
+## Create an Azure Compute Gallery (formerly known as Shared Image Gallery)
 
 Create the gallery.
 

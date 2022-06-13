@@ -1,6 +1,5 @@
 ---
-title: Configure mobile apps that call web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Configure mobile apps that call web APIs
 description: Learn how to configure your mobile app's code to call a web API
 services: active-directory
 author: jmprieur
@@ -242,10 +241,9 @@ To register your app's URL scheme, follow these steps:
 
    Here, `BundleId` uniquely identifies your device. For example, if `BundleId` is `yourcompany.xforms`, your URL scheme is `msauth.com.yourcompany.xforms`.
 
-  
       This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response.
 
-   ```XML
+   ```xml
     <key>CFBundleURLTypes</key>
        <array>
          <dict>
@@ -267,7 +265,7 @@ MSAL uses `–canOpenURL:` to check if the broker is installed on the device. In
 
 Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the `Info.plist` file, as in the following code example:
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>
@@ -323,7 +321,7 @@ To register a scheme for your app:
 
     This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response. Make sure that the redirect URI in the format `msauth.(BundleId)://auth` is registered for your application in the [Azure portal](https://portal.azure.com).
 
-   ```XML
+   ```xml
    <key>CFBundleURLTypes</key>
    <array>
        <dict>
@@ -344,7 +342,7 @@ Add `LSApplicationQueriesSchemes` to allow calls to the Microsoft Authenticator 
 
 Here's an example of how to add `LSApplicationQueriesSchemes`:
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
 <array>
   <string>msauthv2</string>

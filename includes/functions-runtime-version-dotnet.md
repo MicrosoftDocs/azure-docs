@@ -10,6 +10,6 @@ ms.author: glenga
 > Supports .NET Core 3.1 and .NET 5.0.
 ::: zone-end
 ::: zone pivot="programming-runtime-functions-v4"
-> Supports .NET 6.0 (preview).
+> Supports .NET 6.0.
 ::: zone-end
 

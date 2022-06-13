@@ -1,14 +1,12 @@
 ---
-title: Configure external identity source for vCenter
-description:  Learn how to configure Active Directory over LDAP or LDAPS for vCenter as an external identity source.
+title: Configure external identity source for vCenter Server
+description:  Learn how to configure Active Directory over LDAP or LDAPS for vCenter Server as an external identity source.
 ms.topic: how-to
-ms.date: 08/31/2021
-
-
-
+ms.service: azure-vmware
+ms.date: 04/22/2022
 ---
 
-# Configure external identity source for vCenter
+# Configure external identity source for vCenter Server
 
 
 
@@ -20,7 +18,7 @@ ms.date: 08/31/2021
 In this how-to, you learn how to:
 
 > [!div class="checklist"]
-> * List all existing external identity sources integrated with vCenter SSO
+> * List all existing external identity sources integrated with vCenter Server SSO
 > * Add Active Directory over LDAP, with or without SSL 
 > * Add existing AD group to cloudadmin group
 > * Remove AD group from the cloudadmin role
@@ -36,13 +34,13 @@ In this how-to, you learn how to:
 
 - If you use FQDN, enable DNS resolution on your on-premises AD.
 
- 
+ - Enable DNS Forwarder from Azure portal Ref: Configure DNS forwarder for Azure VMware Solution - Azure VMware Solution | Microsoft Docs
 
 ## List external identity
 
 
 
-You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identity sources already integrated with vCenter SSO.
+You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identity sources already integrated with vCenter Server SSO.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -61,11 +59,12 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
-
+    
+    :::image type="content" source="media/run-command/run-packages-execution-command-status.png" alt-text="Screenshot showing how to check the run commands notification or status." lightbox="media/run-command/run-packages-execution-command-status.png":::
 
 ## Add Active Directory over LDAP with SSL
 
-You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter. 
+You'll run the `New-LDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter Server. 
 
 1. Download the certificate for AD authentication and upload it to an Azure Storage account as blob storage. If multiple certificates are required, upload each certificate individually.  
 
@@ -74,20 +73,20 @@ You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with S
    >[!IMPORTANT]
    >Make sure to copy each SAS string, because they will no longer be available once you leave this page.  
    
-1. Select **Run command** > **Packages** > **New-AvsLDAPSIdentitySource**.
+1. Select **Run command** > **Packages** > **New-LDAPSIdentitySource**.
 
 1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Name**  | User-friendly name of the external identity source, for example, **avslap.local**.  |
+   | **Name**  | User-friendly name of the external identity source, for example, **avslab.local**.  |
    | **DomainName**  | The FQDN of the domain.   |
    | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the AD domain as an alias of the identity source if you're using SSPI authentications.     |
-   | **PrimaryUrl**  | Primary URL of the external identity source, for example, **ldap://yourserver:389**.  |
+   | **PrimaryUrl**  | Primary URL of the external identity source, for example, **ldaps://yourserver:636**.  |
    | **SecondaryURL**  | Secondary fall-back URL if there's primary failure.  |
    | **BaseDNUsers**  |  Where to look for valid users, for example, **CN=users,DC=yourserver,DC=internal**.  Base DN is needed to use LDAP Authentication.  |
    | **BaseDNGroups**  | Where to look for groups, for example, **CN=group1, DC=yourserver,DC= internal**. Base DN is needed to use LDAP Authentication.  |
-   | **Credential**  | The username and password used for authentication with the AD source (not cloudadmin).  |
+   | **Credential**  | The username and password used for authentication with the AD source (not cloudadmin). The user must be in the **username@avsldap.local** format. |
    | **CertificateSAS** | Path to SAS strings with the certificates for authentication to the AD source. If you're using multiple certificates, separate each SAS string with a comma. For example, **pathtocert1,pathtocert2**.  |
    | **GroupName**  | Group in the external identity source that gives the cloudadmin access. For example, **avs-admins**.  |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60 days.   |
@@ -97,15 +96,14 @@ You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with S
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
 
 
-
 ## Add Active Directory over LDAP
 
 >[!NOTE]
 >We don't recommend this method. Instead, use the [Add Active Directory over LDAP with SSL](#add-active-directory-over-ldap-with-ssl) method.
 
-You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an external identity source to use with SSO into vCenter. 
+You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an external identity source to use with SSO into vCenter Server. 
 
-1. Select **Run command** > **Packages** > **New-AvsLDAPIdentitySource**.
+1. Select **Run command** > **Packages** > **New-LDAPIdentitySource**.
 
 1. Provide the required values or change the default values, and then select **Run**.
    
@@ -129,7 +127,7 @@ You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an exte
 
 ## Add existing AD group to cloudadmin group
 
-You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to cloudadmin group. The users in this group have privileges equal to the cloudadmin (cloudadmin@vsphere.local) role defined in vCenter SSO.
+You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to cloudadmin group. The users in this group have privileges equal to the cloudadmin (cloudadmin@vsphere.local) role defined in vCenter Server SSO.
 
 1. Select **Run command** > **Packages** > **Add-GroupToCloudAdmins**.
 
@@ -191,6 +189,5 @@ Now that you've learned about how to configure LDAP and LDAPS, you can learn mor
 
 - [How to configure storage policy](configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you do other VM operations, such as cloning or migrating.
 
-- [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
+- [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter Server to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter Server and restricted administrator rights for NSX-T Manager. 
 
- 

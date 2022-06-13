@@ -3,11 +3,11 @@ title: Azure Cognitive Services development options
 description: Learn how to use Azure Cognitive Services with different development and deployment options such as client libraries, REST APIs, Logic Apps, Power Automate, Azure Functions, Azure App Service, Azure Databricks, and many more.
 services: cognitive-services
 manager: nitinme
-author: erhopf
-ms.author: erhopf
+author: PatrickFarley
+ms.author: pafarley
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 10/28/2021
 ---
 
 # Cognitive Services development options
@@ -90,7 +90,7 @@ Power Automate is a service in the [Power Platform](/power-platform/) that helps
 
 ### AI Builder 
 
-[AI Builder](/ai-builder/overview) is a Microsoft Power Platform capability you can use to improve business performance by automating processes and predicting outcomes. AI Builder brings the power of AI to your solutions through a point-and-click experience. Many cognitive services such as Text Analytics, and Computer Vision have been directly integrated here and you don't need to create your own Cognitive Services. 
+[AI Builder](/ai-builder/overview) is a Microsoft Power Platform capability you can use to improve business performance by automating processes and predicting outcomes. AI Builder brings the power of AI to your solutions through a point-and-click experience. Many cognitive services such as the Language service, and Computer Vision have been directly integrated here and you don't need to create your own Cognitive Services. 
 
 * **Target user(s)**: Business users (analysts) and SharePoint administrators
 * **Benefits**: A turnkey solution that brings the power of AI through a point-and-click experience. No coding or data science skills required.
@@ -119,7 +119,6 @@ The tools that you will use to train and configure models are different from tho
 | Pillar | Service | Customization UI | Quickstart |
 |--------|---------|------------------|------------|
 | Vision | Custom Vision | https://www.customvision.ai/ | [Quickstart](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
-| Decision | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Quickstart](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | Decision | Personalizer | UI is available in the Azure portal under your Personalizer resource. | [Quickstart](./personalizer/quickstart-personalizer-sdk.md) |
 | Language | Language Understanding (LUIS) | https://www.luis.ai/ | |
 | Language | QnA Maker | https://www.qnamaker.ai/ | [Quickstart](./qnamaker/quickstarts/create-publish-knowledge-base.md) |

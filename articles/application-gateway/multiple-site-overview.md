@@ -2,7 +2,7 @@
 title: Hosting multiple sites on Azure Application Gateway
 description: This article provides an overview of the Azure Application Gateway multi-site support.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.date: 08/31/2021
 ms.author: azhussai
@@ -11,9 +11,9 @@ ms.topic: conceptual
 
 # Application Gateway multiple site hosting
 
-Multiple site hosting enables you to configure more than one web application on the same port of application gateways using public-facing listeners. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting. 
+Multiple site hosting enables you to configure more than one web application on the same port of application gateways using public-facing listeners. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting.
 
-You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](#wildcard-host-names-in-listener-preview).
+You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](#wildcard-host-names-in-listener).
 
 :::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Multi-site Application Gateway":::
 
@@ -26,20 +26,22 @@ Similarly, you can host multiple subdomains of the same parent domain on the sam
 
 ## Request Routing rules evaluation order
 
-While using multi-site listeners, to ensure that the client traffic is routed to the accurate backend, it is important to have the request routing rules be present in the correct order.
+While using multi-site listeners, to ensure that the client traffic is routed to the accurate backend, it's important to have the request routing rules be present in the correct order.
 For example, if you have 2 listeners with associated Host name as `*.contoso.com` and `shop.contoso.com` respectively, the listener with the `shop.contoso.com` Host name would have to be processed before the listener with `*.contoso.com`. If the listener with `*.contoso.com` is processed first, then no client traffic would be received by the more specific `shop.contoso.com` listener.
 
-This ordering can be established by providing a 'Priority' field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority. In case the incoming client traffic matches with multiple listeners, the request routing rule with highest priority will be used for serving the request.
+This ordering can be established by providing a 'Priority' field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority. In case the incoming client traffic matches with multiple listeners, the request routing rule with highest priority will be used for serving the request. Each request routing rule needs to have a unique priority value.
 
-The priority field only impacts the order of evaluation of a request routing rule, this will not change the order of evaluation of path based rules within a `PathBasedRouting` request routing rule.
-
->[!NOTE]
->This feature is currently available only through [Azure PowerShell](tutorial-multiple-sites-powershell.md#add-priority-to-routing-rules) and [Azure CLI](tutorial-multiple-sites-cli.md#add-priority-to-routing-rules). Portal support is coming soon.
+The priority field only impacts the order of evaluation of a request routing rule, this wont change the order of evaluation of path based rules within a `PathBasedRouting` request routing rule.
 
 >[!NOTE]
->If you wish to use rule priority, you will have to specify rule-priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created would also need to have a rule priority field value as part of its config.
+>If you wish to use rule priority, you will have to specify rule priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created would also need to have a rule priority field value as part of its config.
+Starting with API version 2021-08-01 rule priority field would be a mandatory field as part of the request routing rules.
+From this API version, rule priority field values would be auto-populated for existing request routing rules based on current ordering of evaluation as part of the first PUT call. Any future updates to request routing rules would need to have the rule priority field provided as part of the configuration.
 
-## Wildcard host names in listener (Preview)
+> [!IMPORTANT]
+> Rule priority field values for existing request routing rules based on current order would be automatically populated if any configuration updates are applied using API version 2021-08-01 and above, portal, Azure PowerShell and Azure CLI. Any future updates to request routing rules would need to have the rule priority field provided as part of the configuration.  
+
+## Wildcard host names in listener
 
 Application Gateway allows host-based routing using multi-site HTTP(S) listener. Now, you can use wildcard characters like asterisk (*) and question mark (?) in the host name, and up to 5 host names per multi-site HTTP(S) listener. For example, `*.contoso.com`.
 
@@ -48,7 +50,7 @@ Using a wildcard character in the host name, you can match multiple host names i
 :::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Wildcard Listener":::
 
 >[!NOTE]
-> This feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This feature is available only for Standard_v2 and WAF_v2 SKU of Application Gateway.
 
 In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `-HostNames "*.contoso.com","*.fabrikam.com"`
 
@@ -66,6 +68,8 @@ In the Azure portal, under the multi-site listener, you must chose the **Multipl
 * `*` - can match with multiple characters in the allowed range
 * `?` - can match with a single character in the allowed range
 
+<!-- docutune:disable -->
+
 ### Conditions for using wildcard characters and multiple host names in a listener
 
 * You can only mention up to 5 host names in a single listener
@@ -74,15 +78,16 @@ In the Azure portal, under the multi-site listener, you must chose the **Multipl
 * There can only be a maximum of 4 wildcard characters in a host name. For example, `????.contoso.com`, `w??.contoso*.edu.*` are valid, but `????.contoso.*` is invalid.
 * Using asterisk `*` and question mark `?` together in a component of a host name (`*?` or `?*` or `**`) is invalid. For example, `*?.contoso.com` and `**.contoso.com` are invalid.
 
+<!-- docutune:enable -->
+
 ### Considerations and limitations of using wildcard or multiple host names in a listener
 
-* [SSL termination and End-to-End SSL](ssl-overview.md) requires you to configure the protocol as HTTPS and upload a certificate to be used in the listener configuration. If it is a multi-site listener, you can input the host name as well, usually this is the CN of the SSL certificate. When you are specifying multiple host names in the listener or use wildcard characters, you must consider the following:
-    * If it is a wildcard hostname like *.contoso.com, you must upload a wildcard certificate with CN like *.contoso.com
+* [SSL termination and End-to-End SSL](ssl-overview.md) requires you to configure the protocol as HTTPS and upload a certificate to be used in the listener configuration. If it's a multi-site listener, you can input the host name as well, usually this is the CN of the SSL certificate. When you are specifying multiple host names in the listener or use wildcard characters, you must consider the following:
+    * If it's a wildcard hostname like *.contoso.com, you must upload a wildcard certificate with CN like *.contoso.com
     * If multiple host names are mentioned in the same listener, you must upload a SAN certificate (Subject Alternative Names) with the CNs matching the host names mentioned.
 * You cannot use a regular expression to mention the host name. You can only use wildcard characters like asterisk (*) and question mark (?) to form the host name pattern.
 * For backend health check, you cannot associate multiple [custom probes](application-gateway-probe-overview.md) per HTTP settings. Instead, you can probe one of the websites at the backend or use "127.0.0.1" to probe the localhost of the backend server. However, when you are using wildcard or multiple host names in a listener, the requests for all the specified domain patterns will be routed to the backend pool depending on the rule type (basic or path-based).
 * The properties "hostname" takes one string as input, where you can mention only one non-wildcard domain name and "hostnames" takes an array of strings as input, where you can mention up to 5 wildcard domain names. But both the properties cannot be used at once.
-* You cannot create a [redirection](redirect-overview.md) rule with a target listener, which uses wildcard or multiple host names.
 
 See [create multi-site using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on how to configure wildcard host names in a multi-site listener.
 

@@ -81,23 +81,31 @@ There is currently no automated tooling to directly move existing instances or u
 
 Virtual machine scale sets with Flexible orchestration allows you to combine the scalability of [virtual machine scale sets in Uniform orchestration](../virtual-machine-scale-sets/overview.md) with the regional availability guarantees of availability sets. The following are key considerations when deciding to work with the Flexible orchestration mode. 
 
-### Explicit network outbound connectivity required 
+### Create scalable network connectivity 
+<!-- the following is an important link to use in FLEX documentation to reference this section:
+/virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity
+-->
 
-In order to enhance default network security, Virtual machine scale sets with Flexible orchestration will require that instances created implicitly via the autoscaling profile have outbound connectivity defined explicitly through one of the following methods: 
+Networking outbound access behavior will vary depending on how you choose to create virtual machines within your scale set. **Manually added VM instances** have default outbound connectivity access. **Implicitly created VM instances** do not have default access. 
 
-- For most scenarios, we recommend [NAT Gateway attached to the subnet](../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md).
+In order to enhance default network security, **virtual machine instances created implicitly via the autoscaling profile do not have default outbound access**. In order to use virtual machine scale sets with implicitly created VM instances, outbound access must be explicitly defined through one of the following methods: 
+
+- For most scenarios, we recommend [NAT Gateway attached to the subnet](../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md).
 - For scenarios with high security requirements or when using Azure Firewall or Network Virtual Appliance (NVA), you can specify a custom User Defined Route as next hop through firewall. 
 - Instances are in the backend pool of a Standard SKU Azure Load Balancer. 
 - Attach a Public IP Address to the instance network interface. 
-
-With single instance VMs and Virtual machine scale sets with Uniform orchestration, outbound connectivity is provided automatically. 
 
 Common scenarios that will require explicit outbound connectivity include: 
 
 - Windows VM activation will require that you have defined outbound connectivity from the VM instance to the Windows Activation Key Management Service (KMS). See [Troubleshoot Windows VM activation problems](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) for more information.  
 - Access to storage accounts or Key Vault. Connectivity to Azure services can also be established via [Private Link](../private-link/private-link-overview.md). 
+- Windows updates.
+- Access to Linux package managers. 
 
-See [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md) for more details on defining secure outbound connections.
+See [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md) for more details on defining  outbound connectivity.
+
+With single instance VMs where you explicitly create the NIC, default outbound access is provided. Virtual machine scale sets in Uniform Orchestration mode also has default outbound connectivity. 
+
 
 > [!IMPORTANT]
 > Confirm that you have explicit outbound network connectivity. Learn more about this in [virtual networks and virtual machines in Azure](../virtual-network/network-overview.md) and make sure you are following Azure's networking [best practices](../virtual-network/concepts-and-best-practices.md). 
@@ -150,17 +158,9 @@ Use the standard VM APIs and commands to retrieve instance Boot Diagnostics data
 Use extensions targeted for standard virtual machines, instead of extensions targeted for Uniform orchestration mode instances.
 
 
+### Protect instances from delete
 
-
-
-
-
-
-
-
-
-
-
+Virtual machine scale sets in Flexible orchestration mode do not currently have instance protection options. If you have autoscale enabled on a virtual machine scale set, some VMs might be at risk of deletion during the scaling in process. If you want to protect certain VM instances from deletion, use [Azure Resource Manager lock](../azure-resource-manager/management/lock-resources.md).
 
 
 

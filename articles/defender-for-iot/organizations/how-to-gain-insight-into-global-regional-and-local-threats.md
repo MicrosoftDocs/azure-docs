@@ -1,7 +1,7 @@
 ---
 title: Gain insight into global, regional, and local threats
 description: Gain insight into global, regional, and local threats by using the site map in the on-premises management console.
-ms.date: 12/07/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 The site map in the on-premises management console helps you achieve full security coverage by dividing your network into geographical and logical segments that reflect your business topology:
 
-- **Geographical facility level**: A site reflects a number of devices grouped according to a geographical location presented on the map. By default, Azure Defender for IoT provides you with a world map. You update the map to reflect your organizational or business structure. For example, use a map that reflects sites across a specific country, city, or industrial campus. When the site color changes on the map, it provides the SOC team with an indication of critical system status in the facility.
+- **Geographical facility level**: A site reflects many devices grouped according to a geographical location presented on the map. By default, Microsoft Defender for IoT provides you with a world map. You update the map to reflect your organizational or business structure. For example, use a map that reflects sites across a specific country, city, or industrial campus. When the site color changes on the map, it provides the SOC team with an indication of critical system status in the facility.
 
   The map is interactive and enables opening each site and delving into this site's information.
 
@@ -39,8 +39,7 @@ The on-premises management console provides an overall view of your industrial n
 
 ### Risk-level map views
 
-**Risk Assessment**: The Risk Assessment view displays information on site risks. Risk information helps you prioritize mitigation
-and build a road map to plan security improvements.
+**Risk Assessment**: The Risk Assessment view displays information on site risks. Risk information helps you prioritize mitigation and build a road map to plan security improvements.
 
 **Incident Response**: Get a centralized view of all unacknowledged alerts on each site across the enterprise. You can drill down and manage alerts detected in a specific site.
 

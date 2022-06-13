@@ -1,7 +1,6 @@
 ---
 title: Secure hybrid access
 description: This article describes partner solutions for integrating your legacy on-premises, public cloud, or private cloud applications with Azure AD. 
-titleSuffix: Azure AD
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -31,7 +30,7 @@ Using [Application Proxy](../app-proxy/what-is-application-proxy.md) you can pro
 
 In addition to [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md), Microsoft partners with third-party providers to enable secure access to your on-premises applications and applications that use legacy authentication.
 
-![Image shows secure hybrid access with app proxy and partners](./media/secure-hybrid-access/secure-hybrid-access.png)
+![Illustration of Secure Hybrid Access partner integrations and Application Proxy providing access to legacy and on-premises applications after authentication with Azure AD.](./media/secure-hybrid-access/secure-hybrid-access.png)
 
 The following partners offer pre-built solutions to support **conditional access policies per application** and provide detailed guidance for integrating with Azure AD. 
 
@@ -41,9 +40,9 @@ The following partners offer pre-built solutions to support **conditional access
 
 - [Datawiza Access Broker](../manage-apps/datawiza-with-azure-ad.md)
 
-- [F5 Big-IP APM ADC](../manage-apps/f5-aad-integration.md)
+- [F5 BIG-IP APM (ADC)](../manage-apps/f5-aad-integration.md)
 
-- [F5 Big-IP APM VPN](../manage-apps/f5-aad-password-less-vpn.md)
+- [F5 BIG-IP APM VPN](../manage-apps/f5-aad-password-less-vpn.md)
 
 - [Kemp](../saas-apps/kemp-tutorial.md)
 
@@ -54,6 +53,10 @@ The following partners offer pre-built solutions to support **conditional access
 - [Strata](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
 
 The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD.
+
+- [AWS](../saas-apps/aws-clientvpn-tutorial.md)
+
+- [Check Point](../saas-apps/check-point-remote-access-vpn-tutorial.md)
 
 - [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
 

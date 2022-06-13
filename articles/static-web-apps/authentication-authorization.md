@@ -19,13 +19,105 @@ Azure Static Web Apps provides a streamlined authentication experience. By defau
 - Users are assigned custom roles using the built-in [invitations](#invitations) system.
 - Users can be programmatically assigned custom roles at login by an API function.
 - All authentication providers are enabled by default.
-  - To restrict an authentication provider, [block access](#block-an-authorization-provider) with a custom route rule.
+  - To restrict an authentication provider, [block access](#block-an-authentication-provider) with a custom route rule. Configuring a custom provider also disables pre-configured providers.
 - Pre-configured providers include:
-  - Azure Active Directory
+  - Azure Active Directory<sup>1</sup>
   - GitHub
   - Twitter
 
+<sup>1</sup> The preconfigured Azure Active Directory provider allows any Microsoft Account to sign in. To restrict login to a specific Active Directory tenant, configure a [custom Azure Active Directory provider](authentication-custom.md?tabs=aad).
+
 The subjects of authentication and authorization significantly overlap with routing concepts, which are detailed in the [application configuration guide](configuration.md#routes).
+
+## System folder
+
+Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end users, consider creating [routing rules](configuration.md#routes) to create friendly URLs.
+
+## Login
+
+Use the following table to find the provider-specific route.
+
+| Authorization provider | Login route             |
+| ---------------------- | ----------------------- |
+| Azure Active Directory | `/.auth/login/aad`      |
+| GitHub                 | `/.auth/login/github`   |
+| Twitter                | `/.auth/login/twitter`  |
+
+For example, to log in with GitHub you could include a link like the following snippet:
+
+```html
+<a href="/.auth/login/github">Login</a>
+```
+
+If you chose to support more than one provider, then you need to expose a provider-specific link for each on your website.
+
+You can use a [route rule](./configuration.md#routes) to map a default provider to a friendly route like _/login_.
+
+```json
+{
+  "route": "/login",
+  "redirect": "/.auth/login/github"
+}
+```
+
+### Post login redirect
+
+If you want a user to return to a specific page after login, provide a full qualified URL in `post_login_redirect_uri` query string parameter.
+
+For example:
+
+```html
+<a href="/.auth/login/github?post_login_redirect_uri=https://zealous-water.azurestaticapps.net/success">Login</a>
+```
+
+Additionally, you can redirect unauthenticated users back to the referring page after they log in. To configure this behavior, create a [response override](configuration.md#response-overrides) rule that sets `post_login_redirect_uri` to `.referrer`.
+
+For example:
+
+```json
+{
+  "responseOverrides": {
+    "401": {
+      "redirect": "/.auth/login/github?post_login_redirect_uri=.referrer",
+      "statusCode": 302
+    }
+  }
+}
+```
+
+## Logout
+
+The `/.auth/logout` route logs users out from the website. You can add a link to your site navigation to allow the user to log out as shown in the following example.
+
+```html
+<a href="/.auth/logout">Log out</a>
+```
+
+You can use a [route rule](./configuration.md#routes) to map a friendly route like _/logout_.
+
+```json
+{
+  "route": "/logout",
+  "redirect": "/.auth/logout"
+}
+```
+
+### Post logout redirect
+
+If you want a user to return to a specific page after logout, provide a URL in `post_logout_redirect_uri` query string parameter.
+
+## Block an authentication provider
+
+You may want to restrict your app from using an authentication provider. For instance, your app may want to standardize only on [providers that expose email addresses](#provider-user-details).
+
+To block a provider, you can create [route rules](configuration.md#routes) to return a 404 status code for requests to the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
+
+```json
+{
+  "route": "/.auth/login/twitter",
+  "statusCode": 404
+}
+```
 
 ## Roles
 
@@ -139,7 +231,7 @@ To configure Static Web Apps to use an API function as the role assignment funct
 
 After defining the `rolesSource` property in your app's configuration, add an [API function](apis.md) in your static web app at the path you specified. You can use a managed function app or a bring your own function app.
 
-Each time a user successfully authenticates with an identity provider, the specified function is called. The function is passed a JSON object in the request body that contains the user's information from the provider. For some identity providers, the user information also includes an `accessToken` that the function can use to make API calls using the user's identity.
+Each time a user successfully authenticates with an identity provider, the specified function is called via the POST method. The function is passed a JSON object in the request body that contains the user's information from the provider. For some identity providers, the user information also includes an `accessToken` that the function can use to make API calls using the user's identity.
 
 This is an example payload from Azure Active Directory:
 
@@ -229,81 +321,6 @@ https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 
 Note that if you are using Azure Active Directory, use `aad` as the value for the `<AUTHENTICATION_PROVIDER_NAME>` placeholder.
 
-## System folder
-
-Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end users, consider creating [routing rules](configuration.md#routes) to create friendly URLs.
-
-## Login
-
-Use the following table to find the provider-specific route.
-
-| Authorization provider | Login route             |
-| ---------------------- | ----------------------- |
-| Azure Active Directory | `/.auth/login/aad`      |
-| GitHub                 | `/.auth/login/github`   |
-| Twitter                | `/.auth/login/twitter`  |
-
-For example, to log in with GitHub you could include a link like the following snippet:
-
-```html
-<a href="/.auth/login/github">Login</a>
-```
-
-If you chose to support more than one provider, then you need to expose a provider-specific link for each on your website.
-
-You can use a [route rule](./configuration.md#routes) to map a default provider to a friendly route like _/login_.
-
-```json
-{
-  "route": "/login",
-  "redirect": "/.auth/login/github"
-}
-```
-
-### Post login redirect
-
-If you want a user to return to a specific page after login, provide a full qualified URL in `post_login_redirect_uri` query string parameter.
-
-For example:
-
-```html
-<a href="/.auth/login/github?post_login_redirect_uri=https://zealous-water.azurestaticapps.net/success">Login</a>
-```
-
-## Logout
-
-The `/.auth/logout` route logs users out from the website. You can add a link to your site navigation to allow the user to log out as shown in the following example.
-
-```html
-<a href="/.auth/logout">Log out</a>
-```
-
-You can use a [route rule](./configuration.md#routes) to map a friendly route like _/logout_.
-
-```json
-{
-  "route": "/logout",
-  "redirect": "/.auth/logout"
-}
-```
-
-### Post logout redirect
-
-If you want a user to return to a specific page after logout, provide a URL in `post_logout_redirect_uri` query string parameter.
-
-## Block an authorization provider
-
-You may want to restrict your app from using an authorization provider. For instance, your app may want to standardize only on [providers that expose email addresses](#provider-user-details).
-
-To block a provider, you can create [route rules](configuration.md#routes) to return a 404 for requests to the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
-
-```json
-{
-  "route": "/.auth/login/twitter",
-  "statusCode": 404
-}
-```
-
 ## Restrictions
 
 See the [Quotas article](quotas.md) for general restrictions and limitations.
@@ -312,5 +329,3 @@ See the [Quotas article](quotas.md) for general restrictions and limitations.
 
 > [!div class="nextstepaction"]
 > [Access user authentication and authorization data](user-information.md)
-
-<sup>1</sup> Pending external certification.

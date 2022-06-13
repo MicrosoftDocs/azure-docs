@@ -5,7 +5,7 @@ services: load-balancer
 author: anavinahar
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/17/2021
 ms.author: anavin
 ---
 # What's new in Azure Load Balancer?
@@ -23,12 +23,14 @@ You can also find the latest Azure Load Balancer updates and subscribe to the RS
 
 | Type |Name |Description  |Date added  |
 | ------ |---------|---------|---------|
-| Feature | [Support for IP-based backend pools (General Availabilty)](https://azure.microsoft.com/updates/iplbga/) | Azure Load Balancer supports adding and removing resources from a backend pool via an IPv4 or IPv6 addresses. This enables easy management of containers, virtual machines, and virtual machine scale sets associated with Load Balancer. It will also allow IP addresses to be reserved as part of a backend pool before the associated resources are created. Learn more [here](backend-pool-management.md)|March 2021 |
-| Feature | [Instance Metadata support for Standard SKU Load Balancers and Public IPs](https://azure.microsoft.com/updates/standard-load-balancer-and-ip-addresses-metadata-now-available-through-azure-instance-metadata-service-imds/)|Metadata of Standard Public IP addresses  and Standard Load Balancer can now be retrieved through Azure Instance Metadata Service (IMDS). The metadata is available from within the running instances of virtual machines (VMs) and virtual machine scale sets (VMSS) instances. You can leverage the metadata to manage your virtual machines. Lean more [here](instance-metadata-service-load-balancer.md)| February 2021 |
+| SKU | [Gateway Load Balancer public preview](https://azure.microsoft.com/updates/gateway-load-balancer-preview/) | Gateway Load Balancer is a fully managed service enabling you to deploy, scale, and enhance the availability of third party network virtual appliances (NVAs) in Azure. You can add your favorite third party appliance whether it is a firewall, inline DDoS appliance, deep packet inspection system, or even your own custom appliance into the network path transparently – all with a single click.| November 2021 |
+| Feature | [Support for IP-based backend pools (General Availability)](https://azure.microsoft.com/updates/iplbga/) | Azure Load Balancer supports adding and removing resources from a backend pool via an IPv4 or IPv6 addresses. This enables easy management of containers, virtual machines, and virtual machine scale sets associated with Load Balancer. It will also allow IP addresses to be reserved as part of a backend pool before the associated resources are created. Learn more [here](backend-pool-management.md)|March 2021 |
+| Feature | [Instance Metadata support for Standard SKU Load Balancers and Public IPs](https://azure.microsoft.com/updates/standard-load-balancer-and-ip-addresses-metadata-now-available-through-azure-instance-metadata-service-imds/)|Metadata of Standard Public IP addresses  and Standard Load Balancer can now be retrieved through Azure Instance Metadata Service (IMDS). The metadata is available from within the running instances of virtual machines (VMs) and virtual machine scale sets instances. You can leverage the metadata to manage your virtual machines. Lean more [here](instance-metadata-service-load-balancer.md)| February 2021 |
 | Feature | [Public IP SKU upgrade from Basic to Standard without losing IP address](https://azure.microsoft.com/updates/public-ip-sku-upgrade-generally-available/) | As you move from Basic to Standard Load Balancers, retain your public IP address. Learn more [here](../virtual-network/ip-services/public-ip-upgrade-portal.md)| January 2021|
 | Feature | Support for moves across resource groups | Standard Load Balancer and Standard Public IP support for [resource group moves](https://azure.microsoft.com/updates/standard-resource-group-move/). | October 2020 |
+| Feature | [Cross-region load balancing with Global tier on Standard LB](https://azure.microsoft.com/updates/preview-azure-load-balancer-now-supports-crossregion-load-balancing/) | Azure Load Balancer supports Cross Region Load Balancing. Previously, Standard Load Balancer had a regional scope. With this release, you can load balance across multiple Azure regions via a single, static, global anycast Public IP address. | September 2020 |
 | Feature| Azure Load Balancer Insights using Azure Monitor | Built as part of Azure Monitor for Networks, customers now have topological maps for all their Load Balancer configurations and health dashboards for their Standard Load Balancers preconfigured with metrics in the Azure portal. [Get started and learn more](https://azure.microsoft.com/blog/introducing-azure-load-balancer-insights-using-azure-monitor-for-networks/) | June 2020 |
-| Validation | Addition of validation for HA ports | A validation was added to ensure that HA port rules and non HA port rules are only configurable when Floating IP is enabled. Previously, the this configuration would go through, but not work as intended. No change to functionality was made. You can learn more [here](load-balancer-ha-ports-overview.md#limitations)| June 2020 |
+| Validation | Addition of validation for HA ports | A validation was added to ensure that HA port rules and non HA port rules are only configurable when Floating IP is enabled. Previously, this configuration would go through, but not work as intended. No change to functionality was made. You can learn more [here](load-balancer-ha-ports-overview.md#limitations)| June 2020 |
 | Feature| IPv6 support for Azure Load Balancer (generally available) | You can have IPv6 addresses as your frontend for your Azure Load Balancers. Learn how to [create a dual stack application here](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) |April 2020|
 | Feature| TCP Resets on Idle Timeout (generally available)| Use TCP resets to create a more predictable application behavior. [Learn more](load-balancer-tcp-reset.md)| February 2020 |
 
@@ -38,7 +40,8 @@ The product group is actively working on resolutions for the following known iss
 
 |Issue |Description  |Mitigation  |
 | ---------- |---------|---------|
-| IP based LB outbound IP | IP based LB leverages Azure's Default Outbound Access IP for outbound when no outbount rules are configured | In order to prevent outbound access from this IP, please leverage Outbound rules or a NAT Gateway for a predictable IP address and to prevent SNAT port exhaustion |
+| IP based LB outbound IP | IP based LB leverages Azure's Default Outbound Access IP for outbound | In order to prevent outbound access from this IP, please leverage NAT Gateway for a predictable IP address and to prevent SNAT port exhaustion |
+| numberOfProbes, "Unhealthy threshold" | Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, is not respected. Load Balancer health probes will probe up/down immediately after 1 probe regardless of the property's configured value | To reflect the current behavior, please set the value of numberOfProbes ("Unhealthy threshold" in Portal) as 1 |
 
   
 

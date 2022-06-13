@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Build a Node.js web app with Azure Cosmos DB JavaScript SDK to manage SQL API data'
 description: This Node.js tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Web Apps feature of Microsoft Azure App Service.
-author: SnehaGunda
+author: deborahc
+ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 10/18/2021
-ms.author: sngun
 ms.custom: devx-track-js
 #Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 ---
@@ -20,7 +20,6 @@ ms.custom: devx-track-js
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Python](./create-sql-api-python.md)
-> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 As a developer, you might have applications that use NoSQL document data. You can use a SQL API account in Azure Cosmos DB to store and access this document data. This Node.js tutorial shows you how to store and access data from a SQL API account in Azure Cosmos DB by using a Node.js Express application that is hosted on the Web Apps feature of Microsoft Azure App Service. In this tutorial, you will build a web-based application (Todo app) that allows you to create, retrieve, and complete tasks. The tasks are stored as JSON documents in Azure Cosmos DB. 
@@ -456,7 +455,7 @@ Now that you have built the application, you can run it locally by using the fol
 
 ## <a name="deploy-app"></a>Deploy your application to App Service
 
-After your application succeeds locally, you can deploy it to Azure App Service. In the terminal, make sure you're in the *todo* app directory. Deploy the code in your local folder (todo) using the following [az webapp up](/cli/azure/webapp?view=azure-cli-latest#az_webapp_up&preserve-view=true) command:
+After your application succeeds locally, you can deploy it to Azure App Service. In the terminal, make sure you're in the *todo* app directory. Deploy the code in your local folder (todo) using the following [az webapp up](/cli/azure/webapp#az-webapp-up) command:
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>

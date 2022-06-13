@@ -3,6 +3,7 @@ title: Availability and consistency - Azure Event Hubs | Microsoft Docs
 description: How to provide the maximum amount of availability and consistency with Azure Event Hubs using partitions.
 ms.topic: article
 ms.date: 03/15/2021
+ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
 ---
 
@@ -30,7 +31,7 @@ We recommend sending events to an event hub without setting partition informatio
 
 - [Send events using .NET](event-hubs-dotnet-standard-getstarted-send.md)
 - [Send events using Java](event-hubs-java-get-started-send.md)
-- [Send events using JavaScript](event-hubs-python-get-started-send.md)
+- [Send events using JavaScript](event-hubs-node-get-started-send.md)
 - [Send events using Python](event-hubs-python-get-started-send.md)
 
 

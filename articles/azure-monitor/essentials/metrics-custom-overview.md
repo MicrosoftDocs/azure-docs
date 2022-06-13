@@ -31,7 +31,7 @@ For details on when billing will be enabled for custom metrics and metrics queri
 Custom metrics are retained for the [same amount of time as platform metrics](../essentials/data-platform-metrics.md#retention-of-metrics). 
 
 > [!NOTE]  
-> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data. They incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) has been selected. This checkbox sends data to the Azure Monitor metrics database by using the custom metrics API to allow the more complex alerting.  Learn more about the [Application Insights pricing model](../app/pricing.md#pricing-model) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
+> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data. They incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) has been selected. This checkbox sends data to the Azure Monitor metrics database by using the custom metrics API to allow the more complex alerting.  Learn more about the [Application Insights pricing model](../usage-estimated-costs.md) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## How to send custom metrics
 
@@ -211,7 +211,7 @@ To understand the limit of 50,000 on time series, consider the following metric:
 
 > *Server response time* with Dimensions: *Region*, *Department*, *CustomerID*
 
-With this metric, if you have 10 regions, 20 departments, and 100 customers, that gives you 10 x 20 x 100 = 2,000 time series. 
+With this metric, if you have 10 regions, 20 departments, and 100 customers, that gives you 10 x 20 x 100 = 20,000 time series. 
 
 If you have 100 regions, 200 departments, and 2,000 customers, that gives you 100 x 200 x 2,000 = 40 million time series, which is far over the limit just for this metric alone. 
 

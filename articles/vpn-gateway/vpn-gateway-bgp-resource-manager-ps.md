@@ -3,12 +3,12 @@ title: 'Configure BGP for VPN Gateway using PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure BGP for VPN gateways using PowerShell.
 services: vpn-gateway
-author: yushwang
+author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.author: yushwang 
+ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
 ---

@@ -57,12 +57,14 @@ landingContent:
             url: add-application-portal-configure.md
           - text: Assign users and groups
             url: assign-user-or-group-access-portal.md
-          - text: Configure single sign-on
-            url: plan-sso-deployment.md
           - text: Provision an app
             url: ../governance/what-is-provisioning.md
           - text: Configure My Apps
             url: my-apps-deployment-plan.md
+      - linkListType: learn
+        links:
+          - text: Enable single sign-on
+            url: /learn/modules/enable-single-sign-on/
   - title: Secure an app
     linkLists:
       - linkListType: how-to-guide
@@ -77,7 +79,7 @@ landingContent:
             url: tenant-restrictions.md
           - text: Configure token encryption
             url: howto-saml-token-encryption.md
-          - text: Use Cloud App Security
+          - text: Use Defender for Cloud Apps
             url: cloud-app-security.md
           - text: Act on overprivileged and suspicious app
             url: manage-application-permissions.md
@@ -151,8 +153,3 @@ landingContent:
             url: ../app-proxy/application-proxy-configure-native-client-application.md
           - text: Publish claims-aware applications
             url: ../app-proxy/application-proxy-configure-for-claims-aware-applications.md
-
-
-
-
-

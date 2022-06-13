@@ -6,30 +6,23 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: luisquintanilla
-ms.author: luquinta
-ms.date: 01/14/2020
+author: ssalgadodev
+ms.author: ssalgado
+ms.custom: mktng-kw-nov2021, event-tier1-build-2022
+ms.date: 11/04/2021
 ---
 
-# Open-source integration with Azure Machine Learning projects
+# Use open-source machine learning libraries and platforms with Azure Machine Learning
 
-You can train, deploy, and manage the end-to-end machine learning process in Azure Machine Learning by using open-source Python machine learning libraries and platforms.  Use development tools, like Jupyter Notebooks and Visual Studio Code, to leverage your existing models and scripts in Azure Machine Learning.  
-
-In this article, learn more about these open-source libraries and platforms.
+In this article, learn about open-source Python machine learning libraries and platforms you can use with Azure Machine Learning. Train, deploy, and manage the end-to-end machine learning process using open source projects you prefer.  Use development tools, like Jupyter Notebooks and Visual Studio Code, to leverage your existing models and scripts in Azure Machine Learning.  
 
 ## Train open-source machine learning models
 
-The machine learning training process involves the application of algorithms to your data in order to achieve a task or solve a problem. Depending on the problem, you may choose different algorithms that best fit the task and your data. For more information on the different branches of machine learning, see the [deep learning vs machine learning article](./concept-deep-learning-vs-machine-learning.md) and the [machine learning algorithm cheat sheet](algorithm-cheat-sheet.md).
-
-### Preserve data privacy using differential privacy
-
-To train a machine learning model, you need data. Sometimes that data is sensitive, and it's important to make sure that the data is secure and private. Differential privacy is a technique of preserving the confidentiality of information in a dataset. To learn more, see the article on [preserving data privacy](concept-differential-privacy.md). 
-
-Open-source differential privacy toolkits like [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core-python) help you [preserve the privacy of data](how-to-differential-privacy.md) in Azure Machine Learning solutions.
+The machine learning training process involves the application of algorithms to your data in order to achieve a task or solve a problem. Depending on the problem, you may choose different algorithms that best fit the task and your data. For more information on what you can solve with machine learning, see the [deep learning vs machine learning article](./concept-deep-learning-vs-machine-learning.md) and the [machine learning algorithm cheat sheet](algorithm-cheat-sheet.md).
 
 ### Classical machine learning: scikit-learn
 
-For training tasks involving classical machine learning algorithms tasks such classification, clustering, and regression you might use something like Scikit-learn. To learn how to train a flower classification model, see the [how to train with Scikit-learn article](how-to-train-scikit-learn.md).
+For training tasks involving classical machine learning algorithms tasks such classification, clustering, and regression you might use something like scikit-learn. To learn how to train a flower classification model, see the [how to train with scikit-learn article](how-to-train-scikit-learn.md).
 
 ### Neural networks: PyTorch, TensorFlow, Keras
 
@@ -40,6 +33,8 @@ Open-source deep learning frameworks and how-to guides include:
  *  [PyTorch](https://github.com/pytorch/pytorch): [Train a deep learning image classification model using transfer learning](how-to-train-pytorch.md) 
  *  [TensorFlow](https://github.com/tensorflow/tensorflow): [Recognize handwritten digits using TensorFlow](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras): [Build a neural network to analyze images using Keras](how-to-train-keras.md)
+
+### Transfer learning
 
 Training a deep learning model from scratch often requires large amounts of time, data, and compute resources. You can shortcut the training process by using transfer learning. Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. This means you can take an existing model repurpose it. See the [deep learning vs machine learning article](concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) to learn more about transfer learning.
 
@@ -54,6 +49,14 @@ To learn how to use Ray RLLib with Azure Machine Learning, see the [how to train
 ### Monitor model performance: TensorBoard
 
 Training a single or multiple models requires the visualization and inspection of desired metrics to make sure the model performs as expected. You can [use TensorBoard in Azure Machine Learning to track and visualize experiment metrics](./how-to-monitor-tensorboard.md)
+
+## Responsible AI: Privacy and fairness
+
+### Preserve data privacy with differential privacy
+
+To train a machine learning model, you need data. Sometimes that data is sensitive, and it's important to make sure that the data is secure and private. Differential privacy is a technique of preserving the confidentiality of information in a dataset. To learn more, see the article on [preserving data privacy](concept-differential-privacy.md). 
+
+Open-source differential privacy toolkits like [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core-python) help you [preserve the privacy of data](how-to-differential-privacy.md) in Azure Machine Learning solutions.
 
 ### Frameworks for interpretable and fair models
 
@@ -84,16 +87,16 @@ For more information on ONNX and how to consume ONNX models, see the following a
 
 ### Package and deploy models as containers
 
-Container technologies such as Docker are one way to deploy models as web services. Containers provide a platform and resource agnostic way to build and orchestrate reproducible software environments. With these core technologies, you can use [preconfigured environments](./how-to-use-environments.md), [preconfigured container images](./how-to-deploy-custom-container.md) or custom ones to deploy your machine learning models to such as [Kubernetes clusters](./how-to-deploy-azure-kubernetes-service.md?tabs=python). For GPU intensive workflows, you can use tools like NVIDIA Triton Inference server to [make predictions using GPUs](how-to-deploy-with-triton.md?tabs=python).
+Container technologies such as Docker are one way to deploy models as web services. Containers provide a platform and resource agnostic way to build and orchestrate reproducible software environments. With these core technologies, you can use [preconfigured environments](./how-to-use-environments.md), [preconfigured container images](./how-to-deploy-custom-container.md) or custom ones to deploy your machine learning models to such as [Kubernetes clusters](./v1/how-to-deploy-azure-kubernetes-service.md?tabs=python). For GPU intensive workflows, you can use tools like NVIDIA Triton Inference server to [make predictions using GPUs](how-to-deploy-with-triton.md?tabs=python).
 
 ### Secure deployments with homomorphic encryption
 
 Securing deployments is an important part of the deployment process. To [deploy encrypted inferencing services](how-to-homomorphic-encryption-seal.md), use the `encrypted-inference` open-source Python library. The `encrypted inferencing` package provides bindings based on [Microsoft SEAL](https://github.com/Microsoft/SEAL), a homomorphic encryption library.
 
-## Machine Learning Operations (MLOps)
+## Machine learning operations (MLOps)
 
 Machine Learning Operations (MLOps), commonly thought of as DevOps for machine learning allows you to build more transparent, resilient, and reproducible machine learning workflows. See the [what is MLOps article](./concept-model-management-and-deployment.md) to learn more about MLOps. 
 
-Using DevOps practices like continuous integration (CI) and continuous deployment (CD), you can automate the end-to-end machine learning lifecycle and capture governance data around it. You can define your [machine learning CI/CD pipeline in GitHub actions](./how-to-github-actions-machine-learning.md) to run Azure Machine Learning training and deployment tasks. 
+Using DevOps practices like continuous integration (CI) and continuous deployment (CD), you can automate the end-to-end machine learning lifecycle and capture governance data around it. You can define your [machine learning CI/CD pipeline in GitHub Actions](./how-to-github-actions-machine-learning.md) to run Azure Machine Learning training and deployment tasks. 
 
 Capturing software dependencies, metrics, metadata, data and model versioning are an important part of the MLOps process in order to build transparent, reproducible, and auditable pipelines. For this task, you can [use MLFlow in Azure Machine Learning](how-to-use-mlflow.md) as well as when [training machine learning models in Azure Databricks](./how-to-use-mlflow-azure-databricks.md). You can also [deploy MLflow models as an Azure web service](how-to-deploy-mlflow-models.md).

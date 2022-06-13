@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-
+ms.devlang: python
 ---
 
 # Use built-in notebook commands and features in Azure Cosmos DB Python notebooks (preview)

@@ -4,12 +4,14 @@ description: Describes the alerts created by VM insights guest health including 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/10/2020
+ms.date: 05/03/2022
 
 ---
 
 # VM insights guest health alerts (preview)
 VM insights guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. An alert can be created when a virtual machine or monitor changes to an unhealthy state. You can view and manage these alerts with [those created by alert rules in Azure Monitor](../alerts/alerts-overview.md) and choose to be proactively notified when a new alert is created.
+
+[!INCLUDE [guest-health-deprecate](../../../includes/azure-monitor-guest-health-deprecation.md)]
 
 ## Configure alerts
 You cannot create an explicit alert rule for VM insights guest health while this feature is in preview. By default, alerts will be created for each virtual machine but not for each monitor.  This means that if a monitor changes to a state that doesn't affect the current state of the virtual machine, then no alert is created because the virtual machine state didn't change. 
@@ -31,7 +33,7 @@ An [Azure alert](../alerts/alerts-overview.md) will be created for each virtual 
 If an alert is already in **Fired** state when the virtual machine state changes, then a second alert won't be created, but the severity of the same alert will be changed to match the state of the virtual machine. For example, if the virtual machine changes to **Critical** state when a **Warning** alert was already in **Fired** state, that alert's severity will be changed to **Sev1**. If the virtual machine changes to a **Warning** state when a **Sev1** alert was already in **Fired** state, that alert's severity will be changed to **Sev2**. If the virtual machine moves back to a **Healthy** state, then the alert will be resolved with severity changed to **Sev4**.
 
 ## Viewing alerts
-View alerts created by VM insights guest health with other [alerts in the Azure portal](../alerts/alerts-overview.md#alerts-experience). You can select **Alerts** from the **Azure Monitor** menu to view alerts for all monitored resources, or select **Alerts** from a virtual machine's menu to view alerts for just that virtual machine.
+View alerts created by VM insights guest health with other [alerts in the Azure portal](../alerts/alerts-page.md). You can select **Alerts** from the **Azure Monitor** menu to view alerts for all monitored resources, or select **Alerts** from a virtual machine's menu to view alerts for just that virtual machine.
 
 ## Alert properties
 
@@ -80,24 +82,26 @@ Notification received at time t2
 - To know more about this state transition: Navigation link to the state transition happened at time t2.
 
 ## Configure notifications
-To be proactively notified of an alert triggered by guest health, create an [action group](../alerts/action-groups.md) to define the different actions to perform such as sending an SMS message or starting a Logic App. Then create an [action rule](../alerts/alerts-action-rules.md) that specifies the scope of monitors and virtual machines and  uses that action group.
+To be proactively notified of an alert triggered by guest health, create an [action group](../alerts/action-groups.md) to define the different actions to perform such as sending an SMS message or starting a Logic App. Then create an [alert processing rule](../alerts/alerts-action-rules.md) that specifies the scope of monitors and virtual machines and  uses that action group.
 
-In the **Monitor** menu in the Azure portal, select **Alerts**.  Select **Manage actions** and then **Action rules (preview)**. 
+In the **Monitor** menu in the Azure portal, select **Alerts** and then **Alert processing rules (preview)**. 
+:::image type="content" source="media/vminsights-health-alerts/alerts-view.png" alt-text="Alerts view" lightbox="media/vminsights-health-alerts/alerts-view.png":::
 
-![New action rule](media/vminsights-health-alerts/action-rule-new.png)
+Click **Create** to create a new alert processing rule. 
 
-Click **New action rule** to create a new rule. Click **Select** next to scope and select either a subscription, resource group, or one or more specific virtual machines. The notification will only be fired for virtual machines that fall within the scope.
+:::image type="content" source="media/vminsights-health-alerts/alert-processing-rule-new.png" alt-text="New alert processing rule" lightbox="media/vminsights-health-alerts/alert-processing-rule-new.png":::
 
-![Action rule scope](media/vminsights-health-alerts/action-rule-scope.png)
+On the **Scope tab**, click **Select scope** and select either a subscription, resource group, or one or more specific virtual machines. The notification will only be fired for virtual machines that fall within the scope. Add a filter where **Monitor service Equals VM Insights - Health**. Add other filters to specify the particular alerts that should trigger the notification. For example, you can use **Severity** to match alerts from all monitors that match a particular severity.
 
-Click **Add** next to **Filter**. Create a filter where **Monitor service Equals VM Insights - Health**. Add other filters to specify the particular alerts that should trigger the notification. For example, you can use **Severity** to match alerts from all monitors that match a particular severity.
+:::image type="content" source="media/vminsights-health-alerts/alert-processing-rule-scope.png" alt-text="Alert processing rule scope" lightbox="media/vminsights-health-alerts/alert-processing-rule-scope.png":::
 
-![Action rule filter](media/vminsights-health-alerts/action-rule-filter.png)
+Select the **Rule settings** tab, and select **Apply action group** for the **Rule type**. Click **Add action groups** and then select the action group to associate with the monitor. Give the rule a name and select the resource group it should be saved in. Click **Create** to create the rule.
 
-In **Define on this scope**, select **Action group** and then select the action group to associate with the monitor. Give the rule a name and select the resource group it should be saved in. Click **Create** to create the rule.
+:::image type="content" source="media/vminsights-health-alerts/alert-processing-rule-settings.png" alt-text="Alert processing rule settings" lightbox="media/vminsights-health-alerts/alert-processing-rule-settings.png":::
 
-![Action rule](media/vminsights-health-alerts/action-rule.png)
+Select the **Details** tab. Select a **Subscription** and **Resource group** to store the alert processing rule and provide a descriptive **Rule name**. Click **Remove + create** to create and enable the alert processing rule.
 
+:::image type="content" source="media/vminsights-health-alerts/alert-processing-rule-details.png" alt-text="Alert processing rule details" lightbox="media/vminsights-health-alerts/alert-processing-rule-details.png":::
 
 ## Next steps
 

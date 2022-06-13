@@ -1,5 +1,5 @@
 ---
-title: Use Azure Image Builder with an image gallery for Windows VMs
+title: Use Azure Image Builder with a gallery for Windows VMs
 description: Create Azure Shared Gallery image versions using Azure Image Builder and Azure PowerShell.
 author: kof-f
 ms.author: kofiforson
@@ -7,19 +7,19 @@ ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subervice: image-builder
-ms.colletion: windows 
+ms.subservice: image-builder
+ms.collection: windows 
 ms.custom: devx-track-azurepowershell
 ---
-# Create a Windows image and distribute it to a Shared Image Gallery 
+# Create a Windows image and distribute it to an Azure Compute Gallery 
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-This article is to show you how you can use the Azure Image Builder, and Azure PowerShell, to create an image version in a [Shared Image Gallery](../shared-image-galleries.md), then distribute the image globally. You can also do this using the [Azure CLI](../linux/image-builder-gallery.md).
+This article is to show you how you can use the Azure Image Builder, and Azure PowerShell, to create an image version in an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery), then distribute the image globally. You can also do this using the [Azure CLI](../linux/image-builder-gallery.md).
 
 We will be using a .json template to configure the image. The .json file we are using is here: [armTemplateWinSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). We will be downloading and editing a local version of the template, so this article is written using local PowerShell session.
 
-To distribute the image to a Shared Image Gallery, the template uses [sharedImage](../linux/image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
+To distribute the image to an Azure Compute Gallery, the template uses [sharedImage](../linux/image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
 Azure Image Builder automatically runs sysprep to generalize the image, this is a generic sysprep command, which you can [override](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully) if needed. 
 
@@ -81,7 +81,7 @@ $imageTemplateName="helloImageTemplateWin02ps"
 # This gives you the properties of the managed image on completion.
 $runOutputName="winclientR01"
 
-# Create a resource group for Image Template and Shared Image Gallery
+# Create a resource group for Image Template and Azure Compute Gallery
 New-AzResourceGroup `
    -Name $imageResourceGroup `
    -Location $location
@@ -89,7 +89,7 @@ New-AzResourceGroup `
 
 
 ## Create a user-assigned identity and set permissions on the resource group
-Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md) provided to inject the image into the Azure Shared Image Gallery (SIG). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
+Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md) provided to inject the image into the Azure Azure Compute Gallery (SIG). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
 
 ```powershell
 # setup role def names, these need to be unique
@@ -134,14 +134,14 @@ https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
 ```
 
 
-## Create the Shared Image Gallery
+## Create the Azure Compute Gallery
 
-To use Image Builder with a shared image gallery, you need to have an existing image gallery and image definition. Image Builder will not create the image gallery and image definition for you.
+To use Image Builder with an Azure Compute Gallery, you need to have an existing gallery and image definition. Image Builder will not create the gallery and image definition for you.
 
-If you don't already have a gallery and image definition to use, start by creating them. First, create an image gallery.
+If you don't already have a gallery and image definition to use, start by creating them. First, create a gallery.
 
 ```powershell
-# Image gallery name
+# Gallery name
 $sigGalleryName= "myIBSIG"
 
 # Image definition name
@@ -266,13 +266,13 @@ $pip = New-AzPublicIpAddress -ResourceGroupName $vmResourceGroup -Location $repl
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 $nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
+  -DestinationPortRange 3389 -Access Deny
 $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $vmResourceGroup -Location $replRegion2 `
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
 $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $vmResourceGroup -Location $replRegion2 `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
-# Create a virtual machine configuration using $imageVersion.Id to specify the shared image
+# Create a virtual machine configuration using $imageVersion.Id to specify the image
 $vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
 Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
 Set-AzVMSourceImage -Id $imageVersion.Id | `

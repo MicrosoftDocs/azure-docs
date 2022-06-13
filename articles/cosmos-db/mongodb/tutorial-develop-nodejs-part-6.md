@@ -4,12 +4,12 @@ description: Part 6 of the tutorial series on creating a MongoDB app with Angula
 author: johnpapa
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 # Create an Angular app with Azure Cosmos DB's API for MongoDB - Add CRUD functions to the app
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]

@@ -144,9 +144,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Aruba User Experience Insight Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Aruba User Experience Insight sign-on URL where you can initiate the login flow.  
 
-* Go to Aruba User Experience Insight Sign-on URL directly and initiate the login flow from there.
+* Go to Aruba User Experience Insight sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
@@ -156,4 +156,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure Aruba User Experience Insight you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Aruba User Experience Insight you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

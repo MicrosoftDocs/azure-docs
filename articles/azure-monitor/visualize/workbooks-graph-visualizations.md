@@ -95,7 +95,7 @@ Graphs authors can specify what content goes to the different parts of a node: t
 3. Select the query type as **Log**, resource type (for example, Application Insights), and the resources to target.
 4. Use the Query editor to enter the KQL for your analysis.
 
-     ```kusto
+    ```kusto
     let data = dependencies
     | summarize Calls = count() by App = appName, Request = operation_Name, Dependency = name
     | extend RequestId = strcat(App, '::', Request);

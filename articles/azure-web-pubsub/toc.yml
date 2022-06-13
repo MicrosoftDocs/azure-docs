@@ -33,10 +33,14 @@
     - name: Serverless development
       expanded: true
       items:
-      - name: Build a notification app with Azure Functions
+      - name: Build a notification app by using Azure Functions
         href: tutorial-serverless-notification.md
       - name: Build a real-time chat app with client authentication
         href: quickstart-serverless.md
+      - name: Build a real-time chat app by using an Azure Static Web App
+        href: tutorial-serverless-static-web-app.md
+      - name: Visualize IoT data by using an Azure Function
+        href: tutorial-serverless-iot.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
@@ -52,6 +56,20 @@
     items:
     - name: Create WebSocket clients
       href: howto-websocket-connect.md
+    - name: Create reliable Websocket clients
+      href: howto-develop-reliable-clients.md
+    - name: Configure event handler
+      href: howto-develop-eventhandler.md
+    - name: Create `WebPubSubServiceClient` with Azure Identity
+      items:
+      - name: Create `WebPubSubServiceClient` with Azure Identity and .NET
+        href: howto-create-serviceclient-with-net-and-azure-identity.md
+      - name: Create `WebPubSubServiceClient` with Azure Identity and Java
+        href: howto-create-serviceclient-with-java-and-azure-identity.md
+      - name: Create `WebPubSubServiceClient` with Azure Identity and JavaScript
+        href: howto-create-serviceclient-with-javascript-and-azure-identity.md
+      - name: Create `WebPubSubServiceClient` with Azure Identity and Python
+        href: howto-create-serviceclient-with-python-and-azure-identity.md
   - name: Monitor
     items:
     - name: Audit compliance using Azure Policy
@@ -70,12 +88,22 @@
       href: howto-secure-shared-private-endpoints.md
     - name: Use a managed identity
       href: howto-use-managed-identity.md
+    - name: Configure Azure AD Authorization
+      items:
+        - name: Authorize from Azure applications
+          href: howto-authorize-from-application.md
+        - name: Authorize from managed identities
+          href: howto-authorize-from-managed-identity.md
   - name: Troubleshooting
     items:
+    - name: Debug event handlers locally
+      href: howto-local-debug-event-handler.md
     - name: Collect network trace
       href: howto-troubleshoot-network-trace.md
-    - name: Capture diagnostics logs
-      href: howto-troubleshoot-diagnostic-logs.md
+    - name: Capture resource logs
+      href: howto-troubleshoot-resource-logs.md
+  - name: Move across regions
+    href: howto-move-across-regions.md
 
 - name: Concepts
   expanded: true
@@ -92,6 +120,10 @@
     href: concept-performance.md
   - name: Billing model
     href: concept-billing-model.md
+  - name: Azure AD Authorization
+    href: concept-azure-ad-authorization.md
+  - name: Metrics
+    href: concept-metrics.md
 
 - name: Reference 
   items:
@@ -102,12 +134,18 @@
       href: reference-json-webpubsub-subprotocol.md
     - name: Protobuf WebSocket subprotocol
       href: reference-protobuf-webpubsub-subprotocol.md
+    - name: Reliable JSON WebSocket subprotocol
+      href: reference-json-reliable-webpubsub-subprotocol.md
+    - name: Reliable Protobuf WebSocket subprotocol
+      href: reference-protobuf-reliable-webpubsub-subprotocol.md
   - name: CloudEvents extension for Azure Web PubSub
     href: reference-cloud-events.md
   - name: Functions trigger and bindings
     href: reference-functions-bindings.md
-  - name: Server SDKs
+  - name: Data plane REST API and SDKs
     items:
+    - name: REST API
+      href: reference-rest-api-data-plane.md
     - name: Server SDK - C#
       href: reference-server-sdk-csharp.md
     - name: Server SDK - Java
@@ -116,8 +154,8 @@
       href: reference-server-sdk-js.md
     - name: Server SDK - Python
       href: reference-server-sdk-python.md
-  - name: REST API
-    href: /rest/api/webpubsub
+  - name: Control plane
+    href: /rest/api/webpubsub/
 
 - name: Resources
   items:

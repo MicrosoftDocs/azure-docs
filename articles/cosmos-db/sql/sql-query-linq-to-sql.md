@@ -1,12 +1,13 @@
 ---
 title: LINQ to SQL translation in Azure Cosmos DB
 description: Learn the LINQ operators supported and how the LINQ queries are mapped to SQL queries in Azure Cosmos DB.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/06/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 
 ---
 # LINQ to SQL translation
@@ -15,7 +16,7 @@ ms.author: tisande
 The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into a Cosmos DB SQL query. If you want to get the SQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable`object. The following description assumes a basic familiarity with [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). In addition to LINQ, Azure Cosmos DB also supports [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli) which works with SQL API.
 
 > [!NOTE]
-> We recommend using the latest [.NET SDK version](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.20.1)
+> We recommend using the latest [.NET SDK version](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)
 
 The query provider type system supports only the JSON primitive types: numeric, Boolean, string, and null.
 
@@ -91,7 +92,7 @@ The LINQ provider included with the SQL .NET SDK supports the following operator
 - **Array functions**: Supports translation from .NET `Concat`, `Contains`, and `Count` to the equivalent [built-in array functions](sql-query-array-functions.md).
 - **Geospatial Extension functions**: Supports translation from stub methods `Distance`, `IsValid`, `IsValidDetailed`, and `Within` to the equivalent [built-in geospatial functions](sql-query-geospatial-query.md).
 - **User-Defined Function Extension function**: Supports translation from the stub method [CosmosLinq.InvokeUserDefinedFunction](/dotnet/api/microsoft.azure.cosmos.linq.cosmoslinq.invokeuserdefinedfunction?view=azure-dotnet&preserve-view=true) to the corresponding [user-defined function](sql-query-udfs.md).
-- **Miscellaneous**: Supports translation of `Coalesce` and conditional [operators](sql-query-operators.md). Can translate `Contains` to String CONTAINS, ARRAY_CONTAINS, or IN, depending on context.
+- **Miscellaneous**: Supports translation of `Coalesce` and [conditional operators](sql-query-logical-operators.md). Can translate `Contains` to String CONTAINS, ARRAY_CONTAINS, or IN, depending on context.
 
 ## Examples
 

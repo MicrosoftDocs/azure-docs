@@ -164,7 +164,7 @@ the blueprint definition unique.
      - **Assignment name**: The name is pre-populated based on the name of the blueprint
        definition. We want this assignment to represent locking the new resource group, so change
        the assignment name to **assignment-locked-storageaccount-TestingBPLocks**.
-     - **Location**: Select a region in which to create the managed identity. Azure Blueprint uses
+     - **Location**: Select a region in which to create the managed identity. Azure Blueprints uses
        this managed identity to deploy all artifacts in the assigned blueprint. To learn more, see
        [managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md).
        For this tutorial, select **East US 2**.

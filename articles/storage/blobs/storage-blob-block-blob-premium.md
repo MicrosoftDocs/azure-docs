@@ -20,15 +20,11 @@ Premium block blob storage accounts make data available via high-performance har
 
 Premium block blob storage accounts are ideal for workloads that require fast and consistent response times and/or have a high number of input output operations per second (IOP). Example workloads include:
 
-- **Interactive workloads**. Highly interactive and real-time applications must write data quickly. E-commerce and mapping applications often require instant updates and user feedback. For example, in an e-commerce application, less frequently viewed items are likely not cached. However, they must be instantly displayed to the customer on demand. 
-
-  Interactive editing or multi-player online gaming applications maintain a quality experience by providing real-time updates. In the financial services sector, a fraction of a second could be the difference between making or losing massive sums of money.  
+- **Interactive workloads**. Highly interactive and real-time applications must write data quickly. E-commerce and mapping applications often require instant updates and user feedback. For example, in an e-commerce application, less frequently viewed items are likely not cached. However, they must be instantly displayed to the customer on demand. Interactive editing or multi-player online gaming applications maintain a quality experience by providing real-time updates.  
 
 - **IoT/ streaming analytics**. In an IoT scenario, lots of smaller write operations might be pushed to the cloud every second. Large amounts of data might be taken in, aggregated for analysis purposes, and then deleted almost immediately. The high ingestion capabilities of premium block blob storage make it efficient for this type of workload.
 
 - **Artificial intelligence/machine learning (AI/ML)**. AI/ML deals with the consumption and processing of different data types like visuals, speech, and text. This high-performance computing type of workload deals with large amounts of data that requires rapid response and efficient ingestion times for data analysis.
-
-- **Data transformation**. Processes that require constant editing, modification, and conversion of data require instant updates. For accurate data representation, consumers of this data must see these changes reflected immediately.
 
 ## Cost effectiveness
   
@@ -62,7 +58,7 @@ For example, assuming that your account is in the East US 2 region, the number o
 This section contains real-world examples of how some of our Azure Storage partners use premium block blob storage. Some of them also enable Azure Data Lake Storage Gen2 which introduces a hierarchical file structure that can further enhance transaction performance in certain scenarios. 
 
 > [!TIP]
-> If your storage account is going to be used for analytics, we highly recommend that you use Azure Data Lake Storage Gen2 along with a premium block blob storage account. 
+> If you have an analytics use case, we highly recommend that you use Azure Data Lake Storage Gen2 along with a premium block blob storage account. 
 
 This section contains the following examples:
 
@@ -80,21 +76,21 @@ This section contains the following examples:
 
 Premium block blob storage can help you *hydrate* or bring up your environment quickly. In industries such as banking, certain regulatory requirements might require companies to regularly tear down their environments, and then bring them back up from scratch. The data used to hydrate their environment must load quickly. 
 
-Some of our partners store a copy of their MongoDB instance each week to a premium block blob storage account. The system is then torn down. To get the system back online quickly again, the latest copy of the MangoDB instance is read and loaded. For audit purposes, previous copies are maintained in cloud storage for a period of time.
+Some of our partners store a copy of their MongoDB instance each week to a premium block blob storage account. The system is then torn down. To get the system back online quickly again, the latest copy of the MongoDB instance is read and loaded. For audit purposes, previous copies are maintained in cloud storage for a period of time.
 
 ### Interactive editing applications
 
 In applications where multiple users edit the same content, the speed of updates becomes critical for a smooth user experience. 
 
-Some of our partners develop video editing software. Any update that a user makes to a video is immediately visible to other users. Users can focus on their tasks instead of waiting for content updates to appear. The low latencies associated with the premium block blob storage helps to create this seamless and collaborative experience.  
+Some of our partners develop video editing software. Any update that a user makes to a video is immediately visible to other users. Users can focus on their tasks instead of waiting for content updates to appear. The low latencies associated with premium block blob storage helps to create this seamless and collaborative experience.  
 
 ### Data visualization software
 
 Users can be far more productive with data visualization software if rendering time is quick. 
  
-We've seen companies in the mapping industry use mapping editors to detect issues with maps. These editors use data that is generated from customer Global Positioning System (GPS) data. To create map overlaps, the editing software renders small sections of a map by quickly performing key looks-ups. 
+We've seen companies in the mapping industry use mapping editors to detect issues with maps. These editors use data that is generated from customer Global Positioning System (GPS) data. To create map overlaps, the editing software renders small sections of a map by quickly performing key lookups. 
 
-In one case, before using premium block blob storage, a partner used HDInsight with HBase backed by standard general-purpose v2 storage. However, it became expensive to keep large clusters running all of the time. This partner decided to move away from this architecture, and instead used premium block blob storage for fast key looks-ups. To create overlaps, the they used REST APIs to render tiles corresponding to GPS coordinates. The premium block blob storage account provided them with a cost-effective solution, and latencies were far more predictable.
+In one case, before using premium block blob storage, a partner used HBase clusters backed by standard general-purpose v2 storage. However, it became expensive to keep large clusters running all of the time. This partner decided to move away from this architecture, and instead used premium block blob storage for fast key lookups. To create overlaps, they used REST APIs to render tiles corresponding to GPS coordinates. The premium block blob storage account provided them with a cost-effective solution, and latencies were far more predictable.
 
 ### E-commerce businesses
 
@@ -106,21 +102,19 @@ In almost every industry, there is a need for enterprises to query and analyze t
 
 Data scientists, analysts, and developers can derive time-sensitive insights faster by running queries on data that is stored in a premium block blob storage account. Executives can load their dashboards much more quickly when the data that appears in those dashboards comes from a premium block blob storage account instead of a standard general-purpose v2 account. 
 
-In one case, Presto and Spark were used to produce insights from hive tables. analysts must analyze telemetry data from millions of devices quickly to better understand how their products are used, and to make product release decisions. They scale storage and compute independently to allow for petabyte scale data and point access to their data. 
-
-Storing data in SQL databases is expensive. To reduce cost, and to increase queryable surface area, they use an Azure Data Lake Storage Gen2 enabled premium block blob storage account and perform computation in Presto and Spark. This way, even rarely accessed data has all of the power of compute that frequently accessed data has. 
+In one scenario, analysts needed to analyze telemetry data from millions of devices quickly to better understand how their products are used, and to make product release decisions. Storing data in SQL databases is expensive. To reduce cost, and to increase queryable surface area, they used an Azure Data Lake Storage Gen2 enabled premium block blob storage account and performed computation in Presto and Spark to produce insights from hive tables. This way, even rarely accessed data has all of the same power of compute as frequently accessed data.
 
 To close the gap between SQL's subsecond performance and Presto's input output operations per second (IOPs) to external storage, consistency and speed are critical, especially when dealing with small optimized row columnar (ORC) files. A premium block blob storage account when used with Data Lake Storage Gen2, has repeatedly demonstrated a 3X performance improvement over a standard general-purpose v2 account in this scenario. Queries executed fast enough to feel local to the compute machine. 
 
-In another case, a partner stores and queries logs that are generated from their security solution. The logs are generated by using Databricks, and then and stored in a Data Lake Storage Gen2 enabled premium block blob storage account. End users query and search this data by using Azure Data Explorer. they chose this type of account to increase stability and increase the performance of interactive queries. They also set the life cycle management `Delete Action` policy to a few days, which helps to reduce costs. This policy prevents them from keeping the data forever. Instead, data is deleted once it is no longer needed. 
+In another case, a partner stores and queries logs that are generated from their security solution. The logs are generated by using Databricks, and then and stored in a Data Lake Storage Gen2 enabled premium block blob storage account. End users query and search this data by using Azure Data Explorer. They chose this type of account to increase stability and increase the performance of interactive queries. They also set the life cycle management `Delete Action` policy to a few days, which helps to reduce costs. This policy prevents them from keeping the data forever. Instead, data is deleted once it is no longer needed. 
 
 ### Data processing pipelines
 
-In almost every industry, there is a need for enterprises to process data. Raw data from multiple sources needs to be cleansed and processed so that it becomes useful for downstream consumption in things like data dashboards that help users make decisions. 
+In almost every industry, there is a need for enterprises to process data. Raw data from multiple sources needs to be cleansed and processed so that it becomes useful for downstream consumption in tools such as data dashboards that help users make decisions. 
 
 While speed of processing is not always the top concern when processing data, some industries require it. For example, companies in the financial services industry often need to process data reliably and in the quickest way possible. To detect fraud, those companies must process inputs from various sources, identify risks to their customers, and take swift action. 
 
-In some cases, we've seen multiple storage accounts used to store data from various sources. Then, some of this data is moved to a Data Lake Storage enabled premium block blob storage account where a data processing application frequently reads newly arriving data. Directory listing calls in this account were much faster and performed much more consistently than they would otherwise perform in a standard general-purpose v2 account. This speed ensured that newly arrived data was made available to downstream processing systems as quickly as possible. This helped them to catch and then act upon potential security risks promptly.
+In some cases, we've seen partners use multiple standard storage accounts to store data from various sources. Some of this data is then moved to a Data Lake Storage enabled premium block blob storage account where a data processing application frequently reads newly arriving data. Directory listing calls in this account were much faster and performed much more consistently than they would otherwise perform in a standard general-purpose v2 account. The speed and consistency offered by the account ensured that new data was always made available to downstream processing systems as quickly as possible. This helped them catch and act upon potential security risks promptly.
      
 ### Internet of Things (IoT)
 
@@ -130,17 +124,17 @@ We have partners in the mining industry. They use a Data Lake Storage Gen2 enabl
 
 ### Machine Learning
 
-In many cases, a lot of data has to be processed to train a machine learning model. To complete this processing, compute machines must run for a long time. Compared to storage costs, compute costs usually account for a much larger percentage of your bill, so reducing the amount of time that your compute machines run can lead to a significant savings. The low latency that you get by using premium block blob storage can significantly reduce this time and your bill.
+In many cases, a lot of data has to be processed to train a machine learning model. To complete this processing, compute machines must run for a long time. Compared to storage costs, compute costs usually account for a much larger percentage of your bill, so reducing the amount of time that your compute machines run can lead to significant savings. The low latency that you get by using premium block blob storage can significantly reduce this time and your bill.
 
 We have partners that deploy data processing pipelines to spark clusters where they run machine learning training and inference. They store spark tables (parquet files) and checkpoints to a premium block blob storage account. Spark checkpoints can create a huge number of nested files and folders. Their directory listing operations are fast because they combined the low latency of a premium block blob storage account with the hierarchical data structure made available with Data Lake Storage Gen2. 
 
-We also have partners in the semiconductor industry with use cases that intersects IoT and machine learning. IoT devices attached to machines in the manufacturing plant take images of semiconductor wafers and send those to their account. Using deep learning inference, the system can inform the on-premise machines if there is an issue with the production and if an action needs to be taken. They mush be able to load and process images quickly and reliably. Using Data Lake Storage Gen2 enabled premium block blob storage account helps to make this possible. 
+We also have partners in the semiconductor industry with use cases that intersect IoT and machine learning. IoT devices attached to machines in the manufacturing plant take images of semiconductor wafers and send those to their account. Using deep learning inference, the system can inform the on-premise machines if there is an issue with the production and if an action needs to be taken. They mush be able to load and process images quickly and reliably. Using Data Lake Storage Gen2 enabled premium block blob storage account helps to make this possible. 
 
 ### Real-time streaming analytics
 
 To support interactive analytics in near real time, a system must ingest and process large amounts of data, and then make that data available to downstream systems. Using a Data Lake Storage Gen2 enabled premium block blob storage account is perfect for these types of scenarios.
 
-Companies in the media and entertainment industry can generate a large number of logs and telemetry data in a short amount of time as they broadcast an event. Some of our partners rely on multiple content delivery network (CDN) partners for streaming. They must make near real-time decisions about which CDN partners to allocate traffic to. Therefore, data needs to be available for querying a few seconds after it is ingested. To facilitate this quick decision making, they use data stored with in premium block blob storage, and process that data in Azure Data Explorer (ADX). All of the telemetry that is uploaded to storage is transformed in ADX, where it can be stored in a familiar format that operators and executives can query quickly and reliably.
+Companies in the media and entertainment industry can generate a large number of logs and telemetry data in a short amount of time as they broadcast an event. Some of our partners rely on multiple content delivery network (CDN) partners for streaming. They must make near real-time decisions about which CDN partners to allocate traffic to. Therefore, data needs to be available for querying a few seconds after it is ingested. To facilitate this quick decision making, they use data stored within premium block blob storage, and process that data in Azure Data Explorer (ADX). All of the telemetry that is uploaded to storage is transformed in ADX, where it can be stored in a familiar format that operators and executives can query quickly and reliably.
 
 Data is uploaded into multiple premium performance Blob Storage accounts. Each account is connected to an Event Grid and Event Hub resource. ADX retrieves the data from Blob Storage, performs any required transformations to normalize the data (For example: decompressing zip files or converting from JSON to CSV). Then, the data is made available for query through ADX and dashboards displayed in Grafana. Grafana dashboards are used by operators, executives, and other users. The customer retains their original logs in premium performance storage, or they copy them to a general-purpose v2 storage account where they can be stored in the hot or cool access tier for long-term retention and future analysis.
 

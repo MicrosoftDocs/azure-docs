@@ -3,7 +3,7 @@ title: Create SQL Server license assignments for Azure Hybrid Benefit
 description: This article explains how to create SQL Server license assignments for Azure Hybrid Benefit.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/30/2021
+ms.date: 12/03/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -23,7 +23,7 @@ The following prerequisites must be met to create SQL Server license assignments
 - Your organization has a supported agreement type and supported offer.
 - You're a member of a role that has permissions to assign SQL licenses.
 - Your organization has SQL Server core licenses with Software Assurance or core subscription licenses available to assign to Azure.
-- Your organization is enrolled to automatic registration of the Azure SQL VMs with the IaaS extension. To learn more, see [Automatic registration with SQL IaaS Agent extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md).
+- Your organization is enrolled to automatic registration of the Azure SQL VMs with the IaaS extension. To learn more, see [Automatic registration with SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms).
   > [!IMPORTANT]
   > Failure to meet this prerequisite will cause Azure to produce incomplete data about your current Azure Hybrid Benefit usage. This situation could lead to incorrect license assignments and might result in unnecessary pay-as-you-go charges for SQL Server licenses.
 
@@ -31,10 +31,11 @@ The prerequisite roles differ depending on the agreement type.
 
 | Agreement type | Required role | Supported offers |
 | --- | --- | --- |
-| Enterprise Agreement | _Enterprise Administrator_<p> For more information about how to become a member of the role, see [Add another enterprise administrator](../manage/ea-portal-administration.md#add-a-department-administrator). | - MS-AZR-0017P (Microsoft Azure Enterprise)<br>- MS-AZR-USGOV-0017P (Azure Government Enterprise) |
-| Microsoft Customer Agreement | *Billing account owner*<br> *Billing account contributor* <br> *Billing profile owner*<br> *Billing profile contributor*<br> For more information about how to become a member of the roles, see [Manage billing roles](../manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal). | MS-AZR-0017G (Microsoft Azure Plan)|
+| Enterprise Agreement | _Enterprise Administrator_<p> If you are an Enterprise admin with read-only access, you’ll need your organization to give you **full** access to assign licenses using centrally managed Azure Hybrid Benefit. <p>If you're not an Enterprise admin, you must be assigned that role by your organization (with full access). For more information about how to become a member of the role, see [Add another enterprise administrator](../manage/ea-portal-administration.md#create-another-enterprise-administrator). | - MS-AZR-0017P (Microsoft Azure Enterprise)<br>- MS-AZR-USGOV-0017P (Azure Government Enterprise) |
+| Microsoft Customer Agreement | *Billing account owner*<br> *Billing account contributor* <br> *Billing profile owner*<br> *Billing profile contributor*<br> If you don't have one of the roles above, your organization must assign one to you. For more information about how to become a member of the roles, see [Manage billing roles](../manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal). | MS-AZR-0017G (Microsoft Azure Plan)|
 | WebDirect / Pay-as-you-go | Not available | None |
 | CSP / Partner led customers | Not available | None |
+
 
 > [!NOTE]
 > Centrally assigning licenses to scopes isn't available for Sponsored, MSDN Credit subscriptions or MPN subscriptions. SQL software usage is free for Dev/Test subscriptions (MS-AZR-0148P or MS-AZR-0023P offer types).
@@ -45,33 +46,35 @@ In the following procedure, you navigate from **Cost Management + Billing** to *
 
 1. Sign in to the Azure portal and navigate to **Cost Management + Billing**.  
     :::image type="content" source="./media/create-sql-license-assignments/select-cost-management.png" alt-text="Screenshot showing Azure portal navigation to Cost Management + Billing." lightbox="./media/create-sql-license-assignments/select-cost-management.png" :::
- 2. If you have an Enterprise Agreement, select a billing scope.  
-    :::image type="content" source="./media/create-sql-license-assignments/select-billing-scope.png" alt-text="Screenshot showing EA billing scope selection." lightbox="./media/create-sql-license-assignments/select-billing-scope.png" :::
- 3. If you have a Microsoft Customer Agreement, select a billing profile.  
-    :::image type="content" source="./media/create-sql-license-assignments/select-billing-profile.png" alt-text="Screenshot showing billing profile selection." lightbox="./media/create-sql-license-assignments/select-billing-profile.png" :::
- 4. In the left menu, select **Reservations + Hybrid Benefit**.  
+1. Use one of the following two steps, depending on you agreement type:
+    - If you have an Enterprise Agreement, select a billing scope.  
+        :::image type="content" source="./media/create-sql-license-assignments/select-billing-scope.png" alt-text="Screenshot showing EA billing scope selection." lightbox="./media/create-sql-license-assignments/select-billing-scope.png" :::
+    - If you have a Microsoft Customer Agreement, select a billing profile.  
+        :::image type="content" source="./media/create-sql-license-assignments/select-billing-profile.png" alt-text="Screenshot showing billing profile selection." lightbox="./media/create-sql-license-assignments/select-billing-profile.png" :::
+1. In the left menu, select **Reservations + Hybrid Benefit**.  
     :::image type="content" source="./media/create-sql-license-assignments/select-reservations.png" alt-text="Screenshot showing Reservations + Hybrid Benefit selection."  :::
- 5. Select **Add**  and then in the list, select **Azure Hybrid Benefit (Preview)**.  
+1. Select **Add**  and then in the list, select **Azure Hybrid Benefit (Preview)**.  
     :::image type="content" source="./media/create-sql-license-assignments/select-azure-hybrid-benefit.png" alt-text="Screenshot showing Azure Hybrid Benefit selection." lightbox="./media/create-sql-license-assignments/select-azure-hybrid-benefit.png" :::
- 6. On the next screen, select **Begin to assign licenses**.  
-    :::image type="content" source="./media/create-sql-license-assignments/get-started-centralized.png" alt-text="Screenshot showing Add SQL hybrid benefit selection" lightbox="./media/create-sql-license-assignments/get-started-centralized.png" :::
- 7. Choose a scope and then enter the license count to use for each SQL Server edition. If you don't have any licenses to assign for a specific edition, enter zero.  
+1. On the next screen, select **Begin to assign licenses**.  
+    :::image type="content" source="./media/create-sql-license-assignments/get-started-centralized.png" alt-text="Screenshot showing Add SQL hybrid benefit selection" lightbox="./media/create-sql-license-assignments/get-started-centralized.png" :::  
+    If you don't see the page and instead see the message `You are not the Billing Admin on the selected billing scope` then you don't have the required permission to assign a license. If so, you need to get the required permission. For more information, see [Prerequisites](#prerequisites).
+1. Choose a scope and then enter the license count to use for each SQL Server edition. If you don't have any licenses to assign for a specific edition, enter zero.  
     > [!NOTE]
     > You are accountable to determine that the entries that you make in the scope-level managed license experience are accurate and will satisfy your licensing obligations. The license usage information is shown to assist you as you make your license assignments. However, the information shown could be incomplete or inaccurate due to various factors.
     >
     > If the number of licenses that you enter is less than what you are currently using, you'll see a warning message stating _You've entered fewer licenses than you're currently using for Azure Hybrid Benefit in this scope. Your bill for this scope will increase._  
     
     :::image type="content" source="./media/create-sql-license-assignments/select-assignment-scope-edition.png" alt-text="Screenshot showing scope selection and number of licenses." lightbox="./media/create-sql-license-assignments/select-assignment-scope-edition.png" :::
- 8. Optionally, select the **Usage details** tab to view your current Azure Hybrid Benefit usage enabled at the resource scope.  
+1. Optionally, select the **Usage details** tab to view your current Azure Hybrid Benefit usage enabled at the resource scope.  
     :::image type="content" source="./media/create-sql-license-assignments/select-assignment-scope-edition-usage.png" alt-text="Screenshot showing Usage tab details." lightbox="./media/create-sql-license-assignments/select-assignment-scope-edition-usage.png" :::
- 9. Select **Add**.
-10. Optionally, change the default license assignment name. The review date is automatically set to a year ahead and can't be changed. Its purpose is to remind you to periodically review your license assignments.  
+1. Select **Add**.
+1. Optionally, change the default license assignment name. The review date is automatically set to a year ahead and can't be changed. Its purpose is to remind you to periodically review your license assignments.  
     :::image type="content" source="./media/create-sql-license-assignments/license-assignment-commit.png" alt-text="Screenshot showing default license assignment name." lightbox="./media/create-sql-license-assignments/license-assignment-commit.png" :::
-11. After you review your choices, select **Next: Review + apply**.
-12. Select the **By selecting &quot;Apply&quot;** attestation option to confirm that you have authority to apply Azure Hybrid Benefit, enough SQL Server licenses, and that you'll maintain the licenses as long as they're assigned.  
+1. After you review your choices, select **Next: Review + apply**.
+1. Select the **By selecting &quot;Apply&quot;** attestation option to confirm that you have authority to apply Azure Hybrid Benefit, enough SQL Server licenses, and that you'll maintain the licenses as long as they're assigned.  
     :::image type="content" source="./media/create-sql-license-assignments/confirm-apply-attestation.png" alt-text="Screenshot showing the attestation option." lightbox="./media/create-sql-license-assignments/confirm-apply-attestation.png" :::
-13. Select **Apply** and then select **Yes.**
-14. The list of assigned licenses is shown.  
+1. Select **Apply** and then select **Yes.**
+1. The list of assigned licenses is shown.  
     :::image type="content" source="./media/create-sql-license-assignments/assigned-licenses.png" alt-text="Screenshot showing the list of assigned licenses." lightbox="./media/create-sql-license-assignments/assigned-licenses.png" ::: 
 
 ## Track assigned license use

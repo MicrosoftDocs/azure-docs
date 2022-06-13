@@ -51,7 +51,7 @@ In this step, you'll create a pipeline that contains a data flow activity.
 
 1. On the home page, select **Orchestrate**.
 
-   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
+   :::image type="content" source="./media/tutorial-data-flow/orchestrate.png" alt-text="Screenshot that shows the ADF home page.":::
 
 1. In the **General** tab for the pipeline, enter **DeltaLake** for **Name** of the pipeline.
 1. In the **Activities** pane, expand the **Move and Transform** accordion. Drag and drop the **Data Flow** activity from the pane to the pipeline canvas.
@@ -66,16 +66,16 @@ In this step, you'll create a pipeline that contains a data flow activity.
 
 ## Build transformation logic in the data flow canvas
 
-You will generate two data flows in this tutorial. The fist data flow is a simple source to sink to generate a new Delta Lake from the movies CSV file from above. Lastly, you'll create this flow design below to update data in Delta Lake.
+You will generate two data flows in this tutorial. The first data flow is a simple source to sink to generate a new Delta Lake from the movies CSV file from above. Lastly, you'll create this flow design below to update data in Delta Lake.
 
 :::image type="content" source="media/data-flow/data-flow-tutorial-6.png" alt-text="Final flow":::
 
 ### Tutorial objectives
 
-1. Take the MoviesCSV dataset source from above, form a new Delta Lake from it
-1. Build the logic to updated ratings for 1988 movies to '1'
-1. Delete all movies from 1950
-1. Insert new movies for 2021 by duplicating the movies from 1960
+1. Take the MoviesCSV dataset source from above, and form a new Delta Lake from it.
+1. Build the logic to updated ratings for 1988 movies to '1'.
+1. Delete all movies from 1950.
+1. Insert new movies for 2021 by duplicating the movies from 1960.
 
 ### Start from a blank data flow canvas
 
@@ -115,11 +115,11 @@ You will generate two data flows in this tutorial. The fist data flow is a simpl
    :::image type="content" source="media/data-flow/data-flow-tutorial-4.png" alt-text="Sink":::
    
 1. Here we are using the Delta Lake sink to your ADLS Gen2 data lake and allowing inserts, updates, deletes. 
-1. Note that the Key Columns is a composite key made up of the Movie primary key column and year column. This is because we created fake 2021 movies by duplicating the 1960 rows. This avoids collisions when looking up the existing rows by providing uniqueness.
+1. Note that the Key Columns are a composite key made up of the Movie primary key column and year column. This is because we created fake 2021 movies by duplicating the 1960 rows. This avoids collisions when looking up the existing rows by providing uniqueness.
 
 ### Download completed sample
 [Here is a sample solution for the Delta pipeline with a data flow for update/delete rows in the lake:](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/DeltaPipeline.zip)
 
 ## Next steps
 
-Learn more about the [data flow expression language](data-flow-expression-functions.md).
+Learn more about the [data flow expression language](data-transformation-functions.md).

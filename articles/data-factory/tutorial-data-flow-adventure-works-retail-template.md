@@ -19,13 +19,13 @@ AdventureWorks is a fictional sports equipment retailer that is used to demo Mic
 ## Prerequisites
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure Synapse workspace**. [Create an Azure Synapse Workspace](../storage/common/storage-account-create.md) if you don't have one already.
+* **Azure Synapse workspace**. [Create an Azure Synapse Workspace](../synapse-analytics/get-started-create-workspace.md) if you don't have one already.
 
 ## Find the template
 
 Follow these steps to locate the template.
 
-1. Navigate to your Synapse workspace. From the home page, select **Learn** and then select **Browse gallery**. The Synapse gallery opens. You can search for datasets, scripts, pipelines, and more to install in your workspace. 
+1. Navigate to your Synapse workspace. From the home page, select **Knowledge Center** and then select **Browse gallery**. The Synapse gallery opens. You can search for datasets, scripts, pipelines, and more to install in your workspace. 
 
 1. Select **Pipelines**, and filter the results with the keyword "AdventureWorks."
 
@@ -43,7 +43,7 @@ If you have the AdventureWorks dataset loaded into a different database, you can
 
 
 ## Dataset and source/target models
-The AdventureWorks dataset in Excel format can be downloaded from this [GitHub site](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/AdventureWorks%20Data.zip). In addition, you can access the [schema definition for both the source and target databases](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/AdventureWorksSchemas.xlsx). Using the database designer in Synapse, recreate the source and target databases with the schema in the Excel you downloaded earlier. For more details on the database designer, see this [documentation](https://aka.ms/SynapseDatabaseDesignerDocumentation).
+The AdventureWorks dataset in Excel format can be downloaded from this [GitHub site](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/AdventureWorks%20Data.zip). In addition, you can access the [schema definition for both the source and target databases](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/AdventureWorksSchemas.xlsx). Using the database designer in Synapse, recreate the source and target databases with the schema in the Excel you downloaded earlier. For more details on the database designer, see this [documentation](../synapse-analytics/database-designer/concepts-database-templates.md).
 
 With the databases created, ensure the dataflows are pointing to the correct tables by editing the dropdowns in the Workspace DB source and sink settings. You can load the data into the source model by placing the CSV files provided in the example dataset in the correct folders specified by the tables. Once that is done, all that's required is to run the pipelines.
 

@@ -5,9 +5,10 @@ author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-
 ms.topic: quickstart
-ms.date: 10/22/2021
+ms.date: 04/26/2022
+ms.devlang: python
+ms.custom: mode-api
 ---
 
 # Quickstart: Get started using Azure Cosmos DB API for MongoDB and Python
@@ -18,7 +19,6 @@ ms.date: 10/22/2021
 > * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
 

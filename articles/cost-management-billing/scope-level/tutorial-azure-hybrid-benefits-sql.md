@@ -3,7 +3,7 @@ title: Tutorial - Optimize centrally managed Azure Hybrid Benefit for SQL Server
 description: This tutorial guides you through proactively assigning SQL Server licenses in Azure to manage and optimize Azure Hybrid Benefit.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/30/2021
+ms.date: 11/11/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -12,7 +12,7 @@ ms.reviewer: chrisrin
 
 # Tutorial: Optimize centrally managed Azure Hybrid Benefit for SQL Server
 
-This tutorial guides you through proactively assigning SQL Server licenses in Azure to centrally manage and optimize [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Optimizing your benefit reduces the costs of running Azure SQL.
+This tutorial guides you through proactively assigning SQL Server licenses in Azure to optimize [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) as you centrally manage it. Optimizing your benefit reduces the costs of running Azure SQL.
 
 In this tutorial, you learn how to:
 
@@ -27,39 +27,38 @@ In this tutorial, you learn how to:
 
 Before you begin, ensure that you:
 
-Have read and understand the [What is centrally managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md) article. The article explains the types of SQL Server licenses that quality for Azure Hybrid Benefit It also explains how to enable and use Azure Hybrid Benefit at your selected scope at the subscription or overall billing account level.
+Have read and understand the [What is centrally managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md) article. The article explains the types of SQL Server licenses that quality for Azure Hybrid Benefit. It also explains how to enable the benefit for the subscription or billing account scopes you select.
 
 > [!NOTE]
-> Managing Azure Hybrid Benefit centrally at a scope-level is currently in public preview and limited to enterprise customers.
+> Managing Azure Hybrid Benefit centrally at a scope-level is currently in public preview and limited to enterprise customers and customers buying directly from Azure.com with a Microsoft Customer Agreement.
 
-Verify that your self-installed virtual machines running SQL Server in Azure are registered before you start to use the new experience. Doing so ensures that Azure resources that are running SQL Server are visible to you and Azure. For more information about registering SQL VMs in Azure, see [Register SQL Server VM with SQL IaaS Agent Extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) and [Register multiple SQL VMs in Azure with the SQL IaaS Agent extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md).
+Verify that your self-installed virtual machines running SQL Server in Azure are registered before you start to use the new experience. Doing so ensures that Azure resources that are running SQL Server are visible to you and Azure. For more information about registering SQL VMs in Azure, see [Register SQL Server VM with SQL IaaS Agent Extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) and [Register multiple SQL VMs in Azure with the SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk).
 
 ## Gather license usage and availability details
 
 _The first step is preparation._ Engage other departments in your organization to understand two things:
 
-- What is your current and planned Azure SQL and SQL Server usage for the upcoming year?
-- How many SQL Server core licenses are available to assign to Azure?
+- What SQL Server usage in Azure is expected during the upcoming planning time frame?
+- How many SQL Server core licenses with Software Assurance (or in subscription) were purchased and are available to assign to Azure?
 
-Next, determine your current _and planned_ Azure SQL usage for the upcoming year or other extended timeframe (at least a month).
+Your recent Azure SQL usage details detected by the system are shown when you [create SQL Server license assignments for Azure Hybrid Benefit](create-sql-license-assignments.md).
 
-Your Azure SQL usage details are shown when you [create SQL Server license assignments for Azure Hybrid Benefit](create-sql-license-assignments.md).
-
-We recommend that you consult the appropriate people in your organization to validate the information above. Including, your _planned_ usage and expected SQL Server usage growth. There might be a centralized person or group that owns such planning, or it might be distributed across several teams.
+We recommend that you consult the appropriate people in your organization to validate that information and confirm any planned SQL Server usage growth.
 
 An optional, but useful, method to investigate your Azure SQL usage (including usage of Azure Hybrid Benefit at the resource level) is to use the Azure Hybrid Benefit [sql-license-usage PowerShell script](https://github.com/anosov1960/sql-server-samples/tree/master/samples/manage/azure-hybrid-benefit). It analyzes and tracks the combined SQL Server license usage of all the SQL resources in a specific subscription or an entire account.
 
-### Determine the number of SQL Server core licenses available to assign to Azure
+### Determine the number of eligible SQL Server core licenses available to assign to Azure
 
-The quantity depends on how many licenses that you purchased and how many are already in use between your on-premises servers and Azure VMs.
-
-You have 180 days of dual use rights for the SQL Server license to ensure migrations are running seamlessly. After the 180-day period, you can only use the SQL Server license in Azure. Consider that point when you plan for license availability. For example, migrating licenses can be considered as licenses available to assign.
+The quantity depends on how many licenses, with Software Assurance or subscription, that you purchased and how many are already in use outside Azure, usually on-premises.
 
 Your software procurement or software asset management department is likely to have this information.
 
+> [!TIP]
+> When you migrate a workload from on-premises to Azure, the associated licenses are available to assign to Azure. That's because while you're using Azure Hybrid Benefit, you're granted 180 days of dual use rights (on-prem + in Azure) for the SQL Server license during migration. It's to help you ensure that they run seamlessly.
+
 ## Buy more licenses if needed
 
-After reviewing the information gathered, if you're sure that the number of SQL Server licenses available is insufficient to cover planned Azure SQL usage, then talk to your procurement department to buy more SQL Server core licenses with Software Assurance (or subscription licenses).
+After reviewing the information gathered, if determine that the number of SQL Server licenses available is insufficient to cover planned Azure SQL usage, then talk to your procurement department to buy more SQL Server core licenses with Software Assurance (or subscription licenses).
 
 Buying SQL Server licenses and applying Azure Hybrid Benefit is less expensive than paying for SQL Server by the hour in Azure. By purchasing enough licenses to cover all planned Azure SQL usage, your organization will maximize cost savings from the benefit.
 
@@ -105,7 +104,7 @@ Then, do the following steps.
 1. Next, confirm with your with procurement team that the needed licenses are already available or will soon be purchased. The confirmation ensures that the licenses are available to assign to Azure.
    - Licenses you have in use on premises can be considered available to assign to Azure if the associated workloads are being migrated to Azure. As mentioned previously, Azure Hybrid Benefit allows dual use for up to 180 days.
    - You determine that there are 1800 SQL Server Enterprise Edition licenses and 2000 SQL Server Standard Edition licenses available to assign to Azure. The available licenses equal 9200 normalized core licenses. That's a little more than the 8750 needed (2000 x 4 + 750 = 8750).
-1. Then, you assign the 1800 SQL Server Enterprise Edition and 2000 SQL Server Standard Edition to Azure. That action results in 9200 normalized core licenses that you can apply to Azure SQL resources as they run each hour. Assigning more licenses than are required now provides a buffer if usage grows faster than you expect.
+1. Then, you assign the 1800 SQL Server Enterprise Edition and 2000 SQL Server Standard Edition to Azure. That action results in 9200 normalized core licenses that the system can apply to Azure SQL resources as they run each hour. Assigning more licenses than are required now provides a buffer if usage grows faster than you expect.
 
 Afterward, you monitor assigned license usage periodically, ideally monthly. After 10 months, usage approaches 95%, indicating faster Azure SQL usage growth than you expected. You talk to your procurement team to get more licenses so that you can assign them.
 

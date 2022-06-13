@@ -4,6 +4,7 @@ description: Use Azure Storage libraries for Java to manage access control lists
 author: normesta
 ms.service: storage
 ms.date: 02/17/2021
+ms.devlang: java
 ms.custom: devx-track-java
 ms.author: normesta
 ms.topic: how-to

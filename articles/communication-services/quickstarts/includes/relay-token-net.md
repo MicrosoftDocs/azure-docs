@@ -2,16 +2,17 @@
 title: include file
 description: include file
 services: Communication Services
-author: shahen
-manager: anvalent
+author: rahulva
+manager: shahen
 ms.service: Communication Services
 ms.subservice: Communication Services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: shahen
+ms.author: rahulva
 ---
-
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/GetRelayConfiguration)
 ### Prerequisite check
 
 - In a terminal or command window, run the `dotnet` command to check that the .NET SDK is installed.
@@ -26,7 +27,7 @@ ms.author: shahen
 dotnet new console -o RelayTokenQuickstart
 ```
 
-1. Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
+2. Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
 
 ```console
 cd RelayTokenQuickstart
@@ -91,7 +92,7 @@ var client = new CommunicationIdentityClient(connectionString);
 Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. Store received identity with mapping to your application's users. For example, by storing them in your application server's database. The identity is required later to issue access tokens.
 
 ```csharp
-var identityResponse = await client.CreateUserAsync();
+var identityResponse = await client.CreateUserAsync().Result;
 var identity = identityResponse.Value;
 Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 ```
@@ -103,18 +104,18 @@ Call the Azure Communication token service to exchange the user access token for
 ```csharp
 var relayClient = new CommunicationRelayClient("COMMUNICATION_SERVICES_CONNECTION_STRING");
 
-Response<CommunicationRelayConfiguration> turnTokenResponse = await relayClient.GetRelayConfigurationAsync(identity);
+Response<CommunicationRelayConfiguration> turnTokenResponse = await relayClient.GetRelayConfigurationAsync(identity).Result;
 DateTimeOffset turnTokenExpiresOn = turnTokenResponse.Value.ExpiresOn;
-IReadOnlyList<CommunicationTurnServer> turnServers = turnTokenResponse.Value.TurnServers;
+IReadOnlyList<CommunicationIceServer> iceServers = turnTokenResponse.Value.IceServers;
 Console.WriteLine($"Expires On: {turnTokenExpiresOn}");
-foreach (CommunicationTurnServer turnServer in turnServers)
+foreach (CommunicationIceServer iceServer in iceServers)
 {
-    foreach (string url in turnServer.Urls)
+    foreach (string url in iceServer.Urls)
     {
         Console.WriteLine($"TURN Url: {url}");
     }
-    Console.WriteLine($"TURN Username: {turnServer.Username}");
-    Console.WriteLine($"TURN Credential: {turnServer.Credential}");
+    Console.WriteLine($"TURN Username: {iceServer.Username}");
+    Console.WriteLine($"TURN Credential: {iceServer.Credential}");
 }
 ```
 

@@ -5,6 +5,7 @@ keywords: mysql connection,connection string,connectivity issues,persistent erro
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: troubleshooting
 ms.date: 9/21/2020
 ---
@@ -13,8 +14,6 @@ ms.date: 9/21/2020
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 Connection problems may be caused by a variety of things, including:
 

@@ -16,7 +16,7 @@ ms.custom: mvc
 In this tutorial, learn how to move Azure SQL databases and elastic pools to a different Azure region, using [Azure Resource Mover](overview.md).
 
 > [!NOTE]
-> Azure Resource Mover is currently in preview.
+> Azure Resource Mover is currently GA.
 
 In this tutorial, you learn how to:
 
@@ -46,15 +46,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Check SQL requirements
 
 1. [Check](support-matrix-move-region-sql.md) which database/elastic pool features are supported for moving to another region.
-2. In the target region, create a target server for each source server. [Learn more](../azure-sql/database/active-geo-replication-security-configure.md#how-to-configure-logins-and-users).
+2. In the target region, create a target server for each source server and ensure proper user access. [Learn more](/azure/azure-sql/database/active-geo-replication-security-configure#how-to-configure-logins-and-users).
 4. If databases are encrypted with transparent data encryption (TDE) and you use your own encryption key in Azure Key Vault, [learn how to](../key-vault/general/move-region.md) move key vaults to another region.
 5. If SQL data sync is enabled, moving member databases is supported. After the move, you need to set up SQL data sync to the new target database.
-6. Remove advanced data security settings before the move. After the move, [configure the settings](../azure-sql/database/azure-defender-for-sql.md) at the SQL Server level in the target region.
-7. If auditing is enabled, policies reset to default after the move. [Set up auditing](../azure-sql/database/auditing-overview.md) again, after the move.
-7. Backup retention policies for the source database are carried over to the target database. [Learn more](../azure-sql/database/long-term-backup-retention-configure.md) about modifying settings after the move.
-8. Remove server-level firewall rules before the move. Database-level firewall rules are copied from the source server to the target server, during the move. After the move, [set up firewall rules](../azure-sql/database/firewall-create-server-level-portal-quickstart.md) for SQL Server in the target region.
-9. Remove autotuning settings before the move. [Set up autotuning ](../azure-sql/database/automatic-tuning-enable.md) again after moving.
-10. Remove database alert settings before the move. [Reset](../azure-sql/database/alerts-insights-configure-portal.md) after moving.
+6. Remove advanced data security settings before the move. After the move, [configure the settings](/azure/azure-sql/database/azure-defender-for-sql) at the SQL Server level in the target region.
+7. If auditing is enabled, policies reset to default after the move. [Set up auditing](/azure/azure-sql/database/auditing-overview) again, after the move.
+7. Backup retention policies for the source database are carried over to the target database. [Learn more](/azure/azure-sql/database/long-term-backup-retention-configure) about modifying settings after the move.
+8. Remove server-level firewall rules before the move. Database-level firewall rules are copied from the source server to the target server, during the move. After the move, [set up firewall rules](/azure/azure-sql/database/firewall-create-server-level-portal-quickstart) for SQL Server in the target region.
+9. Remove autotuning settings before the move. [Set up autotuning ](/azure/azure-sql/database/automatic-tuning-enable) again after moving.
+10. Remove database alert settings before the move. [Reset](/azure/azure-sql/database/alerts-insights-configure-portal) after moving.
     
 ## Select resources
 
@@ -119,7 +119,7 @@ Select resources you want to move.
 
 ## Move the SQL Server
 
-Assign a target SQL Server in the target region, and commit the move.
+Azure Resource Mover currently doesn't move SQL Server across regions. Assign a target SQL Server in the target region, and commit the move.
 
 ### Assign a target SQL Server
 

@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/11/2021
+ms.date: 12/22/2021
 ms.topic: how-to
 ---
 
@@ -55,15 +55,13 @@ The _subdomain_ you choose uniquely identifies your application. The subdomain i
 
 The application template you choose determines the initial contents of your application, such as dashboards and device templates. The template ID For a custom application, use `iotc-pnp-preview` as the template ID.
 
-To learn more about custom and industry-focused application templates, see [What are application templates?](concepts-app-templates.md).
-
 ### Billing information
 
 If you choose one of the standard plans, you need to provide billing information:
 
 - The Azure subscription you're using.
 - The directory that contains the subscription you're using.
-- The location to host your application. IoT Central uses Azure regions as locations: Australia East, Central US, East US, East US 2, Japan East, North Europe, Southeast Asia, UK South, West Europe, West US.
+- The location to host your application. IoT Central uses Azure regions as locations: Australia East, Canada Central, Central US, East US, East US 2, Japan East, North Europe, South Central US, Southeast Asia, UK South, West Europe, and West US.
 
 ## Azure IoT Central site
 
@@ -88,7 +86,7 @@ You can create a copy of any application, minus any device instances, device dat
 
 Select **Copy**. In the dialog box, enter the details for the new application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see [Create an application](howto-create-iot-central-application.md).
 
-:::image type="content" source="media/howto-create-iot-central-application/app-copy-1.png" alt-text="Screenshot of that shows application settings page.":::
+:::image type="content" source="media/howto-create-iot-central-application/app-copy-1.png" alt-text="Screenshot of that shows application management page.":::
 
 :::image type="content" source="media/howto-create-iot-central-application/app-copy-2.png" alt-text="Screenshot that shows the Copy Application settings page.":::
 
@@ -123,9 +121,9 @@ Add these items manually to any applications created from an application templat
 
 To create an application template from an existing IoT Central application:
 
-1. Go to the **Administration** section in your application.
-1. Select **Application Template Export**.
-1. On the **Application Template Export** page, enter a name and description for your template.
+1. Go to the **Application** section in your application.
+1. Select **Template Export**.
+1. On the **Template Export** page, enter a name and description for your template.
 1. Select the **Export** button to create the application template. You can now copy the **Shareable Link** that enables someone to create a new application from the template:
 
 :::image type="content" source="media/howto-create-iot-central-application/create-template.png" alt-text="Screenshot that shows create an application template.":::

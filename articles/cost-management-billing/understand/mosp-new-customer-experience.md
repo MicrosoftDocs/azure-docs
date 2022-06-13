@@ -64,7 +64,7 @@ Your new experience includes the following cost management and billing capabilit
 4. The table lists Azure subscriptions that you're paying for. In the billing profile column, you would find the billing profile that is billed for the subscription. The subscription charges are displayed on the invoice for the billing profile. To consolidate the charges for all your subscriptions on a single invoice, you need to link all your subscriptions to a single billing profile.  
     :::image type="content" source="./media/mosp-new-customer-experience/list-azure-subscriptions.png" alt-text="Screenshot that shows the list of Azure subscriptions." lightbox="./media/mosp-new-customer-experience/list-azure-subscriptions.png" :::
 5. Pick a billing profile that you want to use. 
-6. Select a subscription that is not linked to the billing profile that you chose in step 5. Click on ellipsis (three dots) for the subscription. Select **Change invoice section**.  
+6. Select a subscription that is not linked to the billing profile that you chose in step 5. Select the ellipsis (three dots) for the subscription. Select **Change invoice section**.  
     :::image type="content" source="./media/mosp-new-customer-experience/select-change-invoice-section.png" alt-text="Screenshot that shows where to find the option to change invoice section." lightbox="./media/mosp-new-customer-experience/select-change-invoice-section-zoomed-in.png" :::
 7. Select the billing profile that you chose in step #5.  
     :::image type="content" source="./media/mosp-new-customer-experience/change-invoice-section.png" alt-text="Screenshot that shows how to change invoice section." lightbox="./media/mosp-new-customer-experience/change-invoice-section-zoomed-in.png" :::
@@ -189,6 +189,34 @@ Invoices generated before your account was updated are still available in the Az
 
 **Invoices for account updated in the middle of the month**
 If your account is updated in the middle of the month, you'll get one invoice for charges accumulated until the day your account is updated. You'll get another invoice for the rest of the month. For example, your account has one subscription and it's updated on 15 September. You'll get one invoice for charges accumulated until 15 September. You'll get another invoice for the period between 15 September through 30 September. After September, you'll get one invoice per month.
+
+## Troubleshooting
+
+### You get an email to accept the terms of the Microsoft Customer Agreement but the link in the email doesn't work
+
+After your Azure billing account is updated, you'll get an email from Microsoft to accept the terms of the Microsoft Customer Agreement. The link in the email might not work due to the following reasons:
+
+- You have access to perform billing administration through one of your other emails. 
+
+    This typically happens when you get an email asking you to accept the terms of the Microsoft Customer Agreement. You select the link and you see an error message - `You don't have permission to accept the agreement. This typically happens when you sign in with an email, which doesn’t have permission to accept the agreement. Check you’ve signed in with the correct email address. If you are still seeing the error, see Why I can't accept an agreement`. Verify that you're signed in with the email address that has permission to perform billing administration.
+
+- You have access to the invoice through a different identity. 
+
+    Some customers have two identities with the same email address - a work account and a Microsoft account. Typically, only one of their identities has permissions to perform billing administration. If they sign in with the identity that doesn't have permission, they would not be able to accept the terms. Verify that you're using the correct identity to sign in.
+
+- You have signed in to the incorrect Azure Active Directory (Azure AD) tenant. 
+
+    Your billing account is associated with an Azure AD tenant. If you're signed in to an incorrect tenant, you won't be able to accept the terms. Verify that you're signed in to the correct Azure AD tenant. If you aren't signed in to the correct tenant, use the following to switch the tenant in the Azure portal:
+
+    1. Select your email from the top right of the page.
+
+    2. Select **Switch directory**.
+
+        ![Screenshot that shows selecting switch directory in the portal](./media/mosp-new-customer-experience/select-switch-directory.png)
+
+    3. Select **Switch** for a directory from the **All directories** section.
+
+        ![Screenshot that shows selecting a directory in the portal](./media/mosp-new-customer-experience/select-directory.png)
 
 ## Need help? Contact support.
 

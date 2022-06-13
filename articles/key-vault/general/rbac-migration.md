@@ -76,6 +76,8 @@ Access policy predefined permission templates:
 | Exchange Online Customer Key | Keys: get, list, wrap key, unwrap key | Key Vault Crypto Service Encryption User|
 | Azure Information BYOK | Keys: get, decrypt, sign | N/A<br>Custom role required|
 
+> [!NOTE]
+> Azure App Service certificate configuration does not support Key Vault RBAC permission model.
 
 ## Assignment scopes mapping  
 
@@ -90,9 +92,9 @@ The vault access policy permission model is limited to assigning policies only a
 
 In general, it's best practice to have one key vault per application and manage access at key vault level. There are scenarios when managing access at other scopes can simplify access management.
 
-- **Infrastructure, security administrators and operators: managing group of key vaults at management group, subscription or resource group level with vault access policies requires maintaining policies for each key vault. Azure RBAC allows creating one role assignment at management group, subscription, or resource group. That assignment will apply to any new key vaults created under the same scope. In this scenario, it's recommended to use Privileged Identity Management with just-in time access over providing permanent access.
+- **Infrastructure, security administrators and operators**: managing group of key vaults at management group, subscription or resource group level with vault access policies requires maintaining policies for each key vault. Azure RBAC allows creating one role assignment at management group, subscription, or resource group. That assignment will apply to any new key vaults created under the same scope. In this scenario, it's recommended to use Privileged Identity Management with just-in time access over providing permanent access.
  
-- **Applications: there are scenarios when application would need to share secret with other application. Using vault access polices separate key vault had to be created to avoid giving access to all secrets. Azure RBAC allows assign role with scope for individual secret instead using single key vault.
+- **Applications**: there are scenarios when application would need to share secret with other application. Using vault access polices separate key vault had to be created to avoid giving access to all secrets. Azure RBAC allows assign role with scope for individual secret instead using single key vault.
 
 ## Vault access policy to Azure RBAC migration steps
 There are many differences between Azure RBAC and vault access policy permission model. In order, to avoid outages during migration, below steps are recommended.
@@ -108,9 +110,86 @@ There are many differences between Azure RBAC and vault access policy permission
 > [!NOTE]
 > When Azure RBAC permission model is enabled, all scripts which attempt to update access policies will fail. It is important to update those scripts to use Azure RBAC.
 
+## Migration governance
+
+Using the Azure Policy service, you can govern RBAC permission model migration across your vaults. You can create a custom policy definition to audit existing key vaults and enforce all new key vaults to use the Azure RBAC permission model.
+
+### Create and assign policy definition for Key Vault Azure RBAC permission model
+1. Navigate to Policy resource
+1. Select **Definitions** under **Authoring** in the left side of the Azure Policy page.
+1. Select **+ Policy definition** at the top of the page. This button opens to the Policy definition page.
+1. Enter the following information:
+    - The management group or subscription in which the policy definition is saved. Select by using the ellipsis on **Definition location**.
+    - The name of the policy definition, e.g., "Key Vault should use Role-Based Access Control (RBAC) permission model"
+    - Select **Use existing** and choose **Key Vault** category
+    - Paste the following JSON code in **POLICY RULE** 
+    ```json
+    {
+	"mode": "Indexed",
+	"policyRule": {
+	  "if": {
+		  "allOf": [
+			{
+			  "field": "type",
+			  "equals": "Microsoft.KeyVault/vaults"
+			},
+			{
+			  "not": {
+				"field": "Microsoft.KeyVault/vaults/createMode",
+				"equals": "recover"
+			  }
+			},
+			{
+			  "anyOf": [
+				{
+				  "field": "Microsoft.KeyVault/vaults/enableRbacAuthorization",
+				  "exists": "false"
+				},
+				{
+				  "field": "Microsoft.KeyVault/vaults/enableRbacAuthorization",
+				  "equals": "false"
+				}
+			  ]
+			}
+		  ]
+		},
+		"then": {
+		  "effect": "[parameters('effect')]"
+		}
+	},
+	"parameters": {
+		"effect": {
+		  "type": "String",
+		  "metadata": {
+			"displayName": "Effect",
+			"description": "Enable or disable the execution of the policy"
+		  },
+		  "allowedValues": [
+			"Audit",
+			"Deny",
+			"Disabled"
+		  ],
+		  "defaultValue": "Audit"
+		}
+	  }
+   }
+    ```
+1. Select **Save**
+1. Select **Assign**
+1. Select **Review + create**
+1. Select **Create**
+
+Once a new policy is assigned, it can take up to 24 hours to complete the scan. After the scan is completed, you can see compliance results like below.
+
+:::image type="content" source="../media/rbac/migration-policy.png" alt-text="RBAC policy compliance":::
+
+For more information, see
+- [Implement a new custom policy](../../governance/policy/tutorials/create-and-manage.md#implement-a-new-custom-policy)
+- [Integrate Azure Key Vault with Azure Policy](azure-policy.md)
+
 ## Troubleshooting
 -  Role assignment not working after several minutes - there are situations when role assignments can take longer. It's important to write retry logic in code to cover those cases.
-- Role assignments disappeared when Key Vault was deleted (soft-delete) and recovered - it's currently a limitation of soft-delete feature across all Azure services. It's required to recreate all role assignments after recovery.    
+- Role assignments disappeared when Key Vault was deleted (soft-delete) and recovered - it's currently a limitation of soft-delete feature across all Azure services. It's required to recreate all role assignments after recovery.
 
 ## Learn more
 

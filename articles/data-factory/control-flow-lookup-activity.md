@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 05/31/2022
 ---
 
 # Lookup activity in Azure Data Factory and Azure Synapse Analytics
@@ -19,6 +19,22 @@ Lookup activity can retrieve a dataset from any of the data sources supported by
 
 Lookup activity reads and returns the content of a configuration file or table. It also returns the result of executing a query or stored procedure. The output can be a singleton value or an array of attributes, which can be consumed in a subsequent copy, transformation, or control flow activities like ForEach activity.
 
+## Create a Lookup activity with UI
+
+To use a Lookup activity in a pipeline, complete the following steps:
+
+1. Search for _Lookup_ in the pipeline Activities pane, and drag a Lookup activity to the pipeline canvas.
+1. Select the new Lookup activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-lookup-activity/lookup-activity.png" alt-text="Shows the UI for a Lookup activity.":::
+
+1. Choose an existing source dataset or select the **New** button to create a new one.
+1. The options for identifying rows to include from the source dataset will vary based on the dataset type.  The example above shows the configuration options for a delimited text dataset.  Below are examples of configuration options for an Azure SQL table dataset and an OData dataset.
+
+   :::image type="content" source="media/control-flow-lookup-activity/azure-sql-dataset.png" alt-text="Shows the configuration options in the Lookup activity for an Azure SQL table dataset.":::
+
+   :::image type="content" source="media/control-flow-lookup-activity/odata-dataset.png" alt-text="Shows the configuration options in the Lookup activity for an OData dataset.":::
+
 ## Supported capabilities
 
 Note the following:
@@ -26,7 +42,9 @@ Note the following:
 - The Lookup activity can return up to **5000 rows**; if the result set contains more records, the first 5000 rows will be returned.
 - The Lookup activity output supports up to **4 MB** in size, activity will fail if the size exceeds the limit. 
 - The longest duration for Lookup activity before timeout is **24 hours**.
-- When you use query or stored procedure to lookup data, make sure to return one and exact one result set. Otherwise, Lookup activity fails.
+
+> [!Note]
+> When you use query or stored procedure to lookup data, make sure to return one and exact one result set. Otherwise, Lookup activity fails.
 
 The following data sources are supported for Lookup activity. 
 

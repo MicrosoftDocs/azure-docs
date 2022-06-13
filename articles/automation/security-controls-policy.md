@@ -1,13 +1,12 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Automation
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Automation. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 09/17/2021
+ms.date: 05/10/2022
 ms.topic: sample
-author: mgoedtel
-ms.author: magoedte
 ms.service: automation
 ms.custom: subject-policy-compliancecontrols
 ---
+
 # Azure Policy Regulatory Compliance controls for Azure Automation
 
 [Regulatory Compliance in Azure Policy](../governance/policy/concepts/regulatory-compliance.md)

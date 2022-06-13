@@ -16,6 +16,22 @@ ms.date: 09/09/2021
 
 The Azure Databricks Notebook Activity in a [pipeline](concepts-pipelines-activities.md) runs a Databricks notebook in your Azure Databricks workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 
+You can create a Databricks notebook with an ARM template using JSON, or directly through the Azure Data Factory Studio user interface.  For a step-by-step walkthrough of how to create a Databricks notebook activity using the user interface, reference the tutorial [Run a Databricks notebook with the Databricks Notebook Activity in Azure Data Factory](transform-data-using-databricks-notebook.md).
+
+## Add a Notebook activity for Azure Databricks to a pipeline with UI
+
+To use a Notebook activity for Azure Databricks in a pipeline, complete the following steps:
+
+1. Search for _Notebook_ in the pipeline Activities pane, and drag a Notebook activity to the pipeline canvas.
+1. Select the new Notebook activity on the canvas if it is not already selected.
+1. Select the  **Azure Databricks** tab to select or create a new Azure Databricks linked service that will execute the Notebook activity.
+
+   :::image type="content" source="media/transform-data-databricks-notebook/notebook-activity.png" alt-text="Shows the UI for a Notebook activity.":::
+
+1. Select the **Settings** tab and specify the notebook path to be executed on Azure Databricks, optional base parameters to be passed to the notebook, and any additional libraries to be installed on the cluster to execute the job.
+
+   :::image type="content" source="media/transform-data-databricks-notebook/notebook-settings.png" alt-text="Shows the UI for the Settings tab for a Notebook activity.":::
+
 ## Databricks Notebook activity definition
 
 Here is the sample JSON definition of a Databricks Notebook Activity:
@@ -103,13 +119,13 @@ In the above Databricks activity definition, you specify these library types: *j
 
 ```
 
-For more details, see the [Databricks documentation](/azure/databricks/dev-tools/api/latest/libraries#managedlibrarieslibrary) for library types.
+For more information, see the [Databricks documentation](/azure/databricks/dev-tools/api/latest/libraries#managedlibrarieslibrary) for library types.
 
 ## Passing parameters between notebooks and pipelines
 
 You can pass parameters to notebooks using *baseParameters* property in databricks activity.
 
-In certain cases you might require to pass back certain values from notebook back to the service, which can be used for control flow (conditional checks) in the service or be consumed by downstream activities (size limit is 2MB).
+In certain cases, you might require to pass back certain values from notebook back to the service, which can be used for control flow (conditional checks) in the service or be consumed by downstream activities (size limit is 2 MB).
 
 1. In your notebook, you may call [dbutils.notebook.exit("returnValue")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) and corresponding "returnValue" will be returned to the service.
 

@@ -5,8 +5,8 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: saasguide
-ms.author: souchak
+author: arifgani
+ms.author: argani
 ms.date: 05/28/2021
 ---
 

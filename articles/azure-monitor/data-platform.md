@@ -9,7 +9,7 @@ manager: carmonm
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2019
+ms.date: 04/05/2022
 ms.author: bwren
 ---
 
@@ -69,7 +69,7 @@ The following table compares Metrics and Logs in Azure Monitor.
 | Structure | Standard set of properties including sample time, resource being monitored, a numeric value. Some metrics include multiple dimensions for further definition. | Unique set of properties depending on the log type. |
 | Collection | Collected at regular intervals. | May be collected sporadically as events trigger a record to be created. |
 | View in Azure portal | Metrics Explorer | Log Analytics |
-| Data sources include | Platform metrics collected from Azure resources.<br>Applications monitored by Application Insights.<br>Custom defined by application or API. | Application and resource  logs.<br>Monitoring solutions.<br>Agents and VM extensions.<br>Application requests and exceptions.<br>Azure Security Center.<br>Data Collector API. |
+| Data sources include | Platform metrics collected from Azure resources.<br>Applications monitored by Application Insights.<br>Custom defined by application or API. | Application and resource  logs.<br>Monitoring solutions.<br>Agents and VM extensions.<br>Application requests and exceptions.<br>Microsoft Defender for Cloud.<br>Data Collector API. |
 
 ## Collect monitoring data
 Different [sources of data for Azure Monitor](agents/data-sources.md) will write to either a Log Analytics workspace (Logs) or the Azure Monitor metrics database (Metrics) or both. Some sources will write directly to these data stores, while others may write to another location such as Azure storage and require some configuration to populate logs or metrics. 
@@ -87,4 +87,3 @@ In addition to using the tools in Azure to analyze monitoring data, you may have
 - Read more about [Metrics in Azure Monitor](essentials/data-platform-metrics.md).
 - Read more about [Logs in Azure Monitor](logs/data-platform-logs.md).
 - Learn about the [monitoring data available](agents/data-sources.md) for different resources in Azure.
-

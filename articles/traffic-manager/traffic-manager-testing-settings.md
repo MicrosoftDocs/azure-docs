@@ -2,14 +2,13 @@
 title: Verify Azure Traffic Manager settings
 description: In this article, learn how to verify your Traffic Manager settings and test the traffic routing method.
 services: traffic-manager
-author: duongau
+author: asudbring
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: duau
+ms.author: allensu
 ---
 
 # Verify Traffic Manager settings

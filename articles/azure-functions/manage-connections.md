@@ -81,37 +81,32 @@ http.request(options, onResponseCallback);
 
 # [C#](#tab/csharp)
 
-[DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient) connects to an Azure Cosmos DB instance. The Azure Cosmos DB documentation recommends that you [use a singleton Azure Cosmos DB client for the lifetime of your application](../cosmos-db/performance-tips.md#sdk-usage). The following example shows one pattern for doing that in a function:
+[CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient) connects to an Azure Cosmos DB instance. The Azure Cosmos DB documentation recommends that you [use a singleton Azure Cosmos DB client for the lifetime of your application](../cosmos-db/performance-tips-dotnet-sdk-v3-sql.md#sdk-usage). The following example shows one pattern for doing that in a function:
 
 ```cs
-#r "Microsoft.Azure.Documents.Client"
-using Microsoft.Azure.Documents.Client;
+#r "Microsoft.Azure.Cosmos"
+using Microsoft.Azure.Cosmos;
 
-private static Lazy<DocumentClient> lazyClient = new Lazy<DocumentClient>(InitializeDocumentClient);
-private static DocumentClient documentClient => lazyClient.Value;
+private static Lazy<CosmosClient> lazyClient = new Lazy<CosmosClient>(InitializeCosmosClient);
+private static CosmosClient cosmosClient => lazyClient.Value;
 
-private static DocumentClient InitializeDocumentClient()
+private static CosmosClient InitializeCosmosClient()
 {
     // Perform any initialization here
-    var uri = new Uri("example");
+    var uri = "https://youraccount.documents.azure.com:443";
     var authKey = "authKey";
-    
-    return new DocumentClient(uri, authKey);
+   
+    return new CosmosClient(uri, authKey);
 }
 
 public static async Task Run(string input)
 {
-    Uri collectionUri = UriFactory.CreateDocumentCollectionUri("database", "collection");
-    object document = new { Data = "example" };
-    await documentClient.UpsertDocumentAsync(collectionUri, document);
-    
+    Container container = cosmosClient.GetContainer("database", "collection");
+    MyItem item = new MyItem{ id = "myId", partitionKey = "myPartitionKey", data = "example" };
+    await container.UpsertItemAsync(document);
+   
     // Rest of function
 }
-```
-If you are working with functions v3.x, you need a reference to Microsoft.Azure.DocumentDB.Core. Add a reference in the code:
-
-```cs
-#r "Microsoft.Azure.DocumentDB.Core"
 ```
 Also, create a file named "function.proj" for your trigger and add the below content :
 
@@ -119,10 +114,10 @@ Also, create a file named "function.proj" for your trigger and add the below con
 
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.12.0" />
+        <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.23.0" />
     </ItemGroup>
 </Project>
 

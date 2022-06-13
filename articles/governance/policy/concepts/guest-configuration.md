@@ -13,13 +13,6 @@ both for machines running in Azure and hybrid
 The feature can be used directly per-machine,
 or at-scale orchestrated by Azure Policy.
 
-Configurations are distinct from policy definitions. Guest configuration
-utilizes Azure Policy to dynamically assign configurations
-to machines. You can also assign configurations to machines
-[manually](/guest-configuration-assignments.md#manually-creating-guest-configuration-assignments),
-or by using other Azure services such as
-[AutoManage](../../../automanage/automanage-virtual-machines.md).
-
 Configuration resources in Azure are designed as an
 [extension resource](../../../azure-resource-manager/management/extension-resource-types.md).
 You can imagine each configuration as an additional set of properties
@@ -29,13 +22,27 @@ for the machine. Configurations can include settings such as:
 - Application configuration or presence
 - Environment settings
 
-The results from each configurations can be viewed either in the
+Configurations are distinct from policy definitions. Guest configuration
+utilizes Azure Policy to dynamically assign configurations
+to machines. You can also assign configurations to machines
+[manually](guest-configuration-assignments.md#manually-creating-guest-configuration-assignments),
+or by using other Azure services such as
+[AutoManage](../../../automanage/automanage-virtual-machines.md).
+
+Examples of each scenario are provided in the following table.
+
+| Type | Description | Example story |
+| - | - | - |
+| [Configuration management](guest-configuration-assignments.md) | You want a complete representation of a server, as code in source control. The deployment should include properties of the server (size, network, storage) and configuration of operating system and application settings. | "This machine should be a web server configured to host my website." |
+| [Compliance](../assign-policy-portal.md) | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed. | "All machines should use TLS 1.2. Audit existing machines so I can release change where it is needed, in a controlled way, at scale. For new machines, enforce the setting when they are deployed." |
+
+The per-setting results from configurations can be viewed either in the
 [Guest assignments page](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
 or if the configuration is orchestrated by an Azure Policy assignment,
 by clicking on the "Last evaluated resource" link on the
 ["Compliance details" page](../how-to/determine-non-compliance.md#view-configuration-assignment-details-at-scale).
 
-[A video walk-through of this document is available](https://youtu.be/t9L8COY-BkM).
+[A video walk-through of this document is available](https://youtu.be/t9L8COY-BkM). (update coming soon)
 
 ## Enable guest configuration
 
@@ -47,7 +54,7 @@ and Arc-enabled servers, review the following details.
 Before you can use the guest configuration feature of Azure Policy, you must
 register the `Microsoft.GuestConfiguration` resource provider. If assignment of
 a guest configuration policy is done through the portal, or if the subscription
-is enrolled in Azure Security Center, the resource provider is registered
+is enrolled in Microsoft Defender for Cloud, the resource provider is registered
 automatically. You can manually register through the
 [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal),
 [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell),
@@ -100,8 +107,8 @@ these tools automatically.
 
 |Operating system|Validation tool|Notes|
 |-|-|-|
-|Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v3| Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.|
-|Linux|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v3| Side-loaded to a folder only used by Azure Policy. PowerShell Core isn't added to system path.|
+|Windows|[PowerShell Desired State Configuration](/powershell/dsc/overview) v3| Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.|
+|Linux|[PowerShell Desired State Configuration](/powershell/dsc/overview) v3| Side-loaded to a folder only used by Azure Policy. PowerShell Core isn't added to system path.|
 |Linux|[Chef InSpec](https://www.chef.io/inspec/) | Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependencies for the InSpec package including Ruby and Python are installed as well. |
 
 ### Validation frequency
@@ -135,7 +142,7 @@ The ".x" text is symbolic to represent new minor versions of Linux distributions
 |Amazon|Linux|2|
 |Canonical|Ubuntu Server|14.04 - 20.x|
 |Credativ|Debian|8 - 10.x|
-|Microsoft|Windows Server|2012 - 2019|
+|Microsoft|Windows Server|2012 - 2022|
 |Microsoft|Windows Client|Windows 10|
 |Oracle|Oracle-Linux|7.x-8.x|
 |OpenLogic|CentOS|7.3 -8.x|
@@ -211,6 +218,9 @@ initiative that manage identity creation. The IF conditions in the policy
 definitions ensure the correct behavior based on the current state of the
 machine resource in Azure.
 
+> [!IMPORTANT]
+> These definitions create a System-Assigned managed identity on the target resources, in addition to existing User-Assigned Identities (if any). For existing applications unless they specify the User-Assigned identity in the request, the machine will default to using System-Assigned Identity instead. [Learn More](../../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
+
 If the machine doesn't currently have any managed identities, the effective
 policy is:
 [Add system-assigned managed identity to enable guest configuration assignments on virtual machines with no identities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
@@ -224,7 +234,7 @@ policy is:
 Customers designing a highly available solution should consider the redundancy planning requirements for
 [virtual machines](../../../virtual-machines/availability.md) because guest assignments are extensions of
 machine resources in Azure. When guest assignment resources are provisioned in to an Azure region that is
-[paired](../../../best-practices-availability-paired-regions.md), as long as at least one region in the pair
+[paired](../../../availability-zones/cross-region-replication-azure.md), as long as at least one region in the pair
 is available, then guest assignment reports are available. If the Azure region isn't paired and
 it becomes unavailable, then it isn't possible to access reports for a guest assignment until
 the region is restored.
@@ -245,8 +255,8 @@ for the same definitions using the same parameter values as machines in the prim
 ## Data residency
 
 Guest configuration stores/processes customer data. By default, customer data is replicated to the
-[paired region.](../../../best-practices-availability-paired-regions.md)
-For single resident region all customer data is stored and processed in the region.
+[paired region.](../../../availability-zones/cross-region-replication-azure.md)
+For the regions: Singapore, Brazil South, and East Asia all customer data is stored and processed in the region.
 
 ## Troubleshooting guest configuration
 
@@ -270,7 +280,10 @@ Management Groups.
 
 The guest configuration extension writes log files to the following locations:
 
-Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+Windows
+
+- Azure VM: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+- Arc-enabled server: `C:\ProgramData\GuestConfig\arc_policy_logs\gc_agent.log`
 
 Linux
 

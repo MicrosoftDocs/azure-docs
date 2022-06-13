@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 10/01/2021
+ms.date: 10/29/2021
 ms.author: alkohli
 ms.custom: contperf-fy22q1
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
@@ -266,6 +266,9 @@ Follow these guidelines to create your XML file if you choose to select blobs an
 - **Sample XML file tab:** Copy a sample XML file with examples of each tag.
 - **XML file overview tab:** Review tag requirements for the XML file.
 - **Prefix examples tab:** See examples of valid prefixes that select multiple blobs and files for export.
+
+> [!NOTE]
+> You can use the `generateXMLFilesForExport.ps1` script to generate XML files for large blob exports. The script creates XML files for exporting from Azure Blob storage containers to multiple Azure Data Box or Azure Data Box Heavy devices. You can download the script from [Azure Samples](https://github.com/Azure-Samples/data-box-samples). See the [README](https://github.com/Azure-Samples/data-box-samples/blob/main/multipleDataBoxExportScript/README.md) for more information.
 
 ### [Sample XML file](#tab/sample-xml-file)
 

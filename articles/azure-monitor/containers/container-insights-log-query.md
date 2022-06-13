@@ -3,6 +3,7 @@ title: How to query logs from Container insights
 description: Container insights collects metrics and log data and this article describes the records and includes sample queries.
 ms.topic: conceptual
 ms.date: 07/19/2021
+ms.reviewer: aul
 
 ---
 
@@ -44,12 +45,6 @@ KubeEvents
 | where not(isempty(Namespace))
 | sort by TimeGenerated desc
 | render table
-```
-### Image inventory
-
-``` kusto
-ContainerImageInventory
-| summarize AggregatedValue = count() by Image, ImageTag, Running
 ```
 
 ### Container CPU

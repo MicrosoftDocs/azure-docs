@@ -6,7 +6,7 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 
 ---
 
@@ -62,6 +62,8 @@ In this category, the advisor detects the RU/s usage and determines that you can
 | Reserved capacity | Detects your RU/s utilization and recommends reserved instances to users who can benefit from it. |
 | Inactive containers | Detects the containers that haven't been used for more than 30 days and recommends reducing the throughput for such containers or deleting them.|
 | New subscriptions with high throughput | Detects new subscriptions with accounts spending unusually high RU/s per day and provides them a notification. This notification is specifically to bring awareness to new customers that Azure Cosmos DB operates on provisioned throughput-based model and not consumption-based model. |
+| Enable autoscale | Detects if your databases and containers currently using manual throughput would see cost savings by enabling autoscale. |
+| Use manual throughput instead of autoscale | Detects if your databases and containers currently using autoscale throughput would see cost savings by switching to manual throughput. |
 
 ## Migration recommendations
 

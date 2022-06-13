@@ -48,13 +48,13 @@ This demo will show how you can take an existing Marketplace image (in this case
 
 ### Create the resource group and base VM:
 
-```bash
+```azurecli
 $ az group create --location eastus --name demo1
 ```
 
 Create the base VM:
 
-```bash
+```azurecli
 $ az vm create \
     --resource-group demo1 \
     --name demo1 \
@@ -151,7 +151,76 @@ print(f'Response: {resp.status} {resp.reason}')
 wireserver_conn.close()
 ```
 
-#### Generic steps (without using Python)
+#### Bash script
+
+```
+#!/bin/bash
+
+attempts=1
+until [ "$attempts" -gt 5 ]
+do
+    echo "obtaining goal state - attempt $attempts"
+    goalstate=$(curl --fail -v -X 'GET' -H "x-ms-agent-name: azure-vm-register" \
+                                        -H "Content-Type: text/xml;charset=utf-8" \
+                                        -H "x-ms-version: 2012-11-30" \
+                                           "http://168.63.129.16/machine/?comp=goalstate")
+    if [ $? -eq 0 ]
+    then
+       echo "successfully retrieved goal state"
+       retrieved_goal_state=true
+       break
+    fi
+    sleep 5
+    attempts=$((attempts+1))
+done
+
+if [ "$retrieved_goal_state" != "true" ]
+then
+    echo "failed to obtain goal state - cannot register this VM"
+    exit 1
+fi
+
+container_id=$(grep ContainerId <<< "$goalstate" | sed 's/\s*<\/*ContainerId>//g' | sed 's/\r$//')
+instance_id=$(grep InstanceId <<< "$goalstate" | sed 's/\s*<\/*InstanceId>//g' | sed 's/\r$//')
+
+ready_doc=$(cat << EOF
+<?xml version="1.0" encoding="utf-8"?>
+<Health xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <GoalStateIncarnation>1</GoalStateIncarnation>
+  <Container>
+    <ContainerId>$container_id</ContainerId>
+    <RoleInstanceList>
+      <Role>
+        <InstanceId>$instance_id</InstanceId>
+        <Health>
+          <State>Ready</State>
+        </Health>
+      </Role>
+    </RoleInstanceList>
+  </Container>
+</Health>
+EOF
+)
+
+attempts=1
+until [ "$attempts" -gt 5 ]
+do
+    echo "registering with Azure - attempt $attempts"
+    curl --fail -v -X 'POST' -H "x-ms-agent-name: azure-vm-register" \
+                             -H "Content-Type: text/xml;charset=utf-8" \
+                             -H "x-ms-version: 2012-11-30" \
+                             -d "$ready_doc" \
+                             "http://168.63.129.16/machine?comp=health"
+    if [ $? -eq 0 ]
+    then
+       echo "successfully register with Azure"
+       break
+    fi
+    sleep 5 # sleep to prevent throttling from wire server
+done
+```
+
+#### Generic steps (if not using Python or Bash)
 
 If your VM doesn't have Python installed or available, you can programmatically reproduce this above script logic with the following steps:
 
@@ -215,14 +284,14 @@ Now the VM is ready to be generalized and have an image created from it.
 
 Back on your development machine, run the following to prepare for image creation from the base VM:
 
-```bash
+```azurecli
 $ az vm deallocate --resource-group demo1 --name demo1
 $ az vm generalize --resource-group demo1 --name demo1
 ```
 
 And create the image from this VM:
 
-```bash
+```azurecli
 $ az image create \
     --resource-group demo1 \
     --source demo1 \
@@ -232,7 +301,7 @@ $ az image create \
 
 Now we are ready to create a new VM (or multiple VMs) from the image:
 
-```bash
+```azurecli
 $ IMAGE_ID=$(az image show -g demo1 -n demo1img --query id -o tsv)
 $ az vm create \
     --resource-group demo12 \

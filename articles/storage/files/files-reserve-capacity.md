@@ -3,12 +3,12 @@ title: Optimize costs for Azure Files with reserved capacity
 titleSuffix: Azure Files 
 description: Learn how to save costs on Azure file share deployments by using Azure Files reserved capacity.
 services: storage
-author: roygara
+author: khdownie
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -35,7 +35,7 @@ You can purchase Azure Files reserved capacity in units of 10 TiB and 100 TiB pe
 ### Reservation scope
 Azure Files reserved capacity is available for a single subscription, multiple subscriptions (shared scope), and management groups. When scoped to a single subscription, the reservation discount is applied to the selected subscription only. When scoped to multiple subscriptions, the reservation discount is shared across those subscriptions within the customer's billing context. When scoped to a management group, the reservation discount is applied to subscriptions that are a part of both the management group and billing scope. A reservation applies to your usage within the purchased scope and cannot be limited to a specific storage account, container, or object within the subscription.
 
-An capacity reservation for Azure Files covers only the amount of data that is stored in a subscription or shared resource group. Transaction, bandwidth, and data transfer charges are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of the pay-as-you go rates. For more information on Azure reservations, see [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md).
+A capacity reservation for Azure Files covers only the amount of data that is stored in a subscription or shared resource group. Transaction, bandwidth, data transfer, and metadata storage charges are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of the pay-as-you go rates. For more information on Azure reservations, see [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
 ### Supported tiers and redundancy options
 Azure Files reserved capacity is available for premium, hot, and cool file shares. Reserved capacity is not available for Azure file shares in the transaction optimized tier. All storage redundancies support reservations. For more information about redundancy options, see [Azure Files redundancy](storage-files-planning.md#redundancy).

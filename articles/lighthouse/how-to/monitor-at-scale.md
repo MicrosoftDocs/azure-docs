@@ -1,8 +1,9 @@
 ---
 title: Monitor delegated resources at scale
 description: Azure Lighthouse helps you use Azure Monitor Logs in a scalable way across customer tenants.
-ms.date: 09/30/2021
+ms.date: 12/06/2021
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 ---
 
 # Monitor delegated resources at scale
@@ -12,7 +13,7 @@ As a service provider, you may have onboarded multiple customer tenants to [Azur
 This topic shows you how to use [Azure Monitor Logs](../../azure-monitor/logs/data-platform-logs.md) in a scalable way across the customer tenants you're managing. Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
 
 > [!NOTE]
-> Be sure that users in your managing tenants have been granted the [necessary roles for managing Log Analytics workspaces](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) on your delegated customer subscriptions.
+> Be sure that users in your managing tenants have been granted the [necessary roles for managing Log Analytics workspaces](../../azure-monitor/logs/manage-access.md#azure-rbac) on your delegated customer subscriptions.
 
 ## Create Log Analytics workspaces
 
@@ -30,13 +31,13 @@ You can create a Log Analytics workspace by using the [Azure portal](../../azure
 >
 > ```powershell
 > $ManagingTenantId = "your-managing-Azure-AD-tenant-id"
-> 
+>
 > # Authenticate as a user with admin rights on the managing tenant
 > Connect-AzAccount -Tenant $ManagingTenantId
-> 
+>
 > # Register the Microsoft.Insights resource providers Application Ids
-> New-AzADServicePrincipal -ApplicationId 1215fb39-1d15-4c05-b2e3-d519ac3feab4
-> New-AzADServicePrincipal -ApplicationId 6da94f3c-0d67-4092-a408-bb5d1cb08d2d 
+> New-AzADServicePrincipal -ApplicationId 1215fb39-1d15-4c05-b2e3-d519ac3feab4 -Role Contributor
+> New-AzADServicePrincipal -ApplicationId 6da94f3c-0d67-4092-a408-bb5d1cb08d2d -Role Contributor
 > ```
 
 ## Deploy policies that log data

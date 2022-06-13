@@ -63,7 +63,7 @@ You can change subscription status in the Azure portal. Select the current statu
 :::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Change subscription status":::
 
 The states that can be set for a **subscription** are:
-- **Active**: The subscription is active. You can receive messages frm the subscription.
+- **Active**: The subscription is active. You can receive messages from the subscription.
 - **Disabled**: The subscription is suspended. You can't receive messages from the subscription. 
 - **ReceiveDisabled**: Same effect as **Disabled**. You can't receive messages from the subscription. You'll get an exception if you try to receive messages to the subscription.
 

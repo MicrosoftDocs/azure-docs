@@ -1,56 +1,56 @@
 ---
-title: Enable integration with Azure virtual network.
-description: This how-to article will walk you through enabling virtual network integration on an App Service Web App
+title: Enable integration with an Azure virtual network
+description: This how-to article walks you through enabling virtual network integration on an Azure App Service web app.
 keywords: vnet integration
 author: madsd
 ms.author: madsd
 ms.topic: how-to
 ms.date: 10/20/2021
+ms.tool: azure-cli, azure-powershell
 ---
 
 # Enable virtual network integration in Azure App Service
 
-Through integrating with an Azure virtual network (VNet) from your [App Service app](./overview.md), you can reach private resources from your app within the virtual network. The VNet Integration feature has two variations:
+Through integrating with an Azure virtual network (VNet) from your [Azure App Service app](./overview.md), you can reach private resources from your app within the virtual network. The VNet integration feature has two variations:
 
-* Regional VNet integration: Connect to Azure virtual networks in the same region. You must have a dedicated subnet in the VNet you're integrating with.
-* Gateway-required VNet integration: When you connect directly to VNet in other regions or to a classic virtual network in the same region, you must use the gateway-required VNet integration.
+* **Regional virtual network integration**: Connect to Azure virtual networks in the same region. You must have a dedicated subnet in the virtual network you're integrating with.
+* **Gateway-required virtual network integration**: When you connect directly to a virtual network in other regions or to a classic virtual network in the same region, you must use gateway-required virtual network integration.
 
-This how-to article will describe how to set up regional VNet integration.
+This article describes how to set up regional virtual network integration.
 
 ## Prerequisites
 
-The VNet Integration requires:
-- An App Service pricing tier [supporting VNet integration](./overview-vnet-integration.md).
+The VNet integration feature requires:
+
+- An App Service pricing tier [that supports virtual network integration](./overview-vnet-integration.md).
 - A virtual network in the same region with an empty subnet.
 
-The subnet must be delegated to Microsoft.Web/serverFarms. If the delegation isn't done before integration, the provisioning process will configure this delegation. The subnet must be allocated an IPv4 `/28` block (16 addresses). It is actually recommended to have a minimum of 64 addresses (IPv4 `/26` block) to allow for maximum horizontal scale.
+The subnet must be delegated to Microsoft.Web/serverFarms. If the delegation isn't done before integration, the provisioning process will configure this delegation. The subnet must be allocated an IPv4 `/28` block (16 addresses). We recommend that you have a minimum of 64 addresses (IPv4 `/26` block) to allow for maximum horizontal scale.
 
 ## Configure in the Azure portal
 
-1. Go to the **Networking** UI in the App Service portal. Under **Outbound Traffic**, select **VNet integration**.
+1. Go to **Networking** in the App Service portal. Under **Outbound Traffic**, select **VNet integration**.
 
 1. Select **Add VNet**.
 
-    :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-app.png" alt-text="Select VNet Integration":::
+    :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-app.png" alt-text="Screenshot that shows selecting VNet integration.":::
 
-1. The drop-down list contains all of the virtual networks in your subscription in the same region.
+1. The dropdown list contains all the virtual networks in your subscription in the same region. Select an empty preexisting subnet or create a new subnet.
 
-    :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-add-vnet.png" alt-text="Select the VNet":::
+    :::image type="content" source="./media/configure-vnet-integration-enable/vnetint-add-vnet.png" alt-text="Screenshot that shows selecting the virtual network.":::
 
-    * Select an empty pre-existing subnet or create a new subnet.
+During the integration, your app is restarted. When integration is finished, you'll see details on the virtual network you're integrated with.
 
-During the integration, your app is restarted. When integration is finished, you'll see details on the VNet you're integrated with.
+## Configure with the Azure CLI
 
-## Configure with Azure CLI
-
-You can also configure VNet integration using Azure CLI:
+You can also configure virtual network integration by using the Azure CLI:
 
 ```azurecli-interactive
 az webapp vnet-integration add --resource-group <group-name> --name <app-name> --vnet <vnet-name> --subnet <subnet-name>
 ```
 
 > [!NOTE]
-> The command will check if subnet is delegated to Microsoft.Web/serverFarms and apply the necessary delegation if this is not configured. If this has already been configured, and you do not have permissions to check this, or the virtual network is in another subscription, you can use the `--skip-delegation-check` parameter to bypass the validation.
+> The command checks if the subnet is delegated to Microsoft.Web/serverFarms and applies the necessary delegation if it isn't configured. If the subnet was configured, and you don't have permissions to check it, or if the virtual network is in another subscription, you can use the *--skip-delegation-check* parameter to bypass the validation.
 
 ## Configure with Azure PowerShell
 
@@ -71,5 +71,5 @@ $webApp | Set-AzResource -Force
 
 ## Next steps
 
-- [Configure VNet integration routing](./configure-vnet-integration-routing.md)
-- [General Networking overview](./networking-features.md)
+- [Configure virtual network integration routing](./configure-vnet-integration-routing.md)
+- [General networking overview](./networking-features.md)

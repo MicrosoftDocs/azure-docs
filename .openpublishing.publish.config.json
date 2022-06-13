@@ -8,10 +8,7 @@
       "locale": "en-us",
       "monikers": [],
       "moniker_ranges": [],
-      "xref_query_tags": [
-        "/dotnet",
-        "/python"
-      ],
+      "xref_query_tags": ["/dotnet", "/python"],
       "open_to_public_contributors": true,
       "type_mapping": {
         "ZonePivotGroups": "Toc",
@@ -26,23 +23,37 @@
       "version": 0
     }
   ],
-  "notification_subscribers": [
-    "azure-docs-publish@microsoft.com"
-  ],
-  "sync_notification_subscribers": [
-    "angrobe_extended_dir@microsoft.com"
-  ],
+  "notification_subscribers": ["azure-docs-publish@microsoft.com"],
+  "sync_notification_subscribers": ["angrobe_extended_dir@microsoft.com"],
   "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs",
-  "git_repository_branch_open_to_public_contributors": "master",
+  "git_repository_branch_open_to_public_contributors": "main",
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
   "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
+      "path_to_root": "azure-dev-docs-pr",
+      "url": "https://github.com/MicrosoftDocs/azure-dev-docs-pr",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "terraform_samples",
+      "url": "https://github.com/Azure/terraform",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "quickstart-templates",
       "url": "https://github.com/Azure/azure-quickstart-templates",
       "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure_arc_sample",
+      "url": "https://github.com/microsoft/azure_arc",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -54,18 +65,36 @@
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "_themes.pdf",
       "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "cli_scripts",
       "url": "https://github.com/Azure/azure-docs-cli-python-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure_storage-snippets",
+      "url": "https://github.com/Azure-Samples/AzureStorageSnippets",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-storage-bind-function-service",
+      "url": "https://github.com/Azure-Samples/msdocs-storage-bind-function-service",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure_cli_scripts",
+      "url": "https://github.com/Azure-Samples/azure-cli-samples",
       "branch": "master",
       "branch_mapping": {}
     },
@@ -232,6 +261,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-functions-kafka-extension",
+      "url": "https://github.com/Azure/azure-functions-kafka-extension",
+      "branch": "dev",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-functions-python-worker-extension",
       "url": "https://github.com/Azure-Samples/python-worker-extension-timer",
       "branch": "main",
@@ -318,13 +353,13 @@
     {
       "path_to_root": "azure-iot-sdk-node",
       "url": "https://github.com/Azure/azure-iot-sdk-node",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "iot-samples-c",
       "url": "https://github.com/Azure/azure-iot-sdk-c",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -364,6 +399,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "media-services-v3-python",
+      "url": "https://github.com/Azure-Samples/media-services-v3-python",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-javascript",
       "url": "https://github.com/Microsoft/tsiclient",
       "branch": "tutorial",
@@ -394,8 +435,8 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "media-services-v3-python",
-      "url": "https://github.com/Azure-Samples/media-services-v3-python",
+      "path_to_root": "media-services-video-indexer",
+      "url": "https://github.com/Azure-Samples/media-services-video-indexer",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -424,9 +465,15 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-cli-preview",
+      "path_to_root": "azureml-examples-sdk-preview",
       "url": "https://github.com/azure/azureml-examples",
-      "branch": "cli-preview",
+      "branch": "sdk-preview",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-online-endpoint-vnet",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "rsethur/mvnet",
       "branch_mapping": {}
     },
     {
@@ -516,17 +563,11 @@
     {
       "path_to_root": "azure-sdk-for-go-samples",
       "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azure-sdk-for-java-event-hubs",
-      "url": "https://github.com/Azure/azure-sdk-for-java/",
       "branch": "main",
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-sdk-for-java-cosmos-db",
+      "path_to_root": "azure-sdk-for-java-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-java/",
       "branch": "main",
       "branch_mapping": {}
@@ -588,12 +629,6 @@
     {
       "path_to_root": "samples-cosmosdb-dotnet-v3",
       "url": "https://github.com/Azure/azure-cosmos-dotnet-v3",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "samples-cosmosdb-dotnet-v2",
-      "url": "https://github.com/Azure/azure-cosmos-dotnet-v2",
       "branch": "master",
       "branch_mapping": {}
     },
@@ -718,12 +753,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-cosmosdb-java-v2",
-      "url": "https://github.com/Azure/azure-cosmosdb-java",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azure-cosmosdb-graph-dotnet",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started",
       "branch": "main",
@@ -784,10 +813,10 @@
       "branch_mapping": {}
     },
     {
-    "path_to_root": "digital-twins-docs-samples-getting-started",
-    "url": "https://github.com/Azure-Samples/azure-digital-twins-getting-started",
-    "branch": "main",
-    "branch_mapping": {}
+      "path_to_root": "digital-twins-docs-samples-getting-started",
+      "url": "https://github.com/Azure-Samples/azure-digital-twins-getting-started",
+      "branch": "main",
+      "branch_mapping": {}
     },
     {
       "path_to_root": "dotnet-samples",
@@ -800,17 +829,107 @@
       "url": "https://github.com/Azure/azure-docs-bicep-samples/",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "active-directory-b2c-msal-node-sign-in-sign-out-webapp",
+      "url": "https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "active-directory-b2c-javascript-nodejs-webapi",
+      "url": "https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "ms-identity-b2c-javascript-spa",
+      "url": "https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "ms-identity-dotnetcore-b2c-account-management",
+      "url": "https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "ms-identity-javascript-v2",
+      "url": "https://github.com/Azure-Samples/ms-identity-javascript-v2",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-python-flask-webapp-quickstart",
+      "url": "https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-python-django-webapp-quickstart",
+      "url": "https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-nodejs-mongodb-azure-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-django-postgresql-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-flask-postgresql-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azuresignalr-samples",
+      "url": "https://github.com/aspnet/AzureSignalR-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-webpubsub",
+      "url": "https://github.com/Azure/azure-webpubsub",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-sql-todo-sample",
+      "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",
+      "branch": "docs-snippets",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "ms-identity-node",
+      "url": "https://github.com/Azure-Samples/ms-identity-node",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "ms-identity-javascript-nodejs-desktop",
+      "url": "https://github.com/Azure-Samples/ms-identity-javascript-nodejs-desktop",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmos-dotnet-v3",
+      "url": "https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples",
+      "branch": "v3",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
-    "live": [
-      "Publish",
-      "PDF"
-    ],
-    "master": [
-      "Publish",
-      "PDF"
-    ]
+    "live": ["Publish", "PDF"],
+    "main": ["Publish", "PDF"]
   },
   "need_generate_pdf_url_template": true,
   "targets": {
@@ -824,16 +943,23 @@
   "redirection_files": [
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.active-directory.json",
-    ".openpublishing.redirection.data-factory.json",
+    ".openpublishing.redirection.azure-blob.json",
+    "articles/data-factory/.openpublishing.redirection.data-factory.json",
+    ".openpublishing.redirection.defender-for-cloud.json",
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.iot-hub.json",
     ".openpublishing.redirection.key-vault.json",
-    ".openpublishing.redirection.media-services.json",
+    ".openpublishing.redirection.sql-database.json",
     ".openpublishing.redirection.security-benchmark.json",
-    ".openpublishing.redirection.synapse-analytics.json",
+    "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
+    ".openpublishing.redirection.azure-web-pubsub.json",
+    ".openpublishing.redirection.azure-monitor.json",
+    ".openpublishing.redirection.azure-percept.json",
+    ".openpublishing.redirection.azure-productivity.json",
+    ".openpublishing.redirection.azure-australia.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
-    "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",   
+    "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
     "articles/communication-services/.openpublishing.redirection.communication-services.json",
     "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
@@ -848,12 +974,23 @@
     "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
     "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
     "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
+    "articles/mariadb/.openpublishing.redirection.mariadb.json",
     "articles/marketplace/.openpublishing.redirection.marketplace.json",
+    "articles/mysql/.openpublishing.redirection.mysql.json",
     "articles/object-anchors/.openpublishing.redirection.object-anchors.json",
+    "articles/postgresql/.openpublishing.redirection.postgresql.json",
     "articles/purview/.openpublishing.redirection.purview.json",
     "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
     "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
+    "articles/spatial-anchors/.openpublishing.redirection.spatial-anchors.json",
+    "articles/azure-video-analyzer/.openpublishing.redirection.azure-video-analyzer.json",
     "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
-    "articles/mysql/.openpublishing.redirection.mysql.json"
+    "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
+    "articles/mysql/.openpublishing.redirection.mysql.json",
+    "articles/container-apps/.openpublishing.redirection.container-apps.json",
+    "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
+    "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
+    "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
+    "articles/machine-learning/.openpublishing.redirection.machine-learning.json"
   ]
 }

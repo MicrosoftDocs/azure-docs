@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 10/27/2021
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -27,7 +27,7 @@ Before you buy a reservation, you should determine the size of the Premium v3 re
 
 You can use reservation recommendations to help determine the reservations you should purchase.
 
-- Purchase recommendations and recommended quantity are show when you purchase a Premium v3 reserved instance in the Azure portal.
+- Purchase recommendations and recommended quantities are shown when you purchase a Premium v3 reserved instance in the Azure portal.
 - Azure Advisor provides purchase recommendations for individual subscriptions.
 - You can use the APIs to get purchase recommendations for both shared scope and single subscription scope. For more information, see [Reserved instance purchase recommendation APIs for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - For Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) customers, purchase recommendations for shared and single subscription scopes are available with the [Azure Consumption Insights Power BI content pack](/power-bi/service-connect-to-azure-consumption-insights).
@@ -50,7 +50,7 @@ To buy an instance:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** > **Reservations**.
-3. Select **Add** to purchase a new reservation and then click **Instance**.
+3. Select **Add** to purchase a new reservation and then select **Instance**.
 4. Enter required fields. Running Premium v3 reserved instances that match the attributes you select qualify for the reservation discount. The actual number of your Premium v3 reserved instances that get the discount depend on the scope and quantity selected.
 
 If you have an EA agreement, you can use the **Add more option** to quickly add additional instances. The option isn't available for other subscription types.
@@ -76,7 +76,7 @@ To buy an instance:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** > **Reservations**.
-3. Select **Add** to purchase a new reservation and then click **Instance**.
+3. Select **Add** to purchase a new reservation and then select **Instance**.
 4. Enter required fields. Running Isolated v2 reserved instances that match the attributes you select qualify for the reservation discount. The actual number of your Isolated v2 reserved instances that get the discount depend on the scope and quantity selected.
 
 If you have an EA agreement, you can use the **Add more option** to quickly add additional instances. The option isn't available for other subscription types.
@@ -131,10 +131,10 @@ You can buy Isolated Stamp reserved capacity in the [Azure portal](https://porta
     - **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
     - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 1. Select a **Region** to choose an Azure region that's covered by the reserved capacity and add the reservation to the cart.
-1. Select an Isolated Plan type and then click **Select**.  
+1. Select an Isolated Plan type and then select **Select**.  
     ![Example ](./media/prepay-app-service/app-service-isolated-stamp-select.png)
-1. Enter the quantity of App Service Isolated stamps to reserve. For example, a quantity of three would give you three reserved stamps a region. Click **Next: Review + Buy**.
-1. Review and click **Buy now**.
+1. Enter the quantity of App Service Isolated stamps to reserve. For example, a quantity of three would give you three reserved stamps a region. Select **Next: Review + Buy**.
+1. Review and select **Buy now**.
 
 After purchase, go to [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) to view the purchase status and monitor it at any time.
 

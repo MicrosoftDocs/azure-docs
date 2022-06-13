@@ -4,13 +4,12 @@ description: In this article, create a .NET Framework app with Azure App Configu
 services: azure-app-configuration
 documentationcenter: ''
 author: AlexandraKemperMS
-
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
-
 #Customer intent: As a .NET Framework developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a .NET Framework app with Azure App Configuration

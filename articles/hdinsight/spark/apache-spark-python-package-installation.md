@@ -1,6 +1,6 @@
 ---
 title: Script action for Python packages with Jupyter on Azure HDInsight
-description: Step-by-step instructions on how to use script action to configure Jupyter Notebooks available with HDInsight Spark clusters to use external python packages.
+description: Step-by-step instructions on how to use script action to configure Jupyter Notebooks available with HDInsight Spark clusters to use external Python packages.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
@@ -33,7 +33,7 @@ There are two types of open-source components that are available in the HDInsigh
 
 ## Understand default Python installation
 
-HDInsight Spark cluster is created with Anaconda installation. There are two Python installations in the cluster, Anaconda Python 2.7 and Python 3.5. The table below shows the default Python settings for Spark, Livy, and Jupyter.
+HDInsight Spark clusters have Anaconda installed. There are two Python installations in the cluster, Anaconda Python 2.7 and Python 3.5. The table below shows the default Python settings for Spark, Livy, and Jupyter.
 
 |Setting |Python 2.7|Python 3.5|
 |----|----|----|
@@ -42,16 +42,23 @@ HDInsight Spark cluster is created with Anaconda installation. There are two Pyt
 |Livy version|Default set to 2.7|Can change config to 3.5|
 |Jupyter|PySpark kernel|PySpark3 kernel|
 
+For the Spark 3.1.2 version, the Apache PySpark kernel is removed and a new Python 3.8 environment is installed under `/usr/bin/miniforge/envs/py38/bin` which is used by the PySpark3 kernel. The `PYSPARK_PYTHON` and `PYSPARK3_PYTHON` environment variables are updated with the following:
+
+```bash
+export PYSPARK_PYTHON=${PYSPARK_PYTHON:-/usr/bin/miniforge/envs/py38/bin/python}
+export PYSPARK3_PYTHON=${PYSPARK_PYTHON:-/usr/bin/miniforge/envs/py38/bin/python}
+```
+
 ## Safely install external Python packages
 
 HDInsight cluster depends on the built-in Python environment, both Python 2.7 and Python 3.5. Directly installing custom packages in those default built-in environments may cause unexpected library version changes. And break the cluster further. To safely install custom external Python packages for your Spark applications, follow below steps.
 
-1. Create Python virtual environment using conda. A virtual environment provides an isolated space for your projects without breaking others. When creating the Python virtual environment, you can specify python version that you want to use. You still need to create virtual environment even though you would like to use Python 2.7 and 3.5. This requirement is to make sure the cluster's default environment not getting broke. Run script actions on your cluster for all nodes with below script to create a Python virtual environment.
+1. Create Python virtual environment using conda. A virtual environment provides an isolated space for your projects without breaking others. When creating the Python virtual environment, you can specify Python version that you want to use. You still need to create virtual environment even though you would like to use Python 2.7 and 3.5. This requirement is to make sure the cluster's default environment not getting broke. Run script actions on your cluster for all nodes with below script to create a Python virtual environment.
 
-    -   `--prefix` specifies a path where a conda virtual environment lives. There are several configs that need to be changed further based on the path specified here. In this example, we use the py35new, as the cluster has an existing virtual environment called py35 already.
-    -   `python=` specifies the Python version for the virtual environment. In this example, we use version 3.5, the same version as the cluster built in one. You can also use other Python versions to create the virtual environment.
-    -   `anaconda` specifies the package_spec as anaconda to install Anaconda packages in the virtual environment.
-    
+   - `--prefix` specifies a path where a conda virtual environment lives. There are several configs that need to be changed further based on the path specified here. In this example, we use the py35new, as the cluster has an existing virtual environment called py35 already.
+   - `python=` specifies the Python version for the virtual environment. In this example, we use version 3.5, the same version as the cluster built in one. You can also use other Python versions to create the virtual environment.
+   - `anaconda` specifies the package_spec as anaconda to install Anaconda packages in the virtual environment.
+
     ```bash
     sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda=4.3 --yes
     ```
@@ -64,36 +71,37 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
 
     - Use conda channel:
 
-        -   `seaborn` is the package name that you would like to install.
-        -   `-n py35new` specify the virtual environment name that just gets created. Make sure to change the name correspondingly based on your virtual environment creation.
+      - `seaborn` is the package name that you would like to install.
+      - `-n py35new` specify the virtual environment name that just gets created. Make sure to change the name correspondingly based on your virtual environment creation.
 
-        ```bash
-        sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
-        ```
+      ```bash
+      sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
+      ```
 
     - Or use PyPi repo, change `seaborn` and `py35new` correspondingly:
-        ```bash
-        sudo /usr/bin/anaconda/envs/py35new/bin/pip install seaborn
-        ```
 
-    Use below command if you would like to install a library with a specific version:
+      ```bash
+      sudo /usr/bin/anaconda/envs/py35new/bin/pip install seaborn
+      ```
+
+    Use the following command if you would like to install a library with a specific version:
 
     - Use conda channel:
 
-        -   `numpy=1.16.1` is the package name and version that you would like to install.
-        -   `-n py35new` specify the virtual environment name that just gets created. Make sure to change the name correspondingly based on your virtual environment creation.
+      - `numpy=1.16.1` is the package name and version that you would like to install.
+      - `-n py35new` specify the virtual environment name that just gets created. Make sure to change the name correspondingly based on your virtual environment creation.
 
-        ```bash
-        sudo /usr/bin/anaconda/bin/conda install numpy=1.16.1 -n py35new --yes
-        ```
+      ```bash
+      sudo /usr/bin/anaconda/bin/conda install numpy=1.16.1 -n py35new --yes
+      ```
 
     - Or use PyPi repo, change `numpy==1.16.1` and `py35new` correspondingly:
 
-        ```bash
-        sudo /usr/bin/anaconda/envs/py35new/bin/pip install numpy==1.16.1
-        ```
+      ```bash
+      sudo /usr/bin/anaconda/envs/py35new/bin/pip install numpy==1.16.1
+      ```
 
-    if you don't know the virtual environment name, you can SSH to the head node of the cluster and run `/usr/bin/anaconda/bin/conda info -e` to show all virtual environments.
+    If you don't know the virtual environment name, you can SSH to the head node of the cluster and run `/usr/bin/anaconda/bin/conda info -e` to show all virtual environments.
 
 3. Change Spark and Livy configs and point to the created virtual environment.
 
@@ -134,9 +142,9 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
         If you are using livy, add the following properties to the request body:
 
         ```
-        “conf” : {
-        “spark.yarn.appMasterEnv.PYSPARK_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”,
-        “spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”
+        "conf" : {
+        "spark.yarn.appMasterEnv.PYSPARK_PYTHON":"/usr/bin/anaconda/envs/py35/bin/python",
+        "spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON":"/usr/bin/anaconda/envs/py35/bin/python"
         }
         ```
 
@@ -149,7 +157,6 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
     You could double confirm the Python environment in Jupyter Notebook by running below code:
 
     :::image type="content" source="./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png" alt-text="Check Python version in Jupyter Notebook" border="true":::
-
 
 ## Next steps
 

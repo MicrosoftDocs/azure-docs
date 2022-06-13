@@ -7,10 +7,9 @@ metadata:
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
-  ms.topic: conceptual
-  ms.date: 07/21/2021
+  ms.topic: faq
+  ms.date: 01/11/2022
   ms.author: aahi
-    
 title: FAQ for Azure Cognitive Services containers
 summary: |
 sections:
@@ -68,7 +67,7 @@ sections:
           We don't test containers with OpenShift, but generally, Cognitive Services containers should run on any platform that supports Docker images. If you're using OpenShift, we recommend running the containers as `root-user`.
       - question: How do I provide product feedback and feature recommendations?
         answer: |    
-          We encourage customers to [voice their concerns](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737) publicly and to up-vote others who have done the same where potential issues overlap. You can use the feedback tool for both product feedback and feature recommendations.
+          We encourage customers to [voice their concerns](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) publicly and to up-vote others who have done the same where potential issues overlap. You can use the feedback tool for both product feedback and feature recommendations.
       - question: What status messages and errors do Cognitive Services containers return?
         answer: |    
           Here are the status messages and errors:
@@ -102,7 +101,10 @@ sections:
           * [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#billing)
           * [Language Understanding (LUIS)](../luis/luis-container-howto.md#billing)
           * [Speech Service API](../speech-service/speech-container-howto.md#billing)
-          * [Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing)
+          * [Language service - sentiment analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#billing)
+          * [Language service - Text Analytics for health](../language-service/text-analytics-for-health/how-to/use-containers.md#billing)
+          * [Language service - language detection](../language-service/language-detection/how-to/use-containers.md#billing)
+          * [Language service - key phrase extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#billing)
 
           > [!IMPORTANT]
           > Cognitive Services containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft.
@@ -145,11 +147,14 @@ sections:
           * [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#container-requirements-and-recommendations)
           * [Language Understanding (LUIS)](../luis/luis-container-howto.md#container-requirements-and-recommendations)
           * [Speech Service API](../speech-service/speech-container-howto.md#container-requirements-and-recommendations)
-          * [Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#host-computer-requirements-and-recommendations)
+          * [Language service - sentiment analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#host-computer-requirements-and-recommendations)
+          * [Language service - Text Analytics for health](../language-service/text-analytics-for-health/how-to/use-containers.md#host-computer-requirements-and-recommendations)
+          * [Language service - language detection](../language-service/language-detection/how-to/use-containers.md#host-computer-requirements-and-recommendations)
+          * [Language service - key phrase extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#host-computer-requirements-and-recommendations)
 
       - question: Are these containers currently supported on Windows?
         answer: | 
-          Cognitive Services containers are Linux containers, but there is some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/).
+          Cognitive Services containers are Linux containers, but there is some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](https://www.docker.com/blog/preview-linux-containers-on-windows/).
       
       - question:  How do Cognitive Services containers compare to AWS and Google offerings?
         answer: | 
@@ -163,4 +168,4 @@ sections:
           Containers can be run anywhere in any region, but they need a key and need to call back to Azure for metering. All supported regions for the cloud service are supported for the containers' metering call.
 
 additionalContent: |
-          [!INCLUDE [Containers next steps](includes/containers-next-steps.md)]
+          * [How to use Cognitive Services containers in disconnected environments](disconnected-containers.md)

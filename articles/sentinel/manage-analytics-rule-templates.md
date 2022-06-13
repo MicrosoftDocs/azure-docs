@@ -1,23 +1,16 @@
 ---
-title: Manage template versions for your scheduled analytics rules in Azure Sentinel
+title: Manage template versions for your scheduled analytics rules in Microsoft Sentinel
 description: Learn how to manage the relationship between your scheduled analytics rule templates and the rules created from those templates. Merge updates to the templates into your rules, and revert changes in your rules back to the original template.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/03/2021
+ms.date: 11/09/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
-# Manage template versions for your scheduled analytics rules in Azure Sentinel
+
+# Manage template versions for your scheduled analytics rules in Microsoft Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
@@ -25,7 +18,7 @@ ms.author: yelevin
 
 ## Introduction
 
-Azure Sentinel comes with [analytics rule templates](detect-threats-built-in.md) that you turn into active rules by effectively creating a copy of them – that’s what happens when you create a rule from a template. At that point, however, the active rule is no longer connected to the template. If changes are made to a rule template, by Microsoft engineers or anyone else, any rules created from that template beforehand are ***not*** dynamically updated to match the new template.
+Microsoft Sentinel comes with [analytics rule templates](detect-threats-built-in.md) that you turn into active rules by effectively creating a copy of them – that’s what happens when you create a rule from a template. At that point, however, the active rule is no longer connected to the template. If changes are made to a rule template, by Microsoft engineers or anyone else, any rules created from that template beforehand are ***not*** dynamically updated to match the new template.
 
 However, rules created from templates ***do*** remember which templates they came from, which allows you two advantages:
 
@@ -64,7 +57,7 @@ With the implementation of template version control, you can see and track the v
 
     > [!NOTE]
     > Images 2 and 3 above show two examples of rules created from templates, where the template has not been updated.
-    > - Image 2 shows a rule that has a version number for its current template. This signals that the rule was created after Azure Sentinel's initial implementation of template version control in October 2021.
+    > - Image 2 shows a rule that has a version number for its current template. This signals that the rule was created after Microsoft Sentinel's initial implementation of template version control in October 2021.
     > - Image 3 shows a rule that doesn't have a current template version. This shows that the rule had been created before October 2021. If there is a latest template version available, it's likely a newer version of the template than the one used to create the rule.
 
 ## Compare your active rule with its template
@@ -81,6 +74,7 @@ On this tab you'll see a side-by-side comparison between the YAML representation
 
 > [!NOTE]
 > Updating this rule will overwrite your existing rule with the latest version of the template.
+
 Any automation step or logic that makes reference to the existing rule should be verified, in case the referenced names have changed. Also, any customizations you made in creating the original rule - changes to the query, scheduling, grouping, or other settings - may be overwritten.
 
 ### Update your rule with the new template version
@@ -114,7 +108,7 @@ Any automation step or logic that makes reference to the existing rule should be
 ---
 
 ## Next steps
-In this document, you learned how to track the versions of your Azure Sentinel analytics rule templates, and either to revert active rules to existing template versions, or update them to new ones. To learn more about Azure Sentinel, see the following articles:
+In this document, you learned how to track the versions of your Microsoft Sentinel analytics rule templates, and either to revert active rules to existing template versions, or update them to new ones. To learn more about Microsoft Sentinel, see the following articles:
 
 - Learn more about [analytics rules](detect-threats-built-in.md).
 - See more details about the [analytics rule wizard](detect-threats-custom.md).

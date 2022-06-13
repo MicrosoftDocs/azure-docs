@@ -13,7 +13,7 @@ ms.author: jixin
 
 [Azure Policy](../governance/policy/overview.md) is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements.
 
-This article introduces built-in policies (preview) for Azure Web PubSub Service. Use these policies to audit new and existing Web PubSub resources for compliance.
+This article introduces built-in policies for Azure Web PubSub Service. Use these policies to audit new and existing Web PubSub resources for compliance.
 
 There are no charges for using Azure Policy.
 
@@ -49,7 +49,7 @@ When a resource is non-compliant, there are many possible reasons. To determine 
 
 ### Policy compliance in the Azure CLI
 
-You can also use the Azure CLI to get compliance data. For example, use the [az policy assignment list](/cli/azure/policy/assignment#az_policy_assignment_list) command in the CLI to get the policy IDs of the Azure Web PubSub Service policies that are applied:
+You can also use the Azure CLI to get compliance data. For example, use the [az policy assignment list](/cli/azure/policy/assignment#az-policy-assignment-list) command in the CLI to get the policy IDs of the Azure Web PubSub Service policies that are applied:
 
 ```azurecli
 az policy assignment list --query "[?contains(displayName,'Web PubSub')].{name:displayName, ID:id}" --output table
@@ -63,13 +63,13 @@ Name                                                                            
 [Preview]: Azure Web PubSub Service should use private links  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Authorization/policyAssignments/<assignmentId>
 ```
 
-Then run [az policy state list](/cli/azure/policy/state#az_policy_state_list) to return the JSON-formatted compliance state for all resources under a specific resource group:
+Then run [az policy state list](/cli/azure/policy/state#az-policy-state-list) to return the JSON-formatted compliance state for all resources under a specific resource group:
 
 ```azurecli
 az policy state list --g <resourceGroup>
 ```
 
-Or run [az policy state list](/cli/azure/policy/state#az_policy_state_list) to return the JSON-formatted compliance state of a specific Web PubSub resource:
+Or run [az policy state list](/cli/azure/policy/state#az-policy-state-list) to return the JSON-formatted compliance state of a specific Web PubSub resource:
 
 ```azurecli
 az policy state list \

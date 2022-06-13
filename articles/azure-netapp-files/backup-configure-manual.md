@@ -3,7 +3,7 @@ title: Configure manual backups for Azure NetApp Files | Microsoft Docs
 description: Describes how to configure manual backups for Azure NetApp Files volumes. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.author: b-juche
+ms.date: 11/10/2021
+ms.author: anfdocs
 ---
 # Configure manual backups for Azure NetApp Files 
 
@@ -35,7 +34,7 @@ The following list summarizes manual backup behaviors:
 
 * You can create manual backups on a volume even if the volume is already backup-enabled and configured with backup policies.  However, there can be only one outstanding manual-backup request for the volume. If you assign a backup policy and if the baseline transfer is still in progress, then the creation of a manual backup will be blocked until the baseline transfer is complete.
 
-* Creating a manual backup generates a snapshot on the volume. The snapshot is then transferred to Azure storage. This snapshot is not deleted automatically; you need to manually delete that snapshot.  However, deleting the snapshot generated for the latest manual backup is not allowed.  As such, after you create a subsequent manual backup, you can then clean up (delete) the snapshots generated for previous manual backups if you do not need to keep them. 
+* Unless you specify an existing snapshot to use for a backup, creating a manual backup automatically generates a snapshot on the volume. The snapshot is then transferred to Azure storage. The snapshot created on the volume will be retained until the next manual backup is created. During the subsequent manual backup operation, older snapshots will be cleaned up. You can't delete the snapshot generated for the latest manual backup. 
 
 ## Enable backup functionality
 
@@ -53,19 +52,22 @@ If you haven’t done so, enable the backup functionality for the volume before 
 
 1. Go to **Volumes** and select the volume for which you want to create a manual backup.
 2. Select **Add Backup**.
-3. Specify a backup name.   
+3. In the New Backup window that appears:   
 
-    * Manual backup names must be 3 to 256 characters in length.   
+    1. Specify a backup name in the **Name** field.   
+    
+        * Manual backup names must be 3 to 256 characters in length.   
+        * As a best practice, prepend a prefix in the following format before the actual backup name. Doing so helps you identify the manual backup if the volume is deleted (with backups retained).   
 
-    * As a best practice, prepend a prefix in the following format before the actual backup name. Doing so helps you identify the manual backup if the volume is deleted (with backups retained).   
+            `NetAppAccountName-CapacityPoolName-VolumeName`   
 
-        `NetAppAccountName-CapacityPoolName-VolumeName`   
+            For example, assume that the NetApp account is `account1`, the capacity pool is `pool1`, the volume name is `vol1`. A manual backup can be named as follows:    
 
-        For example, assume that the NetApp account is `account1`, the capacity pool is `pool1`, the volume name is `vol1`. A manual backup can be named as follows:    
+            `account1-pool1-vol1-backup1`   
 
-        `account1-pool1-vol1-backup1`   
-
-        If you are using a shorter form for the backup name, ensure that it still includes information that identifies the NetApp account, capacity pool, and volume name for display in the backup list.
+            If you are using a shorter form for the backup name, ensure that it still includes information that identifies the NetApp account, capacity pool, and volume name for display in the backup list.
+            
+    2. If you want to use an existing snapshot for the backup, select the **Use Existing Snapshot** option.  When you use this option, ensure that the Name field matches the existing snapshot name that is being used for the backup. 
 
 4. Click **Create**. 
 

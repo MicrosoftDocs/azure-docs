@@ -1,9 +1,9 @@
 ---
 title: Develop modules for Azure IoT Edge | Microsoft Docs 
 description: Develop custom modules for Azure IoT Edge that can communicate with the runtime and IoT Hub
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 09/03/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -53,6 +53,9 @@ With the IoT Edge MQTT broker, you can publish messages on any user-defined topi
 #### Receive messages on a user-defined topic
 
 With the IoT Edge MQTT broker, receiving messages is similar. First make sure that your module is authorized to subscribe to specific topics, then get a token from the workload API to use as a password when connecting to the MQTT broker, and finally subscribe to messages on the authorized topics with the MQTT client of your choice.
+
+> [!NOTE]
+> IoT Edge MQTT broker (currently in preview) will not move to general availability and will be removed from the future version of IoT Edge Hub. We appreciate the feedback we received on the preview, and we are continuing to refine our plans for an MQTT broker. In the meantime, if you need a standards-compliant MQTT broker on IoT Edge, consider deploying an open-source broker like [Mosquitto](https://mosquitto.org/) as an IoT Edge module.
 
 ::: moniker-end
 
@@ -140,7 +143,9 @@ For all languages in the following table, IoT Edge supports development for AMD6
 | Python | Visual Studio Code |
 
 >[!NOTE]
->Develop and debugging support for ARM64 Linux containers is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+>For cross-platform compilation, like compiling an ARM32 IoT Edge module on an AMD64 development machine, you need to configure the development machine to compile code on target device architecture matching the IoT Edge module. For more information, see [Build and debug IoT Edge modules on your remote device](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) to configure the development machine to compile code on target device architecture matching the IoT Edge module.
+>
+>In addition, support for ARM64 Linux containers is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 ### Windows
 

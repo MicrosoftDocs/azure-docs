@@ -7,8 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.date: 07/08/2021
-
----    
+---
 
 # Deploy Azure Monitor for SAP Solutions by using the Azure portal
 
@@ -49,7 +48,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
 6. Select the profile parameter "service/protectedwebmethods" and modify to have the following value, then click Copy:  
 
    ```service/protectedwebmethods instruction
-      SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList```
+      SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList
 
 7. Go back and select **Profile** > **Save**.
 8. After saving the changes for this parameter, please restart the SAPStartSRV service on each of the instances in the SAP system. (Restarting the services will not restart the SAP system; it will only restart the SAPStartSRV service (in Windows) or daemon process (in Unix/Linux))
@@ -59,7 +58,7 @@ To fetch specific metrics, you need to unprotect some methods for the current re
    8b. On Linux systems, use the below command where NN is the SAP instance number to restart the host which is logged into.
    
    ```RestartService
-   sapcontrol -nr <NN> -function RestartService```
+   sapcontrol -nr <NN> -function RestartService
    
 9. Once the SAP service is restarted, please check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command: 
 
@@ -72,12 +71,19 @@ To fetch specific metrics, you need to unprotect some methods for the current re
    The output should look like :-
    ![SS](https://user-images.githubusercontent.com/75772258/126454265-d73858c3-c32d-4afe-980c-8aba96a0b2a4.png)
 
-10. To conclude and validate, a test query can be done against web methods to validate the connection by logging into each instance and running the following commands:
+10. To conclude and validate, a test query can be done against web methods to validate ( replace the hostname , instance number and method name ) leverage the below powershell script 
 
-    - For all instances : `sapcontrol -nr <NN> -function GetProcessList`
-    - For the ENQUE instance : `sapcontrol -nr <NN> -function EnqGetStatistic`
-    - For ABAP instances : `sapcontrol -nr <NN> -function ABAPGetWPTable`
-    - For ABAP/J2EE/JEE instances : `sapcontrol -nr <NN> -function GetQueueStatistic`
+```Powershell command to test unprotect method 
+$SAPHostName = "<hostname>"
+$InstanceNumber = "<instancenumber>"
+$Function = "ABAPGetWPTable"
+[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
+$sapcntrluri = "https://" + $SAPHostName + ":5" + $InstanceNumber + "14/?wsdl"
+$sapcntrl = New-WebServiceProxy -uri $sapcntrluri -namespace WebServiceProxy -class sapcntrl
+$FunctionObject = New-Object ($sapcntrl.GetType().NameSpace + ".$Function")
+$sapcntrl.$Function($FunctionObject)
+```
+11. **Repeat Steps 3-10 for each instance profile **.
 
 >[!Important] 
 >It is critical that the sapstartsrv service is restarted on each instance of the SAP system for the SAPControl web methods to be unprotected.  These read-only SOAP API are required for the NetWeaver provider to fetch metric data from the SAP System and failure to unprotect these methods will lead to empty or missing visualizations on the NetWeaver metric workbook.
@@ -165,7 +171,7 @@ To install the NetWeaver provider on the Azure portal:
    ALTER ROLE [db_datareader] ADD MEMBER [AMS]
    ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
    GO
-   ``` 
+   ```
 
 1. Select **Add provider**, and then:
 

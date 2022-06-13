@@ -25,7 +25,7 @@ For a full list of self help troubleshooting content, see [Service Fabric troubl
     <img alt='Azure support' src='./media/logos/azure-logo.png'>
 </div>
 
-To report issues related to your Service Fabric cluster running on Azure, open a support ticket [on the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+To report issues related to your Service Fabric cluster running on Azure, open a support ticket [on the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 or [Microsoft support portal](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Learn more about:
@@ -49,7 +49,6 @@ To report issues related to Service Fabric clusters running on-premises or on ot
 
 Learn more about:
 
-- [Professional Support from Microsoft for on-premises](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 ## Post a question to Microsoft Q&A
@@ -96,6 +95,6 @@ For the latest releases and updates to the Service Fabric runtime and SDKs, see 
 <!--references-->
 [Microsoft Q&A question page]: /answers/topics/azure-service-fabric.html
 [stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
-[uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
+[uservoice-forum]: https://feedback.azure.com/d365community/forum/e622b37a-2225-ec11-b6e6-000d3a4f0f84
 [acom-docs]: ./index.yml
 [sample-repos]: /samples/browse/?products=azure

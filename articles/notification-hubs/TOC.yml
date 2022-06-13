@@ -13,6 +13,9 @@
     href: create-notification-hub-portal.md  
   - name: Create notification hub - Azure CLI
     href: create-notification-hub-azure-cli.md
+  - name: Create notification hub - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: create-notification-hub-bicep.md
   - name: Create notification hub - ARM template
     displayName: Resource Manager
     href: create-notification-hub-template.md
@@ -89,7 +92,11 @@
   - name: UWP React Native sample overview
     href: uwp-react.md
 - name: Concepts
-  items: 
+  items:
+  - name: Availability zones
+    href: availability-zones.md
+  - name: Data encryption at rest
+    href: encrypt-at-rest.md
   - name: Transport Layer Security (TLS)
     href: notification-hubs-tls12.md
   - name: Enterprise push architecture guidance
@@ -186,7 +193,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-notificationhub
   - name: Request a feature
-    href: https://feedback.azure.com/forums/218849-notification-hubs
+    href: https://feedback.azure.com/d365community/forum/405a1b30-8b26-ec11-b6e6-000d3a4f0789
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Support options

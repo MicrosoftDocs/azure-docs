@@ -11,14 +11,12 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: conceptual
+  ms.topic: faq
   ms.subservice: report-monitor
-  ms.date: 05/12/2020
+  ms.date: 11/23/2021
   ms.author: markvi
-  ms.reviewer: dhanyahk
+  ms.reviewer: besiler
   ms.collection: M365-identity-device-management
-    
 title: Frequently asked questions around Azure Active Directory reports
 summary: |
   This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) reporting. For more information, see [Azure Active Directory reporting](overview-reports.md). 
@@ -84,27 +82,17 @@ sections:
         answer: |
           You can download up to 5000 records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 5000 records.
 
-  - name: Risky sign-ins
+
+  - name: Sign-in logs
     questions:
       - question: |
-          There is a risk detection in Identity Protection but I’m not seeing corresponding sign-in in the sign-ins report. Is this expected?
+          What data is included in the CSV file I can download from the Azure AD sign-in logs?
         answer: |
-          Yes, Identity Protection evaluates risk for all authentication flows whether interactive or non-interactive. However, all sign-ins only report shows only the interactive sign-ins.
-
+          The CSV includes sign-in logs for your users and service principals. However, data that is represented as a nested array in the MS Graph API for sign in logs is not included. For example, conditional access policies and report-only information are not included. If you need to export all the information contained in your sign-in logs, use the **Export Data Settings** feature. 
       - question: |
-          How do I know why a sign-in or a user was flagged risky in the Azure portal?
+          I see .XXX in part of the IP address from a user in my sign in logs. Why is that happening?
         answer: |
-          If you have an **Azure AD Premium** subscription, you can learn more about the underlying risk detections by selecting the user in **Users flagged for risk** or by selecting a record in the **Risky sign-ins** report. If you have a **Free** or **Basic** subscription, then you can view the users at risk and risky sign-ins reports, but you cannot see the underlying risk detection information.
-
-      - question: |
-          How are IP addresses calculated in the sign-ins and risky sign-ins report?
-        answer: |
-          IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. Mapping IP addresses is further complicated by factors such as mobile providers and VPNs issuing IP addresses from central pools often very far from where the client device is actually used. Currently in Azure AD reports, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information. 
-
-      - question: |
-          What does the risk detection "Sign-in with additional risk detected" signify?
-        answer: |
-          To give you insight into all the risky sign-ins in your environment, "Sign-in with additional risk detected" functions as placeholder for sign-ins for detections that are exclusive to Azure AD Identity Protection subscribers.
+          Azure AD may redact part of an IP address in the sign in logs to protect user privacy when a user may not belong to the tenant viewing the logs. This happens in two cases: first, during cross tenant sign ins, such as when a CSP technician signs into a tenant that CSP manages. Second, when our service was not able to determine the user's identity with sufficient confidence to be sure the user belongs to the tenant viewing the logs.
 
   - name: Conditional Access
     questions:

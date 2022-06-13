@@ -101,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Reply URL. Repository ID is a value starting with **CA-** followed by 8 character code associated with your NetDocuments Repository. You can check the [NetDocuments Federated Identity support document](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) for more information. Alternatively you can contact [NetDocuments Client support team](https://support.netdocuments.com/hc/) to get these values if you have difficulties configuring using the above information . You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Reply URL. Repository ID is a value starting with **CA-** followed by 8 character code associated with your NetDocuments Repository. You can check the [NetDocuments Federated Identity support document](https://netdocuments.force.com/NetDocumentsSupport/s/article/205220410) for more information. Alternatively you can contact [NetDocuments Client support team](https://netdocuments.force.com/NetDocumentsSupport/s/) to get these values if you have difficulties configuring using the above information . You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. NetDocuments application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. NetDocuments application expects **nameidentifier** to be mapped with **ObjectID** or any other claim which is applicable to your Organization as **nameidentifier**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
@@ -139,29 +139,31 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+<!-- docutune:ignore "Security Center" -->
+
 ## Configure NetDocuments SSO
 
 1. In a different web browser window, sign into your NetDocuments company site as an administrator.
 
-2. In the upper-right corner, select your name>**Admin**.
+2. In the upper-right corner, select your name > **Admin**.
 
 3. Select **Security Center**.
-   
-    ![Repository](./media/netdocuments-tutorial/security-center.png "Security Center")
+
+    ![Security Center](./media/netdocuments-tutorial/security-center.png "Security Center")
 
 4. Select **Advanced Authentication**.
-    
+
     ![Configure advanced authentication options](./media/netdocuments-tutorial/advance-authentication.png "Configure advanced authentication options")
 
-5.	On the **Federated ID** tab, perform the following steps:   
-   
-    [ ![Federated Identity](./media/netdocuments-tutorial/federated-id.png "Federated Identity")](./media/netdocuments-tutorial/federated-id.png#lightbox)
-   
-    a. For **Federated identity server type**, select as **Windows Azure Active Directory**.
-    
-    b.	Select **Choose File**, to upload the downloaded metadata file which you have downloaded from Azure portal.
-    
-    c.	Select **SAVE**.
+5. On the **Federated ID** tab, perform the following steps:  
+
+    [![Federated Identity](./media/netdocuments-tutorial/federated-id.png "Federated Identity")](./media/netdocuments-tutorial/federated-id.png#lightbox)
+
+    1. For **Federated identity server type**, select as **Windows Azure Active Directory**.
+
+    1. Select **Choose File**, to upload the downloaded metadata file which you have downloaded from Azure portal.
+
+    1. Select **SAVE**.
 
 ### Create NetDocuments test user
 
@@ -169,23 +171,22 @@ To enable Azure AD users to sign in to NetDocuments, they must be provisioned in
 
 **To provision a user account, perform the following steps:**
 
-1. Sign on to your **NetDocuments** company site as administrator.
+1. Sign on to your **NetDocuments** company site as an administrator.
 
-2. In the upper-right corner, select your name>**Admin**.
-   
+2. In the upper-right corner, select your name > **Admin**.
+
     ![Admin](./media/netdocuments-tutorial/user-admin.png "Admin")
 
 3. Select **Users and groups**.
-   
-    ![Users and groups](./media/netdocuments-tutorial/users-groups.png "Repository")
+
+    ![Users and groups](./media/netdocuments-tutorial/users-groups.png "Users and groups")
 
 4. In the **Email Address** textbox, type the email address of a valid Azure Active Directory account you want to provision, and then click **Add User**.
-   
+
     ![Email Address](./media/netdocuments-tutorial/user-mail.png "Email Address")
-   
+
     > [!NOTE]
-    > The Azure Active Directory account holder will get an email that includes a link to confirm the account before it becomes active. 
-    You can use any other NetDocuments user account creation tools or APIs provided by NetDocuments to provision Azure Active Directory user accounts.
+    > The Azure Active Directory account holder will get an email that includes a link to confirm the account before it becomes active. You can use any other NetDocuments user account creation tools or APIs provided by NetDocuments to provision Azure Active Directory user accounts.
 
 ## Test SSO 
 
@@ -197,7 +198,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * You can use Microsoft My Apps. When you click the NetDocuments tile in the My Apps, you should be automatically signed in to the NetDocuments for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-
 ## Next steps
 
-Once you configure NetDocuments you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure NetDocuments you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

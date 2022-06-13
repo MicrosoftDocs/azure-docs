@@ -1,8 +1,8 @@
 ---
 title: Use the Azure Maps Indoor Maps module with Microsoft Creator services
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 07/13/2021
 ms.topic: how-to
 ms.service: azure-maps

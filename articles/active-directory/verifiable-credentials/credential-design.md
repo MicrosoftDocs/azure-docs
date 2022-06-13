@@ -3,8 +3,8 @@ title: How to customize your Azure Active Directory Verifiable Credentials (prev
 description: This article shows you how to create your own custom verifiable credential
 services: active-directory
 author: barclayn
-manager: karenh444
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
@@ -13,6 +13,8 @@ ms.author: barclayn
 ---
 
 # How to customize your verifiable credentials (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 Verifiable credentials are made up of two components, the rules and display files. The rules file determines what the user needs to provide before they receive a verifiable credential. The display file controls the branding of the credential and styling of the claims. In this guide, we will explain how to modify both files to meet the requirements of your organization. 
 
@@ -25,7 +27,7 @@ Verifiable credentials are made up of two components, the rules and display file
 
 The rules file is a simple JSON file that describes important properties of verifiable credentials. In particular, it describes how claims are used to populate your verifiable credential.
 
-There are currently three input types that that are available to configure in the rules file. These types are used by the verifiable credential issuing service to insert claims into a verifiable credential and attest to that information with your DID. The following are the three types with explanations.
+There are currently three input types that are available to configure in the rules file. These types are used by the verifiable credential issuing service to insert claims into a verifiable credential and attest to that information with your DID. The following are the three types with explanations.
 
 - ID Token
 - Verifiable credentials via a verifiable presentation.
@@ -39,7 +41,7 @@ There are currently three input types that that are available to configure in th
 
 ![detailed view of verifiable credential card](media/credential-design/issuance-doc.png) 
 
-**Static claims:** Additionally we are able declare a static claim in the Rules file, however this input does not come from the user. The Issuer defines a static claim in the Rules file and would look like any other claim in the Verifiable Credential. Simply add a credentialSubject after vc.type and declare the attribute and the claim. 
+**Static claims:** Additionally we are able to declare a static claim in the Rules file, however this input does not come from the user. The Issuer defines a static claim in the Rules file and would look like any other claim in the Verifiable Credential. Simply add a credentialSubject after vc.type and declare the attribute and the claim. 
 
 ```json
 "vc": {
@@ -120,7 +122,7 @@ To ensure interoperability of your credentials, it's recommended that you work c
         {
           "mapping": {
             "first_name": {
-              "claim": "$.vc.credentialSubject.firstName",
+              "claim": "$.vc.credentialSubject.firstName"
             },
             "last_name": {
               "claim": "$.vc.credentialSubject.lastName",
@@ -143,7 +145,7 @@ To ensure interoperability of your credentials, it's recommended that you work c
     "vc": {
       "type": [
         "ProofOfNinjaNinja"
-      ],
+      ]
     }
   }
   ```
@@ -168,21 +170,19 @@ During the issuance flow, the user can be asked to input some self-attested info
 ```json
 {
   "attestations": {
-    "selfIssued": {
+    "selfIssued" :
+    {
       "mapping": {
-        "alias": {
-          "claim": "name"
-        }
-      },
-    },
-    "validityInterval": 25920000,
-    "vc": {
-      "type": [
-        "ProofOfNinjaNinja"
-      ],
+        "firstName": { "claim": "firstName" },
+        "lastName": { "claim": "lastName" }
+      }
     }
+  },
+  "validityInterval": 2592001,
+  "vc": {
+    "type": [ "VerifiedCredentialExpert" ]
   }
-
+}
 
 
 ```

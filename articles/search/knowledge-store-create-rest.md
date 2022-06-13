@@ -7,43 +7,73 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
-ms.date: 09/02/2021
+ms.topic: how-to
+ms.date: 05/31/2022
 ---
 # Create a knowledge store using REST and Postman
 
-Knowledge store is a feature of Azure Cognitive Search that sends skillset output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) to Azure Storage for subsequent knowledge mining, data analysis, or downstream processing. After the knowledge store is populated, you can use tools like [Storage Explorer](knowledge-store-view-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md) to explore the content.
+[Knowledge store](knowledge-store-concept-intro.md) is a feature of Azure Cognitive Search that accepts output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) and makes it available in Azure Storage for downstream apps and workloads. After the knowledge store is populated, use tools like [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md) to explore the content.
 
-In this article, you'll use the REST API to ingest, enrich, and explore a set of customer reviews of hotel stays in a knowledge store in Azure Storage. The end result is a knowledge store that contains original text content pulled from the source, plus AI-generated content that includes a sentiment score, key phrase extraction, language detection, and text translation of non-English customer comments.
+In this article, you'll learn how to use the REST API to ingest, enrich, and explore a set of customer reviews of hotel stays in a knowledge store. The knowledge store contains original text content pulled from the source, plus AI-generated content that includes a sentiment score, key phrase extraction, language detection, and text translation of non-English customer comments.
 
 To make the initial data set available, the hotel reviews are first imported into Azure Blob Storage. Post-processing, the results are saved as a knowledge store in Azure Table Storage.
 
 > [!NOTE]
-> This articles assumes the [Postman desktop app](https://www.getpostman.com/) for this article. The [source code](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) for this article includes a Postman collection containing all of the requests. 
+> This article provides detailed explanations of each step. For a faster approach, see [Create a knowledge store in Azure portal](knowledge-store-create-portal.md) instead.
 
-## Create services and load data
+## Prerequisites
 
-This exercise uses Azure Cognitive Search, Azure Blob Storage, and [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. 
++ [Postman desktop app](https://www.getpostman.com/)
 
-Because the workload is so small, Cognitive Services is tapped behind the scenes to provide free processing for up to 20 transactions daily. A small workload means that you can skip creating or attaching a Cognitive Services resource.
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+
++ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing one](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use the free service for this exercise.
+
++ Azure Storage. [Create an account](../storage/common/storage-account-create.md) or [find an existing one](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). The account type must be **StorageV2 (general purpose V2)**.
+
++ Sample data loaded into Blob Storage (instructions provided in the next section).
+
+## Load data
+
+This step uses Azure Cognitive Search, Azure Blob Storage, and [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Cognitive Services is tapped behind the scenes to provide free processing for up to 20 transactions daily. A small workload means that you can skip creating or attaching a Cognitive Services resource.
 
 1. [Download HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). This data is hotel review data saved in a CSV file (originates from Kaggle.com) and contains 19 pieces of customer feedback about a single hotel. 
 
-1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). You'll use Azure Storage for both the raw content to be imported, and the knowledge store that is the end result.
-
-   Choose the **StorageV2 (general purpose V2)** account type.
-
-1. In the Azure Storage resource, use **Storage Explorer** to create a blob container named **hotel-reviews**.
+1. In Azure portal, on the Azure Storage resource page, use **Storage Browser** to create a blob container named **hotel-reviews**.
 
 1. Select **Upload** at the top of the page to load the **HotelReviews-Free.csv** file you downloaded from the previous step.
 
-   :::image type="content" source="media/knowledge-store-create-portal/blob-container-storage-explorer.png" alt-text="Screenshot of Storage Explorer with uploaded file and left nav pane" border="true":::
+   :::image type="content" source="media/knowledge-store-create-portal/blob-container-storage-explorer.png" alt-text="Screenshot of Storage Browser with uploaded file and left nav pane" border="true":::
 
-1. You are almost done with this resource, but before you leave these pages, select **Access Keys** on the left navigation pane to get a connection string so that you can retrieve this data using the indexer.
+## Decide on a connection strategy
 
-1. In **Access Keys**, select **Show Keys** at the top of the page to unhide the connection strings, and then copy the connection string for either key1 or key2.
+During skillset execution, the indexer connects to Azure Storage and creates the knowledge store. The connection information will be specified in the "knowledgeStore" section of the skillset. You can choose from the following approaches when setting up your connection:
 
-   A connection string has the following format: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
++ Option 1: Obtain a full access Azure Storage connection string that includes an access key:
+
+  In the Azure Storage portal page, select **Access Keys** on the left navigation pane.
+
+  In **Access Keys**, select **Show Keys** at the top of the page to unhide the connection strings, and then copy the connection string for either key1 or key2.
+
+  A full access connection string has the following format:
+
+  ```json
+  "knowledgeStore": {
+      "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net;"
+  }
+  ```
+
++ Option 2: Use your search service's system managed identity or user-assigned managed identity to connect to Azure Storage. Follow the instructions and examples in [Connect using a managed identity](search-howto-managed-identities-data-sources.md). You'll need to set up the managed identity, assign roles, and assemble a connection string.
+
+  A connection string for a system managed identity has the following format:
+
+  ```json
+  "knowledgeStore": {
+      "storageConnectionString": "ResourceId=/subscriptions/{YOUR-SUBSCRIPTION-ID}/resourceGroups/{YOUR-RESOURCE-GROUP-NAME}/providers/Microsoft.Storage/storageAccounts/{YOUR-ACCOUNT-NAME};"
+   }
+  ```
+
+Once you decide on an approach, you'll provide the connection string as a variable in the Postman collection, as described in the next step.
 
 ## Configure requests
 
@@ -65,7 +95,7 @@ Variables are defined for Azure services, service connections, and object names.
 
 + To get the values for `search-service-name` and `search-service-admin-key`, go to the Azure Cognitive Search service in the portal and copy the values from **Overview** and **Keys** pages.
 
-+ To get the values for `storage-account-name` and `storage-account-connection-string`, check the **Access Keys** page.
++ To get the values for `storage-account-name` and `storage-account-connection-string`, check the **Access Keys** page in the portal, or format a [connection string that references a managed identity](search-howto-managed-identities-data-sources.md).
 
 ![Postman app variables tab](media/knowledge-store-create-rest/postman-variables-window.png "Postman's variables window")
 
@@ -79,7 +109,7 @@ Variables are defined for Azure services, service connections, and object names.
 | `search-service-name` | The name of the Azure Cognitive Search service. If the URL is `https://mySearchService.search.windows.net`, the value you should enter is `mySearchService`. | 
 | `skillset-name` | Leave as **hotel-reviews-ss**. | 
 | `storage-account-name` | The Azure storage account name. | 
-| `storage-connection-string` | In the storage account, on the **Access Keys** tab, select **Show key** at the top of the page, then copy **key1** > **Connection string**. | 
+| `storage-connection-string` | Use the storage account's connection string from **Access Keys** or paste in a connection string that references a managed identity. | 
 | `storage-container-name` | Leave as **hotel-reviews**. | 
 
 ### Review the request collection in Postman
@@ -367,13 +397,13 @@ After you send each request, the search service should respond with a 201 succes
 
 In the Azure portal, go to the Azure Cognitive Search service's **Overview** page. Select the **Indexers** tab, and then select **hotels-reviews-ixr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
 
-## Check tables in Storage Explorer
+## Check tables in Azure portal
 
-In the Azure portal, switch to your Azure Storage account and use **Storage Explorer** to view the new tables. You should see six tables, one for each projection defined in the skillset.
+In the Azure portal, switch to your Azure Storage account and use **Storage Browser** to view the new tables. You should see six tables, one for each projection defined in the skillset.
 
 Each table is generated with the IDs necessary for cross-linking the tables in queries. When you open a table, scroll past these fields to view the content fields added by the pipeline.
 
-   :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Screenshot of the knowledge store tables in Storage Explorer" border="true":::
+   :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Screenshot of the knowledge store tables in Storage Browser" border="true":::
 
 In this walkthrough, the knowledge store is composed of a various tables showing different ways of shaping and structuring a table. Tables one through three use output from a Shaper skill to determine the columns and rows. Tables four through six are created from inline shaping instructions, embedded within the projection itself. You can use either approach to achieve the same outcome.
 
@@ -401,7 +431,5 @@ If you are using a free service, remember that you are limited to three indexes,
 
 Now that you've enriched your data by using Cognitive Services and projected the results to a knowledge store, you can use Storage Explorer or other apps to explore your enriched data set.
 
-To learn how to explore this knowledge store by using Storage Explorer, see this walkthrough:
-
 > [!div class="nextstepaction"]
-> [View with Storage Explorer](knowledge-store-view-storage-explorer.md)
+> [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)

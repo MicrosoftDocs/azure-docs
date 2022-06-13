@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse architecture
 description: Learn about the relationship between tenants in Azure Lighthouse, and the resources created in the customer's tenant that enable that relationship.
-ms.date: 09/13/2021
+ms.date: 06/09/2022
 ms.topic: conceptual
 ---
 
@@ -56,6 +56,6 @@ While in most cases only one service provider will be managing specific resource
 
 ## Next steps
 
-- Review [Azure CLI](/cli/azure/managedservices) and [Azure Powershell](/powershell/module/az.managedservices) commands for working with registration definitions and registration assignments.
+- Review [Azure CLI](/cli/azure/managedservices) and [Azure PowerShell](/powershell/module/az.managedservices) commands for working with registration definitions and registration assignments.
 - Learn about [enhanced services and scenarios](cross-tenant-management-experience.md#enhanced-services-and-scenarios) for Azure Lighthouse.
 - Learn more about how [tenants, users, and roles](tenants-users-roles.md) work with Azure Lighthouse.

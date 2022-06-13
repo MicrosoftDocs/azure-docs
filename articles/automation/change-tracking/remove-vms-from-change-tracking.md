@@ -4,7 +4,7 @@ description: This article tells how to remove Azure and non-Azure machines from 
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 10/26/2021
 ---
 
 # Remove machines from Change Tracking and Inventory
@@ -32,7 +32,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    ```kusto
    Heartbeat
    | where TimeGenerated > ago(30d)
-   | where ResourceType == "machines" and (ComputerEnvironment == "Non-Azure")
+   | where ComputerEnvironment == "Non-Azure"
    | summarize by Computer, VMUUID
    ```
 

@@ -52,7 +52,7 @@ Azure API Management provides you the ability to customize the content of develo
             <li>  
             {% if app.application.icon.url != "" %}  
                 <aside>  
-                    <a href="/applications/details/{{app.application.id}}"><img src="{{app.application.icon.url}}" alt="App Icon" /></a>  
+                    <a href="/applications/details/{{app.application.id}}"><img src="{{app.application.icon.url}}" alt="App Icon"></a>  
                 </aside>  
             {% endif %}  
                 <h3><a href="/applications/details/{{app.application.id}}">{{app.application.title}}</a></h3>  

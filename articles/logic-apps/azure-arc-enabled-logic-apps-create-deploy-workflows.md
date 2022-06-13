@@ -3,11 +3,11 @@ title: Create and deploy workflows with Azure Arc-enabled Logic Apps
 description: Create and deploy single-tenant based logic app workflows that run anywhere that Kubernetes can run.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
+ms.reviewer: estfan, reylons, archidda, sopai, azla
 ms.topic: how-to
-ms.date: 06/03/2021
-
-## Customer intent: As a developer, I want to learn how to create and deploy automated Logic Apps workflows that can run anywhere that Kubernetes can run.
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
+#Customer intent: As a developer, I want to learn how to create and deploy automated Logic Apps workflows that can run anywhere that Kubernetes can run.
 ---
 
 # Create and deploy single-tenant based logic app workflows with Azure Arc-enabled Logic Apps (Preview)
@@ -62,9 +62,9 @@ This section describes the common prerequisites across all the approaches and to
 
   To create an Azure Active Directory (Azure AD) app registration using the Azure CLI, follow these steps:
 
-  1. Create an app registration by using the [`az ad sp create`](/cli/azure/ad/sp#az_ad_sp_create) command.
+  1. Create an app registration by using the [`az ad sp create`](/cli/azure/ad/sp#az-ad-sp-create) command.
 
-  1. To review all the details, run the [`az ad sp show`](/cli/azure/ad/sp#az_ad_sp_show) command.
+  1. To review all the details, run the [`az ad sp show`](/cli/azure/ad/sp#az-ad-sp-show) command.
 
   1. From the output of both commands, find and save the client ID, object ID, tenant ID, and client secret values, which you need to keep for later use.
 
@@ -102,7 +102,7 @@ Before you start, you need to have the following items:
 
 - An Azure storage account to use with your logic app for data and run history retention.
 
-  If you don't have this storage account, you can create this account when you create your logic app, or you can follow the [steps to create a storage account](/cli/azure/storage/account#az_storage_account_create).
+  If you don't have this storage account, you can create this account when you create your logic app, or you can follow the [steps to create a storage account](/cli/azure/storage/account#az-storage-account-create).
 
 <a name="check-environment-cli-version"></a>
 
@@ -181,7 +181,7 @@ az logicapp create --name MyLogicAppName
    --storage-account MyStorageAccount --custom-location MyCustomLocation
 ```
 
-To create an Azure Arc-enabled logic app using a private Azure Container Registry image, run the command, `az logicapp create`, with the following required parameters:
+To create an Azure Arc-enabled logic app using a private Azure Container Registry (ACR) image, run the command, `az logicapp create`, with the following required parameters:
 
 ```azurecli
 az logicapp create --name MyLogicAppName 
@@ -392,7 +392,7 @@ In your Azure Resource Manager template (ARM template), include the following re
 }
 ```
 
-For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/azure/templates/microsoft.web/connections?tabs=json) documentation. 
+For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/azure/templates/microsoft.web/connections?tabs=json) documentation.
 
 #### Azure portal
 
@@ -490,8 +490,25 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
 If you prefer to use container tools and deployment processes, you can containerize your logic apps and deploy them to Azure Arc-enabled Logic Apps. For this scenario, complete the following high-level tasks when you set up your infrastructure:
 
 - Set up a Docker registry for hosting your container images.
+
+- To containerize your logic app, add the following Dockerfile to your logic app project's root folder, and follow the steps for building and publishing an image to your Docker registry, for example, review [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](../container-registry/container-registry-tutorial-quick-task.md).
+
+  > [!NOTE]
+  > If you [use SQL as your storage provider](set-up-sql-db-storage-single-tenant-standard-workflows.md), make sure that you use an Azure Functions image version 3.3.1 or later.
+
+  ```text
+  FROM mcr.microsoft.com/azure-functions/node:3.3.1
+  ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+  AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
+  FUNCTIONS_V2_COMPATIBILITY_MODE=true
+  COPY . /home/site/wwwroot
+  RUN cd /home/site/wwwroot
+  ```
+
 - Notify the resource provider that you are creating a logic app on Kubernetes.
+
 - In your deployment template, point to the Docker registry and container image where you plan to deploy. Single-tenant Azure Logic Apps uses this information to get the container image from your Docker registry.
+
 - Include an App Service plan with your deployment. For more information, review [Include App Service plan with deployment](#include-app-service-plan).
 
 In your [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md), include the following values:

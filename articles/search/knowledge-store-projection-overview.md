@@ -19,7 +19,7 @@ This article introduces projection concepts and workflow so that you have some b
 
 Projections are defined in Cognitive Search skillsets, but the end results are the table, object, and image file projections in Azure Storage.
 
-:::image type="content" source="media/knowledge-store-concept-intro/projections-azure-storage.png" alt-text="Projections expressed in Azure Storage" border="true":::
+:::image type="content" source="media/knowledge-store-concept-intro/kstore-in-storage-explorer.png" alt-text="Projections expressed in Azure Storage" border="true":::
 
 ## Types of projections and usage
 
@@ -138,7 +138,7 @@ Projections have a lifecycle that is tied to the source data in your data source
 
 After the indexer is run, connect to projections and consume the data in other apps and workloads.
 
-+ Use [Storage Explorer](knowledge-store-view-storage-explorer.md) to verify object creation and content.
++ Use Azure portal to verify object creation and content in Azure Storage.
 
 + Use [Power BI for data exploration](knowledge-store-connect-power-bi.md). This tool works best when the data is in Azure Table Storage. Within Power BI, you can manipulate data into new tables that are easier to query and analyze.
 

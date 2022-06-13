@@ -60,10 +60,11 @@ There might be various reasons for the pod being stuck in that mode. You might l
 For more information about how to troubleshoot pod problems, see [Debugging Pods](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods) in the Kubernetes documentation.
 
 ## I'm receiving `TCP timeouts` when using `kubectl` or other third-party tools connecting to the API server
-AKS has HA control planes that scale vertically according to the number of cores to ensure its Service Level Objectives (SLOs) and Service Level Agreements (SLAs). If you're experiencing connections timing out, check the below:
+AKS has HA control planes that scale vertically and horizontally according to the number of cores to ensure its Service Level Objectives (SLOs) and Service Level Agreements (SLAs). If you're experiencing connections timing out, check the below:
 
-- **Are all your API commands timing out consistently or only a few?** If it's only a few, your `tunnelfront` pod or `aks-link` pod, responsible for node -> control plane communication, might not be in a running state. Make sure the nodes hosting this pod aren't over-utilized or under stress. Consider moving them to their own [`system` node pool](use-system-pools.md).
-- **Have you opened all required ports, FQDNs, and IPs noted on the [AKS restrict egress traffic docs](limit-egress-traffic.md)?** Otherwise several commands calls can fail.
+- **Are all your API commands timing out consistently or only a few?** If it's only a few, your `konnectivity-agent` pod, `tunnelfront` pod or `aks-link` pod, responsible for node -> control plane communication, might not be in a running state. Make sure the nodes hosting this pod aren't over-utilized or under stress. Consider moving them to their own [`system` node pool](use-system-pools.md).
+- **Have you opened all required ports, FQDNs, and IPs noted on the [AKS restrict egress traffic docs](limit-egress-traffic.md)?** Otherwise several commands calls can fail. The AKS secure, tunneled communication between api-server and kubelet (through the *konnectivity-agent*) will require some of these to work.
+- **Have you blocked the Application-Layer Protocol Negotiation TLS extension?** *konnectivity-agent* requires this extension to establish a connection between the control plane and nodes.
 - **Is your current IP covered by [API IP Authorized Ranges](api-server-authorized-ip-ranges.md)?** If you're using this feature and your IP is not included in the ranges your calls will be blocked. 
 - **Do you have a client or application leaking calls to the API server?** Make sure to use watches instead of frequent get calls and that your third-party applications aren't leaking such calls. For example, a bug in the Istio mixer causes a new API Server watch connection to be created every time a secret is read internally. Because this behavior happens at a regular interval, watch connections quickly accumulate, and eventually cause the API Server to become overloaded no matter the scaling pattern. https://github.com/istio/istio/issues/19481
 - **Do you have many releases in your helm deployments?** This scenario can cause both tiller to use too much memory on the nodes, as well as a large amount of `configmaps`, which can cause unnecessary spikes on the API server. Consider configuring `--history-max` at `helm init` and leverage the new Helm 3. More details on the following issues: 
@@ -87,6 +88,22 @@ Ensure ports 22, 9000 and 1194 are open to connect to the API server. Check whet
 ## I'm getting `"tls: client offered only unsupported versions"` from my client when connecting to AKS API. What should I do?
 
 The minimum supported TLS version in AKS is TLS 1.2.
+
+## My application is failing with `argument list too long`
+
+You may receive an error message similar to:
+
+```
+standard_init_linux.go:228: exec user process caused: argument list too long
+```
+
+There are two potential causes:
+- The argument list provided to the executable is too long
+- The set of environment variables provided to the executable is too big
+
+If you have many services deployed in one namespace, it can cause the environment variable list to become too large, and will produce the above error message when Kubelet tries to run the executable. The error is caused by Kubelet injecting environment variables recording the host and port for each active service, so that services can use this information to locate one another (read more about this [in the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service)). 
+
+As a workaround, you can disable this Kubelet behaviour by setting `enableServiceLinks: false` inside your [Pod spec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#podspec-v1-core). **However**, if your service relies on these environment variables to locate other services, then this will cause it to fail. One fix is to use DNS for service resolution rather than environment variables (using [CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns/)). Another option is to reduce the number of services that are active.
 
 ## I'm trying to upgrade or scale and am getting a `"Changing property 'imageReference' is not allowed"` error. How do I fix this problem?
 
@@ -170,6 +187,9 @@ Use the following workarounds for this issue:
 
 This issue is due to the expiration of service principal credentials. [Update the credentials for an AKS cluster.](update-credentials.md)
 
+## I'm getting `"The credentials in ServicePrincipalProfile were invalid."` or `"error:invalid_client AADSTS7000215: Invalid client secret is provided."`
+This is caused by special characters in the value of the client secret that have not been escaped properly. Refer to [escape special characters when updating AKS Service Principal credentials.](update-credentials.md#update-aks-cluster-with-new-service-principal-credentials)
+
 ## I can't access my cluster API from my automation/dev machine/tooling when using API server authorized IP ranges. How do I fix this problem?
 
 To resolve this issue, ensure `--api-server-authorized-ip-ranges` includes the IP(s) or IP range(s) of automation/dev/tooling systems being used. Refer section 'How to find my IP' in [Secure access to the API server using authorized IP address ranges](api-server-authorized-ip-ranges.md).
@@ -252,7 +272,7 @@ spec:
 ```yaml
 initContainers:
 - name: volume-mount
-  image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+  image: mcr.microsoft.com/dotnet/runtime-deps:6.0
   command: ["sh", "-c", "chown -R 100:100 /data"]
   volumeMounts:
   - name: <your data volume>
@@ -383,7 +403,7 @@ This error is because of an upstream cluster autoscaler race condition. In such 
 
 ### Why do upgrades to Kubernetes 1.16 fail when using node labels with a kubernetes.io prefix
 
-As of Kubernetes 1.16 [only a defined subset of labels with the kubernetes.io prefix](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) can be applied by the kubelet to nodes. AKS cannot remove active labels on your behalf without consent, as it may cause downtime to impacted workloads.
+As of Kubernetes 1.16 [only a defined subset of labels with the kubernetes.io prefix](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) can be applied by the kubelet to nodes. AKS cannot remove active labels on your behalf without consent, as it may cause downtime to impacted workloads.
 
 As a result, to mitigate this issue you can:
 

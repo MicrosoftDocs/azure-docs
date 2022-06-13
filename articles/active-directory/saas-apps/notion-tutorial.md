@@ -136,7 +136,7 @@ On the same settings page, under **Email domains** click **Contact support** to 
 
 After your email domains are approved and added, enable SAML SSO using the **Enable SAML** toggle.
 
-After successful testing, you may enforce SAML SSO using the **Enforce SAML** toggle. Please note that your Notion workspace administrastrators retain the ability to log in with email, but all other members will have to use SAML SSO to log in to Notion.
+After successful testing, you may enforce SAML SSO using the **Enforce SAML** toggle. Please note that your Notion workspace administrators retain the ability to log in with email, but all other members will have to use SAML SSO to log in to Notion.
 
 ### Create Notion test user
 
@@ -161,4 +161,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure Notion you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Notion you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

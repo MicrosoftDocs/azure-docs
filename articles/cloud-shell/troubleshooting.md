@@ -11,9 +11,8 @@ ms.assetid:
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 01/28/2022
 ms.author: damaerte
 ---
 
@@ -129,7 +128,9 @@ Permissions are set as regular users without sudo access. Any installation outsi
 
 ### Supported entry point limitations
 
-Cloud Shell entry points beside the Azure portal, such as Visual Studio Code & Windows Terminal, do not support the use of commands that modify UX components in Cloud Shell, such as `Code`.
+Cloud Shell entry points beside the Azure portal, such as Visual Studio Code & Windows Terminal, do not support various Cloud Shell functionalities:
+- Use of commands that modify UX components in Cloud Shell, such as `Code`
+- Fetching non-arm access tokens
 
 ## Bash limitations
 
