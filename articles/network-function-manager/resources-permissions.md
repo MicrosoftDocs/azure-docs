@@ -2,11 +2,11 @@
 title: How to register resources
 titleSuffix: Azure Network Function Manager
 description: Learn how to register resources and create user-assigned managed identities
-author: cherylmc
+author: tobiaw
 ms.service: network-function-manager
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.author: cherylmc
+ms.author: polarapfel
 ms.custom: ignite-fall-2021
 ---
 
