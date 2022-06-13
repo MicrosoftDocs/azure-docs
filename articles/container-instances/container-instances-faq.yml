@@ -67,6 +67,15 @@ sections:
   - name: Availability and quotas
     questions:
       - question: |
+          What is the difference between a service unavailanle error and a quota error?
+        answer: |
+          A quota erro and service unavailable error are 2 different errors with different courses of action. A quata error means that a default limit has been reached/ You can either decrease the amount of resources you need or request support from Azure support by opening a support ticket with an issue type of "service and subscription limits (quotas)". A service unavailanle error is different. These errors happen due to the underlying ACI infrastructure and does happen due to user input. For service unabailble errors, you can change the region that you are using, if it is possible for your scenario. If you have to use that specific region, then open a support ticket with an issue type of "Technical". Service unavailable issues are not related to quota, so it is not recommended that you use "service and subscription limits (quotas)" as the issue type for service unavailable issues.
+        code: |
+          Quota Error:
+          'ContainerGroupQuotaReached' Message: 'Resource type 'Microsoft.ContainerInstance/containerGroups' container group quota 'StandardCores' exceeded in region ‘<REGION>’. Limit: '100', Usage: '95' Requested: '7'.
+          Service Unavailanle Error:
+          The requested resource is not available in the location <REGION> at this moment. Please retry with a different resource request or in another location. Resource requested: '4' CPU '16' GB memory 'Linux' OS
+      - question: |
           How many cores and memory should I allocate for my containers or the container group?
         answer: |
           This really depends on your workload. Start small and test performance to see how your containers do. [Monitor CPU and memory resource usage](container-instances-monitor.md), and then add cores or memory based on the kind of processes that you deploy in the container.
@@ -92,6 +101,14 @@ sections:
           Not yet. Currently, these are the maximums for a container group. Contact Azure Support with specific requirements or requests. 
 
       - question: |
+          What should I do if a service is unavailanle in a region?
+        answer: |
+          If you receive a service unavailanle error you have a few options:
+        coode: |
+          The requested resource is not available in the location <REGION> at this moment. Please retry with a different resource request or in another location. Resource requested: '4' CPU '16' GB memory 'Linux' OS
+        answer: | 
+          First, you can choose another region where the service is available, if that is possinle for your scenario. Second, if your scenario requires that you have to run your azure container instance in that specific region, then contact Azure support ny filing a support ticket.
+      - question: |
           When will ACI be in a specific region?
         answer: |
           Current region availability is published [here](container-instances-region-availability.md). If you have a requirement for a specific region, contact Azure Support.
@@ -106,7 +123,7 @@ sections:
       - question: |
           What features are available to instances running in a custom VNet?
         answer: |
-          You can [deploy container groups in an Azure virtual network](container-instances-vnet.md) of your choice, and delegate private IPs to the container groups to route traffic within the VNet across your Azure resources. For networking scenarios and limitations with Azure Container Instances, see [Virtual network scenarios and resources](container-instances-virtual-network-concepts.md).
+          You can [deploy container groups in an Azure virtual network](container-instances-vnet.md) of your choice, and delegate private IPs to the container groups to route traffic within the VNet across your Azure resources. For networking scenarios and limitations with Azure Container Instances, see [Virtual network scenarios and resources](container-instances-virtual-network-concepts.md). Using [managed identity with VNets is currently unsupported](container-instances-managed-identity.md) for Azure Container Instances.
           
   - name: Pricing
     questions:
