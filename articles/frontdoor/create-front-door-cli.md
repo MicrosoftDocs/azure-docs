@@ -32,7 +32,7 @@ az group create --name myRGFD --location centralus
 Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to create an Azure Front Door profile.
 
 > [!NOTE]
-> If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with Standard_AzureFrontDoor. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed  comparison, view [Azure Front Door tier comparison](tier-comparison.md).
+> If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with Standard_AzureFrontDoor. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed  comparison, view [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
 
 ```azurecli
 az afd profile create \
@@ -280,4 +280,4 @@ az group delete --name myRGFD
 
 Advance to the next article to learn how to add a custom domain to your Front Door.
 > [!div class="nextstepaction"]
-> [Add a custom domain](how-to-add-custom-domain.md)
+> [Add a custom domain](standard-premium/how-to-add-custom-domain.md)
