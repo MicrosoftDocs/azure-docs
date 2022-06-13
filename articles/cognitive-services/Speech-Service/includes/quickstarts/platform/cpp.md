@@ -6,6 +6,8 @@ ms.date: 06/11/2022
 ms.author: eur
 ---
 
+[!INCLUDE [Header](../../common/cpp.md)]
+
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C++. 
 
 The Speech SDK for C++ is available as a NuGet package on Windows, Linux, and macOS. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech</a>.
