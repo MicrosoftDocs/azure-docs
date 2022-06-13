@@ -245,7 +245,7 @@ sections:
 
           - When analyzing Microsoft Word and HTML files with the new Read OCR model, pages are counted in blocks of 3,000 characters each. For example, if your document contains 7,000 characters, it will be counted as three pages as two pages with 3,000 characters each and one page with 1,000 characters.
 
-          - In addition, if your Microsoft Word, Excel, and PowerPoint documents have embedded images, each image will be analyzed for text extraction and counted as a page. Therefore, the total analyzed pages for Microsoft Office documents will be equal to the sum of total text pages and total images analyzed. In the previous example if the document contains 2 embedded images, the total page count in the service output will be 3 + 2 equaling five pages.
+          - In addition, if your Microsoft Word, Excel, and PowerPoint documents have embedded images, each image will be analyzed for text extraction and counted as a page. Therefore, the total analyzed pages for Microsoft Office documents will be equal to the sum of total text pages and total images analyzed. In the previous example if the document contains two embedded images, the total page count in the service output will be three + two = five pages.
 
           - When analyzing Microsoft Excel and PowerPoint documents with the new Read OCR model, each worksheet and slide is counted as one page respectively.
           

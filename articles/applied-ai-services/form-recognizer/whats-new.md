@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 06/13/2022
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -115,7 +115,7 @@ Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/d
 
 #### Form Recognizer SDK beta preview release
 
-The latest beta release version of the Azure Form Recognizer SDKs incorporates new features, minor feature updates and bug fixe
+The latest beta release version of the Azure Form Recognizer SDKs incorporates new features, minor feature updates and bug fixes.
 
 >[!NOTE]
 > The 4.0.0-beta.3 (C# and JavaScript), 4.0.0-beta.4 (Java) and 3.2.0b4 (Python) previews contain the same updates and fixes but the versioning is no longer in sync across all programming languages.
@@ -401,7 +401,7 @@ The updated Layout API table feature adds header recognition with column headers
 
 * Removed v2.1-preview.1 and v2.1-preview.2 support.
 
-* **beginRecognizeIdentityDocuments**.  Renamed methods and method parameters using **Identity** to replace _Id_ keyword for all related identity documents recognition API functionalities.
+* **beginRecognizeIdentityDocuments**.  Renamed methods and method parameters using **Identity** to replace `Id` keyword for all related identity documents recognition API functionalities.
 
 * **FormReadingOrder**. *ReadingOrder* renamed to **FormReadingOrder**, and refactor the class to be expandable string class.
 
@@ -431,7 +431,7 @@ The updated Layout API table feature adds header recognition with column headers
 
 * **KnownFormLocale** enum added to access possible values of form locales.
 
-* **beginRecognizeIdDocuments...**. Renamed methods and method parameters using **Identity** to replace _Id_ keyword for all related identity documents recognition API functionalities.
+* **beginRecognizeIdDocuments...**. Renamed methods and method parameters using **Identity** to replace `Id` keyword for all related identity documents recognition API functionalities.
 
 * **FormReadingOrder** and **FormLanguage**. *ReadingOrder* renamed to *FormReadingOrder*. *Language* renamed to **FormLanguage**.
 
@@ -771,7 +771,7 @@ pip package version 3.1.0b4
 
   See the [Sample Labeling tool](label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
 
-* **Table visualization** The Sample Labeling tool now displays tables that were recognized in the document. This feature lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
+* **Table visualization** The Sample Labeling tool now displays tables that were recognized in the document. This feature lets you view recognized and extracted tables from the document prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
 
   The following image is an example of how tables are recognized and extracted:
 
