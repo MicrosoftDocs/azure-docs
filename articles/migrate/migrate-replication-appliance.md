@@ -47,7 +47,6 @@ CPU cores | 8
 RAM | 16 GB
 Number of disks | Two: The OS disk and the process server cache disk.
 Free disk space (cache) | 600 GB
-Free disk space (retention disk) | 600 GB
 **Software settings** |
 Operating system | Windows Server 2016 or Windows Server 2012 R2
 License | The appliance comes with a Windows Server 2016 evaluation license, which is valid for 180 days. <br>If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
