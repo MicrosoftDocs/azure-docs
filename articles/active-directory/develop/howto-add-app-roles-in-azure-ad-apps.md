@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # Add app roles to your application and receive them in the token
 
-Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an administrator grants permissions to roles, and not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to what content and functionality.
+Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an administrator grants permissions to roles, not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to what content and functionality.
 
 Using RBAC with application role and role claims, developers can securely enforce authorization in their apps with less effort.
 
@@ -83,7 +83,7 @@ Confirm that the users and groups you added appear in the **Users and groups** l
 
 Once you've added app roles in your application, you can assign an app role to a client app by using the Azure portal or programmatically by using [Microsoft Graph](/graph/api/user-post-approleassignments).
 
-When you assign app roles to an application, you create _application permissions_. Application permissions are typically used by daemon apps or back-end services that need to authenticate and make authorized API calls as themselves, without the interaction of a user.
+When you assign app roles to an application, you create _application permissions_. Application permissions are typically used by daemon apps or back-end services that need to authenticate and make authorized API call as themselves, without the interaction of a user.
 
 To assign app roles to an application by using the Azure portal:
 
