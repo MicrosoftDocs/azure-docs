@@ -5,7 +5,7 @@ ms.topic: sample
 author: duau
 ms.author: duau
 ms.service: frontdoor
-ms.date: 12/30/2021
+ms.date: 6/13/2022
 ms.custom: devx-track-azurecli
 
 ---
@@ -14,12 +14,9 @@ ms.custom: devx-track-azurecli
 
 In this quickstart, you'll learn how to create an Azure Front Door Standard/Premium profile using  Azure CLI. You'll create this profile using two Web Apps as your origin, and add a WAF security policy. You can then verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
 
-> [!NOTE]
-> This documentation is for Azure Front Door Standard/Premium. Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [azure-cli-prepare-your-environment](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 
@@ -35,7 +32,7 @@ az group create --name myRGFD --location centralus
 Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to create an Azure Front Door profile.
 
 > [!NOTE]
-> If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with Standard_AzureFrontDoor. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed  comparison, view [Azure Front Door tier comparison](./tier-comparison.md).
+> If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with Standard_AzureFrontDoor. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed  comparison, view [Azure Front Door tier comparison](tier-comparison.md).
 
 ```azurecli
 az afd profile create \
@@ -235,7 +232,7 @@ az afd endpoint show --resource-group myRGFD --profile-name contosoafd --endpoin
 ```
 In a browser, go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`. Your request will automatically get routed to the least latent Web App in the origin group.
 
-:::image type="content" source="../media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content":::
+:::image type="content" source="./media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content":::
 
 To test instant global failover, we'll use the following steps:
 
@@ -243,31 +240,32 @@ To test instant global failover, we'll use the following steps:
 
 2. Stop one of the Web Apps by running [az webapp stop](/cli/azure/webapp#az-webapp-stop&preserve-view=true)
 
-```azurecli
-az webapp stop --name WebAppContoso-01 --resource-group myRGFD
-```
+    ```azurecli
+    az webapp stop --name WebAppContoso-01 --resource-group myRGFD
+    ```
 
 3. Refresh your browser. You should see the same information page.
 
->[!TIP]
->There is a little bit of delay for these actions. You might need to refresh again.
+> [!TIP]
+> There is a little bit of delay for these actions. You might need to refresh again.
 
 4. Find the other web app, and stop it as well.
 
-```azurecli
-az webapp stop --name WebAppContoso-02 --resource-group myRGFD
-```
+    ```azurecli
+    az webapp stop --name WebAppContoso-02 --resource-group myRGFD
+    ```
 
 5. Refresh your browser. This time, you should see an error message.
 
-:::image type="content" source="../media/create-front-door-portal/web-app-stopped-message.png" alt-text="Screenshot of the message: Both instances of the web app stopped":::
+    :::image type="content" source="./media/create-front-door-portal/web-app-stopped-message.png" alt-text="Screenshot of the message: Both instances of the web app stopped":::
 
 
 6. Restart one of the Web Apps by running [az webapp start](/cli/azure/webapp#az-webapp-start&preserve-view=true). Refresh your browser and the page will go back to normal.
 
-```azurecli
-az webapp start --name WebAppContoso-01 --resource-group myRGFD
-```
+    ```azurecli
+    az webapp start --name WebAppContoso-01 --resource-group myRGFD
+    ```
+
 ## Clean up resources
 
 When you don't need the resources for the Front Door, delete both resource groups. Deleting the resource groups also deletes the Front Door and all its related resources.
