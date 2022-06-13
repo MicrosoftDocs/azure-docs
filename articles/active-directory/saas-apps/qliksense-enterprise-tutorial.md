@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Qlik Sense Enterprise | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Qlik Sense Enterprise.
+title: 'Tutorial: Azure AD SSO integration with Qlik Sense Enterprise Client-Managed'
+description: Learn how to configure single sign-on between Azure Active Directory and Qlik Sense Enterprise Client-Managed.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,18 +9,19 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 06/13/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Integrate Qlik Sense Enterprise with Azure Active Directory
+# Tutorial: Azure AD SSO integration with Qlik Sense Enterprise Client-Managed
 
-In this tutorial, you'll learn how to integrate Qlik Sense Enterprise with Azure Active Directory (Azure AD). When you integrate Qlik Sense Enterprise with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Qlik Sense Enterprise Client-Managed with Azure Active Directory (Azure AD). When you integrate Qlik Sense Enterprise Client-Managed with Azure AD, you can:
 
 * Control in Azure AD who has access to Qlik Sense Enterprise.
 * Enable your users to be automatically signed-in to Qlik Sense Enterprise with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
+Note that there are two version of Qlik Sense Enterprise. While this tutorial covers integration with the client-managed releases, a different process is required for Qlik Sense Enterprise SaaS (Qlik Cloud version).
 
 ## Prerequisites
 
