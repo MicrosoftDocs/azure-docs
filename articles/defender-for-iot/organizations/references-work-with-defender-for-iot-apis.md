@@ -52,29 +52,29 @@ what are these for? is there a reason why they're not documented? P2
 
 nothing missing in v2
 
+
+
 |Version  |Supported APIs  |
 |---------|---------|
-|**No version**     |  - [validation (Validate user credentials)](sensor-api-reference.md#validation-validate-user-credentials) <br>- [set_password (Change your password)](sensor-api-reference.md#set_password-change-your-password) <br>- [set_password_by_admin (Update a user password by admin)](sensor-api-reference.md#set_password_by_admin-update-a-user-password-by-admin)     |
-|**New in version 1**     |  - [connections (Retrieve device connection information)](sensor-api-reference.md#connections-retrieve-device-connection-information) <br>- [cves (Retrieve information on CVEs](sensor-api-reference.md#cves-retrieve-information-on-cves)<br>- [alerts (Retrieve alert information)](sensor-api-reference.md#alerts-retrieve-alert-information)<br>- [events (Retrieve timeline events)](sensor-api-reference.md#events-retrieve-timeline-events)<br>- [vulnerabilities (Retrieve vulnerability information)](sensor-api-reference.md#vulnerabilities-retrieve-vulnerability-information)<br>- [security (Retrieve security vulnerabilities)](sensor-api-reference.md#security-retrieve-security-vulnerabilities)<br>- [operational (Retrieve operational vulnerabilities)](sensor-api-reference.md#operational-retrieve-operational-vulnerabilities)  |
-|**New in version 2**     |   -  [pcap (Retrieve alert PCAP)](sensor-api-reference.md#pcap-retrieve-alert-pcap) <br>- Updates to [alerts (Retrieve alert information)](sensor-api-reference.md#alerts-retrieve-alert-information) |
+|**No version**     | **Authentication and password management**: <br>- [set_password (Change your password)](sensor-auth-apis.md#set_password-change-your-password) <br>- [set_password_by_admin (Update a user password by admin)](sensor-auth-apis.md#set_password_by_admin-update-a-user-password-by-admin)  <br> - [validation (Validate user credentials)](sensor-auth-apis.md#validation-validate-user-credentials)    |
+|**New in version 1**     | **Inventory**: <br> - [connections (Retrieve device connection information)](sensor-inventory-apis.md#connections-retrieve-device-connection-information) <br>- [cves (Retrieve information on CVEs)](sensor-inventory-apis.md#cves-retrieve-information-on-cves)<br>- devices (Retrieve device information)<br><br>**Alerts**: <br>- [alerts (Retrieve alert information)](sensor-alert-apis.md#alerts-retrieve-alert-information)<br>- [events (Retrieve timeline events)](sensor-alert-apis.md#events-retrieve-timeline-events)<br><br>**Vulnerabilities**: <br>- [operational (Retrieve operational vulnerabilities)](sensor-vulnerability-apis.md#operational-retrieve-operational-vulnerabilities)<br>- mitigation (Retrieve mitigation vulnerabilities) <br>- [security (Retrieve security vulnerabilities)](sensor-vulnerability-apis.md#security-retrieve-security-vulnerabilities) <br>- [vulnerabilities (Retrieve device vulnerability information)](sensor-vulnerability-apis.md#vulnerabilities-retrieve-vulnerability-information) |
+|**New in version 2**     | **Alerts**: <br>- Updates to [alerts (Retrieve alert information)](sensor-alert-apis.md#alerts-retrieve-alert-information) <br>  -  [pcap (Retrieve alert PCAP)](sensor-alert-apis.md#pcap-retrieve-alert-pcap) |
 
 
 ## On-premises management console API version reference
 
-MISSING v1 - appliances
-
-Difference between regular APIs and integration APIs is that the integration APIs is meant to run continuously. they all have a time stamp - what's new in the last 5 minutes. no time stamp by default on the regular APIs.
-
-when you want to query data, use the regular, non-integration APIs. when you want to build an integration, use the integration APIs to create a constantly running stream of data.
-for example - a customer can create an integration that constantly asks what's happened in the last 5 minutes.
 
 |Version  |APIs  |
 |---------|---------|
-|**No version**     |  - [set_password (Change password)](management-api-reference.md#set_password-change-password)<br>- [set_password_by_admin (User password update by system admin)](management-api-reference.md#set_password_by_admin-user-password-update-by-system-admin) <br>- [validation (Authenticate user credentials)](management-api-reference.md#validation-authenticate-user-credentials)   |
-|**New in version 1**     |   - [devices (Retrieve all device information)](management-api-reference.md#devices-retrieve-all-device-information) <br>- [alerts (Retrieve alert information)](management-api-reference.md#alerts-retrieve-alert-information) <br> - [maintenanceWindow (Create alert exclusions)](management-api-reference.md#maintenancewindow-create-alert-exclusions)      |
-|**New in version 2**     |  - [pcap (Request alert PCAP)](management-api-reference.md#pcap-request-alert-pcap) <br>- Updates to  [alerts (Retrieve alert information)](management-api-reference.md#alerts-retrieve-alert-information)      |
-|**New in version 3**     | **Integration APIs**: <br> - [devices (Create and update devices)](servicenow-api-reference.md#devices-create-and-update-devices)  <br>- [connections (Get device connections)](servicenow-api-reference.md#connections-get-device-connections) <br>- [device (Get details for a device)](servicenow-api-reference.md#device-get-details-for-a-device) <br>- [deleteddevices (Get deleted devices)](servicenow-api-reference.md#deleteddevices-get-deleted-devices) <br>- [sensors (Get sensors)](servicenow-api-reference.md#sensors-get-sensors) <br>- [devicecves (Get device CVEs)](servicenow-api-reference.md#devicecves-get-device-cves)  |
+|**No version**     |**Authentication and password management**: <br>  - [set_password (Change password)](management-auth-apis.md#set_password-change-password)<br>- [set_password_by_admin (User password update by system admin)](management-auth-apis.md#set_password_by_admin-user-password-update-by-system-admin) <br>- [validation (Authenticate user credentials)](management-auth-apis.md#validation-authenticate-user-credentials)   |
+|**New in version 1**     |  **Inventory**: <br>- appliances (Retrieve appliance information <br>- [devices (Retrieve all device information)](management-inventory-apis.md#devices-retrieve-all-device-information) <br><br>**Alerts**: <br>- [alerts (Retrieve alert information)](management-alert-apis.md#alerts-retrieve-alert-information) <br> - [maintenanceWindow (Create alert exclusions)](management-alert-apis.md#maintenancewindow-create-alert-exclusions)      |
+|**New in version 2**     | **Alerts**: <br>- Updates to  [alerts (Retrieve alert information)](management-alert-apis.md#alerts-retrieve-alert-information)<br> - [pcap (Request alert PCAP)](management-alert-apis.md#pcap-request-alert-pcap)       |
+|**New in version 3**     | **Integration APIs**: <br>- [connections (Get device connections)](management-integration-apis.md#connections-get-device-connections)<br>- [device (Get details for a device)](management-integration-apis.md#device-get-details-for-a-device)<br>- [devicecves (Get device CVEs)](management-integration-apis.md#devicecves-get-device-cves)<br> - [devices (Create and update devices)](management-integration-apis.md#devices-create-and-update-devices)    <br>- [deleteddevices (Get deleted devices)](management-integration-apis.md#deleteddevices-get-deleted-devices) <br>- [sensors (Get sensors)](management-integration-apis.md#sensors-get-sensors)   |
 
+> [!NOTE]
+> Integration APIs are meant to run continuously and create a constantly running data stream, such as to query for new data from the last five minutes. Integration APIs return data with a timestamp.
+>
+> To simply query data, use the regular, non-integration APIs instead, for either an on-premises management console to query all devices, or for a specific sensor to query devices from that sensor only.
 
 ## Next steps
 

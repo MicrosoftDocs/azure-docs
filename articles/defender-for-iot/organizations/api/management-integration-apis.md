@@ -1,22 +1,25 @@
 ---
-title: OT monitoring management integration API reference - Microsoft Defender for IoT
-description: Learn about the REST APIs supported for the Microsoft Defender for IoT integration with ServiceNow.
+title: Integration API reference for on-premises management consoles - Microsoft Defender for IoT
+description: Learn about the APIs supported for integrating Microsoft Defender for IoT with partner services, such as ServiceNow.
 ms.date: 05/25/2022
 ms.topic: reference
 ---
 
 <!--no nullable values-->
 
-# Integration API reference (Public preview)
+# Integration API reference for on-premises management consoles (Public preview)
 
 This article lists the APIs supported for integrating Microsoft Defender for IoT with partner services.
 
-For example, this API is currently implemented with ServiceNow, via the ServiceNow Service Graph Connector for Defender for IoT.
+For example, this API is currently implemented with [ServiceNow](tutorial-servicenow.md), via the ServiceNow Service Graph Connector for Defender for IoT.
 
-For more information, see [Tutorial: Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md).
+> [!NOTE]
+> Integration APIs are meant to run continuously and create a constantly running data stream, such as to query for new data from the last five minutes. Integration APIs return data with a timestamp.
+>
+> To simply query data, use the regular, non-integration APIs instead, for either an on-premises management console to query all devices, or for a specific sensor to query devices from that sensor only. For more information, see [Defender for IoT API reference](../references-work-with-defender-for-iot-apis.md).
+
 
 **URI**: `/external/v3/integration/`
-
 
 ## devices (Create and update devices)
 
@@ -250,6 +253,5 @@ An array of the following fields:
 
 For more information, see:
 
-- [Defender for IoT API reference](references-work-with-defender-for-iot-apis.md)
-- [OT monitoring sensor APIs](sensor-api-reference.md)
-- [On-premises management console API reference](management-api-reference.md)
+- [Defender for IoT API reference overview](references-work-with-defender-for-iot-apis.md)
+- [Tutorial: Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md)

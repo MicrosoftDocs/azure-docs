@@ -225,8 +225,8 @@
       items:
       - name: Authentication and password management
         href: api/sensor-auth-apis.md
-      - name: Device management
-        href: api/sensor-device-apis.md
+      - name: Inventory management
+        href: api/sensor-inventory-apis.md
       - name: Alert management
         href: api/sensor-alert-apis.md
       - name: Vulnerability management
@@ -235,8 +235,8 @@
       items:
       - name: Authentication and password management
         href: api/management-auth-apis.md
-      - name: Device management
-        href: api/management-device-apis.md
+      - name: Inventory management
+        href: api/management-inventory-apis.md
       - name: Alert management
         href: api/management-alert-apis.md
       - name: Vulnerability management
