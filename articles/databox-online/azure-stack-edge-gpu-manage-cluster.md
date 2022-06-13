@@ -36,7 +36,7 @@ Perform these steps on the node of the device that you were trying to prepare. Y
 
 ## Replace a node
 
-You may need to replace a node if one of the nodes on your device is down or not healthy. Perform these steps on the node that you are trying to replace.
+You may need to replace a node if one of the nodes on your device is down or not healthy. Perform these steps on the node that you're trying to replace.
 
 1. In the local UI, go to the **Cluster** page. Under **Existing nodes**, view the status of the nodes. You'll want to replace the node that shows the status as **Down**.
 
@@ -50,7 +50,7 @@ You may need to replace a node if one of the nodes on your device is down or not
     1. Supply the **Node token** for the incoming replacement node.
     1. Select **Validate & add**. The credentials of the incoming node are now validated.
     
-        ![Screenshot of local web UI "Cluster" page with "Apply" selected on "Validate & add" blade.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/replace-node-2.png)
+    ![Screenshot of local web UI "Cluster" page with "Apply" selected on "Validate & add" blade.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/replace-node-2.png)
 
     1. Once the validation has successfully completed, select **Add node** to complete the node replacement. It may take several minutes for the replacement node to get added to form the cluster.
 
@@ -89,7 +89,7 @@ Perform these steps on the first node of the device.
     1. Enter the file share path as *//server/fileshare* format.
     1. Select **Apply**. 
 
-    ![Screenshot of local web UI "Cluster" page with local witness type selected in "Modify cluster witness" blade on first node](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-cluster-witness-local-1.png)
+    ![Screenshot of local web UI "Cluster" page with local witness type selected in "Modify cluster witness" blade on first node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-cluster-witness-local-1.png)
 
 
 ## Configure virtual IPs
