@@ -1,7 +1,7 @@
 ---
 title: Install SAP software (preview)
 description: Learn how to install software on your SAP system created using Azure Center for SAP solutions (ACSS).
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 ms.topic: how-to
 ms.date: 07/01/2022
 author: lauradolan

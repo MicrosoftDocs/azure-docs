@@ -1,7 +1,7 @@
 ---
 title: Create S/4HANA infrastructure deployment (preview)
 description: Learn how to create a Highly Available (HA) S/4HANA infrastructure deployment with Azure Center for SAP Solutions (ACSS) through the Azure portal.
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 ms.topic: quickstart
 ms.date: 07/01/2022
 ms.author: ladolan

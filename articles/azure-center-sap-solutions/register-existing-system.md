@@ -1,7 +1,7 @@
 ---
 title: Register existing SAP system (preview)
 description: Learn how to register an existing SAP system in Azure Center for SAP solutions (ACSS). You can visualize, manage, and monitor your existing SAP system through ACSS.
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 ms.topic: how-to
 ms.date: 07/01/2022
 ms.author: ladolan

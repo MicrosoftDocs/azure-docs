@@ -1,7 +1,7 @@
 ---
 title: Configure a Virtual Instance for SAP (preview)
 description: Learn how to configure a Virtual Instance for SAP (VIS) resource in Azure Center for SAP Solutions (ACSS) through the Azure portal.
-ms.service: virtual-machines-sap
+ms.service: azure-center-sap-solutions
 ms.topic: conceptual
 ms.date: 07/01/2022
 author: lauradolan
