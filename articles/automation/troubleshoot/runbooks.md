@@ -59,11 +59,11 @@ get-azvm : 'this.Client.SubscriptionId' cannot be null. At line:5 char:1 + get-a
 This can happen when the Managed Identity (or other account used in the runbook) has not been granted any permissions to access the subscription.
 
 ### Resolution
-Grant the Managed Identity (or other account used in the runbook) an appropriate role membership in the subscription. [Learn more](./enable-managed-identity-for-automation#assign-role-to-a-system-assigned-managed-identity)
+Grant the Managed Identity (or other account used in the runbook) an appropriate role membership in the subscription. [Learn more](../enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity)
 
-:::image type="content" source="./media/troubleshoot-runbooks/managed-identity-role-assignments.png" alt-text=" Screenshot that shows the assigning of Azure Role assignments.":::
+:::image type="content" source="../media/troubleshoot-runbooks/managed-identity-role-assignments.png" alt-text=" Screenshot that shows the assigning of Azure Role assignments.":::
 
-:::image type="content" source="./media/troubleshoot-runbooks/azure-add-role-assignment-inline.png" alt-text="Screenshot that shows how to add role assignment." lightbox="./media/troubleshoot-runbooks/azure-add-role-assignment-expanded.png":::
+:::image type="content" source="../media/troubleshoot-runbooks/azure-add-role-assignment-inline.png" alt-text="Screenshot that shows how to add role assignment." lightbox="../media/troubleshoot-runbooks/azure-add-role-assignment-expanded.png":::
 
 ## Scenario: Access blocked to Azure Storage, or Azure Key Vault, or Azure SQL
 
