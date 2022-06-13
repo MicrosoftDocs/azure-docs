@@ -26,9 +26,9 @@ Azure Service Health has been updated to provide notifications to tenant admins 
 
 ## How it works 
 
-When there happens to be a Service Health notification for an Azure Active Directory service, it will be posted to the Service Health page within the Azure portal.  Previously these were subscription events that were posted to all the subscription owners/readers of subscriptions within the tenant that had an issue.  To improve the targeting of these notifications, they will now be available as tenant events to the tenant admins of the impacted tenant.  For a transition period, these service events will be available as both tenant events and subscription events. 
+When there happens to be a Service Health notification for an Azure Active Directory service, it will be posted to the Service Health page within the Azure portal.  Previously these were subscription events that were posted to all the subscription owners/readers of subscriptions within the tenant that had an issue.  To improve the targeting of these notifications, they'll now be available as tenant events to the tenant admins of the impacted tenant.  For a transition period, these service events will be available as both tenant events and subscription events. 
 
-Now that they are available as tenant events, they will be available in the Azure AD overview page as alert cards. Any Service Health notification that has been updated within the last 3 days will be shown in one of the cards.   
+Now that they are available as tenant events. In the Azure AD overview page, they are available  as alert cards. Any Service Health notification that has been updated within the last 3 days will be shown in one of the cards.   
 
  
 ![Azure Service Health overview page](./media/overview-service-health-notifications/service-health-overview.png)
@@ -47,7 +47,7 @@ For more information on the new Azure Service Health tenant events, see [Azure S
 
 ## Who will see the notifications 
 
-Most of the built-in admin roles will have access to see these notifications. For the complete list of all authorized roles, see [Azure Service Health Tenant Admin authorized roles](../../service-health/admin-access-reference.md).  Currently custom roles are not supported. 
+Most of the built-in admin roles will have access to see these notifications. For the complete list of all authorized roles, see [Azure Service Health Tenant Admin authorized roles](../../service-health/admin-access-reference.md).  Currently custom roles aren't supported. 
 
 ## What you should know 
 
