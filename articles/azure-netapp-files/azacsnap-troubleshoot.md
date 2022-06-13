@@ -169,7 +169,7 @@ The command `azacsnap -c test --test hana` might not complete successfully.
 
 ### Command not found
 
-When setting up communication with SAP HANA, the `hdbuserstore` program is used to create the secure communication settings. AzAcSnap also requires the `hdbsql` program for all communications with SAP HANA. These program are usually under */usr/sap/\<SID>/SYS/exe/hdb/* or */usr/sap/hdbclient* and must be in the users `$PATH`.
+When setting up communication with SAP HANA, the `hdbuserstore` program is used to create the secure communication settings. AzAcSnap also requires the `hdbsql` program for all communications with SAP HANA. These programs are usually under */usr/sap/\<SID>/SYS/exe/hdb/* or */usr/sap/hdbclient* and must be in the users `$PATH`.
 
 - In the following example, the `hdbsql` command isn't in the users `$PATH`.
 
