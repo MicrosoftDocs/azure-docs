@@ -9,10 +9,11 @@ ms.subservice: translator-text
 ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: how-to
+ms.custom: applied-ai-non-critical-form
 #Customer intent: As a Custom Translator user, I want to understand how to view the model details, so that I can review details of each translation model.
 ---
 
-# View model details
+# View the model details
 
 The Models tab under project shows all models in that project. All models trained for that project are listed in this tab.
 
@@ -76,7 +77,7 @@ For each model in the project, these details are displayed.
 >[!Note]
 >To compare consecutive trainings for the same systems, it is important to keep the tuning set and testing set constant.
 
-## View model training details
+## View the model training details
 
 When your training is complete, you can review details about the training from the details page. Select a project, locate and select the models tab, and choose a model.
 
