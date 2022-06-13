@@ -190,7 +190,7 @@ In this section, you'll create a storage account and configure the private endpo
 
 ### Add a container
 
-1. Select **Go to resource** or in the left-hand menu of the Azure portal, select **All Resources** > **mystorageaccount**.
+1. Select **Go to resource**, or in the left-hand menu of the Azure portal, select **All Resources** > **mystorageaccount**.
 
 2. Under the **Data storage** section, select **Containers**.
 
