@@ -99,10 +99,38 @@
         href: ../scripts/cli/sql/throughput.md
       - name: Lock resources from deletion
         href: ../scripts/cli/sql/lock.md
+      - name: Overview common API samples
+        href: ../common-cli-samples.md?toc=/azure/cosmos-db/sql/toc.json
+      - name: Add or fail over regions
+        href: ../scripts/cli/common/regions.md?toc=/azure/cosmos-db/sql/toc.json
+      - name: Perform account key operations
+        href: ../scripts/cli/common/keys.md?toc=/azure/cosmos-db/sql/toc.json
+      - name: Secure with IP firewall
+        href: ../scripts/cli/common/ipfirewall.md?toc=/azure/cosmos-db/sql/toc.json
+      - name: Secure new account with service endpoints
+        href: ../scripts/cli/common/service-endpoints.md?toc=/azure/cosmos-db/sql/toc.json
+      - name: Secure existing account with service endpoints
+        href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=/azure/cosmos-db/sql/toc.json
+    - name: Azure PowerShell
+      items:
+        - name: Overview common API samples
+          href: ../common-powershell-samples.md?toc=/azure/cosmos-db/sql/toc.json
+        - name: Account keys or connection strings
+          href: ../scripts/powershell/common/keys-connection-strings.md?toc=/azure/cosmos-db/sql/toc.json
+        - name: Change failover priority or trigger failover
+          href: ../scripts/powershell/common/failover-priority-update.md?toc=/azure/cosmos-db/sql/toc.json
+        - name: Create an account with IP Firewall
+          href: ../scripts/powershell/common/firewall-create.md?toc=/azure/cosmos-db/sql/toc.json
+        - name: Update account
+          href: ../scripts/powershell/common/account-update.md?toc=/azure/cosmos-db/sql/toc.json
+        - name: Update an account's regions
+          href: ../scripts/powershell/common/update-region.md?toc=/azure/cosmos-db/sql/toc.json
     - name: Azure Resource Manager
       href: templates-samples-sql.md
     - name: Bicep
       href: bicep-samples.md
+    - name: Azure Resource Graph queries
+      href: ../resource-graph-samples.md?toc=/azure/cosmos-db/sql/toc.json
 - name: Concepts
   items:
     - name: Azure Cosmos DB resource model
@@ -711,17 +739,14 @@
     - name: Develop applications
       items:
         - name: .NET
-          expanded: true
           items:
             - name: Get started
               href: how-to-dotnet-get-started.md
             - name: Work with databases
-              expanded: true
               items:
               - name: Create a database
                 href: how-to-dotnet-create-database.md
             - name: Work with containers
-              expanded: true
               items:
               - name: Create a container
                 href: how-to-dotnet-create-container.md

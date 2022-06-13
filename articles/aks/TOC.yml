@@ -477,6 +477,8 @@
           href: keda-deploy-add-on-cli.md
         - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
           href: keda-integrations.md
+        - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
+          href: keda-troubleshoot.md
     - name: Use Web Application Routing (preview)
       href: web-app-routing.md
     - name: Use cluster extensions
