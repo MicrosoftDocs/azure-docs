@@ -22,14 +22,28 @@ This release is published June 14, 2022.
 
 ### Image tag
 
-`v1.8.0_2022-06-24`
-
+`v1.8.0_2022-06-14`
 
 For complete release version information, see [Version log](version-log.md#june-14-2022).
 
+### Miscellaneous
+
+- Canada Central and West US 3 regions are fully supported.
+
+### Data controller
+
+- Control DB SQL instance version is upgraded to latest version.
+- Additional compatibility checks are run prior to executing an upgrade request.
+- Upload status is now shown in the data controller list view in the Azure portal.
+- Show the usage upload message value in the Overview blade banner in the Azure Portal if the value is not **Success**.
+
 ### SQL Managed Instance
 
-Introduces support to BACKUP DATABASE TO URL to S3-compatible object storage. For documentation, see [SQL Server backup and restore with S3-compatible object storage preview](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-s3-compatible-object-storage).
+  - You can now configure a SQL managed instance to use an AD connector at the time the SQL managed instance is provisioned from the Azure portal.
+  - BACKUP DATABASE TO URL to S3-compatible storage is now supported. [Documentation](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-s3-compatible-object-storage)
+  - `az sql mi-arc create` and `update` commands have a new `--sync-secondary-commit` parameter which is the number of secondary replicas that must be synchronized to failover. Default is `-1` which sets the number of required synchronized secondaries to (# of replicas - 1) / 2.  Allowed values: `-1`, `1`, or `2`.  Arc SQL MI custom resource property added called `syncSecondaryToCommit`.
+  - Billing estimate in Azure portal is updated to reflect the number of readable secondaries that are selected.
+  - Added SPNs for readable secondary service.
 
 ## May 24, 2022
 

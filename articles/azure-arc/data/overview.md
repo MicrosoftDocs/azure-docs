@@ -54,7 +54,7 @@ The following table describes the scenarios that are currently supported for Azu
 
 |Azure Regions  |Direct connected mode  |Indirect connected mode  |
 |---------|---------|---------|
-|East US|Available|Available
+|East US | Available | Available
 |East US 2|Available|Available
 |West US|Available|Available
 |West US 2|Available|Available
@@ -70,6 +70,7 @@ The following table describes the scenarios that are currently supported for Azu
 |Korea Central|Available|Available
 |Southeast Asia|Available|Available
 |Australia East|Available|Available
+|Canada Central|Available|Available
 
 ## Next steps
 
