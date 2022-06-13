@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Deploy Azure Bastion in a Virtual Network using an ARM template'
 titleSuffix: Azure Bastion
-description: #Required; article description that is displayed in search results. 
+description: Learn how to deploy Azure Bastion in a Virtual Network using an ARM template.
 author: abell
 ms.author: abell
 ms.service: bastion
@@ -93,7 +93,7 @@ You can use the following example values when creating this configuration, or yo
 ## Review the template
 This template deploys an Azure Bastion service to your virtual network.
 
-The template that this quickstart uses is from [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/azure-bastion-nsg/).
+The template that this quickstart uses is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-bastion-nsg/).
 
 ### Parameters
 
