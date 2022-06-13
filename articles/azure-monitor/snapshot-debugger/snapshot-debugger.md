@@ -8,7 +8,7 @@ ms.reviewer: saars
 ---
 
 # Debug snapshots on exceptions in .NET apps
-When an exception occurs, you can automatically collect a debug snapshot from your live web application. The snapshot shows the state of source code and variables at the moment the exception was thrown. The Snapshot Debugger in [Azure Application Insights](./app-insights-overview.md) monitors exception telemetry from your web app. It collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [Snapshot collector NuGet package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application, and optionally configure collection parameters in [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](./asp-net-exceptions.md) in the Application Insights portal.
+When an exception occurs, you can automatically collect a debug snapshot from your live web application. The snapshot shows the state of source code and variables at the moment the exception was thrown. The Snapshot Debugger in [Azure Application Insights](../app/app-insights-overview.md) monitors exception telemetry from your web app. It collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [Snapshot collector NuGet package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application, and optionally configure collection parameters in [ApplicationInsights.config](../app/configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](../app/asp-net-exceptions.md) in the Application Insights portal.
 
 You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2019 Enterprise. In Visual Studio, you can also [set Snappoints to interactively take snapshots](/visualstudio/debugger/debug-live-azure-applications) without waiting for an exception.
 
@@ -24,7 +24,7 @@ We don't recommend using .NET Core versions prior to LTS since they're out of su
 
 The following environments are supported:
 
-* [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Function](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running OS family 4 or later
 * [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running on Windows Server 2012 R2 or later
@@ -59,7 +59,7 @@ After an exception has occurred in your application and a snapshot has been crea
 
 ![Failures Page](./media/snapshot-debugger/failures-page.png)
 
-Select an operation or exception in the right pane to open the **End-to-End Transaction Details** pane, then select the exception event. If a snapshot is available for the given exception, an **Open Debug Snapshot** button appears on the right pane with details for the [exception](./asp-net-exceptions.md).
+Select an operation or exception in the right pane to open the **End-to-End Transaction Details** pane, then select the exception event. If a snapshot is available for the given exception, an **Open Debug Snapshot** button appears on the right pane with details for the [exception](../app/asp-net-exceptions.md).
 
 ![Open Debug Snapshot button on exception](./media/snapshot-debugger/e2e-transaction-page.png)
 
@@ -76,14 +76,14 @@ Snapshots might include sensitive information, and by default they aren't viewab
 
 3. After you open the snapshot file, the Minidump Debugging page in Visual Studio appears. Click **Debug Managed Code** to start debugging the snapshot. The snapshot opens to the line of code where the exception was thrown so that you can debug the current state of the process.
 
-    ![View debug snapshot in Visual Studio](./media/snapshot-debugger/open-snapshot-visualstudio.png)
+    ![View debug snapshot in Visual Studio](./media/snapshot-debugger/open-snapshot-visual-studio.png)
 
 The downloaded snapshot includes any symbol files that were found on your web application server. These symbol files are required to associate snapshot data with source code. For App Service apps, make sure to enable symbol deployment when you publish your web apps.
 
 ## How snapshots work
 
-The Snapshot Collector is implemented as an [Application Insights Telemetry Processor](./configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). When your application runs, the Snapshot Collector Telemetry Processor is added to your application's telemetry pipeline.
-Each time your application calls [TrackException](./asp-net-exceptions.md#exceptions), the Snapshot Collector computes a Problem ID from the type of exception being thrown and the throwing method.
+The Snapshot Collector is implemented as an [Application Insights Telemetry Processor](../app/configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). When your application runs, the Snapshot Collector Telemetry Processor is added to your application's telemetry pipeline.
+Each time your application calls [TrackException](../app/asp-net-exceptions.md#exceptions), the Snapshot Collector computes a Problem ID from the type of exception being thrown and the throwing method.
 Each time your application calls TrackException, a counter is incremented for the appropriate Problem ID. When the counter reaches the `ThresholdForSnapshotting` value, the Problem ID is added to a Collection Plan.
 
 The Snapshot Collector also monitors exceptions as they're thrown by subscribing to the [AppDomain.CurrentDomain.FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception) event. When that event fires, the Problem ID of the exception is computed and compared against the Problem IDs in the Collection Plan.
@@ -127,7 +127,7 @@ However, in Azure App Services, the Snapshot Collector can deoptimize throwing m
 ## Next steps
 Enable Application Insights Snapshot Debugger for your application:
 
-* [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Function](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -137,5 +137,5 @@ Enable Application Insights Snapshot Debugger for your application:
 Beyond Application Insights Snapshot Debugger:
  
 * [Set snappoints in your code](/visualstudio/debugger/debug-live-azure-applications) to get snapshots without waiting for an exception.
-* [Diagnose exceptions in your web apps](./asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights.
-* [Smart Detection](./proactive-diagnostics.md) automatically discovers performance anomalies.
+* [Diagnose exceptions in your web apps](../app/asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights.
+* [Smart Detection](../app/proactive-diagnostics.md) automatically discovers performance anomalies.

@@ -101,8 +101,6 @@ When the code runs successfully, it produces the following output:
 :::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Command-line output":::
 
 
-[Having issues? Let us know](https://aka.ms/postgres-doc-feedback)
-
 ## Step 2: Read data
 The following code example connects to your Azure Database for PostgreSQL database and uses
 - [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) with the SQL **SELECT** statement to read data.
@@ -120,7 +118,6 @@ for row in rows:
 
 
 ```
-[Having issues? Let us know](https://aka.ms/postgres-doc-feedback)
 
 ## Step 3: Update data
 The following code example uses [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) with the SQL **UPDATE** statement to update data.
@@ -132,7 +129,6 @@ cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "ban
 print("Updated 1 row of data")
 
 ```
-[Having issues? Let us know](https://aka.ms/postgres-doc-feedback)
 
 ## Step 5: Delete data
 The following code example runs [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) with the SQL **DELETE** statement to delete an inventory item that you previously inserted.
@@ -144,8 +140,6 @@ cursor.execute("DELETE FROM inventory WHERE name = %s;", ("orange",))
 print("Deleted 1 row of data")
 
 ```
-
-[Having issues? Let us know](https://aka.ms/postgres-doc-feedback)
 
 ## Clean up resources
 
@@ -164,4 +158,3 @@ az group delete \
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using CLI](./how-to-manage-server-cli.md)<br/>
 
-[Cannot find what you are looking for? Let us know.](https://aka.ms/postgres-doc-feedback)
