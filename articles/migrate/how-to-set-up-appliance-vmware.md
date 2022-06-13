@@ -193,7 +193,7 @@ If validation fails, you can select a **Failed** status to see the validation er
 >  - Double quotation mark (")
 >  - Single quotation mark (')
 >  - Circumflex (^)
->  - Backslash (\)
+>  - Backslash (\\)
 >  - Percentage (%)
 >  - Angle brackets (<,>)
 >  - Pound (£)
