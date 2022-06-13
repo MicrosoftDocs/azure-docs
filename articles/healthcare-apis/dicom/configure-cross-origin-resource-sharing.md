@@ -6,7 +6,7 @@ ms.author: v-smcevoy
 ms.date: 06/10/2022
 ms.topic: how-to
 ms.service: healthcare-apis
-ms.subservice: dicom
+ms.subservice: fhir
 ---
 
 # Configure cross-origin resource sharing in DICOM service
