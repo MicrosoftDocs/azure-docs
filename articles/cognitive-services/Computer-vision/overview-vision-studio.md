@@ -52,10 +52,6 @@ Computer Vision offers multiple features that use prebuilt, pre-configured model
 
 Each of these features has one or more try-it-out experiences in Vision Studio that allow you to upload images and receive JSON and text responses. These experiences help you quickly test the features using a no-code approach.
 
-## Additional features
-
-In addition to the try-it-out experiences, Vision Studio also offers experiences that highlight the importance of fairness, particularly when working with Face models. See [Face fairness information]() for more information on how Microsoft employs the principles of Responsible AI, and how you can too.
-
 ## Cleaning up resources
 
 If you want to remove a Cognitive Services resource after using Vision Studio, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can't delete your resource directly from Vision Studio, so use one of the following methods:
