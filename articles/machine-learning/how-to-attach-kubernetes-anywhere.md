@@ -15,7 +15,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 
 Azure Machine Learning Kubernetes compute enables you to run training jobs such as AutoML, pipeline, and distributed jobs,  or to deploy models as online endpoint or batch endpoint. Azure ML Kubernetes compute supports two kinds of Kubernetes cluster:
 * **[Azure Kubernetes Services](https://azure.microsoft.com/services/kubernetes-service/)** (AKS) cluster in Azure. With your own managed AKS cluster in Azure, you can gain security and controls to meet compliance requirement as well as flexibility to manage teams' ML workload.
-* **[Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview)** (Arc Kubernetes) cluster. With Arc Kubernetes cluster, you can train or deploy models in any infrastrcuture on-premises, across multi-cloud, or the edge. 
+* **[Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview)** (Arc Kubernetes) cluster. With Arc Kubernetes cluster, you can train or deploy models in any infrastructure on-premises, across multi-cloud, or the edge. 
 
 
 In this article, you can learn about steps to configure an existing Kubernetes cluster for Azure Machine Learning:
@@ -28,7 +28,7 @@ In this article, you can learn about steps to configure an existing Kubernetes c
 * An AKS cluster is up and running in Azure.
 * or an Arc Kubernetes cluster is up and running. Follow instructions in [connect existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
   * if this is Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Platform (OCP) cluster, please ensure to satisfy additional prerequisite step [here](./reference-kubernetes.md#prerequisites-for-aro-or-ocp-clusters).
-* The Kubernetes cluster must have minium of 4 vCPU cores and 8GB memory.
+* The Kubernetes cluster must have minimum of 4 vCPU cores and 8GB memory.
 * Cluster running behind an outbound proxy server or firewall needs additional [network configurations](./how-to-access-azureml-behind-firewall.md#kubernetes-compute)
 * Install or upgrade Azure CLI to version 2.24.0 or higher.
 * Install or upgrade Azure CLI extension ```k8s-extension``` to version 1.2.3 or higher.
@@ -84,7 +84,7 @@ The UI experience to deploy extension is only available for **[Arc Kubernetes](.
 
    :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-extension-list.png" alt-text="Screenshot of selecting AzureML extension from Azure portal.":::
 
-1. Follow the prompts to deploy the extension. You can customize the installation by configuring the installtion in the tab of **Basics**, **Configurations** and **Advanced**.  For a detailed list of AzureML extension configuration settings, see [AzureML extension configuration settings](#review-azureml-extension-configuration-settings).
+1. Follow the prompts to deploy the extension. You can customize the installation by configuring the installation in the tab of **Basics**, **Configurations** and **Advanced**.  For a detailed list of AzureML extension configuration settings, see [AzureML extension configuration settings](#review-azureml-extension-configuration-settings).
 
    :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-settings.png" alt-text="Screenshot of configuring AzureML extension settings from Azure portal.":::
 1. On the **Review + create** tab, select **Create**.
@@ -97,7 +97,7 @@ The UI experience to deploy extension is only available for **[Arc Kubernetes](.
 
 ### Key considerations for AzureML extension deployment
 
-AzureML extension deploymnent allows you to specify configuration settings needed for different workload support. Before AzureML extension deployment, **please read following carefully to avoid unnecessary extension deployment errors**:
+AzureML extension deployment allows you to specify configuration settings needed for different workload support. Before AzureML extension deployment, **please read following carefully to avoid unnecessary extension deployment errors**:
 
   * Type of workload to enable for your cluster. ```enableTraining``` and ```enableInference``` config settings are your convenient choices here; `enableTraining` will enable **training** and **batch scoring** workload, `enableInference` will enable **real-time inference** workload. 
   * For real-time inference support, it requires ```azureml-fe``` router service to be deployed for routing incoming inference requests to model pod, and you would need to specify ```inferenceRouterServiceType``` config setting for ```azureml-fe```. ```azureml-fe``` can be deployed with one of following ```inferenceRouterServiceType```:
@@ -161,7 +161,7 @@ For AzureML extension deployment configurations, use ```--config``` or ```--conf
    
 ## Attach a Kubernetes cluster to an Azure ML workspace
 
-Once AzureML extension is deployed on AKS or Arc Kubernetes cluster, you can attach the Kubernetes cluster to Azure ML workspace and create compute targets for ML professionsals to use. Each attach operation creates a compute target in Azure ML workspace, and multiple attach operations on the same cluster will create multiple compute targets in a single Azure ML workspace or multiple Azure ML workspace.
+Once AzureML extension is deployed on AKS or Arc Kubernetes cluster, you can attach the Kubernetes cluster to Azure ML workspace and create compute targets for ML professionals to use. Each attach operation creates a compute target in Azure ML workspace, and multiple attach operations on the same cluster will create multiple compute targets in a single Azure ML workspace or multiple Azure ML workspace.
 
 ### Prerequisite
 
@@ -411,7 +411,7 @@ In the above example, replace `<instance_type_name>` with the name of the instan
 
 ## Recommended best practices
 
-**Separation of responsibilities between the IT-operations team and data-science team.** Managing your own Kubernetes compute and infrastructure for ML workload requires Kubernetes admin previlige and expertise, and it is best to be done by IT-operations team so data-science team can focus on ML models for organizational efficiency.
+**Separation of responsibilities between the IT-operations team and data-science team.** Managing your own Kubernetes compute and infrastructure for ML workload requires Kubernetes admin privilege and expertise, and it is best to be done by IT-operations team so data-science team can focus on ML models for organizational efficiency.
  
 **Create and manage instance types for different ML workload scenarios.** Each ML workload uses different amounts of compute resources such as CPU/GPU and memory. Azure ML implements instance type as Kubernetes custom resource definition (CRD) with properties of nodeSelector and resource request/limit. With a carefully curated list of instance types, IT-operations can target ML workload on specific node(s) and manage compute resource utilization efficiently.
 
