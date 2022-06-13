@@ -47,7 +47,7 @@ Address multiple improvements and added support for Azure Active Directory (AAD)
 - Add pid, role name, and process start time to uploaded blob metadata.
 - Use System.Diagnostics.Process where possible in Snapshot Collector and Snapshot Uploader.
 ### New features
-- Add Azure Active Directory authentication to SnapshotCollector. Learn more about Azure AD authentication in Application Insights [here](./azure-ad-authentication.md).
+- Add Azure Active Directory authentication to SnapshotCollector. Learn more about Azure AD authentication in Application Insights [here](../app/azure-ad-authentication.md).
 
 ## [1.3.7.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.5)
 A point release to backport a fix from 1.4.0-pre.
@@ -69,7 +69,7 @@ A point release to address a couple of high-impact issues.
 ### Changes
 - The netcoreapp2.0 target of SnapshotCollector depends on Microsoft.ApplicationInsights.AspNetCore >= 2.1.1 (again). This reverts behavior to how it was before 1.3.5. We tried to upgrade it in 1.3.6, but it broke some Azure App Service scenarios.
 ### New features
-- Snapshot Collector reads and parses the ConnectionString from the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable or from the TelemetryConfiguration. Primarily, this is used to set the endpoint for connecting to the Snapshot service. For more information, see the [Connection strings documentation](./sdk-connection-string.md).
+- Snapshot Collector reads and parses the ConnectionString from the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable or from the TelemetryConfiguration. Primarily, this is used to set the endpoint for connecting to the Snapshot service. For more information, see the [Connection strings documentation](../app/sdk-connection-string.md).
 ### Bug fixes
 - Switched to using HttpClient for all targets except net45 because WebRequest was failing in some environments due to an incompatible SecurityProtocol (requires TLS 1.2).
 
@@ -94,7 +94,7 @@ A point release to address a couple of high-impact issues.
 
 ## [1.3.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.5)
 - Add support for Sovereign clouds (Older versions won't work in sovereign clouds)
-- Adding snapshot collector made easier by using AddSnapshotCollector(). More information can be found [here](./snapshot-debugger-appservice.md).
+- Adding snapshot collector made easier by using AddSnapshotCollector(). More information can be found [here](./snapshot-debugger-app-service.md).
 - Use FISMA MD5 setting for verifying blob blocks. This avoids the default .NET MD5 crypto algorithm, which is unavailable when the OS is set to FIPS-compliant mode.
 - Ignore .NET Framework frames when deoptimizing function calls. This behavior can be controlled by the DeoptimizeIgnoredModules configuration setting.
 - Add `DeoptimizeMethodCount` configuration setting that allows deoptimization of more than one function call. More information here
