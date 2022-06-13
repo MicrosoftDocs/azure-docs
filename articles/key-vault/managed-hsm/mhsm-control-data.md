@@ -49,7 +49,7 @@ For added assurance, AKV Premium and AKV Managed HSM support importing HSM-prote
     - Standard Tier - Vaults support storing secrets, certificates and software backed keys.
     - Premium Tier - Vaults support storing secrets, certificates, software and HSM-backed keys.
 - Managed Hardware Security Module (HSM)
-    - Managed HSM only support HSM-backed keys.
+    - Managed HSM only support HSM-backed keys
 
 See [Azure Key Vault Concepts](/azure/key-vault/general/basic-concepts) and [Azure Key Vault REST API overview](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/key-vault/general/about-keys-secrets-certificates.md) for details.
 
