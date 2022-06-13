@@ -20,7 +20,7 @@ ms.custom: devx-track-js
 # Quickstart: Azure Cosmos DB MongoDB API for JavaScript with mongoDB driver
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Get started with the mongoDB npm package to create databases, containers, and items within your account. Follow these steps to  install the package and try out example code for basic tasks.
+Get started with the mongoDB npm package to create databases, collections, and items within your account. Follow these steps to  install the package and try out example code for basic tasks.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples) are available on GitHub as a JavaScript project.
@@ -203,10 +203,10 @@ npm init
 
 ### Install the package
 
-Add the [MongoDB](https://www.npmjs.com/package/mongodb) npm package to the JavaScript project. Use the [``npm install package``](https://docs.npmjs.com/cli/v8/commands/npm-install) command specifying the name of the npm package.
+Add the [MongoDB](https://www.npmjs.com/package/mongodb) npm package to the JavaScript project. Use the [``npm install package``](https://docs.npmjs.com/cli/v8/commands/npm-install) command specifying the name of the npm package. The `dotenv` package is used to read the environment variables from a .env file during local development.
 
 ```console
-npm install mongodb
+npm install mongodb dotenv
 ```
 
 ### Configure environment variables
@@ -225,17 +225,25 @@ $env:COSMOS_CONNECTION_STRING = "<cosmos-connection-string>"
 export COSMOS_CONNECTION_STRING="<cosmos-connection-string>"
 ```
 
+#### [.env](#tab/dotenv)
+
+A .env file is a standard way to store environment variables in a project. Create a .env file in the root of your project. Add the following lines to the .env file:
+
+```dotenv
+COSMOS_CONNECTION_STRING="<cosmos-connection-string>"
+```
+
 ---
 
 ## Object model
 
-Before you start building the application, let's look into the hierarchy of resources in Azure Cosmos DB. Azure Cosmos DB has a specific object model used to create and access resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, containers (MongoDB collections), and items (MongoDB docs).
+Before you start building the application, let's look into the hierarchy of resources in Azure Cosmos DB. Azure Cosmos DB has a specific object model used to create and access resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, collections, and docs.
 
-:::image type="complex" source="media/quickstart-dotnet/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos D B hierarchy including accounts, databases, containers, and items.":::
-    Hierarchical diagram showing an Azure Cosmos D B account at the top. The account has two child database nodes. One of the database nodes includes two child container nodes. The other database node includes a single child container node. That single container node has three child item nodes.
+:::image type="complex" source="media/quickstart-dotnet/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos D B hierarchy including accounts, databases, collections, and docs.":::
+    Hierarchical diagram showing an Azure Cosmos D B account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
 :::image-end:::
 
-For more information about the hierarchy of different resources, see [working with databases, containers, and items in Azure Cosmos DB](../account-databases-containers-items.md).
+For more information about the hierarchy of different resources, see [working with databases, collections, and items in Azure Cosmos DB](../account-databases-containers-items.md).
 
 You'll use the following MongoDB classes to interact with these resources:
 
@@ -248,12 +256,12 @@ You'll use the following MongoDB classes to interact with these resources:
 
 - [Authenticate the client](#authenticate-the-client)
 - [Create a database](#create-a-database)
-- [Create a container](#create-a-container)
+- [Create a collection](#create-a-collection)
 - [Create an item](#create-an-item)
 - [Get an item](#get-an-item)
 - [Query items](#query-items)
 
-The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collect is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
+The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
 For this sample code, the collection will use the category as a logical partition key.
 
@@ -263,66 +271,94 @@ From the project directory, create an *index.js* file. In your editor, add requi
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="package_dependencies":::
 
-Define a new instance of the ``MongoClient,`` class using the constructor, and [``process.env.``](/dotnet/api/system.environment.getenvironmentvariable) to read the two environment variables you created earlier.
+Define a new instance of the ``MongoClient,`` class using the constructor, and [``process.env.``](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_env) to read the environment variable you created earlier.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="client_credentials" highlight="3-4":::
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="client_credentials":::
 
-For more information on different ways to create a ``CosmosClient`` instance, see [Get started with Azure Cosmos DB SQL API and .NET](how-to-dotnet-get-started.md#connect-to-azure-cosmos-db-sql-api).
+For more information on different ways to create a ``MongoClient`` instance, see [MongoDB NodeJS Driver Quick Start](https://www.npmjs.com/package/mongodb#quick-start).
+
+### Set up asynchronous operations
+
+In the ``index.js`` file, add the following code to support the asynchronous operations:
+
+```javascript
+async function main(){
+
+// The remaining operations are added here
+// in the main function
+
+}
+
+main()
+  .then(console.log)
+  .catch(console.error)
+  .finally(() => client.close());
+```
+    
+The following code snippets should be added into the *main* function in order to handle the async/await syntax.
+
+### Connect to the database
+
+Use the [``MongoClient.connect``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#connect) method to connect to your Cosmos DB API for MongoDB resource. This method will return a reference to the existing or newly created database.
+
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="connect_client":::
 
 ### Create a database
 
-Use the [``CosmosClient.CreateDatabaseIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
+Use the [``MongoClient.db``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#db) method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="new_database" highlight="3":::
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_database" :::
 
-For more information on creating a database, see [Create a database in Azure Cosmos DB SQL API using .NET](how-to-dotnet-create-database.md).
+### Create a collection
 
-### Create a container
+The [``Db.collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html#collection) creates a new collection if it doesn't already exist. This method will returns a reference to the collection.
 
-The [``Database.CreateContainerIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) will create a new container if it doesn't already exist. This method will also return a reference to the container.
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_collection":::
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="new_container" highlight="3-5":::
+### Create a doc
 
-For more information on creating a container, see [Create a container in Azure Cosmos DB SQL API using .NET](how-to-dotnet-create-container.md).
+Create a doc with the *product* properties for the adventureworks database:
+    * An _id property for the unique identifier of the product.
+    * A *category* property. This can be used as the logical partition key.
+    * A *name* property.
+    * An inventory *quantity* property.
+    * A *sale* property, indicating whether the product is on sale.
 
-### Create an item
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_doc":::
 
-The easiest way to create a new item in a container is to first build a C# [class](/dotnet/csharp/language-reference/keywords/class) or [record](/dotnet/csharp/language-reference/builtin-types/record) type with all of the members you want to serialize into JSON. In this example, the C# record has a unique identifier, a *category* field for the partition key, and extra *name*, *quantity*, and *sale* fields.
+Create an item in the collect by calling [``Collection.UpdateOne``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Collection.html#updateOne). In this example, we chose to *upsert* instead of *create* a new item in case you run this sample code more than once.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Product.cs" id="entity" highlight="3-4":::
+### Get a doc
 
-Create an item in the container by calling [``Container.UpsertItemAsync``](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync). In this example, we chose to *upsert* instead of *create* a new item in case you run this sample code more than once.
+In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblogs.microsoft.com/cosmosdb/point-reads-versus-queries/) operation by using both the unique identifier (``_id``) and partition key (``category``). 
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="new_item" highlight="3-4,12":::
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="read_doc" :::
 
-### Get an item
+### Query docs
 
-In Azure Cosmos DB, you can perform a point read operation by using both the unique identifier (``id``) and partition key fields. In the SDK, call [``Container.ReadItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.readitemasync) passing in both values to return a deserialized instance of your C# type.
+After you insert a doc, you can run a query to get all docs that match a specific filter. This example finds all docs that match a specific category: `gear-surf-surfboards`. Once the query is defined, call [``Collection.find``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Collection.html#find) to get a result. 
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="read_item" highlight="3-4":::
-
-### Query items
-
-After you insert an item, you can run a query to get all items that match a specific filter. This example runs the SQL query: ``SELECT * FROM todo t WHERE t.partitionKey = 'gear-surf-surfboards'``. This example uses the **QueryDefinition** type and a parameterized query expression for the partition key filter. Once the query is defined, call [``Container.GetItemQueryIterator<>``](/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator) to get a result iterator that will manage the pages of results. Then, use a combination of ``while`` and ``foreach`` loops to retrieve pages of results and then iterate over the individual items.
-
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="query_items" highlight="3,5,16":::
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="query_docs" :::
 
 ## Run the code
 
-This app creates an Azure Cosmos DB SQL API database and container. The example then creates an item and then reads the exact same item back. Finally, the example issues a query that should only return that single item. With each step, the example outputs metadata to the console about the steps it has performed.
+This app creates a MongoDB API database and collection. The example then creates a doc and then reads the exact same doc back. Finally, the example issues a query that should only return that single doc. With each step, the example outputs metadata to the console about the steps it has performed.
 
 To run the app, use a terminal to navigate to the application directory and run the application.
 
 ```dotnetcli
-dotnet run
+node index.js
 ```
 
 The output of the app should be similar to this example:
 
 ```output
 New database:   adventureworks
-New container:  products
-Created item:   68719518391     [gear-surf-surfboards]
+New collection: products
+Created doc:    68719518391     [gear-surf-surfboards]
+Read doc:       68719518391     [gear-surf-surfboards]
+1 filtered doc: 68719518391     [gear-surf-surfboards]
+done
 ```
 
 ## Clean up resources
@@ -366,7 +402,7 @@ Remove-AzResourceGroup @parameters
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB SQL API account, create a database, and create a container using the .NET SDK. You can now dive deeper into the SDK to import more data, perform complex queries, and manage your Azure Cosmos DB SQL API resources.
+In this quickstart, you learned how to create an Azure Cosmos DB MongoDB API account, create a database, and create a collection using the mongoDB driver. You can now dive deeper into the Cosmos DB MongoDB API to import more data, perform complex queries, and manage your Azure Cosmos DB MongoDB resources.
 
 > [!div class="nextstepaction"]
-> [Get started with Azure Cosmos DB SQL API and .NET](how-to-dotnet-get-started.md)
+> [Migrate MongoDB to Azure Cosmos DB API for MongoDB offline](/azure/dms/tutorial-mongodb-cosmos-db?toc=%2Fazure%2Fcosmos-db%2Ftoc.json%3Ftoc%3D%2Fazure%2Fcosmos-db%2Ftoc.json)
