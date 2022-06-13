@@ -17,7 +17,7 @@ Use Vision Studio to identify a face. This is a streamlined version of the face 
 
 ## Prerequisites
 
-* Sign in to Vision Studio with your Azure subscription and Cognitive Services resource. See the [Get started section](../overview-vision-studio.md#get-started-using-vision-studio) of the overview if you need help with this step.
+* Sign in to [Vision Studio](https://vision.cognitive.azure.com/) with your Azure subscription and Cognitive Services resource. See the [Get started section](../overview-vision-studio.md#get-started-using-vision-studio) of the overview if you need help with this step.
 * You'll need at least three images of a person's face: two or more to train the model and one to test it.
 
 ## Analyze an image
