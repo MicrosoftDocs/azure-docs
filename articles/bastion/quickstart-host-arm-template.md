@@ -58,7 +58,7 @@ You can use the following example values when creating this configuration, or yo
 | Subnets         | FrontEnd: 10.1.0.0/24 |
 
 ## Review the template
-This template deploys an Azure Bastion service to your virtual network. The template that this quickstart uses is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-bastion-nsg/).
+This template deploys an Azure Bastion service to your virtual network. The template that this quickstart uses is from [Azure Quickstart Templates: Azure Bastion as a Service](https://azure.microsoft.com/resources/templates/azure-bastion-nsg/).
 
 ### Parameters
 
