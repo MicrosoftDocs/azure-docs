@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Kantega SSO for Bitbucket'
-description: Learn how to configure single sign-on between Azure Active Directory and Kantega SSO for Bitbucket.
+title: 'Tutorial: Integrate Azure Active Directory with Kantega SSO for Bitbucket | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Bitbucket using Kantega SSO.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,29 +9,35 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/28/2021
+ms.date: 04/04/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure AD SSO integration with Kantega SSO for Bitbucket
+# Tutorial: Integrate Azure Active Directory with Kantega SSO for Bitbucket
 
-In this tutorial, you'll learn how to integrate Kantega SSO for Bitbucket with Azure Active Directory (Azure AD). When you integrate Kantega SSO for Bitbucket with Azure AD, you can:
+This tutorial will walk you through the steps of configuring single sign-on for your Azure AD users in Bitbucket. To achieve this, we will be using the Kantega SSO app. Using this configuration, you will be able to:
 
-* Control in Azure AD who has access to Kantega SSO for Bitbucket.
-* Enable your users to be automatically signed-in to Kantega SSO for Bitbucket with their Azure AD accounts.
+* Control which users have Bitbucket access from Azure AD.
+* Automatically sign in to Bitbucket when you have an active Azure AD session.
 * Manage your accounts in one central location - the Azure portal.
+
+Read more on the official [Kantega SSO documentation](https://kantega-sso.atlassian.net/wiki/spaces/KSE/pages/895844483/Azure+AD).
 
 ## Prerequisites
 
-To configure Azure AD integration with Kantega SSO for Bitbucket, you need the following items:
+To follow this tutorial, you need:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
-* Kantega SSO for Bitbucket single sign-on enabled subscription.
+* An active Azure AD subscription. You can set up a [free account](https://azure.microsoft.com/free/).
+* A Bitbucket Data Center instance. You can [try it for free](https://www.atlassian.com/software/bitbucket/download/data-center).
+* Kantega SSO app for Bitbucket from Atlassian Marketplace. You can [try it for free](https://marketplace.atlassian.com/apps/1213019/k-sso-saml-kerberos-openid-connect-oidc-oauth-for-bitbucket?hosting=datacenter&tab=overview).
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you will configure and test single sign-on with Azure AD in a Bitbucket test environment.
 
-* Kantega SSO for Bitbucket supports **SP and IDP** initiated SSO.
+* Kantega SSO supports **SAML and OIDC**.
+* Kantega SSO supports **SP and IDP** initiated SSO.
+* Kantega SSO supports Automated user provisioning and deprovisioning (recommended).
+* Kantega SSO supports Just-in-Time user provisioning.
 
 ## Add Kantega SSO for Bitbucket from the gallery
 
@@ -40,9 +46,9 @@ To configure the integration of Kantega SSO for Bitbucket into Azure AD, you nee
 1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. To add a new application, select **New application**.
 1. In the **Add from the gallery** section, type **Kantega SSO for Bitbucket** in the search box.
-1. Select **Kantega SSO for Bitbucket** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Select **Kantega SSO for Bitbucket** from the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD SSO for Kantega SSO for Bitbucket
 
@@ -51,10 +57,10 @@ Configure and test Azure AD SSO with Kantega SSO for Bitbucket using a test user
 To configure and test Azure AD SSO with Kantega SSO for Bitbucket, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Kantega SSO for Bitbucket SSO](#configure-kantega-sso-for-bitbucket-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Kantega SSO for Bitbucket test user](#create-kantega-sso-for-bitbucket-test-user)** - to have a counterpart of B.Simon in Kantega SSO for Bitbucket that is linked to the Azure AD representation of user.
+	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Kantega SSO for Bitbucket SSO](#configure-kantega-sso-for-Bitbucket-sso)** - to configure the single sign-on settings on the application side.
+	1. **[Create Kantega SSO for Bitbucket test user](#create-kantega-sso-for-Bitbucket-test-user)** - to have a counterpart of B.Simon in Kantega SSO for Bitbucket linked to the Azure AD representation of the user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -67,29 +73,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+   a. In the **Identifier** text box, type a URL using the following pattern:
+   `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<UNIQUE_ID>/login`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+   b. In the **Reply URL** text box, type a URL using the following pattern:
+   `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<UNIQUE_ID>/login`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+   In the **Sign-on URL** text box, type a URL using the following pattern:
+   `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<UNIQUE_ID>/login`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. These values are received during the configuration of Bitbucket plugin which is explained later in the tutorial.
+   > [!NOTE]
+   > These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. These values are received during the configuration of the Bitbucket plugin.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+   ![The Certificate download link](common/metadataxml.png)
 
 7. On the **Set up Kantega SSO for Bitbucket** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+   ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -98,10 +104,10 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+	1. In the **Name** field, enter `B.Simon`.
+	1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+	1. Select the **Show password** check box, and then write down the displayed value in the **Password** box.
+	1. Click **Create**.
 
 ### Assign the Azure AD test user
 
@@ -112,147 +118,36 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. If you expect a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see the "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Kantega SSO for Bitbucket SSO
 
-1. In a different web browser window, sign in to your Bitbucket admin portal as an administrator.
+Kantega SSO can be configured to use either SAML or OIDC as SSO protocol. Choose one of the following guides:
 
-1. Click cog and click the **Find new add-ons**.
-
-	![Screenshot shows BitBucket Administration with Find new add-ons selected.](./media/kantegassoforbitbucket-tutorial/admin.png)
-
-1. Search **Kantega SSO for Bitbucket SAML & Kerberos** and click **Install** button to install the new SAML plugin.
-
-	![Screenshot shows Kantega SSO for Bitbucket SAML & Kerberos with the option to install.](./media/kantegassoforbitbucket-tutorial/menu.png)
-
-1. The plugin installation starts.
-
-	![Screenshot shows Installing progress.](./media/kantegassoforbitbucket-tutorial/installation.png)
-
-1. Once the installation is complete. Click **Close**.
-
-	![Screenshot shows the Close button.](./media/kantegassoforbitbucket-tutorial/license.png)
-
-1. Click **Manage**.
-
-	![Screenshot shows the Manage button.](./media/kantegassoforbitbucket-tutorial/integration.png)
-
-1. Click **Configure** to configure the new plugin.
-
-	![Screenshot shows User-installed add-ons with Configure selected.](./media/kantegassoforbitbucket-tutorial/profile.png)
-
-1. In the **SAML** section. Select **Azure Active Directory (Azure AD)** from the **Add identity provider** dropdown.
-
-	![Screenshot shows Kantega Single Sign-On with Azure A D selected as the identity provider.](./media/kantegassoforbitbucket-tutorial/azure.png)
-
-1. Select subscription level as **Basic**.
-
-	![Screenshot shows Prepare Azure A D with Basic selected.](./media/kantegassoforbitbucket-tutorial/subscription.png)
-
-1. On the **App properties** section, perform following steps:
-
-	![Screenshot shows the App properties section where you can provide the information in this step.](./media/kantegassoforbitbucket-tutorial/properties.png)
-
-	a. Copy the **App ID URI** value and use it as **Identifier, Reply URL, and Sign-On URL** on the **Basic SAML Configuration** section in Azure portal.
-
-	b. Click **Next**.
-
-1. On the **Metadata import** section, perform following steps:
-
-	![Screenshot shows the Metadata import section where you can browse to a metadata file.](./media/kantegassoforbitbucket-tutorial/metadata.png)
-
-	a. Select **Metadata file on my computer**, and upload metadata file, which you have downloaded from Azure portal.
-
-	b. Click **Next**.
-
-1. On the **Name and SSO location** section, perform following steps:
-
-	![Screenshot shows the Name and S S O location where Azure A D is the identity provider name.](./media/kantegassoforbitbucket-tutorial/location.png)
-
-	a. Add Name of the Identity Provider in **Identity provider name** textbox (e.g Azure AD).
-
-	b. Click **Next**.
-
-1. Verify the Signing certificate and click **Next**.
-
-	![Screenshot shows Signature verification.](./media/kantegassoforbitbucket-tutorial/certificate.png)
-
-1. On the **Bitbucket user accounts** section, perform following steps:
-
-	![Screenshot shows BitBucket user accounts where you have the option to create users.](./media/kantegassoforbitbucket-tutorial/accounts.png)
-
-	a. Select **Create users in Bitbucket's internal Directory if needed** and enter the appropriate name of the group for users (can be multiple no. of groups separated by comma).
-
-	b. Click **Next**.
-
-1. Click **Finish**.
-
-	![Screenshot shows the Summary page.](./media/kantegassoforbitbucket-tutorial/groups.png)
-
-1. On the **Known domains for Azure AD** section, perform following steps:
-
-	![Screenshot shows the Known domains for Azure A D where you can perform these steps.](./media/kantegassoforbitbucket-tutorial/domain.png)
-
-	a. Select **Known domains** from the left panel of the page.
-
-	b. Enter domain name in the **Known domains** textbox.
-
-	c. Click **Save**.
+* [Kantega SSO setup guide for Azure AD with SAML](https://kantega-sso.atlassian.net/wiki/spaces/KSE/pages/896696394/Azure+AD+SAML)
+* [Kantega SSO setup guide for Azure AD with OIDC](https://kantega-sso.atlassian.net/wiki/spaces/KSE/pages/896598077/Azure+AD+OIDC)
 
 ### Create Kantega SSO for Bitbucket test user
 
-To enable Azure AD users to sign in to Bitbucket, they must be provisioned into Bitbucket. In case of Kantega SSO for Bitbucket, provisioning is a manual task.
-
-**To provision a user account, perform the following steps:**
-
-1. Sign in to your Bitbucket company site as an administrator.
-
-1. Click on settings icon.
-
-    ![Screenshot shows the Settings icon.](./media/kantegassoforbitbucket-tutorial/user.png) 
-
-1. Under **Administration** tab section, click **Users**.
-
-	![Screenshot shows BitBucket Administration with Users selected. ](./media/kantegassoforbitbucket-tutorial/add-user.png)
-
-1. Click **Create user**.
-
-	![Screenshot shows BitBucket Administration with Create user selected.](./media/kantegassoforbitbucket-tutorial/create-user.png)	 
-
-1. On the **Create User** dialog page, perform the following steps:
-
-	![Screenshot shows the Create user dialog box where you can perform these steps.](./media/kantegassoforbitbucket-tutorial/details.png) 
-
-	a. In the **Username** textbox, type the email of user like Brittasimon@contoso.com.
-
-	b. In the **Full Name** textbox, type full name of the user like Britta Simon.
-
-	c. In the **Email address** textbox, type the email address of user like Brittasimon@contoso.com.
-
-	d. In the **Password** textbox, type the password of user.
-
-	e. In the **Confirm Password** textbox, reenter the password of user.
-
-	f. Click **Create user**.
+To enable Azure AD users to sign in to Kantega SSO for Bitbucket, you must provision them. The application supports Just-in-Time user provisioning, automatic user provisioning using SCIM, or you can set up users manually. Read more about the [different provisioning options](https://kantega-sso.atlassian.net/wiki/spaces/KSE/pages/1769694/User+provisioning).
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with the following options.
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Kantega SSO for Bitbucket Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in the Azure portal. This will redirect to Kantega SSO for Bitbucket Sign-on URL, where you can initiate the login flow.
 
-* Go to Kantega SSO for Bitbucket Sign-on URL directly and initiate the login flow from there.
+* Go to Kantega SSO for Bitbucket Sign-on URL directly and initiate the login flow.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Kantega SSO for Bitbucket for which you set up the SSO. 
+* Click on **Test this application** in the Azure portal, and you should be automatically signed in to the Kantega SSO for Bitbucket, for which you set up the SSO.
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Kantega SSO for Bitbucket tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Kantega SSO for Bitbucket for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Kantega SSO for Bitbucket tile in the My Apps, you will be redirected to the application sign-on page for initiating the login flow if configured in SP mode. If configured in IDP mode, you should be automatically signed in to the Kantega SSO for Bitbucket, for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Kantega SSO for Bitbucket you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
+Once you configure Kantega SSO for Bitbucket, you can enforce session control, which protects the exfiltration and infiltration of your organization's sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
