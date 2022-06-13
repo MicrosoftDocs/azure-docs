@@ -126,14 +126,16 @@ Now you can peer the hub and spoke virtual networks.
 
 1. Select the **fw-manager-rg** resource group, then select the **Vwan-01** virtual WAN.
 2. Under **Connectivity**, select **Virtual network connections**.
+
+    :::image type="content" source="./media/secure-cloud-network/7b-connect-the-hub-and-spoke.png" alt-text="Add VNET connections." lightbox="./media/secure-cloud-network/7b-connect-the-hub-and-spoke.png":::
+
 3. Select **Add connection**.
 4. For **Connection name**, type **hub-spoke-01**.
 5. For **Hubs**, select **Hub-01**.
 6. For **Resource group**, select **fw-manager-rg**.
 7. For **Virtual network**, select **Spoke-01**.
 8. Select **Create**.
-
-Repeat to connect the **Spoke-02** virtual network: connection name - **hub-spoke-02**
+9. Repeat to connect the **Spoke-02** virtual network: connection name - **hub-spoke-02**
 
 ## Deploy the servers
 
