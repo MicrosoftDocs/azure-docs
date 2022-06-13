@@ -12,26 +12,26 @@ ms.date: 06/09/2022
 
 > [!NOTE]
 >
-> Azure SignalR Service only supports using REST API to manage clients connected using ASP.NET Core SignalR. Clients connected using ASP.NET SignalR use a different data protocol and is now not supported.
+> Azure SignalR Service only supports using REST API to manage clients connected using ASP.NET Core SignalR. Clients connected using ASP.NET SignalR use a different data protocol that is not currently supported.
 
-On top of classical client-server pattern, Azure SignalR Service provides a set of REST APIs, so that you can easily integrate real-time functionality into your server-less architecture.
+On top of the classical client-server pattern, Azure SignalR Service provides a set of REST APIs so that you can easily integrate real-time functionality into your server-less architecture.
 
 <a name="serverless"></a>
 
 ## Typical Server-less Architecture with Azure Functions
 
-The following diagram shows a typical server-less architecture of using Azure SignalR Service with Azure Functions.
+The following diagram shows a typical server-less architecture using Azure SignalR Service with Azure Functions.
 
-:::image type="content" source="./media/signalr-reference-data-plane-rest-api/serverless-arch.png" alt-text="A typical serverless architecture for Azure SignalR service":::
+:::image type="content" source="./media/signalr-reference-data-plane-rest-api/serverless-arch.png" alt-text="Diagram of a typical serverless architecture for Azure SignalR service":::
 
-- `negotiate` function will return negotiation response and redirect all clients to Azure SignalR Service.
-- `broadcast` function will call Azure SignalR Service's REST API. Then SignalR Service will broadcast the message to all connected clients.
+- `negotiate` function returns a negotiation response and redirects all clients to SignalR Service.
+- `broadcast` function calls SignalR Service's REST API. Then SignalR Service will broadcast the message to all connected clients.
 
-In server-less architecture, clients still have persistent connections to Azure SignalR Service.
+In a server-less architecture, clients still have persistent connections to the SignalR Service.
 Since there's no application server to handle traffic, clients are in `LISTEN` mode, which means they can only receive messages but can't send messages.
-SignalR Service will disconnect any client who sends messages because it's an invalid operation.
+SignalR Service will disconnect any client that sends messages because it's an invalid operation.
 
-You can find a complete sample of using Azure SignalR Service with Azure Functions at [here](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/RealtimeSignIn).
+You can find a complete sample of using SignalR Service with Azure Functions at [here](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/RealtimeSignIn).
 
 ## API
 
@@ -40,7 +40,7 @@ The following table shows all versions of REST API we have for now. You can also
 API Version | Status | Port | Doc | Spec 
 ---|---|---|---|---
 `1.0` | Latest | Standard | [Doc](./swagger/v1.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1.json)
-`1.0-preview` | Obsoleted | Standard | [Doc](./swagger/v1-preview.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1-preview.json)
+`1.0-preview` | Obsolete| Standard | [Doc](./swagger/v1-preview.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1-preview.json)
 
 The latest available APIs are listed as following.
 
@@ -68,40 +68,40 @@ The latest available APIs are listed as following.
 
 ### Authenticate via Azure SignalR Service AccessKey
 
-In each HTTP request, an authorization header with a [JSON Web Token (JWT)](https://en.wikipedia.org/wiki/JSON_Web_Token) is required to authenticate with Azure SignalR Service.
+In each HTTP request, an authorization header with a [JSON Web Token (JWT)](https://en.wikipedia.org/wiki/JSON_Web_Token) is required to authenticate with SignalR Service.
 
 <a name="signing"></a>
 #### Signing Algorithm and Signature
 
 `HS256`, namely HMAC-SHA256, is used as the signing algorithm.
 
-You should use the `AccessKey` in Azure SignalR Service instance's connection string to sign the generated JWT token.
+Use the `AccessKey` in Azure SignalR Service instance's connection string to sign the generated JWT token.
 
 #### Claims
 
-Below claims are required to be included in the JWT token.
+The following claims are required to be included in the JWT token.
 
 Claim Type | Is Required | Description
 ---|---|---
-`aud` | true | Should be the **SAME** as your HTTP request url, trailing slash and query parameters not included. For example, a broadcast request's audience should look like: `https://example.service.signalr.net/api/v1/hubs/myhub`.
-`exp` | true | Epoch time when this token will be expired.
+`aud` | true | Needs to be the same as your HTTP request url, trailing slash and query parameters not included. For example, a broadcast request's audience should look like: `https://example.service.signalr.net/api/v1/hubs/myhub`.
+`exp` | true | Epoch time when this token expires.
 
 ### Authenticate via Azure Active Directory Token (Azure AD Token)
 
-Like using `AccessKey`, a [JSON Web Token (JWT)](https://en.wikipedia.org/wiki/JSON_Web_Token) is also required to authenticate the HTTP request. 
+Similar to authenticating using `AccessKey`, when authenticating using Azure AD Token, a [JSON Web Token (JWT)](https://en.wikipedia.org/wiki/JSON_Web_Token) is also required to authenticate the HTTP request. 
 
-**The difference is**, in this scenario, JWT Token is generated by Azure Active Directory. 
+The difference is, in this scenario the JWT Token is generated by Azure Active Directory. 
 
 [Learn how to generate Azure AD Tokens](/azure/active-directory/develop/reference-v2-libraries)
 
-You could also use from **Role Based Access Control (RBAC)** to authorize the request from your client/server to Azure SignalR Service.
+You could also use **Role Based Access Control (RBAC)** to authorize the request from your client/server to SignalR Service.
 
 [Learn how to configure Role-based access control roles for your resource](/azure/azure-signalr/authorize-access-azure-active-directory)
 
 ### Implement Negotiate Endpoint
 
 As shown in the [architecture section](#serverless), you should implement a `negotiate` function that returns a redirect negotiation response so that client can connect to the service.
-A typical negotiation response looks like as follows:
+A typical negotiation response looks as follows:
 
 ```json
 {
@@ -120,24 +120,24 @@ Read more about redirecting client to Azure SignalR Service at [here](./signalr-
 
 ### User-related REST API
 
-In order to call user-related REST API, each of your clients should identify itself to Azure SignalR Service.
+In order to call user-related REST API, each of your clients should identify itself to SignalR Service.
 Otherwise SignalR Service can't find target connections from a given user ID.
 
-Such scenario can be achieved by including a `nameid` claim in each client's JWT token when they're connecting to Azure SignalR Service.
+Client identification can be achieved by including a `nameid` claim in each client's JWT token when they're connecting to SignalR Service.
 Then SignalR Service will use the value of `nameid` claim as the user ID of each client connection.
 
 ### Sample
 
-You can find a complete console app to demonstrate how to manually build REST API HTTP request in Azure SignalR Service [here](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless).
+You can find a complete console app to demonstrate how to manually build a REST API HTTP request in SignalR Service [here](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless).
 
-You can also use [Microsoft.Azure.SignalR.Management](<https://www.nuget.org/packages/Microsoft.Azure.SignalR.Management>) to publish messages to Azure SignalR Service using the similar interfaces of `IHubContext`. Samples can be found [here](<https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Management>). For more information, see [How to use Management SDK](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md).
+You can also use [Microsoft.Azure.SignalR.Management](<https://www.nuget.org/packages/Microsoft.Azure.SignalR.Management>) to publish messages to SignalR Service using the similar interfaces of `IHubContext`. Samples can be found [here](<https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Management>). For more information, see [How to use Management SDK](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md).
 
 
 ## Limitation
 
-Currently, we have following limitation for REST API request:
+Currently, we have the following limitation for REST API requests:
 
-* Header size, we only support up to 16 KB.
-* Body size, we only support up to 1 MB.
+* Header size is a maximum of 16 KB.
+* Body size is a maximum of 1 MB.
 
 If you want to send message larger than 1 MB, use the Management SDK with `persistent` mode.

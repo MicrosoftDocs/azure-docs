@@ -97,8 +97,8 @@ Broadcast a message to all clients within the target group.
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| group | path | Target group name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
+| hub | path | Target hub name, which must start with alphabetic characters and contain only alpha-numeric characters or underscore. | Yes | string |
+| group | path | Target group name, which must start with alphabetic characters and contain only alpha-numeric characters or underscore. | Yes | string |
 | message | body |  | Yes | [Message](#message) |
 
 ##### Responses
@@ -120,7 +120,7 @@ Broadcast a message to all clients within the target groups.
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| groupList | path | Comma-separated list of group names. Each group name should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
+| groupList | path | Comma-separated list of group names. Each group name must start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | message | body |  | Yes | [Message](#message) |
 
 ##### Responses
