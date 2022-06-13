@@ -136,6 +136,22 @@ If using Microsoft managed shipping, follow these steps.
 
 [!INCLUDE [data-box-shipping-self-managed](../../includes/data-box-shipping-self-managed.md)]
 
+::: zone pivot="americas"
+
+### Shipping in Brazil
+
+To schedule a device return in Brazil, send an email to [adbops@microsoft.com](mailto:adbops@microsoft.com) with the following information:
+
+```
+Subject: Request Azure Data Box Disk drop-off for order: <ordername>
+
+- Order name
+- Contact name of the person who will drop off the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.) 
+- Inbound Nota Fiscal (A copy of the inbound Nota Fiscal will be required at drop-off.)   
+```
+
+::: zone-end
+
 ## Erasure of data from Data Box
 
 Once the device reaches Azure datacenter, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
