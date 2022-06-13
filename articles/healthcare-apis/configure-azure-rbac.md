@@ -4,7 +4,7 @@ description: This article describes how to configure Azure RBAC role for FHIR.
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 05/03/2022
+ms.date: 06/06/2022
 ms.author: mikaelw
 ---
 
@@ -68,3 +68,5 @@ In this article, you've learned how to assign Azure roles for the FHIR service a
 - [Access using Postman](./fhir/use-postman.md)
 - [Access using the REST Client](./fhir/using-rest-client.md)
 - [Access using cURL](./fhir/using-curl.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

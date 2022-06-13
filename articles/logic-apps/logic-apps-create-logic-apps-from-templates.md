@@ -10,6 +10,8 @@ ms.date: 10/15/2017
 
 # Create logic app workflows from prebuilt templates
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 To get you started creating workflows more quickly, 
 Logic Apps provides templates, which are prebuilt 
 logic apps that follow commonly used patterns. 

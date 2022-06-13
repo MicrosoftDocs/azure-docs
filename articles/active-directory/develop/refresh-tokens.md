@@ -1,6 +1,5 @@
 ---
-title: Microsoft identity platform refresh tokens | Azure
-titleSuffix: Microsoft identity platform
+title: Microsoft identity platform refresh tokens
 description: Learn about refresh tokens emitted by the Azure AD.
 services: active-directory
 author: SHERMANOUKO

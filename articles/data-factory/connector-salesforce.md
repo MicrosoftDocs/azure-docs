@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/26/2022
+ms.date: 06/10/2022
 ---
 
 # Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics
@@ -34,6 +34,9 @@ Specifically, this Salesforce connector supports:
 
 - Salesforce Developer, Professional, Enterprise, or Unlimited editions.
 - Copying data from and to Salesforce production, sandbox, and custom domain.
+
+>[!NOTE]
+>This function supports copy of any schema from the above mentioned Salesforce environments, including the [Nonprofit Success Pack](https://www.salesforce.org/products/nonprofit-success-pack/) (NPSP). 
 
 The Salesforce connector is built on top of the Salesforce REST/Bulk API. When copying data from Salesforce, the connector automatically chooses between REST and Bulk APIs based on the data size – when the result set is large, Bulk API is used for better performance; You can explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service. When copying data to Salesforce, the connector uses BULK API v1.
 

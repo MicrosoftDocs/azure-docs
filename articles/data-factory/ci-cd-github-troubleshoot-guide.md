@@ -178,7 +178,7 @@ While publishing ADF resources, the azure pipeline triggers twice or more instea
 
 #### Cause
  
-Azure DevOps has the 20 MB Rest API limit. When the ARM template exceeds this size, ADF internally splits the template file into multiple files with linked templates to solve this issue. As a side effect, this split could result in customer's triggers being run more than once.
+Azure DevOps has the 20 MB REST API limit. When the ARM template exceeds this size, ADF internally splits the template file into multiple files with linked templates to solve this issue. As a side effect, this split could result in customer's triggers being run more than once.
 
 #### Resolution
 

@@ -3,7 +3,7 @@ title: Create and use a custom provider
 description: This tutorial shows how to create and use an Azure Custom Provider. Use custom providers to change workflows on Azure.
 author: jjbfour
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 05/06/2022
 ms.author: jobreen 
 ms.custom: devx-track-azurecli
 ---
@@ -70,7 +70,7 @@ You can deploy the previous custom provider by using an Azure Resource Manager t
 
 ```JSON
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
         {
@@ -101,11 +101,11 @@ You can deploy the previous custom provider by using an Azure Resource Manager t
 
 ## Use custom actions and resources
 
-After you create a custom provider, you can use the new Azure APIs. The following tabs explain how to call and use a custom provider.
+After you create a custom provider, you can use the new Azure APIs. The following sections explain how to call and use a custom provider.
 
 ### Custom actions
 
-# [Azure CLI](#tab/azure-cli)
+#### Azure CLI
 
 > [!NOTE]
 > You must replace the `{subscriptionId}` and `{resourceGroupName}` placeholders with the subscription and resource group of where you deployed the custom provider.
@@ -121,15 +121,9 @@ az resource invoke-action --action myCustomAction \
 
 Parameter | Required | Description
 ---|---|---
-*action* | Yes | The name of the action defined in the custom provider
-*ids* | Yes | The resource ID of the custom provider
-*request-body* | No | The request body that will be sent to the endpoint
-
-# [Template](#tab/template)
-
-None.
-
----
+*action* | Yes | The name of the action defined in the custom provider.
+*ids* | Yes | The resource ID of the custom provider.
+*request-body* | No | The request body that will be sent to the endpoint.
 
 ### Custom resources
 
@@ -184,7 +178,7 @@ A sample Resource Manager template:
 
 ```JSON
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
         {
@@ -215,5 +209,5 @@ Parameter | Required | Description
 
 In this article, you learned about custom providers. For more information, see:
 
-- [How to: Adding custom actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
-- [How to: Adding custom resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)
+- [How to: Add custom actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
+- [How to: Add custom resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)

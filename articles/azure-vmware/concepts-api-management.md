@@ -2,6 +2,7 @@
 title: Concepts - API Management 
 description: Learn how API Management protects APIs running on Azure VMware Solution virtual machines (VMs)
 ms.topic: conceptual
+ms.service: azure-vmware
 ms.date: 04/28/2021
 ---
 

@@ -155,7 +155,7 @@ Question answering can process semi-structured support web pages, such as web ar
 
 ## Import and export knowledge base
 
-**TSV and XLS files**, from exported knowledge bases, can only be used by importing the files from the **Settings** page in the language studio. They cannot be used as data sources during knowledge base creation or from the **+ Add file** or **+ Add URL** feature on the **Settings** page.
+**TSV and XLS files**, from exported knowledge bases, can only be used by importing the files from the **Settings** page in Language Studio. They cannot be used as data sources during knowledge base creation or from the **+ Add file** or **+ Add URL** feature on the **Settings** page.
 
 When you import the knowledge base through these **TSV and XLS files**, the question answer pairs get added to the editorial source and not the sources from which the question and answers were extracted in the exported knowledge base.
 

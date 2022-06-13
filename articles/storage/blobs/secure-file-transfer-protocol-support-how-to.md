@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/04/2022
+ms.date: 06/03/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -34,7 +34,7 @@ To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer 
 
 ## Enable SFTP support
 
-This section shows you how to enable SFTP support for an existing storage account. To view an Azure Resource Manager template that enables SFTP support as part of creating the account, see [Create an Azure Storage Account and Blob Container accessible using SFTP protocol on Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-sftp).
+This section shows you how to enable SFTP support for an existing storage account. To view an Azure Resource Manager template that enables SFTP support as part of creating the account, see [Create an Azure Storage Account and Blob Container accessible using SFTP protocol on Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-sftp). To view the Local User REST APIs and .NET references, see [Local Users](/rest/api/storagerp/local-users) and [LocalUser Class](/dotnet/api/microsoft.azure.management.storage.models.localuser).
 
 ### [Portal](#tab/azure-portal)
 
@@ -63,6 +63,11 @@ $storageAccountName = "<storage-account>"
 
 Set-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName -EnableSftp $true 
 ```
+   > [!NOTE]
+   > The `-EnableSftp` parameter is currently only available in preview versions of Azure Powershell. Use the command below to install the preview version:
+   > ```
+   > Install-Module -Name Az.Storage -RequiredVersion 4.1.2-preview -AllowPrerelease
+   > ```
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -99,9 +104,9 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    > [!IMPORTANT]
    > While you can enable both forms of authentication, SFTP clients can connect by using only one of them. Multifactor authentication, whereby both a valid password and a valid public and private key pair are required for successful authentication is not supported.
 
-   If you select **Secure with a password**, then your password will appear when you've completed all of the steps in the **Add local user** configuration pane.
+   If you select **SSH Password**, then your password will appear when you've completed all of the steps in the **Add local user** configuration pane.
 
-   If you select **Secure with SSH public key**, then select **Add key source** to specify a key source. 
+   If you select **SSH Key pair**, then select **Public key source** to specify a key source. 
 
    > [!div class="mx-imgBorder"]
    > ![Local user configuration pane](./media/secure-file-transfer-protocol-support-how-to/add-local-user-config-page.png)
@@ -160,7 +165,7 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
 
    If you want to use a password to authenticate the local user, you can generate one after the local user is created.  
 
-3. If want to use an SSH key, create a public key object by using the **New-AzStorageLocalUserSshPublicKey** command. Set the `-Key` parameter to a string that contains the key type and public key. In the following example, the key type is `ssh-rsa` and the key is `ssh-rsa a2V5...`.
+3. If you want to use an SSH key, create a public key object by using the **New-AzStorageLocalUserSshPublicKey** command. Set the `-Key` parameter to a string that contains the key type and public key. In the following example, the key type is `ssh-rsa` and the key is `ssh-rsa a2V5...`.
 
    ```powershell
    $sshkey = "ssh-rsa a2V5..."

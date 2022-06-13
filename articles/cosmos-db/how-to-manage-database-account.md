@@ -1,12 +1,13 @@
 ---
 title: Learn how to manage database accounts in Azure Cosmos DB
 description: Learn how to manage Azure Cosmos DB resources by using the Azure portal, PowerShell, CLI, and Azure Resource Manager templates
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/13/2021
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Manage an Azure Cosmos account using the Azure portal

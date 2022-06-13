@@ -45,9 +45,14 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure TAP App Security to support provisioning with Azure AD
 
-Contact [TAP App Security support](mailto:support@tapappsecurity.com) in order to obtain a SCIM Token.
-
-
+1. Log in to [TAP App Security back-end control panel](https://app.tapappsecurity.com/).
+1. Navigate to **Single Sign On > Active Directory**.
+1. Click on the **Integrate Active Directory app** button. Then enter the domain of your organization and click **Save** button.
+	[![Screenshot on how to add domain.](media/tap-app-security-provisioning-tutorial/add-domain.png)](media/tap-app-security-provisioning-tutorial/add-domain.png#lightbox)
+1. After entering the domain, a new line in the table appears showing domain name and its status as **initialize**. Click on the gear icon to reveal technical data about TAP app Security server and to complete initialization. 
+	[![Screenshot showing initialize.](media/tap-app-security-provisioning-tutorial/initialize.png)](media/tap-app-security-provisioning-tutorial/initialize.png#lightbox)
+1. Technical data about TAP App Security servers is revealed.You can now copy the **Tenant Url** and **Authorization Token** from this page to be used later on while setting up provisioning in Azure AD.
+	[![Screenshot showing domain details.](media/tap-app-security-provisioning-tutorial/domain-details.png)](media/tap-app-security-provisioning-tutorial/domain-details.png#lightbox)
 ## Step 3. Add TAP App Security from the Azure AD application gallery
 
 Add TAP App Security from the Azure AD application gallery to start managing provisioning to TAP App Security. If you have previously setup TAP App Security for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
