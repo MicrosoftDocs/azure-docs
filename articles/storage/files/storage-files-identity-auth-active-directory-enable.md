@@ -33,7 +33,7 @@ If you're new to Azure file shares, we recommend reading our [planning guide](st
 - Does not support authentication against computer accounts created in AD DS.
 - Does not support authentication against Network File System (NFS) file shares.
 
-When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines can mount Azure file shares using your existing AD DS credentials. This capability can be enabled with an AD DS environment hosted either in on-prem machines or hosted in Azure.
+When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines can mount Azure file shares using your existing AD DS credentials. This capability can be enabled with an AD DS environment hosted either in on-premises machines or hosted in Azure.
 
 ## Videos
 
@@ -74,7 +74,7 @@ Azure Files authentication with AD DS is available in [all Azure Public, China a
 
 If you plan to enable any networking configurations on your file share, we recommend you read the [networking considerations](./storage-files-networking-overview.md) article and complete the related configuration before enabling AD DS authentication.
 
-Enabling AD DS authentication for your Azure file shares allows you to authenticate to your Azure file shares with your on-prem AD DS credentials. Further, it allows you to better manage your permissions to allow granular access control. Doing this requires synching identities from on-prem AD DS to Azure AD with AD Connect. You control the share level access with identities synced to Azure AD while managing file/share level access with on-prem AD DS credentials.
+Enabling AD DS authentication for your Azure file shares allows you to authenticate to your Azure file shares with your on-premises AD DS credentials. Further, it allows you to better manage your permissions to allow granular access control. Doing this requires synching identities from on-premises AD DS to Azure AD with AD Connect. You control the share level access with identities synced to Azure AD while managing file/share level access with on-premises AD DS credentials.
 
 Next, follow the steps below to set up Azure Files for AD DS Authentication: 
 
@@ -92,7 +92,7 @@ The following diagram illustrates the end-to-end workflow for enabling Azure AD 
 
 ![Files AD workflow diagram](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
-Identities used to access Azure file shares must be synced to Azure AD to enforce share-level file permissions through the [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) model. Alternatively, you can use a default share-level permission. [Windows-style DACLs](/previous-versions/technet-magazine/cc161041(v=msdn.10)) on files/directories carried over from existing file servers will be preserved and enforced. This offers seamless integration with your enterprise AD DS environment. As you replace on-prem file servers with Azure file shares, existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
+Identities used to access Azure file shares must be synced to Azure AD to enforce share-level file permissions through the [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) model. Alternatively, you can use a default share-level permission. [Windows-style DACLs](/previous-versions/technet-magazine/cc161041(v=msdn.10)) on files/directories carried over from existing file servers will be preserved and enforced. This offers seamless integration with your enterprise AD DS environment. As you replace on-premises file servers with Azure file shares, existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
 
 ## Next steps
 
