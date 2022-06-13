@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Investigate sensor detections in an inventory
 
-The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and full visibility into the devices on your network. 
+The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and a complete view of the devices on your network. 
 
 :::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="Screenshot that shows the Device inventory main screen.":::
 
@@ -36,7 +36,7 @@ The following columns are available for each device.
 | Name | Description |
 |--|--|
 | **Description** | A description of the device |
-| **Discovered** | When this device was first seen in the network. |
+| **Discovered** | When this device was first seen on the network. |
 | **Firmware version** | The device's firmware, if detected. |
 | **FQDN** | The device's FQDN value |
 | **FQDN lookup time** | The device's FQDN lookup time |
@@ -217,7 +217,7 @@ You can deploy the script once or schedule ongoing queries by using standard aut
 
 Information learned on each endpoint should be imported to the sensor.
 
-Files generated from the queries can be placed in one folder that you can access from sensors. Use standard, automated methods and tools to move the files from each Windows endpoint to the location where you'll be importing them to the sensor.
+Files generated from the queries can be placed in one folder that you can access from the sensors. Use standard, automated methods and tools to move the files from each Windows endpoint to the location where you'll be importing them to the sensor.
 
 Don't update file names.
 

@@ -77,7 +77,7 @@ The following additional zone information is available:
 
 - **Connectivity status**: If a sensor is disconnected, connect from the sensor. See [Connect sensors to the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console). 
 
-- **Update progress**: If the connected sensor is being upgraded it's upgrade statuses will appear. During upgrade, the on-premises management console doesn't receive device information from the sensor. 
+- **Update progress**: If the connected sensor is being upgraded, upgrade statuses will appear. During the upgrade, the on-premises management console doesn't receive device information from the sensor.
 
 ## Next steps
 

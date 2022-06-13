@@ -55,7 +55,7 @@ You can use this information to learn. For example:
 
 - Opened tickets for devices
 
-- The last date when firmware was upgraded
+- The last date when the firmware was upgraded
 
 - Devices allowed access to the internet
 
