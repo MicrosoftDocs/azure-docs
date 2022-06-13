@@ -79,7 +79,6 @@ if (mysqli_connect_errno())
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
-[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## Step 2: Create a Table
 Use the following code to connect. This code calls:
