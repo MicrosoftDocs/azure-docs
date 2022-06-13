@@ -170,6 +170,8 @@ landingContent:
             url: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
           - text: Attach Azure NetApp Files to Azure VMware Solution VMs
             url: netapp-files-with-azure-vmware-solution.md
+          - text: Configure Cloud Backup for Azure NetApp Files datastores and VMs
+            url: install-cloud-backup.md
 
 # card 6 == backup and restore
   - title: Backup with Azure Backup Server
