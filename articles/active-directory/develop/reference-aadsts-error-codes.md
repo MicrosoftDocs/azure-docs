@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/11/2021
+ms.date: 06/13/2022
 ms.author: ryanwi
 ms.reviewer: ludwignick
 ms.custom: aaddev
@@ -182,6 +182,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS50199 | CmsiInterrupt - For security reasons, user confirmation is required for this request.  Because this is an "interaction_required" error, the client should do interactive auth.  This occurs because a system webview has been used to request a token for a native application - the user must be prompted to ask if this was actually the app they meant to sign into. To avoid this prompt, the redirect URI should be part of the following safe list: <br />http://<br />https://<br />msauth://(iOS only)<br />msauthv2://(iOS only)<br />chrome-extension:// (desktop Chrome browser only) |
 | AADSTS51000 | RequiredFeatureNotEnabled - The feature is disabled. |
 | AADSTS51001 | DomainHintMustbePresent - Domain hint must be present with on-premises security identifier or on-premises UPN. |
+| AADSTS1000104| XCB2BResourceCloudNotAllowedOnIdentityTenant - Resource cloud {resourceCloud} is not allowed on identity tenant {identityTenant}. {resourceCloud} - cloud instance which owns the resource. {identityTenant} - is the tenant where signing-in identity is originated from. |
 | AADSTS51004 | UserAccountNotInDirectory - The user account doesn’t exist in the directory. |
 | AADSTS51005 | TemporaryRedirect - Equivalent to HTTP status 307, which indicates that the requested information is located at the URI specified in the location header. When you receive this status, follow the location header associated with the response. When the original request method was POST, the redirected request will also use the POST method. |
 | AADSTS51006 | ForceReauthDueToInsufficientAuth - Integrated Windows authentication is needed. User logged in using a session token that is missing the integrated Windows authentication claim. Request the  user to log in again. |
@@ -191,6 +192,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS53002 | ApplicationUsedIsNotAnApprovedApp - The app used is not an approved app for Conditional Access. User needs to use one of the apps from the list of approved apps to use in order to get access. |
 | AADSTS53003 | BlockedByConditionalAccess - Access has been blocked by Conditional Access policies. The access policy does not allow token issuance. |
 | AADSTS53004 | ProofUpBlockedDueToRisk - User needs to complete the multi-factor authentication registration process before accessing this content. User should register for multi-factor authentication. |
+| AADSTS53010 | ProofUpBlockedDueToSecurityInfoAcr - Cannot configure multi-factor authentication methods because the organization requires this information to be set from specific locations or devices. |
 | AADSTS53011 | User blocked due to risk on home tenant. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS54005 | OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token. |
