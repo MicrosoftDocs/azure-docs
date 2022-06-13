@@ -14,6 +14,8 @@ ms.date: 05/14/2019
 
 # Tutorial: design a multi-tenant database by using Azure Database for PostgreSQL – Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to learn how to:
 
 > [!div class="checklist"]
