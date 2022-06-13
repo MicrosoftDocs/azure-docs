@@ -47,8 +47,7 @@ The following columns are available for each device.
 | **Is Programming device** | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
 | **Last Activity** | The last activity that the device performed. |
 | **MAC Address** | The MAC address of the device. |
-| **Name** | The name of the device as the sensor discovered it, 
-or as entered by the user. |
+| **Name** | The name of the device as the sensor discovered it, or as entered by the user. |
 | **Operating System** | The OS of the device, if detected. |
 | **PLC mode** (preview) | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. If both states are the same, only one state is presented. |
 | **Protocols** | The protocols that the device uses. |
