@@ -9,6 +9,12 @@ ms.topic: reference
 
 This article lists the APIs supported for Defender for IoT OT sensors.
 
+Authentication and password management
+Devices - inventory + includes connections, cves
+Alerts - alerts and events, pcap
+Vulnerabilities reports - all 4
+
+
 ## validation (Validate user credentials)
 
 Use this API to validate a Defender for IoT username and password. All Defender for IoT user roles can work with the API.
@@ -25,10 +31,10 @@ You don't need a Defender for IoT access token to use this API.
 
 **Query parameters**:
 
-| **Name** | **Type** | **Nullable** |
+| **Name** | **Type** | **Required/Optional** |
 |--|--|--|
-| **username** | String | No |
-| **password** | String | No |
+| **username** | String | Required |
+| **password** | String | Required |
 
 **Example**:
 
@@ -62,18 +68,18 @@ response:
 
 # [Curl command](#tab/validation-curl)
 
-**Type**: GET
+**Type**: POST
 
 **APIs**:
 
 ```rest
-curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/external/authentication/validation
+curl -k -X POST -H "Authorization: <AUTH_TOKEN>" -H "Content-Type: application/json" -d '{"username": <USER NAME>, "password": <PASSWORD>}' https://<IP_ADDRESS>/api/external/authentication/validation
 ```
 
 **Example**:
 
 ```rest
-curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/external/authentication/validation```
+curl -k -X POST -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" -H "Content-Type: application/json" -d '{"username": "test", "password": "test"}' https://127.0.0.1/api/external/authentication/validation
 ```
 ---
 
@@ -663,11 +669,11 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 ```
 ---
 
-## vulnerabilities (Retrieve vulnerability information)
+## device vulnerabilities (Retrieve device vulnerability information)
 
 Use this API to request vulnerability assessment results for each device.
 
-**URI**: `/api/v1/reports/vulnerabilities/`
+**URI**: `/api/v1/reports/vulnerabilities/devices`
 
 ### GET
 
