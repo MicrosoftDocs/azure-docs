@@ -175,7 +175,7 @@
   items:
      - name: Azure Resource Graph queries
        href: ./resource-graph-samples.md
-     - name: Common Azure CLI samples
+     - name: Azure CLI
        items:
          - name: Overview common API samples
            href: common-cli-samples.md
@@ -189,7 +189,7 @@
            href: scripts/cli/common/service-endpoints.md
          - name: Secure existing account with service endpoints
            href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
-     - name: Common Azure PowerShell samples
+     - name: Azure PowerShell
        items:
          - name: Overview common API samples
            href: common-powershell-samples.md

@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/09/2022
+ms.date: 06/10/2022
 ---
 
 # Join transformation in mapping data flow
@@ -58,11 +58,16 @@ If you would like to explicitly produce a full cartesian product, use the Derive
 
 You can choose to join based on fuzzy join logic instead of exact column value matching by turning on the "Use fuzzy matching" checkbox option.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ZeWr]
+
 * Combine text parts: Use this option to find matches by remove space between words. For example, Data Factory is matched with DataFactory if this option is enabled.
 * Similarity score column: You can optionally choose to store the matching score for each row in a column by entering a new column name here to store that value.
 * Similarity threshold: Choose a value between 60 and 100 as a percentage match between values in the columns you've selected.
 
 :::image type="content" source="media/data-flow/fuzzy-1.png" alt-text="Fuzzy join":::
+
+> [!NOTE]
+> Fuzzy matching currently works only with string column types and with inner, left outer, and full outer join types. You must turn off the broadcast optimization when using fuzzing matching joins.
 
 ## Configuration
 
