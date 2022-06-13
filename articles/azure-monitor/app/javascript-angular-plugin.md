@@ -7,6 +7,7 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.devlang: javascript
+ms.reviewer: mmcc
 ---
 
 # Angular plugin for Application Insights JavaScript SDK

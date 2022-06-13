@@ -40,6 +40,7 @@ When you create or update an AKS cluster with the `--tags` parameter, the follow
 * The AKS cluster
 * The route table that's associated with the cluster
 * The public IP that's associated with the cluster
+* The load balancer that's associated with the cluster
 * The network security group that's associated with the cluster
 * The virtual network that's associated with the cluster
 * The AKS managed kubelet msi associated with the cluster

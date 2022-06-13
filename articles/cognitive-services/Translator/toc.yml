@@ -209,7 +209,7 @@ items:
         href: custom-translator/sentence-alignment.md
       - name: Data filtering
         href: custom-translator/data-filtering.md
-      - name: Training and model
+      - name: Training and modeling
         href: custom-translator/training-and-model.md
       - name: BLEU score
         href: custom-translator/what-is-bleu-score.md

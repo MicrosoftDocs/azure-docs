@@ -13,15 +13,15 @@ ms.date: 11/30/2021
 
 [Azure Database for PostgreSQL](./overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
-- Single Server
-- Flexible Server
-- Hyperscale (Citus)
+- [Single Server](./overview-single-server.md)
+- [Flexible Server](../flexible-server/overview.md)
+- [Hyperscale (Citus)](../hyperscale/overview.md)
 
 In this article, we will provide an overview and introduction to core concepts of single server deployment model. To learn about flexible server deployment mode, see [flexible server overview](../flexible-server/overview.md) and Hyperscale (Citus) Overview respectively.
 
 ## Overview
 
-Single Server is a fully managed database service with minimal requirements for customizations of the database. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized to provide 99.99% availability on single availability zone. It supports community version of PostgreSQL 9.6, 10, and 11. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Single Server is a fully managed database service with minimal requirements for customizations of the database. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized to provide 99.99% availability on single availability zone. It supports community version of PostgreSQL 10 and 11. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 Single servers are best suited for cloud native applications designed to handle automated patching without the need for granular control on the patching schedule and custom PostgreSQL configuration settings.
 

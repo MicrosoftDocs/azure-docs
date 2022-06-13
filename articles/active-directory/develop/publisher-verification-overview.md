@@ -1,5 +1,5 @@
 ---
-title: Publisher verification overview - Microsoft identity platform | Azure
+title: Publisher verification overview
 description: Provides an overview of the publisher verification program for the Microsoft identity platform. Lists the benefits, program requirements, and frequently asked questions. When an application is marked as publisher verified, it means that the publisher has verified their identity using a Microsoft Partner Network account that has completed the verification process and has associated this MPN account with their application registration.
 services: active-directory
 author: rwike77
