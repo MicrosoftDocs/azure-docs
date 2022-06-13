@@ -13,6 +13,8 @@
   items:
     - name: Create a Front Door - Portal
       href: create-front-door-portal.md
+    - name: Create a Front Door - CLI
+      href: create-front-door-cli.md
 - name: Tutorials
   items:
   - name: Add security headers with Rules engine

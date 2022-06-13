@@ -121,8 +121,6 @@ namespace Driver
 }
 ```
 
-[Having issues? Let us know.](https://aka.ms/postgres-doc-feedback)
-
 ## Step 2: Read data
 Use the following code to connect and read the data using a **SELECT** SQL statement. The code uses NpgsqlCommand class with method:
 - [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL.
@@ -195,8 +193,6 @@ namespace Driver
 }
 ```
 
-[Having issues? Let us know.](https://aka.ms/postgres-doc-feedback)
-
 ## Step 3: Update data
 Use the following code to connect and update the data using an **UPDATE** SQL statement. The code uses NpgsqlCommand class with method:
 - [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL.
@@ -258,8 +254,6 @@ namespace Driver
 
 
 ```
-
-[Having issues? Let us know.](https://aka.ms/postgres-doc-feedback)
 
 ## Step 4: Delete data
 Use the following code to connect and delete data using a **DELETE** SQL statement.
@@ -337,4 +331,3 @@ az group delete \
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using CLI](./how-to-manage-server-cli.md)
 
-[Cannot find what you are looking for? Let us know.](https://aka.ms/postgres-doc-feedback)
