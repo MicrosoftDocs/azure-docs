@@ -1,7 +1,7 @@
 ---
 title: Gain insight into devices discovered by a specific sensor
 description: The device inventory displays an extensive range of device attributes that a sensor detects. 
-ms.date: 03/09/2022
+ms.date: 06/09/2022
 ms.topic: how-to
 ---
 
@@ -181,7 +181,7 @@ To receive the script, [contact customer support](mailto:support.microsoft.com).
 
 ### Deploy the script
 
-You can deploy the script once or schedule ongoing queries by using standard automated deployment methods and tools.
+You can deploy the script once or schedule ongoing queries using standard automated deployment methods and tools.
 
 ### About the script
 
