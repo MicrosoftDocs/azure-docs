@@ -20,9 +20,9 @@ You can determine whether a job succeeds by looking at the exit code.
 
 If the exit code is `0-success`, then the job completed successfully. 
 
-If the exit code is `error`, then examine the log file. Once you understand the exact error message, then it becomes much easier to search for the right key words and figure out the solution. To learn more, see  [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md).
+If the exit code is `1-error`, then examine the log file. Once you understand the exact error message, then it becomes much easier to search for the right key words and figure out the solution. To learn more, see  [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md).
 
-If the exit code is `panic`, then check the log file exists. If the file doesn't exist, file a bug or reach out to support.
+If the exit code is `2-panic`, then check the log file exists. If the file doesn't exist, file a bug or reach out to support.
 
 ## 403 errors
 
@@ -141,9 +141,7 @@ If you're copying data between accounts by using AzCopy, the quality and reliabi
 
 - Asynchronous service-side copy isn't supported. AzCopy performs synchronous copy only. In other words, by the time the job finishes, the data has been moved.
 
-- If when copying to an Azure File share you forgot to specify the flag `--preserve-smb-permissions`, and you do not want to transfer the data again, then consider using Robocopy to bring over the permissions. 
-
-- If you're copying to Azure Files and you forgot to specify the `--preserve-smb-permissions` flag, and you don't want to transfer the data again, consider using Robocopy to bring over the only the permissions.
+- When copying to an Azure File share, if you forgot to specify the flag `--preserve-smb-permissions`, and you do not want to transfer the data again, then consider using Robocopy to bring over the permissions. 
 
 - Azure Functions has a different endpoint for MSI authentication, which AzCopy doesn't yet support.
 
