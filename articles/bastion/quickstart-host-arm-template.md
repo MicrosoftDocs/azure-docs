@@ -84,7 +84,7 @@ In this section, you'll deploy Bastion using the **Deploy to Azure** button belo
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fazure-bastion-nsg%2fazuredeploy.json)
 
 3. In the **Azure Bastion as a Service: Azure Quickstart Template**, enter or select the following information.
-    :::image type="content" source="./media/quickstart-host-arm-template/bastion-template-values.png" alt-text="Screenshot bastion ARM template example values." lightbox="./media/quickstart-host-arm-template/bastion-template-values.png":::
+    :::image type="content" source="./media/quickstart-host-arm-template/bastion-template-values.png" alt-text="Screenshot Bastion ARM template example values." lightbox="./media/quickstart-host-arm-template/bastion-template-values.png":::
 
 | Setting                  | Value                          |
 |--------------------------|--------------------------------|
@@ -112,7 +112,7 @@ In this section, you'll validate the deployment of Azure Bastion.
 1. Select the **TestRG1** resource group that you created in the previous section.
 1. Select your **TestVM** virtual machine. From the Overview page, scroll down to **Operations** in the left pane and select **Bastion**.
 1. Enter the username and password you created for your virtual machine and select **Connect**.
- :::image type="content" source="./media/quickstart-host-arm-template/connect-to-virtual-machine.png" alt-text="Screenshot shows the Connect using Azure Bastion dialog." lightbox="./media/quickstart-host-arm-template/connect-to-virtual-machine.png":::
+ :::image type="content" source="./media/quickstart-host-arm-template/connect-to-virtual-machine.png" alt-text="Screenshot shows the connect using Azure Bastion dialog." lightbox="./media/quickstart-host-arm-template/connect-to-virtual-machine.png":::
 1. The connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. Select **Allow** when asked for permissions to the clipboard. This lets you use the remote clipboard arrows on the left of the screen.
 
    * When you connect, the desktop of the VM may look different than the example screenshot.
