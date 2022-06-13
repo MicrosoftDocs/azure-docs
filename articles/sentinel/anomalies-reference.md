@@ -3,11 +3,19 @@ title: Anomalies detected by the Microsoft Sentinel machine learning engine
 description: Learn about the anomalies detected by Microsoft Sentinel's machine learning engines.
 author: yelevin
 ms.topic: reference
-ms.date: 05/08/2022
+ms.date: 06/13/2022
 ms.author: yelevin
 ---
 
 # Anomalies detected by the Microsoft Sentinel machine learning engine
+
+This article lists the anomalies that Microsoft Sentinel detects using different machine learning models.
+
+Anomaly detection works by analyzing the behavior of users in an environment over a period of time and constructing a baseline of legitimate activity. Once the baseline is established, any activity outside the normal parameters is considered anomalous and therefore suspicious.
+
+Microsoft Sentinel uses two different models to create baselines and detect anomalies.
+
+
 
 <!--This document lists the types of scenario-based multistage attacks, grouped by threat classification, that Microsoft Sentinel detects using the Fusion correlation engine.
 
@@ -50,11 +58,11 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 
 ### Anomalous Account Access Removal
 
-**Description:** Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users. Accounts may be deleted, locked, or manipulated (ex: changed credentials) to remove access to accounts.
+**Description:** An attacker may interrupt the availability of system and network resources by blocking access to accounts used by legitimate users. The attacker might delete, lock, or manipulate an account (for example, by changing its credentials) to remove access to it.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | UEBA - High volume                                                 |
+| **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Activity logs<br>Check Point VPN (not in rule?)              |
 | **MITRE ATT&CK tactics:**        | Impact                                                             |
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
@@ -68,7 +76,7 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | UEBA - Single activity                                             |
+| **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Active Directory audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1136 - Create Account                                             |
@@ -83,7 +91,7 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | UEBA - Single activity                                             |
+| **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Active Directory audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Impact                                                             |
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
@@ -98,7 +106,7 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | UEBA - Single activity                                             |
+| **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Activity logs                                                |
 | **MITRE ATT&CK tactics:**        | Discovery                                                          |
 | **MITRE ATT&CK techniques:**     | T1087 - Account Discovery                                          |
@@ -113,7 +121,7 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | UEBA - Single activity                                             |
+| **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Active Directory audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation                                       |

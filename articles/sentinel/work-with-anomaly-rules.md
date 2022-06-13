@@ -18,27 +18,22 @@ ms.custom: ignite-fall-2021
 
 ## View customizable anomaly rule templates
 
-Microsoft Sentinel’s [customizable anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules must be activated before they will generate anomalies, which you can find in the **Anomalies** table in the **Logs** section.
+Microsoft Sentinel’s [customizable anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules are enabled, or activated, by default, so they will generate anomalies out-of-the-box. You can find and query these anomalies in the **Anomalies** table in the **Logs** section.
 
-1. From the Microsoft Sentinel navigation menu, select **Analytics**.
+You can now find these rules displayed in a grid in the **Anomalies** tab in the **Analytics** page. You can filter these rules with the following criteria:
 
-1. On the **Analytics** page, select the **Rule templates** tab.
+- **Status** - whether the rule is enabled or disabled.
 
-1. Filter the list for **Anomaly** templates:
+- **Tactics** - the MITRE ATT&CK framework tactics covered by the anomaly.
 
-    1. Select the **Rule type** filter, then the drop-down list that appears below.
+- **Techniques** - the MITRE ATT&CK framework techniques covered by the anomaly.
 
-    1. Unmark **Select all**, then mark **Anomaly**.
+- **Data sources** - the type of logs that need to be ingested and analyzed for the anomaly to be defined.
 
-    1. If necessary, select the top of the drop-down list to retract it, then select **OK**.
-
-## Activate anomaly rules
-
-When you select one of the rule templates, you will see the following information in the details pane, along with a **Create rule** button:
+When you select one of the rule templates, you will see the following information in the details pane:
 
 - **Description** explains how the anomaly works and the data it requires.
 
-- **Data sources** indicates the type of logs that need to be ingested in order to be analyzed.
 
 - **Tactics and techniques** are the MITRE ATT&CK framework tactics and techniques covered by the anomaly.
 
@@ -47,6 +42,8 @@ When you select one of the rule templates, you will see the following informatio
 - **Threshold** is a configurable value that indicates the degree to which an event must be unusual before an anomaly is created.
 
 - **Rule frequency** is the time between log processing jobs that find the anomalies.
+
+- **Rule status** tells you whether the rule runs in **Production** or **Flighting** (staging) mode when enabled.
 
 - **Anomaly version** shows the version of the template that is used by a rule. If you want to change the version used by a rule that is already active, you must recreate the rule.
 
