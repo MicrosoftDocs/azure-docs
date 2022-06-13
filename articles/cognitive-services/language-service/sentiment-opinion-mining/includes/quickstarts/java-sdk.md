@@ -65,14 +65,14 @@ public class Example {
         TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
         sentimentAnalysisWithOpinionMiningExample(client);
     }
-    // Method to authenticate the client object with your key and endpoint
+    // Method to authenticate the client object with your key and endpoint.
     static TextAnalyticsClient authenticateClient(String key, String endpoint) {
         return new TextAnalyticsClientBuilder()
                 .credential(new AzureKeyCredential(key))
                 .endpoint(endpoint)
                 .buildClient();
     }
-    // Example method for sentiment in text
+    // Example method for sentiment in text.
     static void sentimentAnalysisExample(TextAnalyticsClient client)
     {
         // The text that need be analyzed.
@@ -95,7 +95,7 @@ public class Example {
                     sentenceSentiment.getConfidenceScores().getNegative());
         }
     }
-    // Example method for detecting opinions in text
+    // Example method for detecting opinions in text.
     static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
     {
         // The document that needs be analyzed.
