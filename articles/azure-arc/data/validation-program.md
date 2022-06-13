@@ -38,7 +38,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 | PowerFlex version 3.6 |1.21.5|v1.4.1_2022-03-08|15.0.2255.119 | Not validated |
 | PowerFlex CSI version 1.4 |1.21.5|v1.4.1_2022-03-08 | Not validated |
 | PowerStore X|1.20.6|v1.0.0_2021-07-30|15.0.2148.140 |postgres 12.3 (Ubuntu 12.3-1) |
-| Powerstore T|1.20.6|v1.0.0_2021-07-30|15.0.2148.140 |postgres 12.3 (Ubuntu 12.3-1)|
+| PowerStore T|1.20.6|v1.0.0_2021-07-30|15.0.2148.140 |postgres 12.3 (Ubuntu 12.3-1)|
 
 ### HPE
 
