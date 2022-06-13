@@ -21,7 +21,7 @@ Azure Machine Learning Kubernetes compute enables you to run training jobs such 
 In this article, you can learn about steps to configure an existing Kubernetes cluster for Azure Machine Learning:
 * [Deploy AzureML extension to Kubernetes cluster](#deploy-azureml-extension)
 * [Attach Kubernetes cluster to Azure ML workspace](#attach-a-kubernetes-cluster-to-an-azureml-workspace)
-* [Create instance types for efficient compute resource utilization](#create-instance-types)
+* [Create instance types for efficient compute resource utilization](#create-and-use-instance-types-for-efficient-compute-resource-utilization)
 
 ## Prerequisites
 
