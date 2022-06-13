@@ -158,7 +158,7 @@ additionalContent:
       - title: Resources
         links:
         - text: Pricing
-          url: pricing.md
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
         - text: Regions
           url: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
         - text: Learn
