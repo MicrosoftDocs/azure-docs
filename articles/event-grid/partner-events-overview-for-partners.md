@@ -108,18 +108,18 @@ You have two options:
 
 ## References
 
-  * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
+  * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/main/specification/eventgrid/resource-manager/Microsoft.EventGrid/stable/2022-06-15/EventGrid.json)
   * [ARM template](/azure/templates/microsoft.eventgrid/allversions)
-  * [ARM template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [REST APIs](/azure/templates/microsoft.eventgrid/2020-04-01-preview/partnernamespaces)
+  * [ARM template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/main/schemas/2022-06-15/Microsoft.EventGrid.json)
+  * [REST APIs](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces)
   * [CLI extension](/cli/azure/eventgrid)
 
 ### SDKs
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)
-  * [Python](https://pypi.org/project/azure-mgmt-eventgrid/3.0.0rc6/)
-  * [Java](https://search.maven.org/artifact/com.microsoft.azure.eventgrid.v2020_04_01_preview/azure-mgmt-eventgrid/1.0.0-beta-3/jar)
-  * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid/versions/0.19.0)
-  * [JS](https://www.npmjs.com/package/@azure/arm-eventgrid/v/7.0.0)
+  * [Python](https://pypi.org/project/azure-mgmt-eventgrid/)
+  * [Java](https://search.maven.org/search?q=azure-mgmt-eventgrid)
+  * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid/)
+  * [JS](https://www.npmjs.com/package/@azure/arm-eventgrid)
   * [Go](https://github.com/Azure/azure-sdk-for-go)
 
 
