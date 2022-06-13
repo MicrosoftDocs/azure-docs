@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 05/24/2022
+ms.date: 06/14/2022
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -15,6 +15,21 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## June 14, 2022
+
+This release is published June 14, 2022.
+
+### Image tag
+
+`v1.8.0_2022-06-24`
+
+
+For complete release version information, see [Version log](version-log.md#june-14-2022).
+
+### SQL Managed Instance
+
+Introduces support to BACKUP DATABASE TO URL to S3-compatible object storage. For documentation, see [SQL Server backup and restore with S3-compatible object storage preview](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-s3-compatible-object-storage).
 
 ## May 24, 2022
 
@@ -24,7 +39,7 @@ This release is published May 24, 2022.
 
 `v1.7.0_2022-05-24`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#may-24-2022).
 
 ### Data controller reminders and warnings
 
@@ -56,7 +71,7 @@ This release is published May 4, 2022.
 
 `v1.6.0_2022-05-02`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#may-4-2022).
 
 ### Data controller
 
@@ -106,7 +121,7 @@ This release is published April 6, 2022.
 
 `v1.5.0_2022-04-05`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#april-6-2022).
 
 ### Data controller
 
@@ -163,7 +178,7 @@ This release is published March 8, 2022.
 
 `v1.4.1_2022-03-08`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#march-8-2022).
 
 ### Data Controller
 - Fixed the issue "ConfigMap sql-config-[SQL MI] does not exist" from the February 2022 release. This issue occurs when deploying a SQL Managed Instance with service type of `loadBalancer` with certain load balancers. 
@@ -176,7 +191,7 @@ This release is published February 25, 2022.
 
 `v1.4.0_2022-02-25`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#february-25-2022).
 
 > [!CAUTION] 
 > There is a known issue with this release where deployment of Arc SQL MI hangs, and sends the controldb pods of Arc Data Controller into a
@@ -211,7 +226,7 @@ This release is published January 27, 2022.
 
 `v1.3.0_2022-01-27`
 
-For complete release version information, see [Version log](version-log.md).
+For complete release version information, see [Version log](version-log.md#january-27-2022).
 
 ### Data controller
 
