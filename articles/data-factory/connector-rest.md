@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/07/2022
+ms.date: 06/13/2022
 ms.author: makromer
 ---
 
@@ -79,9 +79,16 @@ The following properties are supported for the REST linked service:
 | type | The **type** property must be set to **RestService**. | Yes |
 | url | The base URL of the REST service. | Yes |
 | enableServerCertificateValidation | Whether to validate server-side TLS/SSL certificate when connecting to the endpoint. | No<br /> (the default is **true**) |
-| authenticationType | Type of authentication used to connect to the REST service. Allowed values are **Anonymous**, **Basic**, **AadServicePrincipal**, and **ManagedServiceIdentity**. User-based OAuth isn't supported. You can additionally configure authentication headers in `authHeader` property. Refer to corresponding sections below on more properties and examples respectively.| Yes |
+| authenticationType | Type of authentication used to connect to the REST service. Allowed values are **Anonymous**, **Basic**, **AadServicePrincipal**, **OAuth2ClientCredential**, and **ManagedServiceIdentity**. User-based OAuth isn't supported. You can additionally configure authentication headers in `authHeader` property. Refer to corresponding sections below on more properties and examples respectively.| Yes |
 | authHeaders | Additional HTTP request headers for authentication.<br/> For example, to use API key authentication, you can select authentication type as “Anonymous” and specify API key in the header. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, this property uses the default Azure Integration Runtime. |No |
+
+For different authentication types, see the corresponding sections for details.
+- [Use basic authentication](#use-basic-authentication)
+- [Use AAD service principal authentication](#use-aad-service-principal-authentication)
+- [Use OAuth2 Client Credential authentication](#use-oauth2-client-credential-authentication)
+- [Use user-assigned managed identity authentication](#use-user-assigned-managed-identity-authentication)
+- [Using authentication headers](#using-authentication-headers)
 
 ### Use basic authentication
 
@@ -128,7 +135,7 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 | aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
 | azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 
-**Example**
+**Example**                                                                          
 
 ```json
 {
@@ -149,6 +156,39 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+### Use OAuth2 Client Credential authentication
+
+Set the **authenticationType** property to **OAuth2ClientCredential**. In addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| tokenEndpoint| The token endpoint of the authorization server to acquire the access token. | Yes |
+| clientId | The client ID associated with your application. | Yes |
+| clientSecret| The client secret associated with your application. Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).  | Yes |
+| scope | The scope of the access required. It describes what kind of access will be requested. | No |
+| resource | The target service or resource to which the access will be requested. | No |
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint e.g. https://www.example.com/>",
+            "enableServerCertificateValidation": true,
+            "authenticationType": "OAuth2ClientCredential",
+            "clientId": "<client ID>",
+            "clientSecret": {
+                "type": "SecureString",
+                "value": "<client secret>"
+            },
+            "tokenEndpoint": "<token endpoint>",
+            "scope": "<scope>",
+            "resource": "<resource>"
         }
     }
 }
