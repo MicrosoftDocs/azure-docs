@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 06/13/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -85,7 +85,9 @@ To create a logic app based on the environment that you want, you have multiple 
 |--------|---------------------|------------------|
 | Azure portal | **Logic App (Standard)** resource type | [Create integration workflows for single-tenant Logic Apps - Azure portal](create-single-tenant-workflows-azure-portal.md) |
 | Visual Studio Code | [**Azure Logic Apps (Standard)** extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps) | [Create integration workflows for single-tenant Logic Apps - Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md) |
-| Azure CLI | Logic Apps Azure CLI extension | Not yet available |
+| Azure CLI | Logic Apps Azure CLI extension | [az logicapp](/cli/azure/logicapp) |
+| Azure Resource Manager | - [Local](https://github.com/Azure/logicapps/tree/master/azure-devops-sample#local) <br>- [DevOps](https://github.com/Azure/logicapps/tree/master/azure-devops-sample#devops) | [Single-tenant Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/azure-devops-sample) |
+| Azure Arc-enabled Logic Apps | [Azure Arc-enabled Logic Apps sample](https://github.com/Azure/logicapps/tree/master/arc-enabled-logic-app-sample) | - [What is Azure Arc-enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md) <br><br>- [Create and deploy single-tenant based logic app workflows with Azure Arc-enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md) | 
 ||||
 
 **Multi-tenant environment**
