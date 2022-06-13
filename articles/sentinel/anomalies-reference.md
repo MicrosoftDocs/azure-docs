@@ -18,13 +18,36 @@ In order to enable these Fusion-powered attack detection scenarios, any data sou
 -->
 
 
-Sentinel UEBA detects anomalies based on dynamic baselines created for each entity across various data inputs. Each entity's baseline behavior is set according to its own historical activities, those of its peers, and those of the organization as a whole. Anomalies can be triggered by the correlation of different attributes such as action type, geo-location, device, resource, ISP, and more. Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, Core Directory/Device/Delete user, Core Directory/UserManagement/Delete user)
+Sentinel UEBA detects anomalies based on dynamic baselines created for each entity across various data inputs. Each entity's baseline behavior is set according to its own historical activities, those of its peers, and those of the organization as a whole. Anomalies can be triggered by the correlation of different attributes such as action type, geo-location, device, resource, ISP, and more.
+
+Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, Core Directory/Device/Delete user, Core Directory/UserManagement/Delete user)
 
 
 > [!NOTE]
 > Anomalies are in **PREVIEW**. 
 
 ## UEBA anomalies
+
+- [Anomalous Account Access Removal](#anomalous-account-access-removal)
+- [Anomalous Account Creation](#anomalous-account-creation)
+- [Anomalous Account Deletion](#anomalous-account-deletion)
+- [Anomalous Account Discovery](#anomalous-account-discovery)
+- [Anomalous Account Manipulation](#anomalous-account-manipulation)
+- [Anomalous Application Deletion](#anomalous-application-deletion)
+- [Anomalous Code Execution](#anomalous-code-execution)
+- [Anomalous Credential Access](#anomalous-credential-access)
+- [Anomalous Data Destruction](#anomalous-data-destruction)
+- [Anomalous Data Discovery](#anomalous-data-discovery)
+- [Anomalous Defensive Mechanism Discovery](#anomalous-defensive-mechanism-discovery)
+- [Anomalous Defensive Mechanism Modification](#anomalous-defensive-mechanism-modification)
+- [Anomalous Failed Sign-in](#anomalous-failed-sign-in)
+- [Anomalous Password Reset](#anomalous-password-reset)
+- [Anomalous Privilege Granted](#anomalous-privilege-granted)
+- [Anomalous Role Assignment](#anomalous-role-assignment)
+- [Anomalous Session Duration](#anomalous-session-duration)
+- [Anomalous Sign-in](#anomalous-sign-in)
+- [Anomalous Process Creation](#anomalous-process-creation)
+
 ### Anomalous Account Access Removal
 
 **Description:** Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users. Accounts may be deleted, locked, or manipulated (ex: changed credentials) to remove access to accounts.
@@ -37,6 +60,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
 | **Activity:**                    | Microsoft.Authorization/roleAssignments/delete<br>Log Out |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
 ### Anomalous Account Creation
 
@@ -51,6 +75,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK sub-techniques:** | Cloud Account                                                      |
 | **Activity:**                    | Core Directory/UserManagement/Add user                             |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
 ### Anomalous Account Deletion
 
@@ -64,8 +89,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
 | **Activity:**                    | Core Directory/UserManagement/Delete user<br>Core Directory/Device/Delete user<br>Core Directory/UserManagement/Delete user |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
-### Anomalous Account Discovery (no rule?)
+### Anomalous Account Discovery
+***(NO RULE?)***
 
 **Description:** Adversaries may attempt to get a listing of accounts on a system or within an environment. This information can help adversaries determine which accounts exist to aid in follow-on behavior.
 
@@ -78,6 +105,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK sub-techniques:** | Cloud Account                                                      |
 | **Activity:**                    | Microsoft.Sql/managedInstances/administrators/read<br>Microsoft.Sql/servers/administrators/read<br>Microsoft.Authorization/classicAdministrators/read |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
 ### Anomalous Account Manipulation
 
@@ -91,8 +119,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation                                       |
 | **Activity:**                    | Core Directory/UserManagement/Update user                          |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
-### Anomalous Application Deletion (no rule?)
+### Anomalous Application Deletion
+***(NO RULE?)***
 
 **Description:** Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users. Accounts may be deleted, locked, or manipulated (ex: changed credentials) to remove access to accounts.
 
@@ -104,6 +134,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
 | **Activity:**                    | Core Directory/ApplicationManagement/Delete application            |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
 ### Anomalous Code Execution
 
@@ -118,8 +149,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK sub-techniques:** | PowerShell                                                         |
 | **Activity:**                    | Microsoft.Compute/virtualMachines/runCommand/action                |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
-### Anomalous Credential Access (no rule?)
+### Anomalous Credential Access
+***(NO RULE?)***
 
 **Description:** Adversaries may search for common password storage locations to obtain user credentials. Once credentials are obtained, they can be used to perform lateral movement and access restricted information.
 
@@ -131,6 +164,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK techniques:**     | T1555 - Credentials from Password Stores                           |
 | **Activity:**                    | Microsoft.KeyVault/vaults/keys/read<br>Microsoft.KeyVault/vaults/secrets/getSecret/action<br>Microsoft.KeyVault/vaults/storageaccounts/regeneratekey/action<br>Microsoft.KeyVault/vaults/storageaccounts/sas/set/action |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
 ### Anomalous Data Destruction
 
@@ -144,8 +178,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK techniques:**     | T1485 - Data Destruction                                           |
 | **Activity:**                    | Microsoft.Compute/disks/delete<br>Microsoft.Compute/galleries/images/delete<br>Microsoft.Compute/hostGroups/delete<br>Microsoft.Compute/hostGroups/hosts/delete<br>Microsoft.Compute/images/delete<br>Microsoft.Compute/virtualMachines/delete<br>Microsoft.Compute/virtualMachineScaleSets/delete<br>Microsoft.Compute/virtualMachineScaleSets/virtualMachines/delete<br>Microsoft.Devices/digitalTwins/Delete<br>Microsoft.Devices/iotHubs/Delete<br>Microsoft.KeyVault/vaults/delete<br>Microsoft.Logic/integrationAccounts/delete  <br>Microsoft.Logic/integrationAccounts/maps/delete <br>Microsoft.Logic/integrationAccounts/schemas/delete <br>Microsoft.Logic/integrationAccounts/partners/delete <br>Microsoft.Logic/integrationServiceEnvironments/delete<br>Microsoft.Logic/workflows/delete<br>Microsoft.Resources/subscriptions/resourceGroups/delete<br>Microsoft.Sql/instancePools/delete<br>Microsoft.Sql/managedInstances/delete<br>Microsoft.Sql/managedInstances/administrators/delete<br>Microsoft.Sql/managedInstances/databases/delete<br>Microsoft.Storage/storageAccounts/delete<br>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete<br>Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete<br>Microsoft.Storage/storageAccounts/blobServices/containers/delete<br>Microsoft.AAD/domainServices/delete |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
-### Anomalous Data Discovery (no rule?)
+### Anomalous Data Discovery
+***(NO RULE?)***
 
 **Description:** An adversary may attempt to enumerate the cloud services running on a system after gaining access. They may attempt to discover information about the services enabled throughout the environment.
 
@@ -157,8 +193,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK techniques:**     | T1526 - Cloud Service Discovery<br>T1518 - Software Discovery      |
 | **Activity:**                    | Microsoft.SecurityGraph/diagnosticsettings/read<br>Microsoft.KeyVault/vaults/eventGridFilters/read<br>Microsoft.KeyVault/vaults/certificatecas/read |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
-### Anomalous Defensive Mechanism Discovery (no rule?)
+### Anomalous Defensive Mechanism Discovery
+***(NO RULE?)***
 
 **Description:** Adversaries may attempt to get a listing of security software, configurations, defensive tools, and sensors that are installed on a system or in a cloud environment. They may use this information during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.
 
@@ -171,6 +209,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK sub-techniques:** | Security Software Discovery                                        |
 | **Activity:**                    | Microsoft.Network/azurefirewalls/read<br>Microsoft.Sql/servers/firewallRules/read<br>Microsoft.Network/firewallPolicies/ruleGroups/read<br>Microsoft.Network/networkSecurityGroups/securityRules/read<br>Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines/read<br>Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/read<br>Microsoft.Network/networkSecurityGroups/read<br>Microsoft.Network/ddosProtectionPlans/read<br>Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read<br>Microsoft.Authorization/policyAssignments/read |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
 ### Anomalous Defensive Mechanism Modification
 
@@ -185,6 +224,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK sub-techniques:** | Disable or Modify Tools<br>Disable or Modify Cloud Firewall<br>**(Excel)** |
 | **Activity:**                | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines/delete<br>Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/delete<br>Microsoft.Network/networkSecurityGroups/securityRules/delete<br>Microsoft.Network/networkSecurityGroups/delete<br>Microsoft.Network/ddosProtectionPlans/delete<br>Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/delete<br>Microsoft.Network/applicationSecurityGroups/delete<br>Microsoft.Authorization/policyAssignments/delete<br>Microsoft.Sql/servers/firewallRules/delete<br>Microsoft.Network/firewallPolicies/delete<br>Microsoft.Network/azurefirewalls/delete |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
 ### Anomalous Failed Sign-in
 
@@ -198,6 +238,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 | **Activity:**                    | Sign-in activity<br>Failed Log In<br>4625                          |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
 ### Anomalous Password Reset
 
@@ -211,6 +252,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
 | **Activity:**                    | Core Directory/UserManagement/User password reset |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
 ### Anomalous Privilege Granted
 
@@ -225,8 +267,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK sub-techniques:** | Additional Azure Service Principal Credentials                     |
 | **Activity:**                    | Account provisioning/Application Management/Add app role assignment to service principal |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
-### Anomalous Role Assignment (no rule?)
+### Anomalous Role Assignment
+***(NO RULE?)***
 
 **Description:** Adversaries may manipulate accounts to maintain access to victim systems. These actions include adding new accounts to high privileged groups.
 
@@ -238,8 +282,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation                                       |
 | **Activity:**                    | Add member to group<br>Add member to role                          |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
-### Anomalous Session Duration (no rule?)
+### Anomalous Session Duration
+***(NO RULE?)***
 
 **Description:** Adversaries may leverage external-facing remote services to initially access and/or persist within a network. Remote services such as VPNs, Citrix, and other access mechanisms allow users to connect to internal enterprise network resources from external locations.
 
@@ -251,6 +297,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK techniques:**     | T1133 - External Remote Services                                   |
 | **Activity:**                    | Log Out |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
 ### Anomalous Sign-in
 
@@ -264,8 +311,10 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Activity:**                    | Sign-in activity<br>4624<br>Successful Log In                      |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
-### Anomalous Process Creation (no rule?)
+### Anomalous Process Creation
+***(NO RULE?)***
 
 **Description:** Services, daemons, or agents may be created with administrator privileges but executed under root/SYSTEM privileges. Adversaries may leverage this functionality to create or modify system processes in order to escalate privileges.
 
@@ -277,14 +326,56 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | **MITRE ATT&CK techniques:**     | T1543 - Create or Modify System Processes                          |
 | **Activity:**                    | 4688                                                               |
 
+[Back to UEBA anomalies list](#ueba-anomalies)
 
 ## Customizable anomalies
+
+- [Anomalous Azure AD sign-in sessions](#anomalous-azure-ad-sign-in-sessions)
+- [Anomalous Azure operations](#anomalous-azure-operations)
+- [Anomalous Code Execution (duplicate?)](#anomalous-code-execution-duplicate)
+- [Anomalous local account creation](#anomalous-local-account-creation)
+- [Anomalous scanning activity](#anomalous-scanning-activity)
+- [Anomalous user activities in Office Exchange](#anomalous-user-activities-in-office-exchange)
+- [Anomalous user/app activities in Azure audit logs](#anomalous-userapp-activities-in-azure-audit-logs)
+- [Anomalous W3CIIS logs activity](#anomalous-w3ciis-logs-activity)
+- [Anomalous web request activity](#anomalous-web-request-activity)
+- [Attempted computer brute force](#attempted-computer-brute-force)
+- [Attempted user account brute force](#attempted-user-account-brute-force)
+- [Attempted user account brute force per login type](#attempted-user-account-brute-force-per-login-type)
+- [Attempted user account bruteforce per failure reason](#attempted-user-account-bruteforce-per-failure-reason)
+- [Detect machine generated network beaconing behavior](#detect-machine-generated-network-beaconing-behavior)
+- [Domain generation algorithm (DGA) on DNS domains](#domain-generation-algorithm-dga-on-dns-domains)
+- [Domain Reputation Palo Alto anomaly](#domain-reputation-palo-alto-anomaly)
+- [Excessive data transfer anomaly](#excessive-data-transfer-anomaly)
+- [Excessive Downloads via Palo Alto GlobalProtect](#excessive-downloads-via-palo-alto-globalprotect)
+- [Excessive uploads via Palo Alto GlobalProtect](#excessive-uploads-via-palo-alto-globalprotect)
+- [Login from an unusual region via Palo Alto GlobalProtect account logins](#login-from-an-unusual-region-via-palo-alto-globalprotect-account-logins)
+- [Multi-region logins in a single day via Palo Alto GlobalProtect](#multi-region-logins-in-a-single-day-via-palo-alto-globalprotect)
+- [Potential data staging](#potential-data-staging)
+- [Potential domain generation algorithm (DGA) on next-level DNS Domains](#potential-domain-generation-algorithm-dga-on-next-level-dns-domains)
+- [Suspicious geography change in Palo Alto GlobalProtect account logins](#suspicious-geography-change-in-palo-alto-globalprotect-account-logins)
+- [Suspicious number of protected documents accessed](#suspicious-number-of-protected-documents-accessed)
+- [Suspicious volume of AWS API calls from Non-AWS source IP address from a user account id per workspace on a daily basis](#suspicious-volume-of-aws-api-calls-from-non-aws-source-ip-address-from-a-user-account-id-per-workspace-on-a-daily-basis)
+- [Suspicious volume of AWS cloud trail logs events of group user account by EventTypeName](#suspicious-volume-of-aws-cloud-trail-logs-events-of-group-user-account-by-eventtypename)
+- [Suspicious volume of AWS write API calls from a user account](#suspicious-volume-of-aws-write-api-calls-from-a-user-account)
+- [Suspicious volume of failed login attempts to AWS Console by each group user account](#suspicious-volume-of-failed-login-attempts-to-aws-console-by-each-group-user-account)
+- [Suspicious volume of failed login attempts to AWS Console by each source IP address](#suspicious-volume-of-failed-login-attempts-to-aws-console-by-each-source-ip-address)
+- [Suspicious volume of logins to computer](#suspicious-volume-of-logins-to-computer)
+- [Suspicious volume of logins to computer with elevated token](#suspicious-volume-of-logins-to-computer-with-elevated-token)
+- [Suspicious volume of logins to user account](#suspicious-volume-of-logins-to-user-account)
+- [Suspicious volume of logins to user account by logon types](#suspicious-volume-of-logins-to-user-account-by-logon-types)
+- [Suspicious volume of logins to user account with elevated token](#suspicious-volume-of-logins-to-user-account-with-elevated-token)
+- [Unusual external firewall alarm detected](#unusual-external-firewall-alarm-detected)
+- [Unusual mass downgrade AIP label](#unusual-mass-downgrade-aip-label)
+- [Unusual network communication on commonly used ports](#unusual-network-communication-on-commonly-used-ports)
+- [Unusual network volume anomaly](#unusual-network-volume-anomaly)
+- [Unusual web traffic detected with IP in URL path](#unusual-web-traffic-detected-with-ip-in-url-path)
 
 ### Anomalous Azure AD sign-in sessions
 
 **Description:** The machine learning model groups the Azure AD sign-in logs on a per-user basis. The model is trained on the previous 6 days of user sign-in behavior. It indicates anomalous user sign-in sessions in the last day. 
 
-An autoencoder model is used. Its aim is to compress the user sign-in sessions into a bottleneck encoding. It then attempts to reconstruct the input sessions as best it can from the bottleneck encoding. The sessions with high reconstruction errors are assumed to be anomalous. ***THIS ISN'T NECESSARY, RIGHT?***
+An autoencoder model is used. Its aim is to compress the user sign-in sessions into a bottleneck encoding. It then attempts to reconstruct the input sessions as best it can from the bottleneck encoding. The sessions with high reconstruction errors are assumed to be anomalous. ***THIS LEVEL OF EXPLANATION ISN'T NECESSARY, RIGHT?***
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -294,6 +385,7 @@ An autoencoder model is used. Its aim is to compress the user sign-in sessions i
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts<br>T1566 - Phishing<br>T1133 - External Remote Services |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, UPN Suffix, AaadTenantId, AaaUserId,  isDomainJoined, LastVerdict |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Anomalous Azure operations
 
@@ -307,6 +399,7 @@ An autoencoder model is used. Its aim is to compress the user sign-in sessions i
 | **MITRE ATT&CK techniques:**     | T1190 - Exploit Public-Facing Application                          |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Anomalous Code Execution (duplicate?)
 
@@ -320,6 +413,7 @@ An autoencoder model is used. Its aim is to compress the user sign-in sessions i
 | **MITRE ATT&CK techniques:**     | T1059 - Command and Scripting Interpreter                          |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Anomalous local account creation
 
@@ -333,6 +427,7 @@ An autoencoder model is used. Its aim is to compress the user sign-in sessions i
 | **MITRE ATT&CK techniques:**     | T1136 - Create Account                                             |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, isDomainJoined, IsValid, LastVerdict |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Anomalous scanning activity
 
@@ -347,6 +442,7 @@ The algorithm takes into account whether the IP is public, meaning external, or 
 | **MITRE ATT&CK techniques:**     | T1046 - Network Service Scanning                                   |
 | **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Anomalous user activities in Office Exchange
 
@@ -361,6 +457,7 @@ An autoencoder model is used. Its aim is to compress the user Office Exchange se
 | **MITRE ATT&CK techniques:**     | **Collection:**<br>T1114 - Email Collection<br>T1213 - Data from Information Repositories<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1137 - Office Application Startup<br>T1505 - Server Software Component |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, UPNSuffix, IsDomainJoined, LastVerdict |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Anomalous user/app activities in Azure audit logs
 
@@ -374,6 +471,7 @@ An autoencoder model is used. Its aim is to compress the user Office Exchange se
 | **MITRE ATT&CK techniques:**     | **Collection:**<br>T1530 - Data from Cloud Storage Object<br><br>**Discovery:**<br>T1087 - Account Discovery<br>T1538 - Cloud Service Dashboard<br>T1526 - Cloud Service Discovery<br>T1069 - Permission Groups Discovery<br>T1518 - Software Discovery<br><br>**Initial Access:**<br>T1190 - Exploit Public-Facing Application<br>T1078 - Valid Accounts<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1078 - Valid Accounts<br><br>**Privilege Escalation:**<br>T1484 - Domain Policy Modification<br>T1078 - Valid Accounts  |
 | **Entities:**                    | **Type:** cloud-application<br><br>**Fields:** Name, InstanceName, LastVerdict |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Anomalous W3CIIS logs activity
 
@@ -387,6 +485,7 @@ An autoencoder model is used. Its aim is to compress the user Office Exchange se
 | **MITRE ATT&CK techniques:**     | **Initial Access:**<br>T1190 - Exploit Public-Facing Application<br><br>**Persistence:**<br>T1505 - Server Software Component                                |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Anomalous web request activity
 
@@ -401,6 +500,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | **Initial Access:**<br>T1190 - Exploit Public-Facing Application<br><br>**Persistence:**<br>T1505 - Server Software Component                                |
 | **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, LastVerdict               |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Attempted computer brute force
 
@@ -414,6 +514,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 | **Entities:**                    | **Type:** Host<br><br>**Fields:** Hostname                         |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Attempted user account brute force
 
@@ -427,6 +528,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Attempted user account brute force per login type
 
@@ -440,6 +542,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Attempted user account bruteforce per failure reason
 
@@ -453,6 +556,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Detect machine generated network beaconing behavior
 
@@ -466,6 +570,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1071 - Application Layer Protocol<br>T1132 - Data Encoding<br>T1001 - Data Obfuscation<br>T1568 - Dynamic Resolution<br>T1573 - Encrypted Channel<br>T1008 - Fallback Channels<br>T1104 - Multi-Stage Channels<br>T1095 - Non-Application Layer Protocol<br>T1571 - Non-Standard Port<br>T1572 - Protocol Tunneling<br>T1090 - Proxy<br>T1205 - Traffic Signaling<br>T1102 - Web Service |
 | **Entities:**                    | **Type:** Network Connection<br><br>**Fields:** SourceIP, DestinationIP, DestinationPort, Protocol |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Domain generation algorithm (DGA) on DNS domains
 
@@ -479,6 +584,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
 | **Entities:**                    | **Type:** IP<br><br>**Fields:** IP, Location, ASN                  |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Domain Reputation Palo Alto anomaly
 
@@ -492,6 +598,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
 | **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, LastVerdict               |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Excessive data transfer anomaly
 
@@ -505,6 +612,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
 | **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Excessive Downloads via Palo Alto GlobalProtect
 
@@ -518,6 +626,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Excessive uploads via Palo Alto GlobalProtect
 
@@ -531,6 +640,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Login from an unusual region via Palo Alto GlobalProtect account logins
 
@@ -544,6 +654,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1133 - External Remote Services                                   |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Multi-region logins in a single day via Palo Alto GlobalProtect
 
@@ -557,6 +668,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Potential data staging
 
@@ -570,6 +682,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1074 - Data Staged                                                |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Potential domain generation algorithm (DGA) on next-level DNS Domains
 
@@ -583,6 +696,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Suspicious geography change in Palo Alto GlobalProtect account logins
 
@@ -596,6 +710,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1133 - External Remote Services<br>T1078 - Valid Accounts         |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Suspicious number of protected documents accessed
 
@@ -609,6 +724,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1530 - Data from Cloud Storage Object<br>T1213 - Data from Information Repositories<br>T1005 - Data from Local System<br>T1039 - Data from Network Shared Drive<br>T1114 - Email Collection |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, AadTenantId, IsDomainJoined |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Suspicious volume of AWS API calls from Non-AWS source IP address from a user account id per workspace on a daily basis
 
@@ -622,6 +738,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Suspicious volume of AWS cloud trail logs events of group user account by EventTypeName
 
@@ -635,6 +752,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, NTDomain, DnsDomain, UPNSuffix, Host, Sid, AadTenantId, AaadUserId, PUID, IsDomainJoined, ObjectGuid |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Suspicious volume of AWS write API calls from a user account
 
@@ -648,6 +766,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Suspicious volume of failed login attempts to AWS Console by each group user account
 
@@ -661,6 +780,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined, LastVerdict |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Suspicious volume of failed login attempts to AWS Console by each source IP address
 
@@ -674,6 +794,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, LastVerdict               |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Suspicious volume of logins to computer
 
@@ -687,6 +808,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Suspicious volume of logins to computer with elevated token
 
@@ -700,6 +822,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Suspicious volume of logins to user account
 
@@ -713,6 +836,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Suspicious volume of logins to user account by logon types
 
@@ -726,6 +850,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Suspicious volume of logins to user account with elevated token
 
@@ -739,6 +864,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Unusual external firewall alarm detected
 
@@ -752,6 +878,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | **Discovery:**<br>T1046 - Network Service Scanning<br>T1135 - Network Share Discovery<br><br>**Command and Control:**<br>T1071 - Application Layer Protocol<br>T1095 - Non-Application Layer Protocol<br>T1571 - Non-Standard Port |
 | **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Unusual mass downgrade AIP label
 
@@ -765,6 +892,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1530 - Data from Cloud Storage Object<br>T1213 - Data from Information Repositories<br>T1005 - Data from Local System<br>T1039 - Data from Network Shared Drive<br>T1114 - Email Collection |
 | **Entities:**                    |                                                                    |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Unusual network communication on commonly used ports
 
@@ -778,6 +906,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | **Command and Control:**<br>T1071 - Application Layer Protocol<br><br>**Exfiltration:**<br>T1030 - Data Transfer Size Limits                                  |
 | **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, Location                  |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Unusual network volume anomaly
 
@@ -791,6 +920,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits                                  |
 | **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ### Unusual web traffic detected with IP in URL path
 
@@ -804,6 +934,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | **Command and Control:**<br>T1071 - Application Layer Protocol<br><br>**Initial Access:**<br>T1189 - Drive-by Compromise                                      |
 | **Entities:**                    | **Type:** Network Connection, IP<br><br>**Field:** SourceIP, IP, DestinationIP, DestinationPort, Protocol |
 
+[Back to Customizable anomalies list](#customizable-anomalies)
 
 ## Next steps
 
