@@ -1,7 +1,7 @@
 {
   "redirections": [
     {
-      "source_path": "/articles/confidential-ledger/faq.md",
+      "source_path": "articles/confidential-ledger/faq.md",
       "redirect_url": "/azure/confidential-ledger/faq",
       "redirect_document_id": false
     },
