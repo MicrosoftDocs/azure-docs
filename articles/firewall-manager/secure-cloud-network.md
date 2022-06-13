@@ -77,7 +77,7 @@ Create your secured virtual hub using Firewall Manager.
 3. On the **Firewall Manager** page under **Deployments**, select **Virtual hubs**.
 4. On the **Firewall Manager | Virtual hubs** page, select **Create new secured virtual hub**.
 
-    :::image type="content" source="./media/secure-cloud-network/1-create-new-secured-virtual-hub.png" alt-text="Create new secured virtual hub." lightbox="./media/secure-cloud-network/1-create-new-secured-virtual-hub.png":::
+    :::image type="content" source="./media/secure-cloud-network/1-create-new-secured-virtual-hub.jpg" alt-text="Create new secured virtual hub." lightbox="./media/secure-cloud-network/1-create-new-secured-virtual-hub.jpg":::
 
 5. For **Resource group**, select **fw-manager-rg**.
 6. For **Region**, select **East US**.
