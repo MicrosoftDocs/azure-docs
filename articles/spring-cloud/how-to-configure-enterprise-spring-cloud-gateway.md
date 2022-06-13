@@ -109,6 +109,39 @@ Customization of the resource usage for Spring Cloud Gateway for Tanzu instances
 > [!NOTE]
 > For high available consideration, single replica is not recommended.
 
+## Configuring Spring Cloud Gateway Example
+
+Use the following steps to assign an endpoint to Spring Cloud Gateway and configure its properties.
+
+1. Assign a public endpoint to the gateway to access it.
+
+   Select the **Spring Cloud Gateway** section, then select **Overview** to view the running state and resources given to Spring Cloud Gateway and its operator.
+
+   Select **Yes** next to *Assign endpoint* to assign a public endpoint. You'll get a URL in a few minutes. Save the URL to use later.
+
+   :::image type="content" source="media/enterprise/getting-started-enterprise/gateway-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps overview page with 'Assign endpoint' highlighted.":::
+
+   You can also use CLI to do it, as shown in the following command:
+
+   ```azurecli
+   az spring gateway update --assign-endpoint
+   ```
+
+1. Use the following command to configure Spring Cloud Gateway for Tanzu properties:
+
+   ```azurecli
+   az spring gateway update \
+       --api-description "<api-description>" \
+       --api-title "<api-title>" \
+       --api-version "v0.1" \
+       --server-url "<endpoint-in-the-previous-step>" \
+       --allowed-origins "*"
+   ```
+
+   You can also view those properties in the portal.
+
+   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Spring Cloud Gateway page with Configuration pane showing.":::
+
 ## Next steps
 
 - [Azure Spring Apps](index.yml)

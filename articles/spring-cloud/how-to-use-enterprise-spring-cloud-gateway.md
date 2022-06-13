@@ -27,7 +27,7 @@ To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-po
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier service instance with Spring Cloud Gateway for Tanzu enabled. For more information, see [Quickstart: Provision an Azure Spring Apps service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise tier service instance with Spring Cloud Gateway for Tanzu enabled. For more information, see [Quickstart: Provision an Azure Spring Apps service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).<!-- TODO: fix broken link -->
 
   > [!NOTE]
   > To use Spring Cloud Gateway for Tanzu, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
@@ -70,7 +70,7 @@ Not all the filters/predicates are supported in Azure Spring Apps because of sec
 
 Use the following steps to create an example application using Spring Cloud Gateway for Tanzu.
 
-1. To create an app in Azure Spring Apps which the Spring Cloud Gateway for Tanzu would route traffic to, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md). Select `customers-service` for this example.
+1. To create an app in Azure Spring Apps which the Spring Cloud Gateway for Tanzu would route traffic to, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Apps Enterprise tier](./quickstart-deploy-apps-enterprise.md#provision-a-service-instance).
 
 1. Assign a public endpoint to the gateway to access it.
 
@@ -105,22 +105,23 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    Create rules to access apps deployed in the above step through Spring Cloud Gateway for Tanzu.
 
-   Save the following content to the *customers-service.json* file.
+   Save the following content to the *adoption-api.json* file.
 
    ```json
    [
       {
-         "title": "Customers service",
-         "description": "Route to customer service",
-         "predicates": [
-            "Path=/api/customers-service/owners"
-         ],
-         "filters": [
-            "StripPrefix=2"
-         ],
-         "tags": [
-            "pet clinic"
-         ]
+        "predicates": [
+          "Path=/api/animals",
+          "Method=GET"
+        ],
+        "filters": [
+          "RateLimit=2,10s"
+        ],
+        "tags": [
+          "pet adoption"
+        ],
+        "title": "Retrieve pets for adoption.",
+        "description": "Retrieve all of the animals who are up for pet adoption."
       }
    ]
    ```
@@ -129,9 +130,9 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    ```azurecli
    az spring gateway route-config create \
-       --name customers-service-rule \
-       --app-name customers-service \
-       --routes-file customers-service.json
+       --name adoption-api-routes \
+       --app-name adoption-api \
+       --routes-file adoption-api.json
    ```
 
    You can also view the routes in the portal.
@@ -155,6 +156,61 @@ Use the following steps to create an example application using Spring Cloud Gate
        --query '[].{name:name, appResourceId:properties.appResourceId, routes:properties.routes}'
    ```
 
+## Commercial Filters
+
+The open-source [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway) project includes a number of built-in filters for use in Gateway routes. Spring Cloud Gateway provides a number of custom filters in addition to those included in the OSS project.
+
+### Filters Included In Spring Cloud Gateway OSS
+
+Filters in Spring Cloud Gateway OSS can be used in Spring Cloud Gateway for Tanzu. Spring Cloud Gateway OSS includes a number of GatewayFilter factories used to create filters for routes. For a complete list of these factories, see the [Spring Cloud Gateway OSS documentation](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories).
+
+### Using Commercial Filters
+
+The [Spring Cloud Gateway for Tanzu Documentation](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html#filters-added-in-spring-cloud-gateway-for-kubernetes) includes examples for included commercial filters. These examples are written using kubernetes resource definitions. The following example shows how to use the `AddRequestHeadersIfNotPresent` filter by converting the kubernetes resource definition.
+
+Given the following resource definition in yaml:
+
+```yml
+apiVersion: "tanzu.vmware.com/v1"
+kind: SpringCloudGatewayRouteConfig
+metadata:
+  name: my-gateway-routes
+spec:
+  service:
+    name: myapp
+  routes:
+  - predicates:
+      - Path=/api/**
+    filters:
+      - AddRequestHeadersIfNotPresent=Content-Type:application/json,Connection:keep-alive
+```
+
+Convert `spec.routes` into json format as follows:
+
+```json
+[
+  {
+    "predicates": [
+      "Path=/api/**",
+      "Method=GET"
+    ],
+    "filters": [
+      "AddRequestHeadersIfNotPresent=Content-Type:application/json,Connection:keep-alive"
+    ]
+  }
+]
+```
+
+Then apply the route definition using following command in the Azure CLI:
+
+```azurecli
+az spring gateway route-config create \
+    --name my-gateway-routes \
+    --app myapp
+    --routes-file <json-file-with-routes>
+```
+
 ## Next steps
 
 - [Azure Spring Apps](index.yml)
+- [Quickstart: Build and deploy apps to Azure Spring Apps Enterprise tier](./quickstart-deploy-apps-enterprise.md)
