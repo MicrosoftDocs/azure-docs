@@ -28,6 +28,12 @@ In this tutorial, you learn how to:
 > * Create a firewall policy and secure your hub
 > * Test the firewall
 
+> [!IMPORTANT]
+> The procedure in this tutorial, based on Azure Firewall Manager, will create a brand new Azure Virtual WAN secured hub.
+> In case of an existing hub, the same tool can be used to upgrade, but configuring Azure **Availability Zones** for Azure Firewall will not be possible. 
+> It is also possible to convert an existing hub to secured hub using Azure Virtual WAN portal blade, as described in [this article](https://docs.microsoft.com/azure/virtual-wan/howto-firewall), but similarly to Azure Firewall Manager, it will not be possible to configure **Availability Zones**. 
+> In order to upgrade an existing hub, and specify **Availability Zones** for Azure Firewall, which is recommended, it is necessary to follow the upgrade procedure contained in [this article](https://docs.microsoft.com/azure/firewall-manager/secure-cloud-network-powershell). 
+
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
