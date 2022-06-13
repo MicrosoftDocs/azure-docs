@@ -23,7 +23,7 @@ For more information, see (insert nutanix url)
 ## Networking requirements
 
 * Connectivity between your on-premises datacenter and Azure. Both ExpressRoute and VPN are supported. 
-* After a cluster is created, you will need Virtual IP addresses for both the onpremises cluster and the cluster running in Azure.
+* After a cluster is created, you'll need Virtual IP addresses for both the on-premises cluster and the cluster running in Azure.
 * Outbound internet access on your Azure portal.
 * Azure Directory Service resolves the FQDN:  
 gateway-external-api.console.nutanix.com.

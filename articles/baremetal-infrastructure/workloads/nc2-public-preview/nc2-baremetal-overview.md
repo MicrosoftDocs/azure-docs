@@ -12,7 +12,7 @@ In this article, we'll give an overview of the features BareMetal Infrastructure
 
 Nutanix Cloud Clusters on Microsoft Azure provides a hybrid cloud solution that operates as a single cloud, allowing you to manage applications and infrastructure in your private cloud and Azure. With NC2 running on Azure, you can seamlessly move your applications between on-premises and Azure using a single management console. With NC2 on Azure, you can use your existing Azure accounts and networking setup (VPN, VNets, and Subnets), eliminating the need to manage any complex network overlays. With this hybrid offering, you use the same Nutanix software and licenses across your on-premises cluster and Azure to optimize your IT investment efficiently.
 
-You use the NC2 console to create a cluster, update the cluster capacity (the number of nodes), and delete a Nutanix cluster. After you create a Nutanix cluster in Azure using NC2, you can operate the cluster in the same manner as you operate your on-prem Nutanix cluster with minor changes in the Nutanix command-line interface (nCLI), the Prism Element and Prism Central web consoles, and APIs.  
+You use the NC2 console to create a cluster, update the cluster capacity (the number of nodes), and delete a Nutanix cluster. After you create a Nutanix cluster in Azure using NC2, you can operate the cluster in the same manner as you operate your on-premises Nutanix cluster with minor changes in the Nutanix command-line interface (nCLI), the Prism Element and Prism Central web consoles, and APIs.  
 
 ## Supported protocols
 
@@ -35,10 +35,10 @@ NC2 runs Nutanix Acropolis Operating System (AOS) and Nutanix Acropolis Hypervis
 - AHV hypervisor is based on open source Kernel-based Virtual Machine (KVM).
 - AHV will determine the lowest processor generation in the cluster and constrain all Quick Emulator (QEMU) domains to that level.
 
-This functionality allows mixing of processor generations within an AHV cluster and ensures the ability to live migrate between hosts.
+This functionality allows mixing of processor generations within an AHV cluster and ensures the ability to live-migrate between hosts.
 
-AOS abstracts kvm, virsh, qemu, libvirt, and iSCSI from the end-user and handles all backend configuration,
-meaning that users can use Prism to manage everything they would want to manage, while not needing to be concerned with low-level management.
+AOS abstracts kvm, virsh, qemu, libvirt, and iSCSI from the end-user and handles all backend configuration.
+Thus users can use Prism to manage everything they would want to manage, while not needing to be concerned with low-level management.
 
 ## Next step
 

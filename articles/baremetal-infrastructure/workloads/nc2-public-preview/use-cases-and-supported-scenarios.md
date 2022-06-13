@@ -10,7 +10,7 @@ ms.date: 07/01/2022
 
 ** Unified management experience - cluster management
 
-This is one of the biggest points of feedback we get from customers - operations and cluster management is nearly identical to on premises. 
+That operations and cluster management be nearly identical to on-premises is critical to customers. 
 Customers can update capacity, monitor alerts, replace hosts, monitor usage, and more by combining the power of microsoft and nutanix.
 
 ** Disaster Recovery
