@@ -130,6 +130,7 @@ Declare your claims in the [claims schema](claimsschema.md). Open the extensions
     </BuildingBlocks> -->
     ```
 
+### Add the Technical Profiles
 A claims transformation technical profile initiates the **isForgotPassword** claim. The technical profile is referenced later. When invoked, it sets the value of the **isForgotPassword** claim to `true`. Find the **ClaimsProviders** element. If the element doesn't exist, add it. Then add the following claims provider:  
 
 ```xml
@@ -151,6 +152,9 @@ A claims transformation technical profile initiates the **isForgotPassword** cla
           <Item Key="setting.forgotPasswordLinkOverride">ForgotPasswordExchange</Item>
         </Metadata>
       </TechnicalProfile>
+      <TechnicalProfile Id="LocalAccountWritePasswordUsingObjectId">
+        <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+      </TechnicalProfile>
     </TechnicalProfiles>
   </ClaimsProvider>
 <!-- 
@@ -158,6 +162,8 @@ A claims transformation technical profile initiates the **isForgotPassword** cla
 ```
 
 The **SelfAsserted-LocalAccountSignin-Email** technical profile **setting.forgotPasswordLinkOverride** defines the password reset claims exchange that executes in your user journey.
+
+The **LocalAccountWritePasswordUsingObjectId** technical profile **UseTechnicalProfileForSessionManagement** AAD session manager is required for sessions to persist correctly for SSO.
 
 ### Add the password reset sub journey
 
