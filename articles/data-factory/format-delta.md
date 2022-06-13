@@ -5,7 +5,7 @@ author: kromerm
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 04/24/2022
+ms.date: 06/13/2022
 ms.author: makromer
 ---
 
@@ -101,7 +101,7 @@ moviesAltered sink(
 ### Delta sink with partition pruning
 With this option under Update method above (i.e. update/upsert/delete), you can limit the number of partitions that are inspected. Only partitions satisfying this condition will be fetched from the target store.  You can specify fixed set of values that a partition column may take.
 
-:::image type="content" source="media/format-delta/delta-pruning.png" alt-text="Partition pruning options are available to limit the inspection.":::
+:::image type="content" source="media/format-delta/delta-pruning.png" alt-text="Screenshot of partition pruning options are available to limit the inspection.":::
 
 ### Delta sink script example with partition pruning
 
@@ -133,7 +133,7 @@ DerivedColumn1 sink(
 ```
 Delta will only read 2 partitions where **part_col == 5 and 8**  from the target delta store instead of all partitions. *part_col* is a column that the target delta data is partitioned by. It need not be present in the source data.
 
-### Delta sink optimizaiton options
+### Delta sink optimization options
 
 In Settings tab, you will find three more options to optimize delta sink transformation. 
 
