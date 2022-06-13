@@ -159,6 +159,10 @@ In the following example, an Azure Data Lake Gen2 resource set is produced from 
 
 :::image type="content" source="./media/how-to-link-azure-data-factory/adf-resource-set-lineage.png" alt-text="Screenshot showing the lineage for a resource set." lightbox="./media/how-to-link-azure-data-factory/adf-resource-set-lineage.png":::
 
+### Known limitations
+
+* Database Views used as source of pipeline activity, are currently captured as Database Table objects in Microsoft Purview. If the Database is also scanned, the View assets are discovered separately in Microsoft Purview. In this scenario, two assets with same name captured in Microsoft Purview, one as a Table with data lineage and another as a View.   
+
 ## Next steps
 
 [Tutorial: Push Data Factory lineage data to Microsoft Purview](../data-factory/turorial-push-lineage-to-purview.md)
