@@ -28,4 +28,5 @@ To request support, send an email request to avsStretchedClusterLA@microsoft.com
 - Number of nodes in first stretched cluster (minimum 6, maximum 16 - in multiples of 2)
 - Estimated provisioning date (this will be used for billing purposes)
 
-Once the request support details are received, quota will be reserved for a stretched cluster environment in the region requested. The subscription gets enabled to deploy a stretched cluster SDDC through the Azure portal. A confirmation email will be sent to the designated point of contact within 2 business days upon which you should be able to self-deploy a stretched cluster SDDC using the Azure portal. 
+Once the request support details are received, quota will be reserved for a stretched cluster environment in the region requested. The subscription gets enabled to deploy a stretched cluster SDDC through the Azure portal. A confirmation email will be sent to the designated point of contact within 2 business days upon which you should be able to self-deploy a stretched cluster SDDC using the Azure portal. Select **Hosts in two availability zones** to ensure that a stretched cluster gets deployed in the region of your choice.
+
