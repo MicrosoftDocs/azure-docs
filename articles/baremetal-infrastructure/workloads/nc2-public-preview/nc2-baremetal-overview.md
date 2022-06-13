@@ -33,10 +33,12 @@ NC2 runs Nutanix Acropolis Operating System (AOS) and Nutanix Acropolis Hypervis
 - Servers are pre-loaded with [AOS 6.1](https://www.nutanixbible.com/4-book-of-aos.html).
 - AHV 6.1 is built into this product as the default hypervisor at no extra cost.
 - AHV hypervisor is based on open source Kernel-based Virtual Machine (KVM).
-- AHV will determine the lowest processor generation in the cluster and constrain all Quick Emulator (QEMU) domains to that level. 
-This allows mixing of processor generations within an AHV cluster and ensures the ability to live migrate between hosts.
-- AOS abstracts kvm, virsh, qemu, libvirt, and iSCSI from the end-user and handles all backend configuration.
-This means that users can use Prism to manage everything they would want to manage, while not needing to be concerned with low-level management.
+- AHV will determine the lowest processor generation in the cluster and constrain all Quick Emulator (QEMU) domains to that level.
+
+This functionality allows mixing of processor generations within an AHV cluster and ensures the ability to live migrate between hosts.
+
+AOS abstracts kvm, virsh, qemu, libvirt, and iSCSI from the end-user and handles all backend configuration,
+meaning that users can use Prism to manage everything they would want to manage, while not needing to be concerned with low-level management.
 
 ## Next step
 
