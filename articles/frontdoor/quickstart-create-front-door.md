@@ -37,7 +37,7 @@ If you don't already have a web app, use the following steps to set up example w
 
 1. On the top left-hand side of the screen, select **Create a resource** >  **Web App**.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-create-web-app.png" alt-text="Create a web app in the Azure portal":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-create-web-app.png" alt-text="Create a web app in the Azure portal." lightbox="./media/quickstart-create-front-door/front-door-create-web-app.png":::
 
 1. In the **Basics** tab of **Create Web App** page, enter or select the following information.
 
@@ -55,7 +55,7 @@ If you don't already have a web app, use the following steps to set up example w
 
 1. Select **Review + create**, review the **Summary**, and then select **Create**. It might take several minutes for the deployment to complete.
 
-    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Review summary for web app":::
+    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Review summary for web app." lightbox="./media/quickstart-create-front-door/create-web-app.png":::
 
 After your deployment is complete, create a second web app. Use the same procedure with the same values, except for the following values:
 
@@ -84,7 +84,7 @@ Configure Azure Front Door to direct user traffic based on lowest latency betwee
 
 1. For **Host name**, enter a globally unique hostname. This example uses *contoso-frontend*. Select **Add**.
 
-    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Add a frontend host for Azure Front Door":::
+    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Add a frontend host for Azure Front Door." lightbox="./media/quickstart-create-front-door/add-frontend-host-azure-front-door.png":::
 
 Next, create a backend pool that contains your two web apps.
 
@@ -92,7 +92,7 @@ Next, create a backend pool that contains your two web apps.
 
 1. For **Name**, enter *myBackendPool*, then select **Add a backend**.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Add a backend pool":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Add a backend pool." lightbox="./media/quickstart-create-front-door/front-door-add-backend-pool.png":::
 
 1. In the **Add a backend** pane, select the following information and select **Add**.
 
@@ -102,9 +102,9 @@ Next, create a backend pool that contains your two web apps.
     | **Subscription** | Select your subscription. |    
     | **Backend host name** | Select the first web app you created. In this example, the web app was *WebAppContoso-1*. |
 
-    **Leave all other fields default.*
+    **Leave all other fields default.**
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Add a backend host to your Front Door":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Add a backend host to your Front Door." lightbox="./media/quickstart-create-front-door/front-door-add-a-backend.png":::
 
 1. Select **Add a backend** again. select the following information and select **Add**.
 
@@ -114,11 +114,11 @@ Next, create a backend pool that contains your two web apps.
     | **Subscription** | Select your subscription. |    
     | **Backend host name** | Select the second web app you created. In this example, the web app was *WebAppContoso-2*. |
 
-    **Leave all other fields default.*
+    **Leave all other fields default.**
 
 1. Select **Add** on the **Add a backend pool** pane to complete the configuration of the backend pool.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Add a backend pool for Azure Front Door":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Add a backend pool for Azure Front Door." lightbox="./media/quickstart-create-front-door/front-door-add-backend-pool-complete.png":::
 
 Finally, add a routing rule. A routing rule maps your frontend host to the backend pool. The rule forwards a request for `contoso-frontend.azurefd.net` to **myBackendPool**.
 
@@ -126,14 +126,14 @@ Finally, add a routing rule. A routing rule maps your frontend host to the backe
 
 1. In **Add a rule**, for **Name**, enter *LocationRule*. Accept all the default values, then select **Add** to add the routing rule.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Add a rule to your Front Door":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Add a rule to your Front Door." lightbox="./media/quickstart-create-front-door/front-door-add-a-rule.png":::
 
    >[!WARNING]
    > You **must** ensure that each of the frontend hosts in your Front Door has a routing rule with a default path (`/*`) associated with it. That is, across all of your routing rules there must be at least one routing rule for each of your frontend hosts defined at the default path (`/*`). Failing to do so may result in your end-user traffic not getting routed correctly.
 
 1. Select **Review + Create**, and then **Create**.
 
-    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Configured Azure Front Door":::
+    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Configured Azure Front Door." lightbox="./media/quickstart-create-front-door/configuration-azure-front-door.png":::
 
 
 ## View Azure Front Door in action
@@ -146,11 +146,11 @@ To test instant global failover in action, try the following steps:
 
 1. Open the resource group **FrontDoorQS_rg0** and select the frontend service.
 
-    :::image type="content" source="./media/quickstart-create-front-door/front-door-view-frontend-service.png" alt-text="Screenshot of frontend service":::
+    :::image type="content" source="./media/quickstart-create-front-door/front-door-view-frontend-service.png" alt-text="Screenshot of frontend service." lightbox="./media/quickstart-create-front-door/front-door-view-frontend-service.png":::
 
 1. From the **Overview** page, copy the **Frontend host** address.
 
-    :::image type="content" source="./media/quickstart-create-front-door/front-door-view-frontend-host-address.png" alt-text="Screenshot of frontend host address":::
+    :::image type="content" source="./media/quickstart-create-front-door/front-door-view-frontend-host-address.png" alt-text="Screenshot of frontend host address." lightbox="./media/quickstart-create-front-door/front-door-view-frontend-host-address.png":::
 
 1. Open a browser, as described above, and go to your frontend address.
 
@@ -167,7 +167,7 @@ To test instant global failover in action, try the following steps:
 
 1. Refresh your browser. This time, you should see an error message.
 
-   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Both instances of the web app stopped":::
+   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Both instances of the web app stopped." lightbox="./media/quickstart-create-front-door/web-app-stopped-message.png":::
 
 ## Clean up resources
 
