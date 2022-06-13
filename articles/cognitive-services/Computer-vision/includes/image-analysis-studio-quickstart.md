@@ -15,10 +15,14 @@ ms.author: pafarley
 
 Use Vision Studio to analyze an image for tags.
 
-5.	This feature has a section to choose your language, select a sample image, or upload one of your own. To use the try-it-out experience, you will need to choose a resource and acknowledge it will incur usage according to your [pricing tier](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/computer-vision/).
+## Prerequisites
 
-![Add captions to images demol](./Images/vision-studio-demo-1.png)
+* Sign in to Vision Studio with your Azure subscription and Cognitive Services resource. See the [Get started section](../overview-vision-studio.md#get-started-using-vision-studio) of the overview if you need help with this step.
 
-6.	After selecting your image and acknowledging usage, you will see the detected attributes of the image appear in the output window. You can also select **JSON** to take a look at the JSON output. Below the try-it-out experience are next steps to get started using this capability in your own application.
+## Analyze an image
 
-![Add captions to images demo resultsl](./Images/vision-studio-demo-2.png)
+1. Select the **Analyze images** tab, and select panel titled **Extract common tags from images**.
+1. To use the try-it-out experience, you will need to choose a resource and acknowledge it will incur usage according to your [pricing tier](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/computer-vision/).
+1. Select an image from the available set, or upload your own.
+1. After you select your image, you'll see the detected tags appear in the output window along with their confidence scores. You can also select the **JSON** tab to see the JSON output that the API call returns. 
+1. Below the try-it-out experience are next steps to start using this capability in your own application.
