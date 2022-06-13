@@ -70,20 +70,41 @@ Create your secured virtual hub using Firewall Manager.
 2. In the search box, type **Firewall Manager** and select **Firewall Manager**.
 3. On the **Firewall Manager** page under **Deployments**, select **Virtual hubs**.
 4. On the **Firewall Manager | Virtual hubs** page, select **Create new secured virtual hub**.
-5. For **Resource group**, select **fw-manager-rg**.
-7. For **Region**, select **East US**.
-1. For the **Secured virtual hub name**, type **Hub-01**.
-2. For **Hub address space**, type **10.2.0.0/16**.
-3. For the new virtual WAN name, type **Vwan-01**.
-4. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
-5. Select **Next: Azure Firewall**.
-6. Accept the default **Azure Firewall** **Enabled** setting.
-1. For **Azure Firewall tier**, select **Standard**.
-1. Select **Next: Trusted Security Partner**.
-1. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
-1. Select **Create**. 
 
-   It takes about 30 minutes to deploy.
+:::image type="content" source="./media/secure-cloud-network/1-create-new-secured-virtual-hub.png" alt-text="Create new secured virtual hub." lightbox="./media/secure-cloud-network/1-create-new-secured-virtual-hub.png":::
+
+5. For **Resource group**, select **fw-manager-rg**.
+6. For **Region**, select **East US**.
+7. For the **Secured virtual hub name**, type **Hub-01**.
+8. For **Hub address space**, type **10.2.0.0/16**.
+9. For the new virtual WAN name, type **Vwan-01**.
+10. Select **New vWAN** and select **Standard** for "Type"
+11. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
+
+:::image type="content" source="./media/secure-cloud-network/2-create-new-secured-virtual-hub.png" alt-text="Create new virtual hub with properties." lightbox="./media/secure-cloud-network/2-create-new-secured-virtual-hub.png":::
+
+12. Select **Next: Azure Firewall**.
+13. Accept the default **Azure Firewall** **Enabled** setting.
+14. For **Azure Firewall tier**, select **Standard**.
+15. Select the desired combination of **Availability Zones**. 
+
+> [!IMPORTANT]
+> Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many Virtual WAN per their need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services is automatically deployed across Availability Zones except Azure Firewall, if the region supports Availability Zones. To align with Azure Virtual WAN resiliency, it is recommended to select all available Availability Zones, where available.
+
+:::image type="content" source="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png" alt-text="Configure Azure Firewall parameters." lightbox="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png":::
+
+16. Select the **Firewall Policy** to apply at the new Azure Firewall instance. Select **Default Deny Policy**, you will refine your settings later in this article.
+17. Select **Next: Trusted Security Partner**.
+
+:::image type="content" source="./media/secure-cloud-network/4-trusted-security-partner.png" alt-text="Configure Trusted Partners parameters." lightbox="./media/secure-cloud-network/4-trusted-security-partner.png":::
+
+18. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
+19. Select **Create**. 
+
+:::image type="content" source="./media/secure-cloud-network/5-confirm-and-create.png" alt-text="Create the Firewall instance." lightbox="./media/secure-cloud-network/5-confirm-and-create.png":::
+
+> [!NOTE]
+> Creating a secured virtual hub may take up to 30 minutes.
 
 You can get the firewall public IP address after the deployment completes.
 
@@ -145,70 +166,100 @@ After the servers are deployed, select a server resource, and in **Networking** 
 A firewall policy defines collections of rules to direct traffic on one or more Secured virtual hubs. You'll create your firewall policy and then secure your hub.
 
 1. From Firewall Manager, select **Azure Firewall policies**.
+
+    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy1.png" alt-text="Create an Azure Policy with first step." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy1.png":::
+
 2. Select **Create Azure Firewall Policy**.
-1. For **Resource group**, select **fw-manager-rg**.
-1. Under **Policy details**, for the **Name** type **Policy-01** and for **Region** select **East US**.
-1. For **Policy tier**, select **Standard**.
-1. Select **Next: DNS Settings**.
-1. Select **Next: TLS Inspection**.
-1. Select **Next : Rules**.
-1. On the **Rules** tab, select **Add a rule collection**.
-1. On the **Add a rule collection** page, type **App-RC-01** for the **Name**.
-1. For **Rule collection type**, select **Application**.
-1. For **Priority**, type **100**.
-1. Ensure **Rule collection action** is **Allow**.
-1. For the rule **Name** type **Allow-msft**.
-1. For the **Source type**, select **IP address**.
-1. For **Source**, type **\***.
-1. For **Protocol**, type **http,https**.
-1. Ensure **Destination type** is **FQDN**.
-1. For **Destination**, type **\*.microsoft.com**.
-1. Select **Add**.
 
-Add a DNAT rule so you can connect a remote desktop to the **Srv-Workload-01** virtual machine.
+    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-basics 2.png" alt-text="Configure Azure Policy settings in first step." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-basics 2.png":::
 
-1. Select **Add/Rule collection**.
-1. For **Name**, type **dnat-rdp**.
-1. For **Rule collection type**, select **DNAT**.
-1. For **Priority**, type **100**.
-1. For the rule **Name** type **Allow-rdp**.
-1. For the **Source type**, select **IP address**.
-1. For **Source**, type **\***.
-1. For **Protocol**, select **TCP**.
-1. For **Destination Ports**, type **3389**.
-1. For **Destination Type**, select **IP Address**.
-1. For **Destination**, type the firewall public IP address that you noted previously.
-1. For **Translated address**, type the private IP address for **Srv-Workload-01** that you noted previously.
-1. For **Translated port**, type **3389**.
-1. Select **Add**.
+3. For **Resource group**, select **fw-manager-rg**.
+4. Under **Policy details**, for the **Name** type **Policy-01** and for **Region** select **East US**.
+5. For **Policy tier**, select **Standard**.
+6. Select **Next: DNS Settings**.
 
-Add a network rule so you can connect a remote desktop from **Srv-Workload-01** to **Srv-Workload-02**.
+    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-dns3.png" alt-text="Configure DNS settings." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-dns3.png":::
 
-1. Select **Add a rule collection**.
-2. For **Name**, type **vnet-rdp**.
-3. For **Rule collection type**, select **Network**.
-4. For **Priority**, type **100**.
-1. For **Rule collection action**, select **Allow**.
-1. For the rule **Name** type **Allow-vnet**.
-1. For the **Source type**, select **IP address**.
-1. For **Source**, type **\***.
-1. For **Protocol**, select **TCP**.
-1. For **Destination Ports**, type **3389**.
-1. For **Destination Type**, select **IP Address**.
-1. For **Destination**, type the **Srv-Workload-02** private IP address that you noted previously.
-1. Select **Add**.
-1. Select **Review + create**.
-1. Select **Create**.
+7. Select **Next: TLS Inspection**.
+
+    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-tls4.png" alt-text="Configure TLS settings." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-tls4.png":::
+
+8. Select **Next : Rules**.
+9. On the **Rules** tab, select **Add a rule collection**.
+
+    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-add-rule-collection6.png" alt-text="Configure Rule Collection." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-add-rule-collection6.png":::
+
+10. On the **Add a rule collection** page, type **App-RC-01** for the **Name**.
+11. For **Rule collection type**, select **Application**.
+12. For **Priority**, type **100**.
+13. Ensure **Rule collection action** is **Allow**.
+14. For the rule **Name** type **Allow-msft**.
+15. For the **Source type**, select **IP address**.
+16. For **Source**, type **\***.
+17. For **Protocol**, type **http,https**.
+18. Ensure **Destination type** is **FQDN**.
+19. For **Destination**, type **\*.microsoft.com**.
+20. Select **Add**.
+
+21. Add a **DNAT rule** so you can connect a remote desktop to the **Srv-Workload-01** virtual machine.
+
+    1. Select **Add/Rule collection**.
+    2. For **Name**, type **dnat-rdp**.
+    3. For **Rule collection type**, select **DNAT**.
+    4. For **Priority**, type **100**.
+    5. For the rule **Name** type **Allow-rdp**.
+    6. For the **Source type**, select **IP address**.
+    7. For **Source**, type **\***.
+    8. For **Protocol**, select **TCP**.
+    9. For **Destination Ports**, type **3389**.
+    10. For **Destination Type**, select **IP Address**.
+    11. For **Destination**, type the firewall public IP address that you noted previously.
+    12. For **Translated address**, type the private IP address for **Srv-Workload-01** that you noted previously.
+    13. For **Translated port**, type **3389**.
+    14. Select **Add**.
+
+22. Add a **Network rule** so you can connect a remote desktop from **Srv-Workload-01** to **Srv-Workload-02**.
+
+    1. Select **Add a rule collection**.
+    2. For **Name**, type **vnet-rdp**.
+    3. For **Rule collection type**, select **Network**.
+    4. For **Priority**, type **100**.
+    5. For **Rule collection action**, select **Allow**.
+    6. For the rule **Name** type **Allow-vnet**.
+    7. For the **Source type**, select **IP address**.
+    8. For **Source**, type **\***.
+    9. For **Protocol**, select **TCP**.
+    10. For **Destination Ports**, type **3389**.
+    11. For **Destination Type**, select **IP Address**.
+    12. For **Destination**, type the **Srv-Workload-02** private IP address that you noted previously.
+    13. Select **Add**.
+    14. Select **Review + create**.
+    15. Select **Create**.
+
+23. In the **IDPS** page, click on **Next: Threat Intelligence**
+
+    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-idps7.png" alt-text="Configure IDPS settings." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-idps7.png":::
+
+24. In the **Threat Intelligence** page, accept defaults and click on **Review and Create**:
+
+    :::image type="content" source="./media/secure-cloud-network/7a-create-azure-firewall-policy-threat-intelligence7.png" alt-text="Configure Threat Intelligence settings." lightbox="./media/secure-cloud-network/7a-create-azure-firewall-policy-threat-intelligence7.png":::
+
+25. Review and confirm your selection clicking on **Create** button.
 
 ## Associate policy
 
 Associate the firewall policy with the hub.
 
 1. From Firewall Manager, select **Azure Firewall Policies**.
-1. Select the check box for **Policy-01**.
-1. Select **Manage associations**, **Associate hubs**.
-1. Select **hub-01**.
-1. Select **Add**.
+2. Select the check box for **Policy-01**.
+3. Select **Manage associations**, **Associate hubs**.
+
+    :::image type="content" source="./media/secure-cloud-network/8-associate-policy1.png" alt-text="Configure Policy association." lightbox="./media/secure-cloud-network/8-associate-policy1.png":::
+
+4. Select **hub-01**.
+5. Select **Add**.
+
+   :::image type="content" source="./media/secure-cloud-network/8-associate-policy2.png" alt-text="Add Policy and Hub settings" lightbox="./media/secure-cloud-network/8-associate-policy2.png":::
 
 ## Route traffic to your hub
 
@@ -219,12 +270,17 @@ Now you must ensure that network traffic gets routed through your firewall.
 3. Under **Settings**, select **Security configuration**.
 4. Under **Internet traffic**, select **Azure Firewall**.
 5. Under **Private traffic**, select **Send via Azure Firewall**.
-1. Select **Save**.
-1. Select **OK** on the **Warning** dialog.
+6. Select **Save**.
+7. Select **OK** on the **Warning** dialog.
 
+   :::image type="content" source="./media/secure-cloud-network/9a-firewall-warning.png" alt-text="Secure Connections" lightbox="./media/secure-cloud-network/9a-firewall-warning.png":::
 
-   It takes a few minutes to update the route tables.
-1. Verify that the two connections show Azure Firewall secures both Internet and private traffic.
+   > [!NOTE]
+   > It takes a few minutes to update the route tables.
+
+8. Verify that the two connections show Azure Firewall secures both Internet and private traffic.
+
+   :::image type="content" source="./media/secure-cloud-network/9b-secured-connections.png" alt-text="Secure Connections Final Status" lightbox="./media/secure-cloud-network/9b-secured-connections.png":::
 
 ## Test the firewall
 
@@ -236,12 +292,12 @@ Now, test the firewall rules to confirm that it works as expected.
 
 1. Connect a remote desktop to firewall public IP address, and sign in.
 
-3. Open Internet Explorer and browse to `https://www.microsoft.com`.
-4. Select **OK** > **Close** on the Internet Explorer security alerts.
+2. Open Internet Explorer and browse to `https://www.microsoft.com`.
+3. Select **OK** > **Close** on the Internet Explorer security alerts.
 
    You should see the Microsoft home page.
 
-5. Browse to `https://www.google.com`.
+4. Browse to `https://www.google.com`.
 
    You should be blocked by the firewall.
 
