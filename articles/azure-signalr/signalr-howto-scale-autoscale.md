@@ -69,21 +69,21 @@ The following procedure shows you how to add a condition to increase units (scal
 1. On the **Scale out** page, select **Custom autoscale** for the **Choose how to scale your resource** option.
 1. Select **Scale based on a metric** for **Scale mode**.
 1. Select **+ Add a rule**.
-    :::image type="content" source="./media/signalr-howto-scale-autoscale/default-autoscale.png" alt-text="Screenshot of custom rule based on a metric":::
+    :::image type="content" source="./media/signalr-howto-scale-autoscale/default-autoscale.png" alt-text="Screenshot of custom rule based on a metric.":::
 
 1. On the **Scale rule** page, follow these steps:
     1. Select a metric from the **Metric name** drop-down list. In this example, it's **Connection Quota Utilization**.
     1. Select an operator and threshold values. In this example, they're **Greater than** and **70** for **Metric threshold to trigger scale action**.
     1. Select an **operation** in the **Action** section. In this example, it's set to **Increase**.
     1. Then, select **Add**
-        :::image type="content" source="./media/signalr-howto-scale-autoscale/default-scale-out.png" alt-text="Screenshot of default autoscale rule screen":::
+        :::image type="content" source="./media/signalr-howto-scale-autoscale/default-scale-out.png" alt-text="Screenshot of default autoscale rule screen.":::
 
 1. Select **+ Add a rule** again, and follow these steps on the **Scale rule** page:
     1. Select a metric from the **Metric name** drop-down list. In this example, it's **Connection Quota Utilization**.
     1. Select an operator and threshold values. In this example, they're **Less than** and **20** for **Metric threshold to trigger scale action**.
     1. Select an **operation** in the **Action** section. In this example, it's set to **Decrease**.
     1. Then, select **Add**
-        :::image type="content" source="./media/signalr-howto-scale-autoscale/default-scale-in.png" alt-text="Screenshot Connection Quota Utilization scale rule":::
+        :::image type="content" source="./media/signalr-howto-scale-autoscale/default-scale-in.png" alt-text="Screenshot Connection Quota Utilization scale rule.":::
 
 1. Set the **minimum**, **maximum**, and **default** number of units.
 1. Select **Save** on the toolbar to save the autoscale setting. 
@@ -95,7 +95,7 @@ Follow these steps to configure the rule to scale to a specific unit range.
 1. On the **Scale out** page, select **Custom autoscale** for the **Choose how to scale your resource** option.
 1. Select **Scale to a specific units** for **Scale mode**.
 1. For **Units**, select the number of default units.
-    :::image type="content" source="./media/signalr-howto-scale-autoscale/default-specific-units.png" alt-text="Screenshot of scale rule criteria":::
+    :::image type="content" source="./media/signalr-howto-scale-autoscale/default-specific-units.png" alt-text="Screenshot of scale rule criteria.":::
 
 ## Add more conditions
 
@@ -103,7 +103,7 @@ The previous section showed you how to add a default condition for the autoscale
 
 1. On the **Scale out** page, select **Custom autoscale** for the **Choose how to scale your resource** option.
 1. Select **Add a scale condition** under the **Default** block.
-    :::image type="content" source="./media/signalr-howto-scale-autoscale/additional-add-condition.png" alt-text="Screenshot of custom scale rule screen":::
+    :::image type="content" source="./media/signalr-howto-scale-autoscale/additional-add-condition.png" alt-text="Screenshot of custom scale rule screen.":::
 1. Confirm that the **Scale based on a metric** option is selected.
 1. Select **+ Add a rule** to add a rule to increase units when the **Connection Quota Utilization** goes above 70%. Follow steps from the [default condition](#default-scale-condition) section.
 1. Set the **minimum** and **maximum** and **default** number of units.
