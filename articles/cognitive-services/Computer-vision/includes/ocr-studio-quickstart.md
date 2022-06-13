@@ -13,8 +13,6 @@ ms.date: 06/13/2022
 ms.author: pafarley
 ---
 
-Use Vision Studio to read text in an image.
-
 ## Prerequisites
 
 * Sign in to [Vision Studio](https://vision.cognitive.azure.com/) with your Azure subscription and Cognitive Services resource. See the [Get started section](../overview-vision-studio.md#get-started-using-vision-studio) of the overview if you need help with this step.
