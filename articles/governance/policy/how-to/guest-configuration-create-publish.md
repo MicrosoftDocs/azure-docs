@@ -34,25 +34,27 @@ If you don't have a storage account, use the following example to create one.
 ```powershell
 # Creates a new resource group, storage account, and container
 New-AzResourceGroup -name myResourceGroupName -Location WestUS
-New-AzStorageAccount -ResourceGroupName myResourceGroupName -Name myStorageAccountName -SkuName 'Standard_LRS' -Location 'WestUs' | New-AzStorageContainer -Name guestconfiguration -Permission Blob
+New-AzStorageAccount -ResourceGroupName myResourceGroupName -Name mystorageaccount -SkuName 'Standard_LRS' -Location 'WestUs' | New-AzStorageContainer -Name guestconfiguration -Permission Blob
 ```
 
-The `Publish-GuestConfigurationPackage` command uploads the configuration package
-to Azure Blob Storage and retrieves a SAS token so it can be accessed securely.
+To publish your configuration package to Azure blob storage, you can follow the below steps which leverages the Az.Storage module. 
 
-Parameters of the `Publish-GuestConfigurationPackage` cmdlet:
-
-- **Path**: Location of the package to be published
-- **ResourceGroupName**: Name of the resource group where the storage account is located
-- **StorageAccountName**: Name of the storage account where the package should be published
-- **StorageContainerName**: (default: _guestconfiguration_) Name of the storage container in the
-  storage account
-- **Force**: Overwrite existing package in the storage account with the same name
-
-The following example publishes the package to a storage container name 'guestconfiguration'.
+First, obtain the context of the storage account in which the package will be stored. This example creates a context by specifying a connection string and saves the context in the variable $Context. 
 
 ```powershell
-Publish-GuestConfigurationPackage -Path ./MyConfig.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName | % ContentUri
+$Context = New-AzStorageContext -ConnectionString "DefaultEndpointsProtocol=https;AccountName=ContosoGeneral;AccountKey=< Storage Key for ContosoGeneral ends with == >;"
+```
+
+Next, add the configuration package to the storage account. This example uploads the zip file ./MyConfig.zip to the blob "guestconfiguration".
+
+```powershell
+Set-AzStorageBlobContent -Container "guestconfiguration" -File ./MyConfig.zip -Blob "guestconfiguration" -Context $Context
+```
+
+Optionally, you can add a SAS token in the URL, this ensures that the content package will be accessed securely. The below example generates a blob SAS token with full blob permission and returns the full blob URI with the shared access signature token.
+
+```powershell
+$contenturi = New-AzStorageBlobSASToken -Context $Context -FullUri -Container guestconfiguration -Blob "guestconfiguration" -Permission rwd 
 ```
 
 ## Next steps

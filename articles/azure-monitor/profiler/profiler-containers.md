@@ -4,6 +4,7 @@ description: Enable Application Insights Profiler for Azure Containers.
 ms.contributor: charles.weininger
 ms.topic: conceptual
 ms.date: 05/26/2022
+ms.reviewer: jogrima
 ---
 
 # Profile live Azure containers with Application Insights

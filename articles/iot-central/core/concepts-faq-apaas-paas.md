@@ -3,7 +3,7 @@ title: Move from IoT Central to a PaaS solution | Microsoft Docs
 description: How do I move between aPaaS and PaaS solution approaches?
 author: julieseto
 ms.author: jseto
-ms.date: 01/25/2022
+ms.date: 06/09/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
