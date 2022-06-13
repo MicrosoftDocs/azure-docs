@@ -12,3 +12,5 @@ ms.custom: devx-track-csharp
 ---
 
 # Create an item in Azure Cosmos DB SQL API using .NET
+
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
