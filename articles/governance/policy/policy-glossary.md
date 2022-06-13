@@ -13,7 +13,7 @@ The term _policy_ is used widely in virtually every industry and is associated w
 This glossary provides definitions and descriptions of terms used by Azure Policy.
 
 ## Alias
-Also known as _property alias_; A field of value that maps to a resource property
+A field used in policy definitions that maps to a resource property.
 ## Applicability
 Resources that are considered for assessment depending on the policy rule
 ## Assignment
