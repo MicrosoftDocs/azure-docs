@@ -29,13 +29,13 @@ The Group Policy to onboard Azure Arc-enabled servers requires a remote share wi
 
 1. Download `EnableAzureArc.ps1`, `DeployGPO.ps1`, and `AzureArcDeployment.psm1` to your local network share.
 
-1. Modify the script `EnableAzureArc.ps1` filling out the parameter declarations for servicePrincipalClientId, tenantId, subscriptionId, ResourceGroup, Location, Tags, and ReportServerFQDN fields respectively.
+1. Modify the script `EnableAzureArc.ps1` by providing the parameter declarations for servicePrincipalClientId, tenantId, subscriptionId, ResourceGroup, Location, Tags, and ReportServerFQDN fields respectively.
 
-1. Execute the deployment script `DeployGPO.ps1`, modifying the run parameters for the DomainFQDN, ReportServerFQDN, ArcRemoteShare, AgentProxy (if applicable), and Service Principal secret.
+1. Execute the deployment script `DeployGPO.ps1`, modifying the run parameters for the DomainFQDN, ReportServerFQDN, ArcRemoteShare, AgentProxy (if applicable), and Service Principal secret:
 
-```
-.\DeployGPO.ps1 -DomainFQDN <INSERT Domain FQDN> -ReportServerFQDN <INSERT Domain FQDN of Network Share> -ArcRemoteShare <INSERT Name of Network Share> -Spsecret <INSERT SPN SECRET> [-AgentProxy $AgentProxy]
-```
+    ```
+    .\DeployGPO.ps1 -DomainFQDN <INSERT Domain FQDN> -ReportServerFQDN <INSERT Domain FQDN of Network Share> -ArcRemoteShare <INSERT Name of Network Share> -Spsecret <INSERT SPN SECRET> [-AgentProxy $AgentProxy]
+    ```
 
 1. Download the latest version of the [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center and save it to the remote share. 
 
