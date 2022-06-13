@@ -27,7 +27,7 @@ To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-po
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier service instance with Spring Cloud Gateway for Kubernetes enabled. For more information, see [Quickstart: Provision an Azure Spring Apps service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).<!-- TODO: fix broken link -->
+- An already provisioned Azure Spring Apps Enterprise tier service instance with Spring Cloud Gateway for Kubernetes enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps Enterprise tier](quickstart-deploy-apps-enterprise.md#provision-a-service-instance).
 
   > [!NOTE]
   > To use Spring Cloud Gateway for Kubernetes, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
@@ -85,21 +85,6 @@ Use the following steps to create an example application using Spring Cloud Gate
    ```azurecli
    az spring gateway update --assign-endpoint
    ```
-
-1. Use the following command to configure Spring Cloud Gateway for Kubernetes properties:
-
-   ```azurecli
-   az spring gateway update \
-       --api-description "<api-description>" \
-       --api-title "<api-title>" \
-       --api-version "v0.1" \
-       --server-url "<endpoint-in-the-previous-step>" \
-       --allowed-origins "*"
-   ```
-
-   You can also view those properties in the portal.
-
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Spring Cloud Gateway page with Configuration pane showing.":::
 
 1. Configure routing rules to apps.
 
