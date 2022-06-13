@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Image Analysis client library or REST API"
+title: "Quickstart: Image Analysis"
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Image Analysis in your application through a native client library in the language of your choice.
 services: cognitive-services
@@ -16,7 +16,7 @@ zone_pivot_groups: programming-languages-computer-vision
 keywords: computer vision, computer vision service
 ---
 
-# Quickstart: Use the Image Analysis client library or REST API
+# Quickstart: Image Analysis
 
 Get started with the Image Analysis REST API or client libraries. The Analyze Image service provides you with AI algorithms for processing images and returning information on their visual features. Follow these steps to install a package to your application and try out the sample code for a basic task.
 

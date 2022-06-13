@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use the Face client library'
+title: 'Quickstart: Use the Face service'
 titleSuffix: Azure Cognitive Services
 description: The Face API offers client libraries that makes it easy to detect, find similar, identify, verify and more.
 services: cognitive-services
@@ -16,7 +16,7 @@ ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
 keywords: face search by image, facial recognition search, facial recognition, face recognition app
 ---
 
-# Quickstart: Use the Face client library
+# Quickstart: Use the Face service
 
 ::: zone pivot="programming-language-csharp"
 
