@@ -35,7 +35,7 @@ az group create --name myRGFD --location centralus
 Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to create an Azure Front Door profile.
 
 > [!NOTE]
-> If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with Standard_AzureFrontDoor. You won't be able to deploy Managed Rules with WAF Policy, if you choose Standard SKU. For detailed  comparison, view [Azure Front Door tier comparison](./tier-comparison.md).
+> If you want to deploy Azure Front Door Standard instead of Premium substitute the value of the sku parameter with Standard_AzureFrontDoor. You won't be able to deploy managed rules with WAF Policy, if you choose Standard SKU. For detailed  comparison, view [Azure Front Door tier comparison](./tier-comparison.md).
 
 ```azurecli
 az afd profile create \
@@ -188,8 +188,8 @@ az network front-door waf-policy create \
 > [!NOTE]
 > If you select `Detection` mode, your WAF doesn't block any requests.
 
-### Assign Managed Rules to the WAF Policy
-Run [az network front-door waf-policy managed-rules add](/cli/azure/network/front-door/waf-policy/managed-rules#az-network-front-door-waf-policy-managed-rules-add) to add Managed Rules to your WAF Policy. This example adds Microsoft_DefaultRuleSet_1.2 and Microsoft_BotManagerRuleSet_1.0 to your policy.
+### Assign managed rules to the WAF policy
+Run [az network front-door waf-policy managed-rules add](/cli/azure/network/front-door/waf-policy/managed-rules#az-network-front-door-waf-policy-managed-rules-add) to add managed rules to your WAF Policy. This example adds Microsoft_DefaultRuleSet_1.2 and Microsoft_BotManagerRuleSet_1.0 to your policy.
 
 
 ```azurecli
@@ -235,7 +235,7 @@ az afd endpoint show --resource-group myRGFD --profile-name contosoafd --endpoin
 ```
 In a browser, go to the endpoint hostname: `contosofrontend-<hash>.z01.azurefd.net`. Your request will automatically get routed to the least latent Web App in the origin group.
 
-:::image type="content" source="../media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Your web app is running and waiting for your content":::
+:::image type="content" source="../media/create-front-door-portal/front-door-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content":::
 
 To test instant global failover, we'll use the following steps:
 
@@ -247,23 +247,23 @@ To test instant global failover, we'll use the following steps:
 az webapp stop --name WebAppContoso-01 --resource-group myRGFD
 ```
 
-4. Refresh your browser. You should see the same information page.
+3. Refresh your browser. You should see the same information page.
 
 >[!TIP]
 >There is a little bit of delay for these actions. You might need to refresh again.
 
-5. Find the other web app, and stop it as well.
+4. Find the other web app, and stop it as well.
 
 ```azurecli
 az webapp stop --name WebAppContoso-02 --resource-group myRGFD
 ```
 
-6. Refresh your browser. This time, you should see an error message.
+5. Refresh your browser. This time, you should see an error message.
 
-:::image type="content" source="../media/create-front-door-portal/web-app-stopped-message.png" alt-text="Both instances of the web app stopped":::
+:::image type="content" source="../media/create-front-door-portal/web-app-stopped-message.png" alt-text="Screenshot of the message: Both instances of the web app stopped":::
 
 
-7. Restart one of the Web Apps by running [az webapp start](/cli/azure/webapp#az-webapp-start&preserve-view=true). Refresh your browser and the page will go back to normal.
+6. Restart one of the Web Apps by running [az webapp start](/cli/azure/webapp#az-webapp-start&preserve-view=true). Refresh your browser and the page will go back to normal.
 
 ```azurecli
 az webapp start --name WebAppContoso-01 --resource-group myRGFD
