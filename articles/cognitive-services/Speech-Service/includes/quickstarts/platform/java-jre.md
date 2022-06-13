@@ -29,7 +29,7 @@ The Speech SDK for Java package is available for these operating systems:
 
 # [Maven](#tab/maven)
 
-Follow these steps to install the Speech SDK for Java using Maven:
+Follow these steps to install the Speech SDK for Java using Apache Maven:
 
 1. Install [Apache Maven](https://maven.apache.org/install.html).
 1. Open a command prompt where you want the new project, and create a new `pom.xml` file. 
@@ -57,7 +57,7 @@ Follow these steps to install the Speech SDK for Java using Maven:
             <repository>
             <id>maven-cognitiveservices-speech</id>
             <name>Microsoft Cognitive Services Speech Maven Repository</name>
-            <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+            <url>https://azureai.azureedge.net/maven/</url>
             </repository>
         </repositories>
         <dependencies>
@@ -112,11 +112,27 @@ Follow these steps to install the Speech SDK for Java using Maven:
 
    * At the end of the file, before the closing tag `</project>`, create a `repositories` element with a reference to the Maven repository for the Speech SDK:
 
-     [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#repositories)]
+    ```xml
+    <repositories>
+      <repository>
+        <id>maven-cognitiveservices-speech</id>
+        <name>Microsoft Cognitive Services Speech Maven Repository</name>
+        <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+      </repository>
+    </repositories>
+    ```
 
-   * Add a `dependencies` element, with Speech SDK version 1.21.0 as a dependency:
+   * Add a `dependencies` element, with Speech SDK version 1.22.0 as a dependency:
 
-     [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#dependencies)]
+    ```xml
+    <dependencies>
+      <dependency>
+        <groupId>com.microsoft.cognitiveservices.speech</groupId>
+        <artifactId>client-sdk</artifactId>
+        <version>1.22.0</version>
+      </dependency>
+    </dependencies>
+    ```
 
    * Save the changes.
 

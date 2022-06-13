@@ -18,7 +18,7 @@ Before you do anything, see the [platform requirements and instructions](~/artic
 
 ## Install the Speech SDK
 
-The Speech SDK for C# can be installed from the **.NET Core CLI** with the following `dotnet add` command:
+The Speech SDK for C# can be installed from the .NET CLI with the following `dotnet add` command:
 
 ```dotnetcli
 dotnet add package Microsoft.CognitiveServices.Speech

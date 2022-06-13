@@ -9,7 +9,7 @@ ms.author: eur
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Objective-C. 
 
 > [!TIP]
-> For details about using the Objective-C Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift</a>.
+> For details about using the Speech SDK for Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift</a>.
 
 ### System requirements
 
@@ -19,7 +19,7 @@ Before you do anything, see the [platform requirements and instructions](~/artic
 
 # [Mac](#tab/mac)
 
-The Objective-C Speech SDK is available natively as a CocoaPod package for Mac x64 and ARM-based silicons. 
+The Speech SDK for Objective-C is available natively as a CocoaPod package for Mac x64 and ARM-based silicons. 
 
 System requirements for Mac:
 
@@ -41,7 +41,7 @@ Alternatively, .NET developers can build native macOS applications by using the 
 
 # [iOS](#tab/ios)
 
-The Objective-C Speech SDK is available natively as a CocoaPod package.
+The Speech SDK for Objective-C is available natively as a CocoaPod package.
 
 System requirements for iOS:
 

@@ -55,7 +55,7 @@ Follow these steps to create a new console application for speech recognition.
             <repository>
             <id>maven-cognitiveservices-speech</id>
             <name>Microsoft Cognitive Services Speech Maven Repository</name>
-            <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+            <url>https://azureai.azureedge.net/maven/</url>
             </repository>
         </repositories>
         <dependencies>

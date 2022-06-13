@@ -26,11 +26,11 @@ Create a new project in Android Studio and add the Speech SDK for Java as a libr
 
 1. Open Android Studio, and select **New project**.
 
-    :::image type="content" source="../../../media/sdk/android-studio/new-project-1.png" alt-text="Screenshot showing how to search for and add the Speech SDK as a library dependency.":::
+    :::image type="content" source="../../../media/sdk/android-studio/new-project-1.png" alt-text="Screenshot showing options to open or create new projects.":::
 
 1. In the **New project** window that appears, select **Phone and Tablet** > **Empty Activity**, and then select **Next**.
 
-    :::image type="content" source="../../../media/sdk/android-studio/new-project-2.png" alt-text="Screenshot showing options to open or create new projects.":::
+    :::image type="content" source="../../../media/sdk/android-studio/new-project-2.png" alt-text="Screenshot showing project types that you can select.":::
 
 1. Enter **SpeechQuickstart** in the **Name** text box. 
     :::image type="content" source="../../../media/sdk/android-studio/new-project-3.png" alt-text="Screenshot showing project properties that you must set.":::
@@ -51,5 +51,5 @@ Add the Speech SDK as a dependency in your project.
     :::image type="content" source="../../../media/sdk/android-studio/sdk-install-3-zoom.png" alt-text="Screenshot that shows how to add a library dependency in Android Studio." lightbox="../../../media/sdk/android-studio/sdk-install-3.png":::
 1. In the **Add Library Dependency** window that appears, enter the name and version of the Speech SDK for Java: **com.microsoft.cognitiveservices.speech:client-sdk:1.22.0**. Then select **Search**.
     :::image type="content" source="../../../media/sdk/android-studio/sdk-install-5.png" alt-text="Screenshot showing how to search for and add the Speech SDK as a library dependency.":::
-1. Make sure the selected **Group ID** is **com.microsoft.cognitiveservices.speech**, and then select **OK**.
+1. Make sure that the selected **Group ID** is **com.microsoft.cognitiveservices.speech**, and then select **OK**.
 1. Select **OK** to close the **Project Structure** window and apply your changes to the project.
