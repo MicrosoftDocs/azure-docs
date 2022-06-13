@@ -346,7 +346,7 @@
   - name: Videos
     href: azure-netapp-files-videos.md
   - name: Select an Azure data store for your application
-    href: https://docs.microsoft.com/azure/architecture/guide/technology-choices/data-store-decision-tree
+    href: /azure/architecture/guide/technology-choices/data-store-decision-tree
   - name: Compare access with NFS to Azure Blob Storage, Azure Files, and Azure NetApp Files
     href: ../storage/common/nfs-comparison.md?toc=%2fazure%2fazure-netapp-files%2ftoc.json
   - name: Azure Files and Azure NetApp Files comparison
