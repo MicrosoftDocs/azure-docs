@@ -19,7 +19,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## June 2022
 
-### Form Recognizer v3.0 preview release (beta.3)
+### Form Recognizer v3.0 preview release
 
 The **2022-06-30-preview** release is the latest update to the Form Recognizer service for v3.0 capabilities. There are considerable updates across the feature APIs:
 
@@ -31,6 +31,57 @@ The **2022-06-30-preview** release is the latest update to the Form Recognizer s
 * [🆕 **Prebuilt business card**](concept-business-card.md) now includes Japanese language support. _See_ [supported languages](concept-business-card.md#supported-languages-and-locales).
 * [🆕 **Prebuilt ID document model**](concept-id-document.md). The ID document model now extracts DateOfIssue, Height, Weight, EyeColor, HairColor, and DocumentDiscriminator from US driver's licenses. _See_ [field extraction](concept-id-document.md#id-document-preview-field-extraction).
 * [🆕 **Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [page extraction](concept-read.md#pages).
+
+#### Form Recognizer SDK beta preview release
+
+The latest beta release version of the Azure Form Recognizer SDKs incorporates new features, minor feature updates and bug fixes.
+
+>[!NOTE]
+> The 4.0.0-beta.4 (C# and JavaScript), 4.0.0-beta.5 (Java) and 3.2.0b5 (Python) previews contain the same updates and fixes but the versioning is no longer in sync across all programming languages.
+
+This new release includes the following updates:
+
+### [**C#**](#tab/csharp)
+
+**Version 4.0.0-beta.4 (2022-06-08)**
+
+##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+
+##### [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.4)
+
+##### [**SDK reference documentation**](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview&preserve-view=true)
+
+### [**Java**](#tab/java)
+
+**Version 4.0.0-beta.5 (2022-06-07)**
+
+##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0-beta.5/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+##### [**Package (Maven)**](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar)
+
+##### [**SDK reference documentation**](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)
+
+### [**JavaScript**](#tab/javascript)
+
+**Version 4.0.0-beta.4 (2022-06-07)**
+
+##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_4.0.0-beta.4/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
+##### [**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4)
+
+##### [**SDK reference documentation**](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true)
+
+### [Python](#tab/python)
+
+**Version 3.2.0b5 (2022-06-07**
+
+##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+##### [**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b5/)
+
+##### [**SDK reference documentation**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true)
+
+---
 
 ## February 2022
 
@@ -64,10 +115,10 @@ Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/d
 
 #### Form Recognizer SDK beta preview release
 
-The beta.3/beta.4 version of the Azure Form Recognizer SDKs incorporates new features, minor feature updates and bug fixes.
+The latest beta release version of the Azure Form Recognizer SDKs incorporates new features, minor feature updates and bug fixe
 
 >[!NOTE]
-> The beta.3 (C#, JavaScript, Python) and beta.4 (Java) previews contain the same updates and fixes but the versioning is no longer in sync across all programming languages.
+> The 4.0.0-beta.3 (C# and JavaScript), 4.0.0-beta.4 (Java) and 3.2.0b4 (Python) previews contain the same updates and fixes but the versioning is no longer in sync across all programming languages.
 
 This new release includes the following updates:
 
@@ -211,7 +262,7 @@ The `BuildModelOperation` and `CopyModelOperation` now correctly populate the `P
 
 Get stared with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/try-v3-python-sdk.md), or [.NET](quickstarts/try-v3-csharp-sdk.md) SDK for the v3.0 preview API.
 
- #### Form Recognizer model data extraction
+#### Form Recognizer model data extraction
 
   | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
   | --- | :---: |:---:| :---: | :---: |:---: |
