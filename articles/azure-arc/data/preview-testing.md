@@ -1,6 +1,6 @@
 ---
-title: Azure Arc-enabled data services - Release notes
-description: Latest release notes
+title: Azure Arc-enabled data services - Pre-release testing
+description: Experience pre-release versions of Azure Arc-enabled data services
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
@@ -143,7 +143,7 @@ New for this release:
 
 - Arc enabled SQL Managed Instance
   - You can now configure a SQL managed instance to use an AD Connector at the time the SQL managed instance is provisioned from the Azure Portal.
-  - BACKUP DATABASE TO URL to AWS S3 or S3-compatible storage is now supported.  [Documentation](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-s3-compatible-object-storage)
+  - BACKUP DATABASE TO URL to AWS S3 or S3-compatible storage is now supported.  [Documentation](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-s3-compatible-object-storage)
   - `az sql mi-arc create` and `update` commands have a new `--sync-secondary-commit` parameter which is the number of secondary replicas that must be synchronized to failover.  Default is "-1" which will set the number of required synchronized secondaries to "(# of replicas - 1) / 2".  Allowed values: -1, 1, 2.  Arc SQL MI custom resource property added called `syncSecondaryToCommit`.
   - Billing estimate in Azure Portal is updated to reflect the number of readable secondaries that are selected.
   - Added SPNs for readable secondary service
