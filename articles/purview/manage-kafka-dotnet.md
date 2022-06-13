@@ -11,8 +11,8 @@ ms.date: 06/12/2022
 ms.custom: mode-other
 ---
 
-# Use Event Hubs and .NET to send and receive Atlas Kafka topics mesages
-This quickstart breaks down how to send and receive *Atlas Kafka* topics events.  We will make use of *Azure Event Hubs* and the **Azure.Messaging.EventHubs** .NET library.
+# Use Event Hubs and .NET to send and receive Atlas Kafka topics messages
+This quickstart teaches you how to send and receive *Atlas Kafka* topics events.  We will make use of *Azure Event Hubs* and the **Azure.Messaging.EventHubs** .NET library.
 
 > [!IMPORTANT]
 > A managed event hub is created automatically when your *Microsoft Purview* account is created. See, [Purview account creation](create-catalog-portal.md). You can publish messages to Event Hubs Kafka topic, ATLAS_HOOK. Purview will receive it, process it and notify Kafka topic ATLAS_ENTITIES of entity changes. This quickstart uses the new **Azure.Messaging.EventHubs** library.
