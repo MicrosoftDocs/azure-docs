@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 - The [Azure Functions Core Tools](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/azure-functions/functions-run-local.md) version 3.x.
 - The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 - The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
-- Create an [Azure SQL server](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/azure-sql/database/single-database-create-quickstart.md)
+- Create an [Azure SQL server](/azure/azure-sql/database/single-database-create-quickstart)
 
 
 ## Software architecture 
@@ -102,7 +102,7 @@ In this section, you will use Visual Studio Code to create a local Azure Functio
         ![the directory location](./media/voice-control-your-inventory-images/select-airlift-folder.png) 
    4. <strong>Provide the following information at the prompts</strong>: Select a language for your function project: Choose <strong>Python</strong>.
         ![following information at the prompts](./media/voice-control-your-inventory-images/language-python.png) 
-   5. <strong>Select a Python alias to create a virtual environment</strong>: Choose the location of your Python interpreter. If the location isn't shown, type in the full path to your Python binary. Select skip virtual environment you don’t have python installed.
+   5. <strong>Select a Python alias to create a virtual environment</strong>: Choose the location of your Python interpreter. If the location isn't shown, type in the full path to your Python binary. Select skip virtual environment you don’t have Python installed.
         ![create a virtual environment](./media/voice-control-your-inventory-images/skip-virtual-env.png) 
    6. <strong>Select a template for your project's first function</strong>: Choose <strong>HTTP trigger</strong>.
         ![Select a template](./media/voice-control-your-inventory-images/http-trigger.png) 

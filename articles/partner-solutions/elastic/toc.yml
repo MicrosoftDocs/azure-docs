@@ -21,3 +21,5 @@
     href: /cli/azure/elastic
   - name: Azure PowerShell
     href: /powershell/module/az.elastic/#elastic
+  - name: REST API
+    href: /rest/api/elastic

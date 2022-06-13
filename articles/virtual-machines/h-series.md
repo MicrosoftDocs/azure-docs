@@ -2,7 +2,7 @@
 title: H-series - Azure Virtual Machines
 description: Specifications for the H-series VMs.
 ms.service: virtual-machines
-ms.subservice: vm-sizes-hpc
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/11/2021
 ms.reviewer: jushiman
@@ -37,6 +37,14 @@ H-series VMs are optimized for applications driven by high CPU frequencies or la
 
 > [!NOTE]
 > Among the [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), the H-series are not SR-IOV enabled. Therefore, the supported [VM Images](./workloads/hpc/configure.md#vm-images), [InfiniBand driver](./workloads/hpc/enable-infiniband.md) requirements and supported [MPI libraries](./workloads/hpc/setup-mpi.md) are different from the SR-IOV enabled VMs.
+> 
+> A quirk of the alternate NIC virtualization solution in place for the H-series is that the OS may occasionally report inaccurate link speeds for the synthetic NIC that is used for RDMA connections. This issue does not, however, impact actual performance experienced by jobs using the VM's RDMA capability, so outputs like the following are not a cause for concern. 
+> ```
+> $ ethtool eth1
+> Settings for eth1:
+>         ...
+>         Speed: 10000Mb/s
+> ```
 
 ## Software specifications
 

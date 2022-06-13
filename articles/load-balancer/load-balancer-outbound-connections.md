@@ -3,12 +3,12 @@ title: Source Network Address Translation (SNAT) for outbound connections
 titleSuffix: Azure Load Balancer
 description: Learn how Azure Load Balancer is used for outbound internet connectivity (SNAT).
 services: load-balancer
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 03/01/2022
-ms.author: allensu
+ms.author: greglin
 ---
 
 # Use Source Network Address Translation (SNAT) for outbound connections
@@ -148,7 +148,7 @@ For UDP connections, the load balancer uses a **port-restricted cone NAT** algor
 
 A port is reused for an unlimited number of connections. The port is only reused if the destination IP or port is different.
 
-## Limitations
+## Constraints
 
 *	When a connection is idle with no new packets being sent, the ports will be released after 4 – 120 minutes.
 

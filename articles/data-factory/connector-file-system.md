@@ -127,7 +127,7 @@ The following properties are supported for file system under `location` settings
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | The type property under `location` in dataset must be set to **FileServerLocation**. | Yes      |
-| folderPath | The path to folder. If you want to use wildcard to filter folder, skip this setting and specify in activity source settings. | No       |
+| folderPath | The path to folder. If you want to use wildcard to filter folder, skip this setting and specify in activity source settings. Note that you will need to setup the file share location in your Windows or Linux environment to expose the folder for sharing. | No       |
 | fileName   | The file name under the given folderPath. If you want to use wildcard to filter files, skip this setting and specify in activity source settings. | No       |
 
 **Example:**

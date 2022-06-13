@@ -1,8 +1,8 @@
 ---
 title: Product updates for Azure Database for PostgreSQL - Hyperscale (Citus)
 description: New features and features in preview
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
@@ -11,6 +11,8 @@ ms.date: 10/15/2021
 ---
 
 # Product updates for PostgreSQL - Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 ## Updates feed
 

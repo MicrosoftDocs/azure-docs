@@ -2,33 +2,32 @@
 title: Concepts - Identity and access
 description: Learn about the identity and access concepts of Azure VMware Solution
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.service: azure-vmware
+ms.date: 06/06/2022
 ---
 
 # Azure VMware Solution identity concepts
 
-Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You'll use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. The CloudAdmin role is used for vCenter and restricted administrator rights for NSX-T Manager. 
+Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You'll use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. The CloudAdmin role is used for vCenter Server and the administrator role (with restricted permissions) is used for NSX-T Manager.
 
-## vCenter access and identity
+## vCenter Server access and identity
 
 [!INCLUDE [vcenter-access-identity-description](includes/vcenter-access-identity-description.md)]
 
 > [!IMPORTANT]
-> Azure VMware Solution offers custom roles on vCenter but currently doesn't offer them on the Azure VMware Solution portal. For more information, see the [Create custom roles on vCenter](#create-custom-roles-on-vcenter) section later in this article. 
+> Azure VMware Solution offers custom roles on vCenter Server but currently doesn't offer them on the Azure VMware Solution portal. For more information, see the [Create custom roles on vCenter Server](#create-custom-roles-on-vcenter-server) section later in this article.
 
 ### View the vCenter privileges
 
 You can view the privileges granted to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud vCenter.
 
-1. Sign in to the vSphere Client and go to **Menu** > **Administration**.
-
+1. Sign into the vSphere Client and go to **Menu** > **Administration**.
 1. Under **Access Control**, select **Roles**.
-
-1. From the list of roles, select **CloudAdmin** and then select **Privileges**. 
+1. From the list of roles, select **CloudAdmin** and then select **Privileges**.
 
    :::image type="content" source="media/concepts/role-based-access-control-cloudadmin-privileges.png" alt-text="Screenshot showing the roles and privileges for CloudAdmin in the vSphere Client.":::
 
-The CloudAdmin role in Azure VMware Solution has the following privileges on vCenter. For more information, see the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
+The CloudAdmin role in Azure VMware Solution has the following privileges on vCenter Server. For more information, see the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
 
 | Privilege | Description |
 | --------- | ----------- |
@@ -51,28 +50,27 @@ The CloudAdmin role in Azure VMware Solution has the following privileges on vCe
 | **vService** | Create dependency<br />Destroy dependency<br />Reconfigure dependency configuration<br />Update dependency |
 | **vSphere tagging** | Assign and unassign vSphere tag<br />Create vSphere tag<br />Create vSphere tag category<br />Delete vSphere tag<br />Delete vSphere tag category<br />Edit vSphere tag<br />Edit vSphere tag category<br />Modify UsedBy field for category<br />Modify UsedBy field for tag |
 
-### Create custom roles on vCenter
+### Create custom roles on vCenter Server
 
-Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role. 
+Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role.
 
-You'll use the CloudAdmin role to create, modify, or delete custom roles with privileges lesser than or equal to their current role. You can create roles with privileges greater than CloudAdmin, but you can't assign the role to any users or groups or delete the role.
+You'll use the CloudAdmin role to create, modify, or delete custom roles with privileges lesser than or equal to their current role. You can create roles with privileges greater than CloudAdmin. You can't assign the role to any users or groups or delete the role.
 
 To prevent creating roles that can't be assigned or deleted, clone the CloudAdmin role as the basis for creating new custom roles.
 
 #### Create a custom role
-1. Sign in to vCenter with cloudadmin\@vsphere.local or a user with the CloudAdmin role.
+1. Sign in to vCenter Server with cloudadmin\@vsphere.local or a user with the CloudAdmin role.
 
 1. Navigate to the **Roles** configuration section and select **Menu** > **Administration** > **Access Control** > **Roles**.
 
 1. Select the **CloudAdmin** role and select the **Clone role action** icon.
 
-   >[!NOTE] 
+   >[!NOTE]
    >Don't clone the **Administrator** role because you can't use it. Also, the custom role created can't be deleted by cloudadmin\@vsphere.local.
 
 1. Provide the name you want for the cloned role.
 
 1. Add or remove privileges for the role and select **OK**. The cloned role is visible in the **Roles** list.
-
 
 #### Apply a custom role
 
@@ -90,12 +88,59 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 
 ## NSX-T Manager access and identity
 
->[!NOTE]
->NSX-T [!INCLUDE [nsxt-version](includes/nsxt-version.md)] is currently supported for all new private clouds.
+When a private cloud is provisioned using Azure portal, Software Defined Data Center (SDDC) management components like vCenter and NSX-T Manager are provisioned for customers. 
 
-Use the *admin* account to access NSX-T Manager. It has full privileges and lets you create and manage Tier-1 (T1) gateways, segments (logical switches), and all services. In addition, the privileges give you access to the NSX-T Tier-0 (T0) gateway. A change to the T0 gateway could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 gateway.
+Microsoft is responsible for the lifecycle management of NSX-T appliances like NSX-T Managers and NSX-T Edges. They're responsible for bootstrapping network configuration, like creating the Tier-0 gateway. 
 
- 
+You're responsible for NSX-T software-defined networking (SDN) configuration, for example:
+
+- Network segments
+- Other Tier-1 gateways
+- Distributed firewall rules
+- Stateful services like gateway firewall 
+- Load balancer on Tier-1 gateways 
+
+You can access NSX-T Manager using the built-in local user "admin" assigned to **Enterprise admin** role that gives full privileges to a user to manage NSX-T. While Microsoft manages the lifecycle of NSX-T, certain operations aren't allowed by a user. Operations not allowed include editing the configuration of host and edge transport nodes or starting an upgrade. For new users, Azure VMware Solution deploys them with a specific set of permissions needed by that user. The purpose is to provide a clear separation of control between the Azure VMware Solution control plane configuration and Azure VMware Solution private cloud user.  
+
+For new private cloud deployments (in US West and Australia East) starting **June 2022**, NSX-T access will be provided with a built-in local user `cloudadmin` with a specific set of permissions to use only NSX-T functionality for workloads. The new **cloudadmin** user role will be rolled out in other regions in phases.
+
+> [!NOTE]
+> Admin access to NSX-T will not be provided to users for private cloud deployments created after **June 2022**.
+
+### NSX-T cloud admin user permissions
+
+The following permissions are assigned to the **cloudadmin** user in Azure VMware Solution NSX-T.
+
+| Category        | Type                  | Operation                                                            | Permission                                                       |
+|-----------------|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
+| Networking      | Connectivity          | Tier-0 Gateways<br>Tier-1 Gateways<br>Segments                       | Read-only<br>Full Access<br>Full Access                          |
+| Networking      | Network Services      | VPN<br>NAT<br>Load Balancing<br>Forwarding Policy<br>Statistics      | Full Access<br>Full Access<br>Full Access<br>Read-only<br>Full Access |
+| Networking      | IP Management         | DNS<br>DHCP<br>IP Address Pools                                      | Full Access<br>Full Access<br>Full Access                        |
+| Networking      | Profiles              |                                                                      | Full Access                                                      |
+| Security        | East West Security    | Distributed Firewall<br>Distributed IDS and IPS<br>Identity Firewall | Full Access<br>Full Access<br>Full Access                        |
+| Security        | North South Security  | Gateway Firewall<br>URL Analysis                                     | Full Access<br>Full Access                                       |
+| Security        | Network Introspection |                                                                      | Read-only                                                            |
+| Security        | Endpoint Protection   |                                                                      | Read-only                                                           |
+| Security        | Settings              |                                                                      | Full Access                                                      |
+| Inventory       |                       |                                                                      | Full Access                                                      |
+| Troubleshooting | IPFIX                 |                                                                      | Full Access                                                      |
+| Troubleshooting | Port Mirroring        |                                                                      | Full Access                                                      |
+| Troubleshooting | Traceflow        |                                                                      | Full Access                                                      |
+| System          | Configuration<br>Settings<br>Settings<br>Settings              | Identity firewall<br>Users and Roles<br>Certificate Management<br>User Interface Settings   | Full Access<br>Full Access<br>Full Access<br>Full Access                          |
+| System          | All other    |                                                                      | Read-only                                                        |
+
+
+You can view the permissions granted to the Azure VMware Solution CloudAdmin role using the following steps:
+
+1. Log in to the NSX-T Manager.
+1. Navigate to **Systems** > **Users and Roles** and locate **User Role Assignment**.
+1. The **Roles** column for the CloudAdmin user provides information on the NSX role-based access control (RBAC) roles assigned.
+1. Select the the **Roles** tab to view specific permissions associated with each of the NSX RBAC roles.
+1. To view **Permissions**, expand the **CloudAdmin** role and select a category like, Networking or Security.
+
+> [!NOTE]
+> The current Azure VMware Solution with **NSX-T admin user** will eventually switch from **admin** user to **cloudadmin** user. You'll receive a notification through Azure Service Health that includes the timeline of this change so you can change the NSX-T credentials you've used for the other integration.
+
 ## Next steps
 
 Now that you've covered Azure VMware Solution access and identity concepts, you may want to learn about:

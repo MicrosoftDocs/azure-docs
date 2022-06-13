@@ -54,29 +54,33 @@ An alert processing rule definition covers several aspects:
 
 ### Which fired alerts are affected by this rule? 
 
-Each alert processing rule has a **scope**. A scope is a list of one or more specific Azure resources, or specific resource group, or an entire subscription. The alert processing rule will apply to alerts that fired on resources within that scope.  
+**SCOPE**  
+Each alert processing rule has a scope. A scope is a list of one or more specific Azure resources, or specific resource group, or an entire subscription. **The alert processing rule will apply to alerts that fired on resources within that scope**.  
 
-You can also define **filters** to narrow down which specific subset of alerts are affected. The available filters are:  
+**FILTERS**  
+You can also define filters to narrow down which specific subset of alerts are affected within the scope. The available filters are:  
 
 * **Alert Context (payload)** - the rule will apply only to alerts that contain any of the filter's strings within the [alert context](./alerts-common-schema-definitions.md#alert-context) section of the alert. This section includes fields specific to each alert type.
-* **Alert rule id** - the rule will apply only to alerts from a specific alert rule. The value should be the full resource ID, for example "/subscriptions/SUB1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/MY-API-LATENCY".  
-You can locate the alert rule ID by opening a specific alert rule in the portal, clicking "Properties", and copying the "Resource ID" value. You can also locate it by listing your alert rules from CLI/PowerShell.
+* **Alert rule id** - the rule will apply only to alerts from a specific alert rule. The value should be the full resource ID, for example `/subscriptions/SUB1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/MY-API-LATENCY`.  
+You can locate the alert rule ID by opening a specific alert rule in the portal, clicking "Properties", and copying the "Resource ID" value. You can also locate it by listing your alert rules from PowerShell or CLI.
 * **Alert rule name** - the rule will apply only to alerts with this alert rule name. Can also be useful with a "Contains" operator.
 * **Description** - the rule will apply only to alerts that contain the specified string within the alert rule description field.
 * **Monitor condition** - the rule will apply only to alerts with the specified monitor condition, either "Fired" or "Resolved".
 *  **Monitor service** - the rule will apply only to alerts from any of the specified monitor services.  
 For example, use "Platform" to have the rule apply only to metric alerts.
 * **Resource** - the rule will apply only to alerts from the specified Azure resource.  
-This filter is useful with "Does not equal" operator, or with "Contains" / "Does not contain" operators.
+For example, you can use this filter with "Does not equal" to exclude one or more resources when the rule's scope is a subscription.  
 * **Resource group** - the rule will apply only to alerts from the specified resource groups.  
-This filter is useful with "Does not equal" operator, or with "Contains" / "Does not contain" operators.
-* **Resource type** - the rule will apply only to alerts on resource from the specified resource types, such as virtual machines.
-* **Severity** -  the  rule will apply only to alerts with the selected severities.  
+For example, you can use this filter with "Does not equal" to exclude one or more resource groups when the rule's scope is a subscription.  
+* **Resource type** - the rule will apply only to alerts on resource from the specified resource types, such as virtual machines. You can use "Equals" to match one or more specific resources, or you can use contains to match a resource type and all its child resources.  
+For example, use `resource type contains "MICROSOFT.SQL/SERVERS"` to match both SQL servers and all their child resources, like databases.
+* **Severity** - the rule will apply only to alerts with the selected severities.  
 
-If you define multiple filters in a rule, all of them apply. For example, if you set **resource type = "Virtual Machines"** and **severity = "Sev0"**, then the rule will apply only for Sev0 alerts on virtual machines in the scope.
-
-> [!NOTE]
-> Each filter may include up to five values.  
+**FILTERS BEHAVIOR**  
+* If you define multiple filters in a rule, all of them apply - there is a logical AND between all filters.  
+  For example, if you set both `resource type = "Virtual Machines"` and `severity = "Sev0"`, then the rule will apply only for Sev0 alerts on virtual machines in the scope.
+* Each filter may include up to five values, and there is a logical OR between the values.  
+  For example, if you set `description contains ["this", "that"]`, then the rule will apply only to alerts whose description contains either "this" or "that".
 
 ### What should this rule do?
 
@@ -124,7 +128,7 @@ In the fourth tab (**Details**), you give this rule a name, pick where it will b
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can use the Azure CLI to work with alert processing rules. See the `az monitor alert-processing-rules` page in the [Azure CLI docs](/cli/azure/monitor/alert-processing-rule)  for detailed documentation and examples.
+You can use the Azure CLI to work with alert processing rules. See the `az monitor alert-processing-rules` [page in the Azure CLI docs](/cli/azure/monitor/alert-processing-rule)  for detailed documentation and examples.
 
 ### Prepare your environment
 
@@ -140,7 +144,7 @@ You can use the Azure CLI to work with alert processing rules. See the `az monit
 
 1. **Sign in**
 
-   If you're using a local installation of the CLI, sign in using the [az login](/cli/azure/reference-index#az-login) command.  Follow the steps displayed in your terminal to complete the authentication process.
+   If you're using a local installation of the CLI, sign in using the `az login` [command](/cli/azure/reference-index#az-login). Follow the steps displayed in your terminal to complete the authentication process.
 
     ```azurecli
     az login
@@ -169,16 +173,37 @@ For example, to create a rule that adds an action group to all alerts in a subsc
 
 ```azurecli
 az monitor alert-processing-rule create \
---name 'AddActionGroupToSubscription' \
---rule-type AddActionGroups \
---scopes "/subscriptions/MySubscriptionId" \
---action-groups "/subscriptions/MySubscriptionId/resourcegroups/MyResourceGroup1/providers/microsoft.insights/actiongroups/ActionGroup1" \
---enabled true \
---resource-group alertscorrelationrg \
---description "Add ActionGroup1 to all alerts in the subscription"
+  --name 'AddActionGroupToSubscription' \
+  --rule-type AddActionGroups \
+  --scopes "/subscriptions/SUB1" \
+  --action-groups "/subscriptions/SUB1/resourcegroups/RG1/providers/microsoft.insights/actiongroups/AG1" \
+  --resource-group RG1 \
+  --description "Add action group AG1 to all alerts in the subscription"
 ```
 
 The [CLI documentation](/cli/azure/monitor/alert-processing-rule#az-monitor-alert-processing-rule-create) include more examples and an explanation of each parameter.
+
+### [PowerShell](#tab/powershell)
+
+You can use PowerShell to work with alert processing rules. See the `*-AzAlertProcessingRule` commands [in the PowerShell docs](/powershell/module/az.alertsmanagement) for detailed documentation and examples.
+
+
+### Create an alert processing rule using PowerShell
+
+Use the `Set-AzAlertProcessingRule` command to create alert processing rules.  
+For example, to create a rule that adds an action group to all alerts in a subscription, run:
+
+```powershell
+Set-AzAlertProcessingRule `
+  -Name AddActionGroupToSubscription `
+  -AlertProcessingRuleType AddActionGroups `
+  -Scope /subscriptions/SUB1 `
+  -ActionGroupId /subscriptions/SUB1/resourcegroups/RG1/providers/microsoft.insights/actiongroups/AG1 `
+  -ResourceGroupName RG1 `
+  -Description "Add action group AG1 to all alerts in the subscription"
+```
+
+The [PowerShell documentation](/cli/azure/monitor/alert-processing-rule#az-monitor-alert-processing-rule-create) include more examples and an explanation of each parameter.
 
 * * *
 
@@ -203,13 +228,33 @@ Before you manage alert processing rules with the Azure CLI, prepare your enviro
 az monitor alert-processing-rules list
 
 # Get details of an alert processing rule
-az monitor alert-processing-rules show --resource-group MyResourceGroupName --name MyRule
+az monitor alert-processing-rules show --resource-group RG1 --name MyRule
 
 # Update an alert processing rule
-az monitor alert-processing-rules update --resource-group MyResourceGroupName --name MyRule --status Disabled
+az monitor alert-processing-rules update --resource-group RG1 --name MyRule --status Disabled
 
 # Delete an alert processing rule
-az monitor alert-processing-rules delete --resource-group MyResourceGroupName --name MyRule
+az monitor alert-processing-rules delete --resource-group RG1 --name MyRule
+```
+
+### [PowerShell](#tab/powershell)
+
+You can view and manage your alert processing rules using the [\*-AzAlertProcessingRule](/powershell/module/az.alertsmanagement) commands from Azure CLI.
+
+Before you manage alert processing rules with the Azure CLI, prepare your environment using the instructions provided in [Configuring an alert processing rule](#configuring-an-alert-processing-rule).
+
+```powershell
+# List all alert processing rules for a subscription
+Get-AzAlertProcessingRule
+
+# Get details of an alert processing rule
+Get-AzAlertProcessingRule -ResourceGroupName RG1 -Name MyRule | Format-List
+
+# Update an alert processing rule
+Update-AzAlertProcessingRule -ResourceGroupName RG1 -Name MyRule -Enabled False
+
+# Delete an alert processing rule
+Remove-AzAlertProcessingRule -ResourceGroupName RG1 -Name MyRule
 ```
 
 * * *

@@ -44,6 +44,8 @@ In the Apache JMeter script, you define the number of parallel threads. This num
 
 For example, to simulate 1,000 threads (or virtual users), set the number of threads in the Apache JMeter script to 250. Then configure the test with four test engine instances (that is, 4 x 250 threads).
 
+The location of the Azure Load Testing resource determines the location of the test engine instances. All test engine instances within a Load Testing resource are hosted in the same Azure region.
+
 > [!IMPORTANT]
 > For preview release, Azure Load Testing supports up to 45 engine instances for a test run.
 
@@ -63,11 +65,34 @@ In this section, you configure the scaling settings of your load test.
 
     :::image type="content" source="media/how-to-high-scale-load/configure-test.png" alt-text="Screenshot that shows the 'Configure' and 'Test' buttons on the test details page.":::
 
-1. On the **Edit test** page, select the **Load** tab. In the **Engine instances** box, enter the number of test engines required to run your test.
+1. On the **Edit test** page, select the **Load** tab. Use the **Engine instances** slider control to update the number of test engine instances, or enter the value directly in the input box.
 
     :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane.":::
 
 1. Select **Apply** to modify the test and use the new configuration when you rerun it.
+
+## Service quotas and limits
+
+All Azure services set default limits and quotas for resources and features. The following table describes the maximum limits for Azure Load Testing.
+
+|Resource  |Limit  |
+|---------|---------|
+|Maximum concurrent engine instances that can be utilized per region per subscription     |    100     |
+|Maximum concurrent test runs per region per subscription     |    25     |
+
+You can increase the default limits and quotas by requesting the increase through an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+1. Select **create a support ticket**.
+
+1. Provide a summary of your issue.
+
+1. Select **Issue type** as *Technical*.
+
+1. Select your subscription. Then, select **Service Type** as *Azure Load Testing - Preview*.
+
+1. Select **Problem type** as *Test Execution*.
+
+1. Select **Problem subtype** as *Provisioning stalls or fails*.
 
 ## Next steps
 

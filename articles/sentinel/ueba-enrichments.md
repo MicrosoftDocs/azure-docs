@@ -208,7 +208,7 @@ While the initial synchronization may take a few days, once the data is fully sy
 
 - Group and role information is synchronized between the **IdentityInfo** table and Azure AD daily.
 
-- Every 21 days, Microsoft Sentinel re-synchronizes with your entire Azure AD to ensure that stale records are fully updated.
+- Every 14 days, Microsoft Sentinel re-synchronizes with your entire Azure AD to ensure that stale records are fully updated.
 
 - Default retention time in the **IdentityInfo** table is 30 days.
 

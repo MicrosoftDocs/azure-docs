@@ -63,16 +63,6 @@ Key Vault does not restrict the number of keys, secrets or certificates that can
 
 Key Vault does not restrict the number of versions on a secret, key or certificate, but storing a large number of versions (500+) can impact the performance of backup operations. See [Azure Key Vault Backup](../articles/key-vault/general/backup.md).
 
-#### Azure Private Link integration
-
-> [!NOTE]
-> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please create a support request and it will be assessed on a case by case basis.
-
-| Resource | Limit |
-| -------- | -----:|
-| Private endpoints per key vault or managed HSM| 64 |
-| Key vaults with private endpoints per subscription | 400 |
-
 ### Resource type: Managed HSM
 
 This section describes service limits for resource type `managed HSM`.

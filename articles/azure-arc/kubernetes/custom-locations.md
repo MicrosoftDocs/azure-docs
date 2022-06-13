@@ -70,15 +70,21 @@ If you are logged into Azure CLI as an Azure AD user, to enable this feature on 
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
 ```
 
-If you are logged into Azure CLI using a service principal, to enable this feature on your cluster, execute the following steps:
+If you run the above command while being logged into Azure CLI using a service principal, you may observe the following warning:
 
-1. Fetch the Object ID of the Azure AD application used by Azure Arc service:
+```console
+Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation.
+```
+
+This is because a service principal doesn't have permissions to get information of the application used by Azure Arc service. To avoid this error, execute the following steps:
+
+1. Login into Azure CLI using your user account. Fetch the Object ID of the Azure AD application used by Azure Arc service:
 
     ```azurecli
-    az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
+    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
     ```
 
-1. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
+1. Login into Azure CLI using the service principal. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
 
     ```azurecli
     az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
@@ -128,7 +134,7 @@ If you are logged into Azure CLI using a service principal, to enable this featu
 | `--resource-group, --g` | Resource group of the custom location  | 
 | `--namespace` | Namespace in the cluster bound to the custom location being created |
 | `--host-resource-id` | Azure Resource Manager identifier of the Azure Arc-enabled Kubernetes cluster (connected cluster) |
-| `--cluster-extension-ids` | Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension IDs  |
+| `--cluster-extension-ids` | Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-separated list of the cluster extension IDs  |
 
 **Optional parameters**
 
@@ -189,7 +195,7 @@ az customlocation update -n <customLocationName> -g <resourceGroupName> --namesp
 
 | Parameter name | Description |
 |--------------|------------|
-| `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension IDs |
+| `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-separated list of the cluster extension IDs |
 | `--tags` | Add new tags in addition to existing tags. Space-separated list of tags: key[=value] [key[=value] ...]. |
 
 ## Patch a custom location
@@ -211,7 +217,7 @@ az customlocation patch -n <customLocationName> -g <resourceGroupName> --namespa
 
 | Parameter name | Description |
 |--------------|------------|
-| `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension IDs |
+| `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-separated list of the cluster extension IDs |
 | `--tags` | Add new tags in addition to existing tags. Space-separated list of tags: key[=value] [key[=value] ...]. |
 
 ## Delete a custom location

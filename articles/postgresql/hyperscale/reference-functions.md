@@ -1,8 +1,8 @@
 ---
 title: SQL functions – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Functions in the Hyperscale (Citus) SQL API
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
@@ -10,6 +10,8 @@ ms.date: 02/24/2022
 ---
 
 # Functions in the Hyperscale (Citus) SQL API
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 This section contains reference information for the user-defined functions
 provided by Hyperscale (Citus). These functions help in providing

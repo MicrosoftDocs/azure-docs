@@ -3,8 +3,8 @@ title: Azure IoT Edge security manager/module runtime - Azure IoT Edge
 description: Manages the IoT Edge device security stance and the integrity of security services.
 services: iot-edge
 keywords: security, secure element, enclave, TEE, IoT Edge
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.reviewer: eustacea
 ms.date: 09/17/2021
 ms.topic: conceptual

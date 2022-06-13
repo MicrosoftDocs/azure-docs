@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.devlang: javascript
 ms.custom: devx-track-js
+ms.reviewer: mmcc
 ---
 
 # Troubleshooting SDK load failure for JavaScript web apps
@@ -62,20 +63,9 @@ To minimize intermittent network connectivity failure, we have implemented Cache
  
 ## Application Insights CDN outage
 
-You can confirm if there is an Application Insights CDN outage by attempting to access the CDN endpoint directly from the browser (for example, https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js or https://js.monitor.azure.com/scripts/b/ai.2.min.js) from a different location than your end users' probably from your own development machine (assuming that your organization has not blocked this domain).
+You can confirm if there is an Application Insights CDN outage by attempting to access the CDN endpoint directly from the browser (for example, https://js.monitor.azure.com/scripts/b/ai.2.min.js) from a different location than your end users' probably from your own development machine (assuming that your organization has not blocked this domain).
 
-If you confirm there is an outage, you can [create a new support ticket](https://azure.microsoft.com/support/create-ticket/) or try changing the URL used to download the SDK.
-
-### Change the CDN endpoint
-  
-As the snippet and its configuration are returned by your application as part of each generated page, you can change the snippet `src` configuration to use a different URL for the SDK. By using this approach, you could bypass the CDN blocked issue as the new URL should not be blocked.
-
-Current Application Insights JavaScript SDK CDN endpoints
-- `https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js`
-- `https://js.monitor.azure.com/scripts/b/ai.2.min.js`
-
-> [!NOTE]
-> The `https://js.monitor.azure.com/` endpoint is an alias that allows us to switch between CDN providers within approximately 5 minutes, without the need for you to change any config. This is to enable us to fix detected CDN related issues more rapidly if a CDN provider is having regional or global issues without requiring everyone to adjust their settings.
+If you confirm there is an outage, you can [create a new support ticket](https://azure.microsoft.com/support/create-ticket/).
 
 ## SDK failed to initialize after loading the script
 
@@ -99,6 +89,8 @@ First lets check for JavaScript exceptions, using a browser that supports develo
 If there are exceptions being reported in the SDK script (for example ai.2.min.js), then this may indicate that the configuration passed into the SDK contains unexpected or missing required configuration or a faulty release has been deployed to the CDN.
 
 To check for faulty configuration, change the configuration passed into the snippet (if not already) so that it only includes your instrumentation key as a string value.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ```js
 src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
@@ -156,8 +148,6 @@ Check if the CDN endpoint has been identified as unsafe.
 Depending on the frequency that the application, firewall, or environment update their local copies of these lists, it may take a considerable amount of time and/or require manual intervention by end users or corporate IT departments to force an update or explicitly allow the CDN endpoints to resolve the issue.
 
 If the CDN endpoint is identified as unsafe, [create a support ticket](https://azure.microsoft.com/support/create-ticket/) to ensure that the issue is resolved as soon as possible.
-
-To *potentially* bypass this issue more rapidly, you can [change the SDK CDN endpoint](#change-the-cdn-endpoint).
 
 ### Application Insights JavaScript CDN is blocked (by end user - blocked by browser; installed blocker; personal firewall)
 

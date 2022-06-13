@@ -122,6 +122,8 @@
     href: cal-ides-erp6-erp7-sp3-sql.md   
   - name: SAP ILM
     href: sap-information-lifecycle-management.md
+  - name: SAP RISE integration
+    href: sap-rise-integration.md
   - name: SAP BOBI Platform on Azure
     items:
     - name: SAPI BOBI planning and implementation guide on Azure 
@@ -416,6 +418,10 @@
     href: monitor-sap-on-azure-reference.md
   - name: AMS FAQ
     href: azure-monitor-faq.yml
+- name: Integration with Microsoft Services
+  items:
+  - name: Outbound E-Mail from SAP to Exchange Online
+    href: exchange-online-integration-sap-email-outbound.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -462,8 +468,8 @@
         href: ../../../active-directory/saas-apps/saphana-tutorial.md
       - name: Configure SSO with SAP Cloud for Customer
         href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md
-      - name: Configure SSO with SAP Fiori Launchpad
-        href: https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad
+      - name: Configure SSO with SAPGUI using Kerberos and Azure AD Domain Services
+        href: https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/
   - name: Azure Services integration
     items:
     - name: Use SAP HANA in Power BI Desktop
@@ -477,13 +483,13 @@
   - name: Microsoft Sentinel threat monitoring
     items:
       - name: Deploy the Microsoft Sentinel solution for SAP
-        href: ../../../sentinel/sap-deploy-solution.md#deploy-sap-security-content
+        href: ../../../sentinel/sap/deploy-sap-security-content.md#deploy-sap-security-content
       - name: Detailed requirements
-        href: ../../../sentinel/sap-solution-detailed-requirements.md
-      - name: Available SAP logs reference
-        href: ../../../sentinel/sap-solution-log-reference.md
+        href: ../../../sentinel/sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
+      - name: Microsoft Sentinel SAP solution data reference
+        href: ../../../sentinel/sap/sap-solution-log-reference.md
       - name: SAP security content reference
-        href: ../../../sentinel/sap-solution-security-content.md
+        href: ../../../sentinel/sap/sap-solution-security-content.md
 - name: Resources
   items:
   - name: Azure Roadmap

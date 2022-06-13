@@ -227,24 +227,32 @@ For the Communication clients to be able to cancel ongoing refresh tasks, it's n
 
 ```javascript
 var controller = new AbortController();
-var signal = controller.signal;
 
 var joinChatBtn = document.querySelector('.joinChat');
 var leaveChatBtn = document.querySelector('.leaveChat');
 
-joinChatBtn.addEventListener('click', function() {
+joinChatBtn.addEventListener('click', function () {
     // Wrong:
     const tokenCredentialWrong = new AzureCommunicationTokenCredential({
-            tokenRefresher: async () => fetchTokenFromMyServerForUser("<user_name>")
-        });
+        tokenRefresher: async () => fetchTokenFromMyServerForUser("<user_name>")
+    });
 
     // Correct: Pass abortSignal through the arrow function
     const tokenCredential = new AzureCommunicationTokenCredential({
-            tokenRefresher: async (abortSignal) => fetchTokenFromMyServerForUser(abortSignal, "<user_name>")
-        });
-    
+        tokenRefresher: async (abortSignal) => fetchTokenFromMyServerForUser(abortSignal, "<user_name>")
+    });
+
     // ChatClient is now able to abort token refresh tasks
     const chatClient = new ChatClient("<endpoint-url>", tokenCredential);
+
+    // Pass the abortSignal to the chat client through options
+    const createChatThreadResult = await chatClient.createChatThread(
+        { topic: "Hello, World!" },
+        {
+            // ...
+            abortSignal: controller.signal
+        }
+    );
 
     // ...
 });
@@ -257,7 +265,7 @@ leaveChatBtn.addEventListener('click', function() {
 
 ### Clean up resources
 
-Communication Services applications should dispose the Credential instance when it's no longer needed. Disposing the credential is also the recommended way of canceling scheduled refresh actions when the proactive refreshing is enabled.
+Since the Credential object can be passed to multiple Chat or Calling client instances, the SDK will make no assumptions about its lifetime and leaves the responsibility of its disposal to the developer. It's up to the Communication Services applications to dispose the Credential instance when it's no longer needed. Disposing the credential is also the recommended way of canceling scheduled refresh actions when the proactive refreshing is enabled.
 
 Call the `.dispose()` function.
 

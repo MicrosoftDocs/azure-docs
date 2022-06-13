@@ -10,18 +10,20 @@ author: shivanissambare
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.custom: deploy, docker, prebuilt
+ms.custom: deploy, docker, prebuilt, sdkv1, event-tier1-build-2022
 ---
 
 # Python package extensibility for prebuilt Docker images (preview)
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 The [prebuilt Docker images for model inference](concept-prebuilt-docker-images-inference.md) contain packages for popular machine learning frameworks. There are two methods that can be used to add Python packages __without rebuilding the Docker image__:
 
-* [Dynamic installation](#dynamic): This approach uses a [requirements](https://pip.pypa.io/en/stable/cli/pip_install/#requirements-file-format) file to automatically restore python packages when the Docker container boots.
+* [Dynamic installation](#dynamic): This approach uses a [requirements](https://pip.pypa.io/en/stable/cli/pip_install/#requirements-file-format) file to automatically restore Python packages when the Docker container boots.
 
     Consider this method __for rapid prototyping__. When the image starts, packages are restored using the `requirements.txt` file. This method increases startup of the image, and you must wait longer before the deployment can handle requests.
 
-* [Pre-installed python packages](#preinstalled): You provide a directory containing preinstalled Python packages. During deployment, this directory is mounted into the container for your entry script (`score.py`) to use.
+* [Pre-installed Python packages](#preinstalled): You provide a directory containing preinstalled Python packages. During deployment, this directory is mounted into the container for your entry script (`score.py`) to use.
 
     Use this approach __for production deployments__. Since the directory containing the packages is mounted to the image, it can be used even when your deployments don't have public internet access. For example, when deployed into a secured Azure Virtual Network.
 
@@ -38,7 +40,7 @@ The [prebuilt Docker images for model inference](concept-prebuilt-docker-images-
 
 ## Dynamic installation
 
-This approach uses a [requirements](https://pip.pypa.io/en/stable/cli/pip_install/#requirements-file-format) file to automatically restore python packages when the image starts up.
+This approach uses a [requirements](https://pip.pypa.io/en/stable/cli/pip_install/#requirements-file-format) file to automatically restore Python packages when the image starts up.
 
 To extend your prebuilt docker container image through a requirements.txt, follow these steps:
 
@@ -75,11 +77,11 @@ The following diagram is a visual representation of the dynamic installation pro
 
 <a id="preinstalled"></a>
 
-## Pre-installed python packages
+## Pre-installed Python packages
 
 This approach mounts a directory that you provide into the image. The Python packages from this directory can then be used by the entry script (`score.py`).
 
-To extend your prebuilt docker container image through pre-installed python packages, follow these steps:
+To extend your prebuilt docker container image through pre-installed Python packages, follow these steps:
 
 > [!IMPORTANT]
 > You must use packages compatible with Python 3.7. All current images are pinned to Python 3.7.
@@ -125,7 +127,7 @@ Here are some things that may cause this problem:
 
 * The [Model.package()](/python/api/azureml-core/azureml.core.model(class)) method lets you create a model package in the form of a Docker image or Dockerfile build context. Using Model.package() with prebuilt inference docker images triggers an intermediate image build that changes the non-root user to root user.
 
-* We encourage you to use our python package extensibility solutions. If other dependencies are required (such as `apt` packages), create your own [Dockerfile extending from the inference image](how-to-extend-prebuilt-docker-image-inference.md#buildmodel).
+* We encourage you to use our Python package extensibility solutions. If other dependencies are required (such as `apt` packages), create your own [Dockerfile extending from the inference image](how-to-extend-prebuilt-docker-image-inference.md#buildmodel).
 
 ## Frequently asked questions
 
@@ -147,7 +149,7 @@ Here are some things that may cause this problem:
 
     | Compared item | Requirements.txt (dynamic installation) | Package Mount |
     | ----- | ----- | ------ |
-    | Solution  | Create a `requirements.txt` that installs the specified packages when the container starts. | Create a local python environment with all of the dependencies. Mount this directory into container at runtime. |
+    | Solution  | Create a `requirements.txt` that installs the specified packages when the container starts. | Create a local Python environment with all of the dependencies. Mount this directory into container at runtime. |
     | Package Installation           | No extra installation (assuming pip already installed)                                                                                                          | Virtual environment or conda environment installation.                                                                                   |
     | Virtual environment Setup              | No extra setup of virtual environment required, as users can pull the current local user environment with pip freeze as needed to create the `requirements.txt`. | Need to set up a clean virtual environment, may take extra steps depending on the current user local environment.                        |
     | [Debugging](how-to-inference-server-http.md)                 | Easy to set up and debug server, since dependencies are clearly listed. | Unclean virtual environment could cause problems when debugging of server. For example, it may not be clear if errors come from the environment or user code. |

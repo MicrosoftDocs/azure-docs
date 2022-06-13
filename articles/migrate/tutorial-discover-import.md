@@ -6,6 +6,7 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
+ms.custom: subject-rbac-steps
 #Customer intent: As a server admin, I want to discover servers using an imported CSV file. 
 ---
 
@@ -56,19 +57,25 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Search box to search for the Azure subscription](./media/tutorial-discover-import/search-subscription.png)
 
-2. In the **Subscriptions** page, select the subscription in which you want to create an Azure Migrate project.
-3. In the subscription, select **Access control (IAM)** > **Check access**.
-4. In **Check access**, search for the relevant user account.
-5. In **Add a role assignment**, select **Add**.
+1. In the **Subscriptions** page, select the subscription in which you want to create an Azure Migrate project.
 
-    ![Search for a user account to check access and assign a role](./media/tutorial-discover-import/azure-account-access.png)
+1. Select **Access control (IAM)**.
 
-6. In **Add role assignment**, select the Contributor or Owner role, and select the account (azmigrateuser in our example). Then select **Save**.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-    ![Opens the Add Role assignment page to assign a role to the account](./media/tutorial-discover-import/assign-role.png)
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-7. In the portal, search for users, and under **Services**, select **Users**.
-8. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
+    | Setting | Value |
+    | --- | --- |
+    | Role | Contributor or Owner |
+    | Assign access to | User |
+    | Members | azmigrateuser |
+
+    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
+1. In the portal, search for users, and under **Services**, select **Users**.
+
+1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
     ![Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-import/register-apps.png)
 
@@ -84,7 +91,7 @@ Set up a new Azure Migrate project if you don't have one.
 
    ![Boxes for project name and region](./media/tutorial-discover-import/new-project.png)  
     > [!Note]
-    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](how-to-use-azure-migrate-with-private-endpoints.md#create-a-project-with-private-endpoint-connectivity)
+    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity)
 
 7. Select **Create**.
 8. Wait a few minutes for the Azure Migrate project to deploy.
@@ -99,7 +106,7 @@ Download the CSV template and add server information to it.
 
 ### Download the template
 
-1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
+1. In **Migration goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
 2. In **Discover machines**, select **Import using CSV**.
 3. Select **Download** to download the CSV template. Alternatively, you can [download it directly](https://go.microsoft.com/fwlink/?linkid=2109031).
 
@@ -195,7 +202,7 @@ Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CentOS<br/>CentOS 4/5<br/>CoreOS Linux
 
 ## Assessment considerations
 
-- If you import serves by using a CSV file and creating an assessment with sizing criteria as "performance-based":
+- If you import servers by using a CSV file and creating an assessment with sizing criteria as "performance-based":
     - For Azure VM assessment, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information. 
     - For Azure VMware Solution assessment, the performance values you specify (CPU utilization, Memory utilization, Storage in use(GB)) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information. 
 - To get an accurate OS suitability/readiness in Azure VM and Azure VMware Solution assessment, please enter the Operating system version and architecture in the respective columns.

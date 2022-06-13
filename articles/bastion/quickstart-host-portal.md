@@ -6,7 +6,7 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 02/25/2022
+ms.date: 06/05/2022
 ms.author: cherylmc
 ms.custom: ignite-fall-2021, mode-other
 #Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH using a private IP address through my browser.
@@ -42,10 +42,10 @@ Azure Bastion is a PaaS service that's maintained for you, not a bastion host th
 
   * 3389 for Windows VMs
   * 22 for Linux VMs
- 
- > [!NOTE]
- > The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
- >
+
+> [!NOTE]
+> The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
+>
 
 ### <a name="values"></a>Example values
 
@@ -80,8 +80,8 @@ When you deploy from VM settings, Bastion is automatically configured with defau
 In this quickstart, you deploy Bastion from your virtual machine settings in the Azure portal. You don't connect and sign in to your virtual machine or deploy Bastion from your VM directly.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the portal, navigate to the VM to which you want to connect. The values from the virtual network in which this VM resides will be used to create the Bastion deployment. 
-1. Select **Bastion** in the left menu. You can view some of the values that will be used when creating the bastion host for your virtual network. Select **Deploy Bastion**.
+1. In the portal, go to the VM to which you want to connect. The values from the virtual network in which this VM resides will be used to create the Bastion deployment. 
+1. Select **Bastion** in the left menu. You can view some of the values that will be used when creating the bastion host for your virtual network. Select **Create Azure Bastion using defaults**.
 
    :::image type="content" source="./media/quickstart-host-portal/deploy-bastion.png" alt-text="Screenshot of Deploy Bastion." lightbox="./media/quickstart-host-portal/deploy-bastion.png":::
 1. Bastion begins deploying. This can take around 10 minutes to complete.
@@ -102,6 +102,10 @@ When the Bastion deployment is complete, the screen changes to the **Connect** p
 
      :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Screenshot of RDP connection." lightbox="./media/quickstart-host-portal/connected.png":::
 
+### <a name="audio"></a>To enable audio output
+
+[!INCLUDE [Enable VM audio output](../../includes/bastion-vm-audio.md)]
+
 ## <a name="remove"></a>Remove VM public IP address
 
 [!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
@@ -118,7 +122,7 @@ When you're done using the virtual network and the virtual machines, delete the 
 
 ## Next steps
 
-In this quickstart, you deployed Bastion to your virtual network, and then connected to a virtual machine securely via Bastion. Next, you can continue with the following step if you want to connect to a virtual machine scale set.
+In this quickstart, you deployed Bastion to your virtual network, and then connected to a virtual machine securely via Bastion. Next, you can continue with the following steps if you want to copy and paste to your VM.
 
 > [!div class="nextstepaction"]
-> [Connect to a virtual machine scale set using Azure Bastion](bastion-connect-vm-scale-set.md)
+> [Copy and paste to a Windows VM](bastion-vm-copy-paste.md)

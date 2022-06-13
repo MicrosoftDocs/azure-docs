@@ -2,7 +2,8 @@
 title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: This article provides details about features and terminology of Azure Event Hubs. 
 ms.topic: overview
-ms.date: 01/24/2022
+ms.custom: event-tier1-build-2022
+ms.date: 05/11/2022
 ---
 
 # Features and terminology in Azure Event Hubs
@@ -135,7 +136,7 @@ The following examples show the consumer group URI convention:
 
 The following figure shows the Event Hubs stream processing architecture:
 
-![Event Hubs architecture](./media/event-hubs-about/event_hubs_architecture.svg)
+![Event Hubs architecture](./media/event-hubs-about/event_hubs_architecture.png)
 
 ### Stream offsets
 
@@ -184,6 +185,13 @@ Event data:
 * System properties
 
 It's your responsibility to manage the offset.
+
+## Application groups
+An application group is a collection of client applications that connect to an Event Hubs namespace sharing a unique identifying condition such as the security context - shared access policy or Azure Active Directory (Azure AD) application ID. 
+
+Azure Event Hubs enables you to define resource access policies such as throttling policies for a given application group and controls event streaming (publishing or consuming) between client applications and Event Hubs. 
+
+For more information, see [Resource governance for client applications with application groups](resource-governance-overview.md). 
 
 ## Next steps
 

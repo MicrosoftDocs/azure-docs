@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 08/30/2021
+ms.date: 04/11/2022
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -43,6 +43,8 @@ Setting the number of partitions to the maximum permitted value is tempting, but
 
 It doesn't matter how many partitions are in an event hub when it comes to pricing. It depends on the number of pricing units ([throughput units
 (TUs)](../event-hubs-scalability.md#throughput-units) for the standard tier, [processing units (PUs)](../event-hubs-scalability.md#processing-units) for the premium tier, and [capacity units (CUs)](../event-hubs-dedicated-overview.md) for the dedicated tier) for the namespace or the dedicated cluster. For example, an event hub of the standard tier with 32 partitions or with 1 partition incur the exact same cost when the namespace is set to 1 TU capacity. Also, you can scale TUs or PUs on your namespace or CUs of your dedicated cluster independent of the partition count. 
+
+[!INCLUDE [event-hubs-partition-count](event-hubs-partition-count.md)]
 
 ### Mapping of events to partitions
 You can use a partition key to map incoming event data into specific partitions for the purpose of data organization. The partition key is a sender-supplied value passed into an event hub. It is processed through a static hashing function, which creates the partition assignment. If you don't specify a partition key when publishing an event, a round-robin assignment is used.

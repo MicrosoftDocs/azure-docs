@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/1/2022
+ms.date: 05/24/2022
 
 ms.author: justinha
 author: justinha
@@ -21,7 +21,8 @@ Before combined registration, users registered authentication methods for Azure 
 
 > [!NOTE]
 > Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. 
-> After Sept. 30th, 2022, all existing Azure AD tenants will be automatically enabled for combined registration. After this date tenants will be unable to utilize the sepperate legacy registration workflows for MFA and SSPR.
+> 
+> After Sept. 30th, 2022, all users will register security information through the combined registration experience. 
 
 This article outlines what combined security registration is. To get started with combined security registration, see the following article:
 
@@ -71,6 +72,9 @@ Users can set one of the following options as the default Multi-Factor Authentic
 - Authenticator app or hardware token – code
 - Phone call
 - Text message
+
+>[!NOTE]
+>Virtual phone numbers are not supported for Voice calls or SMS messages.
 
 Third party authenticator apps do not provide push notification. As we continue to add more authentication methods to Azure AD, those methods become available in combined registration.
 

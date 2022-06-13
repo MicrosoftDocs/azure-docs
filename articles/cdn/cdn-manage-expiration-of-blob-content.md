@@ -3,7 +3,7 @@ title: Manage expiration of Azure Blob storage
 titleSuffix: Azure Content Delivery Network
 description: Learn about the options for controlling time-to-live for blobs in Azure CDN caching.
 services: cdn
-documentationcenter: ''
+documentationcenter: 
 author: zhangmanling
 manager: erikre
 editor: ''
@@ -112,35 +112,28 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## Setting Cache-Control headers by using .NET
-To specify a blob's `Cache-Control` header by using .NET code, use the [Azure Storage Client Library for .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) to set the [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.azure.storage.blob.blobproperties.cachecontrol) property.
+To specify a blob's `Cache-Control` header by using .NET code, use the [Azure Storage Client Library for .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) to set the [BlobHttpHeaders.CacheControl](/dotnet/api/azure.storage.blobs.models.blobhttpheaders.cachecontrol?view=azure-dotnet&preserve-view=true) property.
 
 For example:
 
 ```csharp
-class Program
-{
-    const string connectionString = "<storage connection string>";
-    static void Main()
+    class Program
     {
-        // Retrieve storage account information from connection string
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+        const string containerName = "<container name>";
+        const string blobName = "<blob name>";
+        const string connectionString = "<storage connection string>";
+        static void Main()
+        {
+            // Retrieve storage account information from connection string
+            BlobContainerClient container = new BlobContainerClient(connectionString, containerName);
 
-        // Create a blob client for interacting with the blob service.
-        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            // Create a blob client for interacting with the blob service.
+            BlobClient blob = container.GetBlobClient(blobName);
 
-        // Create a reference to the container
-        CloudBlobContainer <container name> = blobClient.GetContainerReference("<container name>");
-
-        // Create a reference to the blob
-        CloudBlob <blob name> = container.GetBlobReference("<blob name>");
-
-        // Set the CacheControl property to expire in 1 hour (3600 seconds)
-        blob.Properties.CacheControl = "max-age=3600";
-
-        // Update the blob's properties in the cloud
-        blob.SetProperties();
+            // Set the CacheControl property to expire in 1 hour (3600 seconds)
+            blob.SetHttpHeaders(new BlobHttpHeaders {CacheControl = "max-age=3600" });
+        }
     }
-}
 ```
 
 > [!TIP]

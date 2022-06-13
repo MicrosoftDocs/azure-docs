@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 08/26/2021
+ms.date: 03/23/2022
 ms.author: kirankk
 ms.custom: devx-track-csharp
 
@@ -23,7 +23,7 @@ ms.custom: devx-track-csharp
 
 Welcome to the Azure Cosmos DB SQL API get started tutorial. After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
-This tutorial uses version 3.0 or later of the [Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos). You can work with [.NET Framework or .NET Core](https://dotnet.microsoft.com/download).
+This tutorial uses version 3.0 or later of the [Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) and [.NET 6](https://dotnet.microsoft.com/download).
 
 This tutorial covers:
 
@@ -43,11 +43,11 @@ Now let's get started!
 
 ## Prerequisites
 
-* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
+An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
+[!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [!INCLUDE [cosmos-db-emulator-vs](../includes/cosmos-db-emulator-vs.md)]
+Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.md)]
 
 ## Step 1: Create an Azure Cosmos DB account
 
@@ -58,11 +58,8 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 ## <a id="SetupVS"></a>Step 2: Set up your Visual Studio project
 
 1. Open Visual Studio and select **Create a new project**.
-1. In **Create a new project**, choose **Console App (.NET Framework)** for C#, then select **Next**.
+1. In **Create a new project**, choose **Console App** for C#, then select **Next**.
 1. Name your project *CosmosGettingStartedTutorial*, and then select **Create**.
-
-    :::image type="content" source="./media/sql-api-get-started/configure-cosmos-getting-started-2019.png" alt-text="Configure your project":::
-
 1. In the **Solution Explorer**, right-click your new console application, which is under your Visual Studio solution, and select **Manage NuGet Packages**.
 1. In the **NuGet Package Manager**, select **Browse** and search for *Microsoft.Azure.Cosmos*. Choose **Microsoft.Azure.Cosmos** and select **Install**.
 
@@ -159,7 +156,7 @@ A database is the logical container of items partitioned across containers. Eith
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateDatabaseAsync&highlight=7)]
 
-    `CreateDatabaseAsync` creates a new database with ID `FamilyDatabase` if it doesn't already exist, that has the ID specified from the `databaseId` field.
+    `CreateDatabaseAsync` creates a new database with ID `FamilyDatabase` if it doesn't already exist, that has the ID specified from the `databaseId` field. For the purpose of this demo we are creating the database as part of the exercise, but on applications in production, it is [not recommended to do it as part of the normal flow](troubleshoot-dot-net-sdk-slow-request.md#metadata-operations).
 
 1. Copy and paste the code below where you instantiate the CosmosClient to call the **CreateDatabaseAsync** method you just added.
 
@@ -214,10 +211,9 @@ A database is the logical container of items partitioned across containers. Eith
                     Program p = new Program();
                     await p.GetStartedDemoAsync();
                 }
-                catch (CosmosException de)
+                catch (CosmosException cosmosException)
                 {
-                    Exception baseException = de.GetBaseException();
-                    Console.WriteLine("{0} error occurred: {1}\n", de.StatusCode, de);
+                    Console.WriteLine("Cosmos Exception with Status {0} : {1}\n", cosmosException.StatusCode, cosmosException);
                 }
                 catch (Exception e)
                 {
@@ -276,7 +272,7 @@ Congratulations! You've successfully created an Azure Cosmos database.
 
 A container can be created by using either the [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync#Microsoft_Azure_Cosmos_Database_CreateContainerIfNotExistsAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) or [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync#Microsoft_Azure_Cosmos_Database_CreateContainerAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) method in the `CosmosDatabase` class. A container consists of items (JSON documents if SQL API) and associated server-side application logic in JavaScript, for example, stored procedures, user-defined functions, and triggers.
 
-1. Copy and paste the `CreateContainerAsync` method below your `CreateDatabaseAsync` method. `CreateContainerAsync`  creates a new container with the ID `FamilyContainer` if it doesn't already exist, by using the ID specified from the `containerId` field partitioned by `LastName` property.
+1. Copy and paste the `CreateContainerAsync` method below your `CreateDatabaseAsync` method. `CreateContainerAsync`  creates a new container with the ID `FamilyContainer` if it doesn't already exist, by using the ID specified from the `containerId` field partitioned by `LastName` property. For the purpose of this demo we are creating the container as part of the exercise, but on applications in production, it is [not recommended to do it as part of the normal flow](troubleshoot-dot-net-sdk-slow-request.md#metadata-operations).
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateContainerAsync&highlight=9)]
 

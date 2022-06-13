@@ -44,7 +44,7 @@ App settings are always encrypted when stored (encrypted-at-rest).
 
     ![Application Settings](./media/configure-common/open-ui.png)
 
-    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, click its **Value** field. To see the hidden values of all app settings, click the **Show value** button.
+    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, click its **Value** field. To see the hidden values of all app settings, click the **Show values** button.
 
 1. To add a new app setting, click **New application setting**. To edit a setting, click the **Edit** button on the right side.
 
@@ -60,7 +60,7 @@ App settings are always encrypted when stored (encrypted-at-rest).
 
 # [Azure CLI](#tab/cli)
 
-Add or edit an app setting with [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set):
+Add or edit an app setting with [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <group-name> --settings <setting-name>="<value>"
@@ -68,13 +68,13 @@ az webapp config appsettings set --name <app-name> --resource-group <group-name>
     
 Replace `<setting-name>` with the name of the setting, and `<value>` with the value to assign to it.
         
-Show all settings and their values with [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list):
+Show all settings and their values with [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-list):
     
 ```azurecli-interactive
 az webapp config appsettings list --name <app-name> --resource-group <group-name>
 ```
     
-Remove one or more settings with [az webapp config app settings delete](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete):
+Remove one or more settings with [az webapp config app settings delete](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-delete):
 
 ```azurecli-interactive
 az webapp config appsettings delete --name <app-name> --resource-group <group-name> --setting-names {<setting-name1>,<setting-name2>,...}
@@ -148,7 +148,7 @@ App settings have the following JSON formatting:
 
 # [Azure CLI](#tab/cli)
 
-Run [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) with the name of the JSON file. 
+Run [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) with the name of the JSON file. 
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings "@fileName.json"
@@ -173,7 +173,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 ]
 ```
 
-For convenience, you can save existing settings into a JSON file with [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list). The following example can be run in Bash.
+For convenience, you can save existing settings into a JSON file with [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-list). The following example can be run in Bash.
     
 ```azurecli-interactive
 # Save the settings
@@ -213,7 +213,7 @@ At runtime, connection strings are available as environment variables, prefixed 
 * Custom: `CUSTOMCONNSTR_`
 * PostgreSQL: `POSTGRESQLCONNSTR_`  
 
-For example, a MySql connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
+For example, a MySQL connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
 
 - [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](configure-language-nodejs.md#access-environment-variables)
@@ -248,21 +248,21 @@ Connection strings are always encrypted when stored (encrypted-at-rest).
 
 # [Azure CLI](#tab/cli)
 
-Add or edit an app setting with [az webapp config connection-string set](/cli/azure/webapp/config/connection-string#az_webapp_config_connection_string_set):
+Add or edit an app setting with [az webapp config connection-string set](/cli/azure/webapp/config/connection-string#az-webapp-config-connection-string-set):
 
 ```azurecli-interactive
 az webapp config connection-string set --name <app-name> --resource-group <group-name> --connection-string-type <type> --settings <string-name>='<value>'
 ```
     
-Replace `<string-name>` with the name of the connection string, and `<value>` with the value to assign to it. For possible values of `<type>` (for example, `SQLAzure`), see the [CLI command documentation](/cli/azure/webapp/config/connection-string#az_webapp_config_connection_string_set).
+Replace `<string-name>` with the name of the connection string, and `<value>` with the value to assign to it. For possible values of `<type>` (for example, `SQLAzure`), see the [CLI command documentation](/cli/azure/webapp/config/connection-string#az-webapp-config-connection-string-set).
 
-Show all connection strings and their values with [az webapp config connection-string list](/cli/azure/webapp/config/connection-string#az_webapp_config_connection_string_list):
+Show all connection strings and their values with [az webapp config connection-string list](/cli/azure/webapp/config/connection-string#az-webapp-config-connection-string-list):
     
 ```azurecli-interactive
 az webapp config connection-string list --name <app-name> --resource-group <group-name>
 ```
     
-Remove one or more connection strings with [az webapp config connection-string delete](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete):
+Remove one or more connection strings with [az webapp config connection-string delete](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-delete):
 
 ```azurecli-interactive
 az webapp config connection-string delete --name <app-name> --resource-group <group-name> --setting-names {<string-name1>,<string-name2>,...}
@@ -321,11 +321,11 @@ Set-AzWebAppSlotConfigName -ResourceGroupName <group-name> -Name <app-name> -Con
 
 -----
 
-### Edit app settings in bulk
+### Edit connection strings in bulk
 
 # [Azure portal](#tab/portal)
 
-Click the **Advanced edit** button. Edit the settings in the text area. When finished, click **Update**. Don't forget to click **Save** back in the **Configuration** page.
+Click the **Advanced edit** button. Edit the connection strings in the text area. When finished, click **Update**. Don't forget to click **Save** back in the **Configuration** page.
 
 Connection strings have the following JSON formatting:
 
@@ -349,16 +349,16 @@ Connection strings have the following JSON formatting:
 
 # [Azure CLI](#tab/cli)
 
-Run [az webapp config connection-string set](/cli/azure/webapp/config/connection-string#az_webapp_config_connection_string_set) with the name of the JSON file. 
+Run [az webapp config connection-string set](/cli/azure/webapp/config/connection-string#az-webapp-config-connection-string-set) with the name of the JSON file. 
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings "@fileName.json"
+az webapp config connection-string set --resource-group <group-name> --name <app-name> --settings "@fileName.json"
 ```
 
 > [!TIP] 
 > Wrapping the file name with quotes is only required in PowerShell.
 
-The file format needed is a JSON array of settings where the slot setting field is optional. For example:
+The file format needed is a JSON array of connection strings where the slot setting field is optional. For example:
 
 ```json
 [
@@ -377,7 +377,7 @@ The file format needed is a JSON array of settings where the slot setting field 
 ]
 ```
 
-For convenience, you can save existing connection strings into a JSON file with [az webapp config connection-string list](/cli/azure/webapp/config/connection-string#az_webapp_config_connection_string_list). The following example can be run in Bash.
+For convenience, you can save existing connection strings into a JSON file with [az webapp config connection-string list](/cli/azure/webapp/config/connection-string#az-webapp-config-connection-string-list). The following example can be run in Bash.
     
 ```azurecli-interactive
 # Save the connection strings
@@ -421,12 +421,13 @@ Here, you can configure some common settings for the app. Some settings require 
 
 - **Stack settings**: The software stack to run the app, including the language and SDK versions.
 
-    For Linux apps and custom containers, you can select the language runtime version and set an optional **Startup command** or a startup command file.
+    For Linux apps, you can select the language runtime version and set an optional **Startup command** or a startup command file.
 
     ![General settings for Linux containers](./media/configure-common/open-general-linux.png)
 
 - **Platform settings**: Lets you configure settings for the hosting platform, including:
-    - **Bitness**: 32-bit or 64-bit. (Defaults to 32-bit for App Service created in the portal.)
+    - **FTP state**: Allow only FTPS or disable FTP altogether.
+    - **Bitness**: 32-bit or 64-bit. For Windows apps only. 
     - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
     - **Always On**: Keeps the app loaded even when there's no traffic. When **Always On** is not turned on (default), the app is unloaded after 20 minutes without any incoming requests. The unloaded app can cause high latency for new requests because of its warm-up time. When **Always On** is turned on, the front-end load balancer sends a GET request to the application root every five minutes. The continuous ping prevents the app from being unloaded.
     
@@ -440,13 +441,13 @@ Here, you can configure some common settings for the app. Some settings require 
 
 # [Azure CLI](#tab/cli)
 
-You can set many of the common configurable options using [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set). The following example shows a subset of the configurable options.
+You can set many of the common configurable options using [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set). The following example shows a subset of the configurable options.
 
 ```azurecli-interactive
 az webapp config set --resource-group <group-name> --name <app-name> --use-32bit-worker-process [true|false] --web-sockets-enabled [true|false] --always-on [true|false]--http20-enabled --auto-heal-enabled [true|false] --remote-debugging-enabled [true|false] --number-of-workers
 ```
 
-To show the existing settings, use the [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show) command.
+To show the existing settings, use the [az webapp config show](/cli/azure/webapp/config#az-webapp-config-show) command.
 
 # [Azure PowerShell](#tab/ps)
 
@@ -476,7 +477,7 @@ The default document is the web page that's displayed at the root URL of an App 
 
 # [Azure CLI](#tab/cli)
 
-Add a default document by using [az resource update](/cli/azure/resource#az_resource_update):
+Add a default document by using [az resource update](/cli/azure/resource#az-resource-update):
 
 ```azurecli-interactive
 az resource update --resource-group <group-name> --resource-type "Microsoft.Web/sites/config" --name <app-name>/config/web --add properties.defaultDocuments <filename>

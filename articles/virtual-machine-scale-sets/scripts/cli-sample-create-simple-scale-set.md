@@ -25,7 +25,7 @@ This script creates an Azure virtual machine scale set with an Ubuntu operating 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/simple-scale-set/simple-scale-set.sh" range="4-21":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine-scale-sets/simple-scale-set/simple-scale-set.sh" id="FullScript":::
 
 ## Clean up resources
 

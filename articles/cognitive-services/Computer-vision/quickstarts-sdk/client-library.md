@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/02/2022
+ms.date: 06/13/2022
 ms.author: pafarley
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
@@ -18,7 +18,7 @@ keywords: computer vision, computer vision service
 
 # Quickstart: Use the Optical character recognition (OCR) client library or REST API
 
-Get started with the Computer Vision Read REST API or client libraries. The Read service provides you with AI algorithms for extracting text from images and returning it as structured strings. Follow these steps to install a package to your application and try out the sample code for basic tasks.
+Get started with the Computer Vision Read REST API or client libraries. The Read API provides you with AI algorithms for extracting text from images and returning it as structured strings. Follow these steps to install a package to your application and try out the sample code for basic tasks.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -41,12 +41,6 @@ Get started with the Computer Vision Read REST API or client libraries. The Read
 ::: zone pivot="programming-language-javascript"
 
 [!INCLUDE [NodeJS SDK quickstart](../includes/quickstarts-sdk/node-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-go"
-
-[!INCLUDE [Go SDK quickstart](../includes/quickstarts-sdk/go-sdk.md)]
 
 ::: zone-end
 

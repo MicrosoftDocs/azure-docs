@@ -3,9 +3,9 @@ title: Introduction to Azure Active Directory Verifiable Credentials (preview)
 description: An overview Azure Verifiable Credentials.
 services: active-directory
 author: barclayn
-manager: karenhoran
+manager: rkarlin
 editor:
-ms.service: active-directory
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: overview
 ms.date: 04/01/2021
@@ -14,6 +14,8 @@ ms.reviewer:
 ---
 
 # Introduction to Azure Active Directory Verifiable Credentials (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
@@ -94,9 +96,9 @@ The scenario we use to explain how VCs work involves:
 
 
 
-Today, Alice provides a username and password to log onto Woodgrove’s networked environment. Woodgrove is deploying a VC solution to provide a more manageable way for Alice to prove she is an employee of Woodgrove. Proseware is using a VC solution compatible with Woodgrove's VC solution and they accept credentials issued by Woodgrove as proof of employment.
+Today, Alice provides a username and password to log onto Woodgrove’s networked environment. Woodgrove is deploying a verifiable credential solution to provide a more manageable way for Alice to prove that she is an employee of Woodgrove. Proseware accepts verifiable credentials issued by Woodgrove as proof of employment to offer corporate discounts as part of their corporate discount program.
 
-The issuer of the credential, Woodgrove Inc., creates a public key and a private key. The public key is stored on ION. When the key is added to the infrastructure, the entry is recorded in a blockchain-based decentralized ledger. The issuer provides Alice the private key that is stored in a wallet application. Each time Alice successfully uses the private key the transaction is logged in the wallet application.
+Alice requests Woodgrove Inc for a proof of employment verifiable credential. Woodgrove Inc attests Alice's identity and issues a signed verfiable credential that Alice can accept and store in her digital wallet application. Alice can now present this verifiable credential as a proof of employement on the Proseware site. After a succesfull presentation of the credential, Prosware offers discount to Alice and the transaction is logged in Alice's wallet application so that she can track where and to whom she has presented her proof of employment verifiable credential.
 
 ![microsoft-did-overview](media/decentralized-identifier-overview/did-overview.png)
 
@@ -106,7 +108,7 @@ There are three primary actors in the verifiable credential solution. In the fol
 
 - **Step 1**, the **user** requests a verifiable credential from an issuer.
 - **Step 2**, the **issuer** of the credential attests that the proof the user provided is accurate and creates a verifiable credential signed with their DID and the user’s DID is the subject.
-- **In Step 3**, the user signs a verifiable presentation (VP) with their DID and sends to the **verifier.** The verifier then validates of the credential by matching with the public key placed in the DPKI.
+- **In Step 3**, the user signs a verifiable presentation (VP) with their DID and sends to the **verifier.** The verifier then validates the credential by matching with the public key placed in the DPKI.
 
 The roles in this scenario are:
 

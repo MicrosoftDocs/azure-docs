@@ -137,7 +137,7 @@ The following Resource Provider modes are fully supported:
 - `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
   using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. This mode supports
   custom definitions as a _public preview_. See
-  [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to create a
+  [Create policy definition from constraint template](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode#create-policy-definition-from-constraint-template) to create a
   custom definition from an existing [Open Policy Agent](https://www.openpolicyagent.org/) (OPA)
   GateKeeper v3
   [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). Use
@@ -951,13 +951,24 @@ functions](../../../azure-resource-manager/templates/template-functions.md) are 
 within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
+- dateTimeAdd()
 - deployment()
+- environment()
+- extensionResourceId()
+- listAccountSas()
+- listKeys()
+- listSecrets()
 - list*
+- managementGroup()
 - newGuid()
 - pickZones()
 - providers()
 - reference()
 - resourceId()
+- subscriptionResourceId()
+- tenantResourceId()
+- tenant()
+- utcNow(format)
 - variables()
 
 > [!NOTE]

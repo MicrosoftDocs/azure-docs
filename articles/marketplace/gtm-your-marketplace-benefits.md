@@ -4,9 +4,9 @@ description: Go-To-Market Services - Describes Microsoft resources that publishe
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 12/14/2021
-author: keferna
-ms.author: keferna
+ms.date: 05/11/2022
+author: vivekmohanms
+ms.author: vivekmo
 ---
 
 # Your commercial marketplace benefits

@@ -26,7 +26,8 @@ docker run --rm -it -p 5000:5000 \
 Eula=accept \
 Billing=<endpoint> \
 ApiKey=<api-key> \
-Logging:Disk:Format=json
+Logging:Disk:Format=json \
+Mounts:Output=/output
 ```
 
 This container command shows debugging information, prefixed with `dbug`, while the container is running:

@@ -5,7 +5,7 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 03/29/2022
 ---
 
 # Azure Cosmos DB free tier 
@@ -54,7 +54,7 @@ When creating the account using the Azure portal, set the **Apply Free Tier Disc
 
 ### ARM template
 
-To create a free tier account by using an ARM template, set the property`"enableFreeTier": true`. For the complete template, see deploy an [ARM template with free tier](manage-with-templates.md#free-tier) example.
+To create a free tier account by using an ARM template, set the property `"enableFreeTier": true`. For the complete template, see deploy an [ARM template with free tier](manage-with-templates.md#free-tier) example.
 
 ### CLI
 
@@ -67,7 +67,6 @@ az cosmosdb create \
     -g "MyResourcegroup" \
     --enable-free-tier true \
     --default-consistency-level "Session"
-    
 ```
 
 ### PowerShell
@@ -88,6 +87,6 @@ New-AzCosmosDBAccount -ResourceGroupName "MyResourcegroup" `
 After you create a free tier account, you can start building apps with Azure Cosmos DB with the following articles:
 
 * [Build a console app using the .NET V4 SDK](create-sql-api-dotnet-v4.md) to manage Azure Cosmos DB resources.
-* [Build a .NET web app using Azure Cosmos DB's API for MongoDB](mongodb/create-mongodb-dotnet.md)
+* [Build a .NET web app using Azure Cosmos DB API for MongoDB](mongodb/create-mongodb-dotnet.md)
 * [Download a notebook from the gallery](publish-notebook-gallery.md#download-a-notebook-from-the-gallery) and analyze your data.
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)

@@ -186,7 +186,7 @@ Use this claims transformation to check if a claim is equal to another claim.  T
   </InputClaims>
   <InputParameters>
     <InputParameter Id="operator" DataType="string" Value="NOT EQUAL" />
-    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+    <InputParameter Id="ignoreCase" DataType="boolean" Value="true" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="SameEmailAddress" TransformationClaimType="outputClaim" />
@@ -212,7 +212,7 @@ Determines whether a claim value is equal to the input parameter value. Check ou
 | InputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
 | InputParameter | compareTo | string | String comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
-| InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
+| InputParameter | ignoreCase | string | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The claim that is produced after this claims transformation has been invoked. |
 
 ### Example of CompareClaimToValue
@@ -1177,6 +1177,9 @@ Returns a string array that contains the substrings in this instance that are de
 | InputClaim | inputClaim | string | A string claim type that contains the sub strings to split. |
 | InputParameter | delimiter | string | The string to use as a separator, such as comma `,`. |
 | OutputClaim | outputClaim | stringCollection | A string collection whose elements contain the substrings in this string that are delimited by the `delimiter` input parameter. |
+
+> [!NOTE]
+> Any existing elements in the `OutputClaim` stringCollection will be removed.
 
 ### Example of StringSplit
 

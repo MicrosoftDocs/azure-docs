@@ -68,9 +68,10 @@ There are multiple ways to turn off default outbound access:
 
 NAT gateway is the recommended approach to have explicit outbound connectivity. A firewall can also be used to provide this access.
 
-## Limitations
+## Constraints
 
 * Connectivity maybe needed for Windows Updates.
+
 * Default outbound access IP doesn't support fragmented packets. 
 
 ## Next steps

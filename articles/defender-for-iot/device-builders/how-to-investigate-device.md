@@ -2,7 +2,7 @@
 title: Investigate a suspicious device
 description: This how to guide explains how to use Defender for IoT to investigate a suspicious IoT device using Log Analytics.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Investigate a suspicious IoT device
@@ -14,6 +14,11 @@ In this guide, use the investigation suggestions provided to help determine the 
 > [!div class="checklist"]
 > * Find your device data
 > * Investigate using kql queries
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
+>
+> For more information, see [Tutorial: Investigate security recommendations](tutorial-investigate-security-recommendations.md) and [Tutorial: Investigate security alerts](tutorial-investigate-security-alerts.md).
 
 ## How can I access my data?
 

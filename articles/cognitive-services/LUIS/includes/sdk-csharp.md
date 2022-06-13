@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/17/2021
+ms.date: 03/07/2022
 ms.topic: include
 ms.custom: "include file, devx-track-dotnet, cog-serv-seo-aug-2020"
 
@@ -119,6 +119,8 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 ## Create variables for the app
 
 Create two sets of variables: the first set you change, the second set leave as they appear in the code sample. 
+
+[!INCLUDE [Remember to remove credentials when you're done](app-secrets.md)]
 
 1. Create variables to hold your authoring key and resource names.
 

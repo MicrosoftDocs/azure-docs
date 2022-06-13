@@ -9,7 +9,7 @@ ms.author: eur
 ## Prerequisites
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
@@ -83,7 +83,7 @@ ms.author: eur
                            if (cancellation.getReason() == CancellationReason.Error) {
                                System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
                                System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                               System.out.println("CANCELED: Did you update the subscription info?");
+                               System.out.println("CANCELED: Did you set the speech resource key and region values?");
                            }
                        }
                        break;
@@ -111,7 +111,7 @@ ms.author: eur
 1. Save changes to the project.
 
 > [!NOTE]
-> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
+> The Speech SDK will default to recognizing using en-us for the language, see [How to recognize speech](../../../../how-to-recognize-speech.md) for information on choosing the source language.
 
 ## Build and run the app
 

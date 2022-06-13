@@ -72,9 +72,6 @@ Here are typical examples where a container is a good choice:
 Service Fabric supports the deployment of Docker containers on Linux, and Windows Server containers on Windows Server 2016 and later, along with support for Hyper-V isolation mode.
 
 > [!NOTE]
-> Containers are not supported on local single node Service Fabric clusters (neither Linux clusters on OneBox, nor Windows clusters on local Service Fabric installations).
-
-> [!NOTE]
 > A Service Fabric cluster is single tenant by design and hosted applications are considered **trusted**. If you are considering hosting **untrusted applications**, please see [Hosting untrusted applications in a Service Fabric cluster](service-fabric-best-practices-security.md#hosting-untrusted-applications-in-a-service-fabric-cluster).
 
 Service Fabric provides an [application model](service-fabric-application-model.md) in which a container represents an application host in which multiple service replicas are placed. Service Fabric also supports a [guest executable scenario](service-fabric-guest-executables-introduction.md) in which you don't use the built-in Service Fabric programming models but instead package an existing application, written using any language or framework, inside a container. This scenario is the common use-case for containers.

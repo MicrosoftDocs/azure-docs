@@ -28,9 +28,9 @@ You may need to review programming activity:
 
   - After a planned update to controllers
 
-  - When a process or machine is not working correctly (to see who carried out the last update and when)
+  - When a process or machine isn't working correctly (to see who carried out the last update and when)
 
-   :::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Programming Change Log":::
+   :::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Screenshot of a Programming Change Log":::
 
 Other options let you:
 
@@ -40,7 +40,7 @@ Other options let you:
 
 ## About authorized versus unauthorized programming events 
 
-Unauthorized programming events are carried out by devices that have not been learned or manually defined as programming devices. Authorized programming events are carried out by devices that were resolved or manually defined as programming devices.
+Unauthorized programming events are carried out by devices that haven't been learned or manually defined as programming devices. Authorized programming events are carried out by devices that were resolved or manually defined as programming devices.
 
 The Programming Analysis window displays both authorized and unauthorized programming events.
 
@@ -56,13 +56,13 @@ Access the Programming Analysis window from the:
 
 Use the event timeline to display a timeline of events in which programming changes were detected.
 
-:::image type="content" source="media/how-to-work-with-maps/timeline.png" alt-text="A view of the event timeline.":::
+:::image type="content" source="media/how-to-work-with-maps/timeline.png" alt-text="Screenshot of the event timeline.":::
 
 ### Unauthorized programming alerts
 
 Alerts are triggered when unauthorized programming devices carry out programming activities.
 
-:::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Unauthorized programming alerts":::
+:::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Screenshot of unauthorized programming alerts":::
 
 > [!NOTE]
 > You can also view basic programming information in the Device Properties window and Device Inventory.
@@ -75,14 +75,14 @@ This section describes how to view programming files and compare versions. Searc
 
   - File type
 
-   :::image type="content" source="media/how-to-work-with-maps/timeline-view.png" alt-text="programming timeline window":::
+   :::image type="content" source="media/how-to-work-with-maps/timeline-view.png" alt-text="Screenshot of a programming timeline window.":::
 
 |Programming timeline type | Description |
 |--|--|
 | Programmed Device | Provides details about the device that was programmed, including the hostname and file. |
-| Recent Events | Displays the 50 most recent events detected by the sensor. <br />To highlight an event, hover over it and click the star. :::image type="icon" source="media/how-to-work-with-maps/star.png" border="false"::: <br /> The last 50 events can be viewed. |
+| Recent Events | Displays the 50 most recent events detected by the sensor. <br />To highlight an event, hover over it and select the star. :::image type="icon" source="media/how-to-work-with-maps/star.png" border="false"::: <br /> The last 50 events can be viewed. |
 | Files | Displays the files detected for the chosen date and the file size on the programmed device. <br /> By default, the maximum number of files available for display per device is 300. <br /> By default, the maximum file size for each file is 15 MB. |
-| File status :::image type="icon" source="media/how-to-work-with-maps/status-v2.png" border="false"::: | File labels indicate the status of the file on the device, including: <br /> **Added**: the file was added to the endpoint on the date or time selected. <br /> **Updated**: The file was updated on the date or time selected. <br /> **Deleted**: This file was removed. <br /> **No label**: The file was not changed.   |
+| File status :::image type="icon" source="media/how-to-work-with-maps/status-v2.png" border="false"::: | File labels indicate the status of the file on the device, including: <br /> **Added**: the file was added to the endpoint on the date or time selected. <br /> **Updated**: The file was updated on the date or time selected. <br /> **Deleted**: This file was removed. <br /> **No label**: The file wasn't changed.   |
 | Programming Device | The device that made the programming change. Multiple devices may have carried out programming changes on one programmed device. The hostname, date, or time of change and logged in user are displayed. |
 | :::image type="icon" source="media/how-to-work-with-maps/current.png" border="false"::: | Displays the current file installed on the programmed device. |
 | :::image type="icon" source="media/how-to-work-with-maps/download-text.png" border="false"::: | Download a text file of the code displayed. |
@@ -98,7 +98,7 @@ This section describes how to choose a file to review.
 
 2. Select a file from the File pane. The file appears in the Current pane.
 
-   :::image type="content" source="media/how-to-work-with-maps/choose-file.png" alt-text="Select the file to work with.":::
+   :::image type="content" source="media/how-to-work-with-maps/choose-file.png" alt-text="Screenshot of selecting the file you want to work with.":::
 
 ### Compare files
 
@@ -112,17 +112,17 @@ This section describes how to compare programming files.
 
 3. Select the compare indicator.
 
-   :::image type="content" source="media/how-to-work-with-maps/compare.png" alt-text="Compare indicator":::
+   :::image type="content" source="media/how-to-work-with-maps/compare.png" alt-text="Screenshot of the compare indicator.":::
 
    The window displays all dates the selected file was detected on the programmed device. The file may have been updated on the programmed device by multiple programming devices.
 
    The number of differences detected appears in the upper right-hand corner of the window. You may need to scroll down to view differences.
 
-   :::image type="content" source="media/how-to-work-with-maps/scroll.png" alt-text="scroll down to your selection":::
+   :::image type="content" source="media/how-to-work-with-maps/scroll.png" alt-text="Screenshot of scrolling down to your selection.":::
 
    The number is calculated by adjacent lines of changed text. For example, if eight consecutive lines of code were changed (deleted, updated, or added) this will be calculated as one difference.
 
-   :::image type="content" source="media/how-to-work-with-maps/program-timeline.png" alt-text="Your programming timeline view." lightbox="media/how-to-work-with-maps/program-timeline.png":::
+   :::image type="content" source="media/how-to-work-with-maps/program-timeline.png" alt-text="Screenshot of the programming timeline view." lightbox="media/how-to-work-with-maps/program-timeline.png":::
 
 4. Select a date. The file detected on the selected date appears in the window.
 
@@ -135,4 +135,8 @@ In addition to reviewing details in the Programming Timeline, you can access pro
 | Device type | Description |
 |--|--|
 | Device properties | The device properties window provides information on the last programming event detected on the device. |
-| The device inventory | The device inventory indicates if the device is a programming device. <br> :::image type="content" source="media/how-to-work-with-maps/inventory-v2.png" alt-text="The inventory of devices"::: |
+| The device inventory | The device inventory indicates if the device is a programming device. <br> :::image type="content" source="media/how-to-work-with-maps/inventory-v2.png" alt-text="Screenshot of the device inventory page."::: |
+
+## Next steps
+
+For more information, see [Import device information to a sensor](how-to-import-device-information.md).

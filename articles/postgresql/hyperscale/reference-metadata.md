@@ -1,8 +1,8 @@
 ---
 title: System tables – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Metadata for distributed query execution
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
@@ -10,6 +10,8 @@ ms.date: 02/18/2022
 ---
 
 # System tables and views
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 Hyperscale (Citus) creates and maintains special tables that contain
 information about distributed data in the server group. The coordinator node

@@ -27,7 +27,7 @@ This script copies a managed disk to same or different subscription but in the s
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh" range="3-32":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh" id="FullScript":::
 
 ## Clean up resources
 

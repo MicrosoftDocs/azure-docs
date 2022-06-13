@@ -1,9 +1,9 @@
 ---
 title: Properties of the agent and hub module twins - Azure IoT Edge
 description: Review the specific properties and their values for the edgeAgent and edgeHub module twins
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 04/16/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -51,7 +51,7 @@ The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates th
 | modules.{moduleId}.version | A user-defined string representing the version of this module. | Yes |
 | modules.{moduleId}.type | Has to be "docker" | Yes |
 | modules.{moduleId}.status | {"running" \| "stopped"} | Yes |
-| modules.{moduleId}.restartPolicy | {"never" \| "on-failure" \| "on-unhealthy" \| "always"} | Yes |
+| modules.{moduleId}.restartPolicy | {"never" \| "always"} | Yes |
 | modules.{moduleId}.startupOrder | An integer value for which spot a module has in the startup order. 0 is first and max integer (4294967295) is last. If a value isn't provided, the default is max integer.  | No |
 | modules.{moduleId}.imagePullPolicy | {"on-create" \| "never"} | No |
 | modules.{moduleId}.env | A list of environment variables to pass to the module. Takes the format `"<name>": {"value": "<value>"}` | No |

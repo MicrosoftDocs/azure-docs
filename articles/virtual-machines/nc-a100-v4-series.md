@@ -1,21 +1,16 @@
 ---
-title: NC A100 v4-series (preview)
+title: NC A100 v4-series 
 description: Specifications for the NC A100 v4-series Azure VMs. These VMs include Linux, Windows, Flexible scale sets, and uniform scale sets.```
 author: sherrywangms
 ms.author: sherrywang
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 06/01/2022
 
 ---
 
-#  NC A100 v4-series (Preview)
-
-> [!IMPORTANT]
-> The NC A100 v4-series of Azure virtual machines (VMs) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> To use this preview feature, [sign up for the NC A100 v4 series preview](https://aka.ms/AzureNCA100v4Signup).  
+#  NC A100 v4-series  
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -38,29 +33,28 @@ These VMs are ideal for real-world Applied AI workloads, such as:
 
 To get started with NC A100 v4 VMs, refer to [HPC Workload Configuration and Optimization](./workloads/hpc/configure.md) for steps including driver and network configuration.
 
-Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [Generation 2 VMs](./generation-2.md) and marketplace images. The [Azure HPC images](./workloads/hpc/configure.md) are strongly recommended. Azure HPC Ubuntu 18.04, 20.04 and Azure HPC CentOS 7.9 images are supported. Windows Service 2019 and Windows Service 2022 images are supported.
+Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [Generation 2 VMs](./generation-2.md) and marketplace images. The [Azure HPC images](./workloads/hpc/configure.md) are strongly recommended. Azure HPC Ubuntu 18.04, 20.04 and Azure HPC CentOS 7.9, CentOS 8.4, RHEL 7.9 and RHEL 8.5 images are supported. Windows Service 2019 and Windows Service 2022 images are supported.
  
-Key Features:    
-- [Premium Storage](premium-storage-performance.md)             
-- [Premium Storage caching](premium-storage-performance.md)      
-- [Ultra Disks](disks-types.md#ultra-disks)                      
-- [VM Generation 2](generation-2.md)   
-- [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md) 
-- [Ephemeral OS Disks](ephemeral-os-disks.md)  
-- NVIDIA NVLink Interconnect  
 
-These features are not supported:[Live Migration](maintenance-and-updates.md), [Memory Preserving Updates](maintenance-and-updates.md) and [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) . 
+- [Premium Storage](premium-storage-performance.md): Supported
+- [Premium Storage caching](premium-storage-performance.md): Supported
+- [Ultra Disks](disks-types.md#ultra-disks): Not Supported
+- [Live Migration](maintenance-and-updates.md): Not Supported
+- [Memory Preserving Updates](maintenance-and-updates.md): Not Supported
+- [VM Generation Support](generation-2.md): Generation 2
+- [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported
+- [Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+- InfiniBand: Not Supported
+- Nvidia NVLink Interconnect: Supported
+- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported
 
 
-> [!IMPORTANT]
-> This VM series is currently in preview. These specifications are subject to change.
-> 
 
-| Size | vCPU | Memory: GiB | Temp Storage (with NVMe): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs/network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp Storage (with NVMe) : GiB  | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs/network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_NC24ads_A100_v4   | 24  | 220 | 1123  | 1 | 80 | 12 | 20000/200 | 4/20,000  |
-| Standard_NC48ads_A100_v4   | 48 | 440 | 2246 | 2 | 160 | 24 | 40000/400 | 8/40,000  | 
-| Standard_NC96ads_A100_v4   | 96 | 880 | 4492 | 4 | 320 | 32 | 80000/800 | 8/80,000  |
+| Standard_NC24ads_A100_v4   | 24  | 220 | 1123 | 1 | 80  | 12 | 30000/1000 | 2/20,000  |
+| Standard_NC48ads_A100_v4   | 48 | 440 | 2246  | 2 | 160 | 24 | 60000/2000 | 4/40,000  | 
+| Standard_NC96ads_A100_v4   | 96 | 880 | 4492 | 4 | 320 | 32 | 120000/4000 | 8/80,000  |
 
 1 GPU = one A100 card
 
