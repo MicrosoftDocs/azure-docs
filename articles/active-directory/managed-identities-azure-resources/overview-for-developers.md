@@ -166,7 +166,7 @@ The recommended method is to use the Azure Identity library for your preferred p
 
 With the exception of the C++ library, the Azure Identity libraries support a `DefaultAzureCredential` type. `DefaultAzureCredential` automatically attempts to authenticate via multiple mechanisms, including environment variables or an interactive login. The credential type can be used in your development environment using your own credentials. It can also be used in your production Azure environment using a managed identity. No code changes are required when you deploy your application.
 
-You can also explicitly specify that the Managed identity you wish to authenticate with by passing in the identity's client ID. You can retrieve this client ID by browsing to the identity in the Portal.
+If you're using user-assigned managed identities, you should also explicitly specify the user-assigned managed identity you wish to authenticate with by passing in the identity's client ID as a parameter. You can retrieve the client ID by browsing to the identity in the Portal.
 
 :::image type="content" source="media/overview-for-developers/IdentityClientID.png" alt-text="Client ID for the identity":::
 
@@ -189,10 +189,11 @@ using Azure.Storage.Blobs;
 
 // code omitted for brevity
 
+// Specify the Client ID if using user-assigned managed identities
+var clientID = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID");
 var credentialOptions = new DefaultAzureCredentialOptions
 {
-    // Store this as an environment variable/app setting
-    ManagedIdentityClientId = "<Client ID of User-assigned managed identity>"
+    ManagedIdentityClientId = clientID;
 };
 var msiCredential = new DefaultAzureCredential(credentialOptions);                        
 
@@ -231,8 +232,9 @@ import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.BlobServiceClientBuilder;
 
 // read the Client ID from your environment variables
+String clientID = System.getProperty("Client_ID");
 DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-        .managedIdentityClientId("<Client ID of User-assigned identity>")
+        .managedIdentityClientId(clientID)
         .build();
 
 BlobServiceClient blobStorageClient = new BlobServiceClientBuilder()
@@ -258,6 +260,14 @@ using Azure.Core;
 
 // code omitted for brevity
 
+// Specify the Client ID if using user-assigned managed identities
+var clientID = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID");
+var credentialOptions = new DefaultAzureCredentialOptions
+{
+    ManagedIdentityClientId = clientID;
+};
+var msiCredential = new DefaultAzureCredential(credentialOptions);        
+
 var options = new SecretClientOptions
     {
         Retry =
@@ -271,8 +281,9 @@ var options = new SecretClientOptions
 
 var client = new SecretClient(
     new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"),
-    new DefaultAzureCredential(),
+    msiCredential,
     options);
+    
 KeyVaultSecret secret = client.GetSecret("<my secret>");
 string secretValue = secret.Value;
 ```
@@ -306,9 +317,15 @@ String keyVaultName = "mykeyvault";
 String keyVaultUri = "https://" + keyVaultName + ".vault.azure.net";
 String secretName = "mysecret";
 
+// read the user-assigned managed identity Client ID from your environment variables
+String clientID = System.getProperty("Managed_Identity_Client_ID");
+DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+        .managedIdentityClientId(clientID)
+        .build();
+
 SecretClient secretClient = new SecretClientBuilder()
     .vaultUrl(keyVaultUri)
-    .credential(new DefaultAzureCredentialBuilder().build())
+    .credential(credential)
     .buildClient();
     
 KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
@@ -325,7 +342,14 @@ using Microsoft.Data.SqlClient;
 
 // code omitted for brevity
 
-AccessToken accessToken = await new DefaultAzureCredential().GetTokenAsync(
+// Specify the Client ID if using user-assigned managed identities
+var clientID = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID");
+var credentialOptions = new DefaultAzureCredentialOptions
+{
+    ManagedIdentityClientId = clientID;
+};
+
+AccessToken accessToken = await new DefaultAzureCredential(credentialOptions).GetTokenAsync(
     new TokenRequestContext(new string[] { "https://database.windows.net//.default" }));                        
 
 using var connection = new SqlConnection("Server=<DB Server>; Database=<DB Name>;")
@@ -343,6 +367,7 @@ dr.Close();
 ```
 
 #### [Java](#tab/java)
+_replace with info on spring cloud_
 ```java
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -357,7 +382,6 @@ public class Connect_to_Azure_SQL {
         ds.setServerName("<your-database-server-name>.database.windows.net");
         ds.setDatabaseName("<your database name>");
         ds.setAuthentication("ActiveDirectoryMSI");
-        // Optional
         ds.setMSIClientId("<your-user-assigned-identity-client-id>");
         
         String rowValue;
@@ -385,7 +409,7 @@ To avoid storing credentials in your code or your application configuration, you
 In some scenarios, you may want to acquire tokens for Managed identities manually instead of using a built-in method to connect to the target resource. This may be because there's no client library for the programming language that you're using or for the target resource you're connecting to. When acquiring tokens manually, we provide the following guidelines:
 
 ### Cache the tokens you acquire
-For performance and reliability, we recommend that your application caches tokens in local memory, or encrypted if you want to save them to disk. As Managed identity tokens are valid for 24 hours, there's no benefit in requesting new tokens regularly, as a cached one will be returned from the token issuing endpoint. If you exceed the request limits, you'll be rate limited and receive an HTTP 429 error.
+For performance and reliability, we recommend that your application caches tokens in local memory, or encrypted if you want to save them to disk. As Managed identity tokens are valid for 24 hours, there's no benefit in requesting new tokens regularly, as a cached one will be returned from the token issuing endpoint. If you exceed the request limits, you'll be rate limited and receive an HTTP 429 error. When you acquire a token, you can set your token cache to expire 5 minutes before the `expires_on` or equivalent value that will be returned when the token is generated.
 
 ### Token inspection
 Your application shouldn't rely on the contents of a token. The token's content is intended only for the audience (target resource) that is being accessed, not the client that's requesting the token. The token content may change or be encrypted in the future.
