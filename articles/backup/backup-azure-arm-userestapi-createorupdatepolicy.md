@@ -2,8 +2,11 @@
 title: Create backup policies using REST API
 description: In this article, you'll learn how to create and manage backup policies (schedule and retention) using REST API.
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 06/13/2022
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 # Create Azure Recovery Services backup policies using REST API
 
@@ -36,12 +39,12 @@ For the complete list of definitions in the request body, refer to the [backup p
 
 The following request body defines a backup policy for Azure VM backups.
 
-The policy says:
+This policy:
 
-- Take a weekly backup every Monday, Wednesday, Thursday at 10:00 AM Pacific Standard Time.
-- Retain the backups taken on every Monday, Wednesday, Thursday for one week.
-- Retain the backups taken on every first Wednesday and third Thursday of a month for two months (overrides the previous retention conditions, if any).
-- Retain the backups taken on fourth Monday and fourth Thursday in February and November for four years (overrides the previous retention conditions, if any).
+- Takes a weekly backup every Monday, Wednesday, Thursday at 10:00 AM Pacific Standard Time.
+- Retains the backups taken on every Monday, Wednesday, Thursday for one week.
+- Retains the backups taken on every first Wednesday and third Thursday of a month for two months (overrides the previous retention conditions, if any).
+- Retains the backups taken on fourth Monday and fourth Thursday in February and November for four years (overrides the previous retention conditions, if any).
 
 ```json
 {
@@ -129,12 +132,12 @@ The policy says:
 
 #### For SQL in Azure VM backup
 
-Below is an example request body for SQL in Azure VM backup.
+The following is an example request body for SQL in Azure VM backup.
 
-The policy says:
+This policy:
 
-- Take a full backup every day at 13:30 UTC and a log backup every 1 hour.
-- Retain the daily full backups for 30 days and log backups for 30 days as well.
+- Takes a full backup everyday at 13:30 UTC and a log backup every 1 hour.
+- Retains the daily full backups for 30 days and log backups for 30 days as well.
 
 ```json
 "properties": {
@@ -188,7 +191,7 @@ The policy says:
   }
 ```
 
-Similarly, below is an example of a policy which takes a differential backup everyday and a full backup once a week.
+The following is an example of a policy that takes a differential backup everyday and a full backup once a week.
 
 ```json
 "properties": {
@@ -315,7 +318,7 @@ Similarly, below is an example of a policy which takes a differential backup eve
 
 #### For SAP HANA in Azure VM backup
 
-Below is an example request body for SQL in Azure VM backup.
+The following is an example request body for SQL in Azure VM backup.
 
 The policy says:
 
@@ -407,7 +410,7 @@ The policy says:
 }
 ```
 
-Similarly, below is an example of a policy which takes a full backup once a week and an incremental backup once a day.
+The following is an example of a policy that takes a full backup once a week and an incremental backup once a day.
 
 ```json
 
@@ -537,13 +540,13 @@ Similarly, below is an example of a policy which takes a full backup once a week
 
 #### For Azure File share backup
 
-Below is an example request body for Azure File share backup
+The following is an example request body for Azure File share backup.
 
-The policy says:
+This policy:
 
-- Take a backup every day at 15:30 UTC.
-- Retain the daily backups for 30 days.
-- Retain the backups taken every Sunday for 12 weeks.
+- Takes a backup every day at 15:30 UTC.
+- Retains the daily backups for 30 days.
+- Retains the backups taken every Sunday for 12 weeks.
 
 ```json
 "properties": {
