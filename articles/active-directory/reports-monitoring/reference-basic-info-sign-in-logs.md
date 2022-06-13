@@ -13,7 +13,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/17/2021
+ms.date: 05/05/2022
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -35,7 +35,7 @@ In Azure AD, a resource access has three relevant components:
 - **What** – The target (Resource) accessed by the identity.
 
 
-Each component has an associated unique identifier (ID). Below is an example of user using the Windows Azure classic deployment model to access the Azure portal.
+Each component has an associated unique identifier (ID). Below is an example of user using the Microsoft Azure classic deployment model to access the Azure portal.
 
 ![Open audit logs](./media/reference-basic-info-sign-in-logs/sign-in-details-basic-info.png)
 
@@ -47,6 +47,7 @@ The sign-in log tracks two tenant identifiers:
 - **Resource tenant** – The tenant that owns the (target) resource.
 
 These identifiers are relevant in cross-tenant scenarios. For example, to find out how users outside your tenant are accessing your resources, select all entries where the home tenant doesn’t match the resource tenant.
+For the home tenant, Azure AD tracks the ID and the name. 
 
 ### Request ID
 
@@ -88,12 +89,12 @@ The type of a user. Examples include `member`, `guest`, or `external`.
 
 This attribute describes the type of cross-tenant access used by the actor to access the resource. Possible values are: 
 
-- `none`
-- `b2bCollaboration`
-- `b2bDirectConnect`
-- `microsoftSupport`
-- `serviceProvider`
-- `unknownFutureValue` 
+- `none` - A sign-in event that did not cross an Azure AD tenant's boundaries.
+- `b2bCollaboration`- A cross tenant sign-in performed by a guest user using B2B Collaboration.
+- `b2bDirectConnect` - A cross tenant sign-in performed by a B2B.
+- `microsoftSupport`- A cross tenant sign-in performed by a Microsoft support agent in a Microsoft customer tenant.
+- `serviceProvider` - A cross-tenant sign-in performed by a Cloud Service Provider (CSP) or similar admin on behalf of that CSP's customer in a tenant
+- `unknownFutureValue` - A sentinel value used by MS Graph to help clients handle changes in enum lists. For more information, see [Best practices for working with Microsoft Graph](/graph/best-practices-concept).
 
 If the sign-in did not the pass the boundaries of a tenant, the value is `none`.
 

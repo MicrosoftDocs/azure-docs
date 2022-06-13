@@ -8,11 +8,13 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 04/20/2022
+ms.date: 05/05/2022
 #Customer intent: As a developer, I want to provision a hyperscale server group so that I can run queries quickly on large datasets.
 ---
 
 # Create a Hyperscale (Citus) server group in the Azure portal
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 Azure Database for PostgreSQL - Hyperscale (Citus) is a managed service that
 allows you to run horizontally scalable PostgreSQL databases in the cloud.
@@ -36,9 +38,13 @@ Let's get started!
 
 # [Direct link](#tab/direct)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/Microsoft.PostgreSQLServerGroup) in the Azure portal.
 
 # [Via portal search](#tab/portal-search)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 1. Visit the [Azure portal](https://portal.azure.com/) and search for
    **citus**. Select **Azure Database for PostgreSQL Hyperscale (Citus)**.
@@ -53,10 +59,14 @@ Visit [Create Hyperscale (Citus) server group](https://portal.azure.com/#create/
 1. Fill out the **Basics** form.
    ![basic info form](../media/quickstart-hyperscale-create-portal/basics.png)
 
-   Most options are self-explanatory. Note that the server group name will
-   determine the DNS name your applications use to connect, in the form
-   `server-group-name.postgres.database.azure.com`. Also, the admin username
-   is required to be the value `citus`.
+   Most options are self-explanatory, but keep in mind:
+
+   * The server group name will determine the DNS name your
+     applications use to connect, in the form
+     `server-group-name.postgres.database.azure.com`.
+   * The admin username is required to be the value `citus`.
+   * You can choose a database version. Hyperscale (Citus) always supports the
+     latest PostgreSQL version, within one day of release.
 
 2. Select **Configure server group**.
 

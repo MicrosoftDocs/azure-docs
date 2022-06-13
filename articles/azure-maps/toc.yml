@@ -70,6 +70,8 @@ items:
   items:
   - name: Authentication with Azure Maps
     href: azure-maps-authentication.md
+  - name: Authentication best practices
+    href: authentication-best-practices.md
   - name: Azure Maps Event Grid integration
     href: azure-maps-event-grid-integration.md
   - name: Choose the right pricing tier
@@ -129,7 +131,7 @@ items:
           href: how-to-secure-spa-users.md
         - name: How to secure web application
           href: how-to-secure-webapp-users.md
-        - name: How to secure sas application
+        - name: How to secure account with a SAS token
           href: how-to-secure-sas-app.md
         - name: How to secure non-interactive sign-in single page application
           href: how-to-secure-spa-app.md
@@ -380,6 +382,8 @@ items:
   - name: REST
     items:
     - name: Data service
+      href: /rest/api/maps/data
+    - name: Data service V2
       href: /rest/api/maps/data-v2
     - name: Elevation service
       href: /rest/api/maps/elevation
@@ -393,6 +397,8 @@ items:
       href: /rest/api/maps/route
     - name: Search service
       href: /rest/api/maps/search
+    - name: Search service V2
+      href: /rest/api/maps/search-v2
     - name: Spatial service
       href: /rest/api/maps/spatial
     - name: Timezone service

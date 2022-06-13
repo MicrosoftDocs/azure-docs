@@ -28,6 +28,10 @@ You can also connect to threat intelligence sources from playbooks, in order to 
 
 To connect to TAXII threat intelligence feeds, follow the instructions to [connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds](connect-threat-intelligence-taxii.md), together with the data supplied by each vendor linked below. You may need to contact the vendor directly to obtain the necessary data to use with the connector.
 
+### Accenture Cyber Threat Intelligence
+
+- [Learn about Accenture CTI integration with Microsoft Sentinel](https://www.accenture.com/us-en/services/security/cyber-defense).
+- 
 ### Anomali Limo
 
 - [See what you need to connect to Anomali Limo feed](https://www.anomali.com/resources/limo).
@@ -54,15 +58,27 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 - [Learn more about the IntSights integration with Microsoft Sentinel @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel)
 - To connect Microsoft Sentinel to the IntSights TAXII Server, obtain the API Root, Collection ID, Username and Password from the IntSights portal after you configure a policy of the data you wish to send to Microsoft Sentinel.
 
-### ThreatConnect
+### Pulsedive
 
-- [Learn more about STIX and TAXII @ThreatConnect](https://threatconnect.com/stix-taxii/)
-- [TAXII Services documentation @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/taxii/taxii_2.1.html)
+- [Learn about Pulsedive integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-pulsedive-feed-into-microsoft-sentinel/ba-p/3478953)
+
+### ReversingLabs
+
+- [Learn about ReversingLabs TAXII integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-reversinglab-s-ransomware-feed-into-microsoft-sentinel/ba-p/3423937)
 
 ### Sectrio
 
 - [Learn more about Sectrio integration](https://sectrio.com/threat-intelligence/)
 - [Step by step process for integrating Sectrio's TI feed into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-bring-threat-intelligence-from-sectrio-using/ba-p/2964648)
+
+### SEKOIA.IO
+
+- [Learn about SEKOIA.IO integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bring-threat-intelligence-from-sekoia-io-using-taxii-data/ba-p/3302497)
+
+### ThreatConnect
+
+- [Learn more about STIX and TAXII @ThreatConnect](https://threatconnect.com/stix-taxii/)
+- [TAXII Services documentation @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/taxii/taxii_2.1.html)
 
 ## Integrated threat intelligence platform products
 

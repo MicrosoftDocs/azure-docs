@@ -125,9 +125,9 @@ After the deployment is complete:
 
 - The content stored in your repository is displayed in your Microsoft Sentinel workspace, in the relevant Microsoft Sentinel page.
 
-- The connection details on the **Repositories** page are updated with the link to the connection's deployment logs. For example:
+- The connection details on the **Repositories** page are updated with the link to the connection's deployment logs and the status and time of the last deployment. For example:
 
-    :::image type="content" source="media/ci-cd/deployment-logs-link.png" alt-text="Screenshot of a GitHub repository connection's deployment logs.":::
+    :::image type="content" source="media/ci-cd/deployment-logs-status.png" alt-text="Screenshot of a GitHub repository connection's deployment logs.":::
     
 ### Improve deployment performance with smart deployments
 
@@ -136,7 +136,7 @@ Smart deployments is a back-end capability that improves the performance of depl
 While smart deployments is enabled by default on newly created connections, we understand that some customers would prefer all their source control content to be deployed every time a deployment is triggered, regardless of whether that content was modified or not. You can modify your workflow to disable smart deployments to have your connection deploy all content regardless of its modification status. See [Customize the deployment workflow](#customize-the-deployment-workflow) for more details. 
 
    > [!NOTE]
-   > This capapbilty was launched in public preview on April 20th, 2022. Connections created prior to launch would need to be updated or recreated for smart deployments to be turned on.
+   > This capability was launched in public preview on April 20th, 2022. Connections created prior to launch would need to be updated or recreated for smart deployments to be turned on.
    >
 
 ### Customize the deployment workflow
@@ -303,7 +303,7 @@ For more information, see:
 
 - [Discover and deploy Microsoft Sentinel solutions (Public preview)](sentinel-solutions-deploy.md)
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
-- [Advanced Security Information Model (ASIM) parsers (Public preview)](normalization-about-parsers.md)
+- [Advanced Security Information Model (ASIM) parsers (Public preview)](normalization-parsers-overview.md)
 - [Visualize collected data](get-visibility.md)
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
 - [Hunt for threats with Microsoft Sentinel](hunting.md)

@@ -20,7 +20,7 @@ Following table shows a summary of key types and supported algorithms.
 
 |Key types/sizes/curves| Encrypt/Decrypt<br>(Wrap/Unwrap) | Sign/Verify | 
 | --- | --- | --- |
-|EC-P256, EC-P256K, EC-P384, EC-521|NA|ES256<br>ES256K<br>ES384<br>ES512|
+|EC-P256, EC-P256K, EC-P384, EC-P521|NA|ES256<br>ES256K<br>ES384<br>ES512|
 |RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
 |AES 128-bit, 256-bit <br/>(Managed HSM only)| AES-KW<br>AES-GCM<br>AES-CBC| NA| 
 |||

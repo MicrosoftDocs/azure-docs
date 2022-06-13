@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 01/21/2022
+ms.date: 05/12/2022
 ---
 
 # Common error codes and messages 
@@ -111,21 +111,10 @@ This article lists common error codes and messages reported by mapping data flow
 - **Cause**: Invalid store configuration is provided.
 - **Recommendation**: Check the parameter value assignment in the pipeline. A parameter expression may contain invalid characters.
 
-
-## Error code: 4502
-- **Message**: There are substantial concurrent MappingDataflow executions that are causing failures due to throttling under Integration Runtime.
-- **Cause**: A large number of Data Flow activity runs are occurring concurrently on the integration runtime. For more information, see [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
-- **Recommendation**: If you want to run more Data Flow activities in parallel, distribute them across multiple integration runtimes.
-
-## Error code: 4510
-- **Message**: Unexpected failure during execution. 
-- **Cause**: Since debug clusters work differently from job clusters, excessive debug runs could wear the cluster over time, which could cause memory issues and abrupt restarts.
-- **Recommendation**: Restart Debug cluster. If you are running multiple dataflows during debug session, use activity runs instead because activity level run creates separate session without taxing main debug cluster.
-
 ## Error code: InvalidTemplate
 - **Message**: The pipeline expression cannot be evaluated.
 - **Cause**: The pipeline expression passed in the Data Flow activity isn't being processed correctly because of a syntax error.
-- **Recommendation**: Check data flow activity name. Check expressions in activity monitoring to verify the expressions. For example, data flow activity name can not have a space or a hyphen.
+- **Recommendation**: Check data flow activity name. Check expressions in activity monitoring to verify the expressions. For example, data flow activity name can't have a space or a hyphen.
 
 ## Error code: 2011
 - **Message**: The activity was running on Azure Integration Runtime and failed to decrypt the credential of data store or compute connected via a Self-hosted Integration Runtime. Please check the configuration of linked services associated with this activity, and make sure to use the proper integration runtime type.
@@ -149,13 +138,13 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Xml-InvalidReferenceResource
 - **Message**: Reference resource in xml data file cannot be resolved.
-- **Cause**: The reference resource in the XML data file cannot be resolved.
-- **Recommendation**: You should check the reference resource in the XML data file.
+- **Cause**: The reference resource in the XML data file can't be resolved.
+- **Recommendation**: Check the reference resource in the XML data file.
 
 ## Error code: DF-Xml-InvalidSchema
 - **Message**: Schema validation failed.
 - **Cause**: The invalid schema is provided on the XML source.
-- **Recommendation**: Check the schema settings on the XML source to make sure that it is the subset schema of the source data.
+- **Recommendation**: Check the schema settings on the XML source to make sure that it's the subset schema of the source data.
 
 ## Error code: DF-Xml-UnsupportedExternalReferenceResource
 - **Message**: External reference resource in xml data file is not supported.
@@ -189,14 +178,13 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Cosmos-PartitionKeyMissed
 - **Message**: Partition key path should be specified for update and delete operations.
-- **Cause**: The partition key path is missed in the Azure Cosmos DB sink.
-- **Recommendation**: Use the providing partition key in the Azure Cosmos DB sink settings.
+- **Cause**: The partition key path is missing in the Azure Cosmos DB sink.
+- **Recommendation**: Provide the partition key in the Azure Cosmos DB sink settings.
 
 ## Error code: DF-Cosmos-InvalidPartitionKey
 - **Message**: Partition key path cannot be empty for update and delete operations.
 - **Cause**: The partition key path is empty for update and delete operations.
 - **Recommendation**: Use the providing partition key in the Azure Cosmos DB sink settings.
-
 - **Message**: Partition key is not mapped in sink for delete and update operations.
 - **Cause**: An invalid partition key is provided.
 - **Recommendation**: In Cosmos DB sink settings, use the right partition key that is same as your container's partition key.
@@ -204,7 +192,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Cosmos-IdPropertyMissed
 - **Message**: 'id' property should be mapped for delete and update operations.
 - **Cause**: The `id` property is missed for update and delete operations.
-- **Recommendation**: Make sure that the input data has an `id` column in Cosmos DB sink settings. If no, use **select or derive transformation** to generate this column before sink.
+- **Recommendation**: Make sure that the input data has an `id` column in Azure Cosmos DB sink transformation settings. If not, use a select or derived column transformation to generate this column before the sink transformation.
 
 ## Error code: DF-Cosmos-InvalidPartitionKeyContent
 - **Message**: partition key should start with /.
@@ -307,7 +295,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-SQLDW-InvalidStorageType
 - **Message**: Storage type can either be blob or gen2.
 - **Cause**: An invalid storage type is provided for staging.
-- **Recommendation**: Check the storage type of the linked service used for staging and make sure that it is Blob or Gen2.
+- **Recommendation**: Check the storage type of the linked service used for staging and make sure that it's Blob or Gen2.
 
 ## Error code: DF-SQLDW-InvalidGen2StagingConfiguration
 - **Message**: ADLS Gen2 storage staging only support service principal key credential.
@@ -374,7 +362,7 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Executor-OutOfMemorySparkBroadcastError
 - **Message**: Explicitly broadcasted dataset using left/right option should be small enough to fit in node's memory. You can choose broadcast option 'Off' in join/exists/lookup transformation to avoid this issue or use an integration runtime with higher memory.
-- **Cause**: The size of the broadcasted table far exceeds the limitation of the node memory.
+- **Cause**: The size of the broadcasted table far exceeds the limits of the node memory.
 - **Recommendation**: The broadcast left/right option should be used only for smaller dataset size which can fit into node's memory, so make sure to configure the node size appropriately or turn off the broadcast option.
 
 ## Error code: DF-MSSQL-InvalidFirewallSetting
@@ -426,12 +414,12 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Cosmos-FailToResetThroughput
 - **Message**: Cosmos DB throughput scale operation cannot be performed because another scale operation is in progress, please retry after sometime.
-- **Cause**: The throughput scale operation of the Cosmos DB cannot be performed because another scale operation is in progress.
-- **Recommendation**: Please log in your Cosmos account, and manually change its container's throughput to be auto scale or add custom activities after data flows to reset the throughput.
+- **Cause**: The throughput scale operation of the Azure Cosmos DB can't be performed because another scale operation is in progress.
+- **Recommendation**: Login to Azure Cosmos DB account, and manually change container throughput to be auto scale or add a custom activity after mapping data flows to reset the throughput.
 
 ## Error code: DF-Executor-InvalidPath
 - **Message**: Path does not resolve to any file(s). Please make sure the file/folder exists and is not hidden.
-- **Cause**: An invalid file/folder path is provided, which cannot be found or accessed.
+- **Cause**: An invalid file/folder path is provided, which can't be found or accessed.
 - **Recommendation**: Please check the file/folder path, and make sure it is existed and can be accessed in your storage.
 
 ## Error code: DF-Executor-InvalidPartitionFileNames
@@ -447,7 +435,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Executor-InvalidInputColumns
 - **Message**: The column in source configuration cannot be found in source data's schema.
 - **Cause**: Invalid columns are provided on the source.
-- **Recommendation**: Check columns in the source configuration and make sure that it is the subset of the source data's schemas.
+- **Recommendation**: Check columns in the source configuration and make sure that it's the subset of the source data's schemas.
 
 ## Error code: DF-AdobeIntegration-InvalidMapToFilter
 - **Message**: Custom resource can only have one Key/Id mapped to filter.
@@ -475,8 +463,8 @@ This article lists common error codes and messages reported by mapping data flow
 - **Recommendation**: Please update AdobeIntegration settings while only privacy 'GDPR' is supported.
 
 ## Error code: DF-Executor-RemoteRPCClientDisassociated
-- **Message**: Remote RPC client disassociated. Likely due to containers exceeding thresholds, or network issues.
-- **Cause**: Data flow activity runs failed because of the transient network issue or because one node in spark cluster runs out of memory.
+- **Message**: Job aborted due to stage failure. Remote RPC client disassociated. Likely due to containers exceeding thresholds, or network issues.
+- **Cause**: Data flow activity run failed because of transient network issues or one node in spark cluster ran out of memory.
 - **Recommendation**: Use the following options to solve this problem:
   - Option-1: Use a powerful cluster (both drive and executor nodes have enough memory to handle big data) to run data flow pipelines with setting "Compute type" to "Memory optimized". The settings are shown in the picture below.
         
@@ -484,7 +472,7 @@ This article lists common error codes and messages reported by mapping data flow
 
   - Option-2: Use larger cluster size (for example, 48 cores) to run your data flow pipelines. You can learn more about cluster size through this document: [Cluster size](./concepts-integration-runtime-performance.md#cluster-size).
   
-  - Option-3: Repartition your input data. For the task running on the data flow spark cluster, one partition is one task and runs on one node. If data in one partition is too large, the related task running on the node needs to consume more memory than the node itself, which causes failure. So you can use repartition to avoid data skew, and ensure that data size in each partition is average while the memory consumption is not too heavy.
+  - Option-3: Repartition your input data. For the task running on the data flow spark cluster, one partition is one task and runs on one node. If data in one partition is too large, the related task running on the node needs to consume more memory than the node itself, which causes failure. So you can use repartition to avoid data skew, and ensure that data size in each partition is average while the memory consumption isn't too heavy.
     
       :::image type="content" source="media/data-flow-troubleshoot-guide/configure-partition.png" alt-text="Screenshot that shows the configuration of partitions.":::
 
@@ -513,12 +501,13 @@ This article lists common error codes and messages reported by mapping data flow
 - **Recommendation**: Check the format and change it to the proper one.
 
 ## Error code: DF-Synapse-InvalidTableDBName
+- **Message**: The table/database name is not a valid name for tables/databases. Valid names only contain alphabet characters, numbers and _.
 - **Cause**: The table/database name is not valid.
 - **Recommendation**: Change a valid name for the table/database. Valid names only contain alphabet characters, numbers and `_`.
 
 ## Error code: DF-Synapse-InvalidOperation
 - **Cause**: The operation is not supported.
-- **Recommendation**: Change the invalid operation.
+- **Recommendation**: Change **Update method** configuration as delete, update and upsert are not supported in Workspace DB.
 
 ## Error code: DF-Synapse-DBNotExist
 - **Cause**: The database does not exist.
@@ -546,7 +535,7 @@ This article lists common error codes and messages reported by mapping data flow
 ## Error code: DF-Cosmos-ShortTypeNotSupport
 - **Message**: Short data type is not supported in Cosmos DB.
 - **Cause**: The short data type is not supported in the Azure Cosmos DB.
-- **Recommendation**: Add a derived transformation to convert related columns from short to integer before using them in the Cosmos sink.
+- **Recommendation**: Add a derived column transformation to convert related columns from short to integer before using them in the Azure Cosmos DB sink transformation.
 
 ## Error code: DF-Blob-FunctionNotSupport
 - **Message**: This endpoint does not support BlobStorageEvents, SoftDelete or AutomaticSnapshot. Please disable these account features if you would like to use this endpoint.
@@ -555,8 +544,98 @@ This article lists common error codes and messages reported by mapping data flow
 
 ## Error code: DF-Cosmos-InvalidAccountKey
 - **Message**: The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used.
-- **Cause**: There is no enough permission to read/write Azure Cosmos DB data.
+- **Cause**: There's no enough permission to read/write Azure Cosmos DB data.
 - **Recommendation**: Please use the read-write key to access Azure Cosmos DB.
+
+## Error code: DF-Cosmos-ResourceNotFound
+- **Message**: Resource not found.
+- **Cause**: Invalid configuration is provided (for example, the partition key with invalid characters) or the resource doesn't exist.
+- **Recommendation**: To solve this issue, refer to [Diagnose and troubleshoot Azure Cosmos DB not found exceptions](../cosmos-db/troubleshoot-not-found.md).
+
+## Error code: DF-Snowflake-IncompatibleDataType
+- **Message**: Expression type does not match column data type, expecting VARIANT but got VARCHAR.
+- **Cause**: The column(s) type of input data which is string is different from the related column(s) type in the Snowflake sink transformation which is VARIANT.
+- **Recommendation**: For the snowflake VARIANT, it can only accept data flow value which is struct, map or array type. If the value of your input data column(s) is JSON or XML or other string, use a parse transformation before the Snowflake sink transformation to covert value into struct, map or array type.
+
+## Error code: DF-JSON-WrongDocumentForm
+- **Message**: Malformed records are detected in schema inference. Parse Mode: FAILFAST.
+- **Cause**: Wrong document form is selected to parse JSON file(s).
+- **Recommendation**: Try different **Document form** (**Single document**/**Document per line**/**Array of documents**) in JSON settings. Most cases of parsing errors are caused by wrong configuration.
+
+## Error code: DF-File-InvalidSparkFolder
+- **Message**: Failed to read footer for file 
+- **Cause**: Folder *_spark_metadata* is created by the structured streaming job.
+- **Recommendation**: Delete *_spark_metadata* folder if it exists. For more information, refer to this [article](https://forums.databricks.com/questions/12447/javaioioexception-could-not-read-footer-for-file-f.html).
+
+## Error code: DF-Executor-InternalServerError
+- **Message**: Failed to execute dataflow with internal server error, please retry later. If issue persists, please contact Microsoft support for further assistance
+- **Cause**: The data flow execution is failed because of the system error.
+- **Recommendation**: To solve this issue, refer to [Internal server errors](data-flow-troubleshoot-guide.md#internal-server-errors).
+
+## Error code: DF-Executor-InvalidStageConfiguration
+- **Message**: Storage with user assigned managed identity authentication in staging is not supported 
+- **Cause**: An exception is happened because of invalid staging configuration.
+- **Recommendation**: The user-assigned managed identity authentication is not supported in staging. Use a different authentication to create an Azure Data Lake Storage Gen2 or Azure Blob Storage linked service, then use it as staging in mapping data flows.
+
+## Error code: DF-GEN2-InvalidStorageAccountConfiguration
+- **Message**: Blob operation is not supported on older storage accounts. Creating a new storage account may fix the issue.
+- **Cause**: The storage account is too old.
+- **Recommendation**: Create a new storage account.
+
+## Error code: DF-AzureDataExplorer-InvalidOperation
+- **Message**: Blob operation is not supported on older storage accounts. Creating a new storage account may fix the issue.
+- **Cause**: Operation is not supported.
+- **Recommendation**: Change **Update method** configuration as delete, update and upsert are not supported in Azure Data Explorer.
+
+## Error code: DF-AzureDataExplorer-WriteTimeout
+- **Message**: Operation timeout while writing data.
+- **Cause**: Operation times out while writing data.
+- **Recommendation**: Increase the value in **Timeout** option in sink transformation settings.
+ 
+## Error code: DF-AzureDataExplorer-ReadTimeout
+- **Message**: Operation timeout while reading data.
+- **Cause**: Operation times out while reading data.
+- **Recommendation**: Increase the value in **Timeout** option in source transformation settings.
+
+## Error code: 4502
+- **Message**: There are substantial concurrent MappingDataflow executions that are causing failures due to throttling under Integration Runtime.
+- **Cause**: A large number of Data Flow activity runs are occurring concurrently on the integration runtime. For more information, see [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
+- **Recommendation**: If you want to run more Data Flow activities in parallel, distribute them across multiple integration runtimes.
+
+## Error code: 4503
+- **Message**: There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under subscription '%subscriptionId;', ActivityId: '%activityId;'.
+- **Cause**: Throttling threshold was reached.
+- **Recommendation**: Retry the request after a wait period.
+
+## Error code: 4506
+- **Message**: Failed to provision cluster for '%activityId;' because the request computer exceeds the maximum concurrent count of 200. Integration Runtime '%IRName;'
+- **Cause**: Transient error
+- **Recommendation**: Retry the request after a wait period.
+
+## Error code: 4507
+- **Message**: Unsupported compute type and/or core count value.
+- **Cause**: Unsupported compute type and/or core count value was provided.
+- **Recommendation**: Use one of the supported compute type and/or core count values given on this [document](control-flow-execute-data-flow-activity.md#type-properties).
+
+## Error code: 4508
+- **Message**: Spark cluster not found.
+- **Recommendation**: Restart the debug session.
+
+## Error code: 4509
+- **Message**: Hit unexpected failure while allocating compute resources, please retry. If the problem persists, please contact Azure Support
+- **Cause**: Transient error
+- **Recommendation**: Retry the request after a wait period.
+
+## Error code: 4510
+- **Message**: Unexpected failure during execution. 
+- **Cause**: Since debug clusters work differently from job clusters, excessive debug runs could wear the cluster over time, which could cause memory issues and abrupt restarts.
+- **Recommendation**: Restart Debug cluster. If you are running multiple dataflows during debug session, use activity runs instead because activity level run creates separate session without taxing main debug cluster.
+
+## Error code: 4511
+- **Message**: java.sql.SQLTransactionRollbackException. Deadlock found when trying to get lock; try restarting transaction. If the problem persists, please contact Azure Support
+- **Cause**: Transient error
+- **Recommendation**: Retry the request after a wait period.
+
 
 ## Next steps
 

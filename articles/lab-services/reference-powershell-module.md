@@ -7,7 +7,7 @@ ms.date: 04/06/2022
 ms.custom: devdivchpfy22
 ---
 
-# Az.LabServices PowerShell module for Azure Lab Services resources (deprecated)
+# Az.LabServices PowerShell module for lab accounts in Azure Lab Services
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 

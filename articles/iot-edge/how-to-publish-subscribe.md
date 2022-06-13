@@ -19,7 +19,7 @@ monikerRange: ">=iotedge-2020-11"
 You can use Azure IoT Edge MQTT broker to publish and subscribe to messages. This article shows you how to connect to this broker, publish and subscribe to messages over user-defined topics, and use IoT Hub messaging primitives. The IoT Edge MQTT broker is built in the IoT Edge hub. For more information, see [the brokering capabilities of the IoT Edge hub](iot-edge-runtime.md).
 
 > [!NOTE]
-> IoT Edge MQTT broker is currently in public preview.
+> IoT Edge MQTT broker (currently in preview) will not move to general availability and will be removed from the future version of IoT Edge Hub. We appreciate the feedback we received on the preview, and we are continuing to refine our plans for an MQTT broker. In the meantime, if you need a standards-compliant MQTT broker on IoT Edge, consider deploying an open-source broker like [Mosquitto](https://mosquitto.org/) as an IoT Edge module.
 
 ## Prerequisites
 
@@ -170,6 +170,9 @@ The following JSON snippet is an example of an authorization policy that explici
 When writing your authorization policy, keep in mind:
 
 - It requires `$edgeHub` twin schema version 1.2.
+  > [!IMPORTANT]
+  > Once your IoT Edge device is deployed, it currently won't display correctly in the Azure portal with schema version 1.2 (version 1.1 will be fine). This is a known bug and will be fixed soon. However, this won't affect your device, as it's still connected in IoT Hub and can be communicated with at any time using the Azure CLI.
+  :::image type="content" source="./media/how-to-publish-subscribe/unsupported-1.2-schema.png" alt-text="Screenshot of Azure portal error on the IoT Edge device page.":::
 - By default, all operations are denied.
 - Authorization statements are evaluated in the order that they appear in the JSON definition. It starts by looking at `identities` and then selects the first *allow* or *deny* statements that match the request. If there are conflicts between these statements, the *deny* statement wins.
 - Several variables (for example, substitutions) can be used in the authorization policy:
@@ -433,7 +436,7 @@ Sending a direct method is an HTTP call and so doesn't go through the MQTT broke
 To connect two MQTT brokers, the IoT Edge hub includes an MQTT bridge. An MQTT bridge is commonly used to connect a running MQTT broker to another MQTT broker. Only a subset of the local traffic is typically pushed to another broker.
 
 > [!NOTE]
-> The IoT Edge hub bridge can currently only be used between nested IoT Edge devices. It can't be used to send data to IoT Hub since IoT Hub isn't a full-featured MQTT broker. To learn more about IoT Hub MQTT broker features support, see [Communicate with your IoT hub using the MQTT protocol](../iot-hub/iot-hub-mqtt-support.md). To learn more about nesting IoT Edge devices, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
+> The IoT Edge hub bridge can currently only be used between nested IoT Edge devices. It can't be used to send data to IoT Hub since IoT Hub isn't a full-featured MQTT broker. To learn more about IoT Hub MQTT broker features support, see [Communicate with your IoT hub using the MQTT protocol](../iot-hub/iot-hub-mqtt-support.md). To learn more about nesting IoT Edge devices, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md).
 
 In a nested configuration, the IoT Edge hub MQTT bridge acts as a client of the parent MQTT broker, so authorization rules must be set on the parent EdgeHub to allow the child EdgeHub to publish and subscribe to specific user-defined topics that the bridge is configured for.
 
@@ -455,28 +458,28 @@ The following JSON snippet is an example of an IoT Edge MQTT bridge configuratio
 
 ```json
 {
-	"schemaVersion": "1.2",
-	"mqttBroker": {
-		"bridges": [{
-			"endpoint": "$upstream",
-			"settings": [{
-					"direction": "in",
-					"topic": "alerts/#"
-				},
-				{
-					"direction": "out",
-					"topic": "#",
-					"inPrefix": "/local/telemetry/",
-					"outPrefix": "/remote/messages/"
-				}
-			]
-		}]
-	}
+    "schemaVersion": "1.2",
+    "mqttBroker": {
+        "bridges": [{
+            "endpoint": "$upstream",
+            "settings": [{
+                    "direction": "in",
+                    "topic": "alerts/#"
+                },
+                {
+                    "direction": "out",
+                    "topic": "#",
+                    "inPrefix": "/local/telemetry/",
+                    "outPrefix": "/remote/messages/"
+                }
+            ]
+        }]
+    }
 }
 ```
 
 > [!NOTE]
-> The MQTT protocol will automatically be used as upstream protocol when the MQTT broker is used and IoT Edge is in a nested configuration, for example, with a `parent_hostname` specified. To learn more about upstream protocols, see [Cloud communication](iot-edge-runtime.md#cloud-communication). To learn more about nested configurations, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
+> The MQTT protocol will automatically be used as upstream protocol when the MQTT broker is used and IoT Edge is in a nested configuration, for example, with a `parent_hostname` specified. To learn more about upstream protocols, see [Cloud communication](iot-edge-runtime.md#cloud-communication). To learn more about nested configurations, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md).
 
 ## Next steps
 

@@ -81,14 +81,13 @@ ms.custom: H1Hack27Feb2017
 [planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3
 [planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92
 
-[virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
 [virtual-machines-windows-portal-sql-alwayson-int-listener]:/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure
 
 [sap-ha-bc-virtual-env-hyperv-vmware-white-paper]:https://scn.sap.com/docs/DOC-44415
 [sap-ha-partner-information]:https://scn.sap.com/docs/DOC-8541
 [azure-sla]:https://azure.microsoft.com/support/legal/sla/
 [azure-virtual-machines-manage-availability]:../../windows/manage-availability.md
-[azure-storage-redundancy]:https://azure.microsoft.com/documentation/articles/storage-redundancy/
+[azure-storage-redundancy]:/azure/storage/common/storage-redundancy
 [azure-storage-managed-disks-overview]:../../../virtual-machines/managed-disks-overview.md
 
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
@@ -285,7 +284,7 @@ Azure is in process of rolling out a concepts of [Azure Availability Zones](../.
 
 Using Availability Zones, there are some things to consider. The considerations list like:
 
-- You can't deploy Azure Availability Sets within an Availability Zone. You need to choose either an Availability Zone or an Availability Set as deployment frame for a VM.
+- You can't deploy Azure Availability Sets within an Availability Zone. Only possibility to combine Availability sets and Availability Zones is with [proximity placement groups](../../co-location.md). For more information see , [combine availability sets and availability zones with proximity placement groups](./sap-proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups)
 - You can't use the [Basic Load Balancer](../../../load-balancer/load-balancer-overview.md) to create failover cluster solutions based on Windows Failover Cluster Services or Linux Pacemaker. Instead you need to use the [Azure Standard Load Balancer SKU](../../../load-balancer/load-balancer-standard-availability-zones.md)
 - Azure Availability Zones are not giving any guarantees of certain distance between the different zones within one region
 - The network latency between different Azure Availability Zones within the different Azure regions might be different from Azure region to region. There will be cases, where you as a customer can reasonably run the SAP application layer deployed across different zones since the network latency from one zone to the active DBMS VM is still acceptable from a business process impact. Whereas there will be customer scenarios where the latency between the active DBMS VM in one zone and an SAP application instance in a VM in another zone can be too intrusive and not acceptable for the SAP business processes. As a result, the deployment architectures need to be different with an active/active architecture for the application or active/passive architecture if latency is too high.
@@ -424,7 +423,7 @@ _**Figure 3:** Example of a high-availability SAP DBMS, with SQL Server AlwaysOn
 
 For more information about clustering SQL Server DBMS in Azure by using the Azure Resource Manager deployment model, see these articles:
 
-* [Configure an AlwaysOn availability group in Azure virtual machines manually by using Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
+* [Configure an AlwaysOn availability group in Azure virtual machines manually by using Resource Manager](/azure/azure-sql/virtual-machines/windows/availability-group-overview)
 
 * [Configure an Azure internal load balancer for an AlwaysOn availability group in Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 

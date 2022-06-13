@@ -35,23 +35,23 @@
     href: get-started.md
   - name: 2. Enable the enhanced security features
     href: enable-enhanced-security.md
-  - name: 3. Connect hybrid and multi-cloud machines
+  - name: 3. Connect hybrid and multicloud machines
     items:
     - name: Connect non-Azure machines
       displayName: azure stack, ash, windows, linux, hybrid, arc
       href: quickstart-onboard-machines.md
     - name: Connect AWS accounts
-      displayName: hybrid, multicloud, multi-cloud, amazon, arc
+      displayName: hybrid, multicloud, multicloud, amazon, arc
       href: quickstart-onboard-aws.md
     - name: Connect GCP projects
-      displayName: hybrid, multicloud, multi-cloud, google
+      displayName: hybrid, multicloud, multicloud, google
       href: quickstart-onboard-gcp.md
   - name: 4. Configure auto provisioning
     href: enable-data-collection.md
   - name: 5. Set up email notifications
     href: configure-email-notifications.md
-  - name: 6. Create auto-responses to alerts
-    displayName: Resource Manager, ARM
+  - name: 6. Create auto-responses to alerts using an ARM template or Bicep
+    displayName: Resource Manager, ARM, Template
     href: quickstart-automation-alert.md
   - name: 7. Choose standards for your compliance dashboard
     displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark, Azure Security Benchmark, HIPAA
@@ -97,6 +97,9 @@
     - name: Reference list of alerts
       href: alerts-reference.md
 
+  - name: The Defender for Cloud multicloud solution
+    href: multicloud.yml
+
 - name: How-to guides
   items:
   - name: Use the Overview dashboard
@@ -116,10 +119,14 @@
     href: custom-dashboards-azure-workbooks.md
   - name: Use security recommendations to improve security
     items:
+    - name: Create custom security initiatives and policies
+      href: custom-security-policies.md
     - name: Review your security recommendations
       href: review-security-recommendations.md
     - name: Remediate recommendations
       href: implement-security-recommendations.md
+    - name: Improve your security posture with recommendation governance
+      href: governance-rules.md
     - name: Prevent misconfigurations with Enforce/Deny
       displayName: recommendations
       href: prevent-misconfigurations.md
@@ -131,8 +138,6 @@
     - name: Exempt recommendations per resource, subscription, or management group
       displayName: disable
       href: exempt-resource.md
-    - name: Create custom security initiatives and policies
-      href: custom-security-policies.md
   - name: Protect your machines
     displayName: hybrid, arc, Azure Defender for machines
     items:
@@ -232,15 +237,17 @@
     - name: Overview of Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
       href: defender-for-containers-introduction.md
+    - name: How does Defender for Containers work?
+      href: defender-for-containers-architecture.md
     - name: Enable Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
       href: defender-for-containers-enable.md
     - name: Vulnerability assessment
       displayName: ACR, registry, images, qualys
-      href: defender-for-container-registries-usage.md
+      href: defender-for-containers-usage.md
     - name: Scan images in your CI/CD workflows
       displayName: ACR, registry, images, trevi, vulnerabilities, scanner
-      href: defender-for-container-registries-cicd.md
+      href: defender-for-containers-cicd.md
     - name: Kubernetes data plane hardening
       displayName: k8s, containers, aks
       href: kubernetes-workload-protections.md
@@ -390,8 +397,32 @@
     href: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog
   - name: Microsoft Defender for Cloud on Stack Overflow
     href: https://stackoverflow.com/search?q=microsoft+defender+for+cloud
-  - name: MDfCinTheField YouTube videos
-    href: https://www.youtube.com/hashtag/mdfcinthefield
+  - name: Microsoft Defender for Cloud in the field
+    items:
+    - name: New AWS connector
+      href: episode-one.md
+    - name: Integrate with Azure Purview
+      href: episode-two.md
+    - name: Microsoft Defender for Containers
+      href: episode-three.md
+    - name: Security posture management improvements
+      href: episode-four.md
+    - name: Microsoft Defender for Servers
+      href: episode-five.md
+    - name: Lessons learned from the field
+      href: episode-six.md
+    - name: New GCP connector
+      href: episode-seven.md
+    - name: Microsoft Defender for IoT
+      href: episode-eight.md
+    - name: Microsoft Defender for Containers in a multicloud environment
+      href: episode-nine.md
+    - name: Protecting containers in GCP with Defender for Containers
+      href: episode-ten.md
+    - name: Threat landscape for containers
+      href: episode-eleven.md
+    - name: Enhanced workload protection features in Defender for Servers
+      href: episode-twelve.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-defender/
   - name: Regional availability

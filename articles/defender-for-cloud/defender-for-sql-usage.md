@@ -9,8 +9,6 @@ ms.date: 11/09/2021
 
 # Enable Microsoft Defender for SQL servers on machines 
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This Microsoft Defender plan detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
 You'll see alerts when there are suspicious database activities, potential vulnerabilities, or SQL injection attacks, and anomalous database access and query patterns.

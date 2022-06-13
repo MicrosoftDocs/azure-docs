@@ -1,21 +1,33 @@
 ---
-title: Read - Form Recognizer
+title: Read OCR - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn concepts related to Read API analysis with Form Recognizer API—usage and limits.
+description: Learn concepts related to Read OCR API analysis with Form Recognizer API—usage and limits.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/09/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
 ---
 
-# Form Recognizer read model
+# Form Recognizer Read OCR model
 
-The Form Recognizer v3.0 preview includes the new Read API. Read extracts printed and handwritten from documents. The read model can detect lines, words, locations, and languages and is the core of all the other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the read model as a foundation for extracting texts from documents.
+Form Recognizer v3.0 preview includes the new Read Optical Character Recognition (OCR) model. The Read OCR model extracts typeface and handwritten text including mixed languages in documents. The Read OCR model can detect lines, words, locations, and languages and is the core of all other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the Read OCR model as a foundation for extracting texts from documents.
+
+## Supported document types
+
+| **Model**   | **Images**   | **PDF**  | **TIFF** | **Word**   | **Excel**  | **PowerPoint** | **HTML** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Read  | ✓  | ✓  | ✓  | ✓  | ✓  | ✓  | ✓  |
+
+### Data extraction
+
+| **Read model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
+| --- | --- | --- |
+prebuilt-read  | ✓  |✓  |
 
 ## Development options
 
@@ -25,26 +37,20 @@ The following resources are supported by Form Recognizer v3.0:
 |----------|------------|------------|
 |**Read model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)</li><li>[**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
 
-## Data extraction
+## Try Form Recognizer
 
-| **Read model**   | **Text Extraction**   | **[Language detection](language-support.md#detected-languages-read-api)** |
-| --- | --- | --- | 
-prebuilt-read  | ✓  |✓  |
-
-### Try Form Recognizer
-
-See how text is extracted from forms and documents using the Form Recognizer Studio. You'll need the following assets:
+Try extracting text from forms and documents using the Form Recognizer Studio. You'll need the following assets:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-#### Form Recognizer Studio (preview)
+### Form Recognizer Studio (preview)
 
 > [!NOTE]
-> Form Recognizer studio is available with the preview (v3.0) API.
+> Currently, Form Recognizer Studio doesn't support Microsoft Word, Excel, PowerPoint, and HTML file formats in the Read preview.
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/read)***
 
@@ -63,33 +69,47 @@ See how text is extracted from forms and documents using the Form Recognizer Stu
 
 ## Input requirements
 
-* For best results, provide one clear photo or high-quality scan per document.
-* Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
+* Supported file formats: These include JPEG/JPG, PNG, BMP, TIFF, PDF (text-embedded or scanned). Additionally, the newest API version `2022-06-30-preview` supports Microsoft Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML files.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier (4 MB for the free tier)
+* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 * Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
+* The minimum height of the text to be extracted is 12 pixels for a 1024X768 image. This dimension corresponds to about eight font point text at 150 DPI.
 
 ## Supported languages and locales
 
 Form Recognizer preview version supports several languages for the read model. *See* our [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
 
-## Features
+## Data detection and extraction
+
+### Pages
+
+With the added support for Microsoft Word, Excel, PowerPoint, and HTML files, the page units in the model output are computed as shown:
+
+ **File format**   | **Computed page unit**   | **Total pages**  |
+| --- | --- | --- |
+|Images | Each image = 1 page unit | Total images  |
+|PDF | Each page in the PDF = 1 page unit | Total pages in the PDF |
+|Word | Up to 3,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 3,000 characters each + Total embedded images |
+|Excel | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
+|PowerPoint|  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
+|HTML| Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
 ### Text lines and words
 
-Read API extracts text from documents and images with multiple text angles and colors. It accepts photos of documents, faxes, printed and/or handwritten (English only) text, and mixed modes. Text is extracted from data provided in lines, words, bounding boxes, confidence scores, and style.
+Read extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
 
-### Language detection (v3.0 preview)
+For Microsoft Word, Excel, PowerPoint, and HTML file formats, Read will extract all embedded text as is. For any embedded images, it will run OCR on the images to extract text and append the text from each image as an added entry to the `pages` collection. These added entries will include the extracted text lines and words, their bounding polygons, confidences, and the spans pointing to the associated text.
 
-Read API in v3.0 preview 2 adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read will predict the language at the text line level along with the confidence score.
+### Language detection
 
-### Handwritten classification for text lines (Latin only)
-
-The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. 
+Read adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read will predict all detected languages for text lines along with the `confidence` in the `languages` collection under `analyzeResult`.
 
 ### Select page (s) for text extraction
 
-For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction. 
+For large multi-page PDF documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
+
+> [!NOTE]
+> For Microsoft Word, Excel, PowerPoint, and HTML file formats, the Read API ignores the pages parameter and extracts all pages by default.
 
 ## Next steps
 

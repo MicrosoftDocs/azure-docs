@@ -6,15 +6,27 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: davidmu
-author: davidmu1
+ms.author: jomondi
+author: omondiatieno
 manager: CelesteDG
-reviewer: napuri
 ---
 
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## May 2022
+
+### New articles
+
+- [My Apps portal overview](myapps-overview.md)
+
+### Updated articles
+
+- [Tutorial: Configure Datawiza with Azure Active Directory for secure hybrid access](datawiza-with-azure-ad.md)
+- [Tutorial: Manage certificates for federated single sign-on](tutorial-manage-certificates-for-federated-single-sign-on.md)
+- [Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication](migrate-okta-federation-to-azure-active-directory.md)
+- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)
 
 ## March 2022
 

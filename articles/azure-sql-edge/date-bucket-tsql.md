@@ -48,7 +48,7 @@ The part of *date* that is used with the ‘number’ parameter. Ex. Year, month
 
 *number*
 
-The integer number that decides the width of the bucket combined with *datepart* argument. This represents the width of the datepart buckets from the origin time. **`This argument cannot be a negative integer value`**.
+The *integer* number that decides the width of the bucket combined with *datepart* argument. This represents the width of the datepart buckets from the origin time. **`This argument has to be a positive integer value`**.
 
 *date*
 
