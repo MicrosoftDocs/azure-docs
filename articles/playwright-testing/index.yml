@@ -35,4 +35,4 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Identify issues with end-to-end web tests
-            url: tutorial-issues-with-end-to-end-web-tests.md
+            url: tutorial-identify-issues-with-end-to-end-web-tests.md

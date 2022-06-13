@@ -61,4 +61,4 @@ You now have an Azure Load Testing resource, which you used to load test an exte
 You can reuse this resource to learn how to identify performance bottlenecks in an Azure-hosted application by using server-side metrics.
 
 > [!div class="nextstepaction"]
-> [Identify web app issues with end-to-end tests](./tutorial-issues-with-end-to-end-web-tests.md)
+> [Identify web app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md)
