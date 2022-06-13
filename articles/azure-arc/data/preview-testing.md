@@ -30,7 +30,7 @@ Pre-release version binaries are typically made available starting around 10:00 
 
 ## Artifacts for a pre-release version
 
-For each pre-release version, there will typically be the following artifacts which are designed to work together:
+For each pre-release version, there will typically be the following artifacts, which are designed to work together:
 
 - Container images hosted on the Microsoft Container Registry (MCR)
   - `mcr.microsoft.com/arcdata/preview` is the repository that hosts the **preview** pre-release builds
@@ -56,7 +56,7 @@ In addition to the above installable artifacts, the following are updated in Azu
 
 ### Install prerequisite tools
 
-To install a pre-release version, please follow these pre-requisite instructions:
+To install a pre-release version, follow these pre-requisite instructions:
 
 If you use the Azure CLI extension:
 
@@ -77,7 +77,7 @@ If you use the Azure Data Studio extension to install:
 
 #### Indirect connectivity mode
 
-If you install using the Azure CLI, please follow the instructions to [create a custom configuration profile](create-custom-configuration-template.md). Once created, edit this custom configuration profile file enter the `docker` property values as required based on the information provided in the version history table on this page.
+If you install using the Azure CLI, follow the instructions to [create a custom configuration profile](create-custom-configuration-template.md). Once created, edit this custom configuration profile file enter the `docker` property values as required based on the information provided in the version history table on this page.
 
 Example:
 
@@ -146,7 +146,7 @@ New for this release:
 - Arc enabled SQL Managed Instance
   - You can now configure a SQL managed instance to use an AD Connector at the time the SQL managed instance is provisioned from the Azure portal.
   - BACKUP DATABASE TO URL to AWS S3 or S3-compatible storage is now supported.  [Documentation](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-s3-compatible-object-storage)
-  - `az sql mi-arc create` and `update` commands have a new `--sync-secondary-commit` parameter which is the number of secondary replicas that must be synchronized to fail over.  Default is "-1" which will set the number of required synchronized secondaries to "(# of replicas - 1) / 2".  Allowed values: -1, 1, 2.  Arc SQL MI custom resource property added called `syncSecondaryToCommit`.
+  - `az sql mi-arc create` and `update` commands have a new `--sync-secondary-commit` parameter. This parameter is the number of secondary replicas that must be synchronized to fail over.  Default is "-1" which will set the number of required synchronized secondaries to "(# of replicas - 1) / 2".  Allowed values: -1, 1, 2.  Arc SQL MI custom resource property added called `syncSecondaryToCommit`.
   - Billing estimate in Azure portal is updated to reflect the number of readable secondaries that are selected.
   - Added SPNs for readable secondary service
 
@@ -154,11 +154,11 @@ New for this release:
   - Control DB SQL instance version is upgraded to latest version
   - Additional compatibility checks are run prior to executing an upgrade request
   - Upload status is now shown in the DC list view in the Azure portal
-  - Show the usage upload message value in the Overview blade banner in the Azure portal if the value is not "Success"
+  - Show the usage upload message value in the Overview blade banner in the Azure portal if the value isn't "Success"
 
 ## Provide feedback
 
-At this time, pre-release testing is supported for certain customers and partners that have established agreements with Microsoft and points of contact on the product engineering team.  Please email your points of contact with any issues that are found during pre-release testing.
+At this time, pre-release testing is supported for certain customers and partners that have established agreements with Microsoft. Participants have points of contact on the product engineering team. Please email your points of contact with any issues that are found during pre-release testing.
 
 ## Next steps
 
