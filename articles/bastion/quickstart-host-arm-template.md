@@ -7,34 +7,13 @@ ms.author: abell
 ms.service: bastion
 ms.topic: quickstart 
 ms.date: 06/09/2022
-ms.custom: template-quickstart #Required; leave this attribute/value as-is.
-#Customer intent: 
+ms.custom: template-quickstart 
+Customer intent: As someone with a networking background, I want to deploy Azure Bastion to a virtual machine using a Bastion ARM Template.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
-
-<!--
-This template provides the basic structure of a quickstart article.
-See the [quickstart guidance](contribute-how-to-mvc-quickstart.md) in the contributor guide.
-
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
-
-<!-- 1. H1
-Required. Starts with "Quickstart: " Make the first word following "Quickstart:" a 
-verb. Identify both the technology/service and the language or framework, if applicable.
--->
 
 # Quickstart: Deploy Azure Bastion in a Virtual Network using an ARM template
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
 
 This quickstart describes how to use Azure Bastion template to deploy to a virtual network. After Bastion is deployed, you can connect (SSH/RDP) to virtual machines in the virtual network via Bastion using the private IP address of the VM. When you connect to a VM, it doesn't need a public IP address, client software, agent, or a special configuration.
 
@@ -42,14 +21,7 @@ In this quickstart, you'll deploy Bastion from your virtual machine resource usi
 
 Azure Bastion is a PaaS service that's maintained for you, not a bastion host that you install on one of your VMs and maintain yourself. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
-
-<!-- 4. Prerequisites 
-Required. First prerequisite is a link to a free trial account if one exists. If there 
-are no prerequisites, state that no prerequisites are needed for this quickstart.
--->
-
 ## Prerequisites
-
 
 * **An Azure account with an active subscription**. If you don't have one, [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -107,14 +79,6 @@ The template that this quickstart uses is from [Azure Quickstart Templates](http
 | bastion-subnet-ip-prefix | Bastion subnet IP prefix MUST be within the virtual network IP prefix address space.   |
 | bastion-host-name        | Name of Azure Bastion resource.                                                    |
 
-
-<!-- [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
-
-<!-- 6. H2s
-Required. Prescriptively guide the customer through an end-to-end procedure. Avoid 
-linking off to other content - include whatever the customer needs to complete the scenario in the article.
--->
-
 ## Deploy the template
 
 In this section, you'll deploy Bastion using the **Deploy to Azure** button below or in the Azure portal. You don't connect and sign in to your virtual machine or deploy Bastion from your VM directly.
@@ -146,7 +110,9 @@ In this section, you'll deploy Bastion using the **Deploy to Azure** button belo
 >
 
 ## Validate the deployment
-<!-- Introduction paragraph -->
+
+In this section, you'll validate the deployment of Azure Bastion.
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **TestRG1** resource group that you created in the previous section.
 1. Select your **TestVM** virtual machine. From the Overview page, scroll down to **Operations** in the left pane and select **Bastion**.
