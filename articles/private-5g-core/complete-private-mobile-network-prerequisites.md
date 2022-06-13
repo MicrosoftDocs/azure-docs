@@ -82,7 +82,6 @@ For each site you're deploying, do the following.
 ### Ports required for local access
 
 The following table contains the ports you need to open for Azure Private 5G Core local access. This includes local management access and control plane signaling.
-<!-- Should we clarify the reference for In and Outbound and what is meant by ASE interface? -->
 
 You should set these up in addition to [the ports required for Azure Stack Edge (ASE)](../databox-online/azure-stack-edge-gpu-system-requirements.md#networking-port-requirements).
 
@@ -90,7 +89,7 @@ You should set these up in addition to [the ports required for Azure Stack Edge 
 |--|--|--|
 | TCP 443 Inbound      | Management (LAN)        | Access to local monitoring tools (packet core dashboards and distributed tracing). |
 | SCTP 38412 Inbound   | Port 5 (Access network) | Control plane access signaling (N2 interface). </br>Only required for 5G deployments. |
-| SCTP 36412 Inbound   | Port 5 (Access network) | Control plane access signaling (S1-C interface). </br>Only required for 4G deployments. |
+| SCTP 36412 Inbound   | Port 5 (Access network) | Control plane access signaling (S1-MME interface). </br>Only required for 4G deployments. |
 | UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
 | All IP traffic       | Port 6 (Data network)   | Data network user plane data (N6 interface for 5G, SGi for 4G). |
 
