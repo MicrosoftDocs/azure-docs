@@ -200,7 +200,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 ### FastPath and Private Link for 100Gbps ExpressRoute Direct
 
-With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypassess the ExpressRoute virtual network gateway in the data path. This is supported for connections associated to 100Gb ExpressRoute Direct circuits. To enable this, follow the below guidance:
+With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypassess the ExpressRoute virtual network gateway in the data path. This is Generally Available for connections associated to 100Gb ExpressRoute Direct circuits. To enable this, follow the below guidance:
 1. Send an email to **ERFastPathPL@microsoft.com**, providing the following information: 
 * Azure Subscription ID
 * Virtual Network (Vnet) Resource ID
@@ -221,11 +221,17 @@ Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass
 
 FastPath support for virtual network peering is now in Public preview, both IPv4 and IPv6 scenarios are supported. IPv4 FastPath and Vnet peering can be enabled on connections associated to both ExpressRoute Direct and ExpressRoute Partner circuits. IPv6 FastPath and Vnet peering support is limited to connections associated to ExpressRoute Direct.
 
-### FastPath and virtual network peering
+### FastPath virtual network peering and user defined routes (UDRs).
 
 With FastPath and virtual network peering, you can enable ExpressRoute connectivity directly to VMs in a local or peered virtual network, bypassing the ExpressRoute virtual network gateway in the data path.
 
-To enroll in this preview, run the follow Azure PowerShell command in the target Azure subscription:
+With FastPath and UDR, you can configure a UDR on the GatewaySubnet to direct ExpressRoute traffic to an Azure Firewall or third party NVA. FastPath will honor the UDR and send traffic directly to the target Azure Firewall or NVA, bypassing the ExpressRoute virtual network gateway in the data path.
+
+> [!NOTE]
+> The previews for virtual network peering and user defined routes (UDRs) are offered together. You cannot enable only one scenario.
+>
+
+To enroll in these previews, run the follow Azure PowerShell command in the target Azure subscription:
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName ExpressRouteVnetPeeringGatewayBypass -ProviderNamespace Microsoft.Network

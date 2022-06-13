@@ -67,7 +67,7 @@ The article also covers [Linking an Azure Video Indexer account to Azure Governm
 If the connection to Azure failed, you can attempt to troubleshoot the problem by connecting manually.
 
 > [!NOTE]
-> It's mandatory to have the following three accounts in the same region: the Azure Video Indexer account that you're connecting with the Media Services account, as well as the Azure storage account connected to the same Media Services account.
+> It's mandatory to have the following three accounts in the same region: the Azure Video Indexer account that you're connecting with the Media Services account, as well as the Azure storage account connected to the same Media Services account. When you create an Azure Video Indexer account and connect it to Media Services, the media and metadata files are stored in the Azure storage account associated with that Media Services account. 
 
 ### Create and configure a Media Services account
 
