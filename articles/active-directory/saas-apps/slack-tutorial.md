@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/06/2021
+ms.date: 06/06/2022
 ms.author: jeedes
 ---
 
@@ -162,15 +162,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. click on your workspace name in the top left, then go to **Settings & administration** -> **Workspace settings**.
 
-     ![Configure single sign-on On Microsoft Azure AD](./media/slack-tutorial/tutorial-slack-team-settings.png)
+     ![Screenshot of Configure single sign-on On Microsoft Azure AD.](./media/slack-tutorial/tutorial-slack-team-settings.png)
 
 3. In the **Settings & permissions** section, click the **Authentication** tab, and then click **Configure** button at SAML authentication method.
 
-    ![Configure single sign-on On Team Settings](./media/slack-tutorial/tutorial-slack-authentication.png)
+    ![Screenshot of Configure single sign-on On Team Settings.](./media/slack-tutorial/tutorial-slack-authentication.png)
 
 4. On the **Configure SAML authentication for Azure** dialog, perform the below steps:
 
-    ![Configure single sign-on On SAML Authentication Settings](./media/slack-tutorial/tutorial-slack-save-authentication.png)
+    ![Screenshot of Configure single sign-on On SAML Authentication Settings.](./media/slack-tutorial/tutorial-slack-save-authentication.png)
 
     a. In the top right, toggle **Test** mode on.
     
@@ -182,7 +182,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Expand the **Advanced options** and perform the below steps:
 
-    ![Configure Advanced options single sign-on On App Side](./media/slack-tutorial/advanced-settings.png)
+    ![Screenshot of Configure Advanced options single sign-on On App Side.](./media/slack-tutorial/advanced-settings.png)
 
     a. If you need an end-to-end encryption key, tick the box **Sign AuthnRequest** to show the certificate.
 
@@ -192,7 +192,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Under **Settings**, decide if members can edit their profile information (like their email or display name) after SSO is enabled. You can also choose whether SSO is required, partially required or optional.
 
-   ![Configure Save configuration single sign-on On App Side](./media/slack-tutorial/save-configuration-button.png) 
+   ![Screenshot of Configure Save configuration single sign-on On App Side.](./media/slack-tutorial/save-configuration-button.png) 
 
 1. Click **Save Configuration**.
     
