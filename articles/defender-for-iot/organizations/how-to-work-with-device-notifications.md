@@ -26,7 +26,6 @@ The following table describes the notification event types you might receive, al
 ## View notifications
 
 1. In Defender for IoT, select **Device Map**.
-1. 
 1. Select **Notifications** icon. 
 1. In **Discovery Notifications**, review all notifications.
 1. For each notification, either accept the recommendation, or dismiss it.
