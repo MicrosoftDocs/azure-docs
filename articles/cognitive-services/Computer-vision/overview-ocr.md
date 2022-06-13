@@ -38,9 +38,9 @@ The Computer Vision [Read API](https://westus.dev.cognitive.microsoft.com/docs/s
 The **Read** call takes images and documents as its input. They have the following requirements:
 
 * Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
-* For PDF and TIFF files, up to 2000 pages (only first two pages for the free tier) are processed.
-* The file size must be less than 500 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. 
-* The minimum height of the text to be extracted is 12 pixels for a 1024X768 image. This corresponds to about 8 font point text at 150 DPI.
+* For PDF and TIFF files, up to 2000 pages (only the first two pages for the free tier) are processed.
+* The file size of images must be less than 500 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. PDF files do not have a size limit.
+* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 image. This corresponds to about 8 font point text at 150 DPI.
 
 ## Supported languages
 The Read API latest generally available (GA) model supports 164 languages for print text and 9 languages for handwritten text.
