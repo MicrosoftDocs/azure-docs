@@ -55,20 +55,20 @@ In the example configurations, three SAP NetWeaver 7.50 systems are deployed in 
 
 The article doesn't cover the database layer and the deployment of the SAP NFS shares.
 
-The examples in this article use the [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) volume `sapMSID` for the NFS shares, assuming that the volume is already deployed. The examples assume that the Azure NetApp Files volume is deployed with NFSv3 protocol. They use the following file paths for the cluster resources for the ASCS and ERS instances of SAP systems NW1, NW2 and NW3:  
+The examples in this article use the [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) volume `sapMSID` for the NFS shares, assuming that the volume is already deployed. The examples assume that the Azure NetApp Files volume is deployed with NFSv3 protocol. They use the following file paths for the cluster resources for the ASCS and ERS instances of SAP systems `NW1`, `NW2`, and `NW3`:  
 
-* volume sapMSID (nfs://10.42.0.4/sapmnt<b>NW1</b>)
-* volume sapMSID (nfs://10.42.0.4/usrsap<b>NW1</b>ascs)
-* volume sapMSID (nfs://10.42.0.4/usrsap<b>NW1</b>sys)
-* volume sapMSID (nfs://10.42.0.4/usrsap<b>NW1</b>ers)
-* volume sapMSID (nfs://10.42.0.4/sapmnt<b>NW2</b>)
-* volume sapMSID (nfs://10.42.0.4/usrsap<b>NW2</b>ascs)
-* volume sapMSID (nfs://10.42.0.4/usrsap<b>NW2</b>sys)
-* volume sapMSID (nfs://10.42.0.4/usrsap<b>NW2</b>ers)
-* volume sapMSID (nfs://10.42.0.4/sapmnt<b>NW3</b>)
-* volume sapMSID (nfs://10.42.0.4/usrsap<b>NW3</b>ascs)
-* volume sapMSID (nfs://10.42.0.4/usrsap<b>NW3</b>sys)
-* volume sapMSID (nfs://10.42.0.4/usrsap<b>NW3</b>ers)
+* volume sapMSID (nfs://10.42.0.4/sapmnt*NW1*)
+* volume sapMSID (nfs://10.42.0.4/usrsap*NW1*ascs)
+* volume sapMSID (nfs://10.42.0.4/usrsap*NW1*sys)
+* volume sapMSID (nfs://10.42.0.4/usrsap*NW1*ers)
+* volume sapMSID (nfs://10.42.0.4/sapmnt*NW2*)
+* volume sapMSID (nfs://10.42.0.4/usrsap*NW2*ascs)
+* volume sapMSID (nfs://10.42.0.4/usrsap*NW2*sys)
+* volume sapMSID (nfs://10.42.0.4/usrsap*NW2*ers)
+* volume sapMSID (nfs://10.42.0.4/sapmnt*NW3*)
+* volume sapMSID (nfs://10.42.0.4/usrsap*NW3*ascs)
+* volume sapMSID (nfs://10.42.0.4/usrsap*NW3*sys)
+* volume sapMSID (nfs://10.42.0.4/usrsap*NW3*ers)
 
 Before you begin, refer to the following SAP Notes and papers:
 
@@ -117,10 +117,10 @@ To achieve high availability, SAP NetWeaver requires highly available shares. Th
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, and SAP NetWeaver ERS use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
 
-* Frontend IP addresses for ASCS: 10.3.1.50 (NW1), 10.3.1.52 (NW2) and 10.3.1.54 (NW3)  
-* Frontend IP addresses for ERS:  10.3.1.51 (NW1), 10.3.1.53 (NW2) and 10.3.1.55 (NW3)
-* Probe port 62000 for NW1 ASCS, 62010 for NW2 ASCS and 62020 for NW3 ASCS
-* Probe port 62102 for NW1 ASCS, 62112 for NW2 ASCS and 62122 for NW3 ASCS
+* Frontend IP addresses for ASCS: 10.3.1.50 (NW1), 10.3.1.52 (NW2), and 10.3.1.54 (NW3)  
+* Frontend IP addresses for ERS:  10.3.1.51 (NW1), 10.3.1.53 (NW2), and 10.3.1.55 (NW3)
+* Probe port 62000 for NW1 ASCS, 62010 for NW2 ASCS, and 62020 for NW3 ASCS
+* Probe port 62102 for NW1 ASCS, 62112 for NW2 ASCS, and 62122 for NW3 ASCS
 
 > [!IMPORTANT]
 > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
@@ -141,17 +141,17 @@ Another option is to build [GlusterFS on Azure VMs on Red Hat Enterprise Linux f
 
 After you decide on the architecture for the SAP shares, deploy the first SAP system in the cluster, following the corresponding documentation.
 
-* If using Azure NetApp Files NFS volumes, follow [Azure VMs high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md).
-* If using GlusterFS cluster, follow [GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver](./high-availability-guide-rhel-glusterfs.md).  
+* If you use Azure NetApp Files NFS volumes, follow [Azure VMs high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md).
+* If you use GlusterFS cluster, follow [GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver](./high-availability-guide-rhel-glusterfs.md).  
 
-The documents listed above guide you through the steps to prepare the necessary infrastructure, build the cluster, prepare the OS for running the SAP application.  
+These articles guide you through the steps to prepare the necessary infrastructure, build the cluster, prepare the OS for running the SAP application.  
 
 > [!TIP]
-> Always test the fail over functionality of the cluster after the first system is deployed, before adding the additional SAP SIDs to the cluster. That way, you know that the cluster functionality works, before adding the complexity of additional SAP systems to the cluster.
+> Always test the failover functionality of the cluster after the first system is deployed, before adding the additional SAP SIDs to the cluster. That way, you know that the cluster functionality works, before adding the complexity of additional SAP systems to the cluster.
 
 ## Deploy more SAP systems in the cluster
 
-This example assumes that system `NW1` was already deployed in the cluster. This example shows how to deploy in the cluster SAP systems `NW2` and `NW3`.
+This example assumes that system `NW1` was already deployed in the cluster. This example shows how to deploy SAP systems `NW2` and `NW3` in the cluster.
 
 The following items are prefixed with:
 
@@ -173,9 +173,9 @@ This article assumes that:
 
 ### Prepare for SAP NetWeaver Installation
 
-1. Add configuration for the newly deployed system (that is, `NW2`, `NW3`) to the existing Azure Load Balancer, following the instructions [Deploy Azure Load Balancer manually via Azure portal](./high-availability-guide-rhel-netapp-files.md#deploy-linux-manually-via-azure-portal). Adjust the IP addresses, health probe ports, load-balancing rules for your configuration.  
+1. Add configuration for the newly deployed system (that is, `NW2` and `NW3`) to the existing Azure Load Balancer, following the instructions [Deploy Azure Load Balancer manually via Azure portal](./high-availability-guide-rhel-netapp-files.md#deploy-linux-manually-via-azure-portal). Adjust the IP addresses, health probe ports, and load-balancing rules for your configuration.  
 
-2. **[A]** Setup name resolution for the more SAP systems. You can either use DNS server or modify */etc/hosts* on all nodes. This example shows how to use the */etc/hosts* file.  Adapt the IP addresses and the host names to your environment.
+2. **[A]** Set up name resolution for the more SAP systems. You can either use DNS server or modify */etc/hosts* on all nodes. This example shows how to use the */etc/hosts* file.  Adapt the IP addresses and the host names to your environment.
 
     ```cmd
     sudo vi /etc/hosts
@@ -212,7 +212,7 @@ This article assumes that:
     sudo chattr +i /usr/sap/NW3/ERS22
    ```
 
-4. **[A]** Add the mount entries for the */sapmnt/SID* and */usr/sap/SID/SYS* file systems for the other SAP systems that you're deploying to the cluster. In this example `NW2` and `NW3`.  
+4. **[A]** Add the mount entries for the */sapmnt/SID* and */usr/sap/SID/SYS* file systems for the other SAP systems that you're deploying to the cluster. In this example, it's `NW2` and `NW3`.  
 
    Update file `/etc/fstab` with the file systems for the other SAP systems that you're deploying to the cluster.  
 
@@ -251,11 +251,11 @@ This article assumes that:
 
    Make sure the cluster status is ok and that all resources are started. It's not important on which node the resources are running.  
 
-2. **[1]** Install SAP NetWeaver ASCS  
+2. **[1]** Install SAP NetWeaver ASCS.  
 
    Install SAP NetWeaver ASCS as root, using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS. For example, for system `NW2`, the virtual hostname is `msnw2ascs`, `10.3.1.52`, and the instance number that you used for the probe of the load balancer, for example `10`. For system `NW3`, the virtual hostname is `msnw3ascs`, `10.3.1.54`, and the instance number that you used for the probe of the load balancer, for example `20`. Note down on which cluster node you installed ASCS for each SAP SID.  
 
-   You can use the sapinst parameter `SAPINST_REMOTE_ACCESS_USER` to allow a non-root user to connect to sapinst. You can use parameter `SAPINST_USE_HOSTNAME` to install SAP, using virtual host name.  
+   You can use the `sapinst` parameter `SAPINST_REMOTE_ACCESS_USER` to allow a non-root user to connect to sapinst. You can use parameter `SAPINST_USE_HOSTNAME` to install SAP, using virtual host name.  
 
     ```cmd
     # Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again
@@ -301,11 +301,11 @@ This article assumes that:
     pcs resource move fs_NW2_AERS rhelmsscl2
     ```
 
-4. **[2]** Install SAP NetWeaver ERS
+4. **[2]** Install SAP NetWeaver ERS.
 
-   Install SAP NetWeaver ERS as root on the other node, using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS. For example for system `NW2`, the virtual host name is `msnw2ers`, `10.3.1.53`, and the instance number that you used for the probe of the load balancer, for example `12`. For system `NW3`, the virtual host name `msnw3ers`, `10.3.1.55`, and the instance number that you used for the probe of the load balancer, for example `22`.
+   Install SAP NetWeaver ERS as root on the other node, using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS. For example, for system `NW2`, the virtual host name is `msnw2ers`, `10.3.1.53`, and the instance number that you used for the probe of the load balancer, for example `12`. For system `NW3`, the virtual host name `msnw3ers`, `10.3.1.55`, and the instance number that you used for the probe of the load balancer, for example `22`.
 
-   You can use the sapinst parameter `SAPINST_REMOTE_ACCESS_USER` to allow a non-root user to connect to sapinst. You can use parameter `SAPINST_USE_HOSTNAME` to install SAP, using virtual host name.  
+   You can use the `sapinst` parameter `SAPINST_REMOTE_ACCESS_USER` to allow a non-root user to connect to sapinst. You can use parameter `SAPINST_USE_HOSTNAME` to install SAP, using virtual host name.  
 
     ```cmd
     # Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again
@@ -325,7 +325,7 @@ This article assumes that:
     pcs resource clear fs_NW3_AERS
     ```
 
-5. **[1]** Adapt the ASCS/SCS and ERS instance profiles for the newly installed SAP systems. The example shown below is for NW2. You need to adapt the ASCS/SCS and ERS profiles for all SAP instances added to the cluster.  
+5. **[1]** Adapt the ASCS/SCS and ERS instance profiles for the newly installed SAP systems. The example shown below is for `NW2`. You need to adapt the ASCS/SCS and ERS profiles for all SAP instances added to the cluster.  
 
    * ASCS/SCS profile
 
@@ -357,7 +357,7 @@ This article assumes that:
 
 6. **[A]** Update the */usr/sap/sapservices* file.
 
-   To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from `/usr/sap/sapservices` file. The example shown below is for SAP systems `NW2` and `NW3`.  
+   To prevent the start of the instances by the *sapinit* startup script, all instances managed by Pacemaker must be commented out from */usr/sap/sapservices* file. The example shown below is for SAP systems `NW2` and `NW3`.  
 
    ```cmd
    # On the node where ASCS was installed, comment out the line for the ASCS instacnes
@@ -598,11 +598,10 @@ Complete your SAP installation by:
 
 The following tests are a subset of the test cases in the best practices guides of Red Hat. They're included for your convenience. For the full list of cluster tests, reference the following documentation:
 
-* If using Azure NetApp Files NFS volumes, follow [Azure VMs high availability for SAP NetWeaver on RHEL with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md)
-* If using highly available `GlusterFS`, follow [Azure VMs high availability for SAP NetWeaver on RHEL for SAP applications](./high-availability-guide-rhel.md).  
+* If you use Azure NetApp Files NFS volumes, follow [Azure VMs high availability for SAP NetWeaver on RHEL with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md)
+* If you use highly available `GlusterFS`, follow [Azure VMs high availability for SAP NetWeaver on RHEL for SAP applications](./high-availability-guide-rhel.md).  
 
-Always read the Red Hat best practices guides and perform all other tests that might have been added.  
-The tests that are presented are in a two-node, multi-SID cluster with three SAP systems installed.  
+Always read the Red Hat best practices guides and perform all other tests that might have been added. The tests that are presented are in a two-node, multi-SID cluster with three SAP systems installed.  
 
 1. Manually migrate the ASCS instance. The example shows migrating the ASCS instance for SAP system NW3.
 
@@ -697,7 +696,7 @@ The tests that are presented are in a two-node, multi-SID cluster with three SAP
        rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl2
    ```
 
-1. Simulate node crash
+1. Simulate node crash.
 
    Resource state before starting the test:
 
@@ -739,13 +738,13 @@ The tests that are presented are in a two-node, multi-SID cluster with three SAP
        rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started rhelmsscl2
    ```
 
-   Run the following command as root on a node, where at least one ASCS instance is running. This example runs the command on `rhelmsscl1`, where the ASCS instances for `NW1`, `NW2`, and `NW3` are running.  
+   Run the following command as root on a node where at least one ASCS instance is running. This example runs the command on `rhelmsscl1`, where the ASCS instances for `NW1`, `NW2`, and `NW3` are running.  
 
    ```cmd
    echo c > /proc/sysrq-trigger
    ```
 
-   The status after the test, and after the node that was crashed has started again, should look like these results:
+   The status after the test and after the node that was crashed has started again, should look like these results:
 
    ```cmd
    Full list of resources:
@@ -794,4 +793,5 @@ The tests that are presented are in a two-node, multi-SID cluster with three SAP
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
-* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]
+
+To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha].
