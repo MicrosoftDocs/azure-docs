@@ -1,7 +1,7 @@
 ---
-title: How to use Spring Cloud Gateway for Tanzu with Azure Spring Apps Enterprise Tier
+title: How to use Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise Tier
 titleSuffix: Azure Spring Apps Enterprise Tier
-description: How to use Spring Cloud Gateway for Tanzu with Azure Spring Apps Enterprise Tier.
+description: How to use Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise Tier.
 author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
@@ -10,35 +10,35 @@ ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Use Spring Cloud Gateway for Tanzu
+# Use Spring Cloud Gateway for Kubernetes
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use Spring Cloud Gateway for VMware Tanzu® with Azure Spring Apps Enterprise Tier to route requests to your applications.
+This article shows you how to use VMware Spring Cloud Gateway for VMware Kubernetes with Azure Spring Apps Enterprise Tier to route requests to your applications.
 
-[Spring Cloud Gateway for Tanzu](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles cross-cutting concerns for API development teams, such as Single Sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
+[Spring Cloud Gateway for Kubernetes](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Kubernetes handles cross-cutting concerns for API development teams, such as Single Sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
-Spring Cloud Gateway for Tanzu also has other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services, client certificate authorization, rate-limiting approaches, circuit breaker configuration, and support for accessing application services via HTTP Basic Authentication credentials.
+Spring Cloud Gateway for Kubernetes also has other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services, client certificate authorization, rate-limiting approaches, circuit breaker configuration, and support for accessing application services via HTTP Basic Authentication credentials.
 
-To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway for Tanzu automatically generates OpenAPI version 3 documentation after the route configuration gets changed.
+To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway for Kubernetes automatically generates OpenAPI version 3 documentation after the route configuration gets changed.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise tier service instance with Spring Cloud Gateway for Tanzu enabled. For more information, see [Quickstart: Provision an Azure Spring Apps service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).<!-- TODO: fix broken link -->
+- An already provisioned Azure Spring Apps Enterprise tier service instance with Spring Cloud Gateway for Kubernetes enabled. For more information, see [Quickstart: Provision an Azure Spring Apps service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).<!-- TODO: fix broken link -->
 
   > [!NOTE]
-  > To use Spring Cloud Gateway for Tanzu, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
+  > To use Spring Cloud Gateway for Kubernetes, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
 
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 
-Spring Cloud Gateway for Tanzu is configured using the following sections and steps.
+Spring Cloud Gateway for Kubernetes routes are configured using the following sections and steps.
 
 ## Configure routes
 
-This section describes how to add, update, and manage API routes for apps that use Spring Cloud Gateway for Tanzu.
+This section describes how to add, update, and manage API routes for apps that use Spring Cloud Gateway for Kubernetes.
 
 ### Define route config
 
@@ -58,7 +58,7 @@ The following tables list the route definitions. All the properties are optional
 | tokenRelay | Pass currently authenticated user's identity token to application service |
 | predicates | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates) and [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-predicates.html)|
 | filters | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-filters) and [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html)|
-| order | Route processing order, same as Spring Cloud Gateway for Tanzu |
+| order | Route processing order, same as Spring Cloud Gateway OSS |
 | tags | Classification tags, will be applied to methods in the generated OpenAPI documentation |
 
 Not all the filters/predicates are supported in Azure Spring Apps because of security/compatible reasons. The following aren't supported:
@@ -68,9 +68,9 @@ Not all the filters/predicates are supported in Azure Spring Apps because of sec
 
 ## Create an example application
 
-Use the following steps to create an example application using Spring Cloud Gateway for Tanzu.
+Use the following steps to create an example application using Spring Cloud Gateway for Kubernetes.
 
-1. To create an app in Azure Spring Apps which the Spring Cloud Gateway for Tanzu would route traffic to, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Apps Enterprise tier](./quickstart-deploy-apps-enterprise.md#provision-a-service-instance).
+1. To create an app in Azure Spring Apps which the Spring Cloud Gateway for Kubernetes would route traffic to, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Apps Enterprise tier](./quickstart-deploy-apps-enterprise.md#provision-a-service-instance).
 
 1. Assign a public endpoint to the gateway to access it.
 
@@ -86,7 +86,7 @@ Use the following steps to create an example application using Spring Cloud Gate
    az spring gateway update --assign-endpoint
    ```
 
-1. Use the following command to configure Spring Cloud Gateway for Tanzu properties:
+1. Use the following command to configure Spring Cloud Gateway for Kubernetes properties:
 
    ```azurecli
    az spring gateway update \
@@ -103,7 +103,7 @@ Use the following steps to create an example application using Spring Cloud Gate
 
 1. Configure routing rules to apps.
 
-   Create rules to access apps deployed in the above step through Spring Cloud Gateway for Tanzu.
+   Create rules to access apps deployed in the above step through Spring Cloud Gateway for Kubernetes.
 
    Save the following content to the *adoption-api.json* file.
 
@@ -162,11 +162,11 @@ The open-source [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-g
 
 ### Filters Included In Spring Cloud Gateway OSS
 
-Filters in Spring Cloud Gateway OSS can be used in Spring Cloud Gateway for Tanzu. Spring Cloud Gateway OSS includes a number of GatewayFilter factories used to create filters for routes. For a complete list of these factories, see the [Spring Cloud Gateway OSS documentation](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories).
+Filters in Spring Cloud Gateway OSS can be used in Spring Cloud Gateway for Kubernetes. Spring Cloud Gateway OSS includes a number of GatewayFilter factories used to create filters for routes. For a complete list of these factories, see the [Spring Cloud Gateway OSS documentation](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories).
 
 ### Using Commercial Filters
 
-The [Spring Cloud Gateway for Tanzu Documentation](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html#filters-added-in-spring-cloud-gateway-for-kubernetes) includes examples for included commercial filters. These examples are written using kubernetes resource definitions. The following example shows how to use the `AddRequestHeadersIfNotPresent` filter by converting the kubernetes resource definition.
+The [Spring Cloud Gateway for Kubernetes Documentation](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html#filters-added-in-spring-cloud-gateway-for-kubernetes) includes examples for included commercial filters. These examples are written using Kubernetes resource definitions. The following example shows how to use the `AddRequestHeadersIfNotPresent` filter by converting the Kubernetes resource definition.
 
 Given the following resource definition in yaml:
 
