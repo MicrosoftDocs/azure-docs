@@ -32,7 +32,7 @@ Dcsv3-series instances run on a 3rd Generation Intel&reg; Xeon Scalable Processo
 - [Memory Preserving Updates](maintenance-and-updates.md): Not supported
 - [VM Generation Support](generation-2.md): Generation 2
 - [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported
-- [Ephemeral OS Disks](ephemeral-os-disks.md): Supported
+- [Ephemeral OS Disks](ephemeral-os-disks.md): Supported for DCdsv3-series
 - [Ultra-Disk Storage](disks-enable-ultra-ssd.md): Supported
 - [Azure Kubernetes Service](../aks/intro-kubernetes.md): Supported (CLI provisioning only)
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported 

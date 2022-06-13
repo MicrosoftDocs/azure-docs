@@ -57,6 +57,25 @@ With Azure Monitor workbooks, you can:
 For more information, see [Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 
 
+## How does it help me?
+
+Common scenarios for using workbooks include:
+
+- Get shareable, at-a-glance summary reports about your Azure AD tenant, and build your own custom reports.
+
+- Find and diagnose sign-in failures, and get a trending view of your organization's sign-in health.
+
+- Monitor Azure AD logs for sign-ins, tenant administrator actions, provisioning, and risk together in a flexible, customizable format.
+
+- Watch trends in your tenant’s usage of Azure AD features such as conditional access, self-service password reset, and more.
+
+- Know who's using legacy authentications to sign in to your environment.
+
+- Understand the effect of your conditional access policies on your users' sign-in experience.
+
+
+
+
 ## Who should use it?
 
 Typical personas for workbooks are:
@@ -71,13 +90,13 @@ Typical personas for workbooks are:
 
 ## How to use it
 
-All workbooks are stored in the workbook [gallery](../../azure-monitor/visualize/workbooks-overview.md#gallery)
-You have two options for working with workbooks:
+When working with workbooks, you can either start with an empty workbook, or use an existing template. Workbook templates enable you to quickly get started using workbooks without needing to build from scratch. 
 
-- Create a new workbook from scratch
-- Start with an existing workbook template from the gallery
+There are:
 
-By using an already existing template from the gallery, you can benefit from the work others have already invested into solving the same business problem as you. 
+- **Public templates** published to a [gallery](../../azure-monitor/visualize/workbooks-overview.md#gallery) that serve as a good starting point when you are just getting started with workbooks.
+- **Private templates** when you start building your own workbooks and want to save one as a template to serve as the foundation for multiple workbooks in your tenant.
+
 
 
 ## Prerequisites
