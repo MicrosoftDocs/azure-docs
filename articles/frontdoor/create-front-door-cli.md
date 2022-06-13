@@ -27,8 +27,6 @@ Run [az group create](/cli/azure/group) to create resource groups.
 ```azurecli-interactive
 az group create --name myRGFD --location centralus
 ```
-<<<<<<< HEAD:articles/frontdoor/standard-premium/create-front-door-cli.md
-=======
 ## Create an Azure Front Door profile
 
 Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to create an Azure Front Door profile.
@@ -43,7 +41,6 @@ az afd profile create \
     --sku Premium_AzureFrontDoor
 ```
 
->>>>>>> 56dc14554280168ff8372b0fe0c740125d5f596d:articles/frontdoor/create-front-door-cli.md
 ## Create two instances of a web app
 
 You need two instances of a web application that run in different Azure regions for this tutorial. Both the web application instances run in Active/Active mode, so either one can service traffic.
@@ -263,15 +260,9 @@ To test instant global failover, we'll use the following steps:
 
 2. Stop one of the Web Apps by running [az webapp stop](/cli/azure/webapp#az-webapp-stop&preserve-view=true)
 
-<<<<<<< HEAD:articles/frontdoor/standard-premium/create-front-door-cli.md
-```azurecli-interactive
-az webapp stop --name WebAppContoso-01 --resource-group myRGFD
-```
-=======
     ```azurecli
     az webapp stop --name WebAppContoso-01 --resource-group myRGFD
     ```
->>>>>>> 56dc14554280168ff8372b0fe0c740125d5f596d:articles/frontdoor/create-front-door-cli.md
 
 3. Refresh your browser. You should see the same information page.
 
@@ -280,15 +271,9 @@ az webapp stop --name WebAppContoso-01 --resource-group myRGFD
 
 4. Find the other web app, and stop it as well.
 
-<<<<<<< HEAD:articles/frontdoor/standard-premium/create-front-door-cli.md
-```azurecli-interactive
-az webapp stop --name WebAppContoso-02 --resource-group myRGFD
-```
-=======
     ```azurecli
     az webapp stop --name WebAppContoso-02 --resource-group myRGFD
     ```
->>>>>>> 56dc14554280168ff8372b0fe0c740125d5f596d:articles/frontdoor/create-front-door-cli.md
 
 5. Refresh your browser. This time, you should see an error message.
 
@@ -297,27 +282,17 @@ az webapp stop --name WebAppContoso-02 --resource-group myRGFD
 
 6. Restart one of the Web Apps by running [az webapp start](/cli/azure/webapp#az-webapp-start&preserve-view=true). Refresh your browser and the page will go back to normal.
 
-<<<<<<< HEAD:articles/frontdoor/standard-premium/create-front-door-cli.md
-```azurecli-interactive
-az webapp start --name WebAppContoso-01 --resource-group myRGFD
-```
-=======
     ```azurecli
     az webapp start --name WebAppContoso-01 --resource-group myRGFD
     ```
 
->>>>>>> 56dc14554280168ff8372b0fe0c740125d5f596d:articles/frontdoor/create-front-door-cli.md
 ## Clean up resources
 
 When you don't need the resources for the Front Door, delete both resource groups. Deleting the resource groups also deletes the Front Door and all its related resources.
 
 Run [az group delete](/cli/azure/group#az-group-delete&preserve-view=true):
 
-<<<<<<< HEAD:articles/frontdoor/standard-premium/create-front-door-cli.md
-```azurecli-interactive
-=======
 ```azurecli
->>>>>>> 56dc14554280168ff8372b0fe0c740125d5f596d:articles/frontdoor/create-front-door-cli.md
 az group delete --name myRGFD
 ```
 
