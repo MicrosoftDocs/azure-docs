@@ -67,7 +67,7 @@ Use this table to understand and resolve common errors.
 | 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | 429 Too many requests |
 | 500 | An internal error occurred. | 500 Internal Server Error|
 
-If an IoT Edge device fails to start with error message `failed to provision with IoT Hub, and no valid device backup was found dps client error.`, see [DPS Client error](/azure/iot-edge/troubleshoot-common-errors?view=iotedge-2018-06&preserve-view=true#dps-client-error) in the IoT Edge (1.1) documentation.
+If an IoT Edge device fails to start with error message `failed to provision with IoT Hub, and no valid device backup was found dps client error.`, see [DPS Client error](../iot-edge/troubleshoot-common-errors.md?preserve-view=true&view=iotedge-2018-06#dps-client-error) in the IoT Edge (1.1) documentation.
 
 ## Next Steps
 
