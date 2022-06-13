@@ -172,7 +172,7 @@ This section explains how to deploy Service A to Azure Spring Apps Enterprise ti
 First, create an application in Azure Spring Apps by using the following command:
 
 ```azurecli
-az spring-cloud app create \
+az spring app create \
     --resource-group $RESOURCE_GROUP \
     --service $AZURE_SPRING_CLOUD_NAME  \
     --name serviceA \
@@ -206,7 +206,7 @@ In practice, the following environment variables are added to the `JAVA_TOOL_OPT
 Use the following command to bind the service to Azure Service Registry, enabling it to connect to the server.
 
 ```azurecli
-az spring-cloud service-registry bind \
+az spring service-registry bind \
     --resource-group $RESOURCE_GROUP \
     --service $AZURE_SPRING_CLOUD_NAME \
     --app serviceA
@@ -226,7 +226,7 @@ You can also set up the application bindings from the Azure portal, as shown in 
 Now that you've bound your application, you'll deploy the Spring Boot artifact file *Sample-Service-A-A-0.0.1-SNAPSHOT.jar* to Azure Spring Apps. To deploy, use the following command:
 
 ```azurecli
-az spring-cloud app deploy \
+az spring app deploy \
     --resource-group $RESOURCE_GROUP \
     --service $AZURE_SPRING_CLOUD_NAME \
     --name serviceA \
@@ -237,7 +237,7 @@ az spring-cloud app deploy \
 Use the following command to see if your deployment is successful.
 
 ```azurecli
-az spring-cloud app list \
+az spring app list \
     --resource-group $RESOURCE_GROUP \
     --service $AZURE_SPRING_CLOUD_NAME \
     --output table
@@ -357,7 +357,7 @@ This example uses `RestTemplate` for simplicity. The endpoint returns the respon
 
 This example also implements another endpoint (`/list-all`) for validation. This implementation ensures that the service is communicating correctly with the Service Registry. You can call this endpoint to get the list of applications registered in the Service Registry.
 
-This example invokes Service A as `http://servicea`. The service name is the name that you specified during the creation of the Azure Spring Apps application. (For example: `az spring-cloud app create --name ServiceA`.) The application name matches the service name you registered with the service registry, making it easier to manage the service name.
+This example invokes Service A as `http://servicea`. The service name is the name that you specified during the creation of the Azure Spring Apps application. (For example: `az spring app create --name ServiceA`.) The application name matches the service name you registered with the service registry, making it easier to manage the service name.
 
 ### Build Service B
 
@@ -372,7 +372,7 @@ mvn clean package
 Use the following command to create an application in Azure Spring Apps to deploy Service B.
 
 ```azurecli
-az spring-cloud app create \
+az spring app create \
     --resource-group $RESOURCE_GROUP \
     --service $AZURE_SPRING_CLOUD_NAME \
     --name serviceB \
@@ -384,7 +384,7 @@ az spring-cloud app create \
 Next, use the following command to bind the application to the Service Registry.
 
 ```azurecli
-az spring-cloud service-registry bind \
+az spring service-registry bind \
     --resource-group $RESOURCE_GROUP \
     --service $AZURE_SPRING_CLOUD_NAME \
     --app serviceB
@@ -393,7 +393,7 @@ az spring-cloud service-registry bind \
 Next, use the following command to deploy the service.
 
 ```azurecli
-az spring-cloud app deploy \
+az spring app deploy \
     --resource-group $RESOURCE_GROUP \
     --service $AZURE_SPRING_CLOUD_NAME \
     --name serviceB \
@@ -404,7 +404,7 @@ az spring-cloud app deploy \
 Next, use the following command to check the status of the application.
 
 ```azurecli
-az spring-cloud app list \
+az spring app list \
     --resource-group $RESOURCE_GROUP \
     --service $AZURE_SPRING_CLOUD_NAME \
     --output table
