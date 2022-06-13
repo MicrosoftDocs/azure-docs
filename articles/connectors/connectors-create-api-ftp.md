@@ -1,6 +1,6 @@
 ---
-title: Connect to FTP server
-description: Connect to FTP server from workflows in Azure Logic Apps.
+title: Connect to FTP servers
+description: Connect to an FTP server from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -31,26 +31,12 @@ The FTP connector has different versions, based on [logic app type and host envi
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | [Managed connector - Standard class](managed.md). For operations, limits, and other information, review the [FTP managed connector reference](/connectors/ftp). |
-| **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For operations, managed connector limits, and other information, review the [FTP managed connector reference](/connectors/ftp). For ISE-versioned limits, review the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits), not the managed connector limits. |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string and doesn't need the on-premises data gateway. <br><br>For managed connector operations, limits, and other information, review the [FTP managed connector reference](/connectors/ftp). For the built-in version, review the [FTP built-in connector operations](#built-in-operations) section later in this article. |
+| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Standard class) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string and doesn't need the on-premises data gateway. For more information, review the following documentation: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [FTP built-in connector operations](#built-in-operations) section later in this article <br>- [Managed connectors in Azure Logic Apps](managed.md) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 ||||
 
-## Prerequisites
-
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-* Your FTP host server address and account credentials
-
-  The FTP connector requires access to your FTP server from the internet and that your FTP server is set up to operate in *passive* mode. Your logic app workflow requires your FTP account credentials to create a connection and access your FTP account.
-
-* The logic app workflow where you want to access your FTP account. To start your workflow with an FTP trigger, you have to start with a blank workflow. To use an FTP action, start your workflow with another trigger, such as the **Recurrence** trigger.
-
-For other connector requirements, review [FTP managed connector reference](/connectors/ftp/).
-
 ## Limitations
-
-* For FTP security, the FTP connector supports only explicit FTP over TLS/SSL (FTPS) and isn't compatible with implicit FTPS.
 
 * Capacity and throughput
 
@@ -62,21 +48,50 @@ For other connector requirements, review [FTP managed connector reference](/conn
 
     By default, FTP actions can read or write files that are *200 MB or smaller*. Currently, the FTP built-in connector doesn't support chunking.
 
-* FTP triggers no longer return file content. To get file content, use the pattern described in the [FTP managed connector reference trigger's limits](/connectors/ftp/#trigger-limits).
+* FTP triggers now return only metadata or properties, not file content. However, you can follow these triggers with the **Get file content** action and use the pattern described in this article. To make sure that a trigger returns one file at a time, rather than a list, make sure that the trigger's [**Split On** option is enabled](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
+
+* FTP triggers work only the specified folder, not its subfolders. To check a folder's subfolders, set up a separate workflow for each subfolder. For more information, review [FTP managed connector reference - Trigger limits](/connectors/ftp/#trigger-limits).
 
 * If you have an on-premises FTP server, consider the following options:
 
-  * Consumption workflows: Create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) or use [Azure App Service Hybrid connections](../app-service/app-service-hybrid-connections.md), which both let you access on-premises data sources without an on-premises data gateway.
+  * Consumption workflows: Create a [Standard logic app workflow](../logic-apps/single-tenant-overview-compare.md) instead, or use [Azure App Service Hybrid connections](../app-service/app-service-hybrid-connections.md), which both let you access on-premises data sources without an on-premises data gateway.
 
   * Standard workflows: Use the FTP built-in connector operations, which work without an on-premises data gateway.
 
-* FTP triggers don't fire if a file is added or updated in a subfolder. If your workflow requires the trigger to work on a subfolder, create nested workflows with triggers. For more information, review [FTP managed connector reference - Trigger limits](/connectors/ftp/#trigger-limits).
+* The FTP connector isn't compatible with implicit File Transfer Protocol Secure (FTPS). For secure FTP, make sure to set up *explicit* File Transfer Protocol Secure (FTPS) instead. The FTP connector supports only *explicit* FTP over FTPS, which is an extension of Transport Layer Security (TLS), the successor to Secure Socket Layer (SSL).
 
-* FTP triggers work by checking the FTP file system and looking for any file that's changed since the last poll. The trigger uses the last modified time on a file. If an external client or other tool creates the file and preserves the timestamp when the files change, disable the preservation feature so that your trigger can work. For more information, review [FTP managed connector reference - Trigger limits](/connectors/ftp/#trigger-limits).
+For other connector limitations, review [FTP managed connector reference](/connectors/ftp/).
+
+## Prerequisites
+
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* The FTP connector requires your FTP host server address and account credentials
+
+* The FTP connector requires access to the FTP server from or through the internet.
+
+* The FTP connector requires that your FTP server is set up to operate or accept in *passive* mode.
+
+* The FTP connector requires the FTP server to support folder names that include whitespace for use with the preceding commands. Some FTP servers, such as ProFTPd, require that you enable the `NoSessionReuseRequired` option while working in TLS/SSL mode.
 
 * The FTP managed connector requires that the FTP server enables specific commands and support folder names with whitespace. For more information, review [FTP managed connector reference - Trigger limits](/connectors/ftp/#trigger-limits) and [requirements](/connectors/ftp/#requirements).
 
-For other connector limitations, review [FTP managed connector reference](/connectors/ftp/).
+* The FTP managed connector implements actions that require the FTP server to enable use the following commands:
+
+  - APPE
+  - DELE
+  - LIST - Make sure this command returns the `year` component for file timestamps older than 6 months.
+  - MDTM
+  - RENAME
+  - RETR
+  - SIZE
+  - STOR
+
+* FTP triggers work by checking the FTP file system and looking for any file that's changed since the last poll. The trigger uses the last modified time on a file. If you have an external client or other tool that creates the file and preserves the timestamp when the files change, disable the preservation feature so that your trigger can work. For more information, review [FTP managed connector reference - Trigger limits](/connectors/ftp/#trigger-limits).
+
+* The logic app workflow where you want to access your FTP account. To start your workflow with an FTP trigger, you have to start with a blank workflow. To use an FTP action, start your workflow with another trigger, such as the **Recurrence** trigger.
+
+For other connector requirements, review the [FTP managed connector reference](/connectors/ftp/).
 
 <a name="add-ftp-trigger"></a>
 
@@ -399,7 +414,7 @@ This trigger starts a logic app workflow when one or more files are added or upd
 
 #### Returns
 
-Blob metadata
+When the trigger's **Split On** setting is enabled, the trigger returns the metadata for each file at a time. Otherwise, the trigger returns a list with each file's metadata.
 
 | Name | Type |
 |------|------|
@@ -411,6 +426,23 @@ Blob metadata
 ### Create file
 
 Operation ID: `createFile`
+
+This action creates a file. If the file is deleted or renamed on the FTP server immediately after creation, the operation might return an HTTP **404** error by design. To avoid this problem, include a 1-minute delay before you delete or rename any newly created files. You can use the [**Delay** action](connectors-native-delay.md) to add this delay to your workflow.
+
+#### Parameters
+
+| Name | Key | Required | Type | Description |
+|------|-----|----------|------|-------------|
+| **File path** | `filePath` | True | String | The full file path, including the file extension, if any. Specify a path that's relative to the root directory. |
+| **The file content** | `fileContent` | True | string | The content for the file |
+||||||
+
+#### Returns
+
+| Name | Type |
+|------|------|
+| **List of Files** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
+|||
 
 <a name="delete-file"></a>
 
