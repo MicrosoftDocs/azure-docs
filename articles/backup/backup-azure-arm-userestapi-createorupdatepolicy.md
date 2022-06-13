@@ -32,6 +32,8 @@ For the complete list of definitions in the request body, refer to the [backup p
 
 ### Example request body
 
+#### For Azure VM backup
+
 The following request body defines a backup policy for Azure VM backups.
 
 The policy says:
@@ -124,6 +126,467 @@ The policy says:
 
 > [!IMPORTANT]
 > The time formats for schedule and retention support only DateTime. They don't support Time format alone.
+
+#### For SQL in Azure VM backup
+
+Below is an example request body for SQL in Azure VM backup.
+
+The policy says:
+
+- Take a full backup every day at 13:30 UTC and a log backup every 1 hour.
+- Retain the daily full backups for 30 days and log backups for 30 days as well.
+
+```json
+"properties": {
+    "backupManagementType": "AzureWorkload",
+    "workLoadType": "SQLDataBase",
+    "settings": {
+      "timeZone": "UTC",
+      "issqlcompression": false,
+      "isCompression": false
+    },
+    "subProtectionPolicy": [
+      {
+        "policyType": "Full",
+        "schedulePolicy": {
+          "schedulePolicyType": "SimpleSchedulePolicy",
+          "scheduleRunFrequency": "Daily",
+          "scheduleRunTimes": [
+            "2022-02-14T13:30:00Z"
+          ],
+          "scheduleWeeklyFrequency": 0
+        },
+        "retentionPolicy": {
+          "retentionPolicyType": "LongTermRetentionPolicy",
+          "dailySchedule": {
+            "retentionTimes": [
+              "2022-02-14T13:30:00Z"
+            ],
+            "retentionDuration": {
+              "count": 30,
+              "durationType": "Days"
+            }
+          }
+        }
+      },
+      {
+        "policyType": "Log",
+        "schedulePolicy": {
+          "schedulePolicyType": "LogSchedulePolicy",
+          "scheduleFrequencyInMins": 60
+        },
+        "retentionPolicy": {
+          "retentionPolicyType": "SimpleRetentionPolicy",
+          "retentionDuration": {
+            "count": 30,
+            "durationType": "Days"
+          }
+        }
+      }
+    ],
+    "protectedItemsCount": 0
+  }
+```
+
+Similarly, below is an example of a policy which takes a differential backup everyday and a full backup once a week.
+
+```json
+"properties": {
+    "backupManagementType": "AzureWorkload",
+    "workLoadType": "SQLDataBase",
+    "settings": {
+      "timeZone": "UTC",
+      "issqlcompression": false,
+      "isCompression": false
+    },
+    "subProtectionPolicy": [
+      {
+        "policyType": "Full",
+        "schedulePolicy": {
+          "schedulePolicyType": "SimpleSchedulePolicy",
+          "scheduleRunFrequency": "Weekly",
+          "scheduleRunDays": [
+            "Sunday"
+          ],
+          "scheduleRunTimes": [
+            "2022-06-13T19:30:00Z"
+          ],
+          "scheduleWeeklyFrequency": 0
+        },
+        "retentionPolicy": {
+          "retentionPolicyType": "LongTermRetentionPolicy",
+          "weeklySchedule": {
+            "daysOfTheWeek": [
+              "Sunday"
+            ],
+            "retentionTimes": [
+              "2022-06-13T19:30:00Z"
+            ],
+            "retentionDuration": {
+              "count": 104,
+              "durationType": "Weeks"
+            }
+          },
+          "monthlySchedule": {
+            "retentionScheduleFormatType": "Weekly",
+            "retentionScheduleWeekly": {
+              "daysOfTheWeek": [
+                "Sunday"
+              ],
+              "weeksOfTheMonth": [
+                "First"
+              ]
+            },
+            "retentionTimes": [
+              "2022-06-13T19:30:00Z"
+            ],
+            "retentionDuration": {
+              "count": 60,
+              "durationType": "Months"
+            }
+          },
+          "yearlySchedule": {
+            "retentionScheduleFormatType": "Weekly",
+            "monthsOfYear": [
+              "January"
+            ],
+            "retentionScheduleWeekly": {
+              "daysOfTheWeek": [
+                "Sunday"
+              ],
+              "weeksOfTheMonth": [
+                "First"
+              ]
+            },
+            "retentionTimes": [
+              "2022-06-13T19:30:00Z"
+            ],
+            "retentionDuration": {
+              "count": 10,
+              "durationType": "Years"
+            }
+          }
+        }
+      },
+      {
+        "policyType": "Differential",
+        "schedulePolicy": {
+          "schedulePolicyType": "SimpleSchedulePolicy",
+          "scheduleRunFrequency": "Weekly",
+          "scheduleRunDays": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "scheduleRunTimes": [
+            "2022-06-13T02:00:00Z"
+          ],
+          "scheduleWeeklyFrequency": 0
+        },
+        "retentionPolicy": {
+          "retentionPolicyType": "SimpleRetentionPolicy",
+          "retentionDuration": {
+            "count": 30,
+            "durationType": "Days"
+          }
+        }
+      },
+      {
+        "policyType": "Log",
+        "schedulePolicy": {
+          "schedulePolicyType": "LogSchedulePolicy",
+          "scheduleFrequencyInMins": 120
+        },
+        "retentionPolicy": {
+          "retentionPolicyType": "SimpleRetentionPolicy",
+          "retentionDuration": {
+            "count": 15,
+            "durationType": "Days"
+          }
+        }
+      }
+    ],
+    "protectedItemsCount": 0
+  }
+```
+
+#### For SAP HANA in Azure VM backup
+
+Below is an example request body for SQL in Azure VM backup.
+
+The policy says:
+
+- Take a full backup every day at 19:30 UTC and a log backup every 2 hours.
+- Retain the daily backups for 180 days.
+- Retain the weekly backups for 104 weeks.
+- Retain the monthly backups for 60 months.
+- Retain the yearly backups for 10 years.
+- Retain the log backups for 15 days.
+
+```json
+{
+  "properties": {
+    "backupManagementType": "AzureIaasVM",
+    "timeZone": "Pacific Standard Time",
+    "schedulePolicy": {
+      "schedulePolicyType": "SimpleSchedulePolicy",
+      "scheduleRunFrequency": "Weekly",
+      "scheduleRunTimes": [
+        "2018-01-24T10:00:00Z"
+      ],
+      "scheduleRunDays": [
+        "Monday",
+        "Wednesday",
+        "Thursday"
+      ]
+    },
+    "retentionPolicy": {
+      "retentionPolicyType": "LongTermRetentionPolicy",
+      "weeklySchedule": {
+        "daysOfTheWeek": [
+          "Monday",
+          "Wednesday",
+          "Thursday"
+        ],
+        "retentionTimes": [
+          "2018-01-24T10:00:00Z"
+        ],
+        "retentionDuration": {
+          "count": 1,
+          "durationType": "Weeks"
+        }
+      },
+      "monthlySchedule": {
+        "retentionScheduleFormatType": "Weekly",
+        "retentionScheduleWeekly": {
+          "daysOfTheWeek": [
+            "Wednesday",
+            "Thursday"
+          ],
+          "weeksOfTheMonth": [
+            "First",
+            "Third"
+          ]
+        },
+        "retentionTimes": [
+          "2018-01-24T10:00:00Z"
+        ],
+        "retentionDuration": {
+          "count": 2,
+          "durationType": "Months"
+        }
+      },
+      "yearlySchedule": {
+        "retentionScheduleFormatType": "Weekly",
+        "monthsOfYear": [
+          "February",
+          "November"
+        ],
+        "retentionScheduleWeekly": {
+          "daysOfTheWeek": [
+            "Monday",
+            "Thursday"
+          ],
+          "weeksOfTheMonth": [
+            "Fourth"
+          ]
+        },
+        "retentionTimes": [
+          "2018-01-24T10:00:00Z"
+        ],
+        "retentionDuration": {
+          "count": 4,
+          "durationType": "Years"
+        }
+      }
+    }
+  }
+}
+```
+
+Similarly, below is an example of a policy which takes a full backup once a week and an incremental backup once a day.
+
+```json
+
+"properties": {
+  "backupManagementType": "AzureWorkload",
+  "workLoadType": "SAPHanaDatabase",
+  "settings": {
+    "timeZone": "UTC",
+    "issqlcompression": false,
+    "isCompression": false
+  },
+  "subProtectionPolicy": [
+    {
+      "policyType": "Full",
+      "schedulePolicy": {
+        "schedulePolicyType": "SimpleSchedulePolicy",
+        "scheduleRunFrequency": "Weekly",
+        "scheduleRunDays": [
+          "Sunday"
+        ],
+        "scheduleRunTimes": [
+          "2022-06-13T19:30:00Z"
+        ],
+        "scheduleWeeklyFrequency": 0
+      },
+      "retentionPolicy": {
+        "retentionPolicyType": "LongTermRetentionPolicy",
+        "weeklySchedule": {
+          "daysOfTheWeek": [
+            "Sunday"
+          ],
+          "retentionTimes": [
+            "2022-06-13T19:30:00Z"
+          ],
+          "retentionDuration": {
+            "count": 104,
+            "durationType": "Weeks"
+          }
+        },
+        "monthlySchedule": {
+          "retentionScheduleFormatType": "Weekly",
+          "retentionScheduleWeekly": {
+            "daysOfTheWeek": [
+              "Sunday"
+            ],
+            "weeksOfTheMonth": [
+              "First"
+            ]
+          },
+          "retentionTimes": [
+            "2022-06-13T19:30:00Z"
+          ],
+          "retentionDuration": {
+            "count": 60,
+            "durationType": "Months"
+          }
+        },
+        "yearlySchedule": {
+          "retentionScheduleFormatType": "Weekly",
+          "monthsOfYear": [
+            "January"
+          ],
+          "retentionScheduleWeekly": {
+            "daysOfTheWeek": [
+              "Sunday"
+            ],
+            "weeksOfTheMonth": [
+              "First"
+            ]
+          },
+          "retentionTimes": [
+            "2022-06-13T19:30:00Z"
+          ],
+          "retentionDuration": {
+            "count": 10,
+            "durationType": "Years"
+          }
+        }
+      }
+    },
+    {
+      "policyType": "Incremental",
+      "schedulePolicy": {
+        "schedulePolicyType": "SimpleSchedulePolicy",
+        "scheduleRunFrequency": "Weekly",
+        "scheduleRunDays": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "scheduleRunTimes": [
+          "2022-06-13T02:00:00Z"
+        ],
+        "scheduleWeeklyFrequency": 0
+      },
+      "retentionPolicy": {
+        "retentionPolicyType": "SimpleRetentionPolicy",
+        "retentionDuration": {
+          "count": 30,
+          "durationType": "Days"
+        }
+      }
+    },
+    {
+      "policyType": "Log",
+      "schedulePolicy": {
+        "schedulePolicyType": "LogSchedulePolicy",
+        "scheduleFrequencyInMins": 120
+      },
+      "retentionPolicy": {
+        "retentionPolicyType": "SimpleRetentionPolicy",
+        "retentionDuration": {
+          "count": 15,
+          "durationType": "Days"
+        }
+      }
+    }
+  ],
+  "protectedItemsCount": 0
+}
+
+```
+
+
+#### For Azure File share backup
+
+Below is an example request body for Azure File share backup
+
+The policy says:
+
+- Take a backup every day at 15:30 UTC.
+- Retain the daily backups for 30 days.
+- Retain the backups taken every Sunday for 12 weeks.
+
+```json
+"properties": {
+    "backupManagementType": "AzureStorage",
+    "workloadType": "AzureFileShare",
+    "schedulePolicy": {
+      "schedulePolicyType": "SimpleSchedulePolicy",
+      "scheduleRunFrequency": "Daily",
+      "scheduleRunTimes": [
+        "2022-06-13T15:30:00Z"
+      ],
+      "scheduleWeeklyFrequency": 0
+    },
+    "retentionPolicy": {
+      "retentionPolicyType": "LongTermRetentionPolicy",
+      "dailySchedule": {
+        "retentionTimes": [
+          "2022-06-13T15:30:00Z"
+        ],
+        "retentionDuration": {
+          "count": 30,
+          "durationType": "Days"
+        }
+      },
+      "weeklySchedule": {
+        "daysOfTheWeek": [
+          "Sunday"
+        ],
+        "retentionTimes": [
+          "2022-06-13T15:30:00Z"
+        ],
+        "retentionDuration": {
+          "count": 12,
+          "durationType": "Weeks"
+        }
+      }
+    },
+    "timeZone": "UTC",
+    "protectedItemsCount": 0
+  }
+```
+
+
 
 ## Responses
 
