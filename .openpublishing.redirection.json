@@ -1,11 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "articles/confidential-ledger/faq.md",
-      "redirect_url": "/azure/confidential-ledger/faq",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/germany/germany-developer-guide.md",
       "redirect_url": "/previous-versions/azure/germany/germany-developer-guide",
       "redirect_document_id": false
