@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity() {
         val communicationTokenCredential = CommunicationTokenCredential(communicationTokenRefreshOptions)
 
         val locator: CallCompositeJoinLocator = CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"))
-        val remoteOptions = CallCompositeRemoteOptions(locator, communicationTokenCredential, displayName)
+        val remoteOptions = CallCompositeRemoteOptions(locator, communicationTokenCredential, "DISPLAY_NAME")
 
         val callComposite: CallComposite = CallCompositeBuilder().build()
         callComposite.launch(this, remoteOptions)

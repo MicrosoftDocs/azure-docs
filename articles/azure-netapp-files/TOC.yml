@@ -97,8 +97,24 @@
         href: cross-region-replication-introduction.md
       - name: Requirements and considerations for cross-region replication
         href: cross-region-replication-requirements-considerations.md
-    - name: What is Azure Application Consistent Snapshot Tool
-      href: azacsnap-introduction.md
+    - name: Azure Application Consistent Snapshot (AzAcSnap) tool
+      items: 
+      - name: What is AzAcSnap?
+        href: azacsnap-introduction.md
+      - name: Release Notes for AzAcSnap
+        href: azacsnap-release-notes.md
+      - name: Get started with AzAcSnap
+        href: azacsnap-get-started.md
+      - name: Install AzAcSnap
+        href: azacsnap-installation.md
+      - name: Disaster recovery using AzAcSnap
+        href: azacsnap-disaster-recovery.md
+      - name: Tips and tricks for using AzAcSnap
+        href: azacsnap-tips.md
+      - name: Troubleshoot AzAcSnap
+        href: azacsnap-troubleshoot.md
+      - name: Preview release features of AzAcSnap
+        href: azacsnap-preview.md
   - name: Solutions and benefits
     items:
     - name: Solution architectures using Azure NetApp Files
@@ -305,36 +321,20 @@
     href: /azure/templates/microsoft.netapp/allversions
   - name: Azure CLI
     href: /cli/azure/netappfiles
-  - name: Azure Application Consistent Snapshot Tool (AzAcSnap)
-    items:
-    - name: Release Notes for AzAcSnap
-      href: azacsnap-release-notes.md
-    - name: Get started with AzAcSnap
-      href: azacsnap-get-started.md
-    - name: Install AzAcSnap
-      href: azacsnap-installation.md
-    - name: Disaster recovery using AzAcSnap
-      href: azacsnap-disaster-recovery.md
-    - name: Tips and tricks for using AzAcSnap
-      href: azacsnap-tips.md
-    - name: Troubleshoot AzAcSnap
-      href: azacsnap-troubleshoot.md
-    - name: Preview release features of AzAcSnap
-      href: azacsnap-preview.md
-    - name: AzAcSnap command reference 
-      items: 
-      - name: Configure AzAcSnap
-        href: azacsnap-cmd-ref-configure.md
-      - name: Test AzAcSnap
-        href: azacsnap-cmd-ref-test.md
-      - name: Back up using AzAcSnap
-        href: azacsnap-cmd-ref-backup.md
-      - name: Obtain details using AzAcSnap
-        href: azacsnap-cmd-ref-details.md
-      - name: Delete using AzAcSnap
-        href: azacsnap-cmd-ref-delete.md
-      - name: Restore using AzAcSnap
-        href: azacsnap-cmd-ref-restore.md
+  - name: AzAcSnap command reference 
+    items: 
+    - name: Configure AzAcSnap
+      href: azacsnap-cmd-ref-configure.md
+    - name: Test AzAcSnap
+      href: azacsnap-cmd-ref-test.md
+    - name: Back up using AzAcSnap
+      href: azacsnap-cmd-ref-backup.md
+    - name: Obtain details using AzAcSnap
+      href: azacsnap-cmd-ref-details.md
+    - name: Delete using AzAcSnap
+      href: azacsnap-cmd-ref-delete.md
+    - name: Restore using AzAcSnap
+      href: azacsnap-cmd-ref-restore.md
 - name: Resources
   items:
   - name: Pricing
