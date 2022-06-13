@@ -31,6 +31,8 @@ With Azure Spring Apps Enterprise tier, you don't have to create or start the Se
   > [!NOTE]
   > To use Tanzu Service Registry, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
 
+- [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
+
 ## Create applications that use Service Registry
 
 In this article, you'll create two services and register them with Azure Spring Apps Service Registry. After registration, one service will be able to use Service Registry to discover and invoke the other service. The following diagram summarizes the required steps:
@@ -52,7 +54,7 @@ This article uses the following environment variables. Set these variables to th
 | Variable                 | Description                       |
 |--------------------------|-----------------------------------|
 | $RESOURCE_GROUP          | Resource group name.              |
-| $AZURE_SPRING_CLOUD_NAME | Azure Spring Apps instance name. |
+| $AZURE_SPRING_APPS_NAME | Azure Spring Apps instance name. |
 
 ## Create Service A with Spring Boot
 
@@ -174,7 +176,7 @@ First, create an application in Azure Spring Apps by using the following command
 ```azurecli
 az spring app create \
     --resource-group $RESOURCE_GROUP \
-    --service $AZURE_SPRING_CLOUD_NAME  \
+    --service $AZURE_SPRING_APPS_NAME  \
     --name serviceA \
     --instance-count 1 \
     --memory 2Gi \
@@ -198,7 +200,7 @@ However, if you write these settings directly in your application, you'll need t
 In practice, the following environment variables are added to the `JAVA_TOOL_OPTIONS` variable:
 
 ```options
--Deureka.client.service-url.defaultZone=https://$AZURE_SPRING_CLOUD_NAME.svc.azuremicroservices.io/eureka/default/eureka
+-Deureka.client.service-url.defaultZone=https://$AZURE_SPRING_APPS_NAME.svc.azuremicroservices.io/eureka/default/eureka
 ```
 
 ### Bind a service to the Service Registry
@@ -208,7 +210,7 @@ Use the following command to bind the service to Azure Service Registry, enablin
 ```azurecli
 az spring service-registry bind \
     --resource-group $RESOURCE_GROUP \
-    --service $AZURE_SPRING_CLOUD_NAME \
+    --service $AZURE_SPRING_APPS_NAME \
     --app serviceA
 ```
 
@@ -228,7 +230,7 @@ Now that you've bound your application, you'll deploy the Spring Boot artifact f
 ```azurecli
 az spring app deploy \
     --resource-group $RESOURCE_GROUP \
-    --service $AZURE_SPRING_CLOUD_NAME \
+    --service $AZURE_SPRING_APPS_NAME \
     --name serviceA \
     --artifact-path ./target/Sample-Service-A-0.0.1-SNAPSHOT.jar \
     --jvm-options="-Xms1024m -Xmx1024m"
@@ -239,7 +241,7 @@ Use the following command to see if your deployment is successful.
 ```azurecli
 az spring app list \
     --resource-group $RESOURCE_GROUP \
-    --service $AZURE_SPRING_CLOUD_NAME \
+    --service $AZURE_SPRING_APPS_NAME \
     --output table
 ```
 
@@ -248,7 +250,7 @@ This command produces output similar to the following example.
 ```output
 Name                      Location       ResourceGroup           Public Url                                                           Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service
 ------------------------  -------------  ----------------------  -------------------------------------------------------------------  -----------------------  --------------------  -----  --------  ------------------  ---------------------  --------------------  -----------------------  ----------------------------------------
-servicea                  southeastasia  $RESOURCE_GROUP         https://$AZURE_SPRING_CLOUD_NAME-servicea.azuremicroservices.io      default                  Succeeded             1      2Gi       1/1                 N/A                    -                     -                        -
+servicea                  southeastasia  $RESOURCE_GROUP         https://$AZURE_SPRING_APPS_NAME-servicea.azuremicroservices.io      default                  Succeeded             1      2Gi       1/1                 N/A                    -                     -                        -
 ```
 
 ### Confirm that the Service A application is running
@@ -256,7 +258,7 @@ servicea                  southeastasia  $RESOURCE_GROUP         https://$AZURE_
 The output of the previous command includes the public URL for the service. To access the RESTful endpoint, append `/serviceA` to the URL, as shown in the following command:
 
 ```bash
-curl https://$AZURE_SPRING_CLOUD_NAME-servicea.azuremicroservices.io/serviceA
+curl https://$AZURE_SPRING_APPS_NAME-servicea.azuremicroservices.io/serviceA
 ```
 
 This command produces the following output.
@@ -268,13 +270,13 @@ This is a result of Service A
 Service A includes a RESTful endpoint that displays a list of environment variables. Access the endpoint with `/env` to see the environment variables, as shown in the following command:
 
 ```bash
-curl https://$AZURE_SPRING_CLOUD_NAME-servicea.azuremicroservices.io/env
+curl https://$AZURE_SPRING_APPS_NAME-servicea.azuremicroservices.io/env
 ```
 
 This command produces the following output.
 
 ```output
-"JAVA_TOOL_OPTIONS":"-Deureka.client.service-url.defaultZone=https://$AZURE_SPRING_CLOUD_NAME.svc.azuremicroservices.io/eureka/default/eureka
+"JAVA_TOOL_OPTIONS":"-Deureka.client.service-url.defaultZone=https://$AZURE_SPRING_APPS_NAME.svc.azuremicroservices.io/eureka/default/eureka
 ```
 
 As you can see, `eureka.client.service-url.defaultZone` has been added to `JAVA_TOOL_OPTIONS`. In this way, the application can register the service to the Service Registry and make it available from other services.
@@ -374,7 +376,7 @@ Use the following command to create an application in Azure Spring Apps to deplo
 ```azurecli
 az spring app create \
     --resource-group $RESOURCE_GROUP \
-    --service $AZURE_SPRING_CLOUD_NAME \
+    --service $AZURE_SPRING_APPS_NAME \
     --name serviceB \
     --instance-count 1 \
     --memory 2Gi \
@@ -386,7 +388,7 @@ Next, use the following command to bind the application to the Service Registry.
 ```azurecli
 az spring service-registry bind \
     --resource-group $RESOURCE_GROUP \
-    --service $AZURE_SPRING_CLOUD_NAME \
+    --service $AZURE_SPRING_APPS_NAME \
     --app serviceB
 ```
 
@@ -395,7 +397,7 @@ Next, use the following command to deploy the service.
 ```azurecli
 az spring app deploy \
     --resource-group $RESOURCE_GROUP \
-    --service $AZURE_SPRING_CLOUD_NAME \
+    --service $AZURE_SPRING_APPS_NAME \
     --name serviceB \
     --artifact-path ./target/Sample-Service-B-0.0.1-SNAPSHOT.jar \
     --jvm-options="-Xms1024m -Xmx1024m"
@@ -406,7 +408,7 @@ Next, use the following command to check the status of the application.
 ```azurecli
 az spring app list \
     --resource-group $RESOURCE_GROUP \
-    --service $AZURE_SPRING_CLOUD_NAME \
+    --service $AZURE_SPRING_APPS_NAME \
     --output table
 ```
 
@@ -415,8 +417,8 @@ If Service A and Service B are deployed correctly, this command will produce out
 ```output
 Name      Location       ResourceGroup           Public Url                                                       Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service
 --------  -------------  ----------------------  ---------------------------------------------------------------  -----------------------  --------------------  -----  --------  ------------------  ---------------------  --------------------  -----------------------  ----------------------------------------
-servicea  southeastasia  SpringCloud-Enterprise  https://$AZURE_SPRING_CLOUD_NAME-servicea.azuremicroservices.io  default                  Succeeded             1      2Gi       1/1                 1/1                    -                     default                  -
-serviceb  southeastasia  SpringCloud-Enterprise  https://$AZURE_SPRING_CLOUD_NAME-serviceb.azuremicroservices.io  default                  Succeeded             1      2Gi       1/1                 1/1                    -                     default                  -
+servicea  southeastasia  SpringCloud-Enterprise  https://$AZURE_SPRING_APPS_NAME-servicea.azuremicroservices.io  default                  Succeeded             1      2Gi       1/1                 1/1                    -                     default                  -
+serviceb  southeastasia  SpringCloud-Enterprise  https://$AZURE_SPRING_APPS_NAME-serviceb.azuremicroservices.io  default                  Succeeded             1      2Gi       1/1                 1/1                    -                     default                  -
 ```
 
 ## Invoke Service A from Service B
@@ -424,7 +426,7 @@ serviceb  southeastasia  SpringCloud-Enterprise  https://$AZURE_SPRING_CLOUD_NAM
 The output of the previous command includes the public URL for the service. To access the RESTful endpoint, append `/invoke-serviceA` to the URL, as shown in the following command:
 
 ```bash
-curl https://$AZURE_SPRING_CLOUD_NAME-serviceb.azuremicroservices.io/invoke-serviceA
+curl https://$AZURE_SPRING_APPS_NAME-serviceb.azuremicroservices.io/invoke-serviceA
 ```
 
 This command produces the following output:
@@ -438,7 +440,7 @@ INVOKE SERVICE A FROM SERVICE B: This is a result of Service A
 Finally, access the `/list-all` endpoint and retrieve some information from the Service Registry. The following command retrieves a list of services registered in the Service Registry.
 
 ```bash
-curl https://$AZURE_SPRING_CLOUD_NAME-serviceb.azuremicroservices.io/list-all
+curl https://$AZURE_SPRING_APPS_NAME-serviceb.azuremicroservices.io/list-all
 ```
 
 This command produces the following output.
