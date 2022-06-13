@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 A common challenge for developers is the management of secrets, credentials, certificates, keys etc used to secure communication between services. Managed identities eliminate the need for developers to manage these credentials. 
 
-While developers can securely store the secrets in [Azure Key Vault](../../key-vault/general/overview.md), services need a way to access Azure Key Vault. Managed identities provide an automatically managed identity in Azure Active Directory for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. Applications can use managed identities to obtain Azure AD tokens without having manage any credentials.
+While developers can securely store the secrets in [Azure Key Vault](../../key-vault/general/overview.md), services need a way to access Azure Key Vault. Managed identities provide an automatically managed identity in Azure Active Directory for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. Applications can use managed identities to obtain Azure AD tokens without having to manage any credentials.
 
 The following video shows how you can use managed identities:</br>
 
