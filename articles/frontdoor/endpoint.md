@@ -6,7 +6,7 @@ author: johndowns
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/06/2022
+ms.date: 06/13/2022
 ms.author: jodowns
 ---
 
@@ -23,8 +23,6 @@ When you're planning the endpoints to create, consider the following factors:
 - If all of your domains use the same or similar route paths, it's probably best to combine them into a single endpoint.
 - If you use different routes and route paths for each domain, consider using separate endpoints, such as by having an endpoint for each custom domain.
 - If you need to enable or disable all of your domains together, consider using a single endpoint. An entire endpoint can be enabled or disabled together.
-
-<!-- TODO wildcards -->
 
 ## Endpoint domain names
 
@@ -58,7 +56,7 @@ The following table lists the allowable values for the endpoint's domain reuse b
 > [!NOTE]
 > You can't modify the reuse behavior of an existing Front Door endpoint. The reuse behavior only applies to newly created endpoints.
 
-The following examples show how to create a new Front Door endpoint with a reuse scope of `SubscriptionReuse`:
+The following example shows how to create a new Front Door endpoint with a reuse scope of `SubscriptionReuse`:
 
 # [Azure CLI](#tab/azurecli)
 
