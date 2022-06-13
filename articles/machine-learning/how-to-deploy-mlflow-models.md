@@ -58,9 +58,9 @@ The following table shows the target support for MLflow models in Azure ML:
 
 There are three workflows for deploying models to Azure ML:
 
-- [Deploy using the MLflow plugin](#Deploy-using-the-MLflow-plugin)
-- [Deploy using CLI (v2)](#Deploy-using-CLI-(v2))
-- [Deploy using Azure Machine Learning Studioo](#Deploy-using-Azure-Machine-Learning-Studio)
+- [Deploy using the MLflow plugin](#deploy-using-the-mlflow-plugin)
+- [Deploy using CLI (v2)](#deploy-using-cli-v2)
+- [Deploy using Azure Machine Learning Studio](#deploy-using-azure-machine-learning-studio)
 
 ### Which option to use?
 
@@ -80,7 +80,7 @@ The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can
 
 ### Deploying models to ACI or AKS
 
-Deployments can be generated using both the Python API for MLflow or MLflow CLI. In both cases, a JSON configuration file can be indicated with the details of the deployment you want to achieve. If not indicated, then a default deployment is done using Azure Container Instances (ACI) and a minimal configuration. The full specification of this configuration for ACI and AKS file can be checked at [Deployment configuration schema](https://docs.microsoft.com/en-us/azure/machine-learning/reference-azure-machine-learning-cli#deployment-configuration-schema).
+Deployments can be generated using both the Python API for MLflow or MLflow CLI. In both cases, a JSON configuration file can be indicated with the details of the deployment you want to achieve. If not indicated, then a default deployment is done using Azure Container Instances (ACI) and a minimal configuration. The full specification of this configuration for ACI and AKS file can be checked at [Deployment configuration schema](v1/reference-azure-machine-learning-cli#deployment-configuration-schema).
 
 #### Configuration example for ACI deployment
 
@@ -148,7 +148,7 @@ The following sample creates a deployment using an ACI:
 
 ### Deploying models to Managed Inference
 
-Deployments can be generated using both the Python API for MLflow or MLflow CLI. In both cases, a JSON configuration file needs to be indicated with the details of the deployment you want to achieve. The full specification of this configuration can be found at [Managed online deployment schema (v2)](https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-deployment-managed-online).
+Deployments can be generated using both the Python API for MLflow or MLflow CLI. In both cases, a JSON configuration file needs to be indicated with the details of the deployment you want to achieve. The full specification of this configuration can be found at [Managed online deployment schema (v2)](reference-yaml-deployment-managed-online).
 
 #### Configuration example for an Managed Inference Service deployment (real time)
 
@@ -378,7 +378,7 @@ Azure ML supports no-code deployment for batch inference in Managed Inference se
 
 ### How work is distributed on workers
 
-Work is distributed at the file level, for both structured and unstructured data. As a consequence, only [file datasets](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-create-register-datasets#filedataset) or [URI folders](https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-data) are supported for this feature. Each worker processes batches of `Mini batch size` files at a time. Further parallelism can be achieved if `Max concurrency per instance` is increased. 
+Work is distributed at the file level, for both structured and unstructured data. As a consequence, only [file datasets](how-to-create-register-datasets#filedataset) or [URI folders](reference-yaml-data) are supported for this feature. Each worker processes batches of `Mini batch size` files at a time. Further parallelism can be achieved if `Max concurrency per instance` is increased. 
 
 > [!WARNING]
 > Nested folder structures are not explored during inference. If you are partitioning your data using folders, make sure to flatten the structure beforehand.
