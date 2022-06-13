@@ -311,4 +311,4 @@ items:
     - name: Azure Arc jumpstart
       href: https://azurearcjumpstart.io
     - name: Pre-release testing
-      href: preview.md
+      href: preview-testing.md
