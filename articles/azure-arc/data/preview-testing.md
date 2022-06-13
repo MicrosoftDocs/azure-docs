@@ -56,15 +56,15 @@ In addition to the above installable artifacts, the following are updated in Azu
 
 ### Install prerequisite tools
 
-To, install a pre-release version, please follow these pre-requisite instructions:
+To install a pre-release version, please follow these pre-requisite instructions:
 
-If you are going to use the Azure CLI extension:
+If you use the Azure CLI extension:
 
 - Uninstall the Azure CLI extension (`az extension remove -n arcdata`).
-- Download the latest pre-release Azure CLI extension .whl file from [https://aka.ms/az-cli-arcdata-ext](https://aka.ms/az-cli-arcdata-ext).
+- Download the latest pre-release Azure CLI extension `.whl` file from [https://aka.ms/az-cli-arcdata-ext](https://aka.ms/az-cli-arcdata-ext).
 - Install the latest pre-release Azure CLI extension (`az extension add -s <location of downloaded .whl file>`).
 
-If you are going to use the Azure Data Studio extension to install:
+If you use the Azure Data Studio extension to install:
 
 - Uninstall the Azure Data Studio extension. Select the Extensions panel and select on the **Azure Arc** extension, select **Uninstall**.
 - Download the latest pre-release Azure Data Studio extension .vsix file from [https://aka.ms/ads-arcdata-ext](https://aka.ms/ads-arcdata-ext).
@@ -77,7 +77,7 @@ If you are going to use the Azure Data Studio extension to install:
 
 #### Indirect connectivity mode
 
-If you are installing using the Azure CLI, please follow the instructions to [create a custom configuration profile](create-custom-configuration-template.md). Once created, edit this custom configuration profile file enter the `docker` property values as required based on the information provided in the version history table on this page.
+If you install using the Azure CLI, please follow the instructions to [create a custom configuration profile](create-custom-configuration-template.md). Once created, edit this custom configuration profile file enter the `docker` property values as required based on the information provided in the version history table on this page.
 
 Example:
 
@@ -100,7 +100,7 @@ Once the file is edited, use the command `az arcdata dc create` as explained in 
 
 #### Indirect connectivity mode
 
-If you are going to use Azure Data Studio to install, complete the data controller deployment wizard as normal except click on **Script to notebook** at the end instead of **Deploy**. In the generated notebook, edit the `Set variables` cell to *add* the following lines:
+If you use Azure Data Studio to install, complete the data controller deployment wizard as normal except click on **Script to notebook** at the end instead of **Deploy**. In the generated notebook, edit the `Set variables` cell to *add* the following lines:
 
 ```python
 # choose between arcdata/test or arcdata/preview as appropriate
@@ -110,17 +110,17 @@ os.environ["AZDATA_DOCKER_TAG"] = "v1.8.0_2022-06-07_5ba6b837"
 
 Run the notebook by clicking **Run All**.
 
-### Install using Azure Portal
+### Install using Azure portal
 
 Follow the instructions to [Arc-enabled the Kubernetes cluster](create-data-controller-direct-prerequisites.md) as normal.
 
-Open the Azure Portal by using this special URL: [https://portal.azure.com/?Microsoft_Azure_HybridData_Platform=BugBash](https://portal.azure.com/?Microsoft_Azure_HybridData_Platform=BugBash).
+Open the Azure portal by using this special URL: [https://portal.azure.com/?Microsoft_Azure_HybridData_Platform=BugBash](https://portal.azure.com/?Microsoft_Azure_HybridData_Platform=BugBash).
 
-Follow the instructions to [Create the Azure Arc data controller from Azure portal - Direct connectivity mode](create-data-controller-direct-azure-portal.md) except that when choosing a deployment profile, select **Custom template** in the **Kubernetes configuration template** drop down.  Set the repository to either `arcdata/test` or `arcdata/preview` as appropriate and enter the desired tag in the **Image tag** field.  Fill out the rest of the custom cluster configuration template fields as normal.
+Follow the instructions to [Create the Azure Arc data controller from Azure portal - Direct connectivity mode](create-data-controller-direct-azure-portal.md) except that when choosing a deployment profile, select **Custom template** in the **Kubernetes configuration template** drop-down.  Set the repository to either `arcdata/test` or `arcdata/preview` as appropriate and enter the desired tag in the **Image tag** field.  Fill out the rest of the custom cluster configuration template fields as normal.
 
 Complete the rest of the wizard as normal.
 
-When deploying using this method, the most recent pre-release version will always be used.
+When you deploy with this method, the most recent pre-release version will always be used.
 
 ## Pre-release version history
 
@@ -130,9 +130,9 @@ When deploying using this method, the most recent pre-release version will alway
 |-----------|-----------|
 |Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
 |Container images tag |`v1.8.0_2022-06-14`|
-|CRD names and version|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`kafkas.arcdata.microsoft.com`: v1beta1<br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1<br/>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2,v1<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2<br/>|
+|CRD names and version|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`kafkas.arcdata.microsoft.com`: v1beta1<br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1<br/>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2, v1<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2<br/>|
 |ARM API version|2022-03-01-preview (No change)|
-|arcdata Azure CLI extension version|1.4.2 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|`arcdata` Azure CLI extension version|1.4.2 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc enabled Kubernetes helm chart extension version|1.2.19831003|
 |Arc Data extension for Azure Data Studio|1.3.0 (No change)([Download](https://aka.ms/ads-arcdata-ext))|
 
@@ -142,17 +142,17 @@ New for this release:
   - Canada Central and West US 3 regions are fully supported.
 
 - Arc enabled SQL Managed Instance
-  - You can now configure a SQL managed instance to use an AD Connector at the time the SQL managed instance is provisioned from the Azure Portal.
+  - You can now configure a SQL managed instance to use an AD Connector at the time the SQL managed instance is provisioned from the Azure portal.
   - BACKUP DATABASE TO URL to AWS S3 or S3-compatible storage is now supported.  [Documentation](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-s3-compatible-object-storage)
-  - `az sql mi-arc create` and `update` commands have a new `--sync-secondary-commit` parameter which is the number of secondary replicas that must be synchronized to failover.  Default is "-1" which will set the number of required synchronized secondaries to "(# of replicas - 1) / 2".  Allowed values: -1, 1, 2.  Arc SQL MI custom resource property added called `syncSecondaryToCommit`.
-  - Billing estimate in Azure Portal is updated to reflect the number of readable secondaries that are selected.
+  - `az sql mi-arc create` and `update` commands have a new `--sync-secondary-commit` parameter which is the number of secondary replicas that must be synchronized to fail over.  Default is "-1" which will set the number of required synchronized secondaries to "(# of replicas - 1) / 2".  Allowed values: -1, 1, 2.  Arc SQL MI custom resource property added called `syncSecondaryToCommit`.
+  - Billing estimate in Azure portal is updated to reflect the number of readable secondaries that are selected.
   - Added SPNs for readable secondary service
 
 - Data Controller
   - Control DB SQL instance version is upgraded to latest version
   - Additional compatibility checks are run prior to executing an upgrade request
   - Upload status is now shown in the DC list view in the Azure portal
-  - Show the usage upload message value in the Overview blade banner in the Azure Portal if the value is not "Success"
+  - Show the usage upload message value in the Overview blade banner in the Azure portal if the value is not "Success"
 
 ## Provide feedback
 
