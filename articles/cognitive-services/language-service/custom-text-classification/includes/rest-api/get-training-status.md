@@ -22,7 +22,7 @@ Use the following **GET** request to get the status of your model's training pro
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name of your project. This value is case-sensitive.   | `myProject` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This value is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data)  | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. See [model lifecycle](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) to learn more about other available API versions.  | `2022-05-01` |
 
 #### Headers
 
@@ -38,39 +38,25 @@ Once you send the request, you’ll get the following response.
 
 ```json
 {
-  "jobs": [
-    {
-      "result": {
-        "trainedModelLabel": "{MODEL-NAME}",
-        "trainingConfigVersion": "string",
-        "trainStatus": {
-          "percentComplete": 0,
-          "elapsedTime": "string"
-        },
-        "evaluationStatus": {
-          "percentComplete": 0,
-          "elapsedTime": "string"
-        }
-      },
-      "jobId": "string",
-      "createdDateTime": "2022-04-12T12:13:28.771Z",
-      "lastUpdatedDateTime": "2022-04-12T12:13:28.771Z",
-      "expirationDateTime": "2022-04-12T12:13:28.771Z",
-      "status": "unknown",
-      "warnings": [
-        {
-          "code": "unknown",
-          "message": "string"
-        }
-      ],
-      "errors": [
-        {
-          "code": "unknown",
-          "message": "string"
-        }
-      ]
+  "result": {
+    "modelLabel": "{MODEL-NAME}",
+    "trainingConfigVersion": "{CONFIG-VERSION}",
+    "estimatedEndDateTime": "2022-04-18T15:47:58.8190649Z",
+    "trainingStatus": {
+      "percentComplete": 3,
+      "startDateTime": "2022-04-18T15:45:06.8190649Z",
+      "status": "running"
+    },
+    "evaluationStatus": {
+      "percentComplete": 0,
+      "status": "notStarted"
     }
-  ]
+  },
+  "jobId": "{JOB-ID}",
+  "createdDateTime": "2022-04-18T15:44:44Z",
+  "lastUpdatedDateTime": "2022-04-18T15:45:48Z",
+  "expirationDateTime": "2022-04-25T15:44:44Z",
+  "status": "running"
 }
 
 ```

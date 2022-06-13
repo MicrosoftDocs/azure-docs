@@ -242,7 +242,7 @@ Therefore, to create a metric alert rule, all involved subscriptions must be reg
 - The subscription containing the action groups associated with the alert rule (if defined)
 - The subscription in which the alert rule is saved
 
-Learn more about [registering resource providers](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+Learn more about [registering resource providers](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## Naming restrictions for metric alert rules
 

@@ -143,6 +143,6 @@ Support for these connectors is planned for the future.
 
 ## Next steps
 
-* Learn more about [using Azure CLI with Azure Cosmos DB.](/cli/azure/azure-cli-reference-for-cosmos-db.md)
+* Learn more about [using Azure CLI with Azure Cosmos DB.](/cli/azure/azure-cli-reference-for-cosmos-db)
 * Learn more about [using Azure PowerShell with Azure Cosmos DB.](/powershell/module/az.cosmosdb/)
 * Learn more about [partitioning in Azure Cosmos DB.](partitioning-overview.md)

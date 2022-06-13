@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: xiaoharper
 ms.author: zhanxia
-ms.date:  05/10/2022
+ms.date: 05/26/2022
 ms.topic: how-to
 ms.custom: devplatv2, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli, cliv2
@@ -92,7 +92,7 @@ Open the `services.Studio.endpoint` URL you'll see a graph visualization of the 
 
 Let's take a look at the pipeline definition in the *3b_pipeline_with_data/pipeline.yml* file.  
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
 
 Below table describes the most common used fields of pipeline YAML schema. See [full pipeline YAML schema here](reference-yaml-job-pipeline.md).  
 
@@ -125,7 +125,7 @@ One common scenario is to read and write data in your pipeline. In AuzreML, we u
 
 Now let's look at the *componentA.yml* as an example to understand component definition YAML.
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/componentA.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/componentA.yml":::
 
 The most common used schema of the component YAML is described in below table. See [full component YAML schema here](reference-yaml-component-command.md).
 
@@ -193,7 +193,7 @@ Under **Jobs** tab, you'll see the history of all jobs that use this component.
 
 Let's use `1b_e2e_registered_components` to demo how to use registered component in pipeline YAML. Navigate to `1b_e2e_registered_components` directory, open the `pipeline.yml` file. The keys and values in the `inputs` and `outputs` fields are similar to those already discussed. The only significant difference is the value of the `component` field in the `jobs.<JOB_NAME>.component` entries. The `component` value is of the form `azureml:<COMPONENT_NAME>:<COMPONENT_VERSION>`. The `train-job` definition, for instance, specifies the latest version of the registered component `my_train` should be used:
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="24-36" highlight="4":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml" range="24-36" highlight="4":::
 
 ### Manage components
 

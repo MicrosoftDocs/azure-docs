@@ -6,7 +6,7 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: mvc, event-tier1-build-2022
-ms.date: 05/08/2022
+ms.date: 05/24/2022
 ---
 
 # Filter and ingest to Azure Data Lake Storage Gen2 using the Stream Analytics no code editor
@@ -32,9 +32,9 @@ This article describes how you can use the no code editor to easily create a Str
         :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/add-field.png" alt-text="Screenshot showing where you can add a field or remove, rename, or change a field type." lightbox="./media/filter-ingest-data-lake-storage-gen2/add-field.png" :::
     1. A live sample of incoming data in **Data preview** table under the diagram view. It automatically refreshes periodically. You can select **Pause streaming preview** to see a static view of sample input data.  
         :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/sample-input.png" alt-text="Screenshot showing sample data on the Data preview tab." lightbox="./media/filter-ingest-data-lake-storage-gen2/sample-input.png" :::
-1. In the **Filter** area, select a field to filter the incoming data with a condition.  
+1. Select the **Filter** tile. In the **Filter** area, select a field to filter the incoming data with a condition.  
     :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/filter-data.png" alt-text="Screenshot showing the Filter area where you can add a conditional filter." lightbox="./media/filter-ingest-data-lake-storage-gen2/filter-data.png" :::
-1. Select the Azure Data Lake Gen2 table to send your filtered data:
+1. Select the **Azure Data Lake Storage Gen2** tile. Select the **Azure Data Lake Gen2** account to send your filtered data:
     1. Select the **subscription**, **storage account name**, and **container** from the drop-down menu.
     1. After the **subscription** is selected, the **authentication method** and **storage account key** should be automatically filled in. Select **Connect**.  
     For more information about the fields and to see examples of path pattern, see [Blob storage and Azure Data Lake Gen2 output from Azure Stream Analytics](blob-storage-azure-data-lake-gen2-output.md).  
@@ -47,9 +47,28 @@ This article describes how you can use the no code editor to easily create a Str
 1. After your select **Start**, the job starts running within two minutes.  
 :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/no-code-start-job.png" alt-text="Screenshot showing the Start Stream Analytics job window." lightbox="./media/filter-ingest-data-lake-storage-gen2/no-code-start-job.png" :::
 
-You can see the job under the Process Data section in the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it or stop and restart it, as needed.
+You can see the job under the Process Data section in the **Stream Analytics jobs** tab. Select **Refresh** until you see the job status as **Running**. Select **Open metrics** to monitor it or stop and restart it, as needed.
 
 :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/no-code-list-jobs.png" alt-text="Screenshot showing the Stream Analytics jobs tab." lightbox="./media/filter-ingest-data-lake-storage-gen2/no-code-list-jobs.png" :::
+
+Here's a sample **Metrics** page:
+
+:::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/metrics-page.png" alt-text="Screenshot showing the Metrics page." lightbox="./media/filter-ingest-data-lake-storage-gen2/metrics-page.png" :::
+
+
+## Verify data in Data Lake Storage
+
+1. You should see files created in the container you specified. 
+
+    :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/filtered-data-file.png" alt-text="Screenshot showing the generated file with filtered data in the Azure Data Lake Storage." lightbox="./media/filter-ingest-data-lake-storage-gen2/filtered-data-file.png" :::        
+1. Download and open the file to confirm that you see only the filtered data. In the following example, you see data with **SwitchNum** set to **US**.  
+
+    ```json
+    {"RecordType":"MO","SystemIdentity":"d0","FileNum":"548","SwitchNum":"US","CallingNum":"345697969","CallingIMSI":"466921402416657","CalledNum":"012332886","CalledIMSI":"466923101048691","DateS":"20220524","TimeType":0,"CallPeriod":0,"ServiceType":"S","Transfer":0,"OutgoingTrunk":"419","MSRN":"1416960750071","callrecTime":"2022-05-25T02:07:10Z","EventProcessedUtcTime":"2022-05-25T02:07:50.5478116Z","PartitionId":0,"EventEnqueuedUtcTime":"2022-05-25T02:07:09.5140000Z", "TimeS":null,"CallingCellID":null,"CalledCellID":null,"IncomingTrunk":null,"CalledNum2":null,"FCIFlag":null}
+    {"RecordType":"MO","SystemIdentity":"d0","FileNum":"552","SwitchNum":"US","CallingNum":"012351287","CallingIMSI":"262021390056324","CalledNum":"012301973","CalledIMSI":"466922202613463","DateS":"20220524","TimeType":3,"CallPeriod":0,"ServiceType":"V","Transfer":0,"OutgoingTrunk":"442","MSRN":"886932428242","callrecTime":"2022-05-25T02:07:13Z","EventProcessedUtcTime":"2022-05-25T02:07:50.5478116Z","PartitionId":0,"EventEnqueuedUtcTime":"2022-05-25T02:07:12.7350000Z", "TimeS":null,"CallingCellID":null,"CalledCellID":null,"IncomingTrunk":null,"CalledNum2":null,"FCIFlag":null}
+    {"RecordType":"MO","SystemIdentity":"d0","FileNum":"559","SwitchNum":"US","CallingNum":"456757102","CallingIMSI":"466920401237309","CalledNum":"345617823","CalledIMSI":"466923000886460","DateS":"20220524","TimeType":1,"CallPeriod":696,"ServiceType":"V","Transfer":1,"OutgoingTrunk":"419","MSRN":"886932429155","callrecTime":"2022-05-25T02:07:22Z","EventProcessedUtcTime":"2022-05-25T02:07:50.5478116Z","PartitionId":0,"EventEnqueuedUtcTime":"2022-05-25T02:07:21.9190000Z", "TimeS":null,"CallingCellID":null,"CalledCellID":null,"IncomingTrunk":null,"CalledNum2":null,"FCIFlag":null}
+    ```
+
 
 ## Next steps
 

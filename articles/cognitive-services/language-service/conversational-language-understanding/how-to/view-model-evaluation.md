@@ -33,6 +33,9 @@ See the [project development lifecycle](../overview.md#project-development-lifec
 
 ### [Language studio](#tab/Language-studio)
 
+> [!Note]
+> The results here are for the machine learning entity component only.
+
 In the **view model details** page, you'll be able to see all your models, with their current training status, and the date they were last trained.
 
 [!INCLUDE [Model performance](../includes/language-studio/model-performance.md)]

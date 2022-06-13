@@ -18,7 +18,7 @@ ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 In this article, you learn how to connect to storage services on Azure by using identity-based data access and Azure Machine Learning datastores via the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).  
 
-Typically, datastores use **credential-based authentication** to confirm you have permission to access the storage service. They keep connection information, like your subscription ID and token authorization, in the [key vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace. When you create a datastore that uses **identity-based data access**, your Azure account ([Azure Active Directory token](/azure/active-directory/fundamentals/active-directory-whatis)) is used to confirm you have permission to access the storage service. In the **identity-based data access** scenario, no authentication credentials are saved. Only the storage account information is stored in the datastore. 
+Typically, datastores use **credential-based authentication** to confirm you have permission to access the storage service. They keep connection information, like your subscription ID and token authorization, in the [key vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace. When you create a datastore that uses **identity-based data access**, your Azure account ([Azure Active Directory token](../../active-directory/fundamentals/active-directory-whatis.md)) is used to confirm you have permission to access the storage service. In the **identity-based data access** scenario, no authentication credentials are saved. Only the storage account information is stored in the datastore. 
  
 To create datastores with **identity-based** data access via the Azure Machine Learning studio UI, see [Connect to data with the Azure Machine Learning studio](../how-to-connect-data-ui.md#create-datastores).
 
@@ -59,9 +59,9 @@ Certain machine learning scenarios involve training models with private data. In
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - An Azure storage account with a supported storage type. These storage types are supported: 
-    - [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview)
-    - [Azure Data Lake Storage Gen1](/azure/data-lake-store/)
-    - [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+    - [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md)
+    - [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml)
+    - [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)
     - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
 
 - The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install).
@@ -153,7 +153,7 @@ Identity-based data access supports connections to **only** the following storag
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-To access these storage services, you must have at least [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](/azure/storage/blobs/assign-azure-role-data-access). 
+To access these storage services, you must have at least [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../../storage/blobs/assign-azure-role-data-access.md). 
 
 If you prefer to not use your user identity (Azure Active Directory), you also have the option to grant a workspace managed-system identity (MSI) permission to create the datastore. To do so, you must have Owner permissions to the storage account and add the `grant_workspace_access= True` parameter to your data register method. 
 

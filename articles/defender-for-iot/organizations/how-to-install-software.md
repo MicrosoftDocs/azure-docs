@@ -185,7 +185,7 @@ This procedure describes how to add a secondary NIC if you've already installed 
 
 ### Find your port
 
-If you are having trouble locating the physical port on your device, you can use the following command to find your port:
+If you're having trouble locating the physical port on your device, you can use the following command to find your port:
 
 ```bash
 sudo ethtool -p <port value> <time-in-seconds>

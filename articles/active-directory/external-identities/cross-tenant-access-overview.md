@@ -69,7 +69,17 @@ To set up B2B collaboration, both organizations configure their Microsoft cloud 
 - Use B2B collaboration to invite a user in the partner tenant to access resources in your organization, including web line-of-business apps, SaaS apps, and SharePoint Online sites, documents, and files.
 - Apply Conditional Access policies to the B2B collaboration user and opt to trust device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
 
+> [!NOTE]
+> B2B direct connect is not supported for collaboration with Azure AD tenants in a different Microsoft cloud.
+
 For configuration steps, see [Configure Microsoft cloud settings for B2B collaboration (Preview)](cross-cloud-settings.md).
+
+> [!NOTE]
+> The admin experience is currently still deploying to national clouds. To access the admin experience in Microsoft Azure Government or Microsoft Azure China, you can use these links: 
+>
+>Microsoft Azure Government - https://aka.ms/cloudsettingsusgov
+>
+>Microsoft Azure China - https://aka.ms/cloudsettingschina
 
 ### Default settings in cross-cloud scenarios
 

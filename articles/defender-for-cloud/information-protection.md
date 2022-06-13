@@ -2,7 +2,7 @@
 title: Prioritize security actions by data sensitivity - Microsoft Defender for Cloud
 description: Use Microsoft Purview's data sensitivity classifications in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 11/09/2021
+ms.date: 04/27/2022
 ---
 # Prioritize security actions by data sensitivity
 
@@ -70,6 +70,13 @@ A graph shows the number of recommendations and alerts by classified resource ty
 
 :::image type="content" source="./media/information-protection/overview-dashboard-information-protection.png" alt-text="Screenshot of the information protection tile in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/information-protection/overview-dashboard-information-protection.png":::
 
+## Learn more
+
+If you would like to learn more from the product manager about Microsoft Defender for Cloud's [integration with Azure Purview](episode-two.md).
+
+You can also check out the following blog:
+
+- [Secure sensitive data in your cloud resources](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/secure-sensitive-data-in-your-cloud-resources/ba-p/2918646).
 
 ## Next steps
 

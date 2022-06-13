@@ -4,7 +4,7 @@ description: Learn what services are supported by availability zones and underst
 author: awysza
 ms.service: azure
 ms.topic: conceptual
-ms.date: 03/25/2022
+ms.date: 05/30/2022
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions

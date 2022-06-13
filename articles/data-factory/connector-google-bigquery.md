@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/26/2022
+ms.date: 05/30/2022
 ---
 
 # Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics
@@ -117,7 +117,7 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | email | The service account email ID that is used for ServiceAuthentication. It can be used only on Self-hosted Integration Runtime.  | No |
-| keyFilePath | The full path to the .p12 key file that is used to authenticate the service account email address. | No |
+| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address. | No |
 | trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over TLS. This property can be set only when you use TLS on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified .pem file. The default value is **false**.  | No |
 
@@ -133,7 +133,7 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
             "requestGoogleDriveScope" : true,
             "authenticationType" : "ServiceAuthentication",
             "email": "<email>",
-            "keyFilePath": "<.p12 key path on the IR machine>"
+            "keyFilePath": "<.p12 or .json key path on the IR machine>"
         },
         "connectVia": {
             "referenceName": "<name of Self-hosted Integration Runtime>",

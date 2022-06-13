@@ -2,8 +2,8 @@
 title: "Features: Action and context - Personalizer" 
 titleSuffix: Azure Cognitive Services
 description: Personalizer uses features, information about actions and context, to make better ranking suggestions. Features can be very generic, or specific to an item.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer

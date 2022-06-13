@@ -7,15 +7,15 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 05/11/2022
+ms.date: 05/31/2022
 ms.custom: mode-ui
 ---
 
 # Quickstart: Create a knowledge store in the Azure portal
 
-[Knowledge store](knowledge-store-concept-intro.md) is a feature of Azure Cognitive Search that accepts output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) and makes it available in Azure Storage for downstream apps and workloads. Enrichments created by the pipeline - such as translated text, OCR text, tagged images, and recognized entities - are projected into tables or blobs, where they can be accessed by any app or workload that connects to Azure Storage.
+[Knowledge store](knowledge-store-concept-intro.md) is a feature of Azure Cognitive Search that accepts output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) and makes it available in Azure Storage for downstream apps and workloads. 
 
-In this quickstart, you'll set up your data and then run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the source (customer reviews of a hotel), plus AI-generated content that includes a sentiment label, key phrase extraction, and text translation of non-English customer comments.
+In this quickstart, you'll set up some sample data and then run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the source (customer reviews of a hotel), plus AI-generated content that includes a sentiment label, key phrase extraction, and text translation of non-English customer comments.
 
 > [!NOTE]
 > This quickstart shows you the fastest route to a finished knowledge store in Azure Storage. For more detailed explanations of each step, see [Create a knowledge store in REST](knowledge-store-create-rest.md) instead.
@@ -139,15 +139,19 @@ In this wizard step, configure an indexer that will pull together the data sourc
 
 In the **Overview** page, open the **Indexers** tab in the middle of the page, and then select **hotels-reviews-idxr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
 
-## Check tables in Storage Browser
+## Check tables in Azure portal
 
-In the Azure portal, switch to your Azure Storage account and use **Storage Browser** to view the new tables. You should see three tables, one for each projection that was offered in the "Save enrichments" section of the "Add enrichments" page.
+1. In the Azure portal, [open the Storage account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) used to create the knowledge store.
 
-+ "hotelReviewssDocuments" contains all of the first-level nodes of a document's enrichment tree that are not collections. 
+1. In the storage account's left navigation pane, select **Storage browser (preview)** to view the new tables. 
 
-+ "hotelReviewssKeyPhrases" contains a long list of just the key phrases extracted from all reviews. Skills that output collections (arrays), such as key phrases and entities, will have output sent to a standalone table.
+   You should see three tables, one for each projection that was offered in the "Save enrichments" section of the "Add enrichments" page.
 
-+ "hotelReviewssPages" contains enriched fields created over each page that was split from the document. In this skillset and data source, page-level enrichments consisting of sentiment labels and translated text. A pages table (or a sentences table if you specify that particular level of granularity) is created when you choose "pages" granularity in the skillset definition. 
+   + "hotelReviewssDocuments" contains all of the first-level nodes of a document's enrichment tree that are not collections. 
+
+   + "hotelReviewssKeyPhrases" contains a long list of just the key phrases extracted from all reviews. Skills that output collections (arrays), such as key phrases and entities, will have output sent to a standalone table.
+
+   + "hotelReviewssPages" contains enriched fields created over each page that was split from the document. In this skillset and data source, page-level enrichments consisting of sentiment labels and translated text. A pages table (or a sentences table if you specify that particular level of granularity) is created when you choose "pages" granularity in the skillset definition. 
 
 All of these tables contain ID columns to support table relationships in other tools and apps. When you open a table, scroll past these fields to view the content fields added by the pipeline.
 

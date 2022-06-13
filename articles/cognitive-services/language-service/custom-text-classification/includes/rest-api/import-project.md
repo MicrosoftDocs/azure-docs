@@ -11,16 +11,17 @@ ms.author: aahi
 
 Submit a **POST** request using the following URL, headers, and JSON body to import your labels file. Make sure that your labels file follow the [accepted format](../../concepts/data-formats.md).
 
+If a project with the same name already exists, the data of that project is replaced.
 
 ```rest
-{ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}/:import?api-version={API-VERSION}
+{Endpoint}/language/authoring/analyze-text/projects/{projectName}/:import?api-version={API-VERSION}
 ```
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.   | `myProject` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data)  | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data)  | `2022-05-01` |
 
 ### Headers
 
@@ -39,18 +40,19 @@ Use the following JSON in your request. Replace the placeholder values below wit
 
 ```json
 {
-  "api-version": "{API-VERSION}",
+  "projectFileVersion": "{API-VERSION}",
   "stringIndexType": "Utf16CodeUnit",
   "metadata": {
     "projectName": "{PROJECT-NAME}",
+    "storageInputContainerName": "{CONTAINER-NAME}",
     "projectKind": "customMultiLabelClassification",
     "description": "Trying out custom multi label text classification",
     "language": "{LANGUAGE-CODE}",
     "multilingual": true,
-    "storageInputContainerName": "{CONTAINER-NAME}",
     "settings": {}
   },
   "assets": {
+    "projectKind": "customMultiLabelClassification",
     "classes": [
       {
         "category": "Class1"
@@ -90,12 +92,12 @@ Use the following JSON in your request. Replace the placeholder values below wit
 ```
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
-| api-version | `{API-VERSION}` | The version of the API you are calling. The version used here must be the same API version in the URL. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) | `2022-03-01-preview` |
+| api-version | `{API-VERSION}` | The version of the API you are calling. The version used here must be the same API version in the URL. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) | `2022-05-01` |
 | projectName | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `myProject` |
 | projectKind | `customMultiLabelClassification` | Your project kind. | `customMultiLabelClassification` |
 | language | `{LANGUAGE-CODE}` |  A string specifying the language code for the documents used in your project. If your project is a multilingual project, choose the language code of the majority of the documents. See [language support](../../language-support.md#multi-lingual-option) to learn more about multilingual support. |`en-us`|
 | multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. See [language support](../../language-support.md#multi-lingual-option) to learn more about multilingual support. | `true`|
-| storageInputContainerName | {CONTAINER-NAME} | The name of your Azure storage container where you have uploaded your documents.   | `myContainer` |
+| storageInputContainerName | `{CONTAINER-NAME}` | The name of your Azure storage container where you have uploaded your documents.   | `myContainer` |
 | classes | [] | Array containing all the classes you have in the project. These are the classes you want to classify your documents into.| [] |
 | documents | [] | Array containing all the documents in your project and what the classes labeled for this document. | [] |
 | location | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|
@@ -106,18 +108,19 @@ Use the following JSON in your request. Replace the placeholder values below wit
 
 ```json
 {
-    "api-version": "{API-VERSION}",
-    "stringIndexType": "Utf16CodeUnit",
-    "metadata": {
-        "projectName": "{PROJECT-NAME}",
-        "projectKind": "customSingleLabelClassification",
-        "description": "Trying out custom single label text classification",
-        "language": "{LANGUAGE-CODE}",
-        "multilingual": true,
-        "storageInputContainerName": "{CONTAINER-NAME}",
-        "settings": {}
-    },
-    "assets": {
+  "projectFileVersion": "{API-VERSION}",
+  "stringIndexType": "Utf16CodeUnit",
+  "metadata": {
+    "projectName": "{PROJECT-NAME}",
+    "storageInputContainerName": "{CONTAINER-NAME}",
+    "projectKind": "customSingleLabelClassification",
+    "description": "Trying out custom multi label text classification",
+    "language": "{LANGUAGE-CODE}",
+    "multilingual": true,
+    "settings": {}
+  },
+  "assets": {
+    "projectKind": "customSingleLabelClassification",
         "classes": [
             {
                 "category": "Class1"
@@ -149,12 +152,12 @@ Use the following JSON in your request. Replace the placeholder values below wit
 ```
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
-| api-version | `{API-VERSION}` | The version of the API you are calling. The version used here must be the same API version in the URL. | `2022-03-01-preview` |
+| api-version | `{API-VERSION}` | The version of the API you are calling. The version used here must be the same API version in the URL. | `2022-05-01` |
 | projectName | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `myProject` |
 | projectKind | `customSingleLabelClassification` | Your project kind. | `customSingleLabelClassification` |
 | language | `{LANGUAGE-CODE}` |  A string specifying the language code for the documents used in your project. If your project is a multilingual project, choose the language code of the majority of the documents. See [language support](../../language-support.md) to learn more about supported language codes. |`en-us`|
 | multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. See [language support](../../language-support.md#multi-lingual-option) to learn more about multilingual support.  | `true`|
-| storageInputContainerName | {CONTAINER-NAME} | The name of your Azure storage container where you have uploaded your documents.   | `myContainer` |
+| storageInputContainerName | `{CONTAINER-NAME}` | The name of your Azure storage container where you have uploaded your documents.   | `myContainer` |
 | classes | [] | Array containing all the classes you have in the project. These are the classes you want to classify your documents into.| [] |
 | documents | [] | Array containing all the documents in your project and which class this document belongs to. | [] |
 | location | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|
@@ -162,7 +165,7 @@ Use the following JSON in your request. Replace the placeholder values below wit
 
 ---
 
-Once you send your API request, you’ll receive a `202` response indicating that the job was submitted correctly. In the response headers, extract the `location` value. It will be formatted like this: 
+Once you send your API request, you’ll receive a `202` response indicating that the job was submitted correctly. In the response headers, extract the `operation-location` value. It will be formatted like this: 
 
 ```rest
 {ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}/import/jobs/{JOB-ID}?api-version={API-VERSION}

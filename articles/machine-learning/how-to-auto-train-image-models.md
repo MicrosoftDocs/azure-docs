@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 01/18/2022
+ms.date: 05/26/2022
 #Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
@@ -185,7 +185,7 @@ The following is a sample JSONL file for image classification:
 
 Once your data is in JSONL format, you can create training and validation `MLTable` as shown below.
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/data/training-mltable-folder/MLTable":::
+:::code language="yaml" source="~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/data/training-mltable-folder/MLTable":::
 
 Automated ML doesn't impose any constraints on training or validation data size for computer vision tasks. Maximum dataset size is only limited by the storage layer behind the dataset (i.e. blob store). There's no minimum number of images or labels. However, we recommend starting with a minimum of 10-15 samples per label to ensure the output model is sufficiently trained. The higher the total number of labels/classes, the more samples you need per label.
 
@@ -211,7 +211,7 @@ validation_data:
 
 You can create data inputs from training and validation MLTable from your local directory or cloud storage with the following code:
 
-[!Notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=data-load)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=data-load)]
 
 Training data is a required parameter and is passed in using the `training_data` parameter of the task specific `automl` type function. You can optionally specify another MLTable as a validation data with the `validation_data` parameter. If no validation data is specified, 20% of your training data will be used for validation by default, unless you pass `validation_data_size` argument with a different value.
 
@@ -329,7 +329,7 @@ limits:
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
-[!Notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
 
 ---
 
@@ -404,7 +404,7 @@ sweep:
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
-[!Notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=sweep-settings)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=sweep-settings)]
 
 ---
 
@@ -426,7 +426,7 @@ image_model:
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
  
-[!Notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=pass-arguments)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=pass-arguments)]
 
 
 ---
@@ -514,7 +514,7 @@ az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZUR
 
 When you've configured your AutoML Job to the desired settings, you can submit the job.
 
-[!Notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=submit-run)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=submit-run)]
 ---
 
 ## Outputs and evaluation metrics

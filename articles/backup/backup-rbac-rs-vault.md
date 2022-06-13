@@ -111,12 +111,12 @@ The following table captures the Backup management actions and corresponding Azu
 | Validate before configuring backup | Backup Operator | Backup vault |   |
 |  | Disk Backup Reader | Disk to be backed up|   |
 | Enable backup from backup vault | Backup Operator | Backup vault |   |
-|  | Disk Backup Reader | Disk to be backed up | In addition, the backup vault MSI should be given [these permissions](/azure/backup/disk-backup-faq##what-are-the-permissions-used-by-azure-backup-during-backup-and-restore-operation-)  |
+|  | Disk Backup Reader | Disk to be backed up | In addition, the backup vault MSI should be given [these permissions](./disk-backup-faq.yml)  |
 | On demand backup of disk | Backup Operator | Backup vault | |
 | Validate before restoring a disk | Backup Operator | Backup vault | |
 |  | Disk Restore Operator | Resource group where disks will be restored to | |
 | Restoring a disk | Backup Operator | Backup vault | |
-|  | Disk Restore Operator | Resource group where disks will be restored to | In addition, the backup vault MSI should be given [these permissions](/azure/backup/disk-backup-faq##what-are-the-permissions-used-by-azure-backup-during-backup-and-restore-operation-) |
+|  | Disk Restore Operator | Resource group where disks will be restored to | In addition, the backup vault MSI should be given [these permissions](./disk-backup-faq.yml) |
 
 ### Minimum role requirements for Azure blob backup
 
@@ -125,12 +125,12 @@ The following table captures the Backup management actions and corresponding Azu
 | Validate before configuring backup | Backup Operator | Backup vault |   |
 |  | Storage account backup contributor | Storage account containing the blob |   |
 | Enable backup from backup vault | Backup Operator | Backup vault |   |
-|  | Storage account backup contributor | Storage account containing the blob | In addition, the backup vault MSI should be given [these permissions](/azure/backup/blob-backup-configure-manage#grant-permissions-to-the-backup-vault-on-storage-accounts) |
+|  | Storage account backup contributor | Storage account containing the blob | In addition, the backup vault MSI should be given [these permissions](./blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts) |
 | On demand backup of blob | Backup Operator | Backup vault | |
 | Validate before restoring a blob | Backup Operator | Backup vault | |
 |  | Storage account backup contributor | Storage account containing the blob |  |
 | Restoring a blob | Backup Operator | Backup vault | |
-|  | Storage account backup contributor | Storage account containing the blob | In addition, the backup vault MSI should be given [these permissions](/azure/backup/blob-backup-configure-manage#grant-permissions-to-the-backup-vault-on-storage-accounts) |
+|  | Storage account backup contributor | Storage account containing the blob | In addition, the backup vault MSI should be given [these permissions](./blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts) |
 
 ### Minimum role requirements for Azure database for PostGreSQL server backup
 
@@ -139,12 +139,12 @@ The following table captures the Backup management actions and corresponding Azu
 | Validate before configuring backup | Backup Operator | Backup vault |   |
 |  | Reader | Azure PostGreSQL server |   |
 | Enable backup from backup vault | Backup Operator | Backup vault |   |
-|  | Contributor | Azure PostGreSQL server | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.DBforPostgreSQL/servers/write Microsoft.DBforPostgreSQL/servers/read    In addition, the backup vault MSI should be given [these permissions](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-backup) |
+|  | Contributor | Azure PostGreSQL server | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.DBforPostgreSQL/servers/write Microsoft.DBforPostgreSQL/servers/read    In addition, the backup vault MSI should be given [these permissions](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup) |
 | On demand backup of PostGreSQL server | Backup Operator | Backup vault | |
 | Validate before restoring a server | Backup Operator | Backup vault | |
 |  | Contributor | Target Azure PostGreSQL server | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.DBforPostgreSQL/servers/write Microsoft.DBforPostgreSQL/servers/read
 | Restoring a server | Backup Operator | Backup vault | |
-|  | Contributor | Target Azure PostGreSQL server | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.DBforPostgreSQL/servers/write Microsoft.DBforPostgreSQL/servers/read    In addition, the backup vault MSI should be given [these permissions](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-restore) |
+|  | Contributor | Target Azure PostGreSQL server | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.DBforPostgreSQL/servers/write Microsoft.DBforPostgreSQL/servers/read    In addition, the backup vault MSI should be given [these permissions](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore) |
 
 ## Next steps
 

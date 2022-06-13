@@ -643,7 +643,7 @@ Confirm the storage account accessed is using the Archive access tier.
 
 The Archive access tier is an offline tier. While a blob is in the Archive access tier, it can't be read or modified.
 
-To read or download a blob in the Archive tier, rehydrate it to an online tier. See [Archive access tier](/azure/storage/blobs/access-tiers-overview#archive-access-tier).
+To read or download a blob in the Archive tier, rehydrate it to an online tier. See [Archive access tier](../../storage/blobs/access-tiers-overview.md#archive-access-tier).
 
 ### [0x80070057](#tab/x80070057)
 
@@ -1028,7 +1028,7 @@ Some general system constraints might affect your workload:
 | Maximum number of databases objects per database | The sum of the number of all objects in a database can't exceed 2,147,483,647. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects). |
 | Maximum identifier length in characters | 128. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects).|
 | Maximum query duration | 30 minutes. |
-| Maximum size of the result set | Up to 200 GB shared between concurrent queries. |
+| Maximum size of the result set | Up to 400 GB shared between concurrent queries. |
 | Maximum concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data. |
 
 ### Can't create a database in serverless SQL pool

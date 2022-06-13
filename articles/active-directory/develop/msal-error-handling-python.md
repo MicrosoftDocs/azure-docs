@@ -1,6 +1,5 @@
 ---
 title: Handle errors and exceptions in MSAL for Python
-titleSuffix: Microsoft identity platform
 description: Learn how to handle errors and exceptions, Conditional Access claims challenges, and retries in MSAL for Python applications.
 services: active-directory
 author: mmacy

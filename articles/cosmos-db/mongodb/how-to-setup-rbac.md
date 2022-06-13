@@ -100,7 +100,7 @@ az cosmosdb create -n <account_name> -g <azure_resource_group> --kind MongoDB --
 8. Create a database for users to connect to in the Azure portal.
 9. Create an RBAC user with built-in read role.
 ```powershell
-az cosmosdb mongodb user definition create --account-name <YOUR_DB_ACCOUNT> --resource-group <YOUR_RG> --body {\"Id\":\"testdb.read\",\"UserName\":\"<YOUR_USERNAME>\",\"Password\":\"<YOUR_PASSWORD>\",\"DatabaseName\":\"<YOUR_DB_NAME>\",\"CustomData\":\"Some_Random_Info\",\"Mechanisms\":\"SCRAM-SHA-256\",\"Roles\":[{\"Role\":\"read\",\"Db\":\"<YOUR_DB_NAME>\"}]}
+az cosmosdb mongodb user definition create --account-name <YOUR_DB_ACCOUNT> --resource-group <YOUR_RG> --body {\"Id\":\"<YOUR_DB_NAME>.<YOUR_USERNAME>\",\"UserName\":\"<YOUR_USERNAME>\",\"Password\":\"<YOUR_PASSWORD>\",\"DatabaseName\":\"<YOUR_DB_NAME>\",\"CustomData\":\"Some_Random_Info\",\"Mechanisms\":\"SCRAM-SHA-256\",\"Roles\":[{\"Role\":\"read\",\"Db\":\"<YOUR_DB_NAME>\"}]}
 ```
 
 

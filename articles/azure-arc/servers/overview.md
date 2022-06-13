@@ -36,12 +36,12 @@ When you connect your machine to Azure Arc-enabled servers, you can perform many
   * Perform post-deployment configuration and automation tasks using supported [Arc-enabled servers VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machine.
 * **Monitor**:
   * Monitor operating system performance and discover application components to monitor processes and dependencies with other resources using [VM insights](../../azure-monitor/vm/vminsights-overview.md).
-  * Collect other log data, such as performance data and events, from the operating system or workloads running on the machine with the [Log Analytics agent](../../azure-monitor/agents/agents-overview.md#log-analytics-agent). This data is stored in a [Log Analytics workspace](../../azure-monitor/logs/design-logs-deployment.md).
+  * Collect other log data, such as performance data and events, from the operating system or workloads running on the machine with the [Log Analytics agent](../../azure-monitor/agents/agents-overview.md#log-analytics-agent). This data is stored in a [Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 > [!NOTE]
 > At this time, enabling Azure Automation Update Management directly from an Azure Arc-enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and [how to enable Update Management for non-Azure VMs](../../automation/update-management/enable-from-automation-account.md#enable-non-azure-vms).
 
-Log data collected and stored in a Log Analytics workspace from the hybrid machine contains properties specific to the machine, such as a Resource ID, to support [resource-context](../../azure-monitor/logs/design-logs-deployment.md#access-mode) log access.
+Log data collected and stored in a Log Analytics workspace from the hybrid machine contains properties specific to the machine, such as a Resource ID, to support [resource-context](../../azure-monitor/logs/manage-access.md#access-mode) log access.
 
 Watch this video to learn more about Azure monitoring, security, and update services across hybrid and multicloud environments.
 

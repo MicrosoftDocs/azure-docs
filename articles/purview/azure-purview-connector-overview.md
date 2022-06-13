@@ -32,7 +32,7 @@ The table below shows the supported capabilities for each data source. Select th
 ||    [Azure Dedicated SQL pool (formerly SQL DW)](register-scan-azure-synapse-analytics.md)| [Yes](register-scan-azure-synapse-analytics.md#register) | [Yes](register-scan-azure-synapse-analytics.md#scan)| No* | No |
 ||    [Azure Files](register-scan-azure-files-storage-source.md)|[Yes](register-scan-azure-files-storage-source.md#register) | [Yes](register-scan-azure-files-storage-source.md#scan) | Limited* |  No |
 ||    [Azure SQL Database](register-scan-azure-sql-database.md)| [Yes](register-scan-azure-sql-database.md#register) |[Yes](register-scan-azure-sql-database.md#scan)| [Yes (Preview)](register-scan-azure-sql-database.md#lineagepreview) | [Yes (Preview)](how-to-data-owner-policies-azure-sql-db.md) |
-||    [Azure SQL Managed Instance](register-scan-azure-sql-database-managed-instance.md)|  [Yes](register-scan-azure-sql-database-managed-instance.md#scan) | [Yes](register-scan-azure-sql-database-managed-instance.md#scan) | No* | No |
+||    [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md)|  [Yes](register-scan-azure-sql-managed-instance.md#scan) | [Yes](register-scan-azure-sql-managed-instance.md#scan) | No* | No |
 ||    [Azure Synapse Analytics (Workspace)](register-scan-synapse-workspace.md)| [Yes](register-scan-synapse-workspace.md#register) | [Yes](register-scan-synapse-workspace.md#scan)| [Yes - Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)| No|
 |Database| [Amazon RDS](register-scan-amazon-rds.md) | [Yes](register-scan-amazon-rds.md#register-an-amazon-rds-data-source) | [Yes](register-scan-amazon-rds.md#scan-an-amazon-rds-database) | No | No |
 ||    [Cassandra](register-scan-cassandra-source.md)|[Yes](register-scan-cassandra-source.md#register) | No | [Yes](register-scan-cassandra-source.md#lineage)| No|
@@ -110,9 +110,9 @@ The following file types are supported for scanning, for schema extraction, and 
 
 Currently, nested data is only supported for JSON content.
 
-For all [system supported file types](#file-types-supported-for-scanning), if there is nested JSON content in a column, then the scanner parses the nested JSON data and surfaces it within the schema tab of the asset.
+For all [system supported file types](#file-types-supported-for-scanning), if there's nested JSON content in a column, then the scanner parses the nested JSON data and surfaces it within the schema tab of the asset.
 
-Nested data, or nested schema parsing, is not supported in SQL. A column with nested data will be reported and classified as is, and subdata will not be parsed.
+Nested data, or nested schema parsing, isn't supported in SQL. A column with nested data will be reported and classified as is, and subdata won't be parsed.
 
 ## Sampling within a file
 
@@ -125,7 +125,7 @@ For all structured file formats, Microsoft Purview scanner samples files in the 
 
 - For structured file types, it samples the top 128 rows in each column or the first 1 MB, whichever is lower.
 - For document file formats, it samples the first 20 MB of each file.
-    - If a document file is larger than 20 MB, then it is not subject to a deep scan (subject to classification). In that case, Microsoft Purview captures only basic meta data like file name and fully qualified name.
+    - If a document file is larger than 20 MB, then it isn't subject to a deep scan (subject to classification). In that case, Microsoft Purview captures only basic meta data like file name and fully qualified name.
 - For **tabular data sources (SQL)**, it samples the top 128 rows.
 - For **Azure Cosmos DB (SQL API)**, up to 300 distinct properties from the first 10 documents in a container will be collected for the schema and for each property, values from up to 128 documents or the first 1 MB will be sampled.
 
