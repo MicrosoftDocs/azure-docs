@@ -42,7 +42,7 @@ For more information on Translator authentication options, *see* the [Translator
 |**Ocp-Apim-Subscription-Key** |Your Translator service key from the Azure portal.|<ul><li>***Required***</li></ul> |
 |**Ocp-Apim-Subscription-Region**|The region where your resource was created. |<ul><li>***Required*** when using a multi-service Cognitive Services Resource.</li><li> ***Optional*** when using a single-service Translator Resource.</li></ul>|
 |**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|<ul><li>***Required***</li></ul>|
-|**Content-Length**|The **length of the request** body.|<ul><li>***Required***</li></ul> |
+|**Content-Length**|The **length of the request** body.|<ul><li>***Optional***</li></ul> |
 |**X-ClientTraceId**|A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named ClientTraceId.|<ul><li>***Optional***</li></ul>
 |||
 
@@ -77,6 +77,15 @@ The core operation of the Translator service is translating text. In this quicks
 1. In the **Additional information** dialog window, make sure **.NET 6.0 (Long-term support)** is selected. Leave the "Don't use top-level statements" checkbox **unchecked** and select **Create**.
 
     :::image type="content" source="media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio's additional information dialog window.":::
+
+### Install the Newtonsoft.json package
+
+1. Right-click on your translator_quickstart project and select Manage NuGet Packages... 
+
+    :::image type="content" source="media/quickstarts/manage-nuget.png" alt-text="{alt-text}":::
+
+1. Select the Browse tab and type New
+
 
 ### Build your application
 
@@ -165,6 +174,40 @@ Once you've added a code sample to your application, choose the green Start butt
 * Build the file, for example: 'go build example-code.go'.
 * Run the file, for example: 'example-code'.
 
+```go
+package main
+
+import (
+    "fmt"
+    "strings"
+    "net/http"
+    "io/ioutil"
+)
+
+func main() {
+    
+    key := "ef0bd80b228141fe98c2f523ba2ff058"
+
+    url := "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr"
+
+    payload := strings.NewReader("[\r\n    {\"Text\":\"I would really like to drive your car around the block a few times.\"}\r\n]")
+
+    req, _ := http.NewRequest("POST", url, payload)
+
+    req.Header.Add("content-type", "application/json")
+    req.Header.Add("ocp-apim-subscription-key", key)
+
+    res, _ := http.DefaultClient.Do(req)
+
+    defer res.Body.Close()
+    body, _ := ioutil.ReadAll(res.Body)
+
+    fmt.Println(res)
+    fmt.Println(string(body))
+
+}
+```
+
 ### [Java](#tab/java)
 
 ### Set up your Java environment
@@ -199,7 +242,6 @@ Once you've added a code sample to your application, choose the green Start butt
 1. When prompted to choose a **DSL**, select **Kotlin**.
 
 1. Accept the default project name (translator-text-app)
-
 
 1. Update `build.gradle.kts` with the following code:
 
