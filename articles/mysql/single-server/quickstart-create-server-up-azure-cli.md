@@ -40,7 +40,7 @@ az account set --subscription <subscription id>
 
 ## Create an Azure Database for MySQL server
 
-To use the commands, install the [db-up](/cli/azure/ext/db-up/mysql
+To use the commands, install the [db-up](/cli/azure/mysql
 ) extension. If an error is returned, ensure you have installed the latest version of the Azure CLI. See [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli

@@ -335,7 +335,7 @@ The Workspace.list(..) method does not return the full workspace object. It incl
 
 ## Search for assets across a workspace (preview)
 
-With the public preview search capability, you can search for machine learning assets such as jobs, models, components, environments, and datasets across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
+With the public preview search capability, you can search for machine learning assets such as jobs, models, components, environments, and data across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
 
 ### Free text search
 
@@ -371,7 +371,7 @@ If an asset filter (job, model, component, environment, dataset) is present, res
 
 ### View search results
 
-You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Datasets** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
+You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Data** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
 
 :::image type="content" source="./media/how-to-manage-workspace/results.png" alt-text="Results displayed after search":::
 
