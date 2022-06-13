@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: tutorial
-ms.date: 06/08/2022
+ms.date: 06/13/2022
 ms.custom: template-tutorial
 ---
 

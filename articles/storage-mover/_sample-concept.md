@@ -1,11 +1,11 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
+title: Top Level Heading #Required; page title is displayed in search results. Include the brand.
+description: Description #Required; article description that is displayed in search results. 
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/08/2022
+ms.date: 06/13/2022
 ms.custom: template-concept
 ---
 
@@ -19,7 +19,7 @@ This template provides the basic structure of a concept article.
 
 Set expectations for what the content covers, so customers know the content meets their needs. The heading should NOT begin with a verb.-->
 
-# Migration agents and registration
+# Top level heading
 
 <!-- 
 2. Introductory paragraph\
@@ -28,14 +28,6 @@ Set expectations for what the content covers, so customers know the content meet
 
 Lead with a light intro that describes what the article covers. Answer the fundamental “why would I want to know this?” question. Keep it short. -->
 
-A migration agent is the on-premises component of the Azure Storage Mover service. An agent sends heartbeat information to the service and will look for configuration or migration jobs on a regular basis. The agent always contacts the Storage Mover service, never the reverse.
-
-The following information should be kept in mind when provisioning a new agent:
-
-- Agents require at least 2048 MB RAM, and ideally 8192 MB
-- Use a virtual network switch with internet access. Ensure the management VM and agent VM are on the same switch. On the WAN link firewall, port 443 (TCP) must be open outbound.
-- You can use the default virtual processor count, though you should set it as high as your host will allow.
-
 <!-- 
 3. H2s
 
@@ -43,17 +35,37 @@ The following information should be kept in mind when provisioning a new agent:
 
 Give each H2 a heading that sets expectations for the content that follows. Follow the H2 headings with a sentence about how the section contributes to the whole. -->
 
-## Configuration
+Prescriptively direct the customer through the procedure end-to-end. Don't link to other content (until 'next steps'), but include whatever the customer needs to complete the scenario in the article. -->
 
-While you can keep the default value of 1 virtual processor, you should use the maximum number which your host will allow. Performance and comparison testing will not be supported in the initial release, but will be included in subsequent releases.
+## Logical step 1 heading
 
-Although there are several ways to configure your local network, the agent requires port 443 outbound open on the WAN link firewall. 
+Summarize the steps involved in this section. Describe the outcome of this section.
 
-> [!IMPORTANT]
-> When changing network configurations, connectivity interruptions are common.
+1. Sign in to the portal.
+1. Select the **Storage Mover** link in the menu. If the menu isn't displayed, select the burger icon to toggle visibility.
+1. Venmo lunch money to Stephen.
 
-The easiest way to accomplish this is to create an external virtual switch. This switch can be shared by your host OS with your VMs. Although this approach is suitable when used in a test environment, an internal virtual switch is better used on Hyper-V hosts running production workloads.
+Describe how this section impacts the end-result.
 
+## Logical step 2 heading
+
+Summarize the steps involved in this section. Describe the outcome of this section.
+
+1. Step 1.
+1. Step 2.
+1. Step *n*.
+
+Describe how this section impacts the end-result.
+
+## Logical step *n* heading
+
+Summarize the steps involved in this section. Describe the outcome of this section.
+
+1. Step 1.
+1. Step 2.
+1. Step *n*.
+
+Describe how this section impacts the end-result.
 
 <!-- 
 4. Next steps

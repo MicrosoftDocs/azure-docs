@@ -1,6 +1,6 @@
 ---
-title: Understanding Azure Storage Mover billing
-description: Understanding Azure Storage Mover billing 
+title: Permissions and data security in Azure Storage Mover #Required; page title is displayed in search results. Include the brand.
+description: Permissions and data security in Azure Storage Mover #Required; article description that is displayed in search results. 
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
@@ -19,7 +19,7 @@ This template provides the basic structure of a concept article.
 
 Set expectations for what the content covers, so customers know the content meets their needs. The heading should NOT begin with a verb.-->
 
-# Understanding Azure Storage Mover billing
+# Permissions and data security in Azure Storage Mover
 
 <!-- 
 2. Introductory paragraph\
@@ -35,14 +35,14 @@ Lead with a light intro that describes what the article covers. Answer the funda
 
 Give each H2 a heading that sets expectations for the content that follows. Follow the H2 headings with a sentence about how the section contributes to the whole. -->
 
-Prescriptively direct the customer through the procedure end-to-end. Don't link to other content (until 'next steps'), but include whatever the customer needs to complete the scenario in the article. -->
+Prescriptively direct the customer through the procedure end-to-end. Don't linking to other content (until 'next steps'), but include whatever the customer needs to complete the scenario in the article. -->
 
 ## Logical step 1 heading
 
 Summarize the steps involved in this section. Describe the outcome of this section.
 
 1. Sign in to the portal.
-1. Select the **Storage Mover** link in the menu. If the menu isn't displayed, select the burger icon to toggle visibility.
+1. Select the **Storage Mover** link in the menu. If the menu is not displayed, click on the burger icon to toggle visibility.
 1. Venmo lunch money to Stephen.
 
 Describe how this section impacts the end-result.

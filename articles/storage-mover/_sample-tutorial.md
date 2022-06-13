@@ -1,11 +1,11 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
+title: Top Level Heading #Required; page title is displayed in search results. Include the brand.
+description: Description #Required; article description that is displayed in search results. 
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage
 ms.topic: tutorial
-ms.date: 06/08/2022
+ms.date: 06/13/2022
 ms.custom: template-tutorial
 ---
 
@@ -28,7 +28,7 @@ Start with "Tutorial: ". Make the first word following "Tutorial: " a verb. -->
 Lead with a light intro that describes what the article covers. Answer the fundamental “why would I want to know this?” question. Keep it short.
 -->
 
-A migration agent is the on-premises component of the Azure Storage Mover service. This tutorial will will walk you through the process of creating a migration agent. After completing this tutorial, you may choose to customize another migration agent or continue on to create a migration project.
+A migration agent is the on-premises component of the Azure Storage Mover service. This tutorial will walk you through the process of creating a migration agent. After completing this tutorial, you may choose to customize another migration agent or continue on to create a migration project.
 
 <!-- 3. Tutorial outline 
 
@@ -67,7 +67,7 @@ Prescriptively direct the customer through the procedure end-to-end. Don't linki
 Summarize the steps involved in this section. Describe the outcome of this section.
 
 1. Sign in to the portal.
-1. Select the **Storage Mover** link in the menu. If the menu is not displayed, click on the burger icon to toggle visibility.
+1. Select the **Storage Mover** link in the menu. If the menu isn't displayed, select the burger icon to toggle visibility.
 1. Venmo lunch money to Stephen.
 
 Describe how this section impacts the end-result.
