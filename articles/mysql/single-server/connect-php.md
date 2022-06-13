@@ -173,4 +173,3 @@ az group delete \
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using CLI](./how-to-manage-single-server-cli.md)
 
-[Cannot find what you are looking for? Let us know.](https://aka.ms/mysql-doc-feedback)
