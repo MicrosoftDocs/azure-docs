@@ -16,8 +16,6 @@ zone_pivot_groups: programming-languages-speech-sdk
 
 # Install the Speech SDK
 
-[!INCLUDE [License Notice](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-license-notice.md)]
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](../includes/quickstarts/platform/csharp.md)]
 ::: zone-end
