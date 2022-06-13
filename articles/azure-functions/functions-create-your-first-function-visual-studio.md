@@ -3,7 +3,7 @@ title: "Quickstart: Create your first C# function in Azure using Visual Studio"
 description: "In this quickstart, you learn how to use Visual Studio to create and publish a C# HTTP triggered function to Azure Functions that runs on .NET Core 3.1."
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 06/11/2022
+ms.date: 06/13/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, contperf-fy21q3-portal, mode-ui
 adobe-target: true
@@ -15,7 +15,7 @@ adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
 
 Azure Functions lets you use Visual Studio to create local C# function projects and then easily publish this project to run in a scalable serverless environment in Azure. If you prefer to develop your C# apps locally using Visual Studio Code, you should instead consider the [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
-By default, this article shows you how to create your functions as [C# class libraries that run in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# function apps are supported only on Long Term Support (LTS) releases of .NET, such as .NET 6. If you need to run your app on any release, including a non-LTS .NET release (.NET 5.0) or on .NET Framework 4.8 (support in preview), you must instead create a [C# class library app that runs in an isolated process](dotnet-isolated-process-guide.md). To learn how to create a function app that runs in an isolated process, see the [alternate version of this article](functions-create-your-first-function-visual-studio.md?tabs=isolated-process). 
+By default, this article shows you how to create a C# function app that runs on .NET 6 in an isolated process. Isolated process apps can run on any [supported version of .NET](dotnet-isolated-process-guide.md#supported-versions). [Some functionality is only available](dotnet-isolated-process-guide.md#differences-with-net-class-library-functions) when running in the same process as the Functions host. To create a function app that runs in-process on .NET 6, see the [alternate version of this article](functions-create-your-first-function-visual-studio.md?tabs=isolated-process). 
 
 In this article, you learn how to:
 
@@ -44,18 +44,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
 1. In **Configure your new project**, enter a **Project name** for your project, and then select **Create**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
 1. For the **Additional information** settings, use the values in the following table:
-
-    # [.NET 6](#tab/in-process) 
-
-    | Setting      | Value  | Description                      |
-    | ------------ |  ------- |----------------------------------------- |
-    | **Functions worker** | **.NET 6** | When you choose **.NET 6**, you create a project that runs in-process with the Azure Functions runtime. Use in-process unless you need to run your function app on .NET 5.0 or on .NET Framework 4.8 (preview). To learn more, see [Supported versions](functions-dotnet-class-library.md#supported-versions). |
-    | **Function** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
-    | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Enable | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. When you select this option, the [Azurite emulator](../storage/common/storage-use-azurite.md?tabs=visual-studio) is used. |
-    | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](./functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](./functions-bindings-http-webhook.md). |
-    
-     :::image type="content" source="../../includes/media/functions-vs-tools-create/functions-project-settings-v4.png" alt-text="Azure Functions project settings":::
-    
+     
     # [.NET 6 Isolated](#tab/isolated-process)
     
     | Setting      | Value  | Description                      |
@@ -67,6 +56,17 @@ The Azure Functions project template in Visual Studio creates a C# class library
     
      :::image type="content" source="../../includes/media/functions-vs-tools-create/functions-project-settings-v4-isolated.png" alt-text="Azure Functions project settings":::
     
+    # [.NET 6](#tab/in-process) 
+
+    | Setting      | Value  | Description                      |
+    | ------------ |  ------- |----------------------------------------- |
+    | **Functions worker** | **.NET 6** | When you choose **.NET 6**, you create a project that runs in-process with the Azure Functions runtime. Use in-process unless you need to run your function app on .NET 5.0 or on .NET Framework 4.8 (preview). To learn more, see [Supported versions](functions-dotnet-class-library.md#supported-versions). |
+    | **Function** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
+    | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Enable | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. When you select this option, the [Azurite emulator](../storage/common/storage-use-azurite.md?tabs=visual-studio) is used. |
+    | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](./functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](./functions-bindings-http-webhook.md). |
+    
+     :::image type="content" source="../../includes/media/functions-vs-tools-create/functions-project-settings-v4.png" alt-text="Azure Functions project settings":::
+
     ---
     
    
@@ -88,13 +88,14 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 Your function definition should now look like the following code:
 
-# [.NET 6](#tab/in-process) 
-
-:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="15-18"::: 
 
 # [.NET 6 Isolated](#tab/isolated-process)
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="11-13":::
+
+# [.NET 6](#tab/in-process) 
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="15-18"::: 
 
 --- 
 
@@ -144,21 +145,21 @@ You created Azure resources to complete this quickstart. You may be billed for t
 
 In this quickstart, you used Visual Studio to create and publish a C# function app in Azure with a simple HTTP trigger function. 
 
-# [.NET 6](#tab/in-process) 
-
-To learn more about working with C# class library functions that run in-process with the Functions host, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md). 
-
-Advance to the next article to learn how to add an Azure Storage queue binding to your function:
-> [!div class="nextstepaction"]
-> [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs.md?tabs=in-process)
-
 # [.NET 6 Isolated](#tab/isolated-process)
 
-To learn more about working with C# class library functions that run in an isolated process, see the [Guide for running C# Azure Functions in an isolated process](dotnet-isolated-process-guide.md). 
+To learn more about working with C# functions that run in an isolated process, see the [Guide for running C# Azure Functions in an isolated process](dotnet-isolated-process-guide.md). 
 
 Advance to the next article to learn how to add an Azure Storage queue binding to your function:
 > [!div class="nextstepaction"]
 > [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs.md?tabs=isolated-process)
+
+# [.NET 6](#tab/in-process) 
+
+To learn more about working with C# functions that run in-process with the Functions host, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md). 
+
+Advance to the next article to learn how to add an Azure Storage queue binding to your function:
+> [!div class="nextstepaction"]
+> [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs.md?tabs=in-process)
 
 ---
 
