@@ -29,10 +29,10 @@ In this tutorial, you learn how to:
 > * Test the firewall
 
 > [!IMPORTANT]
-> The procedure in this tutorial, based on Azure Firewall Manager, will create a brand new Azure Virtual WAN secured hub.
-> In case of an existing hub, the same tool can be used to upgrade, but configuring Azure **Availability Zones** for Azure Firewall will not be possible. 
-> It is also possible to convert an existing hub to secured hub using Azure Virtual WAN portal blade, as described in [this article](https://docs.microsoft.com/azure/virtual-wan/howto-firewall), but similarly to Azure Firewall Manager, it will not be possible to configure **Availability Zones**. 
-> In order to upgrade an existing hub, and specify **Availability Zones** for Azure Firewall, which is recommended, it is necessary to follow the upgrade procedure contained in [this article](https://docs.microsoft.com/azure/firewall-manager/secure-cloud-network-powershell). 
+> The procedure in this tutorial uses Azure Firewall Manager to create a new Azure Virtual WAN secured hub.
+> You can use Firewall Manager to upgrade an existing hub, but you can't configure Azure **Availability Zones** for Azure Firewall.
+> It is also possible to convert an existing hub to a secured hub using the Azure portal, as described in [Configure Azure Firewall in a Virtual WAN hub](../virtual-wan/howto-firewall.md). But like Azure Firewall Manager, you can't configure **Availability Zones**.
+> To upgrade an existing hub and specify **Availability Zones** for Azure Firewall (recommended) you must follow the upgrade procedure in [Tutorial: Secure your virtual hub using Azure PowerShell](secure-cloud-network-powershell.md). secure-cloud-network-powershell). 
 
 ## Prerequisites
 
@@ -95,7 +95,7 @@ Create your secured virtual hub using Firewall Manager.
 15. Select the desired combination of **Availability Zones**. 
 
 > [!IMPORTANT]
-> Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many Virtual WAN per their need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services is automatically deployed across Availability Zones except Azure Firewall, if the region supports Availability Zones. To align with Azure Virtual WAN resiliency, it is recommended to select all available Availability Zones, where available.
+> A Virtual WAN is a collection of hubs and services made available inside the hub. You can deploy as many Virtual WANs that you need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute, and so on. Each of these services is automatically deployed across Availability Zones except Azure Firewall, if the region supports Availability Zones. To align with Azure Virtual WAN resiliency, you should select all available Availability Zones.
 
    :::image type="content" source="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png" alt-text="Configure Azure Firewall parameters." lightbox="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png":::
 
@@ -110,7 +110,7 @@ Create your secured virtual hub using Firewall Manager.
     :::image type="content" source="./media/secure-cloud-network/5-confirm-and-create.png" alt-text="Create the Firewall instance." lightbox="./media/secure-cloud-network/5-confirm-and-create.png":::
 
 > [!NOTE]
-> Creating a secured virtual hub may take up to 30 minutes.
+> It may take up to 30 minutes to create a secured virtual hub.
 
 You can get the firewall public IP address after the deployment completes.
 
