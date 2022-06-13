@@ -16,7 +16,7 @@ Gen6 vs Gen7 (Swapna to check AVS documentation)
 |vCPUs|72|72|
 |RAM|576 GB|768 GB|
 |Storage|18.56 TB (8 x 1.92 TB SATA SSD, 2x1.6TB NVMe)|19.95 TB (2x375G Optane, 6x3.2TB NVMe)|
-|Network|100 GBps (four links * 25 GBps)|100 GBps (four links * 25 GBps)|
+|Network|100 Gbps (four links * 25 Gbps)|100 Gbps (four links * 25 Gbps)|
 
 > [!div class="nextstepaction"]
 > [About the Public Preview](about-the-public-preview.md)
