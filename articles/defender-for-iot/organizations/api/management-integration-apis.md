@@ -1,5 +1,5 @@
 ---
-title: OT monitoring ServiceNow integration API reference - Microsoft Defender for IoT
+title: OT monitoring management integration API reference - Microsoft Defender for IoT
 description: Learn about the REST APIs supported for the Microsoft Defender for IoT integration with ServiceNow.
 ms.date: 05/25/2022
 ms.topic: reference
@@ -7,9 +7,11 @@ ms.topic: reference
 
 <!--no nullable values-->
 
-# ServiceNow integration API reference (Public preview)
+# Integration API reference (Public preview)
 
-This article lists API supported with the Microsoft Defender for IoT integration with ServiceNow, via the ServiceNow Service Graph Connector for Defender for IoT.
+This article lists the APIs supported for integrating Microsoft Defender for IoT with partner services.
+
+For example, this API is currently implemented with ServiceNow, via the ServiceNow Service Graph Connector for Defender for IoT.
 
 For more information, see [Tutorial: Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md).
 

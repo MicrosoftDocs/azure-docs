@@ -222,11 +222,27 @@
     - name: Working with Defender for IoT APIs
       href: references-work-with-defender-for-iot-apis.md
     - name: Sensor API reference
-      href: sensor-api-reference.md
+      items:
+      - name: Authentication and password management
+        href: api/sensor-auth-apis.md
+      - name: Device management
+        href: api/sensor-device-apis.md
+      - name: Alert management
+        href: api/sensor-alert-apis.md
+      - name: Vulnerability management
+        href: api/sensor-vulnerability-apis.md
     - name: General management API reference
-      href: management-api-reference.md
-    - name: ServiceNow integration API reference
-      href: servicenow-api-reference.md
+      items:
+      - name: Authentication and password management
+        href: api/management-auth-apis.md
+      - name: Device management
+        href: api/management-device-apis.md
+      - name: Alert management
+        href: api/management-alert-apis.md
+      - name: Vulnerability management
+        href: api/management-vulnerability-apis.md
+      - name: Partner integration
+        href: api/integration-apis.md
   - name: Work with Defender for IoT CLI commands
     href: references-work-with-defender-for-iot-cli-commands.md
   - name: Frequently asked questions - service
