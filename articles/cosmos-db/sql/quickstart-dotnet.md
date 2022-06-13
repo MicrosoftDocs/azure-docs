@@ -212,7 +212,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 #### [Resource Manager template](#tab/azure-resource-manager)
 
 > [!NOTE]
-> Azure Resource managers templates are written in two syntaxes, JSON and Bicep. This sample uses the [Bicep](../../azure-resource-manager/bicep/overview.md) syntax. To learn more about the two syntaxes, see [comparing JSON and Bicep for templates](../../azure-resource-manager/bicep/compare-template-syntax.md).
+> Azure Resource Manager templates are written in two syntaxes, JSON and Bicep. This sample uses the [Bicep](../../azure-resource-manager/bicep/overview.md) syntax. To learn more about the two syntaxes, see [comparing JSON and Bicep for templates](../../azure-resource-manager/bicep/compare-template-syntax.md).
 
 1. Create shell variables for *accountName*, *resourceGroupName*, and *location*.
 
@@ -424,7 +424,7 @@ Created item:   68719518391     [gear-surf-surfboards]
 
 When you no longer need the Azure Cosmos DB SQL API account, you can delete the corresponding resource group.
 
-### [Azure CLI](#tab/azure-cli+azure-resource-manager)
+### [Azure CLI / Resource Manager template](#tab/azure-cli+azure-resource-manager)
 
 Use the [``az group delete``](/cli/azure/group#az-group-delete) command to delete the resource group.
 
