@@ -21,7 +21,7 @@ Role-based access control (RBAC) is a popular mechanism to enforce authorization
 
 Using RBAC with application role and role claims, developers can securely enforce authorization in their apps with less effort.
 
-Another approach is to use Azure Active Directory (Azure AD) groups and group claims as shown in the [active-directory-aspnetcore-webapp-openidconnect-v2](https://aka.ms/groupssample) code sample on GitHub. Azure AD groups and application roles are not mutually exclusive; they can be used in tandem to provide even finer-grained access control.
+Another approach is to use Azure Active Directory (Azure AD) groups and group claims as shown in the [active-directory-aspnetcore-webapp-openidconnect-v2](https://aka.ms/groupssample) code sample on GitHub. Azure AD groups and application roles aren't mutually exclusive; they can be used in tandem to provide even finer-grained access control.
 
 ## Declare roles for an application
 
@@ -53,7 +53,7 @@ To create an app role by using the Azure portal's user interface:
    | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
    | **Display name**                         | Display name for the app role that appears in the admin consent and app assignment experiences. This value may contain spaces.                                                                                                                                                                                    | `Survey Writer`               |
    | **Allowed member types**                 | Specifies whether this app role can be assigned to users, applications, or both.<br/><br/>When available to `applications`, app roles appear as application permissions in an app registration's **Manage** section > **API permissions > Add a permission > My APIs > Choose an API > Application permissions**. | `Users/Groups`                |
-   | **Value**                                | Specifies the value of the roles claim that the application should expect in the token. The value should exactly match the string referenced in the application's code. The value cannot contain spaces.                                                                                                          | `Survey.Create`               |
+   | **Value**                                | Specifies the value of the roles claim that the application should expect in the token. The value should exactly match the string referenced in the application's code. The value can't contain spaces.                                                                                                          | `Survey.Create`               |
    | **Description**                          | A more detailed description of the app role displayed during admin app assignment and consent experiences.                                                                                                                                                                                                        | `Writers can create surveys.` |
    | **Do you want to enable this app role?** | Specifies whether the app role is enabled. To delete an app role, deselect this checkbox and apply the change before attempting the delete operation.                                                                                                                                                             | _Checked_                     |
 
@@ -124,7 +124,7 @@ Though you can use app roles or groups for authorization, key differences betwee
 
 | App roles                                                                                                    | Groups                                                     |
 | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
-| They are specific to an application and are defined in the app registration. They move with the application. | They aren't specific to an app, but to an Azure AD tenant. |
+| They're specific to an application and are defined in the app registration. They move with the application. | They aren't specific to an app, but to an Azure AD tenant. |
 | App roles are removed when their app registration is removed.                                                | Groups remain intact even if the app is removed.           |
 | Provided in the `roles` claim.                                                                               | Provided in `groups` claim.                                |
 
