@@ -37,7 +37,7 @@ The **2022-06-30-preview** release is the latest update to the Form Recognizer s
 The latest beta release version of the Azure Form Recognizer SDKs incorporates new features, minor feature updates and bug fixes.
 
 >[!NOTE]
-> The 4.0.0-beta.4 (C# and JavaScript), 4.0.0-beta.5 (Java) and 3.2.0b5 (Python) previews contain the same updates and fixes but the versioning is no longer in sync across all programming languages.
+> The 4.0.0-beta.4 (C# and JavaScript), 4.0.0-beta.5 (Java), and 3.2.0b5 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
 
 This new release includes the following updates:
 
@@ -118,7 +118,7 @@ Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/d
 The latest beta release version of the Azure Form Recognizer SDKs incorporates new features, minor feature updates and bug fixes.
 
 >[!NOTE]
-> The 4.0.0-beta.3 (C# and JavaScript), 4.0.0-beta.4 (Java) and 3.2.0b4 (Python) previews contain the same updates and fixes but the versioning is no longer in sync across all programming languages.
+> The 4.0.0-beta.3 (C# and JavaScript), 4.0.0-beta.4 (Java), and 3.2.0b4 (Python) previews contain the same updates and bug fixes but the versioning is no longer in sync across all programming languages.
 
 This new release includes the following updates:
 
