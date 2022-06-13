@@ -81,7 +81,7 @@ conceptualContent:
           text: About Face service
           url: overview-identity.md
         - itemType: quickstart
-          text: Get started with Azure Identity
+          text: Get started with Face
           url: quickstarts-sdk/identity-client-library.md
         - itemType: how-to-guide
           text: Detect faces in an image
