@@ -191,7 +191,7 @@ Configure CORS settings for the developer portal backend to allow requests origi
 
 To add CORS settings:
 
-1. Go to your API Management instance in the Azure portal, and select **Developer portal** > **Portal overview** from the menu on the left.
+1. Go to your API Management instance in the Azure portal, and select **Developer portal** > **Portal settings** from the menu on the left.
 1. On the **Self-hosted portal configuration** tab, add one or more **Origin** domain values. For example:
     * The domain where the self-hosted portal is hosted, such as `https://www.contoso.com` 
     * `localhost` for local development (if applicable), such as `http://localhost:8080` or `https://localhost:8080` 
