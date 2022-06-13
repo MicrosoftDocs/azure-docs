@@ -170,7 +170,7 @@ In this section, you'll create a storage account and configure the private endpo
     | Subnet | Select **mySubnet** |
     | **Private DNS integration** |
     | Integrate with private DNS zone | Leave the default **Yes** |
-    | Private DNS Zone | Leave the default (New) privatelink.blob.core.windows.net |
+    | Private DNS Zone | Leave the default **(New) privatelink.blob.core.windows.net** |
 
 7. Select **OK**.
 
@@ -190,7 +190,7 @@ In this section, you'll create a storage account and configure the private endpo
 
 ## Test connectivity to private endpoint
 
-In this section, you'll use the virtual machine you created in the previous step to connect to the storage account across the private endpoint.
+In this section, you'll use the virtual machine you created in the previous steps to connect to the storage account across the private endpoint using **Microsoft Azure Storage Explorer**.
 
 1. Select **Resource groups** in the left-hand navigation pane.
 
@@ -228,7 +228,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 12. In the **Select Connection Method** screen, select **Connection string**, and then **Next**.
 
-13. In the box under **Connection String**, paste the connection string from the storage account you copied in the previous steps. The storage account name will automatically populate in the the box under **Display name**.
+13. In the box under **Connection String**, paste the connection string from the storage account you copied in the previous steps. The storage account name will automatically populate in the box under **Display name**.
 
 14. Select **Next**.
 
