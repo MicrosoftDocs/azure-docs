@@ -1,11 +1,11 @@
 ---
 title: Prerequisites and requirements for Azure Network Function Manager
 description: Learn about the requirements and prerequisites for Network Function Manager.
-author: cherylmc
+author: polarapfel
 ms.service: network-function-manager
 ms.topic: article
 ms.date: 11/02/2021
-ms.author: cherylmc
+ms.author: tobiaw
 ms.custom: ignite-fall-2021
 ---
 
