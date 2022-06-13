@@ -69,7 +69,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md) | ✔ | ✔ |
 | [Fileless security alerts](alerts-reference.md#alerts-windows) | ✔ | ✔ |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | - | - |
-| [Just-in-time VM access](just-in-time-access-usage.md) | - | - |
+| [Just-in-time VM access](just-in-time-access-usage.md) | ✔ (Preview) | - |
 | [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔ | ✔ |
 | [File integrity monitoring](file-integrity-monitoring-overview.md) | ✔ | ✔ |
 | [Adaptive application controls](adaptive-application-controls.md) | ✔ | ✔ |
