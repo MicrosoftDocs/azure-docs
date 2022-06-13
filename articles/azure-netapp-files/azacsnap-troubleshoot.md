@@ -49,8 +49,6 @@ Here's example output from `/var/log/messages`:
 Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
 ```
 
-## Use Cloud Shell to troubleshoot communications
-
 ## Troubleshoot failed 'test storage' command
 
 The command `azacsnap -c test --test storage` might not complete successfully.
@@ -62,7 +60,7 @@ Communication with Azure NetApp Files might fail or time out. To troubleshoot, m
 - `https://management.azure.com:443`
 - `https://login.microsoftonline.com:443`
 
-### Use Cloud Shell to troubleshoot communications
+### Use Cloud Shell to validate configuration files
 
 You can test whether the service principal is configured correctly by using Cloud Shell through the Azure portal. Using Cloud Shell tests for correct configuration, bypassing network controls within a virtual network or virtual machine (VM).
 
@@ -100,7 +98,7 @@ You can test whether the service principal is configured correctly by using Clou
    > [!NOTE]
    > The test command can take about 90 seconds to complete.
 
-### Failed test with SAP HANA on Azure Large Instance
+### Failed test on Azure Large Instance
 
 The following error example is from running `azacsnap` on Azure Large Instance:
 
