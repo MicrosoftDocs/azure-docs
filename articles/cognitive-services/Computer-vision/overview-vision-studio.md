@@ -31,15 +31,15 @@ To use Vision Studio, you'll need an Azure subscription and a resource for Cogni
 
 1.	Select **Choose resource**, then select an existing resource within your subscription. If you'd like to create a new one, select **Create a new resource**. Then enter information for your new resource, such as a name, location, and resource group. 
 
-![Resource selection panel](./Images/vision-studio-wizard-2.png)
+    :::image type="content" source="./Images/vision-studio-wizard-2.png" alt-text="Resource selection panel":::
 
-> [!TIP]
-> * When you select a location for your Azure resource, choose one that's closest to you for lower latency.
-> * If you use the free pricing tier, you can keep using the Vision service even after your Azure free trial or service credit expires.
+    > [!TIP]
+    > * When you select a location for your Azure resource, choose one that's closest to you for lower latency.
+    > * If you use the free pricing tier, you can keep using the Vision service even after your Azure free trial or service credit expires.
 
 1.	Select **Create resource**. Your resource will be created, and you'll be able to try the different features offered by Vision Studio.
 
-![Vision Studio home page](./Images/vision-studio-home-page.png)
+    :::image type="content" source="./Images/vision-studio-home-page.png" alt-text="Vision Studio home page":::
 
 1. From here, you can select any of the different features offered by Vision Studio. Some of them are outlined in the service quickstarts:
    * [OCR quickstart](quickstarts-sdk/client-library.md?pivots=vision-studio)
@@ -55,14 +55,13 @@ Each of these features has one or more try-it-out experiences in Vision Studio t
 ## Cleaning up resources
 
 If you want to remove a Cognitive Services resource after using Vision Studio, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can't delete your resource directly from Vision Studio, so use one of the following methods:
-* [Using the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#clean-up-resources)
-* [Using the Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#clean-up-resources)
+* [Using the Azure portal](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#clean-up-resources)
+* [Using the Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#clean-up-resources)
 
 > [!TIP]
 > In Vision Studio, you can find your resource's details (such as its name and pricing tier) as well as switch resources by selecting the Settings icon in the top-right corner of the Vision Studio screen).
 
 ## Next steps
 
-* Go to [Vision Studio]() to begin using features offered by the service.
-* For more information on the features offered, see the [Azure Computer Vision Overview](overview.md).
-
+* Go to [Vision Studio](https://vision.cognitive.azure.com/) to begin using features offered by the service.
+* For more information on the features offered, see the [Azure Computer Vision overview](overview.md).
