@@ -3,13 +3,13 @@ title: Install Read OCR Docker containers from Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Use the Read OCR Docker containers from Computer Vision to extract text from images and documents, on-premises.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
-ms.date: 10/14/2021
-ms.author: aahi
+ms.date: 06/13/2022
+ms.author: pafarley
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
 ---
@@ -18,16 +18,16 @@ keywords: on-premises, OCR, Docker, container
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
-Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run Computer Vision containers.
+Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run the Read (OCR) container.
 
-The *Read* OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](how-to/call-read-api.md).
+The Read container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](how-to/call-read-api.md).
 
 ## What's new
 The `3.2-model-2022-04-30` GA version of the Read container is available with support for [164 languages and other enhancements](./whats-new.md#may-2022). If you are an existing customer, please follow the [download instructions](#docker-pull-for-the-read-ocr-container) to get started.
 
 ## Read 3.2 container
 
-The Read 3.2 OCR container latest GA model provides:
+The Read 3.2 OCR container is the latest GA model and provides:
 * New models for enhanced accuracy.
 * Support for multiple languages within the same document.
 * Support for a total of 164 languages. See the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr).
@@ -61,7 +61,7 @@ Fill out and submit the [request form](https://aka.ms/csgate) to request approva
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
-### The host computer
+### Host computer requirements
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
