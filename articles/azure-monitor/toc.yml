@@ -1002,24 +1002,6 @@ items:
         href: app/standard-metrics.md
     - name: Transaction search
       href: app/diagnostic-search.md
-    - name: Snapshot Debugger
-      items:
-      - name: Overview
-        displayName: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
-        href: app/snapshot-debugger.md
-      - name: Enable Snapshot Debugger for an App Service
-        href: app/snapshot-debugger-appservice.md
-      - name: Enable Snapshot Debugger for a Function App
-        href: app/snapshot-debugger-function-app.md
-      - name: Enable Snapshot Debugger for other environments
-        href: app/snapshot-debugger-vm.md
-      - name: Upgrade Snapshot Debugger
-        href: app/snapshot-debugger-upgrade.md
-      - name: Configure BYOS (Bring Your Own Storage)
-        href: profiler/profiler-bring-your-own-storage.md
-      - name: Snapshot Debugger troubleshooting
-        displayName: troubleshoot, troubleshooting
-        href: app/snapshot-debugger-troubleshoot.md
     - name: Smart Detection
       href: app/proactive-diagnostics.md
       items:
@@ -1174,6 +1156,24 @@ items:
       href: profiler/profiler-trackrequests.md
     - name: Troubleshooting
       href: profiler/profiler-troubleshooting.md
+  - name: Snapshot Debugger
+    items:
+    - name: Overview
+      displayName: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
+      href: snapshot-debugger/snapshot-debugger.md
+    - name: Enable Snapshot Debugger for an App Service
+      href: snapshot-debugger/snapshot-debugger-appservice.md
+    - name: Enable Snapshot Debugger for a Function App
+      href: snapshot-debugger/snapshot-debugger-function-app.md
+    - name: Enable Snapshot Debugger for other environments
+      href: snapshot-debugger/snapshot-debugger-vm.md
+    - name: Upgrade Snapshot Debugger
+      href: snapshot-debugger/snapshot-debugger-upgrade.md
+    - name: Configure BYOS (Bring Your Own Storage)
+      href: profiler/profiler-bring-your-own-storage.md
+    - name: Snapshot Debugger troubleshooting
+      displayName: troubleshoot, troubleshooting
+      href: snapshot-debugger/snapshot-debugger-troubleshoot.md
   - name: Change Analysis
     items:
     - name: Overview
