@@ -17,7 +17,10 @@ ms.custom: "seodec18, devx-track-csharp"
 
 # What is Optical character recognition?
 
-Optical character recognition (OCR) allows you to extract printed or handwritten text from images, such as photos of street signs and products, as well as from documents&mdash;invoices, bills, financial reports, articles, and more. Microsoft's OCR technologies support extracting printed text in [several languages](./language-support.md). Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started, or try out the capabilities of OCR quickly and easily using Vision Studio.
+Optical character recognition (OCR) allows you to extract printed or handwritten text from images, such as photos of street signs and products, as well as from documents&mdash;invoices, bills, financial reports, articles, and more. Microsoft's OCR technologies support extracting printed text in [several languages](./language-support.md). 
+
+Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started with the REST API or a client SDK. Or, try out the capabilities of OCR quickly and easily in your browser using Vision Studio.
+
 > [!div class="nextstepaction"]
 > [Try Vision Studio](https://vision.cognitive.azure.com/)
 

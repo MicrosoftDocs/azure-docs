@@ -22,6 +22,16 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 
 The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification, touchless access control, and face blurring for privacy.
 
+You can use the Face service through a client library SDK or by calling the REST API directly. Follow the quickstart to get started.
+
+> [!div class="nextstepaction"]
+> [Quickstart](quickstarts-sdk/identity-client-library.md)
+
+Or, you can try out the capabilities of Face service quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
+
 This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/identity-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
 * The [how-to guides](./how-to/identity-detect-faces.md) contain instructions for using the service in more specific or customized ways.
@@ -74,6 +84,7 @@ The verification operation answers the question, "Do these two faces belong to t
 Verification is also a "one-to-one" matching of a face in an image to a single face from a secure repository or photo to verify that they're the same individual. Verification can be used for Identity Verification, such as a banking app that enables users to open a credit account remotely by taking a new picture of themselves and sending it with a picture of their photo ID.
 
 For more information about identity verification, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API reference documentation.
+
 Try out the capabilities of face verification quickly and easily using Vision Studio.
 > [!div class="nextstepaction"]
 > [Try Vision Studio](https://vision.cognitive.azure.com/)
