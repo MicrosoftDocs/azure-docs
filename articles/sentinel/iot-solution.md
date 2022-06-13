@@ -277,6 +277,21 @@ This playbook updates alert statuses in Defender for IoT whenever a related aler
 
 This synchronization overrides any status defined in Defender for IoT, in the Azure portal or the sensor console, so that the alert statuses match that of the related incident.
 
+To use this playbook:
+
+1. Add the **Security Admin** role to the Azure subscription where the playbook is installed. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current).
+
+1. In Microsoft Sentinel, add a new automation rule with the following configuration:
+
+    |Rule field  |Value  |
+    |---------|---------|
+    |**Trigger**     | When an incident is updated        |
+    |**Conditions**     |  **If**: Analytic rule name: Contains | All <br>**And**: Status | Changed       |
+    |**Actions**     |   Run playbook: `IncidentUpdateTriggerPlaybook`      |
+
+    For example:
+
+    :::image type="content" source="media/iot-solution/automate-playbook.png" alt-text="Screenshot of a Defender for IoT alert status sync automation rule." lightbox="media/iot-solution/automate-playbook.png":::
 
 ## Next steps
 
