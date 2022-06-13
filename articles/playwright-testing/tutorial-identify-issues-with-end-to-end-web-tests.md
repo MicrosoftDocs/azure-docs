@@ -2,8 +2,8 @@
 title: 'Tutorial: Identify web app issues with end-to-end tests'
 titleSuffix: Azure Playwright Testing
 description: In this tutorial, you learn how to identify issues in your web app with cross-platform, cross-browser end-to-end tests in Microsoft Playwright Testing. Troubleshoot problems by using rich traces, screenshots, and test result artifacts.
-services: load-testing
-ms.service: load-testing
+services: playwright-testing
+ms.service: playwright-testing
 ms.author: nicktrog
 author: ntrogh
 ms.date: 06/08/2022
@@ -80,7 +80,7 @@ Before you can load test the sample app, you have to get it deployed and running
 
 1. To see the application's components, sign in to the [Azure portal](https://portal.azure.com) and go to the resource group that you created.
 
-   :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/resource-group.png" alt-text="Screenshot that shows the list of Azure resource groups.":::
+   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/resource-group.png" alt-text="Screenshot that shows the list of Azure resource groups.":::
 
 Now that you have the application deployed and running, you can run your first load test against it.
 
@@ -109,15 +109,15 @@ To create a load test in the Load Testing resource for the sample app:
 
 1. Go to the Load Testing resource and select **Create new test** on the command bar.
 
-   :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/create-test.png" alt-text="Screenshot that shows the button for creating a new test." :::
+   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-test.png" alt-text="Screenshot that shows the button for creating a new test." :::
 
 1. On the **Basics** tab, enter the **Test name** and **Test description** information. Optionally, you can select the **Run test after creation** checkbox to automatically start the load test after creating it.
 
-   :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/create-new-test-basics.png" alt-text="Screenshot that shows the Basics tab for creating a test." :::
+   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-basics.png" alt-text="Screenshot that shows the Basics tab for creating a test." :::
 
 1. On the **Test plan** tab, select the **JMeter script** test method, and then select the *SampleApp.jmx* test script from the cloned sample application directory. Next, select **Upload** to upload the file to Azure and configure the load test.
 
-   :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload an Apache JMeter script." :::
+   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload an Apache JMeter script." :::
 
     Optionally, you can select and upload additional Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
 
@@ -125,7 +125,7 @@ To create a load test in the Load Testing resource for the sample app:
 
     The Apache JMeter test script uses the environment variable to retrieve the web application URL. The script then invokes the three APIs in the web application.
 
-    :::image type="content" source="media/tutorial-issues-with-end-to-end-web-tests/create-new-test-parameters.png" alt-text="Screenshot that shows the parameters tab to add environment variable.":::
+    :::image type="content" source="media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-parameters.png" alt-text="Screenshot that shows the parameters tab to add environment variable.":::
 
 1. On the **Load** tab, configure the following details. You can leave the default value for this tutorial.
 
@@ -133,19 +133,19 @@ To create a load test in the Load Testing resource for the sample app:
     |---------|---------|---------|
     |**Engine instances**     |**1**         |The number of parallel test engines that run the Apache JMeter script. |
 
-   :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/create-new-test-load.png" alt-text="Screenshot that shows the Load tab for creating a test." :::
+   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-load.png" alt-text="Screenshot that shows the Load tab for creating a test." :::
 
 1. On the **Monitoring** tab, specify the application components that you want to monitor with the resource metrics. Select **Add/modify** to manage the list of application components.
 
-   :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/create-new-test-monitoring.png" alt-text="Screenshot that shows the Monitoring tab for creating a test." :::
+   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-monitoring.png" alt-text="Screenshot that shows the Monitoring tab for creating a test." :::
 
-   :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/create-new-test-add-resource.png" alt-text="Screenshot that shows how to add Azure resources to monitor during the load test." :::
+   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-add-resource.png" alt-text="Screenshot that shows how to add Azure resources to monitor during the load test." :::
 
-   :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/create-new-test-added-resources.png" alt-text="Screenshot that shows the Monitoring tab with the list of Azure resources to monitor." :::
+   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-added-resources.png" alt-text="Screenshot that shows the Monitoring tab with the list of Azure resources to monitor." :::
 
 1. Select **Review + create**, review all settings, and select **Create**.
 
-   :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/create-new-test-review.png" alt-text="Screenshot that shows the tab for reviewing and creating a test." :::
+   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-review.png" alt-text="Screenshot that shows the tab for reviewing and creating a test." :::
 
 > [!NOTE]
 > You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
@@ -156,20 +156,20 @@ In this section, you'll use the Azure portal to manually start the load test tha
 
 1. Select **Tests** to view the list of tests, and then select the test that you created.
 
-   :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/test-list.png" alt-text="Screenshot that shows the list of tests." :::
+   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/test-list.png" alt-text="Screenshot that shows the list of tests." :::
 
    >[!TIP]
    > You can use the search box and the **Time range** filter to limit the number of tests.
 
 1. On the test details page, select **Run** or **Run test**. Then, select **Run** on the **Run test** confirmation pane to start the load test.
 
-    :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/test-runs-run.png" alt-text="Screenshot that shows selections for running a test." :::
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/test-runs-run.png" alt-text="Screenshot that shows selections for running a test." :::
 
     Azure Load Testing begins to monitor and display the application's server metrics on the dashboard.
 
     You can see the streaming client-side metrics while the test is running. By default, the results refresh automatically every five seconds.
 
-    :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/aggregated-by-percentile.png" alt-text="Screenshot that shows the dashboard with test results.":::
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/aggregated-by-percentile.png" alt-text="Screenshot that shows the dashboard with test results.":::
 
     You can apply multiple filters or aggregate the results to different percentiles to customize the charts.
 
@@ -184,11 +184,11 @@ In this section, you'll analyze the results of the load test to identify perform
 
 1. First, look at the client-side metrics. You'll notice that the 90th percentile for the **Response time** metric for the `add` and `get` API requests is higher than it is for the `lasttimestamp` API.
 
-    :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/client-side-metrics.png" alt-text="Screenshot that shows the client-side metrics.":::
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/client-side-metrics.png" alt-text="Screenshot that shows the client-side metrics.":::
 
     You can see a similar pattern for **Errors**, where the `lasttimestamp` API has fewer errors than the other APIs.
 
-    :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/client-side-metrics-errors.png" alt-text="Screenshot that shows the error chart.":::
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/client-side-metrics-errors.png" alt-text="Screenshot that shows the error chart.":::
 
     The results of the `add` and `get` APIs are similar, whereas the `lasttimestamp` API behaves differently. The cause might be database related, because both the `add` and `get` APIs involve database access.
 
@@ -196,13 +196,13 @@ In this section, you'll analyze the results of the load test to identify perform
 
     The server-side metrics show detailed information about your Azure application components: Azure App Service plan, Azure App Service web app, and Azure Cosmos DB.
 
-    :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/app-service-metrics-for-load-testing.png" alt-text="Screenshot that shows the Azure App Service plan metrics.":::
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/app-service-metrics-for-load-testing.png" alt-text="Screenshot that shows the Azure App Service plan metrics.":::
 
     In the metrics for the Azure App Service plan, you can see that the **CPU Percentage** and **Memory Percentage** metrics are within an acceptable range.
 
 1. Now, look at the Azure Cosmos DB server-side metrics.
 
-    :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/cosmos-db-metrics.png" alt-text="Screenshot that shows Azure Cosmos DB metrics.":::
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/cosmos-db-metrics.png" alt-text="Screenshot that shows Azure Cosmos DB metrics.":::
 
     Notice that the **Normalized RU Consumption** metric shows that the database was quickly running at 100% resource utilization. The high resource usage might have caused database throttling errors. It also might have increased response times for the `add` and `get` web APIs.
 
@@ -214,7 +214,7 @@ Now that you've increased the database throughput, rerun the load test and verif
 
 1. On the test run dashboard, select **Rerun**, and then select **Rerun** on the **Rerun test** pane.
 
-   :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/rerun-test.png" alt-text="Screenshot that shows selections for running the load test.":::
+   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/rerun-test.png" alt-text="Screenshot that shows selections for running the load test.":::
 
    You'll see a new test run entry with a status column that cycles through the **Provisioning**, **Executing**, and **Done** states. At any time, select the test run to monitor how the load test is progressing.
 
@@ -222,7 +222,7 @@ Now that you've increased the database throughput, rerun the load test and verif
 
 1. Check the server-side metrics for Azure Cosmos DB and ensure that the performance has improved.
 
-   :::image type="content" source="./media/tutorial-issues-with-end-to-end-web-tests/cosmos-db-metrics-post-run.png" alt-text="Screenshot that shows the Azure Cosmos D B client-side metrics after update of the scale settings.":::
+   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/cosmos-db-metrics-post-run.png" alt-text="Screenshot that shows the Azure Cosmos D B client-side metrics after update of the scale settings.":::
 
    The Azure Cosmos DB **Normalized RU Consumption** value is now well below 100%.
 
