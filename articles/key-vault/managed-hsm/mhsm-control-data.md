@@ -40,7 +40,7 @@ For added assurance, AKV Premium and AKV Managed HSM support importing HSM-prote
 |**Compliance**|FIPS 140-2 level 1|FIPS 140-2 level 2|FIPS 140-2 level 3|
 |**High Availability**|Automatic|Automatic|Automatic|
 |**Use cases**|Encryption at Rest|Encryption at Rest|Encryption at Rest|
-**Key Controls**|Customer|Customer|Customer|
+| **Key Controls**|Customer|Customer|Customer|
 |**Root of trust control**|Microsoft|Microsoft|Customer|
 
 **Azure Key Vault** is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. Key Vault service supports two types of containers:
