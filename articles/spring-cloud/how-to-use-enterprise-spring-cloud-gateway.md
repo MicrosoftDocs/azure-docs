@@ -49,6 +49,7 @@ The route definition includes the following parts:
 
 The following tables list the route definitions. All the properties are optional.
 
+<!--TODO: review this table  -->
 | Property | Description |
 | - | - |
 | title | A title, will be applied to methods in the generated OpenAPI documentation |
@@ -56,21 +57,22 @@ The following tables list the route definitions. All the properties are optional
 | uri | Full uri, will override `appResourceId` |
 | ssoEnabled | Enable SSO validation. See "Using Single Sign-on" |
 | tokenRelay | Pass currently authenticated user's identity token to application service |
-| predicates | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates) and [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-predicates.html)|
-| filters | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-filters) and [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html)|
-| order | Route processing order, same as Spring Cloud Gateway OSS |
+| predicates | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates) |
+| filters | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-filters) |
+| order | Route processing order, same as Spring Cloud Gateway OSS | <!-- TODO: include link to order -->
 | tags | Classification tags, will be applied to methods in the generated OpenAPI documentation |
 
-Not all the filters/predicates are supported in Azure Spring Apps because of security/compatible reasons. The following aren't supported:
+> [!NOTE]
+> Not all the filters/predicates are supported in Azure Spring Apps because of security or compatibility reasons. The following aren't supported:
+>
+> - BasicAuth
+> - JWTKey
 
-- BasicAuth
-- JWTKey
-
-## Create an example application
+## Using Routes for Spring Cloud Gateway for Kubernetes Example
 
 Use the following steps to create an example application using Spring Cloud Gateway for Kubernetes.
 
-1. To create an app in Azure Spring Apps which the Spring Cloud Gateway for Kubernetes would route traffic to, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Apps Enterprise tier](./quickstart-deploy-apps-enterprise.md#provision-a-service-instance).
+1. To create an app in Azure Spring Apps which the Spring Cloud Gateway for Kubernetes would route traffic to, follow the instructions in the [Animal Rescue Sample App](https://github.com/Azure-Samples/animal-rescue) through [Build and Deploy Applications](https://github.com/Azure-Samples/animal-rescue#build-and-deploy-applications).
 
 1. Assign a public endpoint to the gateway to access it.
 
@@ -111,12 +113,12 @@ Use the following steps to create an example application using Spring Cloud Gate
    ]
    ```
 
-   Use the following command to apply the rule to the app `customers-service`:
+   Use the following command to apply the rule to the app `animal-rescue-backend`:
 
    ```azurecli
    az spring gateway route-config create \
        --name adoption-api-routes \
-       --app-name adoption-api \
+       --app-name animal-rescue-backend \
        --routes-file adoption-api.json
    ```
 
@@ -124,10 +126,10 @@ Use the following steps to create an example application using Spring Cloud Gate
 
    :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Screenshot of Azure portal Azure Spring Apps Spring Cloud Gateway page showing 'Routing rules' pane.":::
 
-1. Use the following command to access the `customers service` and `owners` APIs through the gateway endpoint:
+1. Use the following command to access the `animal rescue backend` API through the gateway endpoint:
 
    ```bash
-   curl https://<endpoint-url>/api/customers-service/owners
+   curl https://<endpoint-url>/api/animals
    ```
 
 1. Use the following command to query the routing rules:
@@ -135,7 +137,7 @@ Use the following steps to create an example application using Spring Cloud Gate
    ```azurecli
    az configure --defaults group=<resource group name> spring-cloud=<service name>
    az spring gateway route-config show \
-       --name customers-service-rule \
+       --name adoption-api-routes \
        --query '{appResourceId:properties.appResourceId, routes:properties.routes}'
    az spring gateway route-config list \
        --query '[].{name:name, appResourceId:properties.appResourceId, routes:properties.routes}'

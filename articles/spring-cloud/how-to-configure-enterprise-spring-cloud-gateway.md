@@ -47,7 +47,7 @@ Default resource usage:
 | Spring Cloud Gateway for Kubernetes          | 2              | 1 core            | 2Gi                 |
 | Spring Cloud Gateway for Kubernetes operator | 2              | 1 core            | 2Gi                 |
 
-## Configure Spring Cloud Gateway for Kubernetes
+## Configuring Spring Cloud Gateway for Kubernetes
 
 Spring Cloud Gateway for Kubernetes is configured using the following sections and steps.
 
