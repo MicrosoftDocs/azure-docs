@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 06/10/2022
+ms.date: 06/13/2022
 ms.author: phjensen
 ms.custom: kr2b-contr-experiment
 ---
@@ -51,12 +51,20 @@ Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
 
 ## Use Cloud Shell to troubleshoot communications
 
+## Troubleshoot failed 'test storage' command
+
+The command `azacsnap -c test --test storage` might not complete successfully.
+
+### Check network firewalls
+
 Communication with Azure NetApp Files might fail or time out. To troubleshoot, make sure firewall rules aren't blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:
 
 - `https://management.azure.com:443`
 - `https://login.microsoftonline.com:443`
 
-You can also test whether the service principal is configured correctly by using Cloud Shell through the Azure portal. Using Cloud Shell tests for correct configuration, bypassing network controls within a virtual network or virtual machine (VM).
+### Use Cloud Shell to troubleshoot communications
+
+You can test whether the service principal is configured correctly by using Cloud Shell through the Azure portal. Using Cloud Shell tests for correct configuration, bypassing network controls within a virtual network or virtual machine (VM).
 
 1. In the Azure portal, open a [Cloud Shell](../cloud-shell/overview.md) session.
 1. Make a test directory, for example `mkdir azacsnap`.
@@ -92,13 +100,9 @@ You can also test whether the service principal is configured correctly by using
    > [!NOTE]
    > The test command can take about 90 seconds to complete.
 
-## Troubleshoot failed 'test storage' command
-
-The command `azacsnap -c test --test storage` might not complete successfully.
-
 ### Failed test with SAP HANA on Azure Large Instance
 
-The following error example is from running `azacsnap` on SAP HANA on Azure Large Instance:
+The following error example is from running `azacsnap` on Azure Large Instance:
 
 ```bash
 azacsnap -c test --test storage
@@ -131,9 +135,9 @@ osa33-hana-c01v250-client25-nprod hana_data_h80_mnt00001_t020_vol
 osa33-hana-c01v250-client25-nprod hana_data_h80_mnt00002_t020_vol
 ```
 
-### Failed test on a VM with Azure NetApp Files
+### Failed test with Azure NetApp Files
 
-The following error example is from running `azacsnap` on a VM using Azure NetApp Files:
+The following error example is from running `azacsnap` with Azure NetApp Files:
 
 ```bash
 azacsnap --configfile azacsnap.json.NOT-WORKING -c test --test storage
@@ -161,11 +165,51 @@ To troubleshoot this error:
    [19/Nov/2020:18:41:10 +13:00] DEBUG: [PID:0020257:StorageANF:659] [1] Innerexception: Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException AADSTS7000222: The provided client secret keys are expired. Visit the Azure Portal to create new keys for your app, or consider using certificate credentials for added security: https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials
    ```
 
-## Troubleshoot problems with SAP HANA
+## Troubleshoot failed 'test hana' command
 
-When setting up communication with SAP HANA, the `hdbuserstore` program creates the secure communication settings.  The `hdbuserstore` program is usually under */usr/sap/\<SID>/SYS/exe/hdb/* or */usr/sap/hdbclient*.  Make sure the installer added the correct location to the AzAcSnap user's `$PATH`.
+The command `azacsnap -c test --test hana` might not complete successfully.
 
-### Failed 'test hana' command
+### Command not found
+
+When setting up communication with SAP HANA, the `hdbuserstore` program is used to create the secure communication settings. AzAcSnap also requires the `hdbsql` program for all communications with SAP HANA. These program are usually under */usr/sap/\<SID>/SYS/exe/hdb/* or */usr/sap/hdbclient* and must be in the users `$PATH`.
+
+- In the following example, the `hdbsql` command isn't in the users `$PATH`.
+
+  ```bash
+  hdbsql -n 172.18.18.50 - i 00 -U AZACSNAP "select version from sys.m_database"
+  ```
+
+  ```output
+  If 'hdbsql' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+  cnf hdbsql
+  ```
+
+- The following example temporarily adds the `hdbsql` command to the user's `$PATH`, allowing `azacsnap` to run correctly.
+
+  ```bash
+  export PATH=$PATH:/hana/shared/H80/exe/linuxx86_64/hdb/
+  ```
+
+Make sure the installer added the location of these files to the AzAcSnap user's `$PATH`. 
+
+> [!NOTE]
+> To permanently add to the user's `$PATH`, update the user's *$HOME/.profile* file.
+
+### Invalid value for key
+
+This command output shows that the connection key hasn't been set up correctly with the `hdbuserstore Set` command.
+
+  ```bash
+  hdbsql -n 172.18.18.50 -i 00 -U AZACSNAP "select version from sys.m_database"
+  ```
+
+  ```output
+  * -10104: Invalid value for KEY (AZACSNAP)
+  ```
+
+For more information on setup of the `hdbuserstore`, see [Get started with AzAcSnap](azacsnap-get-started.md).
+
+### Failed test
 
 When validating communication with SAP HANA by running a test with `azacsnap -c test --test hana`, you might get the following error:
 
@@ -200,34 +244,6 @@ To troubleshoot this error:
    input encoding: UTF8
    sql port      : saphana1:30013
    ```
-
-- In the following example, the `hdbsql` command isn't in the users `$PATH`.
-
-  ```bash
-  hdbsql -n 172.18.18.50 - i 00 -U AZACSNAP "select version from sys.m_database"
-  ```
-
-  ```output
-  If 'hdbsql' is not a typo you can use command-not-found to lookup the package that contains it, like this:
-  cnf hdbsql
-  ```
-
-- The following example temporarily adds the `hdbsql` command to the user's `$PATH`, but the command output shows that the connection key hasn't been set up correctly with the `hdbuserstore Set` command. For more information, see [Get started with AzAcSnap](azacsnap-get-started.md).
-
-  ```bash
-  export PATH=$PATH:/hana/shared/H80/exe/linuxx86_64/hdb/
-  ```
-
-  ```bash
-  hdbsql -n 172.18.18.50 -i 00 -U AZACSNAP "select version from sys.m_database"
-  ```
-
-  ```output
-  * -10104: Invalid value for KEY (AZACSNAP)
-  ```
-
-  > [!NOTE]
-  > To permanently add to the user's `$PATH`, update the user's *$HOME/.profile* file.
 
 ### Insufficient privilege error
 
