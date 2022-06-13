@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Investigate sensor detections in an inventory
 
-The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and a complete view of the devices on your network. 
+The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and full visibility of the devices on your network. 
 
 :::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="Screenshot that shows the Device inventory main screen.":::
 
