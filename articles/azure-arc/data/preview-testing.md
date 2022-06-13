@@ -26,7 +26,7 @@ Each month, Azure Arc-enabled data services is released on the second Tuesday of
 
 The main difference between the test and preview pre-release versions is typically just quality and stability, but in some exceptional cases there may be new features introduced in between the test and preview releases.
 
-Pre-release version binaries are typically made available starting around 10:00 AM Pacific Time (UTC - 9) and documentation is published around 4 PM Pacific Time.
+Pre-release version binaries are typically made available starting around 10:00 AM Pacific Time. Documentation follows later in the day.
 
 ## Artifacts for a pre-release version
 
@@ -124,7 +124,9 @@ When you deploy with this method, the most recent pre-release version will alway
 
 ## Pre-release version history
 
-### June 7, 2022 (Preview)
+### Current preview
+
+The current preview released on June 7, 2022.
 
 |Component|Value|
 |-----------|-----------|
