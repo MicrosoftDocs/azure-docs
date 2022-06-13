@@ -101,18 +101,7 @@ For more information on configuring your load balancer in a different subnet, se
 You must have the following resource installed:
 
 * The Azure CLI
-* The `aks-preview` extension version 0.5.50 or later
 * Kubernetes version 1.22.x or above
-
-#### Install the aks-preview CLI extension
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ### Create a Private Link service connection
 
