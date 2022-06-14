@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 06/14/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -71,7 +71,13 @@ Set-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccount
 
 ### [Azure CLI](#tab/azure-cli)
 
-To enable SFTP support, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--enable-sftp` parameter to true. Remember to replace the values in angle brackets with your own values:
+First, install the preview extension for the Azure CLI if it's not already installed:
+
+```azurecli
+az extension add -name storage-preview
+```
+
+Then, to enable SFTP support, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--enable-sftp` parameter to true. Remember to replace the values in angle brackets with your own values:
 
 ```azurecli
 az storage account update -g <resource-group> -n <storage-account> --enable-sftp=true

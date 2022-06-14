@@ -11,6 +11,8 @@ ms.date: 05/31/2022
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) connection pooling
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 Establishing new connections takes time. That works against most applications,
 which request many short-lived connections. We recommend using a connection
 pooler, both to reduce idle transactions and reuse existing connections. To

@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Dynatrace for Azure
-summary: Dynatrace for Azure provides a native integrated experience that enables you to create and manage Dynatrace environments from Azure.
+title: Dynatrace for Azure (preview) - Azure partner solutions
+summary: Dynatrace for Azure (preview) provides a native integrated experience for monitoring where you can create and manage Dynatrace environments from Azure.
 
 metadata:
   title: Dynatrace for Azure documentation
@@ -15,11 +15,11 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About Dynatrace for Azure
+  - title: About Dynatrace for Azure (preview)
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Dynatrace for Azure?
+          - text: What is Dynatrace for Azure (preview)?
             url: dynatrace-overview.md
       - linkListType: how-to-guide
         links:
@@ -39,7 +39,7 @@ landingContent:
             url: dynatrace-link-to-existing.md
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting Dynatrace for Azure
+          - text: Troubleshooting Dynatrace for Azure (preview)
             url: dynatrace-troubleshoot.md
 
   # Card
