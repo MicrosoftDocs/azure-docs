@@ -64,10 +64,10 @@ A regular expression that represents the data that is stored in a data field. Fo
 An operation within a specific Microsoft Purview instance, such as editing an asset or creating a glossary term. Each instance has predefined roles, such as "data reader" and "data curator" that control which data plane operations a user can perform.
 ## Data reader
 A role that provides read-only access to data assets, classifications, classification rules, collections, glossary terms, and insights.
-## Data Share
-Azure Data Share is a set of features in Microsoft Purview that enables you to securely share data across organizations.
+## Data Sharing
+Microsoft Purview Data Sharing is a set of features in Microsoft Purview that enables you to securely share data across organizations.
 ## Data Share contributor
-A role that can share data within an organization and with other organizations using Data share capabilities in Azure Purview. Data share contributors can view, create, update, and delete sent and received shares.
+A role that can share data within an organization and with other organizations using data share capabilities in Microsoft Purview. Data share contributors can view, create, update, and delete sent and received shares.
 ## Data source admin
 A role that can manage data sources and scans. A user in the Data source admin role doesn't have access to Microsoft Purview governance portal. Combining this role with the Data reader or Data curator roles at any collection scope provides Microsoft Purview governance portal access.
 ## Data steward
