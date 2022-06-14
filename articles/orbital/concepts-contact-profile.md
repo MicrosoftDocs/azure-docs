@@ -18,7 +18,7 @@ This object is essentially a store of pass configurations and you can create man
 
 These objects are mutable and do not undergo an authorization process like the spacecraft object. One contact profile can be used with many spacecraft objects if the links requested in the contact profile object are in accordance with the authorizations held in the spacecraft object.
 
-# Contact Profile Object
+## Contact Profile Object
 
 The contact profile object should be part of the same subscription where the spacecraft objects are housed.
 
