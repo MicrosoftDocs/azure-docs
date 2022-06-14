@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 <!--
 
-This template provides the basic structure of a how-to article.
+This template provides the basic structure of a HOW-TO article. A HOW-TO article is used to help the customer complete a specific task.
 
 1. H1 (Docs Required)
    Start your H1 with a verb. Pick an H1 that clearly conveys the task the user will complete (example below).

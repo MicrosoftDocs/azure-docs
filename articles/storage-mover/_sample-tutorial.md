@@ -11,7 +11,7 @@ ms.custom: template-tutorial
 
 <!--
 
-This template provides the basic structure of a tutorial article.
+This template provides the basic structure of a TUTORIAL article. A TUTORIAL article is used to help the customer build a skill by showing them the best way to do something.
 
 1. H1
 

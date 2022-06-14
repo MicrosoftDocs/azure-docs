@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 <!--
 
-This template provides the basic structure of a concept article.
+This template provides the basic structure of a CONCEPT article. A CONCEPT article is used to help the customer understand, rather than do, something.
 
 1. H1 (Docs Required)
    Set expectations for what the content covers, so customers know the content meets their needs. The heading should NOT begin with a verb.

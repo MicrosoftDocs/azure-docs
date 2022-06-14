@@ -5,12 +5,12 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage
 ms.topic: quickstart
-ms.date: 06/13/2022
+ms.date: 06/14/2022
 ms.custom: template-quickstart
 ---
 
 <!--
-This template provides the basic structure of a QUICKSTART article.
+This template provides the basic structure of a QUICKSTART article. A QUICKSTART is used to give new customers an example of some functionality.
 
 1. H1
 
