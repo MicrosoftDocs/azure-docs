@@ -74,7 +74,7 @@ Installation includes:
 - Installing Defender for IoT software
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or  your hardware and configure the appliance yourself.
 >
 
 

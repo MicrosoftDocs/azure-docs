@@ -95,7 +95,7 @@ Alert groups are predefined. For details about alerts associated with alert grou
 
 Add custom alert rule to pinpoint specific activity needed for your organization such as for particular protocols, source or destination addresses, or a combination of parameters.
 
-For example, you might want to define an alert for an environment running MODBUS to detect any write commands to a memory register on a specific IP address and ethernet destination. Another example would be an alert for any access to a particular IP address.
+For example, you might want to define an alert for an environment running MODBUS to detect any written commands to a memory register on a specific IP address and ethernet destination. Another example would be an alert for any access to a particular IP address.
 
 Use custom alert rule actions to instruct Defender for IT to take specific action when the alert is triggered, such as allowing users to access PCAP files from the alert, assigning alert severity, or generating an event that shows in the event timeline. Alert messages indicate that the alert was generated from a custom alert rule. 
 
