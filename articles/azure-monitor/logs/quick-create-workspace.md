@@ -37,7 +37,7 @@ Use the **Log Analytics workspaces** menu to create a workspace.
 1. Select an available **Region**.  For more information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/) and search for Azure Monitor from the **Search for a product** field.  
 
 
-   ![Create Log Analytics resource blade](media/quick-create-workspace/create-workspace.png)  
+   :::image type="content" source="media/quick-create-workspace/create-workspace.png" alt-text="Screenshot showing the fields that need to be populated on the Basic tab of the Create Log Analytics workspace screen.":::
 
 
 1. Select **Review + create** to review the settings and then **Create** to create the workspace. A default pricing tier of Pay-as-you-go is applied. No charges will be incurred until you start collecting a sufficient amount of data. For more information about other pricing tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
