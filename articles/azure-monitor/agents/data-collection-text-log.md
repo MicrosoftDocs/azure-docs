@@ -424,7 +424,7 @@ The final step is to create a data collection association that associates the da
 
     :::image type="content" source="media/data-collection-text-log/select-resources.png" lightbox="media/data-collection-text-log/select-resources.png" alt-text="Screenshot that shows portal blade to add resources to the data collection rule.":::
 
-## Troubleshooting - Text logs
+## Troubleshooting - text logs
 Use the following steps to troubleshoot collection of text logs. 
 
 
