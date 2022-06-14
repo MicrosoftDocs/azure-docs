@@ -20,10 +20,12 @@ To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Az
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
 
 ## Azure File CSI driver new features
-Besides original in-tree driver features, Azure File CSI driver already provides following new features:
-- NFS 4.1
-- Private endpoint
-- support creating large mount of file shares in parallel 
+
+In addition to the original in-tree driver features, Azure File CSI driver supports the following new features:
+
+- Network File System (NFS) version 4.1
+- [Private endpoint][private-endpoint-overview]
+- Creating large mount of file shares in parallel
 
 ## Use a persistent volume with Azure Files
 
@@ -263,16 +265,18 @@ kubectl apply -f private-pvc.yaml
 
 ## NFS file shares
 
-[Azure Files supports the NFS v4.1 protocol](../storage/files/storage-files-how-to-create-nfs-shares.md). NFS 4.1 support for Azure Files provides you with a fully managed NFS file system as a service built on a highly available and highly durable distributed resilient storage platform.
+[Azure Files supports the NFS v4.1 protocol](../storage/files/storage-files-how-to-create-nfs-shares.md). NFS version 4.1 support for Azure Files provides you with a fully managed NFS file system as a service built on a highly available and highly durable distributed resilient storage platform.
 
 This option is optimized for random access workloads with in-place data updates and provides full POSIX file system support. This section shows you how to use NFS shares with the Azure File CSI driver on an AKS cluster.
 
-> [!NOTE]
-> Make sure cluster `Control plane` identity(with name `AKS Cluster Name`) has `Contributor` permission on vnet resource group.
+### Prerequsites
+
+- Your AKS clusters service principal or managed identity must be added to the Contributor role to the storage account.
+- Your AKS cluster *Control plane* identity (that is, your AKS cluster name) is added to the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role in the resource group hosting the VNet.
 
 ### Create NFS file share storage class
 
-Save a `nfs-sc.yaml` file with the manifest below editing the respective placeholders.
+Create a a file named `nfs-sc.yaml` and copy the manifest below.
 
 ```yml
 apiVersion: storage.k8s.io/v1
@@ -289,7 +293,7 @@ mountOptions:
 
 After editing and saving the file, create the storage class with the [kubectl apply][kubectl-apply] command:
 
-```console
+```bash
 $ kubectl apply -f nfs-sc.yaml
 
 storageclass.storage.k8s.io/azurefile-csi-nfs created
@@ -305,7 +309,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-c
 statefulset.apps/statefulset-azurefile created
 ```
 
-Validate the contents of the volume by running:
+Validate the contents of the volume by running the following command:
 
 ```console
 $ kubectl exec -it statefulset-azurefile-0 -- df -h
@@ -318,13 +322,13 @@ accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-55660
 ```
 
 > [!NOTE]
-> Note that since NFS file share is in Premium account, the minimum file share size is 100GB. If you create a PVC with a small storage size, you might encounter an error "failed to create file share ... size (5)...".
+> Note that since NFS file share is in Premium account, the minimum file share size is 100GB. If you create a PVC with a small storage size, you might encounter an error similar to the following: *failed to create file share ... size (5)...*.
 
 ## Windows containers
 
-The Azure Files CSI driver also supports Windows nodes and containers. If you want to use Windows containers, follow the [Windows containers quickstart](./learn/quick-windows-container-deploy-cli.md) to add a Windows node pool.
+The Azure Files CSI driver also supports Windows nodes and containers. To use Windows containers, follow the [Windows containers quickstart](./learn/quick-windows-container-deploy-cli.md) to add a Windows node pool.
 
-After you have a Windows node pool, use the built-in storage classes like `azurefile-csi` or create custom ones. You can deploy an example [Windows-based stateful set](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into a file `data.txt` by deploying the following command with the [kubectl apply][kubectl-apply] command:
+After you have a Windows node pool, use the built-in storage classes like `azurefile-csi` or create custom a one. You can deploy an example [Windows-based stateful set](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into a file `data.txt` by deploying the following command with the [kubectl apply][kubectl-apply] command:
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
@@ -381,3 +385,4 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md
 [use-tags]: use-tags.md
+[private-endpoint-overview]: ../private-link/private-endpoint-overview.md
