@@ -16,6 +16,8 @@
     href: az-region.md
   - name: Migration Guidance
     items:
+    - name: App service
+      href: migrate-app-service.md
     - name: Virtual Machines and Virtual Machine Scale Sets
       href: migrate-vm.md
     - name: Storage accounts
