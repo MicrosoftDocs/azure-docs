@@ -356,7 +356,7 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
                                     "Microsoft-W3CIISLog"
                                 ],
                                 "logDirectories": [
-                                    "C:\\inetpub\\logs\\LogFiles\\"
+                                    "C:\\inetpub\\logs\\LogFiles\\W3SVC1\\"
                                 ],
                                 "name": "myIisLogsDataSource"
                             }
@@ -429,7 +429,7 @@ Use the following steps to troubleshoot collection of text logs.
 
 
 ### Check if any custom logs have been received
-Start by checking if any records have been collected for your custom log table by running the following query in Log Analytics. If no records are returned then check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range.
+Start by checking if any records have been collected for your custom log table by running the following query in Log Analytics. If no records are returned then check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range. It can take 5-7 minutes for new data from your tables to be uploaded.  Only new data will be uploaded any log file last written to prior to the DCR rules being created will not be uploaded.
 
 ``` kusto
 <YourCustomLog>_CL
@@ -551,8 +551,8 @@ Heartbeat
 | order by TimeGenerated desc
 ```
 
-### Verify that IIS logs are being created.
-Look at the timestamps of the log files and open the latest to see that latest timestamps are present in the log files.
+### Verify that IIS logs are being created
+Look at the timestamps of the log files and open the latest to see that latest timestamps are present in the log files. The default location for IIS log files is C:\\inetpub\\LogFiles\\W3SVC1.
 
 :::image type="content" source="media/data-collection-text-log/iis-log-timestamp.png" lightbox="media/data-collection-text-log/iis-log-timestamp.png" alt-text="Screenshot of I I S log on agent machine showing the timestamp.":::
 
