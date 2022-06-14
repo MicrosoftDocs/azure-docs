@@ -156,11 +156,11 @@ Until recently, the it was only possible to publish a pipeline for deployments b
 
 CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the UI. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the UI and click a button. This method gives  your CI/CD pipelines a **true** continuous integration experience. Follow [CI/CD Publishing Improvements](./continuous-integration-delivery-improvements.md) for details. 
 
-###  Cannot publish because of 4-MB ARM template limit  
+###  Cannot publish because of 4 MB ARM template limit  
 
 #### Issue
 
-You can't  deploy because you hit Azure Resource Manager limit of 4-MB total template size. You need a solution to deploy after crossing the limit. 
+You can't  deploy because you hit Azure Resource Manager limit of 4 MB total template size. You need a solution to deploy after crossing the limit. 
 
 #### Cause
 
@@ -178,7 +178,7 @@ While publishing ADF resources, the azure pipeline triggers twice or more instea
 
 #### Cause
  
-Azure DevOps has the 20 MB REST API limit. When the ARM template exceeds this size, ADF internally splits the template file into multiple files with linked templates to solve this issue. As a side effect, this split could result in customer's triggers being run more than once.
+Azure DevOps has the 20-MB REST API limit. When the ARM template exceeds this size, ADF internally splits the template file into multiple files with linked templates to solve this issue. As a side effect, this split could result in customer's triggers being run more than once.
 
 #### Resolution
 
@@ -342,14 +342,12 @@ On publish, ADF fetches every file inside each folder in the collaboration branc
 
 #### Resolution
 Delete the PartialTemplates folder and republish. You can delete the temporary files in that folder as well.
- Error code: InvalidTemplate
-
-
-	
-### Message: Unable to parse expression
+ 
+ 
+#### Error code: InvalidTemplate
 	
 #### Issue
-The expression passed in the dynamic content of an activity isn't being processed correctly because of a syntax error.
+Message says *Unable to parse expression.* The expression passed in the dynamic content of an activity isn't being processed correctly because of a syntax error.
 
 #### Cause
 Dynamic content is not written as per expression language requirements. 
