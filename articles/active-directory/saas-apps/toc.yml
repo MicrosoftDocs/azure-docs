@@ -1006,6 +1006,8 @@
         href: highground-tutorial.md
       - name: Hightail
         href: hightail-tutorial.md
+      - name: Hive Learning
+        href: hive-learning-tutorial.md
       - name: Hirebridge ATS
         href: hirebridge-ats-tutorial.md
       - name: Hiretual-SSO
@@ -1698,6 +1700,8 @@
         href: planmyleave-tutorial.md
       - name: Planview Enterprise One
         href: planview-enterprise-one-tutorial.md
+      - name: Planview LeanKit
+        href: planview-leankit-tutorial.md
       - name: Pluralsight
         href: pluralsight-tutorial.md
       - name: Pluto
@@ -2034,6 +2038,8 @@
         href: siteintel-tutorial.md
       - name: Skedda
         href: skedda-tutorial.md
+      - name: Skillcast
+        href: skillcast-tutorial.md
       - name: Skilljar
         href: skilljar-tutorial.md
       - name: Skillport
@@ -2172,7 +2178,7 @@
       items:
       - name: T&E Express
         href: tyeexpress-tutorial.md
-      - name: Tableau Online
+      - name: Tableau Cloud
         href: tableauonline-tutorial.md
       - name: Tableau Server
         href: tableauserver-tutorial.md

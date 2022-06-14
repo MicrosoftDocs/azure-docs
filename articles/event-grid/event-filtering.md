@@ -588,7 +588,7 @@ If you specify multiple different filters, an **AND** operation is done, so each
 ## CloudEvents 
 For events in the **CloudEvents schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`). 
 
-You can also use [extension context attributes in CloudEvents 1.0](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#extension-context-attributes). In the following example, `comexampleextension1` and `comexampleothervalue` are extension context attributes. 
+You can also use [extension context attributes in CloudEvents 1.0](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#extension-context-attributes). In the following example, `comexampleextension1` and `comexampleothervalue` are extension context attributes.
 
 ```json
 {
@@ -627,7 +627,7 @@ Here's an example of using an extension context attribute in a filter.
 
 Advanced filtering has the following limitations:
 
-* 25 advanced filters and 25 filter values across all the filters per event grid subscription
+* 25 advanced filters and 25 filter values across all the filters per Event Grid subscription
 * 512 characters per string value
 * Keys with **`.` (dot)** character in them. For example: `http://schemas.microsoft.com/claims/authnclassreference` or `john.doe@contoso.com`. Currently, there's no support for escape characters in keys. 
 

@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2022
+ms.date: 06/13/2022
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
@@ -63,11 +63,6 @@ Use this table as a guide:
 #### Option 1: Use Azure Active Directory
 
 This option is available for blob Storage only. By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.
-
-> [!NOTE]
-> In the current release, if you plan to copy blobs between storage accounts, you'll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](#transfer-data).
-
-To authorize access by using Azure AD, see [Authorize access to blobs with AzCopy and Azure Active Directory (Azure AD)](storage-use-azcopy-authorize-azure-active-directory.md).
 
 #### Option 2: Use a SAS token
 
@@ -128,8 +123,10 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 |[azcopy jobs remove](storage-ref-azcopy-jobs-remove.md?toc=/azure/storage/blobs/toc.json)|Remove all files associated with the given job ID.|
 |[azcopy jobs resume](storage-ref-azcopy-jobs-resume.md?toc=/azure/storage/blobs/toc.json)|Resumes the existing job with the given job ID.|
 |[azcopy jobs show](storage-ref-azcopy-jobs-show.md?toc=/azure/storage/blobs/toc.json)|Shows detailed information for the given job ID.|
+|[azcopy jobs](storage-ref-azcopy-jobs.md?toc=/azure/storage/blobs/toc.json)|Subcommands related to managing jobs.|
 |[azcopy list](storage-ref-azcopy-list.md?toc=/azure/storage/blobs/toc.json)|Lists the entities in a given resource.|
 |[azcopy login](storage-ref-azcopy-login.md?toc=/azure/storage/blobs/toc.json)|Logs in to Azure Active Directory to access Azure Storage resources.|
+|[azcopy login status](storage-ref-azcopy-login-status.md)|Lists the entities in a given resource.|
 |[azcopy logout](storage-ref-azcopy-logout.md?toc=/azure/storage/blobs/toc.json)|Logs the user out and terminates access to Azure Storage resources.|
 |[azcopy make](storage-ref-azcopy-make.md?toc=/azure/storage/blobs/toc.json)|Creates a container or file share.|
 |[azcopy remove](storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json)|Delete blobs or files from an Azure storage account.|
@@ -191,7 +188,9 @@ See any of the following resources:
 
 - [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
 
-- [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
+- [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
+
+- [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)
 
 ## Use a previous version
 

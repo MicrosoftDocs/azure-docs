@@ -6,7 +6,7 @@ ms.author: xshi
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 06/13/2022
 ---
 
 # Integrate Azure Queue Storage with Service Connector
@@ -16,11 +16,12 @@ This page shows the supported authentication types and client types of Azure Que
 ## Supported compute service
 
 - Azure App Service
+- Azure Container Apps
 - Azure Spring Cloud
 
-## Supported Authentication types and client types
+## Supported authentication types and client types
 
-| Client Type | System-assigned Managed Identity | User-assigned Managed Identity | Secret/ConnectionString | Service Principal |
+| Client type | System-assigned managed identity | User-assigned managed identity | Secret / connection string  | Service principal |
 | --- | --- | --- | --- | --- |
 | .NET | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Java | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
@@ -28,31 +29,30 @@ This page shows the supported authentication types and client types of Azure Que
 | Node.js | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Python | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
-
 ## Default environment variable names or application properties
 
 ### .NET, Java, Node.JS, Python
 
-**Secret/ConnectionString**
+#### Secret/ connection string
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
 | AZURE_STORAGEQUEUE_CONNECTIONSTRING | Queue storage connection string | `DefaultEndpointsProtocol=https;AccountName={accountName};AccountKey={****};EndpointSuffix=core.windows.net` |
 
-**System-assigned Managed Identity**
+#### System-assigned managed identity
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
 | AZURE_STORAGEQUEUE_RESOURCEENDPOINT | Queue storage endpoint | `https://{StorageAccountName}.queue.core.windows.net/` |
 
-**User-assigned Managed Identity**
+#### User-assigned managed identity
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
 | AZURE_STORAGEQUEUE_RESOURCEENDPOINT | Queue storage endpoint | `https://{storageAccountName}.queue.core.windows.net/` |
 | AZURE_STORAGEQUEUE_CLIENTID | Your client ID | `{yourClientID}` |
 
-**Service Principal**
+#### Service principal
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
@@ -63,7 +63,7 @@ This page shows the supported authentication types and client types of Azure Que
 
 ### Java - Spring Boot
 
-**Secret/ConnectionString**
+#### Java - Spring Boot secret / connection string
 
 | Application properties | Description | Example value |
 | --- | --- | --- |
