@@ -41,7 +41,7 @@ At a high level, you'll need:
 - Domain admin credentials.
 - You must configure [Azure AD connect](../active-directory/hybrid/whatis-azure-ad-connect.md) on your subscription and make sure the **Users** container is syncing with Azure AD. A security group called **AVDValidationUsers** will be created during deployment in the *Users* container by default. You can also pre-create the AVDValidationUsers security group in a different organization unit. You must make sure this group is synchronized to Azure AD. 
 - A virtual network in the same Azure region you want to deploy Azure Virtual Desktop to. We recommend that you create a new virtual network for Azure Virtual Desktop and use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) to peer it with the virtual network for AD DS or Azure AD DS. You also need to make sure you can resolve your AD DS or Azure AD DS domain name from this new virtual network.
-- Internet access is required from your domain controller VM to download PowerShell DSC configuration from `https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts/`
+- Internet access is required from your domain controller VM to download PowerShell DSC configuration from `https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts/`.
 
 # [Existing Azure AD DS](#tab/existing-aadds)
 
@@ -224,11 +224,13 @@ Here's how to deploy Azure Virtual Desktop using the getting started feature whe
 
 1. Select **Create**.
 
+---
+
 ## Connect to the desktop
 
 Once the deployment has completed successfully, if you created a test account or assigned an existing user during deployment, you can connect to it following the steps for one of the supported Remote Desktop clients. For example, you can follow the steps to [Connect with the Windows Desktop client](user-documentation/connect-windows-7-10.md).
 
-If you didn't create a test account or assigned an existing user during deployment, you'll need to add users to the AVDValidationUsers security group before you can connect.
+If you didn't create a test account or assigned an existing user during deployment, you'll need to add users to the **AVDValidationUsers** security group before you can connect.
 
 ## Appendix: Resources that will be deployed
 
