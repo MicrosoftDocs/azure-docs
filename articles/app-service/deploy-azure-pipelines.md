@@ -2,7 +2,7 @@
 title: Configure CI/CD with Azure Pipelines
 description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline with Azure DevOps Pipelines.
 ms.topic: article
-ms.date: 06/08/2022
+ms.date: 06/14/2022
 ms.author: jukullam
 ms.manager: mijacobs
 ms.custom: "devops-pipelines-deploy"
@@ -32,6 +32,10 @@ You'll use the [Azure Web App task](/azure/devops/pipelines/tasks/deploy/azure-r
 
 
 ### Create your pipeline
+
+The code examples in this section assume you are deploying an ASP.NET web app. You can adapt the instructions for other frameworks. 
+
+Learn more about [Azure Pipelines ecosystem support](azure/devops/pipelines/ecosystems/ecosystems).  
 
 # [Classic](#tab/yaml/)
 
@@ -103,16 +107,18 @@ To get started:
 
 Now you're ready to read through the rest of this topic to learn some of the more common changes that people make to customize an Azure Web App deployment.
 
-## Use the Azure Web App task
+## Use the Azure Web App task (.NET, )
 
 # [YAML](#tab/yaml/)
 
-The simplest way to deploy to an Azure Web App is to use the **Azure Web App** (`AzureWebApp`) task.
+The Azure Web App Deploy task is the simplest way to deploy to an Azure Web App. By default, your deployment happens to the root application in the Azure Web App.
 
-### Deploy a Web Deploy package (ASP.NET)
+The [Azure App Service Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) allows you to modify configuration settings inside web packages and XML parameters files. 
+
+### Deploy a Web Deploy package
 
 To deploy a .zip Web Deploy package (for example, from an ASP.NET web app) to an Azure Web App,
-add the following snippet to your azure-pipelines.yml file:
+add the following snippet to your *azure-pipelines.yml* file:
 
 ```yaml
 - task: AzureWebApp@1
@@ -158,27 +164,6 @@ steps:
 * **appName**: the name of your existing app service.
 * **package**: the file path to the package or a folder containing your app service contents. Wildcards are supported.
 
-### Deploy a JavaScript Node.js app
-
-If you're building a [JavaScript Node.js app](/azure/devops/pipelines/ecosystems/javascript), you publish the entire contents of your
-working directory to the web app. This snippet also generates a Web.config file during deployment if the application does not have one and starts
-the iisnode handler on the Azure Web App:
-
-```yaml
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: '<Azure service connections>'
-    appName: '<Name of web app>'
-    package: '$(System.DefaultWorkingDirectory)'
-    customWebConfig: '-Handler iisnode -NodeStartFile server.js -appType node'
-```
-
-* **azureSubscription**: your Azure subscription.
-* **appName**: the name of your existing app service.
-* **package**: the file path to the package or a folder containing your app service contents. Wildcards are supported.
-* **customWebConfig**: generate web.config parameters for Python, Node.js, Go, and Java apps. A standard `web.config` file will be generated and deployed to Azure App Service if the application does not have one.
-
-For information on Azure service connections, see the [following section](#endpoint).
 
 # [Classic](#tab/classic/)
 
@@ -496,4 +481,5 @@ You're now ready to create a release, which means to run the release pipeline wi
 1. In the pipeline view, choose the status link in the stages of the pipeline to see the logs and agent output.
 
 1. After the release is complete, navigate to your site running in Azure using the Web App URL `http://{web_app_name}.azurewebsites.net`, and verify its contents.
+
 
