@@ -36,9 +36,9 @@ To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-po
 
 ## How Spring Cloud Gateway for Kubernetes works
 
-Spring Cloud Gateway for Kubernetes has two components: Spring Cloud Gateway for Kubernetes operator and Spring Cloud Gateway for Kubernetes instance. The operator is responsible for the lifecycle of Spring Cloud Gateway for Kubernetes instances and routing rules. It's transparent to the developer and Azure Spring Apps will manage it.
+Spring Cloud Gateway for Kubernetes has two components: a Kubernetes operator and the Spring Cloud Gateway instance. The operator is responsible for the lifecycle of Spring Cloud Gateway instances and routing rules. It's transparent to the developer and Azure Spring Apps will manage it.
 
-Spring Cloud Gateway for Kubernetes instance routes traffic according to rules. It supports rich features, and you can customize it using the sections below. Both scale in/out and up/down are supported to meet dynamic traffic load.
+Spring Cloud Gateway instance routes traffic according to rules. It supports rich features, and you can customize it using the sections below. Both scale in/out and up/down are supported to meet dynamic traffic load.
 
 Default resource usage:
 
@@ -53,7 +53,7 @@ Spring Cloud Gateway for Kubernetes is configured using the following sections a
 
 ### Configure Spring Cloud Gateway for Kubernetes metadata
 
-Spring Cloud Gateway for Kubernetes metadata is used to automatically generate OpenAPI version 3 documentation so that the [API portal](./how-to-use-enterprise-api-portal.md) can gather information to show the route groups.
+Spring Cloud Gateway for Kubernetes metadata is used to automatically generate OpenAPI version 3 documentation so that the [API portal](./how-to-use-enterprise-api-portal.md) can gather information to show the route groups. The available metadata options are described in the following table.
 
 | Property | Description |
 | - | - |
@@ -68,7 +68,7 @@ Spring Cloud Gateway for Kubernetes metadata is used to automatically generate O
 
 ### Configure cross-origin resource sharing (CORS)
 
-Cross-origin resource sharing (CORS) allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served.
+Cross-origin resource sharing (CORS) allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. The available CORS configuration options are described in the following table.
 
 | Property | Description |
 | - | - |
@@ -80,7 +80,7 @@ Cross-origin resource sharing (CORS) allows restricted resources on a web page t
 | exposedHeaders | HTTP response headers to expose for cross-site requests |
 
 > [!NOTE]
-> Be sure you have the correct CORS configuration if you want to integrate with the [API portal](./how-to-use-enterprise-api-portal.md). For an example, see the [Create an example application](#create-an-example-application) section.
+> Be sure you have the correct CORS configuration if you want to integrate with the [API portal](./how-to-use-enterprise-api-portal.md). For an example, see the [Configuring Spring Cloud Gateway Example](#configuring-spring-cloud-gateway-example) section.
 
 ### Configure single Sign-on (SSO)
 
@@ -93,14 +93,14 @@ Spring Cloud Gateway for Kubernetes supports authentication and authorization us
 | clientSecret | Yes | The OpenID Connect client secret provided by your IdP |
 | scope | Yes | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider |
 
-To set up SSO with Azure AD, see [How to set up Single Sign-on with Azure AD for Spring Cloud Gateway and API Portal for Tanzu](./how-to-set up-sso-with-azure-ad.md).
+To set up SSO with Azure AD, see [How to set up Single Sign-on with Azure AD for Spring Cloud Gateway and API Portal for Tanzu](./how-to-set-up-sso-with-azure-ad.md).
 
 > [!NOTE]
 > Only authorization servers supporting OpenID Connect Discovery protocol are supported. Also, be sure to configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
 >
 > If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
 >
-> After configuring SSO, remember to set `ssoEnabled=true` for the Spring Cloud Gateway routes.
+> After configuring SSO, remember to set `ssoEnabled: true` for the Spring Cloud Gateway routes.
 
 ### Requested resource
 
