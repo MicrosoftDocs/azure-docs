@@ -119,7 +119,199 @@ The following sample creates a diagnostic setting for an Activity log by adding 
   }
 }
 ```
+## Diagnostic setting for Azure Data Explorer
+The following sample creates a diagnostic setting for an Azure Data Explorer cluster by adding a resource of type `Microsoft.Kusto/clusters/providers/diagnosticSettings` to the template.
 
+### Template file
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "clusterName": {
+            "type": "String"
+        },
+        "settingName": {
+            "type": "String"
+        },
+        "workspaceId": {
+            "type": "String"
+        },
+        "storageAccountId": {
+            "type": "String"
+        },
+        "eventHubAuthorizationRuleId": {
+            "type": "String"
+        },
+        "eventHubName": {
+            "type": "String"
+        }
+    },
+    "resources": [{
+            "type": "Microsoft.Kusto/clusters/providers/diagnosticSettings",
+            "apiVersion": "2021-05-01-preview",
+            "name": "[concat(parameters('clousterName'), '/Microsoft.Insights/', parameters('settingName'))]",
+            "dependsOn": [],
+            "properties": {
+                "workspaceId": "[parameters('workspaceId')]",
+                "storageAccountId": "[parameters('storageAccountId')]",
+                "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+                "eventHubName": "[parameters('eventHubName')]",
+                "metrics": [],
+                "logs": [{
+                        "category": "Command",
+                        "categoryGroup": null,
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "enabled": false,
+                            "days": 0
+                        }
+                    }, {
+                        "category": "Query",
+                        "categoryGroup": null,
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "enabled": false,
+                            "days": 0
+                        }
+                    }, {
+                        "category": "Journal",
+                        "categoryGroup": null,
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "enabled": false,
+                            "days": 0
+                        }
+                    }, {
+                        "category": "SucceededIngestion",
+                        "categoryGroup": null,
+                        "enabled": false,
+                        "retentionPolicy": {
+                            "enabled": false,
+                            "days": 0
+                        }
+                    }, {
+                        "category": "FailedIngestion",
+                        "categoryGroup": null,
+                        "enabled": false,
+                        "retentionPolicy": {
+                            "enabled": false,
+                            "days": 0
+                        }
+                    }, {
+                        "category": "IngestionBatching",
+                        "categoryGroup": null,
+                        "enabled": false,
+                        "retentionPolicy": {
+                            "enabled": false,
+                            "days": 0
+                        }
+                    }, {
+                        "category": "TableUsageStatistics",
+                        "categoryGroup": null,
+                        "enabled": false,
+                        "retentionPolicy": {
+                            "enabled": false,
+                            "days": 0
+                        }
+                    }, {
+                        "category": "TableDetails",
+                        "categoryGroup": null,
+                        "enabled": false,
+                        "retentionPolicy": {
+                            "enabled": false,
+                            "days": 0
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+### Parameter file
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "clusterName": {
+            "value": "kustoClusterName"
+        },
+        "diagnosticSettingName": {
+            "value": "A new Diagnostic Settings configuration"
+        },
+        "workspaceId": {
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
+        },
+        "storageAccountId": {
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+        },
+        "eventHubAuthorizationRuleId": {
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
+        },
+        "eventHubName": {
+            "value": "myEventhub"
+        }
+    }
+}
+```
+
+### Template file - enabling the 'audit' category group
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "clusterName": {
+            "type": "String"
+        },
+        "settingName": {
+            "type": "String"
+        },
+        "workspaceId": {
+            "type": "String"
+        },
+        "storageAccountId": {
+            "type": "String"
+        },
+        "eventHubAuthorizationRuleId": {
+            "type": "String"
+        },
+        "eventHubName": {
+            "type": "String"
+        }
+    },
+    "resources": [{
+            "type": "Microsoft.Kusto/clusters/providers/diagnosticSettings",
+            "apiVersion": "2021-05-01-preview",
+            "name": "[concat(parameters('clousterName'), '/Microsoft.Insights/', parameters('settingName'))]",
+            "dependsOn": [],
+            "properties": {
+                "workspaceId": "[parameters('workspaceId')]",
+                "storageAccountId": "[parameters('storageAccountId')]",
+                "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+                "eventHubName": "[parameters('eventHubName')]",
+                "metrics": [],
+                "logs": [{
+                        "category": null,
+                        "categoryGroup": "audit",
+                        "enabled": true,
+                        "retentionPolicy": {
+                            "enabled": false,
+                            "days": 0
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
 
 ## Diagnostic setting for Azure Key Vault 
 The following sample creates a diagnostic setting for an Azure Key Vault by adding a resource of type `Microsoft.KeyVault/vaults/providers/diagnosticSettings` to the template.
