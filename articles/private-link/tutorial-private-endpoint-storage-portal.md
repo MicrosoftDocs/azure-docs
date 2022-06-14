@@ -12,7 +12,7 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 # Tutorial: Connect to a storage account using an Azure Private Endpoint
 
-Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
+Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), privately and securely communicate with Private Link resources such as Azure Storage.
 
 In this tutorial, you learn how to:
 
