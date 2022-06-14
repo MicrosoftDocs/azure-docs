@@ -208,7 +208,7 @@ If your *primary email* doesn't receive notifications, take the following steps:
 1. On the left, select **All users**. On the right, a list of users appears.
 1. Select the user whose *primary email* you'd like to review.
 
-   :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Screenshot of the All users page in the Azure portal. On the left, the All users item is selected. Information about one user is visible but is indecipherable." border="true":::
+   :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Screenshot of the Azure portal All users page. On the left, All users is selected. Information about one user is visible but is indecipherable." border="true":::
 
 1. In the user profile, look under **Contact info** for an **Email** value. If it's blank:
 
