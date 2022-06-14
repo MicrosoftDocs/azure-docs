@@ -86,5 +86,5 @@ If you use a proxy, it may prevent communication with a secured workspace. To te
 
 ## Diagnostic API
 
+Azure Machine Learning provides a workspace API that can be used to identify configuration problems with your workspace. For more information, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
 
-## Next steps
