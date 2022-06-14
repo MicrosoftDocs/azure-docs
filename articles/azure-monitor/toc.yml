@@ -1384,7 +1384,7 @@ items:
     - name: Creating a new workbook
       items:
         - name: Create a new workbook
-          href: visualize/workbooks-create-a-workbook.md
+          href: visualize/workbooks-create-workbook.md
         - name: Add text to your workbook
           href: visualize/workbooks-add-text.md
         - name: Add parameters to your workbook

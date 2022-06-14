@@ -15,13 +15,17 @@ It is often necessary to bring together data from different sources that enhance
 
 Workbooks allow not just the querying of different data sources, but also provides simple controls that allow you to merge or join the data to provide rich insights. The `merge` control is the way to achieve it.
 
-The example below combines alerting data with log analytics VM performance data to get a rich insights grid.
+## Combining alerting data with Log Analytics VM performance data
 
-> ![A screenshot of a workbook with a merge control that combines alert and log analytics data.](./media/workbooks-data-sources/merge-control.png)
+The example below combines alerting data with Log Analytics VM performance data to get a rich insights grid.
+
+![Screenshot of a workbook with a merge control that combines alert and log analytics data.](./media/workbooks-data-sources/merge-control.png)
+
+## Using merge control to combine Azure Resource Graph and Log Analytics data
 
 Here is a tutorial on using the merge control to combine Azure Resource Graph and Log Analytics data:
 
-[![Combining data from different sources in workbooks](https://img.youtube.com/vi/7nWP_YRzxHg/0.jpg)](https://www.youtube.com/watch?v=7nWP_YRzxHg "Video showing how to combine data from different sources in workbooks")
+[!VIDEO https://www.youtube.com/embed?v=7nWP_YRzxHg]
 
 Workbooks support these merges:
 
@@ -37,6 +41,6 @@ Workbooks support these merges:
 * Union
 * Duplicate table
 
-## Next Steps
+## Next steps
  - [Getting started with Azure Workbooks](workbooks-getting-started.md).
  - [Azure workbooks data sources](workbooks-data-sources.md).

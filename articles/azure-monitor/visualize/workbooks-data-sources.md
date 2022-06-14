@@ -124,7 +124,7 @@ The Azure RBAC provider allows you to check permissions on resources. It is most
    ```
    ["Microsoft.Resources/deployments/read","Microsoft.Resources/deployments/write","Microsoft.Resources/deployments/validate/action","Microsoft.Resources/operations/read"]
    ```
-## Next Steps
+## Next steps
 
  - [Getting started with Azure Workbooks](workbooks-getting-started.md)
- - [Create an Azure Workbook](workbooks-create-a-workbook.md).
+ - [Create an Azure Workbook](workbooks-create-workbook.md).

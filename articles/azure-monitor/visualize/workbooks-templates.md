@@ -11,9 +11,7 @@ ms.reviewer: gardnerjr
 
 # Azure Workbook templates
 
-## Workbooks versus workbook templates
-
-Workbooks are visible in green and Workbook templates are visible in purple. Templates serve as curated reports that are designed for flexible reuse by multiple users and teams. Opening a template creates a transient workbook populated with the content of the template.
+Workbook templates are curated reports designed for flexible reuse by multiple users and teams. Opening a template creates a transient workbook populated with the content of the template. Workbooks are visible in green and Workbook templates are visible in purple. 
 
 You can adjust the template-based workbook parameters and perform analysis without fear of breaking the future reporting experience for colleagues. If you open a template, make some adjustments, and then select the save icon, you will be saving the template as a workbook, which would then show in green,  leaving the original template untouched.
 

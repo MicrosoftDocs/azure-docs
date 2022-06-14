@@ -29,6 +29,6 @@ To create a new Azure workbook:
    - Add more configuration options to your workbook
 
 
-## Next Steps
+## Next steps
 - [Getting started with Azure Workbooks](workbooks-getting-started.md).
 - [Azure workbooks data sources](workbooks-data-sources.md).

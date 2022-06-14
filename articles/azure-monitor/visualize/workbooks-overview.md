@@ -23,7 +23,7 @@ Workbooks are helpful for scenarios such as:
 -	Reporting the impact of an outage on the usage of your VM, combining data, text explanation, and a discussion of next steps to prevent outages in the future.
 
 ## The Gallery
-The gallery opens listing all the saved workbooks and templates for your workspace, allowing you to easily to organize, sort, and manage workbooks of all types.
+The gallery opens listing all the saved workbooks and templates for your workspace, allowing you to easily organize, sort, and manage workbooks of all types.
 
 :::image type="content" source="media/workbooks-overview/workbooks-gallery.png" alt-text="Screenshot of Workbooks gallery.":::
 #### Gallery tabs

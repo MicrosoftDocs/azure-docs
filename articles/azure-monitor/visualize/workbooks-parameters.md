@@ -66,7 +66,7 @@ This is how the workbook will look like in read-mode, in the "Pills" style.
 3. This expands on query evaluation time to `| where timestamp > ago(1d)`, which is the time range value of the parameter.
 4. Run query to see the results
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-time-in-code.png" alt-text="Image showing a time range referenced in KQL.":::    
+   :::image type="content" source="media/workbooks-parameters/workbooks-time-in-code.png" alt-text="Screenshot showing a time range referenced in the KQL query.":::    
 
 ### Reference a parameter with Text 
 1. Add a text control to the workbook.
@@ -226,32 +226,38 @@ For the chart example above, the most common way to update a global parameter is
 
 In this example, the `timerange` parameter above is declared as a global. In a query step below that, create and run a query that uses that `timerange` parameter in the query and returns a time chart result. In the advanced settings for the query step, enable the time range brushing setting, and use the same parameter name as the output for the time brush parameter, and also set the only export the parameter when brushed option.
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-global-timerange-brush.png" alt-text="Screenshot of global time brush setting in Workbooks.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-global-time-range-brush.png" alt-text="Screenshot of global time brush setting in Workbooks.":::
 
 Whenever a time range is brushed in this chart, it will also update the `timerange` parameter above this query, and the query step itself (since it also depends on `timerange`!):
 
  1. Before brushing:
+ 
+    - The time range is shown as "last hour".
+    - The chart shows the last hour of data.
 
     :::image type="content" source="media/workbooks-parameters/workbooks-global-before-brush.png" alt-text="Screenshot of setting global parameters before brushing.":::  
 
-   - The time range is shown as "last hour".
-   - The chart shows the last hour of data.
+   
 
  1. During brushing:
+ 
+    - The time range is still last hour, and the brushing outlines are drawn.
+    - No parameters/etc have changed. once you let go of the brush, the time range will be updated.
 
     :::image type="content" source="media/workbooks-parameters/workbooks-global-during-brush.png" alt-text="Screenshot of setting global parameters during brushing.":::  
 
-   - The time range is still last hour, and the brushing outlines are drawn.
-   - No parameters/etc have changed. once you let go of the brush, the time range will be updated.
+   
 
 
  1. After brushing:
 
+    - The time range specified by the time brush will be set by this step, overriding the global value (the timerange dropdown now displays that custom time range).
+    - Because the global value at the top has changed, and because this chart depends on `timerange` as an input, the time range of the query used in the chart will also update, causing the query to and the chart to update.
+     - Any other steps in the workbook that depend on `timerange` will also update.
+
     :::image type="content" source="media/workbooks-parameters/workbooks-global-after-brush.png" alt-text="Screenshot of setting global parameters after brushing.":::  
 
-    - The time range specified by the time brush will be set by this step, overriding the global value (the timerange dropdown now displays that custom time range).
-    - Because the global value at the top has changed, and because this chart depends on `timerange` *as an input*, the time range of the query used in the chart will also update, causing the query to and the chart to update.
-     - Any other steps in the workbook that depend on `timerange` will also update.
+    
 
     > [!NOTE]
     > If you do not use a global parameter, the `timerange` parameter value will only change below this query step, things above or this item itself would not update.
