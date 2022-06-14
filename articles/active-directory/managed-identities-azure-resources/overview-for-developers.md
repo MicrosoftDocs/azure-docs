@@ -196,7 +196,7 @@ var credentialOptions = new DefaultAzureCredentialOptions
 {
     ManagedIdentityClientId = clientID;
 };
-var msiCredential = new DefaultAzureCredential(credentialOptions);                        
+var credential = new DefaultAzureCredential(credentialOptions);                        
 
 var blobServiceClient1 = new BlobServiceClient(new Uri("<URI of Storage account>"), credential);
 BlobContainerClient containerClient1 = blobServiceClient1.GetBlobContainerClient("<name of blob>");
