@@ -2,7 +2,7 @@
 title: Create an Event Hubs dedicated cluster using the Azure portal
 description: In this quickstart, you learn how to create an Azure Event Hubs cluster using Azure portal.
 ms.topic: quickstart
-ms.date: 02/10/2022
+ms.date: 06/14/2022
 ms.custom: mode-ui
 ---
 
@@ -37,8 +37,9 @@ To create a cluster in your resource group using the Azure portal, complete the 
     1. Enter a **name for the cluster**. The system immediately checks to see if the name is available.
     2. Select the **subscription** in which you want to create the cluster.
     3. Select the **resource group** in which you want to create the cluster.
-    4. Select a **location** for the cluster. If your preferred region is grayed out, it is temporarily out of capacity and you can submit a [support request](#submit-a-support-request) to the Event Hubs team.
-    5. Select the **Next: Tags** button at the bottom of the page. You may have to wait a few minutes for the system to fully provision the resources.
+    1. Select the checkbox next to **Support Scaling** to create a scalable cluster. You can use the self-serve experience in the Azure portal to scale out or scale in your Event Hubs cluster. 
+    1. Select a **location** for the cluster. If your preferred region is grayed out, it is temporarily out of capacity and you can submit a [support request](#submit-a-support-request) to the Event Hubs team.
+    1. Select the **Next: Tags** button at the bottom of the page. You may have to wait a few minutes for the system to fully provision the resources.
 
         :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png" alt-text="Image showing the Create Event Hubs Cluster - Basics page.":::
 3. On the **Tags** page, configure the following:
@@ -68,10 +69,21 @@ To create a cluster in your resource group using the Azure portal, complete the 
         :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-namespace-cluster-page.png" alt-text="Image showing the Create namespace in the cluster page.":::
 3. Once your namespace is created, you can [create an event hub](event-hubs-create.md#create-an-event-hub) as you would normally create one within a namespace. 
 
+## Enable self-service scaling after creating the cluster
+To enable self-serve scaling, use the following steps:
 
-## Submit a support request
+1. On the **Event Hubs Cluster** page for your dedicated cluster, select **Scale** on the left menu.
 
-If you wish to change the size of your cluster after creation or if your preferred region isn't available, submit a support request by following these steps:
+    :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/scale-page.png" alt-text="Screenshot showing the Scale tab of the Event Hubs Cluster page":::
+1. Use the slider to increase (scale out) or decrease (scane in) capacity units. 
+1. Then, select **Save** on the command bar. 
+
+> [!IMPORTANT]
+> The **Scale** tab is available only for the Event Hubs clusters created with the **Support scaling** option checked. You don't see the **Scale** tab for clusters that were created before this feature was released or for the clusters that were created without selecting the **Support scaling** option. 
+
+## Submit a support request for clusters that don't support self-serve
+
+If you wish to change the size of an existing non-scalable cluster after creation or if your preferred region isn't available, submit a support request by following these steps:
 
 1. In [Azure portal](https://portal.azure.com), select **Help + support** from the left menu.
 2. Select **+ New support request** from the Support menu.

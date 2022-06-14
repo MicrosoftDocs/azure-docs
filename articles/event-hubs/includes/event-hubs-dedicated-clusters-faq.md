@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 06/01/2022
+ms.date: 06/14/2022
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -25,19 +25,19 @@ The following table shows the benchmark results that we achieved during our test
 
 In the testing, the following criteria was used:
 
-- A dedicated-tier Event Hubs cluster with four capacity units (CUs) was used. 
+- A dedicated-tier Event Hubs cluster with 4 capacity units (CUs) was used. 
 - The event hub used for ingestion had 200 partitions. 
 - The data that was ingested was received by two receiver applications receiving from all partitions.
 
 ### Can I scale up/down my cluster?
+If your cluster is created with support for scaling, you can use the [self-serve experience](event-hubs-dedicated-cluster-create-portal.md), to scale out and scale in as needed.  
 
-After creation, clusters are billed for a minimum of 4 hours of usage. In the Preview release of the self-serve experience, you can submit a [support request](https://portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under **Technical** > **Quota** > **Request to Scale Up or Scale Down Dedicated Cluster** to scale your cluster up or down. It may take up to 7 days to complete the request to scale down your cluster. 
+For existing non-scalable clusters, clusters are billed for a minimum of 4 hours of usage, after creation. You can submit a [support request](https://portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under **Technical** > **Quota** > **Request to Scale Up or Scale Down Dedicated Cluster** to scale your cluster up or down. It may take up to 7 days to complete the request to scale down your cluster.  
+
+Due to difference in the backend architecture, it's not possible to migrate non-scalable clusters to self-serve scalable clusters. If you would wish to use self-serve scaling, you must recreate the cluster with the support for scaling. To learn how to create scalable cluster, see [Scale your Event Hubs dedicated cluster](event-hubs-dedicated-cluster-create-portal.md). 
 
 
 ### When to scale my dedicated cluster? 
-
-As scaling the dedicated clusters requires submitting a support request, it's important to determine when to scale up your dedicated cluster proactively. 
-
 CPU consumption is the key indicator of the resource consumption of your dedicated cluster. When the overall CPU consumption is reaching 70% (without observing any abnormal conditions such as high number of server errors or low successful requests), that means your cluster is moving towards its maximum capacity.  Therefore you can use this as an indicator to consider whether you need to scale up your dedicated cluster or not.
 
 To monitor the CPU usage of the dedicated cluster you need to follow these steps. 
@@ -53,8 +53,7 @@ You can also set up [alerts](../../azure-monitor/alerts/alerts-overview.md) agai
 
 
 ### How does Geo-DR work with my cluster?
+You can geo-pair a namespace under a dedicated-tier cluster with another namespace under a dedicated-tier cluster. We don't encourage pairing a dedicated-tier namespace with a namespace in our standard offering because the throughput limit will be incompatible and result in errors. 
 
-You can geo-pair a namespace under a Dedicated-tier cluster with another namespace under a Dedicated-tier cluster. We don't encourage pairing a dedicated-tier namespace with a namespace in our standard offering because the throughput limit will be incompatible and result in errors. 
-
-### Can I migrate my Standard namespaces to belong to a Dedicated-tier cluster?
+### Can I migrate my standard or premium namespaces to a Dedicated-tier cluster?
 We don't currently support an automated migration process for migrating your event hubs data from a standard or premium namespace to a dedicated one.
