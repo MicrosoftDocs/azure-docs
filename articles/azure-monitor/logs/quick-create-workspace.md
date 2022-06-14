@@ -7,6 +7,7 @@ ms.author: guywild
 ms.date: 03/28/2022
 ms.reviewer: yossiy
 
+# Customer intent: As a DevOps engineer or IT expert I want to set up a workspace to collect logs from multiple data sources from Azure, on-premises and third-party cloud deployments.
 ---
 # Create a Log Analytics workspace
 

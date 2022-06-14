@@ -7,6 +7,8 @@ ms.author: guywild
 ms.date: 03/28/2022
 ms.reviewer: yossiy
 ms.custom: devx-track-azurepowershell
+
+#Customer intent: As a DevOps engineer or IT expert setting up a workspace, I want samples showing how to run PowerShell commands to collect data from various data sources into a workspace.
 ---
 # Configure a Log Analytics workspace in Azure Monitor using PowerShell
 
