@@ -1,5 +1,5 @@
 ---
-title: 'Ground Station Pass ' 
+title: Ground Station Pass 
 description: 'Ground Station Pass'
 author: hrshelar
 ms.service: orbital
