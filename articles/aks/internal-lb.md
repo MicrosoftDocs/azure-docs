@@ -116,7 +116,7 @@ az extension update --name aks-preview
 
 ### Create a Private Link service connection
 
-To attach an Azure Private Link service to an internal load balancer, create a service manifest named `internal-lb-pls.yaml` with the service type *LoadBalancer* and the *azure-load-balancer-internal* and *azure-pls-create* annotation as shown in the example below.  For more options, refer to the [Azure Private Link Service Integration](https://kubernetes-sigs.github.io/cloud-provider-azure/development/design-docs/pls-integration/) design document
+To attach an Azure Private Link service to an internal load balancer, create a service manifest named `internal-lb-pls.yaml` with the service type *LoadBalancer* and the *azure-load-balancer-internal* and *azure-pls-create* annotation as shown in the example below.  For more options, refer to the [Azure Private Link Service Integration](https://kubernetes-sigs.github.io/cloud-provider-azure/topics/pls-integration/) design document
 
 ```yaml
 apiVersion: v1
