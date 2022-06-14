@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 06/13/2022
+ms.date: 06/14/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* An Azure subscription.
+* An Azure subscription
 
 ## Sign in to Azure
 
@@ -230,7 +230,7 @@ In this section, you'll use the virtual machine you created in the previous step
     Aliases:  mystorageaccount.blob.core.windows.net
     ```
 
-    A private IP address of **10.1.0.5** is returned for the storage account name.  This address is in the subnet of the virtual network you created previously.
+    A private IP address of **10.1.0.5** is returned for the storage account name. This address is in **mySubnet** subnet of **myVNet** virtual network you created previously.
 
 9. Install [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) on the virtual machine.
 
@@ -246,9 +246,9 @@ In this section, you'll use the virtual machine you created in the previous step
 
 15. Verify the settings are correct in **Summary**.  
 
-16. Select **Connect**, then select **myStorageAccount** from the **Storage Accounts** left-hand menu.
+16. Select **Connect**, then select **mystorageaccount** from the **Storage Accounts** left-hand menu.
 
-17. Under **Blob Containers**, you'll see **mycontainer** that you created in the previous steps.
+17. Under **Blob Containers**, you see **mycontainer** that you created in the previous steps.
 
 18. Close the connection to **myVM**.
 
@@ -268,6 +268,11 @@ If you're not going to continue to use this application, delete the virtual netw
 
 ## Next steps
 
-Learn how to connect to an Azure Cosmos account using an Azure Private Endpoint:
+In this tutorial, you learned how to create:
+* Virtual network and bastion host.
+* Virtual machine.
+* Storage account and a container.
+
+Learn how to connect to an Azure Cosmos DB account using an Azure Private Endpoint:
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos using Private Endpoint](tutorial-private-endpoint-cosmosdb-portal.md)
