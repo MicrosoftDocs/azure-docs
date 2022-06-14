@@ -150,8 +150,6 @@
         href: automate/cost-management-api-permissions.md
       - name: Assign roles to EA SPNs
         href: manage/assign-roles-azure-service-principals.md?toc=/azure/cost-management-billing/toc.json
-    - name: API latency and rate limits
-      href: automate/api-latency-rate-limits.md
     - name: Ingest cost details
       items:
       - name: Cost details overview

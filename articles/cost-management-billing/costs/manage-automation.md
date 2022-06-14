@@ -288,7 +288,9 @@ You can configure budgets to start automated actions using Azure Action Groups. 
 
 ## Data latency and rate limits
 
-We recommend that you call the APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently doesn't provide more data. Instead, it creates increased load. For more information, see [Cost Management API latency and rate limits](../automate/api-latency-rate-limits.md)
+We recommend that you call the APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently doesn't provide more data. Instead, it creates increased load. 
+
+<!-- For more information, see [Cost Management API latency and rate limits](../automate/api-latency-rate-limits.md) -->
 
 ## Next steps
 

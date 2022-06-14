@@ -39,7 +39,7 @@ If your dataset is more than two GB (or roughly two million rows) month-to-month
 
 On demand calls to the API are rate limited. The time it takes to generate your cost details file is directly correlated with the amount of data in the file. To understand the expected amount of time before your file becomes available for download, you can use the `retry-after` header in the API response.
 
-For more information, see [Cost Management API latency and rate limits](api-latency-rate-limits.md).
+<!-- For more information, see [Cost Management API latency and rate limits](api-latency-rate-limits.md). -->
 
 ### Supported dataset time ranges
 

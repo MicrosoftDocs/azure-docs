@@ -42,7 +42,9 @@ Yes it does. You can see those charges according to when the actual charges occu
 
 ### Am I charged for using the Cost Details API?
 
-No the Cost Details API is free. Make sure to abide by the rate-limiting policies, however. For more information, see [Data latency and rate limits](api-latency-rate-limits.md).
+No the Cost Details API is free. Make sure to abide by the rate-limiting policies, however. 
+
+<!--- For more information, see [Data latency and rate limits](api-latency-rate-limits.md). -->
 
 ### What's the difference between the Invoice API, the Transaction API, and the Cost Details API?
 
