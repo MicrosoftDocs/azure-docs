@@ -9,9 +9,7 @@ ms.custom: references_regions
 
 # Deploy vSAN Stretched Clusters
 
-<!--
-Waiting on intro from Ashwin
--->
+In this article you will learn how to implement a vSAN Stretched Cluster for an Azure VMware Solution private cloud.
 
 ## Deploy a Stretched Cluster SDDC
 
