@@ -461,7 +461,7 @@
     - name: Resiliency
       items:
       - name: Availability zone migration
-        href: ../../availabilty-zones/migrate-app-service.md
+        href: ../availabilty-zones/migrate-app-service.md
       - name: Configuring zone redundancy
         href: how-to-zone-redundancy.md
       - name: Restore from downed region
