@@ -3,7 +3,7 @@ title: Configure cross-origin resource sharing in DICOM service
 description: This article describes how to configure cross-origin resource sharing in DICOM service
 author: msjasteppe
 ms.author: v-smcevoy
-ms.date: 06/10/2022
+ms.date: 06/14/2022
 ms.topic: how-to
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -41,4 +41,4 @@ To configure a CORS setting in the DICOM service, specify the following settings
 For more information about DICOM services, see
 
 >[!div class="nextstepaction"]
->[What are Events?](./dicom-services-overview.md)
+>[Overview of the DICOM service](./dicom-services-overview.md)
