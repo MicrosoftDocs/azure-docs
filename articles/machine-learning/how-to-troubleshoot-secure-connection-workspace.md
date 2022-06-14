@@ -16,6 +16,9 @@ ms.date: 06/09/2022
 
 When connecting to a workspace that has been configured with a private endpoint, you may encounter a 403 or a messaging saying that access is forbidden. Use the information in this article to check for common configuration problems that can cause this error.
 
+> [!TIP]
+> Before using the steps in this article, try the Azure Machine Learning workspace diagnostic API. It can help identify configuration problems with your workspace. For more information, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
+
 ## DNS configuration
 
 The troubleshooting steps for DNS configuration differ based on whether you are using Azure DNS or a custom DNS. Use the following steps to determine which one you are using:
@@ -84,7 +87,5 @@ If you use a proxy, it may prevent communication with a secured workspace. To te
 * Create a [Proxy auto-config (PAC)](https://wikipedia.org/wiki/Proxy_auto-config) file that allows direct access to the FQDNs listed on the private endpoint. It should also allow direct access to the FQDN for any compute instances.
 * Configure your proxy server to forward DNS requests to Azure DNS.
 
-## Diagnostic API
 
-Azure Machine Learning provides a workspace API that can be used to identify configuration problems with your workspace. For more information, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
 
