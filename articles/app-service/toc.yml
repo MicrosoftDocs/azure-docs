@@ -465,7 +465,7 @@
       - name: Configuring zone redundancy
         href: how-to-zone-redundancy.md
       - name: Restore from downed region
-          href: manage-disaster-recovery.md
+        href: manage-disaster-recovery.md
     - name: Migrate to App Service
       items:
         - name: Migrate ASP.NET
