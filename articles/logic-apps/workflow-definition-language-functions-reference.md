@@ -121,6 +121,7 @@ To work with collections, generally arrays, strings, and sometimes, dictionaries
 
 | Collection function | Task |
 | ------------------- | ---- |
+| [chunk](../logic-apps/workflow-definition-language-functions-reference.md#chunk) | Split a string or collection into chunks of equal length. |
 | [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Check whether a collection has a specific item. |
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Check whether a collection is empty. |
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Return the first item from a collection. |
@@ -1213,6 +1214,48 @@ These examples show the different supported types of input for `bool()`:
 | `bool('false')` | String | `false` |
 
 ## C
+
+<a name="chunk"></a>
+
+### chunk
+
+Split a string or array into chunks of equal length.
+
+```
+chunk('<collection>', '<length>')
+chunk([<collection>], '<length>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*collection*> | Yes | String or Array | The collection to split |
+| <*length*> | Yes | The length of each chunk |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*collection*> | Array | An array of chunks of the specified length |
+||||
+
+*Example 1*
+
+This example splits a string into chunks of length 10:
+
+```
+chunk('abcdefghijklmnopqrstuvwxyz', 10)
+```
+
+And returns this result: [`abcdefghij', 'klmnopqrst', 'uvwxyz']
+
+*Example 2*
+
+This example splits an array into chunks of length 5.
+
+```
+chunk(createArray(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12), 5)
+```
+
+And returns this result: `[ [1,2,3,4,5], [6,7,8,9,10], [11,12] ]`
 
 <a name="coalesce"></a>
 
