@@ -209,6 +209,61 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 
    :::image type="content" source="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos D B SQL A P I account.":::
 
+#### [Resource Manager template](#tab/azure-resource-manager)
+
+> [!NOTE]
+> Azure Resource Manager templates are written in two syntaxes, JSON and Bicep. This sample uses the [Bicep](../../azure-resource-manager/bicep/overview.md) syntax. To learn more about the two syntaxes, see [comparing JSON and Bicep for templates](../../azure-resource-manager/bicep/compare-template-syntax.md).
+
+1. Create shell variables for *accountName*, *resourceGroupName*, and *location*.
+
+    ```azurecli-interactive
+    # Variable for resource group name
+    resourceGroupName="msdocs-cosmos"
+
+    # Variable for location
+    location="westus"
+
+    # Variable for account name with a randomnly generated suffix
+    let suffix=$RANDOM*$RANDOM
+    accountName="msdocs-$suffix"
+    ```
+
+1. If you haven't already, sign in to the Azure CLI using the [``az login``](/cli/azure/reference-index#az-login) command.
+
+1. Use the [``az group create``](/cli/azure/group#az-group-create) command to create a new resource group in your subscription.
+
+    ```azurecli-interactive
+    az group create \
+        --name $resourceGroupName \
+        --location $location
+    ```
+
+1. Create a new ``.bicep`` file with the deployment template in the Bicep syntax.
+
+    :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.documentdb/cosmosdb-sql-minimal/main.bicep":::
+
+1. Deploy the Azure Resource Manager (ARM) template with [``az deployment group create``](/cli/azure/deployment/group#az-deployment-group-create)
+specifying the filename using the **template-file** parameter and the name ``initial-bicep-deploy`` using the **name** parameter.
+
+    ```azurecli-interactive
+    az deployment group create \
+        --resource-group $resourceGroupName \
+        --name initial-bicep-deploy \
+        --template-file main.bicep \
+        --parameters accountName=$accountName
+    ```
+
+    > [!NOTE]
+    > In this example, we assume that the name of the Bicep file is **main.bicep**.
+
+1. Validate the deployment by showing metadata from the newly created account using [``az cosmosdb show``](/cli/azure/cosmosdb#az-cosmosdb-show).
+
+    ```azurecli-interactive
+    az cosmosdb show \
+        --resource-group $resourceGroupName \
+        --name $accountName
+    ```
+
 ---
 
 ### Create a new .NET app
@@ -369,7 +424,7 @@ Created item:   68719518391     [gear-surf-surfboards]
 
 When you no longer need the Azure Cosmos DB SQL API account, you can delete the corresponding resource group.
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI / Resource Manager template](#tab/azure-cli+azure-resource-manager)
 
 Use the [``az group delete``](/cli/azure/group#az-group-delete) command to delete the resource group.
 

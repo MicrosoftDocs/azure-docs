@@ -11,6 +11,8 @@ ms.date: 11/05/2020
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure portal
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
 

@@ -16,7 +16,7 @@ Below you can find scenarios where Snapshot Collector is not supported:
 
 |Scenario    | Side Effects | Recommendation |
 |------------|--------------|----------------|
-|When using the Snapshot Collector SDK in your application directly (.csproj) and you have enabled the advance option "Interop".| The local Application Insights SDK (including Snapshot Collector telemetry) will be lost, therefore, no Snapshots will be available.<br /><br />Your application could crash at startup with `System.ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.`<br /><br />For more information about the Application Insights feature "Interop", see the [documentation.](./azure-web-apps-net-core.md#troubleshooting) | If you are using the advance option "Interop", use the codeless Snapshot Collector injection (enabled thru the Azure Portal UX) |
+|When using the Snapshot Collector SDK in your application directly (.csproj) and you have enabled the advance option "Interop".| The local Application Insights SDK (including Snapshot Collector telemetry) will be lost, therefore, no Snapshots will be available.<br /><br />Your application could crash at startup with `System.ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.`<br /><br />For more information about the Application Insights feature "Interop", see the [documentation.](../app/azure-web-apps-net-core.md#troubleshooting) | If you are using the advance option "Interop", use the codeless Snapshot Collector injection (enabled thru the Azure Portal UX) |
 
 ## Make sure you're using the appropriate Snapshot Debugger Endpoint
 
@@ -28,7 +28,7 @@ For App Service and applications using the Application Insights SDK, you have to
 |---------------|---------------------|-------------|
 |SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
-For more information about other connection overrides, see [Application Insights documentation](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides).
+For more information about other connection overrides, see [Application Insights documentation](../app/sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 For Function App, you have to update the `host.json` using the supported overrides below:
 
@@ -64,7 +64,7 @@ There's a link in the exception pane of the end-to-end trace view that takes you
 
 The interactive, chat-like interface looks for common problems and guides you to fix them.
 
-![Health Check](./media/snapshot-debugger/healthcheck.png)
+![Health Check](./media/snapshot-debugger/health-check.png)
 
 If that doesn't solve the problem, then refer to the following manual troubleshooting steps.
 
@@ -104,7 +104,7 @@ To check the setting, open your web.config file and find the system.web section.
 If you're using a preview version of .NET Core or your application references Application Insights SDK, directly or indirectly via a dependent assembly, follow the instructions for [Enable Snapshot Debugger for other environments](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json).
 
 ## Check the Diagnostic Services site extension' Status Page
-If Snapshot Debugger was enabled through the [Application Insights pane](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) in the portal, it was enabled by the Diagnostic Services site extension.
+If Snapshot Debugger was enabled through the [Application Insights pane](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json) in the portal, it was enabled by the Diagnostic Services site extension.
 
 > [!NOTE]
 > Codeless installation of Application Insights Snapshot Debugger follows the .NET Core support policy.
@@ -126,13 +126,10 @@ You can use the Kudu management site for App Service to get the base url of this
 4. Once you are on the Kudu management site, in the URL, **append the following `/DiagnosticServices` and press enter**.
  It will end like this: `https://<kudu-url>/DiagnosticServices`
 
-It will display a Status Page similar like the below:
-![Diagnostic Services Status Page](./media/diagnostic-services-site-extension/status-page.png)
-
 ## Upgrade to the latest version of the NuGet package
 Based on how Snapshot Debugger was enabled, see the following options:
 
-* If Snapshot Debugger was enabled through the [Application Insights pane in the portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), then your application should already be running the latest NuGet package.
+* If Snapshot Debugger was enabled through the [Application Insights pane in the portal](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json), then your application should already be running the latest NuGet package.
 
 * If Snapshot Debugger was enabled by including the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package, use Visual Studio's NuGet Package Manager to make sure you're using the latest version of Microsoft.ApplicationInsights.SnapshotCollector.
 

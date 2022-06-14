@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 02/28/2022 #Required; mm/dd/yyyy format.
+  ms.date: 06/13/2022 #Required; mm/dd/yyyy format.
 
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -81,7 +81,7 @@ conceptualContent:
           text: About Face service
           url: overview-identity.md
         - itemType: quickstart
-          text: Get started with Azure Identity
+          text: Get started with Face
           url: quickstarts-sdk/identity-client-library.md
         - itemType: how-to-guide
           text: Detect faces in an image
