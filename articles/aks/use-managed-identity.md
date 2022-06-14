@@ -113,6 +113,8 @@ For creating and using your own VNet, attached Azure disk, static IP address, ro
 
 For Vnet, attached Azure disk, static IP address, route table which are outside the default worker node resource group, you need to assign the `Contributor` role on custom resource group.
 
+【加一个如何get pricipal id，az identity show --resource id】
+
 ```azurecli-interactive
 az role assignment create --assignee <control-plane-identity-principal-id> --role "Contributor" --scope "<custom-resource-group-resource-id>"
 ```
@@ -150,18 +152,7 @@ If you don't have a managed identity, you should create one by running the [az i
 ```azurecli-interactive
 az identity create --name myIdentity --resource-group myResourceGroup
 ```
-
-Azure CLI automatically adds required role assignment for the control plane managed identity. If you are using an ARM template or other method, you need to create the role assignment manually.
-
-```azurecli-interactive
-az role assignment create --assignee <control-plane-identity-object-id> --role "Managed Identity Operator" --scope <kubelet-identity-resource-id>
-```
-
-If your managed identity is part of your subscription, run the following [az identity CLI command][az-identity-list] command to query it.  
-
-```azurecli-interactive
-az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
-```
+【加一个output】
 
 Run the following command to create a cluster with your existing identity:
 
@@ -175,7 +166,7 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 \
     --enable-managed-identity \
-    --assign-identity <identity-id>
+    --assign-identity <identity-resource-id>
 ```
 
 A successful cluster creation using your own managed identity should resemble the following **userAssignedIdentities** profile information:
@@ -198,9 +189,6 @@ A successful cluster creation using your own managed identity should resemble th
 
 A Kubelet identity enables access granted to the existing identity prior to cluster creation. This feature enables scenarios such as connection to ACR with a pre-created managed identity.
 
-> [!WARNING]
-> Updating kubelet managed identity upgrades Nodepool, which causes downtime for your AKS cluster as the nodes in the nodepools will be cordoned/drained and then reimaged.
-
 ### Prerequisites
 
 - Azure CLI version 2.26.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
@@ -210,7 +198,7 @@ A Kubelet identity enables access granted to the existing identity prior to clus
 - Only works with a user-assigned managed cluster.
 - China East and China North regions in Azure China 21Vianet aren't currently supported.
 
-### Create or obtain managed identities
+### Create user-assigned managed identities
 
 If you don't have a control plane managed identity, you can create by running the following [az identity create][az-identity-create] command:
 
@@ -258,58 +246,6 @@ The output should resemble the following:
 }
 ```
 
-If your existing managed identity is part of your subscription, you can use the [az identity list][az-identity-list] command to query it:
-
-```azurecli-interactive
-az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
-```
-
-### Get the current control plane identity for your AKS cluster
-
-Confirm your AKS cluster is using managed identity with the following CLI command:
-
-```azurecli-interactive
-az aks show -g <RGName> -n <ClusterName> --query "servicePrincipalProfile"
-```
-
-If the cluster is using a managed identity, the output shows `clientId` with a value of **msi**. A cluster using a service principal shows an object ID. For example:
-
-```output
-{
-  "clientId": "msi"
-}
-```
-
-After verifying the cluster is using a managed identity, you can find the control plane identity's object ID by running the following command:
-
-```azurecli-interactive
-az aks show -g <RGName> -n <ClusterName> --query "identity"
-```
-
-For system-assigned control plane identity, the output should look like:
-
-```output
-{
-    "principalId": "<object-id>",
-    "tenantId": "<tenant-id>",
-    "type": "SystemAssigned",
-    "userAssignedIdentities": null
-},
-```
-
-For user-assigned control plane identity, the output should look like:
-
-```output
-{
-  "principalId": null,
-  "tenantId": null,
-  "type": "UserAssigned",
-  "userAssignedIdentities": <identity-resource-id>
-      "clientId": "<client-id>",
-      "principalId": "<object-id>"
-},
-```
-
 ### Create a cluster using user-assigned kubelet identity
 
 Now you can use the following command to create your AKS cluster with your existing identities. Provide the control plane identity resource ID via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
@@ -355,6 +291,9 @@ A successful AKS cluster creation using your own kubelet managed identity should
 
 Update kubelet identity on an existing AKS cluster with your existing identities.
 
+> [!WARNING]
+> Updating kubelet managed identity upgrades Nodepool, which causes downtime for your AKS cluster as the nodes in the nodepools will be cordoned/drained and then reimaged.
+
 > [!NOTE]
 > If your cluster was using `--attach-acr` to pull from image from Azure Container Registry, after updating your cluster kubelet identity, you need to rerun `az aks update --attach-acr <ACR Resource ID>` to let the newly created kubelet used for managed identity get the permission to pull from ACR. Otherwise, you won't be able to pull from ACR after the upgrade.
 
@@ -368,7 +307,43 @@ az version
 az upgrade
 ```
 
+#### Get the current control plane identity for your AKS cluster
+【语句改一下】
+Confirm your AKS cluster is using user-assigned control plane identity with the following CLI command:
+
+```azurecli-interactive
+az aks show -g <RGName> -n <ClusterName> --query "servicePrincipalProfile"
+```
+
+If the cluster is using a managed identity, the output shows `clientId` with a value of **msi**. A cluster using a service principal shows an object ID. For example:
+
+```output
+{
+  "clientId": "msi"
+}
+```
+
+After verifying the cluster is using a managed identity, you can find the control plane identity's object ID by running the following command:
+
+```azurecli-interactive
+az aks show -g <RGName> -n <ClusterName> --query "identity"
+```
+
+For user-assigned control plane identity, the output should look like:
+
+```output
+{
+  "principalId": null,
+  "tenantId": null,
+  "type": "UserAssigned",
+  "userAssignedIdentities": <identity-resource-id>
+      "clientId": "<client-id>",
+      "principalId": "<object-id>"
+},
+```
+
 #### Updating your cluster with kubelet identity 
+【加一个新建identity的过程】
 
 Now you can use the following command to update your cluster with your existing identities. Provide the control plane identity resource ID via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
 
