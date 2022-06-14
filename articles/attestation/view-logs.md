@@ -1,6 +1,6 @@
 ---
-title: Azure Attestation audit logs
-description: Describes the full audit logs that are collected for Azure Attestation
+title: Azure Attestation logs
+description: Describes the full logs that are collected for Azure Attestation
 services: attestation
 author: msmbaldwin
 ms.service: attestation
