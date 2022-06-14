@@ -1,6 +1,6 @@
 ---
 title: What are Service Health notifications in Azure Active Directory? | Microsoft Docs
-description: Learn how Service Health notifications provides you with a customizable dashboard that tracks the health of your Azure services in the regions where you use them. 
+description: Learn how Service Health notifications provide you with a customizable dashboard that tracks the health of your Azure services in the regions where you use them. 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.subservice: report-monitorare
+ms.subservice: report-monitor
 ms.date: 06/13/2022
 ms.author: markvi
 ms.reviewer: davey  
@@ -28,14 +28,17 @@ Azure Service Health has been updated to provide notifications to tenant admins 
 
 When there happens to be a Service Health notification for an Azure Active Directory service, it will be posted to the Service Health page within the Azure portal.  Previously these were subscription events that were posted to all the subscription owners/readers of subscriptions within the tenant that had an issue.  To improve the targeting of these notifications, they'll now be available as tenant events to the tenant admins of the impacted tenant.  For a transition period, these service events will be available as both tenant events and subscription events. 
 
-Now that they're available as tenant events, they appear on the Azure AD overview page as alert cards. Any Service Health notification that has been updated within the last 3 days will be shown in one of the cards.   
+Now that they're available as tenant events, they appear on the Azure AD overview page as alert cards. Any Service Health notification that has been updated within the last three days will be shown in one of the cards.   
 
  
 ![Azure Service Health overview page](./media/overview-service-health-notifications/service-health-overview.png)
 
 
 
-Each card represents a currently active event, or a resolved one that will be distinguished by the icon in the card.  Each card has a link to the event which can be viewed in the Azure Service Health pages.  
+Each card:
+
+- Represents a currently active event, or a resolved one that will be distinguished by the icon in the card. 
+- Has a link to the event. You can review the event on the Azure Service Health pages.  
 
  
 ![Azure Service Health issues page](./media/overview-service-health-notifications/service-health-issues.png)
