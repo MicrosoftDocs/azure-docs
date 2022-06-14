@@ -172,6 +172,8 @@ Set the **authenticationType** property to **OAuth2ClientCredential**. In additi
 | scope | The scope of the access required. It describes what kind of access will be requested. | No |
 | resource | The target service or resource to which the access will be requested. | No |
 
+**Example**
+
 ```json
 {
     "name": "RESTLinkedService",
