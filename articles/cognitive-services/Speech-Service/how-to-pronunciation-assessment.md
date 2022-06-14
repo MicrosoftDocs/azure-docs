@@ -31,6 +31,8 @@ You can get pronunciation assessment scores for:
 
 > [!NOTE]
 > For information about availability of pronunciation assessment, see [supported languages](language-support.md#pronunciation-assessment) and [available regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation).
+>
+> The syllable groups, IPA phonemes, and spoken phoneme features of pronunciation assessment are currently only available for the en-US locale.
 
 ## Configuration parameters
 
@@ -40,8 +42,11 @@ This table lists some of the key configuration parameters for pronunciation asse
 |-----------|-------------|
 | `ReferenceText` | The text that the pronunciation will be evaluated against. | 
 | `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. | 
-| `Granularity` | The evaluation granularity. Accepted values are `Phoneme`, which shows the score on the full text, word and phoneme level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. | 
+| `Granularity` | Enables the minimal evaluation granularity. Scores on level above or equal to the minimal value are returned.  Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. | 
 | `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. | 
+
+> [!TIP]
+> Whether the full text indicates a paragraph or sentence depends on your input reference text. If you provide a paragraph as input reference text, the score on the full text indicates paragraph-level score. If your input reference text is a sentence, the score on the full text indicates sentence-level score.
 
 You must create a `PronunciationAssessmentConfig` object with the reference text, grading system, and granularity. Enabling miscue and other configuration settings are optional. 
 
@@ -124,7 +129,7 @@ do {
 
 ## Syllable groups
 
-For the [supported languages](language-support.md#pronunciation-assessment) in public preview, pronunciation assessment can provide syllable-level assessment results along with phonemes. Grouping in syllables is more legible and aligned with speaking habits, as a word is typically pronounced syllable by syllable rather than phoneme by phoneme.
+Pronunciation assessment can provide syllable-level assessment results. Grouping in syllables is more legible and aligned with speaking habits, as a word is typically pronounced syllable by syllable rather than phoneme by phoneme.
 
 The following table compares example phonemes with the corresponding syllables.
 
@@ -139,7 +144,7 @@ To request syllable-level results along with phonemes, set the granularity [conf
 
 ## Phoneme alphabet format
 
-The phoneme name is provided together with the score, to help identity which phonemes were pronounced accurately or inaccurately. For the [supported languages](language-support.md#pronunciation-assessment) in public preview, you can get the phoneme name in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) or [IPA](https://en.wikipedia.org/wiki/IPA) format. 
+The phoneme name is provided together with the score, to help identity which phonemes were pronounced accurately or inaccurately. For the [supported languages](language-support.md#pronunciation-assessment), you can get the phoneme name in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) format, and for `English (United States)`, you can also get the phoneme name in [IPA](https://en.wikipedia.org/wiki/IPA) format. 
 
 The following table compares example SAPI phonemes with the corresponding IPA phonemes.
 
@@ -214,9 +219,6 @@ pronunciationAssessmentConfig?.phonemeAlphabet = "IPA"
 
 
 ## Spoken phoneme
-
-> [!NOTE]
-> The spoken phoneme feature of pronunciation assessment is only generally available for the `en-US` locale.
 
 With spoken phonemes, you can get confidence scores indicating how likely the spoken phonemes matched the expected phonemes. 
 
