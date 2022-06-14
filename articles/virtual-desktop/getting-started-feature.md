@@ -110,7 +110,7 @@ Here's how to deploy Azure Virtual Desktop and a new Azure AD DS domain using th
 
 1. Select **Create**.
 
-# [Existing AD DS](#tab/existing-identity-provider)
+# [Existing AD DS](#tab/existing-adds)
 
 Here's how to deploy Azure Virtual Desktop using the getting started feature where you already have AD DS available:
 
@@ -170,7 +170,7 @@ Here's how to deploy Azure Virtual Desktop using the getting started feature whe
 
 1. Select **Create**.
 
-# [Existing Azure AD DS](#tab/existing-identity-provider)
+# [Existing Azure AD DS](#tab/existing-aadds)
 
 Here's how to deploy Azure Virtual Desktop using the getting started feature where you already have Azure AD DS available:
 
@@ -262,7 +262,7 @@ If you didn't create a test account or assigned an existing user during deployme
 | Public IP address | aadds-*random string*-pip | *your prefix*-prerequisite |  |
 | Network security group | avdVnet-nsg | *your prefix*-prerequisite |  |
 | Group | AVDValidationUsers | N/A | Created in your new Azure AD tenant and synchronized to Azure AD DS. It contains a new test user (if created) and users you selected. |
-| User | *your test user* | N/A | If you select to create a test user, it will be created in your new Azure AD tenant, synchronized to Azure AD DS, and made a member of the AVDValidationUsers security group. |
+| User | *your test user* | N/A | If you select to create a test user, it will be created in your new Azure AD tenant, synchronized to Azure AD DS, and made a member of the *AVDValidationUsers* security group. |
 
 # [Existing AD DS](#tab/existing-adds)
 
@@ -284,7 +284,7 @@ If you didn't create a test account or assigned an existing user during deployme
 | Network interface | *virtual machine name*-nic | *your prefix*-avd |  |
 | Disk | *virtual machine name*\_OsDisk_1_*random string* | *your prefix*-avd |  |
 | Group | AVDValidationUsers | N/A | Created in your AD DS domain and synchronized to Azure AD. It contains a new test user (if created) and users you selected. |
-| User | *your test user* | N/A | If you select to create a test user, it will be created in your AD DS domain, synchronized to Azure AD, and made a member of the AVDValidationUsers security group. |
+| User | *your test user* | N/A | If you select to create a test user, it will be created in your AD DS domain, synchronized to Azure AD, and made a member of the *AVDValidationUsers* security group. |
 
 # [Existing Azure AD DS](#tab/existing-aadds)
 
@@ -306,7 +306,7 @@ If you didn't create a test account or assigned an existing user during deployme
 | Network interface | *virtual machine name*-nic | *your prefix*-avd |  |
 | Disk | *virtual machine name*\_OsDisk_1_*random string* | *your prefix*-avd |  |
 | Group | AVDValidationUsers | N/A | Created in your Azure AD tenant and synchronized to Azure AD DS. It contains a new test user (if created) and users you selected. |
-| User | *your test user* | N/A | If you select to create a test user, it will be created in your Azure AD tenant, synchronized to Azure AD DS, and made a member of the AVDValidationUsers security group. |
+| User | *your test user* | N/A | If you select to create a test user, it will be created in your Azure AD tenant, synchronized to Azure AD DS, and made a member of the *AVDValidationUsers* security group. |
 
 ---
 
