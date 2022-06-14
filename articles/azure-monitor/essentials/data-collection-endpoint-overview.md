@@ -8,7 +8,7 @@ ms.custom: references_region
 ---
 
 # Data collection endpoints in Azure Monitor 
-Data Collection Endpoints (DCEs) allow you to uniquely configure ingestion settings for Azure Monitor. This article provides an overview of data collection endpoints including their contents and structure and how you can create and work with them.
+Data Collection Endpoints (DCEs)  provide a connection for certain workflows outside of Azure. This article provides an overview of data collection endpoints including their contents and structure and how you can create and work with them.
 
 ## Workflows that use DCEs
 The following workflows currently use DCEs:
