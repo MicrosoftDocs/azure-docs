@@ -115,7 +115,7 @@ $privateEndpointConnection = New-AzPrivateLinkServiceConnection @pec
 ## Place the virtual network you created previously into a variable. ##
 $vnet = Get-AzVirtualNetwork -ResourceGroupName 'myResourceGroup' -Name 'myVNet'
 
-## Place teh application security group you created previously into a variable. ##
+## Place the application security group you created previously into a variable. ##
 $asg = Get-AzApplicationSecurityGroup -ResourceGroupName 'myResourceGroup' -Name 'myASG'
 
 ## Create the private endpoint. ##
