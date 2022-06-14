@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # Manage zone redundant high availability in Flexible Server
 
-
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article describes how you can enable or disable zone redundant high availability configuration in your flexible server.
 

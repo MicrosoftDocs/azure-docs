@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 06/13/2022
 ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -925,6 +925,7 @@ The following table lists the released languages and public preview languages.
 |English (United Kingdom)|`en-GB`<sup>Public preview</sup> |
 |English (United States)|`en-US`<sup>General available</sup>|
 |French (France)|`fr-FR`<sup>Public preview</sup> |
+|German (Germany)|`de-DE`<sup>Public preview</sup> |
 |Spanish (Spain)|`es-ES`<sup>Public preview</sup> |
 
 > [!NOTE]

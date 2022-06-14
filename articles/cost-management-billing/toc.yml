@@ -472,6 +472,8 @@
       href: costs/cost-management-error-codes.md
     - name: Can't view or find invoices
       href: manage/troubleshoot-cant-find-invoice.md
+    - name: View billing account
+      href: manage/troubleshoot-account-not-found.md
     - name: EA billing issues with usage files
       href: manage/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
     - name: MCA billing issues with usage files
