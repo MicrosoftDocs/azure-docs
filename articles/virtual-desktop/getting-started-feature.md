@@ -1,10 +1,10 @@
 ---
 title: Deploy Azure Virtual Desktop with the getting started feature
 description: A quickstart guide for how to quickly set up Azure Virtual Desktop with the Azure portal's getting started feature.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: quickstart
-ms.date: 06/06/2022
-ms.author: helohr
+ms.date: 06/14/2022
+ms.author: daknappe
 manager: femila
 ms.custom: mode-portal
 ---
@@ -14,9 +14,9 @@ ms.custom: mode-portal
 You can quickly deploy Azure Virtual Desktop with the *getting started* feature in the Azure portal. This can be used in smaller scenarios with a few users and apps, or you can use it to evaluate Azure Virtual Desktop in larger enterprise scenarios. It works with existing Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS) deployments, or it can deploy Azure AD DS for you. Once you're finished, a user will be able to sign in a virtual desktop session, consisting of one host pool (with one or more session hosts), one app group, and one user. To learn about the terminology used in Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md).
 
 > [!TIP]
-> Enterprises should plan an Azure Virtual Desktop deployment using the resources as part of the Cloud Adoption Framework https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext. You can also find more a granular deployment process in a [series of tutorials](create-host-pools-azure-marketplace.md) that also cover programmatic methods.
+> Enterprises should plan an Azure Virtual Desktop deployment using the resources as part of the [Cloud Adoption Framework](/azure/architecture/example-scenario/wvd/windows-virtual-desktop?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext). You can also find more a granular deployment process in a [series of tutorials](create-host-pools-azure-marketplace.md), which also cover programmatic methods and fewer permissions.
 
-You can see the list of resources that will be deployed in the section [resources that will be deployed](#resources-that-will-be-deployed) below.
+You can see the list of [resources that will be deployed](#appendix-resources-that-will-be-deployed) in the section below.
 
 ## Prerequisites
 
