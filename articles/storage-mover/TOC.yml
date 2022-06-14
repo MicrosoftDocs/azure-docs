@@ -5,8 +5,10 @@ items:
   items:
   - name: What is Azure Storage Mover?
     href: overview.md
-  - name: Azure Storage Mover release notes
-    href: release-notes.md
+  - name: Migration basics
+    href: migration.md
+  - name: Matching your needs with available tooling
+    href: match-tooling.md
   expanded: true
 - name: Concepts
   items: 
@@ -31,8 +33,15 @@ items:
   items: 
   - name: Migrate an NFS share to an Azure blob container
     href: migrate-nfs-share.md
+  - name: When to use alternate migration solutions
+    href: alternate-solutions.md
 
 
-
+- name: Resources
+  items:
+  - name: Samples
+    href: https://www.twinkies.com
+  - name: Azure Storage Mover release notes
+    href: release-notes.md
 
   

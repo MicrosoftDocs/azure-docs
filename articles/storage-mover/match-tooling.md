@@ -1,30 +1,28 @@
 ---
-title: What is Azure Storage Mover
-description: Learn about the Azure Storage Mover service
+title: Matching your migration needs to available tooling
+description: Learn about which tool to use for your migration
+services: storage-mover
 author: stevenmatthew
 
-ms.service: storage-mover
+ms.service: storage
 ms.topic: overview
 ms.date: 06/13/2022
 ms.author: shaas
 
-ms.custom: template-overview
+ms.custom: Matching your migration needs to available tooling
 ---
 
 <!-- 1. H1
 ##Docs Required##
  
 Set expectations for what the content covers, so customers know the content meets their needs.-->
-# What is Azure Storage Mover?
+# Migration basics
 
 <!-- 2. Introductory paragraph 
 ##Docs Required##
+-->
 
-A light intro that describes what the article covers. Answer the fundamental “why would I want to know this?” question. Keep it as short as possible.-->
-
-Azure Storage Mover is a service that enables the migration of unstructured data into Azure Storage. <!--Because it has both could-based and on-premises components, it is considered a hybrid cloud service.-->
-
-These documents will walk you through the process of migrating your unstructured data into Azure using the Azure Storage Mover service. The information is useful for partners, vendors, and end-users/customers.
+This is a light intro that describes what the article covers. I will answer the fundamental “why would I want to know this?” question. I will keep it as short as possible.
 
 <!-- 3. H2s
 ##Docs Required##

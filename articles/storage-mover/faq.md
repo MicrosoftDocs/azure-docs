@@ -1,6 +1,6 @@
 ---
-title: Top Level Heading #Required; page title is displayed in search results. Include the brand.
-description: Description #Required; article description that is displayed in search results. 
+title: FAQ #Required; page title is displayed in search results. Include the brand.
+description: Frequently Asked Questions #Required; article description that is displayed in search results. 
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
