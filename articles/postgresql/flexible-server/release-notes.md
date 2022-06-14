@@ -14,6 +14,11 @@ ms.date: 04/14/2022
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
 
+## Release" June 2022
+
+* Support for [extensions](concepts-extensions.md) PLV8, pgrouting with new servers<sup>$</sup> 
+* Version updates for [extension](concepts-extensions.md) PostGIS
+
 ## Release: April 2022
 
 * Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.6, 12.10 and 11.15 with new server creates<sup>$</sup>.
