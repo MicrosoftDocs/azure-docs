@@ -16,7 +16,7 @@ ms.date: 06/09/2022
 
 When connecting to a workspace that has been configured with a private endpoint, you may encounter a 403 or a messaging saying that access is forbidden. Use the information in this article to check for common configuration problems that can cause this error.
 
-## Name resolution (DNS)
+## DNS configuration
 
 1. On the Private Endpoint, select the link to the right of __Network Interface__.
 1. Under __Settings__, select __IP Configurations__
