@@ -38,7 +38,7 @@ This object contains the start time and end time of the pass as well as other pa
 
 The RX and TX start/end times may differ depending on the individual station masks. Billing meters are engaged between the Reservation Start Time and Reservation End Time.
 
-# Creating a Contact
+## Creating a Contact
 
 In order to create a contact you must have the following pre-requisites:
 
