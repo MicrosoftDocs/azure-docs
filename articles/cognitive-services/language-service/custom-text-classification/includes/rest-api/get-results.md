@@ -23,7 +23,7 @@ Use the following **GET** request to query the status/results of the text classi
 
 |Key|Value|
 |--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
+|Ocp-Apim-Subscription-Key| Your key that provides access to this API.|
 
 ### Response body
 
