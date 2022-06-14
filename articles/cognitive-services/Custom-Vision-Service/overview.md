@@ -26,6 +26,10 @@ This documentation contains the following types of articles:
 * The [tutorials](./iot-visual-alerts-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
 <!--* The [conceptual articles](Vision-API-How-to-Topics/call-read-api.md) provide in-depth explanations of the service's functionality and features.-->
 
+For a more structured approach, follow a Microsoft Learn module for Custom Vision.
+* [Classify images with the Custom Vision service](/learn/modules/classify-images-custom-vision/)
+* [Classify endangered bird species with Custom Vision](/learn/modules/cv-classify-bird-species/)
+
 ## What it does
 
 The Custom Vision service uses a machine learning algorithm to analyze images. You, the developer, submit groups of images that have and don't have the characteristics in question. You label the images yourself with your own custom labels (tags) at the time of submission. Then the algorithm trains to this data and calculates its own accuracy by testing itself on those same images. Once you've trained the algorithm, you can test, retrain, and eventually use it in your image recognition app to [classify images](getting-started-build-a-classifier.md). You can also [export the model](export-your-model.md) itself for offline use.
