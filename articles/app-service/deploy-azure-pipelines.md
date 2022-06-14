@@ -35,7 +35,7 @@ You'll use the [Azure Web App task](/azure/devops/pipelines/tasks/deploy/azure-r
 
 The code examples in this section assume you are deploying an ASP.NET web app. You can adapt the instructions for other frameworks. 
 
-Learn more about [Azure Pipelines ecosystem support](azure/devops/pipelines/ecosystems/ecosystems).  
+Learn more about [Azure Pipelines ecosystem support](/azure/devops/pipelines/ecosystems/ecosystems).  
 
 # [Classic](#tab/yaml/)
 
