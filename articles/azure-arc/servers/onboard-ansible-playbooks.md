@@ -64,20 +64,20 @@ If you are onboarding machines to Azure Arc-enabled servers, copy the following 
           url: https://aka.ms/azcmagent
           dest: ~/install_linux_azcmagent.sh
           mode: '700'
-        when: ansible_system == 'Linux' and not azcmagent_downloaded.stat.exists
+        when: (ansible_system == 'Linux') and (not azcmagent_downloaded.stat.exists)
       - name: Download the Connected Machine Agent on Windows servers
         win_get_url:
           url: https://aka.ms/AzureConnectedMachineAgent
           dest: C:\AzureConnectedMachineAgent.msi
-        when: ansible_os_family == 'Windows' and not azcmagent_downloaded.stat.exists
+        when: (ansible_os_family == 'Windows') and (not azcmagent_downloaded.stat.exists)
       - name: Install the Connected Machine Agent on Linux servers
         become: yes
         shell: bash ~/install_linux_azcmagent.sh
-        when: ansible_system == 'Linux' and not azcmagent_downloaded.stat.exists
+        when: (ansible_system == 'Linux') and (not azcmagent_downloaded.stat.exists)
       - name: Install the Connected Machine Agent on Windows servers
         win_package:
           path: C:\AzureConnectedMachineAgent.msi
-        when: ansible_os_family == 'Windows' and not azcmagent_downloaded.stat.exists
+        when: (ansible_os_family == 'Windows') and (not azcmagent_downloaded.stat.exists)
 	- name: Check if the Connected Machine Agent has already been connected
 	  become: true 
 	  command:
@@ -86,10 +86,10 @@ If you are onboarding machines to Azure Arc-enabled servers, copy the following 
       - name: Connect the Connected Machine Agent on Linux servers to Azure Arc
         become: yes
         shell: sudo azcmagent connect --service-principal-id {{ azure.service_principal_id }} --service-principal-secret {{ azure.service_principal_secret }} --resource-group {{ azure.resource_group }} --tenant-id {{ azure.tenant_id }} --location {{ azure.location }} --subscription-id {{ azure.subscription_id }}
-        when: azcmagent_connected.rc == 0 and ansible_system == 'Linux'
+        when: (azcmagent_connected.rc == 0) and (ansible_system == 'Linux')
       - name: Connect the Connected Machine Agent on Windows servers to Azure
         win_shell: '& $env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe connect --service-principal-id "{{ azure.service_principal_id }}" --service-principal-secret "{{ azure.service_principal_secret }}" --resource-group "{{ azure.resource_group }}" --tenant-id "{{ azure.tenant_id }}" --location "{{ azure.location }}" --subscription-id "{{ azure.subscription_id }}"'
-        when: azcmagent_connected.rc == 0 and ansible_os_family == 'Windows'
+        when: (azcmagent_connected.rc == 0) and (ansible_os_family == 'Windows')
 ```
 
 ## Modify the Ansible playbook
