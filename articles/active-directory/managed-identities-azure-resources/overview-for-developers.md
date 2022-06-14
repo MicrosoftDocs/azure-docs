@@ -19,18 +19,18 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a developer, I'd like to securely manage the credentials that my application uses for authenticating to cloud services without having the credentials in my code or checked into source control.
 ---
 
-# Connecting from applications to Azure resources without handling credentials
+# Connecting from your application to resources without handling credentials
 
-Azure resources that support managed identities provide an option to connect to resources that support Azure Active Directory authentication using a service instance identity, instead of having to handle credentials in code or configuration. This is the recommended approach when using Azure resources that support managed identities. [Read an overview of managed identities](overview.md).
+Azure resources with managed identities support always provide an option to specify a managed identity to connect to Azure resources that support Azure Active directory authentication. Managed identities support makes it unnecessary for developers to manage credentials in code. Managed identities is the recommended authentication option when working with Azure resources that support them. [Read an overview of managed identities](overview.md), or refer to the documentation for the resource provider to learn how to configure managed identities on the resource you are deploying your application on.
 
 This page demonstrates how to configure an App Service so it can connect to Azure Key Vault, Azure Storage, and Microsoft SQL Server. The same principles can be used for any Azure resource that supports managed identities and that will connect to resources that support Azure Active Directory authentication. 
 
-The examples shown use the Azure Identity client library, which is the recommended method as it automatically handles many of the steps for you, including acquiring an access token used in the connection.
-
-Some resources don't support Azure Active Directory authentication, or its client library doesn't support authenticating with a token. Keep reading to see our guidance on how to use a Managed identity to securely access the credentials without needing to store them in your code or application configuration.
+The code samples use the Azure Identity client library, which is the recommended method as it automatically handles many of the steps for you, including acquiring an access token used in the connection.
 
 ### What resources can managed identities connect to?
 A managed identity can connect to any resource that supports Azure Active Directory authentication. In general there is no special support required for the resource to allow managed identities to connect to it.
+
+Some resources don't support Azure Active Directory authentication, or their client library doesn't support authenticating with a token. Keep reading to see our guidance on how to use a Managed identity to securely access the credentials without needing to store them in your code or application configuration.
 
 ## Creating a managed identity
 
@@ -269,21 +269,9 @@ var credentialOptions = new DefaultAzureCredentialOptions
 };
 var msiCredential = new DefaultAzureCredential(credentialOptions);        
 
-var options = new SecretClientOptions
-    {
-        Retry =
-        {
-            Delay= TimeSpan.FromSeconds(2),
-            MaxDelay = TimeSpan.FromSeconds(16),
-            MaxRetries = 5,
-            Mode = RetryMode.Exponential
-         }
-    };
-
 var client = new SecretClient(
     new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"),
-    msiCredential,
-    options);
+    msiCredential);
     
 KeyVaultSecret secret = client.GetSecret("<my secret>");
 string secretValue = secret.Value;
