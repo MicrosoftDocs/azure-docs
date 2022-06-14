@@ -149,13 +149,15 @@ The following example shows an Azure Resource Manager template that uses the sys
 
 #### Prerequisites
 
-* An API Management service instance configured with a system-assigned managed identity. To create the instance, you can use an [Azure Quickstart Template](https://azure.microsoft.com/en-us/resources/templates/api-management-create-with-msi/).
+* An API Management service instance configured with a system-assigned managed identity. To create the instance, you can use an [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/api-management-create-with-msi/).
 * An Azure Key Vault instance in the same resource group, hosting a certificate that will be used as a custom domain certificate in API Management.
 
-The following template contains the following steps. When you run the template, provide parameter values appropriate for your environment.
+The following template contains the following steps. 
 
 1. Update the access policies of the Azure Key Vault instance and allow the API Management instance to obtain secrets from it.
 1. Update the API Management instance by setting a custom domain name through the certificate from the Key Vault instance.
+
+When you run the template, provide parameter values appropriate for your environment.
 
 ```json
 {
