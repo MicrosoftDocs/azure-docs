@@ -128,7 +128,7 @@ Use any of the following deployment checklists during the setup or for troublesh
       3. Microsoft Graph User.Read
 1. Review network configuration and validate if:
    1. A [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links) is deployed. 
-   2. All required [private endpoints for Microsoft Purview](/catalog-private-link-end-to-end.md) are deployed.
+   2. All required [private endpoints for Microsoft Purview](/azure/purview/catalog-private-link) are deployed.
    3. Network connectivity from Self-hosted runtime to Power BI tenant is enabled through private network.
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled through private network.
 
