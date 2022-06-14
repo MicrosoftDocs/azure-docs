@@ -120,6 +120,28 @@ The minimum version of the Connected Machine agent that is supported with this f
 
 To upgrade your machine to the version of the agent required, see [Upgrade agent](manage-agent.md#upgrade-the-agent).
 
+
+
+## Operating system extension availability
+
+The following extensions are available for Windows and Linux machines:
+
+### Windows extension availability
+
+|Extension |Publisher |Type |
+|----------|----------|-----|
+|Microsoft Defender for Cloud integrated vulnerability scanner |Qualys |LinuxAgent.AzureSecurityCenter |
+
+
+
+
+### Linux extension availability
+
+
+
+
+
+
 ## Next steps
 
 You can deploy, manage, and remove VM extensions using the [Azure CLI](manage-vm-extensions-cli.md), [Azure PowerShell](manage-vm-extensions-powershell.md), from the [Azure portal](manage-vm-extensions-portal.md), or [Azure Resource Manager templates](manage-vm-extensions-template.md).
