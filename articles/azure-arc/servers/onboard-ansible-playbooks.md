@@ -98,11 +98,11 @@ After downloading the Ansible playbook, complete the following steps:
 
 1. Within the Ansible playbook, modify the variables under the **vars section** with the service principal and Azure details collected earlier:
 
-    * Service Principal Id
+    * Service Principal ID
     * Service Principal Secret
     * Resource Group
-    * Tenant Id
-    * Subscription Id
+    * Tenant ID
+    * Subscription ID
     * Region
 
 1. Enter the correct hosts field capturing the target servers for onboarding to Azure Arc. You can employ [Ansible patterns](https://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html#common-patterns) to selectively target which hybrid machines to onboard.
