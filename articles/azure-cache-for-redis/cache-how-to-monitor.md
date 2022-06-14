@@ -15,57 +15,66 @@ Azure Cache for Redis uses [Azure Monitor](../azure-monitor/index.yml) to provid
 Use Azure Monitor to:
 
 - view metrics
-- pin metrics charts to the Startboard
+- pin metrics charts to the Startboard <!-- this is dashboard now - right? -->
 - customize the date and time range of monitoring charts
 - add and remove metrics from the charts
 - and set alerts when certain conditions are met
 
-Metrics for Azure Cache for Redis instances are collected using the Redis [INFO](https://redis.io/commands/info) command. Metrics are collected approximately two times per minute and automatically stored for 30 days so they can be displayed in the metrics charts and evaluated by alert rules.
+Metrics for Azure Cache for Redis instances are collected using the Redis [`INFO`](https://redis.io/commands/info) command. Metrics are collected approximately two times per minute and automatically stored for 30 days so they can be displayed in the metrics charts and evaluated by alert rules.
 
 To configure a different retention policy, see [Export cache metrics](#export-cache-metrics).  
 
-For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
+For more information about the different `INFO` values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
 ## View cache metrics
 
-To view cache metrics, [browse](cache-configure.md#configure-azure-cache-for-redis-settings) to your cache instance in the [Azure portal](https://portal.azure.com).  Azure Cache for Redis provides some built-in charts on the left using **Overview** and **Redis metrics**. Each chart can be customized by adding or removing metrics and changing the reporting interval.
+To view cache metrics, [browse](cache-configure.md#configure-azure-cache-for-redis-settings) to your cache instance in the [Azure portal](https://portal.azure.com).  Azure Cache for Redis provides some built-in charts on the left using **Overview** and **Redis metrics**. Each chart can be customized by adding or removing metrics and changing the reporting interval. <!-- There is no Redis Metrics - I assume this is replaced by everything under Montitoring in the resource menu? would it be better to direct them to Insights? -->
 
 :::image type="content" source="./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png" alt-text="Six graphs are shown. One of them is Cache Hits and Cache Misses past hour.":::
+<!-- replace this -->
 
 ## View pre-configured metrics charts
 
 On the left, **Overview** has the following pre-configured monitoring charts.
 
+
 - [Monitoring charts](#monitoring-charts)
 - [Usage charts](#usage-charts)
+<!-- Do not see any entries under Overview. It has Memory Usage and Redis Server load-->
 
 ### Monitoring charts
 
 The **Monitoring** section---in **Overview** on the left---has **Hits and Misses**, **Gets and Sets**, **Connections**, and **Total Commands** charts.
 
 :::image type="content" source="./media/cache-how-to-monitor/redis-cache-monitoring-part.png" alt-text="Monitoring charts":::
+<!-- I don't see this in Overview -->
 
 ### Usage charts
 
 The **Usage** section---in **Overview** on the left---has **Redis Server Load**, **Memory Usage**, **Network Bandwidth**, and **CPU Usage** charts, and also displays the **Pricing tier** for the cache instance.
+<!-- I see  **Redis Server Load**, **Memory Usage* only. I am looking at a Premium cache. Does it vary at all by tier? -->
 
 :::image type="content" source="./media/cache-how-to-monitor/redis-cache-usage-part.png" alt-text="Usage charts":::
+<!-- Very colorful!! But not there anymore. Network Bandwidth, CPU Usage and Pricing Tier are not in the UI I see Status that displays the tier. -->
 
 The **Pricing tier** displays the cache pricing tier, and can be used to [scale](cache-how-to-scale.md) the cache to a different pricing tier.
 
 ## View metrics charts for all your caches with Azure Monitor for Azure Cache for Redis
-
-Use [Azure Monitor for Azure Cache for Redis](../azure-monitor/insights/redis-cache-insights-overview.md) (preview) for a view of the overall performance, failures, capacity, and operational health of all your Azure Cache for Redis resources. View metrics in a customizable, unified, and interactive experience that lets you drill down into details for individual resources. Azure Monitor for Azure Cache for Redis is based on the [workbooks feature of Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) that provides rich visualizations for metrics and other data. To learn more, see the [Explore Azure Monitor for Azure Cache for Redis](../azure-monitor/insights/redis-cache-insights-overview.md) article.
+<!-- I see only **Monitoring** in the Resource menu now. -->
+Use [Azure Monitor for Azure Cache for Redis](../azure-monitor/insights/redis-cache-insights-overview.md) (preview) <!-- Is this Preview? --> for a view of the overall performance, failures, capacity, and operational health of all your Azure Cache for Redis resources. View metrics in a customizable, unified, and interactive experience that lets you drill down into details for individual resources. Azure Monitor for Azure Cache for Redis is based on the [workbooks feature of Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) that provides rich visualizations for metrics and other data. To learn more, see the [Explore Azure Monitor for Azure Cache for Redis](../azure-monitor/insights/redis-cache-insights-overview.md) article.
+<!-- this seems to have changed considerably -->
 
 ## View metrics with Azure Monitor metrics explorer
-
+<!-- Nothing in the UI talks about a metrics explorer -->
 For scenarios where you don't need the full flexibility of Azure Monitor for Azure Cache for Redis, you can instead view metrics and create custom charts using the Azure Monitor metrics explorer. Select **Metrics** from the **Resource menu**, and customize your chart using your preferred metrics, reporting interval, chart type, and more.
 
 In the left navigation pane of contoso55, Metrics is an option under Monitoring and is highlighted. On Metrics, is a list of metrics. Cache hits and Cache misses are selected.
 
 :::image type="content" source="./media/cache-how-to-monitor/redis-cache-monitor.png" alt-text="Screenshot with metrics showing in the resource manager":::
+<!-- Seems like maybe we point the user to Insights here because it has some predefined charts? -->
 
 For more information on working with metrics using Azure Monitor, see [Overview of metrics in Microsoft Azure](../azure-monitor/data-platform.md).
+<!-- the resource menu seemes to be simply **Monitoring** now. However, you can create "Workbooks". And one of the predefined ones seems to be Insights. Is that only for Redis? -->
 
 ## Export cache metrics
 
@@ -81,6 +90,7 @@ To configure a storage account for your cache metrics:
 1. Under the table heading **metric**, check box beside the line items you want to store, such as **AllMetrics**. Specify a **Retention (days)** policy. The maximum days retention you can specify is **365 days**. However, if you want to keep the metrics data forever, set **Retention (days)** to **0**.
 1. Select **Save**.
 
+<!--  I probably repro this with the new UI if I can create a useful storage account. -->
 :::image type="content" source="./media/cache-how-to-monitor/redis-cache-diagnostics.png" alt-text="Redis diagnostics":::
 
 >[!NOTE]
@@ -94,6 +104,8 @@ To access your metrics, you can view them in the Azure portal as previously desc
 >
 
 ## Available metrics and reporting intervals
+
+<!-- This all seems unchanged.  -->
 
 Cache metrics are reported using several reporting intervals, including **Past hour**, **Today**, **Past week**, and **Custom**. On the left, you find the **Metric** selection for each metrics chart displays the average, minimum, and maximum values for each metric in the chart, and some metrics display a total for the reporting interval.
 
@@ -153,7 +165,9 @@ You can configure to receive alerts based on metrics and activity logs. Azure Mo
 - Invoke an Azure Logic App
 
 To configure Alert rules for your cache, select **Alert rules** from the **Resource menu**.
+<!-- Now is just **Alerts** -->
 
 :::image type="content" source="./media/cache-how-to-monitor/redis-cache-monitoring.png" alt-text="Monitoring":::
+<!-- I do not see this part of UI at all -->
 
 For more information about configuring and using Alerts, see [Overview of Alerts](../azure-monitor/alerts/alerts-classic-portal.md).
