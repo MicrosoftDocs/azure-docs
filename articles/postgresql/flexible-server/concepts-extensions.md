@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
 
-
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a command. After being loaded in the database, extensions function like built-in features.
 
@@ -29,7 +29,7 @@ Using the [Azure portal](https://portal.azure.com):
   
 Using [Azure CLI](/cli/azure/):
 
-   You can allow-list extensions via CLI parameter set [command]( https://docs.microsoft.com/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
+   You can allow-list extensions via CLI parameter set [command](/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
 
    ```bash
 az postgres flexible-server parameter set --resource-group <your resource group>  --server-name <your server name> --subscription <your subscription id> --name azure.extensions --value <extension name>,<extension name>
@@ -106,7 +106,7 @@ Using the [Azure portal](https://portal.azure.com):
 
 Using [Azure CLI](/cli/azure/):
 
-   You can set `shared_preload_libraries` via CLI parameter set [command]( https://docs.microsoft.com/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
+   You can set `shared_preload_libraries` via CLI parameter set [command](/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
 
    ```bash
 az postgres flexible-server parameter set --resource-group <your resource group>  --server-name <your server name> --subscription <your subscription id> --name shared_preload_libraries --value <extension name>,<extension name>

@@ -1,6 +1,5 @@
 ---
 title: Configure F5 BIG-IP SSL-VPN solution in Azure AD
-titleSuffix: Microsoft Entra
 description: Tutorial to configure F5’s BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Azure Active Directory (AD) for Secure Hybrid Access (SHA) 
 services: active-directory
 author: gargi-sinha

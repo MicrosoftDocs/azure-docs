@@ -86,9 +86,9 @@ For example, insert the policy fragment named *ForwardContext* in the inbound po
 
 ## Manage policy fragments
 
-After creating a policy fragment, you can view and update policy properties, or delete the policy at any time.
+After creating a policy fragment, you can view and update the properties of a policy fragment, or delete the policy fragment at any time.
 
-**To view properties of a fragment:**
+**To view properties of a policy fragment:**
 
 1. In the left navigation of your API Management instance, under **APIs**, select **Policy fragments**. Select the name of your fragment.
 1. On the **Overview** page, review the **Policy document references** to see the policy definitions that include the fragment.

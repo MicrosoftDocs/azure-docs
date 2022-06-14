@@ -36,7 +36,7 @@ Before you start using orchestration workflow, you will need an Azure Language r
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
-[!INCLUDE [create a new resource from the Language Studio](../includes/resource-creation-language-studio.md)]
+[!INCLUDE [create a new resource from Language Studio](../includes/resource-creation-language-studio.md)]
 
 ## Sign in to Language Studio
 

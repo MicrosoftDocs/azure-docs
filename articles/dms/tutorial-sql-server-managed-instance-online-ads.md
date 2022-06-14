@@ -191,7 +191,7 @@ To complete the cutover,
 During the cutover process, the migration status changes from *in progress* to *completing*. When the cutover process is completed, the migration status changes to *succeeded* to indicate that the database migration is successful and that the migrated database is ready for use.
 
 > [!IMPORTANT]
-> After the cutover, availability of SQL Managed Instance with Business Critical service tier only can take significantly longer than General Purpose as three secondary replicas have to be seeded for AlwaysOn High Availability group. This operation duration depends on the size of data, for more information, see [Management operations duration](/azure/azure-sql/managed-instance/management-operations-overview#duration).
+> After the cutover, availability of SQL Managed Instance with Business Critical service tier only can take significantly longer than General Purpose as three secondary replicas have to be seeded for Always On High Availability group. This operation duration depends on the size of data, for more information, see [Management operations duration](/azure/azure-sql/managed-instance/management-operations-overview#duration).
 
 ## Next steps
 

@@ -64,7 +64,7 @@ The following sections provide details for these steps.
 ## Install monitoring agents
 
  > [!NOTE]
- > Connection Monitor now supports auto enablement of monitoring extensions for Azure & Non-Azure endpoints, thus eliminating the need for manual installion of monitoring solutions during the creation of Connection Monitor. 
+ > Connection Monitor now supports auto enablement of monitoring extensions for Azure & Non-Azure endpoints, thus eliminating the need for manual installation of monitoring solutions during the creation of Connection Monitor. 
  
 Connection Monitor relies on lightweight executable files to run connectivity checks. It supports connectivity checks from both Azure environments and on-premises environments. The executable file that you use depends on whether your VM is hosted on Azure or on-premises.
 
