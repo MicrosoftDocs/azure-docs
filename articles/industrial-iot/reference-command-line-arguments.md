@@ -566,13 +566,6 @@ The `Alternative` field, where present, refers to the CLI argument applicable in
                                       Alternative argument type: integer in seconds
                                       Default: {00:00:60}
 
-        ScaleTestCount=VALUE
-                                      The number of monitored item clones in scale tests.
-                                      Alternative: --sc, --scaletestcount
-                                      Mode: Standalone only
-                                      Type: integer
-                                      Default: 1
-
         LegacyCompatibility=VALUE
                                       Forces the Publisher to operate in 2.5 legacy mode, using
                                       `"application/opcua+uajson"` for `ContentType` on the IoT Hub
