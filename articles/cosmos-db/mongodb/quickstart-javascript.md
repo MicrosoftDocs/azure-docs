@@ -74,7 +74,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
         --kind MongoDB
     ```
 
-1. Find the MongoDB API **connection string** from the list of connection strings for the account with the[``az cosmosdb list-connection-strings``](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-connection-strings) command.
+1. Find the MongoDB API **connection string** from the list of connection strings for the account with the[``az cosmosdb list-connection-strings``](/cli/azure/cosmosdb#az-cosmosdb-list-connection-strings) command.
 
     ```azurecli-interactive
     az cosmosdb list-connection-strings \
@@ -246,8 +246,8 @@ You'll use the following MongoDB classes to interact with these resources:
 - [Authenticate the client](#authenticate-the-client)
 - [Create a database](#create-a-database)
 - [Create a collection](#create-a-collection)
-- [Create an doc](#create-an-doc)
-- [Get an doc](#get-an-doc)
+- [Create an doc](#create-a-doc)
+- [Get an doc](#get-a-doc)
 - [Query docs](#query-docs)
 
 The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
@@ -381,11 +381,11 @@ Remove-AzResourceGroup @parameters
     > In this quickstart, we recommended the name ``msdocs-cosmos-dotnet-quickstart-rg``.
 1. Select **Delete resource group**.
 
-   :::image type="content" source="media/quickstart-javascript/delete-resource-group-option.png" lightbox="media/delete-account-portal/delete-resource-group-option.png" alt-text="Screenshot of the Delete resource group option in the navigation bar for a resource group.":::
+   :::image type="content" source="media/quickstart-javascript/delete-resource-group-option.png" lightbox="media/quickstart-javascript/delete-resource-group-option.png" alt-text="Screenshot of the Delete resource group option in the navigation bar for a resource group.":::
 
 1. On the **Are you sure you want to delete** dialog, enter the name of the resource group, and then select **Delete**.
 
-   :::image type="content" source="media/quickstart-javascript/delete-confirmation.png" lightbox="media/delete-account-portal/delete-confirmation.png" alt-text="Screenshot of the delete confirmation page for a resource group.":::
+   :::image type="content" source="media/quickstart-javascript/delete-confirmation.png" lightbox="media/quickstart-javascript/delete-confirmation.png" alt-text="Screenshot of the delete confirmation page for a resource group.":::
 
 ---
 
