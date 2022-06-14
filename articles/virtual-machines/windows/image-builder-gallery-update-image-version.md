@@ -101,7 +101,7 @@ If you already have an Azure Compute Gallery but didn't set it up by following a
 
 ## Modify the helloImage example
 
-You can review the JSON example you're about to use at [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). For information about the JSON file, see [Create an Azure VM Image Builder template](image-builder-json.md). 
+You can review the JSON example you're about to use at [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). For information about the JSON file, see [Create an Azure VM Image Builder template](../linux/image-builder-json.md). 
 
 
 1. Download the JSON example, and then configure it with your variables: 
@@ -176,4 +176,4 @@ You should now see two directories:
 
 ## Next steps
 
-To learn more about the components of the JSON file that you used in this article, see [Create an Azure VM Image Builder template](image-builder-json.md).  
+To learn more about the components of the JSON file that you used in this article, see [Create an Azure VM Image Builder template](../linux/image-builder-json.md).  
