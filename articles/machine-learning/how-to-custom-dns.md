@@ -215,7 +215,7 @@ The information returned from all methods is the same; a list of the FQDN and pr
 | ----- | ----- |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms` | `10.1.0.5` |
-| `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
+| `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.eastus.notebooks.azure.net` | `10.1.0.6` |
 | `mymanagedonlineendpoint.fb7e20a0-8891-458b-b969-55ddb3382f51.inference.eastus.api.azureml.ms` | `10.1.0.7` |
 
 The following table shows example IPs from Azure China regions:
@@ -224,7 +224,7 @@ The following table shows example IPs from Azure China regions:
 | ----- | ----- |
 | `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.cn` | `10.1.0.5` |
 | `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.cert.api.ml.azure.cn` | `10.1.0.5` |
-| `ml-mype-pltest-chinaeast2-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.chinacloudapi.cn` | `10.1.0.6` |
+| `ml-mype-pltest-chinaeast2-52882c08-ead2-44aa-af65-08a75cf094bd.chinaeast2.notebooks.chinacloudapi.cn` | `10.1.0.6` |
 
 The following table shows example IPs from Azure US Government regions:
 
@@ -232,7 +232,7 @@ The following table shows example IPs from Azure US Government regions:
 | ----- | ----- |
 | `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.us` | `10.1.0.5` |
 | `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.cert.api.ml.azure.us` | `10.1.0.5` |
-| `ml-mype-plt-usgovvirginia-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.usgovcloudapi.net` | `10.1.0.6` |
+| `ml-mype-plt-usgovvirginia-52882c08-ead2-44aa-af65-08a75cf094bd.usgovvirginia.notebooks.usgovcloudapi.net` | `10.1.0.6` |
 
 <a id='dns-vnet'></a>
 
@@ -531,7 +531,7 @@ The following is an example of `hosts` file entries for Azure Machine Learning:
 # For core Azure Machine Learning hosts
 10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms
 10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms
-10.1.0.6    ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net
+10.1.0.6    ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.eastus.notebooks.azure.net
 10.1.0.7    mymanagedonlineendpoint.fb7e20a0-8891-458b-b969-55ddb3382f51.inference.eastus.api.azureml.ms
 
 # For a compute instance named 'mycomputeinstance'
