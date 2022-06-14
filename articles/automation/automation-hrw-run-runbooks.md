@@ -133,6 +133,7 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
         Get-AzVM -DefaultProfile $AzureContext | Select Name   
     ```
   Or
+
     **To use a VM's user-assigned managed identity**:
     1. [Configure](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity) a User Managed Identity for the VM.
     1. Grant this identity the [required permissions](/active-directory/managed-identities-azure-resources/howto-assign-access-portal) within the Subscription to perform its tasks.
@@ -152,13 +153,15 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
         # Get all VM names from the subscription
         Get-AzVM -DefaultProfile $AzureContext | Select Name 
     ```
+    
     > [!NOTE]
     > You can find the client Id of the user-assigned managed identity in the Azure portal.
 
     > :::image type="content" source="./media/automation-hrw-run-runbooks/managed-identities-client-id-inline.png" alt-text="Screenshot of client id in Managed Identites." lightbox="./media/automation-hrw-run-runbooks/managed-identities-client-id-expanded.png"::: 
 
+
     **An Arc-enabled server running as a Hybrid Runbook Worker** already has a built-in System Managed Identity assigned to it which can be used for authentication.
-    
+
     1. You can grant this Managed Identity access to resources in your subscription in the Access control (IAM) blade for the resource by adding the appropriate role assignment.
 
     :::image type="content" source="./media/automation-hrw-run-runbooks/select-managed-identities.png" alt-text="Screenshot of how to add role assignment in the Access control blade.":::
