@@ -151,9 +151,9 @@ The PATCH request will fail with 400 Bad Request and the error will contain the 
 `Persistance of policy failed with error: You cannot enable multiple targets for feature 'Require Display App Information'. Choose only one of the following includeTargets to enable: aede0efe-c1b4-40dc-8ae7-2c402f23e312,aede0efe-c1b4-40dc-8ae7-2c402f23e317.`
 
 ### Test the end-user experience
-Add the test user account to the the Authenticator app. The account **doesn't** need to be enabled for phone sign-in. 
+Add the test user account to the Authenticator app. The account **doesn't** need to be enabled for phone sign-in. 
 
-See the end-user experience of an Authenticator MFA push notification with additional context by signing into aka.ms/MFAsetup. 
+See the end-user experience of an Authenticator multifactor authentication push notification with additional context by signing into aka.ms/MFAsetup. 
 
 ### Turn off additional context
 

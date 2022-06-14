@@ -24,7 +24,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
 ## Prerequisites 
 
-- Your organization must have enabled Azure MFA. Every edition of Azure AD includes Azure MFA. No additional license is needed for a registration campaign.
+- Your organization must have enabled Azure AD Multi-Factor Authentication. Every edition of Azure AD includes Azure AD Multi-Factor Authentication. No additional license is needed for a registration campaign.
 - Users can't have already set up the Authenticator app for push notifications on their account. 
 - Admins need to enable users for the Authenticator app using one of these policies:  
   - MFA Registration Policy: Users will need to be enabled for **Notification through mobile app**.  
@@ -32,7 +32,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
 ## User experience
 
-1. User successfully performs MFA using Azure MFA. 
+1. User successfully authenticates using Azure AD Multi-Factor Authentication. 
 
 1. User sees prompt to set up the Authenticator app to improve their sign-in experience. Only users who are allowed for the Authenticator app push notifications and don't have it currently set up will see the prompt. 
 
@@ -249,13 +249,13 @@ Here are a few sample JSONs you can use to get started!
 
 ## Limitations
 
-The nudge won'tappear on mobile devices that run Android or iOS.
+The nudge won't appear on mobile devices that run Android or iOS.
 
 ## Frequently asked questions
 
 **Is registration campaign available for MFA Server?** 
 
-No. This feature is available only for users using Azure MFA. 
+No. This feature is available only for users using Azure AD Multi-Factor Authentication. 
 
 **Can users be nudged within an application?** 
 
@@ -275,7 +275,7 @@ The feature aims to empower admins to get users set up with MFA using the Authen
 
 **Will a user who has a 3rd party authenticator app setup see the nudge?** 
 
-If this user doesn’t have the Authenticator app set up for push notifications and are enabled for it by policy, yes, the user will see the nudge. 
+If this user doesn’t have the Authenticator app set up for push notifications and is enabled for it by policy, yes, the user will see the nudge. 
 
 **Will a user who has a the Authenticator app setup only for TOTP codes see the nudge?** 
 
@@ -293,9 +293,9 @@ No. The feature, for now, aims to nudge users to set up the Authenticator app on
 
 There is no way to hide the snooze option on the nudge. You can set the snoozeDuration to 0, which will ensure that users will see the nudge during each MFA attempt.  
 
-**Will I be able to nudge my users if I am not using Azure MFA?** 
+**Will I be able to nudge my users if I am not using Azure AD Multi-Factor Authentication?** 
 
-No. The nudge will only work for users who are doing MFA using the Azure MFA service. 
+No. The nudge will only work for users who are doing MFA using the Azure AD Multi-Factor Authentication service. 
 
 **Will Guest/B2B users in my tenant be nudged?** 
 
