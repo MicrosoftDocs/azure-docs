@@ -50,7 +50,7 @@ The FTP connector has different versions, based on [logic app type and host envi
 
 * FTP triggers now return only metadata or properties, not file content. However, you can follow these triggers with the **Get file content** action and use the pattern described in this article. To make sure that a trigger returns one file at a time, rather than a list, make sure that the trigger's [**Split On** option is enabled](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
-* FTP triggers work only the specified folder, not its subfolders. To check a folder's subfolders, set up a separate workflow for each subfolder. For more information, review [FTP managed connector reference - Trigger limits](/connectors/ftp/#trigger-limits).
+* FTP triggers work only the specified folder, not subfolders. To also check a folder's subfolders, set up a separate workflow for each subfolder. For more information, review [FTP managed connector reference - Trigger limits](/connectors/ftp/#limitations).
 
 * If you have an on-premises FTP server, consider the following options:
 
@@ -58,40 +58,15 @@ The FTP connector has different versions, based on [logic app type and host envi
 
   * Standard workflows: Use the FTP built-in connector operations, which work without an on-premises data gateway.
 
-* The FTP connector isn't compatible with implicit File Transfer Protocol Secure (FTPS). For secure FTP, make sure to set up *explicit* File Transfer Protocol Secure (FTPS) instead. The FTP connector supports only *explicit* FTP over FTPS, which is an extension of Transport Layer Security (TLS), the successor to Secure Socket Layer (SSL).
-
-For other connector limitations, review [FTP managed connector reference](/connectors/ftp/).
+For more limitations, review [FTP managed connector reference - Limitations](/connectors/ftp/#limitations).
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The FTP connector requires your FTP host server address and account credentials
-
-* The FTP connector requires access to the FTP server from or through the internet.
-
-* The FTP connector requires that your FTP server is set up to operate or accept in *passive* mode.
-
-* The FTP connector requires the FTP server to support folder names that include whitespace for use with the preceding commands. Some FTP servers, such as ProFTPd, require that you enable the `NoSessionReuseRequired` option while working in TLS/SSL mode.
-
-* The FTP managed connector requires that the FTP server enables specific commands and support folder names with whitespace. For more information, review [FTP managed connector reference - Trigger limits](/connectors/ftp/#trigger-limits) and [requirements](/connectors/ftp/#requirements).
-
-* The FTP managed connector implements actions that require the FTP server to enable use the following commands:
-
-  - APPE
-  - DELE
-  - LIST - Make sure this command returns the `year` component for file timestamps older than 6 months.
-  - MDTM
-  - RENAME
-  - RETR
-  - SIZE
-  - STOR
-
-* FTP triggers work by checking the FTP file system and looking for any file that's changed since the last poll. The trigger uses the last modified time on a file. If you have an external client or other tool that creates the file and preserves the timestamp when the files change, disable the preservation feature so that your trigger can work. For more information, review [FTP managed connector reference - Trigger limits](/connectors/ftp/#trigger-limits).
-
 * The logic app workflow where you want to access your FTP account. To start your workflow with an FTP trigger, you have to start with a blank workflow. To use an FTP action, start your workflow with another trigger, such as the **Recurrence** trigger.
 
-For other connector requirements, review the [FTP managed connector reference](/connectors/ftp/).
+* For more requirements that apply to both the FTP managed connector and built-in connector, review the [FTP managed connector reference - Requirements](/connectors/ftp/#requirements).
 
 <a name="add-ftp-trigger"></a>
 
@@ -389,8 +364,8 @@ The FTP built-in connector is available only for Standard logic app workflows an
 |--------|-------------|
 | [**Create file**](#create-file) | Create a file |
 | [**Delete file**](#delete-file) |
-| [**Get File Content**](#get-file-content) |
-| [**Get the file metadata**](#get-file-metadata) |
+| [**Get file content**](#get-file-content) |
+| [**Get file metadata**](#get-file-metadata) |
 | [**List files and subfolders in a folder**](#list-files-subfolders-folder) |
 | [**Update file**](#update-file) |
 |||
@@ -418,7 +393,7 @@ When the trigger's **Split On** setting is enabled, the trigger returns the meta
 
 | Name | Type |
 |------|------|
-| **List of Files** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
+| **List of files** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
 |||
 
 <a name="create-file"></a>
@@ -434,14 +409,14 @@ This action creates a file. If the file is deleted or renamed on the FTP server 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **File path** | `filePath` | True | String | The full file path, including the file extension, if any. Specify a path that's relative to the root directory. |
-| **The file content** | `fileContent` | True | string | The content for the file |
+| **File content** | `fileContent` | True | string | The content for the file |
 ||||||
 
 #### Returns
 
 | Name | Type |
 |------|------|
-| **List of Files** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
+| **List of files** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
 |||
 
 <a name="delete-file"></a>
@@ -454,7 +429,7 @@ This action creates a file. If the file is deleted or renamed on the FTP server 
 
 <a name="get-file-metadata"></a>
 
-### Get the file metadata
+### Get file metadata
 
 The **Get file metadata** action gets the properties for a file that's on your FTP server and the **Get file content** action gets the file content based on the information about that file on your FTP server. For example, you can add the trigger from the previous example and these actions to get the file's content after that file is added or edited.
 
