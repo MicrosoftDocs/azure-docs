@@ -206,7 +206,7 @@ az containerapp env dapr-component set `
 
 ---
 
-Your state store is configured using the Dapr component described in *statestore.yaml*. The component is scoped to a container app named `nodeapp` and is not available to other container apps.
+Your state store is configured using the Dapr component described in *statestore.yaml*. The component is scoped to a container app named `nodeapp` and isn't available to other container apps.
 
 ## Deploy the service application (HTTP web server)
 
@@ -219,12 +219,13 @@ az containerapp create \
   --environment $CONTAINERAPPS_ENVIRONMENT \
   --image dapriosamples/hello-k8s-node:latest \
   --target-port 3000 \
-  --ingress 'external' \
+  --ingress 'internal' \
   --min-replicas 1 \
   --max-replicas 1 \
   --enable-dapr \
+  --dapr-app-id nodeapp \
   --dapr-app-port 3000 \
-  --dapr-app-id nodeapp
+  --env-vars 'APP_PORT=3000'
 ```
 
 # [PowerShell](#tab/powershell)
@@ -236,12 +237,13 @@ az containerapp create `
   --environment $CONTAINERAPPS_ENVIRONMENT `
   --image dapriosamples/hello-k8s-node:latest `
   --target-port 3000 `
-  --ingress 'external' `
+  --ingress 'internal' `
   --min-replicas 1 `
   --max-replicas 1 `
   --enable-dapr `
+  --dapr-app-id nodeapp `
   --dapr-app-port 3000 `
-  --dapr-app-id nodeapp
+  --env-vars 'APP_PORT=3000'
 ```
 
 ---
@@ -249,7 +251,7 @@ az containerapp create `
 This command deploys:
 
 * the service (Node) app server on `--target-port 3000` (the app port) 
-* its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000` for service discovery and invocation
+* its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000'` for service discovery and invocation
 
 ## Deploy the client application (headless client)
 
@@ -285,7 +287,7 @@ az containerapp create `
 
 ---
 
-This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there is no `--target-port` to start a server, nor is there a need to enable ingress.
+This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there's no `--target-port` to start a server, nor is there a need to enable ingress.
 
 ## Verify the result
 
@@ -309,7 +311,7 @@ You can confirm that the services are working correctly by viewing data in your 
 
 ### View Logs
 
-Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI. Wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
+Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI. Wait a few minutes for the analytics to arrive for the first time before you're able to query the logged data.
 
 Use the following CLI command to view logs on the command line.
 
@@ -352,7 +354,7 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 
 ## Clean up resources
 
-Once you are done, run the following command to delete your resource group along with all the resources you created in this tutorial.
+Once you're done, run the following command to delete your resource group along with all the resources you created in this tutorial.
 
 # [Bash](#tab/bash)
 

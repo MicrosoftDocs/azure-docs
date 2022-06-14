@@ -96,7 +96,16 @@ For more information on configuring your load balancer in a different subnet, se
 
 ## Connect Azure Private Link service to internal load balancer (Preview)
 
-To attach an Azure Private Link Service to an internal load balancer, create a service manifest named `internal-lb-pls.yaml` with the service type *LoadBalancer* and the *azure-load-balancer-internal* and *azure-pls-create* annotation as shown in the example below.  For more options, refer to the [Azure Private Link Service Integration](https://kubernetes-sigs.github.io/cloud-provider-azure/development/design-docs/pls-integration/) design document
+### Before you begin
+
+You must have the following resource installed:
+
+* The Azure CLI
+* Kubernetes version 1.22.x or above
+
+### Create a Private Link service connection
+
+To attach an Azure Private Link service to an internal load balancer, create a service manifest named `internal-lb-pls.yaml` with the service type *LoadBalancer* and the *azure-load-balancer-internal* and *azure-pls-create* annotation as shown in the example below.  For more options, refer to the [Azure Private Link Service Integration](https://kubernetes-sigs.github.io/cloud-provider-azure/topics/pls-integration/) design document
 
 ```yaml
 apiVersion: v1
@@ -142,7 +151,7 @@ pls-xyz   pls-xyz.abc123-defg-4hij-56kl-789mnop.eastus2.azure.privatelinkservice
 
 ```
 
-### Create a Private Endpoint to the Private Link Service
+### Create a Private Endpoint to the Private Link service
 
 A Private Endpoint allows you to privately connect to your Kubernetes service object via the Private Link Service created above. To do so, follow the example shown below:
 
