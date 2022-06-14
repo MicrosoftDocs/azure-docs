@@ -368,6 +368,36 @@ To send notifications:
 
 For more information about forwarding rules, see [Forward alert information](how-to-forward-alert-information-to-partners.md).
 
+
+## Upload and play PCAP files
+
+When troubleshooting, you may want to examine data recorded by a specific PCAP file. To do so, you can upload a PCAP file to your sensor console and replay the data recorded.
+
+To view the PCAP player in your sensor console, you'll first need to configure the relevant advanced configuration option.
+
+Maximum size for uploaded files is 2 GB.
+
+**To show the PCAP player in your sensor console**:
+
+1. On your sensor console, go to **System settings > Sensor management > Advanced Configurations**.
+
+1. In the **Advanced configurations** pane, select the **Pcaps** category.
+
+1. In the configurations displayed, change `enabled=0` to `enabled=1`, and select **Save**.
+
+The **Play PCAP** option is now available in the sensor console's settings, under: **System settings > Basic > Play PCAP**.
+
+**To upload and play a PCAP file**:
+
+1. On your sensor console, select **System settings > Basic > Play PCAP**.
+
+1. In the **PCAP PLAYER** pane, select **Upload** and then navigate to and select the file you want to upload.
+
+1. Select **Play** to play your PCAP file, or **Play All** to play all PCAP files currently loaded.
+
+> [!TIP]
+> Select **Clear All** to clear the sensor of all PCAP files loaded.
+
 ## Adjust system properties
 
 System properties control various operations and settings in the sensor. Editing or modifying them might damage the operation of the sensor console.
@@ -381,6 +411,7 @@ To access system properties:
 2. Select **System Settings**.
 
 3. Select **System Properties** from the **General** section.
+
 
 ## Next steps
 
