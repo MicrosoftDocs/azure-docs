@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 06/14/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 
@@ -129,21 +129,15 @@ Applications that are installed on devices, such as mobile and desktop applicati
 
 In this flow, the application executes [policies](user-flow-overview.md) and receives an `authorization_code` from Azure AD after the user completes the policy. The `authorization_code` represents the application's permission to call back-end services on behalf of the user who is currently signed in. The application can then exchange the `authorization_code` in the background for an `access_token` and a `refresh_token`.  The application can use the `access_token` to authenticate to a back-end web API in HTTP requests. It can also use the `refresh_token` to get a new `access_token` when an older one expires.
 
-## Current limitations
-
-### Unsupported application types
-
-#### Daemons/server-side applications
+### Daemons/server-side applications
 
 Applications that contain long-running processes or that operate without the presence of a user also need a way to access secured resources such as web APIs. These applications can authenticate and get tokens by using their identities (rather than a user's delegated identity) and by using the OAuth 2.0 client credentials flow. Client credential flow isn't the same as on-behalf-flow and on-behalf-flow shouldn't be used for server-to-server authentication.
 
-Although the OAuth 2.0 client credentials grant flow isn't currently directly supported by the Azure AD B2C authentication service, you can set up client credential flow using Azure AD and the Microsoft identity platform /token (https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token) endpoint for an application in your Azure AD B2C tenant. An Azure AD B2C tenant shares some functionality with Azure AD enterprise tenants.
+The [OAuth 2.0 client credentials flow](./client-credentials-grant-flow.md) is currently in public preview. You can also set up client credential flow using Azure AD and the Microsoft identity platform /token endpoint (`https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token`) for a [Microsoft Graph application](microsoft-graph-get-started.md) or your own application. For more information, check out the [Azure AD token reference](../active-directory/develop/id-tokens.md) article.
 
-To set up client credential flow, see [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). A successful authentication results in the receipt of a token formatted so that it can be used by Azure AD as described in [Azure AD token reference](../active-directory/develop/id-tokens.md).
+## Unsupported application types
 
-For instructions on registering a management application, see [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-get-started.md).
-
-#### Web API chains (on-behalf-of flow)
+### Web API chains (on-behalf-of flow)
 
 Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end and calls a Microsoft online service such as the Microsoft Graph API.
 
