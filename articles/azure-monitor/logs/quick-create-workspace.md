@@ -11,7 +11,7 @@ ms.reviewer: yossiy
 ---
 # Create a Log Analytics workspace
 
-This article shows you how to create a Log Analytics workspace. When you collect logs and data, the information is stored in a workspace. A workspace has unique workspace ID and resource ID. The workspace name must be unique for a given resource group. Once you have create a workspace, configure data sources and solutions to store their data there.
+This article shows you how to create a Log Analytics workspace. When you collect logs and data, the information is stored in a workspace. A workspace has unique workspace ID and resource ID. The workspace name must be unique for a given resource group. Once you have created a workspace, configure data sources and solutions to store their data there.
 
 You need a Log Analytics workspace if you are collecting data from the following sources:
 * Azure resources in your subscription
@@ -77,7 +77,7 @@ Run the [az group create](/cli/azure/group#az-group-create) command to create a 
        --workspace-name <myWorkspace>
 ```
 
-For more information about Azure Monitor Logs in Azure CLI, see [Managing Azure Monitor Logs in Azure CLI](/azure/azure-monitor/logs/azure-cli-log-analytics-workspace-sample?branch=pr-en-us-199075).
+For more information about Azure Monitor Logs in Azure CLI, see [Managing Azure Monitor Logs in Azure CLI](/azure/azure-monitor/logs/azure-cli-log-analytics-workspace-sample).
 
 ## [Resource Manager Template](#tab/azure-resource-manager)
 The following  sample uses  the  [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/workspaces?tabs=bicep) template to create a Log Analytics workspace in Azure Monitor.
@@ -201,7 +201,7 @@ For more information about Azure Resource Manager templates, see [Azure Resource
 }
 ```
   
-Once you've created a workspace, see [Resource Manager template samples for Log Analytics workspaces in Azure Monitor](/azure/azure-monitor/logs/resource-manager-workspace?branch=pr-en-us-199075) to configure data sources.
+Once you've created a workspace, see [Resource Manager template samples for Log Analytics workspaces in Azure Monitor](/azure/azure-monitor/logs/resource-manager-workspace) to configure data sources.
 
 ---
 
