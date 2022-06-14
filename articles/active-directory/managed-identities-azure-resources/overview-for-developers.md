@@ -210,19 +210,6 @@ if (blobClient1.Exists())
 ```
 
 #### [Java](#tab/java)
-_pom.xml_
-```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-storage-blob</artifactId>
-    <version>12.13.0</version>
-</dependency>
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-identity</artifactId>
-    <version>1.2.0</version>
-</dependency>
-```
 
 ```java
 import com.azure.identity.DefaultAzureCredential;
@@ -278,20 +265,6 @@ string secretValue = secret.Value;
 ```
 
 #### [Java](#tab/java)
-_pom.xml_
-```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-security-keyvault-secrets</artifactId>
-    <version>4.2.3</version>
-</dependency>
-
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-identity</artifactId>
-    <version>1.2.0</version>
-</dependency>
-```
 
 ```java
 import com.azure.core.util.polling.SyncPoller;
@@ -377,7 +350,7 @@ To avoid storing credentials in your code or your application configuration, you
 
 ## Guidelines if you're handling tokens directly
 
-In some scenarios, you may want to acquire tokens for Managed identities manually instead of using a built-in method to connect to the target resource. This may be because there's no client library for the programming language that you're using or for the target resource you're connecting to. When acquiring tokens manually, we provide the following guidelines:
+In some scenarios, you may want to acquire tokens for managed identities manually instead of using a built-in method to connect to the target resource. This may be because there's no client library for the programming language that you're using or for the target resource you're connecting to. When acquiring tokens manually, we provide the following guidelines:
 
 ### Cache the tokens you acquire
 For performance and reliability, we recommend that your application caches tokens in local memory, or encrypted if you want to save them to disk. As Managed identity tokens are valid for 24 hours, there's no benefit in requesting new tokens regularly, as a cached one will be returned from the token issuing endpoint. If you exceed the request limits, you'll be rate limited and receive an HTTP 429 error. 
