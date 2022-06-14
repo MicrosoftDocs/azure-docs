@@ -42,7 +42,7 @@ The same can be done through the API. Please refer to link to API here-
 
 You can modify the contact profile via the Portal or through the API.
 
-# Deleting a Contact Profile
+## Deleting a Contact Profile
 
 You can delete the contact profile via the Portal or through the API.
 
