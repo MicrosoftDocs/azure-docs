@@ -16,7 +16,7 @@ A ground station pass occurs when the spacecraft is over a specified ground stat
 
 When you schedule a ground station pass a contact object is created under your spacecraft object in your resource group.
 
-# Contact Object
+## Contact Object
 
 The contact object is a child resource of the spacecraft object that was used at time of pass scheduling. The contact that is booked on the service is only associated with this spacecraft and cannot be transferred to another spacecraft, resource group, or region.
 
