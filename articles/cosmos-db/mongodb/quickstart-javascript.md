@@ -14,7 +14,6 @@ ms.custom: devx-track-js
 # .NET SQL Sample repo: https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples
 # JS Mongo Sample repo: https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples
 
-
 ---
 
 # Quickstart: Azure Cosmos DB MongoDB API for JavaScript with mongoDB driver
@@ -157,7 +156,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
 
 1. On the **Select API option** page, select the **Create** option within the **MongoDB** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the MongoDB API](/azure/cosmos-db/mongodb/introduction.md).
 
-   :::image type="content" source="media/create-account-portal/cosmos-api-choices.png" lightbox="media/create-account-portal/cosmos-api-choices.png" alt-text="Screenshot of select A P I option page for Azure Cosmos D B.":::
+   :::image type="content" source="media/quickstart-javascript/cosmos-api-choices.png" lightbox="media/quickstart-javascript/cosmos-api-choices.png" alt-text="Screenshot of select A P I option page for Azure Cosmos D B.":::
 
 1. On the **Create Azure Cosmos DB Account** page, enter the following information:
 
@@ -173,7 +172,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
    > [!NOTE]
    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
 
-   :::image type="content" source="media/create-account-portal/new-cosmos-account-page.png" lightbox="media/create-account-portal/new-cosmos-account-page.png" alt-text="Screenshot of new account page for Azure Cosmos D B SQL A P I.":::
+   :::image type="content" source="media/quickstart-javascript/new-cosmos-account-page.png" lightbox="media/quickstart-javascript/new-cosmos-account-page.png" alt-text="Screenshot of new account page for Azure Cosmos D B SQL A P I.":::
 
 1. Select **Review + create**.
 
@@ -181,15 +180,15 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
 
 1. Select **Go to resource** to go to the Azure Cosmos DB account page. 
 
-   :::image type="content" source="media/create-account-portal/cosmos-deployment-complete.png" lightbox="media/create-account-portal/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos D B SQL A P I resource.":::
+   :::image type="content" source="media/quickstart-javascript/cosmos-deployment-complete.png" lightbox="media/quickstart-javascript/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos D B SQL A P I resource.":::
 
 1. From the Azure Cosmos DB SQL API account page, select the **Keys** navigation menu option.
 
-   :::image type="content" source="media/get-credentials-portal/cosmos-keys-option.png" lightbox="media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos D B SQL A P I account page. The Keys option is highlighted in the navigation menu.":::
+   :::image type="content" source="media/quickstart-javascript/cosmos-keys-option.png" lightbox="media/quickstart-javascript/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos D B SQL A P I account page. The Keys option is highlighted in the navigation menu.":::
 
 1. Record the values from the **URI** and **PRIMARY KEY** fields. You'll use these values in a later step.
 
-   :::image type="content" source="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos D B SQL A P I account.":::
+   :::image type="content" source="media/quickstart-javascript/cosmos-endpoint-key-credentials.png" lightbox="media/quickstart-javascript/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos D B SQL A P I account.":::
 
 ---
 
@@ -239,7 +238,7 @@ COSMOS_CONNECTION_STRING="<cosmos-connection-string>"
 
 Before you start building the application, let's look into the hierarchy of resources in Azure Cosmos DB. Azure Cosmos DB has a specific object model used to create and access resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, collections, and docs.
 
-:::image type="complex" source="media/quickstart-dotnet/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos D B hierarchy including accounts, databases, collections, and docs.":::
+:::image type="complex" source="media/quickstart-javascript/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos D B hierarchy including accounts, databases, collections, and docs.":::
     Hierarchical diagram showing an Azure Cosmos D B account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
 :::image-end:::
 
@@ -392,11 +391,11 @@ Remove-AzResourceGroup @parameters
     > In this quickstart, we recommended the name ``msdocs-cosmos-dotnet-quickstart-rg``.
 1. Select **Delete resource group**.
 
-   :::image type="content" source="media/delete-account-portal/delete-resource-group-option.png" lightbox="media/delete-account-portal/delete-resource-group-option.png" alt-text="Screenshot of the Delete resource group option in the navigation bar for a resource group.":::
+   :::image type="content" source="media/quickstart-javascript/delete-resource-group-option.png" lightbox="media/delete-account-portal/delete-resource-group-option.png" alt-text="Screenshot of the Delete resource group option in the navigation bar for a resource group.":::
 
 1. On the **Are you sure you want to delete** dialog, enter the name of the resource group, and then select **Delete**.
 
-   :::image type="content" source="media/delete-account-portal/delete-confirmation.png" lightbox="media/delete-account-portal/delete-confirmation.png" alt-text="Screenshot of the delete confirmation page for a resource group.":::
+   :::image type="content" source="media/quickstart-javascript/delete-confirmation.png" lightbox="media/delete-account-portal/delete-confirmation.png" alt-text="Screenshot of the delete confirmation page for a resource group.":::
 
 ---
 
