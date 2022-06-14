@@ -2176,7 +2176,7 @@
       items:
       - name: T&E Express
         href: tyeexpress-tutorial.md
-      - name: Tableau Online
+      - name: Tableau Cloud
         href: tableauonline-tutorial.md
       - name: Tableau Server
         href: tableauserver-tutorial.md
