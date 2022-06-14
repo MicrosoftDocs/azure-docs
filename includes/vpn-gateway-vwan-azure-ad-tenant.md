@@ -34,7 +34,7 @@
     ```
 
    > [!NOTE]
-   > If you using a global admin account that is not native to the Azure AD tenant to provide consent, please replace “common” with the Azure AD tenant ID in the URL. You may also have to replace “common” with your tenant ID in certain other cases as well.
+   > If you're using a global admin account that is not native to the Azure AD tenant to provide consent, please replace “common” with the Azure AD tenant ID in the URL. You may also have to replace “common” with your tenant ID in certain other cases as well.
    >
 
 1. Select the account that has the **Global administrator** role if prompted.
