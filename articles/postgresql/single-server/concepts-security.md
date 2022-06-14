@@ -11,6 +11,8 @@ ms.date: 11/22/2019
 
 # Security in Azure Database for PostgreSQL - Single Server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 There are multiple layers of security that are available to protect the data on your Azure Database for PostgreSQL server. This article outlines those security options.
 
 ## Information protection and encryption
