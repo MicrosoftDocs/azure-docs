@@ -50,7 +50,7 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 
 4. Select the **Networking** tab or select the **Networking** button at the bottom of the page.
 
-5. In the **Networking** tab, select your connectivity method. For premium cache instances, you  connect either publicly, via Public IP addresses or service endpoints. You connect privately using a private endpoint.
+5. In the **Networking** tab, select your connectivity method. For premium cache instances, you connect either publicly, via Public IP addresses or service endpoints. You connect privately using a private endpoint.
 
 6. Select the **Next: Advanced** tab or select the **Next: Advanced** button on the bottom of the page.
 
@@ -173,7 +173,7 @@ All RDB persistence backups, except for the most recent one, are automatically d
 
 ### When should I use a second storage account?
 
-Use a second storage account for AOF persistence when you believe you have higher than expected set operations on the cache. Setting up the secondary storage account helps ensure your cache doesn't reach storage bandwidth limits.
+Use a second storage account for AOF persistence when you believe you've higher than expected set operations on the cache. Setting up the secondary storage account helps ensure your cache doesn't reach storage bandwidth limits.
 
 ### Does AOF persistence affect throughout, latency, or performance of my cache?
 
