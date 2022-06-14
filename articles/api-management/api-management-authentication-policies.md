@@ -160,7 +160,7 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 #### Use managed identity and set header manually
 
 ```xml
-<authentication-managed-identity resource="AD_application"
+<authentication-managed-identity resource="AD_application_id"
    output-token-variable-name="msi-access-token" ignore-error="false" /> <!--Application (client) ID of your own Azure AD Application-->
 <set-header name="Authorization" exists-action="override">
    <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
