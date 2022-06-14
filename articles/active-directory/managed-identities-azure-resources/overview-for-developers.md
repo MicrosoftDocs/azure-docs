@@ -1,5 +1,5 @@
 ---
-title: Managed identities for Developers
+title: Developer introduction and guidelines
 description: An overview how developers can use managed identities for Azure resources.
 services: active-directory
 documentationcenter:
@@ -338,7 +338,7 @@ Open the `src/main/resources/application.properties` file, and add `Authenticati
 spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;
 ```
 
-Read more about how to [use a managed identity to connect Azure SQL Database to an Azure Spring Apps app](/azure/spring-cloud/connect-managed-identity-to-azure-sql.md).
+Read more about how to [use a managed identity to connect Azure SQL Database to an Azure Spring Apps app](../..//azure/spring-cloud/connect-managed-identity-to-azure-sql.md).
 
 ---
 
