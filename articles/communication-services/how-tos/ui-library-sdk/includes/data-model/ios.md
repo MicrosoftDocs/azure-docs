@@ -10,28 +10,58 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start)
+Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start)
 
 ### Local Participant View Data Injection
 
 The UI Library now gives developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain a UIimage that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
 
-#### Local Settings
+#### Local Options
 
-`LocalSettings` is data model that can have `ParticipantViewData` that will represent the local participant.  By default, the UI library will display the `displayName` injected in `GroupCallOptions` and `TeamsMeetingOptions`. If `ParticipantViewData` is injected, the `renderedDisplayName` and `avatar` will be displayed in all avatar components.
+`LocalOptions` is data model that can have `ParticipantViewData` that will represent the local participant.  By default, the UI library will display the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `ParticipantViewData` is injected, the participant `displayName` and `avatar` will be displayed in all avatar components.
 
 #### Participant View Data
 
-`ParticipantViewData` is an object that sets the `renderedDisplayName` and `avatar` UIImage for avatar components. This class is injected into the UI Library to set avatar information, and it will always be locally stored and never sent up to the server.
+`ParticipantViewData` is an object that sets the `displayName` and `avatar` UIImage for avatar components. This class is injected into the UI Library to set avatar information, and it will always be locally stored and never sent up to the server.
 
 #### Usage
 
 ```swift
-let participantViewData = ParticipantViewData(avatar: <Some UIImage>, renderDisplayName: <Some Display Name>)
-let localSettings = LocalSettings(participantViewData)
-callComposite.launch(with: <Some Group Call Options>, localSettings: localSettings)
+let participantViewData = ParticipantViewData(avatar: <Some UIImage>, displayName: "<Some Display Name>")
+let localOptions = LocalOptions(participantViewData: participantViewData)
+callComposite.launch(remoteOptions: <some RemoteOptions>, localOptions: localOptions)
 ```
 
 |Setup View|Calling Experience View|
 | ---- | ---- |
-| :::image type="content" source="media/ios-model-injection.png" alt-text="Screenshot of the I O S data custom model injection."::: | :::image type="content" source="media/ios-model-injection-name.png"  alt-text="Screenshot of the I O S data custom model injection with name."::: |
+| :::image type="content" source="media/ios-model-injection.png" alt-text="Screenshot of the iOS data custom model injection."::: | :::image type="content" source="media/ios-model-injection-name.png"  alt-text="Screenshot of the iOS data custom model injection with name."::: |
+
+### Remote Participant View Data Injection
+
+On remote participant join, developers can inject the participant view data for remote participant. This participant view data can contain a UIImage that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
+
+#### Usage
+
+To set the participant view data for remote participant, set `onRemoteParticipantJoined` completion for events handler. On remote participant join, use `CallComposite` `set(remoteParticipantViewData:, for:, completionHandler:)` to inject view data for remote participant. The participant identifier `CommunicationIdentifier` is used to uniquely identify a remote participant. The optional completion handler is used for returning result of the set operation.
+
+```swift
+callComposite.events.onRemoteParticipantJoined = { identifiers in
+  for identifier in identifiers {
+    // map identifier to displayName
+    let participantViewData = ParticipantViewData(displayName: "<DISPLAY_NAME>")
+    callComposite.set(remoteParticipantViewData: participantViewData,
+                      for: identifier) { result in
+      switch result {
+      case .success:
+        print("Set participant view data succeeded")
+      case .failure(leterror):
+        print("Set participant view data failed with \(error)")
+      }
+    }
+  }
+}
+```
+
+|Participants list|
+| ---- |
+| :::image type="content" source="media/ios-model-injection-remote.png" alt-text="Screenshot of the iOS remote participants view data injection."::: |

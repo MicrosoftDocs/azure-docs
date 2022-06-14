@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
 
-
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a command. After being loaded in the database, extensions function like built-in features.
 
@@ -29,7 +29,7 @@ Using the [Azure portal](https://portal.azure.com):
   
 Using [Azure CLI](/cli/azure/):
 
-   You can allow-list extensions via CLI parameter set [command]( https://docs.microsoft.com/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
+   You can allow-list extensions via CLI parameter set [command](/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
 
    ```bash
 az postgres flexible-server parameter set --resource-group <your resource group>  --server-name <your server name> --subscription <your subscription id> --name azure.extensions --value <extension name>,<extension name>
@@ -106,7 +106,7 @@ Using the [Azure portal](https://portal.azure.com):
 
 Using [Azure CLI](/cli/azure/):
 
-   You can set `shared_preload_libraries` via CLI parameter set [command]( https://docs.microsoft.com/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
+   You can set `shared_preload_libraries` via CLI parameter set [command](/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest&preserve-view=true). 
 
    ```bash
 az postgres flexible-server parameter set --resource-group <your resource group>  --server-name <your server name> --subscription <your subscription id> --name shared_preload_libraries --value <extension name>,<extension name>
@@ -160,14 +160,16 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.5             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions| 
 > |[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
+> |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[postgis](https://www.postgis.net/)                      | 3.1.1           | PostGIS geometry, geography |
-> |[postgis_raster](https://www.postgis.net/)               | 3.1.1           | PostGIS raster types and functions| 
-> |[postgis_sfcgal](https://www.postgis.net/)               | 3.1.1           | PostGIS SFCGAL functions|
-> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.1.1           | PostGIS tiger geocoder and reverse geocoder|
-> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.1.1           | PostGIS topology spatial types and functions|
+> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted Javascript language extension|
+> |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
+> |[postgis_raster](https://www.postgis.net/)               | 3.2.0           | PostGIS raster types and functions| 
+> |[postgis_sfcgal](https://www.postgis.net/)               | 3.2.0          | PostGIS SFCGAL functions|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.2.0          | PostGIS tiger geocoder and reverse geocoder|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.2.0           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/13/sslinfo.html)                    | 1.2             | information about SSL certificates|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
@@ -217,14 +219,16 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | cryptographic functions|
 >|[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
+> |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[postgis](https://www.postgis.net/)                      | 3.0.0           | PostGIS geometry, geography |
-> |[postgis_raster](https://www.postgis.net/)               | 3.0.0           | PostGIS raster types and functions| 
-> |[postgis_sfcgal](https://www.postgis.net/)               | 3.0.0           | PostGIS SFCGAL functions|
-> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.0.0           | PostGIS tiger geocoder and reverse geocoder|
-> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.0.0           | PostGIS topology spatial types and functions|
+> |[plv8](https://plv8.github.io/)                      | 3.2.0             | Trusted Javascript language extension|
+> |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
+> |[postgis_raster](https://www.postgis.net/)               | 3.2.0           | PostGIS raster types and functions| 
+> |[postgis_sfcgal](https://www.postgis.net/)               | 3.2.0           | PostGIS SFCGAL functions|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.2.0           | PostGIS tiger geocoder and reverse geocoder|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.2.0           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1.2             | information about SSL certificates|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
@@ -273,14 +277,16 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | cryptographic functions|
->|[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
+> |[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
+> |[pgrouting](https://pgrouting.org/)                   | 3.3.0            | geospatial database to provide geospatial routing|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[postgis](https://www.postgis.net/)                      | 2.5.1           | PostGIS geometry, geography, and raster spatial types and functions|
-> |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.1           | PostGIS SFCGAL functions|
-> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.1           | PostGIS tiger geocoder and reverse geocoder|
-> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | PostGIS topology spatial types and functions|
+> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted Javascript language extension|
+> |[postgis](https://www.postgis.net/)                      | 2.5.5           | PostGIS geometry, geography, and raster spatial types and functions|
+> |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.5           | PostGIS SFCGAL functions|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.5           | PostGIS tiger geocoder and reverse geocoder|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.5           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/11/sslinfo.html)                    | 1.2             | information about SSL certificates|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
