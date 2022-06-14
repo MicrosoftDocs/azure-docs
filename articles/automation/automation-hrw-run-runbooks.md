@@ -112,8 +112,8 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
     > [!NOTE]
     > This will **NOT** work in an Automation Account which has been configured with an Automation account Managed Identity. As soon as the Automation account Managed Identity is enabled, it is no longer possible to use the VM Managed Identity and then, it is only possible to use the Automation Account System-Assigned Managed Identity as mentioned in option 1 above.
 
-    You can use either VM's system-assigned managed identity or VM's user-assigned managed identity.
-    
+    You can use either VM's system-assigned managed identity **or** VM's user-assigned managed identity.
+
     # [VM's system-assigned managed identity](#tab/sa-mi)
    
     1. [Configure](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm) a System Managed Identity for the VM.
@@ -134,7 +134,6 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
         # Get all VM names from the subscription
         Get-AzVM -DefaultProfile $AzureContext | Select Name   
     ```
-    Or
      
     # [VM's user-assigned managed identity](#tab/ua-mi)
 
@@ -157,10 +156,10 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
         Get-AzVM -DefaultProfile $AzureContext | Select Name 
     ```
     
-> [!NOTE]
-> You can find the client Id of the user-assigned managed identity in the Azure portal.
+    > [!NOTE]
+    > You can find the client Id of the user-assigned managed identity in the Azure portal.
 
-> :::image type="content" source="./media/automation-hrw-run-runbooks/managed-identities-client-id-inline.png" alt-text="Screenshot of client id in Managed Identites." lightbox="./media/automation-hrw-run-runbooks/managed-identities-client-id-expanded.png"::: 
+    > :::image type="content" source="./media/automation-hrw-run-runbooks/managed-identities-client-id-inline.png" alt-text="Screenshot of client id in Managed Identites." lightbox="./media/automation-hrw-run-runbooks/managed-identities-client-id-expanded.png"::: 
 
 ---
 
