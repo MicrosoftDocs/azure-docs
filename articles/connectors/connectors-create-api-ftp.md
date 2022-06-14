@@ -40,17 +40,13 @@ The FTP connector has different versions, based on [logic app type and host envi
 
 * Capacity and throughput
 
-  * Managed connector for Consumption and Standard workflows
-
-    By default, FTP actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB, FTP actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get file content** action implicitly uses chunking.
-
   * Built-in connector for Standard workflows:
 
     By default, FTP actions can read or write files that are *200 MB or smaller*. Currently, the FTP built-in connector doesn't support chunking.
 
-* FTP triggers now return only metadata or properties, not file content. However, you can follow these triggers with the **Get file content** action and use the pattern described in this article. To make sure that a trigger returns one file at a time, rather than a list, make sure that the trigger's [**Split On** option is enabled](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
+  * Managed connector for Consumption and Standard workflows
 
-* FTP triggers work only the specified folder, not subfolders. To also check a folder's subfolders, set up a separate workflow for each subfolder. For more information, review [FTP managed connector reference - Trigger limits](/connectors/ftp/#limitations).
+    By default, FTP actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB, FTP actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get file content** action implicitly uses chunking.
 
 * If you have an on-premises FTP server, consider the following options:
 
@@ -58,7 +54,7 @@ The FTP connector has different versions, based on [logic app type and host envi
 
   * Standard workflows: Use the FTP built-in connector operations, which work without an on-premises data gateway.
 
-For more limitations, review [FTP managed connector reference - Limitations](/connectors/ftp/#limitations).
+* For more limitations that apply to both the FTP managed connector and built-in connector, review the [FTP managed connector reference - Limitations](/connectors/ftp/#limitations).
 
 ## Prerequisites
 
@@ -74,9 +70,9 @@ For more limitations, review [FTP managed connector reference - Limitations](/co
 
 A Consumption logic app workflow has only the FTP managed connector. However, a Standard logic app workflow can use the FTP managed connector *and* the FTP built-in connector. The FTP managed connector and built-in connector each have only one trigger available:
 
-* Managed connector trigger: The **When a file is added or modified (properties only)** trigger starts a Consumption or Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file properties or metadata, not the file content. However, to get the content, your workflow can follow this trigger with other FTP actions to get the file content. For more information about this trigger, review [When a file is added or modified (properties only)](/connectors/ftp/#when-a-file-is-added-or-modified-(properties-only)).
+* Managed connector trigger: The FTP trigger named **When a file is added or modified (properties only)** starts a Consumption or Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file properties or metadata, not the file content. However, to get the content, your workflow can follow this trigger with other FTP actions to get the file content. For more information about this trigger, review [When a file is added or modified (properties only)](/connectors/ftp/#when-a-file-is-added-or-modified-(properties-only)).
 
-* Built-in connector trigger: The **When a file is added or modified** trigger starts a Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file properties or metadata, not the file content. However, to get the content, your workflow can follow this trigger with other FTP actions to get the file content. For more information about this trigger, review [When a file is added or updated](#when-file-added-updated).
+* Built-in connector trigger: The FTP trigger named **When a file is added or updated** starts a Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file properties or metadata, not the file content. However, to get the content, your workflow can follow this trigger with other FTP actions to get the file content. For more information about this trigger, review [When a file is added or updated](#when-file-added-updated).
 
 The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
 
@@ -186,7 +182,7 @@ A Consumption logic app workflow has only the FTP managed connector. However, a 
 
 * Built-in connector trigger: These actions run only in a Standard logic app workflow.
 
-For example, both connector types have their versions for the **Get file metadata** and **Get file content** actions. You can use an FTP trigger to monitor an FTP folder for new files that describe customer orders. If a newly added file exists, the trigger returns the file properties or metadata. To get these properties, you can use the **Get file metadata** action. You can then follow with the **Get file content** action and use the returned property values for the file to get the content for further processing and store that order in an orders database. You might also use a condition to check that file's content against specific criteria and get that content only if that content meets the criteria. For more information about these actions, review the following documentation:
+For example, both connector types have their versions for the **Get file metadata** and **Get file content** actions. You can use an FTP trigger to monitor an FTP folder for new files that describe customer orders. If a newly added file exists, the trigger returns the file properties or metadata. To get these properties, you can use the **Get file metadata** action. You can then follow with the **Get file content** action and use the returned property values for the file to get the content for further processing and store that order in an orders database. For more information about these actions, review the following documentation:
 
 * [Get file metadata - managed connector version](/connectors/ftp/#get-file-metadata)
 * [Get file metadata - built-in connector version](#get-file-metadata)
@@ -267,7 +263,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. Find and select the FTP action that you want to use.
 
-   If you used the FTP managed connector trigger, and you want to get the content from a newly added or modified file, you have to use both the FTP actions that get the file's metadata first and then get the file content. However, if you used the FTP built-in trigger, you only need to use the **Get File Content** action.
+   If you used the FTP managed connector trigger, and you want to get the content from a newly added or modified file, you have to use both the FTP actions **Get file metadata** and then **Get file content**. However, if you used the FTP built-in trigger, you only need to use the **Get file content** action.
 
    1. On the designer, under the trigger or any other actions, select the plus sign (**+**) > **Add an action**.
 
@@ -299,7 +295,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
      ![Screenshot shows Standard workflow designer, FTP managed connector action, and connection profile.](./media/connectors-create-api-ftp/ftp-action-connection-azure-standard.png)
 
-1. After the **Get file metadata** action information box appears, complete the following steps:
+1. After the action information box appears, complete the following steps:
 
    1. Click in the **File** box so that the dynamic content list appears.
    
@@ -383,7 +379,7 @@ This trigger starts a logic app workflow when one or more files are added or upd
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **Folder path** | `folderPath` | True | String | The folder path. |
-| **Number of files to return** | `maxFileCount` | False | Integer | The maximum number of files to return from a single trigger run. Valid values range from 1 - 100. <br><br>**Note**: The **Split On** setting can force this trigger to process each item individually. |
+| **Number of files to return** | `maxFileCount` | False | Integer | The maximum number of files to return from a single trigger run. Valid values range from 1 - 100. <br><br>**Note**: Enabled by default, the **Split On** setting forces this trigger to process each file individually. |
 | **Old files cutoff timestamp** | `oldFileCutOffTimestamp` | False | DateTime | The cutoff time to use when ignoring older files using the `YYYY-MM-DDTHH:MM:SS` format. To disable this capability, don't provide this input. |
 ||||||
 
