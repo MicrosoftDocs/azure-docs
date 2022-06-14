@@ -33,6 +33,8 @@ You'll use the [Azure Web App task](/azure/devops/pipelines/tasks/deploy/azure-r
 
 ### Create your pipeline
 
+# [Classic](#tab/yaml/)
+
 1. Sign in to your Azure DevOps organization and navigate to your project.
 
 1. Go to **Pipelines**, and then select **New Pipeline**.
