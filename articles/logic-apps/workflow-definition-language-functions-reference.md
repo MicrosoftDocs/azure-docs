@@ -2098,7 +2098,7 @@ And return these results:
 
 ### float
 
-Convert a string version for a floating-point number to an actual floating point number. You can use this function only when passing custom parameters to an app, for example, a logic app or flow. You may optionally specify an RFC 4646 locale code in order to convert floating-point strings represented in those locale-specific formats.
+Convert a string version for a floating-point number to an actual floating point number. You can use this function only when passing custom parameters to an app, for example, a logic app workflow or Power Automate flow. To convert floating-point strings represented in locale-specific formats, you can optionally specify an RFC 4646 locale code.
 
 ```
 float('<value>', '<locale>'?)
