@@ -72,6 +72,7 @@ To see this scenario in action, try one of the web application sign in code samp
 In addition to facilitating simple sign in, a web server application might also need to access a back-end web service. In this case, the web application can perform a slightly different [OpenID Connect flow](openid-connect.md) and acquire tokens by using authorization codes and refresh tokens. This scenario is depicted in the following [Web APIs section](#web-apis).
 
 ## Single-page applications
+
 Many modern web applications are built as client-side single-page applications ("SPAs"). Developers write them by using JavaScript or a SPA framework such as Angular, Vue, and React. These applications run on a web browser and have different authentication characteristics than traditional server-side web applications.
 
 Azure AD B2C provides **two** options to enable single-page applications to sign in users and get tokens to access back-end services or web APIs:
@@ -129,7 +130,7 @@ Applications that are installed on devices, such as mobile and desktop applicati
 
 In this flow, the application executes [policies](user-flow-overview.md) and receives an `authorization_code` from Azure AD after the user completes the policy. The `authorization_code` represents the application's permission to call back-end services on behalf of the user who is currently signed in. The application can then exchange the `authorization_code` in the background for an `access_token` and a `refresh_token`.  The application can use the `access_token` to authenticate to a back-end web API in HTTP requests. It can also use the `refresh_token` to get a new `access_token` when an older one expires.
 
-### Daemons/server-side applications
+## Daemons/server-side applications
 
 Applications that contain long-running processes or that operate without the presence of a user also need a way to access secured resources such as web APIs. These applications can authenticate and get tokens by using their identities (rather than a user's delegated identity) and by using the OAuth 2.0 client credentials flow. Client credential flow isn't the same as on-behalf-flow and on-behalf-flow shouldn't be used for server-to-server authentication.
 

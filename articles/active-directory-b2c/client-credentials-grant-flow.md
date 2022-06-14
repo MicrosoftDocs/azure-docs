@@ -38,7 +38,7 @@ The app architecture and registrations are illustrated in the following diagram:
 
 ## Step 1. Register the web API app
 
-In this step you register the web API (**App 2**) with its scopes. Later you'll grant your application (**App 1**) permission to those scopes. If you already have such app registration, skip to the next step [Step 1.1: Define web API roles (scopes)](#step-11-define-web-api-roles-scopes).
+In this step you register the web API (**App 2**) with its scopes. Later you'll grant your application (**App 1**) permission to those scopes. If you already have such app registration, skip to the next step [Step 1.1 Define web API roles (scopes)](#step-11-define-web-api-roles-scopes).
 
 [!INCLUDE [active-directory-b2c-app-integration-register-api](../../includes/active-directory-b2c-app-integration-register-api.md)]
 
@@ -104,7 +104,7 @@ Create a client secret for the registered application. Your app uses the client 
     
     ![Screenshot shows how to copy the application secret.](./media/client-credentials-grant-flow/copy-application-secret.png)
 
-## Step 2.2: Grant the app permissions for the web API
+## Step 2.2 Grant the app permissions for the web API
 
 To grant your app (**App 1**) permissions, follow these steps: 
 
@@ -135,9 +135,9 @@ There are no specific actions to enable the client credentials for user flows or
 | Key | Value |
 | --- | ----- |
 | grant_type | `client_credentials` |
-| client_id | The **Client ID** from the [Step 2: Register an application](#step-2-register-an-application). |
+| client_id | The **Client ID** from the [Step 2 Register an application](#step-2-register-an-application). |
 | client_secret | The **Client secret** from [Step 2.1 Create a client secret](#step-21-create-a-client-secret). |
-| scope | The **Application ID URI** from [Step 1.1: Define web API roles (scopes)](#step-11-define-web-api-roles-scopes) and `.default`. For example `https://contoso.onmicrosoft.com/api/.default`, or `https://contoso.onmicrosoft.com/12345678-0000-0000-0000-000000000000/.default`.|
+| scope | The **Application ID URI** from [Step 1.1 Define web API roles (scopes)](#step-11-define-web-api-roles-scopes) and `.default`. For example `https://contoso.onmicrosoft.com/api/.default`, or `https://contoso.onmicrosoft.com/12345678-0000-0000-0000-000000000000/.default`.|
 
 The actual POST request looks like the following example:
 
