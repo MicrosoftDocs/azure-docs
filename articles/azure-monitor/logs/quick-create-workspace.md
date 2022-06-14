@@ -1,5 +1,5 @@
 ---
-title: Create Log Analytics workspaces | Microsoft Docs
+title: Create Log Analytics workspaces
 description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments.
 ms.topic: conceptual
 author: guywi-ms
@@ -22,7 +22,6 @@ You need a Log Analytics workspace if you are collecting data from the following
   
 ## [Portal](#tab/azure-portal)
 
-The Log Analytics workspace is the environment for Azure Monitor log data.
 Use the **Log Analytics workspaces** menu to create a workspace. 
 
 1. In the [Azure portal](https://portal.azure.com), type **Log Analytics** in the search box. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
