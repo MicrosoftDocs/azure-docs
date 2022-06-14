@@ -24,7 +24,7 @@ This article identifies the component versions with each release of Azure Arc-en
 |Container images tag |`v1.8.0_2022-06-14`|
 |CRD names and version|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`kafkas.arcdata.microsoft.com`: v1beta1<br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1<br/>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2, v1<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2<br/>|
 |ARM API version|2022-03-01-preview (No change)|
-|arcdata Azure CLI extension version|1.4.2 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|`arcdata` Azure CLI extension version|1.4.2 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc enabled Kubernetes helm chart extension version|1.2.19831003|
 |Arc Data extension for Azure Data Studio|1.3.0 (No change)([Download](https://aka.ms/ads-arcdata-ext))|
 
@@ -123,7 +123,7 @@ The following table describes the components in this release.
 
 ## August 3, 2021
 
-This release provides an update for the Azure Arc extension for Azure Data Studio. The update aligns with July 30, general availability. The following table describes the components this release updates. 
+This release provides an update for the Azure Arc extension for Azure Data Studio. The update aligns with July 30, general availability. The following table describes the updated component. 
 
 |Component  |Value  |
 |--------------------------------------------------------|---------|
