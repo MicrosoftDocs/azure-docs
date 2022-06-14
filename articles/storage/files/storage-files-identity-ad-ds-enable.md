@@ -67,7 +67,7 @@ Connect-AzAccount
 
 # Define parameters
 # $StorageAccountName is the name of an existing storage account that you want to join to AD
-# $SamAccountName is an AD object, see https://docs.microsoft.com/en-us/windows/win32/adschema/a-samaccountname
+# $SamAccountName is the name of the to-be-created AD object, which is used by AD as the logon name for the object. See https://docs.microsoft.com/en-us/windows/win32/adschema/a-samaccountname
 # for more information.
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"

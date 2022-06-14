@@ -19,7 +19,7 @@ ms.custom: mvc, devx-track-azurecli
 
 ## Limitations
 
-* The [Azure Container Registry](../container-registry/container-registry-vnet.md) must have [Public Access set to 'All Networks'](../container-registry/container-registry-access-selected-networks.md). To use an Azure container registry with Public Access set to 'Select Networks' or 'None', visit [ACI's article for using Managed-Identity based authentication with ACR](/using-azure-container-registry-mi.md).
+* The [Azure Container Registry](../container-registry/container-registry-vnet.md) must have [Public Access set to 'All Networks'](../container-registry/container-registry-access-selected-networks.md). To use an Azure container registry with Public Access set to 'Select Networks' or 'None', visit [ACI's article for using Managed-Identity based authentication with ACR](/azure/container-registry/container-registry-authentication-managed-identity).
 
 ## Configure registry authentication
 

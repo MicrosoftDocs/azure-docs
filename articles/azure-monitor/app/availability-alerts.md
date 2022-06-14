@@ -4,6 +4,7 @@ description: Learn how to set up web tests in Application Insights. Get alerts i
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
+
 ---
 
 # Availability alerts

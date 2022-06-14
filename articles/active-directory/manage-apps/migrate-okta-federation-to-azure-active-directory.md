@@ -1,6 +1,5 @@
 ---
 title: Migrate Okta federation to Azure Active Directory
-titleSuffix: Active Directory
 description: Learn how to migrate your Okta-federated applications to managed authentication under Azure AD. See how to migrate federation in a staged manner.
 services: active-directory
 author: gargi-sinha

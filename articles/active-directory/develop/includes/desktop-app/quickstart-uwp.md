@@ -1,6 +1,5 @@
 ---
-title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform app"
 description: In this quickstart, learn how a Universal Windows Platform (UWP) application can get an access token and call an API protected by Microsoft identity platform.
 services: active-directory
 author: jmprieur

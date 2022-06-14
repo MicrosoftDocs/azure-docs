@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 05/04/2022
+ms.date: 06/02/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -19,6 +19,26 @@ Azure Virtual Desktop updates regularly. This article is where you'll find out a
 - Bug fixes
 
 Make sure to check back here often to keep up with new updates.
+
+## May 2022
+
+Here's what changed in May 2022:
+
+### Background effects with Teams on Azure Virtual Desktop now generally available
+
+Users can now make meetings more personalized and avoid unexpected distractions by applying background effects. Meeting participants can select an available image in Teams to change their background or choose to blur their background. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-background-effects-is-now-generally-available-on/ba-p/3401961).
+
+### Multi-window and "Call me with Teams" features now generally available
+
+The multi-window feature gives users the option to pop out chats, meetings, calls, or documents into separate windows to streamline their workflow. The "Call me with Teams" feature lets users transfer a Teams call to their phone. Both features are now generally available in Teams on Azure Virtual Desktop. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-multi-window-support-and-call-me-are-now-in-ga/ba-p/3401830).
+
+### Japan metadata service in public preview
+
+The Azure Virtual Desktop metadata database located in Japan is now in public preview. This allows customers to store their Azure Virtual Desktop objects and metadata within a database located within our Japan geography, ensuring that the data will only reside within Japan. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-the-public-preview-of-the-azure-virtual-desktop/m-p/3417497).
+
+### FSLogix 2201 hotfix
+
+The latest update for FSLogix 2201 includes fixes to Cloud Cache and container redirection processes. No new features are included with this update. Learn more at [What’s new in FSLogix](/fslogix/whats-new?context=%2Fazure%2Fvirtual-desktop%2Fcontext%2Fcontext) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-fslogix-2201-hotfix-1-2-9-8171-14983-has-been/m-p/3435445).
 
 ## April 2022
 

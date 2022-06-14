@@ -1,8 +1,8 @@
 ---
 ms.topic: include
 ms.date: 01/25/2022
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.service: iot-edge
 services: iot-edge
 ---
