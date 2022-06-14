@@ -80,7 +80,20 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. To browse through the cluster nodes, navigate to the cluster resource and open the **Data Center** pane to view them:
 
-   :::image type="content" source="./media/create-cluster-portal/datacenter-1.png" alt-text="View datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-1.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/datacenter.png" alt-text="View datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-1.png" border="true":::
+
+## Scale a datacenter
+
+1. Now that you have deployed a cluster with a single data center, you can scale the nodes up or down by highlighting the data center, and selecting the `Scale` button:
+
+   :::image type="content" source="./media/create-cluster-portal/datacenter-scale-1.png" alt-text="Scale datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-scale-1.png" border="true":::
+
+1. Next, move the slider to the desired number, or just edit the value. When finished, hit `Scale`. 
+
+   :::image type="content" source="./media/create-cluster-portal/datacenter-scale-2.png" alt-text="Select number of datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-scale-2.png" border="true":::
+
+   > [!NOTE]
+   > The length of time it takes for nodes to scale depends on various factors, it may take several minutes. When Azure notifies you that the scale operation has completed, this does not mean that all your nodes have joined the Cassandra ring. Nodes will be fully commissioned when they all display a status of "healthy", and the datacenter status reads "succeeded".
 
 ## Add a datacenter
 
