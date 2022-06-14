@@ -54,13 +54,13 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 1. Select **Create** and fill out the form with the following information.
 
-| Parameter              | Description                                                                                                                                                                 | Example                        |
-|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
-| Subscription           | Select an Azure subscription. Your private endpoint must be in the same subscription as your virtual network. You will select a virtual network later in this how-to guide. | *MyAzureSubscription*          |
-| Resource group         | Select a resource group or create a new one.                                                                                                                                | *AppConfigStore*               |
-| Name                   | Enter a name for the new private endpoint for your App Configuration store.                                                                                                 | *AppConfigPrivateEndpoint*     |
-| Network Interface Name | This field is filled out automatically. Optionally edit the name of the network interface.                                                                                  | *AppConfigPrivateEndpoint-nin* |
-| Region                 | Select a region. Your private endpoint must be in the same region as your virtual network.                                                                                                   | *Central US*                   |
+| Parameter              | Description                                                                                                                                                                 | Example                  |
+|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
+| Subscription           | Select an Azure subscription. Your private endpoint must be in the same subscription as your virtual network. You will select a virtual network later in this how-to guide. | *MyAzureSubscription*    |
+| Resource group         | Select a resource group or create a new one.                                                                                                                                | *AppConfigStore*         |
+| Name                   | Enter a name for the new private endpoint for your App Configuration store.                                                                                                 | *MyPrivateEndpoint*      |
+| Network Interface Name | This field is completed automatically. Optionally edit the name of the network interface.                                                                                   | *AMyPrivateEndpoint-nin* |
+| Region                 | Select a region. Your private endpoint must be in the same region as your virtual network.                                                                                  | *Central US*             |
 
    :::image type="content" source="./media/private-access-endpoint.png" alt-text="Screenshot of the Azure portal, create a private endpoint, basics tab.":::
 
@@ -94,14 +94,15 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
     az network private-endpoint create -g <resource-group> -n <private-endpoint-name> --vnet-name <vnet-name> --subnet Default --private-connection-resource-id <private-connection-resource-id> --connection-name <connection-name> -l <location> --group-id configurationStores
     ```
 
-| Command                          | Placeholder                        | Example                                                                                                        | Description                                               |
-|----------------------------------|------------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| -g                               | `<resource-group>`                 | AppConfigStore                                                                                                 | Create or select an existing resource group               |
-| -n                               | `<private-endpoint-name>`          | AppConfigPrivateEndpoint                                                                                       | Enter a name for your new private endpoint.               |
-| --vnet-name                      | `<vnet-name>`                      | Myvnet                                                                                                         | Enter the name of an existing vnet.                       |
-| --private-connection-resource-id | `<private-connection-resource-id>` | /subscriptions/123/resourceGroups/AppConfigStore/providers/Microsoft.AppConfiguration/configurationStores/AppConfigStore | The value is the ID you saved from your previous command. |
-| --connection-name                | `<connection-name>`                | MyConnection                                                                                                   | Enter a connection name.                                  |
-| -l                               | `<location>`                       | centralus                                                                                                      | Enter an Azure region. Your private endpoint must be in the same region as your virtual network. |
+[!div class="mx-tdBreakAll"]
+> | Command                          | Placeholder                        | Example                                                                                                        | Description                                               |
+> |----------------------------------|------------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+> | -g                               | `<resource-group>`                 | AppConfigStore                                                                                                 | Create or select an existing resource group               |
+> | -n                               | `<private-endpoint-name>`          | MyPrivateEndpoint                                                                                              | Enter a name for your new private endpoint.               |
+> | --vnet-name                      | `<vnet-name>`                      | Myvnet                                                                                                         | Enter the name of an existing vnet.                       |
+> | --private-connection-resource-id | `<private-connection-resource-id>` | /subscriptions/123/resourceGroups/AppConfigStore/providers/Microsoft.AppConfiguration/configurationStores/AppConfigStore | The value is the ID you saved from your previous command. |
+> | --connection-name                | `<connection-name>`                | MyConnection                                                                                                   | Enter a connection name.                                  |
+> | -l                               | `<location>`                       | centralus                                                                                                      | Enter an Azure region. Your private endpoint must be in the same region as your virtual network. |
 
 ## Next steps
 
