@@ -92,7 +92,7 @@ Use the VPN device configuration file to configure your on-premises VPN device. 
 
 The device configuration file contains the settings to use when configuring your on-premises VPN device. When you view this file, notice the following information:
 
-* **vpnSiteConfiguration -** This section denotes the device details set up as a site connecting to the virtual WAN. It includes the name and public ip address of the branch device.
+* **vpnSiteConfiguration -** This section denotes the device details set up as a site connecting to the virtual WAN. It includes the name and public IP address of the branch device.
 * **vpnSiteConnections -** This section provides information about the following settings:
 
     * **Address space** of the virtual hub(s) VNet.<br>Example:
@@ -245,7 +245,7 @@ On the **Edit VPN Gateway** page, you can see the following settings:
 * **Public IP Address**: Assigned by Azure.
 * **Private IP Address**: Assigned by Azure.
 * **Default BGP IP Address**: Assigned by Azure.
-* **Custom BGP IP Address**: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.*. Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP.
+* **Custom BGP IP Address**: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.*. Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP. Users can specify multiple custom BGP IP addresses for each instance. The same custom BGP IP address shouldn't be used for both instances. 
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/edit-gateway.png" alt-text="Screenshot shows the Edit VPN Gateway page with the Edit button highlighted." lightbox="media/virtual-wan-site-to-site-portal/edit-gateway.png":::
 

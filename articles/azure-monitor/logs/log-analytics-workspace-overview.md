@@ -19,7 +19,7 @@ You can use a single workspace for all your data collection. You can also create
 - Access rights that define which users can access data.
 - Configuration settings like pricing tiers and data retention.
 
-To create a new workspace, see [Create a Log Analytics workspace in the Azure portal](./quick-create-workspace.md). For considerations on creating multiple workspaces, see [Design a Log Analytics workspace configuration](workspace-design.md).
+To create a new workspace, see [Create a Log Analytics workspace in the Azure portal](./quick-create-workspace.md). For considerations on creating multiple workspaces, see [Design a Log Analytics workspace configuration](./workspace-design.md).
 
 ## Data structure
 
