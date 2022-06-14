@@ -26,12 +26,12 @@ There are minor differences between the formats with regard to material property
 
 ### Point clouds
 
-* **XYZ** : Text file format where every line contains a single point, formatted as `position_x position_y position_z red green blue`, where color components may also have either `diffuse_` or `ambient_` prefix.
+* **XYZ** : Text file format where every line contains a single point, formatted as `position_x position_y position_z red green blue`
 * **PLY** : Only binary PLY files are supported. Properties other than position and color are ignored. Every PLY file has a human-readable header, which can be used to verify whether the following requirements are met:
   * file must be encoded using the `binary_little_endian 1.0` format,
   * file contains a point cloud (that is, no triangles),
   * positions contain all three components (x, y, z),
-  * colors contain all three components (red, green, blue).
+  * colors contain all three components (red, green, blue). Alternatively, color components can be specified through (diffuse_red, diffuse_green, diffuse_blue) or (ambient_red, ambient_green, ambient_blue) semantics.
 
   In case any other properties exist, they're ignored during ingestion.
 * **E57** : E57 contains two types of data: `data3d` and `image2d`. The conversion service only loads the `data3d` part of the file, while the `image2d` part of the file is being ignored.
