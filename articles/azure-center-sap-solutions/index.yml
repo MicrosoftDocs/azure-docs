@@ -35,3 +35,5 @@ landingContent:
             url: deploy-s4hana.md
           - text: Register existing SAP system
             url: register-existing-system.md
+          - text: Get Quality Insights for VIS
+            url: get-quality-insights-vis.md

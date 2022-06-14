@@ -230,4 +230,4 @@ To remove the link between your AMS resource and your VIS:
 
 ## Next steps
 
-- [Learn about ACSS](overview.md)
+- [Use Quality Insights Azure workbook for your VIS](get-quality-insights-vis.md)
