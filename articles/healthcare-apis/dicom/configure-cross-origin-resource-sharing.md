@@ -11,7 +11,7 @@ ms.subservice: fhir
 
 # Configure cross-origin resource sharing in DICOM service
 
-##  What is cross-origin resource sharing in DICOM service?
+## What is cross-origin resource sharing in DICOM service?
 
 DICOM service in Azure Health Data Services (hereby called DICOM service) supports [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request.
 
@@ -33,12 +33,12 @@ To configure a CORS setting in the DICOM service, specify the following settings
 
 :::image type="content" source="media/dicom-cors-settings.png" alt-text="Screenshot of DICOM cross origin resource settings." lightbox="./media/dicom-cors-settings.png":::
 
->[!NOTE]
+> [!NOTE]
 > You can't specify different settings for different domain origins. All settings (**Headers**, **Methods**, **Max age**, and **Allow credentials**) apply to all origins specified in the Origins setting.
 
 ## Next steps
 
 For more information about DICOM services, see
 
->[!div class="nextstepaction"]
->[Overview of the DICOM service](./dicom-services-overview.md)
+> [!div class="nextstepaction"]
+> [Overview of the DICOM service](./dicom-services-overview.md)
