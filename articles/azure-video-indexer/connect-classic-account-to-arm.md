@@ -10,7 +10,7 @@ ms.custom: ignite-fall-2021
 # Connect an existing classic paid Azure Video Indexer account to ARM-based account  
 
 This article details how to connect an existing classic paid Azure Video Indexer account to an Azure Resource Manager (ARM) based account.
-Today, Azure Video Indexer (formerly Azure Video Analyzer for Media), is a GA(general availability) product that is not an ARM resource on Azure.
+Today, Azure Video Indexer, is a GA(general availability) product that is not an ARM resource on Azure.
 In this article, we will go through options on connecting your **existing** Azure Video Indexer account to [ARM][docs-arm-overview].
 
 ## Prerequisites

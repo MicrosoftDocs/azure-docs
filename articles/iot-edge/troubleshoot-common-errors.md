@@ -70,7 +70,7 @@ By default, IoT Edge starts modules in their own isolated container network. The
 
 **Option 1: Set DNS server in container engine settings**
 
-Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json` specifying the DNS server to use. For example:
+Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json`, then specify the DNS server to use. For example:
 
 ```json
 {
@@ -78,7 +78,7 @@ Specify the DNS server for your environment in the container engine settings, wh
 }
 ```
 
-The above example sets the DNS server to a publicly accessible DNS service. If the edge device can't access this IP from its environment, replace it with DNS server address that is accessible.
+This DNS server is set to a publicly accessible DNS service. However some networks, such as corporate networks, have their own DNS servers installed and won't allow access to public DNS servers. Therefore, if your edge device can't access a public DNS server, replace it with an accessible DNS server address.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -153,7 +153,7 @@ Or
 ```output
 info: edgelet_docker::runtime -- Starting module edgeHub...
 warn: edgelet_utils::logging -- Could not start module edgeHub
-warn: edgelet_utils::logging -- 	caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:  
+warn: edgelet_utils::logging --     caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:  
         The process cannot access the file because it is being used by another process. (0x20)
 ```
 
@@ -317,6 +317,27 @@ Windows Registry Editor Version 5.00
 "TypesSupported"=dword:00000007
 ```
 
+## DPS client error
+
+**Observed behavior:**
+
+IoT Edge fails to start with error message `failed to provision with IoT Hub, and no valid device backup was found dps client error.`
+
+**Root cause:**
+
+A group enrollment is used to provision an IoT Edge device to an IoT Hub. The IoT Edge device is moved to a different hub. The registration is deleted in DPS. A new registration is created in DPS for the new hub. The device is not reprovisioned.
+
+**Resolution:**
+
+1. Verify your DPS credentials are correct.
+1. Apply your configuration using `sudo iotedge apply config`.
+1. If the device isn't reprovisioned, restart the device using `sudo iotedge system restart`.
+1. If the device isn't reprovisioned, force reprovisioning using `sudo iotedge system reprovision`.
+
+To automatically reprovision, set `dynamic_reprovisioning: true` in the device configuration file. Setting this flag to true opts in to the dynamic re-provisioning feature. IoT Edge detects situations where the device appears to have been reprovisioned in the cloud by monitoring its own IoT Hub connection for certain errors. IoT Edge responds by shutting itself and all Edge modules down. The next time the daemon starts up, it will attempt to reprovision this device with Azure to receive the new IoT Hub provisioning information.
+
+When using external provisioning, the daemon will also notify the external provisioning endpoint about the re-provisioning event before shutting down. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+
 :::moniker-end
 <!-- end 1.1 -->
 
@@ -421,7 +442,7 @@ On Windows:
 
    1. If the parameter exists, set the value of the parameter to **1**.
 
-   1. If the paramter doesn't exist, add it as a new parameter with the following settings:
+   1. If the parameter doesn't exist, add it as a new parameter with the following settings:
 
       | Setting | Value |
       | ------- | ----- |

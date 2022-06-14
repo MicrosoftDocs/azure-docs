@@ -174,14 +174,14 @@ SecurityEvent
 ```kusto
 Usage 
 | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
-| summarize AggregatedValue = count() by DataType`
+| summarize AggregatedValue = count() by DataType
 ```
 
 **Perf** data type
 
 ```kusto
 Perf 
-| summarize AggregatedValue = count() by CounterPath`
+| summarize AggregatedValue = count() by CounterPath
 ```
 
 ```kusto

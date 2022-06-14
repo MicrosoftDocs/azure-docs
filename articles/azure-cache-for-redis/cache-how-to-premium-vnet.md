@@ -48,9 +48,7 @@ Virtual network support is configured on the **New Azure Cache for Redis** pane 
 1. On the **Networking** tab, select **Virtual Networks** as your connectivity method. To use a new virtual network, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) or [Create a virtual network (classic) by using the Azure portal](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal). Then return to the **New Azure Cache for Redis** pane to create and configure your Premium-tier cache.
 
    > [!IMPORTANT]
-   > When you deploy Azure Cache for Redis to a Resource Manager virtual network, the cache must be in a dedicated subnet that contains no other resources except for Azure Cache for Redis instances. If you attempt to deploy an Azure Cache for Redis instance to a Resource Manager virtual network subnet that contains other resources, or has a NAT Gateway assigned, the deployment fails.
-   >
-   >
+   > When you deploy Azure Cache for Redis to a Resource Manager virtual network, the cache must be in a dedicated subnet that contains no other resources except for Azure Cache for Redis instances. If you attempt to deploy an Azure Cache for Redis instance to a Resource Manager virtual network subnet that contains other resources, or has a NAT Gateway assigned, the deployment fails. The failure is because Azure Cache for Redis uses a basic load balancer that is not compatible with a NAT Gateway.
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -186,7 +184,7 @@ After the port requirements are configured as described in the previous section,
 
 - [Reboot](cache-administration.md#reboot) all of the cache nodes. The cache won't be able to restart successfully if all of the required cache dependencies can't be reached---as documented in [Inbound port requirements](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound port requirements](cache-how-to-premium-vnet.md#outbound-port-requirements).
 - After the cache nodes have restarted, as reported by the cache status in the Azure portal, you can do the following tests:
-  - Ping the cache endpoint by using port 6380 from a machine that's within the same virtual network as the cache, using [tcping](https://www.elifulkerson.com/projects/tcping.php). For example:
+  - Ping the cache endpoint by using port 6380 from a machine that's within the same virtual network as the cache, using [`tcping`](https://www.elifulkerson.com/projects/tcping.php). For example:
 
     `tcping.exe contosocache.redis.cache.windows.net 6380`
 

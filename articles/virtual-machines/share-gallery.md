@@ -25,6 +25,9 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 | [Everyone](#community) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
 
 
+> [!IMPORTANT]
+> You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
+
 ## RBAC
 
 The Azure Compute Gallery, definitions, and versions are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the image or application version, they can deploy a VM or a Virtual Machine Scale Set.  

@@ -3,8 +3,8 @@ title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
+ms.reviewer: mmcc
 ---
 
 # Sampling in Application Insights
@@ -70,6 +70,8 @@ Metric counts such as request rate and exception rate are adjusted to compensate
 > [!NOTE]
 > This section applies to ASP.NET applications, not to ASP.NET Core applications. [Learn about configuring adaptive sampling for ASP.NET Core applications later in this document.](#configuring-adaptive-sampling-for-aspnet-core-applications)
 
+> With ASP.NET Core and with Microsoft.ApplicationInsights.AspNetCore >= 2.15.0 you can configure AppInsights options via appsettings.json
+
 In [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md), you can adjust several parameters in the `AdaptiveSamplingTelemetryProcessor` node. The figures shown are the default values:
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
@@ -104,11 +106,11 @@ In [`ApplicationInsights.config`](./configuration-with-applicationinsights-confi
   
     The amount of telemetry to sample when the app has just started. Don't reduce this value while you're debugging.
 
-* `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
+* `<ExcludedTypes>type;type</ExcludedTypes>`
   
     A semi-colon delimited list of types that you do not want to be subject to sampling. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, `Trace`. All telemetry of the specified types is transmitted; the types that are not specified will be sampled.
 
-* `<IncludedTypes>Request;Dependency</IncludedTypes>`
+* `<IncludedTypes>type;type</IncludedTypes>`
   
     A semi-colon delimited list of types that you do want to subject to sampling. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, `Trace`. The specified types will be sampled; all telemetry of the other types will always be transmitted.
 

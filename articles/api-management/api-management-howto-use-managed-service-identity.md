@@ -21,6 +21,9 @@ You can grant two types of identities to an API Management instance:
 - A *system-assigned identity* is tied to your service and is deleted if your service is deleted. The service can have only one system-assigned identity.
 - A *user-assigned identity* is a standalone Azure resource that can be assigned to your service. The service can have multiple user-assigned identities.
 
+> [!NOTE]
+> Managed identities are specific to the Azure AD tenant where your Azure subscription is hosted. They don't get updated if a subscription is moved to a different directory. If a subscription is moved, you'll need to recreate and configure the identities.  
+
 ## Create a system-assigned managed identity
 
 ### Azure portal

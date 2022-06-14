@@ -8,11 +8,13 @@ ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack
+ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
 ms.date: 11/18/2021
 ---
 
 # Set up AutoML to train a time-series forecasting model with Python
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to set up AutoML training for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
@@ -52,6 +54,7 @@ For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is 
 
 You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',
@@ -91,7 +94,6 @@ The following code,
 * Leverages the [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) class to define the forecasting parameters for your experiment training
 * Sets the `time_column_name` to the `day_datetime` field in the data set. 
 * Sets the `forecast_horizon` to 50 in order to predict for the entire test set. 
-
 
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
@@ -274,6 +276,7 @@ The following table summarizes the available settings for `short_series_handling
 ## Run the experiment 
 
 When you have your `AutoMLConfig` object ready, you can submit the experiment. After the model finishes, retrieve the best run iteration.
+
 
 ```python
 ws = Workspace.from_config()

@@ -52,6 +52,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.ClassicSubscription](#microsoftclassicsubscription)
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
+> - [Microsoft.Communication](#microsoftcommunication)
 > - [Microsoft.Compute](#microsoftcompute)
 > - [Microsoft.Confluent](#microsoftconfluent)
 > - [Microsoft.Consumption](#microsoftconsumption)
@@ -593,6 +594,13 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | ratecard | No | No | No |
 > | usageaggregates | No | No | No |
+
+## Microsoft.Communication
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | communicationservices | Yes | Yes <br/><br/> Note that resources with attached phone numbers cannot be moved to subscriptions in different data locations, nor subscriptions that do not support having phone numbers. | No |
 
 ## Microsoft.Compute
 
