@@ -353,17 +353,17 @@ The FTP built-in connector is available only for Standard logic app workflows an
 
 | Trigger | Description |
 |---------|-------------|
-| [**When a file is added or updated**](#when-file-added-updated) | Start a logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file metadata, not the file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action. <br><br> For more information, review [When a file is added or updated](#when-file-added-updated). |
+| [**When a file is added or updated**](#when-file-added-updated) | Start a logic app workflow when a file is added or updated in the specified folder on the FTP server. <p><p>**Note**: This trigger gets only the file metadata or properties, not the file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action. |
 |||
 
 | Action | Description |
 |--------|-------------|
-| [**Create file**](#create-file) | Create a file |
-| [**Delete file**](#delete-file) |
-| [**Get file content**](#get-file-content) |
-| [**Get file metadata**](#get-file-metadata) |
-| [**List files and subfolders in a folder**](#list-files-subfolders-folder) |
-| [**Update file**](#update-file) |
+| [**Create file**](#create-file) | Create a file using the specified file path and file content. |
+| [**Delete file**](#delete-file) | Delete a file using the specified file path. |
+| [**Get file content**](#get-file-content) | Get the content of a file using the specified file path. |
+| [**Get file metadata**](#get-file-metadata) | Get the metadata or properties of a file using the specified file path. |
+| [**List files and subfolders in a folder**](#list-files-subfolders-folder) | Get a list of files and subfolders in the specified folder. |
+| [**Update file**](#update-file) | Update a file using the specified file path and file content. |
 |||
 
 <a name="when-file-added-updated"></a>
@@ -430,7 +430,7 @@ This action returns a [BlobMetadata](/connectors/ftp/#blobmetadata) object named
 
 Operation ID: `deleteFtpFile`
 
-This action deletes the specified file without any return values.
+This action deletes a file using the specified file path.
 
 #### Parameters
 
@@ -473,7 +473,7 @@ This action returns the content of a file as a binary value named **File content
 
 Operation ID: `getFileMetadata`
 
-This action gets the metadata or properties for a file using the specified file path.
+This action gets the metadata or properties of a file using the specified file path.
 
 #### Parameters
 
@@ -522,7 +522,7 @@ This action returns an array that's named **Response** and contains [BlobMetadat
 
 Operation ID: updateFile
 
-This action updates the specified file.
+This action updates a file using the specified file path and file content.
 
 > [!IMPORTANT]
 >
