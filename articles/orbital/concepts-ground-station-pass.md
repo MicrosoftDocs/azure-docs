@@ -1,6 +1,6 @@
 ---
 title: Ground Station Pass 
-description: 'Ground Station Pass'
+description: When you schedule a ground station pass a contact object is created under your spacecraft object in your resource group.
 author: hrshelar
 ms.service: orbital
 ms.topic: tutorial
