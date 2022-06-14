@@ -7,17 +7,19 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/21/2022
+ms.date: 06/14/2022
 ms.author: banders
 ---
 
-# Transfer Azure product billing ownership for a Microsoft Customer Agreement
+# Transfer Azure product billing ownership to a Microsoft Customer Agreement
 
-Transfer billing ownership for your Azure products (subscriptions and reservations) to a Microsoft Customer Agreement when:
+This article helps you transfer billing ownership for your Azure products (subscriptions and reservations) to a direct Microsoft Customer Agreement when:
 
 - You want to move billing responsibilities for a product to a different billing owner.
 - You want to transfer your Azure products from one licensing agreement to another. For example, from an Enterprise Agreement or a Microsoft Online Subscription Agreement (MOSA) to a Microsoft Customer Agreement.
 - You want to transfer reservation ownership.
+
+A direct Microsoft Customer Agreement is one where you buy Azure services through a Microsoft representative.
 
 [Check if you have access to a Microsoft Customer Agreement](#check-for-access).
 
