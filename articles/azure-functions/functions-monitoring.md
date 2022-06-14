@@ -107,15 +107,11 @@ Log streams can be viewed both in the portal and in most local development envir
 
 ## Diagnostic logs
 
-_This feature is in preview._ 
-
 Application Insights lets you export telemetry data to long-term storage or other analysis services.  
 
 Because Functions also integrates with Azure Monitor, you can also use diagnostic settings to send telemetry data to various destinations, including Azure Monitor logs. To learn more, see [Monitoring Azure Functions with Azure Monitor Logs](functions-monitor-log-analytics.md).
 
 ## Scale controller logs
-
-_This feature is in preview._ 
 
 The [Azure Functions scale controller](./event-driven-scaling.md#runtime-scaling) monitors instances of the Azure Functions host on which your app runs. This controller makes decisions about when to add or remove instances based on current performance. You can have the scale controller emit logs to Application Insights to better understand the decisions the scale controller is making for your function app. You can also store the generated logs in Blob storage for analysis by another service. 
 
