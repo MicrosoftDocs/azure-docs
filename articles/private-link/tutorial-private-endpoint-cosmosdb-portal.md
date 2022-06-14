@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Connect to an Azure Cosmos account using an Azure Private endpoint'
 titleSuffix: Azure Private Link
-description: Get started with this tutorial using Azure Private endpoint to connect to an Azure Cosmos account privately.
+description: Get started with this tutorial using Azure Private endpoint to connect to an Azure Cosmos DB account privately.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
@@ -12,7 +12,7 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 # Tutorial: Connect to an Azure Cosmos account using an Azure Private Endpoint
 
-Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
+Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to privately and securely communicate with Private Link resources such as Azure Cosmos DB.
 
 In this tutorial, you learn how to:
 
@@ -173,12 +173,12 @@ In this section, you'll create a Cosmos DB account and configure the private end
     | Resource Group | Select **myResourceGroup**. |
     | Location | Select **East US**. |
     | Name | Enter **myPrivateEndpoint**. |
-    | CosmosDB sub-resource | Leave the default **Core (SQL) - Recommended** |
+    | CosmosDB sub-resource | Leave the default **Core (SQL) - Recommended**. |
     | **Networking** |  |
-    | Virtual network | Select **myVNet** |
-    | Subnet | Select **mySubnet** |
-    | **Private DNS integration** |
-    | Integrate with private DNS zone | Leave the default **Yes** |
+    | Virtual network | Select **myVNet**. |
+    | Subnet | Select **mySubnet**. |
+    | **Private DNS integration** |  |
+    | Integrate with private DNS zone | Leave the default **Yes**. |
     | Private DNS Zone | Leave the default **(New) privatelink.documents.azure.com**. |
 
 7. Select **OK**.
@@ -201,18 +201,18 @@ In this section, you'll create a Cosmos DB account and configure the private end
     | ------- | ----- |
     | Database id | Leave the default of **Create new**. </br> Enter **mydatabaseid** in the box. |
     | Database throughput (400 - unlimited RU/s) | Select **Manual**. </br> Enter **400** in the box. |
-    | Container id | Enter **mycontainerid** |
-    | Partition key | Enter **/mykey** |
+    | Container id | Enter **mycontainerid**. |
+    | Partition key | Enter **/mykey**. |
 
 5. Select **OK**.
 
-6. In the **Settings** section of the CosmosDB account, select **Keys**.
+6. In the **Settings** section of the Cosmos DB account, select **Keys**.
 
 7. Select copy on the **PRIMARY CONNECTION STRING**. A valid connection string is in the format: `AccountEndpoint=https://<cosmosdb-account-name>.documents.azure.com:443/;AccountKey=<accountKey>;`
 
 ## Test connectivity to private endpoint
 
-In this section, you'll use the virtual machine you created in the previous step to connect to the Cosmos DB account across the private endpoint.
+In this section, you'll use the virtual machine you created in the previous steps to connect to the Cosmos DB account across the private endpoint using **Azure Cosmos DB Explorer**.
 
 1. Select **Resource groups** in the left-hand navigation pane.
 
@@ -243,7 +243,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 1. Go to https://cosmos.azure.com/. Select **Connect to your account with connection string**, then paste the connection string that you copied in the previous steps and select **Connect**.
 
-1. Under the SQL API left-hand menu, you see the database id and container id that you previously created in your CosmosDB account. 
+1. Under the SQL API left-hand menu, you see **mydatabaseid** and **mycontainerid** that you previously created in **mycosmosdb**.
 
 1. Close the connection to **myVM**.
 
@@ -271,4 +271,4 @@ In this tutorial, you learned how to create:
 
 Learn how to connect to a web app using an Azure Private Endpoint:
 > [!div class="nextstepaction"]
-> [Connect to a web app](tutorial-private-endpoint-webapp-portal.md)
+> [Connect to a web app using Private Endpoint](tutorial-private-endpoint-webapp-portal.md)
