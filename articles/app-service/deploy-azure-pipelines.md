@@ -327,7 +327,7 @@ You can control the order of deployment. To learn more, see [Stages](/azure/devo
 
 ---
 
-## Configuration changes
+## Make configuration changes
 
 For most language stacks, [app settings](/azure/app-service/configure-common?toc=%252fazure%252fapp-service%252fcontainers%252ftoc.json#configure-app-settings) and [connection strings](/azure/app-service/configure-common?toc=%252fazure%252fapp-service%252fcontainers%252ftoc.json#configure-connection-strings) can be set as environment variables at runtime. 
 
@@ -422,7 +422,7 @@ To learn more, see [Release, branch, and stage triggers](/azure/devops/pipelines
 
 ---
 
-## (Classic) Deploy with a release pipeline
+## (Classic) Deploy a release pipeline
 
 You can use a release pipeline to pick up the artifacts published by your build and then deploy them to your Azure web site.
 
