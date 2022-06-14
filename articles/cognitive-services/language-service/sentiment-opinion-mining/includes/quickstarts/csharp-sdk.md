@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 03/08/2022
+ms.date: 06/06/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -21,6 +21,9 @@ ms.custom: ignite-fall-2021
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Setting up
 
 ### Create a new .NET Core application
@@ -28,6 +31,9 @@ ms.custom: ignite-fall-2021
 Using the Visual Studio IDE, create a new .NET Core console app. This will create a "Hello World" project with a single C# source file: *program.cs*.
 
 Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Select version `5.1.0`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Code example
 
@@ -48,7 +54,7 @@ namespace Example
         private static readonly AzureKeyCredential credentials = new AzureKeyCredential("replace-with-your-key-here");
         private static readonly Uri endpoint = new Uri("replace-with-your-endpoint-here");
         
-        // Example method for detecting sentiment from text 
+        // Example method for detecting sentiment from text. 
         static void SentimentAnalysisExample(TextAnalyticsClient client)
         {
             string inputText = "I had the best day of my life. I wish you were there with me.";
@@ -65,7 +71,7 @@ namespace Example
             }
         }
 
-        // Example method for detecting opinions text 
+        // Example method for detecting opinions text. 
         static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
         {
             var documents = new List<string>
@@ -122,6 +128,10 @@ namespace Example
     }
 }
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
+
 
 ## Output
 

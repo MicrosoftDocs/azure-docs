@@ -28,7 +28,7 @@ The image below shows the CPU utilization of  virtual machines across two subscr
 | where CounterName == 'Available MBytes'
 | summarize CounterValue = avg(CounterValue) by Computer, _ResourceId
 | extend ResourceGroup = extract(@'/subscriptions/.+/resourcegroups/(.+)/providers/microsoft.compute/virtualmachines/.+', 1, _ResourceId)
-| extend ResourceGroup = iff(ResourceGroup == '', 'On-premise computers', ResourceGroup), Id = strcat(_ResourceId, '::', Computer)
+| extend ResourceGroup = iff(ResourceGroup == '', 'On-premises computers', ResourceGroup), Id = strcat(_ResourceId, '::', Computer)
 ```
 
 5. Run query.
@@ -80,7 +80,7 @@ The image below shows the CPU utilization of  virtual machines across two subscr
 | `Heatmap` | In this type, the cells are colored based on a metric column and a color palette. This provides a simple way to highlight metrics spreads across cells. |
 | `Thresholds` | In this type, cell colors are set by threshold rules (for example, _CPU > 90%  => Red, 60% > CPU > 90% => Yellow, CPU < 60% => Green_) |
 | `Field Based` | In this type, a column provides specific RGB values to use for the node. Provides the most flexibility but usually requires more work to enable.  |
-      
+
 ## Node format settings
 
 Honey comb authors can specify what content goes to the different parts of a node: top, left, center, right, and bottom. Authors are free to use any of the renderers workbooks supports (text, big number, spark lines, icon, etc.).

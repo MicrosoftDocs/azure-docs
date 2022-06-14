@@ -52,6 +52,9 @@
             href: create-first-function-cli-python.md
           - name: TypeScript
             href: create-first-function-cli-typescript.md
+        - name: Bicep
+          displayName: ARM, Resource Manager, Template
+          href: functions-create-first-function-bicep.md
         - name: ARM template
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
@@ -177,13 +180,13 @@
           displayName: encryption, keys, mount, files
         - name: Error handling and function retries
           href: functions-bindings-error-pages.md
-          displayName: best practices
+          displayName: best practices, retry policies
         - name: Security
           href: security-concepts.md
           displayName: best practices
     - name: Compare runtime versions
       href: functions-versions.md
-      displayName: migrate, migration, v3
+      displayName: migrate, migration, v3, v4, update, upgrade
     - name: Hosting and scale
       items:
         - name: Consumption plan

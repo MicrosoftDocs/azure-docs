@@ -1,13 +1,13 @@
 ---
 title: Change feed design patterns in Azure Cosmos DB 
 description: Overview of common change feed design patterns
-author: timsander1
-ms.author: tisande
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/24/2022
-ms.reviewer: wiassaf
 ms.custom: cosmos-db-video
 ---
 # Change feed design patterns in Azure Cosmos DB

@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/23/2021
 ms.author: akshanka
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.custom: devx-track-python, mode-api, devx-track-azurecli
 ---
 
