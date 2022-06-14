@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot queries running beyond workload group query execution timeout
+title: Identify queries running beyond workload group query execution timeout
 description: Identify queries that are running beyond the workload groups query execution timeout value.   
 author: kedodd
 ms.author: kedodd
@@ -12,7 +12,7 @@ ms.custom: template-how-to
 ms.reviewer: wiassaf
 ---
 
-# Troubleshoot queries running beyond workload group query execution timeout
+# Identify queries running beyond workload group query execution timeout
 
 This article covers guidance on how to identify queries that are running beyond the query_execution_timeout_sec value configured for the workload group. 
 
