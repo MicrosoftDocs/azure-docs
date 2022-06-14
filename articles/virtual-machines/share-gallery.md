@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/11/2022
+ms.date: 06/14/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to , devx-track-azurecli 
@@ -37,8 +37,6 @@ We recommend sharing at the gallery level for the best experience and prevent ma
 If the user is outside of your organization, they will get an email invitation to join the organization. The user needs to accept the invitation, then they will be able to see the gallery and all of the image definitions and versions in their list of resources.
 
 ### [Portal](#tab/portal)
-
-If the user is outside of your organization, they will get an email invitation to join the organization. The user needs to accept the invitation, then they will be able to see the gallery and all of the definitions and versions in their list of resources.
 
 1. On the page for your gallery, in the menu on the left, select **Access control (IAM)**. 
 1. Under **Add a role assignment**, select **Add**. The **Add a role assignment** pane will open. 
@@ -131,7 +129,7 @@ az sig create \
 ```
  
 
-To shared the to a subscription or tenant, use [az sig share add](/cli/azure/sig#az-sig-share-add) 
+To start sharing the gallery with a subscription or tenant, use [az sig share add](/cli/azure/sig#az-sig-share-add) 
 
 ```azurecli-interactive
 sub=<subscription-id>
@@ -162,175 +160,14 @@ az sig share remove \
 ```
  
 
-Use [az sig share reset](/cli/azure/sig#az-sig-share-reset) to clear everything in sharingProfile.
-
-```azurecli-interactive
-gallery=<gallery-name>
-rg=<resource-group-name>
-az sig share reset --gallery-name $gallery -g $rg
-```
- 
-
-List Galleries shared with your subscription.
-
-```azurecli-interactive
-az sig list-shared --location $region 
-```
- 
-
-List Galleries shared with a tenant.
-
-```azurecli-interactive
-region=<location>
-az sig list-shared --location $region --shared-to tenant 
-```
-
- 
-
-List image definitions of a parent Gallery shared with subscription 
-
-az sig image-definition list-shared --gallery-unique-name $galleryUniqueName --location $region 
-
- 
-
-List image definitions of a parent Gallery shared with tenant 
-
-az sig image-definition list-shared --gallery-unique-name $galleryUniqueName --location $region --shared-to tenant 
-
- 
-
-Get uniqueName of an image definition within a shared gallery  
-
-az sig image-definition show-shared --gallery-unique-name $galleryUniqueName --location $region --gallery-image-definition $galleryDefinitionName 
-
- 
-
-List image versions of a parent Gallery shared with subscription 
-
-az sig image-version list-shared --gallery-unique-name $galleryUniqueName --gallery-image-definition $galleryDefinitionName --location $region 
-
- 
-
-List image versions of a parent Gallery shared with tenant 
-
-az sig image-version list-shared --gallery-unique-name $galleryUniqueName --gallery-image-definition $galleryDefinitionName --location $region --shared-to tenant 
-
- 
-
-Get the sharedGalleryImageId of an image version 
-
-az sig image-version show-shared --gallery-unique-name $galleryUniqueName --gallery-image-definition $galleryDefinitionName --location $region --gallery-image-version $galleryImageVersionName 
-
- 
-
-Deploy a VM from an image version in a subscription or tenant-shared gallery  
-
-az vm create --name $vmName --resource-group $resourceGroup --image /SharedGalleries/$galleryUniqueName/images/$imageName/versions/latest 
-
- 
-
-Deploy a VMSS from an image version in a subscription or tenant-shared gallery  
-
- 
-
-az vmss create --name $vmssName --resource-group $resourceGroup --image /SharedGalleries/$galleryUniqueName/images/$imageName/versions/latest 
-### [PowerShell](#tab/powershelldirect)
-
-Enable a gallery for subscription / tenant-level sharing 
-
-Update-AzGallery -ResourceGroupName $rgSource -Name $galleryName -Permission "groups" 
-
- 
-
-Share gallery to subscription and/or tenant 
-
-Update-AzGallery -ResourceGroupName $rgSource -Name $galleryName -Share -Subscription $subscriptionSource,$subscriptionTarget -Tenant $tenantSource,$tenantTarget 
-
- 
-
-Remove access for a subscription / tenant 
-
-Update-AzGallery -ResourceGroupName $rgSource -Name $galleryName -Share -RemoveSubscription $subscription 
-
- 
-
-Reset (clear everything in sharingProfile)  
-
-Update-AzGallery -ResourceGroupName $rgSource -Name $galleryName -Share -Reset 
-
- 
-
-List Galleries shared with subscription
-
-Get-AzGallery -Location $region
-
- 
-
-List Galleries shared with tenant 
-
-Get-AzGallery -Scope "tenant" -Location $region 
-
- 
-
-Get uniqueId, permissions, and permitted groups for a Gallery (available only to image owner) 
-
-To be filled in later 
-
- 
-
-List image definitions of a parent Gallery shared with subscription 
-
-Get-AzGalleryImageDefinition -GalleryUniqueName $galleryUniqueName -Location $region 
-
- 
-
-List image definitions of a parent Gallery shared with tenant 
-
-Get-AzGalleryImageDefinition -GalleryUniqueName $galleryUniqueName -Location $region -Scope "tenant" 
-
- 
-
-Get uniqueName of an image definition within a shared gallery  
-
-Get-AzGalleryImageDefinition -GalleryUniqueName $galleryUniqueName -Name $galleryDefinitionName -Location $region 
-
- 
-
-List image versions of a parent Gallery shared with subscription 
-
-Get-AzGalleryImageVersion -GalleryUniqueName $galleryUniqueName -GalleryImageDefinitionName $galleryDefinitionName -Location $region 
-
- 
-
-List image versions of a parent Gallery shared with tenant 
-
-Get-AzGalleryImageVersion -GalleryUniqueName $galleryUniqueName -GalleryImageDefinitionName $galleryDefinitionName -Location $region -Scope "tenant" 
-
- 
-
-Get the sharedGalleryImageId of an image version 
-
-Get-AzGalleryImageVersion -GalleryUniqueName $galleryUniqueName -GalleryImageDefinitionName $galleryDefinitionName -Name $galleryImageVersionName -Location $region 
-
- 
-
-Deploy a VM from an image version in a subscription or tenant-shared gallery  
-
- 
-
-To be filled in later 
-
-Deploy a VMSS from an image version in a subscription or tenant-shared gallery  
-
- 
-
-To be filled in later 
 
  
 ### [REST](#tab/restdirect)
 
-Create a gallery for subscription / tenant-level sharing 
+Create a gallery for subscription or tenant-level sharing using the Azure REST API.
 
+
+```rest
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{gallery-name}?api-version=2020-09-30 
 
  
@@ -350,11 +187,13 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 "location": "{location}" 
 
 } 
-
+```
  
 
-Share gallery to subscription and/or tenant 
+Share a gallery to subscription or tenant.
 
+
+```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/share?api-version=2020-09-30 
 
  
@@ -392,11 +231,12 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 ] 
 
 } 
-
+```
  
 
-Remove access for a subscription / tenant 
+Remove access for a subscription or tenant.
 
+```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/share?api-version=2020-09-30 
 
  
@@ -434,11 +274,12 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 ] 
 
 } 
-
+```
  
 
-Reset (clear everything in sharingProfile)  
+Reset sharing to clear everything in the `sharingProfile`.
 
+```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/share?api-version=2020-09-30 
 
  
@@ -449,458 +290,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 } 
 
- 
 
-List Galleries shared with subscription 
-
-GET 
-
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/Locations/{location}/SharedGalleries?api-version=2020-09-30 
-
- 
-
-Response 
-
-{	 
-
-"value": [ 
-
-{ 
-
-"identifier": { 
-
-"uniqueId": "/SharedGalleries/{SharedGalleryUniqueName}"         
-
-}, 
-
-"name": "galleryuniquename1", 
-
-   		"type": "Microsoft. Compute/sharedGalleries", 
-
-   		"location": "location" 
-
-  	}, 
-
-  	{ 
-
-"identifier": { 
-
-"uniqueName": "/SharedGalleries/{SharedGalleryUniqueName}"       
-
-}, 
-
-"name": "galleryuniquename2", 
-
-"type": "Microsoft. Compute/sharedGalleries", 
-
-"location": "location" 
-
-  	} 
-
-], 
-
-} 
-
- 
-
-List Galleries shared with tenant 
-
-GET 
-
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/Locations/{location}/SharedGalleries?api-version=2020-09-30&sharedTo=tenant 
-
- 
-
-Response 
-
-{	 
-
-"value": [ 
-
-{ 
-
-"identifier": { 
-
-"uniqueName": "/SharedGalleries/{SharedGalleryUniqueName}"         
-
-}, 
-
-"name": "galleryuniquename1", 
-
-   		"type": "Microsoft. Compute/sharedGalleries", 
-
-   		"location": "location" 
-
-  	}, 
-
-  	{ 
-
-"identifier": { 
-
-"uniqueName": "/SharedGalleries/{SharedGalleryUniqueName}"       
-
-}, 
-
-"name": "galleryuniquename2", 
-
-"type": "Microsoft. Compute/sharedGalleries", 
-
-"location": "location" 
-
-  	} 
-
-], 
-
-} 
-
- 
-
-Get uniqueId, permissions, and permitted groups for a Shared Gallery (available only to image owner) 
-
-GET  
-
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}?api-version=2020-09-30&$expand=sharingProfile/Groups 
-
-Response 
-
-"name": "{galleryName}", 
-
- 	"id": "/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}", 
-
-"type": "Microsoft.Compute/galleries", 
-
-"location": "{location}", 
-
-"properties": { 
-
-"description": "gallery test", 
-
-"identifier": { 
-
-"uniqueId": "00000000-0000-0000-0000-000000000000-GALLERYNAME" 
-
-}, 
-
-"sharingProfile": { 
-
-   		"permissions": "Groups", 
-
-   		"groups": [ 
-
-{ 
-
-"type": "Subscriptions", 
-
-"ids": [ 
-
-"{subscriptionId1}", 
-
-"{subscriptionId2}" 
-
-] 
-
-}, 
-
-{ 
-
-"type": "AADTenants", 
-
-"ids": [ 
-
-"{tenantId1}", 
-
-"{tenantId2}" 
-
-] 
-
-} 
-
-] 
-
-  	}, 
-
-"provisioningState": "Succeeded" 
-
-} 
-
-} 
-
- 
-
-List image definitions of a parent Gallery shared with subscription 
-
-GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/sharedGalleries/{sharedGalleryUniqueName}/images?api-version=2020-09-30 
-
- 
-
-Response 
-
-{ 
-
-"value": [ 
-
-{ 
-
-"name": "galleryuniquename2", 
-
-"type": "Microsoft. Compute/sharedGalleries", 
-
-"identifier": {  
-
-"uniqueName": "/SharedGalleries/{SharedGalleryUniqueName}/Images/{galleryImageName}" 
-
-}, 
-
-"location": "location" 
-
-} 
-
-] 
-
-} 
-
- 
-
- 
-
-List image definitions of a parent Gallery shared with tenant 
-
-GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/sharedGalleries/{sharedGalleryUniqueName}/images?api-version=2020-09-30&sharedTo=tenant 
-
- 
-
-{ 
-
-"value": [ 
-
-{ 
-
-"name": "galleryuniquename2", 
-
-"type": "Microsoft. Compute/sharedGalleries", 
-
-"identifier": {  
-
-"uniqueName": "/SharedGalleries/{SharedGalleryUniqueName}/Images/{galleryImageName}" 
-
-}, 
-
-"location": "location" 
-
-} 
-
-] 
-
-} 
-
- 
-
-Get uniqueName of an image definition within a shared gallery 
-
-GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/Locations/{location}/SharedGalleries/{sharedGalleryUniqueName}/Images/{galleryImageName}?api-version=2020-09-30 
-
- 
-
-{ 
-
-"name": "galleryuniquename2", 
-
-"type": "Microsoft. Compute/sharedGalleries", 
-
-"identifier": {  
-
-"uniqueName": "/SharedGalleries/{SharedGalleryUniqueName}/Images/{galleryImageName}" 
-
-} 
-
-"location": "location" 
-
-} 
-
- 
-
-List image versions of a parent Gallery shared with subscription 
-
-GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/sharedGalleries/{sharedGalleryUniqueName}/images/{galleryImageName}/versions?api-version=2020-09-30 
-
- 
-
-Response 
-
-{  
-
-"value": [ 
-
-{ 
-
-"location": "{location}", 
-
-"id": "/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/sharedGalleries/galleryuniquename1/images/myImage1/versions/1.0.0", 
-
-"name": "1.0.0", 
-
-"properties": {} 
-
-}, 
-
-{ 
-
-"location": "{location}", 
-
-"id": "/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/sharedGalleries/galleryuniquename1/images/myImage1/versions/2.0.0", 
-
-"name": "2.0.0", 
-
-"properties": {} 
-
-} 
-
-] 
-
-} 
-
- 
-
- 
-
-List image versions of a parent Gallery shared with tenant 
-
-GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/sharedGalleries/{sharedGalleryUniqueName}/images/{galleryImageName}/versions?api-version=2020-09-30&sharedTo=tenant 
-
- 
-
-Response 
-
-{  
-
-"value": [ 
-
-{ 
-
-"location": "{location}", 
-
-"id": "/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/sharedGalleries/galleryuniquename1/images/myImage1/versions/1.0.0", 
-
-"name": "1.0.0", 
-
-"properties": {} 
-
-}, 
-
-{ 
-
-"location": "{location}", 
-
-"id": "/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/sharedGalleries/galleryuniquename1/images/myImage1/versions/2.0.0", 
-
-"name": "2.0.0", 
-
-"properties": {} 
-
-} 
-
-] 
-
-} 
-
- 
-
- 
-
-Get the sharedGalleryImageId of an image version 
-
-GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/Locations/{location}/SharedGalleries/{sharedGalleryUniqueName}/Images/{galleryImageName}/Versions/{1.0.0}?api-version=2020-09-30 
-
- 
-
-Response 
-
-{ 
-
-"name": "galleryuniquename2", 
-
-"type": "Microsoft.Compute/sharedGalleries", 
-
-"identifier": {  
-
-"uniqueName": "/sharedGalleries/{SharedGalleryUniqueName}/images/{galleryImageName}/versions/1.0.0"     
-
-}, 
-
-"location": "location" 
-
-} 
-
-} 
-
- 
-
-Deploy a VM from an image version in a subscription or tenant-shared gallery  
-
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/providers/Microsoft.Compute/virtualMachines/{VMName}?api-version=2021-03-01  
- 
-
-{ 
-
-... 
-
-"properties": { 
-
-... 
-
-"storageProfile": { 
-
-"imageReference": { 
-
-"sharedGalleryImageId":"/sharedGalleries/11111111-1111-1111-1111-111111111111-{galleryName}/images/{galleryImageName}/versions/1.0.0" 
-
-}, 
-
-... 
-
-  	}, 
-		... 
-
-} 
-
-} 
-
- 
-
-Deploy a VMSS from an image version in a subscription or tenant-shared gallery  
-
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}?api-version=2021-03-01 
- 
-
-{ 
-
-  ... 
-
-  "properties": { 
-
-    ... 
-
-    "virtualMachineProfile": { 
-
-      "storageProfile": { 
-
-        "imageReference": { 
-
-          "sharedGalleryImageId":"/sharedGalleries/11111111-1111-1111-1111-111111111111-{galleryName}/images/{galleryImageName}/versions/1.0.0"}, 
-
-        ... 
-
-      }, 
-
-      ... 
-
-    }, 
-
-    ... 
-
-  } 
-
-} 
 ---
 
 <a name=community></a>
