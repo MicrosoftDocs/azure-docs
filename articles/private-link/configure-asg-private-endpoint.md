@@ -141,7 +141,7 @@ id=$(az webapp list \
 asgid=$(az network asg show \
     --name myASG \
     --resource-group myResourceGroup \
-    --query '[].[id]' \
+    --query id \
     --output tsv)
 
 az network private-endpoint create \
@@ -155,7 +155,6 @@ az network private-endpoint create \
     --vnet-name myVNet    
 ```
 ---
-
 
 ## Associate an ASG with an existing private endpoint
 
@@ -187,15 +186,18 @@ Associating an ASG with an existing private endpoint with Azure PowerShell is cu
 # [**CLI**](#tab/cli)
 
 ```azurecli-interactive
+asgid=$(az network asg show \
+    --name myASG \
+    --resource-group myResourceGroup \
+    --query id \
+    --output tsv)
 
-
-
-
+az network private-endpoint asg add \
+    --resource-group myResourceGroup \
+    --endpoint-name myPrivateEndpoint \
+    --asg-id $asgid
 ```
-
-
 ---
-
 
 ## Next steps
 
