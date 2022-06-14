@@ -93,13 +93,12 @@ To get the list of interface names you have on your VM, type this command:
 ```console
 ip addr
 ```
-
-For each loopback interface you added, repeat these commands, which assigns the floating IP to the loopback alias:
+For each loopback interface, repeat these commands, which assigns the floating IP to the loopback alias:
 
 ```console
 sudo ip addr add floatingip/floatingipnetmask dev lo:0
 ```
-(replace **interfacename** with the name of this loopback interface and **floatingip** and **floatingipnetmask** with the appropriate values, e.g. that correspond to the load balancer frontend IP) 
+(replace **floatingip** and **floatingipnetmask** with the appropriate values, e.g. that correspond to the load balancer frontend IP) 
 
 Finally, if firewall is being used on the guest host, ensure a rule set up so the traffic can reach the VM on the appropriate ports.
 
