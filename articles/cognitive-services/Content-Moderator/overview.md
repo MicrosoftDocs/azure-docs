@@ -34,7 +34,7 @@ This documentation contains the following article types:
 
 For a more structured approach, follow a Microsoft Learn module for Content Moderator.
 * [Introduction to Content Moderator](/learn/modules/intro-to-content-moderator/)
-* [Classify and moderate text with Azure Content Moderator](https://docs.microsoft.com/learn/modules/classify-and-moderate-text-with-azure-content-moderator/)
+* [Classify and moderate text with Azure Content Moderator](/learn/modules/classify-and-moderate-text-with-azure-content-moderator/)
 
 ## Where it's used
 
