@@ -172,7 +172,7 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
 
 ## Push chart to registry as OCI artifact
 
-Run the `helm push` command in the Helm 3 CLI to push the chart archive to the fully qualified target repository. In the following example, the target repository namespace is `helm/hello-world`, and the chart is tagged `0.1.0`:
+Run the `helm push` command in the Helm 3 CLI to push the chart archive to the fully qualified target repository. Separate the words in the chart names and use only lower case letters and numbers. In the following example, the target repository namespace is `helm/hello-world`, and the chart is tagged `0.1.0`:
 
 ```console
 helm push hello-world-0.1.0.tgz oci://$ACR_NAME.azurecr.io/helm
