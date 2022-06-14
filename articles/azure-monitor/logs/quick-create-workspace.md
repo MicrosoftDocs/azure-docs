@@ -31,7 +31,7 @@ Use the **Log Analytics workspaces** menu to create a workspace.
   
 1. Select **Add**.
 
-1. Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
+1. Select a **Subscription** from the dropdown list.
 1. Use an existing **Resource Group** or create a new one.  
 1. Provide a name for the new **Log Analytics workspace**, such as *DefaultLAWorkspace*. This name must be unique per resource group.
 1. Select an available **Region**.  For more information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/) and search for Azure Monitor from the **Search for a product** field.  
