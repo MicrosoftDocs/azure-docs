@@ -191,8 +191,8 @@ A deployment is a set of resources required for hosting the model that does the 
 
 Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
 
-* `name` - Name of the endpoint
-* `input_path` - Path where input data is present
+* `endpoint_name` - Name of the endpoint
+* `input` - Path where input data is present
 * `deployment_name` - Name of the specific deployment to test in an endpoint
 
 1. Invoke the endpoint:
@@ -229,6 +229,12 @@ Delete endpoint
 
 ```python
 ml_client.batch_endpoints.begin_delete(name=batch_endpoint_name)
+```
+
+Delete compute: optional, as you may choose to reuse your compute cluster with later deployments.
+
+```python
+ml_client.compute.begin_delete(name=compute_name)
 ```
 
 ## Next steps
