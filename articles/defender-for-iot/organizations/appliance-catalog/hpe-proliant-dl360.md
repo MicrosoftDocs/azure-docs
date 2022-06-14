@@ -136,6 +136,9 @@ This procedure describes how to update the HPE BIOS configuration for your OT se
 
 1. In the **Create Array** form, select all the options.
 
+1. For "Data-at-Rest" encryption please review HPE guidance for activating RAID Secure Encryption or using Self-Encrypting-Drives (SED)
+
+
 
 ### Install iLO remotely from a virtual drive
 
