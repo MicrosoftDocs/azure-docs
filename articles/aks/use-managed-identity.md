@@ -104,7 +104,7 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 > A nodepool upgrade will cause downtime for your AKS cluster as the nodes in the nodepools will be cordoned/drained and then reimaged.
 
 
-## Add role assignment for Control plane identity
+## Add role assignment for control plane identity
 
 For creating and using your own VNet, attached Azure disk, static IP address, route table or user-assigned kubelet identity where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you are using an ARM template or other method, you need to use the Principal ID of the cluster managed identity to perform a role assignment. 
 
