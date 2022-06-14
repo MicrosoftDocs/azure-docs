@@ -111,9 +111,33 @@ For creating and using your own VNet, attached Azure disk, static IP address, ro
 > [!NOTE]
 > If you are not using the CLI but using your own VNet, attached Azure disk, static IP address, route table or user-assigned kubelet identity which are outside of the worker node resource group, it's recommended to use [user-assigned control plane identity][Bring your own control plane managed identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
 
-For Vnet, attached Azure disk, static IP address, route table which are outside the default worker node resource group, you need to assign the `Contributor` role on custom resource group.
+### Get the PrincipalID of Control plane identity
 
-【加一个如何get pricipal id，az identity show --resource id】
+You can find existing identity's PrincipalID by running the following command:
+
+```azurecli-interactive
+az identity show --ids <identity-resource-id>
+``` 
+
+The output should resemble the following:
+
+```output
+{
+  "clientId": "<client-id>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+  "location": "eastus",
+  "name": "myIdentity",
+  "principalId": "<object-id>",
+  "resourceGroup": "myResourceGroup",
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+### Add role assignment
+
+For Vnet, attached Azure disk, static IP address, route table which are outside the default worker node resource group, you need to assign the `Contributor` role on custom resource group.
 
 ```azurecli-interactive
 az role assignment create --assignee <control-plane-identity-principal-id> --role "Contributor" --scope "<custom-resource-group-resource-id>"
@@ -152,7 +176,23 @@ If you don't have a managed identity, you should create one by running the [az i
 ```azurecli-interactive
 az identity create --name myIdentity --resource-group myResourceGroup
 ```
-【加一个output】
+
+The output should resemble the following:
+
+```output
+{                                  
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+  "location": "westus2",
+  "name": "myIdentity",
+  "principalId": "<principalId>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
 
 Run the following command to create a cluster with your existing identity:
 
@@ -308,7 +348,7 @@ az upgrade
 ```
 
 #### Get the current control plane identity for your AKS cluster
-【语句改一下】
+
 Confirm your AKS cluster is using user-assigned control plane identity with the following CLI command:
 
 ```azurecli-interactive
@@ -323,7 +363,7 @@ If the cluster is using a managed identity, the output shows `clientId` with a v
 }
 ```
 
-After verifying the cluster is using a managed identity, you can find the control plane identity's object ID by running the following command:
+After verifying the cluster is using a managed identity, you can find the control plane identity's resource ID by running the following command:
 
 ```azurecli-interactive
 az aks show -g <RGName> -n <ClusterName> --query "identity"
@@ -343,7 +383,29 @@ For user-assigned control plane identity, the output should look like:
 ```
 
 #### Updating your cluster with kubelet identity 
-【加一个新建identity的过程】
+
+If you don't have a kubelet managed identity, you can create one by running the following [az identity create][az-identity-create] command:
+
+```azurecli-interactive
+az identity create --name myKubeletIdentity --resource-group myResourceGroup
+```
+
+The output should resemble the following:
+
+```output
+{
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
+  "location": "westus2",
+  "name": "myKubeletIdentity",
+  "principalId": "<principalId>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
 
 Now you can use the following command to update your cluster with your existing identities. Provide the control plane identity resource ID via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
 
@@ -394,5 +456,5 @@ Use [Azure Resource Manager templates ][aks-arm-template] to create a managed id
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [managed-identity-resources-overview]: ../active-directory/managed-identities-azure-resources/overview.md
-[Bring your own control plane managed identity]: use-managed-identity.md#Bring-your-own-control-plane-managed-identity
-[Use a pre-created kubelet managed identity]: use-managed-identity.md#Use-a-pre-created-kubelet-managed-identity
+[Bring your own control plane managed identity]: use-managed-identity.md#bring-your-own-control-plane-managed-identity
+[Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
