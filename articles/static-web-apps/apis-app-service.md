@@ -5,23 +5,21 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  conceptual
-ms.date: 06/02/2022
+ms.date: 06/14/2022
 ms.author: cshoe
 ---
 
 # API support in Azure Static Web Apps with Azure App Service
 
-[!INCLUDE [APIs overview](../../includes/static-web-apps-apis-overview.md)]
+[Azure App Service](../app-service/overview.md) is a managed platform for hosting web applications that execute code on servers. Azure App Service supports many runtimes and frameworks including Node.js, ASP.NET Core, PHP, Java, and Python.
 
-## Overview
+When you link your Azure App Service web app to your static web app, any requests to your static web app with a route that starts with `/api` are proxied to the same route on the Azure App Service app.
 
-[Azure App Service](../app-service/overview.md) is a managed platform for hosting web applications that execute code on servers. It supports many runtimes and frameworks including Node.js, ASP.NET Core, PHP, Java, and Python.
-
-When you link your Azure App Service web app to your static web app, any requests to your static web app with a route that starts with `/api/` are proxied to the same route on the Azure App Service app.
-
-By default, when an App Service app is linked to a static web app, the App Service app only accepts requests that are proxied through the linked static web app. An Azure App Service app can be linked to a single static web app at a time.
+By default, when an App Service app is linked to a static web app, the App Service app only accepts requests that are proxied through the linked static web app. An Azure App Service app can only be linked to a single static web app at a time.
 
 All Azure App Service hosting plans are available for use with Azure Static Web Apps.
+
+[!INCLUDE [APIs overview](../../includes/static-web-apps-apis-overview.md)]
 
 > [!NOTE]
 > You cannot link a web app to a Static Web Apps [pull request environment](review-publish-pull-requests.md).
@@ -44,7 +42,7 @@ To link a web app as the API backend for a static web app, follow these steps:
 
 1. Select **Link**.
 
-When the linking process is complete, requests to routes beginning with `/api/` are proxied to the linked App Service app.
+When the linking process is complete, requests to routes beginning with `/api` are proxied to the linked App Service app.
 
 ### Manage access to Azure App Service
 
@@ -62,7 +60,7 @@ To unlink a web app from a static web app, follow these steps:
 
 1. Select **Unlink**.
 
-When the unlinking process is complete, requests to routes beginning with `/api/` are no longer proxied to your App Service app.
+When the unlinking process is complete, requests to routes beginning with `/api` are no longer proxied to your App Service app.
 
 > [!NOTE]
 > To prevent accidentally exposing your App Service app to anonymous traffic, the identity provider created by the linking process is not automatically deleted. You can delete the identity provider named *Azure Static Web Apps (Linked)* from the App Service app's authentication settings.
