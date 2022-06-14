@@ -31,3 +31,10 @@ When the request support details are received, quota will be reserved for a stre
 Once the private cloud has been created, you can peer both of the availability zones to your on-premises ExpressRoute circuit with Global Reach. This will help connect your on-premises datacenter to the private cloud. Peering both the AZs will ensure that an AZ failure does not result in a loss of connectivity to your private cloud. Since an ExpressRoute Auth Key is valid for only one connection, repeat the [Create an ExpressRoute auth key in the on-premises ExpressRoute circuit](https://docs.microsoft.com/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud#create-an-expressroute-auth-key-in-the-on-premises-expressroute-circuit) process to generate an additional authorization.
 
 Next, repeat the process to [peer](https://docs.microsoft.com/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud#peer-private-cloud-to-on-premises) the two availability zones to the on-premises ExpressRoute circuit.
+
+In this phase, while the creation of the private cloud and the first stretched cluster is enabled via the Azure portal, open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for other (#supported-scenarios) and configurations. While doing so, make sure you select **Stretched Clusters** as a Problem Type.  
+
+Once Stretched Clusters is made generally available, it is expected that all the following scenarios shall be enabled in an automated self-service fashion.
+
+## Supported Scenarios
+
