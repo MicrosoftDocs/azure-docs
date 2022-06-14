@@ -55,7 +55,7 @@ The orchestration trigger binding supports both inputs and outputs. Here are som
 
 ### Trigger sample
 
-The following example code shows what the simplest "Hello World" orchestrator function might look like. Note that this example orchestrator doesn't actually orchestrate anything.
+The following example code shows what the simplest "Hello World" orchestrator function might look like. Note that this example orchestrator doesn't actually schedule any tasks.
 
 # [C#](#tab/csharp)
 

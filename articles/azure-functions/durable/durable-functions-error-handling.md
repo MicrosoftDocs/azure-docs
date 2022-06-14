@@ -244,7 +244,7 @@ public String timerOrchestratorWithRetry(
             final int maxAttempts = 3;
             final Duration firstRetryInterval = Duration.ofSeconds(5);
             RetryPolicy policy = new RetryPolicy(maxAttempts, firstRetryInterval);
-            ctx.callActivity("FlakeyFunction", null, new TaskOptions(policy)).await();
+            ctx.callActivity("FlakeyFunction", new TaskOptions(policy)).await();
             // ...
         });
 }
@@ -306,7 +306,7 @@ PowerShell doesn't currently support custom retry handlers. However, you still h
 ```java
 RetryHandler retryHandler = retryCtx -> {
     // Don't retry anything that derives from RuntimeException
-    if (!retryCtx.getLastFailure().isCausedBy(RuntimeException.class)) {
+    if (retryCtx.getLastFailure().isCausedBy(RuntimeException.class)) {
         return false;
     }
 
@@ -316,7 +316,7 @@ RetryHandler retryHandler = retryCtx -> {
 
 TaskOptions options = new TaskOptions(retryHandler);
 try {
-    ctx.callActivity("FlakeyActivity", null, options).await();
+    ctx.callActivity("FlakeyActivity", options).await();
 } catch (TaskFailedException ex) {
     // Case when the retry handler returns false...
 }
