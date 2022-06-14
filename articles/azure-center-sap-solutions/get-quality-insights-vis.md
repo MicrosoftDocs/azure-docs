@@ -35,7 +35,7 @@ To open the Quality Insights workbook:
 
 There are multiple sections in the workbook:
 
-- Select the **Virtual Machine** tab to [find information about the VMs in your VIS](#see-vm-information)
+- Select the **Virtual Machine** tab to [find information about the VMs in your VIS](#get-vm-information)
 - Select the **Configuration Checks** tab to [see configuration checks for your VIS](#run-configuration-checks)
 
 ## Get VM information
