@@ -13,7 +13,7 @@ Data Collection Endpoints (DCEs) allow you to uniquely configure ingestion setti
 ## Workflows that use DCEs
 The following workflows currently use DCEs:
 
-- [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md)
+- [Azure Monitor agent when network isolation is required](../agents/azure-monitor-agent-data-collection-endpoint.md)
 - [Custom logs](../logs/custom-logs-overview.md)
 
 ## Components of a data collection endpoint
@@ -21,8 +21,8 @@ A data collection endpoint includes the following components.
 
 | Component | Description |
 |:---|:---|
-| Configuration access endpoint | The endpoint used to access the configuration service to fetch associated data collection rules (DCR). Example: `<unique-dce-identifier>.<regionname>.handler.control` |
-| Logs ingestion endpoint | The endpoint used to ingest logs to Log Analytics workspace(s). Example: `<unique-dce-identifier>.<regionname>.ingest` |
+| Configuration access endpoint | The endpoint used to access the configuration service to fetch associated data collection rules (DCR) for Azure Monitor agent.<br>Example: `<unique-dce-identifier>.<regionname>.handler.control` |
+| Logs ingestion endpoint | The endpoint used to ingest logs to Log Analytics workspace(s).<br>Example: `<unique-dce-identifier>.<regionname>.ingest` |
 | Network Access Control Lists (ACLs) | Network access control rules for the endpoints
 
 
@@ -53,8 +53,9 @@ Data collection endpoints only support Log Analytics workspaces as a destination
 # [REST API](#tab/restapi)
 
 
-1. Create data collection endpoint(s) using these [DCE REST APIs](/cli/azure/monitor/data-collection/endpoint).
-2. Create association(s) to link the endpoint(s) to your target machines or resources, using these [DCRA REST APIs](/rest/api/monitor/datacollectionruleassociations/create#examples).
+Create data collection endpoint(s) using the [DCE REST APIs](/cli/azure/monitor/data-collection/endpoint).
+
+Create associations between endpoints to your target machines or resources, using the [DCRA REST APIs](/rest/api/monitor/datacollectionruleassociations/create#examples).
 
 ---
 

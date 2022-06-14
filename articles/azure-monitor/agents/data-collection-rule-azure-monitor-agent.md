@@ -44,10 +44,12 @@ Additionally, choose the appropriate **Platform Type** which specifies the type 
 
 In the **Resources** tab, add the resources (virtual machines, virtual machine scale sets, Arc for servers) that should have the Data Collection Rule applied. The Azure Monitor Agent will be installed on resources that don't already have it installed, and will enable Azure Managed Identity as well.
 
-### Private link configuration using data collection endpoints
-If you need network isolation using private links for collecting data using agents from your resources, simply select existing endpoints (or create a new endpoint) from the same region for the respective resource(s) as shown below. See [how to create data collection endpoint](../essentials/data-collection-endpoint-overview.md).
+> [!IMPORTANT]
+> If you need network isolation using private links for collecting data using agents from your resources, then select **Enable Data Collection Endpoints** and select a DCE for each virtual machine. See [Enable network isolation for the Azure Monitor Agent](azure-monitor-agent-data-collection-endpoint.md) for details.
 
-[![Data Collection Rule virtual machines](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox)
+
+:::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machine.png" alt-text="Screenshot for adding virtual machines to data collection rule.":::
+
 
 On the **Collect and deliver** tab, click **Add data source** to add a data source and destination set. Select a **Data source type**, and the corresponding details to select will be displayed. For performance counters, you can select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs or facilities and the severity level. 
 

@@ -147,14 +147,6 @@ items:
       href: logs/data-security.md
     - name: Customer-managed keys
       href: logs/customer-managed-keys.md
-    - name: Private Link networking
-      items:
-      - name: Private Link overview
-        href: logs/private-link-security.md
-      - name: Private Link design
-        href: logs/private-link-design.md
-      - name: Private Link configuration
-        href: logs/private-link-configure.md
     - name: Private storage
       href: logs/private-storage.md
     - name: Personal log data handling
@@ -454,6 +446,14 @@ items:
         href: logs/tutorial-ingestion-time-transformations.md
       - name: Tutorial (API)
         href: logs/tutorial-ingestion-time-transformations-api.md
+    - name: Private Link networking
+      items:
+      - name: Private Link overview
+        href: logs/private-link-security.md
+      - name: Private Link design
+        href: logs/private-link-design.md
+      - name: Private Link configuration
+        href: logs/private-link-configure.md
     - name: Troubleshoot
       href: logs/data-collection-troubleshoot.md
   - name: Agents
