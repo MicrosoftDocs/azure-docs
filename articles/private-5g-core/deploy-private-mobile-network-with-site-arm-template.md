@@ -45,9 +45,9 @@ The following Azure resources are defined in the template.
 - [**Microsoft.MobileNetwork/mobileNetworks/services**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/services): a resource representing a service.
 - [**Microsoft.MobileNetwork/mobileNetworks/simPolicies**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/simPolicies): a resource representing a SIM policy.
 - [**Microsoft.MobileNetwork/mobileNetworks/sites**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/sites): a resource representing your site as a whole.
-- [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks): a resource providing configuration for the packet core instance's connection to a data network, including the IP address for the N6 interface and data subnet configuration.
-- [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes): a resource providing configuration for the user plane Network Functions of the packet core instance, including IP configuration for the N3 interface.
-- [**Microsoft.MobileNetwork/packetCoreControlPlanes**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes): a resource providing configuration for the control plane Network Functions of the packet core instance, including IP configuration for the N2 interface.
+- [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks): a resource providing configuration for the packet core instance's connection to a data network.
+- [**Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes): a resource providing configuration for the user plane Network Functions of the packet core instance, including IP configuration for the user plane interface on the access network.
+- [**Microsoft.MobileNetwork/packetCoreControlPlanes**](/azure/templates/microsoft.mobilenetwork/packetcorecontrolplanes): a resource providing configuration for the control plane Network Functions of the packet core instance, including IP configuration for the control plane interface on the access network.
 - [**Microsoft.MobileNetwork/mobileNetworks**](/azure/templates/microsoft.mobilenetwork/mobilenetworks): a resource representing the private mobile network as a whole.
 - [**Microsoft.MobileNetwork/sims:**](/azure/templates/microsoft.mobilenetwork/sims) a resource representing a physical SIM or eSIM.
 
@@ -76,18 +76,18 @@ The following Azure resources are defined in the template.
     |**Sim Policy Name**     | Leave this field unchanged.        |
     |**Slice Name**     | Leave this field unchanged.        |
     |**Control Plane Access Interface Name**     | Enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.        |
-    |**Control Plane Access Ip Address**    | Enter the IP address for the packet core instance's N2 signaling interface.        |
+    |**Control Plane Access Ip Address**    | Enter the IP address for the control plane interface on the access network.        |
     |**User Plane Access Interface Name**     | Enter the name of the interface that corresponds to port 5 on your Azure Stack Edge Pro device.        |
-    |**User Plane Access Interface Ip Address**     | Enter the IP address for the packet core instance's N3 interface.        |
+    |**User Plane Access Interface Ip Address**     | Enter the IP address for the user plane interface on the access network.        |
     |**Access Subnet**     | Enter the network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation.         |
     |**Access Gateway**     | Enter the access subnet default gateway.        |
     |**User Plane Data Interface Name**  | Enter the name of the interface that corresponds to port 6 on your Azure Stack Edge Pro device. |
-    |**User Plane Data Interface Ip Address**  | Enter the IP address for the packet core instance's N6 interface.  |
+    |**User Plane Data Interface Ip Address**  | Enter the IP address for the user plane interface on the data network.  |
     |**User Plane Data Interface Subnet**  | Enter the network address of the data subnet in CIDR notation. |
     |**User Plane Data Interface Gateway**  | Enter the data subnet default gateway. |
     |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
     |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
-    |**Core Network Technology**  | Leave this field unchanged. |
+    |**Core Network Technology**  | Enter `5GC` for 5G, or `EPC` for 4G. |
     |**Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.|
     |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|    
 

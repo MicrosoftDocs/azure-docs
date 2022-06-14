@@ -1,12 +1,13 @@
 ---
 title: SQL JOIN queries for Azure Cosmos DB
 description: Learn how to JOIN multiple tables in Azure Cosmos DB to query the data
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/27/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 
 ---
 # Joins in Azure Cosmos DB
@@ -215,7 +216,7 @@ The results are:
 ```
 
 > [!IMPORTANT]
-> This example uses mulitple JOIN expressions in a single query. There is a maximum amount of JOINs that can be used in a single query. For more information, see [SQL query limits](/azure/cosmos-db/concepts-limits#sql-query-limits).
+> This example uses mulitple JOIN expressions in a single query. There is a maximum amount of JOINs that can be used in a single query. For more information, see [SQL query limits](../concepts-limits.md#sql-query-limits).
 
 The following extension of the preceding example performs a double join. You could view the cross product as the following pseudo-code:
 

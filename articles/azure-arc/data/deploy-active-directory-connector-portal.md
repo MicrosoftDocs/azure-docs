@@ -15,6 +15,8 @@ ms.topic: how-to
 
 Active Directory (AD) connector is a key component to enable Active Directory authentication on Azure Arc-enabled SQL Managed Instances.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 This article explains how to deploy, manage, and delete an Active Directory (AD) connector in directly connected mode from the Azure portal. 
 
 ## Prerequisites

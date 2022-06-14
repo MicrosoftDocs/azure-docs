@@ -69,12 +69,16 @@
       href: ../../hdinsight/kafka/apache-kafka-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: HDInsight - Spark
       href: ../../hdinsight/spark/apache-spark-jupyter-spark-use-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Stream Analytics
+      href: ../../stream-analytics/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Azure Synapse Analytics - Dedicated SQL pool
       href: ../../synapse-analytics/sql-data-warehouse/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Compute
     items:
     - name: Batch
       href: ../../batch/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Functions
+      href: ../../azure-functions/functions-create-first-function-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Linux virtual machine
       href: ../../virtual-machines/linux/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Windows virtual machine

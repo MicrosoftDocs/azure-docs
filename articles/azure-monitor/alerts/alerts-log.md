@@ -12,10 +12,15 @@ ms.reviewer: yanivlavi
 
 This article shows you how to create log alert rules and manage your alert instances. Azure Monitor log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resource logs at a set frequency and fire an alert based on the results. Rules can trigger one or more actions using [alert processing rules](alerts-action-rules.md) and [action groups](./action-groups.md). Learn the concepts behind log alerts [here](alerts-types.md#log-alerts).
 
-When an alert is triggered by an alert rule, 
-- Target: A specific Azure resource to monitor.
-- Criteria: Logic to evaluate. If met, the alert fires.  
-- Action: Notifications or automation - email, SMS, webhook, and so on.
+You create an alert rule by combining:
+ - The resource(s) to be monitored.
+ - The signal or telemetry from the resource
+ - Conditions
+
+And then defining these elements of the triggered alert:
+ - Alert processing rules
+ - Action groups
+
 You can also [create log alert rules using Azure Resource Manager templates](../alerts/alerts-log-create-templates.md).
 ## Create a new log alert rule in the Azure portal
 
@@ -56,7 +61,7 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 
     |Field  |Description  |
     |---------|---------|
-    |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the Azure Resource ID column makes the specified resource into the alert target. If an Resource ID column is detected, it is selected automatically and changes the context of the fired alert to the record's resource.  |
+    |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the Azure Resource ID column makes the specified resource into the alert target. If a Resource ID column is detected, it is selected automatically and changes the context of the fired alert to the record's resource.  |
     |Operator|The operator used on the dimension name and value.  |
     |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
 
@@ -113,10 +118,11 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 > [!NOTE]
 > This section above describes creating alert rules using the new alert rule wizard. 
 > The new alert rule experience is a little different than the old experience. Please note these changes:
-> - Previously, search results were included in the payloads of the triggered alert and its associated notifications. This was a limited and error prone solution. To get detailed context information about the alert so that you can decide on the appropriate action :
->   - The recommended best practice it to use [Dimensions](alerts-unified-log.md#split-by-alert-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
->    - When you need to investigate in the logs, use the link in the alert to the search results in Logs.
->    - If you need the raw search results or for any other advanced customizations, use Logic Apps.
+> - Previously, search results were included in the payloads of the triggered alert and its associated notifications. This was a limited solution, since the email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results.
+>    To get detailed context information about the alert so that you can decide on the appropriate action :
+>     - We recommend using [Dimensions](alerts-unified-log.md#split-by-alert-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
+>     - When you need to investigate in the logs, use the link in the alert to the search results in Logs.
+>     - If you need the raw search results or for any other advanced customizations, use Logic Apps.
 > - The new alert rule wizard does not support customization of the JSON payload.
 >   - Use custom properties in the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to add static parameters and associated values to the webhook actions triggered by the alert.
 >    - For more advanced customizations, use Logic Apps.

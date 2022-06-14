@@ -20,7 +20,7 @@ ms.author: mathapli
 >The below article is scoped to Azure Hybrid Benefit for BYOS VMs (AHB BYOS) which caters to conversion of custom image VMs and RHEL or SLES BYOS VMs. For conversion of RHEL PAYG or SLES PAYG VMs, refer to [Azure Hybrid Benefit for PAYG VMs here](./azure-hybrid-benefit-linux.md). 
 
 >[!NOTE]
->Azure Hybrid Benefit for BYOS VMs is in Preview now. You can start using the capability on Azure by following steps provided in the [section below](#get-started).
+>Azure Hybrid Benefit for BYOS VMs is in Public Preview now. You can start using the capability on Azure by following steps provided in the [section below](#get-started).
 
 
 Azure Hybrid Benefit for BYOS VMs is a licensing benefit that helps you to get software updates and integrated support for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) directly from Azure infrastructure. This benefit is available to RHEL and SLES custom image VMs (VMs generated from on-premises images), and to RHEL and SLES Marketplace bring-your-own-subscription (BYOS) VMs.

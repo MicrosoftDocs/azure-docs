@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/03/2022
+ms.date: 06/09/2022
 author: chez-charlie
 ms.author: chez
 ---
@@ -41,8 +41,10 @@ All the linked service types are supported for parameterization.
 - Azure Blob Storage
 - Azure Cosmos DB (SQL API)
 - Azure Data Explorer
+- Azure Data Lake Storage Gen1
 - Azure Data Lake Storage Gen2
 - Azure Database for MySQL
+- Azure Database for PostgreSQL
 - Azure Databricks
 - Azure File Storage
 - Azure Function
@@ -59,6 +61,7 @@ All the linked service types are supported for parameterization.
 - OData 
 - Oracle
 - Oracle Cloud Storage
+- PostgreSQL
 - Salesforce
 - Salesforce Service Cloud
 - SFTP

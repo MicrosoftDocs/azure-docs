@@ -32,7 +32,7 @@ The scene will look like this:
 
 You'll need an Azure subscription to complete this quickstart. If you don't have one already, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
-You'll also need to download a sample 3D file to use for the scene in this quickstart. [Select this link to download RobotArms.glb](https://cardboardresources.blob.core.windows.net/public/RobotArms.glb).
+You'll also need to download a sample glTF (Graphics Language Transmission Format) 3D file to use for the scene in this quickstart. [Select this link to download RobotArms.glb](https://cardboardresources.blob.core.windows.net/public/RobotArms.glb).
 
 ## Set up Azure Digital Twins and sample data
 
@@ -89,7 +89,7 @@ To see the models that have been uploaded and how they relate to each other, sel
 
 Next, create a new storage account and a container in the storage account. 3D Scenes Studio will use this storage container to store your 3D file and configuration information. 
 
-You'll also set up read and write permissions to the storage account. In order to set these backing resources up quickly, this section uses the [Azure Cloud Shell](/azure/cloud-shell/overview).
+You'll also set up read and write permissions to the storage account. In order to set these backing resources up quickly, this section uses the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 1. Navigate to the [Cloud Shell](https://shell.azure.com) in your browser.
 
@@ -108,10 +108,10 @@ You'll also set up read and write permissions to the storage account. In order t
 
     :::image type="content"  source="media/quickstart-3d-scenes-studio/storage-account-id.png" alt-text="Screenshot of Cloud Shell output. The I D of the storage account is highlighted." lightbox="media/quickstart-3d-scenes-studio/storage-account-id.png":::
  
-1. Run the following command to grant yourself the *Storage Blob Data Owner* on the storage account. This level of access will allow you to perform both read and write operations in 3D Scenes Studio. The command contains placeholders for your Azure account and the ID of your storage account from the previous step.
+1. Run the following command to grant yourself the *Storage Blob Data Owner* on the storage account. This level of access will allow you to perform both read and write operations in 3D Scenes Studio. The command contains placeholders for the email associated with your Azure account and the ID of your storage account that you copied in the previous step.
 
     ```azurecli
-    az role assignment create --role "Storage Blob Data Owner" --assignee <your-Azure-account> --scope <ID-of-your-storage-account>
+    az role assignment create --role "Storage Blob Data Owner" --assignee <your-Azure-email> --scope <ID-of-your-storage-account>
     ```
 
     When the command completes successfully, you'll see details of the role assignment in the output.

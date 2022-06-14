@@ -163,7 +163,7 @@ See the [ARM template API specification](azure-resource-manager-api-spec.md) for
 
 ## Azure Files
 
-You can mount a file share from [Azure Files](/azure/storage/files/) as a volume inside a container.
+You can mount a file share from [Azure Files](../storage/files/index.yml) as a volume inside a container.
 
 Azure Files storage has the following characteristics:
 
@@ -184,7 +184,7 @@ To enable Azure Files storage in your container, you need to set up your contain
 | Requirement | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). |
-| Azure Storage account | [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-cli#create-a-storage-account-1). |
+| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account-1). |
 | Azure Container Apps environment | [Create a container apps environment](environment.md). |
 
 ### Configuration

@@ -10,6 +10,9 @@ ms.date: 5/6/2019
 ---
 
 # Optimize query time with the TOAST table storage strategy 
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 This article describes how to optimize query times with the oversized-attribute storage technique (TOAST) table storage strategy.
 
 ## TOAST table storage strategies
