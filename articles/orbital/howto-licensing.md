@@ -1,3 +1,4 @@
+---
 title: Spacecraft Licensing and Regulatory
 description: Learn how to license your spacecraft with Orbital.
 author: hrshelar
@@ -6,6 +7,7 @@ ms.topic: concepts
 ms.custom: ga
 ms.date: 06/13/2022
 ms.author: hrshelar
+---
 
 # Spacecraft Licensing and Regulatory
 
@@ -56,11 +58,11 @@ Upon authorization you will be billed amounts determined in Step 3 and our regul
 
 ## Step 5 - Spacecraft is authorized
 
-Once the licenses are in place, the spacecraft object will be updated by Orbital to represent the licenses held at the specified groundstations. Please refer to (Spacecraft)[concepts-spacecraft.md] to understand how the authorizations are applied.
+Once the licenses are in place, the spacecraft object will be updated by Orbital to represent the licenses held at the specified groundstations. Please refer to [Spacecraft](concepts-spacecraft.md) to understand how the authorizations are applied.
 
 ## FAQ
 
 Q. Are third party ground stations such as KSAT included in this process
-A. No, the process on this page applies to Microsoft sites only. Please refer to (Integrate with third party)[howto-thirdpary.md] for more details on licensing with partner sites.
+A. No, the process on this page applies to Microsoft sites only. Please refer to [Integrate with third party](howto-thirdpary.md) for more details on licensing with partner sites.
 
 
