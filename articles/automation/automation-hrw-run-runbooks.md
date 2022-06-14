@@ -164,11 +164,11 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
 
 1. You can grant this Managed Identity access to resources in your subscription in the Access control (IAM) blade for the resource by adding the appropriate role assignment.
 
-    :::image type="content" source="./media/automation-hrw-run-runbooks/select-managed-identities.png" alt-text="Screenshot of how to add role assignment in the Access control blade.":::
-
-2. Add the Azure Arc Managed Identity to your chosen role as required.
-
     :::image type="content" source="./media/automation-hrw-run-runbooks/access-control-add-role-assignment.png" alt-text="Screenshot of how to select managed identities.":::
+   
+2. Add the Azure Arc Managed Identity to your chosen role as required.
+    :::image type="content" source="./media/automation-hrw-run-runbooks/select-managed-identities.png" alt-text="Screenshot of how to add role assignment in the Access control blade.":::
+   
 
 > [!NOTE]
 > This will **NOT** work in an Automation Account which has been configured with an Automation account Managed Identity. As soon as the Automation account Managed Identity is enabled, it is no longer possible to use the Arc Managed Identity and then, it is **only** possible to use the Automation Account System-Assigned Managed Identity as mentioned in option 1 above.
