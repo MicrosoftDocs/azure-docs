@@ -21,7 +21,7 @@ Log Analytics is a tool in the Azure portal used to edit and run log queries wit
 
 - Identify the Kubernetes - Azure Arc resource representing the Azure Arc-enabled Kubernetes cluster on which your packet core instance is running.
 - Ensure you have [Contributor](../role-based-access-control/built-in-roles.md#contributor) role assignment on the Azure subscription containing the Kubernetes - Azure Arc resource.
-- Ensure your local machine has kubectl access to the Azure Arc-enabled Kubernetes cluster. 
+- Ensure your local machine has kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires an admin kubeconfig file. Contact your trials engineer for instructions on how to obtain this.
 
 ## Create an Azure Monitor extension
 
@@ -189,7 +189,7 @@ In this step, you'll configure and deploy a ConfigMap which will allow Container
     
     `kubectl apply -f 99-azure-monitoring-configmap.yml`
 
-   The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+   The command will return quickly with a message that's similar to the following: `configmap "container-azm-ms-agentconfig" created`. However, the configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time.
 
 ## Run a query
 
