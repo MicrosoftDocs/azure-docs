@@ -25,7 +25,7 @@ It's now available in following flavors:
 ## .NET
 ### Prerequisites
 * Visual Studio 2019 with the Azure development workload. You can get started with the [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) for free.
-* An Azure subscription. You can create [a free Azure account here](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Alternatively, you can create a Cosmos database account with [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
+* An Azure subscription. You can create [a free Azure account here](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Alternatively, you can create a Cosmos database account with [Try Azure Cosmos DB for free](/azure/cosmos-db/try-free) without an Azure subscription.
 * An Azure Cosmos DB Gremlin API database with an **unlimited collection**. The guide shows how to get started with [Azure Cosmos DB Gremlin API in .NET](./create-graph-dotnet.md).
 * Git. For more information check out the [Git Downloads page](https://git-scm.com/downloads).
 #### Clone
