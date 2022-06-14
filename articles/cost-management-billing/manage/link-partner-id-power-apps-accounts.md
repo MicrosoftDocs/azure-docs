@@ -14,9 +14,9 @@ ms.devlang: azurecli
 
 # Link a partner ID to your Power Platform and Dynamics Customer Insights accounts
 
-Microsoft partners who are Power Platform and Dynamics Customer Insights service providers work with their customers to manage, configure and support Power Platform and Customer Insights resources. To get credit for the services, you can associate your partner network ID with the Azure credential used for service delivery that's in your customers’ production environments using Partner Admin Link (PAL).
+Microsoft partners who are Power Platform and Dynamics 365 Customer Insights service providers work with their customers to manage, configure, and support Power Platform and Customer Insights resources. To get credit for the services, you can associate your partner network ID with the Azure credential used for service delivery that's in your customers’ production environments using the Partner Admin Link (PAL).
 
-The PAL allows Microsoft to identify and recognize partners that have Power Platform and Customer Insights customers. Microsoft attributes usage to a partner's organization based on the account's permissions (user role) and scope (tenant, resource, and so on). The attribution is used for Advanced Specializations, such as the [Microsoft Low Code Advanced Specializations](https://partner.microsoft.com/membership/advanced-specialization#tab-content-2), and [Partner Incentives](https://partner.microsoft.com/asset/collection/microsoft-commerce-incentive-resources#/). 
+PAL allows Microsoft to identify and recognize partners that have Power Platform and Customer Insights customers. Microsoft attributes usage to a partner's organization based on the account's permissions (user role) and scope (tenant, resource, and so on). The attribution is used for Advanced Specializations, such as the [Microsoft Low Code Advanced Specializations](https://partner.microsoft.com/membership/advanced-specialization#tab-content-2), and [Partner Incentives](https://partner.microsoft.com/asset/collection/microsoft-commerce-incentive-resources#/). 
 
 The following sections explain how to:
 
@@ -24,33 +24,33 @@ The following sections explain how to:
 2. Link your access account to your partner ID
 3. Attribute your access account to the product resource
 
-The actions that you take are done in sequence.
+We recommend taking these actions in the sequence above.
 
-The attribution step is critical and typically happens automatically, as the partner user is the one creating, editing, and updating the resource. To ensure success, we strongly recommended that you use Solutions where available to import your deliverables into the customers Production Environment via a Managed Solution. When you use Solutions, the account used to import the Solution becomes the owner of each deliverable inside the Solution. Linking the account to your partner ID ensures all deliverables inside the Solution are associated to your partner ID.
+The attribution step is critical and typically happens automatically, as the partner user is the one creating, editing, and updating the resource (i.e. the Power App application, the Power Automate flow, etc.). To ensure success, we strongly recommend that you use Solutions where available to import your deliverables into the customers Production Environment via a Managed Solution. When you use Solutions, the account used to import the Solution becomes the owner of each deliverable inside the Solution. Linking the account to your partner ID ensures all deliverables inside the Solution are associated to your partner ID, automatically handling step #3 above.
 
 > [!NOTE]
 > Solutions are not available for Power BI and Customer Insights. See detailed sections below. 
 
 :::image type="content" source="./media/link-partner-id-power-apps-accounts/partner-admin-link-steps.png" alt-text="Images showing the three steps listed above."  border="false" lightbox="./media/link-partner-id-power-apps-accounts/partner-admin-link-steps.png" :::
 
-## Get access from your customer
+## Get access accounts from your customer
 
 <a name="access"></a>
 
 Before you link your partner ID, your customer must give you access to their Power Platform or Customer Insights resources. They use one of the following options:
 
-* **Directory account** - Your customer can create a dedicated user account, or a user account to act as a service account, in their own directory, and provide access to the product(s) you're publishing to Production.
+* **Directory account** - Your customer can create a dedicated user account, or a user account to act as a service account, in their own directory, and provide access to the product(s) you're working on in production.
 * **Service principal** - Your customer can add an app or script from your organization in their directory and provide access to the product you're working on in production. 
 
 ## Link your access account to your partner ID
 
 <a name="link"></a>
 
-Linking your access account to your partner ID is also called *PAL association*. When you have access to either a Production Environment access account, you can use PAL to link the account to your Microsoft Partner Network ID (Location MPN ID)
+Linking your access account to your partner ID is also called *PAL association*. When you have access to a Production Environment access account, you can use PAL to link the account to your Microsoft Partner Network ID (Location MPN ID)
 
-For directory accounts (user or service), use the graphical web-based Azure portal, PowerShell or the Azure CLI to link to your Microsoft Partner Network ID (Location MPN ID).
+For directory accounts (user or service), use the graphical web-based Azure portal, PowerShell, or the Azure CLI to link to your Microsoft Partner Network ID (Location Account MPN ID).
 
-For service principal, use PowerShell or the Azure CLI to provide the link your Microsoft Partner Network ID (Location MPN ID). Link the partner ID to each customer resource.
+For service principal, use PowerShell or the Azure CLI to provide the link your Microsoft Partner Network ID (Location Account MPN ID). Link the partner ID to each customer resource.
 
 To use the Azure portal to link to a new partner ID:
 
@@ -58,7 +58,8 @@ To use the Azure portal to link to a new partner ID:
 2. Go to [Link to a partner ID](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) in the Azure portal.
 3. Enter the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated MPN ID** shown on your partner center profile. It's typically known as your [Partner Location Account MPN ID](/partner-center/account-structure).  
     :::image type="content" source="./media/link-partner-id-power-apps-accounts/link-partner-id.png" alt-text="Screenshot showing the Link to a partner ID window." lightbox="./media/link-partner-id-power-apps-accounts/link-partner-id.png" :::
-4. To link your partner ID to another customer, switch the directory. Under **Switch directory**, select the appropriate directory.
+
+Note: To link your partner ID to another customer, switch the directory. Under **Switch directory**, select the appropriate directory.
     
 For more information about using PowerShell or the Azure CLI, see [Use PowerShell, CLI, and other tools](#tooling).
 
@@ -66,9 +67,9 @@ For more information about using PowerShell or the Azure CLI, see [Use PowerShel
 
 <a name="attribute"></a>
 
-To count the usage of a specific resource, the partner user or guest account needs to be attributed to the *resource* for Power Platform or Dynamics Customer Insights. The account is the one that you received from your customer. It's the same account that was linked through the Partner Admin Link (PAL).
+To count the usage of a specific resource, the partner user or guest account needs to be attributed to the *resource* for Power Platform or Dynamics Customer Insights. The access account is the one that you received from your customer. It's the same account that was linked through the Partner Admin Link (PAL).
 
-The user or guest account doesn't need to be associated with a specific Azure subscription for Power Apps, Power Automate, Power BI, or Dynamics 365 Customer Insights. In many cases, it happens automatically, as the partner user is the one creating, editing, and updating the resource. Besides the logic below, the specific programs the PAL link is used for (such as the [Microsoft Low Code Advanced Specializations](https://partner.microsoft.com/membership/advanced-specialization#tab-content-2) or Partner Incentives) may have other requirements such as the resource needing to be in production and associated with paid usage.
+To ensure success, we strongly recommend that you use Solutions where available to import your deliverables into the customers Production Environment via a Managed Solution. When you use Solutions, the account used to import the Solution becomes the owner of each deliverable inside the Solution. Linking the account to your partner ID ensures all deliverables inside the Solution are associated to your partner ID, automatically handling this step.
 
 | Product | Primary Metric | Resource | Attributed User Logic |
 |---|---|---|---|
@@ -84,16 +85,16 @@ Other points about products:
   * You can only change the owner, not co-owner, using the PowerShell `Set-AdminPowerAppOwner` cmdlet.
   * The importing entity becomes the new owner when it's inside of a solution and it's imported into another environment.
 * **Power Apps - Model Driven Applications**
-  * Make sure the app creator has a PAL association.
+  * Make sure the app creator performs the PAL association.
   * There's *no* co-owner option, and you can't change the owner using the GUI or PowerShell directly.
   * The importing entity becomes the new owner when it's inside of a solution and it's imported into another environment.
 * **Power Automate**
-  * Make sure the flow creator has a PAL association
+  * Make sure the flow creator performs the PAL association
   * You can easily change the owner using the web GUI or with the PowerShell `Set-AdminFlowOwnerRole` cmdlet.
   * The importing entity becomes the new owner when it's inside of a solution and it's imported into another environment.
 * **Power BI**
-  * The act of publishing to the service sets the owner.
-  * Make sure the user publishing the report has a PAL association.
+  * The act of publishing to the Power BI service sets the owner.
+  * Make sure the user publishing the report performs the PAL association.
   * Use PowerShell to publish as any user or Service Account.
 
 ## Use PowerShell, Azure CLI, and other tools
