@@ -144,6 +144,9 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 
 1. In the **Create Array** form, select all the options. Three options are available for the **Enterprise** appliance.
 
+1. For "Data-at-Rest" encryption please review HPE guidance for activating RAID Secure Encryption or using Self-Encrypting-Drives (SED)
+
+
 ### Install Defender for IoT software on the HPE ProLiant DL20 or HPE ProLiant DL20 Plus
 
 This procedure describes how to install Defender for IoT software on the HPE ProLiant DL20 or HPE ProLiant DL20 Plus.
