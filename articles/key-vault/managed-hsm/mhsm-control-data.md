@@ -97,7 +97,7 @@ Microsoft designs, builds, and operates datacenters in a way that strictly contr
 - **[Cross region replication](../../availability-zones/cross-region-replication-azure.md)**   - Managed HSM is introducing new functionality (geo-replication) very soon that will allow you to deploy HSMs in a secondary region
 - **Disaster Recovery** - Azure offers an end-to-end backup and disaster recovery solution that is simple, secure, scalable and cost-effective
     - [Business continuity management program](/azure/availability-zones/business-continuity-management-program)
-    - [Azure site recovery](/azure/site-recovery)
+    - [Azure Site Recovery](/azure/site-recovery)
     - [Azure backup](/azure/backup/) - Planned integration with the Managed HSM
     - [Azure well-architected framework](/azure/architecture/framework/)
 - **[Microsoft Security Response Center](https://www.microsoft.com/msrc) (MSRC)** - Managed HSM service administration tightly integrated with MSRC
