@@ -18,6 +18,8 @@ keywords: face search by image, facial recognition search, facial recognition, f
 
 # Quickstart: Use the Face client library
 
+[!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](../includes/quickstarts-sdk/identity-csharp-sdk.md)]
