@@ -12,7 +12,7 @@ The articles in this section are intended for the professionals participating in
 
 The documentation is a work-in-progress and is being constantly updated. If you want to share any feedback for this document, you can email at AzNutanixPM@microsoft.com
 
-![Nutanix Preview](media/nutanix-public-preview/nutanix-preview.png)
+![Nutanix Preview](media/nutanix-preview.png)
 
 ## Unlock benefits of Azure
 
