@@ -53,7 +53,7 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 ##### [**Package (PyPI)**](https://pypi.org/project/azure-ai-translation-document/1.0.0/)
 
-##### [**SDK reference documentation**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python)
+##### [**SDK reference documentation**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python&preserve-view=true)
 
 ---
 

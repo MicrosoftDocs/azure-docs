@@ -163,7 +163,7 @@ That's it! You've created a program to translate documents in a storage containe
 
 ### [Python v1.0.0 (GA)](#tab/python)
 
-| [Package (PyPI)](https://pypi.org/project/azure-ai-translation-document/) |  [Client library](/python/api/overview/azure/ai-translation-document-readme?view=azure-python) |  [REST API](reference/rest-api-guide.md) | [Product documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-translation-document/latest/azure.ai.translation.document.html) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0/sdk/translation/azure-ai-translation-document/samples) |
+| [Package (PyPI)](https://pypi.org/project/azure-ai-translation-document/) |  [Client library](/python/api/overview/azure/ai-translation-document-readme?view=azure-python&preserve-view=true) |  [REST API](reference/rest-api-guide.md) | [Product documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-translation-document/latest/azure.ai.translation.document.html) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0/sdk/translation/azure-ai-translation-document/samples) |
 
 ### Set up your project
 
