@@ -98,6 +98,7 @@ To work with strings, you can use these string functions and also some [collecti
 | [formatNumber](../logic-apps/workflow-definition-language-functions-reference.md#formatNumber) | Return a number as a string based on the specified format |
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generate a globally unique identifier (GUID) as a string. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Return the starting position for a substring. |
+| [isFloat](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean indicating whether the string is an floating point number. |
 | [isInt](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean indicating whether the string is an integer. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Return the starting position for the last occurrence of a substring. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
@@ -2538,6 +2539,46 @@ int('10')
 ```
 
 And returns this result: `10`
+
+<a name="isFloat"></a>
+
+### isFloat
+
+Return a boolean indicating whether the string is a floating point number. By default, this function uses the invariant culture for the floating-point format. An RFC 4646 culture code may be supplied to identify floating points represented in other formats.
+
+```
+isFloat('<string>', '<locale>'?)
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Yes | String | The string to examine |
+| <*culture*> | No | String | RFC 4646 culture code |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*boolean-result*> | Boolean | A boolean indicating whether the string is a floating point number |
+
+*Example 1*
+
+This example tests a string that represents a floating point in the invariant culture:
+
+```
+isFloat('10,000.00')
+```
+
+And returns this result: `true`
+
+*Example 2*
+
+This example tests a string that represents a floating point in the German culture:
+
+```
+isFloat('10.000,00', 'de-DE')
+```
+
+And returns this result: `true`
 
 <a name="isInt"></a>
 
