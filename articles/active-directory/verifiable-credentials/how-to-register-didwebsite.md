@@ -35,19 +35,21 @@ If your trust system for the tenant is Web, you need register your website ID to
 
 1. Navigate to the Verifiable Credentials | Getting Started page.
 1. On the left side of the page select Domain.
-1. At the Website ID registration , click Review.
+1. At the Website ID registration, select Review.
 
    ![Domain](media/how-to-register-didwebsite/how-to-register-didwebsite-domain.png)
 1. Copy or download the DID document being displayed in the box
 
    ![did.json](media/how-to-register-didwebsite/how-to-register-didwebsite-diddoc.png)
 1. Upload the file to your webserver. The DID document JSON file needs to be uploaded to location /.well-known/did.json on your webserver.
-1. Once the file is available on your webserver, you need to click the Refresh registration status button to verify that the system can request the file.
+1. Once the file is available on your webserver, you need to select the Refresh registration status button to verify that the system can request the file.
 
 ## When is the DID document in the did.json file used?
-The DID document contains the public keys for your issuer and will be used both during issuance and presentation. An examples of this is when the Authenticator, as a wallet, wants validate the signature of a issuance or presentation request. 
+
+The DID document contains the public keys for your issuer and will be used both during issuance and presentation. An example of this is when the Authenticator, as a wallet, wants to validate the signature of an issuance or presentation request.
 
 ## When does the did.json file need to be republished to the webserver?
+
 The DID document in the did.json file needs to be republished if you changed the Linked Domain or if you rotate your signing keys.
 
 ## Next steps
