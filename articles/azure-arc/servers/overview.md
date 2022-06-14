@@ -75,7 +75,7 @@ The status for a connected machine can be viewed in the Azure portal under **Azu
 
 The Connected Machine agent sends a regular heartbeat message to the service every five minutes. If the service stops receiving these heartbeat messages from a machine, that machine is considered offline, and its status will automatically be changed to **Disconnected** within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed back to **Connected**. 
 
-If a machine remains disconnected for 45 days, its status may change to **expired**. An expired machine can no longer connect to Azure and requires a server administrator to disconnect and then reconnect it to Azure to continue managing it with Azure Arc. The exact date upon which a machine will expire is determined by the expiration date of the managed identity's credential, which is valid up to 90 days and renewed every 45 days.
+If a machine remains disconnected for 45 days, its status may change to **Expired**. An expired machine can no longer connect to Azure and requires a server administrator to disconnect and then reconnect it to Azure to continue managing it with Azure Arc. The exact date upon which a machine will expire is determined by the expiration date of the managed identity's credential, which is valid up to 90 days and renewed every 45 days.
 
 ## Service limits
 
