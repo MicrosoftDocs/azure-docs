@@ -24,7 +24,7 @@ The contact profile object should be part of the same subscription where the spa
 
 Please refer to [Quickstart: Configure a contact profile](contact-profile.md) for the full list of parameters.
 
-# Creating a Contact Profile
+## Creating a Contact Profile
 
 ## Prerequisites 
 
