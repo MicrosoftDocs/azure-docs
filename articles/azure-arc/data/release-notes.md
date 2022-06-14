@@ -35,13 +35,13 @@ For complete release version information, see [Version log](version-log.md#june-
 - Control DB SQL instance version is upgraded to latest version.
 - Additional compatibility checks are run prior to executing an upgrade request.
 - Upload status is now shown in the data controller list view in the Azure portal.
-- Show the usage upload message value in the Overview blade banner in the Azure Portal if the value is not **Success**.
+- Show the usage upload message value in the Overview blade banner in the Azure portal if the value is not **Success**.
 
 ### SQL Managed Instance
 
   - You can now configure a SQL managed instance to use an AD connector at the time the SQL managed instance is provisioned from the Azure portal.
   - BACKUP DATABASE TO URL to S3-compatible storage is now supported. [Documentation](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-s3-compatible-object-storage)
-  - `az sql mi-arc create` and `update` commands have a new `--sync-secondary-commit` parameter which is the number of secondary replicas that must be synchronized to failover. Default is `-1` which sets the number of required synchronized secondaries to (# of replicas - 1) / 2.  Allowed values: `-1`, `1`, or `2`.  Arc SQL MI custom resource property added called `syncSecondaryToCommit`.
+  - `az sql mi-arc create` and `update` commands have a new `--sync-secondary-commit` parameter which is the number of secondary replicas that must be synchronized to fail over. Default is `-1` which sets the number of required synchronized secondaries to (# of replicas - 1) / 2.  Allowed values: `-1`, `1`, or `2`.  Arc SQL MI custom resource property added called `syncSecondaryToCommit`.
   - Billing estimate in Azure portal is updated to reflect the number of readable secondaries that are selected.
   - Added SPNs for readable secondary service.
 
@@ -114,8 +114,8 @@ Add support for `NodeSelector`, `TopologySpreadConstraints` and `Affinity`.  Onl
 
 Add support for specifying labels and annotations on the secondary service endpoint. `REQUIRED_SECONDARIES_TO_COMMIT` is now a function of the number of replicas.  
 
-- If three replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
-- If one or two replicas, then `REQUIRED_SECONDARIES_TO_COMMIT = 0`.
+- If three replicas: `REQUIRED_SECONDARIES_TO_COMMIT = 1`.  
+- If one or two replicas: `REQUIRED_SECONDARIES_TO_COMMIT = 0`.
 
 In this release, the default value of the readable secondary service is `Cluster IP`.  The secondary service type can be set in the Kubernetes yaml/json at `spec.services.readableSecondaries.type`. In the next release, the default value will be the same as the primary service type.
 
