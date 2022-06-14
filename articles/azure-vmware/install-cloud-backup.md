@@ -3,7 +3,7 @@ title: Install Cloud Backup for Virtual Machines
 description: Cloud Backup for Virtual Machines is a plug-in installed in the Azure VMware Solution and enables you to back up and restore Azure NetApp Files datastores and Virtual Machines.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 06/20/2022
+ms.date: 06/27/2022
 ---
 
 # Install Cloud Backup for Virtual Machines
