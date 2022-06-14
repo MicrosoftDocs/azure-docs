@@ -44,7 +44,7 @@ To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you
 
 1. Enable the Azure AD Kerberos functionality using one of the following methods.
 
-    - Policy CSP: [Kerberos/CloudKerberosTicketRetrievalEnabled](../../windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled.md)
+    - Policy CSP: [Kerberos/CloudKerberosTicketRetrievalEnabled](../../windows/client-management/mdm/policy-csp-kerberos.md#kerberos-cloudkerberosticketretrievalenabled)
     - Group policy: `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
     - Registry value: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
 
