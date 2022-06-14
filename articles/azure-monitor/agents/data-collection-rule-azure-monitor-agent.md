@@ -14,12 +14,7 @@ This article describes how to create a [data collection rule](../essentials/data
 
 ## Data collection rule associations
 
-To apply a DCR to a virtual machine, you create an association for the virtual machine. A virtual machine may have an association to multiple DCRs, and a DCR may have multiple virtual machines associated to it. This allows you to define a set of DCRs, each matching a particular requirement, and apply them to only the virtual machines where they apply.
-
-For example, consider an environment with a set of virtual machines running a line of business application and others running SQL Server. You might have one default data collection rule that applies to all virtual machines and separate data collection rules that collect data specifically for the line of business application and for SQL Server. The associations for the virtual machines to the data collection rules would look similar to the following diagram.
-
-![Diagram shows virtual machines hosting line of business application and SQL Server associated with data collection rules named central-i t-default and lob-app for line of business application and central-i t-default and s q l for SQL Server.](media/data-collection-rule-azure-monitor-agent/associations.png)
-
+To apply a DCR to a virtual machine, you create a [data collection rule association](../data-collection.md#components) between the two. A virtual machine may have an association to multiple DCRs, and a DCR may have multiple virtual machines associated to it. This allows you to define a set of DCRs, each matching a particular requirement, and apply them to only the virtual machines where they apply. When you use the Azure portal, you simply choose the machines that should be associated with the DCR. Using other methods, you must explicitly create the data collection rule association. 
 
 ## Create rule and association in Azure portal
 
