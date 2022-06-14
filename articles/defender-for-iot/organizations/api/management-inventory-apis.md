@@ -384,4 +384,4 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 
 ## Next steps
 
-For more information, see the [Defender for IoT API reference overview](references-work-with-defender-for-iot-apis.md).
+For more information, see the [Defender for IoT API reference overview](../references-work-with-defender-for-iot-apis.md).

@@ -11,7 +11,7 @@ ms.topic: reference
 
 This article lists the APIs supported for integrating Microsoft Defender for IoT with partner services.
 
-For example, this API is currently implemented with [ServiceNow](tutorial-servicenow.md), via the ServiceNow Service Graph Connector for Defender for IoT.
+For example, this API is currently implemented with [Tutorial: Integrate ServiceNow with Microsoft Defender for IoT](../tutorial-servicenow.md), via the ServiceNow Service Graph Connector for Defender for IoT.
 
 > [!NOTE]
 > Integration APIs are meant to run continuously and create a constantly running data stream, such as to query for new data from the last five minutes. Integration APIs return data with a timestamp.
@@ -132,11 +132,11 @@ For example, this API is currently implemented with [ServiceNow](tutorial-servic
 | **u_vlans** | An array of **u_vlan** values, which defines the device's VLAN. |
 | **u_device_type** | Defines the device type. |
 | **u_name** | Defines the device name. |
-| **u_purdue_layer** |Defines the default [Purdue layer](plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot) for this device type. |
+| **u_purdue_layer** |Defines the default [Purdue layer](../plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot) for this device type. |
 | **u_category**  | Defines the device category as one of the following: <br><br>- **IT** <br>- **ICS** <br>- **IoT** <br>- **Network** |
 | **u_operating_system** | Defines the device operating system.|
 | **u_protocol_objects** | An array of **u_protocol** values, which defines the protocols used by the device. |
-| **u_purdue_layer** | Defines the device's [Purdue layer](plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot) layer, as manually defined by the user.|
+| **u_purdue_layer** | Defines the device's [Purdue layer](../plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot) layer, as manually defined by the user.|
 | **u_sensor_ids**| An array of **u_sensor_id** values, which defines the sensor IDs for any sensor that detected the device. |
 | **u_device_urls** | An array of **u_device_url** values, which defines the URLs used to view the device in the sensor. |
 | **u_firmwares** |An array of the following values: <!--do we define what these are?--><br><br>- **u_address** <br>- **u_module_address** <br>- **u_serial** <br>- **u_model** <br>- **u_version** <br>- **u_additional_data** |
@@ -253,5 +253,5 @@ An array of the following fields:
 
 For more information, see:
 
-- [Defender for IoT API reference overview](references-work-with-defender-for-iot-apis.md)
-- [Tutorial: Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md)
+- [Defender for IoT API reference overview](../references-work-with-defender-for-iot-apis.md)
+- [Tutorial: Integrate ServiceNow with Microsoft Defender for IoT](../tutorial-servicenow.md)

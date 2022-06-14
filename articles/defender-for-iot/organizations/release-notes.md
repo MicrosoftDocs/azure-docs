@@ -426,7 +426,7 @@ This new functionality is available on the following alerts:
 
 The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
 
-- The on-premises management console, has a new ServiceNow integration API. For more information, see [ServiceNow integration API reference (Public preview)](servicenow-api-reference.md).
+- The on-premises management console, has a new ServiceNow integration API. For more information, see [Integration API reference for on-premises management consoles (Public preview)](api/management-integration-apis.md).
 
 - Enhancements have been made to the network traffic analysis of multiple OT and ICS protocol dissectors.
 
