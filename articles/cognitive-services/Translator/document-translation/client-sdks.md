@@ -74,13 +74,13 @@ Within the application directory, install the Document Translation client librar
 #### **.NET CLI**
 
 ```console
-dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.2
+dotnet add package Azure.AI.Translation.Document --version 1.0.0
 ```
 
 #### **NuGet Package Manager**
 
 ```console
-Install-Package Azure.AI.Translation.Document -Version 1.0.0-beta.2
+Install-Package Azure.AI.Translation.Document -Version 1.0.0
 ```
 
 #### **NuGet PackageReference**
@@ -112,9 +112,9 @@ private static readonly string key = "<your key>";
 
 ### Translate a document or batch files
 
-* To Start a translation operation for one or more documents in a single blob container, you will call the `StartTranslationAsync` method.
+* To Start a translation operation for one or more documents in a single blob container, you'll call the `StartTranslationAsync` method.
 
-* To call `StartTranslationAsync` you need to initialize a `DocumentTranslationInput`  object that contains the following parameters:
+* To call `StartTranslationAsync`, you need to initialize a `DocumentTranslationInput`  object that contains the following parameters:
 
 * **sourceUri**. The SAS URI for the source container containing documents to be translated.
 * **targetUri** The SAS URI for the target container to which the translated documents will be written.

@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 05/24/2022
+ms.date: 06/14/2022
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -25,7 +25,9 @@ Translator service supports language translation for more than 100 languages. If
 
 ## June 2022
 
-### Document Translation stable / GA 1.0.0 release: Python and .NET client libraries
+### Document Translation stable GA 1.0.0 release
+
+Document Translation .NET and Python client-library SDKs are generally available and ready for use in production applications!
 
 ### [**C#**](#tab/csharp)
 
