@@ -70,15 +70,3 @@ A rule gets created and stored in a particular region and is backed up to the [p
 
 - [Read about the detailed structure of a data collection rule.](data-collection-rule-structure.md)
 - [Get details on transformations in a data collection rule.](data-collection-rule-transformations.md)
-
-
-
-## Types of data collection rules
-There are currently two types of data collection rule in Azure Monitor:
-.
-- **Standard DCR**. Used with different workflows that send data to Azure Monitor. Workflows currently supported are:
-  - [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) 
-  - [Custom logs (preview)](../logs/custom-logs-overview.md)
-
-
-- **Workspace transformation DCR**. Used with a Log Analytics workspace to apply [ingestion-time transformations (preview)](../logs/ingestion-time-transformations.md) to legacy workflows that don't currently support DCRs.
