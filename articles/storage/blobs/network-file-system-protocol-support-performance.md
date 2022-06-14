@@ -39,12 +39,12 @@ Each bar in the following chart shows the difference in achieved bandwidth betwe
 
 ## Improve read ahead size to increase large file read throughput
 
-The read_ahead_kb kernel parameter represents the amount of additional data that should be read after fulfilling a given read request. You can increase this parameter to 16MB to improve large file read throughput.
+The read_ahead_kb kernel parameter represents the amount of additional data that should be read after fulfilling a given read request. You can increase this parameter to 16MiB to improve large file read throughput.
 
 ```
 export AZMNT=/your/container/mountpoint
 
-echo 16300 > /sys/class/bdi/0:$(stat -c "%d" $AZMNT)/read_ahead_kb
+echo 16384 > /sys/class/bdi/0:$(stat -c "%d" $AZMNT)/read_ahead_kb
 ```
 
 ## Avoid frequent overwrites on data
