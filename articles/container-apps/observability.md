@@ -12,7 +12,7 @@ ms.author: v-bcatherine
 
 # Observability in Azure Container Apps
 
-Azure Container Apps provides several built-in observability features that give you a holistic view of your container app’s health throughout its application lifecycle.  These features help you monitor and diagnosis the state of your app to improve performance and respond to critical problems.
+Azure Container Apps provides several built-in observability features that give you a holistic view of your container app’s health throughout its application lifecycle.  These features help you monitor and diagnose the state of your app to improve performance and respond to critical problems.
 
 These features include:
 

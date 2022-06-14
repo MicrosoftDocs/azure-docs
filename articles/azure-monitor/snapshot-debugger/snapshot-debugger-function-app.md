@@ -21,7 +21,7 @@ For most applications, the Free and Shared service tiers don't have enough memor
 ## Enable Snapshot Debugger
 
 If you're running a different type of Azure service, here are instructions for enabling Snapshot Debugger on other supported platforms:
-* [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines and virtual machine scale sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
