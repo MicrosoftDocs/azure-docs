@@ -37,7 +37,7 @@ Four parties are typically involved in an OAuth 2.0 and OpenID Connect authentic
 
 ## Tokens
 
-The parties in an authentication flow use **bearer tokens** to assure verify and authenticate a principal (user, host or service) and to grant or deny access to protected resources (authorization). Bearer tokens in the Microsoft identity platform are formatted as [JSON Web Tokens](https://tools.ietf.org/html/rfc7519) (JWT).
+The parties in an authentication flow use **bearer tokens** to assure, verify, and authenticate a principal (user, host, or service) and to grant or deny access to protected resources (authorization). Bearer tokens in the Microsoft identity platform are formatted as [JSON Web Tokens](https://tools.ietf.org/html/rfc7519) (JWT).
 
 Three types of bearer tokens are used by the Microsoft identity platform as *security tokens*:
 
