@@ -8,14 +8,15 @@ ms.service: virtual-network
 ms.custom: subject-monitoring
 ms.date: 09/01/2021
 ---
+
 <!-- VERSION 2.3
 Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
 
-<!-- IMPORTANT STEP 1.  Do a search and replace of Public IP address with the name of your service. That will make the template easier to read -->
+<!-- IMPORTANT STEP 1.  Do a search and replace of [TODO-replace-with-service-name] with the name of your service. That will make the template easier to read -->
 
-# Monitoring Public IP address data reference
+# Monitoring [TODO-replace-with-service-name] data reference
 
-See [Monitoring Public IP address](monitor-public-ip.md) for details on collecting and analyzing monitoring data for Public IP address.
+See [Monitoring [TODO-replace-with-service-name]](monitor-service.md) for details on collecting and analyzing monitoring data for [TODO-replace-with-service-name].
 
 ## Metrics
 
@@ -31,7 +32,7 @@ See [Monitoring Public IP address](monitor-public-ip.md) for details on collecti
 
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
 
-This section lists all the automatically collected platform metrics collected for Public IP address.  
+This section lists all the automatically collected platform metrics collected for [TODO-replace-with-service-name].  
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
@@ -81,11 +82,11 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
 
-Public IP address does not have any metrics that contain dimensions.
+[TODO-replace-with-service-name] does not have any metrics that contain dimensions.
 
 *OR*
 
-Public IP address has the following dimensions associated with its metrics.
+[TODO-replace-with-service-name] has the following dimensions associated with its metrics.
 
 <!-- See https://docs.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
 
@@ -102,7 +103,7 @@ Azure Storage supports following dimensions for metrics in Azure Monitor.
 ## Resource logs
 <!-- REQUIRED. Please  keep headings in this order -->
 
-This section lists the types of resource logs you can collect for Public IP address. 
+This section lists the types of resource logs you can collect for [TODO-replace-with-service-name]. 
 
 <!-- List all the resource log types you can have and what they are for -->  
 
@@ -115,7 +116,7 @@ For reference, see a list of [all resource logs category types supported in Azur
 
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
 
-This section lists all the resource log category types collected for Public IP address.  
+This section lists all the resource log category types collected for [TODO-replace-with-service-name].  
 
 |Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
@@ -154,54 +155,16 @@ Resource Provider and Type: [Microsoft.web/sites/slots](/azure/azure-monitor/pla
 ## Azure Monitor Logs tables
 <!-- REQUIRED. Please keep heading in this order -->
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to Public IP address and available for query by Log Analytics. 
+This section refers to all of the Azure Monitor Logs Kusto tables relevant to [TODO-replace-with-service-name] and available for query by Log Analytics. 
 
-------------**OPTION 1 EXAMPLE** ---------------------
-
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
+<!--  Link to relevant bookmark in https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
-
-<!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
-
-|Resource Type | Notes |
-|-------|-----|
-| [Virtual Machines](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machines) | |
-| [Virtual machine scale sets](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machine-scale-sets) | |
-
---------------**OPTION 2 EXAMPLE** -------------
-
-<!--  OPTION 2 -  List out your tables adding additional information on what each table is for. Individually link to each table using the table name.  For example, link to [AzureMetrics](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azuremetrics).  
-
-NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the automatically generated list. You can group these sections however you want provided you include the proper links back to the proper tables. 
--->
-
-### Virtual Machines
-
-| Table |  Description | *TODO replace this label with proper title for your additional information*  |
-|:---------|:-------------|------------------|
-| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)   | <!-- description copied from previous link --> Entries from the Azure Activity log that provides insight into any subscription-level or management group level events that have occurred in Azure. | *TODO other important information about this type |
-| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | <!-- description copied from previous link --> Metric data emitted by Azure services that measure their health and performance.    | *TODO other important information about this type |
-|  etc.               |                              |                                                   |  
-
-### Virtual Machine Scale Sets
-
-| Table |  Description | *TODO replace this label with other information*  |
-|:---------|:-------------|------------------|
-| [ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/adassessmentrecommendation)   | <!-- description copied from previous link --> Recommendations generated by AD assessments that are started through a scheduled task. When you schedule the assessment it runs by default every 7 days and upload the data into Azure Log Analytics | *TODO other important information about this type |
-| [ADReplicationResult](/azure/azure-monitor/reference/tables/adreplicationresult) | <!-- description copied from previous link --> The AD Replication Status solution regularly monitors your Active Directory environment for any replication failures.    | *TODO other important information about this type |
-|  etc.               |                              |                                                   |  
-
-<!-- Add extra information if required -->
-
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
-
---------------**END EXAMPLES** -------------
 
 ### Diagnostics tables
 <!-- REQUIRED. Please keep heading in this order -->
 <!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
 
-Public IP address uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
+[TODO-replace-with-service-name] uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
 
 **Azure Diagnostics**
 
@@ -220,27 +183,29 @@ Public IP address uses the [Azure Diagnostics](/azure/azure-monitor/reference/ta
 ## Activity log
 <!-- REQUIRED. Please keep heading in this order -->
 
-The following table lists the operations related to Public IP address that may be created in the Activity log.
+The following table lists the operations that [TODO-replace-with-service-name] may record in the Activity log. This is a subset of the possible entries your might find in the activity log.
 
-<!-- Fill in the table with the operations that can be created in the Activity log for the service. -->
-| Operation | Description |
+<!-- Fill in the table with the operations that can be created in the Activity log for the service by gathering the links for your namespaces or otherwise explaning what's available. For example, see the bookmark https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations#microsoftbatch -->
+| Namespace | Description |
 |:---|:---|
 | | |
 | | |
 
-<!-- NOTE: This information may be hard to find or not listed anywhere.  Please ask your PM for at least an incomplete list of what type of messages could be written here. If you can't locate this, contact azmondocs@microsoft.com for help -->
+<!-- NOTE: Any additional operations may be hard to find or not listed anywhere.  Please ask your PM for at least any additional list of what messages could be written to the activity log. You can contact azmondocs@microsoft.com for help if needed. -->
+
+See [all the possible resource provider operations in the activity log](/azure/role-based-access-control/resource-provider-operations).  
 
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
 ## Schemas
-<!-- REQUIRED. Please keep heading in this order -->
+<!-- OPTIONAL. Please keep heading in this order -->
 
-The following schemas are in use by Public IP address
+The following schemas are in use by [TODO-replace-with-service-name]
 
-<!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
+<!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. JSON messages, API responses not listed in the REST API docs and other similar types of info can be put here.  -->
 
 ## See Also
 
 <!-- replace below with the proper link to your main monitoring service article -->
-- See [Monitoring Azure Public IP address](monitor-service-name.md) for a description of monitoring Azure Public IP address.
+- See [Monitoring Azure [TODO-replace-with-service-name]](monitor-service-name.md) for a description of monitoring Azure [TODO-replace-with-service-name].
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
