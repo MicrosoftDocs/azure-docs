@@ -31,7 +31,7 @@ The article details the steps to configure a Point-to-Site VPN on Windows (Windo
 
 - A virtual network with a private endpoint for the storage account containing the Azure file share you want to mount on-premises. To learn more about how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-powershell). 
 
-- A [gateway subnet](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub) must be created on the virtual network.
+- A [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) must be created on the virtual network.
 
 ## Collect environment information
 In order to set up the point-to-site VPN, we first need to collect some information about your environment for use throughout the guide. See the [prerequisites](#prerequisites) section if you have not already created a storage account, virtual network, gateway subnet, and/or private endpoints.
@@ -120,7 +120,7 @@ foreach($line in $rawRootCertificate) {
 ```
 
 ## Deploy virtual network gateway
-The Azure virtual network gateway is the service that your on-premises Windows machines will connect to. Before deploying the virtual network gateway, a [gateway subnet](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub) must be created on the virtual network.
+The Azure virtual network gateway is the service that your on-premises Windows machines will connect to. Before deploying the virtual network gateway, a [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) must be created on the virtual network.
 
 Deploying this service requires two basic components:
 
