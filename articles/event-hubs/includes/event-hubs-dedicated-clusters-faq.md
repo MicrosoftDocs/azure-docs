@@ -30,18 +30,18 @@ In the testing, the following criteria was used:
 - The data that was ingested was received by two receiver applications receiving from all partitions.
 
 ### Can I scale up/down my cluster?
-If your cluster is created with support for scaling, you can use the [self-serve experience](event-hubs-dedicated-cluster-create-portal.md), to scale out and scale in as needed.  
+If you created the cluster with the **Support Scaling** option set, you can use the [self-serve experience](event-hubs-dedicated-cluster-create-portal.md#enable-self-service-scaling-after-creating-the-cluster), to scale out and scale in as needed.  
 
-For existing non-scalable clusters, clusters are billed for a minimum of 4 hours of usage, after creation. You can submit a [support request](https://portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under **Technical** > **Quota** > **Request to Scale Up or Scale Down Dedicated Cluster** to scale your cluster up or down. It may take up to 7 days to complete the request to scale down your cluster.  
+For existing non-scalable clusters, submit a [support request](https://portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under **Technical** > **Quota** > **Request to Scale Up or Scale Down Dedicated Cluster** to scale your cluster up or down. It may take up to 7 days to complete the request to scale down your cluster.  
 
-Due to difference in the backend architecture, it's not possible to migrate non-scalable clusters to self-serve scalable clusters. If you would wish to use self-serve scaling, you must recreate the cluster with the support for scaling. To learn how to create scalable cluster, see [Scale your Event Hubs dedicated cluster](event-hubs-dedicated-cluster-create-portal.md). 
+Due to difference in the backend architecture, it's not possible to migrate non-scalable clusters to self-serve scalable clusters. If you would wish to use self-serve scaling, you must recreate the cluster with the support for scaling. To learn how to create scalable cluster, see [Create an Event Hubs dedicated cluster](event-hubs-dedicated-cluster-create-portal.md). 
 
 
 ### When to scale my dedicated cluster? 
 CPU consumption is the key indicator of the resource consumption of your dedicated cluster. When the overall CPU consumption is reaching 70% (without observing any abnormal conditions such as high number of server errors or low successful requests), that means your cluster is moving towards its maximum capacity.  Therefore you can use this as an indicator to consider whether you need to scale up your dedicated cluster or not.
 
-To monitor the CPU usage of the dedicated cluster you need to follow these steps. 
-- In the metrics blade of your Event Hubs Dedicated cluster, add a new metric in the Event Hubs as shown below. 
+To monitor the CPU usage of the dedicated cluster, you need to follow these steps. 
+- In the metrics page of your Event Hubs Dedicated cluster, add a new metric in the Event Hubs as shown below. 
 :::image type="content" source="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png" alt-text="Dedicated cluster CPU consumption metric" lightbox="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png":::
 
 

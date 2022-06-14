@@ -9,7 +9,7 @@ ms.date: 06/14/2022
 
 *Event Hubs clusters* offer **single-tenant** deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our dedicated pricing tier. An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within the dedicated cluster include all features of the premium offering and more, but without any ingress limits. It also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost. The Event Hubs Capture feature allows you to automatically batch and log data streams to Azure Storage or Azure Data Lake Storage. 
 
-Clusters are provisioned and billed by **capacity units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16 or 20 CUs for each cluster. How much you can ingest and stream per CU depends on a variety of factors, such as the following ones: 
+Clusters are provisioned and billed by **capacity units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16 or 20 CUs for each cluster. How much you can ingest and stream per CU depends on various factors, such as the following ones: 
 
 - Number of producers and consumers
 - Payload shape
@@ -28,7 +28,7 @@ A dedicated cluster guarantees capacity at full scale. It can ingress up to giga
 The dedicated offering includes features like [Event Hubs Capture](event-hubs-capture-overview.md) at no additional cost and exclusive access to features like [Bring Your Own Key (BYOK)](configure-customer-managed-key.md). The service also manages load balancing, operating system updates, security patches, and partitioning. So, you can spend less time on infrastructure maintenance and more time on building client-side features.  
 
 ### Self-Serve scaling capabilities  
-The dedicated tier offers self-serve scaling capabilities to adjust according to dynamic loads and facilitate business operations. You can scale out during spikes in usage and scale in when the usage is low . To learn more about how to scale your dedicated cluster, see [Scale Event Hubs dedicated clusters]().
+The dedicated tier offers self-serve scaling capabilities that allow you to adjust the capacity of the cluster according to dynamic loads and to facilitate business operations. You can scale out during spikes in usage and scale in when the usage is low. To learn how to scale your dedicated cluster, see [Scale Event Hubs dedicated clusters](event-hubs-dedicated-cluster-create-portal.md). 
 
 ## Quotas and limits
 The Event Hubs dedicated offering is billed at a fixed monthly price, with a **minimum of 4 hours of usage**. The dedicated tier offers all the features of the premium plan, but with enterprise-scale capacity and limits for customers with demanding workloads. 
