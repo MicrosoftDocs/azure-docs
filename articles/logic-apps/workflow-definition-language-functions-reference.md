@@ -1245,7 +1245,7 @@ This example splits a string into chunks of length 10:
 chunk('abcdefghijklmnopqrstuvwxyz', 10)
 ```
 
-And returns this result: [`abcdefghij', 'klmnopqrst', 'uvwxyz']
+And returns this result: `['abcdefghij', 'klmnopqrst', 'uvwxyz']`
 
 *Example 2*
 
