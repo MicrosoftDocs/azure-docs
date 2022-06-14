@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: conceptual
 ms.author: srranga
 author: sr-msft
-ms.date: 11/08/2021
+ms.date: 06/14/2022
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Single Server
@@ -30,7 +30,7 @@ For servers which support up to 4-TB maximum storage, full backups occur once ev
 
 #### Servers with up to 16-TB storage
 
-In a subset of [Azure regions](./concepts-pricing-tiers.md#storage), all newly provisioned servers can support up to 16-TB storage. Backups on these large storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. Differential snapshot backups do not occur on a fixed schedule. In a day, three differential snapshot backups are performed. Transaction log backups occur every five minutes. 
+In a subset of [Azure regions](./concepts-pricing-tiers.md#storage), all newly provisioned servers can support up to 16-TB storage. Backups on these large storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. Differential snapshot backups do not occur on a fixed schedule.  In a day, multiple differential snapshot backups are performed, but only 3 backups are retained. Transaction log backups occur every five minutes. 
 
 > [!NOTE]
 > Automatic backups are performed for [replica servers](./concepts-read-replicas.md) that are configured with up to 4TB storage configuration.
