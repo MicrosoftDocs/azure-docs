@@ -750,6 +750,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/create-front-door-cli.md",
+      "redirect_url": "/azure/frontdoor/create-front-door-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
       "redirect_url": "/aspnet/core/security/authorization/secure-data",
       "redirect_document_id": false
@@ -6929,6 +6934,11 @@
     {
       "source_path_from_root": "/articles/azure-functions/functions-bindings-event-iot-output.md",
       "redirect_url": "/azure/azure-functions/functions-bindings-event-hubs-output",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-bindings-errors.md",
+      "redirect_url": "/azure/azure-functions/functions-bindings-error-pages",
       "redirect_document_id": false
     },
     {
@@ -35509,6 +35519,11 @@
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-studio-role-based-access-control.md",
       "redirect_url": "/azure/cognitive-services/speech-service/role-based-access-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-speech-translation.yml",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-translation",
       "redirect_document_id": false
     },
     {
