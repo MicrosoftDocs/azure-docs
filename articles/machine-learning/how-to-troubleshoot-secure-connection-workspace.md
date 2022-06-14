@@ -18,6 +18,8 @@ When connecting to a workspace that has been configured with a private endpoint,
 
 ## DNS configuration
 
+The troubleshooting steps for DNS configuration differ based on whether you are using Azure DNS or a custom DNS. Use the following steps to determine which one you are using:
+
 1. On the Private Endpoint, select the link to the right of __Network Interface__.
 1. Under __Settings__, select __IP Configurations__
 1. Select the __Virtual network__ link.
@@ -27,6 +29,8 @@ When connecting to a workspace that has been configured with a private endpoint,
     * If there's a different IP address listed, then the VNet is using a custom DNS solution. Skip to the [Custom DNS troubleshooting](#custom-dns-troubleshooting) section.
 
 ### Custom DNS troubleshooting
+
+Use the following steps to verify if your custom DNS solution is correctly resolving names to IP addresses:
 
 1. From a virtual machine, laptop, desktop, or other compute resource that has a working connection to the private endpoint, open a web browser and visit the URL in the following table that matches your Azure region:
 
@@ -52,8 +56,10 @@ When connecting to a workspace that has been configured with a private endpoint,
     ```
 
 1. If the `nslookup` command returns an error, or returns a different IP address than displayed in the portal, then the custom DNS solution isn't configured correctly. For more information, see [How to use your workspace with a custom DNS server](how-to-custom-dns.md)
+
 ### Azure DNS troubleshooting
-#### Is Private DNS integration correct?
+
+When using Azure DNS for name resolution, use the following steps to verify that the Private DNS integration is configured correctly:
 
 1. On the Private Endpoint, select __DNS configuration__.
 1. For each entry in the __Private DNS zone__ column, there should also be an entry in the __DNS zone group__ column. If there's a Private DNS zone entry, but no DNS zone group entry, delete and recreate the Private Endpoint. When recreating the private endpoint, __enable Private DNS zone integration__.
