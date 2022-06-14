@@ -223,7 +223,7 @@ monitor = monitor.enable_schedule()
 <a name="studio-monitor"></a>
 
 1. Navigate to the [studio's homepage](https://ml.azure.com).
-1. Select the **Datasets** tab on the left. 
+1. Select the **Data** tab on the left. 
 1. Select **Dataset monitors**.
    ![Monitor list](./media/how-to-monitor-datasets/monitor-list.png)
 
