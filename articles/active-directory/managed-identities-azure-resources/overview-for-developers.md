@@ -267,7 +267,7 @@ var credentialOptions = new DefaultAzureCredentialOptions
 {
     ManagedIdentityClientId = clientID;
 };
-var msiCredential = new DefaultAzureCredential(credentialOptions);        
+var credential = new DefaultAzureCredential(credentialOptions);        
 
 var client = new SecretClient(
     new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"),
