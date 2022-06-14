@@ -54,7 +54,7 @@ callComposite.events.onRemoteParticipantJoined = { identifiers in
       switch result {
       case .success:
         print("Set participant view data succeeded")
-      case .failure(leterror):
+      case .failure(let error):
         print("Set participant view data failed with \(error)")
       }
     }
