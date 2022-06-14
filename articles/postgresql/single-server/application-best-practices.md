@@ -12,15 +12,20 @@ ms.date: 12/10/2020
 
 # Best practices for building an application with Azure Database for PostgreSQL
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Here are some best practices to help you build a cloud-ready application by using Azure Database for PostgreSQL. These best practices can reduce development time for your app.
 
 ## Configuration of application and database resources
 
 ### Keep the application and database in the same region
+
 Make sure all your dependencies are in the same region when deploying your application in Azure. Spreading instances across regions or availability zones creates network latency, which might affect the overall performance of your application.
 
 ### Keep your PostgreSQL server secure
+
 Configure your PostgreSQL server to be [secure](./concepts-security.md) and not accessible publicly. Use one of these options to secure your server:
+
 - [Firewall rules](./concepts-firewall-rules.md)
 - [Virtual networks](./concepts-data-access-and-security-vnet.md)
 - [Azure Private Link](./concepts-data-access-and-security-private-link.md)
@@ -28,15 +33,19 @@ Configure your PostgreSQL server to be [secure](./concepts-security.md) and not 
 For security, you must always connect to your PostgreSQL server over SSL and configure your PostgreSQL server and your application to use TLS 1.2. See [How to configure SSL/TLS](./concepts-ssl-connection-security.md).
 
 ### Tune your server parameters
+
 For read-heavy workloads tuning server parameters, `tmp_table_size` and `max_heap_table_size` can help optimize for better performance. To calculate the values required for these variables, look at the total per-connection memory values and the base memory. The sum of per-connection memory parameters, excluding `tmp_table_size`, combined with the base memory accounts for total memory of the server.
 
 ### Use environment variables for connection information
+
 Do not save your database credentials in your application code. Depending on the front end application, follow the guidance to set up environment variables. For App service use, see [how to configure app settings](../../app-service/configure-common.md#configure-app-settings) and for Azure Kubernetes service, see [how to use Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
 
 ## Performance and resiliency
+
 Here are a few tools and practices that you can use to help debug performance issues with your application.
 
 ### Use Connection Pooling
+
 With connection pooling, a fixed set of connections is established at the startup time and maintained. This also helps reduce the memory fragmentation on the server that is caused by the dynamic new connections established on the database server. The connection pooling can be configured on the application side if the app framework or database driver supports it. If that is not supported, the other recommended option is to leverage a proxy connection pooler service like [PgBouncer](https://pgbouncer.github.io/) or [Pgpool](https://pgpool.net/mediawiki/index.php/Main_Page) running outside the application and connecting to the database server. Both PgBouncer and Pgpool are community based tools that work with Azure Database for PostgreSQL.
 
 ### Retry logic to handle transient errors
