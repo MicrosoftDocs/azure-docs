@@ -75,6 +75,63 @@ You can also use the Azure CLI to assign a public endpoint with the following co
 az spring api-portal update --assign-endpoint
 ```
 
+## Setup route information definition of APIs
+To display APIs and try out with schema definition in API portal, you need to configure route config in Spring Cloud Gateway for Tanzu.
+1. To create an app in Azure Spring Apps which the gateway will route traffic to.
+2. Generate the OpenAPI definition and get the URI to access it. Two types of URI are accepted.
+    - The first one is a public accessible endpoint like the URI `https://petstore3.swagger.io/api/v3/openapi.json` which includes the OpenAPI specification.
+    - The second option is to put the OpenAPI definition in the relative path of the app in Azure Spring Apps, and construct the URI in the format `http://<app-name>/<relative-path-to-OpenAPI-spec>`. You can choose tools like `SpringDocs` to generate OpenAPI specification automatically, so the URI can be like `http://<app-name>/v3/api-docs`.
+3. Assign a public endpoint to gateway to access it
+```azurecli
+az spring gateway update \
+    --assign-endpoint \
+```
+4. Use the following command to configure Spring Cloud Gateway for Tanzu properties:
+```azurecli
+az spring gateway update \
+    --api-description "<api-description>" \
+    --api-title "<api-title>" \
+    --api-version "v0.1" \
+    --server-url "<endpoint-in-the-previous-step>" \
+    --allowed-origins "*"
+```
+5.  Configure routing rules to apps.
+
+Create rules to access the app in Spring Cloud Gateway route config, save the following contents to the *sample.json* file.
+```json
+{
+   "open_api": {
+      "uri": "https://petstore3.swagger.io/api/v3/openapi.json"
+   },
+   "routes": [
+      {
+         "title": "Petstore",
+         "description": "Route to application",
+         "predicates": [
+            "Path=/pet",
+            "Method=PUT"
+         ],
+         "filters": [
+            "StripPrefix=0",
+         ]
+      }
+   ]
+}
+```
+The `open_api.uri` is the public endpoint or constructed URI by the second step. You can add predicates and filters for paths defined in your OpenAPI specification.
+
+Use the following command to apply the rule to the app created in the first step:
+
+```azurecli
+az spring gateway route-config create \
+    --name sample \
+    --app-name <app-name> \
+    --routes-file sample.json
+```
+
+6. Check the response of created routes, you can also view the routes in the portal.
+
+
 ## View the route information through API portal
 
 > [!NOTE]
@@ -84,11 +141,8 @@ Select the `endpoint URL` to go to API portal. You'll see all the routes configu
 
 :::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal.png" alt-text="Screenshot of A P I portal showing configured routes.":::
 
+
 ## Try APIs using API portal
-
-> [!NOTE]
-> Only `GET` operations are supported in the public preview.
-
 1. Select the API you would like to try.
 1. Select **EXECUTE** and the response will be shown.
 

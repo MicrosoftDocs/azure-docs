@@ -115,9 +115,10 @@ This section describes how to add, update, and manage API routes for apps that u
 
 ### Define route config
 
-The route definition includes the following parts:
+The route config definition includes the following parts:
 
 - appResourceId: The full app resource ID to route traffic to
+- OpenAPI URI: The URI points to an OpenAPI specification,  both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification later can be shown in API portal to try out. Two types of URI are accepted, the first one is a public endpoint like `https://petstore3.swagger.io/api/v3/openapi.json`, and the second one is a constructed URL `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `app-name` is the name of an application in Azure Spring Apps which includes the API definition.
 - routes: A list of route rules about how the traffic goes to one app
 
 The following tables list the route definitions. All the properties are optional.
@@ -181,30 +182,33 @@ Use the following steps to create an example application using Spring Cloud Gate
    Save the following content to the *customers-service.json* file.
 
    ```json
-   [
-      {
-         "title": "Customers service",
-         "description": "Route to customer service",
-         "predicates": [
-            "Path=/api/customers-service/owners"
-         ],
-         "filters": [
-            "StripPrefix=2"
-         ],
-         "tags": [
-            "pet clinic"
-         ]
-      }
-   ]
+   {
+      "routes": [
+         {
+            "title": "Customers service",
+            "description": "Route to customer service",
+            "predicates": [
+               "Path=/api/customers-service/owners",
+               "Method=GET"
+            ],
+            "filters": [
+               "StripPrefix=2",
+            ],
+            "tags": [
+               "pet clinic"
+            ]
+         }
+      ]
+   }
    ```
 
-   Use the following command to apply the rule to the app `customers-service`:
+    Use the following command to apply the rule to the app `customers-service`:
 
    ```azurecli
    az spring gateway route-config create \
-       --name customers-service-rule \
-       --app-name customers-service \
-       --routes-file customers-service.json
+      --name customers-service-rule \
+      --app-name customers-service \
+      --routes-file customers-service.json
    ```
 
    You can also view the routes in the portal.
