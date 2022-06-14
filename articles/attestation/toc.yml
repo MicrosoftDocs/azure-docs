@@ -61,7 +61,7 @@
   - name: Workflow
     href: workflow.md
   - name: View logs
-    href: audit-logs.md
+    href: view-logs.md
 - name: References
   items:
   - name: Regional availability
