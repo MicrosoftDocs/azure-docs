@@ -60,6 +60,6 @@ Please refer to (How to Schedule a contact)[schedule-contact.md] for the Portal 
 
 The API can be used as well to create a contact. Please refer to (link to API docs) for this method.
 
-# Status fields
+## Status fields
 
 Scheduled, Expired, Succeeded
