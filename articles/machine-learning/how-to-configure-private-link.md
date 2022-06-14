@@ -364,8 +364,7 @@ az ml workspace update \
     -g <resource-group-name>
 ```
 
-> [!TIP]
-> You can also enable public network access by using a YAML file. For more information, see the [workspace YAML reference](reference-yaml-workspace.md).
+You can also enable public network access by using a YAML file. For more information, see the [workspace YAML reference](reference-yaml-workspace.md).
 
 # [Azure CLI extension 1.0](#tab/azurecliextensionv1)
 
