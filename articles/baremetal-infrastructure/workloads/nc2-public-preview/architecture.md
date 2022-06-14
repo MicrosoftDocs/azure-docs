@@ -12,12 +12,13 @@ In this article, we'll look at the architectural options for BareMetal Infrastru
 
 ## Deployment Example
 
-![Infographic of Microsoft Azure components used to migrate IBM i workloads to Skytap on Azure](media/migrate-ibm-i-series-applications-800.png)
+<!--- ![Infographic of Microsoft Azure components used to migrate IBM i workloads to Skytap on Azure](media/migrate-ibm-i-series-applications-800.png)
 
- [View a larger version of the image](media/migrate-ibm-i-series-applications-v2.png)
+ [View a larger version of the image](media/migrate-ibm-i-series-applications-v2.png) -->
 
-[![Deployment](Public Preview archiecture](media/nutanix-baremetal-architecture/nutanix-deployment-architecture.png)#lightbox)
- [View a larger version of the image](media/nutanix-baremetal-architecture/nutanix-deployment-architecture-large.png)
+![Public Preview architecture](media/nutanix-baremetal-architecture/nutanix-deployment-architecture.png#lightbox)
+
+[View a larger version of the image](media/nutanix-baremetal-architecture/nutanix-deployment-architecture-large.png)
 
 ### Cluster Management virtual network
 
