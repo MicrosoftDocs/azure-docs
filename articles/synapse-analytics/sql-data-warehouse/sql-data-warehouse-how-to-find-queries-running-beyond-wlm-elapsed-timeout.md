@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot misclassified workload in a dedicated SQL pool
-description: Identify and troubleshoot scenarios where workloads are misclassified to unintended workload groups in a dedicated SQL pool in Azure Synapse Analytics.   
+title: Troubleshoot queries running beyond workload group query execution timeout
+description: Identify queries that are running beyond the workload groups query execution timeout value.   
 author: kedodd
 ms.author: kedodd
 manager: craigg
@@ -12,7 +12,7 @@ ms.custom: template-how-to
 ms.reviewer: wiassaf
 ---
 
-# Troubleshooting a misclassified workload in Azure Synapse Analytics
+# Troubleshoot queries running beyond workload group query execution timeout
 
 This article covers guidance on how to identify queries that are running beyond the query_execution_timeout_sec value configured for the workload group. 
 
