@@ -6,7 +6,7 @@ ms.service: orbital
 ms.topic: concepts
 ms.custom: ga
 ms.date: 06/13/2022
-ms.author: hrshelar, mablondeel
+ms.author: hrshelar, mablonde
 ---
 
 # Prepare resources for Orbital GSaaS integration
