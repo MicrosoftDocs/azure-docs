@@ -48,7 +48,7 @@ To check which version your packet core instance is currently at, and whether th
 
     :::image type="content" source="media/upgrade-packet-core-azure-portal/upgrade-version.png" alt-text="Screenshot of the Azure portal showing the Upgrade version option.":::
 
-1. From the versions drop-down list, select the recommended packet core version.
+1. From the **New version** dropdown list, select the recommended packet core version.
     > [!IMPORTANT]
     > You can upgrade or downgrade to any version of packet core. However, distributed tracing and packet core data might be lost when you move in or out of unsupported packet core versions.
 
