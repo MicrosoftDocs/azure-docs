@@ -52,7 +52,7 @@ To enable media optimization for Teams, set the following registry key on the ho
 
 ### Install the Teams WebSocket Service
 
-Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWQ1UW) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
+Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4YM8L) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
 
 #### Latest WebSocket Service versions
 
@@ -60,11 +60,18 @@ The following table lists the latest versions of the WebSocket Service:
 
 |Version        |Release date  |
 |---------------|--------------|
+|1.17.2205.23001|06/15/2022    |
 |1.4.2111.18001 |12/02/2021    |
 |1.1.2110.16001 |10/15/2021    |
 |1.0.2106.14001 |07/29/2021    |
 |1.0.2006.11001 |07/28/2020    |
 |0.11.0         |05/29/2020    |
+
+### Updates for version 1.17.2205.23001
+
+- Fixed an issue that made the WebRTC redirector service disconnect from Teams on Azure Virtual Desktop.
+- Added keyboard shortcut detection for Shift+Ctrl+; that lets users turn on a diagnostic overlay during calls on Teams for Azure Virtual Desktop. This feature is supported in versions 1.2.3297 or later of the Windows Desktop client. 
+- Added further stability and reliability improvements to the service.
 
 #### Updates for version 1.4.2111.18001
 
