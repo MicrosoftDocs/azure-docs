@@ -59,7 +59,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 | Subscription           | Select an Azure subscription. Your private endpoint must be in the same subscription as your virtual network. You will select a virtual network later in this how-to guide. | *MyAzureSubscription*    |
 | Resource group         | Select a resource group or create a new one.                                                                                                                                | *AppConfigStore*         |
 | Name                   | Enter a name for the new private endpoint for your App Configuration store.                                                                                                 | *MyPrivateEndpoint*      |
-| Network Interface Name | This field is completed automatically. Optionally edit the name of the network interface.                                                                                   | *AMyPrivateEndpoint-nin* |
+| Network Interface Name | This field is completed automatically. Optionally edit the name of the network interface.                                                                                   | *MyPrivateEndpoint-nin* |
 | Region                 | Select a region. Your private endpoint must be in the same region as your virtual network.                                                                                  | *Central US*             |
 
    :::image type="content" source="./media/private-access-endpoint.png" alt-text="Screenshot of the Azure portal, create a private endpoint, basics tab.":::
@@ -94,7 +94,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
     az network private-endpoint create -g <resource-group> -n <private-endpoint-name> --vnet-name <vnet-name> --subnet Default --private-connection-resource-id <private-connection-resource-id> --connection-name <connection-name> -l <location> --group-id configurationStores
     ```
 
-[!div class="mx-tdBreakAll"]
+> [!div class="mx-tdBreakAll"]
 > | Command                          | Placeholder                        | Example                                                                                                        | Description                                               |
 > |----------------------------------|------------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
 > | -g                               | `<resource-group>`                 | AppConfigStore                                                                                                 | Create or select an existing resource group               |
