@@ -38,7 +38,7 @@ Please refer to [Quickstart: Configure a contact profile](contact-profile.md) fo
 
 The same can be done through the API. Please refer to link to API here-
 
-# Modifying a Contact Profile
+## Modifying a Contact Profile
 
 You can modify the contact profile via the Portal or through the API.
 
