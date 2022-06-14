@@ -2400,6 +2400,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/aks/ingress-internal-ip.md",
+      "redirect_url": "/azure/aks/ingress-basic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/ingress-own-tls.md",
+      "redirect_url": "/azure/aks/ingress-tls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/ingress-static-ip.md",
+      "redirect_url": "/azure/aks/ingress-tls",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/container-service/kubernetes/container-service-kubernetes-jenkins.md",
       "redirect_url": "/azure/aks/jenkins-continuous-deployment",
       "redirect_document_id": false
