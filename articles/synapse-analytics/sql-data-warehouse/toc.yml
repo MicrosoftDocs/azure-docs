@@ -350,6 +350,8 @@ items:
       href: sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md
     - name: Troubleshooting a missed classification
       href: sql-data-warehouse-how-to-troubleshoot-missed-classification.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+    - name: Troubleshooting queries running beyond workload group timeout
+      href: sql-data-warehouse-how-to-find-queries-running-beyond-wlm-elapsed-timeout.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
   - name: Manage and monitor
     items:
     - name: Upgrade to Gen2
