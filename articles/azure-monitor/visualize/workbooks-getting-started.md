@@ -24,7 +24,7 @@ You can access Workbooks in a few ways:
 The gallery opens. Select a saved workbook or a template from the gallery, or search for the name in the search bar.
 
 ## Start a new workbook
-To start a new workbook, select the **Empty** template under **Quick start**, or the **New** icon in the top navigation bar. For more information on creating new workbooks, see [Create a workbook](workbooks-create-a-workbook.md).
+To start a new workbook, select the **Empty** template under **Quick start**, or the **New** icon in the top navigation bar. For more information on creating new workbooks, see [Create a workbook](workbooks-create-workbook.md).
 
 ## Save a workbook
 To save a workbook, save the report with a specific title, subscription, resource group, and location.
