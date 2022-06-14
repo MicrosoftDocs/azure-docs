@@ -2098,15 +2098,16 @@ And return these results:
 
 ### float
 
-Convert a string version for a floating-point number to an actual floating point number. You can use this function only when passing custom parameters to an app, for example, a logic app or flow.
+Convert a string version for a floating-point number to an actual floating point number. You can use this function only when passing custom parameters to an app, for example, a logic app or flow. You may optionally specify an RFC 4646 locale code in order to convert floating-point strings represented in those locale-specific formats.
 
 ```
-float('<value>')
+float('<value>', '<locale>'?)
 ```
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Yes | String | The string that has a valid floating-point number to convert. The minimum and maximum values are the same as the limits for the float data type. |
+| <*locale*> | No | String | The locale to use. <br><br>If not specified, default locale is used. <br><br>If *locale* isn't a valid value, an error is generated that the provided locale isn't valid or doesn't have an associated locale. |
 |||||
 
 | Return value | Type | Description |
@@ -2114,15 +2115,25 @@ float('<value>')
 | <*float-value*> | Float | The floating-point number for the specified string. The minimum and maximum values are the same as the limits for the float data type. |
 ||||
 
-*Example*
+*Example 1*
 
 This example creates a string version for this floating-point number:
 
 ```
-float('10.333')
+float('10,000.333')
 ```
 
-And returns this result: `10.333`
+And returns this result: `10000.333`
+
+*Example 2*
+
+This example creates a string version for this German-style floating-point number:
+
+```
+float('10.000,333', 'de-DE')
+```
+
+And returns this result: `10000.333`
 
 <a name="formatDateTime"></a>
 
