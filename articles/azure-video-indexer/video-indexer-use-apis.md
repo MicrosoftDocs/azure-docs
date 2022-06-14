@@ -203,14 +203,16 @@ Debug.WriteLine("Player Widget url:");
 Debug.WriteLine(playerWidgetLink);
 ```
 
-## Considerations
-
-* The JSON output produced by the API contains `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility).
-* We do not recommend that you use data directly from the artifacts folder for production purposes. Artifacts are intermediate outputs of the indexing process. They are essentially raw outputs of the various AI engines that analyze the videos; the artifacts schema may change over time. It is recommended that you use the [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index) API, as described in [Get insights and artifacts produced by the API](video-indexer-output-json-v2.md#get-insights-produced-by-the-api).
-
 ## Clean up resources
 
 After you are done with this tutorial, delete resources that you are not planning to use.
+
+## Considerations
+
+* The JSON output produced by the API contains `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility).
+* We do not recommend that you use data directly from the artifacts folder for production purposes. Artifacts are intermediate outputs of the indexing process. They are essentially raw outputs of the various AI engines that analyze the videos; the artifacts schema may change over time. 
+
+    It is recommended that you use the [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index) API, as described in [Get insights and artifacts produced by the API](video-indexer-output-json-v2.md#get-insights-produced-by-the-api) and **not** [Get-Video-Artifact-Download-Url](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url).
 
 ## See also
 
