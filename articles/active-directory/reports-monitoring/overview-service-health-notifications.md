@@ -28,7 +28,7 @@ Azure Service Health has been updated to provide notifications to tenant admins 
 
 When there happens to be a Service Health notification for an Azure Active Directory service, it will be posted to the Service Health page within the Azure portal.  Previously these were subscription events that were posted to all the subscription owners/readers of subscriptions within the tenant that had an issue.  To improve the targeting of these notifications, they'll now be available as tenant events to the tenant admins of the impacted tenant.  For a transition period, these service events will be available as both tenant events and subscription events. 
 
-Now that they're available as tenant events. In the Azure AD overview page, they're available  as alert cards. Any Service Health notification that has been updated within the last 3 days will be shown in one of the cards.   
+Now that they're available as tenant events, they appear on the Azure AD overview page as alert cards. Any Service Health notification that has been updated within the last 3 days will be shown in one of the cards.   
 
  
 ![Azure Service Health overview page](./media/overview-service-health-notifications/service-health-overview.png)
