@@ -49,7 +49,7 @@ output of deployment script or reset the password
 
 ## Configuration via Command-line Arguments for OPC Publisher 2.8.2 and above
 
-There are [several command-line arguments](reference-command-line-arguments#opc-publisher-command-line-arguments-for-version-282-and-above) that can be used to set global settings for OPC Publisher.
+There are [several command-line arguments](reference-command-line-arguments.md#opc-publisher-command-line-arguments-for-version-282-and-above) that can be used to set global settings for OPC Publisher.
 Refer to the `mode` part in the command line description to check if a command line argument is applicable to orchestrated or standalone mode. 
 
 ## Next steps

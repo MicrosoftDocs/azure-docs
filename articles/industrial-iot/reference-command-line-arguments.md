@@ -393,7 +393,7 @@ There are a couple of environment variables, which can be used to control the ap
 
 The following OPC Publisher configuration can be applied by Command Line Interface (CLI) options or as environment variable settings.
 The `Alternative` field, where present, refers to the CLI argument applicable in **standalone mode only**. When both environment variable and CLI argument are provided, the latest will overrule the env variable.
-
+```
         PublishedNodesFile=VALUE
                                       The file used to store the configuration of the nodes to be published
                                       along with the information to connect to the OPC UA server sources
@@ -833,6 +833,7 @@ The `Alternative` field, where present, refers to the CLI argument applicable in
                                       Mode: Standalone
                                       Type: boolean
                                       Default: false
+```
 
 ## Next steps
 Further resources can be found in the GitHub repositories:
