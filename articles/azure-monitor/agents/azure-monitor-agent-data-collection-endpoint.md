@@ -33,7 +33,7 @@ For your data collection endpoint(s), ensure **Accept access from public network
 
 
 
- Associate the data collection endpoints to the target resources, using the data collection rules experience in Azure portal. This results in the agent using the configured the data collection endpoint(s) for network communications. See [Configure data collection for the Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md).
+ Associate the data collection endpoints to the target resources by editing the data collection rule in Azure portal. From the **Resources** tab, select **Enable Data Collection Endpoints** and select a DCE for each virtual machine. See [Configure data collection for the Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md).
 
 
 :::image type="content" source="media/azure-monitor-agent-dce/data-collection-rule-virtual-machines-with-endpoint.png" lightbox="media/azure-monitor-agent-dce/data-collection-rule-virtual-machines-with-endpoint.png" alt-text="Screenshot for configuring data collection endpoint for an agent.":::
