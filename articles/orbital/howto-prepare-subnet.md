@@ -56,32 +56,33 @@ You can use this information to setup network policies or to distinguish between
 
 Note:
 
+1. The source and destination IPs are always taken from the subnet address range
 1. Only one destination IP is present. Any link in client mode should connect to this IP and the links are differentiated based on port.
 1. Many source IPs can be present. Links in server mode will connect to your specified IP address in the contact profile. The flows will originate from the source IPs present in this field and target the port as per the link details in the contact profile. There is no fixed assignment of link to source IP so please make sure to allow all IPs in any networking setup or firewalls. 
 
 
 ## Client/Server, TCP/UDP, and link direction
 
-Here is how to appropriately setup the link flows.
+Here is how to appropriately setup the link flows. Note the scope of the platform assigned IP addresses are on a per contact basis.
 
 ### Uplink
 
-| Setting                        | TCP Client                 | TCP Server                           | UDP Client                 | UDP Server                           |
-|--------------------------------|----------------------------|--------------------------------------|----------------------------|--------------------------------------|
-| Contact Profile Link ipAddress | Blank                      | Routable IP in delegated subnet      | Blank                      | Routable IP in delegated subnet      |
-| Contact Profile Link port      | Unique port in 49152-65535 | Unique port in 49152-65535           | Unique port in 49152-65535 | Unique port in 49152-65535           |
-| Output                         |                            |                                      |                            |                                      |
-| Contact Object destinationIP   | Connect to this IP         | NA                                   | Connect to this IP         | NA                                   |
-| Contact Object sourceIP        | NA                         | Link will come from one of these IPs | NA                         | Link will come from one of these IPs |
+| Setting                          | TCP Client                   | TCP Server                             | UDP Client                   | UDP Server                             |
+|----------------------------------|------------------------------|----------------------------------------|------------------------------|----------------------------------------|
+| Contact Profile Link ipAddress   | Blank                        | Routable IP from delegated subnet      | Blank                        | Routable IP from delegated subnet      |
+| Contact Profile Link port        | Unique port in 49152-65535   | Unique port in 49152-65535             | Unique port in 49152-65535   | Unique port in 49152-65535             |
+| **Output**                       |                              |                                        |                              |                                        |
+| Contact Object destinationIP     | Connect to this IP           | NA                                     | Connect to this IP           | NA                                     |
+| Contact Object sourceIP          | NA                           | Link will come from one of these IPs   | NA                           | Link will come from one of these IPs   |
 
 
 
 ### Downlink
 
-| Setting                        | TCP Client                 | TCP Server                           | UDP Client                 | UDP Server                           |
-|--------------------------------|----------------------------|--------------------------------------|----------------------------|--------------------------------------|
-| Contact Profile Link ipAddress | Blank                      | Routable IP in delegated subnet      | Blank                      | Routable IP in delegated subnet      |
-| Contact Profile Link port      | Unique port in 49152-65535 | Unique port in 49152-65535           | Unique port in 49152-65535 | Unique port in 49152-65535           |
-| Output                         |                            |                                      |                            |                                      |
-| Contact Object destinationIP   | Connect to this IP         | NA                                   | Connect to this IP         | NA                                   |
-| Contact Object sourceIP        | NA                         | Link will come from one of these IPs | NA                         | Link will come from one of these IPs |
+| Setting                          | TCP Client                   | TCP Server                             | UDP Client                   | UDP Server                             |
+| -------------------------------- | ---------------------------- | -------------------------------------- | ---------------------------- | -------------------------------------- |
+| Contact Profile Link ipAddress   | Blank                        | Routable IP from delegated subnet      | Blank                        | Routable IP from delegated subnet      |
+| Contact Profile Link port        | Unique port in 49152-65535   | Unique port in 49152-65535             | Unique port in 49152-65535   | Unique port in 49152-65535             |
+| **Output**                       |                              |                                        |                              |                                        |
+| Contact Object destinationIP     | Connect to this IP           | NA                                     | Connect to this IP           | NA                                     |
+| Contact Object sourceIP          | NA                           | Link will come from one of these IPs   | NA                           | Link will come from one of these IPs   |
