@@ -64,11 +64,6 @@ Use this table as a guide:
 
 This option is available for blob Storage only. By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.
 
-> [!NOTE]
-> In the current release, if you plan to copy blobs between storage accounts, you'll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](#transfer-data).
-
-To authorize access by using Azure AD, see [Authorize access to blobs with AzCopy and Azure Active Directory (Azure AD)](storage-use-azcopy-authorize-azure-active-directory.md).
-
 #### Option 2: Use a SAS token
 
 You can append a SAS token to each source or destination URL that use in your AzCopy commands.
