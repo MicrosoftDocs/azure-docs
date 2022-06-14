@@ -106,14 +106,14 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 
 ## Add role assignment for Control plane identity
 
-For creating and using your own VNet, attached Azure disk, static IP address, route table or user-assigned kubelet identity where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you are using an ARM template or other method, you need to use the PrincipalID of the cluster managed identity to perform a role assignment. 
+For creating and using your own VNet, attached Azure disk, static IP address, route table or user-assigned kubelet identity where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you are using an ARM template or other method, you need to use the Principal ID of the cluster managed identity to perform a role assignment. 
 
 > [!NOTE]
 > If you are not using the CLI but using your own VNet, attached Azure disk, static IP address, route table or user-assigned kubelet identity which are outside of the worker node resource group, it's recommended to use [user-assigned control plane identity][Bring your own control plane managed identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
 
-### Get the PrincipalID of Control plane identity
+### Get the Principal ID of Control plane identity
 
-You can find existing identity's PrincipalID by running the following command:
+You can find existing identity's Principal ID by running the following command:
 
 ```azurecli-interactive
 az identity show --ids <identity-resource-id>
@@ -127,7 +127,7 @@ The output should resemble the following:
   "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
   "location": "eastus",
   "name": "myIdentity",
-  "principalId": "<object-id>",
+  "principalId": "<principal-id>",
   "resourceGroup": "myResourceGroup",
   "tags": {},
   "tenantId": "<tenant-id>",
@@ -186,7 +186,7 @@ The output should resemble the following:
   "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
   "location": "westus2",
   "name": "myIdentity",
-  "principalId": "<principalId>",
+  "principalId": "<principal-id>",
   "resourceGroup": "myResourceGroup",                       
   "tags": {},
   "tenantId": "<tenant-id>",
@@ -255,7 +255,7 @@ The output should resemble the following:
   "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
   "location": "westus2",
   "name": "myIdentity",
-  "principalId": "<principalId>",
+  "principalId": "<principal-id>",
   "resourceGroup": "myResourceGroup",                       
   "tags": {},
   "tenantId": "<tenant-id>",
@@ -278,7 +278,7 @@ The output should resemble the following:
   "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
   "location": "westus2",
   "name": "myKubeletIdentity",
-  "principalId": "<principalId>",
+  "principalId": "<principal-id>",
   "resourceGroup": "myResourceGroup",                       
   "tags": {},
   "tenantId": "<tenant-id>",
@@ -378,7 +378,7 @@ For user-assigned control plane identity, the output should look like:
   "type": "UserAssigned",
   "userAssignedIdentities": <identity-resource-id>
       "clientId": "<client-id>",
-      "principalId": "<object-id>"
+      "principalId": "<principal-id>"
 },
 ```
 
@@ -399,7 +399,7 @@ The output should resemble the following:
   "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity", 
   "location": "westus2",
   "name": "myKubeletIdentity",
-  "principalId": "<principalId>",
+  "principalId": "<principal-id>",
   "resourceGroup": "myResourceGroup",                       
   "tags": {},
   "tenantId": "<tenant-id>",
