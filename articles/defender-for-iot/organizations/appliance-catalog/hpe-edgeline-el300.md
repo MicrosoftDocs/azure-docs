@@ -9,7 +9,7 @@ ms.topic: reference
 
 This article describes the HPE Edgeline EL300 appliance for OT sensors or on-premises management consoles.
 
-Legacy appliances are certified but aren't currently offered as pre-configured appliances.
+Legacy appliances are certified but aren't currently offered as preconfigured appliances.
 
 
 | Appliance characteristic |Details |
@@ -17,7 +17,7 @@ Legacy appliances are certified but aren't currently offered as pre-configured a
 |**Hardware profile** | SMB|
 |**Performance** |Max bandwidth: 100 Mbp/s<br>Max devices: 800 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
-|**Status** | Supported, Not available pre-configured|
+|**Status** | Supported, not available, preconfigured|
 
 The following image shows a view of the back panel of the HPE Edgeline EL300.
 
@@ -74,10 +74,10 @@ Installation includes:
 - Configuring BIOS settings
 - Installing Defender for IoT software
 
-A default administrative user is provided. We recommend that you change the password during the network configuration.
+A default administrative user is provided, and we recommend that you change the password during the network configuration.
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install the software on a preconfigured device or buy your hardware and configure the appliance yourself.
 >
 
 ### Enable remote access
