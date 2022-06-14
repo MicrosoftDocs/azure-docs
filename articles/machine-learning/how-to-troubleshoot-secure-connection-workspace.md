@@ -16,31 +16,17 @@ ms.date: 06/09/2022
 
 When connecting to a workspace that has been configured with a private endpoint, you may encounter a 403 or a messaging saying that access is forbidden. Use the information in this article to check for common configuration problems that can cause this error.
 
-## DNS configuration
+## Name resolution (DNS)
 
 1. On the Private Endpoint, select the link to the right of __Network Interface__.
 1. Under __Settings__, select __IP Configurations__
 1. Select the __Virtual network__ link.
-1. From the __Settings__ section on the left of the page, select the __DNS servers__ entry. If this value is __Default (Azure-provided)__ or __168.63.129.16__, then the VNet is using Azure DNS. If there's a different IP address listed, the VNet is using a custom DNS solution.
+1. From the __Settings__ section on the left of the page, select the __DNS servers__ entry.
 
-### Is Private DNS integration correct?
+    * If this value is __Default (Azure-provided)__ or __168.63.129.16__, then the VNet is using Azure DNS. Skip to the [Azure DNS troubleshooting](#azure-dns-troubleshooting) section.
+    * If there's a different IP address listed, then the VNet is using a custom DNS solution. Skip to the [Custom DNS troubleshooting](#custom-dns-troubleshooting) section.
 
-1. On the Private Endpoint, select __DNS configuration__.
-1. For each entry in the __Private DNS zone__ column, there should also be an entry in the __DNS zone group__ column. If there's a Private DNS zone entry, but no DNS zone group entry, delete and recreate the Private Endpoint. When recreating the private endpoint, __enable Private DNS zone integration__.
-1. If __DNS zone group__ isn't empty, select the link for the __Private DNS zone__ entry.
-1. From the Private DNS zone, select __Virtual network links__. If the VNet is using __Azure DNS__, ensure this Private DNS zone has a link to the VNet. If it doesn't, then delete and recreate the private endpoint. When recreating it, select a Private DNS Zone linked to the VNet or create a new one that is linked to it.
-1. Repeat the previous steps for the rest of the Private DNS zone entries.
-
-### Disable DNS over HTTPS
-
-If the previous sections didn't resolve the problem, see if DNS over HTTP is enabled in your web browser. DNS over HTTP can prevent Azure DNS from responding with the IP address of the Private Endpoint.
-
-* [Disable in Firefox](https://support.mozilla.org/en-US/kb/firefox-dns-over-https)
-* Chromium Microsoft Edge
-    * Search for DNS in Microsoft Edge settings: image.png
-    * Ensure "Use secure DNS to specify how to look up the network address for websites" is disabled
-
-### Troubleshoot custom DNS
+### Custom DNS troubleshooting
 
 1. From a virtual machine, laptop, desktop, or other compute resource that has a working connection to the private endpoint, open a web browser and visit the URL in the following table that matches your Azure region:
 
@@ -66,6 +52,23 @@ If the previous sections didn't resolve the problem, see if DNS over HTTP is ena
     ```
 
 1. If the `nslookup` command returns an error, or returns a different IP address than displayed in the portal, then the custom DNS solution isn't configured correctly. For more information, see [How to use your workspace with a custom DNS server](how-to-custom-dns.md)
+### Azure DNS troubleshooting
+#### Is Private DNS integration correct?
+
+1. On the Private Endpoint, select __DNS configuration__.
+1. For each entry in the __Private DNS zone__ column, there should also be an entry in the __DNS zone group__ column. If there's a Private DNS zone entry, but no DNS zone group entry, delete and recreate the Private Endpoint. When recreating the private endpoint, __enable Private DNS zone integration__.
+1. If __DNS zone group__ isn't empty, select the link for the __Private DNS zone__ entry.
+1. From the Private DNS zone, select __Virtual network links__. If the VNet is using __Azure DNS__, ensure this Private DNS zone has a link to the VNet. If it doesn't, then delete and recreate the private endpoint. When recreating it, select a Private DNS Zone linked to the VNet or create a new one that is linked to it.
+1. Repeat the previous steps for the rest of the Private DNS zone entries.
+
+## Browser configuration (DNS over HTTPS)
+
+Check if DNS over HTTP is enabled in your web browser. DNS over HTTP can prevent Azure DNS from responding with the IP address of the Private Endpoint.
+
+* Mozilla Firefox: For more information, see [Disable DNS over HTTPS in Firefox](https://support.mozilla.org/en-US/kb/firefox-dns-over-https).
+* Microsoft Edge:
+    1. Search for DNS in Microsoft Edge settings: image.png
+    2. Disable __Use secure DNS to specify how to look up the network address for websites__.
 
 ## Proxy configuration
 
@@ -75,3 +78,7 @@ If you use a proxy, it may prevent communication with a secured workspace. To te
 * Create a [Proxy auto-config (PAC)](https://wikipedia.org/wiki/Proxy_auto-config) file that allows direct access to the FQDNs listed on the private endpoint. It should also allow direct access to the FQDN for any compute instances.
 * Configure your proxy server to forward DNS requests to Azure DNS.
 
+## Diagnostic API
+
+
+## Next steps
