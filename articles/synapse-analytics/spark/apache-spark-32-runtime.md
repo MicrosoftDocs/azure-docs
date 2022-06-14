@@ -189,7 +189,7 @@ datanucleus-core-4.1.17.jar
 
 datanucleus-rdbms-4.1.19.jar
 
-delta-core_2.12-1.1.0.1.jar
+delta-core_2.12-1.2.1.2.jar
 
 derby-10.14.2.0.jar
 
