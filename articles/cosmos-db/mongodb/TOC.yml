@@ -21,11 +21,13 @@
     - name: Java
       href: create-mongodb-java.md
     - name: Node.js
-      href: create-mongodb-nodejs.md
+      href: quickstart-javascript.md
     - name: Golang
       href: create-mongodb-go.md
 - name: Tutorials
   items:
+    - name: Migrate Node.js web app
+      href: create-mongodb-nodejs.md  
     - name: 1 - Create and manage data
       items:
         - name: Node.js console app
