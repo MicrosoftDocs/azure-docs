@@ -18,13 +18,13 @@ The Azure Consumption APIs give you programmatic access to cost and usage data f
     - All APIs
 - CSP Azure plan customers (Azure plan customers that get Azure through a Microsoft partner) can use:
     - All APIs
-- Enterprise and Web Direct customers can use:
+- Enterprise and web direct customers can use:
     - Usage Details
     - Marketplace Charges
     - Reservation Recommendations
     - Reservation Details
     - Reservation Summaries
-- Enterprise Customers only can use:
+- Enterprise customers only can use:
     - Price sheet
     - Budgets
     - Balances
