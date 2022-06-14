@@ -6,22 +6,25 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: reference
-ms.date: 09/15/2021
+ms.date: 06/14/2022
 ms.author: banders
 ---
 
 # Azure consumption API overview
 
-The Azure Consumption APIs give you programmatic access to cost and usage data for your Azure resources. These APIs currently only support Enterprise Enrollments, Web Direct Subscriptions (with a few exceptions), and CSP Azure plan subscriptions. The APIs are continually updated to support other types of Azure subscriptions.
+The Azure Consumption APIs give you programmatic access to cost and usage data for your Azure resources. The APIs are continually updated to support other types of Azure subscriptions.
 
-Azure Consumption APIs provide access to:
-- Enterprise and Web Direct Customers
+- Microsoft Customer Agreement customers can use:
+    - All APIs
+- CSP Azure plan customers (Azure plan customers that get Azure through a Microsoft partner) can use:
+    - All APIs
+- Enterprise and Web Direct customers can use:
     - Usage Details
     - Marketplace Charges
     - Reservation Recommendations
     - Reservation Details
     - Reservation Summaries
-- Enterprise Customers Only
+- Enterprise Customers only can use:
     - Price sheet
     - Budgets
     - Balances
