@@ -4,13 +4,13 @@ description: Describes the steps to create your first Azure Resource Manager tem
 author: mumian
 ms.date: 06/14/2022
 ms.topic: tutorial
-ms.author: sheila
+ms.author: v-shsanchez
 ms.custom:
 ---
 
 # Tutorial: Add a resource to your ARM template
 
-In the [previous tutorial](template-tutorial-create-first-template.md), you learned how to create and deploy your first blank Azure Resource Manager template (ARM template). Now, you're ready to deploy an actual resource to that template. In this case, an [Azure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal). It takes about **9 minutes** to complete this instruction.
+In the [previous tutorial](template-tutorial-create-first-template.md), you learned how to create and deploy your first blank Azure Resource Manager template (ARM template). Now, you're ready to deploy an actual resource to that template. In this case, an [Azure storage account](storage-account-create.md). It takes about **9 minutes** to complete this instruction.
 
 ## Prerequisites
 

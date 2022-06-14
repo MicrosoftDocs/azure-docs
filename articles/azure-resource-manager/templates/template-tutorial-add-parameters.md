@@ -10,21 +10,21 @@ ms.custom: devx-track-azurepowershell
 
 # Tutorial: Add parameters to your ARM template
 
-In the [previous tutorial](template-tutorial-add-resource.md), you learned how to add a storage account to the template and deploy it. In this tutorial, you learn how to improve the Azure Resource Manager template (ARM template) by adding parameters. This tutorial takes about **14 minutes** to complete.
+In the [previous tutorial](template-tutorial-add-resource.md), you learned how to add an [Azure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create? to the template and deploy it. In this tutorial, you learn how to improve the Azure Resource Manager template (ARM template) by adding parameters. This tutorial takes about **14 minutes** to complete.
 
 ## Prerequisites
 
 We recommend that you complete the [tutorial about resources](template-tutorial-add-resource.md), but it's not required.
 
-You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+You need to have [Visual Studio Code](https://code.visualstudio.com/) installed and working with the Azure Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
 ## Review template
 
-At the end of the previous tutorial, your template had the following JSON:
+At the end of the previous tutorial, your template has the following JSON:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json":::
 
-You may have noticed that there's a problem with this template. The storage account name is hard-coded. You can only use this template to deploy the same storage account every time. To deploy a storage account with a different name, you would have to create a new template, which obviously isn't a practical way to automate your deployments.
+You may notice that there's a problem with this template. The storage account name is hard-coded. You can only use this template to deploy the same storage account every time. To deploy a storage account with a different name, you would have to create a new template, which obviously isn't a practical way to automate your deployments.
 
 ## Make template reusable
 
