@@ -20,15 +20,18 @@ The REST API operations are grouped into the:
 
 ## Data plane operations
 
-Version 1.0 of the data plane API lets you manage the following resources in your IoT Central application:
+Version 2022-05-31 of the data plane API lets you manage the following resources in your IoT Central application:
 
 - API tokens
+- Device groups
 - Device templates
 - Devices
+- File uploads
+- Organizations
 - Roles
 - Users
 
-The devices API also lets you [query telemetry and property values from your devices](howto-query-with-rest-api.md).
+The preview devices API also lets you [query telemetry and property values from your devices](howto-query-with-rest-api.md), [manage jobs](howto-manage-jobs-with-rest-api.md), and [manage data exports](howto-manage-data-export-with-rest-api.md).
 
 To get started with the data plane APIs, see [Explore the IoT Central APIs](/learn/modules/manage-iot-central-apps-with-rest-api/).
 
