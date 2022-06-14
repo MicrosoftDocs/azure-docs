@@ -1,15 +1,15 @@
 ---
-title: How to Receive Shared Data
-description: Learn how to receive shared data from Azure Blob Storage and Azure Data Lake Storage.
+title: How to receive shared data
+description: Learn how to receive shared data from Azure Blob Storage and Azure Data Lake Storage using Microsoft Purview Data Sharing.
 author: jifems
 ms.author: jife
 ms.service: purview
 ms.topic: how-to
-ms.date: 05/20/2022
+ms.date: 06/14/2022
 ---
 # Receive Azure Storage in-place share with Microsoft Purview Data Sharing (preview)
 
-Microsoft Purview Data Sharing supports in-place data sharing from Azure Data Lake Storage (ADLS Gen2) to ADLS Gen2, and Blob storage account to Blob storage account. This article explains how to receive share and access shared data.
+Microsoft Purview Data Sharing supports in-place data sharing from Azure Data Lake Storage (ADLS Gen2) to ADLS Gen2, and Blob storage account to Blob storage account. This article explains how to receive a share and access shared data.
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
