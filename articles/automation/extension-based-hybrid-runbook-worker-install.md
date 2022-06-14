@@ -105,7 +105,7 @@ Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation
 **Azure Arc-enabled VMs**
 
 ```powershell
-New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 0.1 -Settings $settings -NoWait
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 0.1 -Setting $settings -NoWait
 ```
 
 # [Linux](#tab/linux)
@@ -127,7 +127,7 @@ Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation
 **Azure Arc-enabled VMs**
 
 ```powershell
-New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 0.1 -Settings $settings -NoWait
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 0.1 -Setting $settings -NoWait
 ```
 
 ---
