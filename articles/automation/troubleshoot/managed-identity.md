@@ -11,7 +11,7 @@ ms.topic: troubleshooting
 
 This article discusses solutions to problems that you might encounter when you use a managed identity with your Automation account. For general information about using managed identity with Automation accounts, see [Azure Automation account authentication overview](../automation-security-overview.md#managed-identities).
 
-## Scenario: Scenario: Runbook fails with "this Client SubscriptionId cannot be null" error message
+## Scenario: Runbook fails with "this Client SubscriptionId cannot be null" error message
 
 ### Issue
 
