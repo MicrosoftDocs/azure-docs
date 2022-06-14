@@ -18992,12 +18992,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/machine-learning/tutorial-power-bi-automated-model.md",
+      "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-automated-model.md",
       "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/machine-learning/tutorial-power-bi-designer-model.md",
+      "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-designer-model.md",
       "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
       "redirect_document_id": false
     },    
