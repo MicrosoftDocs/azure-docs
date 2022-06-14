@@ -118,6 +118,9 @@ You can then use the flexible servername (FQDN) to connect from the client appli
 > [!NOTE]
 > If you are using the custom DNS server then you must use a DNS forwarder to resolve the FQDN of Azure Database for MySQL - Flexible Server. Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
 
+> [!NOTE]
+> VNet injection for flexible servers inherits DNS server settings from the delegated virtual network. Blocking DNS traffic to Azure Platform DNS servers will cause MySQL server provisioning to fail.
+
 ## Next steps
 
 * Learn how to enable private access (vnet integration) using the [Azure portal](how-to-manage-virtual-network-portal.md) or [Azure CLI](how-to-manage-virtual-network-cli.md)
