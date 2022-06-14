@@ -4,7 +4,7 @@ description: When you schedule a ground station pass a contact object is created
 author: hrshelar
 ms.service: orbital
 ms.topic: tutorial
-ms.custom: public-preview
+ms.custom: ga
 ms.date: 22/05/2022
 ms.author: hrshelar
 
