@@ -2655,7 +2655,7 @@ isInt('<string>')
 
 *Example*
 
-This example tests a string that represents an integer:
+This example checks whether a string is an integer:
 
 ```
 isInt('10')
