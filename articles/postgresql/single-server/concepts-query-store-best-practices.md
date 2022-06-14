@@ -11,11 +11,12 @@ ms.date: 5/6/2019
 
 # Best practices for Query Store
 
-**Applies to:** Azure Database for PostgreSQL - Single Server versions 9.6, 10, 11
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 This article outlines best practices for using Query Store in Azure Database for PostgreSQL.
 
 ## Set the optimal query capture mode
+
 Let Query Store capture the data that matters to you. 
 
 |**pg_qs.query_capture_mode** |	**Scenario**|
