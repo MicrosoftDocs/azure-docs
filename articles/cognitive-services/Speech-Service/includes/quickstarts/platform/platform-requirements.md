@@ -12,10 +12,10 @@ Before you install the Speech SDK on Windows or Linux, make sure you have the fo
 
 # [Windows](#tab/windows)
 
-[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-windows.md)]
+[!INCLUDE [Windows requirements](../../get-speech-sdk-windows.md)]
 
 # [Linux](#tab/linux)
 
-[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-linux.md)]
+[!INCLUDE [Linux requirements](../../get-speech-sdk-linux.md)]
 
 ---
