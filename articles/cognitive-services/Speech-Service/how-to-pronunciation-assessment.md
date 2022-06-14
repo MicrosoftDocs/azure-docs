@@ -19,7 +19,7 @@ In this article, you'll learn how to use pronunciation assessment through the Sp
 
 ::: zone pivot="programming-language-go"
 > [!NOTE]
-> pronunciation assessment is not available with the Speech SDK for Go.
+> Pronunciation assessment is not available with the Speech SDK for Go. You can read about the concepts below, but you must select another programming language for implementation details. 
 ::: zone-end
 
 You can get pronunciation assessment scores for:
