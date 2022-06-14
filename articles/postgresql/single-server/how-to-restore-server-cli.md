@@ -92,14 +92,14 @@ To create a server using a geo redundant backup, use the Azure CLI `az postgres 
 To geo restore the server, at the Azure CLI command prompt, enter the following command:
 
 ```azurecli-interactive
-az postgres server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
+az postgres server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
 ```
-This command creates a new server called *mydemoserver-georestored* in East US that will belong to *myresourcegroup*. It is a General Purpose, Gen 4 server with 8 vCores. The server is created from the geo-redundant backup of *mydemoserver*, which is also in the resource group *myresourcegroup*
+This command creates a new server called *mydemoserver-georestored* in East US that will belong to *myresourcegroup*. It is a General Purpose, Gen 5 server with 8 vCores. The server is created from the geo-redundant backup of *mydemoserver*, which is also in the resource group *myresourcegroup*
 
 If you want to create the new server in a different resource group from the existing server, then in the `--source-server` parameter you would qualify the server name as in the following example:
 
 ```azurecli-interactive
-az postgres server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
+az postgres server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver" --location eastus --sku-name GP_Gen5_8
 
 ```
 
@@ -111,7 +111,7 @@ The `az postgres server georestore` command requires the following parameters:
 |name | mydemoserver-georestored | The name of the new server. |
 |source-server | mydemoserver | The name of the existing server whose geo redundant backups are used. |
 |location | eastus | The location of the new server. |
-|sku-name| GP_Gen4_8 | This parameter sets the pricing tier, compute generation, and number of vCores of the new server. GP_Gen4_8 maps to a General Purpose, Gen 4 server with 8 vCores.|
+|sku-name| GP_Gen5_8 | This parameter sets the pricing tier, compute generation, and number of vCores of the new server. GP_Gen5_8 maps to a General Purpose, Gen 5 server with 8 vCores.|
 
 When creating a new server by a geo restore, it inherits the same storage size and pricing tier as the source server. These values cannot be changed during creation. After the new server is created, its storage size can be scaled up.
 
