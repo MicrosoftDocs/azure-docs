@@ -26,7 +26,7 @@ There are minor differences between the formats with regard to material property
 
 ### Point clouds
 
-* **XYZ** : Text file format where every line contains a single point, formatted as `position_x position_y position_z red green blue`
+* **XYZ** : Text file format where every line contains a single point, formatted as `position_x position_y position_z red green blue`, where color components may also have either `diffuse_` or `ambient_` prefix.
 * **PLY** : Only binary PLY files are supported. Properties other than position and color are ignored. Every PLY file has a human-readable header, which can be used to verify whether the following requirements are met:
   * file must be encoded using the `binary_little_endian 1.0` format,
   * file contains a point cloud (that is, no triangles),
