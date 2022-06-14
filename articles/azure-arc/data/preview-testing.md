@@ -30,7 +30,7 @@ Normally, pre-release version binaries are available around 10:00 AM Pacific Tim
 
 ## Artifacts for a pre-release version
 
-Pre-releases version typically include artifacts, which are designed to work together:
+Pre-release versions simultaneously release with artifacts, which are designed to work together:
 
 - Container images hosted on the Microsoft Container Registry (MCR)
   - `mcr.microsoft.com/arcdata/preview` is the repository that hosts the **preview** pre-release builds
@@ -158,7 +158,7 @@ New for this release:
 
 ## Provide feedback
 
-At this time, pre-release testing is supported for certain customers and partners that have established agreements with Microsoft. Participants have points of contact on the product engineering team. Please email your points of contact with any issues that are found during pre-release testing.
+At this time, pre-release testing is supported for certain customers and partners that have established agreements with Microsoft. Participants have points of contact on the product engineering team. Email your points of contact with any issues that are found during pre-release testing.
 
 ## Next steps
 
