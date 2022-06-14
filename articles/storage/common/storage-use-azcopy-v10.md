@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 06/14/2022
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
@@ -153,7 +153,8 @@ To obtain the link, run this command:
 | Operating system  | Command |
 |--------|-----------|
 | **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux | grep ^Location` |
-| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
+| **Windows (PowerShell 5.1)** | `((Invoke-WebRequest https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue ).headers.location` |
+| **Windows (PowerShell Core 7)** | `(Invoke-WebRequest https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue -SkipHttpErrorCheck).headers.location[0]` |
 
 > [!NOTE]
 > For Linux, `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
