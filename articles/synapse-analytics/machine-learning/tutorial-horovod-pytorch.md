@@ -124,7 +124,7 @@ print(adls_store_path)
 
 ## Prepare dataset
 
-Next, we will prepare the dataset for training. In this tutorial, we will use the MNIST dataset from [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/dataset-mnist?tabs=azureml-opendatasets).
+Next, we will prepare the dataset for training. In this tutorial, we will use the MNIST dataset from [Azure Open Datasets](../../open-datasets/dataset-mnist.md?tabs=azureml-opendatasets).
 
 ```python
 # Initialize SparkSession
