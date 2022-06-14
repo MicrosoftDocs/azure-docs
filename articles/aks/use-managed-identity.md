@@ -111,7 +111,7 @@ For creating and using your own VNet, attached Azure disk, static IP address, ro
 > [!NOTE]
 > If you are not using the CLI but using your own VNet, attached Azure disk, static IP address, route table or user-assigned kubelet identity which are outside of the worker node resource group, it's recommended to use [user-assigned control plane identity][Bring your own control plane managed identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
 
-### Get the Principal ID of Control plane identity
+### Get the Principal ID of control plane identity
 
 You can find existing identity's Principal ID by running the following command:
 
