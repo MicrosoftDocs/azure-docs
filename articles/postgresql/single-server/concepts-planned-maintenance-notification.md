@@ -11,6 +11,8 @@ ms.date: 2/17/2022
 
 # Planned maintenance notification in Azure Database for PostgreSQL - Single Server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Learn how to prepare for planned maintenance events on your Azure Database for PostgreSQL.
 
 ## What is a planned maintenance?
