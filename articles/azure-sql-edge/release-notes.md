@@ -15,6 +15,14 @@ ms.date: 11/24/2020
 
 This article describes what's new and what has changed with every new build of Azure SQL Edge.
 
+## Azure SQL Edge 1.0.6
+
+SQL engine build 15.0.2000.1565
+
+### What's new?
+
+- Security bug fixes
+
 ## Azure SQL Edge 1.0.5
 
 SQL engine build 15.0.2000.1562
