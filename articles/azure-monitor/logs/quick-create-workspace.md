@@ -1,67 +1,226 @@
 ---
-title: Create a Log Analytics workspace in the Azure portal | Microsoft Docs
-description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments in the Azure portal.
+title: Create Log Analytics workspaces
+description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments.
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.date: 03/28/2022
 ms.reviewer: yossiy
 
+# Customer intent: As a DevOps engineer or IT expert, I want to set up a workspace to collect logs from multiple data sources from Azure, on-premises, and third-party cloud deployments.
 ---
+# Create a Log Analytics workspace
 
-# Create a Log Analytics workspace in the Azure portal
+This article shows you how to create a Log Analytics workspace. When you collect logs and data, the information is stored in a workspace. A workspace has a unique workspace ID and resource ID. The workspace name must be unique for a given resource group. After you've created a workspace, configure data sources and solutions to store their data there.
 
-Use the **Log Analytics workspaces** menu to create a Log Analytics workspace in the Azure portal.
-
-A Log Analytics workspace is the environment for Azure Monitor log data. Each workspace has its own data repository and configuration. Data sources and solutions are configured to store their data in a particular workspace. A workspace has a unique workspace ID and resource ID. You can reuse the same workspace name when you're in different resource groups.
-
-You require a Log Analytics workspace if you intend to collect data from:
+You need a Log Analytics workspace if you collect data from:
 
 * Azure resources in your subscription.
 * On-premises computers monitored by System Center Operations Manager.
 * Device collections from Configuration Manager.
 * Diagnostics or log data from Azure Storage.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com).
-
 ## Create a workspace
 
-In the Azure portal, select **All services**. In the list of resources, enter **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
+## [Portal](#tab/azure-portal)
 
-![Screenshot that shows the Azure portal.](media/quick-create-workspace/azure-portal-01.png)
+Use the **Log Analytics workspaces** menu to create a workspace.
+
+1. In the [Azure portal](https://portal.azure.com), enter **Log Analytics** in the search box. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
+
+    :::image type="content" source="media/quick-create-workspace/azure-portal-01.png" alt-text="Screenshot that shows the search bar at the top of the Azure home screen. As you begin typing, the list of search results filters based on your input.":::
+
+1. Select **Add**.
+
+1. Select a **Subscription** from the dropdown.
+1. Use an existing **Resource Group** or create a new one.
+1. Provide a name for the new **Log Analytics workspace**, such as *DefaultLAWorkspace*. This name must be unique per resource group.
+1. Select an available **Region**. For more information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/). Search for Azure Monitor in the **Search for a product** box.
+
+   :::image type="content" source="media/quick-create-workspace/create-workspace.png" alt-text="Screenshot that shows the boxes that need to be populated on the Basics tab of the Create Log Analytics workspace screen.":::
+
+1. Select **Review + Create** to review the settings. Then select **Create** to create the workspace. A default pricing tier of pay-as-you-go is applied. No charges will be incurred until you start collecting enough data. For more information about other pricing tiers, see [Log Analytics pricing details](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+## [PowerShell](#tab/azure-powershell)
+
+The following sample script creates a workspace with no data source configuration.
+
+```powershell
+$ResourceGroup = <"my-resource-group">
+$WorkspaceName = <"log-analytics-workspace-name">
+$Location = <"westeurope">
+
+# Create the resource group if needed
+try {
+    Get-AzResourceGroup -Name $ResourceGroup -ErrorAction Stop
+} catch {
+    New-AzResourceGroup -Name $ResourceGroup -Location $Location
+}
+
+# Create the workspace
+New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -ResourceGroupName $ResourceGroup
+```  
+
+> [!NOTE]
+> Log Analytics was previously called Operational Insights. The PowerShell cmdlets use Operational Insights in Log Analytics commands.
   
-Select **Add**, and then provide values for the following options:
+After you've created a workspace, [configure a Log Analytics workspace in Azure Monitor by using PowerShell](/azure/azure-monitor/logs/powershell-workspace-configuration).
 
-   * **Subscription**: Select a subscription if the default isn't appropriate.
-   * **Resource group**: Use an existing resource group or create a new one.
-   * **Log Analytics workspace**: Provide a name for the new workspace, such as *DefaultLAWorkspace*. This name must be unique per resource group.
-   * **Region**: Select an available region. For more information, see the [regions where Log Analytics is available](https://azure.microsoft.com/regions/services/). Search for Azure Monitor in the **Search for a product** box.
+## [Azure CLI](#tab/azure-cli)
 
-        ![Screenshot that shows the Create Log Analytics workspace pane.](media/quick-create-workspace/create-workspace.png)
+Manage Azure Log Analytics workspaces by using [Azure CLI](/cli/azure/monitor/log-analytics/workspace) commands.
 
-Select **Review + Create** to review the settings. Then select **Create** to create the workspace. The default pricing tier **Pay-as-you-go** is selected. With this tier, you won't incur any charges until you collect a sufficient amount of data. For more information about other pricing tiers, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
+Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group or use an existing resource group. To create a workspace, use the [az monitor log-analytics workspace create](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-create) command.
+
+```Azure CLI
+    az group create --name <myGroup> --location <myLocation>
+    az monitor log-analytics workspace create --resource-group <myGroup> \
+       --workspace-name <myWorkspace>
+```
+
+For more information about Azure Monitor Logs in Azure CLI, see [Managing Azure Monitor Logs in Azure CLI](/azure/azure-monitor/logs/azure-cli-log-analytics-workspace-sample).
+
+## [Resource Manager template](#tab/azure-resource-manager)
+
+The following sample uses the [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/workspaces?tabs=bicep) template to create a Log Analytics workspace in Azure Monitor.
+For more information about Azure Resource Manager templates, see [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
+
+[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
+
+### Template file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "workspaceName": {
+          "type": "string",
+          "metadata": {
+            "description": "Name of the workspace."
+          }
+      },
+      "sku": {
+          "type": "string",
+          "allowedValues": [
+            "pergb2018",
+            "Free",
+            "Standalone",
+            "PerNode",
+            "Standard",
+            "Premium"
+            ],
+          "defaultValue": "pergb2018",
+          "metadata": {
+          "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+          }
+        },
+        "location": {
+          "type": "string",
+          "metadata": {
+              "description": "Specifies the location for the workspace."
+              }
+        },
+        "retentionInDays": {
+          "type": "int",
+          "defaultValue": 120,
+          "metadata": {
+            "description": "Number of days to retain data."
+          }
+        },
+        "resourcePermissions": {
+          "type": "bool",
+          "metadata": {
+            "description": "true to use resource or workspace permissions. false to require workspace permissions."
+          }
+        },
+        "heartbeatTableRetention": {
+          "type": "int",
+          "metadata": {
+            "description": "Number of days to retain data in Heartbeat table."
+          }
+        }  
+      },
+      "resources": [
+      {
+          "type": "Microsoft.OperationalInsights/workspaces",
+          "name": "[parameters('workspaceName')]",
+          "apiVersion": "2020-08-01",
+          "location": "[parameters('location')]",
+          "properties": {
+              "sku": {
+                  "name": "[parameters('sku')]"
+              },
+              "retentionInDays": "[parameters('retentionInDays')]",
+              "features": {
+                  "enableLogAccessUsingOnlyResourcePermissions": "[parameters('resourcePermissions')]"
+              }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.OperationalInsights/workspaces/tables",
+              "apiVersion": "2020-08-01",
+              "name": "[concat(parameters('workspaceName'),'/','Heartbeat')]",
+              "dependsOn": [
+                "[parameters('workspaceName')]"
+              ],
+              "properties": {
+                "RetentionInDays": "[parameters('heartbeatTableRetention')]"
+              }
+            }
+          ]
+      }
+  ]
+}
+```
+
+> [!NOTE]
+> If you specify a pricing tier of **Free**, then remove the **retentionInDays** element.
+
+### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "value": "MyWorkspace"
+    },
+    "sku": {
+      "value": "pergb2018"
+    },
+    "location": {
+      "value": "eastus"
+    },
+    "resourcePermissions": {
+      "value": true
+    },
+    "heartbeatTableRetention": {
+      "value": 30
+    }
+  }
+}
+```
+
+After you've created a workspace, see [Resource Manager template samples for Log Analytics workspaces in Azure Monitor](/azure/azure-monitor/logs/resource-manager-workspace) to configure data sources.
+
+---
 
 ## Troubleshooting
 
-If you created a workspace that was deleted in the last 14 days and it's in [soft-delete state](../logs/delete-workspace.md#soft-delete-behavior), the operation could have a different outcome based on your workspace configuration:
+When you create a workspace that was deleted in the last 14 days and in [soft-delete state](../logs/delete-workspace.md#soft-delete-behavior), the operation could have a different outcome depending on your workspace configuration:
 
-- If you provide the same workspace name, resource group, subscription, and region as in the deleted workspace, your workspace is recovered with its data, configuration, and connected agents.
-- The workspace name must be unique per resource group. If you use a workspace name that already exists and is also in soft delete in your resource group, you'll get an error. The workspace name *workspace-name* isn't unique.
-- To override the soft delete, permanently delete your workspace, and create a new workspace with the same name, follow these steps:
+1. If you provide the same workspace name, resource group, subscription, and region as in the deleted workspace, your workspace will be recovered including its data, configuration, and connected agents.
+1. Workspace names must be unique for a resource group. If you use a workspace name that already exists, or is soft deleted, an error is returned. To permanently delete your soft-deleted name and create a new workspace with the same name, follow these steps:
 
    1. [Recover](../logs/delete-workspace.md#recover-workspace) your workspace.
    1. [Permanently delete](../logs/delete-workspace.md#permanent-workspace-delete) your workspace.
    1. Create a new workspace by using the same workspace name.
-
+  
 ## Next steps
 
-Now that you have a workspace available, you can configure a collection of monitoring telemetry. You can also run log searches to analyze the data. Then you can add a management solution to provide more data and analytic insights.
+Now that you have a workspace available, you can configure collection of monitoring telemetry, run log searches to analyze that data, and add a management solution to provide more data and analytic insights. To learn more:
 
-For more information, see:
-
-* [Monitor health of a Log Analytics workspace in Azure Monitor](../logs/monitor-workspace.md) to create alert rules to monitor the health of your workspace.
-* [Collect Azure service logs and metrics for use in Log Analytics](../essentials/resource-logs.md#send-to-log-analytics-workspace) to enable data collection from Azure resources with Azure Diagnostics or Azure Storage.
+* See [Monitor health of Log Analytics workspace in Azure Monitor](../logs/monitor-workspace.md) to create alert rules to monitor the health of your workspace.
+* See [Collect Azure service logs and metrics for use in Log Analytics](../essentials/resource-logs.md#send-to-log-analytics-workspace) to enable data collection from Azure resources with Azure Diagnostics or Azure Storage.

@@ -18992,6 +18992,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-automated-model.md",
+      "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-designer-model.md",
+      "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/cognitive-services/LinguisticAnalysisAPI/AnalyzeMethod.md",
       "redirect_url": "/azure/machine-learning/classic-module-reference/text-analytics",
       "redirect_document_id": false
