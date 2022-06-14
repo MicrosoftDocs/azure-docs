@@ -11,6 +11,8 @@ ms.date: 11/20/2019
 
 # Manage an Azure Database for PostgreSQL server using the Azure portal
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 This article shows you how to manage your Azure Database for PostgreSQL servers. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
 ## Sign in
