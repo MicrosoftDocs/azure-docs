@@ -27,7 +27,7 @@ Use the **Log Analytics workspaces** menu to create a workspace.
 
 1. In the [Azure portal](https://portal.azure.com), type **Log Analytics** in the search box. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 
-![Portal](media/quick-create-workspace/azure-portal-01.png)
+    :::image type="content" source="media/quick-create-workspace/azure-portal-01.png" alt-text="Screenshot showing the search bar at the top of the Azure home screen. As you begin typing, the list of search results filters based on your input.":::
   
 1. Select **Add**.
 
