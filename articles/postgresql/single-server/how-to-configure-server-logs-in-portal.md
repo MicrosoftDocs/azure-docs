@@ -11,6 +11,8 @@ ms.date: 5/6/2019
 
 # Configure and access Azure Database for PostgreSQL - Single Server logs from the Azure portal
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 You can configure, list, and download the [Azure Database for PostgreSQL logs](concepts-server-logs.md) from the Azure portal.
 
 ## Prerequisites

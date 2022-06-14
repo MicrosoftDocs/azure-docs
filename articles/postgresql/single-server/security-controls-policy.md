@@ -12,6 +12,8 @@ ms.date: 03/10/2022
 
 # Azure Policy Regulatory Compliance controls for Azure Database for PostgreSQL
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 [Regulatory Compliance in Azure Policy](../../governance/policy/concepts/regulatory-compliance.md)
 provides Microsoft created and managed initiative definitions, known as _built-ins_, for the
 **compliance domains** and **security controls** related to different compliance standards. This

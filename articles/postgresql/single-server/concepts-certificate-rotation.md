@@ -12,6 +12,8 @@ ms.date: 09/02/2020
 
 # Understanding the changes in the Root CA change for Azure Database for PostgreSQL Single server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Azure Database for PostgreSQL Single Server successfully completed the root certificate change on **February 15, 2021 (02/15/2021)** as part of standard maintenance and security best practices. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
 
 ## Why root certificate update is required?

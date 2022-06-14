@@ -11,6 +11,8 @@ ms.date: 03/14/2021
 
 # Infrastructure double encryption for Azure Database for PostgreSQL
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Learn how to use the how set up and manage Infrastructure double encryption for your Azure Database for PostgreSQL.
 
 ## Prerequisites
