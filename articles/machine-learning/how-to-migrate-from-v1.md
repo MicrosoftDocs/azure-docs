@@ -174,7 +174,7 @@ Typically, converting to v2 will involve refactoring your code to use MLflow for
 
 We recommend v2 for production model deployment. Managed endpoints abstract the IT overhead and provide a performant solution for deploying and scoring models, both for online (near real-time) and batch (massively parallel) scenarios.
 
-Kubernetes deployments are supported in v2 through AKS or Azure Arc, enabling Azure cloud and on-premise deployments managed by your organization.
+Kubernetes deployments are supported in v2 through AKS or Azure Arc, enabling Azure cloud and on-premises deployments managed by your organization.
 
 ### Machine learning operations (MLOps)
 

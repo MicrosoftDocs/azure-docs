@@ -100,4 +100,4 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.trafficmanager/
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/network/traffic-manager
+            url: /cli/azure/network/traffic-manager

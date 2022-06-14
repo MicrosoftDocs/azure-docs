@@ -563,7 +563,7 @@ The `retry` policy executes its child policies once and then retries their execu
 
 ### Example
 
-In the following example, request forwarding is retried up to ten times using an exponential retry algorithm. Since `first-fast-retry` is set to false, all retry attempts are subject to the exponential retry algorithm.
+In the following example, request forwarding is retried up to ten times using an exponential retry algorithm. Since `first-fast-retry` is set to false, all retry attempts are subject to exponentially increasing retry wait times (in this example, approximately 10 seconds, 20 seconds, 40 seconds, ...), up to a maximum wait of `max-interval`.
 
 ```xml
 
@@ -619,10 +619,13 @@ In the following example, sending a request to a URL other than the defined back
 | delta            | A positive number in seconds specifying the wait interval increment. It is used to implement the linear and exponential retry algorithms.             | No       | N/A     |
 | first-fast-retry | If set to `true` , the first retry attempt is performed immediately.                                                                                  | No       | `false` |
 
-> [!NOTE]
-> When only the `interval` is specified, **fixed** interval retries are performed.
-> When only the `interval` and `delta` are specified, a **linear** interval retry algorithm is used, where wait time between retries is calculated according the following formula - `interval + (count - 1)*delta`.
-> When the `interval`, `max-interval` and `delta` are specified, **exponential** interval retry algorithm is applied, where the wait time between the retries is growing exponentially from the value of `interval` to the value `max-interval` according to the following formula - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
+#### Retry wait times
+
+* When only the `interval` is specified, **fixed** interval retries are performed.
+* When only the `interval` and `delta` are specified, a **linear** interval retry algorithm is used. The  wait time between retries increases according to the following formula: `interval + (count - 1)*delta`.
+* When the `interval`, `max-interval` and `delta` are specified, an **exponential** interval retry algorithm is applied. The wait time between the retries increases exponentially according to the following formula: `interval + (2^count - 1) * random(delta * 0.8, delta * 1.2)`, up to a maximum interval set by `max-interval`. 
+
+    For example, when `interval` and `delta` are both set to 10 seconds, and `max-interval` is 100 seconds, the approximate wait time between retries increases as follows: 10 seconds, 20 seconds, 40 seconds, 80 seconds, with 100 seconds wait time used for remaining retries.
 
 ### Usage
 

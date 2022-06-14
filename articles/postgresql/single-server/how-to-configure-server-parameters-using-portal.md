@@ -10,6 +10,9 @@ ms.date: 02/28/2018
 ---
 
 # Configure server parameters in Azure Database for PostgreSQL - Single Server via the Azure portal 
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 You can list, show, and update configuration parameters for an Azure Database for PostgreSQL server through the Azure portal.
 
 ## Prerequisites

@@ -2,7 +2,7 @@
 title: Azure Event Grid - Subscribe to partner events 
 description: This article explains how to subscribe to events from a partner using Azure Event Grid.
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 06/09/2022
 ---
 
 # Subscribe to events published by a partner with Azure Event Grid
@@ -78,6 +78,7 @@ Following example shows the way to create a partner configuration resource that 
 Here's the list of partners and a link to submit a request to enable events flow to a partner topic.
 
 - [Auth0](auth0-how-to.md)
+- [Microsoft Graph API](subscribe-to-graph-api-events.md)
 
 
 ## Activate a partner topic

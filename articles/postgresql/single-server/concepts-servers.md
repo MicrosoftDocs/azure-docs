@@ -9,6 +9,9 @@ author: sunilagarwal
 ms.date: 5/6/2019
 ---
 # Azure Database for PostgreSQL - Single Server
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 This article provides considerations and guidelines for working with Azure Database for PostgreSQL - Single Server.
 
 ## What is an Azure Database for PostgreSQL server?

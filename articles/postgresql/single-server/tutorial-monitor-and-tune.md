@@ -11,6 +11,8 @@ ms.date: 5/6/2019
 
 # Tutorial: Monitor and tune Azure Database for PostgreSQL - Single Server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Azure Database for PostgreSQL has features that help you understand and improve your server performance. In this tutorial you will learn how to:
 > [!div class="checklist"]
 > * Enable query and wait statistics collection
