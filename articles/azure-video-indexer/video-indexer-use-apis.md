@@ -1,7 +1,7 @@
 ---
 title: Use the Azure Video Indexer API
 description: This article describes how to get started with Azure Video Indexer API.
-ms.date: 06/01/2022
+ms.date: 06/14/2022
 ms.topic: tutorial
 ms.custom: devx-track-csharp
 ---
@@ -202,6 +202,11 @@ Debug.WriteLine("");
 Debug.WriteLine("Player Widget url:");
 Debug.WriteLine(playerWidgetLink);
 ```
+
+## Considerations
+
+* The JSON output produced by the API contains `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility).
+* We do not recommend that you use data directly from the artifacts folder for production purposes. Artifacts are intermediate outputs of the indexing process. They are essentially raw outputs of the various AI engines that analyze the videos; the artifacts schema may change over time. It is recommended that you use the [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index) API, as described in [Get insights and artifacts produced by the API](video-indexer-output-json-v2.md#get-insights-produced-by-the-api).
 
 ## Clean up resources
 
