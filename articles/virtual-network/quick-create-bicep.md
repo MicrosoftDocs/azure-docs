@@ -73,7 +73,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ---
 
-You can also use the Azure portal to explore the resources by browsing the settings blades for **VNet1**.
+You can use the Azure portal to explore the resources by browsing the settings blades for **VNet1**.
 
 1. On the **Overview** tab, you will see the defined address space of **10.0.0.0/16**.
 2. On the **Subnets** tab, you will see the deployed subnets of **Subnet1** and **Subnet2** with the appropriate values from the Bicep file.
