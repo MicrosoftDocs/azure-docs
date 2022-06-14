@@ -271,7 +271,7 @@ var credential = new DefaultAzureCredential(credentialOptions);
 
 var client = new SecretClient(
     new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"),
-    msiCredential);
+    credential);
     
 KeyVaultSecret secret = client.GetSecret("<my secret>");
 string secretValue = secret.Value;
