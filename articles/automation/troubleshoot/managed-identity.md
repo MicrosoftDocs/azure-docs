@@ -11,7 +11,7 @@ ms.topic: troubleshooting
 
 This article discusses solutions to problems that you might encounter when you use a managed identity with your Automation account. For general information about using managed identity with Automation accounts, see [Azure Automation account authentication overview](../automation-security-overview.md#managed-identities).
 
-## Scenario: Runbook fails with a No permission or Forbidden 403 error
+## Scenario: Scenario: Runbook fails with "this Client SubscriptionId cannot be null" error message
 
 ### Issue
 
@@ -31,8 +31,6 @@ Grant the Managed Identity (or other account used in the runbook) an appropriate
 :::image type="content" source="../media/troubleshoot-runbooks/managed-identity-role-assignments.png" alt-text=" Screenshot that shows the assigning of Azure Role assignments.":::
 
 :::image type="content" source="../media/troubleshoot-runbooks/azure-add-role-assignment-inline.png" alt-text="Screenshot that shows how to add role assignment." lightbox="../media/troubleshoot-runbooks/azure-add-role-assignment-expanded.png":::
-
-
 
 
 ## Scenario: Fail to get MSI token for account
