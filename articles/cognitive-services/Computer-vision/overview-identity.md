@@ -45,6 +45,8 @@ Face detection is required as a first step in all the other scenarios. The Detec
 
 Optionally, face detection can extract a set of face-related attributes, such as head pose, age, emotion, facial hair, and glasses. These attributes are general predictions, not actual classifications. Some attributes are useful to ensure that your application is getting high-quality face data when users add themselves to a Face service. For example, your application could advise users to take off their sunglasses if they're wearing sunglasses.
 
+[!INCLUDE [Sensitive attributes notice](./includes/identity-sensitive-attributes.md)]
+
 For more information on face detection and analysis, see the [Face detection](concept-face-detection.md) concepts article. Also see the [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) reference documentation.
 
 

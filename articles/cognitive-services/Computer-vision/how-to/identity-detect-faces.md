@@ -17,7 +17,9 @@ ms.custom: devx-track-csharp
 
 # Call the Detect API
 
-[!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
+[!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
+
+[!INCLUDE [Sensitive attributes notice](../includes/identity-sensitive-attributes.md)]
 
 This guide demonstrates how to use the face detection API to extract attributes like age, emotion, or head pose from a given image. You'll learn the different ways to configure the behavior of this API to meet your needs.
 

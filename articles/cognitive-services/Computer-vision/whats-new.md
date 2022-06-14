@@ -16,6 +16,19 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## June 2022
+
+### Responsible use of AI documentation for Face
+* The new set of Responsible Use of AI documentation aims to help system builders and their customers understand how our AI technology works, the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment. The Responsible Use of AI documentation is a part of a broader effort at Microsoft to put our AI principles into practice. To find out more, see [Responsible AI principles](tbd) from Microsoft.
+* The documentation includes: 
+    * An introduction to making use of Face API responsibly. Read more in [Transparency Note](tbd)
+    * Technical guidance for optimizing Face AI quality in your system. Read more in [Characteristics and Limitations](tbd)
+    * Considerations for mitigation harmful outcomes. Read more in [Guidance for Integration and Responsible Use of Face](tbd)
+    * Summary of what data the service processes, how the AI processes it and what is stored by the service. Read more in [Data and Privacy for Face](tbd)
+
+### Face restricted access
+* Access to Face API features is now restricted and requires approval for responsible use in line with Microsoft's principles for face recognition. Use the [Face Recognition Limited Access Review](https://aka.ms/facerecognition) form to apply for access. Once approved for your use case; no further actions or changes are required to continuing using these services. These changes will not impact all existing customers immediately. They will have one year within which to apply for continued access to the face recognition services based on their use cases provided. Face detection for detecting the location(s) of faces in images without any biometric template processing will remain generally available without requiring special approval. For details on the process, see the [Responsible AI documentation](tbd). 
+
 ## May 2022
 
 ### OCR (Read) API model is generally available (GA)

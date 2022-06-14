@@ -41,6 +41,8 @@ The Detection_03 model currently has the most accurate landmark detection. The e
 
 ## Attributes
 
+[!INCLUDE [Sensitive attributes notice](./includes/identity-sensitive-attributes.md)]
+
 Attributes are a set of features that can optionally be detected by the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API. The following attributes can be detected:
 
 * **Accessories**. Whether the given face has accessories. This attribute returns possible accessories including headwear, glasses, and mask, with confidence score between zero and one for each accessory.
