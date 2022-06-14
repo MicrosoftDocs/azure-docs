@@ -16,7 +16,7 @@ ms.custom:
 
 # Find similar faces
 
-[!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
+[!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
 The Find Similar operation does face matching between a target face and a set of candidate faces, finding a smaller set of faces that look similar to the target face. This is useful for doing a face search by image.
 

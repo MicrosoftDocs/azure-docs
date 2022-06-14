@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 
 # Specify a face recognition model
 
-[!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
+[!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
 This guide shows you how to specify a face recognition model for face detection, identification and similarity search using the Azure Face service.
 

@@ -17,7 +17,7 @@ ms.custom: [devx-track-csharp, cogserv-non-critical-vision]
 
 # Use the PersonDirectory structure
 
-[!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
+[!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
 To perform face recognition operations such as Identify and Find Similar, Face API customers need to create an assorted list of **Person** objects. The new **PersonDirectory** is a data structure that contains unique IDs, optional name strings, and optional user metadata strings for each **Person** identity added to the directory.
 
