@@ -17,6 +17,8 @@ ms.custom: devx-track-csharp
 
 # Call the Detect API
 
+[!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
+
 This guide demonstrates how to use the face detection API to extract attributes like age, emotion, or head pose from a given image. You'll learn the different ways to configure the behavior of this API to meet your needs.
 
 The code snippets in this guide are written in C# by using the Azure Cognitive Services Face client library. The same functionality is available through the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).

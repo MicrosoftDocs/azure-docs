@@ -17,6 +17,8 @@ ms.custom: devx-track-csharp
 
 # Add faces to a PersonGroup
 
+[!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
+
 This guide demonstrates how to add a large number of persons and faces to a PersonGroup object. The same strategy also applies to LargePersonGroup, FaceList, and LargeFaceList objects. This sample is written in C# by using the Azure Cognitive Services Face .NET client library.
 
 ## Step 1: Initialization

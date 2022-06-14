@@ -17,6 +17,8 @@ ms.custom: devx-track-csharp
 
 # Example: How to Analyze Videos in Real-time
 
+[!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
+
 This guide will demonstrate how to perform near-real-time analysis on frames taken from a live video stream. The basic components in such a system are:
 
 - Acquire frames from a video source

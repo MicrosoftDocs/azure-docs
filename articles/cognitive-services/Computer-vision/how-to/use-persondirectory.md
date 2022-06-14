@@ -17,6 +17,8 @@ ms.custom: [devx-track-csharp, cogserv-non-critical-vision]
 
 # Use the PersonDirectory structure
 
+[!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
+
 To perform face recognition operations such as Identify and Find Similar, Face API customers need to create an assorted list of **Person** objects. The new **PersonDirectory** is a data structure that contains unique IDs, optional name strings, and optional user metadata strings for each **Person** identity added to the directory.
 
 Currently, the Face API offers the **LargePersonGroup** structure, which has similar functionality but is limited to 1 million identities. The **PersonDirectory** structure can scale up to 75 million identities.

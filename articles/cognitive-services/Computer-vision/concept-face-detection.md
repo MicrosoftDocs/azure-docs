@@ -15,6 +15,8 @@ ms.author: pafarley
 
 # Face detection and attributes
 
+[!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
+
 This article explains the concepts of face detection and face attribute data. Face detection is the process of locating human faces in an image and optionally returning different kinds of face-related data.
 
 You use the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API to detect faces in an image. To get started using the REST API or a client SDK, follow a [quickstart](./quickstarts-sdk/identity-client-library.md). Or, for a more in-depth guide, see [Call the detect API](./how-to/identity-detect-faces.md).
