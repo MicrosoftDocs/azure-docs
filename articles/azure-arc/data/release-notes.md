@@ -40,7 +40,7 @@ For complete release version information, see [Version log](version-log.md#june-
 ### SQL Managed Instance
 
   - You can now configure a SQL managed instance to use an AD connector at the time the SQL managed instance is provisioned from the Azure portal.
-  - BACKUP DATABASE TO URL to S3-compatible storage is now supported. [Documentation](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-s3-compatible-object-storage)
+  - BACKUP DATABASE TO URL to S3-compatible storage is introduced for preview. Limited to COPY_ONLY. [Documentation](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-s3-compatible-object-storage).
   - `az sql mi-arc create` and `update` commands have a new `--sync-secondary-commit` parameter which is the number of secondary replicas that must be synchronized to fail over. Default is `-1` which sets the number of required synchronized secondaries to (# of replicas - 1) / 2.  Allowed values: `-1`, `1`, or `2`.  Arc SQL MI custom resource property added called `syncSecondaryToCommit`.
   - Billing estimate in Azure portal is updated to reflect the number of readable secondaries that are selected.
   - Added SPNs for readable secondary service.
