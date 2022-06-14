@@ -13,6 +13,8 @@ ms.date: 01/26/2022
 
 # Tutorial: Design an Azure Database for PostgreSQL - Single Server using Azure CLI
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
 > [!div class="checklist"]
 >

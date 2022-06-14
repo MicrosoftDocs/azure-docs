@@ -4,6 +4,7 @@ description: Retention and privacy policy statement
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: "devx-track-js, devx-track-csharp"
+ms.reviewer: saars
 ---
 
 # Data collection, retention, and storage in Application Insights

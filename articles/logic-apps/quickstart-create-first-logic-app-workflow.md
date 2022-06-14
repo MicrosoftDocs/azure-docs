@@ -13,6 +13,8 @@ ms.date: 05/02/2022
 
 # Quickstart: Create an integration workflow with multi-tenant Azure Logic Apps and the Azure portal
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 This quickstart shows how to create an example automated workflow that integrates two services, an RSS feed for a website and an email account. More specifically, you create a [Consumption plan-based](logic-apps-pricing.md#consumption-pricing) logic app resource and workflow that uses the RSS connector and the Office 365 Outlook connector. This resource runs in [*multi-tenant* Azure Logic Apps](logic-apps-overview.md).
 
 > [!NOTE]

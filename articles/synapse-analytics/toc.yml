@@ -1435,6 +1435,8 @@ items:
     items:
     - name: Train machine learning models
       href: ./spark/apache-spark-machine-learning-training.md
+    - name: Deep learning 
+      href: ./machine-learning/concept-deep-learning.md
   - name: Tutorials
     items:
     - name: Data access and preparation
@@ -1455,6 +1457,14 @@ items:
         - name: In Python
           displayName: train model, automated machine learning, automated ml, automl
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+      - name: With Horovod and Petastorm 
+        items:
+        - name: Train a model with Horovod and PyTorch
+          href: ./machine-learning/tutorial-horovod-pytorch.md
+        - name: Train a model with Horovod and TensorFlow
+          href: ./machine-learning/tutorial-horovod-tensorflow.md
+        - name: Write and load data with Petastorm
+          href: ./machine-learning/tutorial-load-data-petastorm.md
     - name: Score a model
       items:
       - name: Use the scoring wizard for dedicated SQL pools

@@ -79,7 +79,6 @@ if (mysqli_connect_errno())
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
-[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## Step 2: Create a Table
 Use the following code to connect. This code calls:
@@ -174,4 +173,3 @@ az group delete \
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using CLI](./how-to-manage-single-server-cli.md)
 
-[Cannot find what you are looking for? Let us know.](https://aka.ms/mysql-doc-feedback)
