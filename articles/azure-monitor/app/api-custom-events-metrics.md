@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.devlang: csharp, java, javascript, vb
 ms.custom: "devx-track-js, devx-track-csharp"
+ms.reviewer: mmcc
 ---
 
 # Application Insights API for custom events and metrics
@@ -55,7 +56,7 @@ If you don't have a reference on Application Insights SDK yet:
 
 Get an instance of `TelemetryClient` (except in JavaScript in webpages):
 
-For [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps and [Non HTTP/Worker for .NET/.NET Core](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps, it is recommended to get an instance of `TelemetryClient` from the dependency injection container as explained in their respective documentation.
+For [ASP.NET Core](asp-net-core.md) apps and [Non HTTP/Worker for .NET/.NET Core](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps, it is recommended to get an instance of `TelemetryClient` from the dependency injection container as explained in their respective documentation.
 
 If you use AzureFunctions v2+ or Azure WebJobs v3+ - follow [this document](../../azure-functions/functions-monitoring.md).
 

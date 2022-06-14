@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/21/2022
+ms.date: 05/17/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -31,7 +31,7 @@ The following capabilities make up External Identities:
 
 Depending on how you want to interact with external organizations and the types of resources you need to share, you can use a combination of these capabilities.
 
-![External Identities overview diagram](media/external-identities-overview/external-identities-b2b-overview.png)
+![External Identities overview diagram.](media/external-identities-overview/external-identities-b2b-overview.png)
 
 ## B2B collaboration
 
@@ -47,11 +47,11 @@ There are various ways to add external users to your organization for B2B collab
 
 A user object is created for the B2B collaboration user in the same directory as your employees. This user object can be managed like other user objects in your directory, added to groups, and so on. You can assign permissions to the user object (for authorization) while letting them use their existing credentials (for authentication).
 
-You can use [cross-tenant access settings](cross-tenant-access-overview.md) to manage B2B collaboration with other Azure AD organizations. For B2B collaboration with non-Azure AD external users and organizations, use [external collaboration settings](external-collaboration-settings-configure.md).
+You can use [cross-tenant access settings](cross-tenant-access-overview.md) to manage B2B collaboration with other Azure AD organizations and across Microsoft Azure clouds. For B2B collaboration with non-Azure AD external users and organizations, use [external collaboration settings](external-collaboration-settings-configure.md).
 
 ## B2B direct connect
 
-B2B direct connect is a new way to collaborate with other Azure AD organizations. With B2B direct connect, you create two-way trust relationships with other Azure AD organizations to allow users to seamlessly sign in to your shared resources and vice versa. B2B direct connect users aren't added as guests to your Azure AD directory. When two organizations mutually enable B2B direct connect, users authenticate in their home organization and receive a token from the resource organization for access. Learn more about [B2B direct connect in Azure AD](b2b-direct-connect-overview.md).
+B2B direct connect is a new way to collaborate with other Azure AD organizations. This feature currently works with Microsoft Teams shared channels. With B2B direct connect, you create two-way trust relationships with other Azure AD organizations to allow users to seamlessly sign in to your shared resources and vice versa. B2B direct connect users aren't added as guests to your Azure AD directory. When two organizations mutually enable B2B direct connect, users authenticate in their home organization and receive a token from the resource organization for access. Learn more about [B2B direct connect in Azure AD](b2b-direct-connect-overview.md).
 
 Currently, B2B direct connect enables the Teams Connect shared channels feature, which lets your users collaborate with external users from multiple organizations with a Teams shared channel for chat, calls, file-sharing, and app-sharing. Once you’ve set up B2B direct connect with an external organization, the following Teams shared channels capabilities become available:
 
@@ -101,6 +101,14 @@ Cross-tenant access settings let you manage B2B collaboration and B2B direct con
 
 For more information, see [Cross-tenant access in Azure AD External Identities](cross-tenant-access-overview.md).
 
+### Microsoft cloud settings for B2B collaboration (preview)
+
+Microsoft Azure cloud services are available in separate national clouds, which are physically isolated instances of Azure. Increasingly, organizations are finding the need to collaborate with organizations and users across global cloud and national cloud boundaries. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following Microsoft Azure clouds:
+
+- Microsoft Azure global cloud and Microsoft Azure Government
+- Microsoft Azure global cloud and Microsoft Azure China 21Vianet
+
+To set up B2B collaboration between tenants in different clouds, both tenants need to configure their Microsoft cloud settings to enable collaboration with the other cloud. Then each tenant must configure inbound and outbound cross-tenant access with the tenant in the other cloud. See [Microsoft cloud settings](cross-cloud-settings.md) for details.
 ### External collaboration settings
 
 External collaboration settings determine whether your users can send B2B collaboration invitations to external users and the level of access guest users have to your directory. With these settings, you can:

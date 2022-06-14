@@ -13,7 +13,7 @@ ms.date: 3/31/2022
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](/azure/managed-grafana/how-to-permissions).
+- An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](./how-to-permissions.md).
 - A resource including monitoring data with  Managed Grafana monitoring permissions. Read [how to configure permissions](how-to-permissions.md) for more information.
 
 ## Sign in to Azure

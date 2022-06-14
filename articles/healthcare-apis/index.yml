@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 03/02/2022
+  ms.date: 05/04/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -26,9 +26,13 @@ landingContent:
             url: healthcare-apis-overview.md
           - text: About workspace
             url: workspace-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with Azure Health Data Services
+            url: get-started-with-health-data-services.md
       - linkListType: deploy
         links:
-          - text: Getting started with Azure Health Data Services
+          - text: Deploy Azure Health Data Services workspace
             url: healthcare-apis-quickstart.md
   
   - title: Using Azure Health Data Services
@@ -44,10 +48,14 @@ landingContent:
   
   - title: FHIR service
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: About FHIR service
             url: ./fhir/overview.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with FHIR service
+            url: ./fhir/get-started-with-fhir.md
       - linkListType: deploy
         links:
           - text: Deploy FHIR service using portal
@@ -61,10 +69,14 @@ landingContent:
 
   - title: DICOM service
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: About DICOM service 
             url: ./dicom/dicom-services-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with DICOM service
+            url: ./dicom/get-started-with-dicom.md
       - linkListType: deploy
         links:
           - text: Deploy DICOM service using portal
@@ -78,10 +90,14 @@ landingContent:
   
   - title: MedTech service
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: About MedTech service
             url: ./iot/iot-connector-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with MedTech service
+            url: ./iot/get-started-with-iot.md
       - linkListType: deploy
         links:
           - text: Deploy MedTech service using portal
@@ -90,18 +106,3 @@ landingContent:
         links:
           - text: Receive device data through Azure IoT Hub
             url: ./iot/device-data-through-iot-hub.md
-
-  - title: Events
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: About Events
-            url: ./events/events-overview.md
-      - linkListType: deploy
-        links:
-          - text: Deploy Events in the Azure Portal
-            url: ./events/events-deploy-portal.md
-      - linkListType: tutorial
-        links:
-          - text: Deploy Events metrics
-            url: ./events/events-display-metrics.md

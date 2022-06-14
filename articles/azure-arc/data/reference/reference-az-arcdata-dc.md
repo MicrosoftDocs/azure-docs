@@ -144,7 +144,7 @@ Increase logging verbosity. Use `--debug` for full debug logs.
 ## az arcdata dc export
 Export metrics, logs or usage to a file.
 ```azurecli
-az arcdata dc export 
+az arcdata dc export -t logs --path logs.json --k8s-namespace namespace --use-k8s 
 ```
 ### Global Arguments
 #### `--debug`

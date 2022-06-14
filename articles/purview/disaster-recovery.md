@@ -5,7 +5,7 @@ author: sudheerreddykoppula
 ms.author: sukoppul
 ms.service: purview
 ms.topic: how-to
-ms.date: 04/23/2021
+ms.date: 06/03/2022
 ---
 # Disaster recovery for Microsoft Purview
 
