@@ -27,7 +27,7 @@ You can also read the best practices for [container image management][best-pract
 
 > **Best practice guidance** 
 >
-> You can enable {Defender for Containers)(../defender-for-cloud/defender-for-containers-introduction.md) to help secure your containers. Defender for Containers can assess cluster configurations and provide security recommendations, run vulnerability scans, and provide real-time protection and alerting for Kubernetes nodes and clusters.
+> You can enable [Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) to help secure your containers. Defender for Containers can assess cluster configurations and provide security recommendations, run vulnerability scans, and provide real-time protection and alerting for Kubernetes nodes and clusters.
 
 
 ## Secure access to the API server and cluster nodes
