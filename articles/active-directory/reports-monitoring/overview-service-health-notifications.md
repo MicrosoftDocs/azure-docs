@@ -21,7 +21,6 @@ ms.reviewer: davey
 ---
 # What are Service Health notifications in Azure Active Directory?
 
-
 Azure Service Health has been updated to provide notifications to tenant admins within the Azure portal when there are Service Health events for Azure Active Directory services. Due to the criticality of these events, an alert card in the Azure AD overview page will also be provided to support the discovery of these notifications. 
 
 ## How it works 
@@ -31,7 +30,7 @@ When there happens to be a Service Health notification for an Azure Active Direc
 Now that they're available as tenant events, they appear on the Azure AD overview page as alert cards. Any Service Health notification that has been updated within the last three days will be shown in one of the cards.   
 
  
-![Alert cards on the Azure AD overview page](./media/overview-service-health-notifications/service-health-overview.png)
+![Screenshot of the alert cards on the Azure AD overview page](./media/overview-service-health-notifications/service-health-overview.png)
 
 
 
@@ -41,7 +40,7 @@ Each card:
 - Has a link to the event. You can review the event on the Azure Service Health pages.  
 
  
-![Review event on the Azure Service Health page](./media/overview-service-health-notifications/service-health-issues.png)
+![Screenshot of the event on the Azure Service Health page](./media/overview-service-health-notifications/service-health-issues.png)
 
 
  
