@@ -17,7 +17,7 @@ ms.topic: how-to
 
 You can set the `--desired-version` parameter of the `spec.update.desiredVersion` property of an Azure Arc-enabled SQL Managed Instance to `auto` to ensure that your Managed Instance will be upgraded after a data controller upgrade, with no interaction from a user. This allows for ease of management, as you do not need to manually upgrade every instance for every release.
 
-After setting the `--desired-version` parameter of the `spec.update.desiredVersion` property to `auto` the first time, the Azure Arc-enabled data service will begin an upgrade to the newest image version within five minutes for the Managed Instance. Thereafter, within five minutes of a data controller being upgraded, the Managed Instance will begin the upgrade process. This works for both directly connected and indirectly connected modes.
+After setting the `--desired-version` parameter of the `spec.update.desiredVersion` property to `auto` the first time, the Azure Arc-enabled data service will begin an upgrade of the Managed Instance to the newest image version within five minutes, or within the next [Maintenance Window](maintenance-window.md). Thereafter, within five minutes of a data controller being upgraded, or within the next Maintenance Window, the Managed Instance will begin the upgrade process. This works for both directly connected and indirectly connected modes.
 
 If the `spec.update.desiredVersion` property is pinned to a specific version, automatic upgrades will not take place. This allows you to let most instances automatically upgrade, while manually managing instances that need a more hands-on approach.
 

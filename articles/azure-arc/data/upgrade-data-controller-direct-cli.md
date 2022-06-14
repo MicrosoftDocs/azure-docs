@@ -115,7 +115,6 @@ The output for the preceding command is:
 
 ```output
 Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
-Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
 ****Dry Run****
 Arcdata Control Plane would be upgraded to: <version-tag>
 ```

@@ -22,7 +22,7 @@ The Azure Arc data controller must be upgraded to the new version before the Man
 
 The Managed Instance must be at the same version as the data controller before a data controller is upgraded.
 
-Currently, only one Managed Instance can be upgraded at a time.
+There is no batch upgrade process available at this time.
 
 ## Upgrade the Managed Instance
 
