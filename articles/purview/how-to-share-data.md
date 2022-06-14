@@ -1,6 +1,6 @@
 ---
-title: How to Share Data
-description: Learn how to share data with Microsoft Purview Data Sharing
+title: How to share data
+description: Learn how to share data with Microsoft Purview Data Sharing.
 author: jifems
 ms.author: jife
 ms.service: purview
