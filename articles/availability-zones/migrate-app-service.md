@@ -54,7 +54,7 @@ Availability zone support is a property of the App Service plan. The following a
 
 ## Downtime requirements
 
-Downtime will be dependent on how you decide to carry out the migration. Since you can't convert pre-existing App Service plans to use availability zones, migration will consist of a side-by-side deployment where you'll create new App Service plans. Downtime will depend on how you choose to redirect traffic from your old to your new availability zone enabled App Service. For example, if you're using an [Application Gateway](networking/app-gateway-with-service-endpoints.md), a [custom domain](app-service-web-tutorial-custom-domain.md), or [Azure Front Door](../frontdoor/front-door-overview.md), downtime will be dependent on the time it takes to update those respective services with your new app's information. Alternatively, you can route traffic to multiple apps at the same time using a service such as [Azure Traffic Manager](web-sites-traffic-manager.md) and only fully cutover to your new availability zone enabled apps when everything is deployed and fully tested.
+Downtime will be dependent on how you decide to carry out the migration. Since you can't convert pre-existing App Service plans to use availability zones, migration will consist of a side-by-side deployment where you'll create new App Service plans. Downtime will depend on how you choose to redirect traffic from your old to your new availability zone enabled App Service. For example, if you're using an [Application Gateway](../app-service/networking/app-gateway-with-service-endpoints.md), a [custom domain](../app-service/app-service-web-tutorial-custom-domain.md), or [Azure Front Door](../frontdoor/front-door-overview.md), downtime will be dependent on the time it takes to update those respective services with your new app's information. Alternatively, you can route traffic to multiple apps at the same time using a service such as [Azure Traffic Manager](../app-service/web-sites-traffic-manager.md) and only fully cutover to your new availability zone enabled apps when everything is deployed and fully tested.
 
 ## Migration guidance: Redeployment
 
@@ -64,7 +64,7 @@ If you want your App Service to use availability zones, redeploy your apps into 
 
 ### Important considerations when using availability zones
 
-Traffic is routed to all of your available App Service instances. In the case when a zone goes down, the App Service platform will detect lost instances and automatically attempt to find new replacement instances and spread traffic as needed. If you have [autoscale](manage-scale-up.md) configured, and if it decides more instances are needed, autoscale will also issue a request to App Service to add more instances. Note that [autoscale behavior is independent of App Service platform behavior](../azure-monitor/autoscale/autoscale-overview.md) and that your autoscale instance count specification doesn't need to be a multiple of three. It's also important to note there's no guarantee that requests for additional instances in a zone-down scenario will succeed since back filling lost instances occurs on a best-effort basis. The recommended solution is to create and configure your App Service plans to account for losing a zone as described in the next section.
+Traffic is routed to all of your available App Service instances. In the case when a zone goes down, the App Service platform will detect lost instances and automatically attempt to find new replacement instances and spread traffic as needed. If you have [autoscale](../app-service/manage-scale-up.md) configured, and if it decides more instances are needed, autoscale will also issue a request to App Service to add more instances. Note that [autoscale behavior is independent of App Service platform behavior](../azure-monitor/autoscale/autoscale-overview.md) and that your autoscale instance count specification doesn't need to be a multiple of three. It's also important to note there's no guarantee that requests for additional instances in a zone-down scenario will succeed since back filling lost instances occurs on a best-effort basis. The recommended solution is to create and configure your App Service plans to account for losing a zone as described in the next section.
 
 Applications that are deployed in an App Service plan that has availability zones enabled will continue to run and serve traffic even if other zones in the same region suffer an outage. However it's possible that non-runtime behaviors including App Service plan scaling, application creation, application configuration, and application publishing may still be impacted from an outage in other Availability Zones. Zone redundancy for App Service plans only ensures continued uptime for deployed applications.
 
@@ -95,11 +95,11 @@ az appservice plan create --resource-group MyResourceGroup --name MyPlan --zone-
 
 To create an App Service with availability zones using the Azure portal, enable the zone redundancy option during the "Create Web App" or "Create App Service Plan" experiences.
 
-:::image type="content" source="./media/how-to-zone-redundancy/zone-redundancy-portal.png" alt-text="Image of zone redundancy enablement using the portal.":::
+:::image type="content" source="../app-service/media/how-to-zone-redundancy/zone-redundancy-portal.png" alt-text="Image of zone redundancy enablement using the portal.":::
 
 The capacity/number of workers/instance count can be changed once the App Service Plan is created by navigating to the **Scale out (App Service plan)** settings.
 
-:::image type="content" source="./media/how-to-zone-redundancy/capacity-portal.png" alt-text="Image of a capacity update using the portal.":::
+:::image type="content" source="../app-service/media/how-to-zone-redundancy/capacity-portal.png" alt-text="Image of a capacity update using the portal.":::
 
 The only changes needed in an Azure Resource Manager template to specify an App Service with availability zones are the ***zoneRedundant*** property (required) and optionally the App Service plan instance count (***capacity***) on the [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?tabs=json) resource. The ***zoneRedundant*** property should be set to ***true*** and ***capacity*** should be set based on the same conditions described previously.
 
@@ -140,10 +140,10 @@ There's no additional cost associated with enabling availability zones. Pricing 
 > [ARM Quickstart Templates](https://azure.microsoft.com/resources/templates/)
 
 > [!div class="nextstepaction"]
-> [Learn how to scale up an app in Azure App Service](manage-scale-up.md)
+> [Learn how to scale up an app in Azure App Service](../app-service/manage-scale-up.md)
 
 > [!div class="nextstepaction"]
 > [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md)
 
 > [!div class="nextstepaction"]
-> [Manage disaster recovery](manage-disaster-recovery.md)
+> [Manage disaster recovery](../app-service/manage-disaster-recovery.md)
