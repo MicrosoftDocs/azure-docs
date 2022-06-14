@@ -16,7 +16,7 @@ ms.devlang: azurecli
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-This article shows you how to use an Azure DevOps task to inject build artifacts into a virtual machine (VM) image, so that you can install and configure your application and operating system.
+In this article, you learn how to use an Azure DevOps task to inject build artifacts into a virtual machine (VM) image, so that you can install and configure your application and operating system.
 
 ## DevOps task versions
 
@@ -359,4 +359,4 @@ The VM Image Builder template resource artifact is in the resource group that wa
 
 ## Next steps
 
-For more information, see [VM Image Builder overview](../image-builder-overview.md). 
+For more information, see [VM Image Builder overview](../image-builder-overview.md).  

@@ -176,3 +176,4 @@ Wait for the image to be built and replicated before you move along to the next 
 ## Next steps
 
 To learn more about the components of the JSON file that you used in this article, see [Create an Azure VM Image Builder template](../linux/image-builder-json.md). 
+ 
