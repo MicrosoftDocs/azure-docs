@@ -89,10 +89,10 @@ The following is an example of a template that creates a pool of Linux VMs with 
                 "imageReference": {
                     "publisher": "Canonical",
                     "offer": "UbuntuServer",
-                    "sku": "16.04-LTS",
+                    "sku": "18.04-LTS",
                     "version": "latest"
                 },
-                "nodeAgentSKUId": "batch.node.ubuntu 16.04"
+                "nodeAgentSKUId": "batch.node.ubuntu 18.04"
             },
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",

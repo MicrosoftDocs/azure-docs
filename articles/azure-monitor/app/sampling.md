@@ -3,8 +3,8 @@ title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
+ms.reviewer: mmcc
 ---
 
 # Sampling in Application Insights
@@ -69,6 +69,8 @@ Metric counts such as request rate and exception rate are adjusted to compensate
 
 > [!NOTE]
 > This section applies to ASP.NET applications, not to ASP.NET Core applications. [Learn about configuring adaptive sampling for ASP.NET Core applications later in this document.](#configuring-adaptive-sampling-for-aspnet-core-applications)
+
+> With ASP.NET Core and with Microsoft.ApplicationInsights.AspNetCore >= 2.15.0 you can configure AppInsights options via appsettings.json
 
 In [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md), you can adjust several parameters in the `AdaptiveSamplingTelemetryProcessor` node. The figures shown are the default values:
 

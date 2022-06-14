@@ -125,4 +125,4 @@ Get-AzMySqlFlexibleServerDatabase `
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect Azure Database for MySQL Flexible Server with private access](/azure/mysql/flexible-server/quickstart-create-connect-server-vnet)
+> [Connect Azure Database for MySQL Flexible Server with private access](./quickstart-create-connect-server-vnet.md)

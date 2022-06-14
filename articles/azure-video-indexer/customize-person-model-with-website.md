@@ -108,7 +108,7 @@ You can add more faces to the person by selecting **Add images**.
 
 Select the image you wish to delete and click **Delete**.
 
-#### Rename and delete the person 
+#### Rename and delete a person 
 
 You can use the manage pane to rename the person and to delete the person from the Person model.
 
@@ -173,6 +173,10 @@ If you name a face with the name of an existing person in the Person model that 
 To delete a detected face in your video, go to the Insights pane and select the pencil icon in the top-right corner of the pane. Select the **Delete** option underneath the name of the face. This action removes the detected face from the video. The person's face will still be detected in the other videos in which it appears, but you can delete the face from those videos as well after they've been indexed.
 
 The person, if they had been named, will also continue to exist in the Person model that was used to index the video from which you deleted the face unless you specifically delete the person from the Person model.
+
+## Optimize the ability of your model to recognize a person
+
+To optimize your model ability to recognize the person, upload as many different images as possible and from different angles. To get optimal results, use high resolution images.
 
 ## Next steps
 

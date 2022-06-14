@@ -30,7 +30,7 @@ The default behavior of each configuration is provided in the following tables:
 | ASC_SECURITY_MODULE_ID | String | defender-iot-micro-agent | The unique identifier of the device.  |
 | SECURITY_MODULE_VERSION_(MAJOR)(MINOR)(PATCH)  | Number | 3.2.1 | The version. |
 | ASC_SECURITY_MODULE_SEND_MESSAGE_RETRY_TIME  | Number  | 3 | The amount of time the Defender-IoT-micro-agent will take to send the security message after a fail. (in seconds) |
-| ASC_SECURITY_MODULE_PENDING_TIME  | Number | 300 | The Defender-IoT-micro-agent pending time (in seconds). The state will change to suspend, if the time is exceeded.. |
+| ASC_SECURITY_MODULE_PENDING_TIME  | Number | 300 | The Defender-IoT-micro-agent pending time (in seconds). The state will change to suspend, if the time is exceeded. |
 
 ## Collection
 

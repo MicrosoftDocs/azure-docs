@@ -97,7 +97,6 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
-    --kubernetes-version 1.20.7 \
     --network-plugin azure
 ```
 
