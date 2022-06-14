@@ -35,8 +35,7 @@ To connect to an Azure Fluid Relay instance you first need to create an `AzureCl
 const config = {
   tenantId: "myTenantId",
   tokenProvider: new InsecureTokenProvider("myTenantKey", { id: "userId" }),
-  orderer: "https://myOrdererUrl",
-  storage: "https://myStorageUrl",
+  serviceEndpoint: "https://myServiceEndpointUrl",
 };
 
 const clientProps = {
@@ -59,8 +58,7 @@ const config = {
     "myAzureFunctionUrl" + "/api/GetAzureToken",
     { userId: "userId", userName: "Test User" }
   ),
-  orderer: "https://myOrdererUrl",
-  storage: "https://myStorageUrl",
+  serviceEndpoint: "https://myServiceEndpointUrl",
 };
 
 const clientProps = {
@@ -86,8 +84,7 @@ const config = {
     "myAzureFunctionUrl" + "/api/GetAzureToken",
     { userId: "UserId", userName: "Test User", additionalDetails: userDetails }
   ),
-  orderer: "https://myOrdererUrl",
-  storage: "https://myStorageUrl",
+  serviceEndpoint: "https://myServiceEndpointUrl",
 };
 ```
 

@@ -36,13 +36,11 @@ function createAzureClient(): AzureClient {
     const connectionConfig = useAzure ? {
         tenantId: "myTenantId",
         tokenProvider: new InsecureTokenProvider(tenantKey, user),
-        orderer: "https://myOrdererUrl",
-        storage: "https://myStorageUrl",
+        serviceEndpoint: "https://myOrdererUrl",
     } : {
         tenantId: LOCAL_MODE_TENANT_ID,
         tokenProvider: new InsecureTokenProvider("", user),
-        orderer: "http://localhost:7070",
-        storage: "http://localhost:7070",
+        serviceEndpoint: "http://localhost:7070",
     };
 
     const clientProps = {

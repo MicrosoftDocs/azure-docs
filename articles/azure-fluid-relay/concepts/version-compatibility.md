@@ -31,19 +31,27 @@ npx install-peerdeps @fluidframework/azure-client
 ```
 
 > [!TIP]
+> We strongly recommend that you update to the latest version of **@fluidframework/azure-client** and **fluid-framework**. Earlier versions will not be
+> supported heading into General Availability of Azure Fluid Relay. With this upgrade, you’ll make use of our new multi-region routing capability where
+> Azure Fluid Relay will host your session closer to your end users to improve customer experience. In the latest package, you will need to update your
+> serviceConfig object in app.js to the new Azure Fluid Relay service endpoint instead of the storage and orderer endpoints. These values can be found
+> in the "Access Key" section of the Fluid Relay resource in the Azure portal. The orderer and storage endpoints will be deprecated soon.
+
+
+> [!TIP]
 > During Public Preview, the versions of **@fluidframework/azure-client** and **fluid-framework** will match. That is, if
-> the current release of **@fluidframework/azure-client** is 0.48, then it will be compatible with **fluid-framework** 0.48. The inverse is also true.
+> the current release of **@fluidframework/azure-client** is 0.52, then it will be compatible with **fluid-framework** 0.52. The inverse is also true.
 
 ## Compatibility table
 
 | npm package                         | Minimum version | API                                                              |
 | ----------------------------------  | :-------------- | :--------------------------------------------------------------- |
-| @fluidframework/azure-client        | [0.48.4][]      | [API](https://fluidframework.com/docs/apis/azure-client/)        |
-| fluid-framework                     | [0.48.4][]      | [API](https://fluidframework.com/docs/apis/fluid-framework/)     |
-| @fluidframework/azure-service-utils | [0.48.4][]      | [API](https://fluidframework.com/docs/apis/azure-service-utils/) |
-| @fluidframework/test-client-utils   | [0.48.4][]      | [API](https://fluidframework.com/docs/apis/test-client-utils/)   |
+| @fluidframework/azure-client        | [0.52][]      | [API](https://fluidframework.com/docs/apis/azure-client/)        |
+| fluid-framework                     | [0.52][]      | [API](https://fluidframework.com/docs/apis/fluid-framework/)     |
+| @fluidframework/azure-service-utils | [0.52][]      | [API](https://fluidframework.com/docs/apis/azure-service-utils/) |
+| @fluidframework/test-client-utils   | [0.52][]      | [API](https://fluidframework.com/docs/apis/test-client-utils/)   |
 
-[0.48.4]: https://fluidframework.com/docs/updates/v0.48/
+[0.52]: https://fluidframework.com/docs/updates/v0.52/
 
 ## Next steps
 
