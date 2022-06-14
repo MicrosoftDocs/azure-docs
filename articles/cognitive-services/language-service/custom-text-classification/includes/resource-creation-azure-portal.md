@@ -14,7 +14,7 @@ ms.custom: language-service-custom-classification, event-tier1-build-2022
 
 1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. 
 
-1. In the window that appears, select **Custom text classification & custom named entity recognition (preview)** from the custom features. Click **Continue to create your resource** at the bottom of the screen. 
+1. In the window that appears, select **Custom text classification & custom named entity recognition** from the custom features. Click **Continue to create your resource** at the bottom of the screen. 
 
     :::image type="content" source="../media/select-custom-feature-azure-portal.png" alt-text="A screenshot showing the selection option for custom text classification and custom named entity recognition in Azure portal." lightbox="../media/select-custom-feature-azure-portal.png":::
 
