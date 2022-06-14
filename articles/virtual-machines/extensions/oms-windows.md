@@ -26,9 +26,9 @@ For details about the supported Windows operating systems, refer to the [Overvie
 
 ### Agent and VM Extension version
 
-The following table provides a mapping of the version of the Windows Log Analytics VM extension and Log Analytics agent bundle for each release. 
+The following table provides a mapping of the version of the Windows Log Analytics VM extension and Log Analytics agent for each release. 
 
-| Log Analytics Windows agent bundle version | Log Analytics Windows VM extension version | Release Date | Release Notes |
+| Log Analytics Windows agent version | Log Analytics Windows VM extension version | Release Date | Release Notes |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18064.0|1.0.18064 | December 2021   | <ul><li>Bug fix for intermittent crashes</li></ul> |
 | 10.20.18062.0| 1.0.18062 | November 2021   | <ul><li>Minor bug fixes and stabilizattion improvements</li></ul> |
