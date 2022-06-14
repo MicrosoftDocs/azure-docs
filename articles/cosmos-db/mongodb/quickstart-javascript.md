@@ -161,7 +161,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
    | Location | The region closest to your users | Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data. |
    | Capacity mode |Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](../set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../serverless.md) mode. |
    | Apply Azure Cosmos DB free tier discount | **Apply** or **Do not apply** |With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/). |
-   | Version | Select the version of MongoDB.  |
+   | Version | MongoDB version  | Select the MongoDB server version that matches your application requirements.
 
    > [!NOTE]
    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
@@ -252,7 +252,7 @@ You'll use the following MongoDB classes to interact with these resources:
 
 The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
-For this sample code, the collection will use the category as a logical partition key.
+For this procedure, the database will not use sharding or a partition key. 
 
 ### Authenticate the client
 
