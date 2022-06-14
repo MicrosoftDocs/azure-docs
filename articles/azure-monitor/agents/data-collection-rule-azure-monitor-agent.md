@@ -48,7 +48,7 @@ In the **Resources** tab, add the resources (virtual machines, virtual machine s
 > If you need network isolation using private links for collecting data using agents from your resources, then select **Enable Data Collection Endpoints** and select a DCE for each virtual machine. See [Enable network isolation for the Azure Monitor Agent](azure-monitor-agent-data-collection-endpoint.md) for details.
 
 
-:::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machine.png" alt-text="Screenshot for adding virtual machines to data collection rule.":::
+:::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines.png" alt-text="Screenshot for adding virtual machines to data collection rule.":::
 
 
 On the **Collect and deliver** tab, click **Add data source** to add a data source and destination set. Select a **Data source type**, and the corresponding details to select will be displayed. For performance counters, you can select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs or facilities and the severity level. 
