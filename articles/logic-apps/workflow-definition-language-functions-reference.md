@@ -2638,7 +2638,7 @@ And returns this result: `true`
 
 ### isInt
 
-Return a boolean indicating whether the string is an integer.
+Return a boolean indicating whether a string is an integer.
 
 ```
 isInt('<string>')
