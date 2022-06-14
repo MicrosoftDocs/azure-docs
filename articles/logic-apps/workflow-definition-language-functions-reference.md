@@ -2616,7 +2616,7 @@ isFloat('<string>', '<locale>'?)
 
 *Example 1*
 
-This example tests a string that represents a floating point in the invariant culture:
+This example checks whether a string is a floating-point number in the invariant culture:
 
 ```
 isFloat('10,000.00')
