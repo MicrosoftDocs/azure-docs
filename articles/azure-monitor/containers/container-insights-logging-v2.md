@@ -16,9 +16,9 @@ Azure Monitor Container insights is now in public preview of a new schema for co
 Because the ContainerLogv2 schema is a preview feature, Container insights does not yet support the **View in Analytics** option. However, the data is available when queried directly from the [Log Analytics](./container-insights-log-query.md) interface.
 
 The new fields are:
-* ```ContainerName```
-* ```PodName```
-* ```PodNamespace```
+* `ContainerName`
+* `PodName`
+* `PodNamespace`
 
 ## ContainerLogV2 schema
 ```kusto
@@ -36,7 +36,8 @@ Customers can enable the ContainerLogV2 schema at the cluster level. To enable t
 Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 ### Configure an existing ConfigMap
-If your ConfigMap doesn't yet have the ```log_collection_settings.schema``` field, you'll need to append the following section in your existing ConfigMap .yaml file:
+If your ConfigMap doesn't yet have the `log_collection_settings.schema` field, you'll need to append the following section in your existing ConfigMap .yaml file:
+
 ```yaml
 [log_collection_settings.schema]
           # In the absence of this ConfigMap, the default value for containerlog_schema_version is "v1"
@@ -46,8 +47,8 @@ If your ConfigMap doesn't yet have the ```log_collection_settings.schema``` fiel
 ```
 
 ### Configure a new ConfigMap
-1. [Download the new ConfigMap](https://aka.ms/container-azm-ms-agentconfig). For the newly downloaded ConfigMap, the default value for ```containerlog_schema_version``` is "v1".
-1. Update the ```containerlog_schema_version = "v2"```.
+1. [Download the new ConfigMap](https://aka.ms/container-azm-ms-agentconfig). For the newly downloaded ConfigMap, the default value for `containerlog_schema_version` is `"v1"`.
+1. Update the `containerlog_schema_version = "v2"`.
 
     ```yaml
     [log_collection_settings.schema]
@@ -57,9 +58,9 @@ If your ConfigMap doesn't yet have the ```log_collection_settings.schema``` fiel
         containerlog_schema_version = "v2"
     ```
 
-3. After you finish configuring the ConfigMap, run the following kubectl command: ```kubectl apply -f `<configname>`.```
+3. After you finish configuring the ConfigMap, run the following kubectl command: `kubectl apply -f <configname>`.
 
-   Example: ```kubectl apply -f container-azm-ms-agentconfig.yaml```.
+   Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`
 
 >[!NOTE]
 >* The configuration change can take a few minutes to complete before it takes effect. All OMS agent pods in the cluster will restart. 
