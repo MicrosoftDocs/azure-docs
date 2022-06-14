@@ -18,7 +18,7 @@ Azure Private endpoints support application security groups for network security
 
 - An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An Azure web app with a *PremiumV2-tier* or higher app service plan, deployed in your Azure subscription.  
+- An Azure web app with a **PremiumV2-tier** or higher app service plan, deployed in your Azure subscription.  
 
     - For more information and an example, see [Quickstart: Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md). 
     
