@@ -20,3 +20,5 @@ items:
     href: register-existing-system.md
   - name: Get Quality Insights for VIS
     href: get-quality-insights-vis.md
+  - name: Start and stop SAP systems
+    href: start-stop-sap-systems.md

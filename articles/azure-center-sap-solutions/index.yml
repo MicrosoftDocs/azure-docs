@@ -37,3 +37,5 @@ landingContent:
             url: register-existing-system.md
           - text: Get Quality Insights for VIS
             url: get-quality-insights-vis.md
+          - text: Start and stop SAP systems
+            url: start-stop-sap-systems.md
