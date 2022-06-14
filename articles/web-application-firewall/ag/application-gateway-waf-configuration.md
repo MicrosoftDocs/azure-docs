@@ -369,7 +369,7 @@ The following example shows how you can exclude the `user` query string argument
 
 # [Azure portal](#tab/portal)
 
-To configure a g;lobal exclusion by using the Azure portal, follow these steps:
+To configure a global exclusion by using the Azure portal, follow these steps:
 
 1. Navigate to the WAF policy, and select **Managed rules**.
 
