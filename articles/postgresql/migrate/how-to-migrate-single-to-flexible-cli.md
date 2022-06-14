@@ -18,32 +18,30 @@ This article shows you how to use the migration tool in the Azure CLI to migrate
 >[!NOTE]
 > The migration tool is in private preview.
 
-## Before you begin
-
-1. If you're new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate our offerings. 
-2. Register your subscription for Azure Database Migration Service. If you've already done it, you can skip this step. Go to the Azure portal and browse to your subscription.
-
-   :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-dms.png" alt-text="Screenshot of Azure Database Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-dms.png":::
-
-3. In your subscription, go to **Resource Providers** on the left menu. Search for **Microsoft.DataMigration**, and then select **Register**.
-
-   :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-dms-register.png" alt-text="Screenshot of the register button in Azure Database Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-dms-register.png":::
-
 ## Prerequisites
 
-### Set up the Azure CLI
+1. If you're new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate the offerings. 
+2. Register your subscription for Azure Database Migration Service. (If you've already done it, you can skip this step.)
 
-1. Install the latest Azure CLI for your operating system from the [Azure CLI installation page](/cli/azure/install-azure-cli).
+   1. On the Azure portal, go to your subscription.
+
+      :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-dms.png" alt-text="Screenshot of Azure Database Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-dms.png":::
+
+   1. On the left menu, select **Resource Providers**. Search for **Microsoft.DataMigration**, and then select **Register**.
+
+      :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-cli-dms-register.png" alt-text="Screenshot of the Register button for Azure Database Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-cli-dms-register.png":::
+
+3. Install the latest Azure CLI for your operating system from the [Azure CLI installation page](/cli/azure/install-azure-cli).
 
    If the Azure CLI is already installed, check the version by using the `az version` command. The version should be 2.28.0 or later to use the migration CLI commands. If not, [update your Azure CLI version](/cli/azure/update-azure-cli).
-2. Run the `az login` command: 
+4. Run the `az login` command: 
    
    ```bash
    az login
    ```
 
    A browser window opens with the Azure sign-in page. Provide your Azure credentials to do a successful authentication. For other ways to sign with the Azure CLI, see [this article](/cli/azure/authenticate-azure-cli).   
-3. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#pre-requisites). You need them to get started with the migration tool.
+5. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#prerequisites). You need them to get started with the migration tool.
 
 ## Migration CLI commands
 
