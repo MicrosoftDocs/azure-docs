@@ -27,7 +27,7 @@ Translator service supports language translation for more than 100 languages. If
 
 ### Document Translation stable GA 1.0.0 release
 
-Document Translation .NET and Python client-library SDKs are generally available and ready for use in production applications!
+Document Translation .NET and Python client-library SDKs are now generally available and ready for use in production applications!
 
 ### [**C#**](#tab/csharp)
 
