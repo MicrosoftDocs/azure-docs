@@ -25,7 +25,7 @@ All device communication with IoT Hub must be secured using TLS/SSL. Therefore, 
 
 ## Connecting to IoT Hub
 
-A device can use the MQTT protocol to connect to an IoT hub using any of the following options.
+A device can use the MQTT protocol to connect to an IoT hub using any of the following options:
 
 * Libraries in the [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks).
 * The MQTT protocol directly.
@@ -34,7 +34,7 @@ The MQTT port (8883) is blocked in many corporate and educational networking env
 
 ## Using the device SDKs
 
-[Device SDKs](https://github.com/Azure/azure-iot-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. You can also specify MQTT over Web Sockets in the client protocol parameter. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub. While it's possible to configure **QoS 0** for faster message exchange, you should note that the delivery isn't guaranteed nor acknowledged. For this reason, **QoS 0** is often referred as "fire and forget".
+[Device SDKs](https://github.com/Azure/azure-iot-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the choosen [authentication mechanism](iot-concepts-and-iot-hub.md#device-identity-and-authentication) to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. You can also specify MQTT over Web Sockets in the client protocol parameter. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub. While it's possible to configure **QoS 0** for faster message exchange, you should note that the delivery isn't guaranteed nor acknowledged. For this reason, **QoS 0** is often referred as "fire and forget".
 
 When a device is connected to an IoT hub, the device SDKs provide methods that enable the device to exchange messages with an IoT hub.
 
@@ -135,7 +135,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
 * For the **ClientId** field, use the **deviceId**.
 
-* For the **Username** field, use `{iothubhostname}/{device_id}/?api-version=2021-04-12`, where `{iothubhostname}` is the full CName of the IoT hub.
+* For the **Username** field, use `{iotHub-hostname}/{device-id}/?api-version=2021-04-12`, where `{iotHub-hostname}` is the full CName of the IoT hub.
 
     For example, if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should contain:
 
@@ -166,27 +166,27 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
    The SAS token that's generated has the following structure:
 
-   `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
+   `HostName={iotHub-hostname};DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={iotHub-hostname}%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
 
    The part of this token to use as the **Password** field to connect using MQTT is:
 
-   `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
+   `SharedAccessSignature sr={iotHub-hostname}%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
 
-The device app can specify a **Will** message in the **CONNECT** packet. The device app should use `devices/{device_id}/messages/events/` or `devices/{device_id}/messages/events/{property_bag}` as the **Will** topic name to define **Will** messages to be forwarded as a telemetry message. In this case, if the network connection is closed, but a **DISCONNECT** packet was not previously received from the device, then IoT Hub sends the **Will** message supplied in the **CONNECT** packet to the telemetry channel. The telemetry channel can be either the default **Events** endpoint or a custom endpoint defined by IoT Hub routing. The message has the **iothub-MessageType** property with a value of **Will** assigned to it.
+The device app can specify a **Will** message in the **CONNECT** packet. The device app should use `devices/{device-id}/messages/events/` or `devices/{device-id}/messages/events/{property-bag}` as the **Will** topic name to define **Will** messages to be forwarded as a telemetry message. In this case, if the network connection is closed, but a **DISCONNECT** packet was not previously received from the device, then IoT Hub sends the **Will** message supplied in the **CONNECT** packet to the telemetry channel. The telemetry channel can be either the default **Events** endpoint or a custom endpoint defined by IoT Hub routing. The message has the **iothub-MessageType** property with a value of **Will** assigned to it.
 
 ## Using the MQTT protocol directly (as a module)
 
 Connecting to IoT Hub over MQTT using a module identity is similar to the device (described [in the section on using the MQTT protocol directly as a device](#using-the-mqtt-protocol-directly-as-a-device)) but you need to use the following:
 
-* Set the client ID to `{device_id}/{module_id}`.
+* Set the client ID to `{device-id}/{module-id}`.
 
 * If authenticating with username and password, set the username to `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2021-04-12` and use the SAS token associated with the module identity as your password.
 
-* Use `devices/{device_id}/modules/{module_id}/messages/events/` as a topic for publishing telemetry.
+* Use `devices/{device-id}/modules/{module-id}/messages/events/` as a topic for publishing telemetry.
 
-* Use `devices/{device_id}/modules/{module_id}/messages/events/` as WILL topic.
+* Use `devices/{device-id}/modules/{module-id}/messages/events/` as WILL topic.
 
-* Use `devices/{deviceName}/modules/{moduleName}/#` as a topic for receiving messages.
+* Use `devices/{device-id}/modules/{module-id}/#` as a topic for receiving messages.
 
 * The twin GET and PATCH topics are identical for modules and devices.
 
@@ -281,7 +281,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## Sending device-to-cloud messages
 
-After making a successful connection, a device can send messages to IoT Hub using `devices/{device_id}/messages/events/` or `devices/{device_id}/messages/events/{property_bag}` as a **Topic Name**. The `{property_bag}` element enables the device to send messages with additional properties in a url-encoded format. For example:
+After making a successful connection, a device can send messages to IoT Hub using `devices/{device-id}/messages/events/` or `devices/{device-id}/messages/events/{property-bag}` as a **Topic Name**. The `{property-bag}` element enables the device to send messages with additional properties in a url-encoded format. For example:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -300,17 +300,17 @@ The following is a list of IoT Hub implementation-specific behaviors:
 
 * To route messages based on message body, you must first add property 'contentType' (`ct`) to the end of the MQTT topic and set its value to be `application/json;charset=utf-8`. An example is shown below. To learn more about routing messages either based on message properties or message body, please see the [IoT Hub message routing query syntax documentation](iot-hub-devguide-routing-query-syntax.md).
 
-    ```devices/{device_id}/messages/events/$.ct=application%2Fjson%3Bcharset%3Dutf-8```
+    ```devices/{device-id}/messages/events/$.ct=application%2Fjson%3Bcharset%3Dutf-8```
 
 For more information, see [Messaging developer's guide](iot-hub-devguide-messaging.md).
 
 ## Receiving cloud-to-device messages
 
-To receive messages from IoT Hub, a device should subscribe using `devices/{device_id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive additional properties in the topic name. IoT Hub does not allow the usage of the `#` or `?` wildcards for filtering of subtopics. Since IoT Hub is not a general-purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
+To receive messages from IoT Hub, a device should subscribe using `devices/{device-id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive additional properties in the topic name. IoT Hub does not allow the usage of the `#` or `?` wildcards for filtering of subtopics. Since IoT Hub is not a general-purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
 
-The device does not receive any messages from IoT Hub until it has successfully subscribed to its device-specific endpoint, represented by the `devices/{device_id}/messages/devicebound/#` topic filter. After a subscription has been established, the device receives cloud-to-device messages that were sent to it after the time of the subscription. If the device connects with **CleanSession** flag set to **0**, the subscription is persisted across different sessions. In this case, the next time the device connects with **CleanSession 0** it receives any outstanding messages sent to it while disconnected. If the device uses **CleanSession** flag set to **1** though, it does not receive any messages from IoT Hub until it subscribes to its device-endpoint.
+The device does not receive any messages from IoT Hub until it has successfully subscribed to its device-specific endpoint, represented by the `devices/{device-id}/messages/devicebound/#` topic filter. After a subscription has been established, the device receives cloud-to-device messages that were sent to it after the time of the subscription. If the device connects with **CleanSession** flag set to **0**, the subscription is persisted across different sessions. In this case, the next time the device connects with **CleanSession 0** it receives any outstanding messages sent to it while disconnected. If the device uses **CleanSession** flag set to **1** though, it does not receive any messages from IoT Hub until it subscribes to its device-endpoint.
 
-IoT Hub delivers messages with the **Topic Name** `devices/{device_id}/messages/devicebound/`, or `devices/{device_id}/messages/devicebound/{property_bag}` when there are message properties. `{property_bag}` contains url-encoded key/value pairs of message properties. Only application properties and user-settable system properties (such as **messageId** or **correlationId**) are included in the property bag. System property names have the prefix **$**, application properties use the original property name with no prefix. For additional details about the format of the property bag, see [Sending device-to-cloud messages](#sending-device-to-cloud-messages).
+IoT Hub delivers messages with the **Topic Name** `devices/{device-id}/messages/devicebound/`, or `devices/{device-id}/messages/devicebound/{property-bag}` when there are message properties. `{property-bag}` contains url-encoded key/value pairs of message properties. Only application properties and user-settable system properties (such as **messageId** or **correlationId**) are included in the property bag. System property names have the prefix **$**, application properties use the original property name with no prefix. For additional details about the format of the property bag, see [Sending device-to-cloud messages](#sending-device-to-cloud-messages).
 
 In cloud-to-device messages, values in the property bag are represented as in the following table:
 
@@ -330,7 +330,7 @@ When a device app subscribes to a topic with **QoS 2**, IoT Hub grants maximum Q
 
 ## Retrieving a device twin's properties
 
-First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends an empty message to topic `$iothub/twin/GET/?$rid={request id}`, with a populated value for **request ID**. The service then sends a response message containing the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request ID** as the request.
+First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends an empty message to topic `$iothub/twin/GET/?$rid={request id}`, with a populated value for **request ID**. The service then sends a response message containing the device twin data on topic `$iothub/twin/res/{status}/?$rid={request-id}`, using the same **request ID** as the request.
 
 Request ID can be any valid value for a message property value, as per the [IoT Hub messaging developer's guide](iot-hub-devguide-messaging.md), and status is validated as an integer.
 
@@ -368,9 +368,9 @@ The following sequence describes how a device updates the reported properties in
 
 1. A device must first subscribe to the `$iothub/twin/res/#` topic to receive the operation's responses from IoT Hub.
 
-2. A device sends a message that contains the device twin update to the `$iothub/twin/PATCH/properties/reported/?$rid={request id}` topic. This message includes a **request ID** value.
+2. A device sends a message that contains the device twin update to the `$iothub/twin/PATCH/properties/reported/?$rid={request-id}` topic. This message includes a **request ID** value.
 
-3. The service then sends a response message that contains the new ETag value for the reported properties collection on topic `$iothub/twin/res/{status}/?$rid={request id}`. This response message uses the same **request ID** as the request.
+3. The service then sends a response message that contains the new ETag value for the reported properties collection on topic `$iothub/twin/res/{status}/?$rid={request-id}`. This response message uses the same **request ID** as the request.
 
 The request message body contains a JSON document, that contains new values for reported properties. Each member in the JSON document updates or add the corresponding member in the device twin's document. A member set to `null` deletes the member from the containing object. For example:
 
@@ -410,7 +410,7 @@ For more information, see the [Device twins developer's guide](iot-hub-devguide-
 
 ## Receiving desired properties update notifications
 
-When a device is connected, IoT Hub sends notifications to the topic `$iothub/twin/PATCH/properties/desired/?$version={new version}`, which contain the content of the update performed by the solution back end. For example:
+When a device is connected, IoT Hub sends notifications to the topic `$iothub/twin/PATCH/properties/desired/?$version={new-version}`, which contain the content of the update performed by the solution back end. For example:
 
 ```json
 {
@@ -429,9 +429,9 @@ For more information, see the [Device twins developer's guide](iot-hub-devguide-
 
 ## Respond to a direct method
 
-First, a device has to subscribe to `$iothub/methods/POST/#`. IoT Hub sends method requests to the topic `$iothub/methods/POST/{method name}/?$rid={request id}`, with either a valid JSON or an empty body.
+First, a device has to subscribe to `$iothub/methods/POST/#`. IoT Hub sends method requests to the topic `$iothub/methods/POST/{method-name}/?$rid={request-id}`, with either a valid JSON or an empty body.
 
-To respond, the device sends a message with a valid JSON or empty body to the topic `$iothub/methods/res/{status}/?$rid={request id}`. In this message, the **request ID** must match the one in the request message, and **status** must be an integer.
+To respond, the device sends a message with a valid JSON or empty body to the topic `$iothub/methods/res/{status}/?$rid={request-id}`. In this message, the **request ID** must match the one in the request message, and **status** must be an integer.
 
 For more information, see the [Direct method developer's guide](iot-hub-devguide-direct-methods.md).
 
