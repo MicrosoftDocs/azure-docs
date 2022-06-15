@@ -39,7 +39,7 @@ A: Yes, you can attach a managed data disk to a VM that uses an ephemeral OS dis
 
 **Q: Will all VM sizes be supported for ephemeral OS disks?**
 
-A: No, most Premium Storage VM sizes are supported (DS, ES, FS, GS, M, etc.). To know whether a particular VM size supports ephemeral OS disks for a OS image size you can use the below script. It takes the OS image size and location as inputs and provides a list of VM SKUs and corresponding placement supported. If both OS Cache and temp disk placement are marked as not supported then Ephemeral OS disk cannot be used for the given OS image size.
+A: No, most Premium Storage VM sizes are supported (DS, ES, FS, GS, M, etc.). To know whether a particular VM size supports ephemeral OS disks for an OS image size you can use the below script. It takes the OS image size and location as inputs and provides a list of VM SKUs and corresponding placement supported. If both OS Cache and temp disk placement are marked as not supported then Ephemeral OS disk cannot be used for the given OS image size.
 
 ```azurepowershell-interactive
 [CmdletBinding()]
