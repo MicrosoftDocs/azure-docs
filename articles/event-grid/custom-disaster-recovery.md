@@ -21,7 +21,7 @@ To create a recovery plan, you'll need to choose which regions will be used in y
 
 ## Selecting a cross-region router
 
-Once you already defined the regions, you'll need to define the cross-region router that will help you to distribute the traffic across the regions if needed. [Traffic Manager](../traffic-manager/traffic-manager-overview.md) is a DNS-based traffic load balancer that allows you to distribute traffic to your public facing applications across the global Azure regions. Traffic Manager also provides your public endpoints with high availability and quick responsiveness, in case you need additional features like cross-region redirection and availability, reverse proxy, static content cache, WAF policies you may be interested to see [Front Door](https://docs.microsoft.com/en-us/azure/frontdoor/).
+Once you already defined the regions, you'll need to define the cross-region router that will help you to distribute the traffic across the regions if needed. [Traffic Manager](../traffic-manager/traffic-manager-overview.md) is a DNS-based traffic load balancer that allows you to distribute traffic to your public facing applications across the global Azure regions. Traffic Manager also provides your public endpoints with high availability and quick responsiveness, in case you need additional features like cross-region redirection and availability, reverse proxy, static content cache, WAF policies you may be interested to see [Front Door](../frontdoor/front-door-overview.md).
  
 ## Deploy your Azure Event Grid resources
 
