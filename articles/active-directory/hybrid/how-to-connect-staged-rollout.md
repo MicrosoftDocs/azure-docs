@@ -36,7 +36,6 @@ For an overview of the feature, view this "Azure Active Directory: What is stage
 -   You have decided to move one of the following options:
     - **Password hash synchronization (sync)**. For more information, see [What is password hash sync](whatis-phs.md) 
     - **Pass-through authentication**. For more information, see [What is pass-through authentication](how-to-connect-pta.md)  
-    - **Azure AD Multi-Factor Authentication (MFA) settings**. For more information, see [What is pass-through authentication](../authentication/how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md) 
     - **Azure AD Certificate-based authentication (CBA) settings**. For more information, see [What is pass-through authentication](../authentication/concept-certificate-based-authentication.md) 
     
     For both options, we recommend enabling single sign-on (SSO) to achieve a silent sign-in experience. 
@@ -171,7 +170,6 @@ You can roll out these options:
 - **Password hash sync** + **Seamless SSO**
 - **Pass-through authentication** + **Seamless SSO**
 - **Not supported** - **Password hash sync** + **Pass-through authentication** + **Seamless SSO**
-- **Azure AD Multi-Factor Authentication (MFA) settings**
 - **Certificate-based authentication settings**
 
 Do the following:
