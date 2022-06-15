@@ -2,7 +2,7 @@
 author: timwarner-msft
 ms.service: resource-graph
 ms.topic: include
-ms.date: 03/08/2022
+ms.date: 06/15/2022
 ms.author: timwarner
 ms.custom: generated
 ---
@@ -454,7 +454,7 @@ Returns the connected cluster ID of each Azure Arc-enabled Kubernetes cluster th
 
 ```kusto
 Resources
-| where type =~ 'Microsoft.Kubernetes/connectedClusters' | extend connectedClusterId = tolower(id) | project connectedClusterId 
+| where type =~ 'Microsoft.Kubernetes/connectedClusters' | extend connectedClusterId = tolower(id) | project connectedClusterId
 | join kind = leftouter
 	(KubernetesConfigurationResources
 	| where type == 'microsoft.kubernetesconfiguration/extensions'
@@ -573,7 +573,7 @@ Resources
 | join kind=leftouter(
 	Resources
 	| where type == 'microsoft.compute/virtualmachines/extensions'
-	| extend 
+	| extend
 		VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
 		ExtensionName = name
 ) on $left.JoinID == $right.VMId
@@ -1417,7 +1417,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ### Summarize virtual machine by the power states extended property
 
-This query uses the [extended properties](../../../../articles/governance/resource-graph/concepts/query-language.md#extended-properties) on virtual machines to summarize by power states.
+This query uses the [extended properties](../../../../articles/governance/resource-graph/concepts/query-language.md#extended-properties-preview) on virtual machines to summarize by power states.
 
 ```kusto
 Resources
