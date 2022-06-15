@@ -83,7 +83,7 @@ The OMS mobile app will be sunsetted along with the OMS portal. Instead of the O
 As such, Application Insights Connector was deprecated and removed from Azure Marketplace along with OMS portal deprecation on March 30, 2019. Existing connections will continue to work until June 30, 2019. With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. This will be supported using the REST API that will be made available in January, 2019 and a notification will be posted on [Azure updates](https://azure.microsoft.com/updates/). 
 
 ## Azure Network Security Group Analytics
-The [Azure Network Security Group Analytics solution](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) will be replaced with the recently launched [Traffic Analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) which provides visibility into user and application activity on cloud networks. Traffic Analytics helps you audit your organization's network activity, secure applications and data, optimize workload performance and stay compliant. 
+The [Azure Network Security Group Analytics solution](../insights/azure-networking-analytics.md) will be replaced with the recently launched [Traffic Analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) which provides visibility into user and application activity on cloud networks. Traffic Analytics helps you audit your organization's network activity, secure applications and data, optimize workload performance and stay compliant. 
 
 This solution analyzes NSG Flow logs and provides insights into the following.
 
