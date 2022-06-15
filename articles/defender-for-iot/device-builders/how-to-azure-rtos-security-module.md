@@ -9,7 +9,7 @@ ms.date: 11/09/2021
 
 This article describes how to configure the Defender-IoT-micro-agent for your Azure RTOS device, to meet your network, bandwidth, and memory requirements.
 
-## Configuration Steps
+## Configuration steps
 
 You must select a target distribution file that has a `*.dist` extension, from the `netxduo/addons/azure_iot/azure_iot_security_module/configs` directory.  
 
@@ -17,7 +17,7 @@ When using a CMake compilation environment, you must set a command line paramete
 
 In an IAR, or other non CMake compilation environment, you must add the `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/` path to any known included paths. For example, `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/RTOS_BASE`.
 
-## Device Behaviour
+## Device behavior
 
 Use the following file to configure your device behavior.
 
@@ -27,7 +27,7 @@ In a CMake compilation environment, you must change the default configuration by
 
 The default behavior of each configuration is provided in the following tables: 
 
-## General Configuration
+## General configuration
 
 | Name | Type | Default | Details |
 | - | - | - | - |
@@ -36,7 +36,7 @@ The default behavior of each configuration is provided in the following tables:
 | ASC_SECURITY_MODULE_SEND_MESSAGE_RETRY_TIME  | Number  | 3 | The amount of time the Defender-IoT-micro-agent will take to send the security message after a fail. (in seconds) |
 | ASC_SECURITY_MODULE_PENDING_TIME  | Number | 300 | The Defender-IoT-micro-agent pending time (in seconds). The state will change to suspend, if the time is exceeded. |
 
-## Collection Configuration
+## Collection configuration
 
 | Name | Type | Default | Details |
 | - | - | - | - |
@@ -72,7 +72,7 @@ Other configurations flags are advanced, and have unsupported features. Contact 
 
 The Defender-IoT-micro-agent for Azure RTOS supports specific security alerts and recommendations. Make sure to [review and customize the relevant alert and recommendation values](concept-rtos-security-alerts-recommendations.md) for your service.
 
-## Log Analytics (optional)
+## Log analytics (optional)
 
 You can enable and configure Log Analytics to investigate device events and activities. Read about how to setup, and use [Log Analytics with the Defender for IoT service](how-to-security-data-access.md#log-analytics) to learn more. 
 
