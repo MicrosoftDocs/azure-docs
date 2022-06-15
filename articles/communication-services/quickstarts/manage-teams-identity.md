@@ -82,6 +82,13 @@ If you want to create a new Communication Services resource, see [Create and man
 
 Azure Active Directory tenant can be configured, to require Azure AD administrator consent for the Teams.ManageCalls permission of the application. In such a case, the Azure AD Administrator must grant permission to the Contoso application for Communication Services Teams.ManageCalls. The Fabrikam Azure AD Administrator provides consent via a unique URL. 
 
+The following roles can provide consent on behalf of a company:
+- Global admin
+- Application admin
+- Cloud application admin
+
+If you want to check roles in Azure Portal, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.md).
+
 To construct an Administrator consent URL, the Fabrikam Azure AD Administrator does the following steps:
 
 1. In the URL *https://login.microsoftonline.com/{Tenant_ID}/adminconsent?client_id={Application_ID}*, the Administrator replaces {Tenant_ID} with the Fabrikam tenant ID, and replaces {Application_ID} with the Contoso Application ID.
@@ -158,5 +165,9 @@ In this quickstart, you learned how to:
 
 Learn about the following concepts:
 
+- [Quickstart to manage access tokens for Teams users
+with best practices using Javascript SDK](TODO add link)
+- [Quickstart to manage access tokens for Teams users
+with best practices using .NET SDK](TODO add link)
 - [Custom Teams endpoint](../concepts/teams-endpoint.md)
 - [Teams interoperability](../concepts/teams-interop.md)
