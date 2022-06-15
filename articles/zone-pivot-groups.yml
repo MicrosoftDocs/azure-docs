@@ -1037,6 +1037,14 @@ groups:
     title: Azure portal
   - id: experience-azcli
     title: Azure CLI
+- id: app-service-environment-portal-arm
+  title: Experience
+  prompt: Choose an experience
+  pivots:
+  - id: experience-azp
+    title: Azure portal
+  - id: experience-arm
+    title: Azure Resource Manager
 # Owner: msangapu
 - id: app-service-vscode-cli-portal
   title: Development environment
