@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Overview
   items:
-  - name: What is Microsoft Purview?
+  - name: What are Microsoft Purview's governance solutions?
     href: overview.md
 - name: Quickstarts
   expanded: true

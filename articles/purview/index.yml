@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Microsoft Purview data governance documentation
-summary: Learn how to use Microsoft Purview so your organization can find, understand, govern, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where you can discover available data sources and manage right use.
+summary: Learn how to use the Microsoft Purview governance portal so your organization can find, understand, govern, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where you can discover available data sources and manage right use.
 
 metadata:
   title: Microsoft Purview data governance documentation
@@ -20,7 +20,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Microsoft Purview?
+          - text: Microsoft Purview's data governance solutions
             url: overview.md
       - linkListType: concept
         links:
