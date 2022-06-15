@@ -389,9 +389,49 @@ Before embarking on your own rule writing, you should take advantage of the buil
 * Watch the customized SOC-ML anomalies and how to use them webinar here: [YouTube](https://www.youtube.com/watch?v=z-suDfFgSsk&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21AJVEGsR4ym8hVKk&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%211742&parId=66C31D2DBF8E0F71%211720&o=OneUp), [Presentation](https://onedrive.live.com/?authkey=%21AFqylaqbAGZAIfA&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%211729&parId=66C31D2DBF8E0F71%211720&o=OneUp).
 * Watch the Fusion ML Detections for Emerging Threats & Configuration UI webinar here: [YouTube](https://www.youtube.com/watch?v=bTDp41yMGdk), [Presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%212287&ithint=file%2Cpdf&authkey=%21AIJICOTqjY7bszE).
 
-### Module 12: SOAR
+### Module 12: Implementing SOAR
+
+In modern SIEMs such as Microsoft Sentinel, SOAR (Security Orchestration, Automation, and Response) comprises the entire process from the moment an incident is triggered and until it is resolved. This process starts with an [incident investigation](https://docs.microsoft.com/en-us/azure/sentinel/investigate-cases) and continues with an [automated response](https://docs.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook). The blog post ["How to use Microsoft Sentinel for Incident Response, Orchestration and Automation"](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/how-to-use-azure-sentinel-for-incident-response-orchestration/ba-p/2242397) provides an overview of common use cases for SOAR.
+
+[Automation rules](https://docs.microsoft.com/en-us/azure/sentinel/automate-incident-handling-with-automation-rules) are the starting point for Microsoft Sentinel automation. They provide a lightweight method for central automated handling of incidents, including suppression,[ false-positive handling](https://docs.microsoft.com/en-us/azure/sentinel/false-positives), and automatic assignment.
+
+To provide robust workflow based automation capabilities, automation rules use [Logic App playbooks](https://docs.microsoft.com/en-us/azure/sentinel/automate-responses-with-playbooks):
+* Watch the Unleash the automation Jedi tricks & build Logic Apps Playbooks like a Boss Webinar: [YouTube](https://www.youtube.com/watch?v=G6TIzJK8XBA&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21AMHoD01Fnv0Nkeg&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21513&parId=66C31D2DBF8E0F71%21511&o=OneUp), [Presentation](https://onedrive.live.com/?authkey=%21AJK2W6MaFrzSzpw&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21514&parId=66C31D2DBF8E0F71%21511&o=OneUp).
+* Read about [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview), which is the core technology driving Microsoft Sentinel playbooks.
+*[ The Microsoft Sentinel Logic App connector](https://docs.microsoft.com/en-us/connectors/azuresentinel/) is a link between Logic Apps and Azure Sentinel.
+
+You can find dozens of useful Playbooks in the [Playbooks folder](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) on the [Microsoft Sentinel GitHub](https://github.com/Azure/Azure-Sentinel), or read "[A playbook using a watchlist to Inform a subscription owner about an alert"](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/playbooks-amp-watchlists-part-1-inform-the-subscription-owner/ba-p/1768917) for a Playbook walkthrough.
+
 ### Module 13: Workbooks, reporting, and visualization
+
+**Workbooks**
+
+As the nerve center of your SOC, you need Microsoft Sentinel to visualize the information it collects and produces. Use workbooks to visualize data in Microsoft Sentinel.
+
+* To learn how to create workbooks, read the [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview) or watch Billy York's [Workbooks training](https://www.youtube.com/watch?v=iGiPpD_-10M&ab_channel=FestiveTechCalendar) (and [accompanying text](https://www.cloudsma.com/2019/12/azure-advent-calendar-azure-monitor-workbooks/).
+* The mentioned resources are not Microsoft Sentinel specific, and apply to Microsoft Workbooks in general. To learn more about Workbooks in Microsoft Sentinel, watch the Webinar: [YouTube](https://www.youtube.com/watch?v=7eYNaYSsk1A&list=PLmAptfqzxVEUD7-w180kVApknWHJCXf0j&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21ALoa5KFEhBq2DyQ&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21373&parId=66C31D2DBF8E0F71%21372&o=OneUp), [Presentation](https://onedrive.live.com/view.aspx?resid=66C31D2DBF8E0F71!374&ithint=file%2cpptx&authkey=!AD5hvwtCTeHvQLQ), and read the [documentation](https://docs.microsoft.com/en-us/azure/sentinel/monitor-your-data).
+ 
+Workbooks can be interactive and enable much more than just charting. With Workbooks, you can create apps or extension modules for Microsoft Sentinel to complement built-in functionality. We also use workbooks to extend the features of Microsoft Sentinel. Few examples of such apps you can both use and learn from are:
+* The [Investigation Insights Workbook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/announcing-the-investigation-insights-workbook/ba-p/1816903) provides an alternative approach for investigating incidents.
+* [Graph Visualization of External Teams Collaborations](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/graph-visualization-of-external-teams-collaborations-in-azure/ba-p/1356847) enables hunting for risky Teams use. 
+* The [users' travel map workbook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/how-to-use-azure-sentinel-to-follow-a-users-travel-and-map-their/ba-p/981716) allows investigating geo-location alerts.
+
+* The insecure protocols workbook ([Implementation Guide](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-insecure-protocols-workbook-implementation-guide/ba-p/1197564), [recent enhancements](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-insecure-protocols-workbook-reimagined/ba-p/1558375), and [overview video](https://www.youtube.com/watch?v=xzHDWbBX6h8&list=PLmAptfqzxVEWkrUwV-B1Ob3qW-QPW_Ydu&index=9&ab_channel=MicrosoftSecurityCommunity)) let you identify the use of insecure protocols in your network.
+
+* Lastly, learn how to [integrate information from any source using API calls in a workbook](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-sentinel-api-to-view-data-in-a-workbook/ba-p/1386436).
+
+You can find dozens of workbooks in the [Workbooks folder](https://github.com/Azure/Azure-Sentinel/tree/master/Workbooks) in the [Microsoft Sentinel GitHub](https://github.com/Azure/Azure-Sentinel). Some of those are available in the Microsoft Sentinel workbooks gallery as well.
+
+**Reporting and other visualization options**
+
+Workbooks can serve for reporting. For more advanced reporting capabilities such as reports scheduling and distribution or pivot tables, you might want to use:
+* Power BI, which natively [integrates with Log Analytics and Sentinel](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-powerbi).
+* Excel, which can use [Log Analytics and Sentinel as the data source](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-excel) (and see a a [video](https://www.youtube.com/watch?v=Rx7rJhjzTZA) on how).
+* Jupyter notebooks covered later in the hunting module are also a great visualization tool.
+
 ### Module 14: Notebooks
+
+
 ### Module 15: Use cases and solutions
 
 ## Part 4: Operating
