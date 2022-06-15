@@ -60,4 +60,4 @@ To review inconsistent predictions in the [test set](train-model.md) from within
 
 ## Next steps
 
-Once you're satisfied with how your model performs, you can [deploy your model](call-api.md).
+Once you're satisfied with how your model performs, you can [deploy your model](deploy-model.md).
