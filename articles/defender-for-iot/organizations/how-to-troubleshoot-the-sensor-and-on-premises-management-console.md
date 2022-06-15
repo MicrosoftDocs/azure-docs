@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 05/22/2022
+ms.date: 06/14/2022
 ms.topic: article
 ---
 # Troubleshoot the sensor and on-premises management console
@@ -262,13 +262,14 @@ All allowlists, policies, and configuration settings are cleared, and the sensor
 
 
 ## Troubleshoot an on-premises management console
-### Investigate a lack of expected alerts on the management console
 
-If an expected alert is not shown in the **Alerts** window, verify the following:
+### Investigate a lack of expected alerts
 
-- Check if the same alert already appears in the **Alerts** window as a reaction to a different security instance. If yes, and this alert has not been handled yet, a new alert is not shown.
+If you don't see an expected alert on the on-premises **Alerts** page, do the following to troubleshoot:
 
-- Verify that you did not exclude this alert by using the **Alert Exclusion** rules in the on-premises management console.
+- Verify whether the alert is already listed as a reaction to a different security instance. If it has, and that alert hasn't yet been handled, a new alert isn't shown elsewhere.
+
+- Verify that the alert isn't being excluded by **Alert Exclusion** rules. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
 
 ### Tweak the Quality of Service (QoS)
 
@@ -312,9 +313,37 @@ To limit the number of alerts, use the `notifications.max_number_to_report` prop
 
 
 
-### Export audit logs from the management console
+### View and export audit logs
 
-Audit logs record key information at the time of occurrence. Audit logs are useful when you are trying to figure out what changes were made, and by who. Audit logs can be exported in the management console, and contain the following information:
+Audit logs record key activity data at the time of occurrence. Use daily audit logs generated on the on-premises management console to understand which changes were made, when, and by whom.
+
+You may also want to export your audit logs to send them to the support team for extra troubleshooting.
+
+**To view today's audit logs**:
+
+1. In the on-premises management console, select **System Settings > System Statistics**, and then select **Audit log**.
+
+The dialog displays audit logs from the current day.
+
+**To export today's audit logs**:
+
+1. In the on-premises management console, select **System Settings > Export**.
+
+1. In the **Export Troubleshooting Information** dialog:
+
+    1. In the **File Name** field, enter a meaningful name for the exported log. The default filename uses the current date, such as **13:10-June-14-2022.tar.gz**.
+
+    1. Select **Audit Logs**.
+
+    1. Select **Export**.
+
+    The file is exported and is linked from the **Archived Files** list at the bottom of the **Export Troubleshooting Information** dialog. Select the link to download the file.
+
+1. Exported audit logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its password. If you're forwarding the audit logs to the support team, make sure to send the password to support separately from the exported logs.
+
+#### Audit log data reference
+
+The following table lists the data included in on-premises management console audit logs:
 
 | Action | Information logged |
 |--|--|
@@ -330,19 +359,7 @@ Audit logs record key information at the time of occurrence. Audit logs are usef
 | **Sensor upgrade retry** | Sensor ID |
 | **Uploaded TI package** | No additional information recorded. |
 
-**To export the audit log**:
 
-1. In the management console, in the left pane, select **System Settings**.
-
-1. Select **Export**.
-
-1. In the File Name field, enter the file name that you want to use for the exported log. If no name is entered, the default file name will be the current date.
-
-1. Select **Audit Logs**.
-
-1. Select **Export**.
-
-The exported log is added to the **Archived Logs** list. Select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the OTP. Send the OTP string to the support team in a separate message from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
 
 ## Next steps
 
