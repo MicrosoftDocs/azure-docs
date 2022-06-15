@@ -44,7 +44,7 @@ Azure Load Testing automatically incorporates best practices for Azure networkin
 
 Data stored in your Azure Load Testing resource is automatically encrypted with keys managed by Microsoft (service-managed keys). This data includes, for example, your Apache JMeter script.
 
-:::image type="content" source="./media/overview-what-is-microsoft-playwright-testing/azure-load-testing-architecture.svg" lightbox="./media/overview-what-is-microsoft-playwright-testing/azure-load-testing-architecture.svg" alt-text="Diagram that shows the Microsoft Playwright Testing architecture.":::
+:::image type="content" source="./media/overview-what-is-microsoft-playwright-testing/azure-load-testing-architecture.svg" alt-text="Diagram that shows the Microsoft Playwright Testing architecture.":::
 
 ## Next steps
 
