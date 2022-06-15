@@ -206,17 +206,17 @@ Automated machine learning tries different models and algorithms during the auto
 The task method determines the list of algorithms/models, to apply. Use the `allowed_algorithms` or `blocked_algorithms` parameters in the `set_training()` setter function to further modify iterations with the available models to include or exclude. 
 
 In the following list of links you can explore the supported algorithms per machine learning task listed below.
- 
-* Classification Algorithms (Tabular Data)
-* Regression Algorithms  (Tabular Data)
-* Time Series Forecasting Algorithms (Tabular Data)
+
+* [Classification Algorithms (Tabular Data)](https://docs.microsoft.com/en-us/python/api/azure-ai-ml/azure.ai.ml.automl.classificationmodels?view=azure-ml-py#fields)
+* [Regression Algorithms  (Tabular Data)](https://docs.microsoft.com/en-us/python/api/azure-ai-ml/azure.ai.ml.automl.regressionmodels?view=azure-ml-py#fields)
+* [Time Series Forecasting Algorithms (Tabular Data)](https://docs.microsoft.com/en-us/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingmodels?view=azure-ml-py#fields)
 * [Image Classification Multi-class Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
 * [Image Classification Multi-label Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
 * [Image Object Detection Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
-* [Image Instance Segmentation Algorithms](how-to-auto-train-image-models.md#supported-model-algorithms)
-* [NLP Text Classification Multi-class Algorithms](how-to-auto-train-nlp-models.md#language-settings)
 * [NLP Text Classification Multi-label Algorithms](how-to-auto-train-nlp-models.md#language-settings)
 * [NLP Text Named Entity Recognition (NER) Algorithms](how-to-auto-train-nlp-models.md#language-settings)
+
+To see a [full list of supported models](./v1/how-to-configure-auto-train-v1.md#supported-models)
 
 Follow [this link](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs) for example notebooks of each task type.
 
