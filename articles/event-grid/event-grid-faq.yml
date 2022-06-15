@@ -12,9 +12,9 @@ sections:
   - name: General
     questions:
       - question: |
-          Is Azure Event Grid high available?
+          Is Azure Event Grid highly available?
         answer: |
-          Azure Event Grid it's automatically replicated in three availability zones when available to provide automatic in-region recovery of your data if a failure occurs in the region. See [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) to learn more about the supported regions with availability zones. 
+          Azure Event Grid is automatically replicated in three availability zones when available to provide automatic in-region recovery of your data if a failure occurs in the region. See [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) to learn more about the supported regions with availability zones. 
           
       - question: |
           How do I recover from a failover?
