@@ -15,24 +15,27 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 This article shows you how to set and update the ingress configuration in Azure Spring Apps by using the Azure portal and Azure CLI.
 
-The Azure Spring Apps service uses an underlying ingress controller to handle application traffic management. You can customize some ingress settings to fulfill your application or architectural requirements.
+The Azure Spring Apps service uses an underlying ingress controller to handle application traffic management. Currently, the following ingress setting is supported for customization.
+
+| Name                 | Ingress setting    | Default value | Valid range | Description                                                          |
+|----------------------|--------------------|---------------|-------------|----------------------------------------------------------------------|
+| ingress-read-timeout | proxy-read-timeout | 300           | \[1,1800\]  | The timeout in seconds for reading a response from a proxied server. |
 
 ## Prerequisites
 
-You must have the following resource installed:
-- [Azure Spring extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [The Azure CLI](/cli/azure/install-azure-cli).
+- The Azure Spring Apps extension. Use the following command to remove previous versions and install the latest extension. If you previously installed the spring-cloud extension, uninstall it to avoid configuration and version mismatches.
 
-## What are configurable
+  ```azurecli
+  az extension remove --name spring
+  az extension add --name spring
+  az extension remove --name spring-cloud
+  ```
 
-Currently, only a few core ingress settings are supported to be customized.
+## Set the ingress configuration when creating a service
 
-| Name                 | Ingress setting    | Default value | Valid range | Description                                                   |
-| -------------------- | ------------------ | ------------- | ----------- | ------------------------------------------------------------- |
-| ingress-read-timeout | proxy-read-timeout | 300           | \[1,1800\]  | timeout in seconds for reading a response from proxied server |
-
-## Set ingress configuration when creating a service
-
-You can set ingress configuration when creating a service by using the following CLI command.
+You can set the ingress configuration when creating a service by using the following CLI command.
 
 ```azurecli
 az spring create \
@@ -41,23 +44,23 @@ az spring create \
     --ingress-read-timeout 300
 ```
 
-This command will create a service with ingress read timeout set to 300 s.
+This command will create a service with ingress read timeout set to 300 seconds.
 
-## Update ingress configuration for an existing service
-
-You can update ingress configuration for an existing service in Portal or CLI.
+## Update the ingress configuration for an existing service
 
 ### [Azure portal](#tab/azure-portal)
 
+To update the ingress configuration for an existing service, use the following steps:
+
 1. Sign in to the portal using an account associated with the Azure subscription that contains the Azure Spring Apps instance.
-2. Navigate to the **Networking** blade, then go to the tab **Ingress configuration**.
+2. Navigate to the **Networking** pane, then select the **Ingress configuration** tab.
 3. Update the ingress configuration, and then select **Save**.
 
    :::image type="content" source="media/how-to-configure-ingress/config-ingress-read-timeout.png" lightbox="media/how-to-configure-ingress/config-ingress-read-timeout.png" alt-text="Screenshot of Azure portal example for config ingress read timeout.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
-To update ingress configuration for an existing service, use the following command:
+To update the ingress configuration for an existing service, use the following command:
 
 ```azurecli
 az spring update \
@@ -66,7 +69,7 @@ az spring update \
     --ingress-read-timeout 600
 ```
 
-This command will update the ingress read timeout to 600 s.
+This command will update the ingress read timeout to 600 seconds.
 
 ## Next steps
 
