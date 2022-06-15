@@ -268,8 +268,6 @@ You can recover the password for the on-premises management console or the senso
 
 ## Next steps
 
-- [View audit logs](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#view-and-export-audit-logs)
-
 - [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
 
 - [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
