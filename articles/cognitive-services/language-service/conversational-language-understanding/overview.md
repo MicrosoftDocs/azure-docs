@@ -61,7 +61,7 @@ Follow these steps to get the most out of your model:
 
 3. **Train model**: Your model starts learning from your labeled data.
 
-4. **View model evaluation details**: View the evaluation details for your model to determine how well it performs when introduced to new data.
+4. **Viewmodel evaluation details**: View the evaluation details for your model to determine how well it performs when introduced to new data.
 
 5. **Deploy model**: Deploying a model makes it available for use via the [Runtime API](https://aka.ms/clu-runtime-api).
 
