@@ -4,7 +4,6 @@ description: Horizontally scale HiveServer2 on Azure HDInsight clusters using ed
 services: hdinsight
 ms.service: hdinsight
 ms.topic: conceptual
-ms.reviewer: hrasheed-msft
 ms.author: kecheung
 author: kcheeeung
 ms.date: 08/12/2020

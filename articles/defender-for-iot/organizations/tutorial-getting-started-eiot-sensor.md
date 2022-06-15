@@ -111,6 +111,8 @@ You can also download, and add the [Azure public IP ranges](https://www.microsof
 
 A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will use the Enterprise IoT network, and endpoint sensors to gain comprehensive visibility.
 
+**Prerequisites**: Make sure that you've completed [Set up a server or Virtual Machine (VM)](#set-up-a-server-or-virtual-machine-vm) and [Prepare your environment](#prepare-your-environment), including verifying that you have the listed required resources.
+
 **To set up an Enterprise IoT sensor**:
 
 1. Navigate to the [Azure portal](https://portal.azure.com#home).
