@@ -5,6 +5,7 @@ author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 5/25/2022
+ms:reviwer: dukek
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
 

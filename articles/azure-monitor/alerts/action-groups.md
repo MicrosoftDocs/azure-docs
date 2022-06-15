@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.date: 6/2/2022
 ms.author: dukek
 ms.custom: references_regions
+ms.reviewer: dukek
 ---
 # Create and manage action groups in the Azure portal
 An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor, Service Health and Azure Advisor alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements.
