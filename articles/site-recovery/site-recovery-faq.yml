@@ -37,7 +37,7 @@ sections:
       - question: |
          How can I migrate/protect software which requires a persistent MAC address on the virtual machine?
         answer: |
-             Azure does not support persistent MAC addresses and so software with MAC based licence models cannot be used for both on-premises to Azure migration or disaster recovery.
+             Azure does not support persistent MAC addresses and so software with MAC based license models cannot be used for both on-premises to Azure migration or disaster recovery.
 
   - name: Service providers
     questions:
