@@ -7,7 +7,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 06/14/2022
+ms.date: 06/16/2022
 ms.custom: kr2b-contr-experiment
 ---
 
@@ -27,7 +27,7 @@ The script in this article creates an Azure Cosmos DB Table API serverless accou
 
     [![Launch Cloud Shell in a new window](../../../../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
-    Cloud Shell is automatically authenticated under the account you signed in with. You can use [az account set](/cli/azure/account#az-account-set) to sign in with a different subscription, replacing `<subscriptionId>` with your Azure subscription ID.
+    Cloud Shell is automatically authenticated under the account you used to sign in to the Azure portal. You can use [az account set](/cli/azure/account#az-account-set) to sign in with a different subscription, replacing `<subscriptionId>` with your Azure subscription ID.
 
     ```azurecli
     subscription="<subscriptionId>" # add subscription here

@@ -7,7 +7,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 06/14/2022
+ms.date: 06/16/2022
 ms.custom: kr2b-contr-experiment
 ---
 
@@ -27,7 +27,7 @@ The script in this article creates an Azure Cosmos DB Core (SQL) API account, da
 
     [![Launch Cloud Shell in a new window](../../../../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
-    Cloud Shell is automatically authenticated under the account you signed in with. You can use [az account set](/cli/azure/account#az-account-set) to sign in with a different subscription, replacing `<subscriptionId>` with your Azure subscription ID.
+    Cloud Shell is automatically authenticated under the account you used to sign in to the Azure portal. You can use [az account set](/cli/azure/account#az-account-set) to sign in with a different subscription, replacing `<subscriptionId>` with your Azure subscription ID.
 
     ```azurecli
     subscription="<subscriptionId>" # add subscription here
@@ -50,7 +50,7 @@ This script uses the following commands:
 - [az group create](/cli/azure/group#az-group-create) creates a resource group to store all resources.
 - [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) creates an Azure Cosmos DB account for SQL API.
 - [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) creates an Azure Cosmos SQL (Core) database.
-- [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) with `--max-throughput $maxThroughput` creates an Azure Cosmos SQL (Core) container with autoscale capability.
+- [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) with `--max-throughput 4000` creates an Azure Cosmos SQL (Core) container with autoscale capability.
 
 ## Clean up resources
 
