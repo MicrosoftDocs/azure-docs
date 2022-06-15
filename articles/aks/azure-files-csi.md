@@ -12,7 +12,7 @@ author: palma21
 
 The Azure Files Container Storage Interface (CSI) driver is a [CSI specification][csi-specification]-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Files shares.
 
-The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
+The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
 
 To create an AKS cluster with CSI drivers support, see [Enable CSI drivers for Azure disks and Azure Files on AKS][csi-drivers-overview].
 
@@ -48,7 +48,7 @@ A storage class is used to define how an Azure Files share is created. A storage
 > [!NOTE]
 > Azure Files supports Azure Premium Storage][azure-premium-storage]. The minimum premium file share is 100 GB.
 
-When you use storage CSI drivers on AKS, there are two additional built-in `StorageClasses` that use the Azure Files CSI storage drivers. The additional CSI storage classes are created with the cluster alongside the in-tree default storage classes.
+When you use storage CSI drivers on AKS, there are two more built-in `StorageClasses` that use the Azure Files CSI storage drivers. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
 - `azurefile-csi`: Uses Azure Standard Storage to create an Azure Files share.
 - `azurefile-csi-premium`: Uses Azure Premium Storage to create an Azure Files share.
