@@ -170,6 +170,8 @@ The dialog displays data from the currently active audit log, including the foll
 | **Sensor upgrade retry** | Sensor ID |
 | **Uploaded TI package** | No additional information recorded. |
 
+For example:
+
 :::image type="content" source="media/how-to-create-and-manage-users/view-audit-logs.png" alt-text="Screenshot of the on-premises management console showing audit logs." lightbox="media/how-to-create-and-manage-users/view-audit-logs.png":::
 
 New audit logs are generated at every 10 MB. One previous log is stored in addition to the current active log file.
