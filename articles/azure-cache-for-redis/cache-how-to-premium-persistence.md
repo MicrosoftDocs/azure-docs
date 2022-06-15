@@ -32,11 +32,11 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 
 1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. You can create caches in the Azure portal. You can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-    :::image type="content" source="media/cache-how-to-premium-persistence/create-resource.png" alt-text="Create resource.":::
+    :::image type="content" source="media/cache-how-to-premium-persistence/create-resource.png" alt-text="Screenshot that shows a form to create an Azure Cache for Redis resource.":::
   
 2. On the **Create a resource** page, select **Databases** and then select **Azure Cache for Redis**.
 
-    :::image type="content" source="media/cache-how-to-premium-persistence/select-cache.png" alt-text="Select Azure Cache for Redis.":::
+    :::image type="content" source="media/cache-how-to-premium-persistence/select-cache.png" alt-text="Screenshot showing Azure Cache for Redis selected as a new database type.":::
 
 3. On the **New Redis Cache** page, configure the settings for your new premium cache.
   
