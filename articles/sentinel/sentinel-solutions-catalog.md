@@ -24,7 +24,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Apache Log4j Vulnerability Detection** | Analytics rules, hunting queries | Application, Security - Threat Protection, Security - Vulnerability Management | Microsoft|
+|**Apache Log4j Vulnerability Detection** | Analytics rules, hunting queries, workbooks, playbooks | Application, Security - Threat Protection, Security - Vulnerability Management | Microsoft|
 |**Cybersecurity Maturity Model Certification (CMMC)** | [Analytics rules, workbook, playbook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-cybersecurity-maturity-model-certification-cmmc/ba-p/2111184) | Compliance | Microsoft|
 | **IoT/OT Threat Monitoring with Defender for IoT** | [Analytics rules, playbooks, workbook](iot-solution.md) | Internet of Things (IoT), Security - Threat Protection | Microsoft |
 |**Maturity Model for Event Log Management M2131** | [Analytics rules, hunting queries, playbooks, workbook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/modernize-log-management-with-the-maturity-model-for-event-log/ba-p/3072842) | Compliance | Microsoft|
@@ -443,11 +443,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Corelight for Microsoft Sentinel**|Data connector, workbooks, analytics rules, hunting queries, parser | IT Operations, Security - Network | [Zeek Network](https://support.corelight.com/)|
 
-## Zscalar
+## Zscaler
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Zscalar Private Access**|Data connector, workbook, analytics rules, hunting queries, parser | Security - Network | Microsoft|
+|**Zscaler Private Access**|Data connector, workbook, analytics rules, hunting queries, parser | Security - Network | Microsoft|
 
 ## Next steps
 

@@ -13,6 +13,8 @@ ms.date: 01/13/2020
 
 # Data encryption for Azure Database for PostgreSQL Single server by using the Azure portal
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Learn how to use the Azure portal to set up and manage data encryption for your Azure Database for PostgreSQL Single server.
 
 ## Prerequisites for Azure CLI

@@ -88,7 +88,26 @@ The most common constructor for **CosmosClient** has two parameters:
     )
     ```
 
-[!INCLUDE [credentials-cli](../includes/get-sql-api-credentials-cli.md)]
+1. Get the SQL API endpoint *URI* for the account using the [``az cosmosdb show``](/cli/azure/cosmosdb#az-cosmosdb-show) command.
+
+    ```azurecli-interactive
+    az cosmosdb show \
+        --resource-group $resourceGroupName \
+        --name $accountName \
+        --query "documentEndpoint"
+    ```
+
+1. Find the *PRIMARY KEY* from the list of keys for the account with the[``az-cosmosdb-keys-list``](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
+
+    ```azurecli-interactive
+    az cosmosdb keys list \
+        --resource-group $resourceGroupName \
+        --name $accountName \
+        --type "keys" \
+        --query "primaryMasterKey"
+    ```
+
+1. Record the *URI* and *PRIMARY KEY* values. You'll use these credentials later.
 
 ##### [PowerShell](#tab/azure-powershell)
 
@@ -112,7 +131,30 @@ The most common constructor for **CosmosClient** has two parameters:
     ).Name
     ```
 
-[!INCLUDE [credentials-powershell](../includes/get-sql-api-credentials-powershell.md)]
+1. Get the SQL API endpoint *URI* for the account using the [``Get-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/get-azcosmosdbaccount) cmdlet.
+
+    ```azurepowershell-interactive
+    $parameters = @{
+        ResourceGroupName = $RESOURCE_GROUP_NAME
+        Name = $ACCOUNT_NAME
+    }
+    Get-AzCosmosDBAccount @parameters |
+        Select-Object -Property "DocumentEndpoint"
+    ```
+
+1. Find the *PRIMARY KEY* from the list of keys for the account with the [``Get-AzCosmosDBAccountKey``](/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) cmdlet.
+
+    ```azurepowershell-interactive
+    $parameters = @{
+        ResourceGroupName = $RESOURCE_GROUP_NAME
+        Name = $ACCOUNT_NAME
+        Type = "Keys"
+    }    
+    Get-AzCosmosDBAccountKey @parameters |
+        Select-Object -Property "PrimaryMasterKey"    
+    ```
+
+1. Record the *URI* and *PRIMARY KEY* values. You'll use these credentials later.
 
 ##### [Portal](#tab/azure-portal)
 
@@ -123,7 +165,13 @@ The most common constructor for **CosmosClient** has two parameters:
 
 1. Navigate to the existing Azure Cosmos DB SQL API account page.
 
-[!INCLUDE [credentials-portal](../includes/get-sql-api-credentials-portal.md)]
+1. From the Azure Cosmos DB SQL API account page, select the **Keys** navigation menu option.
+
+   :::image type="content" source="media/get-credentials-portal/cosmos-keys-option.png" lightbox="media/get-credentials-portal/cosmos-keys-option.png" alt-text="Screenshot of an Azure Cosmos D B SQL A P I account page. The Keys option is highlighted in the navigation menu.":::
+
+1. Record the values from the **URI** and **PRIMARY KEY** fields. You'll use these values in a later step.
+
+   :::image type="content" source="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" lightbox="media/get-credentials-portal/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos D B SQL A P I account.":::
 
 ---
 
@@ -261,7 +309,7 @@ To connect to your SQL API account using the Microsoft Identity Platform and Azu
 
 #### Import Azure.Identity
 
-The [``Azure.Identity``] NuGet package contains core authentication functionality that is shared among all Azure SDK libraries.
+The **Azure.Identity** NuGet package contains core authentication functionality that is shared among all Azure SDK libraries.
 
 Import the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) NuGet package using the ``dotnet add package`` command.
 
@@ -299,7 +347,7 @@ For this example, we create a [``ClientSecretCredential``](/dotnet/api/azure.ide
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/104-client-secret-credential/Program.cs" id="credential" highlight="3-5":::
 
-You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
+You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 
@@ -319,8 +367,8 @@ As you build your application, your code will primarily interact with four types
 
 The following diagram shows the relationship between these resources.
 
-:::image type="complex" source="media/how-to-dotnet-get-started/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos DB hierarchy including accounts, databases, containers, and items.":::
-    Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database nodes. One of the database nodes includes two child container nodes. The other database node includes a single child container node. That single container node has three child item nodes.
+:::image type="complex" source="media/how-to-dotnet-get-started/resource-hierarchy.svg" alt-text="Diagram of the Azure Cosmos D B hierarchy including accounts, databases, containers, and items.":::
+    Hierarchical diagram showing an Azure Cosmos D B account at the top. The account has two child database nodes. One of the database nodes includes two child container nodes. The other database node includes a single child container node. That single container node has three child item nodes.
 :::image-end:::
 
 Each type of resource is represented by one or more associated .NET classes. Here's a list of the most common classes:
@@ -354,4 +402,4 @@ The following guides show you how to use each of these classes to build your app
 Now that you've connected to a SQL API account, use the next guide to create and manage databases.
 
 > [!div class="nextstepaction"]
-> [Create a database in Azure Cosmos DB SQL API using .NET >](how-to-dotnet-create-database.md)
+> [Create a database in Azure Cosmos DB SQL API using .NET](how-to-dotnet-create-database.md)
