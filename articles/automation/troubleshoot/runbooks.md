@@ -44,7 +44,7 @@ When you receive errors during runbook execution in Azure Automation, you can us
     If you're running your runbooks on a Hybrid Runbook Worker instead of in Azure Automation, you might need to [troubleshoot the hybrid worker itself](hybrid-runbook-worker.md).
 
 
-## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with "this Client SubscriptionId cannot be null" error message
+## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with "this.Client.SubscriptionId cannot be null." error message
 
 ### Issue
 
