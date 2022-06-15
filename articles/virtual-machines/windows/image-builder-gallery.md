@@ -21,7 +21,7 @@ To configure the image, this article uses a JSON template, which you can find at
 
 To distribute the image to an Azure Compute Gallery, the template uses [sharedImage](../linux/image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
-VM Image Builder automatically runs `Sysprep` to generalize the image. The command is a generic `Sysprep` command, and you can [override](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully) it if you need to. 
+VM Image Builder automatically runs `Sysprep` to generalize the image. The command is a generic `Sysprep` command, and you can [override](../linux/image-builder-troubleshoot.md#vms-created-from-vm-image-builder-images-arent-created-successfully) it if you need to. 
 
 Be aware of the number of times you layer customizations. You can run the `Sysprep` command a limited number of times on a single Windows image. After you've reached the `Sysprep` limit, you must re-create your Windows image. For more information, see [Limits on how many times you can run Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
