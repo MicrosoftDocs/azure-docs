@@ -34,8 +34,10 @@ npx install-peerdeps @fluidframework/azure-client
 > We strongly recommend that you update to the latest version of **@fluidframework/azure-client** and **fluid-framework**. Earlier versions will not be
 > supported heading into General Availability of Azure Fluid Relay. With this upgrade, you’ll make use of our new multi-region routing capability where
 > Azure Fluid Relay will host your session closer to your end users to improve customer experience. In the latest package, you will need to update your
-> serviceConfig object in app.js to the new Azure Fluid Relay service endpoint instead of the storage and orderer endpoints. These values can be found
-> in the "Access Key" section of the Fluid Relay resource in the Azure portal. The orderer and storage endpoints will be deprecated soon.
+> serviceConfig object in app.js to the new Azure Fluid Relay service endpoint instead of the storage and orderer endpoints. If your Azure Fluid Relay
+> resource is in West US 2, please use **https://us.fluidrelay.azure.com**. If it is West Europe, use **https://eu.fluidrelay.azure.com**. If it is in
+> Southeast Asia, use **https://global.fluidrelay.azure.com**. These values can also be found in the "Access Key" section of the Fluid Relay resource
+> in the Azure portal. The orderer and storage endpoints will be deprecated soon.
 
 
 > [!TIP]
