@@ -21,9 +21,6 @@
   items:
   - name: OpenID Connect protocol details
     href: issuer-openid.md
-- name: How-to guides
-  expanded: true
-  items:
   - name: Plan and design 
     items:
     - name: Architecture planning overview
@@ -32,14 +29,21 @@
       href: plan-issuance-solution.md
     - name: Plan your verification solution
       href: plan-verification-solution.md
+- name: How-to guides
+  expanded: true
+  items:
   - name: Using the Request Service REST API
     href: get-started-request-api.md
   - name: How to customize your credentials
     href: credential-design.md
   - name: Manage credential revocation
+    href: how-to-use-quickstart.md
+  - name: Create credentials using the QuickStart
     href: how-to-issuer-revoke.md
   - name: Link your domain to your DID
     href: how-to-dnsbind.md
+  - name: Register your website ID
+    href: how-to-register-didwebsite.md
   - name: Opt out of verifiable credentials
     href: how-to-opt-out.md
 - name: Samples
@@ -58,6 +62,10 @@
     href: issuance-request-api.md
   - name: Presentation API specification
     href: presentation-request-api.md
+  - name: Rules and Display definition model
+    href: rules-and-display-definitions-model.md
+  - name: Supported standards
+    href: verifiable-credentials.md
 - name: Resources
   expanded: true
   items:
