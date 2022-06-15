@@ -25,11 +25,11 @@ This article contains all major API changes and feature updates for the Azure VM
 ### Version 2022-02-14
 
 **Improvements**:
-- [Validation support](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json#properties-validate)
+- [Validation support](./linux/image-builder-json.md#properties-validate)
     - Shell (Linux): Script or inline
     - PowerShell (Windows): Script or inline, run elevated, run as system
     - Source-Validation-Only mode
-- [Customized staging resource group support](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json#properties-stagingresourcegroup)
+- [Customized staging resource group support](./linux/image-builder-json.md#properties-stagingresourcegroup)
 
 ### Version 2021-10-01
 
