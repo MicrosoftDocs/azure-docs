@@ -53,9 +53,9 @@ When you use storage CSI drivers on AKS, there are two more built-in `StorageCla
 - `azurefile-csi`: Uses Azure Standard Storage to create an Azure Files share.
 - `azurefile-csi-premium`: Uses Azure Premium Storage to create an Azure Files share.
 
-The reclaim policy on both storage classes ensures that the underlying Azure Files share is deleted when the respective PV is deleted. The storage classes also configure the file shares to be expandable, you just need to edit the persistent volume claim (PVC) with the new size.
+The reclaim policy on both storage classes ensures that the underlying Azure Files share is deleted when the respective PV is deleted. The storage classes also configure the file shares to be expandable, you just need to edit the [persistent volume claim][persistent-volume-claim-overview] (PVC) with the new size.
 
-To use these storage classes, create a [PVC][persistent-volume-claim-overview] and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure Files share for the desired SKU and size. When you create a pod definition, the PVC is specified to request the desired storage.
+To use these storage classes, create a PVC and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure Files share for the desired SKU and size. When you create a pod definition, the PVC is specified to request the desired storage.
 
 Create an [example PVC and pod that prints the current date into an `outfile`](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) by running the [kubectl apply][kubectl-apply] commands:
 
@@ -128,7 +128,7 @@ storageclass.storage.k8s.io/my-azurefile created
 The Azure Files CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) and the underlying file shares.
 
 > [!NOTE]
-> This driver only supports snapshot creation, restore from snapshot is not supported by this driver, snapshot could be restored from Azure portal or CLI. To get the snapshot created, you can go to Azure Portal -> access the Storage Account -> File shares -> access the file share associated -> Snapshots. There you can click on it and restore. 
+> This driver only supports snapshot creation, restore from snapshot is not supported by this driver. Snapshots can be restored from Azure portal or CLI. For more information about creating and restoring a snapshot, see [Overview of share snapshots for Azure Files][share-snapshots-overview].
 
 Create a [volume snapshot class](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml) with the [kubectl apply][kubectl-apply] command:
 
@@ -449,3 +449,4 @@ The output of the commands resembles the following example:
 [use-tags]: use-tags.md
 [private-endpoint-overview]: ../private-link/private-endpoint-overview.md
 [persistent-volume]: concepts-storage.md#persistent-volumes
+[share-snapshots-overview]: storage/files/storage-snapshots-files.md
