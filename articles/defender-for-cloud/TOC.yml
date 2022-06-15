@@ -204,7 +204,7 @@
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
     items:
-    - name: Overview of Defender for Servers
+    - name: Overview
       displayName: VM
       href: defender-for-servers-introduction.md
     - name: Apply Azure security baselines
@@ -232,7 +232,7 @@
         href: remediate-vulnerability-findings-vm.md#disable-specific-findings
     - name: Secure management ports with just-in-time VM access
       items:
-      - name: Overview of just-in-time VM access
+      - name: Overview
         displayName: jit, management
         href: just-in-time-access-overview.md
       - name: Manage just-in-time access
@@ -247,9 +247,9 @@
     - name: Review applications and software installed on your machines
       displayName: inventory, apps, software inventory, mde, tvm
       href: asset-inventory.md#access-a-software-inventory
-    - name: Track changes to files and registries
+    - name: Track changes to files and registries with file integrity monitoring
       items:
-      - name: Overview of file integrity monitoring
+      - name: Overview
         displayName: fim, change
         href: file-integrity-monitoring-overview.md
       - name: Compare baselines using file integrity monitoring
@@ -263,7 +263,7 @@
       href: harden-docker-hosts.md
   - name: Defender for Azure SQL Databases
     items: 
-    - name: Overview of Defender for SQL
+    - name: Overview
       displayName: database
       href: defender-for-sql-introduction.md
     - name: Enable protection on your SQL databases
@@ -281,7 +281,7 @@
       displayName: hybrid, arc, Azure Defender
   - name: Defender for open-source relational databases
     items: 
-    - name: Overview of Defender for open-source relational databases
+    - name: Overview
       displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
       href: defender-for-databases-introduction.md
     - name: Enable Defender for OSS RDBs and respond to alerts
@@ -289,13 +289,13 @@
       href: defender-for-databases-usage.md
   - name: Defender for Azure Cosmos DB (Preview)
     items: 
-    - name: Overview of Microsoft Defender for Azure Cosmos DB
+    - name: Overview
       href: concept-defender-for-cosmos.md
     - name: Enable Microsoft Defender for Azure Cosmos DB
       href: quickstart-enable-defender-for-cosmos.md
   - name: Defender for Containers
     items:
-    - name: Overview of Defender for Containers
+    - name: Overview
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
       href: defender-for-containers-introduction.md
     - name: How does Defender for Containers work?
@@ -325,7 +325,7 @@
       href: defender-for-app-service-introduction.md
   - name: Defender for Storage
     items:
-    - name: Overview of Defender for Storage
+    - name: Overview
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
       href: defender-for-storage-introduction.md
     - name: Exclude a storage account
@@ -333,7 +333,7 @@
       href: defender-for-storage-exclude.md
   - name: Defender for Azure Key Vault
     items:
-    - name: Overview of Defender for Key Vault
+    - name: Overview
       displayName: KV, akv
       href: defender-for-key-vault-introduction.md
     - name: Handle Defender for Key Vault alerts
@@ -341,7 +341,7 @@
       href: defender-for-key-vault-introduction.md#respond-to-microsoft-defender-for-key-vault-alerts
   - name: Defender for Resource Manager
     items:
-    - name: Overview of Defender for Resource Manager
+    - name: Overview
       displayName: ARM
       href: defender-for-resource-manager-introduction.md
     - name: Handle Defender for Resource Manager alerts
