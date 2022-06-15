@@ -21,7 +21,7 @@ Log Analytics is a tool in the Azure portal used to edit and run log queries wit
 
 - Identify the Kubernetes - Azure Arc resource representing the Azure Arc-enabled Kubernetes cluster on which your packet core instance is running.
 - Ensure you have [Contributor](../role-based-access-control/built-in-roles.md#contributor) role assignment on the Azure subscription containing the Kubernetes - Azure Arc resource.
-- Ensure your local machine has kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires an admin kubeconfig file. Contact your trials engineer for instructions on how to obtain this.
+- Ensure your local machine has admin kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires an admin kubeconfig file. Contact your trials engineer for instructions on how to obtain this.
 
 ## Create an Azure Monitor extension
 
