@@ -5,7 +5,7 @@ author: shizn
 ms.author: xshi
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 5/25/2022
+ms.date: 6/13/2022
 ms.custom:
 - ignite-fall-2021
 - kr2b-contr-experiment
@@ -19,12 +19,13 @@ This article shows the supported authentication types and client types of Azure 
 ## Supported compute service
 
 - Azure App Service
+- Azure Container Apps
 
 ## Supported authentication types and client types
 
-| Client Type | System-assigned Managed Identity | User-assigned Managed Identity | Secret/ConnectionString | Service Principal |
-| --- | --- | --- | --- | --- |
-| .NET | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Client type | System-assigned managed identity | User-assigned managed identity | Secret / connection string  | Service principal |
+|-------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ## Default environment variable names or application properties
 

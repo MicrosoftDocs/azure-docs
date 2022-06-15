@@ -11,7 +11,7 @@ ms.reviewer: vgorbenko
 
 Microsoft announces feature deprecations or breaking changes at least three years in advance and strives to provide a seamless process for migration to the replacement experience.
 
-The [Microsoft Azure SDK lifecycle policy](https://docs.microsoft.com/lifecycle/faq/azure) is followed when features are enhanced in a new SDK or before an SDK is designated as legacy. Microsoft strives to retain legacy SDK functionality, but newer features may not be available with older versions.
+The [Microsoft Azure SDK lifecycle policy](/lifecycle/faq/azure) is followed when features are enhanced in a new SDK or before an SDK is designated as legacy. Microsoft strives to retain legacy SDK functionality, but newer features may not be available with older versions.
 
 > [!NOTE]
 > Diagnostic tools often provide better insight into the root cause of a problem when the latest stable SDK version is used.
@@ -22,7 +22,7 @@ Support engineers are expected to provide SDK update guidance according to the f
 |---------|---------|---------|
 |Stable and less than one year old                                              | Newer supported stable version                 | **UPDATE RECOMMENDED** |
 |Stable and more than one year old                                              | Newer supported stable version                 | **UPDATE REQUIRED**    |
-|Unsupported ([support policy](https://docs.microsoft.com/lifecycle/faq/azure)) | Any supported version                          | **UPDATE REQUIRED**    |
+|Unsupported ([support policy](/lifecycle/faq/azure)) | Any supported version                          | **UPDATE REQUIRED**    |
 |Preview                                                                        | Stable version                                 | **UPDATE REQUIRED**    |
 |Preview                                                                        | Older stable version                           | **UPDATE RECOMMENDED** |
 |Preview                                                                        | Newer preview version, no older stable version | **UPDATE RECOMMENDED** |
