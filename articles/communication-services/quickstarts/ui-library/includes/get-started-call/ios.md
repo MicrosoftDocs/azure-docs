@@ -173,6 +173,8 @@ Depending on what type of Call/Meeting you would like to set up, use the appropr
 
 Initialize a `RemoteOptions` instance for `.groupCall` locator inside the `startCallComposite` function. Replace `<GROUP_CALL_ID>` with your group ID for your call and `<DISPLAY_NAME>` with your name.
 
+Learn more [here](../../../../how-tos/calling-sdk/manage-calls.md#join-a-group-call).
+
 ```swift
 // let uuid = UUID() to create a new call
 let uuid = UUID(uuidString: "<GROUP_CALL_ID>")!
@@ -184,6 +186,8 @@ let remoteOptions = RemoteOptions(for: .groupCall(groupId: uuid),
 #### Teams meeting
 
 Initialize a `RemoteOptions` instance for `.teamsMeeting` locator inside the `startCallComposite` function. Replace `<TEAMS_MEETING_LINK>` with your Teams meeting link for your call and `<DISPLAY_NAME>` with your name.
+
+Learn more [here](../../../../how-tos/cte-calling-sdk/manage-calls.md#join-a-teams-meeting).
 
 ```swift
 let remoteOptions = RemoteOptions(for: .teamsMeeting(teamsLink: "<TEAMS_MEETING_LINK>"),
