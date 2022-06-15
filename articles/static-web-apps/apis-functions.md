@@ -11,25 +11,7 @@ ms.author: cshoe
 
 # API support in Azure Static Web Apps with Azure Functions
 
-Front end web applications often call back end APIs for data and services. By default, Azure Static Web Apps provides built-in serverless API endpoints via [Azure Functions](apis.md).
-
-Key features of built-in APIs include:
-
-- **Integrated security** with direct access to user [authentication and role-based authorization](user-information.md) data.
-
-- **Seamless routing** that makes the `/api` route available to the front-end web app without requiring custom CORS rules.
-
-Other API options include the following Azure services:
-
-* [Azure Functions](apis.md)
-* [Azure API Management](apis-api-management.md)
-* [Azure App Service](apis-app-service.md)
-* [Azure Container Apps](apis-container-apps.md)
-
-Each static web app environment can only be configured with one type of backend API at a time.
-
-> [!NOTE]
-> Backend APIs integration with other Azure services is only available in the Azure Static Web Apps Standard plan. Built-in, managed Azure Functions APIs are available in all Azure Static Web Apps plans.
+Front end web applications often call back end APIs for data and services. By default, Azure Static Web Apps provides built-in serverless API endpoints via [Azure Functions](apis-functions.md).
 
 Azure Functions APIs in Static Web Apps are supported by two possible configurations depending on the [hosting plan](plans.md#features):
 
@@ -53,6 +35,8 @@ The following table contrasts the differences between using managed and existing
 | [Key Vault references](../app-service/app-service-key-vault-references.md) | ✕ | ✔ |
 
 <sup>1</sup> To specify the runtime version in managed functions, add a configuration file to your frontend app and set the [`apiRuntime` property](configuration.md#platform). Support is subject to the [Azure Functions language runtime support policy](../azure-functions/language-support-policy.md).
+
+[!INCLUDE [APIs overview](../../includes/static-web-apps-apis-overview.md)]
 
 ## Configuration
 

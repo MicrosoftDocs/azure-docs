@@ -19,6 +19,9 @@ An Azure API Management service can be linked to multiple static web apps at the
 
 All Azure API Management pricing tiers are available for use with Azure Static Web Apps.
 
+> [!NOTE]
+> The integration with Azure API Management is currently in preview and requires the Static Web Apps Standard plan.
+
 [!INCLUDE [APIs overview](../../includes/static-web-apps-apis-overview.md)]
 
 > [!NOTE]
