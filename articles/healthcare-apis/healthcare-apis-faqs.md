@@ -38,7 +38,7 @@ No, unfortunately we don't offer migration capabilities at this time.
 
 ### What is the pricing of Azure Health Data Services?
 
-For pricing details, see [Azure Health Data Services pricing](https://azure.microsoft.com/pricing/details/health-data-services/).
+For pricing information, see [Azure Health Data Services pricing](https://azure.microsoft.com/pricing/details/health-data-services/).
 
 ### What regions are Azure Health Data Services available?
 
