@@ -1,6 +1,6 @@
 ---
-title: Architecture of BareMetal Infrastructure for Nutanix
-description: Learn about the architecture of several configurations of BareMetal Infrastructure for Nutanix.
+title: Architecture of BareMetal Infrastructure for NC2
+description: Learn about the architecture of several configurations of BareMetal Infrastructure for NC2.
 ms.topic: reference
 ms.subservice:  
 ms.date: 04/14/2021
@@ -12,7 +12,7 @@ In this article, we'll look at the architectural options for BareMetal Infrastru
 
 ## Deployment Example
 
-:::image type="content" source="media/nc2-on-azure-deployment-architecture.png#lightbox" alt-text="Diagram that shows architecture of NC2 Networking Flow." border="false" lightbox="media/nc2-on-azure-deployment-architecture-large.png":::
+:::image type="content" source="media/nc2-on-azure-deployment-architecture.png#lightbox" alt-text="Diagram showing NC2-onarchitecture of NC2 Networking Flow." border="false" lightbox="media/nc2-on-azure-deployment-architecture-large.png":::
 
 
 ### Cluster Management virtual network
