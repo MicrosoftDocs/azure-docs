@@ -115,6 +115,7 @@ A complete list of all services included can be found in the article [Apps inclu
 The Microsoft Azure Management application includes multiple services. 
 
    - Azure portal
+   - Microsoft Entra admin center
    - Azure Resource Manager provider
    - Classic deployment model APIs
    - Azure PowerShell

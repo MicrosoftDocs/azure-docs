@@ -59,7 +59,7 @@ Azure CLI has a command [`az webapp up`](/cli/azure/webapp#az_webapp_up) that wi
 In the terminal, deploy the code in your local folder using the  [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
 
 ```azurecli
-az webapp up --runtime "php|8.0" --os-type=linux
+az webapp up --runtime "PHP:8.0" --os-type=linux
 ```
 
 - If the `az` command isn't recognized, be sure you have <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> installed.
@@ -116,7 +116,7 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 1. Save your changes, then redeploy the app using the [az webapp up](/cli/azure/webapp#az-webapp-up) command again with these arguments:
 
     ```azurecli
-    az webapp up --runtime "php|8.0" --os-type=linux
+    az webapp up --runtime "PHP:8.0" --os-type=linux
     ```
 
 1. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.

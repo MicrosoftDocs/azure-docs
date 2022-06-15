@@ -154,7 +154,51 @@
     - name: Manage workspace access
       href: resource-context-rbac.md
   - name: Migrate to Microsoft Sentinel
-    href: migration.md
+    items:
+    - name: Plan and design your migration
+      items:
+      - name: Plan your migration
+        href: migration.md      
+      - name: Track migration with a workbook
+        href: migration-track.md                
+    - name: Migrate from ArcSight      
+      items: 
+      - name: Migrate detection rules
+        href: migration-arcsight-detection-rules.md
+      - name: Migrate SOAR automation
+        href: migration-arcsight-automation.md
+      - name: Export historical data
+        href: migration-arcsight-historical-data.md           
+    - name: Migrate from Splunk
+      items:
+      - name: Migrate detection rules
+        href: migration-splunk-detection-rules.md
+      - name: Migrate SOAR automation
+        href: migration-splunk-automation.md
+      - name: Export historical data
+        href: migration-splunk-historical-data.md
+    - name: Migrate from QRadar      
+      items:
+      - name: Migrate detection rules
+        href: migration-qradar-detection-rules.md
+      - name: Migrate SOAR automation
+        href: migration-qradar-automation.md
+      - name: Export historical data
+        href: migration-qradar-historical-data.md
+    - name: Ingest historical data
+      items:      
+      - name: Select target platform
+        href: migration-ingestion-target-platform.md
+      - name: Select data ingestion tool
+        href: migration-ingestion-tool.md
+      - name: Ingest data
+        href: migration-export-ingest.md
+    - name: Convert dashboards to workbooks
+      href: migration-convert-dashboards.md
+    - name: Update SOC processes      
+      href: migration-security-operations-center-processes.md
+  - name: Deploy side-by-side
+    href: deploy-side-by-side.md
   - name: Understand MITRE ATT&CK coverage
     href: mitre-coverage.md
   - name: Manage Microsoft Sentinel content
@@ -163,6 +207,8 @@
       href: sentinel-solutions-deploy.md
     - name: Deploy custom content from your repository
       href: ci-cd.md
+    - name: Delete out-of-the-box content
+      href: sentinel-solutions-delete.md
   - name: Collect data
     items:
     - name: Connect your data source
@@ -298,7 +344,7 @@
       href: bookmarks.md
     - name: Hunt with livestream
       href: livestream.md
-  - name: Investigate and respond
+  - name: Investigate incidents
     items:
     - name: Investigate incidents
       href: investigate-cases.md
@@ -312,6 +358,10 @@
       href: customize-entity-activities.md
     - name: Collaborate in Microsoft Teams
       href: collaborate-in-microsoft-teams.md
+  - name: Automate responses
+    items:
+    - name: Create automation rules
+      href: create-manage-use-automation-rules.md
     - name: Authenticate playbooks to Microsoft Sentinel
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
@@ -406,6 +456,8 @@
         href: normalization-parsers-list.md
       - name: ASIM common fields
         href: normalization-common-fields.md 
+      - name: ASIM helper functions
+        href: normalization-functions.md
       - name: ASIM schemas
         items:
         - name: ASIM authentication schema

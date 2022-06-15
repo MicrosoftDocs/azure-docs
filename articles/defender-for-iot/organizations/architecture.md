@@ -52,6 +52,10 @@ In contrast, when working with locally managed sensors:
 
 - Sensor names can be updated in the sensor console.
 
+### Devices monitored by Defender for IoT
+
+[!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
+
 ## Analytics engines
 
 Defender for IoT sensors apply analytics engines on ingested data, triggering alerts based on both real-time and pre-recorded traffic.

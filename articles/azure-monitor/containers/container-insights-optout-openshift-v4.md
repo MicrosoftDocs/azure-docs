@@ -2,7 +2,8 @@
 title: How to stop monitoring your Azure and Red Hat OpenShift v4 cluster | Microsoft Docs
 description: This article describes how you can stop monitoring of your Azure Red Hat OpenShift and Red Hat OpenShift version 4 cluster with Container insights.
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/24/2022
+ms.reviewer: aul
 
 ---
 

@@ -72,13 +72,7 @@
     - name: Microsoft Power BI integration
       items: 
         - name: "Part 1: Train and deploy models"
-          items: 
-            - name: Use Notebooks (code)
-              href: tutorial-power-bi-custom-model.md
-            - name: Use designer
-              href: tutorial-power-bi-designer-model.md
-            - name: Use automated ML
-              href: tutorial-power-bi-automated-model.md
+          href: tutorial-power-bi-custom-model.md
         - name: "Part 2: Consume in Power BI"
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
     - name: Create a secure workspace
@@ -197,14 +191,10 @@
         - name: Plan and manage costs
           displayName: low priority VM
           href: concept-plan-manage-cost.md
-    - name: Work with data
+    - name: Work with Data
       items: 
-        - name: Datastores
-          href: concept-datastore.md
         - name: Access data
           href: concept-data.md
-    - name: Collect data
-      items:
         - name: Sourcing human data responsibly
           href: concept-sourcing-human-data.md
     - name: Security
@@ -310,7 +300,7 @@
                 displayName: compute target, low priority, managed identity
                 href: how-to-create-attach-compute-cluster.md
               - name: Kubernetes cluster
-                displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
+                displayName: Azure Arc, Kubernetes, on-premise, multi-cloud, attach
                 href: how-to-attach-kubernetes-anywhere.md
               - name: Use studio
                 displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
@@ -361,18 +351,34 @@
           href: how-to-troubleshoot-environments.md
     - name: Work with data
       items: 
-        - name: Create a datastore for data storage services
-          displayName: datastore, data storage
+        - name: Create datastores
+          displayName: Create datastores
           href: how-to-datastore.md
-        - name: Register a data asset
-          displayName: data, data asset
+        - name: Create data assets
+          displayName: Create data assets
           href: how-to-create-register-data-assets.md
-        - name: Reading & writing data
-          displayName: read and write data
+        - name: Read & write data in jobs
+          displayName: Read & write data in jobs
           href: how-to-read-write-data-v2.md
-        - name: Administrate data authentication
-          displayName: data authentication
+        - name: Data administration
+          displayName: Data administration
           href: how-to-administrate-data-authentication.md
+        - name: Label data
+          items: 
+          - name: Set up image labeling
+            displayName: data, dataset
+            href: how-to-create-image-labeling-projects.md
+          - name: Set up text labeling
+            displayName: data, dataset
+            href: how-to-create-text-labeling-projects.md
+          - name: Label images and text
+            displayName: data, dataset, labeling
+            href: how-to-label-data.md
+          - name: Add users
+            displayName: data, dataset, labeling
+            href: how-to-add-users.md
+          - name: Outsource labeling tasks
+            href: how-to-outsource-data-labeling.md
     - name: Train models
       items: 
         - name: Train with the job creation UI
@@ -518,13 +524,13 @@
                   href: how-to-secure-online-endpoint.md
                 - name: Access Azure resources from online endpoints
                   href: how-to-access-resources-from-endpoints-managed-identities.md
-            - name: Autoscale managed online endpoints
+            - name: Autoscale online endpoints
               href: how-to-autoscale-endpoints.md
             - name: Managed online endpoints VM SKU list
               href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
-            - name: Monitoring managed online endpoints
+            - name: Monitoring online endpoints
               href: how-to-monitor-online-endpoints.md
             - name: Debug online endpoints locally VS Code
               href: how-to-debug-managed-online-endpoints-visual-studio-code.md
@@ -620,8 +626,13 @@
         - name: Responsible AI dashboard scorecard
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
+    - name: Migrate from v1
+      displayName: migration, v1, v2
+      href: how-to-migrate-from-v1.md
 - name: Troubleshoot & debug
   items: 
+    - name: Troubleshoot secure workspace connectivity
+      href: how-to-troubleshoot-secure-connection-workspace.md
     - name: VS Code interactive debugging
       displayName: vscode,remote,debug,pipelines,deployments,ssh
       href: how-to-debug-visual-studio-code.md
@@ -701,6 +712,8 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
+    - name: Kubernetes cluster configuration
+      href: reference-kubernetes.md
     - name: Designer component reference
       displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
