@@ -46,8 +46,8 @@ A: No, most Premium Storage VM sizes are supported (DS, ES, FS, GS, M, etc.). To
 param([Parameter(Mandatory=$true)]
       [ValidateNotNullOrEmpty()]
       [string]$Location,
-      [Parameter(Mandatory=$false)]
-      [long]$OSImageSizeInGB = 127
+      [Parameter(Mandatory=$true)]
+      [long]$OSImageSizeInGB
       )
  
 Function HasSupportEphemeralOSDisk([object[]] $capability)
