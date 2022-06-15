@@ -1,6 +1,6 @@
 ---
-title: Configure cross-origin resource sharing in DICOM service
-description: This article describes how to configure cross-origin resource sharing in DICOM service
+title: Configure cross-origin resource sharing in DICOM service in Azure Health Data Services
+description: This article describes how to configure cross-origin resource sharing in DICOM service in Azure Health Data Services
 author: msjasteppe
 ms.author: v-smcevoy
 ms.date: 06/14/2022
@@ -9,9 +9,9 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ---
 
-# Configure cross-origin resource sharing in DICOM service
+# Configure cross-origin resource sharing in DICOM service in Azure Health Data Services
 
-## What is cross-origin resource sharing in DICOM service?
+## What is cross-origin resource sharing in DICOM service in Azure Health Data Services?
 
 DICOM service in Azure Health Data Services (hereby called DICOM service) supports [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request.
 
