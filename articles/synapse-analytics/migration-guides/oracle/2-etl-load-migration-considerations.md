@@ -1,66 +1,20 @@
-Table of contents
+---
+title: "Data migration, ETL, and load for Oracle migrations"
+description: Learn how to plan your data migration from Oracle to Azure Synapse Analytics to minimize the risk and impact on users. 
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+ms.devlang:
+ms.topic: conceptual
+author: ajagadish-24
+ms.author: ajagadish
+ms.reviewer: wiassaf
+ms.date: 06/30/2022
+---
 
-[Context [3](#context)](#context)
+# Data migration, ETL, and load for Oracle migrations
 
-[Overview [4](#overview)](#overview)
-
-[Data migration considerations [6](#data-migration-considerations)](#data-migration-considerations)
-
-[Initial decisions regarding data migration from Oracle [6](#initial-decisions-regarding-data-migration-from-oracle)](#initial-decisions-regarding-data-migration-from-oracle)
-
-[Migrate unused tables? [6](#migrate-unused-tables)](#migrate-unused-tables)
-
-[What's the best migration approach to minimize risk and impact on users? [7](#whats-the-best-migration-approach-to-minimize-risk-and-impact-on-users)](#whats-the-best-migration-approach-to-minimize-risk-and-impact-on-users)
-
-[Migrating data marts -- stay physical or go virtual?? [7](#migrating-data-marts-stay-physical-or-go-virtual)](#migrating-data-marts-stay-physical-or-go-virtual)
-
-[Data migration from Oracle [8](#data-migration-from-oracle)](#data-migration-from-oracle)
-
-[Understand your data [8](#understand-your-data)](#understand-your-data)
-
-[Oracle data type mapping [9](#oracle-data-type-mapping)](#oracle-data-type-mapping)
-
-[ETL migration considerations [12](#etl-migration-considerations)](#etl-migration-considerations)
-
-[Initial decisions regarding Oracle ETL migration [12](#initial-decisions-regarding-oracle-etl-migration)](#initial-decisions-regarding-oracle-etl-migration)
-
-[Re-engineering existing Oracle-specific scripts [13](#re-engineering-existing-oracle-specific-scripts)](#re-engineering-existing-oracle-specific-scripts)
-
-[Using existing 3^rd^ party ETL tools [13](#using-existing-3rd-party-etl-tools)](#using-existing-3rd-party-etl-tools)
-
-[Ab Initio [14](#ab-initio)](#ab-initio)
-
-[Attunity [14](#_Toc33634981)](#_Toc33634981)
-
-[Informatica [14](#informatica)](#informatica)
-
-[Hitachi Vantara Pentaho [15](#hitachi-vantara-pentaho)](#hitachi-vantara-pentaho)
-
-[Talend [15](#talend)](#talend)
-
-[Wherescape [16](#wherescape)](#wherescape)
-
-[Data loading from Oracle [17](#data-loading-from-oracle)](#data-loading-from-oracle)
-
-[Choices available when loading data from Oracle [17](#choices-available-when-loading-data-from-oracle)](#choices-available-when-loading-data-from-oracle)
-
-[Transfer data via files or network connection? [17](#transfer-data-via-files-or-network-connection)](#transfer-data-via-files-or-network-connection)
-
-[Orchestrate from Oracle or Azure? [18](#orchestrate-from-oracle-or-azure)](#orchestrate-from-oracle-or-azure)
-
-[Which tools can be used? [18](#which-tools-can-be-used)](#which-tools-can-be-used)
-
-[Summary [19](#summary)](#summary)
-
-[Appendices -- Example Techniques For Extracting Oracle Data [20](#appendices-example-techniques-for-extracting-oracle-data)](#appendices-example-techniques-for-extracting-oracle-data)
-
-[Oracle SQL Developer Data Extract [20](#oracle-sql-developer-data-extract)](#oracle-sql-developer-data-extract)
-
-[Using Azure Data Factory Oracle Connector parallel copy [21](#using-azure-data-factory-oracle-connector-parallel-copy)](#using-azure-data-factory-oracle-connector-parallel-copy)
-
-## Context
-
-This paper is one of a series of documents which discuss aspects of migrating legacy data warehouse implementations to Azure Synapse. The focus of this paper is on data migration, ETL and loading specifically from existing Oracle environments -- other topics such as recommended migration approach and advanced analytics in the data warehouse are covered in separate documents. This document should be read in conjunction with the *'Section 2 -- Data ETL and Load'* document which discusses the general aspects of design and performance for migrations to Azure Synapse.
+This article is part two of a four part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. This article provides best practices for ETL and load migration.
 
 ## Overview
 

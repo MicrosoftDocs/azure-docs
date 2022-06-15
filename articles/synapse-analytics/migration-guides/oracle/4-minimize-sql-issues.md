@@ -1,48 +1,20 @@
-Migration to Azure Synapse Analytics
+---
+title: "Minimize SQL issues for Oracle migrations"
+description: Learn how to minimize the risk of SQL issues when migrating from Oracle to Azure Synapse Analytics. 
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+ms.devlang:
+ms.topic: conceptual
+author: ajagadish-24
+ms.author: ajagadish
+ms.reviewer: wiassaf
+ms.date: 05/31/2022
+---
 
-Section 5.3 -- Minimizing SQL issues for Oracle migrations
+# Minimize SQL issues for Oracle migrations
 
-**Table of contents**
-
-[Context [3](#context)](#context)
-
-[Overview [4](#overview)](#overview)
-
-[Minimizing SQL issues for Oracle migrations [6](#minimizing-sql-issues-for-oracle-migrations)](#minimizing-sql-issues-for-oracle-migrations)
-
-[Overview [6](#overview-1)](#overview-1)
-
-[Characteristics of Oracle environments [6](#characteristics-of-oracle-environments)](#characteristics-of-oracle-environments)
-
-[Use Azure facilities to implement a metadata-driven migration [6](#use-azure-facilities-to-implement-a-metadata-driven-migration)](#use-azure-facilities-to-implement-a-metadata-driven-migration)
-
-[SQL DDL differences between Oracle and Azure Synapse [7](#sql-ddl-differences-between-oracle-and-azure-synapse)](#sql-ddl-differences-between-oracle-and-azure-synapse)
-
-[SQL Data Definition Language (DDL) [7](#sql-data-definition-language-ddl)](#sql-data-definition-language-ddl)
-
-[Table/view considerations [7](#tableview-considerations)](#tableview-considerations)
-
-[Unsupported Oracle database object types [8](#unsupported-oracle-database-object-types)](#unsupported-oracle-database-object-types)
-
-[Oracle data type mapping [9](#oracle-data-type-mapping)](#oracle-data-type-mapping)
-
-[Data Definition Language (DDL) generation [11](#data-definition-language-ddl-generation)](#data-definition-language-ddl-generation)
-
-[SQL DML differences between Oracle and Azure Synapse [13](#sql-dml-differences-between-oracle-and-azure-synapse)](#sql-dml-differences-between-oracle-and-azure-synapse)
-
-[SQL Data Manipulation Language (DML) [13](#sql-data-manipulation-language-dml)](#sql-data-manipulation-language-dml)
-
-[SQL DML syntax differences [13](#sql-dml-syntax-differences)](#sql-dml-syntax-differences)
-
-[Functions, stored procedures and sequences [15](#functions-stored-procedures-and-sequences)](#functions-stored-procedures-and-sequences)
-
-[Use EXPLAIN to validate legacy SQL [17](#use-explain-to-validate-legacy-sql)](#use-explain-to-validate-legacy-sql)
-
-[Summary [18](#summary)](#summary)
-
-## Context
-
-This paper is one of a series of documents which discuss aspects of migrating legacy data warehouse implementations to Azure Synapse Analytics. The focus of this paper is on the migration of SQL specifically from existing Oracle environments -- other topics such as ETL, recommended migration approach and advanced analytics in the data warehouse are covered in separate documents. This document should be read in conjunction with the 'Section 5 -- Minimizing SQL issues' document which discusses the general aspects of SQL migration to Azure Synapse.
+This article is part four of a four part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. This article provides best practices for minimizing SQL issues.
 
 ## Overview
 

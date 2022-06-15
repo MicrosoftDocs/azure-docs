@@ -1,44 +1,20 @@
-Table of contents
+---
+title: "Security, access, and operations for Oracle migrations"
+description: Learn about authentication, users, roles, permissions, monitoring, and auditing, and workload management in Azure Synapse Analytics and Oracle.
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+ms.devlang:
+ms.topic: conceptual
+author: ajagadish-24
+ms.author: ajagadish
+ms.reviewer: wiassaf
+ms.date: 06/30/2022
+---
 
-[Context [3](#context)](#context)
+# Security, access, and operations for Oracle migrations
 
-[Overview [4](#overview)](#overview)
-
-[Security considerations [6](#security-considerations)](#security-considerations)
-
-[Connection and authentication [6](#connection-and-authentication)](#connection-and-authentication)
-
-[Oracle authorization options [6](#oracle-authorization-options)](#oracle-authorization-options)
-
-[Azure Synapse authorization options [7](#azure-synapse-authorization-options)](#azure-synapse-authorization-options)
-
-[Users, roles and permissions [8](#users-roles-and-permissions)](#users-roles-and-permissions)
-
-[Overview [8](#overview-1)](#overview-1)
-
-[Users and roles [9](#users-and-roles)](#users-and-roles)
-
-[Permissions [9](#permissions)](#permissions)
-
-[Migrating Users, Roles and Privileges [13](#migrating-users-roles-and-privileges)](#migrating-users-roles-and-privileges)
-
-[Operational considerations [15](#operational-considerations)](#operational-considerations)
-
-[Housekeeping tasks [16](#housekeeping-tasks)](#housekeeping-tasks)
-
-[Monitoring and auditing [17](#monitoring-and-auditing)](#monitoring-and-auditing)
-
-[High Availability (HA) and Disaster Recovery (DR) [18](#high-availability-ha-and-disaster-recovery-dr)](#high-availability-ha-and-disaster-recovery-dr)
-
-[Workload management [19](#workload-management)](#workload-management)
-
-[Scaling compute resources [20](#scaling-compute-resources)](#scaling-compute-resources)
-
-## Context
-
-See the rest of the series of documents for details on all aspects of migration to Azure Synapse
-
-This paper is one of a series of documents which discuss aspects of migrating legacy data warehouse implementations to Azure Synapse. The focus of this paper is on security, Access control and operational aspects specifically from existing Oracle environments -- other topics such as ETL, recommended migration approach and advanced analytics in the data warehouse are covered in separate documents. This document should be read in conjunction with the 'Section 3 -- Security, Access and Operations' document which discusses the general operational aspects of migrations to Azure Synapse.
+This article is part three of a four part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. This article provides best practices for security access operations.
 
 ## Overview
 

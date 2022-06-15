@@ -1,54 +1,20 @@
-Migration to Azure Synapse Analytics
+---
+title: "Design and performance for Oracle migrations"
+description: Learn how Oracle and Azure Synapse SQL databases differ in their approach to high query performance on exceptionally large data volumes.
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+ms.devlang:
+ms.topic: conceptual
+author: ajagadish-24
+ms.author: ajagadish
+ms.reviewer: wiassaf
+ms.date: 06/30/2022
+---
 
-Section 1.3 - Design and performance for Oracle migrations
+# Design and performance for Oracle migrations
 
-Table of Contents
-
-[Context [3](#context)](#context)
-
-[Overview [4](#overview)](#overview)
-
-[Design considerations [7](#design-considerations)](#design-considerations)
-
-[Migration scope [7](#migration-scope)](#migration-scope)
-
-[Preparation for migration [7](#preparation-for-migration)](#preparation-for-migration)
-
-[Choosing the workload for the initial migration [7](#choosing-the-workload-for-the-initial-migration)](#choosing-the-workload-for-the-initial-migration)
-
-['Lift and shift as-is' vs a phased approach incorporating changes [7](#lift-and-shift-as-is-vs-a-phased-approach-incorporating-changes)](#lift-and-shift-as-is-vs-a-phased-approach-incorporating-changes)
-
-[Use Microsoft facilities to implement a metadata-driven migration [8](#use-microsoft-facilities-to-implement-a-metadata-driven-migration)](#use-microsoft-facilities-to-implement-a-metadata-driven-migration)
-
-[Design differences between Oracle and Azure Synapse [9](#design-differences-between-oracle-and-azure-synapse)](#design-differences-between-oracle-and-azure-synapse)
-
-[Multiple databases vs single database and schemas [9](#multiple-databases-vs-single-database-and-schemas)](#multiple-databases-vs-single-database-and-schemas)
-
-[Table considerations [9](#table-considerations)](#table-considerations)
-
-[Unsupported Oracle database object types [10](#unsupported-oracle-database-object-types)](#unsupported-oracle-database-object-types)
-
-[Oracle data type mapping [16](#oracle-data-type-mapping)](#oracle-data-type-mapping)
-
-[SQL DML syntax differences [18](#sql-dml-syntax-differences)](#sql-dml-syntax-differences)
-
-[Functions, stored procedures and sequences [18](#functions-stored-procedures-and-sequences)](#functions-stored-procedures-and-sequences)
-
-[Extracting metadata and data from an Oracle environment [20](#extracting-metadata-and-data-from-an-oracle-environment)](#extracting-metadata-and-data-from-an-oracle-environment)
-
-[Data Definition Language (DDL) generation [20](#data-definition-language-ddl-generation)](#data-definition-language-ddl-generation)
-
-[Data extraction from Oracle [21](#data-extraction-from-oracle)](#data-extraction-from-oracle)
-
-[Performance recommendations for Oracle migrations [23](#performance-recommendations-for-oracle-migrations)](#performance-recommendations-for-oracle-migrations)
-
-[Similarities in performance tuning approach concepts [23](#similarities-in-performance-tuning-approach-concepts)](#similarities-in-performance-tuning-approach-concepts)
-
-[Differences in performance tuning approach [23](#differences-in-performance-tuning-approach)](#differences-in-performance-tuning-approach)
-
-## Context
-
-This paper is one of a series of documents which discuss aspects of migrating legacy data warehouse implementations to Azure Synapse Analytics. The focus of this paper is on the design and performance aspects of migrated data specifically from existing Oracle environments -- other topics such as ETL, recommended migration approach and advanced analytics in the data warehouse are covered in separate documents. This document should be read in conjunction with the 'Section 1 -- Design and Performance' document which discusses the general aspects of design and performance for migrations to Azure Synapse.
+This article is part one of a four part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. This article provides best practices for design and performance.
 
 ## Overview
 
