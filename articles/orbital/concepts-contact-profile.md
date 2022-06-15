@@ -1,5 +1,5 @@
 ---
-title: Contact profile - Azure Orbital
+title: Contact profile - Azure Orbital GSaaS
 description: Learn more about the contact profile object, including how to create, modify, and delete the profile.
 author: hrshelar
 ms.service: orbital

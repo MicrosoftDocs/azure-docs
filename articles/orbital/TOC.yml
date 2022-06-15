@@ -35,5 +35,9 @@ items:
       href: howto-downlink-aqua.md 
 - name: Concepts
   items:
+  - name: Contact
+    href: concepts-contact.md
+  - name: Contact profile
+    href: concepts-contact-profile.md
   - name: Geospatial Reference Architecture
     href: geospatial-reference-architecture.md
