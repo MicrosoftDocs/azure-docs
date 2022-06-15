@@ -1,6 +1,6 @@
 ---
 title: Build your own client-side disaster recovery for Azure Event Grid topics
-description: This articles describe how you can build your own client-side disaster recovery for Azure Event Grid topics. 
+description: This article describes how you can build your own client-side disaster recovery for Azure Event Grid topics. 
 ms.topic: tutorial
 ms.date: 06/14/2022
 ms.devlang: csharp
@@ -37,9 +37,9 @@ Make sure to note this URL as you'll need it later.
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 
-## Create your primary and secondary topics
+## Create primary and secondary topics
 
-First, create two Event Grid topics. These topics will act as your primary and secondary. By default, your events will flow through your primary topic. If there is a service outage in the primary region, your secondary will take over.
+First, create two Event Grid topics. These topics will act as primary and secondary topics. By default, your events will flow through the primary topic. If there is a service outage in the primary region, your secondary will take over.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
@@ -50,7 +50,7 @@ First, create two Event Grid topics. These topics will act as your primary and s
 
     Select the star next to Event Grid Topics to add it to resource menu for easier access in the future.
 
-1. In the Event Grid Topics Menu, select **+ADD** to create your primary topic.
+1. In the Event Grid Topics Menu, select **+ADD** to create the primary topic.
 
    * Give the topic a logical name and add "-primary" as a suffix to make it easy to track.
    * This topic's region will be your primary region.
