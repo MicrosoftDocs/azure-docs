@@ -26,7 +26,7 @@
         - name: Azure Functions
           items:
             - name: Overview
-              href: apis.md
+              href: apis-functions.md
             - name: Add an API
               href: add-api.md
             - name: Bring your own functions
