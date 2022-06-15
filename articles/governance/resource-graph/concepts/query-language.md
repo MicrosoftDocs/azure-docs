@@ -17,9 +17,9 @@ This article covers the language components supported by Resource Graph:
 
 - [Understanding the Azure Resource Graph query language](#understanding-the-azure-resource-graph-query-language)
   - [Resource Graph tables](#resource-graph-tables)
-  - [<a name="extended-properties"></a>Extended properties (preview)](#extended-properties-preview)
+  - [Extended properties (preview)](#extended-properties-preview)
   - [Resource Graph custom language elements](#resource-graph-custom-language-elements)
-    - [<a name="shared-query-syntax"></a>Shared query syntax (preview)](#shared-query-syntax-preview)
+    - [Shared query syntax (preview)](#shared-query-syntax-preview)
   - [Supported KQL language elements](#supported-kql-language-elements)
     - [Supported tabular/top level operators](#supported-tabulartop-level-operators)
   - [Query scope](#query-scope)
@@ -96,7 +96,7 @@ Resources
 > When limiting the `join` results with `project`, the property used by `join` to relate the two
 > tables, _subscriptionId_ in the above example, must be included in `project`.
 
-## <a name="extended-properties"></a>Extended properties (preview)
+## Extended properties (preview)
 
 As a _preview_ feature, some of the resource types in Resource Graph have additional type-related
 properties available to query beyond the properties provided by Azure Resource Manager. This set of
@@ -121,7 +121,7 @@ Resources
 
 ## Resource Graph custom language elements
 
-### <a name="shared-query-syntax"></a>Shared query syntax (preview)
+### Shared query syntax (preview)
 
 As a preview feature, a [shared query](../tutorials/create-share-query.md) can be accessed directly
 in a Resource Graph query. This scenario makes it possible to create standard queries as shared
