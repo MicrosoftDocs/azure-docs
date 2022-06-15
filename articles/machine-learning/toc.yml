@@ -72,13 +72,7 @@
     - name: Microsoft Power BI integration
       items: 
         - name: "Part 1: Train and deploy models"
-          items: 
-            - name: Use Notebooks (code)
-              href: tutorial-power-bi-custom-model.md
-            - name: Use designer
-              href: tutorial-power-bi-designer-model.md
-            - name: Use automated ML
-              href: tutorial-power-bi-automated-model.md
+          href: tutorial-power-bi-custom-model.md
         - name: "Part 2: Consume in Power BI"
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
     - name: Create a secure workspace
@@ -637,9 +631,13 @@
       href: how-to-migrate-from-v1.md
 - name: Troubleshoot & debug
   items: 
+    - name: Troubleshoot secure workspace connectivity
+      href: how-to-troubleshoot-secure-connection-workspace.md
     - name: VS Code interactive debugging
       displayName: vscode,remote,debug,pipelines,deployments,ssh
       href: how-to-debug-visual-studio-code.md
+    - name: Troubleshoot SerializationError
+      href: how-to-troubleshoot-serialization-error.md
 - name: Reference
   items: 
     - name: Python SDK
