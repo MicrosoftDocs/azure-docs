@@ -2599,7 +2599,7 @@ And returns this result: `10`
 
 ### isFloat
 
-Return a boolean indicating whether a string is a floating point number. By default, this function uses the invariant culture for the floating-point format. An RFC 4646 culture code may be supplied to identify floating points represented in other formats.
+Return a boolean indicating whether a string is a floating-point number. By default, this function uses the invariant culture for the floating-point format. To identify floating-point numbers represented in other locale-specific formats, you can optionally specify an RFC 4646 locale code.
 
 ```
 isFloat('<string>', '<locale>'?)
