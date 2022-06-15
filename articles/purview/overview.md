@@ -29,7 +29,7 @@ Microsoft Purview automates data discovery by providing data scanning and classi
 |[Data Map](#data-map) | Makes your data meaningful by graphing your data assets, and their relationships, across your data estate. The data map used to discover data and manage access to that data. |
 |[Data Catalog](#data-catalog)  | Finds trusted data sources by browsing and searching your data assets. The data catalog aligns your assets with friendly business terms and data classification to identify data sources.      |
 |[Data Estate Insights](#data-estate-insights) | Gives you an overview of your data estate to help you discover what kinds of data you have and where. |
-|[Data Share](#data-share) | Allows you to securely share data internally, or cross organizations with business partners and customers. |
+|[Data Sharing](#data-sharing) | Allows you to securely share data internally or cross organizations with business partners and customers. |
 
 ## Data Map
 
@@ -48,11 +48,11 @@ With the Microsoft Purview Data Estate Insights, the chief data officers and oth
 
 For more information, see our [introduction to Data Estate Insights](concept-insights.md).
 
-## Data Share
+## Data Sharing
 
-Microsoft Purview Data Sharing enables organizations to securely share data both within your organization, or cross organizations with business partners and customers. You can share or receive data with just a few clicks. Data providers can centrally manage and monitor data sharing relationships, and revoke sharing at any time. Data consumers can access received data with their own analytics tools and turn data into insights.
+Microsoft Purview Data Sharing enables organizations to securely share data both within your organization or cross organizations with business partners and customers. You can share or receive data with just a few clicks. Data providers can centrally manage and monitor data sharing relationships, and revoke sharing at any time. Data consumers can access received data with their own analytics tools and turn data into insights.
 
-For more information, see our [introduction to Data Share](concept-data-share.md).
+For more information, see our [introduction to Data Sharing](concept-data-share.md).
 
 ## Discovery challenges for data consumers
 

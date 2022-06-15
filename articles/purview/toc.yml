@@ -283,7 +283,7 @@ items:
       href: how-to-automatically-label-your-content.md
     - name: Sensitivity labels FAQ
       href: sensitivity-labels-frequently-asked-questions.yml
-  - name: Data Sharing
+  - name: Data sharing
     items:
     - name: Share data
       href: how-to-share-data.md
