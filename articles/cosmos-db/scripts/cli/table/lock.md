@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Table API resource lock operations
-description: Use Azure CLI to create, list, show properties for, and delete resource locks for a Azure Cosmos DB Table API table.
+description: Use Azure CLI to create, list, show properties for, and delete resource locks for an Azure Cosmos DB Table API table.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
@@ -32,7 +32,7 @@ The script in this article demonstrates performing resource lock operations for 
 
     [![Launch Cloud Shell in a new window](../../../../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
-    Cloud Shell is automatically authenticated under the account you signed in with. You can use [az account set](cli/azure/account#az-account-set) to sign in with a different subscription, replacing `<subscriptionId>` with your Azure subscription ID.
+    Cloud Shell is automatically authenticated under the account you signed in with. You can use [az account set](/cli/azure/account#az-account-set) to sign in with a different subscription, replacing `<subscriptionId>` with your Azure subscription ID.
 
     ```azurecli
     subscription="<subscriptionId>" # add subscription here
