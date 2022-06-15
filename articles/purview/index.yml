@@ -20,7 +20,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Microsoft Purview's data governance solutions
+          - text: Microsoft Purview data governance solutions
             url: overview.md
       - linkListType: concept
         links:
