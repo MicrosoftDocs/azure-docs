@@ -1,5 +1,5 @@
 ---
-title: Contact - Azure Orbital GSaSS
+title: Ground station contact - Azure Orbital GSaSS
 description: Learn more about the contact object and how to schedule a contact.
 author: hrshelar
 ms.service: orbital
@@ -10,23 +10,21 @@ ms.author: hrshelar
 
 ---
 
-# Contact
+# Ground station contact
 
 A contact occurs when the spacecraft is over a specified ground station. Azure Orbital lets the user find available passes on the system and schedule them for use. A contact and ground station pass are synonymous in meaning.
 
-When you schedule a contact a contact object is created under your spacecraft object in your resource group.
+When you schedule a contact a contact object is created under your spacecraft object in your resource group. The contact that is booked on the service is only associated with this spacecraft and cannot be transferred to another spacecraft, resource group, or region.
 
 ## Contact object
 
-The contact object is a child resource of the spacecraft object that was used at time of pass scheduling. The contact that is booked on the service is only associated with this spacecraft and cannot be transferred to another spacecraft, resource group, or region.
-
-This object contains the start time and end time of the pass as well as other parameters of interest related to pass operations. The full list is below.
+The contact object contains the start time and end time of the pass as well as other parameters of interest related to pass operations. The full list is below.
 
 | Parameter                 | Description                                                                                                                             |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
 | Reservation Start Time    | Start time of pass in UTC.                                                                                                              |
 | Reservation End Time      | End time of pass in UTC.                                                                                                                |
-| Maximum Elevation Degrees | The maximum elevation the spacecraft will be in the sky relative to horizon in degrees, usually used to gauage the quality of the pass. |
+| Maximum Elevation Degrees | The maximum elevation the spacecraft will be in the sky relative to horizon in degrees, usually used to gauge the quality of the pass. |
 | TX Start Time             | Start time of permissible transmission window in UTC. This will be equal to or come after Reservation Start Time.                       |
 | TX End Time               | End time of permissible transmission window in UTC. This will be equal to or come before Reservation End Time.                          |
 | RX Start Time             | Start time of permissible reception window in UTC. This will be equal to or come after Reservation Start Time.                          |
@@ -56,6 +54,11 @@ Please note the following:
 |Portal| Yes | Yes | Custom pass timings not possible. You have to use the results of the query|
 |API | Yes | Yes| Custom pass timings possible. |
 
-Please refer to [How to Schedule a contact](schedule-contact.md) for the Portal method.
+Please refer to [Quickstart: Schedule a contact](schedule-contact.md) for the Portal method.
 
 The API can be used as well to create a contact. Please refer to (link to API docs) for this method.
+
+## Next Steps
+
+- [Quickstart: Schedule a contact](schedule-contact.md)
+- [How to: Update the Spacecraft TLE](update-tle.md)
