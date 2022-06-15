@@ -573,4 +573,6 @@ That's it, congratulations!
 In this quickstart, you used the Translator service to translate text. Next, explore the how-to documentation to learn about more Translation txt capabilities: 
 
 > [!div class="nextstepaction"]
-> [Use Text Translation APIs](use-text-translation-apis.md)
+> [Use Text Translation APIs](text-translation-apis.md)
+
+

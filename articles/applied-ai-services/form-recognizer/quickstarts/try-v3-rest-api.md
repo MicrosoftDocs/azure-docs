@@ -73,9 +73,9 @@ To learn more about Form Recognizer features and development options, visit our 
 
 Before you run the cURL command, make the following changes:
 
-1. Replace `{endpoint}` with the endpoint value from your Form Recognizer instance in the Azure portal.
+1. Replace `{endpoint}` with the endpoint value from your Azure portal Form Recognizer instance.
 
-1. Replace `{key}` with the key value from your Form Recognizer instance in the Azure portal.
+1. Replace `{key}` with the key value from your Azure portal Form Recognizer instance.
 
 1. Using the table below as a reference, replace `{modelID}` and `{your-document-url}` with your desired values.
 
@@ -110,8 +110,8 @@ You'll receive a `202 (Success)` response that includes an **Operation-Location*
 
 After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint value from your Form Recognizer instance in the Azure portal.
-1. Replace `{key}` with the key value from your Form Recognizer instance in the Azure portal.
+1. Replace `{endpoint}` with the endpoint value from your Azure portal Form Recognizer instance.
+1. Replace `{key}` with the key value from your Azure portal Form Recognizer instance.
 1. Replace `{modelID}` with the same model name you used to analyze your document.
 1. Replace `{resultID}` with the result ID from the [Operation-Location](#operation-location) header.
 <!-- markdownlint-disable MD024 -->

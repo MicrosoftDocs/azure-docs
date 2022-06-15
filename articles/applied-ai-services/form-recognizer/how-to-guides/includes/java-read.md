@@ -111,7 +111,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-read` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 
-1. Open the `FormRecognizer.java` file and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal**.
+1. Open the `FormRecognizer.java` file and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance**.
 
 ```java
 import com.azure.ai.formrecognizer.*;

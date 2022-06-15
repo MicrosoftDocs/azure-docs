@@ -41,8 +41,8 @@ Form Recognizer v3.0 consolidates the analyze document (POST) and get result (GE
 
 Before you run the following cURL command, make the following changes:
 
-1. Replace `{endpoint}` with the endpoint value from your Form Recognizer instance in the Azure portal.
-1. Replace `{key}` with the key value from your Form Recognizer instance in the Azure portal.
+1. Replace `{endpoint}` with the endpoint value from your Azure portal Form Recognizer instance.
+1. Replace `{key}` with the key value from your Azure portal Form Recognizer instance.
 
 ```bash
 curl -v -i POST "{endpoint}/formrecognizer/documentModels/prebuilt-read:analyze?api-version=2022-01-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': 'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png'}"
@@ -58,8 +58,8 @@ You'll receive a `202 (Success)` response that includes an **Operation-Location*
 
 After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint value from your Form Recognizer instance in the Azure portal.
-1. Replace `{key}` with the key value from your Form Recognizer instance in the Azure portal.
+1. Replace `{endpoint}` with the endpoint value from your Azure portal Form Recognizer instance.
+1. Replace `{key}` with the key value from your Azure portal Form Recognizer instance.
 1. Replace `{resultID}` with the result ID from the [Operation-Location](#operation-location) header.
 
 ```bash

@@ -17,7 +17,7 @@ keywords: translator, translator service, translate text, transliterate text, la
 
 # Use Text Translator APIs
 
-In this how to guide, you'lllearn to use the Translator service APIs via REST. You'll start with basic examples and move onto some core configuration options that are commonly used during development, including:
+In this how-to guide, you'll learn to use the Translator service APIs via REST. You'll start with basic examples and move onto some core configuration options that are commonly used during development, including:
 
 * [Translation](#translate-text)
 * [Transliteration](#transliterate-text)
@@ -104,32 +104,21 @@ In this how to guide, you'lllearn to use the Translator service APIs via REST. Y
 
 ## Headers 
 
-When calling the Translator service via REST, you'll need to make sure the following headers are included with each request. Don't worry, we'll include the headers in the sample code in the following sections. 
+To call the Translator service via the [REST API](reference/rest-api-guide.md), you'll need to make sure the following headers are included with each request. Don't worry, we'll include the headers in the sample code in the following sections. 
 
-<table width="100%">
-  <th width="20%">Headers</th>
-  <th>Description</th>
-  <tr>
-    <td>Authentication header(s)</td>
-    <td><em>Required request header</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Required request header if using a Cognitive Services Resource. Optional if using a Translator Resource.</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>See <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td><em>Required request header</em>.<br/>Specifies the content type of the payload.<br/> Accepted value is <code>application/json; charset=UTF-8</code>.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td><em>Required request header</em>.<br/>The length of the request body.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td><em>Optional</em>.<br/>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named <code>ClientTraceId</code>.</td>
-  </tr>
+|Header|Value| Condition  |
+|--- |:--- |:---|
+|**Ocp-Apim-Subscription-Key** |Your Translator service key from the Azure portal.|<ul><li>***Required***</li></ul> |
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |<ul><li>***Required*** when using a multi-service Cognitive Services Resource.</li><li> ***Optional*** when using a single-service Translator Resource.</li></ul>|
+|**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|<ul><li>***Required***</li></ul>|
+|**Content-Length**|The **length of the request** body.|<ul><li>***Optional***</li></ul> |
+|**X-ClientTraceId**|A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named ClientTraceId.|<ul><li>***Optional***</li></ul>
+|||
 </table> 
 
 ## Keys and endpoints
 
-The samples on this page use hard-coded keys and endpoints for simplicity. Remember to **remove the key from your code when you're done**, and **never post it publicly**. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../cognitive-services-security.md) article for more information.
+The samples on this page use hard-coded keys and endpoints for simplicity. Remember to **remove the key from your code when you're done**, and **never post it publicly**. For production, consider using a secure way of storing and accessing your credentials. For more information, *see* [Cognitive Services security](../cognitive-services-security.md).
 
 ## Translate text 
 
@@ -416,11 +405,11 @@ After a successful call, you should see the following response:
 
 ## Detect language
 
-If you know that you'll need translation, but don't know the language of the text that will be sent to the Translator service, you can use the language detection operation. There's more than one way to identify the source text language. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `detect` endpoint. 
+If you need translation, but don't know the language of the text, you can use the language detection operation. There's more than one way to identify the source text language. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `detect` endpoint. 
 
 ### Detect source language during translation
 
-If you don't include the `from` parameter in your translation request, the Translator service will attempt to detect the source text's language. In the response, you'll get the detected language (`language`) and a confidence score (`score`). The closer the `score` is to `1.0`, means that there is increased confidence that the detection is correct.
+If you don't include the `from` parameter in your translation request, the Translator service will attempt to detect the source text's language. In the response, you'll get the detected language (`language`) and a confidence score (`score`). The closer the `score` is to `1.0`, means that there's increased confidence that the detection is correct.
 
 # [C#](#tab/csharp)
 
@@ -705,7 +694,7 @@ After a successful call, you should see the following response:
 
 ### Detect source language without translation
 
-It's possible to use the Translator service to detect the language of source text without performing a translation. To do this, you'll use the [`/detect`](./reference/v3-0-detect.md) endpoint. 
+It's possible to use the Translator service to detect the language of source text without performing a translation. To do so, you'll use the [`/detect`](./reference/v3-0-detect.md) endpoint. 
 
 # [C#](#tab/csharp)
 
@@ -953,10 +942,9 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
 
-
 ---
 
-When using the `/detect` endpoint, the response will include alternate detections, and will let you know if translation and transliteration are supported for all of the detected languages. After a successful call, you should see the following response: 
+The `/detect` endpoint response will include alternate detections, and will let you know if translation and transliteration are supported for all of the detected languages. After a successful call, you should see the following response: 
 
 ```json
 [
@@ -2368,10 +2356,9 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
 
-
 ---
 
-After a successful call, you should see the following response. Let's break this down since the JSON is more complex than some of the other examples in this article. The `translations` array includes a list of translations. Each object in this array includes a confidence score (`confidence`), the text optimized for end-user display (`displayTarget`), the normalized text (`normalizedText`), the part of speech (`posTag`), and information about previous translation (`backTranslations`). For more information about the response, see [Dictionary Lookup](reference/v3-0-dictionary-lookup.md)
+After a successful call, you should see the following response. Let's examine the response more closely since the JSON is more complex than some of the other examples in this article. The `translations` array includes a list of translations. Each object in this array includes a confidence score (`confidence`), the text optimized for end-user display (`displayTarget`), the normalized text (`normalizedText`), the part of speech (`posTag`), and information about previous translation (`backTranslations`). For more information about the response, see [Dictionary Lookup](reference/v3-0-dictionary-lookup.md)
 
 ```json
 [
@@ -2725,13 +2712,13 @@ After a successful call, you should see the following response. For more informa
 |------------------|-------------|-----------------|
 | 200 | OK | The request was successful. |
 | 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
-| 401 | Unauthorized | The request is not authorized. Check to make sure your key or token is valid and in the correct region. *See also* [Authentication](reference/v3-0-reference.md#authentication).|
-| 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 401 | Unauthorized | The request isn't authorized. Check to make sure your key or token is valid and in the correct region. *See also* [Authentication](reference/v3-0-reference.md#authentication).|
+| 429 | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription. |
 | 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
 
 ### Java users
 
-If you're encountering connection issues, it may be that your SSL certificate has expired. To resolve this issue, install the [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) to your private store.
+If you're encountering connection issues, it may be that your TLS/SSL certificate has expired. To resolve this issue, install the [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) to your private store.
 
 ## Next steps
 

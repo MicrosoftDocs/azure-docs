@@ -77,7 +77,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 > * We've added the file URL value to the `formUrl` variable near the top of the file.
 > * To analyze a given file from a URL, you'll use the `beginAnalyzeDocuments` method and pass in `prebuilt-read` as the model Id.
 
-1. Open the `index.js` file in Visual Studio Code or your favorite IDE and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal**:
+1. Open the `index.js` file in Visual Studio Code or your favorite IDE and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance**:
 
 ```javascript
 const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");

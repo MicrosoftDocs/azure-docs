@@ -45,9 +45,9 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * If you aren't using VS Code, make sure you have the following installed in your development environment:
 
-  * A [**Java Development Kit** (JDK)](https://wiki.openjdk.java.net/display/jdk8u) version 8 or later. For more information, *see* [supported Java Versions and update schedule](/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule).
+  * A [**Java Development Kit** (JDK)](/java/openjdk/download#openjdk-17) version 8 or later. For more information, *see* [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk).
 
-  * [**Gradle**](https://gradle.org/), version 6.8 or later.
+  * [**Gradle**](https://docs.gradle.org/current/userguide/installation.html), version 6.8 or later.
 
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -76,7 +76,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 1. When prompted to choose a **DSL**, select **Kotlin**.
 
-1. Accept the default project name (form-recognizer-app)
+1. Accept the default project name (form-recognizer-app) by selecting **Return** or **Enter**.
 
 ### Install the client library
 
@@ -145,7 +145,7 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```java
 
@@ -290,7 +290,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-layout` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 
-**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```java
 
@@ -429,7 +429,7 @@ Analyze and extract common fields from specific document types using a prebuilt 
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
 
-**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```java
 

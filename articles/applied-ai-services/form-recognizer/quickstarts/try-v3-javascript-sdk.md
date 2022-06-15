@@ -51,7 +51,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 ## Set up
 
-1. Create a new Node.js Express application: In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app named `form-recognizer-app`, and navigate to it.
+1. Create a new Node.js Express application: In a console window (such as cmd, PowerShell, or Bash), create and navigate to a new directory for your app named `form-recognizer-app`.
 
     ```console
     mkdir form-recognizer-app && cd form-recognizer-app
@@ -115,7 +115,7 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 > * We've added the file URL value to the `formUrl` variable near the top of the file.
 > * To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```javascript
 
@@ -225,7 +225,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * We've added the file URL value to the `formUrl` variable near the top of the file.
 > * To analyze a given file from a URL, you'll use the `beginAnalyzeDocuments` method and pass in `prebuilt-layout` as the model Id.
 
-**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```javascript
 

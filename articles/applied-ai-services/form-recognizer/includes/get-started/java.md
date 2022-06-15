@@ -130,7 +130,7 @@ Extract text, selection marks, text styles, and table structures, along with the
 > * To analyze a given file at a URI, you'll use the `beginRecognizeContentFromUrl` method.
 > * We've added the file URI value to the `formUrl` variable in the main method.
 
-Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
+Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Azure portal Form Recognizer instance):
 
 ```java
 
@@ -191,7 +191,7 @@ You aren't limited to invoices—there are several prebuilt models to choose fro
 * [**ID document**](../../concept-id-document.md): extracts text and key information from driver licenses and international passports.
 * [**Business-card**](../../concept-business-card.md): extracts text and key information from business cards.
 
-Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
+Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Azure portal Form Recognizer instance):
 
 ```java
 
