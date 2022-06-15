@@ -261,7 +261,7 @@
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
-  - name: Defender for Azure SQL databases
+  - name: Defender for Azure SQL Databases
     items: 
     - name: Overview of Defender for SQL
       displayName: database
