@@ -15,16 +15,10 @@ Anomaly detection works by analyzing the behavior of users in an environment ove
 
 Microsoft Sentinel uses two different models to create baselines and detect anomalies.
 
+- [UEBA anomalies](#ueba-anomalies)
+- [Machine learning-based anomalies](#machine-learning-based-anomalies)
 
-
-<!--This document lists the types of scenario-based multistage attacks, grouped by threat classification, that Microsoft Sentinel detects using the Fusion correlation engine.
-
-Since [Fusion](fusion.md) correlates multiple signals from various products to detect advanced multistage attacks, successful Fusion detections are presented as **Fusion incidents** on the Microsoft Sentinel **Incidents** page and not as **alerts**, and are stored in the *Incidents* table in **Logs** and not in the *SecurityAlerts* table.
-
-In order to enable these Fusion-powered attack detection scenarios, any data sources listed must be ingested to your Log Analytics workspace.
-
--->
-
+## UEBA anomalies
 
 Sentinel UEBA detects anomalies based on dynamic baselines created for each entity across various data inputs. Each entity's baseline behavior is set according to its own historical activities, those of its peers, and those of the organization as a whole. Anomalies can be triggered by the correlation of different attributes such as action type, geo-location, device, resource, ISP, and more.
 
@@ -33,8 +27,6 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 
 > [!NOTE]
 > Anomalies are in **PREVIEW**. 
-
-## UEBA anomalies
 
 - [Anomalous Account Access Removal](#anomalous-account-access-removal)
 - [Anomalous Account Creation](#anomalous-account-creation)
@@ -336,7 +328,9 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 
 [Back to UEBA anomalies list](#ueba-anomalies)
 
-## Customizable anomalies
+## Machine learning-based anomalies
+
+Microsoft Sentinel's customizable, machine learning-based anomalies can identify anomalous behavior with analytics rule templates that can be put to work right out of the box. While anomalies don't necessarily indicate malicious or even suspicious behavior by themselves, they can be used to improve detections, investigations, and threat hunting.
 
 - [Anomalous Azure AD sign-in sessions](#anomalous-azure-ad-sign-in-sessions)
 - [Anomalous Azure operations](#anomalous-azure-operations)
@@ -393,7 +387,7 @@ An autoencoder model is used. Its aim is to compress the user sign-in sessions i
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts<br>T1566 - Phishing<br>T1133 - External Remote Services |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, UPN Suffix, AaadTenantId, AaaUserId,  isDomainJoined, LastVerdict |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Anomalous Azure operations
 
@@ -407,7 +401,7 @@ An autoencoder model is used. Its aim is to compress the user sign-in sessions i
 | **MITRE ATT&CK techniques:**     | T1190 - Exploit Public-Facing Application                          |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Anomalous Code Execution (duplicate?)
 
@@ -421,7 +415,7 @@ An autoencoder model is used. Its aim is to compress the user sign-in sessions i
 | **MITRE ATT&CK techniques:**     | T1059 - Command and Scripting Interpreter                          |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Anomalous local account creation
 
@@ -435,7 +429,7 @@ An autoencoder model is used. Its aim is to compress the user sign-in sessions i
 | **MITRE ATT&CK techniques:**     | T1136 - Create Account                                             |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, isDomainJoined, IsValid, LastVerdict |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Anomalous scanning activity
 
@@ -450,7 +444,7 @@ The algorithm takes into account whether the IP is public, meaning external, or 
 | **MITRE ATT&CK techniques:**     | T1046 - Network Service Scanning                                   |
 | **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Anomalous user activities in Office Exchange
 
@@ -465,7 +459,7 @@ An autoencoder model is used. Its aim is to compress the user Office Exchange se
 | **MITRE ATT&CK techniques:**     | **Collection:**<br>T1114 - Email Collection<br>T1213 - Data from Information Repositories<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1137 - Office Application Startup<br>T1505 - Server Software Component |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, UPNSuffix, IsDomainJoined, LastVerdict |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Anomalous user/app activities in Azure audit logs
 
@@ -479,7 +473,7 @@ An autoencoder model is used. Its aim is to compress the user Office Exchange se
 | **MITRE ATT&CK techniques:**     | **Collection:**<br>T1530 - Data from Cloud Storage Object<br><br>**Discovery:**<br>T1087 - Account Discovery<br>T1538 - Cloud Service Dashboard<br>T1526 - Cloud Service Discovery<br>T1069 - Permission Groups Discovery<br>T1518 - Software Discovery<br><br>**Initial Access:**<br>T1190 - Exploit Public-Facing Application<br>T1078 - Valid Accounts<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1078 - Valid Accounts<br><br>**Privilege Escalation:**<br>T1484 - Domain Policy Modification<br>T1078 - Valid Accounts  |
 | **Entities:**                    | **Type:** cloud-application<br><br>**Fields:** Name, InstanceName, LastVerdict |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Anomalous W3CIIS logs activity
 
@@ -493,7 +487,7 @@ An autoencoder model is used. Its aim is to compress the user Office Exchange se
 | **MITRE ATT&CK techniques:**     | **Initial Access:**<br>T1190 - Exploit Public-Facing Application<br><br>**Persistence:**<br>T1505 - Server Software Component                                |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Anomalous web request activity
 
@@ -508,7 +502,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | **Initial Access:**<br>T1190 - Exploit Public-Facing Application<br><br>**Persistence:**<br>T1505 - Server Software Component                                |
 | **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, LastVerdict               |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Attempted computer brute force
 
@@ -522,7 +516,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 | **Entities:**                    | **Type:** Host<br><br>**Fields:** Hostname                         |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Attempted user account brute force
 
@@ -536,7 +530,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Attempted user account brute force per login type
 
@@ -550,7 +544,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Attempted user account bruteforce per failure reason
 
@@ -564,7 +558,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Detect machine generated network beaconing behavior
 
@@ -578,7 +572,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1071 - Application Layer Protocol<br>T1132 - Data Encoding<br>T1001 - Data Obfuscation<br>T1568 - Dynamic Resolution<br>T1573 - Encrypted Channel<br>T1008 - Fallback Channels<br>T1104 - Multi-Stage Channels<br>T1095 - Non-Application Layer Protocol<br>T1571 - Non-Standard Port<br>T1572 - Protocol Tunneling<br>T1090 - Proxy<br>T1205 - Traffic Signaling<br>T1102 - Web Service |
 | **Entities:**                    | **Type:** Network Connection<br><br>**Fields:** SourceIP, DestinationIP, DestinationPort, Protocol |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Domain generation algorithm (DGA) on DNS domains
 
@@ -592,7 +586,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
 | **Entities:**                    | **Type:** IP<br><br>**Fields:** IP, Location, ASN                  |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Domain Reputation Palo Alto anomaly
 
@@ -606,7 +600,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
 | **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, LastVerdict               |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Excessive data transfer anomaly
 
@@ -620,7 +614,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
 | **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Excessive Downloads via Palo Alto GlobalProtect
 
@@ -634,7 +628,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Excessive uploads via Palo Alto GlobalProtect
 
@@ -648,7 +642,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Login from an unusual region via Palo Alto GlobalProtect account logins
 
@@ -662,7 +656,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1133 - External Remote Services                                   |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Multi-region logins in a single day via Palo Alto GlobalProtect
 
@@ -676,7 +670,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Potential data staging
 
@@ -690,7 +684,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1074 - Data Staged                                                |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Potential domain generation algorithm (DGA) on next-level DNS Domains
 
@@ -704,7 +698,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Suspicious geography change in Palo Alto GlobalProtect account logins
 
@@ -718,7 +712,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1133 - External Remote Services<br>T1078 - Valid Accounts         |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Suspicious number of protected documents accessed
 
@@ -732,7 +726,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1530 - Data from Cloud Storage Object<br>T1213 - Data from Information Repositories<br>T1005 - Data from Local System<br>T1039 - Data from Network Shared Drive<br>T1114 - Email Collection |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, AadTenantId, IsDomainJoined |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Suspicious volume of AWS API calls from Non-AWS source IP address from a user account id per workspace on a daily basis
 
@@ -746,7 +740,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Suspicious volume of AWS cloud trail logs events of group user account by EventTypeName
 
@@ -760,7 +754,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, NTDomain, DnsDomain, UPNSuffix, Host, Sid, AadTenantId, AaadUserId, PUID, IsDomainJoined, ObjectGuid |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Suspicious volume of AWS write API calls from a user account
 
@@ -774,7 +768,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Suspicious volume of failed login attempts to AWS Console by each group user account
 
@@ -788,7 +782,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined, LastVerdict |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Suspicious volume of failed login attempts to AWS Console by each source IP address
 
@@ -802,7 +796,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, LastVerdict               |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Suspicious volume of logins to computer
 
@@ -816,7 +810,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Suspicious volume of logins to computer with elevated token
 
@@ -830,7 +824,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Suspicious volume of logins to user account
 
@@ -844,7 +838,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Suspicious volume of logins to user account by logon types
 
@@ -858,7 +852,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Suspicious volume of logins to user account with elevated token
 
@@ -872,7 +866,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Unusual external firewall alarm detected
 
@@ -886,7 +880,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | **Discovery:**<br>T1046 - Network Service Scanning<br>T1135 - Network Share Discovery<br><br>**Command and Control:**<br>T1071 - Application Layer Protocol<br>T1095 - Non-Application Layer Protocol<br>T1571 - Non-Standard Port |
 | **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Unusual mass downgrade AIP label
 
@@ -900,7 +894,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1530 - Data from Cloud Storage Object<br>T1213 - Data from Information Repositories<br>T1005 - Data from Local System<br>T1039 - Data from Network Shared Drive<br>T1114 - Email Collection |
 | **Entities:**                    |                                                                    |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Unusual network communication on commonly used ports
 
@@ -914,7 +908,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | **Command and Control:**<br>T1071 - Application Layer Protocol<br><br>**Exfiltration:**<br>T1030 - Data Transfer Size Limits                                  |
 | **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, Location                  |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Unusual network volume anomaly
 
@@ -928,7 +922,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits                                  |
 | **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Unusual web traffic detected with IP in URL path
 
@@ -942,7 +936,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **MITRE ATT&CK techniques:**     | **Command and Control:**<br>T1071 - Application Layer Protocol<br><br>**Initial Access:**<br>T1189 - Drive-by Compromise                                      |
 | **Entities:**                    | **Type:** Network Connection, IP<br><br>**Field:** SourceIP, IP, DestinationIP, DestinationPort, Protocol |
 
-[Back to Customizable anomalies list](#customizable-anomalies)
+[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ## Next steps
 
