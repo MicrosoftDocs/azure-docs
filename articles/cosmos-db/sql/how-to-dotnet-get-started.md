@@ -385,9 +385,6 @@ The following guides show you how to use each of these classes to build your app
 |--|---|
 | [Create a database](how-to-dotnet-create-database.md) | Create databases |
 | [Create a container](how-to-dotnet-create-container.md) | Create containers |
-| [Create an item](how-to-dotnet-create-item.md) | Create an individual item |
-| [Read an item](how-to-dotnet-read-item.md) | Point read a specific item |
-| [Query items](how-to-dotnet-query-items.md) | Query multiple items in a container |
 
 ## See also
 
@@ -399,7 +396,7 @@ The following guides show you how to use each of these classes to build your app
 
 ## Next steps
 
-Now that you've connected to a SQL API account, use the next guide to create databases.
+Now that you've connected to a SQL API account, use the next guide to create and manage databases.
 
 > [!div class="nextstepaction"]
 > [Create a database in Azure Cosmos DB SQL API using .NET](how-to-dotnet-create-database.md)
