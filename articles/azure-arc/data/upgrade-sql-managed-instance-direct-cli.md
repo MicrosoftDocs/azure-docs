@@ -71,7 +71,7 @@ az sql mi-arc upgrade --resource-group myresource-group --name sql1 --desired-ve
 
 You can monitor the progress of the upgrade with CLI.
 
-### CLI
+### CLI example
 
 ```cli
 az sql mi-arc show --resource-group <resource group> --name <instance name>
