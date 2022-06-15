@@ -30,9 +30,6 @@ To install the Speech SDK for Python, run this command in a terminal.
 pip install azure-cognitiveservices-speech
 ```
 
-> [!NOTE]
-> If you're on macOS and run into install issues, you may need to run the `python3 -m pip install --upgrade pip` command first.
-
 ### Upgrade to the latest Speech SDK
 
 To upgrade to the latest Speech SDK, run this command in a terminal:
