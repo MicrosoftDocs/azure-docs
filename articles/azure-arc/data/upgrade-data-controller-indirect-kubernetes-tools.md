@@ -17,7 +17,7 @@ This article explains how to upgrade an indirectly connected Azure Arc-enabled d
 
 During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller will not cause downtime for the data services (SQL Managed Instance or PostgreSQL server).
 
-In this article, you will apply a .yaml file to:
+In this article, you'll apply a .yaml file to:
 
 1. Specify a service account.
 1. Set the cluster roles.
@@ -32,7 +32,7 @@ In this article, you will apply a .yaml file to:
 
 ## Prerequisites
 
-Prior to beginning the upgrade of the Azure Arc data controller, you will need:
+Prior to beginning the upgrade of the Azure Arc data controller, you'll need:
 
 - To connect and authenticate to a Kubernetes cluster
 - An existing Kubernetes context selected
@@ -41,10 +41,10 @@ You need an indirectly connected data controller with the `imageTag: v1.0.0_2021
 
 ## Install tools
 
-To upgrade the Azure Arc data controller using Kubernetes tools you need to have the Kubernetes tools installed.
+To upgrade the Azure Arc data controller using Kubernetes tools, you need to have the Kubernetes tools installed.
 
-The examples in this article use kubectl, but similar approaches could be used with other Kubernetes tools
-such as the Kubernetes dashboard, oc, or helm if you are familiar with those tools and Kubernetes yaml/json.
+The examples in this article use `kubectl`, but similar approaches could be used with other Kubernetes tools
+such as the Kubernetes dashboard, `oc`, or helm if you're familiar with those tools and Kubernetes yaml/json.
 
 [Install the kubectl tool](https://kubernetes.io/docs/tasks/tools/)
 
@@ -66,7 +66,7 @@ Found 2 valid versions.  The current datacontroller version is <current-version>
 
 ## Create or download .yaml file
 
-To upgrade the data controller, you will apply a yaml file to the Kubernetes cluster. The example file for the upgrade is available in GitHub at <https://github.com/microsoft/azure_arc/blob/main/arc_data_services/upgrade/yaml/upgrade-indirect-k8s.yaml>.
+To upgrade the data controller, you'll apply a yaml file to the Kubernetes cluster. The example file for the upgrade is available in GitHub at <https://github.com/microsoft/azure_arc/blob/main/arc_data_services/upgrade/yaml/upgrade-indirect-k8s.yaml>.
 
 You can download the file - and other Azure Arc related demonstration files - by cloning the repository. For example:
 
@@ -78,7 +78,7 @@ For more information, see [Cloning a repository](https://docs.github.com/en/repo
 
 The following steps use files from the repository.
 
-In the yaml file, you will replace ```{{namespace}}``` with your namespace.
+In the yaml file, you'll replace ```{{namespace}}``` with your namespace.
 
 ## Upgrade data controller
 
@@ -95,7 +95,7 @@ This section shows how to upgrade an indirectly connected data controller.
 
 ### Upgrade
 
-You will need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
+You'll need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
 
 ### Specify the service account
 

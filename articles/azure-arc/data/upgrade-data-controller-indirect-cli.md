@@ -15,11 +15,11 @@ ms.topic: how-to
 
 This article describes how to upgrade an indirectly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
-During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller will not cause downtime for the data services (SQL Managed Instance or PostgreSQL server).
+During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller won't cause downtime for the data services (SQL Managed Instance or PostgreSQL server).
 
 ## Prerequisites
 
-You will need an indirectly connected data controller with the imageTag v1.0.0_2021-07-30 or later.
+You'll need an indirectly connected data controller with the imageTag v1.0.0_2021-07-30 or later.
 
 To check the version, run:
 
@@ -29,9 +29,9 @@ kubectl get datacontrollers -n <namespace> -o custom-columns=BUILD:.spec.docker.
 
 ## Install tools
 
-Before you can proceed with the tasks in this article you need to install:
+Before you can proceed with the tasks in this article, you need to install:
 
-- The [Azure CLI (az)](/cli/azure/install-azure-cli)
+- The [Azure CLI (`az`)](/cli/azure/install-azure-cli)
 - The [`arcdata` extension for Azure CLI](install-arcdata-extension.md)
 
 [!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
@@ -69,7 +69,7 @@ This section shows how to upgrade an indirectly connected data controller.
 
 ### Upgrade
 
-You will need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
+You'll need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
 
 You can perform a dry run first. The dry run validates the registry exists, the version schema, and the private repository authorization token (if used). To perform a dry run, use the `--dry-run` parameter in the `az arcdata dc upgrade` command. For example:
 

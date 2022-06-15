@@ -12,7 +12,7 @@ ms.date: 05/27/2022
 ms.topic: how-to
 ---
 
-# Upgrade a Azure SQL Managed Instance directly connected Azure Arc using the portal
+# Upgrade Azure SQL Managed Instance directly connected Azure Arc using the portal
 
 This article describes how to upgrade Azure SQL Managed Instance deployed on a directly connected Azure Arc-enabled data controller using the portal.
 
@@ -33,7 +33,7 @@ There's no batch upgrade process available at this time.
 
 Open your SQL Managed Instance - Azure Arc resource.
 
-Under **Settings**, select the **Upgrade Management** blade.
+Under **Settings**, select the **Upgrade Management**.
 
 In the table of available versions, choose the version you want to upgrade to and select **Upgrade Now**.
 
@@ -41,7 +41,7 @@ In the confirmation dialog box, select **Upgrade**.
 
 ## Monitor the upgrade status
 
-To view the status of your upgrade in the portal, go to the resource group of the SQL Managed Instance and select the **Activity log** blade.  
+To view the status of your upgrade in the portal, go to the resource group of the SQL Managed Instance and select **Activity log**.  
 
 A **Validate Deploy** option that shows the status.
 
