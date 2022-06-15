@@ -23,7 +23,7 @@ This documentation contains the following article types:
 
 * [Quickstarts](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [Concepts](concepts/evaluation-metrics.md) provide explanations of the service functionality and features.
-* [How-to guides](how-to/tag-utterances.md) contain instructions for using the service in more specific or customized ways.
+* [How-to guides](how-to/create-project.md) contain instructions for using the service in more specific or customized ways.
 
 
 ## Example usage scenarios
