@@ -297,13 +297,7 @@
             - name: Work with collections
               items: 
                 - name: Create a collection
-                  href: how-to-javascript-create-collection.md      
-            - name: Work with docs
-              items: 
-                - name: Create a doc
-                  href: how-to-javascript-create-doc.md  
-                - name: Query docs
-                  href: how-to-javascript-query-doc.md    
+                  href: how-to-javascript-create-collection.md         
     - name: Connect using Mongoose
       href: connect-using-mongoose.md
     - name: Distribute reads globally

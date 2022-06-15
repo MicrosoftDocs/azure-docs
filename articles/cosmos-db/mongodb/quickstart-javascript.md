@@ -49,7 +49,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
     resourceGroupName="msdocs-cosmos-javascript-quickstart-rg"
     location="westus"
 
-    # Variable for account name with a randomnly generated suffix
+    # Variable for account name with a randomly generated suffix
     let suffix=$RANDOM*$RANDOM
     accountName="msdocs-javascript-$suffix"
     ```
@@ -82,7 +82,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
         --name $accountName 
     ```
 
-1. Record the *PRIMARY KEY* values. You'll use these credentials later.
+1. Record the *Primary MongoDB Connection String* value. You'll use this value later.
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -178,7 +178,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
 
 1. From the Azure Cosmos DB SQL API account page, select the **Connection String** navigation menu option.
 
-1. Record the values for the **PRIMARY CONNECTION STRING** field. You'll use this value in a later step.
+1. Record the value for the **PRIMARY CONNECTION STRING** field. You'll use this value in a later step.
 
    :::image type="content" source="media/quickstart-javascript/cosmos-endpoint-key-credentials.png" lightbox="media/quickstart-javascript/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos D B SQL A P I account.":::
 

@@ -1,0 +1,38 @@
+---
+title: Create a collection in Azure Cosmos DB MongoDB API using JavaScript
+description: Learn how to create a collection in your Azure Cosmos DB MongoDB API database using the JavaScript SDK.
+author: seesharprun
+ms.author: sidandrews
+ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
+ms.devlang: csharp
+ms.topic: how-to
+ms.date: 06/08/2022
+ms.custom: devx-track-csharp
+---
+
+# Create a collection in Azure Cosmos DB MongoDB API using JavaScript
+
+Collections in Azure Cosmos DB store sets of docss. Before you can create, query, or manage docss, you must first create a collection.
+
+## Name a collection
+
+In Azure Cosmos DB, a collection is analogous to a table in a relational database. When you create a collection, the collection name forms a segment of the URI used to access the collection resource and any child docs.
+
+Here are some quick rules when naming a collection:
+
+* Keep collection names between 3 and 63 characters long
+* Collection names can only contain lowercase letters, numbers, or the dash (-) character.
+* Container names must start with a lowercase letter or number.
+
+## Create a collection
+
+To create a collection, call the following method:
+
+* [``Collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html#collection)
+
+
+## See also
+
+- [Get started with Azure Cosmos DB MongoDB API and JavaScript](how-to-javascript-get-started.md)
+- [Create a database](how-to-javascript-create-database.md)
