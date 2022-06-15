@@ -47,21 +47,21 @@ This article will explain how to create and configure a user-assigned managed id
 
 1. Search for "Managed Identities" from the search bar at the top of the Portal and select the matching result.
 
-:::image type="content" source="media/overview-for-developers/Managed-Identities-Search.png" alt-text="Search for managed identities":::
+:::image type="content" source="media/developer-introduction/managed-identities-search.png" alt-text="Screenshot of searching for managed identities in the portal.":::
 
 2. Select the "Create" button.
 
-:::image type="content" source="media/overview-for-developers/Managed-Identity-Create-Button.png" alt-text="Managed identity - create button":::
+:::image type="content" source="media/developer-introduction/managed-identity-create-button.png" alt-text="Screenshot showing a managed identity create button in the portal.":::
 
 3. Select the Subscription and Resource group, and enter a name for the Managed identity.
 
-:::image type="content" source="media/overview-for-developers/Managed-Identity-Create-Screen.png" alt-text="Managed identity - create screen":::
+:::image type="content" source="media/developer-introduction/managed-identity-create-screen.png" alt-text="Screenshot showing a managed identity create screen in the portal.":::
 
 4. Select "Review + create" to run the validation test, and then select the "Create" button.
 
 5. When the identity has been created, a confirmation screen will appear.
 
-:::image type="content" source="media/overview-for-developers/Managed-Identity-Confirmation-Screen.png" alt-text="Managed identity - confirmation screen":::
+:::image type="content" source="media/developer-introduction/managed-identity-confirmation-screen.png" alt-text="Screenshot showing a managed identity confirmation screen after creation in the portal.":::
 
 #### [Azure CLI](#tab/cli)
 ```azurecli
@@ -83,25 +83,25 @@ Follow these steps to configure your Azure resource to have a managed identity t
 
 1. Locate the resource using the search bar at the top of the Portal
 
-:::image type="content" source="media/overview-for-developers/locate-resource.png" alt-text="Locate the resource":::
+:::image type="content" source="media/developer-introduction/locate-resource.png" alt-text="Screenshot showing a resource being searched for in the portal.":::
 
 2. Select the Identity link in the navigation
 
-:::image type="content" source="media/overview-for-developers/App-Service-Summary.png" alt-text="Identity link in Resource screen.":::
+:::image type="content" source="media/developer-introduction/app-service-summary.png" alt-text="Screenshot showing the link to the identity screen for a resource in the portal.":::
 
 3. Select the "User-assigned" tab
 
 4. Select the "Add" button
 
-:::image type="content" source="media/overview-for-developers/User-Assigned-Identity-Blade.png" alt-text="User-assigned identity screen":::
+:::image type="content" source="media/developer-introduction/user-assigned-identity-blade.png" alt-text="Screenshot showing a user-assigned identity screen in the portal.":::
 
 5. Select the user-assigned identity that you created earlier and select "Add"
 
-:::image type="content" source="media/overview-for-developers/Select-User-Assigned-Identity.png" alt-text="Select the User-assigned identity":::
+:::image type="content" source="media/developer-introduction/select-user-assigned-identity.png" alt-text="Screenshot showing a user-assigned identity being selected in the portal.":::
 
 6. The identity will be associated with the resource, and the list will update.
 
-:::image type="content" source="media/overview-for-developers/User-Assigned-Identity-Added-To-Resource.png" alt-text="User-assigned identity has been associated with the Azure resource":::
+:::image type="content" source="media/developer-introduction/user-assigned-identity-added-to-resource.png" alt-text="Screenshot showing a user-assigned identity has been associated with the Azure resource in the portal.":::
 
 Your source resource now has a user-assigned identity that it can use to connect to target resources.
 
@@ -117,32 +117,32 @@ Now your App Service has a managed identity, you'll need to give the identity th
 1. Locate the resource you want to connect to using the search bar at the top of the Portal
 2. Select the "Access Control (IAM)" link in the left hand navigation.
 
-:::image type="content" source="media/overview-for-developers/resource-summary-screen.png" alt-text="Resource Summary screen":::
+:::image type="content" source="media/developer-introduction/resource-summary-screen.png" alt-text="Screenshot showing a resource summary screen in the portal.":::
 
 3. Select the "Add" button near the top of the screen and select "Add role assignment".
 
-:::image type="content" source="media/overview-for-developers/resource-add-role-assignment-dropdown.png" alt-text="Add Role assignment navigation":::
+:::image type="content" source="media/developer-introduction/resource-add-role-assignment-dropdown.png" alt-text="Screenshot showing the add role assignment navigation in the portal.":::
 
 4. A list of Roles will be displayed. You can see the specific permissions that a role has by selecting the "View" link. Select the role that you want to grant to the identity and select the "Next" button.
 
-:::image type="content" source="media/overview-for-developers/resource-select-role.png" alt-text="Select a Role":::
+:::image type="content" source="media/developer-introduction/resource-select-role.png" alt-text="Screenshot showing a role being selected in the portal.":::
 
 5. You'll be prompted to select who the role should be granted to. Select the "Managed identity" option and then the "Add members" link.
 
-:::image type="content" source="media/overview-for-developers/resource-selectmember.png" alt-text="Select the identity type":::
+:::image type="content" source="media/developer-introduction/resource-select-member.png" alt-text="Screenshot showing the identity type being selected in the portal.":::
 
 6. A context pane will appear on the right where you can search by the type of the managed identity. Select "User-assigned managed identity" from the "Managed identity" option.
 
-:::image type="content" source="media/overview-for-developers/resource-selectidentity.png" alt-text="Select the managed identity":::
+:::image type="content" source="media/developer-introduction/resource-select-identity.png" alt-text="Screenshot showing managed identity being selected in the portal.":::
 
 7. Select the identity that you created earlier and the "Select" button. The context pane will close, and the identity will be added to the list.
 
-:::image type="content" source="media/overview-for-developers/resource-identityadded.png" alt-text="Identity added to resource":::
+:::image type="content" source="media/developer-introduction/resource-identity-added.png" alt-text="Screenshot showing an identity being added to a resource in the portal.":::
 
 8. Select the "Review + assign" button to view the summary of the role assignment, and then once more to confirm.
 9. Select the "Role assignments" option, and a list of the role assignments for the resource will be displayed.
 
-:::image type="content" source="media/overview-for-developers/resource-role-assignment-added.png" alt-text="Role assignment added":::
+:::image type="content" source="media/developer-introduction/resource-role-assignment-added.png" alt-text="Screenshot showing the role assignment has been added in the portal.":::
 
 ### [Azure CLI](#tab/cli)
 ```azurecli
@@ -169,7 +169,7 @@ Except for the C++ library, the Azure Identity libraries support a `DefaultAzure
 
 If you're using user-assigned managed identities, you should also explicitly specify the user-assigned managed identity you wish to authenticate with by passing in the identity's client ID as a parameter. You can retrieve the client ID by browsing to the identity in the Portal.
 
-:::image type="content" source="media/overview-for-developers/IdentityClientID.png" alt-text="Client ID for the identity":::
+:::image type="content" source="media/developer-introduction/identity-client-id.png" alt-text="Screenshot showing the client ID for the managed identity in the portal.":::
 
 Read more about the Azure Identity libraries below:
 
