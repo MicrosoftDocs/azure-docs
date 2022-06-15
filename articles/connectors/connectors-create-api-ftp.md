@@ -520,7 +520,7 @@ This action returns an array that's named **Response** and contains [BlobMetadat
 
 ### Update file
 
-Operation ID: updateFile
+Operation ID: `updateFile`
 
 This action updates a file using the specified file path and file content.
 
