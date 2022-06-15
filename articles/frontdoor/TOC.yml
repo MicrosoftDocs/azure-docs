@@ -1,4 +1,4 @@
-- name: Front Door documentation
+- name: Front Door and CDN documentation
   href: index.yml
 - name: Overview
   items:
@@ -41,55 +41,65 @@
       - name: Create a Front Door - ARM Template
         displayName: Resource Manager
         href: quickstart-create-front-door-template.md
-  - name: CDN from Microsoft (classic)
-    items:
-    - name: Integrate a storage account
-      href: ../cdn/cdn-create-a-storage-account-with-cdn.md?toc=/azure/frontdoor/TOC.json
-    - name: Create a profile and endpoint
-      href: ../cdn/cdn-create-new-endpoint.md?toc=/azure/frontdoor/TOC.json
-    - name: Create profile and endpoint - Bicep
-      displayName: ARM, Resource Manager, Template
-      href: ../cdn/create-profile-endpoint-bicep.md?toc=/azure/frontdoor/TOC.json
-    - name: Create profile and endpoint - ARM Template
-      displayName: Resource Manager
-      href: ../cdn/create-profile-endpoint-template.md?toc=/azure/frontdoor/TOC.json
+  - name: CDN
+    items: 
+    - name: Microsoft (classic)
+      items:
+      - name: Integrate a storage account
+        href: ../cdn/cdn-create-a-storage-account-with-cdn.md?toc=/azure/frontdoor/TOC.json
+      - name: Create a profile and endpoint
+        href: ../cdn/cdn-create-new-endpoint.md?toc=/azure/frontdoor/TOC.json
+      - name: Create profile and endpoint - Bicep
+        displayName: ARM, Resource Manager, Template
+        href: ../cdn/create-profile-endpoint-bicep.md?toc=/azure/frontdoor/TOC.json
+      - name: Create profile and endpoint - ARM Template
+        displayName: Resource Manager
+        href: ../cdn/create-profile-endpoint-template.md?toc=/azure/frontdoor/TOC.json
 - name: Tutorials
   items:
-    - name: Front Door (classic)
+    - name: Front Door
       items:
-      - name: Add security headers with Rules engine
-        href: front-door-security-headers.md
-      - name: Web Application Firewall and Front Door
-        href: front-door-waf.md
-    - name: CDN from Microsoft (classic)
-      items:
-      - name: Add Azure CDN to a web app
-        href: ../cdn/cdn-add-to-web-app.md?toc=/azure/frontdoor/TOC.json
-      - name: Access blobs by using a custom domain over HTTPS
-        href: ../cdn/cdn-storage-custom-domain-https.md?toc=/azure/frontdoor/TOC.json
-      - name: Add a custom domain
-        href: ../cdn/cdn-map-content-to-custom-domain.md?toc=/azure/frontdoor/TOC.json
-      - name: Configure HTTPS on a custom domain
-        href: ../cdn/cdn-custom-ssl.md?toc=/azure/frontdoor/TOC.json
-      - name: Set caching rules
-        href: ../cdn/cdn-caching-rules-tutorial.md?toc=/azure/frontdoor/TOC.json
+      - name: Classic
+        items:
+        - name: Add security headers with Rules engine
+          href: front-door-security-headers.md
+        - name: Web Application Firewall and Front Door
+          href: front-door-waf.md
+    - name: CDN 
+      items: 
+      - name: Microsoft (classic)
+        items:
+        - name: Add Azure CDN to a web app
+          href: ../cdn/cdn-add-to-web-app.md?toc=/azure/frontdoor/TOC.json
+        - name: Access blobs by using a custom domain over HTTPS
+          href: ../cdn/cdn-storage-custom-domain-https.md?toc=/azure/frontdoor/TOC.json
+        - name: Add a custom domain
+          href: ../cdn/cdn-map-content-to-custom-domain.md?toc=/azure/frontdoor/TOC.json
+        - name: Configure HTTPS on a custom domain
+          href: ../cdn/cdn-custom-ssl.md?toc=/azure/frontdoor/TOC.json
+        - name: Set caching rules
+          href: ../cdn/cdn-caching-rules-tutorial.md?toc=/azure/frontdoor/TOC.json
 - name: Samples
   items:
     - name: Front Door
       items:
-      - name: Resource Manager Templates
-        href: front-door-quickstart-template-samples.md
-      - name: Azure CLI
+      - name: Standard/Premium
         items:
-        - name: Deploy custom domain
+        - name: Resource Manager Templates
+          href: front-door-quickstart-template-samples.md?pivots=front-door-standard-premium
+      - name: Classic
+        items:
+        - name: Resource Manager Templates
+          href: front-door-quickstart-template-samples.md?pivots=front-door-classic
+        - name: Deploy custom domain - Azure CLI
           href: scripts/custom-domain.md
     - name: CDN
       items:
         - name: Code samples
           href: https://azure.microsoft.com/resources/samples/?service=cdn
-        - name: Azure CLI
+        - name: Microsoft (classic)
           items:
-            - name: Create a profile and endpoint
+            - name: Create a profile and endpoint - Azure CLI
               displayName: az cdn profile, az cdn endpoint, az cdn origin, az cdn custom-domain, cdn origin-group      
               href: ../cdn/scripts/cli/cdn-azure-cli-create-endpoint.md?toc=/azure/frontdoor/TOC.json
 - name: Concepts
@@ -190,18 +200,18 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/frontdoor/TOC.json
+    - name: DDoS protection
+      href: ../cdn/cdn-ddos.md?toc=/azure/frontdoor/TOC.json
     - name: How caching works
       href: ../cdn/cdn-how-caching-works.md?toc=/azure/frontdoor/TOC.json
-    - name: China content delivery
-      href: ../cdn/cdn-china-delivery.md?toc=/azure/frontdoor/TOC.json
     - name: HTTP/2 support
       href: ../cdn/cdn-http2.md?toc=/azure/frontdoor/TOC.json
     - name: Retrieve POP IP's
       href: ../cdn/cdn-pop-list-api.md?toc=/azure/frontdoor/TOC.json
     - name: Migrate from Standard Verizon to Premium Verizon
       href: ../cdn/cdn-migrate.md?toc=/azure/frontdoor/TOC.json
-    - name: DDoS protection
-      href: ../cdn/cdn-ddos.md?toc=/azure/frontdoor/TOC.json
+    - name: China content delivery
+      href: ../cdn/cdn-china-delivery.md?toc=/azure/frontdoor/TOC.json
 - name: How-to guides
   items:
   - name: Front Door
