@@ -396,7 +396,7 @@ The Azure AD SuccessFactors connector uses SuccessFactors OData API to retrieve 
 
 ## Writeback scenarios
 
-This section covers different write-back scenarios. It recommends configuration approaches based on how email and phone number is setup in SuccessFactors.
+This section covers different write-back scenarios. It recommends configuration approaches based on how email and phone number is set up in SuccessFactors.
 
 ### Supported scenarios for phone and email write-back 
 
