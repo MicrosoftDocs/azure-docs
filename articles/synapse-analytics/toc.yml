@@ -1600,6 +1600,16 @@ items:
         href: migration-guides/netezza/6-microsoft-third-party-migration-tools.md
       - name: 7 Implementing modern data warehouses
         href: migration-guides/netezza/7-beyond-data-warehouse-migration.md
+    - name: From Oracle
+      items:
+      - name: 1 Design performance for Oracle migration
+        href: migration-guides/oracle/1-design-performance-migration.md
+      - name: 2 ETL and load migration considerations
+        href: migration-guides/oracle/2-etl-load-migration-considerations.md
+      - name: 3 Security access operations
+        href: migration-guides/oracle/3-security-access-operations.md
+      - name: 4 Minimizing SQL issues
+        href: migration-guides/oracle/4-minimize-sql-issues.md
   - name: Security white paper
     items:
     - name: Introduction
