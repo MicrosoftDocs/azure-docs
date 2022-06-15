@@ -245,7 +245,7 @@ For the example below, the composite will be localized to French (`fr`).
 // Option1: Use intellisense to get supported locales by the UI Library
 let localizationOptions = LocalizationOptions(locale: SupportedLocale.frFR)
 
-// Option2: Swift Locale struct, if locale not supported by UI Library will default to English
+// Option2: Swift Locale struct, if locale not supported by UI Library, will default to English
 let localizationOptions = LocalizationOptions(locale: Locale(identifier: "fr-FR"))
 
 let callCompositeOptions = CallCompositeOptions(localization: localizationOptions) 
