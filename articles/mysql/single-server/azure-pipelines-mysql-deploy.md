@@ -85,7 +85,7 @@ You'll need to replace the following values in your deployment task.
 
 |Input  |Description  |Example  |
 |---------|---------|---------|
-|`azureSubscription`     |   Authenticate with your Azure Subscription with a [service connection](../library/connect-to-azure.md).     |   `My Subscription`      |
+|`azureSubscription`     |   Authenticate with your Azure Subscription with a [service connection](/azure/devops/pipelines/library/connect-to-azure).     |   `My Subscription`      |
 |`ServerName`     |    The name of your Azure Database for MySQL server.     |   `fabrikam.mysql.database.azure.com`      |
 |`SqlUsername`     |    The user name of your Azure Database for MySQL.   |    `mysqladmin@fabrikam`     |
 |`SqlPassword`     |   The password for the username. This should be defined as a secret variable.     |  `$(SQLpass)`       |
