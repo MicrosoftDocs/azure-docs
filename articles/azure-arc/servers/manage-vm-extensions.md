@@ -174,6 +174,8 @@ The following extensions are available for Windows and Linux machines:
 |Unbuntu 16.04 LTS |X |X |X |X | | |X |X |
 |Unbuntu 140.04 LTS | |X | |X | | |X | |
 
+For the regional availabilities of different Azure services and VM extensions available for Azure Arc-enabled servers, [refer to Azure Global's Product Availability Roadmap](https://global.azure.com/product-availability/roadmap).
+
 ## Next steps
 
 You can deploy, manage, and remove VM extensions using the [Azure CLI](manage-vm-extensions-cli.md), [Azure PowerShell](manage-vm-extensions-powershell.md), from the [Azure portal](manage-vm-extensions-portal.md), or [Azure Resource Manager templates](manage-vm-extensions-template.md).
