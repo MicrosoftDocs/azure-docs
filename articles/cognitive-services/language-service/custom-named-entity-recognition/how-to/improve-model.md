@@ -20,7 +20,7 @@ In some cases, the model is expected to extract entities that are inconsistent w
 ## Prerequisites
 
 * A successfully [created project](create-project.md) with a configured Azure blob storage account
-    * Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.
+* Text data that [has been uploaded](design-schema.md#data-preparation) to your storage account.
 * [Labeled data](tag-data.md)
 * A [successfully trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
