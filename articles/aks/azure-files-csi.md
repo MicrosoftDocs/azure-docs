@@ -312,7 +312,7 @@ This option is optimized for random access workloads with in-place data updates 
 
 ### Create NFS file share storage class
 
-Create a a file named `nfs-sc.yaml` and copy the manifest below.
+Create a ile named `nfs-sc.yaml` and copy the manifest below.
 
 ```yml
 apiVersion: storage.k8s.io/v1
