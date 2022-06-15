@@ -6,7 +6,7 @@ author: sr-msft
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.date: 06/14/2022
 ---
 
 # Comparison chart - Azure Database for PostgreSQL Single Server and Flexible Server
@@ -52,7 +52,7 @@ The following table provides a high-level features and capabilities comparisons 
 | Private DNS Zone support | No | Yes |
 | Ability to move between private and public access | No | No |
 | TLS support | TLS 1.2 | TLS 1.2, 1.3 enforced|
-| Can turn off SSL | Yes | No |
+| Can turn off SSL | Yes | Yes (set ``require_secure_transport`` to OFF) |
 | SCRAM authentication | No | Yes |
 | **High Availability** | | |
 | Zone-redundant HA | No | Yes (a synchronous standby is established on another zone within a region) |
@@ -72,7 +72,7 @@ The following table provides a high-level features and capabilities comparisons 
 | Support for PgLogical extension | No | Yes |
 | Support logical replication with HA | N/A | Limited |
 | **Disaster Recovery** | | |
-| Cross region DR | Using read replicas, geo-redundant backup | N/A |
+| Cross region DR | Using read replicas, geo-redundant backup | Geo-redundant backup (Preview) in select regions|
 | DR using replica | Using async physical replication | N/A |
 | Automatic failover | No | N/A |
 | Can use the same r/w endpoint | No | N/A |
@@ -111,7 +111,7 @@ The following table provides a high-level features and capabilities comparisons 
 | **Other features** | | |
 | Alerts | Yes | Yes |
 | Microsoft Defender for Cloud | Yes | No |
-| Resource health | Yes | No |
+| Resource health | Yes | Yes |
 | Service health | Yes | Yes |
 | Performance insights (iPerf) | Yes | Yes |
 | Major version upgrades support | No | No |

@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 05/11/2022
+ms.date: 06/15/2022
 ms.custom: "mvc, references_regions"
 ---
 
@@ -97,6 +97,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Australia Southeast | :heavy_check_mark: | :x: | :x: |
 | Brazil South | :heavy_check_mark: (v3 only) | :x: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: | 
+| Canada East | :heavy_check_mark: | :x: | :x: |
 | Central India | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East Asia | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
@@ -106,6 +107,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Jio India West | :heavy_check_mark: (v3 only)| :x: | :x: |
 | Korea Central | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
 | Korea South | :heavy_check_mark: | :x: | :x: |
 | North Central US | :heavy_check_mark: | :x: | :x: |
