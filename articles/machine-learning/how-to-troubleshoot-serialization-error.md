@@ -27,5 +27,5 @@ Update your Azure Machine Learning environment to use SDK version 1.42.0.post1 o
 For more information on updating an environment, see the following articles:
 
 * [Manage environments in studio](how-to-manage-environments-in-studio.md#rebuild-an-environment)
-* [Create & use software environments (SDK v1)](https://how-to-use-environments.md#update-an-existing-environment)
+* [Create & use software environments (SDK v1)](how-to-use-environments.md#update-an-existing-environment)
 * [Create & manage environments (CLI v2)](how-to-manage-environments-v2.md#update)
