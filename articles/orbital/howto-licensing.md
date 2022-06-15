@@ -1,5 +1,5 @@
 ---
-title: Spacecraft Licensing and Regulatory
+title: License your spacecraft
 description: Learn how to license your spacecraft with Orbital.
 author: hrshelar
 ms.service: orbital
@@ -11,7 +11,7 @@ ms.author: hrshelar
 
 # License your spacecraft
 
-This page provides an overview on how to properly register or license your spacecraft with Azure Orbital.
+This page provides an overview on how to register or license your spacecraft with Azure Orbital.
 
 ## Prerequisites 
 

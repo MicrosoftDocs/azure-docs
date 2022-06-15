@@ -47,10 +47,12 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Prepare network to receive and send data
+            url: howto-prepare-network.md
+          - text: License your Spacecraft
+            url: howto-licensing.md
           - text: Update the Spacecraft TLE
             url: update-tle.md
-          - text: Cancel a Contact
-            url: delete-contact.md
 
   # Card
   - title: Azure Space Partner Program
