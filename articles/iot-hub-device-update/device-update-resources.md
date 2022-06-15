@@ -27,7 +27,7 @@ During public preview, two Device update accounts can be created per subscriptio
 
 ## Configure the linked IoT hub
 
-In order for Device Update to receive change notifications from IoT Hub, Device Update integrates with the built-in Event Hub. Clicking the "Configure IoT Hub" button within your instance configures the required message routes, consumer groups, and access policy required to communicate with IoT devices.
+In order for Device Update to receive change notifications from IoT Hub, Device Update integrates with the built-in Event Hubs. Clicking the "Configure IoT Hub" button within your instance configures the required message routes, consumer groups, and access policy required to communicate with IoT devices.
 
 ### Message Routing
 

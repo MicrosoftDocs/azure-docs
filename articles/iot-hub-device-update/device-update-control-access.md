@@ -42,9 +42,9 @@ To integrate an application or service with Azure AD, first [register a client a
 
 Next, add permissions for calling Device Update to your app:
 
-1. Go to the **API permissions** page of your app and click **Add a permission**.
+1. Go to the **API permissions** page of your app and select **Add a permission**.
 2. Go to **APIs my organization uses** and search for **Azure Device Update**.
-3. Select **user_impersonation** permission and click **Add permissions**.
+3. Select **user_impersonation** permission and select **Add permissions**.
 
 ### Request authorization token
 

@@ -63,7 +63,7 @@ Each apt manifest includes the following properties:
 * **Version**: A version number for this apt Manifest. For example, `1.0.0.0`.
 * **Packages**: A list of objects containing package-specific properties.
   * **Name**: The name or ID of the package. For example, `iotedge`.
-  * **Version**: The desired version criteria for the package. For example, `1.0.8-2`. The version value should not contain an equal sign. If version is omitted, the latest available version of specified package will be installed.
+  * **Version**: The desired version criteria for the package. For example, `1.0.8-2`. The version value shouldn't contain an equal sign. If version is omitted, the latest available version of specified package will be installed.
 
 Currently only exact version number is supported. The version number is the desired Debian package version in format **[epoch:]upstream_version[-debian_revision]**, where **epoch** is an unsigned int and **upstream_version** can include alphanumerics and characters such as ".","+","-" and "~". It should start with a digit.
 
@@ -86,7 +86,7 @@ An apt manifest can be used to update Device Update agent and its dependencies. 
 
 You can also use an apt manifest to remove installed packages from your device. A single apt manifest can be used to remove, add, and update multiple packages.
 
-To remove a package, add a minus sign "-" after the package name. You shouldn't include a version number for the packages you are removing. Removing a package through an apt manifest doesn't remove its dependencies and configurations.
+To remove a package, add a minus sign "-" after the package name. You shouldn't include a version number for the packages you're removing. Removing a package through an apt manifest doesn't remove its dependencies and configurations.
 
 For example:
 
@@ -102,7 +102,7 @@ For example:
 }
 ```
 
-This apt manifest will remove the package "foo" from the device(s) it is deployed to.
+This apt manifest will remove the package "foo" from the device(s) it's deployed to.
 
 ## Recommended value for installed criteria
 

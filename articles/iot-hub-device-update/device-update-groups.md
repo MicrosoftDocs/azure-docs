@@ -28,7 +28,7 @@ Tags enable users to group devices. Devices need to have a ADUGroup key and a va
 
 ## Default device group
 
-Any device that has the Device Update agent installed and provisioned, but does not have the ADUGroup tag added to its device or module twin, will be added to a default group. Default groups, also called system-assigned groups, help reduce the overhead of tagging and grouping devices, so customers can easily deploy updates to them. Default groups cannot be deleted or re-created by customers. Customers cannot change the definition or add/remove devices from a default group manually. Devices with the same device class are grouped together in a default group. Default group names are reserved within an IOT solution. Default groups will be named in the format `Default-<deviceClassID>`. All deployment features that are available for user-defined groups are also available for default, system-assigned groups.
+Any device that has the Device Update agent installed and provisioned, but doesn't have the ADUGroup tag added to its device or module twin, will be added to a default group. Default groups, also called system-assigned groups, help reduce the overhead of tagging and grouping devices, so customers can easily deploy updates to them. Default groups can't be deleted or re-created by customers. Customers can't change the definition or add/remove devices from a default group manually. Devices with the same device class are grouped together in a default group. Default group names are reserved within an IOT solution. Default groups will be named in the format `Default-<deviceClassID>`. All deployment features that are available for user-defined groups are also available for default, system-assigned groups.
 
 For example consider the devices with their device twin tags below:
 
@@ -68,7 +68,7 @@ Below are the devices and the possible groups that can be created for them.
 
 ## Invalid group
 
-A corresponding invalid group is created for every user-defined group. A device is added to the invalid group if it doesn't meet the compatibility requirements of the user-defined group. This can be resolved by either re-tagging and regrouping the device under a new group, or modifying it's compatibility properties through the agent configuration file. 
+A corresponding invalid group is created for every user-defined group. A device is added to the invalid group if it doesn't meet the compatibility requirements of the user-defined group. This grouping can be resolved by either re-tagging and regrouping the device under a new group, or modifying it's compatibility properties through the agent configuration file.
 
 An invalid group only exists for diagnostic purposes. Updates cannot be deployed to invalid groups.
 
