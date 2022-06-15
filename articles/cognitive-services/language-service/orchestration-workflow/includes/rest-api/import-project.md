@@ -35,6 +35,9 @@ Use the following header to authenticate your request.
 
 ### Body
 
+> [!NOTE]
+> Intents should only be of one type (CLU,LUIS,qna)
+
 Use the following sample JSON as your body.
 
 ```json
