@@ -12,7 +12,7 @@ There are various scenarios for moving an existing resource from one region to a
 
 You can move a Microsoft Defender for IoT "iotsecuritysolutions" resource to a different Azure region. The "iotsecuritysolutions" resource is a hidden resource that is connected to a specific IoT hub resource that is used to enable security on the hub. Learn how to [configure, and create](/azure/templates/microsoft.security/iotsecuritysolutions?tabs=bicep) this resource.
 
-## Prerequisites
+## Resource Prerequisites
 
 - Make sure that the resource is in the Azure region that you want to move from.
 
@@ -22,7 +22,7 @@ You can move a Microsoft Defender for IoT "iotsecuritysolutions" resource to a d
 
 - Make sure that your subscription has enough resources to support the addition of resources for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
-## Prepare
+## Alert Preparation
 
 In this section, you'll prepare to move the resource for the move by finding the resource and confirming it is in a region you wish to move from.
 
@@ -48,13 +48,13 @@ Before transitioning the resource to the new region, we recommended using [log a
 
     :::image type="content" source="media/region-move/location.png" alt-text="Screenshot showing you the region your hub is located in.":::
 
-## Move
+## Moving IoT Hub
 
 You're now ready to move your resource to your new location. Follow [these instructions](../../iot-hub/iot-hub-how-to-clone.md) to move your IoT Hub.
 
 After transferring, and enabling the resource, you can link to the same log analytics workspace that was configured earlier.
 
-## Verify
+## Resource Verification
 
 In this section, you'll verify that the resource has been moved, that the connection to the IoT Hub has been enabled, and that everything is working correctly.
 
