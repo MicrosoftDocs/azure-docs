@@ -371,3 +371,7 @@ Recommendations for minimizing the task of migrating the actual SQL code are as 
 - Automate the process wherever possible to minimize errors, risk and time for the migration. Use Microsoft facilities such as Azure Database Migration Services and SSMA where possible to achieve this.
 
 - Consider using specialist third party tools and services to streamline the migration 
+
+## Next steps
+
+To learn about migrating to a dedicated SQL pool, see [Migrate a data warehouse to a dedicated SQL pool in Azure Synapse Analytics](../migrate-to-synapse-analytics-guide.md).

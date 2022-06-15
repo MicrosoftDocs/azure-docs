@@ -380,4 +380,8 @@ This section highlights lower level implementation differences between Oracle an
 
 ##### Use resource classes for workload management
 
-> Azure Synapse uses resource classes to manage workloads -- in general > large resource classes provide better individual query performance > while smaller resource classes enable higher levels of concurrency. > Utilization can be monitored via Dynamic Management Views (DMVs) to > ensure that the appropriate resources are being utilised efficiently. 
+> Azure Synapse uses resource classes to manage workloads -- in general > large resource classes provide better individual query performance > while smaller resource classes enable higher levels of concurrency. > Utilization can be monitored via Dynamic Management Views (DMVs) to > ensure that the appropriate resources are being utilised efficiently.
+
+## Next steps
+
+To learn about ETL and load for Oracle migration, see the next article in this series: [Data migration, ETL, and load for Oracle migrations](2-etl-load-migration-considerations.md).
