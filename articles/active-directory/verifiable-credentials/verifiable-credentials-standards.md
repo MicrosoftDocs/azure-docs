@@ -9,17 +9,14 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 06/15/2021
 ms.author: barclayn
-# Customer intent: As a developer I am looking to create a developer Azure Active Directory account so I can participate in the Preview with a P2 license. 
+# Customer intent: As a developer I am looking for information around the open standards supported by Microsoft Entra verified ID
 ---
 
 ## Supported Standards
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-
-This page outlines current and upcoming open standards for Microsoft Entra Verified ID.
-
-The full document outlining how to build an implementation that interoperates with Microsoft is here: [JWT VC Presentation Profile](https://identity.foundation/jwt-vc-presentation-profile/)
+This page outlines currently supported open standards for Microsoft Entra Verified ID. The full document outlining how to build an implementation that interoperates with Microsoft is [JWT VC Presentation Profile](https://identity.foundation/jwt-vc-presentation-profile/).
 
 ### Standard Bodies
 
@@ -56,12 +53,7 @@ Key Types supported for the JWS signature verification are the following:
 
 ### Upcoming Standards
 
-Open standards currently developed and planned to be supported by Entra Verified ID are the following:
-
-| Component in a Tech Stack | Open Standard | Standard Body |
-|:------|:-----|:-----|
-| Issuance | [OpenID for Verifiable Credential Issuance](https://openid.net/specs/openid-connect-4-verifiable-credential-issuance-1_0.html) | OIDF |
-| Credential Format | [Selective Disclosure JWT (SD-JWT)](https://github.com/oauthstuff/draft-selective-disclosure-jwt/blob/master/main.md) | IETF |
+Our work adopting open standards is ongoing. Check this page for updates on supported standards.
 
 ## Next steps
 
