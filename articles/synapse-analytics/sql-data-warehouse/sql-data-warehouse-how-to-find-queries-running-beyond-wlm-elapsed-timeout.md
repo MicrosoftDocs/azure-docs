@@ -46,7 +46,7 @@ To view the execution timeout configured for a workload group in the Azure porta
 5. Under **Workload groups** section, find the workload group of interest.
 6. Click on the context menu, (...) button on the far right, and select **Settings**
 
-:::image type="content" source="./media/sql-data-warehouse-how-to-find-queries-running-beyond-wlm-elapsed-timeout/portalWlgExecutionTimeout.png" alt-text="Workload Group Settings" lightbox="./media/sql-data-warehouse-how-to-find-queries-running-beyond-wlm-elapsed-timeout/portalWlgExecutionTimeout.png":::
+:::image type="content" source="./media/sql-data-warehouse-how-to-find-queries-running-beyond-wlm-elapsed-timeout/portal-wlg-execution-timeout.png" alt-text="Workload Group Settings" lightbox="./media/sql-data-warehouse-how-to-find-queries-running-beyond-wlm-elapsed-timeout/portal-wlg-execution-timeout.png":::
 
 #### T-SQL
 
