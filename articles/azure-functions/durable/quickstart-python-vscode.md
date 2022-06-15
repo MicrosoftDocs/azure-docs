@@ -3,7 +3,7 @@ title: Create your first durable function in Azure using Python
 description: Create and publish an Azure Durable Function in Python using Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 05/19/2022
+ms.date: 06/15/2022
 ms.reviewer: azfuncdf, antchu
 ms.devlang: python
 ms.custom: mode-api, devdivchpfy22
@@ -25,11 +25,11 @@ To complete this tutorial:
 
 * Install the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) Visual Studio Code extension.
 
-* Ensure that you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
+* Make sure that you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
 
 * Durable Functions require an Azure storage account. You need an Azure subscription.
 
-* Ensure that you have version 3.7, 3.8, or 3.9 of [Python](https://www.python.org/) installed.
+* Make sure that you have version 3.7, 3.8, or 3.9 of [Python](https://www.python.org/) installed.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,7 +41,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     :::image type="content" source="media/quickstart-python-vscode/functions-create-project.png" alt-text="Screenshot of Create function window.":::
 
-1. Select an empty folder location for your project and select **Select**.
+1. Choose an empty folder location for your project and choose **Select**.
 
 1. Follow the prompts and provide the following information:
 
@@ -162,9 +162,9 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
     > [!NOTE]
     > For more information on debugging, see [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging).
 
-1. Durable Functions require an Azure Storage account to run. When Visual Studio Code prompts you to select a storage account, select **Select storage account**.
+1. Durable Functions require an Azure storage account to run. When Visual Studio Code prompts you to select a storage account, select **Select storage account**.
 
-    :::image type="content" source="media/quickstart-python-vscode/functions-select-storage.png" alt-text="Screenshot of how to create storage account.":::
+    :::image type="content" source="media/quickstart-python-vscode/functions-select-storage.png" alt-text="Screenshot of how to create a storage account.":::
 
 1. Follow the prompts and provide the following information to create a new storage account in Azure:
 

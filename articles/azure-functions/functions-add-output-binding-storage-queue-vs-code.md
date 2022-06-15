@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Functions to Azure Storage using Visual Studio Code
 description: Learn how to connect Azure Functions to an Azure Queue Storage by adding an output binding to your Visual Studio Code project.
-ms.date: 05/19/2022
+ms.date: 06/15/2022
 ms.topic: quickstart
 ms.devlang: csharp, java, javascript, powershell, python, typescript
 ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22
@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this article, you learn how to use Visual Studio Code to connect Azure Storage to the function you created in the previous quickstart article. The output binding that you add to this function writes data from the HTTP request to a message in an Azure Queue storage queue.
 
-Most bindings require a stored connection string that Functions uses to access the bound service. To make it easier, you use the Storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
+Most bindings require a stored connection string that Functions uses to access the bound service. To make it easier, you use the storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
 
 ## Configure your local environment
 
@@ -54,20 +54,20 @@ This article assumes that you're already signed in to your Azure subscription fr
 
 ## Download the function app settings
 
-In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in the app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the *local.settings.json* file.
+In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure along with the required storage account. The connection string for this account is stored securely in the app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your storage account when running the function locally, you must download app settings to the *local.settings.json* file.
 
 1. Press <kbd>F1</kbd> to open the command palette, then search for and run the command `Azure Functions: Download Remote Settings....`.
 
-1. Select the function app you created in the previous article. Select **Yes to all** to overwrite the existing local settings.
+1. Choose the function app you created in the previous article. Select **Yes to all** to overwrite the existing local settings.
 
     > [!IMPORTANT]  
-    > As the *local.settings.json* file contains secrets, it never gets published, and is excluded from the source control.
+    > Because the *local.settings.json* file contains secrets, it never gets published, and is excluded from the source control.
 
-1. Copy the value `AzureWebJobsStorage`, which is the key for the Storage account connection string value. You use this connection to verify that the output binding works as expected.
+1. Copy the value `AzureWebJobsStorage`, which is the key for the storage account connection string value. You use this connection to verify that the output binding works as expected.
 
 ## Register binding extensions
 
-As you're using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project.
+Because you're using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
 
@@ -168,7 +168,7 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 1. After a response is returned, press <kbd>Ctrl + C</kbd> to stop Core Tools.
 
-As you're using the storage connection string, your function connects to the Azure storage account when running locally. A new queue named **outqueue** is created in your storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue was created along with the new message.
+Because you're using the storage connection string, your function connects to the Azure storage account when running locally. A new queue named **outqueue** is created in your storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue was created along with the new message.
 
 ::: zone-end
 
@@ -180,7 +180,7 @@ Skip this section if you have already installed Azure Storage Explorer and conne
 
     :::image type="content" source="./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png" alt-text="Screenshot of how to add an Azure account to Microsoft Azure Storage Explorer.":::
 
-1. In the **Connect** dialog, select **Add an Azure account**, select your **Azure environment**, and then select **Sign in...**.
+1. In the **Connect** dialog, choose **Add an Azure account**, choose your **Azure environment**, and then select **Sign in...**.
 
     :::image type="content" source="./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-connect-azure-account.png" alt-text="Screenshot of the sign-in to your Azure account window.":::
 
@@ -188,7 +188,7 @@ After you successfully sign in to your account, you see all of the Azure subscri
 
 ### Examine the output queue
 
-1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette, then search for and run the command `Azure Storage: Open in Storage Explorer` and select your Storage account name. Your storage account opens in the Azure Storage Explorer.  
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette, then search for and run the command `Azure Storage: Open in Storage Explorer` and choose your storage account name. Your storage account opens in the Azure Storage Explorer.  
 
 1. Expand the **Queues** node, and then select the queue named **outqueue**.
 
@@ -204,7 +204,7 @@ Now, it's time to republish the updated function app to Azure.
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Deploy to function app...`.
 
-1. Select the function app that you created in the first article. As you're redeploying your project to the same app, select **Deploy** to dismiss the warning about overwriting files.
+1. Choose the function app that you created in the first article. Because you're redeploying your project to the same app, select **Deploy** to dismiss the warning about overwriting files.
 
 1. After the deployment completes, you can again use the **Execute Function Now...** feature to trigger the function in Azure.
 

@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/19/2022
+ms.date: 06/15/2022
 ms.custom: devdivchpfy22
 ms.author: glenga
 ---
@@ -11,7 +11,7 @@ ms.author: glenga
 
 Before you can publish your app, you must sign in to Azure.
 
-1. If you aren't already signed in, choose the Azure icon in the Activity bar, then in the **Resources** area, choose **Sign in to Azure...**. If you don't already have one, you can **[Create a free Azure account](https://azure.microsoft.com/free/)**. Students can **[create a free Azure account for Students](https://azure.microsoft.com/free/students/)**.
+1. If you aren't already signed in, choose the Azure icon in the Activity bar. Then in the **Resources** area, choose **Sign in to Azure...**. If you don't already have one, you can **[Create a free Azure account](https://azure.microsoft.com/free/)**. Students can **[create a free Azure account for Students](https://azure.microsoft.com/free/students/)**.
 
     :::image type="content" source="./media/functions-sign-in-vs-code/functions-sign-into-azure.png" alt-text="Screenshot of the sign-in to Azure window within VS Code.":::
 

@@ -3,7 +3,7 @@ title: "Create your first durable function in Azure using C#"
 description: Create and publish an Azure Durable Function using Visual Studio or Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 06/03/2022
+ms.date: 06/15/2022
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.devlang: csharp
@@ -30,11 +30,11 @@ To complete this tutorial:
   * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
   * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
-* Ensure that you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
+* Make sure that you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
 
 * Durable Functions require an Azure storage account. You need an Azure subscription.
 
-* Ensure that you have version 3.1 or a later version of the [.NET Core SDK](https://dotnet.microsoft.com/download) installed.
+* Make sure that you have version 3.1 or a later version of the [.NET Core SDK](https://dotnet.microsoft.com/download) installed.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,7 +46,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     :::image type="content" source="media/durable-functions-create-first-csharp/functions-vscode-create-project.png" alt-text="Screenshot of create a function project window.":::
 
-1. Select an empty folder location for your project and select **Select**.
+1. Choose an empty folder location for your project and choose **Select**.
 
 1. Follow the prompts and provide the following information:
 
@@ -73,7 +73,7 @@ The following steps use a template to create the durable function code in your p
     | Provide a function name | HelloOrchestration | Name of the class in which functions are created |
     | Provide a namespace | Company.Function | Namespace for the generated class |
 
-1. When Visual Studio Code prompts you to select a storage account, select **Select storage account**. Follow the prompts and provide the following information to create a new storage account in Azure:
+1. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**. Follow the prompts and provide the following information to create a new storage account in Azure:
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
@@ -135,7 +135,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. To stop debugging, press <kbd>Shift + F5</kbd> in Visual Studio Code.
 
-After verifying that the function runs correctly on your local computer, it's time to publish the project to Azure.
+After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
 [!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-sign-in-vs-code.md)]
 
@@ -180,7 +180,7 @@ The Azure Functions template creates a project that can be published to a functi
 
 1. In Visual Studio, select **New** > **Project** from the **File** menu.
 
-1. In the **Create a new project** dialog, search for `functions`, select the **Azure Functions** template, and then select **Next**.
+1. In the **Create a new project** dialog, search for `functions`, choose the **Azure Functions** template, and then select **Next**.
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vs-new-project.png" alt-text="Screenshot of new project dialog to create a function in Visual Studio.":::
 
@@ -261,7 +261,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. To stop debugging, press <kbd>Shift + F5</kbd>.
 
-After verifying that the function runs correctly on your local computer, it's time to publish the project to Azure.
+After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
 ## Publish the project to Azure
 

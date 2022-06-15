@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/19/2022
+ms.date: 06/15/2022
 ms.custom: devdivchpfy22
 ms.author: glenga
 ---
@@ -15,9 +15,9 @@ Visual Studio Code integrates with [Azure Functions Core tools](../articles/azur
 
     :::image type="content" source="./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png" alt-text="Screenshot of the Local function VS Code output.":::
 
-    If you have trouble running on Windows, ensure that the default terminal for Visual Studio Code isn't set to **WSL Bash**.
+    If you have trouble running on Windows, make sure that the default terminal for Visual Studio Code isn't set to **WSL Bash**.
 
-1. With the function still running in **Terminal**, choose the Azure icon in the activity bar. In the **Workspace** area, expand **Local Project** > **Functions**. Right-click (Windows) or <kbd>Ctrl -</kbd> click (macOS) the `HttpExample` function and choose **Execute Function Now...**.
+1. With Core Tools still running in **Terminal**, choose the Azure icon in the activity bar. In the **Workspace** area, expand **Local Project** > **Functions**. Right-click (Windows) or <kbd>Ctrl -</kbd> click (macOS) the `HttpExample` function and choose **Execute Function Now...**.
 
     ![Execute function now from Visual Studio Code](./media/functions-run-function-test-local-vs-code/execute-function-now.png)
 
