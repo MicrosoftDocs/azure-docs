@@ -86,7 +86,7 @@ netsh advfirewall firewall add rule name="http" protocol=TCP localport=80 dir=in
 <details>
   <summary>Expand</summary>
 
-For each VM in the backend pool, run the following commands via a SSH session.
+For each VM in the backend pool, run the following commands via an SSH session.
 
 To get the list of interface names you have on your VM, type this command:
 
@@ -112,7 +112,7 @@ sudo ufw allow 80/tcp
 
 ## <a name = "limitations"></a>Limitations
 
-- Floating IP is not currently supported on secondary IP configurations for Load Balancing scenarios.  This does not apply to Public load balancers with dual-stack configurations or to architectures that utilize a NAT Gateway for outbound connectivity.
+- Floating IP isn't currently supported on secondary IP configurations for Load Balancing scenarios.  This doesn't apply to Public load balancers with dual-stack configurations or to architectures that utilize a NAT Gateway for outbound connectivity.
 
 ## Next steps
 
