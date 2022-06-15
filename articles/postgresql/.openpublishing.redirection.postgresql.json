@@ -746,9 +746,19 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-from-oracle.md",
+        "redirect_url": "/azure/postgresql/migrate/how-to-migrate-from-oracle",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/postgresql/howto-migrate-online.md",
         "redirect_url": "/azure/postgresql/single-server/how-to-migrate-online",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-online.md",
+        "redirect_url": "/azure/postgresql/migrate/how-to-migrate-online",
+        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/postgresql/howto-migrate-using-dump-and-restore.md",
@@ -756,9 +766,44 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-using-dump-and-restore.md",
+        "redirect_url": "/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore",
+        "redirect_document_id": true
+    },
+    {
         "source_path_from_root": "/articles/postgresql/howto-migrate-using-export-and-import.md",
         "redirect_url": "/azure/postgresql/single-server/how-to-migrate-using-export-and-import",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-using-export-and-import.md",
+        "redirect_url": "/azure/postgresql/migrate/how-to-migrate-using-export-and-import",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/how-to-migrate-single-to-flex-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-migrate-single-to-flexible-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-single-to-flex-portal.md",
+        "redirect_url": "/azure/postgresql/migrate/how-to-migrate-single-to-flexible-portal",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/how-to-migrate-single-to-flex-cli.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-migrate-single-to-flexible-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/how-to-migrate-single-to-flex-cli.md",
+        "redirect_url": "/azure/postgresql/migrate/how-to-migrate-single-to-flexible-cli",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/concepts-single-to-flexible.md",
+        "redirect_url": "/azure/postgresql/migrate/concepts-single-to-flexible",
+        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/postgresql/howto-move-regions-portal.md",
@@ -928,6 +973,16 @@
     {
         "source_path_from_root": "/articles/postgresql/quickstart-create-postgresql-server-database-using-bicep.md",
         "redirect_url": "/azure/postgresql/single-server/quickstart-create-postgresql-server-database-using-bicep",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/how-to-setup-aad-app-portal.md",
+        "redirect_url": "/azure/postgresql/single-server/how-to-setup-azure-ad-app-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/concepts-single-to-flexible.md",
+        "redirect_url": "/azure/postgresql/single-server/concepts-single-to-flexible",
         "redirect_document_id": false
     },
     {

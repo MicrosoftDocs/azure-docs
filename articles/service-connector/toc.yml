@@ -9,20 +9,30 @@ items:
   - name: Service Connector in Azure App Service
     expanded: true
     items:
-    - name: Portal
+    - name: Azure portal
       href: quickstart-portal-app-service-connection.md 
-    - name: CLI
+    - name: Azure CLI
       href: quickstart-cli-app-service-connection.md
   - name: Service Connector in Azure Spring Cloud
     expanded: true
     items:
-    - name: Portal
+    - name: Azure portal
       href: quickstart-portal-spring-cloud-connection.md
-    - name: CLI
+    - name: Azure CLI
       href: quickstart-cli-spring-cloud-connection.md
+  - name: Service Connector in Container Apps
+    expanded: true
+    items:
+    - name: Azure portal
+      href: quickstart-portal-container-apps.md
+    - name: Azure CLI
+      href: quickstart-cli-container-apps.md
+
 - name: Tutorials
   expanded: true
   items:
+  - name: ASP.NET Core app with SQL DB
+    href: ../app-service/tutorial-dotnetcore-sqldb-app.md
   - name: Python (Django) app with PostgreSQL
     href: tutorial-django-webapp-postgres-cli.md
   - name: ASP.NET app with Blob Storage
@@ -31,6 +41,8 @@ items:
     href: tutorial-java-spring-mysql.md
   - name: Spring Cloud app with Kafka on Confluent Cloud
     href: tutorial-java-spring-confluent-kafka.md
+  - name: Store secrets in Key Vault
+    href: tutorial-portal-key-vault.md
   - name: Web app with App Configuration
     href: tutorial-connect-web-app-app-configuration.md
 - name: Concepts
@@ -38,6 +50,8 @@ items:
   items:
   - name: Service Connector internals
     href: concept-service-connector-internals.md
+  - name: High availability
+    href: concept-availability.md
   - name: Region Support
     href: concept-region-support.md
 - name: How-to guides
@@ -66,6 +80,8 @@ items:
       href: how-to-integrate-redis-cache.md
     - name: Azure Service Bus
       href: how-to-integrate-service-bus.md
+    - name: Azure SQL Database
+      href: how-to-integrate-sql-database.md
     - name: Azure Event Hubs
       href: how-to-integrate-event-hubs.md
     - name: Azure App Configuration

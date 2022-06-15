@@ -2,7 +2,7 @@
 title: Collect text and IIS logs with Azure Monitor agent (preview)
 description: Configure collection of filed-based text logs using a data collection rule on virtual machines with the Azure Monitor agent.
 ms.topic: conceptual
-ms.date: 04/15/2022
+ms.date: 06/06/2022
 
 ---
 
@@ -15,7 +15,7 @@ This article describes how to configure the collection of file-based text logs, 
 ## Prerequisites
 To complete this procedure, you need the following: 
 
-- Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#manage-access-using-azure-permissions) .
+- Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac) .
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 - An agent with supported log file as described in the next section.
 
@@ -356,7 +356,7 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
                                     "Microsoft-W3CIISLog"
                                 ],
                                 "logDirectories": [
-                                    "C:\\inetpub\\logs\\LogFiles\\*.log"
+                                    "C:\\inetpub\\logs\\LogFiles\\W3SVC1\\"
                                 ],
                                 "name": "myIisLogsDataSource"
                             }
@@ -423,6 +423,184 @@ The final step is to create a data collection association that associates the da
 3. Select either individual agents to associate the data collection rule, or select a resource group to create an association for all agents in that resource group. Click **Apply**.
 
     :::image type="content" source="media/data-collection-text-log/select-resources.png" lightbox="media/data-collection-text-log/select-resources.png" alt-text="Screenshot that shows portal blade to add resources to the data collection rule.":::
+
+## Troubleshooting - text logs
+Use the following steps to troubleshoot collection of text logs. 
+
+
+### Check if any custom logs have been received
+Start by checking if any records have been collected for your custom log table by running the following query in Log Analytics. If no records are returned then check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range. It can take 5-7 minutes for new data from your tables to be uploaded.  Only new data will be uploaded any log file last written to prior to the DCR rules being created will not be uploaded.
+
+``` kusto
+<YourCustomLog>_CL
+| where TimeGenerated > ago(48h)
+| order by TimeGenerated desc
+```
+
+### Verify that you created custom table
+As described in [Create new table in Log Analytics workspace](#create-new-table-in-log-analytics-workspace) above, you must create the custom log table before you can send data to it.
+
+### Verify that the agent is sending heartbeats successfully
+Verify that Azure Monitor agent is communicating properly by running the following query in Log Analytics to check if there are any records in the Heartbeat table.
+
+``` kusto
+Heartbeat
+| where TimeGenerated > ago(24h)
+| where Computer has "<computer name>"
+| project TimeGenerated, Category, Version
+| order by TimeGenerated desc
+```
+
+### Verify that you specified the correct log location in the data collection rule
+The data collection rule will have a section similar to the following. The `filePatterns` element specifies the path to the log file to collect from the agent computer. Check the agent computer to verify that this is correct.
+
+
+```json
+"dataSources": [{
+            "configuration": {
+                "filePatterns": ["C:\\JavaLogs\\*.log"],
+                "format": "text",
+                "settings": {
+                    "text": {
+                        "recordStartTimestampFormat": "yyyy-MM-ddTHH:mm:ssK"
+                    }
+                }
+            },
+            "id": "myTabularLogDataSource",
+            "kind": "logFile",
+            "streams": [{
+                    "stream": "Custom-TabularData-ABC"
+                }
+            ],
+            "sendToChannels": ["gigl-dce-00000000000000000000000000000000"]
+        }
+    ]
+```
+
+This file pattern should correspond to the logs on the agent machine.
+
+
+:::image type="content" source="media/data-collection-text-log/text-log-files.png" lightbox="media/data-collection-text-log/text-log-files.png" alt-text="Screenshot of text log files on agent machine.":::
+
+
+### Verify that the text logs are being populated
+The agent will only collect new content written to the log file being collected. If you are experimenting with the text logs collection feature, you can use the following script to generate sample logs.
+
+```powershell
+# This script writes a new log entry at the specified interval indefinitely.
+# Usage:
+# .\GenerateCustomLogs.ps1 [interval to sleep]
+#
+# Press Ctrl+C to terminate script.
+#
+# Example:
+# .\ GenerateCustomLogs.ps1 5
+
+param (
+    [Parameter(Mandatory=$true)][int]$sleepSeconds
+)
+
+$logFolder = "c:\\JavaLogs"
+if (!(Test-Path -Path $logFolder))
+{
+    mkdir $logFolder
+}
+
+$logFileName = "TestLog-$(Get-Date -format yyyyMMddhhmm).log"
+do
+{
+    $count++
+    $randomContent = New-Guid
+    $logRecord = "$(Get-Date -format s)Z Record number $count with random content $randomContent"
+    $logRecord | Out-File "$logFolder\\$logFileName" -Encoding utf8 -Append
+    Sleep $sleepSeconds
+}
+while ($true)
+
+```
+
+### Share logs with Microsoft
+If everything is configured properly, but you're still not collecting log data, use the following procedure to collect diagnostics logs for Azure Monitor agent to share with the Azure Monitor group.
+
+1. Open an elevated powershell window.
+2. Change to directory `C:\Packages\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\[version]\`.
+3. Execute the script: `.\CollectAMALogs.ps1`.
+4. Share the `AMAFiles.zip` file generated on the desktop.
+
+
+## Troubleshoot - IIS logs
+Use the following steps to troubleshoot collection of IIS logs. 
+
+### Check if any IIS logs have been received
+Start by checking if any records have been collected for your IIS logs by running the following query in Log Analytics. If no records are returned then check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range.
+
+``` kusto
+W3CIISLog
+| where TimeGenerated > ago(48h)
+| order by TimeGenerated desc
+```
+
+### Verify that the agent is sending heartbeats successfully
+Verify that Azure Monitor agent is communicating properly by running the following query in Log Analytics to check if there are any records in the Heartbeat table.
+
+``` kusto
+Heartbeat
+| where TimeGenerated > ago(24h)
+| where Computer has "<computer name>"
+| project TimeGenerated, Category, Version
+| order by TimeGenerated desc
+```
+
+### Verify that IIS logs are being created
+Look at the timestamps of the log files and open the latest to see that latest timestamps are present in the log files. The default location for IIS log files is C:\\inetpub\\LogFiles\\W3SVC1.
+
+:::image type="content" source="media/data-collection-text-log/iis-log-timestamp.png" lightbox="media/data-collection-text-log/iis-log-timestamp.png" alt-text="Screenshot of I I S log on agent machine showing the timestamp.":::
+
+### Verify that you specified the correct log location in the data collection rule
+The data collection rule will have a section similar to the following. The `logDirectories` element specifies the path to the log file to collect from the agent computer. Check the agent computer to verify that this is correct.
+
+``` json
+    "dataSources": [
+    {
+            "configuration": {
+                "logDirectories": ["C:\\scratch\\demo\\W3SVC1"]
+            },
+            "id": "myIisLogsDataSource",
+            "kind": "iisLog",
+            "streams": [{
+                    "stream": "ONPREM_IIS_BLOB_V2"
+                }
+            ],
+            "sendToChannels": ["gigl-dce-6a8e34db54bb4b6db22d99d86314eaee"]
+        }
+    ]
+```
+
+This directory should correspond to the location of the IIS logs on the agent machine.
+
+:::image type="content" source="media/data-collection-text-log/iis-log-files.png" lightbox="media/data-collection-text-log/iis-log-files.png" alt-text="Screenshot of I I S log files on agent machine.":::
+
+### Verify that the IIS logs are W3C formatted
+Open IIS Manager and verify that the logs are being written in W3C format.
+
+:::image type="content" source="media/data-collection-text-log/iis-log-format-setting.png" lightbox="media/data-collection-text-log/iis-log-format-setting.png" alt-text="Screenshot of I I S logging configuration dialog box on agent machine.":::
+
+Open IIS log on the agent machine to verify logs are in W3C format.
+
+:::image type="content" source="media/data-collection-text-log/iis-log-format.png" lightbox="media/data-collection-text-log/iis-log-format.png" alt-text="Screenshot of I I S log on agent machine showing the header specifies W3C format.":::
+
+
+
+### Share logs with Microsoft
+If everything is configured properly, but you're still not collecting log data, use the following procedure to collect diagnostics logs for Azure Monitor agent to share with the Azure Monitor group.
+
+1. Open an elevated powershell window.
+2. Change to directory `C:\Packages\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\[version]\`.
+3. Execute the script: `.\CollectAMALogs.ps1`.
+4. Share the `AMAFiles.zip` file generated on the desktop.
+
+
+
 
 
 ## Next steps

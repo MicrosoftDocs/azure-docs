@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 5/11/2022
+ms.date: 5/18/2022
 ---
 
 # Supported resources for metric alerts in Azure Monitor
@@ -109,7 +109,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Search/searchServices | No | No | [Search services](../essentials/metrics-supported.md#microsoftsearchsearchservices) |
 |Microsoft.ServiceBus/namespaces | Yes | No | [Service Bus](../essentials/metrics-supported.md#microsoftservicebusnamespaces) |
 |Microsoft.SignalRService/WebPubSub | Yes | No | [Web PubSub Service](../essentials/metrics-supported.md#microsoftsignalrservicewebpubsub) |
-|Microsoft.Sql/managedInstances | No | Yes | [SQL Managed Instances](../essentials/metrics-supported.md#microsoftsqlmanagedinstances) |
+|Microsoft.Sql/managedInstances | No | No | [SQL Managed Instances](../essentials/metrics-supported.md#microsoftsqlmanagedinstances) |
 |Microsoft.Sql/servers/databases | No | Yes | [SQL Databases](../essentials/metrics-supported.md#microsoftsqlserversdatabases) |
 |Microsoft.Sql/servers/elasticPools | No | Yes | [SQL Elastic Pools](../essentials/metrics-supported.md#microsoftsqlserverselasticpools) |
 |Microsoft.Storage/storageAccounts |Yes | No | [Storage Accounts](../essentials/metrics-supported.md#microsoftstoragestorageaccounts)|

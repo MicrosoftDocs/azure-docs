@@ -12,7 +12,7 @@ To set up your ITSM environment:
 1. Connect to your ITSM.
 
     - For ServiceNow ITSM, see [the ServiceNow connection instructions](./itsmc-connections-servicenow.md).
-    - For SCSM, see [the System Center Service Manager connection instructions](./itsmc-connections-scsm.md).
+    - For SCSM, see [the System Center Service Manager connection instructions](/azure/azure-monitor/alerts/itsmc-connections).
 
     >[!NOTE]
     > As of March 1, 2022, System Center ITSM integrations with Azure alerts is no longer enabled for new customers. New System Center ITSM Connections are not supported.

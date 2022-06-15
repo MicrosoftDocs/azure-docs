@@ -35,23 +35,26 @@ This article shows how to create a managed identity in the Azure portal. You can
 
 ### Create a Service Bus queue or topic destination
 
-If you don't have an existing Service Bus namespace to export to, follow these steps:
+If you don't have an existing Service Bus namespace to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Service Bus namespace, and queue. It then prints the connection string to use when you configure the data export in IoT Central:
 
-1. Create a [new Service Bus namespace in the Azure portal](https://portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). You can learn more in [Azure Service Bus docs](../../service-bus-messaging/service-bus-create-namespace-portal.md).
+```azurecli-interactive
+# Replace the Service Bus namespace name with your own unique value
+SBNS=your-service-bus-namespace-$RANDOM
+SBQ=exportdata
+RG=centralexportresources
+LOCATION=eastus
 
-1. To create a queue or topic to export to, go to your Service Bus namespace, and select **+ Queue** or **+ Topic**.
+az group create -n $RG --location $LOCATION
+az servicebus namespace create --name $SBNS --resource-group $RG -l $LOCATION
 
-1. Generate a key to use when you to set up your data export in IoT Central:
+# This example uses a Service Bus queue. You can use a Service Bus topic.
+az servicebus queue create --name $SBQ --resource-group $RG --namespace-name $SBNS
+az servicebus queue authorization-rule create --queue-name $SBQ --resource-group $RG --namespace-name $SBNS --name SendRule --rights Send
 
-    - Select the queue or topic you created.
-    - Select **Settings/Shared access policies**.
-    - Create a new key or choose an existing key that has **Send** permissions.
-    - Copy either the primary or secondary connection string. You use this connection string to set up a new destination in IoT Central.
-    - Alternatively, you can generate a connection string for the entire Service Bus namespace:
-        1. Go to your Service Bus namespace in the Azure portal.
-        2. Under **Settings**, select **Shared Access Policies**.
-        3. Create a new key or choose an existing key that has **Send** permissions.
-        4. Copy either the primary or secondary connection string.
+CS=$(az servicebus queue authorization-rule keys list --queue-name $SBQ --resource-group $RG --namespace-name $SBNS --name SendRule --query "primaryConnectionString" -o tsv)
+
+echo "Service bus connection string: $CS"
+```
 
 To create the Service Bus destination in IoT Central on the **Data export** page:
 
@@ -69,24 +72,36 @@ To create the Service Bus destination in IoT Central on the **Data export** page
 
 ### Create a Service Bus queue or topic destination
 
-If you don't have an existing Service Bus namespace to export to, follow these steps:
+If you don't have an existing Service Bus namespace to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Service Bus namespace, and queue. The script then enables the managed identity for your IoT Central application and assigns the role it needs to access your Service Bus queue:
 
-1. Create a [new Service Bus namespace in the Azure portal](https://portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). You can learn more in [Azure Service Bus docs](../../service-bus-messaging/service-bus-create-namespace-portal.md).
+```azurecli-interactive
+# Replace the Service Bus namespace name with your own unique value
+SBNS=your-event-hubs-namespace-$RANDOM
 
-1. To create a queue or topic to export to, go to your Service Bus namespace, and select **+ Queue** or **+ Topic**.
+# Replace the IoT Central app name with the name of your
+# IoT Central application.
+CA=your-iot-central-app
 
-[!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
+SBQ=exportdata
+RG=centralexportresources
+LOCATION=eastus
 
-To configure the permissions:
+RGID=$(az group create -n $RG --location $LOCATION --query "id" --output tsv)
+az servicebus namespace create --name $SBNS --resource-group $RG -l $LOCATION
+az servicebus queue create --name $SBQ --resource-group $RG --namespace-name $SBNS
 
-1. On the **Add role assignment** page, select the scope and subscription you want to use.
+# This assumes your IoT Central application is in the 
+# default `IOTC` resource group.
+az iot central app identity assign --name $CA --resource-group IOTC --system-assigned
+PI=$(az iot central app identity show --name $CA --resource-group IOTC --query "principalId" --output tsv)
 
-    > [!TIP]
-    > If your IoT Central application and queue or topic are in the same resource group, you can choose **Resource group** as the scope and then select the resource group.
+az role assignment create --assignee $PI --role "Azure Service Bus Data Sender" --scope $RGID
 
-1. Select **Azure Service Bus Data Sender** as the **Role**.
+az role assignment list --assignee $PI --all -o table
 
-1. Select **Save**. The managed identity for your IoT Central application is now configured.
+echo "Host name: $SBNS.servicebus.windows.net"
+echo "Queue: $CN"
+```
 
 To further secure your queue or topic and only allow access from trusted services with managed identities, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
 

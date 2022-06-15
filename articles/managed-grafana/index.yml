@@ -26,7 +26,8 @@ landingContent:
         links:
           - text: Create a Managed Grafana workspace from the Azure portal
             url: quickstart-managed-grafana-portal.md
-
+          - text: Create a Managed Grafana workspace from the CLI
+            url: quickstart-managed-grafana-cli.md
   - title: Configure a dashboard
     linkLists:
       - linkListType: how-to-guide

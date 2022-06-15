@@ -1,14 +1,15 @@
 ---
-title: Introduction to Microsoft Purview
-description: This article provides an overview of Microsoft Purview, including its features and the problems it addresses. Microsoft Purview enables any user to register, discover, understand, and consume data sources.
+title: Introduction to Microsoft Purview (formerly Azure Purview)
+description: This article provides an overview of Microsoft Purview (formerly Azure Purview), including its features and the problems it addresses. Microsoft Purview enables any user to register, discover, understand, and consume data sources.
 author: hophanms
 ms.author: hophan
 ms.service: purview
+ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 12/06/2021
+ms.date: 05/16/2022
 ---
 
-# What is Microsoft Purview?
+# What is Microsoft Purview (formerly Azure Purview)?
 
 Microsoft Purview is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. Microsoft Purview allows you to:
 - Create a holistic, up-to-date map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage. 
@@ -42,7 +43,7 @@ With the Microsoft Purview Data Catalog, business and technical users can quickl
 For more information, see our [introduction to search using Data Catalog](how-to-search-catalog.md).
 
 ## Data Estate Insights
-With the Microsoft Purview Data Estate Insights, data officers and security officers can get a bird’s eye view and at a glance understand what data is actively scanned, where sensitive data is and how it moves.
+With the Microsoft Purview Data Estate Insights, the chief data officers and other governance stakeholders can get a bird’s eye view of their data estate and can gain actionable insights into the governance gaps that can be resolved from the experience itself.
 
 For more information, see our [introduction to Data Estate Insights](concept-insights.md).
 

@@ -11,6 +11,8 @@ ms.date: 11/22/2019
 
 # Security in Azure Database for PostgreSQL - Single Server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 There are multiple layers of security that are available to protect the data on your Azure Database for PostgreSQL server. This article outlines those security options.
 
 ## Information protection and encryption
@@ -46,7 +48,7 @@ You can also connect to the server using [Azure Active Directory authentication]
 
 ## Threat protection
 
-You can opt in to [Advanced Threat Protection](/azure/defender-for-cloud/defender-for-databases-introduction) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
+You can opt in to [Advanced Threat Protection](../../defender-for-cloud/defender-for-databases-introduction.md) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
 
 [Audit logging](concepts-audit.md) is available to track activity in your databases. 
 
