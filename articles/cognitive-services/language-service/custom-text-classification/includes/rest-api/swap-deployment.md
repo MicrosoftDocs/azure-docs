@@ -17,7 +17,7 @@ Create a **POST** request using the following URL, headers, and JSON body to sta
 ### Request URL
 
 ```rest
-{ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}/deployments:swap?api-version={API-VERSION}
+{ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}/deployments/:swap?api-version={API-VERSION}
 ```
 
 |Placeholder  |Value  | Example |

@@ -177,16 +177,16 @@ If there is no data, do the following:
 1. To view individual events, open the [Search][diagnostic] tile.
 1. In the app, open various pages so that it generates some telemetry.
 1. Wait a few seconds, and then click **Refresh**.  
-git
+
 ## View Azure Diagnostics events
 You can find the [Azure Diagnostics](../agents/diagnostics-extension-overview.md) information in Application Insights in the following locations:
 
-* Performance counters are displayed as custom metrics.  
+* Performance counters are displayed as custom metrics.   
 * Windows event logs are shown as traces and custom events.
 * Application logs, ETW logs, and any diagnostics infrastructure logs appear as traces.
 
 To view performance counters and counts of events, open [Metrics Explorer](../essentials/metrics-charts.md) and add the following chart:
-git
+
 ![Azure Diagnostics data](./media/cloudservices/23-wad.png)
 
 To search across the various trace logs that are sent by Azure Diagnostics, use [Search](./diagnostic-search.md) or an [Analytics query](../logs/log-analytics-tutorial.md). For example, suppose you have an unhandled exception that has caused a role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to view the Windows Event Log error and get the full stack trace for the exception. Doing so helps you find the root cause of the issue.

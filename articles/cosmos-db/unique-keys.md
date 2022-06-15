@@ -36,7 +36,7 @@ If you attempt to insert another item with the combinations listed in the previo
 
 ## Define a unique key
 
-You can define unique keys only when you create an Azure Cosmos container. A unique key is scoped to a logical partition. In the previous example, if you partition the container based on the ZIP code, you end up with duplicated items in each logical partition. Consider the following properties when you create unique keys:
+You can define unique keys only when you create an Azure Cosmos container. A unique key is scoped to a logical partition. In the previous example, if you partition the container based on the ZIP code, you can have the same items in each logical partition. Consider the following properties when you create unique keys:
 
 * You can't update an existing container to use a different unique key. In other words, after a container is created with a unique key policy, the policy can't be changed.
 

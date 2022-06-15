@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 06/03/2022
 ms.author: ranku
 ---
 
@@ -55,4 +55,6 @@ In this article, you've learned how to move the Azure API for FHIR instance. For
 
 >[!div class="nextstepaction"]
 >[Supported FHIR features](fhir-features-supported.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 

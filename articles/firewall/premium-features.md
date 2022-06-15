@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 06/14/2022
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -33,7 +33,7 @@ The TLS (Transport Layer Security) protocol primarily provides cryptography for 
 
 Encrypted traffic has a possible security risk and can hide illegal user activity and malicious traffic. Azure Firewall without TLS inspection (as shown in the following diagram) has no visibility into the data that flows in the encrypted TLS tunnel, and so can't provide a full protection coverage.
 
-The second diagram shows how Azure Firewall Premium terminates and inspects TLS connections to detect, alert, and mitigate malicious activity in HTTPS. The firewall actually creates two dedicated TLS connections: one with the Web Server (contoso.com) and another connection with the client. Using the customer provided CA certificate, it generates an on-the-fly certificate which replaces the Web Server certificate and shares it with the client to establish the TLS connection between the firewall and the client.
+The second diagram shows how Azure Firewall Premium terminates and inspects TLS connections to detect, alert, and mitigate malicious activity in HTTPS. The firewall actually creates two dedicated TLS connections: one with the Web Server (contoso.com) and another connection with the client. Using the customer provided CA certificate, it generates an on-the-fly certificate, which replaces the Web Server certificate and shares it with the client to establish the TLS connection between the firewall and the client.
 
 Azure Firewall without TLS inspection:
 :::image type="content" source="media/premium-features/end-to-end-transport-layer-security.png" alt-text="End-to-end TLS for Azure Firewall Standard":::
@@ -41,10 +41,18 @@ Azure Firewall without TLS inspection:
 Azure Firewall with TLS inspection:
 :::image type="content" source="media/premium-features/transport-layer-security-inspection.png" alt-text="TLS with Azure Firewall Premium":::
 
-The following three use cases are supported:
-- Outbound TLS Inspection: To protect against malicious traffic that is sent from an internal client hosted in Azure to the Internet.
-- East-West TLS Inspection (includes traffic that goes from/to an on-premises network): To protect your Azure workloads from potential malicious traffic sent from within Azure.
-- Inbound TLS Inspection: To protect internal servers or applications hosted in Azure from malicious requests that arrive from the Internet or an external network. Inbound TLS inspection is supported with [Azure Application Gateway](../web-application-firewall/ag/ag-overview.md), which provides end-to-end encryption.
+The following use cases are supported with Azure Firewall:
+- Outbound TLS Inspection
+
+   To protect against malicious traffic that is sent from an internal client hosted in Azure to the Internet.
+- East-West TLS Inspection (includes traffic that goes from/to an on-premises network)
+
+   To protect your Azure workloads from potential malicious traffic sent from within Azure.
+
+The following use case is supported by [Azure Web Application Firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md):
+- Inbound TLS Inspection
+
+   To protect internal servers or applications hosted in Azure from malicious requests that arrive from the Internet or an external network. Application Gateway provides end-to-end encryption.
 
 
 > [!TIP]

@@ -3,7 +3,7 @@ title: Hyperparameter tuning a model (v2)
 titleSuffix: Azure Machine Learning
 description: Automate hyperparameter tuning for deep learning and machine learning models using Azure Machine Learning.
 ms.author: amipatel
-author: amipatel
+author: amibp
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -94,7 +94,7 @@ command_job_for_sweep = command_job(
 
 This code defines a search space with two parameters - `learning_rate` and `keep_probability`. `learning_rate` has a normal distribution with mean value 10 and a standard deviation of 3. `keep_probability` has a uniform distribution with a minimum value of 0.05 and a maximum value of 0.1.
 
-For the CLI, you can use the [sweep job YAML schema](/azure/machine-learning/reference-yaml-job-sweep)., to define the search space in your YAML:
+For the CLI, you can use the [sweep job YAML schema](./reference-yaml-job-sweep.md)., to define the search space in your YAML:
 ```YAML
     search_space:
         conv_size:
@@ -116,7 +116,7 @@ Specify the parameter sampling method to use over the hyperparameter space. Azur
 
 ### Random sampling
 
-[Random sampling](/azure/machine-learning/how-to-tune-hyperparameters) supports discrete and continuous hyperparameters. It supports early termination of low-performance jobs. Some users do an initial search with random sampling and then refine the search space to improve results.
+Random sampling supports discrete and continuous hyperparameters. It supports early termination of low-performance jobs. Some users do an initial search with random sampling and then refine the search space to improve results.
 
 In random sampling, hyperparameter values are randomly selected from the defined search space. After creating your command job, you can use the sweep parameter to define the sampling algorithm. 
 
@@ -256,9 +256,6 @@ Azure Machine Learning supports the following early termination policies:
 ### Bandit policy
 
 [Bandit policy](/python/api/azure-ai-ml/azure.ai.ml.sweep.banditpolicy) is based on slack factor/slack amount and evaluation interval. Bandit policy ends a job when the primary metric isn't within the specified slack factor/slack amount of the most successful job.
-
-> [!NOTE]
-> Bayesian sampling does not support early termination. When using Bayesian sampling, set `early_termination_policy = None`.
 
 Specify the following configuration parameters:
 
