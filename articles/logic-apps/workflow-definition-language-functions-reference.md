@@ -2108,7 +2108,7 @@ float('<value>', '<locale>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Yes | String | The string that has a valid floating-point number to convert. The minimum and maximum values are the same as the limits for the float data type. |
-| <*locale*> | No | String | The locale to use. <br><br>If not specified, default locale is used. <br><br>If *locale* isn't a valid value, an error is generated that the provided locale isn't valid or doesn't have an associated locale. |
+| <*locale*> | No | String | The RFC 4646 locale code to use. <br><br>If not specified, default locale is used. <br><br>If *locale* isn't a valid value, an error is generated that the provided locale isn't valid or doesn't have an associated locale. |
 |||||
 
 | Return value | Type | Description |
@@ -2608,7 +2608,7 @@ isFloat('<string>', '<locale>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Yes | String | The string to examine |
-| <*culture*> | No | String | RFC 4646 culture code |
+| <*locale*> | No | String | The RFC 4646 locale code to use |
 |||||
 
 | Return value | Type | Description |
@@ -2652,7 +2652,7 @@ isInt('<string>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*boolean-result*> | Boolean | A boolean indicating whether the string is an integer |
+| <*boolean-result*> | Boolean | A boolean that indicates whether the string is an integer |
 
 *Example*
 
