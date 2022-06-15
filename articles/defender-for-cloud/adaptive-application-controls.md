@@ -9,7 +9,7 @@ ms.date: 11/09/2021
 ---
 # Use adaptive application controls to reduce your machines' attack surfaces
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 
 Learn about the benefits of Microsoft Defender for Cloud's adaptive application controls and how you can enhance your security with this data-driven, intelligent feature.
 
@@ -213,7 +213,7 @@ When you move a machine from one group to another, the application control polic
 
 To manage your adaptive application controls programmatically, use our REST API. 
 
-The relevant API documentation is available in [the Adaptive Application Controls section of Defender for Cloud's API docs](/rest/api/securitycenter/adaptiveapplicationcontrols).
+The relevant API documentation is available in [the Adaptive application Controls section of Defender for Cloud's API docs](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Some of the functions that are available from the REST API:
 

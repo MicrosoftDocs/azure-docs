@@ -1,26 +1,27 @@
 ---
-title: Back up Azure VMs with Enhanced policy (in preview)
+title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 04/12/2022
+ms.date: 06/08/2022
 ms.reviewer: geg
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
 ---
-# Back up an Azure VM using Enhanced policy (in preview)
+# Back up an Azure VM using Enhanced policy
 
-This article explains how to use _Enhanced policy_ to configure _Multiple Backups Per Day_ and back up [Trusted Launch VMs](../virtual-machines/trusted-launch.md) with Azure Backup service. _Enhanced policy_ for VM backup is in preview.
+This article explains how to use _Enhanced policy_ to configure _Multiple Backups Per Day_ and back up [Trusted Launch VMs](../virtual-machines/trusted-launch.md) with Azure Backup service.
 
 Azure Backup now supports _Enhanced policy_ that's needed to support new Azure offerings. For example, [Trusted Launch VM](../virtual-machines/trusted-launch.md) is supported with _Enhanced policy_ only.
 
 >[!Important]
->The existing [default policy](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) won’t support protecting newer Azure offerings, such as Trusted Launch VM, UltraSSD, Shared disk, and Confidential Azure VMs.
+>- [Default policy](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) will not support protecting newer Azure offerings, such as [Trusted Launch VM](backup-support-matrix-iaas.md#tvm-backup), [Ultra SSD](backup-support-matrix-iaas.md#vm-storage-support), [Shared disk](backup-support-matrix-iaas.md#vm-storage-support), and Confidential Azure VMs.
+>- Enhanced policy currently doesn't support protecting Ultra SSD.
 
 You must enable backup of Trusted Launch VM through enhanced policy only. Enhanced policy provides the following features:
 
 - Supports *Multiple Backups Per Day* (in preview).
-- Instant Restore tier is zonally redundant using Zone-redundant storage (ZRS) resiliency. See the [pricing details for Enhanced policy storage here](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Instant Restore tier is zonally redundant using Zone-redundant storage (ZRS) resiliency. See the [pricing details for Managed Disk Snapshots](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot showing the enhanced backup policy options.":::
 
@@ -77,3 +78,4 @@ Follow these steps:
 - [Run a backup immediately](./backup-azure-vms-first-look-arm.md#run-a-backup-immediately)
 - [Verify Backup job status](./backup-azure-arm-vms-prepare.md#verify-backup-job-status)
 - [Restore Azure virtual machines](./backup-azure-arm-restore-vms.md#restore-disks)
+- [Troubleshoot VM backup](backup-azure-vms-troubleshoot.md#usererrormigrationfromtrustedlaunchvm-tonontrustedvmnotallowed)

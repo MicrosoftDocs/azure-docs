@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Firewall?
     href: overview.md
+  - name: Well-Architected review of Azure Firewall
+    href: /azure/architecture/framework/services/networking/azure-firewall?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:

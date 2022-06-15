@@ -222,6 +222,8 @@
         href: force-password-reset.md
     - name: Profile editing policy
       href: add-profile-editing-policy.md
+    - name: Client credentials policy
+      href: client-credentials-grant-flow.md
     - name: Resource owner password credentials policy
       href: add-ropc-policy.md
       displayName: ROPC
@@ -671,7 +673,7 @@
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
+    href: https://azure.microsoft.com/updates/?status=nowavailable,inpreview,indevelopment&category=identity,security&query=b2c
   - name: Frequently asked questions
     href: ./faq.yml
     displayName: FAQ

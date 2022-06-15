@@ -13,6 +13,8 @@
   items:
     - name: Create a Front Door - Portal
       href: create-front-door-portal.md
+    - name: Create a Front Door - CLI
+      href: create-front-door-cli.md
 - name: Tutorials
   items:
   - name: Add security headers with Rules engine
@@ -23,6 +25,10 @@
   items:
   - name: Resource Manager Templates
     href: front-door-quickstart-template-samples.md
+  - name: Azure CLI
+    items:
+    - name: Deploy custom domain
+      href: scripts/custom-domain.md
 - name: Concepts
   items :
   - name: Front Door manager
@@ -89,6 +95,8 @@
       href: how-to-configure-origin.md
     - name: Add a custom domain
       href: standard-premium/how-to-add-custom-domain.md
+    - name: Add a root or apex domain
+      href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-standard-premium
     - name: Configure HTTPS on a custom domain
       href: standard-premium/how-to-configure-https-custom-domain.md
     - name: Rules Engine
@@ -118,7 +126,7 @@
       - name: Configure HTTPS on a custom domain
         href: front-door-custom-domain-https.md
       - name: Add a root or apex domain
-        href: front-door-how-to-onboard-apex-domain.md
+        href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-classic
       - name: Set up a Rules Engine
         href: front-door-tutorial-rules-engine.md
       - name: Configure HTTP to HTTPS redirect
@@ -173,6 +181,8 @@
       href: edge-locations-by-abbreviation.md
   - name: Azure CLI
     href: /cli/azure/afd
+  - name: Azure PowerShell
+    href: /powershell/module/az.cdn
   - name: REST API
     href: /rest/api/frontdoor
   - name: Python SDK

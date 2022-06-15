@@ -18,6 +18,9 @@ The following tasks are required to visualize metrics:
 * Deploy an Ubuntu Virtual Machine inside the Azure Virtual Network where the managed instance is present.
 * Install the [Prometheus Dashboards](https://github.com/datastax/metric-collector-for-apache-cassandra#installing-the-prometheus-dashboards) onto the VM.
 
+>[!WARNING]
+> Prometheus and Grafana are open-source software and not supported as part of the Azure Managed Instance for Apache Cassandra service. Visualizing metrics in the way described below will require you to host and maintain a virtual machine as the server for both Prometheus and Grafana. The instructions below were tested only for Ubuntu Server 18.04, there is no guarantee that they will work with other linux distributions. Following this approach will entail supporting any issues that may arise, such as running out of space, or availability of the server. For a fully supported and hosted metrics experience, consider using [Azure Monitor metrics](monitor-clusters.md#azure-metrics), or alternatively [Azure Monitor partner integrations](../azure-monitor/partners.md).
+
 ## Deploy an Ubuntu server
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).

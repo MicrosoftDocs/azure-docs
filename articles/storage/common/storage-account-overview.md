@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/05/2022
+ms.date: 05/26/2022
 ms.author: tamram
 ms.subservice: common
 ---
@@ -39,35 +39,83 @@ The following table describes the types of storage accounts recommended by Micro
 
 Legacy storage accounts are also supported. For more information, see [Legacy storage account types](#legacy-storage-account-types).
 
-The service-level agreement (SLA) for Azure Storage accounts is available at [SLA for Storage Accounts](/support/legal/sla/storage/v1_5/).
+The service-level agreement (SLA) for Azure Storage accounts is available at [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 > [!NOTE]
 > You can't change a storage account to a different type after it's created. To move your data to a storage account of a different type, you must create a new account and copy the data to the new account.
 
-## Storage account endpoints
-
-A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage service endpoint forms the endpoints for your storage account.
+## Storage account name
 
 When naming your storage account, keep these rules in mind:
 
 - Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 - Your storage account name must be unique within Azure. No two storage accounts can have the same name.
 
-The following table lists the format of the endpoint for each of the Azure Storage services.
+## Storage account endpoints
+
+A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has a URL address that includes your unique account name. The combination of the account name and the service endpoint forms the endpoints for your storage account.
+
+There are two types of service endpoints available for a storage account:
+
+- Standard endpoints (recommended). You can create up to 250 storage accounts per region with standard endpoints in a given subscription.
+- Azure DNS zone endpoints (preview). You can create up to 5000 storage accounts per region with Azure DNS zone endpoints in a given subscription.
+
+Within a single subscription, you can create accounts with either standard or Azure DNS Zone endpoints, for a maximum of 5250 accounts per subscription.
+
+> [!IMPORTANT]
+> Azure DNS zone endpoints are currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+You can configure your storage account to use a custom domain for the Blob Storage endpoint. For more information, see [Configure a custom domain name for your Azure Storage account](../blobs/storage-custom-domain-name.md).
+
+### Standard endpoints
+
+A standard service endpoint in Azure Storage includes the protocol (HTTPS is recommended), the storage account name as the subdomain, and a fixed domain that includes the name of the service.
+
+The following table lists the format for the standard endpoints for each of the Azure Storage services.
 
 | Storage service | Endpoint |
 |--|--|
 | Blob Storage | `https://<storage-account>.blob.core.windows.net` |
+| Static website (Blob Storage) | `https://<storage-account>.web.core.windows.net` |
 | Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
 | Azure Files | `https://<storage-account>.file.core.windows.net` |
 | Queue Storage | `https://<storage-account>.queue.core.windows.net` |
 | Table Storage | `https://<storage-account>.table.core.windows.net` |
 
-Construct the URL for accessing an object in a storage account by appending the object's location in the storage account to the endpoint. For example, the URL for a blob will be similar to:
+When your account is created with standard endpoints, you can easily construct the URL for an object in Azure Storage by appending the object's location in the storage account to the endpoint. For example, the URL for a blob will be similar to:
 
 `https://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*`
 
-You can also configure your storage account to use a custom domain for blobs. For more information, see [Configure a custom domain name for your Azure Storage account](../blobs/storage-custom-domain-name.md).
+### Azure DNS zone endpoints (preview)
+
+When you create an Azure Storage account with  Azure DNS zone endpoints (preview), Azure Storage dynamically selects an Azure DNS zone and assigns it to the storage account when it is created. The new storage account's endpoints are created in the dynamically selected Azure DNS zone. For more information about Azure DNS zones, see [DNS zones](../../dns/dns-zones-records.md#dns-zones).
+
+An Azure DNS zone service endpoint in Azure Storage includes the protocol (HTTPS is recommended), the storage account name as the subdomain, and a domain that includes the name of the service and the identifier for the DNS zone. The identifier for the DNS zone always begins with `z` and can range from `z00` to `z99`.
+
+The following table lists the format for Azure DNS Zone endpoints for each of the Azure Storage services, where the zone is `z5`.
+
+| Storage service | Endpoint |
+|--|--|
+| Blob Storage | `https://<storage-account>.z[00-99].blob.core.windows.net` |
+| Static website (Blob Storage) | `https://<storage-account>.z[00-99].web.core.windows.net` |
+| Data Lake Storage Gen2 | `https://<storage-account>.z[00-99].dfs.core.windows.net` |
+| Azure Files | `https://<storage-account>.z[00-99].file.core.windows.net` |
+| Queue Storage | `https://<storage-account>.z[00-99].queue.core.windows.net` |
+| Table Storage | `https://<storage-account>.z[00-99].table.core.windows.net` |
+
+> [!IMPORTANT]
+> You can create up to 5000 accounts with Azure DNS Zone endpoints per subscription. However, you may need to update your application code to query for the account endpoint at runtime. You can call the [Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation to query for the storage account endpoints.
+
+Azure DNS zone endpoints are supported for accounts created with the Azure Resource Manager deployment model only. For more information, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
+
+To learn how to create a storage account with Azure DNS Zone endpoints, see [Create a storage account](storage-account-create.md).
+
+#### About the preview
+
+The Azure DNS zone endpoints preview is available in all public regions. The preview is not available in any government cloud regions.
+
+To register for the preview, follow the instructions provided in [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md#register-preview-feature). Specify `PartitionedDnsPublicPreview` as the feature name and `Microsoft.Storage` as the provider namespace.
 
 ## Migrate a storage account
 
@@ -113,6 +161,10 @@ The following table describes the legacy storage account types. These account ty
 |--|--|--|--|--|
 | Standard general-purpose v1 | Blob Storage, Queue Storage, Table Storage, and Azure Files | LRS/GRS/RA-GRS | Resource Manager, classic | General-purpose v1 accounts may not have the latest features or the lowest per-gigabyte pricing. Consider using it for these scenarios:<br /><ul><li>Your applications require the Azure [classic deployment model](../../azure-portal/supportability/classic-deployment-model-quota-increase-requests.md).</li><li>Your applications are transaction-intensive or use significant geo-replication bandwidth, but don’t require large capacity. In this case, a general-purpose v1 account may be the most economical choice.</li><li>You use a version of the Azure Storage REST API that is earlier than February 14, 2014, or a client library with a version lower than 4.x, and you can’t upgrade your application.</li><li>You're selecting a storage account to use as a cache for Azure Site Recovery. Because Site Recovery is transaction-intensive, a general-purpose v1 account may be more cost-effective. For more information, see [Support matrix for Azure VM disaster recovery between Azure regions](../../site-recovery/azure-to-azure-support-matrix.md#cache-storage).</li></ul> |
 | Standard Blob Storage | Blob Storage (block blobs and append blobs only) | LRS/GRS/RA-GRS | Resource Manager | Microsoft recommends using standard general-purpose v2 accounts instead when possible. |
+
+## Scalability targets for standard storage accounts
+
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
 title: Form Recognizer invoice model
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using prebuilt invoice model
+description: Concepts related to data extraction and analysis using prebuilt invoice model
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -33,7 +33,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Invoice model** | <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|**prebuilt-invoice**|
+|**Invoice model** | <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|**prebuilt-invoice**|
 
 ### Try Form Recognizer
 
@@ -41,7 +41,7 @@ See how data, including customer information, vendor details, and line items, is
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -93,6 +93,11 @@ You'll need an invoice document. You can use our [sample invoice document](https
 |--------|:----------------------|:---------|
 |Invoice| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
 |Invoice| <ul><li>Spanish—es</li></ul>| Spanish (United States)—es|
+|Invoice (preview)| <ul><li>German—de</li></ul>| German (Germany)-de|
+|Invoice (preview)| <ul><li>French—fr</li></ul>| French (France)—fr|
+|Invoice (preview)| <ul><li>Italian—it</li></ul>| Italian (Italy)—it|
+|Invoice (preview)| <ul><li>Portuguese—pt</li></ul>| Portuguese (Portugal)—pt|
+|Invoice (preview)| <ul><li>Dutch—nl</li></ul>| Dutch (Netherlands)—nl|
 
 ## Field extraction
 
@@ -144,9 +149,15 @@ Following are the line items extracted from an invoice in the JSON output respon
 | Unit | String| The unit of the line item, e.g,  kg, lb etc. | Hours | |
 | Date | Date| Date corresponding to each line item. Often it's a date the line item was shipped | 3/4/2021| 2021-03-04 |
 | Tax | Number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
-| VAT | Number | Stands for Value added tax. This is a flat tax levied on an item. Common in European countries | &euro;20.00 | |
+| VAT | Number | Stands for Value added tax. VAT is a flat tax levied on an item. Common in European countries | &euro;20.00 | |
 
-The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output. 
+The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
+
+### Key-value pairs (Preview)
+
+The prebuilt invoice **2022-06-30-preview** release returns key-value pairs at no extra cost. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
+
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document. If you have documents where the same value is described in different ways, for example, a customer or a user, the associated key will be either customer or user based on context.
 
 ## Form Recognizer preview v3.0
 
@@ -154,7 +165,7 @@ The invoice key-value pairs and line items extracted are in the `documentResults
 
 * Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
 
-* Explore our [**REST API (preview)**](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
+* Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 
 ## Next steps
 
@@ -165,7 +176,7 @@ The invoice key-value pairs and line items extracted are in the `documentResults
 
 * Explore our REST API:
     > [!div class="nextstepaction"]
-    > [Form Recognizer API v3.0 (Preview)](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
-    
+    > [Form Recognizer API v3.0 (Preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+
     > [!div class="nextstepaction"]
     > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)

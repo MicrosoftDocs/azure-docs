@@ -1,14 +1,14 @@
 ---
 title: Restore a dedicated SQL pool from a geo-backup 
 description: How-to guide for geo-restoring a dedicated SQL pool in Azure Synapse Analytics
-author: anumjs
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/13/2020
 ms.author: joanpo
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
 
@@ -37,7 +37,7 @@ To restore from a geo-backup, use the [Get-AzSqlDatabaseGeoBackup](/powershell/m
 5. Get the data warehouse you want to recover.
 6. Create the recovery request for the data warehouse.
 7. Verify the status of the geo-restored data warehouse.
-8. To configure your data warehouse after the restore has completed, see [Configure your database after recovery]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+8. To configure your data warehouse after the restore has completed, see [Configure your database after recovery](/azure/azure-sql/database/disaster-recovery-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```powershell
 $SubscriptionName="<YourSubscriptionName>"

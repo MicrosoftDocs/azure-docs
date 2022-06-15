@@ -8,7 +8,7 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Set up a DPS
+  - name: Set up DPS
     items:
     - name: Azure portal
       href: quick-setup-auto-provision.md
@@ -21,6 +21,8 @@ items:
     href: quick-create-simulated-device-symm-key.md
   - name: Provision a simulated X.509 certificate device
     href: quick-create-simulated-device-x509.md
+  - name: Simulated TPM device attestation sample
+    href: quick-create-simulated-device-tpm.md
 - name: Tutorials
   items:
   - name: 1 - Provision sets of devices with enrollment groups
@@ -39,8 +41,6 @@ items:
        href: how-to-provision-multitenant.md
 - name: Samples
   items:
-  - name: Simulated TPM device attestation sample
-    href: quick-create-simulated-device-tpm.md
   - name: Create device enrollments using DPS APIs
     items:
     - name: Group enrollment using X.509 Certificate Attestation

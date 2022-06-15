@@ -2,13 +2,11 @@
 title: Prioritize security actions by data sensitivity - Microsoft Defender for Cloud
 description: Use Microsoft Purview's data sensitivity classifications in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 11/09/2021
+ms.date: 04/27/2022
 ---
 # Prioritize security actions by data sensitivity
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-[Microsoft Purview](../purview/overview.md), Microsoft's data governance service, provides rich insights into the *sensitivity of your data*. With automated data discovery, sensitive data classification, and end-to-end data lineage, Microsoft Purview helps organizations manage and govern data in hybrid and multi-cloud environments.
+[Microsoft Purview](../purview/overview.md), Microsoft's data governance service, provides rich insights into the *sensitivity of your data*. With automated data discovery, sensitive data classification, and end-to-end data lineage, Microsoft Purview helps organizations manage and govern data in hybrid and multicloud environments.
 
 Microsoft Defender for Cloud customers using Microsoft Purview can benefit from an additional vital layer of metadata in alerts and recommendations: information about any potentially sensitive data involved. This knowledge helps solve the triage challenge and ensures security professionals can focus their attention on threats to sensitive data.
 
@@ -72,6 +70,13 @@ A graph shows the number of recommendations and alerts by classified resource ty
 
 :::image type="content" source="./media/information-protection/overview-dashboard-information-protection.png" alt-text="Screenshot of the information protection tile in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/information-protection/overview-dashboard-information-protection.png":::
 
+## Learn more
+
+If you would like to learn more from the product manager about Microsoft Defender for Cloud's [integration with Azure Purview](episode-two.md).
+
+You can also check out the following blog:
+
+- [Secure sensitive data in your cloud resources](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/secure-sensitive-data-in-your-cloud-resources/ba-p/2918646).
 
 ## Next steps
 

@@ -5,22 +5,34 @@ description: Configure an Azure Service Bus namespace to use a minimum version o
 services: service-bus
 author: EldertGrootenboer
 
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 04/22/2022
+ms.date: 06/06/2022
 ms.author: egrootenboer
 ---
 
 # Configure the minimum TLS version for a Service Bus namespace using ARM (Preview)
 
-To configure the minimum TLS version for a Service Bus namespace, set the  `MinimumTlsVersion`  version property. When you create a Service Bus namespace with an Azure Resource Manager template, the `MinimumTlsVersion` property is set to 1.2 by default, unless explicitly set to another version.
+Azure Service Bus namespaces permit clients to send and receive data with TLS 1.0 and above. To enforce stricter security measures, you can configure your Service Bus namespace to require that clients send and receive data with a newer version of TLS. If a Service Bus namespace requires a minimum version of TLS, then any requests made with an older version will fail. For conceptual information about this feature, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a Service Bus namespace](transport-layer-security-enforce-minimum-version.md).
+
+You can configure the minimum TLS version using the Azure portal or Azure Resource Manager (ARM) template. 
+
+## Specify the minimum TLS version in the Azure portal
+You can specify the minimum TLS version when creating a Service Bus namespace in the Azure portal on the **Advanced** tab. 
+
+:::image type="content" source="./media/transport-layer-security-configure-minimum-version/create-namespace-tls.png" alt-text="Screenshot showing the page to set the minimum TLS version when creating a namespace.":::
+
+You can also specify the minimum TLS version for an existing namespace on the **Configuration** page.
+
+:::image type="content" source="./media/transport-layer-security-configure-minimum-version/existing-namespace-tls.png" alt-text="Screenshot showing the page to set the minimum TLS version for an existing namespace.":::
+
+## Create a template to configure the minimum TLS version
+To configure the minimum TLS version for a Service Bus namespace, set the  `MinimumTlsVersion`  version property to 1.0, 1.1, or 1.2. When you create a Service Bus namespace with an Azure Resource Manager template, the `MinimumTlsVersion` property is set to 1.2 by default, unless explicitly set to another version.
 
 > [!NOTE]
 > Namespaces created using an api-version prior to 2022-01-01-preview will have 1.0 as the value for `MinimumTlsVersion`. This behavior was the prior default, and is still there for backwards compatibility.
 
-## Create a template to configure the minimum TLS version
-
-To configure the minimum TLS version for a Service Bus namespace with a template, create a template with the  `MinimumTlsVersion`  property set to 1.0, 1.1, or 1.2. The following steps describe how to create a template in the Azure portal.
+The following steps describe how to create a template in the Azure portal.
 
 1. In the Azure portal, choose  **Create a resource**.
 2. In  **Search the Marketplace** , type  **custom deployment** , and then press  **ENTER**.
@@ -59,24 +71,58 @@ To configure the minimum TLS version for a Service Bus namespace with a template
 
 Configuring the minimum TLS version requires api-version 2022-01-01-preview or later of the Azure Service Bus resource provider.
 
-## Check the minimum required TLS version for multiple namespaces
+## Check the minimum required TLS version for a namespace
 
-To check the minimum required TLS version across a set of Service Bus namespaces with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md).
+To check the minimum required TLS version for your Service Bus namespace, you can query the Azure Resource Manager API. You will need a Bearer token to query against the API, which you can retrieve using [ARMClient](https://github.com/projectkudu/ARMClient) by executing the following commands.
 
-Running the following query in the Resource Graph Explorer returns a list of Service Bus namespaces and displays the minimum TLS version for each namespace:
+```powershell
+.\ARMClient.exe login
+.\ARMClient.exe token <your-subscription-id>
+```
 
-```kusto
-resources 
-| where type =~ 'Microsoft.ServiceBus/namespaces'
-| extend minimumTlsVersion = parse\_json(properties).minimumTlsVersion
-| project subscriptionId, resourceGroup, name, minimumTlsVersion
+Once you have your bearer token, you can use the script below in combination with something like [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to query the API.
+
+```http
+@token = Bearer <Token received from ARMClient>
+@subscription = <your-subscription-id>
+@resourceGroup = <your-resource-group-name>
+@namespaceName = <your-namespace-name>
+
+###
+GET https://management.azure.com/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.ServiceBus/namespaces/{{namespaceName}}?api-version=2022-01-01-preview
+content-type: application/json
+Authorization: {{token}}
+```
+
+The response should look something like the below, with the minimumTlsVersion set under the properties.
+
+```json
+{
+  "sku": {
+    "name": "Premium",
+    "tier": "Premium"
+  },
+  "id": "/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group-name>/providers/Microsoft.ServiceBus/namespaces/<your-namespace-name>",
+  "name": "<your-namespace-name>",
+  "type": "Microsoft.ServiceBus/Namespaces",
+  "location": "West Europe",
+  "tags": {},
+  "properties": {
+    "minimumTlsVersion": "1.2",
+    "publicNetworkAccess": "Enabled",
+    "disableLocalAuth": false,
+    "zoneRedundant": false,
+    "provisioningState": "Succeeded",
+    "status": "Active"
+  }
+}
 ```
 
 ## Test the minimum TLS version from a client
 
 To test that the minimum required TLS version for a Service Bus namespace forbids calls made with an older version, you can configure a client to use an older version of TLS. For more information about configuring a client to use a specific version of TLS, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
 
-When a client accesses a Service Bus namespace using a TLS version that does not meet the minimum TLS version configured for the namespace, Azure Service Bus returns error code 400 error (Bad Request) and a message indicating that the TLS version that was used is not permitted for making requests against this Service Bus namespace.
+When a client accesses a Service Bus namespace using a TLS version that does not meet the minimum TLS version configured for the namespace, Azure Service Bus returns error code 401 (Unauthorized) and a message indicating that the TLS version that was used is not permitted for making requests against this Service Bus namespace.
 
 > [!NOTE]
 > When you configure a minimum TLS version for a Service Bus namespace, that minimum version is enforced at the application layer. Tools that attempt to determine TLS support at the protocol layer may return TLS versions in addition to the minimum required version when run directly against the Service Bus namespace endpoint.

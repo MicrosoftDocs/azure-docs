@@ -5,7 +5,7 @@ description: Configure Azure Policy to audit compliance of Azure Service Bus for
 services: service-bus
 author: EldertGrootenboer
 
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 04/22/2022
 ms.author: egrootenboer
@@ -39,7 +39,7 @@ To create a policy with an audit effect for the minimum TLS version with the Azu
             },
             {
               "not": {
-                "field": " Microsoft.ServiceBus/namespaces/minimumTlsVersion",
+                "field": "Microsoft.ServiceBus/namespaces/minimumTlsVersion",
                 "equals": "1.2"
               }
             }
@@ -97,11 +97,11 @@ To create a policy with a deny effect for a minimum TLS version that is less tha
       "allOf": [
         {
           "field": "type",
-          "equals": " Microsoft.ServiceBus/namespaces"
+          "equals": "Microsoft.ServiceBus/namespaces"
         },
         {
           "not": {
-            "field": " Microsoft.ServiceBus/namespaces/minimumTlsVersion",
+            "field": "Microsoft.ServiceBus/namespaces/minimumTlsVersion",
             "equals": "1.2"
           }
         }

@@ -11,7 +11,7 @@ ms.devlang: azurecli
 ---
 # Configure an App Service app
 
-This article explains how to configure common settings for web apps, mobile back end, or API app.
+This article explains how to configure common settings for web apps, mobile back end, or API app. For Azure Functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md).
 
 ## Configure app settings
 
@@ -427,7 +427,7 @@ Here, you can configure some common settings for the app. Some settings require 
 
 - **Platform settings**: Lets you configure settings for the hosting platform, including:
     - **FTP state**: Allow only FTPS or disable FTP altogether.
-    - **Bitness**: 32-bit or 64-bit. (Defaults to 32-bit for App Service created in the portal.)
+    - **Bitness**: 32-bit or 64-bit. For Windows apps only. 
     - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
     - **Always On**: Keeps the app loaded even when there's no traffic. When **Always On** is not turned on (default), the app is unloaded after 20 minutes without any incoming requests. The unloaded app can cause high latency for new requests because of its warm-up time. When **Always On** is turned on, the front-end load balancer sends a GET request to the application root every five minutes. The continuous ping prevents the app from being unloaded.
     
