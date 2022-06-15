@@ -99,12 +99,6 @@ The following host machine requirements are applicable to **train and analyze** 
 | Custom API| 0.5 cores, 0.5-GB memory| 1 cores, 1-GB memory |
 |Custom Supervised | 4 cores, 2-GB memory | 8 cores, 4-GB memory|
 
-If you're only making analyze calls, the host machine requirements are as follows:
-
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
-|Custom Supervised (Analyze) | 1 core, 0.5-GB | 2 cores, 1-GB memory |
-
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 * Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker compose` or `docker run`  command.
 

@@ -346,7 +346,7 @@ For this example, we create a [``ClientSecretCredential``](/dotnet/api/azure.ide
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/104-client-secret-credential/Program.cs" id="credential" highlight="3-5":::
 
-You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
+You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
 
 Create a new instance of the **CosmosClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
 

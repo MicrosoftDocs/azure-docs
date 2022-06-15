@@ -20,11 +20,11 @@ The following table describes the types of endpoints and errors for which retry 
 
 | Endpoint Type | Error codes |
 | --------------| -----------|
-| Azure Resources | 400 Bad Request, 413 Request Entity Too Large, 403 Forbidden | 
+| Azure Resources | 400 Bad Request, 413 Request Entity Too Large, 403 Forbidden, 404 Not Found | 
 | Webhook | 400 Bad Request, 413 Request Entity Too Large, 403 Forbidden, 404 Not Found, 401 Unauthorized |
  
 > [!NOTE]
-> If Dead-Letter isn't configured for an endpoint, events will be dropped when the above errors happen. Consider configuring Dead-Letter if you don't want these kinds of events to be dropped.
+> If dead-letter isn't configured for an endpoint, events will be dropped when the above errors happen. Consider configuring dead-letter if you don't want these kinds of events to be dropped. If dead-letter destination is not found during an error, events will be dropped.
 
 If the error returned by the subscribed endpoint isn't among the above list, Event Grid performs the retry using policies described below:
 

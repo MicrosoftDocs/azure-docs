@@ -262,7 +262,7 @@ Content-type: application/json
 {
  "clientId": "231c70e8-8424-48ac-9b5d-5623b9e4ccf3",
  "step": "PreTokenApplicationClaims",
- "ui_locales":"en-US"
+ "ui_locales":"en-US",
  "email": "johnsmith@fabrikam.onmicrosoft.com",
  "identities": [
      {
