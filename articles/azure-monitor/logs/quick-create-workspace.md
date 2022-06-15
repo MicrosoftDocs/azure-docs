@@ -68,8 +68,6 @@ After you've created a workspace, [configure a Log Analytics workspace in Azure 
 
 ## [Azure CLI](#tab/azure-cli)
 
-Manage Azure Log Analytics workspaces by using [Azure CLI](/cli/azure/monitor/log-analytics/workspace) commands.
-
 Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group or use an existing resource group. To create a workspace, use the [az monitor log-analytics workspace create](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-create) command.
 
 ```Azure CLI
@@ -202,10 +200,6 @@ For more information about Azure Resource Manager templates, see [Azure Resource
   }
 }
 ```
-
-After you've created a workspace, see [Resource Manager template samples for Log Analytics workspaces in Azure Monitor](/azure/azure-monitor/logs/resource-manager-workspace) to configure data sources.
-
----
 
 ## Troubleshooting
 
