@@ -27,7 +27,7 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 [!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
-Here's the html:
+Here's the html, that we need to add to the `index.html` file which we just created:
 
 ```html
 <!DOCTYPE html>
@@ -63,7 +63,7 @@ Here's the html:
         Hang Up
       </button>
     </div>
-    <script src="./app.js"></script>
+    <script src="./app.js" type="module"></script>
   </body>
 </html>
 ```

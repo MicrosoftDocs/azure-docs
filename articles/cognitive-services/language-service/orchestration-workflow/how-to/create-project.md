@@ -33,10 +33,11 @@ Before you start using orchestration workflow, you will need an Azure Language r
 
 > [!NOTE]
 >  * You need to have an **owner** role assigned on the resource group to create a Language resource.
+>  * If you are planning to use question answering, you have to enable question answering in resource creation
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
-[!INCLUDE [create a new resource from the Language Studio](../includes/resource-creation-language-studio.md)]
+[!INCLUDE [create a new resource from Language Studio](../includes/resource-creation-language-studio.md)]
 
 ## Sign in to Language Studio
 
@@ -101,7 +102,7 @@ You can export an orchestration workflow project as a JSON file at any time.
 
 ---
 
-## Delete resources 
+## Delete project 
 
 ### [Language Studio](#tab/language-studio)
 
@@ -121,4 +122,4 @@ When you don't need your project anymore, you can delete your project using the 
 
 ## Next Steps
 
-[Build schema](./train-model.md)
+[Build schema](./build-schema.md)

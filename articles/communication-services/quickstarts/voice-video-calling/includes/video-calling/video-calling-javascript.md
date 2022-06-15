@@ -14,7 +14,7 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1)
+- [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows).
 - Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI to create a user and an access token.
 

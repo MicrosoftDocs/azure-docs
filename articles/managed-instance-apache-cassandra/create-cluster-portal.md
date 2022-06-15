@@ -5,7 +5,7 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 05/31/2022
 ms.custom: ignite-fall-2021, mode-ui
 ---
 # Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster from the Azure portal
@@ -18,7 +18,7 @@ This quickstart demonstrates how to use the Azure portal to create an Azure Mana
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## <a id="create-account"></a>Create a managed instance cluster
+## Create a managed instance cluster
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -82,7 +82,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    :::image type="content" source="./media/create-cluster-portal/datacenter-1.png" alt-text="View datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-1.png" border="true":::
 
-<!-- ## <a id="create-account"></a>Add a datacenter
+## Add a datacenter
 
 1. To add another datacenter, click the add button in the **Data Center** pane:
 
@@ -105,7 +105,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Location** - Location where your datacenter will be deployed to.
    * **SKU Size** - Choose from the available Virtual Machine SKU sizes.
    * **No. of disks** - Choose the number of p30 disks to be attached to each Cassandra node.
-   * **SKU Size** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
+   * **No. of nodes** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
    * **Virtual Network** - Select an Exiting Virtual Network and Subnet.  
 
    :::image type="content" source="./media/create-cluster-portal/add-datacenter-2.png" alt-text="Add Datacenter." lightbox="./media/create-cluster-portal/add-datacenter-2.png" border="true":::
@@ -122,7 +122,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 If you encounter an error when applying permissions to your Virtual Network using Azure CLI, such as *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*, you can apply the same permission manually from the Azure portal. Learn how to do this [here](add-service-principal.md).
 
 > [!NOTE] 
-> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.   -->
+> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.  
 
 ## Connecting to your cluster
 

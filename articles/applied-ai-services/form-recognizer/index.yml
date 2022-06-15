@@ -85,8 +85,8 @@ landingContent:
             url: v3-migration-guide.md
           - text: Use the read model
             url: how-to-guides/use-prebuilt-read.md
-          - text: Generate SAS tokens for Azure Blob containers
-            url: generate-sas-tokens.md
+          - text: Create SAS tokens for storage containers
+            url: create-sas-tokens.md
           - text: Build a custom model (v3.0)
             url:  how-to-guides/build-custom-model-v3.md
           - text: Compose custom models (v3.0)

@@ -49,7 +49,7 @@
     href: set-up-service-alerts.md
 - name: Concepts
   items:
-  - name: Azure Virtual Desktop environment
+  - name: Azure Virtual Desktop terminology
     href: environment-setup.md
   - name: Disaster recovery concepts 
     href: disaster-recovery-concepts.md
@@ -143,7 +143,7 @@
         href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
       - name: Screen capture protection
         href: screen-capture-protection.md
-  - name: Azure Virtual Desktop for Azure Stack HCI (preview)
+  - name: Azure Virtual Desktop for Azure Stack HCI
     items:
       - name: Overview (preview)
         href: azure-stack-hci-overview.md
@@ -151,7 +151,7 @@
         href: azure-stack-hci-faq.yml
   - name: Tag Azure Virtual Desktop resources
     href: tag-virtual-desktop-resources.md
-  - name: Fair Share technologies enabled by default
+  - name: Fair Share technologies
     href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: How-to guides
   items:
@@ -187,7 +187,7 @@
     items:
       - name: Create a host pool using PowerShell or the Azure CLI
         href: create-host-pools-powershell.md
-      - name: Deploy an Azure AD joined session host
+      - name: Deploy an Azure AD-joined session host
         href: deploy-azure-ad-joined-vm.md
       - name: Deploy a Windows 7 virtual machine
         href: deploy-windows-7-virtual-machine.md
@@ -285,7 +285,7 @@
           href: app-attach-msixmgr.md
   - name: Use Microsoft Teams
     href: teams-on-avd.md
-  - name: Set up Azure AD multifactor authentication
+  - name: Enforce Azure AD MFA
     href: set-up-mfa.md
   - name: Configure AD FS single sign-on
     href: configure-adfs-sso.md
@@ -355,16 +355,12 @@
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
 - name: Reference
   items:
-  - name: Desktop virtualization - Microsoft Cloud Adoption Framework for Azure
-    href: /azure/cloud-adoption-framework/scenarios/wvd
   - name: Azure CLI
     href: /cli/azure/desktopvirtualization
   - name: PowerShell
     href: /powershell/module/az.desktopvirtualization
   - name: REST API
     href: /rest/api/desktopvirtualization/
-  - name: Terraform
-    href: /azure/developer/terraform/configure-azure-virtual-desktop
 - name: Resources
   items:
   - name: User experience estimator
@@ -373,13 +369,21 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Learning paths
     href: /learn/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
+  - name: Framework and architectures
+    items:
+    - name: Cloud Adoption Framework
+      href: /azure/cloud-adoption-framework/scenarios/wvd
+    - name: Azure Architecture Center
+      href: /azure/architecture/browse/?expanded=azure&products=azure-virtual-desktop
   - name: How-to videos
     href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
-  - name: Microsoft Tech Community - Azure Virtual Desktop
+  - name: Microsoft Tech Community
     href: https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum
   - name: Azure Virtual Desktop roadmap
     href: https://aka.ms/avdroadmap
   - name: Azure Resource Manager templates
-    href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates
+    href: https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates
+  - name: Terraform samples
+    href: /azure/developer/terraform/configure-azure-virtual-desktop
   - name: Azure compliance offerings
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/

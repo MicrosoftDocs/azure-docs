@@ -85,7 +85,7 @@ You can see the deployment status on the Overview page for your gateway. A gatew
 
 You can view the gateway public IP address on the **Overview** page for your gateway.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Screenshot shows public IP address." lightbox= "./media/tutorial-create-gateway-portal/address-expand.png":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/address.png" alt-text="Screenshot shows public IP address." lightbox= "./media/tutorial-create-gateway-portal/address.png":::
 
 To see additional information about the public IP address object, select the name/IP address link next to **Public IP address**.
 

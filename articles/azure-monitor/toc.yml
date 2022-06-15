@@ -91,8 +91,6 @@ items:
           href: app/resource-manager-web-app.md
         - name: Azure Functions
           href: app/resource-manager-function-app.md
-        - name: Manage with Azure CLI
-          href: insights/azure-cli-application-insights-component.md
     - name: Container insights
       href: containers/resource-manager-container-insights.md
     - name: Data collection rules
@@ -117,12 +115,10 @@ items:
       href: agents/data-collection-rule-sample-agent.md
     - name: Custom logs
       href: logs/data-collection-rule-sample-custom-logs.md
-  - name: Azure CLI
-    href: cli-samples.md
   - name: Monitor Logs in Azure CLI
     href: logs\azure-cli-log-analytics-workspace-sample.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
+  - name: Configure workspaces using PowerShell
+    href: logs/powershell-workspace-configuration.md
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
   - name: Azure CLI metric alerts
@@ -258,14 +254,8 @@ items:
       - name: Overview
         displayName: Log Analytics workspace
         href: logs/log-analytics-workspace-overview.md
-      - name: Create
-        items:
-        - name: Azure portal
-          href: logs/quick-create-workspace.md
-        - name: PowerShell
-          href: logs/powershell-workspace-configuration.md
-        - name: Resource Manager template
-          href: logs/resource-manager-workspace.md
+      - name: Create workspaces
+        href: logs/quick-create-workspace.md
       - name: Configure
         items:
         - name: Manage access
@@ -723,7 +713,7 @@ items:
     - name: Alert user interface
       items:
       - name: View and manage alert instances
-        href: alerts/alerts-managing-alert-instances.md
+        href: alerts/alerts-page.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves
@@ -906,6 +896,8 @@ items:
         href: app/api-custom-events-metrics.md
       - name: Remove Application Insights
         href: app/remove-application-insights.md
+      - name: SDK support policy
+        href: app/sdk-support-guidance.md
     - name: OpenTelemetry-based instrumentation
       items:
       - name: Overview
@@ -1006,51 +998,6 @@ items:
         href: app/standard-metrics.md
     - name: Transaction search
       href: app/diagnostic-search.md
-    - name: Profiler
-      items:
-      - name: Overview
-        displayName: profiling, debugging, code performance, perf
-        href: app/profiler-overview.md
-      - name: Enable Profiler for an App Service
-        href: app/profiler.md
-      - name: Enable Profiler for an Azure Functions app
-        href: app/profiler-azure-functions.md
-      - name: Enable Profiler for a Cloud Service
-        href: app/profiler-cloudservice.md
-      - name: Enable Profiler for a Service Fabric Application
-        href: app/profiler-servicefabric.md
-      - name: Enable Profiler for an Azure VM
-        href: app/profiler-vm.md
-      - name: Enable Profiler for Linux App services (preview)
-        href: app/profiler-aspnetcore-linux.md
-      - name: Enable Profiler for a Container
-        href: app/profiler-containers.md
-      - name: Profiler Settings
-        href: app/profiler-settings.md
-      - name: Track Requests for Profiling
-        href: app/profiler-trackrequests.md
-      - name: Configure BYOS (Bring Your Own Storage)
-        href: app/profiler-bring-your-own-storage.md
-      - name: Profiler Troubleshooting
-        href: app/profiler-troubleshooting.md
-    - name: Snapshot Debugger
-      items:
-      - name: Overview
-        displayName: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
-        href: app/snapshot-debugger.md
-      - name: Enable Snapshot Debugger for an App Service
-        href: app/snapshot-debugger-appservice.md
-      - name: Enable Snapshot Debugger for a Function App
-        href: app/snapshot-debugger-function-app.md
-      - name: Enable Snapshot Debugger for other environments
-        href: app/snapshot-debugger-vm.md
-      - name: Upgrade Snapshot Debugger
-        href: app/snapshot-debugger-upgrade.md
-      - name: Configure BYOS (Bring Your Own Storage)
-        href: app/profiler-bring-your-own-storage.md
-      - name: Snapshot Debugger troubleshooting
-        displayName: troubleshoot, troubleshooting
-        href: app/snapshot-debugger-troubleshoot.md
     - name: Smart Detection
       href: app/proactive-diagnostics.md
       items:
@@ -1174,6 +1121,55 @@ items:
         href: app/sharepoint.md
       - name: Windows desktop
         href: app/windows-desktop.md
+  - name: Profiler
+    items:
+    - name: Overview
+      displayName: profiling, debugging, code performance, perf
+      href: profiler/profiler-overview.md
+    - name: Enable Profiler
+      items:        
+      - name: App Service
+        href: profiler/profiler.md
+      - name: Azure Functions app
+        href: profiler/profiler-azure-functions.md
+      - name: Cloud Service
+        href: profiler/profiler-cloudservice.md
+      - name: Service Fabric Application
+        href: profiler/profiler-servicefabric.md
+      - name: Azure VM
+        href: profiler/profiler-vm.md
+      - name: Linux App services (preview)
+        href: profiler/profiler-aspnetcore-linux.md
+      - name: ASP.NET Core Container
+        href: profiler/profiler-containers.md
+    - name: Configure
+      items:        
+      - name: Configure Profiler
+        href: profiler/profiler-settings.md
+      - name: Configure BYOS (Bring Your Own Storage)
+        href: profiler/profiler-bring-your-own-storage.md
+    - name: Track Requests
+      href: profiler/profiler-trackrequests.md
+    - name: Troubleshooting
+      href: profiler/profiler-troubleshooting.md
+  - name: Snapshot Debugger
+    items:
+    - name: Overview
+      displayName: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
+      href: snapshot-debugger/snapshot-debugger.md
+    - name: Enable Snapshot Debugger for an App Service
+      href: snapshot-debugger/snapshot-debugger-app-service.md
+    - name: Enable Snapshot Debugger for a Function App
+      href: snapshot-debugger/snapshot-debugger-function-app.md
+    - name: Enable Snapshot Debugger for other environments
+      href: snapshot-debugger/snapshot-debugger-vm.md
+    - name: Upgrade Snapshot Debugger
+      href: snapshot-debugger/snapshot-debugger-upgrade.md
+    - name: Configure BYOS (Bring Your Own Storage)
+      href: profiler/profiler-bring-your-own-storage.md
+    - name: Snapshot Debugger troubleshooting
+      displayName: troubleshoot, troubleshooting
+      href: snapshot-debugger/snapshot-debugger-troubleshoot.md
   - name: Change Analysis
     items:
     - name: Overview
@@ -1192,8 +1188,6 @@ items:
     items:
     - name: Overview
       href: vm/vminsights-overview.md
-    - name: General Availability FAQ
-      href: vm/vminsights-ga-release-faq.yml
     - name: FAQ
       href: /azure/azure-monitor/faq#vm-insights
     - name: Configure workspace
@@ -1235,7 +1229,7 @@ items:
       - name: Troubleshoot
         href: vm/vminsights-health-troubleshoot.md
     - name: Analyze data with log queries
-      href: vm/vminsights-log-search.md
+      href: vm/vminsights-log-query.md
     - name: Monitor changes
       href: vm/vminsights-change-analysis.md
     - name: Visualize data with workbooks
@@ -1335,7 +1329,7 @@ items:
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
     - name: Azure Data Explorer
-      href: insights/data-explorer.md
+      href: /azure/data-explorer/data-explorer-insights
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks
@@ -1558,7 +1552,7 @@ items:
       - name: Web app extension
         href: app/web-app-extension-release-notes.md
       - name: Snapshot Debugger
-        href: app/snapshot-collector-release-notes.md
+        href: snapshot-debugger/snapshot-collector-release-notes.md
     - name: Data model
       items:
       - name: Overview

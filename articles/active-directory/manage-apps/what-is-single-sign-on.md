@@ -1,7 +1,6 @@
 ---
 title: What is single sign-on?
 description: Learn about single sign-on for enterprise applications in Azure Active Directory.
-titleSuffix: Azure AD
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -68,4 +67,4 @@ If you're a user of an application, you likely don't care much about SSO details
 
 ## Next steps
 
-- [Quickstart: Enable single sign on](add-application-portal-setup-sso.md)
+- [Plan for single sign-on deployment](plan-sso-deployment.md)
