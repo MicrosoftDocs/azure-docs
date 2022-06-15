@@ -143,7 +143,7 @@
         href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
       - name: Screen capture protection
         href: screen-capture-protection.md
-  - name: Azure Virtual Desktop for Azure Stack HCI (preview)
+  - name: Azure Virtual Desktop for Azure Stack HCI
     items:
       - name: Overview (preview)
         href: azure-stack-hci-overview.md
