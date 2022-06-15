@@ -40,6 +40,4 @@ items:
   - name: Contact profile
     href: concepts-contact-profile.md
   - name: Geospatial Reference Architecture
-    href: geospatial-reference-architecture.md
-  - name: Spacecraft object
-    href: spacecraft-object.md  
+    href: geospatial-reference-architecture.md 
