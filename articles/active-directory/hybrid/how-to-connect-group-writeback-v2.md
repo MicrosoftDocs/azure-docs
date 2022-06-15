@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/21/2022
+ms.date: 06/15/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -16,13 +16,13 @@ ms.collection: M365-identity-device-management
 
 # Azure AD Connect group writeback
 
-Group Writeback is the feature that will you to write cloud groups back to your on-premises Active Directory using the Azure AD Connect Sync client. This feature enables you to manage groups in the cloud, while controlling access to on-prem applications and resources.  Group Writeback  provides the following capabilities: 
+Group Writeback is the feature that allows you to write cloud groups back to your on-premises Active Directory using the Azure AD Connect Sync client. This feature enables you to manage groups in the cloud, while controlling access to on-prem applications and resources.  Group Writeback  provides the following capabilities: 
   1. Microsoft 365 groups can be written as Distribution groups, Security groups, or Mail-Enabled Security groups.  
   2. Azure AD Security groups will be written back as Security groups.  
   3. All groups are written back to AD as scope universal. 
   4. Allows you to configure group writeback settings for all M365 groups within a tenant.  
   5. Nested cloud groups and devices, (if device writeback is also enabled) that are members of groups, enabled for writeback, will be written back with scope universal. 
-  6. You now have the option to change the common name in an Active Directory group’s distinguished name when configuring group writeback in AAD Connect. 
+  6. Now, you can change the common name in an Active Directory group’s distinguished name when configuring group writeback in Azure AD Connect. 
   7. You can now configure Azure AD groups to writeback using the Azure AD Admin portal, Graph Explorer, and PowerShell. 
 
 The following document will walk you through how you can enable Group Writeback . 
@@ -40,14 +40,14 @@ The following pre-requisites must be met in order to enable group writeback.
 - Azure AD Premium license
 - Azure AD Connect version 2021 December release or later.  
 - Enable Azure AD Connect group writeback
-- **Optional** - On-Prem Exchange Server 2016 CU15 or later.  Only needed for configuring cloud groups with exchange hybrid so this is optional.  See [Configure Microsoft 365 Groups with on-premises Exchange hybrid](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-microsoft-365-groups#prerequisites) for more information. 
+- **Optional** - On-Prem Exchange Server 2016 CU15 or later.  Only needed for configuring cloud groups with exchange hybrid - optional.  See [Configure Microsoft 365 Groups with on-premises Exchange hybrid](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-microsoft-365-groups#prerequisites) for more information. 
 
 The latest version of Group Writeback is enabled tenant-wide and not per Azure AD Connect server. The default values for writeback settings on cloud groups are backward compatible. 
 
 ## Deployment guidance
 You will need to deploy [Azure AD Connect version from 2021 December or later (2.0.89.0)](https://www.microsoft.com/download/details.aspx?id=47594) to use the latest version of the group writeback feature. Older builds of Azure AD Connect do not support the new version of Group Writeback and will write back Microsoft 365 groups and Security groups only as Distribution lists, when Group Writeback is enabled.      
 
-It is recommended that you follow the [swing migration](how-to-upgrade-previous-version.md#swing-migration) method for rolling out the new group writeback feature in your environment. This will provide a clear contingency plan in the event, that a major rollback is necessary. 
+It is recommended that you follow the [swing migration](how-to-upgrade-previous-version.md#swing-migration) method for rolling out the new group writeback feature in your environment. This method will provide a clear contingency plan in the event, that a major roll back is necessary. 
 
 ## Enable group writeback using Azure AD Connect
 
@@ -60,7 +60,7 @@ To enable group writeback, use the following steps:
 5. Select **Group writeback** and then click **Next**.
 6. On the **Writeback page**, select an Active Directory organizational unit (OU) to store objects that are synchronized from Microsoft 365 to your on-premises organization, and then click **Next**.
 7. On the **Ready** to configure page, click **Configure**.
-8. When the wizard is complete, click **Exit** on the Configuration complete page.  At this point Group Writeback will be automatically configured.
+8. When the wizard is complete, click **Exit** on the Configuration complete page.  Group Writeback will be automatically configured.
 
 >[!NOTE]
 >The following is performed automatically after the last step above.  However, if you experience permission issues while exporting the object to AD then do the following:
@@ -81,7 +81,7 @@ To enable group writeback, use the following steps:
  >Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN -ADObjectDN $GroupWritebackOU
  >```
 
-For additional information on configuring the Microsoft 365 groups see [Configure Microsoft 365 Groups with on-premises Exchange hybrid](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
+For more information on configuring the Microsoft 365 groups see [Configure Microsoft 365 Groups with on-premises Exchange hybrid](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
 
 ## Enabling group writeback using PowerShell
 
@@ -119,7 +119,7 @@ To make it easier to find groups being written back from Azure AD to Active Dire
 
  
 
-When configuring group writeback there will be a checkbox at the bottom of the Group Writeback configuration window.  Select the box to enable this feature. 
+When configuring group writeback, there will be a checkbox at the bottom of the Group Writeback configuration window.  Select the box to enable this feature. 
 
 [![Detailed password flow](./media/how-to-connect-group-writeback/group-1.png)](./media/how-to-connect-group-writeback/group-1.png#lightbox)
 
@@ -168,7 +168,7 @@ While this release has undergone extensive testing, you may still encounter issu
 While support is provided for this public preview release, Microsoft may not always be able to fix all issues you may encounter immediately. For this reason, it is recommended that you use your best judgement before deploying this release in your production environment.  
 Limitations and known issues specific to Group Writeback:
 - Group writeback does not support writeback of nested group members with scope ‘Domain local’ since Azure AD security groups are written back with scope ‘Universal’. If you have a nested group like this, you’ll see an export error in Azure AD Connect with the message “A universal group cannot have a local group as a member” and the resolution is it remove the member with scope ‘Domain local’ from the Azure AD group.  
-- Group writeback only supports writing back groups to a single Organization Unit (OU). Once the feature is enabled, you cannot change the OU you selected. A workaround for this is to disable group writeback entirely in Azure AD Connect and then select a different OU when you re-enable the feature.  
+- Group writeback only supports writing back groups to a single Organization Unit (OU). Once the feature is enabled, you cannot change the OU you selected. A workaround is to disable group writeback entirely in Azure AD Connect and then select a different OU when you re-enable the feature.  
 - Group writeback setting to manage new **security** group writeback at scale is not yet available. You will need to configure writeback for specific groups. 
 
 
