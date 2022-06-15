@@ -39,23 +39,68 @@ A: Yes, you can attach a managed data disk to a VM that uses an ephemeral OS dis
 
 **Q: Will all VM sizes be supported for ephemeral OS disks?**
 
-A: No, most Premium Storage VM sizes are supported (DS, ES, FS, GS, M, etc.). To know whether a particular VM size supports ephemeral OS disks, you can:
+A: No, most Premium Storage VM sizes are supported (DS, ES, FS, GS, M, etc.). To know whether a particular VM size supports ephemeral OS disks for a OS image size you can use the below script. It takes the OS image size and location as inputs and provides a list of VM SKUs and corresponding placement supported. If both OS Cache and temp disk placement are marked as not supported then Ephemeral OS disk cannot be used for the given OS image size.
 
-Call `Get-AzComputeResourceSku` PowerShell cmdlet
 ```azurepowershell-interactive
+[CmdletBinding()]
+param([Parameter(Mandatory=$true)]
+      [ValidateNotNullOrEmpty()]
+      [string]$Location,
+      [Parameter(Mandatory=$false)]
+      [long]$OSImageSizeInGB = 127
+      )
  
-$vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
-
-foreach($vmSize in $vmSizes)
+Function HasSupportEphemeralOSDisk([object[]] $capability)
 {
-   foreach($capability in $vmSize.capabilities)
-   {
-       if($capability.Name -eq 'EphemeralOSDiskSupported' -and $capability.Value -eq 'true')
-       {
-           $vmSize
-       }
-   }
+    return $capability | where { $_.Name -eq "EphemeralOSDiskSupported" -and $_.Value -eq "True"}
 }
+ 
+Function Get-MaxTempDiskAndCacheSize([object[]] $capabilities)
+{
+    $MaxResourceVolumeGB = 0;
+    $CachedDiskGB = 0;
+ 
+    foreach($capability in $capabilities)
+    {
+        if ($capability.Name -eq "MaxResourceVolumeMB")
+        { $MaxResourceVolumeGB = [int]($capability.Value / 1024) }
+ 
+        if ($capability.Name -eq "CachedDiskBytes")
+        { $CachedDiskGB = [int]($capability.Value / (1024 * 1024 * 1024)) }
+    }
+ 
+    return ($MaxResourceVolumeGB, $CachedDiskGB)
+}
+ 
+Function Get-EphemeralSupportedVMSku
+{
+    [CmdletBinding()]
+    Param
+    (
+        [Parameter(Mandatory=$true)]
+        [long]$OSImageSizeInGB,
+        [Parameter(Mandatory=$true)]
+        [string]$Location
+    )
+ 
+    $VmSkus = Get-AzComputeResourceSku $Location | Where-Object { $_.ResourceType -eq "virtualMachines" -and (HasSupportEphemeralOSDisk $_.Capabilities) -ne $null }
+ 
+    $Response = @()
+    foreach ($sku in $VmSkus)
+    {
+        ($MaxResourceVolumeGB, $CachedDiskGB) = Get-MaxTempDiskAndCacheSize $sku.Capabilities
+ 
+        $Response += New-Object PSObject -Property @{
+            ResourceSKU = $sku.Size
+            TempDiskPlacement = @{ $true = "NOT SUPPORTED"; $false = "SUPPORTED"}[$MaxResourceVolumeGB -lt $OSImageSizeInGB]
+            CacheDiskPlacement = @{ $true = "NOT SUPPORTED"; $false = "SUPPORTED"}[$CachedDiskGB -lt $OSImageSizeInGB]
+        };
+    }
+ 
+    return $Response
+}
+ 
+Get-EphemeralSupportedVMSku -OSImageSizeInGB $OSImageSizeInGB -Location $Location | Format-Table
 ```
  
 **Q: Can the ephemeral OS disk be applied to existing VMs and scale sets?**
