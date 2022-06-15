@@ -46,6 +46,9 @@ The following high-level diagram summarizes how authentication works using Azure
 
 When using Azure AD authentication, there are two Administrator accounts for the PostgreSQL server; the original PostgreSQL administrator and the Azure AD administrator. Only the administrator based on an Azure AD account can create the first Azure AD contained database user in a user database. The Azure AD administrator login can be an Azure AD user or an Azure AD group. When the administrator is a group account, it can be used by any group member, enabling multiple Azure AD administrators for the PostgreSQL server. Using a group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in the PostgreSQL server. Only one Azure AD administrator (a user or group) can be configured at any time.
 
+> [!NOTE]
+> It is not currently possible to use a Service Principal or Managed Identity as Azure AD Administrator. When the administrator is a group account, only members of that group that are users can act as Azure AD Administrator.
+
 ![admin structure][2]
 
 ## Permissions
