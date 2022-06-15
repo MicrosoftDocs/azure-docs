@@ -154,7 +154,15 @@ Use the filters or search using CTRL+F to find the information of interest to yo
 
 In the on-premises management console, select **System Settings > System Statistics**, and then select **Audit log**.
 
-The dialog displays data from the currently active audit log, including the following data:
+The dialog displays data from the currently active audit log. For example:
+
+For example:
+
+:::image type="content" source="media/how-to-create-and-manage-users/view-audit-logs.png" alt-text="Screenshot of the on-premises management console showing audit logs." lightbox="media/how-to-create-and-manage-users/view-audit-logs.png":::
+
+New audit logs are generated at every 10 MB. One previous log is stored in addition to the current active log file.
+
+Audit logs include the following data:
 
 | Action | Information logged |
 |--|--|
@@ -170,11 +178,6 @@ The dialog displays data from the currently active audit log, including the foll
 | **Sensor upgrade retry** | Sensor ID |
 | **Uploaded TI package** | No additional information recorded. |
 
-For example:
-
-:::image type="content" source="media/how-to-create-and-manage-users/view-audit-logs.png" alt-text="Screenshot of the on-premises management console showing audit logs." lightbox="media/how-to-create-and-manage-users/view-audit-logs.png":::
-
-New audit logs are generated at every 10 MB. One previous log is stored in addition to the current active log file.
 
 > [!TIP]
 > You may also want to export your audit logs to send them to the support team for extra troubleshooting. For more information, see [Export audit logs for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-audit-logs-for-troubleshooting)
