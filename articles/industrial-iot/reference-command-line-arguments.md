@@ -10,7 +10,7 @@ ms.date: 3/22/2021
 
 # Command-line Arguments
 
-In the following, there are several command-line arguments described that can be used to set global settings for OPC Publisher.
+In the following, there are several Command-line Arguments described that can be used to set global settings for OPC Publisher.
 
 ## OPC Publisher Command-line Arguments for Version 2.5 and below
 
@@ -32,7 +32,7 @@ There are a couple of environment variables, which can be used to control the ap
 ```
 
 > [!NOTE] 
-> Command-line arguments overrule environment variable settings.
+> Command-line Arguments overrule environment variable settings.
     
 ```
       --pf, --publishfile=VALUE

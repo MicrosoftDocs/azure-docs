@@ -34,9 +34,9 @@ Internet
     * Secrets: Manage platform settings
     * Access policies: Manage which applications and users may access the data in the Key
 Vault and which operations (for example, read, write, list, delete) they are allowed to perform on the network, firewall, VNET, and private endpoints
-* Azure Active Directory (AAD)→App registrations
+* Microsoft Azure Active Directory (Azure AD)→App registrations
     * <APP_NAME>-web → Authentication: Manage reply URIs, which is the list of URIs that
-can be used as landing pages after authentication succeeds. The deployment script may be unable to configure this automatically under certain scenarios, such as lack of AAD admin rights. You may want to add or modify URIs when changing the hostname of the Web app, for example, the port number used by the localhost for debugging
+can be used as landing pages after authentication succeeds. The deployment script may be unable to configure this automatically under certain scenarios, such as lack of Azure AD admin rights. You may want to add or modify URIs when changing the hostname of the Web app, for example, the port number used by the localhost for debugging
 * App Service
     * Configuration: Manage the environment variables that control the services or UI
 * Virtual machine
@@ -49,8 +49,8 @@ output of deployment script or reset the password
 
 ## Configuration via Command-line Arguments for OPC Publisher 2.8.2 and above
 
-There are [several command-line arguments](reference-command-line-arguments.md#opc-publisher-command-line-arguments-for-version-282-and-above) that can be used to set global settings for OPC Publisher.
-Refer to the `mode` part in the command line description to check if a command line argument is applicable to orchestrated or standalone mode. 
+There are [several Command-line Arguments](reference-command-line-arguments.md#opc-publisher-command-line-arguments-for-version-282-and-above) that can be used to set global settings for OPC Publisher.
+Refer to the `mode` part in the command line description to check if a Command-line Argument is applicable to orchestrated or standalone mode. 
 
 ## Next steps
 Now that you have learned how to change the default values of the configuration, you can 
