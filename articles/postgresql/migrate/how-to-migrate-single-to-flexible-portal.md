@@ -39,46 +39,45 @@ The migration tool comes with a simple, wizard-based experience on the Azure por
 
 1. Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in. The default view is your service dashboard.
 
-2. Go to your Azure database for PostgreSQL Flexible Server target.If you haven't created an Azure database for PostgreSQL Flexible Server target, [create one now](../flexible-server/quickstart-create-server-portal.md).
+2. Go to your Azure Database for PostgreSQL Flexible Server target. If you haven't created a Flexible Server target, [create one now](../flexible-server/quickstart-create-server-portal.md).
 
-3. On the **Overview** tab for Flexible Server, on the left menu, and scroll down to **Migration (preview)** and select it.
+3. On the **Overview** tab for Flexible Server, on the left menu, scroll down to **Migration (preview)** and select it.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png" alt-text="Screenshot of Migration Preview Tab details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png" alt-text="Screenshot of Migration tab details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png":::
 
-4. Select the **Migrate from Single Server** button to start a migration from Single Server to Flexible Server. If this is the first time you are using the migration tool, you will see an empty grid with a prompt to begin your first migration.
+4. Select the **Migrate from Single Server** button to start a migration from Single Server to Flexible Server. If this is the first time you're using the migration tool, you see an empty grid with a prompt to begin your first migration.
 
-    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png" alt-text="Screenshot of Migrate from Single Server tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png":::
+    :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png" alt-text="Screenshot of the Migrate from Single Server tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png":::
 
-    If you have already created migrations to your Flexible Server target, you should see the grid populated with information of the list of migrations that were attempted to this target from Single Server sources.
+    If you've already created migrations to your Flexible Server target, you should see the grid populated with information about migrations that were attempted to this target from Single Server sources.
 
-5. Select the **Migrate from Single Server** button. You will be taken through a wizard-based user interface to create a migration to this Flexible Server target from any Single Server source.
+5. Select the **Migrate from Single Server** button. You'll be taken through a wizard-based series of tabs to create a migration to this Flexible Server target from any Single Server source.
 
 ### Setup tab
 
-The first is the setup tab which has basic information about the migration and the list of pre-requisites that need to be taken care of to get started with migrations. The list of pre-requisites is the same as the ones listed in the pre-requisites section [here](./concepts-single-to-flexible.md). Select the provided link to know more about the same.
+The first tab is **Setup**. It has basic information about the migration and the list of prerequisites for getting started with migrations. The list of prerequisites is the same as the ones listed in the [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md) article. 
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-setup.png" alt-text="Screenshot of Setup Tab details." lightbox="./media/concepts-single-to-flexible/single-to-flex-setup.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-setup.png" alt-text="Screenshot of Setup tab details." lightbox="./media/concepts-single-to-flexible/single-to-flex-setup.png":::
 
-- The **Migration name** is the unique identifier for each migration to this Flexible Server target. This field accepts only alphanumeric characters and does not accept any special characters except **&#39;-&#39;**. The name cannot start with a **&#39;-&#39;** and should be unique for a target server. No two migrations to the same Flexible Server target can have the same name.
-- The **Migration resource group** is where all the migration-related components will be created by this migration tool.
+**Migration name** is the unique identifier for each migration to this Flexible Server target. This field accepts only alphanumeric characters and does not accept any special characters except a hyphen (-). The name can't start with a hyphen and should be unique for a target server. No two migrations to the same Flexible Server target can have the same name.
 
-By default, it is resource group of the Flexible Server target and all the components will be cleaned up automatically once the migration completes. If you want to create a temporary resource group for migration-related purposes, create a resource group and select the same from the dropdown.
+**Migration resource group** is where the migration tool will create all the migration-related components. By default, the resource group of the Flexible Server target and all the components will be cleaned up automatically after the migration finishes. If you want to create a temporary resource group for the migration, create it and then select it from the dropdown list.
 
-- For the **Azure Active Directory App**, click the **select** option and pick the app that was created as a part of the pre-requisite step. Once the Azure AD App is chosen, paste the client secret that was generated for the Azure AD app to the **Azure Active Directory Client Secret** field.
+For **Azure Active Directory App**, click the **select** option and choose the Azure Active Directory app that you created for the prerequisite step. Then, in the **Azure Active Directory Client Secret** box, paste the client secret that was generated for that app.
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-client-secret.png" alt-text="Screenshot of field to enter Client Secret." lightbox="./media/concepts-single-to-flexible/single-to-flex-client-secret.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-client-secret.png" alt-text="Screenshot of box to enter a client secret." lightbox="./media/concepts-single-to-flexible/single-to-flex-client-secret.png":::
 
 Select the **Next** button.
 
 ### Source tab
 
+The **Source** tab prompts you to give details related to the Single Server source from which databases need to be migrated. 
+
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-source.png" alt-text="Screenshot of source database server details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-source.png":::
 
-The source tab prompts you to give details related to the Single Server source from which databases need to be migrated. As soon as you make the **Subscription** and  **Resource Group** selections, the dropdown for server names will have the list of Single Server sources under that resource group across regions. It is recommended to migrate databases from a Single Server source to a Flexible Server target in the same region.
+As soon as you make the **Subscription** and  **Resource Group** selections, the dropdown list for server names will show Single Server sources under that resource group across regions. Select the source from wich you want to migrate databases. We recommend that you migrate databases from a Single Server source to a Flexible Server target in the same region.
 
-Choose the Single Server source from which you want to migrate databases, in the drop down.
-
-Once the Single Server source is chosen, the fields such as  **Location, PostgreSQL version, Server admin login name**  are automatically pre-populated. The server admin login name is the admin username that was used to create the Single Server source. Enter the password for the **server admin login name**. This is required for the migration tool to login into the Single Server source to initiate the dump and migration.
+After you choose the Single Server, the **Location**, **PostgreSQL version**, and **Server admin login name** boxes are automatically populated. The server admin login name is the admin username that was used to create the Single Server source. In the **Password** box, enter the password for that admin login name. It will enable the migration tool to log in to the Single Server source to initiate the dump and migration.
 
 You should also see the list of user databases inside the Single Server source that you can pick for migration. You can select up to eight databases that can be migrated in a single migration attempt. If there are more than eight user databases, create multiple migrations using the same experience between the source and target servers.
 
