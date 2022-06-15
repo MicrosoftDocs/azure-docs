@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Identify web app issues with end-to-end tests'
-titleSuffix: Azure Playwright Testing
+titleSuffix: Microsoft Playwright Testing
 description: In this tutorial, you learn how to identify issues in your web app with cross-platform, cross-browser end-to-end tests in Microsoft Playwright Testing. Troubleshoot problems by using rich traces, screenshots, and test result artifacts.
 services: playwright-testing
 ms.service: playwright-testing
@@ -117,7 +117,7 @@ To create a load test in the Load Testing resource for the sample app:
 
 1. On the **Test plan** tab, select the **JMeter script** test method, and then select the *SampleApp.jmx* test script from the cloned sample application directory. Next, select **Upload** to upload the file to Azure and configure the load test.
 
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload an Apache JMeter script." :::
+   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload an Apache J Meter script." :::
 
     Optionally, you can select and upload additional Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
 
@@ -202,7 +202,7 @@ In this section, you'll analyze the results of the load test to identify perform
 
 1. Now, look at the Azure Cosmos DB server-side metrics.
 
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/cosmos-db-metrics.png" alt-text="Screenshot that shows Azure Cosmos DB metrics.":::
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/cosmos-db-metrics.png" alt-text="Screenshot that shows Azure Cosmos D B metrics.":::
 
     Notice that the **Normalized RU Consumption** metric shows that the database was quickly running at 100% resource utilization. The high resource usage might have caused database throttling errors. It also might have increased response times for the `add` and `get` web APIs.
 
