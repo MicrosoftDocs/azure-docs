@@ -1235,7 +1235,7 @@ chunk([<collection>], '<length>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*collection*> | Array | An array of chunks of the specified length |
+| <*collection*> | Array | An array of chunks with the specified length |
 ||||
 
 *Example 1*
