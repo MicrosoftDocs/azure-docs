@@ -16,7 +16,7 @@ Insert a few lines of code in your application to find out what users are doing 
 
 ## API summary
 
-The core API is uniform across all platforms, apart from a few variations like `GetMetric`(.NET only).
+The core API is uniform across all platforms, apart from a few variations like `GetMetric` (.NET only).
 
 | Method | Used for |
 | --- | --- |
@@ -88,7 +88,7 @@ var telemetry = applicationInsights.defaultClient;
 
 `TelemetryClient` is thread safe.
 
-For ASP.NET and Java projects, incoming HTTP requests are automatically captured. You might want to create more instances of `TelemetryClient` for other modules of your app. For example, you might have one `TelemetryClient` instance in your middleware class to report business logic events. You can set properties such as UserId and DeviceId to identify the machine. This information is attached to all events that the instance sends.
+For ASP.NET and Java projects, incoming HTTP requests are automatically captured. You might want to create more instances of `TelemetryClient` for other modules of your app. For example, you might have one `TelemetryClient` instance in your middleware class to report business logic events. You can set properties such as `UserId` and `DeviceId` to identify the machine. This information is attached to all events that the instance sends.
 
 *C#*
 
@@ -148,19 +148,19 @@ telemetry.trackEvent({name: "WinGame"});
 
 The telemetry is available in the `customEvents` table on the [Application Insights Logs tab](../logs/log-query-overview.md) or [usage experience](usage-overview.md). Events might come from `trackEvent(..)` or the [Click Analytics Auto-collection plug-in](javascript-click-analytics-plugin.md).
 
-If [sampling](./sampling.md) is in operation, the itemCount property shows a value greater than 1. For example, itemCount==10 means that of 10 calls to trackEvent(), the sampling process transmitted only one of them. To get a correct count of custom events, use code such as `customEvents | summarize sum(itemCount)`.
+If [sampling](./sampling.md) is in operation, the `itemCount` property shows a value greater than `1`. For example, `itemCount==10` means that of 10 calls to `trackEvent()`, the sampling process transmitted only one of them. To get a correct count of custom events, use code such as `customEvents | summarize sum(itemCount)`.
 
 ## GetMetric
 
-To learn how to effectively use the GetMetric() call to capture locally pre-aggregated metrics for .NET and .NET Core applications, see [Custom metric collection in .NET and .NET Core](./get-metric.md).
+To learn how to effectively use the `GetMetric()` call to capture locally pre-aggregated metrics for .NET and .NET Core applications, see [Custom metric collection in .NET and .NET Core](./get-metric.md).
 
 ## TrackMetric
 
 > [!NOTE]
-> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric is not the preferred method for sending metrics. Metrics should always be pre-aggregated across a time period before being sent. Use one of the GetMetric(..) overloads to get a metric object for accessing SDK pre-aggregation capabilities.
+> `Microsoft.ApplicationInsights.TelemetryClient.TrackMetric` isn't the preferred method for sending metrics. Metrics should always be pre-aggregated across a time period before being sent. Use one of the `GetMetric(..)` overloads to get a metric object for accessing SDK pre-aggregation capabilities.
 >
-> If you're implementing your own pre-aggregation logic, you can use the TrackMetric() method to send the resulting aggregates. If your application requires sending a separate telemetry item on every occasion without aggregation across time, you likely have a use case for event telemetry. For more information, see TelemetryClient.TrackEvent
-(Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
+> If you're implementing your own pre-aggregation logic, you can use the `TrackMetric()` method to send the resulting aggregates. If your application requires sending a separate telemetry item on every occasion without aggregation across time, you likely have a use case for event telemetry. See `TelemetryClient.TrackEvent
+(Microsoft.ApplicationInsights.DataContracts.EventTelemetry)`.
 
 Application Insights can chart metrics that aren't attached to particular events. For example, you could monitor a queue length at regular intervals. With metrics, the individual measurements are of less interest than the variations and trends, and so statistical charts are useful.
 
@@ -252,7 +252,7 @@ appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
 ### Timing page views
 
-By default, the times reported as **Page view load time** are measured from when the browser sends the request, until the browser's page load event is called.
+By default, the times reported as **Page view load time** are measured from when the browser sends the request until the browser's page load event is called.
 
 Instead, you can either:
 
@@ -305,11 +305,11 @@ pageViews
 
 ## TrackRequest
 
-The server SDK uses TrackRequest to log HTTP requests.
+The server SDK uses `TrackRequest` to log HTTP requests.
 
 You can also call it yourself if you want to simulate requests in a context where you don't have the web service module running.
 
-However, the recommended way to send request telemetry is where the request acts as an <a href="#operation-context">operation context</a>.
+The recommended way to send request telemetry is where the request acts as an <a href="#operation-context">operation context</a>.
 
 ## Operation context
 
@@ -353,7 +353,7 @@ For more information on custom operations tracking, see [Track custom operations
 
 In [Application Insights Analytics](../logs/log-query-overview.md), requests show up in the `requests` table.
 
-If [sampling](./sampling.md) is in operation, the itemCount property shows a value greater than 1. For example, itemCount==10 means that of 10 calls to trackRequest(), the sampling process transmitted only one of them. To get a correct count of requests and average duration segmented by request names, use code such as:
+If [sampling](./sampling.md) is in operation, the `itemCount` property shows a value greater than `1`. For example, `itemCount==10` means that of 10 calls to `trackRequest()`, the sampling process transmitted only one of them. To get a correct count of requests and average duration segmented by request names, use code such as:
 
 ```kusto
 requests
@@ -418,7 +418,7 @@ catch (ex)
 }
 ```
 
-The SDKs catch many exceptions automatically, so you don't always have to call TrackException explicitly.
+The SDKs catch many exceptions automatically, so you don't always have to call `TrackException` explicitly:
 
 * **ASP.NET**: [Write code to catch exceptions](./asp-net-exceptions.md).
 * **Java EE**: [Exceptions are caught automatically](./java-in-process-agent.md).
@@ -435,7 +435,7 @@ The SDKs catch many exceptions automatically, so you don't always have to call T
 
 In [Application Insights Analytics](../logs/log-query-overview.md), exceptions show up in the `exceptions` table.
 
-If [sampling](./sampling.md) is in operation, the itemCount property shows a value greater than 1. For example, itemCount==10 means that of 10 calls to trackException(), the sampling process transmitted only one of them. To get a correct count of exceptions segmented by type of exception, use code such as:
+If [sampling](./sampling.md) is in operation, the `itemCount` property shows a value greater than `1`. For example, `itemCount==10` means that of 10 calls to `trackException()`, the sampling process transmitted only one of them. To get a correct count of exceptions segmented by type of exception, use code such as:
 
 ```kusto
 exceptions
@@ -458,11 +458,11 @@ exceptions
 
 ## TrackTrace
 
-Use TrackTrace to help diagnose problems by sending a "breadcrumb trail" to Application Insights. You can send chunks of diagnostic data and inspect them in [Diagnostic Search](./diagnostic-search.md).
+Use `TrackTrace` to help diagnose problems by sending a "breadcrumb trail" to Application Insights. You can send chunks of diagnostic data and inspect them in [Diagnostic Search](./diagnostic-search.md).
 
 In .NET [Log adapters](./asp-net-trace-logs.md), use this API to send third-party logs to the portal.
 
-In Java, the [Application Insights Java agent](java-in-process-agent.md) auto-collects and sends logs to the portal.
+In Java, the [Application Insights Java agent](java-in-process-agent.md) autocollects and sends logs to the portal.
 
 *C#*
 
@@ -506,7 +506,7 @@ Log a diagnostic event such as entering or leaving a method.
 
 You can search on message content, but unlike property values, you can't filter on it.
 
-The size limit on `message` is much higher than the limit on properties. An advantage of TrackTrace is that you can put relatively long data in the message. For example, you can encode POST data there.
+The size limit on `message` is much higher than the limit on properties. An advantage of `TrackTrace` is that you can put relatively long data in the message. For example, you can encode POST data there.
 
 You can also add a severity level to your message. And, like other telemetry, you can add property values to help you filter or search for different sets of traces. For example:
 
@@ -531,16 +531,16 @@ In [Search](./diagnostic-search.md), you can then easily filter out all the mess
 
 ### Traces in Log Analytics
 
-In [Application Insights Analytics](../logs/log-query-overview.md), calls to TrackTrace show up in the `traces` table.
+In [Application Insights Analytics](../logs/log-query-overview.md), calls to `TrackTrace` show up in the `traces` table.
 
-If [sampling](./sampling.md) is in operation, the itemCount property shows a value greater than 1. For example, itemCount==10 means that of 10 calls to trackTrace(), the sampling process transmitted only one of them. To get a correct count of trace calls, use code such as `traces | summarize sum(itemCount)`.
+If [sampling](./sampling.md) is in operation, the `itemCount` property shows a value greater than `1`. For example, `itemCount==10` means that of 10 calls to `trackTrace()`, the sampling process transmitted only one of them. To get a correct count of trace calls, use code such as `traces | summarize sum(itemCount)`.
 
 ## TrackDependency
 
-Use the TrackDependency call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal. The following code snippet must be added wherever a dependency call is made.
+Use the `TrackDependency` call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal. The following code snippet must be added wherever a dependency call is made.
 
 > [!NOTE]
-> For .NET and .NET Core, you can alternatively use the `TelemetryClient.StartOperation` (extension) method that fills the `DependencyTelemetry` properties that are needed for correlation and some other properties like the start time and duration, so you don't need to create a custom timer as with the following examples. For more information, consult the section on outgoing dependency tracking in [Track custom operations with Application Insights .NET SDK](./custom-operations-tracking.md#outgoing-dependencies-tracking).
+> For .NET and .NET Core, you can alternatively use the `TelemetryClient.StartOperation` (extension) method that fills the `DependencyTelemetry` properties that are needed for correlation and some other properties like the start time and duration, so you don't need to create a custom timer as with the following examples. For more information, see the section on outgoing dependency tracking in [Track custom operations with Application Insights .NET SDK](./custom-operations-tracking.md#outgoing-dependencies-tracking).
 
 *C#*
 
@@ -611,13 +611,13 @@ In Java, many dependency calls can be automatically tracked by using the
 You use this call if you want to track calls that the automated tracking doesn't catch.
 
 To turn off the standard dependency-tracking module in C#, edit [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`. For Java, see
-[Suppressing specific auto-collected telemetry](./java-standalone-config.md#suppressing-specific-auto-collected-telemetry).
+[Suppressing specific autocollected telemetry](./java-standalone-config.md#suppressing-specific-auto-collected-telemetry).
 
 ### Dependencies in Log Analytics
 
-In [Application Insights Analytics](../logs/log-query-overview.md), trackDependency calls show up in the `dependencies` table.
+In [Application Insights Analytics](../logs/log-query-overview.md), `trackDependency` calls show up in the `dependencies` table.
 
-If [sampling](./sampling.md) is in operation, the itemCount property shows a value greater than 1. For example, itemCount==10 means that of 10 calls to trackDependency(), the sampling process transmitted only one of them. To get a correct count of dependencies segmented by target component, use code such as:
+If [sampling](./sampling.md) is in operation, the `itemCount` property shows a value greater than 1. For example, `itemCount==10` means that of 10 calls to `trackDependency()`, the sampling process transmitted only one of them. To get a correct count of dependencies segmented by target component, use code such as:
 
 ```kusto
 dependencies
@@ -719,11 +719,11 @@ In [Metrics Explorer](../essentials/metrics-charts.md), you can create a chart t
 You can also [search](./diagnostic-search.md) for client data points with specific user names and accounts.
 
 > [!NOTE]
-> The [EnableAuthenticationTrackingJavaScript property in the ApplicationInsightsServiceOptions class](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) in the .NET Core SDK simplifies the JavaScript configuration needed to inject the user name as the Auth Id for each trace sent by the Application Insights JavaScript SDK.
+> The [EnableAuthenticationTrackingJavaScript property in the ApplicationInsightsServiceOptions class](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) in the .NET Core SDK simplifies the JavaScript configuration needed to inject the user name as the Auth ID for each trace sent by the Application Insights JavaScript SDK.
 >
->When this property is set to true, the user name from the user in the ASP.NET Core is printed along with [client-side telemetry](asp-net-core.md#enable-client-side-telemetry-for-web-applications), For this reason, adding `appInsights.setAuthenticatedUserContext` manually wouldn't be needed anymore because it's already injected by the SDK for ASP.NET Core. The Auth Id will also be sent to the server where the SDK in .NET Core will identify it and use it for any server-side telemetry, as described in the [JavaScript API reference](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext).
+>When this property is set to `true`, the user name from the user in the ASP.NET Core is printed along with [client-side telemetry](asp-net-core.md#enable-client-side-telemetry-for-web-applications). For this reason, adding `appInsights.setAuthenticatedUserContext` manually wouldn't be needed anymore because it's already injected by the SDK for ASP.NET Core. The Auth ID will also be sent to the server where the SDK in .NET Core will identify it and use it for any server-side telemetry, as described in the [JavaScript API reference](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext).
 >
->However, for JavaScript applications that don't work in the same way as ASP.NET Core MVC (such as SPA web apps), you would still need to add `appInsights.setAuthenticatedUserContext` manually.
+>For JavaScript applications that don't work in the same way as ASP.NET Core MVC, such as SPA web apps, you would still need to add `appInsights.setAuthenticatedUserContext` manually.
 
 ## <a name="properties"></a>Filter, search, and segment your data by using properties
 
@@ -731,11 +731,11 @@ You can attach properties and measurements to your events, metrics, page views, 
 
 *Properties* are string values that you can use to filter your telemetry in the usage reports. For example, if your app provides several games, you can attach the name of the game to each event so that you can see which games are more popular.
 
-There's a limit of 8,192 on the string length. If you want to send large chunks of data, use the message parameter of TrackTrace.
+There's a limit of 8,192 on the string length. If you want to send large chunks of data, use the message parameter of `TrackTrace`.
 
 *Metrics* are numeric values that can be presented graphically. For example, you might want to see if there's a gradual increase in the scores that your gamers achieve. The graphs can be segmented by the properties that are sent with the event so that you can get separate or stacked graphs for different games.
 
-For metric values to be correctly displayed, they should be greater than or equal to 0.
+Metric values should be greater than or equal to 0 to display correctly.
 
 There are some [limits on the number of properties, property values, and metrics](#limits) that you can use.
 
@@ -816,7 +816,7 @@ telemetry.trackEvent("WinGame", properties, metrics);
 ```
 
 > [!NOTE]
-> Take care not to log personally identifiable information in properties.
+> Make sure you don't log personally identifiable information in properties.
 
 ### Alternative way to set properties and metrics
 
@@ -836,7 +836,7 @@ telemetry.TrackEvent(event);
 ```
 
 > [!WARNING]
-> Don't reuse the same telemetry item instance (`event` in this example) to call Track*() multiple times. This might cause telemetry to be sent with incorrect configuration.
+> Don't reuse the same telemetry item instance (`event` in this example) to call `Track*()` multiple times. This practice might cause telemetry to be sent with incorrect configuration.
 
 ### Custom measurements and properties in Log Analytics
 
@@ -851,7 +851,7 @@ requests
 
 Notice that:
 
-* When you extract a value from the customDimensions or customMeasurements JSON, it has dynamic type, so you must cast it `tostring` or `todouble`.
+* When you extract a value from the `customDimensions` or `customMeasurements` JSON, it has dynamic type, so you must cast it `tostring` or `todouble`.
 * To take account of the possibility of [sampling](./sampling.md), use `sum(itemCount)` not `count()`.
 
 ## <a name="timed"></a> Timing events
@@ -980,7 +980,7 @@ TelemetryConfiguration.Active.DisableTelemetry = true;
 telemetry.getConfiguration().setTrackingDisabled(true);
 ```
 
-To *disable selected standard collectors*, for example, performance counters, HTTP requests, or dependencies, delete or comment out the relevant lines in [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). An example is if you want to send your own TrackRequest data.
+To *disable selected standard collectors*, for example, performance counters, HTTP requests, or dependencies, delete or comment out the relevant lines in [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). An example is if you want to send your own `TrackRequest` data.
 
 *Node.js*
 
@@ -988,7 +988,7 @@ To *disable selected standard collectors*, for example, performance counters, HT
 telemetry.config.disableAppInsights = true;
 ```
 
-To *disable selected standard collectors*, for example, performance counters, HTTP requests, or dependencies, at initialization time, chain configuration methods to your SDK initialization code:
+To *disable selected standard collectors*, for example, performance counters, HTTP requests, or dependencies, at initialization time, chain configuration methods to your SDK initialization code.
 
 ```javascript
 applicationInsights.setup()
@@ -1020,7 +1020,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 *Node.js*
 
-For Node.js, you can enable developer mode by enabling internal logging via `setInternalLogging` and setting `maxBatchSize` to 0, which causes your telemetry to be sent as soon as it's collected.
+For Node.js, you can enable developer mode by enabling internal logging via `setInternalLogging` and setting `maxBatchSize` to `0`, which causes your telemetry to be sent as soon as it's collected.
 
 ```js
 applicationInsights.setup("ikey")
@@ -1043,7 +1043,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 To avoid mixing up telemetry from development, test, and production environments, you can [create separate Application Insights resources](./create-new-resource.md) and change their keys, depending on the environment.
 
-Instead of getting the instrumentation key from the configuration file, you can set it in your code. Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
+Instead of getting the instrumentation key from the configuration file, you can set it in your code. Set the key in an initialization method, such as `global.aspx.cs` in an ASP.NET service:
 
 *C#*
 
@@ -1091,7 +1091,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## TelemetryContext
 
-TelemetryClient has a Context property, which contains values that are sent along with all telemetry data. They're normally set by the standard telemetry modules, but you can also set them yourself. For example:
+`TelemetryClient` has a Context property, which contains values that are sent along with all telemetry data. They're normally set by the standard telemetry modules, but you can also set them yourself. For example:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1101,7 +1101,7 @@ If you set any of these values yourself, consider removing the relevant line fro
 
 * **Component**: The app and its version.
 * **Device**: Data about the device where the app is running. In web apps, it's the server or client device that the telemetry is sent from.
-* **InstrumentationKey**: The Application Insights resource in Azure where the telemetry appears. It's usually picked up from ApplicationInsights.config.
+* **InstrumentationKey**: The Application Insights resource in Azure where the telemetry appears. It's usually picked up from `ApplicationInsights.config`.
 * **Location**: The geographic location of the device.
 * **Operation**: In web apps, the current HTTP request. In other app types, you can set this value to group events together.
   * **ID**: A generated value that correlates different events so that when you inspect any event in Diagnostic Search, you can find related items.
@@ -1134,12 +1134,12 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 
 ## Questions
 
-* What exceptions might Track_() calls throw?
+* What exceptions might `Track_()` calls throw?
 
     None. You don't need to wrap them in try-catch clauses. If the SDK encounters problems, it will log messages in the debug console output and, if the messages get through, in Diagnostic Search.
 * Is there a REST API to get data from the portal?
 
-    Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [export from Analytics to Power BI](./export-power-bi.md) and [continuous export](./export-telemetry.md).
+    Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [export from Log Analytics to Power BI](./export-power-bi.md) and [continuous export](./export-telemetry.md).
 
 ## <a name="next"></a>Next steps
 

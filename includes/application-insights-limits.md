@@ -29,4 +29,4 @@ There are some limits on the number of metrics and events per application, that 
 | [Profiler](../articles/azure-monitor/app/profiler.md) data sent per day | No limit | No limit | |
 | [Snapshot](../articles/azure-monitor/app/snapshot-debugger.md) data sent per day | 30 snapshots per day per monitored app | No limit | The number of snapshots collected per application can be modified through [configuration](../articles/azure-monitor/app/snapshot-debugger-vm.md). |
 
-For more information, see [About pricing and quotas in Application Insights](../articles/azure-monitor/logs/cost-logs.md#application-insights-billing).
+For more information about pricing and quotas, see [Application Insights billing](../articles/azure-monitor/logs/cost-logs.md#application-insights-billing).
