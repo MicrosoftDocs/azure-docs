@@ -311,7 +311,7 @@ To limit the number of alerts, use the `notifications.max_number_to_report` prop
 
 1. Save the changes. No restart is required.
 
-## Export audit logs for troubleshooting
+### Export audit logs for troubleshooting
 
 Audit logs record key activity data at the time of occurrence. Use audit logs generated on the on-premises management console to understand which changes were made, when, and by whom.
 
