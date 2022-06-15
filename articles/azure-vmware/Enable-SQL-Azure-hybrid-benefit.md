@@ -20,12 +20,12 @@ For example, if each host in AVS has 36 cores and you signal that two hosts run 
 
 1.	Fill in the required fields for creating the placement policy.
      1.	**Name** – Select the name that identifies this policy.
-     2. **Type** – Select the type of policy. This must be VM-Host affinity only.
+     2. **Type** – Select the type of policy. This type must be VM-Host affinity only.
      3. **Azure hybrid benefit** – Select the checkbox to apply the SQL Azure hybrid benefit.
      4. **Cluster** – Select the necessary cluster. The policy is applicable per cluster only.
      1. **Enabled** – Select enabled to apply the policy immediately once created.
      
-     :::image type="content" source="media/Sql-azure-hybrid-benefit/create-placement-policy.png" alt-text="Diagram that shows how to create a host virtual machine placement policy":::
+     :::image type="content" source="media/Sql-azure-hybrid-benefit/create-placement-policy.png" alt-text="Diagram that shows how to create a host virtual machine placement policy using the host VM affinity":::
 3.	Select the hosts and VMs that will be applied to the VM-Host affinity policy.
      1.	**Add Hosts** – Select the hosts that will be running SQL.
      2.	**Add VMs** – Select the VMs that should run on the selected hosts.
@@ -34,8 +34,8 @@ For example, if each host in AVS has 36 cores and you signal that two hosts run 
 
 ## Managing placement policies
 
-After the placement policy is created, you can review, manage, edit the policy by going to the Placement policies menu available in the Azure VMWare Solution private cloud. 
+After the placement policy is created, you can review, manage, edit the policy by going to the Placement policies menu in the Azure VMware Solution private cloud. 
 
-You can also enable existing host-VM affinity policies with the SQL Azure hybrid benefit by checking the Azure hybrid benefit checkbox in the configuration setting for that policy.
+You can also enable existing host-VM affinity policies with the SQL Azure hybrid benefit by checking the Azure hybrid benefit checkbox in the configuration setting.
 
 :::image type="content" source="media/Sql-azure-hybrid-benefit/placement-policies.png" alt-text="Diagram that shows how to configure virtual machine placement policies":::
