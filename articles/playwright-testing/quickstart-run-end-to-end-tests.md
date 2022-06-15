@@ -46,9 +46,9 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
 
 Once the load test starts, you'll be redirected to the test run dashboard. While the load test is running, Azure Load Testing captures both client-side metrics and server-side metrics. In this section, you'll use the dashboard to monitor the client-side metrics.
 
-1. On the test run dashboard, you can see the streaming client-side metrics while the test is running. By default, the data refreshes every five seconds.
+* On the test run dashboard, you can see the streaming client-side metrics while the test is running. By default, the data refreshes every five seconds.
 
-1. Optionally, change the display filters to view a specific time range, result percentile, or error type.
+* Optionally, change the display filters to view a specific time range, result percentile, or error type.
 
 ## Clean up resources
 
