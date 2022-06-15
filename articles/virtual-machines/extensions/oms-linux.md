@@ -207,7 +207,7 @@ Extension execution output is logged to the following file:
 To retrieve the OMS extension version installed on a VM, run the following command using Azure PowerShell.
 
 ```powershell
-Get-AzVMExtension -ResourceGroupName my_resource_group  -VMName my_vm_name -ExtensionName OmsAgentForLinux -Status
+Get-AzVMExtension -ResourceGroupName my_resource_group  -VMName my_vm_name -Name OmsAgentForLinux -Status
 ```
 
 ### Error codes and their meanings
