@@ -494,6 +494,12 @@
       - name: Connect with redirection
         href: single-server/how-to-redirection.md
         displayName: development, redirection , php
+      - name: Database Deployment
+        items:
+        - name: Azure Pipelines
+          href: single-server/azure-pipelines-mysql-deploy.md
+          maintainContext: true
+
     - name: Networking
       items:
       - name: Configure VNet Service Endpoints using Azure portal
