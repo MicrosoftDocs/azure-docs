@@ -31,7 +31,7 @@ MSAL.NET has four methods to provide either credentials or assertions to the con
 - `.WithClientClaims()`
 
 > [!NOTE]
-> While it is possible to use the `WithClientAssertion()` API to acquire tokens for the confidential client, we do not recommend using it by default as it is more advanced and is designed to handle very specific scenarios which are not common. Using the `.WithCertificate()` API will allow MSAL.NET to handle this for you. This api offers you the ability to customize your authentication request if needed but the default assertion created by `.WithCertificate()` will suffice for most authentication scenarios. This API can also be used as a workaround in some scenarios where MSAL.NET fails to perform the signing operation internally. The difference between the two, using the `WithCertificate()` requires the certificate and private key to be available on the machine creating the assertion, and using the `WithClientAssertion()` allows you to compute the assertion somewhere else, like inside the Azure Key Vault or with a Hardware security module.
+>  While it is possible to use the `WithClientAssertion()` API to acquire tokens for the confidential client, we do not recommend using it by default as it is more advanced and is designed to handle very specific scenarios which are not common. Using the `.WithCertificate()` API will allow MSAL.NET to handle this for you. This api offers you the ability to customize your authentication request if needed but the default assertion created by `.WithCertificate()` will suffice for most authentication scenarios. This API can also be used as a workaround in some scenarios where MSAL.NET fails to perform the signing operation internally. The difference between the two, using the `WithCertificate()` requires the certificate and private key to be available on the machine creating the assertion, and using the `WithClientAssertion()` allows you to compute the assertion somewhere else, like inside the Azure Key Vault or from Managed Identity, or with a Hardware security module.
 
 ### Signed assertions
 
@@ -51,7 +51,7 @@ string signedClientAssertion = ComputeAssertion();
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientAssertion(async (AssertionRequestOptions options) => {
                                             // use 'options.ClientID' or 'options.TokenEndpoint' to generate client assertion
-                                            return await GetClientAssertionAsync(options.CancellationToken); 
+                                            return await GetClientAssertionAsync(options.ClientID, options.TokenEndpoint, options.CancellationToken); 
                                           })
                                           .Build();
 ```
