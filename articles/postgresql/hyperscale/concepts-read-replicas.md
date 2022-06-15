@@ -18,7 +18,8 @@ run to up to five replicas from the primary server.
 
 Replicas are new server groups that you manage similar to regular Hyperscale
 (Citus) server groups. For each read replica, you're billed for the provisioned
-compute in vCores and storage in GiB/month.
+compute in vCores and storage in GiB/month. Compute and storage costs for
+replica server groups are the same as for regular server groups.
 
 Learn how to [create and manage replicas](howto-read-replicas-portal.md).
 
