@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 06/21/2021
+ms.date: 06/13/2022
 ms.author: pafarley
 keywords: computer vision, computer vision applications, computer vision service
 ---
@@ -64,7 +64,9 @@ Generate a description of an entire image in human-readable language, using comp
 
 ### Detect faces
 
-Detect faces in an image and provide information about each detected face. Computer Vision returns the coordinates, rectangle, gender, and age for each detected face.<br/>Computer Vision provides a subset of the [Face](./index-identity.yml) service functionality. You can use the Face service for more detailed analysis, such as facial identification and pose detection. [Detect faces](concept-detecting-faces.md)
+Detect faces in an image and provide information about each detected face. Computer Vision returns the coordinates, rectangle, gender, and age for each detected face. [Detect faces](concept-detecting-faces.md)
+
+You can also use the dedicated [Face API](./index-identity.yml) for these purposes. It provides more detailed analysis, such as facial identification and pose detection.
 
 ### Detect image types
 

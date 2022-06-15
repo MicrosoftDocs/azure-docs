@@ -179,7 +179,7 @@ The following illustrates this concept as an additional flow to the preceding se
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-A NAT gateway will  translate flow 4 to a source port that may already be in use for other destinations as well. See [Scale NAT gateway](#scale-nat-gateway) for more discussion on correctly sizing your IP address provisioning.
+A NAT gateway will  translate flow 4 to a source port that may already be in use for other destinations as well (see flow 1 from table above). See [Scale NAT gateway](#scale-nat-gateway) for more discussion on correctly sizing your IP address provisioning.
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
