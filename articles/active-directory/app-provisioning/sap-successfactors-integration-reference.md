@@ -201,31 +201,30 @@ Extending this scenario:
 By default, the Azure AD SuccessFactors connector uses the `activeEmploymentsCount` field of the `PersonEmpTerminationInfo` object to set account status. There is a known SAP SuccessFactors issue documented in [knowledge base article 3047486](https://userapps.support.sap.com/sap/support/knowledge/en/3047486) that at times this may disable the account of a terminated worker one day prior to the termination on the last day of work. 
 
 If you are running into this issue or prefer mapping employment status to  account status, you can update the mapping to expand the `emplStatus` field and use the employment status code present in the field `emplStatus.externalCode`. Based on [SAP support note 2505526](https://launchpad.support.sap.com/#/notes/2505526), here is a list of employment status codes that you can retrieve in the provisioning app. 
+* A = Active 
+* D = Dormant
+* U = Unpaid Leave
+* P = Paid Leave
+* S = Suspended
+* F = Furlough
+* O = Discarded
+* R = Retired
+* T = Terminated
 
-| **External Code** | **Employment Status** |
-| ----------------- | --------------------------- |
-| A                 | Active                      |
-| D                 | Dormant                     |
-| U                 | Unpaid Leave                |
-| P                 | Paid Leave                  |
-| S                 | Suspended                   |
-| F                 | Furlough                    |
-| O                 | Discarded                   |
-| R                 | Retired                     |
-| T                 | Terminated                  |
-
-Use the steps below to update your mapping. 
+Use the steps below to update your mapping to retrieve these codes. 
 
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
 1. Under **Show advanced options**, click on **Edit SuccessFactors attribute list**. 
 1. Find the attribute `emplStatus` and update the JSONPath to `$.employmentNav.results[0].jobInfoNav.results[0].emplStatusNav.externalCode`. This will enable the connector to retrieve the employment status codes in the table. 
 1. Save the changes. 
 1. In the attribute mapping blade, update the expression mapping for the account status flag. 
+
     | Provisioning Job                                     | Account status attribute | Mapping expression       |
     | ---------------------------------------------------- | ------------------------ | ------------------------------------------------------------------------ |
     | SuccessFactors to Active Directory User Provisioning | accountDisabled          | Switch(\[emplStatus\], "True", "A", "False", "U", "False", "P", "False") |
     | SuccessFactors to Azure AD User Provisioning         | accountEnabled           | Switch(\[emplStatus\], "False", "A", "True", "U", "True", "P", "True")   |
-1.  Save the changes.
+
+1. Save the changes.
 1. Test the configuration using [provision on demand](provision-on-demand.md). 
 1. After confirming that sync works as expected, restart the provisioning job. 
 
@@ -279,20 +278,24 @@ This section describes how you can update the JSONPath settings to definitely re
 1. Click on the **Download** link to save a copy of the schema before editing. 
 1. In the schema editor, press Ctrl-H key to open the find-replace control.
 1. Perform the following find replace operations. Ensure there is no leading or trailing space when performing the find-replace operations. If you are using `[-1:]` index instead of `[0]`, then update the *string-to-find* field accordingly. 
+
     | **String to find** | **String to use for replace** | **Purpose**  |
     | ------------------ | ----------------------------- | ------------ |
     | $.employmentNav.results\[0\].<br>jobInfoNav.results\[0\].emplStatus | $.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P' )\].emplStatusNav.externalCode | With this find-replace, we are adding the ability to expand emplStatusNav OData object.    |
     | $.employmentNav.results\[0\].<br>jobInfoNav.results\[0\]            | $.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\]                             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors EmpJobInfo record. Attributes associated with terminated/inactive records in SuccessFactors will be ignored. |
     | $.employmentNav.results\[0\]                                    | $.employmentNav..results\[?(@.jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\])\]             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors Employment record. Attributes associated with terminated/inactive records in SuccessFactors will be ignored. |
+
 1. Save the schema.
 1. The above process updates all JSONPath expressions. 
 1. For pre-hire processing to work, the JSONPath associated with `startDate` attribute must use either `[0]` or `[-1:]` index. Under **Show advanced options**, click on **Edit SuccessFactors attribute list**. Find the attribute `startDate` and set it to the value `$.employmentNav.results[-1:].startDate`
 1. Save the schema.
-1. To ensure that terminations are processed as expected, you can use one of the following settings in the attribute mapping section. 
+1. To ensure that terminations are processed as expected, you can use one of the following settings in the attribute mapping section.
+ 
     | Provisioning Job | Account status attribute | Expression to use if account status is based on "activeEmploymentsCount" | Expression to use if account status is based on "emplStatus" value |
     | ----------------- | ------------------------ | ----------------------------- | ------------------------------------- |
     | SuccessFactors to Active Directory User Provisioning | accountDisabled          | Switch(\[activeEmploymentsCount\], "False", "0", "True")                 | Switch(\[emplStatus\], "True", "A", "False", "U", "False", "P", "False") |
     | SuccessFactors to Azure AD User Provisioning         | accountEnabled           | Switch(\[activeEmploymentsCount\], "True", "0", "False")                 | Switch(\[emplStatus\], "False", "A", "True", "U", "True", "P", "True")   |
+
 1. Save your changes. 1. 
 1. Test the configuration using [provision on demand](provision-on-demand.md). 
 1. After confirming that sync works as expected, restart the provisioning job. 
