@@ -386,7 +386,7 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 The following Liquid filters are supported in the `set-body` policy. For filter examples, see the [Liquid documentation](https://shopify.github.io/liquid/). 
 
 > [!NOTE]
-> The policy requires Pascal casing for filter names (for example, "AtLeast" instead of "at_least").
+> The policy requires Pascal casing for Liquid filter names (for example, "AtLeast" instead of "at_least").
 > 
 * Abs
 * Append
