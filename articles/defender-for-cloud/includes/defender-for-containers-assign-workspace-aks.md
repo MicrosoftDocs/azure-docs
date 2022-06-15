@@ -6,7 +6,7 @@ ms.date: 06/15/2022
 ms.author: elkrieger
 ---
 
-## Default Log Analytics workspace
+## Default Log Analytics workspace for AKS
 
 The Log Analytics workspace is used by the Defender profile/extension as a data pipeline to send data from the cluster to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users will not be billed in this use case.
 

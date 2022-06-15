@@ -6,7 +6,7 @@ ms.date: 06/15/2022
 ms.author: elkrieger
 ---
 
-## Default Log Analytics workspace
+## Default Log Analytics workspace for ARC
 
 The Log Analytics workspace is used by the Defender profile/extension as a data pipeline to send data from the cluster to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users will not be billed in this use case.
 
@@ -32,7 +32,7 @@ Once the Defender profile/extension has been deployed, a default workspace will 
 
 1. Search for policy ID `708b60a6-d253-4fe0-9114-4be4c00f012c`.
 
-    :::image type="content" source="../media/defender-for-containers/policy-search-arc.png" alt-text="Screenshot that shows where to search for the policy by I D number." lightbox="../media/defender-for-containers/policy-search-arc.png":::
+    :::image type="content" source="../media/defender-for-containers/policy-search-arc.png" alt-text="Screenshot that shows where to search for this policy by I D number." lightbox="../media/defender-for-containers/policy-search-arc.png":::
 
 1. Select **\[Preview]: Configure Azure Kubernetes Service clusters to enable Defender profile**.
 
@@ -58,7 +58,7 @@ If you already assigned the policy to a custom workspace you can change the assi
 
 1. Search for policy ID `708b60a6-d253-4fe0-9114-4be4c00f012c`.
 
-    :::image type="content" source="../media/defender-for-containers/assigned-arc.png" alt-text="Screenshot that shows the workspaces with the policy assigned to them." lightbox="../media/defender-for-containers/assigned-arc.png":::
+    :::image type="content" source="../media/defender-for-containers/assigned-arc.png" alt-text="Screenshot that shows which workspaces has the policy assigned to them." lightbox="../media/defender-for-containers/assigned-arc.png":::
 
 1. Select the relevant workspace.
 
