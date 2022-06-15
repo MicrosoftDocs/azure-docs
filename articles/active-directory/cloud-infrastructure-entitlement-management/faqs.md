@@ -122,7 +122,8 @@ Yes, Permissions Management has various types of system report available that ca
 
 For information about permissions usage reports, see [Generate and download the Permissions analytics report](product-permissions-analytics-reports.md).
 
-## Does Permissions Management integrate with third-party ITSM (Information Technology Security Management) tools?
+
+## Does Permissions Management integrate with third-party ITSM (Information Technology Service Management) tools?
 
 Permissions Management integrates with ServiceNow.
 

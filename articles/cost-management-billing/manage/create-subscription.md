@@ -45,7 +45,7 @@ Use the following procedure to create a subscription for yourself or for someone
 1. Select the **Advanced** tab.
 1. Select your **Subscription directory**. It's the Azure Active Directory (Azure AD) where the new subscription will get created.
 1. Select a **Management group**. It's the Azure AD management group that the new subscription is associated with. You can only select management groups in the current directory.
-1. Select more or more **Subscription owners**. You can select only users or service principals in the selected subscription directory. You can't select guest directory users. If you select a service principal, enter its App ID.   
+1. Select one or more **Subscription owners**. You can select only users or service principals in the selected subscription directory. You can't select guest directory users. If you select a service principal, enter its App ID.   
     :::image type="content" source="./media/create-subscription/create-subscription-advanced-tab.png" alt-text="Screenshot showing the Advanced tab where you can specify the directory, management group, and owner. " lightbox="./media/create-subscription/create-subscription-advanced-tab.png" :::
 1. Select the **Tags** tab.
 1. Enter tag pairs for **Name** and **Value**.  
