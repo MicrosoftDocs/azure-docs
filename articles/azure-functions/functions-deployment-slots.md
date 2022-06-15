@@ -12,8 +12,8 @@ Azure Functions deployment slots allow your function app to run different instan
 
 The following reflect how functions are affected by swapping slots:
 
-- Traffic redirection is seamless; no requests are dropped because of a swap.
-- If a function is running during a swap, execution continues and the next triggers are routed to the swapped app instance.
+- Traffic redirection is seamless; no requests are dropped because of a swap, as the next function triggers are routed to the swapped app instance.
+- Function executions currently running during the swap will be terminated.
 
 ## Why use slots?
 
