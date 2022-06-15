@@ -33,7 +33,7 @@ This article provides a reference for API Management policies used to transform 
 
 -   [Set query string parameter](#SetQueryStringParameter) - Adds, replaces value of, or deletes request query string parameter.
 
--   [Rewrite URL](RewriteURL) - Converts a request URL from its public form to the form expected by the web service.
+-   [Rewrite URL](#RewriteURL) - Converts a request URL from its public form to the form expected by the web service.
 
 -   [Transform XML using an XSLT](#XSLTransform) - Applies an XSL transformation to XML in the request or response body.
 
