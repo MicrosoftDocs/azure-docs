@@ -1,5 +1,5 @@
 ---
-title: Connect machines at scale with Group Policy with service principal encryption
+title: Connect machines at scale using Group Policy with service principal encryption
 description: In this article, you learn how to create a Group Policy Object to onboard Active Directory-joined Windows machines to Azure Arc-enabled servers. 
 ms.date: 06/15/2022
 ms.topic: conceptual
