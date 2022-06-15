@@ -1,6 +1,6 @@
 ---
 title: Introduction to Microsoft Purview governance solutions
-description: This article provides an overview of the solutions that Microsoft Purview through the Microsoft Purview governance portal, and describes how they work together to help you manage your on-premises, multi-cloud, and software-as-a-service data.
+description: This article is an overview of the solutions that Microsoft Purview provides through the Microsoft Purview governance portal, and describes how they work together to help you manage your on-premises, multi-cloud, and software-as-a-service data.
 author: whhender
 ms.author: whhender
 ms.service: purview
