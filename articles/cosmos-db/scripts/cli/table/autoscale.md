@@ -27,7 +27,7 @@ The script in this article creates an Azure Cosmos DB Table API account and tabl
 
     [![Launch Cloud Shell in a new window](../../../../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
-    Cloud Shell is automatically authenticated under the account you signed in with. You can use [az account set](https://docs.microsoft.com/en-us/cli/azure/account#az-account-set) to sign in with a different subscription, replacing `<subscriptionId>` with your Azure subscription ID.
+    Cloud Shell is automatically authenticated under the account you signed in with. You can use [az account set](cli/azure/account#az-account-set) to sign in with a different subscription, replacing `<subscriptionId>` with your Azure subscription ID.
 
     ```azurecli
     subscription="<subscriptionId>" # add subscription here
@@ -35,15 +35,13 @@ The script in this article creates an Azure Cosmos DB Table API account and tabl
     az account set -s $subscription # ...or use 'az login'
     ```
 
-  - If you prefer, you can [install Azure CLI](/cli/azure/install-azure-cli) to run the script locally. Run [az version](/cli/azure/reference-index?#az-version) to find the Azure CLI version and dependent libraries that are installed, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) if you need to upgrade. If prompted, [install Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
+  - If you prefer, you can [install Azure CLI](/cli/azure/install-azure-cli) to run the script locally. Run [az version](/cli/azure/reference-index?#az-version) to find the Azure CLI version and dependent libraries that are installed, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) if you need to upgrade. If prompted, [install Azure CLI extensions](/cli/azure/azure-cli-extensions-overview). If you're running Windows or macOS, consider [running Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
-    If you're running Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
-
-  - If you're using a local installation, sign in to Azure by running [az login](/cli/azure/reference-index#az-login) and following the prompts. For additional sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+    If you're using a local installation, sign in to Azure by running [az login](/cli/azure/reference-index#az-login) and following the prompts. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Sample script
 
-Run the following script to create an Azure resource group, an Azure Cosmos DB Table API account, and Table API table with autoscale capability. The resources might take awhile to create.
+Run the following script to create an Azure resource group, an Azure Cosmos DB Table API account, and Table API table with autoscale capability. The resources might take a while to create.
 
  :::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/autoscale.sh" id="FullScript":::
 
@@ -55,7 +53,7 @@ This script uses the following commands:
 
 ## Clean up resources
 
-If you no longer need the resources you created, use the [az group delete](/cli/azure/group#az-group-delete) command to delete the resource group and all resources it contains, including the Azure Cosmos DB account and table. The resources might take awhile to delete.
+If you no longer need the resources you created, use the [az group delete](/cli/azure/group#az-group-delete) command to delete the resource group and all resources it contains. These resources include the Azure Cosmos DB account and table. The resources might take a while to delete.
 
 ```azurecli
 az group delete --name $resourceGroup
@@ -63,5 +61,5 @@ az group delete --name $resourceGroup
 
 ## Next steps
 
-[Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb)
-[Throughput (RU/s) operations with Azure CLI for a table for Azure Cosmos DB Table API](throughput.md)
+- [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb)
+- [Throughput (RU/s) operations with Azure CLI for a table for Azure Cosmos DB Table API](throughput.md)
