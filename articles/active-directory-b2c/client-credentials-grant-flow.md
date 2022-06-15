@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/14/2022
+ms.date: 06/15/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -78,8 +78,8 @@ can't contain spaces. The following example demonstrates two app roles, read and
     }],
     ```
 
-1. **Save** the manifest.
-
+1. At the top of the page, select **Save** to save the manifest changes.
+ 
 ## Step 2. Register an application
 
 To enable your app to sign in with Azure AD B2C using client credentials flow, register your applications (**App 1**). To create the web API app registration, follow these steps:
@@ -136,7 +136,7 @@ There are no specific actions to enable the client credentials for user flows or
 | --- | ----- |
 | grant_type | `client_credentials` |
 | client_id | The **Client ID** from the [Step 2 Register an application](#step-2-register-an-application). |
-| client_secret | The **Client secret** from [Step 2.1 Create a client secret](#step-21-create-a-client-secret). |
+| client_secret | The **Client secret** value from [Step 2.1 Create a client secret](#step-21-create-a-client-secret). |
 | scope | The **Application ID URI** from [Step 1.1 Define web API roles (scopes)](#step-11-define-web-api-roles-scopes) and `.default`. For example `https://contoso.onmicrosoft.com/api/.default`, or `https://contoso.onmicrosoft.com/12345678-0000-0000-0000-000000000000/.default`.|
 
 The actual POST request looks like the following example:

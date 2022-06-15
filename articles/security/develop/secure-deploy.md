@@ -28,7 +28,7 @@ The focus of the release phase is readying a project for public release. This in
 
 ### Check your application’s performance before you launch
 
-Check your application's performance before you launch it or deploy updates to production. Run cloud-based [load tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) by using Visual Studio to find performance problems in your application, improve deployment quality, make sure that your application is always up or available, and that your application can handle traffic for your launch.
+Check your application's performance before you launch it or deploy updates to production. Run cloud-based [load tests](/azure/load-testing/) by using Visual Studio to find performance problems in your application, improve deployment quality, make sure that your application is always up or available, and that your application can handle traffic for your launch.
 
 ### Install a web application firewall
 
