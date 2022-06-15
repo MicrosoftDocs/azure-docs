@@ -2627,7 +2627,7 @@ And returns this result: `true`
 
 *Example 2*
 
-This example checks whether a string is a floating-point number in the German culture:
+This example checks whether a string is a floating-point number in the German locale:
 
 ```
 isFloat('10.000,00', 'de-DE')
