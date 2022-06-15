@@ -76,7 +76,11 @@ A full list of supported alerts is available in the [reference table of all Defe
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks,defender-for-container-arc"
-[!INCLUDE [Assign a custom workspace](./includes/defender-for-containers-assign-workspace.md)]
+[!INCLUDE [Assign a custom workspace](./includes/defender-for-containers-assign-workspace-aks.md)]
+::: zone-end
+
+::: zone pivot="defender-for-container-arc"
+[!INCLUDE [Assign a custom workspace](./includes/defender-for-containers-assign-workspace-arc.md)]
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"

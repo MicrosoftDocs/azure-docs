@@ -2,7 +2,7 @@
 author: ElazarK
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 05/10/2022
+ms.date: 06/15/2022
 ms.author: elkrieger
 ---
 
@@ -30,9 +30,9 @@ Once the Defender profile/extension has been deployed, a default workspace will 
 
 1. Select **Definitions**.
 
-1. Search for policy ID `64def556-fbad-4622-930e-72d1d5589bf5`.
+1. Search for policy ID `708b60a6-d253-4fe0-9114-4be4c00f012c`.
 
-    :::image type="content" source="../media/defender-for-containers/policy-search.png" alt-text="Screenshot that shows where to search for the policy by I D number." lightbox="../media/defender-for-containers/policy-search.png":::
+    :::image type="content" source="../media/defender-for-containers/policy-search-arc.png" alt-text="Screenshot that shows where to search for the policy by I D number." lightbox="../media/defender-for-containers/policy-search-arc.png":::
 
 1. Select **\[Preview]: Configure Azure Kubernetes Service clusters to enable Defender profile**.
 
@@ -45,3 +45,21 @@ Once the Defender profile/extension has been deployed, a default workspace will 
 1. Select **Review + create**.
 
 1. Select **Create**.
+
+If you already assigned the policy to a custom workspace you can change the assignment to your custom, or any other workspace.
+
+**To change the assignment**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Search for, and select **Policy**.
+
+1. Select **Assignments**.
+
+1. Search for policy ID `708b60a6-d253-4fe0-9114-4be4c00f012c`.
+
+    :::image type="content" source="../media/defender-for-containers/assigned-arc.png" alt-text="Screenshot that shows the workspaces with the policy assigned to them." lightbox="../media/defender-for-containers/assigned-arc.png":::
+
+1. Select the relevant workspace.
+
+1.  
