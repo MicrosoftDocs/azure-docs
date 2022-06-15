@@ -449,4 +449,4 @@ The output of the commands resembles the following example:
 [use-tags]: use-tags.md
 [private-endpoint-overview]: ../private-link/private-endpoint-overview.md
 [persistent-volume]: concepts-storage.md#persistent-volumes
-[share-snapshots-overview]: storage/files/storage-snapshots-files.md
+[share-snapshots-overview]: ../storage/files/storage-snapshots-files.md
