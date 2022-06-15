@@ -39,7 +39,7 @@ dotnet build
 While still in the application directory, install the Azure Communication Services Identity library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Identity --prerelease
+dotnet add package Azure.Communication.Identity --version 1.1.0
 dotnet add package Microsoft.Identity.Client --version 4.36.2
 ```
 
@@ -74,7 +74,7 @@ namespace CommunicationAccessTokensQuickstart
 }
 ```
 
-### Step 1: Receive the Azure AD user token via the MSAL library
+### Step 1: Receive the Azure AD user token and object ID via the MSAL library
 
 The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md).
 
@@ -92,9 +92,11 @@ var aadClient = PublicClientApplicationBuilder
 
 string scope = "https://auth.msft.communication.azure.com/Teams.ManageCalls";
 
-var teamsUserAadToken = await aadClient
+var result = await aadClient
                         .AcquireTokenInteractive(new List<string> { scope })
                         .ExecuteAsync();
+string teamsUserAadToken =  result.AccessToken;
+string userObjectId =  result.UniqueId;
 ```
 
 ### Step 2: Initialize the CommunicationIdentityClient
@@ -115,7 +117,8 @@ var client = new CommunicationIdentityClient(connectionString);
 Use the `GetTokenForTeamsUser` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```csharp
-var accessToken = await client.GetTokenForTeamsUserAsync(teamsUserAadToken.AccessToken);
+var options = new GetTokenForTeamsUserOptions(teamsUserAadToken, appId, userObjectId);
+var accessToken = await client.GetTokenForTeamsUserAsync(options);
 Console.WriteLine($"Token: {accessToken.Value.Token}");
 ```
 

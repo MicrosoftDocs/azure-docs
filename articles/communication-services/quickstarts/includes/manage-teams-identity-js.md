@@ -39,7 +39,7 @@ Use the `npm install` command to install the Azure Communication Services Identi
 
 ```console
 
-npm install @azure/communication-identity@next --save
+npm install @azure/communication-identity@1.1.0 --save
 npm install @azure/msal-node --save
 npm install express --save
 
@@ -71,15 +71,18 @@ From the project directory:
 
 1. Save the new file as `issue-communication-access-token.js` in the `access-tokens-quickstart` directory.
 
-### Step 1: Receive the Azure AD user token via the MSAL library
+### Step 1: Receive the Azure AD user token and object ID via the MSAL library
 
 The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md).
 
 ```javascript
+
+const clientId = "<contoso_application_id>";
+const tenantId = "<contoso_tenant_id>"; 
 const msalConfig = {
     auth: {
-        clientId: "<contoso_application_id>",
-        authority: "https://login.microsoftonline.com/<contoso_tenant_id>",
+        clientId: clientId,
+        authority: `https://login.microsoftonline.com/${tenantId}`,
     }
 };
 
@@ -116,6 +119,8 @@ app.get('/redirect', async (req, res) => {
 
     pca.acquireTokenByCode(tokenRequest).then((response) => {
         console.log("Response:", response);
+        let teamsUserAadToken = response.accessToken;
+        let userObjectId = response.uniqueId;
         //TODO: the following code snippets go here
         res.sendStatus(200);
     }).catch((error) => {
@@ -146,7 +151,11 @@ Use the `getTokenForTeamsUser` method to issue an access token for the Teams use
 
 ```javascript
 let teamsToken = response.accessToken;
-let accessToken = await identityClient.getTokenForTeamsUser(teamsToken);
+let accessToken = await identityClient.getTokenForTeamsUser({
+    teamsUserAadToken: teamsUserAadToken,
+    clientId: clientId,
+    userObjectId: userObjectId,
+  });;
 console.log("Token:", accessToken);
 ```
 

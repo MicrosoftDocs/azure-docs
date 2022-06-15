@@ -50,9 +50,9 @@ pip install azure-communication-identity
 pip install msal
 ```
 
-### Step 1: Receive the Azure AD user token via the MSAL library
+### Step 1: Receive the Azure AD user token and object ID via the MSAL library
 
-The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md).
+The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md). In Azure Portal, configure the Redirect URI of your "Mobile and Desktop application" as `http://localhost`.
 
 ```python
 from msal.application import PublicClientApplication
@@ -64,7 +64,9 @@ authority = "https://login.microsoftonline.com/%s" % tenant_id
 app = PublicClientApplication(client_id, authority=authority)
 
 scope = [ "https://auth.msft.communication.azure.com/Teams.ManageCalls" ]
-teams_token_result = app.acquire_token_interactive(scope)
+result = app.acquire_token_interactive(scope)
+aad_token =  result["access_token"]
+user_object_id = result["id_token_claims"]["oid"] 
 ```
 
 ### Step 2: Initialize the CommunicationIdentityClient
@@ -87,7 +89,7 @@ client = CommunicationIdentityClient.from_connection_string(connection_string)
 Use the `get_token_for_teams_user` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```python
-token_result = client.get_token_for_teams_user(teams_token_result['access_token'])
+token_result = client.get_token_for_teams_user(aad_token, client_id, user_object_id)
 print("Token: " + token_result.token)
 ```
 
