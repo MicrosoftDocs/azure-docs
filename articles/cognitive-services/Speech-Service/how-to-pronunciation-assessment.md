@@ -42,7 +42,7 @@ This table lists some of the key configuration parameters for pronunciation asse
 |-----------|-------------|
 | `ReferenceText` | The text that the pronunciation will be evaluated against. | 
 | `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. | 
-| `Granularity` | Enables the minimal evaluation granularity. Scores on level above or equal to the minimal value are returned.  Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. | 
+| `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels above or equal to the minimal value are returned.  Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. | 
 | `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. | 
 
 > [!TIP]
