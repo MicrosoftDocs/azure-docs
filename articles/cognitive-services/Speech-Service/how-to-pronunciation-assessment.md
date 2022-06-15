@@ -42,7 +42,7 @@ This table lists some of the key configuration parameters for pronunciation asse
 |-----------|-------------|
 | `ReferenceText` | The text that the pronunciation will be evaluated against. | 
 | `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. | 
-| `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels above or equal to the minimal value are returned.  Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. | 
+| `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels above or equal to the minimal value are returned.  Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph, and it depends on your input reference text.| 
 | `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. | 
 
 > [!TIP]
@@ -144,7 +144,7 @@ To request syllable-level results along with phonemes, set the granularity [conf
 
 ## Phoneme alphabet format
 
-The phoneme name is provided together with the score, to help identity which phonemes were pronounced accurately or inaccurately. For the [supported languages](language-support.md#pronunciation-assessment), you can get the phoneme name in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) format, and for `English (United States)`, you can also get the phoneme name in [IPA](https://en.wikipedia.org/wiki/IPA) format. 
+The phoneme name is provided together with the score, to help identity which phonemes were pronounced accurately or inaccurately. For the [supported languages](language-support.md#pronunciation-assessment), you can get the phoneme name in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) format, and for the `en-US` locale, you can also get the phoneme name in [IPA](https://en.wikipedia.org/wiki/IPA) format. 
 
 The following table compares example SAPI phonemes with the corresponding IPA phonemes.
 
