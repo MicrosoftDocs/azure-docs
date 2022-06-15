@@ -312,11 +312,21 @@ If you didn't create a test account or assigned an existing user during deployme
 
 ## Clean up resources
 
-If you change your mind and want to remove Azure Virtual Desktop resources from your environment without incurring extra billing costs, you can safely remove them by following the instructions in this section.
+If you change your mind and want to remove Azure Virtual Desktop resources from your environment without incurring extra billing costs, you can safely remove them by deleting the resource groups that were deployed. These are:
 
-If you created your resources in a subscription with Azure AD DS or AD DS, the feature will have made two resource groups with the names *your-prefix*-deployment* and *your-prefix*-avd. In the Azure portal, go to **Resource groups** and delete any resource groups with those prefixes to remove the deployment.
+- *your-prefix*-deployment
+- *your-prefix*-avd
+- *your-prefix*-prerequisite (only if you deployed Azure AD DS with the getting started feature)
 
-If you created your resources in a subscription without Azure AD DS or AD DS, the feature will have made three resource groups with the names *your-prefix*-deployment* and *your-prefix*-avd, and *your-prefix*-prerequisite. In the Azure portal, go to **Resource groups** and delete any resource groups with those prefixes to remove the deployment.
+1. Sign in to [the Azure portal](https://portal.azure.com).
+
+1. In the search bar, type *Resource groups* and select the matching service entry.
+
+1. Select the name of one of resource groups, then select **Delete resource group**.
+
+1. Review the affected resources, then type the resource group name in the box, and select **Delete**.
+
+1. Repeat these steps for the remaining resource groups.
 
 > [!TIP]
 > If you want to deploy Azure Virtual Desktop again using the getting started feature without deleting the resources, ensure you use different names for the resource group prefix, virtual machine name prefix, and test user (if required). If you deployed Azure AD DS with the getting started features, you can only have one instance per Azure AD tenant and you'll need to use the existing domain.
