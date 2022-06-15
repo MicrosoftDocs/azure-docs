@@ -44,7 +44,7 @@ This section describes service limits for resource type `vaults`.
 
 For information on how to handle throttling when these limits are exceeded, see [Azure Key Vault throttling guidance](../articles/key-vault/general/overview-throttling.md).
 
-<sup>1</sup> A subscription-wide limit for all transaction types is five times per key vault limit. For example, HSM-other transactions per subscription are limited to 10,000 transactions in 10 seconds per subscription.
+<sup>1</sup> A subscription-wide limit for all transaction types is five times per key vault limit. 
 
 #### Backup keys, secrets, certificates
 
