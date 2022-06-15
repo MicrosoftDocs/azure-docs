@@ -1,6 +1,5 @@
 ---
 title: Specify the Request Service REST API verify request (preview)
-titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to start a presentation request in Verifiable Credentials
 documentationCenter: ''
 author: barclayn
@@ -15,6 +14,8 @@ ms.author: barclayn
 ---
 
 # Request Service REST API presentation specification (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 Azure Active Directory (Azure AD) Verifiable Credentials includes the Request Service REST API. This API allows you to issue and verify a credential. This article specifies the Request Service REST API for a presentation request. The presentation request asks the user to present a verifiable credential, and then verify the credential.
 
@@ -46,18 +47,18 @@ POST https://beta.did.msidentity.com/v1.0/contoso.onmicrosoft.com/verifiablecred
 Content-Type: application/json
 Authorization: Bearer  <token>
 
-{  
-    "includeQRCode": true,  
-    "callback": {  
-    "url": "https://www.contoso.com/api/verifier/presentationCallbac",  
-    "state": "11111111-2222-2222-2222-333333333333",  
-      "headers": {  
-        "api-key": "an-api-key-can-go-here"  
-      }  
-    },  
+{
+    "includeQRCode": true,
+    "callback": {
+    "url": "https://www.contoso.com/api/verifier/presentationCallbac",
+    "state": "11111111-2222-2222-2222-333333333333",
+      "headers": {
+        "api-key": "an-api-key-can-go-here"
+      }
+    },
     ...
-} 
-```  
+}
+```
 
 The following permission is required to call the Request Service REST API. For more information, see [Grant permissions to get access tokens](verifiable-credentials-configure-tenant.md#grant-permissions-to-get-access-tokens).
 
@@ -98,7 +99,7 @@ The presentation request payload contains information about your verifiable cred
 }
 ```
 
-The payload contains the following properties.  
+The payload contains the following properties.
 
 |Parameter |Type  | Description |
 |---------|---------|---------|
@@ -154,12 +155,12 @@ The Request Service REST API generates several events to the callback endpoint. 
 If successful, this method returns a response code (*HTTP 201 Created*), and a collection of event objects in the response body. The following JSON demonstrates a successful response:
 
 ```json
-{  
+{
     "requestId": "e4ef27ca-eb8c-4b63-823b-3b95140eac11",
     "url": "openid://vc/?request_uri=https://beta.did.msidentity.com/v1.0/87654321-0000-0000-0000-000000000000/verifiablecredentials/request/e4ef27ca-eb8c-4b63-823b-3b95140eac11",
     "expiry": 1633017751,
     "qrCode": "data:image/png;base64,iVBORw0KGgoA<SNIP>"
-} 
+}
 ```
 
 The response contains the following properties:
@@ -200,7 +201,7 @@ The response contains the following properties:
 
 ## Callback events
 
-The callback endpoint is called when a user scans the QR code, uses the deep link the authenticator app, or finishes the presentation process. 
+The callback endpoint is called when a user scans the QR code, uses the deep link the authenticator app, or finishes the presentation process.
 
 |Property |Type |Description |
 |---------|---------|---------|
@@ -208,17 +209,17 @@ The callback endpoint is called when a user scans the QR code, uses the deep lin
 | `code` |string |The code returned when the request was retrieved by the authenticator app. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the presentation flow.</li><li>`presentation_verified`: The verifiable credential validation completed successfully.</li></ul>    |
 | `state` |string| Returns the state value that you passed in the original payload.   |
 | `subject`|string | The verifiable credential user DID.|
-| `issuers`| array |Returns an array of verifiable credentials requested. For each verifiable credential, it provides: </li><li>The verifiable credential type(s).</li><li>The issuer's DID</li><li>The claims retrieved.</li><li>The verifiable credential issuer’s domain. </li><li>The verifiable credential issuer’s domain validation status. </li></ul> |
+| `issuers`| array |Returns an array of verifiable credentials requested. For each verifiable credential, it provides: </li><li>The verifiable credential type(s).</li><li>The issuer's DID</li><li>The claims retrieved.</li><li>The verifiable credential issuer's domain. </li><li>The verifiable credential issuer's domain validation status. </li></ul> |
 | `receipt`| string | Optional. The receipt contains the original payload sent from the wallet to the Verifiable Credentials service. The receipt should be used for troubleshooting/debugging only. The format in the receipt is not fix and can change based on the wallet and version used.|
 
 The following example demonstrates a callback payload when the authenticator app starts the presentation request:
 
 ```json
-{  
-    "requestId":"aef2133ba45886ce2c38974339ba1057",  
-    "code":"request_retrieved",  
+{
+    "requestId":"aef2133ba45886ce2c38974339ba1057",
+    "code":"request_retrieved",
     "state":"Wy0ThUz1gSasAjS1"
-} 
+}
 ```
 
 The following example demonstrates a callback payload after the verifiable credential presentation has successfully completed:

@@ -2,7 +2,7 @@
 title: Archive for What's new with Azure Arc-enabled servers agent
 description: The What's new release notes in the Overview section for Azure Arc-enabled servers agent contains six months of activity. Thereafter, the items are removed from the main article and put into this article.
 ms.topic: overview
-ms.date: 05/24/2022
+ms.date: 06/06/2022
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,12 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Previous releases
 - Known issues
 - Bug fixes
+
+## Version 1.14 - January 2022
+
+### Fixed
+
+- A state corruption issue in the extension manager that could cause extension operations to get stuck in transient states has been fixed. Customers running agent version 1.13 are encouraged to upgrade to version 1.14 as soon as possible. If you continue to have issues with extensions after upgrading the agent, [submit a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Version 1.13 - November 2021
 

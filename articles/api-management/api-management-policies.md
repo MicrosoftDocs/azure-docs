@@ -19,6 +19,7 @@ More information about policies:
 
 ## [Access restriction policies](api-management-access-restriction-policies.md)
 -   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) - Enforces existence and/or value of an HTTP Header.
+- [Get authorization context](api-management-access-restriction-policies.md#GetAuthorizationContext) - Gets the authorization context of a specified [authorization](authorizations-overview.md) configured in the API Management instance.
 -   [Limit call rate by subscription](api-management-access-restriction-policies.md#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.
 -   [Limit call rate by key](api-management-access-restriction-policies.md#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.
 -   [Restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.

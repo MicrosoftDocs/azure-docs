@@ -54,12 +54,12 @@ items:
     href: tutorial-rotate-certificates.md
   - name: Integrating Key Vault with DigiCert CA
     href: how-to-integrate-certificate-authority.md
-  - name: Troubleshooting - Import certificates
-    href: import-cert-faqs.yml
   - name: Export certificate from key vault
     href: how-to-export-certificate.md
 - name: Reference
   items:
+  - name: Frequently asked questions
+    href: faq.yml
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI

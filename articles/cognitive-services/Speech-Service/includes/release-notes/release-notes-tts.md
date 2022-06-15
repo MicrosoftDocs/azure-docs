@@ -10,11 +10,14 @@ ms.author: eur
 #### Prebuilt Neural TTS Voice
 
 * Released 5 new voices in public preview with multiple styles to enrich the variety in American English. See [full language and voice list](../../language-support.md#prebuilt-neural-voices).
-
 * Support these new styles `Angry`, `Excited`, `Friendly`, `Hopeful`, `Sad`, `Shouting`, `Unfriendly`, `Terrified` and `Whispering` in public preview for `en-US-AriaNeural`. 
 * Support these new styles `Angry`, `Cheerful`, `Excited`, `Friendly`, `Hopeful`, `Sad`, `Shouting`, `Unfriendly`, `Terrified` and `Whispering` in public preview for `en-US-GuyNeural`, `en-US-JennyNeural`. 
 * Support these new styles `Excited`, `Friendly`, `Hopeful`, `Shouting`, `Unfriendly`, `Terrified` and `Whispering` in public preview for `en-US-SaraNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
-* Released disconnected containers for prebuilt neural TTS voices in public preview. See [use Docker containers in disconnected environments](../../../containers/disconnected-containers.md).
+* Released new voices `zh-CN-YunjianNeural`, `zh-CN-YunhaoNeural`, and `zh-CN-YunfengNeural` in public preview. See [full language and voice list](../../language-support.md#prebuilt-neural-voices).
+* Support 2 new styles `sports-commentary`, `sports-commentary-excited` in public preview for `zh-CN-YunjianNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
+* Support 1 new style `advertisement-upbeat` in public preview for `zh-CN-YunhaoNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
+* The `cheerful` and `sad` styles for `fr-FR-DeniseNeural` are generally available in all regions.
+* SSML updated to support MathML elements for en-US and en-AU voices. Learn more at [speech synthesis markup](../../speech-synthesis-markup.md#supported-mathml-elements).
 
 ### 2022-March release
 

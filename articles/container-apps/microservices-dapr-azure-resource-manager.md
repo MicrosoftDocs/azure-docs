@@ -19,7 +19,7 @@ You learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Blob Storage for use as a Dapr state store
-> * Deploy a container apps environment to host container apps
+> * Deploy a Container Apps environment to host container apps
 > * Deploy two dapr-enabled container apps: one that produces orders and one that consumes orders and stores them
 > * Verify the interaction between the two microservices.
 
@@ -203,19 +203,22 @@ New-AzStorageAccount -ResourceGroupName $RESOURCE_GROUP `
 
 ---
 
-Once your Azure Blob Storage account is created, the following values are needed for subsequent steps in this tutorial.
+Once your Azure Blob Storage account is created, you'll create a template where these storage parameters will use environment variable values.  The values are passed in via the `parameters` argument when you deploy your apps with the `az deployment group create` command.
 
-- `storage_account_name` is the value of the `STORAGE_ACCOUNT` variable.
+- `storage_account_name` uses the value of the `STORAGE_ACCOUNT` variable.
 
-- `storage_container_name` is the value of the `STORAGE_ACCOUNT_CONTAINER` variable.
-
-Dapr creates a container with this name when it doesn't already exist in your Azure Storage account.
+- `storage_container_name` uses the value of the `STORAGE_ACCOUNT_CONTAINER` variable.  Dapr creates a container with this name when it doesn't already exist in your Azure Storage account.
 
 ::: zone pivot="container-apps-arm"
 
 ### Create Azure Resource Manager (ARM) template
 
-Create an ARM template to deploy a Container Apps environment including the associated Log Analytics workspace and Application Insights resource for distributed tracing, a dapr component for the state store and the two dapr-enabled container apps.
+Create an ARM template to deploy a Container Apps environment that includes:
+
+* the associated Log Analytics workspace
+* the Application Insights resource for distributed tracing
+* a dapr component for the state store
+* the two dapr-enabled container apps
 
 Save the following file as _hello-world.json_:
 
@@ -340,7 +343,7 @@ Save the following file as _hello-world.json_:
         "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments/', parameters('environment_name'))]",
         "configuration": {
           "ingress": {
-            "external": true,
+            "external": false,
             "targetPort": 3000
           },
           "dapr": {
@@ -355,6 +358,12 @@ Save the following file as _hello-world.json_:
             {
               "image": "dapriosamples/hello-k8s-node:latest",
               "name": "hello-k8s-node",
+              "env": [
+                { 
+                   "name": "APP_PORT",
+                   "value": "3000"
+                }
+              ],  
               "resources": {
                 "cpu": 0.5,
                 "memory": "1.0Gi"
@@ -413,7 +422,12 @@ Save the following file as _hello-world.json_:
 
 ### Create Azure Bicep templates
 
-Create a bicep template to deploy a Container Apps environment including the associated Log Analytics workspace and Application Insights resource for distributed tracing, a dapr component for the state store and the two dapr-enabled container apps.
+Create a bicep template to deploy a Container Apps environment that includes:
+
+* the associated Log Analytics workspace
+* the Application Insights resource for distributed tracing
+* a dapr component for the state store
+* the two dapr-enabled container apps
 
 Save the following file as _hello-world.bicep_:
 
@@ -504,7 +518,7 @@ resource nodeapp 'Microsoft.App/containerApps@2022-03-01' = {
     managedEnvironmentId: environment.id
     configuration: {
       ingress: {
-        external: true
+        external: false
         targetPort: 3000
       }
       dapr: {
@@ -519,8 +533,14 @@ resource nodeapp 'Microsoft.App/containerApps@2022-03-01' = {
         {
           image: 'dapriosamples/hello-k8s-node:latest'
           name: 'hello-k8s-node'
+          env: [
+            {
+              name: 'APP_PORT'
+              value: '3000'
+            }
+          ]
           resources: {
-            cpu: '0.5'
+            cpu: json('0.5')
             memory: '1.0Gi'
           }
         }
@@ -550,7 +570,7 @@ resource pythonapp 'Microsoft.App/containerApps@2022-03-01' = {
           image: 'dapriosamples/hello-k8s-python:latest'
           name: 'hello-k8s-python'
           resources: {
-            cpu: '0.5'
+            cpu: json('0.5')
             memory: '1.0Gi'
           }
         }
@@ -652,7 +672,7 @@ New-AzResourceGroupDeployment `
 
 This command deploys:
 
-- the container apps environment and associated Log Analytics workspace for hosting the hello world dapr solution
+- the Container Apps environment and associated Log Analytics workspace for hosting the hello world dapr solution
 - an Application Insights instance for Dapr distributed tracing
 - the `nodeapp` app server running on `targetPort: 3000` with dapr enabled and configured using: `"appId": "nodeapp"` and `"appPort": 3000`
 - the `daprComponents` object of `"type": "state.azure.blobstorage"` scoped for use by the `nodeapp` for storing state
@@ -726,7 +746,7 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 
 ## Clean up resources
 
-Once you are done, run the following command to delete your resource group along with all the resources you created in this tutorial.
+Once you're done, run the following command to delete your resource group along with all the resources you created in this tutorial.
 
 # [Bash](#tab/bash)
 

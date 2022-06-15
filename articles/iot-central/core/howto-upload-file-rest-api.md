@@ -135,7 +135,7 @@ The response to this request looks like the following example:
 Use the following request to create a file upload blob storage account configuration in your IoT Central application:
 
 ```http
-PUT https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=1.2-preview
+PUT https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
 ```
 
 The request body has the following fields:
@@ -167,16 +167,14 @@ The response to this request looks like the following example:
   "etag": "\"7502ac89-0000-0300-0000-627eaf100000\""
 
 }
-
 ```
 
 ## Get the file upload storage account configuration
 
 Use the following request to retrieve details of a file upload blob storage account configuration in your IoT Central application:
 
-
 ```http
-GET https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=1.2-preview
+GET https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example:
@@ -197,7 +195,7 @@ The response to this request looks like the following example:
 Use the following request to update a file upload blob storage account configuration in your IoT Central application:
 
 ```http
-PATCH https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=1.2-preview
+PATCH https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
 ```
 
 ```json
@@ -228,7 +226,7 @@ The response to this request looks like the following example:
 Use the following request to delete a  storage account configuration:
 
 ```http
-DELETE https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=1.2-preview
+DELETE https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-05-31
 ```
 
 ## Test file upload

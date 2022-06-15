@@ -27,7 +27,7 @@ Learn more about the [key concepts for Azure Load Testing](./concept-load-testin
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure RBAC role with permission to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner) 
 
-## <a name="create_resource"></a> Create an Azure Load Testing resource
+## Create an Azure Load Testing resource
 
 First, you'll create the top-level resource for Azure Load Testing. It provides a centralized place to view and manage test plans, test results, and related artifacts.
 
@@ -49,7 +49,7 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
 
 1. On the **Quickstart test** page, enter the **Test URL**.
 
-    Enter the complete URL that you would like to run the test for. For example, https://www.example.com/login.
+    Enter the complete URL that you would like to run the test for. For example, `https://www.example.com/login`.
 
 1. (Optional) Update the **Number of virtual users** to the total number of virtual users. 
 
@@ -63,7 +63,7 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
 
 > [!NOTE]
 > Azure Load Testing auto-generates an Apache JMeter script for your load test.
-> You can download the JMeter script from the test run dashboard. Select **Download**, and then select **Input file**. To run the script, you have to provide environment variables to configure the URL and test parameters.```
+> You can download the JMeter script from the test run dashboard. Select **Download**, and then select **Input file**. To run the script locally, you have to provide environment variables to configure the URL and test parameters.
 
 ## View the test results
 
@@ -112,4 +112,4 @@ You now have an Azure Load Testing resource, which you used to load test an exte
 You can reuse this resource to learn how to identify performance bottlenecks in an Azure-hosted application by using server-side metrics.
 
 > [!div class="nextstepaction"]
-> [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
+> [Tutorial: Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)

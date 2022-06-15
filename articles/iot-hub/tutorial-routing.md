@@ -388,7 +388,7 @@ If you want to remove all of the Azure resources you used for this tutorial, del
 
 1. Review all the resources that are in the resource group to determine which ones you want to clean up.
 
-   * If you want to delete all the resources, use the [az group delete](/cli/azure/groupt#az-group-delete) command.
+   * If you want to delete all the resources, use the [az group delete](/cli/azure/group#az-group-delete) command.
 
      ```azurecli-interactive
      az group delete --name $resourceGroup

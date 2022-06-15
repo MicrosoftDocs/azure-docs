@@ -43,7 +43,7 @@ You can install the Azure Key Vault Secrets Provider extension on your connected
 
 ### Azure portal
 
-1. In the [Azure portal](https://portal/azure.com), navigate to **Kubernetes - Azure Arc** and select your cluster.
+1. In the [Azure portal](https://ms.portal.azure.com/#home), navigate to **Kubernetes - Azure Arc** and select your cluster.
 1. Select **Extensions** (under **Settings**), and then select **+ Add**.
 
    [![Screenshot showing the Extensions page for an Arc-enabled Kubernetes cluster in the Azure portal.](media/tutorial-akv-secrets-provider/extension-install-add-button.jpg)](media/tutorial-akv-secrets-provider/extension-install-add-button.jpg#lightbox)
@@ -412,4 +412,4 @@ For more information about resolving common issues, see the open source troubles
 ## Next steps
 
 - Want to try things out? Get started quickly with an [Azure Arc Jumpstart scenario](https://aka.ms/arc-jumpstart-akv-secrets-provider) using Cluster API.
-- Learn more about [Azure Key Vault](/azure/key-vault/general/overview).
+- Learn more about [Azure Key Vault](../../key-vault/general/overview.md).

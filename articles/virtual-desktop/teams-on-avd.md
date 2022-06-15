@@ -40,7 +40,7 @@ This section will show you how to install the Teams desktop app on your Windows 
 
 ### Prepare your image for Teams
 
-To enable media optimization for Teams, set the following registry key on the host:
+To enable media optimization for Teams, set the following registry key on the host VM:
 
 1. From the start menu, run **RegEdit** as an administrator. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**. Create the Teams key if it doesn't already exist.
 
