@@ -25,7 +25,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: May 2022
 
-* Support for [new regions]((overview.md#azure-regions) Jio India West, Canada East.
+* Support for [new regions](overview.md#azure-regions) Jio India West, Canada East.
 
 ## Release: April 2022
 
