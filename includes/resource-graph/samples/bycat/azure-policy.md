@@ -2,9 +2,47 @@
 author: timwarner-msft
 ms.service: resource-graph
 ms.topic: include
-ms.date: 06/09/2022
+ms.date: 06/14/2022
 ms.author: timwarner
 ms.custom: generated
+---
+
+### Policy assignments and definition information for the built-in definitions assigned in your environment
+
+This sample query gets policy assignments for built-in definitions assigned in your environment with the respective assignment name, built-in definition associated, category of definition (if applicable), as well as whether the definition type is an initiative or a single policy.
+
+```kusto
+policyresources
+| where type =~'Microsoft.Authorization/PolicyAssignments'
+| project policyAssignmentId = tolower(tostring(id)), policyAssignmentDisplayName = tostring(properties.displayName), policyAssignmentDefinitionId = tolower(properties.policyDefinitionId)
+| join kind=inner(
+ policyresources
+ | where type =~'Microsoft.Authorization/PolicySetDefinitions' or type =~'Microsoft.Authorization/PolicyDefinitions'
+ | where isnotempty(properties.policyType) and properties.policyType == 'BuiltIn'
+ | project definitionId = tolower(id), category = tostring(properties.metadata.category), definitionType = iff(type =~ 'Microsoft.Authorization/PolicysetDefinitions', 'initiative', 'policy'), policyType = tostring(properties.policyType)
+) on $left.policyAssignmentDefinitionId == $right.definitionId
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "policyresources | where type =~'Microsoft.Authorization/PolicyAssignments' | project policyAssignmentId = tolower(tostring(id)), policyAssignmentDisplayName = tostring(properties.displayName), policyAssignmentDefinitionId = tolower(properties.policyDefinitionId) | join kind=inner(  policyresources  | where type =~'Microsoft.Authorization/PolicySetDefinitions' or type =~'Microsoft.Authorization/PolicyDefinitions'  | where isnotempty(properties.policyType) and properties.policyType == 'BuiltIn'  | project definitionId = tolower(id), category = tostring(properties.metadata.category), definitionType = iff(type =~ 'Microsoft.Authorization/PolicysetDefinitions', 'initiative', 'policy'), policyType = tostring(properties.policyType)  ) on $left.policyAssignmentDefinitionId == $right.definitionId"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "policyresources | where type =~'Microsoft.Authorization/PolicyAssignments' | project policyAssignmentId = tolower(tostring(id)), policyAssignmentDisplayName = tostring(properties.displayName), policyAssignmentDefinitionId = tolower(properties.policyDefinitionId) | join kind=inner(  policyresources  | where type =~'Microsoft.Authorization/PolicySetDefinitions' or type =~'Microsoft.Authorization/PolicyDefinitions'  | where isnotempty(properties.policyType) and properties.policyType == 'BuiltIn'  | project definitionId = tolower(id), category = tostring(properties.metadata.category), definitionType = iff(type =~ 'Microsoft.Authorization/PolicysetDefinitions', 'initiative', 'policy'), policyType = tostring(properties.policyType)  ) on $left.policyAssignmentDefinitionId == $right.definitionId"
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="../../../../articles/governance/resource-graph/media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/policyresources%20%7C%20where%20type%20%3D~%27Microsoft.Authorization%2FPolicyAssignments%27%20%7C%20project%20policyAssignmentId%20%3D%20tolower%28tostring%28id%29%29%2C%20policyAssignmentDisplayName%20%3D%20tostring%28properties.displayName%29%2C%20policyAssignmentDefinitionId%20%3D%20tolower%28properties.policyDefinitionId%29%20%7C%20join%20kind%3Dinner%28%20%20policyresources%20%20%7C%20where%20type%20%3D~%27Microsoft.Authorization%2FPolicySetDefinitions%27%20or%20type%20%3D~%27Microsoft.Authorization%2FPolicyDefinitions%27%20%20%7C%20where%20isnotempty%28properties.policyType%29%20and%20properties.policyType%20%3D%3D%20%27BuiltIn%27%20%20%7C%20project%20definitionId%20%3D%20tolower%28id%29%2C%20category%20%3D%20tostring%28properties.metadata.category%29%2C%20definitionType%20%3D%20iff%28type%20%3D~%20%27Microsoft.Authorization%2FPolicysetDefinitions%27%2C%20%27initiative%27%2C%20%27policy%27%29%2C%20policyType%20%3D%20tostring%28properties.policyType%29%20%20%29%20on%20%24left.policyAssignmentDefinitionId%20%3D%3D%20%24right.definitionId" target="_blank">portal.Azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/policyresources%20%7C%20where%20type%20%3D~%27Microsoft.Authorization%2FPolicyAssignments%27%20%7C%20project%20policyAssignmentId%20%3D%20tolower%28tostring%28id%29%29%2C%20policyAssignmentDisplayName%20%3D%20tostring%28properties.displayName%29%2C%20policyAssignmentDefinitionId%20%3D%20tolower%28properties.policyDefinitionId%29%20%7C%20join%20kind%3Dinner%28%20%20policyresources%20%20%7C%20where%20type%20%3D~%27Microsoft.Authorization%2FPolicySetDefinitions%27%20or%20type%20%3D~%27Microsoft.Authorization%2FPolicyDefinitions%27%20%20%7C%20where%20isnotempty%28properties.policyType%29%20and%20properties.policyType%20%3D%3D%20%27BuiltIn%27%20%20%7C%20project%20definitionId%20%3D%20tolower%28id%29%2C%20category%20%3D%20tostring%28properties.metadata.category%29%2C%20definitionType%20%3D%20iff%28type%20%3D~%20%27Microsoft.Authorization%2FPolicysetDefinitions%27%2C%20%27initiative%27%2C%20%27policy%27%29%2C%20policyType%20%3D%20tostring%28properties.policyType%29%20%20%29%20on%20%24left.policyAssignmentDefinitionId%20%3D%3D%20%24right.definitionId" target="_blank">portal.Azure.us</a>
+- Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/policyresources%20%7C%20where%20type%20%3D~%27Microsoft.Authorization%2FPolicyAssignments%27%20%7C%20project%20policyAssignmentId%20%3D%20tolower%28tostring%28id%29%29%2C%20policyAssignmentDisplayName%20%3D%20tostring%28properties.displayName%29%2C%20policyAssignmentDefinitionId%20%3D%20tolower%28properties.policyDefinitionId%29%20%7C%20join%20kind%3Dinner%28%20%20policyresources%20%20%7C%20where%20type%20%3D~%27Microsoft.Authorization%2FPolicySetDefinitions%27%20or%20type%20%3D~%27Microsoft.Authorization%2FPolicyDefinitions%27%20%20%7C%20where%20isnotempty%28properties.policyType%29%20and%20properties.policyType%20%3D%3D%20%27BuiltIn%27%20%20%7C%20project%20definitionId%20%3D%20tolower%28id%29%2C%20category%20%3D%20tostring%28properties.metadata.category%29%2C%20definitionType%20%3D%20iff%28type%20%3D~%20%27Microsoft.Authorization%2FPolicysetDefinitions%27%2C%20%27initiative%27%2C%20%27policy%27%29%2C%20policyType%20%3D%20tostring%28properties.policyType%29%20%20%29%20on%20%24left.policyAssignmentDefinitionId%20%3D%3D%20%24right.definitionId" target="_blank">portal.Azure.cn</a>
+
 ---
 
 ### Policy assignments and information about each of its respective definitions
