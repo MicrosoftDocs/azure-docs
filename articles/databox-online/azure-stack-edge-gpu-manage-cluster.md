@@ -113,7 +113,7 @@ For Azure Consistent Services, follow these steps to configure virtual IP.
 
     1. From the dropdown list, select the **Azure Consistent Services network**. 
     1. Choose IP settings from **DHCP** or **static**.
-    1. If you chose IP settings as static, enter a virtual IP. This should be a free I P from within the Azure Consistent Services network that you specified. If you selected DHCP, a virtual IP is automatically picked from the Azure Consistent Services network that you selected.
+    1. If you chose IP settings as static, enter a virtual IP. This should be a free IP from within the Azure Consistent Services network that you specified. If you selected DHCP, a virtual IP is automatically picked from the Azure Consistent Services network that you selected.
 1. Select **Apply**.
 
     ![Screenshot of local web U I Cluster page with Virtual I P Settings blade configured for Azure consistent services on first node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-azure-consistent-services-2.png)
