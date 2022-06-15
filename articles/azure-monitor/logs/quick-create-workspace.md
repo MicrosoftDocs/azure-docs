@@ -67,7 +67,6 @@ New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Res
 Once you've created a workspace, [configure a Log Analytics workspace in Azure Monitor using PowerShell](/azure/azure-monitor/logs/powershell-workspace-configuration).  
 
 ## [Azure CLI](#tab/azure-cli)
-Manage Azure Log Analytics workspaces using [Azure CLI](/cli/azure/monitor/log-analytics/workspace) commands.
   
 Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group or use an existing resource group. To create a workspace, use the [az monitor log-analytics workspace create](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-create) command.
 
@@ -201,12 +200,10 @@ For more information about Azure Resource Manager templates, see [Azure Resource
 }
 ```
   
-Once you've created a workspace, see [Resource Manager template samples for Log Analytics workspaces in Azure Monitor](/azure/azure-monitor/logs/resource-manager-workspace) to configure data sources.
-
 ---
 
 ## Troubleshooting
-When you create a workspace that was deleted in the last 14 days and in [soft-delete state](../logs/delete-workspace.md#soft-delete-behavior), the operation could have different outcome depending on your workspace configuration:
+When you create a workspace that was deleted in the last 14 days and in [soft-delete state](../logs/delete-workspace.md#soft-delete-behavior), the operation could have a different outcome depending on your workspace configuration:
 1. If you provide the same workspace name, resource group, subscription and region as in the deleted workspace, your workspace will be recovered including its data, configuration and connected agents.
 2. Workspace names must be unique for a resource group. If you use a workspace name that already exists, or is soft-deleted, an error is returned. Follow the steps below to permanently delete your soft-deleted and create a new workspace with the same name:
    - [Recover](../logs/delete-workspace.md#recover-workspace) your workspace
