@@ -48,7 +48,7 @@ To verify that events are being received in your Event Hub, you can check the gr
 
 *Verify content of telemetry data*
 You can enable Event Hub’s Capture feature that will automatically deliver the telemetry data to an Azure Blob storage account of your choosing.
-Follow the instructions here to enable Capture: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-enable-through-portal
+Follow the instructions [here](azure/event-hubs/event-hubs-capture-enable-through-portal) to enable Capture.
 Once enabled, you can check your container and view/download the data.
 
 
@@ -59,7 +59,7 @@ Event Hub documentation provides lots of guidance on how to write simple consume
 - [Python](/azure/event-hubs/event-hubs-python-get-started-send)
 - [.NET](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
 - [Java](/azure/event-hubs/event-hubs-java-get-started-send)
-- [JavaScript](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-node-get-started-send)
+- [JavaScript](azure/event-hubs/event-hubs-node-get-started-send)
 
 We have provided [sample code](consume-telemetry.py) based on the Python guide that includes code specific to have to access the expected metadata that Azure Orbital will send with each event and the format of our messages. See the Orbital Telemetry Schema section that documents the format of our event messages.
 

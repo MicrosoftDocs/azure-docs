@@ -58,11 +58,11 @@ Upon authorization, you'll be billed amounts determined in Step 3 and our regula
 
 ## Step 5 - Spacecraft is authorized
 
-Once the licenses are in place, the spacecraft object will be updated by Orbital to represent the licenses held at the specified groundstations. Refer to [Spacecraft](concepts-spacecraft.md) to understand how the authorizations are applied.
+Once the licenses are in place, the spacecraft object will be updated by Orbital to represent the licenses held at the specified groundstations. Refer to (to add link to spacecraft concept) to understand how the authorizations are applied.
 
 ## FAQ
 
 Q. Are third party ground stations such as KSAT included in this process
-A. No, the process on this page applies to Microsoft sites only. Refer to [Integrate with third party](howto-thirdpary.md) for more details on licensing with partner sites.
+A. No, the process on this page applies to Microsoft sites only. Refer to (to add link to third party page) for more details on licensing with partner sites.
 
 ## Next steps
