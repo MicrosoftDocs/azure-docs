@@ -2400,6 +2400,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/aks/ingress-internal-ip.md",
+      "redirect_url": "/azure/aks/ingress-basic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/ingress-own-tls.md",
+      "redirect_url": "/azure/aks/ingress-tls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/ingress-static-ip.md",
+      "redirect_url": "/azure/aks/ingress-tls",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/container-service/kubernetes/container-service-kubernetes-jenkins.md",
       "redirect_url": "/azure/aks/jenkins-continuous-deployment",
       "redirect_document_id": false
@@ -18991,6 +19006,16 @@
       "redirect_url": "/azure/logic-apps/logic-apps-exception-handling",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-automated-model.md",
+      "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-designer-model.md",
+      "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/cognitive-services/LinguisticAnalysisAPI/AnalyzeMethod.md",
       "redirect_url": "/azure/machine-learning/classic-module-reference/text-analytics",

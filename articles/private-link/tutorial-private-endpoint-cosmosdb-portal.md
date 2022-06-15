@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* An Azure subscription.
+* An Azure subscription
 
 ## Sign in to Azure
 

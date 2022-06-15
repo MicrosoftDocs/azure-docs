@@ -208,7 +208,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-managing-alert-instances.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-page.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-page",
             "redirect_document_id": false
         },
         {
