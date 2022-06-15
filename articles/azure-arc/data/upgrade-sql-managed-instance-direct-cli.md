@@ -37,7 +37,7 @@ There's no batch upgrade process available at this time.
 
 ## Upgrade the managed instance
 
-You can perform a dry run first. The dry run validates the version schema and list which instance(s) will be upgraded. Use `--dry-run`. For example:
+You can perform a dry run first. The dry run validates the version schema and lists which instance(s) will be upgraded. Use `--dry-run`. For example:
 
 ```azurecli
 az sql mi-arc upgrade --resource-group <resource group> --name <instance name> --dry-run 
