@@ -33,7 +33,7 @@ pip install azure-cognitiveservices-speech
 > [!NOTE]
 > If you're on macOS and run into install issues, you may need to run the `python3 -m pip install --upgrade pip` command first.
 
-## Upgrade to the latest Speech SDK
+### Upgrade to the latest Speech SDK
 
 To upgrade to the latest Speech SDK, run this command in a terminal:
 
@@ -49,7 +49,7 @@ pip list
 
 # [VS Code](#tab/vscode)
 
-## Install the Speech SDK by using Visual Studio Code
+### Install the Speech SDK by using Visual Studio Code
 
 To install the Speech SDK for Python:
 
@@ -72,7 +72,7 @@ For more information about Visual Studio Code and Python, see the [Visual Studio
 
 ---
 
-## Import and use the SDK
+## Use the Speech SDK
 
 Add the following import statement to use the Speech SDK in your Python project:
 

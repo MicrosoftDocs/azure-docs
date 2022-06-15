@@ -12,7 +12,7 @@ The Speech SDK for Python is compatible with Windows, Linux, and macOS.
 
 On Windows, you can use the x64 or x86 target architecture.
 
-On Windows, you must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, or 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
+You must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, or 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
 
 # [Linux](#tab/linux)
 
@@ -26,7 +26,7 @@ A macOS version 10.14 or later is required.
 
 ---
 
-Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). To check your installation, open a terminal and run the command `python --version`. If it's installed properly, you'll get a response like "Python 3.8.8".
+Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). To check your installation, open a terminal and run the command `python --version`. If it's installed properly, you'll get a response like "Python 3.8.2".
 
 > [!IMPORTANT]
 > Make sure that packages of the same platform (x64 or x86) are installed. For example, if you install the x64 redistributable package, then you need to install the x64 Python package. 

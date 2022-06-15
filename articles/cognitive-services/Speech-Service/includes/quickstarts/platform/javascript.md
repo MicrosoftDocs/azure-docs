@@ -77,10 +77,9 @@ For more information, see the <a href="https://github.com/Azure-Samples/cognitiv
 
 ---
 
-## Import and use the SDK
+## Use the Speech SDK
 
 Add the following import statement to use the Speech SDK in your JavaScript project:
-
 
 ```javascript
 import * as sdk from "microsoft-cognitiveservices-speech-sdk";
