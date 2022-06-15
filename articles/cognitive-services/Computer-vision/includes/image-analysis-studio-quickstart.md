@@ -24,3 +24,12 @@ ms.author: pafarley
 1. Select an image from the available set, or upload your own.
 1. After you select your image, you'll see the detected tags appear in the output window along with their confidence scores. You can also select the **JSON** tab to see the JSON output that the API call returns. 
 1. Below the try-it-out experience are next steps to start using this capability in your own application.
+
+## Next steps
+
+In this quickstart, you used Vision Studio to do a basic image analysis task. Next, learn more about the Analyze API features.
+
+> [!div class="nextstepaction"]
+> [Call the Analyze API](../how-to/call-analyze-image.md)
+
+* [Image Analysis overview](../overview-image-analysis.md)

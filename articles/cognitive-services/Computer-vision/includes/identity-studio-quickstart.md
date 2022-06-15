@@ -28,3 +28,12 @@ Use Vision Studio to identify a face. This is a streamlined version of the face 
 1. Finally, upload another image in the bottom pane, and the service will determine whether it belongs to the **person** it was trained for.
 1. See the **Detected attributes** pane for the match results and confidence scores.
 1. Below the try-it-out experience are next steps to start using this capability in your own application.
+
+## Next steps
+
+In this quickstart, you learned how to use Vision Studio to do a basic facial recognition task. Next, learn about the different face detection models and how to specify the right model for your use case.
+
+> [!div class="nextstepaction"]
+> [Specify a face detection model version](../how-to/specify-detection-model.md)
+
+* [What is the Face service?](../overview-identity.md)

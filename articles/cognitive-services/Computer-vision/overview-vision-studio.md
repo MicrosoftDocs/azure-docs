@@ -26,12 +26,11 @@ To use Vision Studio, you'll need an Azure subscription and a resource for Cogni
 1. Create an Azure Subscription if you don't have one already. You can [create one for free](https://azure.microsoft.com/free/ai/).
 
 1. Go to the [Vision Studio website](https://vision.cognitive.azure.com/). If it's your first time logging in, you'll see a popup window appear that prompts you to sign in to Azure and then choose or create a Vision resource. You have the option to skip this step and do it later.
-
-![Vision studio startup wizard](./Images/vision-studio-wizard-1.png)
+    :::image type="content" source="./Images/vision-studio-wizard-1.png" alt-text="Screenshot of Vision Studio startup wizard.":::
 
 1.	Select **Choose resource**, then select an existing resource within your subscription. If you'd like to create a new one, select **Create a new resource**. Then enter information for your new resource, such as a name, location, and resource group. 
 
-    :::image type="content" source="./Images/vision-studio-wizard-2.png" alt-text="Resource selection panel":::
+    :::image type="content" source="./Images/vision-studio-wizard-2.png" alt-text="Screenshot of Vision Studio resource selection panel.":::
 
     > [!TIP]
     > * When you select a location for your Azure resource, choose one that's closest to you for lower latency.
@@ -39,7 +38,7 @@ To use Vision Studio, you'll need an Azure subscription and a resource for Cogni
 
 1.	Select **Create resource**. Your resource will be created, and you'll be able to try the different features offered by Vision Studio.
 
-    :::image type="content" source="./Images/vision-studio-home-page.png" alt-text="Vision Studio home page":::
+    :::image type="content" source="./Images/vision-studio-home-page.png" alt-text="Screenshot of Vision Studio home page.":::
 
 1. From here, you can select any of the different features offered by Vision Studio. Some of them are outlined in the service quickstarts:
    * [OCR quickstart](quickstarts-sdk/client-library.md?pivots=vision-studio)

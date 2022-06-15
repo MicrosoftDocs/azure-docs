@@ -24,3 +24,12 @@ ms.author: pafarley
 1. Select an image from the available set, or upload your own.
 1. After you select your image, you'll see the extracted text appear in the output window. You can also select the **JSON** tab to see the JSON output that the API call returns.
 1. Below the try-it-out experience are next steps to start using this capability in your own application.
+
+## Next steps
+
+In this quickstart, you used Vision Studio to access the Read API. Next, learn more about the Read API features.
+
+> [!div class="nextstepaction"]
+> [Call the Read API](../how-to/call-read-api.md)
+
+* [OCR overview](../overview-ocr.md)
