@@ -2613,7 +2613,7 @@ isFloat('<string>', '<locale>'?)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*boolean-result*> | Boolean | A boolean indicating whether the string is a floating point number |
+| <*boolean-result*> | Boolean | A boolean that indicates whether the string is a floating-point number |
 
 *Example 1*
 
