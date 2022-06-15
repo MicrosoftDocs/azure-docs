@@ -62,7 +62,7 @@ The following example creates a new item asynchronously:
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/250-create-item/Program.cs" id="create_item" :::
 
-The [Container.CreateItemAsync<>](/dotnet/api/microsoft.azure.cosmos.container.createitemasync) method will throw an exception if there's a conflict with the unique identifier of an existing item. To learn more about potential exceptions, see [CreateItemAsync<> exceptions](/dotnet/api/microsoft.azure.cosmos.container.createitemasync#exceptions).
+The [``Container.CreateItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.createitemasync) method will throw an exception if there's a conflict with the unique identifier of an existing item. To learn more about potential exceptions, see [``CreateItemAsync<>`` exceptions](/dotnet/api/microsoft.azure.cosmos.container.createitemasync#exceptions).
 
 ## Replace an item asynchronously
 
@@ -70,7 +70,7 @@ The following example replaces an existing item asynchronously:
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/250-create-item/Program.cs" id="replace_item" :::
 
-The [Container.ReplaceItemAsync<>](/dotnet/api/microsoft.azure.cosmos.container.replaceitemasync) method requires the provided string for the ``id`` parameter to match the unique identifier of the ``item`` parameter.
+The [``Container.ReplaceItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.replaceitemasync) method requires the provided string for the ``id`` parameter to match the unique identifier of the ``item`` parameter.
 
 ## Create or replace an item asynchronously
 
@@ -78,7 +78,7 @@ The following example will create a new item or replace an existing item if an i
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/250-create-item/Program.cs" id="upsert_item" :::
 
-The [Container.UpsertItemAsync<>](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync) method will use the unique identifier of the ``item`` parameter to determine if there's a conflict with an existing item and to replace the item appropriately.
+The [``Container.UpsertItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync) method will use the unique identifier of the ``item`` parameter to determine if there's a conflict with an existing item and to replace the item appropriately.
 
 ## Next steps
 
