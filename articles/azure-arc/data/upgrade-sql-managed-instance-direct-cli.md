@@ -14,7 +14,7 @@ ms.topic: how-to
 
 # Upgrade a directly connected Azure Arc-enabled Managed Instance using the CLI
 
-This article describes how to upgrade a SQL Managed Instance deployed on a directly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
+This article describes how to upgrade an Azure SQL Managed Instance deployed on a directly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
 ## Prerequisites
 
@@ -29,13 +29,13 @@ The `arcdata` extension version and the image version are related. Check that yo
 
 ## Limitations
 
-The Azure Arc data controller must be upgraded to the new version before the Managed Instance can be upgraded.
+The Azure Arc data controller must be upgraded to the new version before the managed instance can be upgraded.
 
-The Managed Instance must be at the same version as the data controller before a data controller is upgraded.
+The managed instance must be at the same version as the data controller before a data controller is upgraded.
 
 There is no batch upgrade process available at this time.
 
-## Upgrade the Managed Instance
+## Upgrade the managed instance
 
 A dry run can be performed first. This will validate the version schema and list which instance(s) will be upgraded.
 
@@ -55,7 +55,7 @@ Preparing to upgrade sql sqlmi-1 in namespace arc to data controller version.
 
 ### Upgrade
 
-To upgrade the Managed Instance, use the following command:
+To upgrade the managed instance, use the following command:
 
 ````cli
 az sql mi-arc upgrade --resource-group <resource group> --name <instance name> --desired-version <imageTag> [--no-wait]
