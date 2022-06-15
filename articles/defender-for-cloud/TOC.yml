@@ -261,7 +261,7 @@
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
-  - name: Microsoft Defender for Azure SQL databases
+  - name: Defender for Azure SQL databases
     items: 
     - name: Overview of Defender for SQL
       displayName: database
@@ -274,12 +274,12 @@
     - name: Customize SQL information protection policy
       displayName: sql, database, data discovery
       href: sql-information-protection-policy.md
-  - name: Microsoft Defender for SQL servers on machines
+  - name: Defender for SQL servers on machines
     items:
     - name: Enable Defender for SQL servers on machines
       href: defender-for-sql-usage.md
       displayName: hybrid, arc, Azure Defender
-  - name: Microsoft Defender for open-source relational databases
+  - name: Defender for open-source relational databases
     items: 
     - name: Overview of Defender for open-source relational databases
       displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
@@ -287,7 +287,7 @@
     - name: Enable Defender for OSS RDBs and respond to alerts
       displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
       href: defender-for-databases-usage.md
-  - name: Microsoft Defender for Azure Cosmos DB (Preview)
+  - name: Defender for Azure Cosmos DB (Preview)
     items: 
     - name: Overview of Microsoft Defender for Azure Cosmos DB
       href: concept-defender-for-cosmos.md
