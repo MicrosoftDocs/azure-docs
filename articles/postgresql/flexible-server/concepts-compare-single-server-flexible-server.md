@@ -11,9 +11,9 @@ ms.date: 06/14/2022
 
 # Comparison chart - Azure Database for PostgreSQL Single Server and Flexible Server
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-The following table provides a high-level features and capabilities comparisons between Single Server and Flexible Server. For most new deployments, we recommend using Flexible Server. However, you should consider your own requirements against the comparison table below.
+The following table provides a list of high-level features and capabilities comparisons between Single Server and Flexible Server. For most new deployments, we recommend using Flexible Server. However, you should consider your own requirements against the comparison table below.
 
 | **Feature / Capability** | **Single Server** | **Flexible Server** |
 | ---- | ---- | ---- |
@@ -39,12 +39,12 @@ The following table provides a high-level features and capabilities comparisons 
 | **Compute & Storage** | | |
 | Compute tiers | Basic, General Purpose, Memory Optimized | Burstable, General Purpose, Memory Optimized |
 | Burstable SKUs | No | Yes |
-| Ability to scale across compute tiers | Cannot scale Basic tier | Yes. Can scale across tiers |
+| Ability to scale across compute tiers | Can't scale Basic tier | Yes. Can scale across tiers |
 | Stop/Start | No | Yes (for all compute SKUs). Only compute is stopped/started |
-| Max. Storage size | 1 TB (Basic), 4 TB or 16 TB (GP,MO). Note: Not all regions support 16 TB. | 16 TB |
+| Max. Storage size | 1 TB (Basic), 4 TB or 16 TB (GP, MO). Note: Not all regions support 16 TB. | 16 TB |
 | Min storage size | 5 GB (Basic), 100 GB (GP, MO) | 32 GB |
-| Storage auto-grow | Yes (1 GB increments) | No |
-| Max IOPS | Basic - Variable. GP/MO: up to 20K  | Up to 20K |
+| Storage auto-grow | Yes (1-GB increments) | No |
+| Max IOPS | Basic - Variable. GP/MO: up to 20 K  | Up to 20 K |
 | **Networking/Security** | | |
 | Supported networking | Virtual network, private link, public access | Private access (VNET injection in a delegated subnet), public access) |
 | Public access control | Firewall | Firewall |
@@ -91,9 +91,9 @@ The following table provides a high-level features and capabilities comparisons 
 | Cross-region support | Yes | N/A |
 | **Maintenance Window** | | |
 | System scheduled window | Yes | Yes |
-| Customer scheduled window| No | Yes (can choose any 1hr on any day) |
-| Notice period | 3 days | 5 days |
-| Maintenance period | Anytime within 15 hrs window | 1hr window | 
+| Customer scheduled window| No | Yes (can choose any 1 hr on any day) |
+| Notice period | Three days | Five days |
+| Maintenance period | Anytime within 15-hrs window | 1 hr window | 
 | **Metrics** | | |
 | Errors | Failed connections | Failed connections|
 | Latency | Max lag across replicas, Replica lag | N/A |
@@ -104,8 +104,8 @@ The following table provides a high-level features and capabilities comparisons 
 | PgCron, lo, pglogical | No | Yes |
 | pgAudit | Preview | Yes |
 | **Security** | | |
-| Azure Active Directory Support (AAD) | Yes | No |
-| Customer managed encryption key (BYOK) | Yes | No |
+| Azure Active Directory Support(AAD) | Yes | No |
+| Customer managed encryption key(BYOK) | Yes | No |
 | SCRAM Authentication (SHA-256) | No | Yes |
 | Secure Sockets Layer support (SSL) | Yes | Yes |
 | **Other features** | | |
