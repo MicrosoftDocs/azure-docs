@@ -6,6 +6,8 @@
     items:
       - name: What is Azure Front Door?
         href: front-door-overview.md
+      - name: What is Azure Front Door (classic)?
+        href: classic-overview.md
       - name: Choosing the right load balancer
         href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
       - name: Tier comparison
