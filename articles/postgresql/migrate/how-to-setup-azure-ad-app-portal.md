@@ -1,7 +1,7 @@
 ---
-title: "Set up Azure AD app to use with Single to Flexible migration"
+title: "Set up an Azure AD app to use with Single to Flexible migration"
 titleSuffix: Azure Database for PostgreSQL Flexible Server
-description: Learn about setting up Azure AD App to be used with Single to Flexible Server migration feature.
+description: Learn about setting up an Azure AD app to be used with the feature that migrates from Single Server to Flexible Server.
 author: hariramt
 ms.author: hariramt
 ms.service: postgresql
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/09/2022
 ---
 
-# Set up Azure AD app to use with Single to Flexible server Migration
+# Set up Azure AD app to use with Single to Flexible server migration
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
-This quick start article shows you how to set up Azure Active Directory (Azure AD) app to use with Single to Flexible server migration. It's an important component of the Single to Flexible migration feature. See [Azure Active Directory app](../../active-directory/develop/howto-create-service-principal-portal.md) for details. Azure AD App helps with role-based access control (RBAC) as the migration infrastructure requires access to both the source and target servers, and is restricted by the roles assigned to the Azure Active Directory App. The Azure AD app instance once created, can be used to manage multiple migrations. To get started, create a new Azure Active Directory Enterprise App by doing the following steps:
+This article shows you how to set up Azure Active Directory (Azure AD) app to use with Single to Flexible server migration. It's an important component of the Single to Flexible migration feature. See [Azure Active Directory app](../../active-directory/develop/howto-create-service-principal-portal.md) for details. Azure AD App helps with role-based access control (RBAC) as the migration infrastructure requires access to both the source and target servers, and is restricted by the roles assigned to the Azure Active Directory App. The Azure AD app instance once created, can be used to manage multiple migrations. To get started, create a new Azure Active Directory Enterprise App by doing the following steps:
 
 ## Create Azure AD App
 
 1. If you're new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate our offerings. 
 2. Search for Azure Active Directory in the search bar on the top in the portal.
 3. Within the Azure Active Directory portal, under **Manage** on the left, choose **App Registrations**.
-4. Click on **New Registration**
+4. Click on **New Registration**.
     :::image type="content" source="./media/how-to-setup-azure-ad-app-portal/azure-ad-new-registration.png" alt-text="New Registration for Azure Active Directory App." lightbox="./media/how-to-setup-azure-ad-app-portal/azure-ad-new-registration.png":::
   
 5. Give the app registration a name, choose an option that suits your needs for account types and click register
