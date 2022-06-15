@@ -4,8 +4,7 @@ description: Troubleshoot issues with Permissions Management
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 02/23/2022
