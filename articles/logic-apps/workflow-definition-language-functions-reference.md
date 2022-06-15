@@ -93,6 +93,7 @@ To work with strings, you can use these string functions and also some [collecti
 
 | String function | Task |
 | --------------- | ---- |
+| [chunk](../logic-apps/workflow-definition-language-functions-reference.md#chunk) | Split a string or collection into chunks of equal length. |
 | [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combine two or more strings, and return the combined string. |
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Check whether a string ends with the specified substring. |
 | [formatNumber](../logic-apps/workflow-definition-language-functions-reference.md#formatNumber) | Return a number as a string based on the specified format |
