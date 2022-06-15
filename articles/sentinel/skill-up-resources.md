@@ -363,9 +363,31 @@ You might also find the following reference information useful as you learn KQL:
 
 **Writing Scheduled Analytics Rules**
 
+Microsoft Sentinel enables you to use [built-in rule templates](https://docs.microsoft.com/en-us/azure/sentinel/detect-threats-built-in), customize the templates for your environment, or create custom rules. The core of the rules is a KQL query; however, there is much more than that to configure in a rule.
 
+To learn the procedure for creating rules, read the [documentation](https://docs.microsoft.com/en-us/azure/sentinel/detect-threats-custom). To learn how to write rules, i.e., what should go into a rule, focusing on KQL for rules, watch the webinar: [MP4](https://1drv.ms/v/s%21AnEPjr8tHcNmghlWrlBCPKwT5WTT), [YouTube](https://youtu.be/pJjljBT4ipQ), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmgmffNHf0wqmNEqdx).
+
+SIEM analytics rules have specific patterns. Learn how to implement rules and write KQL for those patterns:  
+* **Correlation rules**: [using lists and the "in" operator](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-correlation-rules-active-lists-out-make-list-in/ba-p/1029225) or using the ["join" operator](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-correlation-rules-the-join-kql-operator/ba-p/1041500)
+* **Aggregation**: see using lists and the "in" operator above, or a more [advanced pattern handling sliding windows](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/handling-sliding-windows-in-azure-sentinel-rules/ba-p/1505394)
+* **Lookups**: Regular, or Approximate, partial & combined lookups
+* **Handling false positives**
+* **Delayed events:** are a fact of life in any SIEM and are hard to tackle. Microsoft Sentinel can help you mitigate delays in your rules.
+* Using KQL functions as **building blocks**: Enriching Windows Security Events with Parameterized Function.
+
+To blog post ["Blob and File Storage Investigations"](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-ignite-2021-blob-and-file-storage-investigations/ba-p/2175138) provides a step by step example of writing a useful analytic rule.
 
 **Using Built-in Analytics**
+
+Before embarking on your own rule writing, you should take advantage of the built-in analytics capabilities. Those do not require much from you, but it is worthwhile learning about them:
+
+* Use the [built-in scheduled rule templates](https://docs.microsoft.com/en-us/azure/sentinel/detect-threats-built-in#about-out-of-the-box-detections). You can tune those templates by modifying the templates the same way to edit any scheduled rule. Make sure to deploy the templates for the data connectors you connect listed in the data connector "next steps" tab.
+* Learn more about Microsoft Sentinel's [Machine learning capabilities](https://docs.microsoft.com/en-us/azure/sentinel/bring-your-own-ml): [MP4](https://onedrive.live.com/?authkey=%21ANHkqv1CC1rX0JE&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21772&parId=66C31D2DBF8E0F71%21770&o=OneUp), [YouTube](https://www.youtube.com/watch?v=DxZXHvq1jOs&ab_channel=MicrosoftSecurityCommunity), [Presentation](https://onedrive.live.com/?authkey=%21ACovlR%2DY24o1rzU&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21773&parId=66C31D2DBF8E0F71%21770&o=OneUp)
+* Find the list of Microsoft Sentinel's [Advanced multi-stage attack detections ("Fusion") ](https://docs.microsoft.com/en-us/azure/sentinel/fusion) that are enabled by default.
+* Watch the Fusion ML Detections with Scheduled Analytics Rules webinar: [YouTube](https://www.youtube.com/watch?v=Ee7gBAQ2Dzc), [MP4](https://onedrive.live.com/?authkey=%21AJzpplg3agpLKdo&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%211663&parId=66C31D2DBF8E0F71%211654&o=OneUp), [Presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%211674&ithint=file%2Cpdf&authkey=%21AD%5F1AN14N3W592M).
+* Learn more about Azure Sentinel's built-in SOC-ML anomalies [here](https://docs.microsoft.com/en-us/azure/sentinel/soc-ml-anomalies). 
+* Watch the customized SOC-ML anomalies and how to use them webinar here: [YouTube](https://www.youtube.com/watch?v=z-suDfFgSsk&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21AJVEGsR4ym8hVKk&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%211742&parId=66C31D2DBF8E0F71%211720&o=OneUp), [Presentation](https://onedrive.live.com/?authkey=%21AFqylaqbAGZAIfA&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%211729&parId=66C31D2DBF8E0F71%211720&o=OneUp).
+* Watch the Fusion ML Detections for Emerging Threats & Configuration UI webinar here: [YouTube](https://www.youtube.com/watch?v=bTDp41yMGdk), [Presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%212287&ithint=file%2Cpdf&authkey=%21AIJICOTqjY7bszE).
 
 ### Module 12: SOAR
 ### Module 13: Workbooks, reporting, and visualization
@@ -377,4 +399,3 @@ You might also find the following reference information useful as you learn KQL:
 ## Part 5: Advanced Topics
 
 ## Sentinel Skill-up FAQ
-
