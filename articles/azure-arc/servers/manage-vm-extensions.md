@@ -138,8 +138,8 @@ The following extensions are available for Windows and Linux machines:
 |Windows Server 2008 R2 | | | |X |X | |X |X |X |
 |Windows Server 2008 SP2 | |X | |X |X | |X | | |
 |Windows 11 client OS |X | | |X | | | | | |
-|Windows 10 1803 (RS4) and higher |X | | |X |X | | | |Upcoming |
-|Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only) |X |X |X |X |X | |X | |Upcoming |
+|Windows 10 1803 (RS4) and higher |X | | |X |X | | | |X |
+|Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only) |X |X |X |X |X | |X | |X |
 |Windows 8 Enterprise and Pro (Server scenarios only) | |X |X |X | | |X | | |
 |Windows 7 SP1 (Server scenarios only) | |X |X |X | | |X | | |
 |Azure Stack HCI (Server scenarios only) | |X | |X | | |X | |X |
