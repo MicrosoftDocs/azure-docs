@@ -232,7 +232,10 @@ You can recover the password for the on-premises management console or the senso
 
 1. Select **Next**, and your user, and a system-generated password for your management console will then appear.
 
+
 ## Next steps
+
+- [View audit logs](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#view-and-export-audit-logs)
 
 - [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
 

@@ -311,21 +311,23 @@ To limit the number of alerts, use the `notifications.max_number_to_report` prop
 
 1. Save the changes. No restart is required.
 
+## View and export audit logs
 
-
-### View and export audit logs
-
-Audit logs record key activity data at the time of occurrence. Use daily audit logs generated on the on-premises management console to understand which changes were made, when, and by whom.
+Audit logs record key activity data at the time of occurrence. Use audit logs generated on the on-premises management console to understand which changes were made, when, and by whom.
 
 You may also want to export your audit logs to send them to the support team for extra troubleshooting.
 
-**To view today's audit logs**:
+> [!NOTE]
+> New audit logs are generated at every 10 MB. One previous log is stored in addition to the current active log file.
+>
 
-1. In the on-premises management console, select **System Settings > System Statistics**, and then select **Audit log**.
+**To view audit log data**:
 
-The dialog displays audit logs from the current day.
+In the on-premises management console, select **System Settings > System Statistics**, and then select **Audit log**.
 
-**To export today's audit logs**:
+The dialog displays data from the currently active audit log. For more information, see [Audit log data reference](#audit-log-data-reference).
+
+**To export audit log data**:
 
 1. In the on-premises management console, select **System Settings > Export**.
 
@@ -358,7 +360,6 @@ The following table lists the data included in on-premises management console au
 | **Management Console Upgrade** | The upgrade file used |
 | **Sensor upgrade retry** | Sensor ID |
 | **Uploaded TI package** | No additional information recorded. |
-
 
 
 ## Next steps
