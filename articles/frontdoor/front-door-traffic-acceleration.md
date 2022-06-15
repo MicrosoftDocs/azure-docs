@@ -27,7 +27,7 @@ Front Door optimizes the traffic path from the end user to the backend server. T
 
 ::: zone-end
 
-## <a name = "anycast"></a>Select the Front Door edge location for the request (Anycast)
+## Select the Front Door edge location for the request (Anycast)
 
 Globally, [Front Door has over 150 edge locations](edge-locations-by-region.md), or points of presence (PoPs), located in many countries and regions. Every Front Door PoP can serve traffic for any request.
 
@@ -39,7 +39,7 @@ The outer ring is the preferred target for all traffic, and the inner ring is de
 
 Front Door's architecture ensures that requests from your end users always reach the closest Front Door edge locations. If the preferred Front Door edge location is unhealthy, all traffic automatically moves to the next closest edge location.
 
-## <a name = "splittcp"></a>Connect to the Front Door edge location (Split TCP)
+## Connect to the Front Door edge location (Split TCP)
 
 [Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) is a technique to reduce latencies and TCP problems by breaking a connection that would incur a high round-trip time into smaller pieces.
 

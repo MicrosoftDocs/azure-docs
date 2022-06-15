@@ -39,7 +39,7 @@ Front Door (classic) works at Layer 7 (HTTP/HTTPS layer) using anycast protocol 
 With Front Door (classic) you can build, operate, and scale out your dynamic web application and static content. Front Door (classic) enables you to define, manage, and monitor the global routing for your web traffic by optimizing for top-tier end-user performance and reliability through quick global failover.
 Key features included with Front Door (classic):
 
-* Accelerated application performance by using **[split TCP](front-door-traffic-acceleration.md#splittcp?pivots=front-door-classic)**-based **[anycast protocol](front-door-traffic-acceleration.md#anycast?pivots=front-door-classic)**.
+* Accelerated application performance by using **[split TCP](front-door-traffic-acceleration.md?pivots=front-door-classic##connect-to-the-front-door-edge-location-split-tcp)**-based **[anycast protocol](front-door-traffic-acceleration.md?pivots=front-door-classic#select-the-front-door-edge-location-for-the-request-anycast)**.
 
 * Intelligent **[health probe](front-door-health-probes.md)** monitoring for backend resources.
 
@@ -63,7 +63,7 @@ Key features included with Front Door (classic):
 
 ## Pricing
 
-For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). See [SLA for Azure Front Door](https://azure.microsoft.com/en-us/support/legal/sla/frontdoor/v1_0/).
+For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). See [SLA for Azure Front Door](https://azure.microsoft.com/support/legal/sla/frontdoor/v1_0/).
 
 ## What's new?
 
