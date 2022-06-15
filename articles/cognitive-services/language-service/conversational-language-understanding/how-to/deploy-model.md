@@ -15,7 +15,7 @@ ms.custom: language-service-clu,
 
 # Deploy a model 
 
-Once you are satisfied with how your model performs, it's ready to be deployed, and query it for predictions from utterances. Deploying a model makes it available for use through the [prediction API](https://aka.ms/ct-runtime-swagger).
+Once you are satisfied with how your model performs, it's ready to be deployed, and query it for predictions from utterances. Deploying a model makes it available for use through the [prediction API](https://aka.ms/clu-runtime-api).
 
 ## Prerequisites
 
