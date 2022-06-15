@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 06/15/2022
 
 ms.author: justinha
 author: vimrang
@@ -24,20 +24,20 @@ Azure AD users can authenticate using X.509 certificates on their SmartCards dir
 
 Follow these steps to set up Windows SmartCard logon:
 
-- Azure AD join or hybrid Azure AD join the machine into your tenant. 
-- Configure Azure AD CBA in your tenant as described in [Configure Azure AD CBA](how-to-certificate-based-authentication.md).
-- Make sure the user is either on managed authentication or using staged rollout. 
-- Present the physical or virtual SmartCard to the test machine.
-- Select SmartCard icon, enter the PIN and authenticate the user.  
+1. Join the machine to either Azure AD or a hybrid environment (hybrid join). 
+1. Configure Azure AD CBA in your tenant as described in [Configure Azure AD CBA](how-to-certificate-based-authentication.md).
+1. Make sure the user is either on managed authentication or using staged rollout. 
+1. Present the physical or virtual SmartCard to the test machine.
+1. Select SmartCard icon, enter the PIN and authenticate the user.  
 
-  :::image type="content" border="false" source="./media/concept-certificate-based-authentication/smartcard.png" alt-text="Screenshot of SmartCard sign in.":::
+   :::image type="content" border="false" source="./media/concept-certificate-based-authentication/smartcard.png" alt-text="Screenshot of SmartCard sign in.":::
 
-Users will get a primary refresh token (PRT) from Azure Active Directory after the successful login and depending on the Certificate-based authentication configuration, the PRT will contain the multi factor claim. 
+Users will get a primary refresh token (PRT) from Azure Active Directory after the successful login and depending on the Certificate-based authentication configuration, the PRT will contain the multifactor claim. 
 
 ## Restrictions and caveats  
 
 - The Windows login only works with the latest preview build of Windows 11. We are working to backport the functionality to Windows 10 and Windows Server.
-- Only Azure AD joined and hybrid Azure AD joined Windows machines will be able to test SmartCard logon.  
+- Only Windows machines that are joined to either or a hybrid environment can test SmartCard logon.  
 - Like in the other Azure AD CBA scenarios, the user must be on a managed domain or using staged rollout and cannot use a federated authentication model.
 
 ## Next steps

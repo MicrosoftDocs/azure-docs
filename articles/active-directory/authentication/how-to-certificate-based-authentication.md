@@ -5,7 +5,7 @@ description: Topic that shows how to configure Azure AD certificate-based authen
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/21/2022
+ms.date: 06/15/2022
 
 ms.author: justinha
 author: justinha
@@ -49,7 +49,7 @@ There are some configuration steps to complete before enabling Azure AD CBA. Fir
 
 Optionally, you can also configure authentication bindings to map certificates to single-factor or multifactor and configure username bindings to map certificate field to a user object attribute. Configuring user-related settings can be done by [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator). Once all the configurations are complete, enable Azure AD CBA on the tenant. 
 
-:::image type="content" border="false" source="./media/how-to-certificate-based-authentication/steps.png" alt-text="steps to enable Azure AD certificate-based authentication works in Azure AD.":::
+:::image type="content" border="false" source="./media/how-to-certificate-based-authentication/steps.png" alt-text="Diagram of the steps required to enable Azure Active Directory certificate-based authentication.":::
 
 ## Step 1: Configure the certification authorities
 

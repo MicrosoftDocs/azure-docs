@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 06/15/2022
 
 ms.author: justinha
 author: vimrang
@@ -25,7 +25,7 @@ This topic covers how to troubleshoot Azure AD certificate-based authentication 
 
 ## Why don't I see an option to sign in using certificates against Azure Active Directory after I enter my username?
 
-An administrator needs to enable CBA for the tenant to make the sign in with certificate option available for users. Link to getting started doc step 2
+An administrator needs to enable CBA for the tenant to make the sign-in with certificate option available for users. For more information, see [Step 2: Configure authentication binding policy](how-to-certificate-based-authentication.md#step-2-configure-authentication-binding-policy).
 
 ## User-facing sign-in error messages
 
@@ -43,7 +43,7 @@ This error is returned if the user selects the wrong user certificate from the l
 
 Make sure the certificate is valid and works for the user binding and authentication policy configuration.
 
-### AADSTS50034 - Users sign in fails with "Your account or password is incorrect. If you don't remember your password, reset it now."
+### AADSTS50034 - User sign-in fails with "Your account or password is incorrect. If you don't remember your password, reset it now."
 
 :::image type="content" border="true" source="./media/troubleshoot-certificate-based-authentication/reset.png" alt-text="Screenshot of password reset error." :::
 
@@ -62,13 +62,13 @@ If the user is a federated user moving to Azure AD and if the user binding confi
 >[!NOTE]
 >There is a known issue that this scenario is not logged into the sign-in logs.
 
-### AADSTS130501 - Users sign in fails with "Sign in was blocked due to User Credential Policy"
+### AADSTS130501 - User sign-in fails with "Sign in was blocked due to User Credential Policy"
 
 :::image type="content" border="true" source="./media/troubleshoot-certificate-based-authentication/policy-failed.png" alt-text="Screenshot of policy error." :::
 
 There is also a known issue when a user who is not in scope for CBA ties to sign in with a certificate to an [Office app](https://office.com) or any portal app, and the sign-in fails with an error:
 
-:::image type="content" border="true" source="./media/troubleshoot-certificate-based-authentication/alt-failed.png" alt-text="Alternative error message for Azure AD certificate-based authentication in Azure AD.":::
+:::image type="content" border="true" source="./media/troubleshoot-certificate-based-authentication/alt-failed.png" alt-text="Screenshot of the alternative error message for Azure Active Directory certificate-based authentication in Azure AD.":::
 
 In both cases, the error can be resolved by making sure the user is in scope for Azure AD CBA. For more information, see [Step 4: Enable CBA on the tenant](how-to-certificate-based-authentication.md#step-4-enable-cba-on-the-tenant).
 
@@ -76,7 +76,7 @@ In both cases, the error can be resolved by making sure the user is in scope for
 
 After sign-in fails and I retry sign-in with the correct certificate, I get an error:
 
-:::image type="content" border="true" source="./media/troubleshoot-certificate-based-authentication/user-error.png" alt-text="Error message for user who signs in with Azure AD certificate-based authentication.":::
+:::image type="content" border="true" source="./media/troubleshoot-certificate-based-authentication/user-error.png" alt-text="Screenshot of the error message for user who signs in with Azure Active Directory certificate-based authentication.":::
 
 This is a client behavior where the browser keeps using the original certificate selected. When the sign-in fails, close the existing browser session and retry sign-in from a new browser session.
 
@@ -86,7 +86,7 @@ There is a known issue when the authentication sometimes fails, the failure scre
 
 For example, if a user certificate is revoked and is part of a Certificate Revocation List, then authentication fails correctly. However, instead of the error message, you might see the following screen:
 
-:::image type="content" border="true" source="./media/troubleshoot-certificate-based-authentication/failed.png" alt-text="Error message for Azure AD certificate-based authentication.":::
+:::image type="content" border="true" source="./media/troubleshoot-certificate-based-authentication/failed.png" alt-text="Screenshot of the error message for Azure Active Directory certificate-based authentication.":::
 
 To get more diagnostic information, look in **Sign-in logs**. If a user authentication fails due to CRL validation for example, sign-in logs show the error information correctly.
 
@@ -98,9 +98,9 @@ The authentication policy is cached. After a policy update, it may take up to an
 
 ## I get an error ‘Cannot read properties of undefine’ while trying to add a custom authentication rule
 
-This is a known issue, and we are working on graceful error handling. This error happens when there is no Certificate Authority (CA) on the tenant. To resolve the error, see [Configure the certificate authorities](how-to-certificate-based-authentication.md#step-1-configure-the-certification-authorities).
+This is a known issue, and we are working on graceful error handling. This error happens when there is no Certification Authority (CA) on the tenant. To resolve the error, see [Configure the certificate authorities](how-to-certificate-based-authentication.md#step-1-configure-the-certification-authorities).
 
-:::image type="content" border="true" source="./media/troubleshoot-certificate-based-authentication/no-ca.png" alt-text="Error message when no CA is set for Azure AD.":::
+:::image type="content" border="true" source="./media/troubleshoot-certificate-based-authentication/no-ca.png" alt-text="Screenshot of the error message when no Certification Authority is set for Azure Active Directory.":::
 
 
 ## I see a valid Certificate Revocation List (CRL) endpoint set, but why don't I see any CRL revocation?
