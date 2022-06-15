@@ -34,7 +34,7 @@ To enable your app to sign in with client credentials and call a web API, you re
 
 The app architecture and registrations are illustrated in the following diagram:
 
-![Diagram of a web app with web API call registrations and tokens.](./media/client-credentials-grant-flow/application-architecture.png) 
+![Diagram of a web app with web A P I call registrations and tokens.](./media/client-credentials-grant-flow/application-architecture.png)
 
 ## Step 1. Register the web API app
 
@@ -51,11 +51,11 @@ In this step you configure the web API **Application ID URI**, then define **App
 1. Next to **Application ID URI**, select the **Set** link. Replace the default value (GUID) with a unique name (for example, **api**), and then select  **Save**.
 1. Copy the **Application ID URI**. The following screenshot shows how to copy the Application ID URI.
 
-    ![Screenshot shows how to copy the application ID URI.](./media/client-credentials-grant-flow/copy-application-id-uri.png) 
+    ![Screenshot shows how to copy the application I D.](./media/client-credentials-grant-flow/copy-application-id-uri.png) 
 
 1. Under **Manage**, select **Manifest** to open the application manifest editor.
 In the editor, locate the `appRoles` setting, and define app roles that target `applications`. Each app role definition must have a global unique identifier (GUID) for its `id` value. Generate 
-a new GUID by running `new-guid`command in the Microsoft Powershell, or an [online GUID  generator](https://www.bing.com/search?q=online+guid+generator). The `value` property of each app role definition will appear in the scope, the `scp` claim. The `value` property 
+a new GUID by running `new-guid`command in the Microsoft PowerShell, or an [online GUID  generator](https://www.bing.com/search?q=online+guid+generator). The `value` property of each app role definition will appear in the scope, the `scp` claim. The `value` property 
 can't contain spaces. The following example demonstrates two app roles, read and write:
 
     ```json
@@ -90,7 +90,7 @@ To enable your app to sign in with Azure AD B2C using client credentials flow, r
 1. Leave the other values as they are, and then select **Register**.
 1. Record the **Application (client) ID** for use in a later step.
 
-    ![Screenshot shows how to get the application ID.](./media/client-credentials-grant-flow/get-application-id.png)
+    ![Screenshot shows how to get the application I D.](./media/client-credentials-grant-flow/get-application-id.png)
 
 ## Step 2.1 Create a client secret
 
@@ -116,7 +116,7 @@ To grant your app (**App 1**) permissions, follow these steps:
 1. Select **Application permission**.
 1. Under **Permission**, expand **app**, and then select the scopes that you defined earlier (for example, **app.read** and **app.write**).
 
-    ![Screenshot shows how to grant the application API permissions.](./media/client-credentials-grant-flow/grant-application-permissions.png) 
+    ![Screenshot shows how to grant the application A P I permissions.](./media/client-credentials-grant-flow/grant-application-permissions.png) 
 
 1. Select **Add permissions**.
 1. Select **Grant admin consent for \<*your tenant name*>**.
@@ -160,7 +160,7 @@ grant_type=client_credentials&client_id=33333333-0000-0000-0000-000000000000&cli
 }
 ```
 
-Lear about the return [access token](tokens-overview.md) claims. The following table lists the claims that are related to the client credentials flow.
+Learn about the return [access token](tokens-overview.md) claims. The following table lists the claims that are related to the client credentials flow.
 
 | Claim | Description | Value  |
 | ----- | ------------- | ------------- |
@@ -216,7 +216,7 @@ The following example shows how to add the `ClientCredentialsUserJourneyId` to t
 </TechnicalProfile>
 ```
 
-The following example hows a client credentials user journey. The first and the last orchestration steps are required.
+The following example shows a client credentials user journey. The first and the last orchestration steps are required.
 
 ```xml
 <UserJourneys>
