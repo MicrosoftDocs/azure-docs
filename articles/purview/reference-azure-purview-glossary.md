@@ -27,7 +27,7 @@ A cloud solution that supports labeling of documents and emails to classify and 
 ## Business glossary
 A searchable list of specialized terms that an organization uses to describe key business words and their definitions. Using a business glossary can provide consistent data usage across the organization.
 ## Capacity unit
-A measure of data map usage. All Microsoft Purview data maps include one capacity unit by default, which provides up to 2 GB of metadata storage and has a throughput of 25 data map operations/second.
+A measure of data map usage. All Microsoft Purview Data Maps include one capacity unit by default, which provides up to 2 GB of metadata storage and has a throughput of 25 data map operations/second.
 ## Classification report
 A report that shows key classification details about the scanned data.  
 ## Classification
