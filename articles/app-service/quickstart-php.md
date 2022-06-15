@@ -29,7 +29,7 @@ To complete this quickstart, you need:
 1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 1. <a href="https://git-scm.com/" target="_blank">Git</a>
 1. <a href="https://php.net/manual/install.php" target="_blank">PHP</a>
-1. <a href="/CLI/Azure/install-Azure-CLI" target="_blank">Azure CLI</a> to run commands in any shell to provision and configure Azure resources.
+1. <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> to run commands in any shell to provision and configure Azure resources.
 
 ## 1 - Set up the sample application
 
@@ -62,7 +62,7 @@ In the terminal, deploy the code in your local folder using the  [`az webapp up`
 az webapp up --runtime "PHP:8.0" --os-type=linux
 ```
 
-- If the `az` command isn't recognized, be sure you have <a href="/CLI/Azure/install-Azure-CLI" target="_blank">Azure CLI</a> installed.
+- If the `az` command isn't recognized, be sure you have <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> installed.
 - The `--runtime "php|8.0"` argument creates the web app with PHP version 8.0.
 - The `--os-type=linux` argument creates the web app on App Service on Linux.
 - You can optionally specify a name with the argument `--name <app-name>`. If you don't provide one, then a name will be automatically generated.
