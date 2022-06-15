@@ -24,7 +24,7 @@ This article contains all major API changes and feature updates for the Azure VM
 
 ### Version 2022-02-14
 
-**Improvements**:
+**Improvements**
 - [Validation support](./linux/image-builder-json.md#properties-validate)
     - Shell (Linux): Script or inline
     - PowerShell (Windows): Script or inline, run elevated, run as system
@@ -35,9 +35,9 @@ This article contains all major API changes and feature updates for the Azure VM
 
 **Breaking change**
  
-API version 2021-10-01 introduces a change to the error schema that will be part of every future API release. If you have any Azure VM Image Builder automations, be aware of the new error output when you switch to API version 2021-10-01 or later. [See the new schema](#error-output-for-version-2021-10-01-and-later). We recommend that once customers switch to the new API version (2021-10-01 and beyond), they don't revert to older versions as they'll have to change their automation again to expect the older error schema. We don't anticipate changing the error schema again in future releases.
+API version 2021-10-01 introduces a change to the error schema that will be part of every future API release. If you have any Azure VM Image Builder automations, be aware of the [new error output](#error-output-for-version-2021-10-01-and-later) when you switch to API version 2021-10-01 or later. We recommend, after you've switched to the latest API version, that you don't revert to an earlier version, because you'll have to change your automation again to produce the earlier error schema. We don't anticipate that we'll change the error schema again in future releases.
 
-#### **Error output for version 2020-02-14 and earlier**
+##### **Error output for version 2020-02-14 and earlier**
 
 ```
 { 
@@ -46,7 +46,7 @@ API version 2021-10-01 introduces a change to the error schema that will be part
 } 
 ```
 
-#### **Error output for version 2021-10-01 and later**
+##### **Error output for version 2021-10-01 and later**
 
 ```
 { 
