@@ -51,36 +51,36 @@ In this image, numbers indicate the following components:
 
 |Component|Technical Specifications|
 |:----|:----|
-|Construction|Aluminum, fanless and dust-proof design|
-|Dimensions|240 mm (W) x 225 mm (D) x 77 mm (H)|
-|Weight|3.1 kg (including CPU, memory, and HDD)|
-|CPU|Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151|
-|Chipset|Intel® Q170 Platform Controller Hub|
-|Memory|8 GB DDR4 2133 MHz Wide Temperature SODIMM|
-|Storage|128 GB 3ME3 Wide Temperature mSATA SSD|
-|Network controller|Six-Gigabit Ethernet ports by Intel® I219|
-|Device access|Four USBs: Two in front, two in the rear, and 1 internal|
-|Power Adapter|120/240VAC-20VDC/6A|
-|Mounting|Mounting kit, Din Rail|
-|Operating Temperature|-25°C -  70°C|
-|Storage Temperature|-40°C ~ 85°C|
-|Humidity|10%~90%, non-condensing|
-|Vibration|Operating, 5 Grms, 5-500 Hz, three Axes <br>(w/ SSD, according to IEC60068-2-64)|
-|Shock|Operating, 50 Grms, Half-sine 11 ms Duration <br>(w/ SSD, according to IEC60068-2-27)|
-|EMC|CE/FCC Class A, according to EN 55022, EN 55024 & EN 55032|
+|**Construction**|Aluminum, fanless and dust-proof design|
+|**Dimensions**|240 mm (W) x 225 mm (D) x 77 mm (H)|
+|**Weight**|3.1 kg (including CPU, memory, and HDD)|
+|**CPU**|Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151|
+|**Chipset**|Intel® Q170 Platform Controller Hub|
+|**Memory**|8 GB DDR4 2133 MHz Wide Temperature SODIMM|
+|**Storage**|128 GB 3ME3 Wide Temperature mSATA SSD|
+|**Network controller**|Six-Gigabit Ethernet ports by Intel® I219|
+|**Device access**|Four USBs: Two in front, two in the rear, and 1 internal|
+|**Power Adapter**|120/240VAC-20VDC/6A|
+|**Mounting**|Mounting kit, Din Rail|
+|**Operating Temperature**|-25°C -  70°C|
+|**Storage Temperature**|-40°C ~ 85°C|
+|**Humidity**|10%~90%, non-condensing|
+|**Vibration**|Operating, 5 Grms, 5-500 Hz, three Axes <br>(w/ SSD, according to IEC60068-2-64)|
+|**Shock**|Operating, 50 Grms, Half-sine 11 ms Duration <br>(w/ SSD, according to IEC60068-2-27)|
+|**EMC**|CE/FCC Class A, according to EN 55022, EN 55024 & EN 55032|
 
 
 ## Nuvo 5006LP sensor installation
 
-This section describes how to install OT sensor software on the Nuvo 5006LP appliance. Before you install the OT sensor software, you must adjust the appliance's BIOS configuration.
+This section describes how to install OT sensor software on the Nuvo 5006LP appliance. Before installing the OT sensor software, you must adjust the appliance's BIOS configuration.
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install software on a preconfigured device, or  buy your hardware and configure the appliance yourself.
 >
 
 ### Prerequisites
 
-Before you start installing OT sensor software, or updating the BIOS configuration, make sure that the operating system is installed on the appliance.
+Before installing OT sensor software, or updating the BIOS configuration, make sure that the operating system is installed on the appliance.
 
 ### Configure the Nuvo 5006LP BIOS
 
@@ -134,7 +134,7 @@ This procedure describes how to install OT sensor software on the Nuvo 5006LP. T
 
 1. Accept the settings and continue by entering `Y`.
 
-After approximately 10 minutes, sign-in credentials are automatically generated. Save the username and passwords, you'll need these credentials to access the platform the first time you use it.
+After approximately 10 minutes, sign-in credentials are automatically generated. Save the username and passwords; you'll need these credentials to access the platform the first time you use it.
 
 ## Next steps
 
