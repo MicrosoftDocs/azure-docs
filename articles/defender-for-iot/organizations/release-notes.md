@@ -43,17 +43,20 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ## June 2022
 
-### Enterprise IoT networks in General Availability
+### Enterprise IoT purchase experience and Defender for Endpoint integration in GA
 
-Defender for IoT now supports Enterprise IoT devices in General Availability. With this update, we've made the following updates and improvements:
+Defender for IoT's purchase experience for Enterprise IoT networks and the integration with Microsoft Defender for Endpoint (MDE) is now in General Availability (GA). With this update, we've made the following updates and improvements:
 
-- An updated **Plans and pricing** page with an enhanced onboarding process. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md)
+- An updated **Plans and pricing** page with an enhanced onboarding process. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
-- View detected Enterprise IoT devices on the Defender for IoT **Device inventory** page in the Azure portal. Integrate with Microsoft Defender for Endpoint to view related alerts, vulnerabilities, and recommendations in the Microsoft 365 Security portal.
+- While you can continue to view detected Enterprise IoT devices on the Defender for IoT **Device inventory** page in the Azure portal, now you can also view related alerts, vulnerabilities, and recommendations in the [Microsoft 365 Security portal](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
-- All Enterprise IoT sensors are now automatically added to the same site, named **BuiltIn-Enterprise**. When onboarding a new Enterprise IoT device, you only need to define a sensor name and select your subscription, without defining a site or zone.
+- All Enterprise IoT sensors are now automatically added to the same site, named **Enterprise network**. When onboarding a new Enterprise IoT device, you only need to define a sensor name and select your subscription, without defining a site or zone.
 
-For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md)
+> [!NOTE]
+> The Enterprise IoT network sensor and all detections remain in Public Preview.
+
+For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md).
 
 ## May 2022
 

@@ -10,6 +10,9 @@ ms.custom: template-tutorial
 
 This tutorial will help you learn how to get started with your Enterprise IoT monitoring deployment.
 
+> [!IMPORTANT]
+> The **Enterprise IoT network sensor** is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 Microsoft Defender for IoT has extended the agentless capabilities to go beyond operational environments, and advance into the realm of enterprise environments. Defender for IoT supports the entire breadth of IoT devices in your environment, including everything from corporate printers, cameras, to purpose-built devices, proprietary, and unique devices.
 
 You can extend your analytics capabilities to view alerts, vulnerabilities and recommendations for your enterprise devices by adding an integration with Microsoft Defender for Endpoint. For more information, see [Enable Microsoft Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
@@ -31,7 +34,7 @@ In this tutorial, you learn how to:
 
 Before you start, make sure that you have:
 
-- Completed [Quickstart: Get started with Defender for IoT](getting-started.md) and that you have added Defender for IoT to an Azure subscription. If you already have a subscription that has Defender for IoT onboarded for OT environments, you'll need to perform the same procedure again to add a new Enterprise IoT plan.
+- Completed [Quickstart: Get started with Defender for IoT](getting-started.md) and that you've added a Defender for IoT plan to an Azure subscription. If you already have a subscription that has Defender for IoT onboarded for OT environments, you'll need to perform the same procedure again to add a new Enterprise IoT plan.
 
 - The Azure permissions, as listed in [Quickstart: Getting Started with Defender for IoT](getting-started.md#permissions). 
 

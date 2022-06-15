@@ -73,7 +73,7 @@ For more information, see:
 
 This procedure describes how to add a Defender for IoT plan to an Azure subscription. If you're planning to monitor both OT and enterprise IoT networks, we recommend using separate subscriptions for each one.
 
-**To add a Defender for IoT plan to your subscription**
+**To add a Defender for IoT plan to your subscription:**
 
 1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
@@ -90,11 +90,6 @@ This procedure describes how to add a Defender for IoT plan to an Azure subscrip
     - **Committed sites** (OT only). Enter the number of committed sites.
 
     - **Number of devices**. If you selected a monthly or annual commitment, enter the number of devices you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 1000 devices.
-
-1. Select **Next**.
-
-1. **Implementation services**. Select to add implementation services for this deployment. Implementation services are deployed remotely by an expert consultant.
-    If you select **Yes**, enter the site and contact details as requested, and you will be contacted by our implementation service team.
 
 1. Select **Next**.
 
