@@ -399,7 +399,7 @@ The following guides show you how to use each of these classes to build your app
 
 ## Next steps
 
-Now that you've connected to a SQL API account, use the next guide to create and manage databases.
+Now that you've connected to a SQL API account, use the next guide to create databases.
 
 > [!div class="nextstepaction"]
 > [Create a database in Azure Cosmos DB SQL API using .NET](how-to-dotnet-create-database.md)

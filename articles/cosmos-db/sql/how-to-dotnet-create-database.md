@@ -62,7 +62,9 @@ The following example shows the **CosmosClient.CreateDatabaseIfNotExistsAsync** 
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/201-create-database-options/Program.cs" id="create_database_response" highlight="2,6":::
 
-## See also
+## Next steps
 
-* [Get started with Azure Cosmos DB SQL API and .NET](how-to-dotnet-get-started.md)
-* [Create a container](how-to-dotnet-create-container.md)
+Now that you've created a database, use the next guide to create containers.
+
+> [!div class="nextstepaction"]
+> [Create a container](how-to-dotnet-create-container.md)

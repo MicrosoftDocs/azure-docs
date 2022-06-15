@@ -62,8 +62,9 @@ The following example shows the **Database.CreateContainerIfNotExistsAsync** met
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/226-create-container-options/Program.cs" id="create_container_response" highlight="2,6":::
 
-## See also
+## Next steps
 
-* [Get started with Azure Cosmos DB SQL API and .NET](how-to-dotnet-get-started.md)
-* [Create a database](how-to-dotnet-create-database.md)
-* [Create an item](how-to-dotnet-create-item.md)
+Now that you've create a container, use the next guide to create items.
+
+> [!div class="nextstepaction"]
+> [Create an item](how-to-dotnet-create-item.md)
