@@ -1,12 +1,12 @@
 ---
-title: Create a Group Policy Object for at scale onboarding with DPAPI encryption of service principal secret
+title: Connect machines at scale with Group Policy with service principal encryption
 description: In this article, you learn how to create a Group Policy Object to onboard Active Directory-joined Windows machines to Azure Arc-enabled servers. 
-ms.date: 06/13/2022
+ms.date: 06/15/2022
 ms.topic: conceptual
 ms.custom: template-how-to
 ---
 
-# Create a Group Policy Object for at scale onboarding with DPAPI encryption of service principal secret
+# Create a Group Policy Object for onboarding with DPAPI encryption of service principal secret
 
 You can onboard Active Directory–joined Windows machines to Azure Arc-enabled servers at scale using Group Policy.
 
