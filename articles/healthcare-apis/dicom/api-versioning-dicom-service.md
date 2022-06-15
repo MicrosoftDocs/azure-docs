@@ -33,8 +33,8 @@ Currently the supported versions are:
 * v1
 
 The OpenApi Doc for the supported versions can be found at the following url:
- 
-`<service_url>/{version}/api.yaml`
+
+`<service_url>/v<version>/api.yaml`
 
 ## Prerelease versions
 
