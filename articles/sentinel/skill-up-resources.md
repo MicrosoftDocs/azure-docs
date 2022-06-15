@@ -431,8 +431,29 @@ Workbooks can serve for reporting. For more advanced reporting capabilities such
 
 ### Module 14: Notebooks
 
+Jupyter notebooks are fully integrated with Microsoft Sentinel. While usually considered an important tool in the hunter's tool chest and discussed the webinars in the hunting section below, their value is much broader. Notebooks can serve for advanced visualization, an investigation guide, and for sophisticated automation. 
+
+To understand them better, watch the [Introduction to notebooks video](https://www.youtube.com/watch?v=TgRRJeoyAYw&ab_channel=MicrosoftSecurityCommunity). Get started using the Notebooks webinar ([YouTube](https://www.youtube.com/watch?v=rewdNeX6H94&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21ALXve0rEAhZOuP4&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21778&parId=66C31D2DBF8E0F71%21776&o=OneUp), [Presentation](https://onedrive.live.com/?authkey=%21AEQpzVDAwzzen30&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21779&parId=66C31D2DBF8E0F71%21776&o=OneUp)) or read the [documentation](https://docs.microsoft.com/en-us/azure/sentinel/notebooks). The [Microsoft Sentinel Notebooks Ninja series](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/becoming-a-microsoft-sentinel-notebooks-ninja-the-series/ba-p/2693491) is an ongoing training series to upskill you in Notebooks.
+
+An important part of the integration is implemented by [MSTICPY](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/msticpy-python-defender-tools/ba-p/648929), a Python library developed by our research team for use with Jupyter notebooks that adds Microsoft Sentinel interfaces and sophisticated security capabilities to your notebooks.
+* [MSTICPy Fundamentals to Build Your Own Notebooks](https://www.youtube.com/watch?v=S0knTOnA2Rk&ab_channel=MicrosoftSecurityCommunity)
+* [MSTICPy Intermediate to Build Your Own Notebooks](https://www.youtube.com/watch?v=Rpj-FS_0Wqg&ab_channel=MicrosoftSecurityCommunity)
 
 ### Module 15: Use cases and solutions
+
+Using connectors, rules, playbooks, and workbooks enables you to implement **use cases**: the SIEM term for a content pack intended to detect and respond to a threat. You can deploy Sentinel built-in use cases by activating the suggested rules when connecting each Connector. A **solution** is a **group of use cases** addressing a specific threat domain.
+
+The Webinar **"Tackling Identity"**([YouTube](https://www.youtube.com/watch?v=BcxiY32famg&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21AFsVrhZwut8EnB4&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21284&parId=66C31D2DBF8E0F71%21282&o=OneUp), [Presentation](https://onedrive.live.com/?authkey=%21ACSAvdeLB7JfAX8&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21283&parId=66C31D2DBF8E0F71%21282&o=OneUp)) explains what a use case is, how to approach its design, and presents several use cases that collectively address identity threats.
+
+Another very relevant solution area is **protecting remote work**. Watch our [Ignite session on protection remote work](https://www.youtube.com/watch?v=09JfbjQdzpg&ab_channel=MicrosoftSecurity), and read more on the specific use cases:
+* [Microsoft Teams hunting use cases](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/protecting-your-teams-with-azure-sentinel/ba-p/1265761) and [Graph Visualization of External Microsoft Teams Collaborations](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/graph-visualization-of-external-teams-collaborations-in-azure/ba-p/1356847)
+* [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/monitoring-zoom-with-azure-sentinel/ba-p/1341516): custom connectors, analytic rules, and hunting queries.
+* [Monitoring Azure Virtual Desktop with Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/virtual-desktop/diagnostics-log-analytics#push-diagnostics-data-to-your-workspace): use Windows Security Events, Azure AD Sign-in logs, Microsoft 365 defender for endpoints, and AVD diagnostics logs to detect and hunt for AVD threats.
+*[ Monitor Microsoft endpoint Manager / Intune](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/secure-working-from-home-deep-insights-at-enrolled-mem-assets/ba-p/1424255), using queries and workbooks.
+
+And lastly, focusing on recent attacks, learn how to m[onitor the software supply chain with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/monitoring-the-software-supply-chain-with-azure-sentinel/ba-p/2176463).
+
+**Microsoft Sentinel solutions** provide in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical scenarios in Microsoft Sentinel. Read more about them [here](https://docs.microsoft.com/EN-US/azure/sentinel/sentinel-solutions), and watch the **webinar about how to create your own [here](https://www.youtube.com/watch?v=oYTgaTh_NOU&ab_channel=MicrosoftSecurityCommunity).** For more about Sentinel content management in general, watch the Microsoft Sentinel Content Management webinar - [YouTube](https://www.youtube.com/watch?v=oYTgaTh_NOU&ab_channel=MicrosoftSecurityCommunity), [Presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%212201&ithint=file%2Cpdf&authkey=%21AIdsDXF3iluXd94).
 
 ## Part 4: Operating
 
