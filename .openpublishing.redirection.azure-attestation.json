@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path": "/articles/attestation/audit-logs.md",
+            "redirect_url": "/articles/attestation/view-logs.md",
+            "redirect_document_id": true
+        }
+     ]
+}
