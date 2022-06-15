@@ -1,8 +1,10 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 09/03/2021
+ms.date: 06/15/2022
 ms.topic: conceptual
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Understanding the Azure Resource Graph query language
 
@@ -13,11 +15,16 @@ query language used by Resource Graph, start with the
 
 This article covers the language components supported by Resource Graph:
 
-- [Resource Graph tables](#resource-graph-tables)
-- [Resource Graph custom language elements](#resource-graph-custom-language-elements)
-- [Supported KQL language elements](#supported-kql-language-elements)
-- [Scope of the query](#query-scope)
-- [Escape characters](#escape-characters)
+- [Understanding the Azure Resource Graph query language](#understanding-the-azure-resource-graph-query-language)
+  - [Resource Graph tables](#resource-graph-tables)
+  - [<a name="extended-properties"></a>Extended properties (preview)](#extended-properties-preview)
+  - [Resource Graph custom language elements](#resource-graph-custom-language-elements)
+    - [<a name="shared-query-syntax"></a>Shared query syntax (preview)](#shared-query-syntax-preview)
+  - [Supported KQL language elements](#supported-kql-language-elements)
+    - [Supported tabular/top level operators](#supported-tabulartop-level-operators)
+  - [Query scope](#query-scope)
+  - [Escape characters](#escape-characters)
+  - [Next steps](#next-steps)
 
 ## Resource Graph tables
 
@@ -212,6 +219,51 @@ Group' with ID 'myMG'.
   {
       "query": "Resources | summarize count()",
       "managementGroups": ["myMG"]
+  }
+  ```
+
+The `AuthorizationScopeFilter` parameter enables you to list Azure Policy assignments inherited from upper scopes. The `AuthorizationScopeFilter` parameter accepts the following values:
+
+- **AtScopeAndBelow** (default if not specified): Returns policy assignments for the given scope and all child scopes
+- **AtScopeAndAbove**: Returns policy assignments for the given scope and all parent scopes, but not child scopes
+- **AtScopeAboveAndBelow**: Returns policy assignments for the given scope, all parent scopes and all child scopes
+- **AtScopeExact**: Returns policy assignments  only for the given scope; no parent or child scopes are included
+
+> [!NOTE]
+> To use the `AuthorizationScope` parameter, be sure to reference the **2021-06-01-preview** API version in your requests.
+
+Example: Get all policy assignments at the **myMG** management group and Tenant Root (parent) scopes.
+
+- REST API URI
+
+  ```http
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-06-01-preview
+  ```
+
+- Request Body Sample
+
+  ```json
+  {
+      "authorizationScopeFilter": "AtScopeAndAbove",
+      "query": "PolicyResources | where type =~ 'Microsoft.Authorization/PolicyAssignments'",
+      "managementGroups": ["myMG"]
+  }
+  ```
+
+Example: Get all policy assignments at the **mySubscriptionId** subscription, management group, and Tenant Root scopes.
+
+- REST API URI
+
+  ```http
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-06-01-preview
+  ```
+- Request Body Sample
+
+  ```json
+  {
+      "authorizationScopeFilter": "AtScopeAndAbove",
+      "query": "PolicyResources | where type =~ 'Microsoft.Authorization/PolicyAssignments'",
+      "subscriptions": ["mySubscriptionId"]
   }
   ```
 
