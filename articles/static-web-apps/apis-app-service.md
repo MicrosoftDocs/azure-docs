@@ -19,12 +19,11 @@ By default, when an App Service app is linked to a static web app, the App Servi
 
 All Azure App Service hosting plans are available for use with Azure Static Web Apps.
 
-> [!NOTE]
-> The integration with Azure API Management is currently in preview and requires the Static Web Apps Standard plan.
-
 [!INCLUDE [APIs overview](../../includes/static-web-apps-apis-overview.md)]
 
 > [!NOTE]
+> The integration with Azure API Management is currently in preview and requires the Static Web Apps Standard plan.
+> 
 > You cannot link a web app to a Static Web Apps [pull request environment](review-publish-pull-requests.md).
 
 ## Link an Azure App Service Web App

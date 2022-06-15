@@ -17,12 +17,11 @@ When you link your container app to your static web app, any requests to your st
 
 By default, when a container app is linked to a static web app, the container app only accepts requests that are proxied through the linked static web app. A container app can be linked to a single static web app at a time.
 
-> [!NOTE]
-> The integration with Azure Container Apps is currently in preview and requires the Static Web Apps Standard plan.
-
 [!INCLUDE [APIs overview](../../includes/static-web-apps-apis-overview.md)]
 
 > [!NOTE]
+> The integration with Azure Container Apps is currently in preview and requires the Static Web Apps Standard plan.
+>
 > You cannot link a container app to a Static Web Apps [pull request environment](review-publish-pull-requests.md).
 
 ## Link a container app
