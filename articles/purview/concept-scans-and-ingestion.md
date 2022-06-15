@@ -1,8 +1,8 @@
 ---
 title: Scans and ingestion
 description: This article explains scans and ingestion in Microsoft Purview.
-author: nayenama
-ms.author: nayenama
+author: heniot
+ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual

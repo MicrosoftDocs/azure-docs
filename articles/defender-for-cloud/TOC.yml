@@ -403,7 +403,7 @@
       href: episode-seven.md
     - name: Microsoft Defender for IoT
       href: episode-eight.md
-    - name: Microsoft Defender for Containers in a multi-cloud environment
+    - name: Microsoft Defender for Containers in a multicloud environment
       href: episode-nine.md
     - name: Protecting containers in GCP with Defender for Containers
       href: episode-ten.md

@@ -2,6 +2,7 @@
 title: Concepts - Identity and access
 description: Learn about the identity and access concepts of Azure VMware Solution
 ms.topic: conceptual
+ms.service: azure-vmware
 ms.date: 06/06/2022
 ---
 

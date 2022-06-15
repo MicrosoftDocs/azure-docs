@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.devlang: javascript
 ms.custom: devx-track-js
+ms.reviewer: mmcc
 ---
 
 # Application Insights for web pages
