@@ -693,10 +693,10 @@ Please wait for the Windows Modules Installer
    * There are no outstanding reboots required by adding a Windows Restart customizer as the last customization.
    * All software installation is complete. 
    
-1. Add the [/mode:vm](/windows-hardware/manufacture/desktop/sysprep-command-line-options) option to the default `Sysprep` that VM Image Builder uses. For more information, see [Override the commands](#override-the-commands) section under "VMs that are created from VM Image Builder images aren't created successfully".  
+1. Add the [/mode:vm](/windows-hardware/manufacture/desktop/sysprep-command-line-options) option to the default `Sysprep` that VM Image Builder uses. For more information, see [Override the commands](#override-the-commands) section under "VMs created from VM Image Builder images aren't created successfully".  
 
  
-## VMs that are created from VM Image Builder images aren't created successfully
+## VMs created from VM Image Builder images aren't created successfully
 
 By default, VM Image Builder runs *deprovision* code at the end of each image customization phase to *generalize* the image. To generalize an image is to set it up to reuse to create multiple VMs. As part of the process, you can pass in VM settings, such as hostname, username, and so on. In Windows, VM Image Builder runs `Sysprep`, and in Linux, VM Image Builder runs `waagent -deprovision`. 
 
