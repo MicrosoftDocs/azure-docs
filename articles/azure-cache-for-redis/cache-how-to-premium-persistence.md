@@ -30,13 +30,13 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 
 ## Set up data persistence
 
-1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. You can create caches in the Azure portal. Y You can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. You can create caches in the Azure portal. You can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Create resource.":::
+    :::image type="content" source="media/cache-how-to-premium-persistence/create-resource.png" alt-text="Screenshot that shows a form to create an Azure Cache for Redis resource.":::
   
 2. On the **Create a resource** page, select **Databases** and then select **Azure Cache for Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Select Azure Cache for Redis.":::
+    :::image type="content" source="media/cache-how-to-premium-persistence/select-cache.png" alt-text="Screenshot showing Azure Cache for Redis selected as a new database type.":::
 
 3. On the **New Redis Cache** page, configure the settings for your new premium cache.
   
@@ -50,7 +50,7 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 
 4. Select the **Networking** tab or select the **Networking** button at the bottom of the page.
 
-5. In the **Networking** tab, select your connectivity method. For premium cache instances, you  connect either publicly, via Public IP addresses or service endpoints. You connect privately using a private endpoint.
+5. In the **Networking** tab, select your connectivity method. For premium cache instances, you connect either publicly, via Public IP addresses or service endpoints. You connect privately using a private endpoint.
 
 6. Select the **Next: Advanced** tab or select the **Next: Advanced** button on the bottom of the page.
 
@@ -173,7 +173,7 @@ All RDB persistence backups, except for the most recent one, are automatically d
 
 ### When should I use a second storage account?
 
-Use a second storage account for AOF persistence when you believe you have higher than expected set operations on the cache. Setting up the secondary storage account helps ensure your cache doesn't reach storage bandwidth limits.
+Use a second storage account for AOF persistence when you believe you've higher than expected set operations on the cache. Setting up the secondary storage account helps ensure your cache doesn't reach storage bandwidth limits.
 
 ### Does AOF persistence affect throughout, latency, or performance of my cache?
 
