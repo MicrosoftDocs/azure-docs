@@ -37,7 +37,8 @@ There is no batch upgrade process available at this time.
 
 ## Upgrade the Managed Instance
 
-[!INCLUDE [upgrade-sql-managed-instance-gpandbc](upgrade-sql-managed-instance-gpandbc.md)]
+[!INCLUDE [upgrade-sql-managed-instance-service-tiers](includes/upgrade-sql-managed-instance-service-tiers.md)]
+
 
 ### Upgrade
 

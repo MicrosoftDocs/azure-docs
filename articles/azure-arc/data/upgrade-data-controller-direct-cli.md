@@ -64,7 +64,8 @@ This section shows how to upgrade a directly connected data controller.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
 > and preview services in the [Release Notes](./release-notes.md).
 
-[!INCLUDE [upgrade-supported-path](upgrade-supported-path.md)]
+[!INCLUDE [upgrade-supported-path](includes/upgrade-supported-path.md)]
+
 
 ### Authenticate  
 

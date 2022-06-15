@@ -50,7 +50,8 @@ Preparing to upgrade sql sqlmi-1 in namespace arc to data controller version.
 ****Dry Run****1 instance(s) would be upgraded by this commandsqlmi-1 would be upgraded to <version-tag>.
 ```
 
-[!INCLUDE [upgrade-sql-managed-instance-gpandbc](upgrade-sql-managed-instance-gpandbc.md)]
+[!INCLUDE [upgrade-sql-managed-instance-service-tiers](includes/upgrade-sql-managed-instance-service-tiers.md)]
+
 
 ### Upgrade
 
