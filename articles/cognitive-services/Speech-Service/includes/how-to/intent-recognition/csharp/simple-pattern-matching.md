@@ -11,11 +11,11 @@ zone_pivot_groups: programming-languages-set-two
 
 ## Create a project
 
-Create a new C# console application project in Visual Studio 2019 and open `Program.cs`.
+Create a new C# console application project in Visual Studio 2019 and [install the Speech SDK](../../../../quickstarts/setup-platform.md?pivots=programming-language-csharp).
 
 ## Start with some boilerplate code
 
-Let's add some code that works as a skeleton for our project.
+Let's open `Program.cs` and add some code that works as a skeleton for our project.
 
 ```C#
     using System;
