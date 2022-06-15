@@ -723,6 +723,12 @@ items:
     href: question-answering/quickstart/sdk.md
   - name: Language support
     href: question-answering/language-support.md
+  - name: Samples
+    items:
+    - name: C#
+      href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/samples
+    - name: Python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering/samples
   - name: Responsible use of AI
     items: 
     - name: Transparency note for question answering
