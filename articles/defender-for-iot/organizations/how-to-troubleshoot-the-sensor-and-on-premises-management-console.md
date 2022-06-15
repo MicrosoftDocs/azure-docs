@@ -311,7 +311,7 @@ To limit the number of alerts, use the `notifications.max_number_to_report` prop
 
 1. Save the changes. No restart is required.
 
-## View and export audit logs
+## Export audit logs for troubleshooting
 
 Audit logs record key activity data at the time of occurrence. Use audit logs generated on the on-premises management console to understand which changes were made, when, and by whom.
 
@@ -320,12 +320,6 @@ You may also want to export your audit logs to send them to the support team for
 > [!NOTE]
 > New audit logs are generated at every 10 MB. One previous log is stored in addition to the current active log file.
 >
-
-**To view audit log data**:
-
-In the on-premises management console, select **System Settings > System Statistics**, and then select **Audit log**.
-
-The dialog displays data from the currently active audit log. For more information, see [Audit log data reference](#audit-log-data-reference).
 
 **To export audit log data**:
 
@@ -343,24 +337,7 @@ The dialog displays data from the currently active audit log. For more informati
 
 1. Exported audit logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its password. If you're forwarding the audit logs to the support team, make sure to send the password to support separately from the exported logs.
 
-#### Audit log data reference
-
-The following table lists the data included in on-premises management console audit logs:
-
-| Action | Information logged |
-|--|--|
-| **Learn, and remediation of alerts** | Alert ID |
-| **Password changes** | User, User ID |
-| **Login** | User |
-| **User creation** | User, User role |
-| **Password reset** | User name |
-| **Exclusion rules-Creation**| Rule summary |
-| **Exclusion rules-Editing**| Rule ID, Rule Summary |
-| **Exclusion rules-Deletion** | Rule ID |
-| **Management Console Upgrade** | The upgrade file used |
-| **Sensor upgrade retry** | Sensor ID |
-| **Uploaded TI package** | No additional information recorded. |
-
+For more information, see [View audit log data on the on-premises management console](how-to-create-and-manage-users.md#view-audit-log-data-on-the-on-premises-management-console).
 
 ## Next steps
 

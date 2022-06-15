@@ -134,18 +134,47 @@ To update sign-out counting periods, adjust the `= <number>` value to the requir
 
 ## Track user activity
 
-You can track user activity in the event timeline on each sensor. The timeline displays the event or affected device, and the time and date that the user carried out the activity.
+Track user activity on a sensor's event timeline, or by viewing audit logs generated on an on-premises management console.
 
-**To view user activity**:
+- **The timeline** displays the event or affected device, and the time and date that the user carried out the activity.
 
-1. Select **Event Timeline** from the sensor side menu.
+- **Audit logs** record key activity data at the time of occurrence. Use audit logs generated on the on-premises management console to understand which changes were made, when, and by whom.
 
-1. Verify that  **User Operations** filter is set to **Show**.  
+### View user activity on the sensor's Event Timeline
 
-   :::image type="content" source="media/how-to-create-and-manage-users/track-user-activity.png" alt-text="Screenshot of the Event timeline showing a user that signed in to Defender for IoT.":::
+Select **Event Timeline** from the sensor side menu. If needed, verify that  **User Operations** filter is set to **Show**.
 
-1. Use the filters or Ctrl F option to find the information of interest to you.
+For example:
 
+:::image type="content" source="media/how-to-create-and-manage-users/track-user-activity.png" alt-text="Screenshot of the Event timeline showing a user that signed in to Defender for IoT.":::
+
+Use the filters or search using CTRL+F to find the information of interest to you.
+
+### View audit log data on the on-premises management console
+
+In the on-premises management console, select **System Settings > System Statistics**, and then select **Audit log**.
+
+The dialog displays data from the currently active audit log, including the following data:
+
+| Action | Information logged |
+|--|--|
+| **Learn, and remediation of alerts** | Alert ID |
+| **Password changes** | User, User ID |
+| **Login** | User |
+| **User creation** | User, User role |
+| **Password reset** | User name |
+| **Exclusion rules-Creation**| Rule summary |
+| **Exclusion rules-Editing**| Rule ID, Rule Summary |
+| **Exclusion rules-Deletion** | Rule ID |
+| **Management Console Upgrade** | The upgrade file used |
+| **Sensor upgrade retry** | Sensor ID |
+| **Uploaded TI package** | No additional information recorded. |
+
+New audit logs are generated at every 10 MB. One previous log is stored in addition to the current active log file.
+
+> [!TIP]
+> You may also want to export your audit logs to send them to the support team for extra troubleshooting. For more information, see [Export audit logs for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-audit-logs-for-troubleshooting)
+>
 
 ## Change a user's password
 
