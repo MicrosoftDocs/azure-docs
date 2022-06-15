@@ -12,9 +12,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 The Speech SDK for JavaScript is available as an npm package. See <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">microsoft-cognitiveservices-speech-sdk </a> and its companion GitHub repository <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-js" target="_blank">cognitive-services-speech-sdk-js</a>.
 
-## System requirements
-
-Before you do anything, see the [platform requirements and instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#platform-requirements).
+## Platform requirements
 
 Make sure to consider the various architectural implications between Node.js and client web browsers. For example, the <a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">document object model (DOM) </a> isn't available for server-side applications just as the <a href="https://nodejs.org/api/fs.html" target="_blank">file system</a> isn't available to client-side applications.
 

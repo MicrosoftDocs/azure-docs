@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 01/16/2022
+ms.date: 06/14/2022
 ms.author: eur
 ---
 
 # What is the Speech SDK?
 
-The Speech SDK (software development kit) exposes many of the Speech service capabilities you can use to develop speech-enabled applications. The Speech SDK is available [in many programming languages](quickstarts/setup-platform.md) and across all platforms. The Speech SDK is ideal for both real-time and non-real-time scenarios, by using local devices, files, Azure Blob Storage, and even input and output streams.
+The Speech SDK (software development kit) exposes many of the [Speech service capabilities](overview.md), so you can develop speech-enabled applications. The Speech SDK is available [in many programming languages](quickstarts/setup-platform.md) and across platforms. The Speech SDK is ideal for both real-time and non-real-time scenarios, by using local devices, files, Azure Blob Storage, and input and output streams.
 
-In some cases, you can't or shouldn't use the [Speech SDK](speech-sdk.md). In those cases, you can use REST APIs to access the Speech service. For example, use REST APIs for [batch transcription](batch-transcription.md) and [speaker recognition](/rest/api/speakerrecognition/) REST APIs.
+In some cases, you can't or shouldn't use the [Speech SDK](speech-sdk.md). In those cases, you can use REST APIs to access the Speech service. For example, use the [Speech-to-text REST API v3.0](rest-speech-to-text.md) for [batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md).
 
 ## Supported languages
 
@@ -38,20 +38,6 @@ The Speech SDK supports the following languages and platforms:
 <sup>3 The Speech SDK for Swift shares client libraries and reference documentation with the Speech SDK for Objective-C.</sup>  
 
 [!INCLUDE [License Notice](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-license-notice.md)]
-
-## Platform requirements
-
-Before you install the Speech SDK on Windows or Linux, make sure you have the following prerequisites:
-
-# [Windows](#tab/windows)
-
-[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-windows.md)]
-
-# [Linux](#tab/linux)
-
-[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-linux.md)]
-
----
 
 ## Code samples
 

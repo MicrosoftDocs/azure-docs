@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 ms.author: eur
 ---
 
-This guide shows how to install the [Speech SDK](../../../speech-sdk.md) for Java on Android. The Speech SDK is compatible with Android devices that have 32/64-bit ARM and Intel x86/x64 compatible processors.
+This guide shows how to install the [Speech SDK](../../../speech-sdk.md) for Java on Android. 
 
 The Speech SDK for Android is packaged as an [Android Archive (AAR) file](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and required Android permissions.
 It's hosted in a Maven repository at `https://azureai.azureedge.net/maven/`. 

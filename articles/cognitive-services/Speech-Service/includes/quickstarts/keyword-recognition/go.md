@@ -20,7 +20,7 @@ ms.author: eur
 
 ## Set up the environment
 
-Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser). Check the [platform-specific installation instructions](../../../speech-sdk.md#platform-requirements) for any more requirements.
+Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser). 
 
 > [!div class="nextstepaction"]
 > [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)

@@ -2,23 +2,12 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/03/2020
+ms.date: 06/14/2022
 ms.author: eur
 ---
 
-The Speech SDK only supports **Ubuntu 18.04/20.04/22.04**, **Debian 9/10/11**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
-
-- x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for **C++** development
-- x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for **Java**
-- x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for **.NET Core**
-- x64 (not RHEL/CentOS 7) for **Python**
-
-To use the Speech SDK in Alpine Linux, create a Debian chroot environment as documented in the Alpine Linux Wiki on [running glibc programs](https://wiki.alpinelinux.org/wiki/Running_glibc_programs). Then follow the Debian instructions here.
-
-### System requirements
-
 > [!IMPORTANT]
-> Use the latest point release of the Linux distribution. For example, CentOS 7.9.2009 (or newer if available) for CentOS 7; Ubuntu 18.04.6 (or newer if available) for Ubuntu 18.04 LTS.
+> Use the most recent LTS release of the Linux distribution. For example, if you are using Ubuntu 20.04 LTS, use the latest release of Ubuntu 20.04.X.
 
 For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, more dependencies might be required:
 
@@ -34,9 +23,9 @@ sudo apt-get install build-essential libssl-dev libasound2 wget
 ```
 
 > [!IMPORTANT]
-> On Ubuntu 22.04, install `libssl1.1` either as a binary package from http://security.ubuntu.com/ubuntu/pool/main/o/openssl/ (e.g. `libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb` or newer for x64) or by compiling it from sources. The Speech SDK does not support OpenSSL 3.0 (the default in Ubuntu 22.04) at the moment.
+> On Ubuntu 22.04, install `libssl1.1` either as a [binary package](http://security.ubuntu.com/ubuntu/pool/main/o/openssl/) such as `libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb`, or by compiling it from sources. The Speech SDK does not support OpenSSL 3.0, which is the default in Ubuntu 22.04.
 
-Example of installing `libssl1.1` on Ubuntu 22.04:
+Here's an example of installing `libssl1.1` on Ubuntu 22.04:
 ```Bash
 wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb
 sudo dpkg -i libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb
@@ -44,12 +33,16 @@ sudo dpkg -i libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb
 
 # [Debian 9/10/11](#tab/debian)
 
+To use the Speech SDK in Alpine Linux, create a Debian chroot environment as documented in the Alpine Linux Wiki on [running glibc programs](https://wiki.alpinelinux.org/wiki/Running_glibc_programs). Then follow the Debian instructions here.
+
 ```Bash
 sudo apt-get update
 sudo apt-get install build-essential libssl-dev libasound2 wget
 ```
 
 # [RHEL 7/8 and CentOS 7/8](#tab/rhel-centos)
+
+Install the development tools and libraries:
 
 ```Bash
 sudo yum update

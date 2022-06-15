@@ -10,9 +10,19 @@ ms.author: eur
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Java. 
 
-## System requirements
+## Platform requirements
 
-Before you do anything, see the [platform requirements and instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#platform-requirements).
+**Choose your target environment**
+
+# [Java Runtime](#tab/jre)
+
+[!INCLUDE [Requirements](python-requirements.md)]
+
+# [Android](#tab/android)
+
+The Speech SDK is compatible with Android devices that have 32/64-bit ARM and Intel x86/x64 compatible processors.
+
+---
 
 You must install a Java Development Kit such as [Azul Zulu OpenJDK](https://www.azul.com/downloads/?package=jdk). The [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk) or your preferred JDK should also work. 
 
