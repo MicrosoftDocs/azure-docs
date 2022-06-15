@@ -34,7 +34,7 @@
     ```
 
    > [!NOTE]
-   > If you're using a global admin account that is not native to the Azure AD tenant to provide consent, please replace “common” with the Azure AD tenant ID in the URL. You may also have to replace “common” with your tenant ID in certain other cases as well.
+   > If you're using a global admin account that is not native to the Azure AD tenant to provide consent, replace "common" with the Azure AD tenant ID in the URL. You may also have to replace "common" with your tenant ID in certain other cases as well. For help with finding your tenant ID, see [How to find your Azure Active Directory tenant ID](../articles/active-directory/fundamentals/active-directory-how-to-find-tenant.md).
    >
 
 1. Select the account that has the **Global administrator** role if prompted.
@@ -44,7 +44,3 @@
 1. Go to **Azure Active Directory**. In the left pane, click **Enterprise applications**. You'll see **Azure VPN** listed.
 
    :::image type="content" source="./media/vpn-gateway-vwan-azure-ad-tenant/vpn.png" alt-text="Screenshot of the Enterprise application page showing Azure V P N listed." lightbox="./media/vpn-gateway-vwan-azure-ad-tenant/vpn.png":::
-
-   > [!NOTE]
-   > If you're using a global admin account that is not native to the Azure AD tenant to provide consent, please replace “common” with the Azure AD tenant ID in the URL. You may also have to replace “common” with your tenant ID in certain other cases as well. For help with finding your tenant ID, see [How to find your Azure Active Directory tenant ID](../articles/active-directory/fundamentals/active-directory-how-to-find-tenant.md).
-   >
