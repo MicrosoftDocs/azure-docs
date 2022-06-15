@@ -16,7 +16,7 @@ ms.date: 06/15/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 
-#Customer intent: As a developer, I'd like to securely manage the credentials that my application uses for authenticating to cloud services without having the credentials in my code or checked into source control.
+#Customer intent: As a developer, I'd like to securely manage the credentials that my application uses for authenticating to cloud services without having the credentials in my code or checked into source control. 
 ---
 
 # Connecting from your application to resources without handling credentials
