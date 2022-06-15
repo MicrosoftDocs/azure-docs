@@ -32,7 +32,7 @@ let localParticipantViewData = ParticipantViewData(avatar: <Some UIImage>,
                                                    displayName: "<DISPLAY_NAME>")
 let localOptions = LocalOptions(participantViewData: localParticipantViewData)
 
-// RemoteOptions (data send to server)
+// RemoteOptions (data sent to server)
 let remoteOptions = RemoteOptions(for: .groupCall(groupId: UUID()),
                                   credential: <Some CommunicationTokenCredential>,
                                   displayName: "<DISPLAY_NAME>")
