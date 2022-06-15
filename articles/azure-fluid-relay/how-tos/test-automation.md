@@ -36,7 +36,7 @@ function createAzureClient(): AzureClient {
     const connectionConfig = useAzure ? {
         tenantId: "myTenantId",
         tokenProvider: new InsecureTokenProvider(tenantKey, user),
-        serviceEndpoint: "https://myOrdererUrl",
+        serviceEndpoint: "https://myServiceEndpointUrl",
     } : {
         tenantId: LOCAL_MODE_TENANT_ID,
         tokenProvider: new InsecureTokenProvider("", user),
