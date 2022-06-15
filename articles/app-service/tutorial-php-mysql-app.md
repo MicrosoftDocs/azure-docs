@@ -43,7 +43,7 @@ In this tutorial, you learn how to:
 To complete this tutorial:
 
 - [Install Git](https://git-scm.com/)
-- [Install PHP 5.6.4 or above](https://php.net/downloads.php)
+- [Install PHP 7.4](https://php.net/downloads.php)
 - [Install Composer](https://getcomposer.org/doc/00-intro.md)
 - Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 - [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
@@ -57,7 +57,7 @@ In this step, you create a database in your local MySQL server for your use in t
 
 In a terminal window, connect to your local MySQL server. You can use this terminal window to run all the commands in this tutorial.
 
-```bash
+```terminal
 mysql -u root -p
 ```
 
@@ -90,23 +90,14 @@ In the terminal window, `cd` to a working directory.
 
 1. Clone the sample repository and change to the repository root.
 
-    ```bash
+    ```terminal
     git clone https://github.com/Azure-Samples/laravel-tasks
     cd laravel-tasks
     ```
 
-1. Ensure the default branch is `main`.
-
-    ```bash
-    git branch -m main
-    ```
-    
-    > [!TIP]
-    > The branch name change isn't required by App Service. But, since many repositories are changing their default branch to `main`, this tutorial also shows you how to deploy a repository from `main`. For more information, see [Change deployment branch](deploy-local-git.md#change-deployment-branch).
-
 1. Install the required packages.
 
-    ```bash
+    ```terminal
     composer install
     ```
 
@@ -132,19 +123,19 @@ For information on how Laravel uses the _.env_ file, see [Laravel Environment Co
 
 1. Run [Laravel database migrations](https://laravel.com/docs/5.4/migrations) to create the tables the application needs. To see which tables are created in the migrations, look in the _database/migrations_ directory in the Git repository.
 
-    ```bash
+    ```terminal
     php artisan migrate
     ```
 
 1. Generate a new Laravel application key.
 
-    ```bash
+    ```terminal
     php artisan key:generate
     ```
 
 1. Run the application.
 
-    ```bash
+    ```terminal
     php artisan serve
     ```
 
@@ -169,17 +160,17 @@ For information on how Laravel uses the _.env_ file, see [Laravel Environment Co
     ::: zone pivot="platform-windows"  
     
     ```azurecli
-    az webapp up --resource-group myResourceGroup --name <app-name> --sku FREE --runtime "php|8.0" --os-type=windows
+    az webapp up --resource-group myResourceGroup --name <app-name> --location "West Europe" --sku FREE --runtime "php|7.4" --os-type=windows
     ```
     
     > [!NOTE]
     > The deployment process installs [Composer](https://getcomposer.org/) packages at the end. App Service on Windows does not run these automations during default deployment, so this sample repository has three additional files in its root directory to enable it:
     >
     > - `.deployment` - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
-    > - `deploy.sh` - The custom deployment script. If you review the file, you will see that it runs `php composer.phar install` after `npm install`.
+    > - `deploy.sh` - The custom deployment script. If you review the file, you will see that it runs `php composer.phar install`.
     > - `composer.phar` - The Composer package manager.
     >
-    > You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Custom Deployment Script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+    > You can use this approach to add any step to your [Git-based](deploy-local-git.md) or [ZIP](deploy-zip.md) deployment to App Service. For more information, see [Custom Deployment Script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
     >
     
     ::: zone-end
@@ -187,13 +178,13 @@ For information on how Laravel uses the _.env_ file, see [Laravel Environment Co
     ::: zone pivot="platform-linux"
     
     ```azurecli
-    az webapp up --resource-group myResourceGroup --name <app-name> --sku FREE --runtime "php|8.0" --os-type=linux
+    az webapp up --resource-group myResourceGroup --name <app-name> --location "West Europe" --sku FREE --runtime "php|7.4" --os-type=linux
     ```
     
     ::: zone-end
 
-    > [!TIP]
-    > For a more in-depth description of what `az webapp up` does, see [Quickstart: Create a PHP web app](quickstart-php.md).
+    [!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
+
 
 ### Configure Laravel environment variables
 
@@ -201,14 +192,14 @@ Laravel needs an application key in App Service. You can configure it with app s
 
 1. In the local terminal window, use `php artisan` to generate a new application key without saving it to _.env_.
 
-    ```bash
+    ```terminal
     php artisan key:generate --show
     ```
 
 1. In the Cloud Shell, set the application key in the App Service app by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command. Replace the placeholders _&lt;app-name>_ and _&lt;outputofphpartisankey:generate>_.
 
     ```azurecli-interactive
-    az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
+    az webapp config appsettings set --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
     ```
 
     `APP_DEBUG="true"` tells Laravel to return debugging information when the deployed app encounters errors. When running a production application, set it to `false`, which is more secure.
@@ -237,9 +228,9 @@ For more information, see [Change site root](configure-language-php.md#change-si
 
 ::: zone-end
 
-## Create MySQL in Azure
+If you browse to `https://<app-name>.azurewebsites.net` now and see a `Whoops, looks like something went wrong` message, then you have configured your App Service app properly and it's running in Azure. It just doesn't have database connectivity yet. In the next step, you create a MySQL database in [Azure Database for MySQL](../mysql/index.yml).
 
-Your sample app is deployed, but it doesn't have database connectivity in Azure yet. In this step, you create a MySQL database in [Azure Database for MySQL](../mysql/index.yml).
+## Create MySQL in Azure
 
 1. Create a MySQL server in Azure with the [`az mysql server create`](/cli/azure/mysql/server#az-mysql-server-create) command.
 
@@ -249,34 +240,18 @@ Your sample app is deployed, but it doesn't have database connectivity in Azure 
     az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
     ```
 
-    When the MySQL server is created, the Azure CLI shows information similar to the following example:
-
-    <pre>
-    {
-      "administratorLogin": "&lt;admin-user&gt;",
-      "administratorLoginPassword": null,
-      "fullyQualifiedDomainName": "&lt;mysql-server-name&gt;.mysql.database.azure.com",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/&lt;mysql-server-name&gt;",
-      "location": "westeurope",
-      "name": "&lt;mysql-server-name&gt;",
-      "resourceGroup": "myResourceGroup",
-      ...
-      -  &lt; Output has been truncated for readability &gt;
-    }
-    </pre>
-
 1. In the Cloud Shell, create a database called `sampledb` by using the [`az mysql db create`](/cli/azure/mysql/db#az-mysql-db-create) command.
 
     ```azurecli-interactive
-    az mysql db create -g myResourceGroup -s <mysql-server-name> -n sampledb    
+    az mysql db create --resource-group myResourceGroup --server-name <mysql-server-name> --name sampledb    
     ```
 
 ## Connect the app to the database
 
-Configure the connection between your app and the SQL database by using the [az webapp connection create mysql](/cli/azure/webapp/connection/create#az-webapp-connection-create-mysql) command. 
+Configure the connection between your app and the SQL database by using the [az webapp connection create mysql](/cli/azure/webapp/connection/create#az-webapp-connection-create-mysql) command. `--target-resource-group` is the resource group that contains the MySQL database.
 
 ```azurecli-interactive
-az webapp connection create mysql --resource-group myResourceGroup --name <app-name> --target-resource-group myResourceGroup --server <mysql-server-name> --database sampledb --connection my-laravel-db
+az webapp connection create mysql --resource-group myResourceGroup --name <app-name> --target-resource-group myResourceGroup --server <mysql-server-name> --database sampledb --connection my_laravel_db --client-type php
 ```
 
 When prompted, provide the administrator username and password for the MySQL database. 
@@ -284,7 +259,7 @@ When prompted, provide the administrator username and password for the MySQL dat
 > [!NOTE]
 > The CLI command does everything the app needs to successfully connect to the database, including:
 >
-> - In your App Service app, detects the platform as PHP and adds app settings with the name `AZURE_MYSQL_<setting>`, which your code can use for its database connection. If the app setting name is already in use, `AZURE_MYSQL_<connection-name>_<setting>` is used instead.
+> - In your App Service app, adds six app settings with the names `AZURE_MYSQL_<setting>`, which your code can use for its database connection. If the app setting names are already in use, the `AZURE_MYSQL_<connection-name>_<setting>` format is used instead.
 > - In your MySQL database server, allows Azure services to access the MySQL database server.
 
 ## Generate the database schema
@@ -299,7 +274,7 @@ When prompted, provide the administrator username and password for the MySQL dat
 
     > [!TIP]
     > Once the firewall rule for your local computer is enabled, you can connect to the server like any MySQL server with the `mysql` client. For example:
-    > ```bash
+    > ```terminal
     > mysql -u <admin-user>@<mysql-server-name> -h <mysql-server-name>.mysql.database.azure.com -P 3306 -p
     > ```
 
@@ -308,7 +283,7 @@ When prompted, provide the administrator username and password for the MySQL dat
     ::: zone pivot="platform-windows"  
 
     ```powershell
-    $Settings = az webapp connection list-configuration -g myResourceGroup -n cephalin-laravel --connection my-laravel-db --query configurations | ConvertFrom-Json
+    $Settings = az webapp connection list-configuration --resource-group myResourceGroup --name <app-name> --connection my_laravel_db --query configurations | ConvertFrom-Json
     foreach ($s in $Settings) { New-Item -Path Env:$($s.name) -Value $s.value}
     ```
     
@@ -328,7 +303,7 @@ When prompted, provide the administrator username and password for the MySQL dat
     ::: zone pivot="platform-linux"
     
     ```bash
-    export $(az webapp connection list-configuration -g myResourceGroup -n cephalin-laravel --connection mysql_azrh3 --query "configurations[].[name,value] | [*].join('=',@)" --output tsv)
+    export $(az webapp connection list-configuration --resource-group myResourceGroup -=name <app-name> --connection my_laravel_db --query "configurations[].[name,value] | [*].join('=',@)" --output tsv)
     ```
 
     > [!TIP]
@@ -459,7 +434,7 @@ While the PHP application runs in Azure App Service, you can get the console log
 To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log#az-webapp-log-tail) command in the Cloud Shell.
 
 ```azurecli-interactive
-az webapp log tail --name <app_name> --resource-group myResourceGroup
+az webapp log tail
 ```
 
 Once log streaming has started, refresh the Azure app in the browser to get some web traffic. You can now see console logs piped to the terminal. If you don't see console logs immediately, check again in 30 seconds.
@@ -477,8 +452,7 @@ To stop log streaming at any time, enter `Ctrl`+`C`.
 > [!TIP]
 > A PHP application can use the standard [error_log()](https://php.net/manual/function.error-log.php) to output to the console. The sample application uses this approach in _app/Http/routes.php_.
 >
-> As a web framework, [Laravel uses Monolog](https://laravel.com/docs/5.4/errors) as the logging provider. To see how to get Monolog to output messages to the console, see [PHP: How to use monolog to log to console (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
->
+> As a web framework, [Laravel uses Monolog](https://laravel.com/docs/9.x/logging) as the logging provider. To see how to get Monolog to output messages to the console, see [PHP: How to use monolog to log to console (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
