@@ -16,7 +16,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 # [Java Runtime](#tab/jre)
 
-[!INCLUDE [Requirements](python-requirements.md)]
+[!INCLUDE [Requirements](java-requirements.md)]
 
 # [Android](#tab/android)
 
