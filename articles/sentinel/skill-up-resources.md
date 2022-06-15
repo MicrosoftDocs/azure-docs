@@ -426,7 +426,7 @@ You can find dozens of workbooks in the [Workbooks folder](https://github.com/Az
 
 Workbooks can serve for reporting. For more advanced reporting capabilities such as reports scheduling and distribution or pivot tables, you might want to use:
 * Power BI, which natively [integrates with Log Analytics and Sentinel](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-powerbi).
-* Excel, which can use [Log Analytics and Sentinel as the data source](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-excel) (and see a a [video](https://www.youtube.com/watch?v=Rx7rJhjzTZA) on how).
+* Excel, which can use [Log Analytics and Sentinel as the data source](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-excel) (and watch a [video](https://www.youtube.com/watch?v=Rx7rJhjzTZA) on how to do this).
 * Jupyter notebooks covered later in the hunting module are also a great visualization tool.
 
 ### Module 14: Notebooks
