@@ -208,7 +208,7 @@
       href: overview-monitoring.md      
     - name: Resiliency
       items:
-      - name: Availability zone migration
+      - name: Migrate to availability zone support
         href: ../availability-zones/migrate-app-service.md
       - name: Restore from downed region
         href: manage-disaster-recovery.md

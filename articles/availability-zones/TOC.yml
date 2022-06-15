@@ -18,7 +18,7 @@
     items:
     - name: App service
       href: migrate-app-service.md
-    - name: Virtual Machines and Virtual Machine Scale Sets
+    - name: Virtual machines and virtual machine scale sets
       href: migrate-vm.md
     - name: Storage accounts
       href: migrate-storage.md
