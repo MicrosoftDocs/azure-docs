@@ -293,7 +293,7 @@ If you're using Windows containers or IoT Edge for Linux on Windows, this specia
 
 # [Windows](#tab/windows)
 
-Currently, there is no support for IoT Edge version 1.2 running on Windows devices.
+Currently, there is no support for IoT Edge version 1.3 running on Windows devices.
 
 ---
 
