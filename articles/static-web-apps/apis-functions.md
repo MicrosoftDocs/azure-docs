@@ -1,6 +1,6 @@
 ---
 title: API support in Azure Static Web Apps with Azure Functions
-description: Learn what API features Azure Static Web Apps supports
+description: Learn how to use Azure Functions with Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
