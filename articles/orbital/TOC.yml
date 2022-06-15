@@ -27,7 +27,7 @@ items:
       href: howto-prepare-network.md
     - name: License your spacecraft
       href: howto-licensing.md
-    - name: Receive realtime telemetry
+    - name: Receive real-time telemetry
       href: howto-realtime-telem.md
     - name: Update the Spacecraft TLE
       href: update-tle.md
