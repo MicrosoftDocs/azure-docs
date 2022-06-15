@@ -1,5 +1,5 @@
 ---
-title: Upgrade Azure Managed Instance indirectly connected to Azure Arc using the CLI
+title: Upgrade Azure SQL Managed Instance indirectly connected to Azure Arc using the CLI
 description: Article describes how to upgrade an Azure SQL Managed Instance indirectly connected to Azure Arc-enabled using the CLI
 services: azure-arc
 ms.service: azure-arc
