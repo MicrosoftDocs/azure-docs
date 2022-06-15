@@ -73,7 +73,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
+1. On the **Basic SAML Configuration** section, the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
