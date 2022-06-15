@@ -44,8 +44,8 @@ IoT Edge provides two different types of automatic deployments that you can use 
 The steps for creating a deployment and a layered deployment are very similar. Any differences are called out in the following steps.
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT Hub.
-1. On the menu in the left pane, select **IoT Edge** under **Automatic Device Management**.
-1. On the upper bar, select **Create Deployment** or **Create Layered Deployment**.
+1. On the menu in the left pane, select **IoT Edge** under **Device Management**.
+1. On the upper bar, select **Add Deployment** or **Add Layered Deployment**.
 
 There are five steps to create a deployment. The following sections walk through each one.
 
