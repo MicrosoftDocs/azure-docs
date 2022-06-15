@@ -83,12 +83,12 @@ The following properties are supported for the REST linked service:
 | authHeaders | Additional HTTP request headers for authentication.<br/> For example, to use API key authentication, you can select authentication type as “Anonymous” and specify API key in the header. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, this property uses the default Azure Integration Runtime. |No |
 
-This REST connector supports the following authentication types. See the corresponding sections for details.
-- [Use basic authentication](#use-basic-authentication)
-- [Use AAD service principal authentication](#use-aad-service-principal-authentication)
-- [Use OAuth2 Client Credential authentication](#use-oauth2-client-credential-authentication)
-- [Use user-assigned managed identity authentication](#use-user-assigned-managed-identity-authentication)
-- [Use Anonymous authentication](#using-authentication-headers)
+For different authentication types, see the corresponding sections for details.
+- [Basic authentication](#use-basic-authentication)
+- [AAD service principal authentication](#use-aad-service-principal-authentication)
+- [OAuth2 Client Credential authentication](#use-oauth2-client-credential-authentication)
+- [User-assigned managed identity authentication](#use-user-assigned-managed-identity-authentication)
+- [Anonymous authentication](#using-authentication-headers)
 
 ### Use basic authentication
 
