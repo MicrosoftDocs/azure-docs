@@ -39,9 +39,9 @@ There's no batch upgrade process available at this time.
 
 You can perform a dry run first. The dry run validates the version schema and list which instance(s) will be upgraded. Use `--dry-run`. For example:
 
-````cli
+```azurecli
 az sql mi-arc upgrade --resource-group <resource group> --name <instance name> --dry-run 
-````
+```
 
 The output will be:
 
@@ -57,15 +57,15 @@ Preparing to upgrade sql sqlmi-1 in namespace arc to data controller version.
 
 To upgrade the managed instance, use the following command:
 
-````cli
+```azurecli
 az sql mi-arc upgrade --resource-group <resource group> --name <instance name> --desired-version <imageTag> [--no-wait]
-````
+```
 
 Example:
 
-````cli
+```azurecli
 az sql mi-arc upgrade --resource-group myresource-group --name sql1 --desired-version v1.6.0_2022-05-02 [--no-wait]
-````
+```
 
 ## Monitor
 
