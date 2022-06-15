@@ -1,6 +1,6 @@
 ---
 title: Build your own client-side disaster recovery for Azure Event Grid topics
-description: This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a region.
+description: This articles describe how you can build your own client-side disaster recovery for Azure Event Grid topics. 
 ms.topic: tutorial
 ms.date: 06/14/2022
 ms.devlang: csharp
