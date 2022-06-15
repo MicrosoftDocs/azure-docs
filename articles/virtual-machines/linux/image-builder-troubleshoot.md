@@ -22,7 +22,7 @@ Use this article to troubleshoot and resolve common issues that you might encoun
 When you're creating a build, do the following:
 	
 - The VM Image Builder service communicates to the build VM by using WinRM or Secure Shell (SSH). Do *not* disable these settings as part of the build.
-- Image Builder creates resources as part of the build. Be sure to verify that Azure Policy doesn't prevent VM Image Builder from creating or using necessary resources.
+- VM Image Builder creates resources as part of the build. Be sure to verify that Azure Policy doesn't prevent VM Image Builder from creating or using necessary resources.
   - Create an IT_ resource group.
   - Create a storage account without a firewall.
 - Verify that Azure Policy doesn't install unintended features on the build VM, such as Azure Extensions.
@@ -48,24 +48,24 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 > For PowerShell, you'll need to install the [VM Image Builder PowerShell modules](../windows/image-builder-powershell.md#prerequisites).
 
 > [!IMPORTANT]
-> Our 2021-10-01 API introduces a change to the error schema that will be part of every future API release. If you've automated our service, you should expect to receive a new error output when you switch to API version 2021-10-01 or later (new schema shown below). After you've switched to the newer API version, we recommend that you *not* revert to an older version, because you'll have to change your automation again to expect the older error schema. We don't anticipate changing the error schema again in future releases.
+> API version 2021-10-01 introduces a change to the error schema that will be part of every future API release. If you have any Azure VM Image Builder automations, be aware of the [new error output](#error-output-for-version-2021-10-01-and-later) when you switch to API version 2021-10-01 or later. We recommend, after you've switched to the latest API version, that you don't revert to an earlier version, because you'll have to change your automation again to produce the earlier error schema. We don't anticipate that we'll change the error schema again in future releases.
 
-For API version 2020-02-14 and earlier, the error output will look like the following:
+##### **Error output for version 2020-02-14 and earlier**
 
-```text
-{
+```
+{ 
   "code": "ValidationFailed",
-  "message": "Validation failed: 'ImageTemplate.properties.source': Field 'imageId' has a bad value: '/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.Compute//images//imageName'. Please review http://aka.ms/azvmimagebuildertmplref for details on fields requirements in the Image Builder Template."
-}
+  "message": "Validation failed: 'ImageTemplate.properties.source': Field 'imageId' has a bad value: '/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.Compute/images/imageName'. Please review  http://aka.ms/azvmimagebuildertmplref  for details on fields requirements in the Image Builder Template." 
+} 
 ```
 
-For API version 2021-10-01 and later, the error output will look like the following:
+##### **Error output for version 2021-10-01 and later**
 
-```text
-{
+```
+{ 
   "error": {
-    "code": "ValidationFailed",
-    "message": "Validation failed: 'ImageTemplate.properties.source': Field 'imageId' has a bad value: '/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.Compute//images//imageName'. Please review  http://aka.ms/azvmimagebuildertmplref for details on fields requirements in the Image Builder Template."
+    "code": "ValidationFailed", 
+    "message": "Validation failed: 'ImageTemplate.properties.source': Field 'imageId' has a bad value: '/subscriptions/subscriptionID/resourceGroups/resourceGroupName/providers/Microsoft.Compute/images/imageName'. Please review  http://aka.ms/azvmimagebuildertmplref  for details on fields requirements in the Image Builder Template." 
   }
 }
 ```
@@ -327,9 +327,9 @@ The build exceeded the build time-out. This error is seen in the 'lastrunstatus'
 
 1. Review errors and dependencies in script that might cause the script to wait.
 
-1. If you expect that the customizations need more time, increase the value of [buildTimeoutInMinutes](image-builder-json.md). The default is four hours.
+1. If you expect that the customizations need more time, increase the value of [buildTimeoutInMinutes](image-builder-json.md). The default is 4 hours.
 
-1. If you have resource-intensive actions, such as downloading gigabytes (GB) of files, consider the underlying build VM size. The service uses a Standard_D1_v2 VM. The VM has 1 vCPU and 3.5 GB of memory. If you're downloading 50 GB, you'll likely exhaust the VM resources and cause communication failures between VM Image Builder and the build VM. Retry the build with a larger-memory VM, by setting the [VM_Size](image-builder-json.md#vmprofile).
+1. If you have resource-intensive actions, such as downloading gigabytes (GB) of files, consider the underlying build VM size. The service uses a Standard_D1_v2 VM. The VM has 1 vCPU and 3.5 GB of memory. If you're downloading 50 GB, you'll likely exhaust the VM resources and cause communication failures between VM Image Builder and the build VM. Retry the build with a larger-memory VM by setting the [VM_size](image-builder-json.md#vmprofile).
 
 ### Long file download time
 
@@ -564,15 +564,15 @@ PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 230
 ```
 #### Cause
 
-VM Image Builder uses port 22 (Linux), or 5986 (Windows)to connect to the build VM. This occurs when the service is disconnected from the build VM during an image build. The reasons for disconnection can vary, but enabling or configuring firewalls in the script can block the above-mentioned ports.
+VM Image Builder uses port 22 (Linux) or 5986 (Windows) to connect to the build VM. This occurs when the service is disconnected from the build VM during an image build. The reasons for the disconnection can vary, but enabling or configuring a firewall in the script can block the previously mentioned ports.
 
 #### Solution
-Review your scripts for firewall changes or enablement, or changes to SSH or WinRM, and ensure that any changes allow for constant connectivity between the service and the build VM on the above-mentioned ports. For more information, see [VM Image Builder networking options](./image-builder-networking.md).
+Review your scripts for firewall changes or enablement, or changes to SSH or WinRM, and ensure that any changes allow for constant connectivity between the service and the build VM on the previously mentioned ports. For more information, see [VM Image Builder networking options](./image-builder-networking.md).
 
 ### JWT errors in log early in the build
 
 #### Error
-Early in the build process, the build fails and the log indicates a JWT error:
+Early in the build process, the build fails and the log indicates a JSON Web Token (JWT) error:
 
 ```text
 PACKER OUT Error: Failed to prepare build: "azure-arm"
@@ -603,16 +603,19 @@ PACKER ERR 2022/03/07 18:43:06 packer-plugin-azure plugin: 2022/03/07 18:43:06 R
 ```
 
 #### Cause
-These error log messages are mostly harmless because resource deletions are retried several times and they, in general, eventually succeed. This can be verified by continuing to follow the deletion logs until a success message is observed. Alternatively, the staging resource group can be inspected to confirm if the resource has been deleted or not.
+These error log messages are mostly harmless, because resource deletions are retried several times and, ordinarily, they eventually succeed. You can verify this by continuing to follow the deletion logs until you observe a success message. Alternatively, you can inspect the staging resource group to confirm whether the resource has been deleted.
 
-_[This is especially important in case of build failures where these error messages might cause the observer to conclude them to be the reason for failure while the actual error is elsewhere.]_
+Making these observations is especially important in build failures, where these error messages might lead you to conclude that they're the reason for the failures, even when the actual errors might be elsewhere.
 
-## DevOps task 
+## DevOps tasks 
 
-### Troubleshooting the task
-The task will only fail if an error occurs during customization, when this happens the task will report failure and leave the staging resource group, with the logs, so you can identify the issue. 
+### Troubleshoot the task
+The task fails only if an error occurs during customization. When this happens, the task reports the failure and leaves the staging resource group, with the logs, so that you can identify the issue. 
 
-To locate the log, you need to know the template name, go into pipeline > failed build > drill into the VM Image Builder DevOps task, then you'll see the log and a template name:
+To locate the log, you need to know the template name. Go into pipeline > failed build, and then drill down into the VM Image Builder DevOps task. 
+
+You'll see the log and a template name:
+
 ```text
 start reading task parameters...
 found build at:  /home/vsts/work/r1/a/_ImageBuilding/webapp
@@ -631,8 +634,7 @@ template name:  t_1556938436xxx
 
 You might occasionally need to investigate successful builds and  review their logs. As mentioned earlier, if the image build is successful, the staging resource group that contains the logs will be deleted as part of the cleanup. To prevent an automatic cleanup, though, you can introduce a `sleep` after the inline command, and then view the logs as the build is paused. To do so, do the following:
  
-1. Update the inline command, and add:
-Write-Host / Echo “Sleep”. This gives you time to search in the log.
+1. Update the inline command by adding **Write-Host / Echo “Sleep”**. This gives you time to search in the log.
 1. Add a `sleep` value of at least 10 minutes, by using a [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) or `Sleep` Linux command.
 1. Use this method to identify the log location, and then keep downloading or checking the log until it gets to the sleep.
 
@@ -669,7 +671,7 @@ Write-Host / Echo “Sleep”. This gives you time to search in the log.
 ```
 #### Cause
 
-If the build was not canceled by a user, it was canceled by Azure DevOps User Agent. Most likely, the 1-hour time-out has occurred because of Azure DevOps capabilities. If you're using a private project and agent, you get 60 minutes of build time. If the build exceeds the time-out, DevOps cancels the running task.
+If the build wasn't canceled by a user, it was canceled by Azure DevOps User Agent. Most likely, the 1-hour time-out has occurred because of Azure DevOps capabilities. If you're using a private project and agent, you get 60 minutes of build time. If the build exceeds the time-out, DevOps cancels the running task.
 
 For more information about Azure DevOps capabilities and limitations, see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted#capabilities-and-limitations).
  
@@ -680,7 +682,7 @@ You can host your own DevOps agents or look to reduce the time of your build. Fo
 ### Slow Windows logon: "Please wait for the Windows Modules Installer"
 
 #### Error
-When you create a Windows 10 image with VM Image Builder, create a VM from the image, and then use Remote Desktop Protocol (RDP), and have to wait minutes at the first logon, which displays a blue screen with the message:
+When you create a Windows 10 image by using VM Image Builder, create a VM from the image, and use Remote Desktop Protocol (RDP), you then have to wait minutes at the first logon, which displays a blue screen with the message:
 
 ```text
 Please wait for the Windows Modules Installer
@@ -702,7 +704,7 @@ By default, VM Image Builder runs *deprovision* code at the end of each image cu
 
 In Windows, VM Image Builder uses a generic `Sysprep` command. However, this might not be suitable for every successful Windows generalization. With VM Image Builder, you can customize the `Sysprep` command. Note VM Image Builder is an image automation tool. It's responsible for running `Sysprep` command successfully. But you might need different `Sysprep` commands to make your image reusable. In Linux, VM Image Builder uses a generic `waagent -deprovision+user` command. For more information, see [Microsoft Azure Linux Agent documentation](https://github.com/Azure/WALinuxAgent#command-line-options).
 
-If you're migrating an existing customization and you're using various `Sysprep` or `waagent` commands, you can try the image builder generic commands. If the VM creation fails, use your previous `Sysprep` or `waagent` commands.
+If you're migrating an existing customization and you're using various `Sysprep` or `waagent` commands, you can try the VM Image Builder generic commands. If the VM creation fails, use your previous `Sysprep` or `waagent` commands.
 
 Let's suppose you've used VM Image Builder successfully to create a Windows custom image, but you've failed to create a VM successfully from the image. For example, the VM creation fails to finish or it times out. In this event, do either of the following:
 * Review the Windows Server Sysprep documentation.
@@ -755,7 +757,7 @@ Write-Output '>>> Sysprep complete ...'
 To override the commands, use the PowerShell or shell script provisioners to create the command files with the exact file name and put them in the previously listed directories. VM Image Builder reads these commands and writes output to the *customization.log* file.
 
 ## Get support
-If you've referred to the guidance and are still having problems with your issue, you can open a support case. Be sure to select the correct product and support topic. Doing so will ensure that you're connected with the Azure VM Image Builder support team.
+If you've referred to the guidance and are still having problems, you can open a support case. Be sure to select the correct product and support topic. Doing so will ensure that you're connected with the Azure VM Image Builder support team.
 
 Selecting the case product:
 ```bash
