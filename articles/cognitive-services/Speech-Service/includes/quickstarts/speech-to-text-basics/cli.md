@@ -31,7 +31,9 @@ Connection CONNECTED...
 RECOGNIZED: I'm excited to try speech to text.
 ```
 
-Now that you've transcribed speech to text, here are some suggested modifications to try out:
+## Remarks
+Now that you've completed the quickstart, here are some additional considerations:
+
 - To recognize speech from an audio file, use `--file` instead of `--microphone`. For compressed audio files such as MP4, install GStreamer and use `--format`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
     # [Terminal](#tab/terminal)
     ```console
@@ -56,7 +58,7 @@ Now that you've transcribed speech to text, here are some suggested modification
     spx --% recognize --microphone --phrases @phrases.txt
     ```
     ***
-- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language.
+- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language.
     ```console
     spx recognize --microphone --source es-ES
     ```
@@ -64,6 +66,11 @@ Now that you've transcribed speech to text, here are some suggested modification
     ```console
     spx recognize --microphone --source es-ES --continuous
     ```
+
+Run this command for information about additional speech recognition options such as file input and output:
+```console
+spx help recognize
+```
 
 ## Clean up resources
 
