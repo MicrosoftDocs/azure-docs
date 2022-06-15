@@ -52,8 +52,8 @@ The following tables list the route definitions. All the properties are optional
 | title | A title, will be applied to methods in the generated OpenAPI documentation |
 | description | A description, will be applied to methods in the generated OpenAPI documentation  |
 | uri | Full uri, will override `appResourceId` |
-| ssoEnabled | Enable SSO validation. See "Using Single Sign-on" |
-| tokenRelay | Pass currently authenticated user's identity token to application service |
+| ssoEnabled | Enable SSO validation. See [Using Single Sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on-sso) |
+| tokenRelay | Pass currently authenticated user's identity token to the application |
 | predicates | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates) |
 | filters | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-filters) |
 | order | Route processing order - a lower order is processed with higher precedence, same as [Spring Cloud Gateway OSS](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/) |
@@ -129,7 +129,7 @@ Use the following steps to create an example application using Spring Cloud Gate
    curl https://<endpoint-url>/api/animals
    ```
 
-1. Use the following command to query the routing rules:
+1. Use the following commands to query the routing rules:
 
    ```azurecli
    az configure --defaults group=<resource group name> spring-cloud=<service name>

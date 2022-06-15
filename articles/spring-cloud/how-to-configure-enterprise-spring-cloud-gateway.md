@@ -138,9 +138,23 @@ Use the following steps to assign an endpoint to Spring Cloud Gateway and config
        --allowed-origins "*"
    ```
 
-   You can also view those properties in the portal.
+   You can also view or edit those properties in the portal.
 
    :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Spring Cloud Gateway page with Configuration pane showing.":::
+
+1. Use the following command to configure SSO properties for Spring Cloud Gateway for Kubernetes:
+
+    ```azurecli
+    az spring gateway update \
+        --client-id <client-id> \
+        --client-secret <client-secret> \
+        --issuer-uri <issuer-uri> \
+        --scope <scope>
+    ```
+
+   You can also view or edit those properties in the portal.
+
+   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Spring Cloud Gateway page with Configuration pane showing including Single Sign On Configuration.":::
 
 ## Next steps
 
