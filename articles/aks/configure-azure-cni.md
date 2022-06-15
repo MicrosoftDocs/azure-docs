@@ -282,7 +282,7 @@ The following questions and answers apply to the **Azure CNI network configurati
 
 * *Can I assign Pod subnets from a different VNet altogether?*
 
-  The pod subnet should be from the same VNet as the cluster.  
+  No, the pod subnet should be from the same VNet as the cluster.  
 
 * *Can some node pools in a cluster use the traditional CNI while others use the new CNI?*
 
