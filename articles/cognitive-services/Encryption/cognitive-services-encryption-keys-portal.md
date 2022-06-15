@@ -7,7 +7,7 @@ author: erindormier
 
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/28/2020
+ms.date: 04/07/2021
 ms.author: egeaney
 ---
 
@@ -19,13 +19,18 @@ The process to enable Customer-Managed Keys with Azure Key Vault for Cognitive S
 
 * [Custom Vision encryption of data at rest](../custom-vision-service/encrypt-data-at-rest.md)
 * [Face Services encryption of data at rest](../face/encrypt-data-at-rest.md)
-* [Form Recognizer encryption of data at rest](../form-recognizer/encrypt-data-at-rest.md)
+* [Form Recognizer encryption of data at rest](../../applied-ai-services/form-recognizer/encrypt-data-at-rest.md)
 
 ## Language
 
 * [Language Understanding service encryption of data at rest](../LUIS/encrypt-data-at-rest.md)
 * [QnA Maker encryption of data at rest](../QnAMaker/encrypt-data-at-rest.md)
 * [Translator encryption of data at rest](../translator/encrypt-data-at-rest.md)
+* [Language service encryption of data at rest](../language-service/concepts/encryption-data-at-rest.md)
+
+## Speech
+
+* [Speech encryption of data at rest](../speech-service/speech-encryption-of-data-at-rest.md)
 
 ## Decision
 

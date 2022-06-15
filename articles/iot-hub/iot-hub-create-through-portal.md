@@ -1,12 +1,12 @@
 ---
 title: Use the Azure portal to create an IoT Hub | Microsoft Docs
 description: How to create, manage, and delete Azure IoT hubs through the Azure portal. Includes information about pricing tiers, scaling, security, and messaging configuration.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: ['Role: Cloud Development']
 ---
 
@@ -24,15 +24,9 @@ To use the steps in this tutorial, you need an Azure subscription. If you don't 
 
 ## Change the settings of the IoT hub
 
-You can change the settings of an existing IoT hub after it's created from the IoT Hub pane.
-
-![Screenshot showing the settings for the IoT hub](./media/iot-hub-create-through-portal/iot-hub-settings-panel.png)
-
-Here are some of the properties you can set for an IoT hub:
+You can change the settings of an existing IoT hub after it's created from the IoT Hub pane. Here are some of the properties you can set for an IoT hub:
 
 **Pricing and scale**: You can use this property to migrate to a different tier or set the number of IoT Hub units. 
-
-**Operations monitoring**: Turn the different monitoring categories on or off, such as logging for events related to device-to-cloud messages or cloud-to-device messages.
 
 **IP Filter**: Specify a range of IP addresses that will be accepted or rejected by the IoT hub.
 
@@ -54,7 +48,7 @@ Click **Add** to open the **Add a shared access policy** blade.  You can enter t
 
 Click **Create** to add this newly created policy to the existing list.
 
-For more detailed information about the access granted by specific permissions, see [IoT Hub permissions](./iot-hub-devguide-security.md#iot-hub-permissions).
+For more detailed information about the access granted by specific permissions, see [IoT Hub permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
 ## Register a new device in the IoT hub
 

@@ -3,6 +3,7 @@ title: Configure Container insights Prometheus Integration | Microsoft Docs
 description: This article describes how you can configure the Container insights agent to scrape metrics from Prometheus with your Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 04/22/2020
+ms.reviewer: aul
 ---
 
 # Configure scraping of Prometheus metrics with Container insights
@@ -15,14 +16,14 @@ ms.date: 04/22/2020
 >The minimum agent version supported for scraping Prometheus metrics is ciprod07092019 or later, and the agent version supported for writing configuration and agent errors in the `KubeMonAgentEvents` table is ciprod10112019. For Azure Red Hat OpenShift and Red Hat OpenShift v4, agent version ciprod04162020 or higher. 
 >
 >For more information about the agent versions and what's included in each release, see [agent release notes](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod). 
->To verify your agent version, from the **Node** tab select a node, and in the properties pane note value of the **Agent Image Tag** property.
+>To verify your agent version, click on **Insights** Tab of the resource, from the **Nodes** tab select a node, and in the properties pane note value of the **Agent Image Tag** property.
 
 Scraping of Prometheus metrics is supported with Kubernetes clusters hosted on:
 
 - Azure Kubernetes Service (AKS)
 - Azure Stack or on-premises
-- Azure Red Hat OpenShift version 3.x
-- Azure Red Hat OpenShift and Red Hat OpenShift version 4.x
+- Azure Arc enabled Kubernetes
+	- Azure Red Hat OpenShift and Red Hat OpenShift version 4.x through cluster connect to Azure Arc
 
 ### Prometheus scraping settings
 
@@ -49,10 +50,10 @@ When a URL is specified, Container insights only scrapes the endpoint. When Kube
 | | `prometheus.io/scheme` | String | http or https | Defaults to scrapping over HTTP. If necessary, set to `https`. | 
 | | `prometheus.io/path` | String | Comma-separated array | The HTTP resource path on which to fetch metrics from. If the metrics path is not `/metrics`, define it with this annotation. |
 | | `prometheus.io/port` | String | 9102 | Specify a port to scrape from. If port is not set, it will default to 9102. |
-| | `monitor_kubernetes_pods_namespaces` | String | Comma-separated array | An allow list of namespaces to scrape metrics from Kubernetes pods.<br> For example, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
+| | `monitor_kubernetes_pods_namespaces` | String | Comma-separated array | An allowlist of namespaces to scrape metrics from Kubernetes pods.<br> For example, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
 | Node-wide | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Container insights parameter and can be used instead of node IP address. Must be all uppercase.) |
 | Node-wide or Cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the *[prometheus_data_collection_settings.node]* and/or *[prometheus_data_collection_settings.cluster]* to time units such as s, m, h. |
-| Node-wide or Cluster-wide | `fieldpass`<br> `fielddrop`| String | Comma-separated array | You can specify certain metrics to be collected or not from the endpoint by setting the allow (`fieldpass`) and disallow (`fielddrop`) listing. You must set the allow list first. |
+| Node-wide or Cluster-wide | `fieldpass`<br> `fielddrop`| String | Comma-separated array | You can specify certain metrics to be collected or not from the endpoint by setting the allow (`fieldpass`) and disallow (`fielddrop`) listing. You must set the allowlist first. |
 
 ConfigMaps is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMaps overruling the collections.
 
@@ -148,7 +149,7 @@ Perform the following steps to configure your ConfigMap configuration file for t
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
 
-The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+The configuration change can take a few minutes to finish before taking effect. You must restart all omsagent pods manually. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
 ## Configure and deploy ConfigMaps - Azure Red Hat OpenShift v3
 
@@ -277,11 +278,11 @@ For the following Kubernetes environments:
 - Azure Stack or on-premises
 - Azure Red Hat OpenShift and Red Hat OpenShift version 4.x
 
-run the command `kubectl apply -f <configmap_yaml_file.yaml`. 
+run the command `kubectl apply -f <config3. map_yaml_file.yaml>`. 
 
-For an Azure Red Hat OpenShift v3.x cluster, run the command, `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in your default editor to modify and then save it.
+For an example, run the command, `Example: kubectl apply -f container-azm-ms-agentconfig.yaml` to open the file in your default editor to modify and then save it.  
 
-The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" updated`.
+The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a popup message is displayed that's similar to the following and includes the result: 'configmap "container-azm-ms-agentconfig' created to indicate the configmap resource created.
 
 ## Verify configuration
 
@@ -321,7 +322,7 @@ For Azure Red Hat OpenShift v3.x, edit and save the updated ConfigMaps by runnin
 
 ## Query Prometheus metrics data
 
-To view prometheus metrics scraped by Azure Monitor and any configuration/scraping errors reported by the agent, review [Query Prometheus metrics data](container-insights-log-search.md#query-prometheus-metrics-data) and [Query config or scraping errors](container-insights-log-search.md#query-config-or-scraping-errors).
+To view prometheus metrics scraped by Azure Monitor and any configuration/scraping errors reported by the agent, review [Query Prometheus metrics data](container-insights-log-query.md#query-prometheus-metrics-data) and [Query config or scraping errors](container-insights-log-query.md#query-config-or-scraping-errors).
 
 ## View Prometheus metrics in Grafana
 
@@ -359,7 +360,7 @@ The output will show results similar to the following:
 
 ![Log query results of data ingestion volume](./media/container-insights-prometheus-integration/log-query-example-usage-02.png)
 
-Further information on how to monitor data usage and analyze cost is available in [Manage usage and costs with Azure Monitor Logs](../logs/manage-cost-storage.md).
+Further information on how to analyze usage is available in [Analyze usage in Log Analytics workspace](../logs/analyze-usage.md).
 
 ## Next steps
 

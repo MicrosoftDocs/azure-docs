@@ -4,15 +4,14 @@ titleSuffix: Azure Load Balancer
 description: Learn how to assign multiple IP addresses to a virtual machine using Azure CLI.
 services: virtual-network
 documentationcenter: na
-author: asudbring
+author: greg-lindsay
 ms.custom: seodec18, devx-track-azurecli
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
-ms.author: allensu
+ms.author: greglin
 
 ---
 # Load balancing on multiple IP configurations using Azure CLI
@@ -23,8 +22,6 @@ ms.author: allensu
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
 This article describes how to use Azure Load Balancer with multiple IP addresses on a secondary network interface (NIC). For this scenario, we have two VMs running Windows, each with a primary and a secondary NIC. Each of the secondary NICs has two IP configurations. Each VM hosts both websites contoso.com and fabrikam.com. Each website is bound to one of the IP configurations on the secondary NIC. We use Azure Load Balancer to expose two frontend IP addresses, one for each website, to distribute traffic to the respective IP configuration for the website. This scenario uses the same port number across both frontends, as well as both backend pool IP addresses.
-
-![LB scenario image](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
 ## Steps to load balance on multiple IP configurations
 
@@ -121,4 +118,4 @@ To achieve the scenario outlined in this article complete the following steps:
 
 ## Next steps
 - Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](./monitor-load-balancer.md).

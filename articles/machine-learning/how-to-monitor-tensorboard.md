@@ -1,23 +1,24 @@
 ---
 title: Visualize experiments with TensorBoard
 titleSuffix: Azure Machine Learning
-description: Launch TensorBoard to visualize experiment run histories, and identify potential areas for hyperparameter tuning and retraining.
+description: Launch TensorBoard to visualize experiment run histories and identify potential areas for hyperparameter tuning and retraining.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-author: minxia
-ms.author: minxia
-ms.date: 02/27/2020
-ms.topic: conceptual
-ms.custom: how-to
+ms.subservice: mlops
+author: blackmist
+ms.author: larryfr
+ms.date: 10/21/2021
+ms.topic: how-to
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to view your experiment runs and metrics in TensorBoard using [the `tensorboard` package](/python/api/azureml-tensorboard/) in the main Azure Machine Learning SDK. Once you've inspected your experiment runs, you can better tune and retrain your machine learning models.
 
-[TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) is a suite of web applications for inspecting and understanding your experiment structure and performance.
+[TensorBoard](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard) is a suite of web applications for inspecting and understanding your experiment structure and performance.
 
 How you launch TensorBoard with Azure Machine Learning experiments depends on the type of experiment:
 + If your experiment natively outputs log files that are consumable by TensorBoard, such as PyTorch, Chainer and TensorFlow experiments, then you can [launch TensorBoard directly](#launch-tensorboard) from experiment's run history. 
@@ -32,7 +33,7 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
 * To launch TensorBoard and view your experiment run histories, your experiments need to have previously enabled logging to track its metrics and performance.  
 * The code in this document can be run in either of the following environments: 
     * Azure Machine Learning compute instance - no downloads or installation necessary
-        * Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+        * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
         * In the samples folder on the notebook server, find  two completed and expanded notebooks by navigating to these directories:
             * **how-to-use-azureml > track-and-monitor-experiments > tensorboard > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
             * **how-to-use-azureml > track-and-monitor-experiments > tensorboard > tensorboard > tensorboard.ipynb**

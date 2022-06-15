@@ -9,21 +9,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 06/13/2022
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Face detection with Computer Vision
+# Face detection with Image Analysis
 
-Computer Vision can detect human faces within an image and generate the age, gender, and rectangle for each detected face. 
+Image Analysis can detect human faces within an image and generate rectangle coordinates for each detected face.
 
 > [!NOTE]
-> This feature is also offered by the Azure [Face](../face/index.yml) service. See this alternative for more detailed face analysis, including face identification and pose detection. 
+> This feature is also offered by the dedicated [Face](./overview-identity.md) service. Use this alternative for more detailed face analysis, including face identification and head pose detection. 
 
 ## Face detection examples
 
-The following example demonstrates the JSON response returned by Computer Vision for an image containing a single human face.
+The following example demonstrates the JSON response returned by Analyze API for an image containing a single human face.
 
 ![Vision Analyze Woman Roof Face](./Images/woman_roof_face.png)
 
@@ -109,6 +109,6 @@ The next example demonstrates the JSON response returned for an image containing
 
 ## Use the API
 
-The face detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Faces` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"faces"` section.
+The face detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Faces` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"faces"` section.
 
-* [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

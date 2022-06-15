@@ -55,6 +55,22 @@ The following is a list of Fabric settings that you can customize, organized by 
 |SecretEncryptionCertX509StoreName|string, recommended value is "My" (no default) |    Dynamic|    This indicates the certificate to use for encryption and decryption of creds Name of X.509 certificate store that is used for encrypting decrypting store credentials used by Backup Restore service |
 |TargetReplicaSetSize|int, default is    0|Static| The TargetReplicaSetSize for BackupRestoreService |
 
+## CentralSecretService
+
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|DeployedState |wstring, default is L"Disabled" |Static |2-stage removal of CSS. |
+|EnableSecretMonitoring|bool, default is FALSE |Static |Must be enabled to use Managed KeyVaultReferences. Default may become true in the future. For more information, see [KeyVaultReference support for Azure-deployed Service Fabric Applications](./service-fabric-keyvault-references.md)|
+|SecretMonitoringInterval|TimeSpan, default is Common::TimeSpan::FromMinutes(15) |Static |The rate at which Service Fabric will poll Key Vault for changes when using Managed KeyVaultReferences. This rate is a best effort, and changes in Key Vault may be reflected in the cluster earlier or later than the interval. For more information, see [KeyVaultReference support for Azure-deployed Service Fabric Applications](./service-fabric-keyvault-references.md) |
+|UpdateEncryptionCertificateTimeout |TimeSpan, default is Common::TimeSpan::MaxValue |Static |Specify timespan in seconds. The default has changed to TimeSpan::MaxValue; but overrides are still respected. May be deprecated in the future. |
+
+## CentralSecretService/Replication
+
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
+|ReplicationBatchSize|uint, default is 1|Static|Specifies the number of operations to be sent between primary and secondary replicas. If zero the primary sends one record per operation to the secondary. Otherwise the primary replica aggregates log records until the config value is reached.  This will reduce network traffic.|
+
 ## ClusterManager
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -86,10 +102,19 @@ The following is a list of Fabric settings that you can customize, organized by 
 |UpgradeStatusPollInterval |Time in seconds, default is 60 |Dynamic|The frequency of polling for application upgrade status. This value determines the rate of update for any GetApplicationUpgradeProgress call |
 |CompleteClientRequest | Bool, default is false |Dynamic| Complete client request when accepted by CM. |
 
+## ClusterManager/Replication
+
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
+|ReplicationBatchSize|uint, default is 1|Static|Specifies the number of operations to be sent between primary and secondary replicas. If zero the primary sends one record per operation to the secondary. Otherwise the primary replica aggregates log records until the config value is reached.  This will reduce network traffic.|
+
 ## Common
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
+|AllowCreateUpdateMultiInstancePerNodeServices |Bool, default is false |Dynamic|Allows creation of multiple stateless instances of a service per node. This feature is currently in preview. |
+|EnableAuxiliaryReplicas |Bool, default is false |Dynamic|Enable creation or update of auxiliary replicas on services. If true; upgrades from SF version 8.1+ to lower targetVersion will be blocked. |
 |PerfMonitorInterval |Time in seconds, default is 1 |Dynamic|Specify timespan in seconds. Performance monitoring interval. Setting to 0 or negative value disables monitoring. |
 
 ## DefragmentationEmptyNodeDistributionPolicy
@@ -132,11 +157,18 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |EnablePartitionedQuery|bool, default is FALSE|Static|The flag to enable support for DNS queries for partitioned services. The feature is turned off by default. For more information, see [Service Fabric DNS Service.](service-fabric-dnsservice.md)|
+|ForwarderPoolSize|Int, default is 20|Static|The number of forwarders in the forwarding pool.|
+|ForwarderPoolStartPort|Int, default is 16700|Static|The start address for the forwarding pool that is used for recursive queries.|
 |InstanceCount|int, default is -1|Static|Default value is -1 which means that DnsService is running on every node. OneBox needs this to be set to 1 since DnsService uses well known port 53, so it cannot have multiple instances on the same machine.|
 |IsEnabled|bool, default is FALSE|Static|Enables/Disables DnsService. DnsService is disabled by default and this config needs to be set to enable it. |
 |PartitionPrefix|string, default is "--"|Static|Controls the partition prefix string value in DNS queries for partitioned services. The value : <ul><li>Should be RFC-compliant as it will be part of a DNS query.</li><li>Should not contain a dot, '.', as dot interferes with DNS suffix behavior.</li><li>Should not be longer than 5 characters.</li><li>Cannot be an empty string.</li><li>If the PartitionPrefix setting is overridden, then PartitionSuffix must be overridden, and vice-versa.</li></ul>For more information, see [Service Fabric DNS Service.](service-fabric-dnsservice.md).|
 |PartitionSuffix|string, default is ""|Static|Controls the partition suffix string value in DNS queries for partitioned services.The value : <ul><li>Should be RFC-compliant as it will be part of a DNS query.</li><li>Should not contain a dot, '.', as dot interferes with DNS suffix behavior.</li><li>Should not be longer than 5 characters.</li><li>If the PartitionPrefix setting is overridden, then PartitionSuffix must be overridden, and vice-versa.</li></ul>For more information, see [Service Fabric DNS Service.](service-fabric-dnsservice.md). |
-|RetryTransientFabricErrors|Bool, default is true|Static|The setting controls the retry capabilities when calling Service Fabric APIs from DnsService. When enabled, it retries up to 3 times if a transient error occurs.|
+|RecursiveQueryParallelMaxAttempts|Int, default is 0|Static|The number of times parallel queries will be attempted. Parallel queries are executed after the max attempts for serial queries have been exhausted.|
+|RecursiveQueryParallelTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(5)|Static|The timeout value in seconds for each attempted parallel query.|
+|RecursiveQuerySerialMaxAttempts|Int, default is 2|Static|The number of serial queries that will be attempted, at most. If this number is higher than the amount of forwarding DNS servers, querying will stop once all the servers have been attempted exactly once.|
+|RecursiveQuerySerialTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(5)|Static|The timeout value in seconds for each attempted serial query.|
+|TransientErrorMaxRetryCount|Int, default is 3|Static|Controls the number of times SF DNS will retry when a transient error occurs while calling SF APIs (e.g. when retrieving names and endpoints).|
+|TransientErrorRetryIntervalInMillis|Int, default is 0|Static|Sets the delay in milliseconds between retries for when SF DNS calls SF APIs.|
 
 ## EventStoreService
 
@@ -201,6 +233,13 @@ The following is a list of Fabric settings that you can customize, organized by 
 |UserRoleClientX509FindValueSecondary |string, default is "" |Dynamic|Search filter value used to locate certificate for default user role FabricClient. |
 |UserRoleClientX509StoreName |string, default is "My" |Dynamic|Name of the X.509 certificate store that contains certificate for default user role FabricClient. |
 
+## Failover/Replication
+
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
+|ReplicationBatchSize|uint, default is 1|Static|Specifies the number of operations to be sent between primary and secondary replicas. If zero the primary sends one record per operation to the secondary. Otherwise the primary replica aggregates log records until the config value is reached.  This will reduce network traffic.|
+
 ## FailoverManager
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -213,7 +252,9 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ExpectedNodeDeactivationDuration|TimeSpan, default is Common::TimeSpan::FromSeconds(60.0 \* 30)|Dynamic|Specify timespan in seconds. This is the expected duration for a node to complete deactivation in. |
 |ExpectedNodeFabricUpgradeDuration|TimeSpan, default is Common::TimeSpan::FromSeconds(60.0 \* 30)|Dynamic|Specify timespan in seconds. This is the expected duration for a node to be upgraded during Windows Fabric upgrade. |
 |ExpectedReplicaUpgradeDuration|TimeSpan, default is Common::TimeSpan::FromSeconds(60.0 \* 30)|Dynamic|Specify timespan in seconds. This is the expected duration for all the replicas to be upgraded on a node during application upgrade. |
+|IgnoreReplicaRestartWaitDurationWhenBelowMinReplicaSetSize|bool, default is FALSE|Dynamic|If IgnoreReplicaRestartWaitDurationWhenBelowMinReplicaSetSize is set to:<br>- false : Windows Fabric will wait for fixed time specified in ReplicaRestartWaitDuration for a replica to come back up.<br>- true  : Windows Fabric will wait for fixed time specified in ReplicaRestartWaitDuration for a replica to come back up if partition is above or at Min Replica Set Size. If partition is below Min Replica Set Size new replica will be created right away.|
 |IsSingletonReplicaMoveAllowedDuringUpgrade|bool, default is TRUE|Dynamic|If set to true; replicas with a target replica set size of 1 will be permitted to move during upgrade. |
+|MaxInstanceCloseDelayDurationInSeconds|uint, default is 1800|Dynamic|Maximum value of InstanceCloseDelay that can be configured to be used for FabricUpgrade/ApplicationUpgrade/NodeDeactivations |
 |MinReplicaSetSize|int, default is 3|Not Allowed|This is the minimum replica set size for the FM. If the number of active FM replicas drops below this value; the FM will reject changes to the cluster until at least the min number of replicas is recovered |
 |PlacementConstraints|string, default is ""|Not Allowed|Any placement constraints for the failover manager replicas |
 |PlacementTimeLimit|TimeSpan, default is Common::TimeSpan::FromSeconds(600)|Dynamic|Specify timespan in seconds. The time limit for reaching target replica count; after which a warning health report will be initiated |
@@ -294,11 +335,19 @@ The following is a list of Fabric settings that you can customize, organized by 
 |SecondaryFileCopyRetryDelayMilliseconds|uint, default is 500|Dynamic|The file copy retry delay (in milliseconds).|
 |UseChunkContentInTransportMessage|bool, default is TRUE|Dynamic|The flag for using the new version of the upload protocol introduced in v6.4. This protocol version uses service fabric transport to upload files to image store which provides better performance than SMB protocol used in previous versions. |
 
+## FileStoreService/Replication
+
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
+|ReplicationBatchSize|uint, default is 1|Static|Specifies the number of operations to be sent between primary and secondary replicas. If zero the primary sends one record per operation to the secondary. Otherwise the primary replica aggregates log records until the config value is reached.  This will reduce network traffic.|
+
 ## HealthManager
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool, default is false |Static|Cluster health evaluation policy: enable per application type health evaluation. |
+|EnableNodeTypeHealthEvaluation |Bool, default is false |Static|Cluster health evaluation policy: enable per node type health evaluation. |
 |MaxSuggestedNumberOfEntityHealthReports|Int, default is 100 |Dynamic|The maximum number of health reports that an entity can have before raising concerns about the watchdog's health reporting logic. Each health entity is supposed to have a relatively small number of health reports. If the report count goes above this number; there may be issues with the watchdog's implementation. An entity with too many reports is flagged through a Warning health report when the entity is evaluated. |
 
 ## HealthManager/ClusterHealthPolicy
@@ -343,8 +392,10 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DeploymentRetryBackoffInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(10)|Dynamic|Specify timespan in seconds. Back-off interval for the deployment failure. On every continuous deployment failure the system will retry the deployment for up to the MaxDeploymentFailureCount. The retry interval is a product of continuous deployment failure and the deployment backoff interval. |
 |DisableContainers|bool, default is FALSE|Static|Config for disabling containers - used instead of DisableContainerServiceStartOnContainerActivatorOpen which is deprecated config |
 |DisableDockerRequestRetry|bool, default is FALSE |Dynamic| By default SF communicates with DD (docker dameon) with a timeout of 'DockerRequestTimeout' for each http request sent to it. If DD does not responds within this time period; SF resends the request if top level operation still has remaining time.  With hyperv container; DD sometimes take much more time to bring up the container or deactivate it. In such cases DD request times out from SF perspective and SF retries the operation. Sometimes this seems to adds more pressure on DD. This config allows to disable this retry and wait for DD to respond. |
+|DisableLivenessProbes | wstring, default is L"" | Static | Config to disable Liveness probes in cluster. You can specify any non-empty value for SF to disable probes. |
+|DisableReadinessProbes | wstring, default is L"" | Static | Config to disable Readiness probes in cluster. You can specify any non-empty value for SF to disable probes. |
 |DnsServerListTwoIps | Bool, default is FALSE | Static | This flags adds the local dns server twice to help alleviate intermittent resolve issues. |
-| DockerTerminateOnLastHandleClosed | bool, default is FALSE | Static | By default if FabricHost is managing the 'dockerd' (based on: SkipDockerProcessManagement == false) this setting configures what happens when either FabricHost or dockerd crash. When set to `true` if either process crashes all running containers will be forcibly terminated by the HCS. If set to `false` the containers will continue to keep running. Note: Previous to 8.0 this behavior was unintentionally the equivalent of `false`. The default setting of `true` here is what we expect to happen by default moving forward for our cleanup logic to be effective on restart of these processes. |
+| DockerTerminateOnLastHandleClosed | bool, default is TRUE | Static | By default if FabricHost is managing the 'dockerd' (based on: SkipDockerProcessManagement == false) this setting configures what happens when either FabricHost or dockerd crash. When set to `true` if either process crashes all running containers will be forcibly terminated by the HCS. If set to `false` the containers will continue to keep running. Note: Previous to 8.0 this behavior was unintentionally the equivalent of `false`. The default setting of `true` here is what we expect to happen by default moving forward for our cleanup logic to be effective on restart of these processes. |
 | DoNotInjectLocalDnsServer | bool, default is FALSE | Static | Prevents the runtime to injecting the local IP as DNS server for containers. |
 |EnableActivateNoWindow| bool, default is FALSE|Dynamic| The activated process is created in the background without any console. |
 |EnableContainerServiceDebugMode|bool, default is TRUE|Static|Enable/disable logging for docker containers.  Windows only.|
@@ -445,6 +496,13 @@ The following is a list of Fabric settings that you can customize, organized by 
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, default is None|Dynamic|Determines the part of the load that sticks with replica when swapped It takes value between 0 (load doesn't stick with replica) and 1 (load sticks with replica - default) |
 
+## Naming/Replication
+
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
+|ReplicationBatchSize|uint, default is 1|Static|Specifies the number of operations to be sent between primary and secondary replicas. If zero the primary sends one record per operation to the secondary. Otherwise the primary replica aggregates log records until the config value is reached.  This will reduce network traffic.|
+
 ## NamingService
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
@@ -477,7 +535,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup |NodeCapacityCollectionMap |Static|A collection of node capacities for different metrics. |
+|PropertyGroup |NodeCapacityCollectionMap | Dynamic |A collection of node capacities for different metrics. Dynamic as of Service Fabric 8.1, *Static* in earlier versions. |
 
 ## NodeDomainIds
 
@@ -490,7 +548,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup |NodePropertyCollectionMap |Static|A collection of string key-value pairs for node properties. |
+|PropertyGroup |NodePropertyCollectionMap | Dynamic |A collection of string key-value pairs for node properties. Dynamic as of Service Fabric 8.1, *Static* in earlier versions. |
 
 ## Paas
 
@@ -523,6 +581,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ConstraintFixPartialDelayAfterNewNode | Time in seconds, default is 120 |Dynamic| Specify timespan in seconds. DDo not Fix FaultDomain and UpgradeDomain constraint violations within this period after adding a new node. |
 |ConstraintFixPartialDelayAfterNodeDown | Time in seconds, default is 120 |Dynamic| Specify timespan in seconds. Do not Fix FaultDomain and UpgradeDomain constraint violations within this period after a node down event. |
 |ConstraintViolationHealthReportLimit | Int, default is 50 |Dynamic| Defines the number of times constraint violating replica has to be persistently unfixed before diagnostics are conducted and health reports are emitted. |
+|DecisionOperationalTracingEnabled | bool, default is FALSE |Dynamic| Config that enables CRM Decision operational structural trace in the event store. |
 |DetailedConstraintViolationHealthReportLimit | Int, default is 200 |Dynamic| Defines the number of times constraint violating replica has to be persistently unfixed before diagnostics are conducted and detailed health reports are emitted. |
 |DetailedDiagnosticsInfoListLimit | Int, default is 15 |Dynamic| Defines the number of diagnostic entries (with detailed information) per constraint to include before truncation in Diagnostics.|
 |DetailedNodeListLimit | Int, default is 15 |Dynamic| Defines the number of nodes per constraint to include before truncation in the Unplaced Replica reports. |
@@ -547,6 +606,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 |MovementPerPartitionThrottleCountingInterval | Time in seconds, default is 600 |Static| Specify timespan in seconds. Indicate the length of the past interval for which to track replica movements for each partition (used along with MovementPerPartitionThrottleThreshold). |
 |MovementPerPartitionThrottleThreshold | Uint, default is 50 |Dynamic| No balancing-related movement will occur for a partition if the number of balancing related movements for replicas of that partition has reached or exceeded MovementPerFailoverUnitThrottleThreshold in the past interval indicated by MovementPerPartitionThrottleCountingInterval. |
 |MoveParentToFixAffinityViolation | Bool, default is false |Dynamic| Setting which determines if parent replicas can be moved to fix affinity constraints.|
+|NodeTaggingEnabled | Bool, default is false |Dynamic| If true; NodeTagging feature will be enabled. |
+|NodeTaggingConstraintPriority | Int, default is 0 |Dynamic| Configurable priority of node tagging. |
 |PartiallyPlaceServices | Bool, default is true |Dynamic| Determines if all service replicas in cluster will be placed "all or nothing" given limited suitable nodes for them.|
 |PlaceChildWithoutParent | Bool, default is true | Dynamic|Setting which determines if child service replica can be placed if no parent replica is up. |
 |PlacementConstraintPriority | Int, default is 0 | Dynamic|Determines the priority of placement constraint: 0: Hard; 1: Soft; negative: Ignore. |
@@ -566,8 +627,10 @@ The following is a list of Fabric settings that you can customize, organized by 
 |TraceCRMReasons |Bool, default is true |Dynamic|Specifies whether to trace reasons for CRM issued movements to the operational events channel. |
 |UpgradeDomainConstraintPriority | Int, default is 1| Dynamic|Determines the priority of upgrade domain constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |UseMoveCostReports | Bool, default is false | Dynamic|Instructs the LB to ignore the cost element of the scoring function; resulting potentially large number of moves for better balanced placement. |
+|UseSeparateAuxiliaryLoad | Bool, default is true | Dynamic|Setting which determines if PLB should use different load for auxiliary on each node If UseSeparateAuxiliaryLoad is turned off: - Reported load for auxiliary on one node will result in overwriting load for each auxiliary (on all other nodes) If UseSeparateAuxiliaryLoad is turned on: - Reported load for auxiliary on one node will take effect only on that auxiliary (no effect on auxiliaries on other nodes) - If replica crash happens - new replica is created with average load of all the rest auxiliaries - If PLB moves existing replica - load goes with it. |
+|UseSeparateAuxiliaryMoveCost | Bool, default is false | Dynamic|Setting which determines if PLB should use different move cost for auxiliary on each node If UseSeparateAuxiliaryMoveCost is turned off: - Reported move cost for auxiliary on one node will result in overwritting move cost for each auxiliary (on all other nodes) If UseSeparateAuxiliaryMoveCost is turned on: - Reported move cost for auxiliary on one node will take effect only on that auxiliary (no effect on auxiliaries on other nodes) - If replica crash happens - new replica is created with default move cost specified on service level - If PLB moves existing replica - move cost goes with it. |
 |UseSeparateSecondaryLoad | Bool, default is true | Dynamic|Setting which determines if separate load should be used for secondary replicas. |
-|UseSeparateSecondaryMoveCost | Bool, default is false | Dynamic|Setting which determines if separate move cost should be used for secondary replicas. |
+|UseSeparateSecondaryMoveCost | Bool, default is true | Dynamic|Setting which determines if PLB should use different move cost for secondary on each node. If UseSeparateSecondaryMoveCost is turned off: - Reported move cost for secondary on one node will result in overwritting move cost for each secondary (on all other nodes) If UseSeparateSecondaryMoveCost is turned on: - Reported move cost for secondary on one node will take effect only on that secondary (no effect on secondaries on other nodes) - If replica crash happens - new replica is created with default move cost specified on service level - If PLB moves existing replica - move cost goes with it. |
 |ValidatePlacementConstraint | Bool, default is true |Dynamic| Specifies whether or not the PlacementConstraint expression for a service is validated when a service's ServiceDescription is updated. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, default is TRUE |Dynamic|Specifies whether or not the PlacementConstraint expression for a service is evaluated for primary preference on failover. |
 |VerboseHealthReportLimit | Int, default is 20 | Dynamic|Defines the number of times a replica has to go unplaced before a health warning is reported for it (if verbose health reporting is enabled). |
@@ -588,7 +651,16 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ServiceApiHealthDuration | Time in seconds, default is 30 minutes |Dynamic| Specify timespan in seconds. ServiceApiHealthDuration defines how long do we wait for a service API to run before we report it unhealthy. |
 |ServiceReconfigurationApiHealthDuration | Time in seconds, default is 30 |Dynamic| Specify timespan in seconds. ServiceReconfigurationApiHealthDuration defines how long do we wait for a service API to run before we report unhealthy. This applies to API calls that impact availability.|
 
+## RepairManager/Replication
+| **Parameter** | **Allowed Values** | **Upgrade Policy**| **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
+|ReplicationBatchSize|uint, default is 1|Static|Specifies the number of operations to be sent between primary and secondary replicas. If zero the primary sends one record per operation to the secondary. Otherwise the primary replica aggregates log records until the config value is reached.  This will reduce network traffic.|
+
 ## Replication
+<i> **Warning Note** : Changing Replication/TranscationalReplicator settings at cluster level changes settings for all stateful services include system services. This is generally not recommended. See this document [Configure Azure Service Fabric Reliable Services - Azure Service Fabric | Microsoft Docs](./service-fabric-reliable-services-configuration.md) to configure services at app level.</i>
+
+
 | **Parameter** | **Allowed Values** | **Upgrade Policy**| **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval|TimeSpan, default is Common::TimeSpan::FromMilliseconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before sending back an acknowledgement. Other operations received during this time period will have their acknowledgements sent back in a single message-> reducing network traffic but potentially reducing the throughput of the replicator.|
@@ -601,6 +673,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 |QueueHealthMonitoringInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(30)|Static|Specify timespan in seconds. This value determines the time period used by the Replicator to monitor any warning/error health events in the replication operation queues. A value of '0' disables health monitoring |
 |QueueHealthWarningAtUsagePercent|uint, default is 80|Static|This value determines the replication queue usage(in percentage) after which we report warning about high queue usage. We do so after a grace interval of QueueHealthMonitoringInterval. If the queue usage falls below this percentage in the grace interval|
 |ReplicatorAddress|string, default is "localhost:0"|Static|The endpoint in form of a string -'IP:Port' which is used by the Windows Fabric Replicator to establish connections with other replicas in order to send/receive operations.|
+|ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(15)|Static|Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
+|ReplicationBatchSize|uint, default is 1|Static|Specifies the number of operations to be sent between primary and secondary replicas. If zero the primary sends one record per operation to the secondary. Otherwise the primary replica aggregates log records until the config value is reached.  This will reduce network traffic.|
 |ReplicatorListenAddress|string, default is "localhost:0"|Static|The endpoint in form of a string -'IP:Port' which is used by the Windows Fabric Replicator to receive operations from other replicas.|
 |ReplicatorPublishAddress|string, default is "localhost:0"|Static|The endpoint in form of a string -'IP:Port' which is used by the Windows Fabric Replicator to send operations to other replicas.|
 |RetryInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(5)|Static|Specify timespan in seconds. When an operation is lost or rejected this timer determines how often the replicator will retry sending the operation.|
@@ -762,6 +836,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |RecoverServicePartitions |string, default is "Admin" |Dynamic| Security configuration for recovering service partitions. |
 |RecoverSystemPartitions |string, default is "Admin" |Dynamic| Security configuration for recovering system service partitions. |
 |RemoveNodeDeactivations |string, default is "Admin" |Dynamic| Security configuration for reverting deactivation on multiple nodes. |
+|ReportCompletion |wstring, default is L"Admin" |Dynamic| Security configuration for reporting completion. |
 |ReportFabricUpgradeHealth |string, default is "Admin" |Dynamic| Security configuration for resuming cluster upgrades with the current upgrade progress. |
 |ReportFault |string, default is "Admin" |Dynamic| Security configuration for reporting fault. |
 |ReportHealth |string, default is "Admin" |Dynamic| Security configuration for reporting health. |
@@ -836,8 +911,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 | --- | --- | --- | --- |
 |ContainerNetworkName|string, default is ""| Static |The network name to use when setting up a container network.|
 |ContainerNetworkSetup|bool, default is FALSE (Linux) and default is TRUE (Windows)| Static |Whether to set up a container network.|
-|FabricDataRoot |String | Not Allowed |Service Fabric data root directory. Default for Azure is d:\svcfab |
-|FabricLogRoot |String | Not Allowed |Service fabric log root directory. This is where SF logs and traces are placed. |
+|FabricDataRoot |String | Not Allowed |Service Fabric data root directory. Default for Azure is d:\svcfab (Only for Standalone Deployments)|
+|FabricLogRoot |String | Not Allowed |Service fabric log root directory. This is where SF logs and traces are placed. (Only for Standalone Deployments)|
 |NodesToBeRemoved|string, default is ""| Dynamic |The nodes which should be removed as part of configuration upgrade. (Only for Standalone Deployments)|
 |ServiceRunAsAccountName |String | Not Allowed |The account name under which to run fabric host service. |
 |SkipContainerNetworkResetOnReboot|bool, default is FALSE|NotAllowed|Whether to skip resetting container network on reboot.|
@@ -856,6 +931,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |Level |Int, default is 4 | Dynamic |Trace etw level can take values 1, 2, 3, 4. To be supported you must keep the trace level at 4 |
 
 ## TransactionalReplicator
+<i> **Warning Note** : Changing Replication/TranscationalReplicator settings at cluster level changes settings for all stateful services include system services. This is generally not recommended. See this document [Configure Azure Service Fabric Reliable Services - Azure Service Fabric | Microsoft Docs](./service-fabric-reliable-services-configuration.md) to configure services at app level.</i>
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
@@ -867,6 +943,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 |MaxSecondaryReplicationQueueMemorySize |Uint, default is 0 | Static |This is the maximum value of the secondary replication queue in bytes. |
 |MaxSecondaryReplicationQueueSize |Uint, default is 16384 | Static |This is the maximum number of operations that could exist in the secondary replication queue. Note that it must be a power of 2. |
 |ReplicatorAddress |string, default is "localhost:0" | Static | The endpoint in form of a string -'IP:Port' which is used by the Windows Fabric Replicator to establish connections with other replicas in order to send/receive operations. |
+|ReplicationBatchSendInterval|TimeSpan, default is Common::TimeSpan::FromMilliseconds(15) | Static | Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before force sending a batch.|
+|ShouldAbortCopyForTruncation |bool, default is FALSE | Static | Allow pending log truncation to go through during copy. With this enabled the copy stage of builds can be cancelled if the log is full and they are block truncation. |
 
 ## Transport
 | **Parameter** | **Allowed Values** |**Upgrade policy** |**Guidance or Short Description** |

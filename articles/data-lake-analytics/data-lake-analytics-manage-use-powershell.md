@@ -4,7 +4,8 @@ description: This article describes how to use Azure PowerShell to manage Data L
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 06/29/2018
+ms.date: 06/29/2018 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage Azure Data Lake Analytics using Azure PowerShell

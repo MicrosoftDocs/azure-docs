@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ---
 
-# Debug Azure Stream Analytics queries locally using job diagram in Visual Studio Code
+# Debug Azure Stream Analytics queries locally using job diagram in Visual Studio Code (Preview)
 
 Streaming jobs that output no result or unexpected results often need troubleshooting. The Visual Studio Code extension for Azure Stream Analytics integrates job diagrams, metrics, diagnostic logs, and intermediate results to help you quickly isolate the source of a problem. You can use the job diagram while testing your query locally to examine the intermediate result set and metrics for each step.
 

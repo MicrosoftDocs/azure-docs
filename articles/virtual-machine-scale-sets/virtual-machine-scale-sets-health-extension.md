@@ -8,10 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
 ms.date: 05/06/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 # Using Application Health extension with virtual machine scale sets
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 Monitoring your application health is an important signal for managing and upgrading your deployment. Azure virtual machine scale sets provide support for [rolling upgrades](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) including [automatic OS-image upgrades](virtual-machine-scale-sets-automatic-upgrade.md), which rely on health monitoring of the individual instances to upgrade your deployment. You can also use health extension to monitor the application health of each instance in your scale set and perform instance repairs using [automatic instance repairs](virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 This article describes how you can use the Application Health extension to monitor the health of your applications deployed on virtual machine scale sets.
@@ -38,13 +41,15 @@ The following JSON shows the schema for the Application Health extension. The ex
   "location": "<location>",  
   "properties": {
     "publisher": "Microsoft.ManagedServices",
-    "type": "< ApplicationHealthLinux or ApplicationHealthWindows>",
+    "type": "<ApplicationHealthLinux or ApplicationHealthWindows>",
     "autoUpgradeMinorVersion": true,
     "typeHandlerVersion": "1.0",
     "settings": {
       "protocol": "<protocol>",
       "port": "<port>",
-      "requestPath": "</requestPath>"
+      "requestPath": "</requestPath>",
+      "intervalInSeconds": "5.0",
+      "numberOfProbes": "1.0"
     }
   }
 }  
@@ -82,8 +87,8 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 {
   "name": "myHealthExtension",
   "properties": {
-    "publisher": " Microsoft.ManagedServices",
-    "type": "< ApplicationHealthWindows>",
+    "publisher": "Microsoft.ManagedServices",
+    "type": "ApplicationHealthWindows",
     "autoUpgradeMinorVersion": true,
     "typeHandlerVersion": "1.0",
     "settings": {

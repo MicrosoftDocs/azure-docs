@@ -3,15 +3,15 @@ title: Sampling overrides (preview) - Azure Monitor Application Insights for Jav
 description: Learn to configure sampling overrides in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
 ms.date: 03/22/2021
-author: trask
+ms.devlang: java
 ms.custom: devx-track-java
-ms.author: trstalna
+ms.reviewer: mmcc
 ---
 
 # Sampling overrides (preview) - Azure Monitor Application Insights for Java
 
 > [!NOTE]
-> The sampling overrides feature is in preview, starting from 3.0.3-BETA.2.
+> The sampling overrides feature is in preview, starting from 3.0.3.
 
 Sampling overrides allow you to override the [default sampling percentage](./java-standalone-config.md#sampling),
 for example:
@@ -70,6 +70,9 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 When a span is started, the attributes present on the span at that time are used to check if any of the sampling
 overrides match.
 
+Matches can be either `strict` or `regexp`. Regular expression matches are performed against the entire attribute value,
+so if you want to match a value that contains `abc` anywhere in it, then you need to use `.*abc.*`.
+
 If one of the sampling overrides match, then its sampling percentage is used to decide whether to sample the span or
 not.
 
@@ -81,7 +84,7 @@ If no sampling overrides match:
   is used.
 * If this is not the first span in the trace, then the parent sampling decision is used.
 
-> [!IMPORTANT]
+> [!WARNING]
 > When a decision has been made to not collect a span, then all downstream spans will also not be collected,
 > even if there are sampling overrides that match the downstream span.
 > This behavior is necessary because otherwise broken traces would result, with downstream spans being collected
@@ -196,15 +199,17 @@ This section lists some common span attributes that sampling overrides can use.
 |---|---|---|
 | `http.method` | string | HTTP request method.|
 | `http.url` | string | Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`. The fragment isn't usually transmitted over HTTP. But if the fragment is known, it should be included.|
-| `http.status_code` | number | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).|
 | `http.flavor` | string | Type of HTTP protocol. |
 | `http.user_agent` | string | Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client. |
+
+Please note that `http.status_code` cannot be used for sampling decisions because it is not available
+at the start of the span.
 
 ### JDBC spans
 
 | Attribute  | Type | Description  |
 |---|---|---|
-| `db.system` | string | Identifier for the database management system (DBMS) product being used. |
+| `db.system` | string | Identifier for the database management system (DBMS) product being used. See [list of identifiers](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/database.md#connection-level-attributes). |
 | `db.connection_string` | string | Connection string used to connect to the database. It's recommended to remove embedded credentials.|
 | `db.user` | string | Username for accessing the database. |
 | `db.name` | string | String used to report the name of the database being accessed. For commands that switch the database, this string should be set to the target database, even if the command fails.|

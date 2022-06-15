@@ -1,7 +1,7 @@
 ---
 title: ISO 27001 Shared Services blueprint sample controls
 description: Control mapping of the ISO 27001 Shared Services blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 02/05/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # Control mapping of the ISO 27001 Shared Services blueprint sample
@@ -28,7 +28,7 @@ requirements** built-in policy initiative.
 > compliance in Azure Policy is only a partial view of your overall compliance status. The
 > associations between controls and Azure Policy definitions for this compliance blueprint sample
 > may change over time. To view the change history, see the
-> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-shared/control-mapping.md).
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/governance/blueprints/samples/iso27001-shared/control-mapping.md).
 
 ## A.6.1.2 Segregation of duties
 
@@ -45,7 +45,7 @@ appropriate separation of duties.
 ## A.8.2.1 Classification of information
 
 Azure's
-[SQL Vulnerability Assessment service](../../../../azure-sql/database/sql-vulnerability-assessment.md)
+[SQL Vulnerability Assessment service](/azure/azure-sql/database/sql-vulnerability-assessment)
 can help you discover sensitive data stored in your databases and includes recommendations to
 classify that data. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition
 to audit that vulnerabilities identified during SQL Vulnerability Assessment scan are remediated.
@@ -164,7 +164,7 @@ This blueprint helps you enforce your policy on the use of cryptograph controls 
 and audit use of weak cryptographic settings. Understanding where your Azure resources may have
 non-optimal cryptographic configurations can help you take corrective actions to ensure resources
 are configured in accordance with your information security policy. Specifically, the policies
-assigned by this blueprint require encryption for blob storage accounts and data lake storage
+assigned by this blueprint require encryption for blob storage accounts and Data Lake storage
 accounts; require transparent data encryption on SQL databases; audit missing encryption on storage
 accounts, SQL databases, virtual machine disks, and automation account variables; audit insecure
 connections to storage accounts, Function Apps, Web App, API Apps, and Redis Cache; audit weak
@@ -269,7 +269,7 @@ contained within the information system.
 
 The blueprint helps you ensure information transfer with Azure services is secure by assigning two
 [Azure Policy](../../../policy/overview.md) definitions to audit insecure connections to storage
-accounts and Redis Cache.
+accounts and Azure Cache for Redis.
 
 - Only secure connections to your Azure Cache for Redis should be enabled
 - Secure transfer to storage accounts should be enabled

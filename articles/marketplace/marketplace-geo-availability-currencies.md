@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 03/08/2021
+ms.date: 12/03/2021
 ---
 
 # Geographic availability and currency support for the commercial marketplace
@@ -160,8 +160,7 @@ A CSP can purchase an offer in Partner Center in their end customer's currency s
 | Vietnam                             | VN        | USD          | EUR, USD, VND |
 | Yemen                               | YE        | USD          | EUR, USD, YER |
 | Zambia                              | ZM        | USD          | EUR, USD, ZMW |
-| Zimbabwe                            | ZW        | USD          | EUR, USD|
-|   |   |   |
+| Zimbabwe                            | ZW        | USD          | EUR, USD |
 
 \* For customers in Brazil, the commercial marketplace through Cloud Solution Providers (CSP) uses USD.
 
@@ -174,9 +173,9 @@ For all paid offer types, you have the option of entering prices in USD or uploa
 To adjust any price before you publish, just export the pricing spreadsheet, modify it, and upload it with changes.
 
 > [!NOTE]
-> After a price for a market in your plan is published, it can't be changed. To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market.
+> To ensure prices are right before you publish them, export the pricing spreadsheet and review the prices in each market. See [Changing prices in active commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
 
-The price of an offer is always shown to customers in their local currency. The price you select in Partner Center is converted to the local currency of customers according to the exchange rate at the time you saved the price in Partner Center. The price shown to customers in the online stores doesn't change, unless you republish your offer.
+The price of an offer is always shown to customers in their local currency. The price you select in Partner Center is converted to the local currency of customers according to the exchange rate at the time you saved the price in Partner Center. The price shown to customers in the online stores doesn't change unless you republish your offer.
 
 Microsoft receives payments from customers in their local currency, and pays you in the currency you selected in Partner Center. Microsoft converts the customer local currency using the exchange rate of the day of purchase.
 
@@ -184,21 +183,3 @@ Microsoft receives payments from customers in their local currency, and pays you
 > Microsoft converts offer prices using the Microsoft Treasury exchange rates.
 
 [![The currency conversion flow.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
-
-## Retrieving currency information by API
-
-Individual prices (which, depending on how they were set, may have been influenced by the exchange rates on the day they were saved) can be retrieved using an API; currency information can't.
-
-For details on how to enter prices for specific offer types, refer to these articles:
-
-- [Create an Azure application offer](create-new-azure-apps-offer.md)
-- [Create an Azure container offer](./create-azure-container-offer.md)
-- [Create an Azure virtual machine offer](azure-vm-create.md)
-- [Create a consulting service offer](./create-consulting-service-offer.md)
-- [Create a Dynamics 365 for Customer Engagement & PowerApps offer](partner-center-portal/create-new-customer-engagement-offer.md)
-- [Create a Dynamics 365 for Operations offer](partner-center-portal/create-new-operations-offer.md)
-- [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer.md)
-- [Create an IoT Edge module offer](partner-center-portal/azure-iot-edge-module-creation.md)
-- [Create a Managed Service offer](./plan-managed-service-offer.md)
-- [Create a Power BI app](partner-center-portal/create-power-bi-app-offer.md)
-- [Create a SaaS offer](./create-new-saas-offer.md)

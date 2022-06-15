@@ -1,17 +1,20 @@
 ---
 title: Overview of cloud-init support for Linux VMs in Azure 
 description: Overview of cloud-init capabilities to configure a VM at provisioning time in Azure.
-author: danielsollondon
+author: srijang
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 02/14/2021
-ms.author: danis
+ms.date: 07/29/2021
+ms.author: srijangupta
 
 ---
 # cloud-init support for virtual machines in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article explains the support that exists for [cloud-init](https://cloudinit.readthedocs.io) to configure a virtual machine (VM) or virtual machine scale sets at provisioning time in Azure. These cloud-init configurations are run on first boot once the resources have been provisioned by Azure.  
 
 VM Provisioning is the process where the Azure will pass down your VM Create parameter values, such as hostname, username, password etc., and make them available to the VM as it boots up. A 'provisioning agent' will consume those values, configure the VM, and report back when completed. 
@@ -34,68 +37,65 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 ### Canonical
 | Publisher / Version| Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical 20.04 |UbuntuServer |18.04-LTS |latest |yes | yes |
+|Canonical 20.04 |UbuntuServer |20.04-LTS |latest |yes | yes |
 |Canonical 18.04 |UbuntuServer |18.04-LTS |latest |yes | yes |
-|Canonical 16.04|UbuntuServer |16.04-LTS |latest |yes | yes |
-|Canonical 14.04|UbuntuServer |14.04.5-LTS |latest |yes | yes |
+
 
 ### RHEL
-| Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
+| Publisher / Version| Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |yes | yes - support from package version: *18.2-1.el7_6.2*|
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | yes (note: this is a preview image, and **must** not be used anymore, this will be removed 1st September 2020) | N/A |
-|RedHat 7.7 (Gen1)|RHEL |7.7 | 7.7.2020051912 | yes | yes - support from package version: *18.5-6.el7*|
-|RedHat 7.7 (Gen2)|RHEL | 77-gen2 | 7.7.2020051913 | yes | yes - support from package version: *18.5-6.el7*|
-|RedHat 7.7 (Gen1)|RHEL |7-LVM | 7.7.2020051921 | yes | yes - support from package version: *18.5-6.el7*|
-|RedHat 7.7 (Gen2)|RHEL | 7lvm-gen2 | 7.7.2020051922  | yes | yes - support from package version: *18.5-6.el7*|
-|RedHat 7.7 (Gen1) |rhel-byos | rhel-lvm77 | 7.7.20200416 | yes  | yes - support from package version: *18.5-6.el7*|
-|RedHat 8.1 (Gen1) |RHEL |8.1-ci |8.1.2020042511 | yes (note: this is a preview image, and once all RHEL 8.1 images support cloud-init, this will be removed 1st August 2020) | No, ETA for full support June 2020|
-|RedHat 8.1 (Gen2) |RHEL |81-ci-gen2 |8.1.2020042524 | yes (note: this is a preview image, and once all RHEL 8.1 images support cloud-init, this will be removed 1st August 2020) | No, ETA for full support June 2020 |
+|RedHat 7 |RHEL |7.7, 7.8, 7_9 |latest |yes | yes |
+|RedHat 8 |RHEL |8.1, 8.2, 8_3, 8_4 |latest |yes | yes |
 
-* All RedHat:RHEL 7.8 and 8.2 (Gen1 and Gen2) images are provisioned using cloud-init.
+* All other RedHat SKUs starting from RHEL 7 (version 7.7) and RHEL 8 (version 8.1) including both Gen1 and Gen2 images are provisioned using cloud-init. RHEL 6 images do not support cloud-init. 
+
 
 ### CentOS
-
-| Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
+ Publisher / Version| Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |yes (note: this is a preview image, and **must** not be used anymore, this will be removed 1st September 2020) | N/A |
-|OpenLogic 7.7 |CentOS | 7.7 |7.7.2020062400 |yes | yes - support from package version: `18.5-6.el7.centos.5`|
-|OpenLogic 7.7 (Gen2) |CentOS | 7_7-gen2 |7.7.2020062401 |yes | yes - support from package version: `18.5-6.el7.centos.5`|
-|OpenLogic 7.7 |CentOS-HPC | 7.7 |7.6.2020062600 |yes | yes - support from package version: `18.5-6.el7.centos.5`|
-|OpenLogic 7.7 (Gen2) |CentOS-HPC | 7_7-gen2 |7.6.2020062601 |yes | yes - support from package version: `18.5-6.el7.centos.5`|
-|OpenLogic 8.1 |CentOS | 8_1 |8.1.2020062400 |yes | yes - support from package version: `18.5-7.el8_1.1`|
-|OpenLogic 8.1 (Gen2) |CentOS | 8_1-gen2 |8.1.2020062401 |yes | yes - support from package version: `18.5-7.el8_1.1`|
-|OpenLogic 8.1 |CentOS-HPC | 8_1 |8.1.2020062400 |yes | yes - support from package version: `18.5-7.el8_1.1`|
-|OpenLogic 8.1 (Gen2) |CentOS-HPC:8_1-gen2 | 8_1-gen2 |8.1.2020062401 |yes | yes - support from package version: `18.5-7.el8_1.1`|
+|OpenLogic 7 |CentOS |7.7, 7.8, 7.9 |latest |yes | yes |
+|OpenLogic 8 |CentOS |8.1, 8.2, 8.3 |latest |yes | yes |
 
-* All OpenLogic:CentOS 7.8 and 8.2 (Gen1 and Gen2) images are provisioned using cloud-init.
+* All other CentOS SKUs starting from CentOS 7 (version 7.7) and CentOS 8 (version 8.1) including both Gen1 and Gen2 images are provisioned using cloud-init. CentOS 6.10, 7.4, 7.5, and 7.6 images do not support cloud-init. 
+
+> [!NOTE]
+> OpenLogic is now Rogue Wave Software 
+
+
 
 ### Oracle
 
-| Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
+ Publisher / Version| Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Oracle 7.7 |Oracle-Linux |77-ci |7.7.01| preview image (note: this is a preview image, and it once all Oracle 7.7 images support cloud-init, this will be removed mid 2020, notice will be given) | no, in preview, package is: *18.5-3.0.1.el7*
+|Oracle 7 |Oracle Linux |77, 78, ol79 |latest |yes | yes |
+|Oracle 8 |Oracle Linux |81, ol82, ol83-lvm, ol84-lvm |latest |yes | yes |
+
+* All other Oracle SKUs starting from Oracle 7 (version 7.7) and Oracle 8 (version 8.1) including both Gen1 and Gen2 images are provisioned using cloud-init.
+
 
 ### SUSE SLES
-These SLES images have been updated to provision using cloud-init, the Gen2 image variants have also been updated.
-* suse:sles-15-sp1-{basic/byos/hpc/hpc-byos/chost-byos}:gen1:2020.06.10
-* suse:sles-sap-15-sp1:gen1:2020.06.10
-* suse:sles-sap-15-sp1-byos:gen1:2020.06.10
-* suse:manager-proxy-4-byos:gen1:2020.06.10
-* suse:manager-server-4-byos:gen1:2020.06.10
-* suse:sles-{byos/sap/sap-byos}:15:2020.06.10
-* suse:sles-12-sp5:gen1:2020.06.10
-* suse:sles-12-sp5{-byos/basic/hpc-byos/hpc}:gen1:2020.06.10
-* suse:sles-{byos/sap/sap-byos}:12-sp4:2020.06.10
-* suse:sles-{byos/sap/sap-byos}:12-sp3:2020.06.10
-* suse:sles-{byos/sap/sap-byos}:12-sp2:2020.06.10
+
+ Publisher / Version| Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
+|:--- |:--- |:--- |:--- |:--- |:--- |
+|SUSE 15 |SLES (SUSE Linux Enterprise Server) |sp1, sp2, sp3 |latest |yes | yes |
+|SUSE 12 |SLES (SUSE Linux Enterprise Server) |sp5 |latest |yes | yes |
+
+* All other SUSE SKUs starting from SLES 15 (sp1) and SLES 12 (sp5) including both Gen1 and Gen2 images are provisioned using cloud-init.
+* Additionally these images are also provisioned with cloud-init -
+
+
+ Publisher / Version| Offer | SKU / Version
+|:--- |:--- |:---
+|SUSE 12 |SLES (SUSE Linux Enterprise Server) |sles-{byos/sap/sap-byos}:12-sp4:2020.06.10
+|SUSE 12 |SLES (SUSE Linux Enterprise Server) |sles-{byos/sap/sap-byos}:12-sp3:2020.06.10
+|SUSE 12 |SLES (SUSE Linux Enterprise Server) |sles-{byos/sap/sap-byos}:12-sp2:2020.06.10
+|SUSE 15 |SLES (SUSE Linux Enterprise Server) |manager-proxy-4-byosgen1:2020.06.10
+|SUSE 15 |SLES (SUSE Linux Enterprise Server) |manager-server-4-byos:gen1:2020.06.10
 
 
 ### Debian
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| yes (note: this is a preview image, and **must** not be used anymore, this will be removed 1st January 2021) | No, in preview. |
-| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| yes (note: this is a preview image, and **must** not be used anymore, this will be removed 1st January 2021) | No, in preview. |
 | debian (Gen1) |debian-10 | 10-cloudinit |10:0.20201013.422| yes | yes - support from package version: `20.2-2~deb10u1` |
 | debian (Gen2) |debian-10 | 10-cloudinit-gen2 |0.20201013.422| yes | yes - support from package version: `20.2-2~deb10u1` |
 
@@ -112,6 +112,9 @@ cloud-init cannot process Azure extensions, so WALA is still required in the ima
 When creating a VM, if you do not include the Azure CLI `--custom-data` switch at provisioning time, cloud-init or WALA takes the minimal VM provisioning parameters required to provision the VM and complete the deployment with the defaults.  If you reference the cloud-init configuration with the `--custom-data` switch, whatever is contained in your custom data will be available to cloud-init when the VM boots.
 
 cloud-init configurations applied to VMs do not have time constraints and will not cause a deployment to fail by timing out. This is not true for WALA, if you change the WALA defaults to process custom-data, it cannot exceed the total VM provisioning time allowance of 40mins, if so, the VM Create will fail.
+
+## cloud-init VM provisioning without a UDF driver  
+Beginning with cloud-init 21.2, you can use cloud-init to provision a VM in Azure without a UDF driver. If a UDF driver isn't available in the image, cloud-init uses the metadata that's available in the Azure Instance Metadata Service to provision the VM. Note that this option works only for SSH key and [user data](../user-data.md). To pass in a password or custom data to a VM during provisioning, you must use a UDF driver.
 
 ## Deploying a cloud-init enabled Virtual Machine
 Deploying a cloud-init enabled virtual machine is as simple as referencing a cloud-init enabled distribution during deployment.  Linux distribution maintainers have to choose to enable and integrate cloud-init into their base Azure published images. Once you have confirmed the image you want to deploy is cloud-init enabled, you can use the Azure CLI to deploy the image. 
@@ -133,14 +136,13 @@ packages:
   - httpd
 ```
 > [!NOTE]
-> cloud-init has multiple [input types](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init will use first line of the customData/userData to indicate how it should process the input, for example `#cloud-config` indicates a the content should be processed as a cloud-init config.
+> cloud-init has multiple [input types](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init will use first line of the customData/userData to indicate how it should process the input, for example `#cloud-config` indicates that the content should be processed as a cloud-init config.
 
-
-Press `ctrl-X` to exit the file, type `y` to save the file and press `enter` to confirm the file name on exit.
+Press <kbd>Ctrl + X</kbd> to exit the file, type <kbd>y</kbd> to save the file, and press <kbd>Enter</kbd> to confirm the file name on exit.
 
 The final step is to create a VM with the [az vm create](/cli/azure/vm) command. 
 
-The following example creates a VM named *centos74* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. 
+The following example creates a VM named `centos74` and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. 
 
 ```azurecli-interactive 
 az vm create \
@@ -161,8 +163,21 @@ Once the VM has been provisioned, cloud-init will run through all the modules an
 > [!NOTE]
 > Not every module failure results in a fatal cloud-init overall configuration failure. For example, using the `runcmd` module, if the script fails, cloud-init will still report provisioning succeeded because the runcmd module executed.
 
-For more details of cloud-init logging, refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
+For more details of cloud-init logging, refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/topics/logging.html)
 
+## Telemetry
+cloud-init collects usage data and sends it to Microsoft to help improve our products and services. Telemetry is only collected during the provisioning process (first boot of the VM). The data collected helps us investigate provisioning failures and monitor performance and reliability. Data collected does not include any personally identifiable information. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkId=521839) to learn more. Some examples of telemetry being collected are (this is not an exhaustive list): OS-related information (cloud-init version, distro version, kernel version), performance metrics of essential VM provisioning actions (time to obtain DHCP lease, time to retrieve metadata necessary to configure the VM, etc.), cloud-init log, and dmesg log.
+
+Telemetry collection is currently enabled for a majority of our marketplace images that use cloud-init. It is enabled by specifying KVP telemetry reporter for cloud-init. In a majority of Azure marketplace images, this configuration can be found in the file /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg. Removing this file during image preparation will disable telemetry collection for any VM created from this image. 
+
+Sample content of 10-azure-kvp.cfg
+```
+reporting:
+  logging:
+    type: log
+  telemetry:
+    type: hyperv
+```
 ## Next steps
 
 [Troubleshoot issues with cloud-init](cloud-init-troubleshooting.md).

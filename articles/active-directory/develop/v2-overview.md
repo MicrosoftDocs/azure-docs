@@ -1,6 +1,5 @@
 ---
-title: Microsoft identity platform overview - Azure
-titleSuffix: Microsoft identity platform
+title: Microsoft identity platform overview
 description: Learn about the components of the Microsoft identity platform and how they can help you build identity and access management (IAM) support into your applications.
 services: active-directory
 author: rwike77
@@ -10,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: overview
 ms.workload: identity
-ms.date: 07/09/2020
+ms.date: 09/13/2021
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40, contperf-fy21q2
@@ -32,7 +31,7 @@ There are several components that make up the Microsoft identity platform:
 - **Application configuration API and PowerShell**: Programmatic configuration of your applications through the Microsoft Graph API and PowerShell so you can automate your DevOps tasks.
 - **Developer content**: Technical documentation including quickstarts, tutorials, how-to guides, and code samples.
 
-For developers, the Microsoft identity platform offers integration of modern innovations in the identity and security space like passwordless authentication, step-up authentication, and Conditional Access. You don’t need to implement such functionality yourself: applications integrated with the Microsoft identity platform natively take advantage of such innovations.
+For developers, the Microsoft identity platform offers integration of modern innovations in the identity and security space like passwordless authentication, step-up authentication, and Conditional Access. You don't need to implement such functionality yourself: applications integrated with the Microsoft identity platform natively take advantage of such innovations.
 
 With the Microsoft identity platform, you can write code once and reach any user. You can build an app once and have it work across many platforms, or build an app that functions as a client as well as a resource application (API).
 
@@ -77,7 +76,7 @@ Learn how core authentication and Azure AD concepts apply to the Microsoft ident
 
 ## Next steps
 
-If you have an Azure account you already have access to an Azure Active Directory tenant, but most the Microsoft identity platform developers need their own Azure AD tenant for use while developing applications, a "dev tenant."
+If you have an Azure account you already have access to an Azure Active Directory tenant, but most Microsoft identity platform developers need their own Azure AD tenant for use while developing applications, a "dev tenant."
 
 Learn how to create your own tenant for use while building your applications:
 

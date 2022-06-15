@@ -5,7 +5,8 @@ author: sujayt
 manager: rochakm
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: sutalasi
+ms.author: sutalasi 
+ms.tool: azure-powershell
 ---
 
 # Set up disaster recovery to Azure for Hyper-V VMs using PowerShell and Azure Resource Manager

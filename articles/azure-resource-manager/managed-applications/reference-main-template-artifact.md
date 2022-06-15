@@ -9,7 +9,7 @@ ms.date: 07/11/2019
 
 # Reference: Deployment template artifact
 
-This article is a reference for a *mainTemplate.json* artifact in Azure Managed Applications. For more information about authoring deployment template, see [Azure Resource Manager templates](../templates/template-syntax.md).
+This article is a reference for a *mainTemplate.json* artifact in Azure Managed Applications. For more information about authoring deployment template, see [Azure Resource Manager templates](../templates/syntax.md).
 
 ## Deployment template
 
@@ -48,7 +48,7 @@ The following JSON shows an example of *mainTemplate.json* file for Azure Manage
     },
     "zipFileBlobUri": {
       "type": "string",
-      "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
+      "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.customproviders/custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
       "metadata": {
         "description": "The Uri to the uploaded function zip file"
       }

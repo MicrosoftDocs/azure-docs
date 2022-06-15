@@ -3,16 +3,16 @@ title: 'Quickstart: Create an Azure DB for PostgresSQL Flexible Server - ARM tem
 description: In this Quickstart, learn how to create an Azure Database for PostgresSQL Flexible server using ARM template.
 author: mksuni
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: sumuth
-ms.date: 2/11/2021
+ms.date: 05/12/2022
 ---
 
 # Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Flexible server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use an Azure Resource Manager template (ARM template) to provision a PostgreSQL Flexible Server to deploy multiple servers or multiple databases on a server.
 
@@ -32,115 +32,89 @@ Create a _postgres-flexible-server-template.json_ file and copy the following JS
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "administratorLogin": {
-      "type": "String"
+      "type": "string",
     },
     "administratorLoginPassword": {
-      "type": "SecureString"
+      "type": "secureString"
     },
     "location": {
-      "type": "String"
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
     },
     "serverName": {
-      "type": "String"
-    },
-    "serverEdition": {
-      "type": "String"
-    },
-    "storageSizeMB": {
-      "type": "Int"
-    },
-    "haEnabled": {
       "type": "string"
     },
+    "serverEdition": {
+      "type": "string",
+      "defaultValue": "GeneralPurpose"
+    },
+    "skuSizeGB": {
+      "type": "int",
+      "defaultValue": 128
+    },
+    "dbInstanceType": {
+      "type": "string",
+      "defaultValue": "Standard_D4ds_v4"
+    },
+    "haMode": {
+      "type": "string",
+      "defaultValue": "ZoneRedundant"
+    },
     "availabilityZone": {
-      "type": "String"
+      "type": "string",
+      "defaultValue": "1"
     },
     "version": {
-      "type": "String"
+      "type": "string",
+      "defaultValue": "12"
     },
-    "tags": {
-      "defaultValue": {},
-      "type": "Object"
+    "virtualNetworkExternalId": {
+      "type": "string",
+      "defaultValue": ""
     },
-    "firewallRules": {
-      "defaultValue": {},
-      "type": "Object"
+    "subnetName": {
+      "type": "string",
+      "defaultValue": ""
     },
-    "vnetData": {
-      "defaultValue": {},
-      "type": "Object"
-    },
-    "backupRetentionDays": {
-      "type": "Int"
+    "privateDnsZoneArmResourceId": {
+      "type": "string",
+      "defaultValue": ""
     }
-  },
-  "variables": {
-    "api": "2020-02-14-privatepreview",
-    "firewallRules": "[parameters('firewallRules').rules]",
-    "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
-    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",
-    "finalVnetData": "[json(concat('{ \"subnetArmResourceId\": \"', variables('vnetDataSet').subnetArmResourceId, '\"}'))]"
   },
   "resources": [
     {
       "type": "Microsoft.DBforPostgreSQL/flexibleServers",
-      "apiVersion": "[variables('api')]",
+      "apiVersion": "2021-06-01",
       "name": "[parameters('serverName')]",
       "location": "[parameters('location')]",
       "sku": {
-        "name": "Standard_D4ds_v4",
+        "name": "[parameters('dbInstanceType')]",
         "tier": "[parameters('serverEdition')]"
       },
-      "tags": "[parameters('tags')]",
       "properties": {
         "version": "[parameters('version')]",
         "administratorLogin": "[parameters('administratorLogin')]",
         "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-        "publicNetworkAccess": "[variables('publicNetworkAccess')]",
-        "DelegatedSubnetArguments": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
-        "haEnabled": "[parameters('haEnabled')]",
-        "storageProfile": {
-          "storageMB": "[parameters('storageSizeMB')]",
-          "backupRetentionDays": "[parameters('backupRetentionDays')]"
+        "network": {
+          "delegatedSubnetResourceId": "[if(empty(parameters('virtualNetworkExternalId')), json('null'), json(format('{0}/subnets/{1}', parameters('virtualNetworkExternalId'), parameters('subnetName'))))]",
+          "privateDnsZoneArmResourceId": "[if(empty(parameters('virtualNetworkExternalId')), json('null'), parameters('privateDnsZoneArmResourceId'))]"
+        },
+        "highAvailability": {
+          "mode": "[parameters('haMode')]"
+        },
+        "storage": {
+          "storageSizeGB": "[parameters('skuSizeGB')]"
+        },
+        "backup": {
+          "backupRetentionDays": 7,
+          "geoRedundantBackup": "Disabled"
         },
         "availabilityZone": "[parameters('availabilityZone')]"
       }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-08-01",
-      "name": "[concat('firewallRules-', copyIndex())]",
-      "dependsOn": [
-        "[concat('Microsoft.DBforPostgreSQL/flexibleServers/', parameters('serverName'))]"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
-              "name": "[concat(parameters('serverName'),'/',variables('firewallRules')[copyIndex()].name)]",
-              "apiVersion": "[variables('api')]",
-              "properties": {
-                "StartIpAddress": "[variables('firewallRules')[copyIndex()].startIPAddress]",
-                "EndIpAddress": "[variables('firewallRules')[copyIndex()].endIPAddress]"
-              }
-            }
-          ]
-        }
-      },
-      "copy": {
-        "name": "firewallRulesIterator",
-        "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
-        "mode": "Serial"
-      },
-      "condition": "[greater(length(variables('firewallRules')), 0)]"
     }
   ]
 }
@@ -148,7 +122,7 @@ Create a _postgres-flexible-server-template.json_ file and copy the following JS
 
 These resources are defined in the template:
 
-- Microsoft.DBforPostgreSQL/flexibleServers
+- [Microsoft.DBforPostgreSQL/flexibleServers](/azure/templates/microsoft.dbforpostgresql/flexibleservers?tabs=json)
 
 ## Deploy the template
 
@@ -163,14 +137,13 @@ $adminPassword = Read-Host -Prompt "Enter the administrator password" -AsSecureS
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location # Use this command when you need to create a new resource group for your deployment
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
-    -TemplateFile "D:\Azure\Templates\EngineeringSite.json
+    -TemplateFile "postgres-flexible-server-template.json" `
     -serverName $serverName `
     -administratorLogin $adminUser `
     -administratorLoginPassword $adminPassword
 
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
----
 
 ## Review deployed resources
 
@@ -178,10 +151,14 @@ Follow these steps to verify if your server was created in Azure.
 
 # [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for PostgreSQL Flexible Servers (Preview)**.
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for PostgreSQL Flexible Servers**.
 1. In the database list, select your new server to view the **Overview** page to manage the server.
 
 # [PowerShell](#tab/PowerShell)
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 You'll have to enter the name of the new server to view the details of your Azure Database for PostgreSQL Flexible server.
 
@@ -192,6 +169,8 @@ Write-Host "Press [ENTER] to continue..."
 ```
 
 # [CLI](#tab/CLI)
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 You'll have to enter the name and the resource group of the new server to view details about your Azure Database for PostgreSQL Flexible Server.
 
@@ -205,7 +184,6 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 
 ---
 
-
 ## Clean up resources
 
 Keep this resource group, server, and single database if you want to go to the [Next steps](#next-steps). The next steps show you how to connect and query your database using different methods.
@@ -214,6 +192,8 @@ To delete the resource group:
 
 # [Portal](#tab/azure-portal)
 
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 In the [portal](https://portal.azure.com), select the resource group you want to delete.
 
 1. Select **Delete resource group**.
@@ -221,16 +201,21 @@ In the [portal](https://portal.azure.com), select the resource group you want to
 
 # [PowerShell](#tab/azure-powershell)
 
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name ExampleResourceGroup
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 ```azurecli-interactive
 az group delete --name ExampleResourceGroup
 ```
-----
+
+---
 
 ## Next steps
 

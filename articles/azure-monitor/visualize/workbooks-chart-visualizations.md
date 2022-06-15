@@ -2,13 +2,10 @@
 title: Azure Monitor workbook chart visualizations
 description: Learn about all the Azure Monitor workbook chart visualizations.
 services: azure-monitor
-author: lgayhardt
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.author: lagayhar
 ---
 
 # Chart visualizations
@@ -105,7 +102,7 @@ requests
 | summarize Request = count() by bin(timestamp, 1h), RequestName = name
 ```
 
-Even though the underlying result set is different. All a user has to do is set the visualization to area, line, bar, or time and Workbooks will take care of the rest.
+Even though the queries return results in different formats, when a user sets the visualization to area, line, bar, or time, Workbooks understands how to handle the data to create the visualization.
 
 [![Screenshot of a log line chart made from a make-series query](./media/workbooks-chart-visualizations/log-chart-line-make-series.png)](./media/workbooks-chart-visualizations/log-chart-line-make-series.png#lightbox)
 

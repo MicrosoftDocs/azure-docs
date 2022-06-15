@@ -1,12 +1,12 @@
 ---
 title: Create & locate anchors in Java
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in Java.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
 ms.custom: devx-track-java
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors

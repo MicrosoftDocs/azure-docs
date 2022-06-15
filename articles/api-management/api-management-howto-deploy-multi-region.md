@@ -2,18 +2,12 @@
 title: Deploy Azure API Management services to multiple Azure regions
 titleSuffix: Azure API Management
 description: Learn how to deploy an Azure API Management service instance to multiple Azure regions.
-services: api-management
-documentationcenter: ''
-author: mikebudzynski
-manager: cfowler
-editor: ''
+author: dlepow
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 04/20/2020
-ms.author: apimpm
+ms.topic: how-to
+ms.date: 04/13/2021
+ms.author: danlep
 ---
 
 # How to deploy an Azure API Management service instance to multiple Azure regions
@@ -23,24 +17,30 @@ Azure API Management supports multi-region deployment, which enables API publish
 A new Azure API Management service initially contains only one [unit][unit] in a single Azure region, the Primary region. Additional units can be added to the Primary or Secondary regions. An API Management gateway component is deployed to every selected Primary and Secondary region. Incoming API requests are automatically directed to the closest region. If a region goes offline, the API requests will be automatically routed around the failed region to the next closest gateway.
 
 > [!NOTE]
-> Only the gateway component of API Management is deployed to all regions. The service management component and developer portal are hosted in the Primary region only. Therefore, in case of the Primary region outage, access to the developer portal and ability to change configuration (e.g. adding APIs, applying policies) will be impaired until the Primary region comes back online. While the Primary region is offline available Secondary regions will continue to serve the API traffic using the latest configuration available to them.
+> Only the gateway component of API Management is deployed to all regions. The service management component and developer portal are hosted in the Primary region only. Therefore, in case of the Primary region outage, access to the developer portal and ability to change configuration (e.g. adding APIs, applying policies) will be impaired until the Primary region comes back online. While the Primary region is offline, available Secondary regions will continue to serve the API traffic using the latest configuration available to them. Optionally enable [zone redundancy](zone-redundancy.md) to improve the availability and resiliency of the Primary or Secondary regions.
 
 >[!IMPORTANT]
 > The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="add-region"> </a>Deploy API Management service to a new region
 
-> [!NOTE]
-> If you have not yet created an API Management service instance, see [Create an API Management service instance][create an api management service instance].
+## Prerequisites
 
-1. In the Azure portal, navigate to your API Management service and click on the **Locations** entry in the menu.
-2. Click **+ Add** in the top bar.
-3. Select the location from the drop-down list and set the number of units with the slider.
-4. Click the **Add** button to confirm.
-5. Repeat this process until you configure all locations.
-6. Click **Save** in the top bar to start the deployment process.
+* If you have not yet created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
+* If your API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), ensure that you set up a virtual network, subnet, and public IP address in the location that you plan to add.
+
+## <a name="add-region"> </a>Deploy API Management service to an additional location
+
+1. In the Azure portal, navigate to your API Management service and select **Locations** in the menu.
+1. Select **+ Add** in the top bar.
+1. Select the location from the drop-down list.
+1. Select the number of scale **[Units](upgrade-and-scale.md)** in the location.
+1. Optionally enable [**Availability zones**](zone-redundancy.md).
+1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings in the location. Select an existing virtual network, subnet, and public IP address that are available in the location.
+1. Select **Add** to confirm.
+1. Repeat this process until you configure all locations.
+1. Select **Save** in the top bar to start the deployment process.
 
 ## <a name="remove-region"> </a>Delete an API Management service location
 
@@ -50,7 +50,7 @@ A new Azure API Management service initially contains only one [unit][unit] in a
 
 ## <a name="route-backend"> </a>Route API calls to regional backend services
 
-Azure API Management features only one backend service URL. Even though there are Azure API Management instances in various regions, the API gateway will still forward requests to the same backend service, which is deployed in only one region. In this case, the performance gain will come only from responses cached within Azure API Management in a region specific to the request, but contacting the backend across the globe may still cause high latency.
+By default, each API routes requests to a single backend service URL. Even though there are Azure API Management instances in various regions, the API gateway will still forward requests to the same backend service, which is deployed in only one region. In this case, the performance gain will come only from responses cached within Azure API Management in a region specific to the request, but contacting the backend across the globe may still cause high latency.
 
 To fully leverage geographical distribution of your system, you should have backend services deployed in the same regions as Azure API Management instances. Then, using policies and `@(context.Deployment.Region)` property, you can route the traffic to local instances of your backend.
 

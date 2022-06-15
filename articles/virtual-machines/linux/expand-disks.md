@@ -1,16 +1,20 @@
 ---
-title: Expand virtual hard disks on a Linux VM 
+title: Expand virtual hard disks on a Linux VM
 description: Learn how to expand virtual hard disks on a Linux VM with the Azure CLI.
 author: roygara
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 10/15/2018    
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: references_regions, ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Expand virtual hard disks on a Linux VM with the Azure CLI
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article describes how to expand managed disks for a Linux virtual machine (VM) with the Azure CLI. You can [add data disks](add-disk.md) to provide for additional storage space, and you can also expand an existing data disk. The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux VM in Azure. 
 
@@ -18,11 +22,37 @@ This article describes how to expand managed disks for a Linux virtual machine (
 > Always make sure that your filesystem is in a healthy state, your disk partition table type will support the new size, and ensure your data is backed up before you perform disk resize operations. For more information, see the [Azure Backup quickstart](../../backup/quick-backup-vm-portal.md). 
 
 ## Expand an Azure Managed Disk
+
+### Resize without downtime (preview)
+
+You can now resize your managed disks without deallocating your VM.
+
+The preview for this has the following limitations:
+
+[!INCLUDE [virtual-machines-disks-expand-without-downtime-restrictions](../../../includes/virtual-machines-disks-expand-without-downtime-restrictions.md)]
+
+To register for the feature, use the following command:
+
+```azurecli
+az feature register --namespace Microsoft.Compute --name LiveResize
+```
+
+It may take a few minutes for registration to take complete. To confirm that you've registered, use the following command:
+
+```azurecli
+az feature show --namespace Microsoft.Compute --name LiveResize
+```
+
+### Get started
+
 Make sure that you have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and are signed in to an Azure account by using [az login](/cli/azure/reference-index#az-login).
 
 This article requires an existing VM in Azure with at least one data disk attached and prepared. If you do not already have a VM that you can use, see [Create and prepare a VM with data disks](tutorial-manage-disks.md#create-and-attach-disks).
 
 In the following samples, replace example parameter names such as *myResourceGroup* and *myVM* with your own values.
+
+> [!IMPORTANT]
+> If you've enabled **LiveResize** and your disk meets the requirements in [Resize without downtime (preview)](#resize-without-downtime-preview), you can skip step 1 and 3. 
 
 1. Operations on virtual hard disks can't be performed with the VM running. Deallocate your VM with [az vm deallocate](/cli/azure/vm#az-vm-deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
 

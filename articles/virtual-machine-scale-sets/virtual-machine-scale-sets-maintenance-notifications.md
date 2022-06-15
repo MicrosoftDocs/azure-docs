@@ -5,15 +5,16 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
-ms.date: 11/12/2020
+ms.subservice: maintenance-control
+ms.date: 04/26/2021
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 
 # Planned maintenance notifications for virtual machine scale sets
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines (VMs). Updates might include patching the hosting environment or upgrading and decommissioning hardware. Most updates don't affect the hosted VMs. However, updates affect VMs in these scenarios:
 
@@ -88,12 +89,24 @@ The **Self-service maintenance** column now appears in the list of virtual machi
 Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add recipients and channels to this communication by creating Activity Log alerts. For more information, see [Monitor subscription activity with the Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the left menu, select **Monitor**. 
-3. In the **Monitor - Alerts (classic)** pane, select **+Add activity log alert**.
-4. On the **Add activity log alert** page, select or enter the requested information. In **Criteria**, make sure that you set the following values:
-   - **Event category**: Select **Service Health**.
-   - **Services**: Select **Virtual Machine Scale Sets and Virtual Machines**.
-   - **Type**: Select **Planned maintenance**. 
+1. In the left menu, select **Monitor**. 
+1. In the Monitor menu, select **Service Health**.
+
+    :::image type="content" source="./media/virtual-machine-scale-sets-maintenance-notifications/monitor-service-health.png" alt-text="Select Service Health in the Monitor menu.":::
+
+1. In Service Health, select **+ Create service health alert**.
+
+    :::image type="content" source="./media/virtual-machine-scale-sets-maintenance-notifications/monitor-create-service-health-alert.png" alt-text="Select Create service health alert button.":::
+
+1. On the **Create an alert rule** page: 
+    1. Select the relevant **Subscription** and **Region** containing the resources to monitor for planned maintenance events.
+    1. Specify the following:
+        - **Services**: *Virtual Machine Scale Sets* and *Virtual Machines*
+        - **Event type**: *Planned maintenance*
+1.	Under **Actions**, add action groups to the alert rule in order to send notifications or invoke actions when a planned maintenance event is received.
+1.	Fill out the details under **Alert rule details**. 
+1. Select **Create alert rule**. 
+
 	
 To learn more about how to configure Activity Log alerts, see [Create Activity Log alerts](../azure-monitor/alerts/activity-log-alerts.md)
 	
@@ -108,12 +121,12 @@ After you start maintenance, the affected VMs in your virtual machine scale set 
  
 ## Check maintenance status by using PowerShell
 
-You can use Azure PowerShell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available by using the [Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet when you use the `-InstanceView` parameter.
+You can use Azure PowerShell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available by using the [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) cmdlet when you use the `-InstanceView` parameter.
  
 Maintenance information is returned only if maintenance is planned. If no maintenance is scheduled that affects the VM instance, the cmdlet doesn't return any maintenance information. 
 
 ```powershell
-Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
+Get-AzVmssVm -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
 The following properties are returned under **MaintenanceRedeployStatus**: 
@@ -131,10 +144,10 @@ The following properties are returned under **MaintenanceRedeployStatus**:
 
 ### Start maintenance on your VM instance by using PowerShell
 
-You can start maintenance on a VM if **IsCustomerInitiatedMaintenanceAllowed** is set to **true**. Use the [Set-AzVmss](/powershell/module/az.compute/set-azvmss) cmdlet with `-PerformMaintenance` parameter.
+You can start maintenance on a VM if **IsCustomerInitiatedMaintenanceAllowed** is set to **true**. Use the [Set-AzVmssVM](/powershell/module/az.compute/set-azvmssvm) cmdlet with `-PerformMaintenance` parameter.
 
 ```powershell
-Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
+Set-AzVmssVM -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
 ```
 
 ## Check maintenance status by using the CLI

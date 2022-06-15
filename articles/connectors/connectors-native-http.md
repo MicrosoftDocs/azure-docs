@@ -1,11 +1,11 @@
 ---
 title: Call service endpoints by using HTTP or HTTPS
-description: Send outbound HTTP or HTTPS requests to service endpoints from Azure Logic Apps
+description: Send outbound HTTP or HTTPS requests to service endpoints from Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 02/18/2021
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 05/31/2022
 tags: connectors
 ---
 
@@ -25,7 +25,7 @@ For information about encryption, security, and authorization for outbound calls
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * The URL for the target endpoint that you want to call
 
@@ -97,7 +97,7 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
 ## Trigger and action outputs
 
-Here is more information about the outputs from an HTTP trigger or action, which returns this information:
+Here's more information about the outputs from an HTTP trigger or action, which returns this information:
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -116,6 +116,82 @@ Here is more information about the outputs from an HTTP trigger or action, which
 | 404 | Not Found |
 | 500 | Internal server error. Unknown error occurred. |
 |||
+
+<a name="single-tenant-authentication"></a>
+
+## Authentication for single-tenant environment
+
+If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, and you want to use an HTTP operation with any of the following authentication types, make sure to complete the extra setup steps for the corresponding authentication type. Otherwise, the call fails.
+
+* [TLS/SSL certificate](#tls-ssl-certificate-authentication): Add the app setting, `WEBSITE_LOAD_ROOT_CERTIFICATES`, and set the value to the thumbprint for your TLS/SSL certificate.
+
+* [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type](#client-certificate-authentication): Add the app setting, `WEBSITE_LOAD_USER_PROFILE`, and set the value to `1`.
+
+<a name="tls-ssl-certificate-authentication"></a>
+
+### TLS/SSL certificate authentication
+
+1. In your logic app resource's app settings, [add or update the app setting](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_ROOT_CERTIFICATES`.
+
+1. For the setting value, provide the thumbprint for your TLS/SSL certificate as the root certificate to be trusted.
+
+   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TLS/SSL-certificate>"`
+
+For example, if you're working in Visual Studio Code, follow these steps:
+
+1. Open your logic app project's **local.settings.json** file.
+
+1. In the `Values` JSON object, add or update the `WEBSITE_LOAD_ROOT_CERTIFICATES` setting:
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         <...>
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TLS/SSL-certificate>",
+         <...>
+      }
+   }
+   ```
+
+For more information, review the following documentation:
+
+* [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
+* [Private client certificates - Azure App Service](../app-service/environment/certificates.md#private-client-certificate)
+
+<a name="client-certificate-authentication"></a>
+
+### Client certificate or Azure AD OAuth with "Certificate" credential type authentication
+
+1. In your logic app resource's app settings, [add or update the app setting](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_USER_PROFILE`.
+
+1. For the setting value, specify `1`.
+
+   `"WEBSITE_LOAD_USER_PROFILE": "1"`
+
+For example, if you're working in Visual Studio Code, follow these steps:
+
+1. Open your logic app project's **local.settings.json** file.
+
+1. In the `Values` JSON object, add or update the `WEBSITE_LOAD_USER_PROFILE` setting:
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         <...>
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "WEBSITE_LOAD_USER_PROFILE": "1",
+         <...>
+      }
+   }
+   ```
+
+For more information, review the following documentation:
+
+* [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
+* [Private client certificates - Azure App Service](../app-service/environment/certificates.md#private-client-certificate)
 
 ## Content with multipart/form-data type
 
@@ -139,7 +215,7 @@ For example, suppose you have a logic app that sends an HTTP POST request for an
 
 ![Multipart form data](./media/connectors-native-http/http-action-multipart.png)
 
-Here is the same example that shows the HTTP action's JSON definition in the underlying workflow definition:
+Here's the same example that shows the HTTP action's JSON definition in the underlying workflow definition:
 
 ```json
 "HTTP_action": {
@@ -175,7 +251,9 @@ For example, suppose you have a logic app that sends an HTTP POST request to a w
 
 ## Asynchronous request-response behavior
 
-By default, all HTTP-based actions in Azure Logic Apps follow the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply). This pattern specifies that after an HTTP action calls or sends a request to an endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URL and a refresh ID that the caller can use to poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. However, the caller doesn't have to wait for the request to finish processing and can continue to run the next action. For more information, see [Asynchronous microservice integration enforces microservice autonomy](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+For *stateful* workflows in both multi-tenant and single-tenant Azure Logic Apps, all HTTP-based actions follow the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply) as the default behavior. This pattern specifies that after an HTTP action calls or sends a request to an endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URI and a refresh ID that the caller can use to poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. However, the caller doesn't have to wait for the request to finish processing and can continue to run the next action. For more information, see [Asynchronous microservice integration enforces microservice autonomy](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+
+For *stateless* workflows in single-tenant Azure Logic Apps, HTTP-based actions don't use the asynchronous operation pattern. Instead, they only run synchronously, return the ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response as-is, and proceed to the next step in the workflow execution. If the response includes a `location` header, a stateless workflow won't poll the specified URI to check the status. To follow the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply), use a stateful workflow instead.
 
 * In the Logic App Designer, the HTTP action, but not trigger, has an **Asynchronous Pattern** setting, which is enabled by default. This setting specifies that the caller doesn't wait for processing to finish and can move on to the next action but continues checking the status until processing stops. If disabled, this setting specifies that the caller waits for processing to finish before moving on to the next action.
 
@@ -193,7 +271,7 @@ By default, all HTTP-based actions in Azure Logic Apps follow the standard [asyn
 
 ## Disable asynchronous operations
 
-Sometimes, you might want to the HTTP action's asynchronous behavior in specific scenarios, for example, when you want to:
+Sometimes, you might want to disable the HTTP action's asynchronous behavior in specific scenarios, for example, when you want to:
 
 * [Avoid HTTP timeouts for long-running tasks](#avoid-http-timeouts)
 * [Disable checking location headers](#disable-location-header-check)
@@ -226,9 +304,28 @@ HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.
 
 <a name="disable-location-header-check"></a>
 
+### Set up interval between retry attempts with the Retry-After header
+
+To specify the number of seconds between retry attempts, you can add the `Retry-After` header to the HTTP action response. For example, if the target endpoint returns the `429 - Too many requests` status code, you can specify a longer interval between retries. The `Retry-After` header also works with the `202 - Accepted` status code.
+
+Here's the same example that shows the HTTP action response that contains `Retry-After`:
+
+```json
+{
+    "statusCode": 429,
+    "headers": {
+        "Retry-After": "300"
+    }
+}
+```
+
+## Pagination support
+
+Sometimes, the target service responds by returning the results one page at a time. If the response specifies the next page with the **nextLink** or **@odata.nextLink** property, you can turn on the **Pagination** setting on the HTTP action. This setting causes the HTTP action to automatically follow these links and get the next page. However, if the response specifies the next page with any other tag, you might have to add a loop to your workflow. Make this loop follow that tag and manually get each page until the tag is null.
+
 ## Disable checking location headers
 
-Some endpoints, services, systems, or APIs return a "202 ACCEPTED" response that don't have a `location` header. To avoid having an HTTP action continually check the request status when the `location` header doesn't exist, you can have these options:
+Some endpoints, services, systems, or APIs return a `202 ACCEPTED` response that doesn't have a `location` header. To avoid having an HTTP action continually check the request status when the `location` header doesn't exist, you can have these options:
 
 * [Disable the HTTP action's asynchronous operation pattern](#disable-asynchronous-operations) so that the action doesn't continually poll or check the request's status. Instead, the action waits for the receiver to respond with the status and results after the request finishes processing.
 
@@ -257,7 +354,7 @@ Although Logic Apps won't stop you from saving logic apps that use an HTTP trigg
 
 ## Connector reference
 
-For more information about trigger and action parameters, see these sections:
+For technical information about trigger and action parameters, see these sections:
 
 * [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)

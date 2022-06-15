@@ -1,13 +1,13 @@
 ---
 title: Develop with ASP.NET - Azure SignalR Service
 description: A quickstart for using Azure SignalR Service to create a chat room with ASP.NET framework.
-author: sffamily
+author: vicancy
 ms.service: signalr
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ms.date: 09/28/2020
-ms.author: zhshang
+ms.author: lianwei
 ---
 
 # Quickstart: Create a chat room with ASP.NET and SignalR Service
@@ -24,7 +24,7 @@ In this quickstart, you will learn how to get started with the ASP.NET and Azure
 ## Prerequisites
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-* [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
+* [.NET Framework 4.6.1](https://dotnet.microsoft.com/download/dotnet-framework/net461)
 * [ASP.NET SignalR 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnet).

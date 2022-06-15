@@ -7,7 +7,7 @@
         "relativeLinkPrefix": "/azure/active-directory/develop"
     },
     "inclusionCriteria": {
-        "excludePullRequestTitles": true,
+        "omitPullRequestTitles" : true,
         "minAdditionsToFile" : 20,
         "maxFilesChanged": 50,
         "labels": [
@@ -17,7 +17,7 @@
     },
     "areas": [
         {
-            "name": ".",
+            "names": [ "."],
             "heading": "Microsoft identity platform"
         }
     ]

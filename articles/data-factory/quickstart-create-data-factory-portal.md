@@ -1,14 +1,16 @@
 ---
-title: Create an Azure data factory using the Azure Data Factory UI 
+title: Create an Azure data factory using the Azure Data Factory UI
 description: Create a data factory with a pipeline that copies data from one location in Azure Blob storage to another location.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: quickstart
-ms.date: 12/14/2020
-ms.author: jingwang
+ms.date: 07/05/2021
+ms.author: jianleishen
+ms.custom: mode-other
 ---
 
-# Quickstart: Create a data factory by using the Azure Data Factory UI 
+# Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -21,11 +23,11 @@ This quickstart describes how to use the Azure Data Factory UI to create and mon
 > [!NOTE]
 > If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md) before doing this quickstart. 
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](includes/data-factory-quickstart-prerequisites.md)] 
 
 ### Video 
 Watching this video helps you understand the Data Factory UI: 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Visually-build-pipelines-for-Azure-Data-Factory-v2/Player]
+>[!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Visually-build-pipelines-for-Azure-Data-Factory-v2/Player]
 
 ## Create a data factory
 
@@ -60,9 +62,9 @@ Watching this video helps you understand the Data Factory UI:
 
 1. Select **Review + create**, and select **Create** after the validation is passed. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. 
 
-1. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate browser tab.
+1. Select **Open** on the **Open Azure Data Factory Studio** tile to start the Azure Data Factory user interface (UI) application on a separate browser tab.
    
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
    
    > [!NOTE]
    > If you see that the web browser is stuck at "Authorizing", clear the **Block third-party cookies and site data** check box. Or keep it selected, create an exception for **login.microsoftonline.com**, and then try to open the app again.

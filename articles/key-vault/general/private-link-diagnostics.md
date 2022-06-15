@@ -274,7 +274,7 @@ For the key vault name resolution to work, there must be an `A` record with the 
 Also, the value of the `A` record (the IP address) must be [the key vault private IP address](#find-the-key-vault-private-ip-address-in-the-virtual-network). If you find the `A` record but it contains the wrong IP address, you must remove the wrong IP address and add a new one. It's recommended that you remove the entire `A` record and add a new one.
 
 >[!NOTE]
-> Whenever you remove or modify an `A` record, the machine may still resolve to the old IP address because the TTL (Time To Live) value might not be expired yet. It is recommended that you always specify a TTL value no smaller than 60 seconds (one minute) and no bigger than 600 seconds (10 minutes). If you specify a value that is too large, your clients may take too long to recover from outages.
+> Whenever you remove or modify an `A` record, the machine may still resolve to the old IP address because the TTL (Time To Live) value might not be expired yet. It is recommended that you always specify a TTL value no smaller than 10 seconds and no bigger than 600 seconds (10 minutes). If you specify a value that is too large, your clients may take too long to recover from outages.
 
 ### DNS resolution for more than one Virtual Network
 
@@ -290,7 +290,7 @@ This logic means that if the Virtual Network is linked to a Private DNS Zone wit
 
 As you can see, the name resolution is under your control. The rationales for this design are:
 
-- You may have a complex scenario that involves custom DNS servers and integration with on-premise networks. In that case, you need to control how names are translated to IP addresses.
+- You may have a complex scenario that involves custom DNS servers and integration with on-premises networks. In that case, you need to control how names are translated to IP addresses.
 - You may need to access a key vault without private links. In that case, resolving the hostname from the Virtual Network must return the public IP address, and this happens because key vaults without private links don't have the `privatelink` alias in the name registration.
 
 ## 7. Validate that requests to key vault use private link

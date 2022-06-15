@@ -1,23 +1,26 @@
 ---
 title: Source control in Synapse Studio 
 description: Learn how to configure source control in Azure Synapse Studio
-services: synapse-analytics 
-author: liud
-ms.service: synapse-analytics 
+author: liudan66
+ms.service: synapse-analytics
+ms.subservice: cicd
 ms.topic: conceptual 
 ms.date: 11/20/2020
 ms.author: liud 
 ms.reviewer: pimorano
 ---
 
-# Source control in Azure Synapse Studio
+# Source control in Synapse Studio
 
-By default, Azure Synapse Studio authors directly against the Synapse service. If you have a need for collaboration using Git for source control, Synapse Studio allows you to associate your workspace with a Git repository, Azure DevOps, or GitHub. 
+By default, Synapse Studio authors directly against the Synapse service. If you have a need for collaboration using Git for source control, Synapse Studio allows you to associate your workspace with a Git repository, Azure DevOps, or GitHub. 
 
 This article will outline how to configure and work in a Synapse workspace with git repository enabled. And we also highlight some best practices and a troubleshooting guide.
 
 > [!NOTE]
-> Azure Synapse Studio git integration is not available in the Azure Government Cloud.
+>To use GitHub in Azure Gov and Azure China, you can bring your own GitHub OAuth application in Synapse Studio for git integration. The configure experience is same with ADF. You can refer to the [announcement blog](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918).
+
+## Prerequisites
+Users must have the Azure Contributor (Azure RBAC) or higher role on the Synapse workspace to configure, edit settings and disconnect a Git repository with Synapse. 
 
 ## Configure Git repository in Synapse Studio 
 
@@ -35,9 +38,6 @@ Go to the Manage hub of Synapse Studio. Select **Git configuration** in the **So
 
 ![Configure the code repository settings from management hub](media/configure-repo-2.png)
 
-> [!NOTE]
-> Users granted as workspace contributor, owner, or higher level roles can configure, edit Setting and disconnect git repository in Azure Synapse studio 
-
 You can connect either Azure DevOps or GitHub git repository in your workspace.
 
 ## Connect with Azure DevOps Git 
@@ -48,13 +48,14 @@ You can associate a Synapse workspace with an Azure DevOps Repository for source
 
 When connecting to your git repository, first select your repository type as Azure DevOps git, and then select one Azure AD tenant from the dropdown list, and click **Continue**.
 
-![Configure the code repository settings](media/connect-with-azuredevops-repo-selected.png)
+![Configure the code repository settings](media/connect-with-azure-devops-repo-selected.png)
 
 The configuration pane shows the following Azure DevOps git settings:
 
 | Setting | Description | Value |
 |:--- |:--- |:--- |
 | **Repository Type** | The type of the Azure Repos code repository.<br/> | Azure DevOps Git or GitHub |
+| **Cross tenant sign in** | Checkbox to sign in with cross tenant account. | unselected (default) |
 | **Azure Active Directory** | Your Azure AD tenant name. | `<your tenant name>` |
 | **Azure DevOps account** | Your Azure Repos organization name. You can locate your Azure Repos organization name at `https://{organization name}.visualstudio.com`. You can [sign in to your Azure Repos organization](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | `<your organization name>` |
 | **ProjectName** | Your Azure Repos project name. You can locate your Azure Repos project name at `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
@@ -87,6 +88,30 @@ After these configuration steps, your personal repo is available when you set up
 
 For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
+### Use a cross tenant Azure DevOps account
+
+When your Azure DevOps is not in the same tenant as the Synapse workspace, you can configure the workspace with your cross tenant Azure DevOps account with the guide below.  
+
+1. Select the **Cross tenant sign in** option and click **Continue** 
+
+    ![Select the cross tenant sign in ](media/cross-tenant-sign-in.png)
+
+1. Select **OK** in the dialog box.
+
+    ![Confirm the cross tenant sign in ](media/cross-tenant-sign-in-confirm.png)
+
+1. click **Use another account** and login with your Azure DevOps account.
+
+    ![Use another account ](media/use-another-account.png)
+
+1. After signing in, choose the directory and repository and configure it accordingly.
+
+    ![Choose the directory ](media/cross-tenant-aad.png)
+
+    > [!NOTE]
+    > To login the workspace, you need to use the first sign-in to log into to your Synapse workspace user account. Your cross tenant Azure DevOps account is only used for signing into and getting access to the Azure DevOps repo associated with this Synapse workspace.
+
+
 ## Connect with GitHub 
 
  You can associate a workspace with a GitHub repository for source control, collaboration, versioning. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
@@ -95,7 +120,10 @@ The GitHub integration with Synapse Studio supports both public GitHub (that is,
 
 ### GitHub settings
 
-When connecting to your git repository, first select your repository type as GitHub, and then provide your GitHub account or GitHub Enterprise Server URL if you use GitHub Enterprise Server, and click **Continue**.
+When connecting to your git repository, first select your repository type as GitHub, and then provide your GitHub account, your GitHub Enterprise Server URL if you use GitHub Enterprise Server, or your GitHub Enterprise organization name if you use GitHub Enterprise Cloud. Select **Continue**.
+
+> [!NOTE]
+> If you're using GitHub Enterprise Cloud, leave the **Use GitHub Enterprise Server** checkbox cleared. 
 
 ![GitHub repository settings](media/connect-with-github-repo-1.png)
 
@@ -123,7 +151,7 @@ If you're connecting to GitHub from Synapse Studio for the first time, follow th
 
 1. In the Git configuration pane, enter the organization name in the *GitHub Account* field. A prompt to login into GitHub will appear. 
 
-1. Login using your user credentials.
+1. Login using your user credentials. 
 
 1. You'll be asked to authorize Synapse as an application called *Azure Synapse*. On this screen, you will see an option to grant permission for Synapse to access the organization. If you don't see the option to grant permission, ask an admin to manually grant the permission through GitHub.
 
@@ -153,9 +181,13 @@ Version control systems (also known as _source control_) allows developers to co
 
 ### Creating feature branches
 
-Each Git repository that's associated with a Synapse Studio has a collaboration branch. (`main` or `master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** in the branch dropdown. Once the new branch pane appears, enter the name of your feature branch.
+Each Git repository that's associated with a Synapse Studio has a collaboration branch. (`main` or `master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** in the branch dropdown. 
 
-![Create a new branch](media/create-new-branch.png)
+![Create new branch](media/create-new-branch.png)
+
+Once the new branch pane appears, enter the name of your feature branch and select a branch to base the work off of.
+
+![Create branch based on private branch ](media/create-branch-from-private-branch.png)
 
 When you are ready to merge the changes from your feature branch to your collaboration branch, click on the branch dropdown and select **Create pull request**. This action takes you to Git provider where you can raise pull requests, do code reviews, and merge changes to your collaboration branch. You are only allowed to publish to the Synapse service from your collaboration branch. 
 
@@ -171,7 +203,7 @@ By default, Synapse Studio generates the workspace templates and saves them into
 }
 ```
 
-Azure Synapse Studio can only have one publish branch at a time. When you specify a new publish branch, the previous publish branch would not been deleted. If you want to remove the previous publish branch, delete it manually.
+Synapse Studio can only have one publish branch at a time. When you specify a new publish branch, the previous publish branch would not been deleted. If you want to remove the previous publish branch, delete it manually.
 
 
 ### Publish code changes
@@ -185,7 +217,7 @@ A side pane will open where you confirm that the publish branch and pending chan
 ![Confirm the correct publish branch](media/publish-change.png)
 
 > [!IMPORTANT]
-> The collaboration branch is not representative of what's deployed in the service. The changes in collaboration branch *must* be published manually service.
+> The collaboration branch is not representative of what's deployed in the service. The changes in collaboration branch *must* be published manually.
 
 ## Switch to a different Git repository
 
@@ -236,4 +268,4 @@ If the publish branch is out of sync with the collaboration branch and contains 
 
 ## Next steps
 
-* To implement continuous integration and deployment, see [Continuous integration and delivery (CI/CD)](continuous-integration-deployment.md).
+* To implement continuous integration and deployment, see [Continuous integration and delivery (CI/CD)](continuous-integration-delivery.md).

@@ -4,8 +4,9 @@ description: Learn how to use dependency injection for registering and using ser
 author: ggailey777
 
 ms.topic: conceptual
+ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 01/27/2021
+ms.date: 03/24/2021
 ms.author: glenga
 ms.reviewer: jehollan
 ---
@@ -17,6 +18,11 @@ Azure Functions supports the dependency injection (DI) software design pattern, 
 
 - Support for dependency injection begins with Azure Functions 2.x.
 
+- Dependency injection patterns differ depending on whether your C# functions run [in-process](functions-dotnet-class-library.md) or [out-of-process](dotnet-isolated-process-guide.md).  
+
+> [!IMPORTANT]
+> The guidance in this article applies only to [C# class library functions](functions-dotnet-class-library.md), which run in-process with the runtime. This custom dependency injection model doesn't apply to [.NET isolated functions](dotnet-isolated-process-guide.md), which lets you run .NET 5.0 functions out-of-process. The .NET isolated process model relies on regular ASP.NET Core dependency injection patterns. To learn more, see [Dependency injection](dotnet-isolated-process-guide.md#dependency-injection) in the .NET isolated process guide.
+
 ## Prerequisites
 
 Before you can use dependency injection, you must install the following NuGet packages:
@@ -25,7 +31,7 @@ Before you can use dependency injection, you must install the following NuGet pa
 
 - [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) package version 1.0.28 or later
 
-- [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (currently, only version 3.x and earlier supported)
+- [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (currently, only version 2.x or later supported)
 
 ## Register services
 
@@ -89,9 +95,9 @@ namespace MyNamespace
         private readonly HttpClient _client;
         private readonly IMyService _service;
 
-        public MyHttpTrigger(HttpClient httpClient, IMyService service)
+        public MyHttpTrigger(IHttpClientFactory httpClientFactory, IMyService service)
         {
-            this._client = httpClient;
+            this._client = httpClientFactory.CreateClient();
             this._service = service;
         }
 
@@ -131,7 +137,7 @@ Application Insights is added by Azure Functions automatically.
 > - Don't add `AddApplicationInsightsTelemetry()` to the services collection, which registers services that conflict with services provided by the environment.
 > - Don't register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality. If you need to configure your own `TelemetryClient` instance, create one via the injected `TelemetryConfiguration` as shown in [Log custom telemetry in C# functions](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions).
 
-### ILogger<T> and ILoggerFactory
+### ILogger\<T\> and ILoggerFactory
 
 The host injects `ILogger<T>` and `ILoggerFactory` services into constructors.  However, by default these new logging filters are filtered out of the function logs.  You need to modify the `host.json` file to opt-in to additional filters and categories.
 
@@ -200,7 +206,7 @@ Overriding services provided by the host is currently not supported.  If there a
 
 Values defined in [app settings](./functions-how-to-use-azure-function-app-settings.md#settings) are available in an `IConfiguration` instance, which allows you to read app settings values in the startup class.
 
-You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Settings read into the configuration instance must be simple key/value pairs.
+You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Settings read into the configuration instance must be simple key/value pairs. Please note that, the functions running on Elastic Premium SKU has this constraint "App setting names can only contain letters, numbers (0-9), periods ("."), colons (":") and underscores ("_")"
 
 Consider the following class that includes a property named consistent with an app setting:
 

@@ -1,6 +1,5 @@
 ---
-title: Prepare mobile app-calling web APIs for production | Azure
-titleSuffix: Microsoft identity platform
+title: Prepare mobile app-calling web APIs for production
 description: Learn how to build a mobile app that calls web APIs. (Prepare apps for production.)
 services: active-directory
 author: jmprieur
@@ -36,4 +35,4 @@ For each Microsoft Authentication Library (MSAL) type, you can find sample code 
 
 ## Next steps
 
-To try out additional samples, see [Desktop and mobile public client apps](sample-v2-code.md#desktop-and-mobile-public-client-apps).
+To try out additional samples, [Mobile public client applications](sample-v2-code.md#mobile).

@@ -1,14 +1,13 @@
 ---
 title: 'Tutorial: Train a model in Python with automated machine learning'
 description: Tutorial on how to train a machine learning model in Python by using Apache Spark and automated machine learning.
-services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
-ms.reviewer: jrasnick
+ms.reviewer: sngun
  
 ---
 # Tutorial: Train a model in Python with automated machine learning
@@ -26,7 +25,7 @@ In this tutorial, you learn how to:
 ## Before you begin
 
 - Create a serverless Apache Spark pool by following the [Create a serverless Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md) quickstart.
-- Complete the [Azure Machine Learning workspace setup](../../machine-learning/tutorial-1st-experiment-sdk-setup.md) tutorial if you don't have an existing Azure Machine Learning workspace. 
+- Complete the [Azure Machine Learning workspace setup](../../machine-learning/quickstart-create-resources.md) tutorial if you don't have an existing Azure Machine Learning workspace. 
 
 ## Understand regression models
 
@@ -126,16 +125,14 @@ In Azure Machine Learning, a workspace is a class that accepts your Azure subscr
 ```python
 from azureml.core import Workspace
 
-# Enter your workspace subscription, resource group, name, and region.
+# Enter your subscription id, resource group, and workspace name.
 subscription_id = "<enter your subscription ID>" #you should be owner or contributor
 resource_group = "<enter your resource group>" #you should be owner or contributor
 workspace_name = "<enter your workspace name>" #your workspace name
-workspace_region = "<enter workspace region>" #your region
 
 ws = Workspace(workspace_name = workspace_name,
                subscription_id = subscription_id,
                resource_group = resource_group)
-
 ```
 
 ## Convert a DataFrame to an Azure Machine Learning dataset
@@ -321,11 +318,11 @@ After you've validated your best model, you can register it to Azure Machine Lea
 ```python
 description = 'My automated ML model'
 model_path='outputs/model.pkl'
-model = best_run.register_model(model_name = 'NYCGreenTaxiModel', model_path = model_path, description = description)
+model = best_run.register_model(model_name = 'NYCYellowTaxiModel', model_path = model_path, description = description)
 print(model.name, model.version)
 ```
 ```Output
-NYCGreenTaxiModel 1
+NYCYellowTaxiModel 1
 ```
 ## View results in Azure Machine Learning
 You can also access the results of the iterations by going to the experiment in your Azure Machine Learning workspace. Here, you can get additional details on the status of your run, attempted models, and other model metrics. 

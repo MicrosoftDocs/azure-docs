@@ -3,7 +3,9 @@ title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Monitor dependency calls from your on-premises or Microsoft Azure web application with Application Insights.
 ms.topic: conceptual
 ms.date: 08/26/2020
+ms.devlang: csharp
 ms.custom: devx-track-csharp
+ms.reviewer: casocha
 ---
 
 # Dependency Tracking in Azure Application Insights 
@@ -85,7 +87,7 @@ For web pages, Application Insights JavaScript SDK automatically collects AJAX c
 ## Advanced SQL tracking to get full SQL Query
 
 > [!NOTE]
-> Azure Functions requires separate settings to enable SQL text collection, see [configure monitoring for Azure Functions](../../azure-functions/configure-monitoring.md) to learn more.
+> Azure Functions requires separate settings to enable SQL text collection: within  [host.json](../../azure-functions/functions-host-json.md#applicationinsights) set `"EnableDependencyTracking": true,` and `"DependencyTrackingOptions": { "enableSqlCommandTextInstrumentation": true }` in `applicationInsights`.
 
 For SQL calls, the name of the server and database is always collected and stored as name of the collected `DependencyTelemetry`. There's an additional field called 'data', which can contain the full SQL query text.
 
@@ -211,7 +213,7 @@ dependencies
 In the Log Analytics query view `timestamp` represents the moment the TrackDependency() call was initiated which occurs immediately after the dependency call response is received. To calculate the time when the dependency call began, you would take `timestamp` and subtract the recorded `duration` of the dependency call.
 
 ## Open-source SDK
-Like every Application Insights SDK, dependency collection module is also open-source. Read and contribute to the code, or report issues at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
+Like every Application Insights SDK, dependency collection module is also open-source. Read and contribute to the code, or report issues at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet).
 
 ## Next steps
 

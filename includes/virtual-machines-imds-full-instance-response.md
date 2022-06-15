@@ -14,6 +14,11 @@ ms.reviewer: azmetadatadev
 {
     "compute": {
         "azEnvironment": "AZUREPUBLICCLOUD",
+        "extendedLocation": {
+            "type": "edgeZone",
+            "name": "microsoftlosangeles"
+        },
+        "evictionPolicy": "",
         "isHostCompatibilityLayerVm": "true",
         "licenseType":  "Windows_Client",
         "location": "westus",
@@ -32,7 +37,9 @@ ms.reviewer: azmetadatadev
             "publisher": "planPublisher"
         },
         "platformFaultDomain": "36",
+        "platformSubFaultDomain": "",        
         "platformUpdateDomain": "42",
+        "priority": "Regular",
         "publicKeys": [{
                 "keyData": "ssh-rsa 0",
                 "path": "/home/user/.ssh/authorized_keys0"
@@ -52,20 +59,25 @@ ms.reviewer: azmetadatadev
         "sku": "2019-Datacenter",
         "storageProfile": {
             "dataDisks": [{
+                "bytesPerSecondThrottle": "979202048",
                 "caching": "None",
                 "createOption": "Empty",
+                "diskCapacityBytes": "274877906944",
                 "diskSizeGB": "1024",
                 "image": {
-                    "uri": ""
+                  "uri": ""
                 },
+                "isSharedDisk": "false",
+                "isUltraDisk": "true",
                 "lun": "0",
                 "managedDisk": {
-                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-                    "storageAccountType": "Standard_LRS"
+                  "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                  "storageAccountType": "StandardSSD_LRS"
                 },
                 "name": "exampledatadiskname",
+                "opsPerSecondThrottle": "65280",
                 "vhd": {
-                    "uri": ""
+                  "uri": ""
                 },
                 "writeAcceleratorEnabled": "false"
             }],
@@ -91,7 +103,7 @@ ms.reviewer: azmetadatadev
                 },
                 "managedDisk": {
                     "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                    "storageAccountType": "Standard_LRS"
+                    "storageAccountType": "StandardSSD_LRS"
                 },
                 "name": "exampleosdiskname",
                 "osType": "Windows",
@@ -99,11 +111,18 @@ ms.reviewer: azmetadatadev
                     "uri": ""
                 },
                 "writeAcceleratorEnabled": "false"
+            },
+            "resourceDisk": {
+                "size": "4096"
             }
         },
         "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
         "tags": "baz:bash;foo:bar",
+        "userData": "Zm9vYmFy",
         "version": "15.05.22",
+        "virtualMachineScaleSet": {
+            "id": "/subscriptions/xxxxxxxx-xxxxx-xxx-xxx-xxxx/resourceGroups/resource-group-name/providers/Microsoft.Compute/virtualMachineScaleSets/virtual-machine-scale-set-name"
+        },
         "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
         "vmScaleSetName": "crpteste9vflji9",
         "vmSize": "Standard_A3",
@@ -136,6 +155,11 @@ ms.reviewer: azmetadatadev
 {
     "compute": {
         "azEnvironment": "AZUREPUBLICCLOUD",
+        "extendedLocation": {
+            "type": "edgeZone",
+            "name": "microsoftlosangeles"
+        },
+        "evictionPolicy": "",
         "isHostCompatibilityLayerVm": "true",
         "licenseType":  "",
         "location": "westus",
@@ -154,7 +178,9 @@ ms.reviewer: azmetadatadev
             "publisher": "planPublisher"
         },
         "platformFaultDomain": "36",
+        "platformSubFaultDomain": "",        
         "platformUpdateDomain": "42",
+        "priority": "Regular",
         "publicKeys": [{
                 "keyData": "ssh-rsa 0",
                 "path": "/home/user/.ssh/authorized_keys0"
@@ -174,20 +200,25 @@ ms.reviewer: azmetadatadev
         "sku": "18.04-LTS",
         "storageProfile": {
             "dataDisks": [{
+                "bytesPerSecondThrottle": "979202048",
                 "caching": "None",
                 "createOption": "Empty",
+                "diskCapacityBytes": "274877906944",
                 "diskSizeGB": "1024",
                 "image": {
-                    "uri": ""
+                  "uri": ""
                 },
+                "isSharedDisk": "false",
+                "isUltraDisk": "true",
                 "lun": "0",
                 "managedDisk": {
-                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-                    "storageAccountType": "Standard_LRS"
+                  "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                  "storageAccountType": "StandardSSD_LRS"
                 },
                 "name": "exampledatadiskname",
+                "opsPerSecondThrottle": "65280",
                 "vhd": {
-                    "uri": ""
+                  "uri": ""
                 },
                 "writeAcceleratorEnabled": "false"
             }],
@@ -213,7 +244,7 @@ ms.reviewer: azmetadatadev
                 },
                 "managedDisk": {
                     "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-                    "storageAccountType": "Standard_LRS"
+                    "storageAccountType": "StandardSSD_LRS"
                 },
                 "name": "exampleosdiskname",
                 "osType": "Linux",
@@ -221,11 +252,17 @@ ms.reviewer: azmetadatadev
                     "uri": ""
                 },
                 "writeAcceleratorEnabled": "false"
+            },
+            "resourceDisk": {
+                "size": "4096"
             }
         },
         "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
         "tags": "baz:bash;foo:bar",
         "version": "15.05.22",
+        "virtualMachineScaleSet": {
+            "id": "/subscriptions/xxxxxxxx-xxxxx-xxx-xxx-xxxx/resourceGroups/resource-group-name/providers/Microsoft.Compute/virtualMachineScaleSets/virtual-machine-scale-set-name"
+        },
         "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
         "vmScaleSetName": "crpteste9vflji9",
         "vmSize": "Standard_A3",

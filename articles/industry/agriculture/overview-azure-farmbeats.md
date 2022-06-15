@@ -1,10 +1,10 @@
 ---
 title: What is Azure FarmBeats
 description: Provides an overview of Azure FarmBeats
-author: uhabiba04
+author: RiyazPishori
 ms.topic: overview
 ms.date: 11/04/2019
-ms.author: v-ummehabiba
+ms.author: riyazp
 ---
 
 
@@ -13,7 +13,7 @@ ms.author: v-ummehabiba
 Azure FarmBeats is a business-to-business offering available in Azure Marketplace. It enables aggregation of agriculture data sets across providers. Azure FarmBeats enables you to build artificial intelligence (AI) or machine learning (ML) models based on fused data sets. By using Azure FarmBeats, agriculture businesses can focus on core value-adds instead of the undifferentiated heavy lifting of data engineering.
 
 > [!NOTE]
-> Azure FarmBeats is currently in public preview. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats is provided without a service level agreement. Use the [Azure FarmBeats Support Forum](/answers/topics/azure-farmbeats.html) for support.
+> We have built a new PaaS version of Azure FarmBeats as a fully managed service and currently in private preview. For more information on trying out the new Azure FarmBeats, write to us at FarmBeatsSupport@microsoft.com. 
 
 ![Project Farm Beats](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 
@@ -26,10 +26,13 @@ With the preview of Azure FarmBeats you can:
 - Gain actionable insights by building AI/ML models on top of aggregated datasets.
 - Build or augment your digital agriculture solution by providing farm health advisories.
 
+> [!NOTE]
+> Azure FarmBeats is currently in public preview. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats is provided without a service level agreement. Use the [Azure FarmBeats Support Forum](/answers/topics/azure-farmbeats.html) for support.
+
 ## Datahub
 
 The Azure FarmBeats Datahub is an API layer, which enables aggregation, normalization, and contextualization of various agriculture datasets across providers. You can use Azure FarmBeats to get:
-- **Sensor data** from two sensor providers [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), [Pessl Instruments](https://metos.at/)
+- **Sensor data** from two sensor providers [Davis Instruments](https://www.davisinstruments.com/products/enviromonitor-gateway-us-lte), [Teralytic](https://teralytic.com/), [Pessl Instruments](https://metos.at/)
 - **Satellite imagery** from European Space Agency's [Sentinel-2](https://sentinel.esa.int/web/sentinel/home) satellite mission
 - **Drone imagery** from three drone imagery providers [senseFly](https://www.sensefly.com/) , [SlantRange](https://slantrange.com/) , [DJI](https://dji.com/)
 

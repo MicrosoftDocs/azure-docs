@@ -9,7 +9,6 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.custom: "mvc, seodec18"
 ms.date: 05/12/2022
@@ -31,7 +30,7 @@ Dedicated HSM is not freely available for use as it is delivering hardware resou
 
 ### Getting access to Dedicated HSM
 
-First ask yourself what use cases do you have that cannot be addressed by [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview) or [Azure Managed HSM](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). If then you believe only Dedicated HSM will fit your key storage requirements, then email HSMrequest@microsoft.com to request access. Outline your application and use cases, the regions you would like HSMs and the volume of HSMs you are looking for. If you work with a Microsoft representative, such as an Account Executive or Cloud Solution Architect for example, then include them in any request.
+First ask yourself what use cases do you have that cannot be addressed by [Azure Key Vault](../key-vault/general/overview.md) or [Azure Managed HSM](../key-vault/managed-hsm/overview.md). If then you believe only Dedicated HSM will fit your key storage requirements, then email HSMrequest@microsoft.com to request access. Outline your application and use cases, the regions you would like HSMs and the volume of HSMs you are looking for. If you work with a Microsoft representative, such as an Account Executive or Cloud Solution Architect for example, then include them in any request.
 
 ## HSM Provisioning
 
@@ -50,11 +49,11 @@ The number one reason for deployment failures is forgetting to set the appropria
 
 ### HSM Deployment Race Condition
 
-The standard ARM template provided for deployment has HSM and [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) related resources. Networking resources are a dependency for successful HSM deployment and timing can be crucial.  Occasionally, we have seen deployment failures related to dependency issues and rerunning the deployment often solves the issue. If not, deleting resources and then redeploying is often successful. After attempting this and still finding issue, raise a support request in the Azure portal selecting the problem type of "Issues configuring the Azure setup".
+The standard ARM template provided for deployment has HSM and [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) related resources. Networking resources are a dependency for successful HSM deployment and timing can be crucial.  Occasionally, we have seen deployment failures related to dependency issues and rerunning the deployment often solves the issue. If not, deleting resources and then redeploying is often successful. After attempting this and still finding issue, raise a support request in the Azure portal selecting the problem type of "Issues configuring the Azure setup".
 
 ### HSM Deployment Using Terraform
 
-A few customers have used Terraform as an automation environment instead of ARM templates as supplied when registering for this service. The HSMs cannot be deployed this way but the dependent networking resources can. Terraform has a module to call out to a minimal ARM template that just has the HSM deployment.  In this situation, care should be taken to ensure networking resources such as the required [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) are fully deployed before deploying HSMs. The following CLI command can be used to test for completed deployment and integrated as required. Replace the angle bracket place holders for your specific naming. You should look for a result of "provisioningState is Succeeded"
+A few customers have used Terraform as an automation environment instead of ARM templates as supplied when registering for this service. The HSMs cannot be deployed this way but the dependent networking resources can. Terraform has a module to call out to a minimal ARM template that just has the HSM deployment.  In this situation, care should be taken to ensure networking resources such as the required [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) are fully deployed before deploying HSMs. The following CLI command can be used to test for completed deployment and integrated as required. Replace the angle bracket place holders for your specific naming. You should look for a result of "provisioningState is Succeeded"
 
 ```azurecli
 az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/providers/Microsoft.Network/virtualNetworkGateways/<myergateway>
@@ -77,7 +76,7 @@ Deployment of Dedicated HSM has a dependency on networking resources and some co
 
 ### Provisioning ExpressRoute
 
-Dedicated HSM uses [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) as a "tunnel" for communication between the customer private IP address space and the physical HSM in an Azure datacenter.  Considering there is a restriction of one gateway per Vnet, customers requiring connection to their on-premises resources via ExpressRoute, will have to use another Vnet for that connection.  
+Dedicated HSM uses [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) as a "tunnel" for communication between the customer private IP address space and the physical HSM in an Azure datacenter.  Considering there is a restriction of one gateway per Vnet, customers requiring connection to their on-premises resources via ExpressRoute, will have to use another Vnet for that connection.  
 
 ### HSM Private IP Address
 
@@ -114,7 +113,7 @@ Software and documentation for the [Thales Luna 7 HSM](https://cpl.thalesgroup.c
 
 ### HSM Networking Configuration
 
-Be careful when configuring the networking within the HSM.  The HSM has a connection via the [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) from a customer private IP address space directly to the HSM.  This communication channel is for customer communication only and Microsoft has no access. If the HSM is configured in a such a way that this network path is impacted, that means all communication with the HSM is removed.  In this situation, the only option is to raise a Microsoft support request via the Azure portal to have the device reset. This reset procedure sets the HSM back to its initial state and all configuration and key material is lost.  Configuration must be recreated and when the device joins the HA group it will get key material replicated.  
+Be careful when configuring the networking within the HSM.  The HSM has a connection via the [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) from a customer private IP address space directly to the HSM.  This communication channel is for customer communication only and Microsoft has no access. If the HSM is configured in a such a way that this network path is impacted, that means all communication with the HSM is removed.  In this situation, the only option is to raise a Microsoft support request via the Azure portal to have the device reset. This reset procedure sets the HSM back to its initial state and all configuration and key material is lost.  Configuration must be recreated and when the device joins the HA group it will get key material replicated.  
 
 ### HSM Device Reboot
 
@@ -165,4 +164,4 @@ Only when fully finished with an HSM can it be deprovisioned and then Microsoft 
 
 ## Next steps
 
-This article has provided insight into areas across the HSM deployment lifecycle that may have issues or require troubleshooting or careful consideration. Hopefully this article helps you avoid unnecessary delays and frustration, and if you have relevant additions or changes, then raise a support request with Microsoft and let us know. 
+This article has provided insight into areas across the HSM deployment lifecycle that may have issues or require troubleshooting or careful consideration. Hopefully this article helps you avoid unnecessary delays and frustration, and if you have relevant additions or changes, then raise a support request with Microsoft and let us know.

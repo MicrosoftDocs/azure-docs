@@ -5,13 +5,14 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: visual-studio
 ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 
 ---
 # How to create a Virtual Machine Scale Set with Visual Studio
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 This article shows you how to deploy an Azure Virtual Machine Scale Set using a Visual Studio Resource Group deployment.
 

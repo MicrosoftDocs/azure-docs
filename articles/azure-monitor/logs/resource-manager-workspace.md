@@ -4,12 +4,13 @@ description: Sample Azure Resource Manager templates to deploy Log Analytics wor
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2020
+ms.date: 08/19/2021
+ms.custom: devx-track-azurepowershell
 
 ---
 
 # Resource Manager template samples for Log Analytics workspaces in Azure Monitor
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -21,7 +22,7 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 - [Microsoft.OperationalInsights workspaces/dataSources](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/datasources)
 
 ## Create a Log Analytics workspace
-The following sample creates a new empty Log Analytics workspace.
+The following sample creates a new empty Log Analytics workspace. A workspace has unique workspace ID and resource ID. You can reuse the same workspace name when in different resource groups.
 
 ### Notes
 
@@ -57,34 +58,6 @@ The following sample creates a new empty Log Analytics workspace.
         },
         "location": {
           "type": "string",
-          "allowedValues": [
-          "australiacentral", 
-          "australiaeast", 
-          "australiasoutheast", 
-          "brazilsouth",
-          "canadacentral", 
-          "centralindia", 
-          "centralus", 
-          "eastasia", 
-          "eastus", 
-          "eastus2", 
-          "francecentral", 
-          "japaneast", 
-          "koreacentral", 
-          "northcentralus", 
-          "northeurope", 
-          "southafricanorth", 
-          "southcentralus", 
-          "southeastasia",
-          "switzerlandnorth",
-          "switzerlandwest",
-          "uksouth", 
-          "ukwest", 
-          "westcentralus", 
-          "westeurope", 
-          "westus", 
-          "westus2" 
-          ],
           "metadata": {
               "description": "Specifies the location for the workspace."
               }
@@ -101,8 +74,13 @@ The following sample creates a new empty Log Analytics workspace.
           "metadata": {
             "description": "true to use resource or workspace permissions. false to require workspace permissions."
           }
-      }
-
+        },
+        "heartbeatTableRetention": {
+          "type": "int",
+          "metadata": {
+            "description": "Number of days to retain data in Heartbeat table."
+          }
+        }  
       },
       "resources": [
       {
@@ -116,11 +94,22 @@ The following sample creates a new empty Log Analytics workspace.
               },
               "retentionInDays": "[parameters('retentionInDays')]",
               "features": {
-                  "searchVersion": 1,
-                  "legacy": 0,
                   "enableLogAccessUsingOnlyResourcePermissions": "[parameters('resourcePermissions')]"
               }
-          }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.OperationalInsights/workspaces/tables",
+              "apiVersion": "2020-08-01",
+              "name": "[concat(parameters('workspaceName'),'/','Heartbeat')]",
+              "dependsOn": [
+                "[parameters('workspaceName')]"
+              ],
+              "properties": {
+                "RetentionInDays": "[parameters('heartbeatTableRetention')]"
+              }
+            }
+          ]
       }
   ]
 }
@@ -144,6 +133,9 @@ The following sample creates a new empty Log Analytics workspace.
     },
     "resourcePermissions": {
       "value": true
+    },
+    "heartbeatTableRetention": {
+      "value": 30
     }
   }
 }

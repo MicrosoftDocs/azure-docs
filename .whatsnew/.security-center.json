@@ -1,0 +1,23 @@
+{
+    "$schema": "https://whatsnewapi.azurewebsites.net/schema",
+    "docSetProductName": "Azure Security Center",
+    "rootDirectory": "articles/security-center/",
+    "docLinkSettings": {
+        "linkFormat": "relative",
+        "relativeLinkPrefix": "/azure/security-center/"
+    },
+    "inclusionCriteria": {
+        "excludePullRequestTitles": true,
+        "minAdditionsToFile" : 20
+        "maxFilesChanged": 50,
+        "labels": [
+            "label:security-center/svc"
+        ]
+    },
+    "areas": [
+        {
+            "name": ".",
+            "heading": "Azure Security Center"
+        },
+    ]
+}

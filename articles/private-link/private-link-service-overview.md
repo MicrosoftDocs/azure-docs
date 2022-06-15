@@ -82,7 +82,7 @@ A Private Link service specifies the following properties:
 
 The alias is composed of three parts: *Prefix*.*GUID*.*Suffix*
 
-- Prefix is the service name. You can pick you own prefix. After "Alias" is created, you can't change it, so select your prefix appropriately.  
+- Prefix is the service name. You can pick your own prefix. After "Alias" is created, you can't change it, so select your prefix appropriately.  
 - GUID will be provided by platform. This helps make the name globally unique. 
 - Suffix is appended by Azure: *region*.azure.privatelinkservice 
 
@@ -90,7 +90,11 @@ Complete alias:  *Prefix*. {GUID}.*region*.azure.privatelinkservice
 
 ## Control service exposure
 
-Private Link service provides you options to control the exposure of your service through "Visibility" setting. You can make the service private for consumption from different VNets you own (Azure RBAC permissions only), restrict the exposure to a limited set of subscriptions that you trust, or make it public so that all Azure subscriptions can request connections on the Private Link service. Your visibility settings decide whether a consumer can connect to your service or not. 
+The Private Link service provides you with three options in the **Visibility** setting to control the exposure of your service. Your visibility setting determines whether a consumer can connect to your service. Here are the visibility setting options, from most restrictive to least restrictive:
+ 
+- **Role-based access control only**: If your service is for private consumption from different VNets that you own, you can use RBAC as an access control mechanism inside subscriptions that are associated with the same Active Directory tenant. Note: Cross tenant visibility is permitted through RBAC.
+- **Restricted by subscription**: If your service will be consumed across different tenants, you can restrict the exposure to a limited set of subscriptions that you trust. Authorizations can be pre-approved.
+- **Anyone with your alias**: If you want to make your service public and allow anyone with your Private Link service alias to request a connection, select this option. 
 
 ## Control service access
 
@@ -116,12 +120,17 @@ Custom TLV details:
  > [!NOTE]
  > Service provider is responsible for making sure that the service behind the standard load balancer is configured to parse the proxy protocol header as per the [specification](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) when proxy protocol is enabled on private link service. The request will fail if proxy protocol setting is enabled on private link service but service provider's service is not configured to parse the header. Similarly, the request will fail if the service provider's service is expecting a proxy protocol header while the setting is not enabled on the private link service. Once proxy protocol setting is enabled, proxy protocol header will also be included in HTTP/TCP health probes from host to the backend virtual machines, even though there will be no client information in the header. 
 
+The matching `LINKID` that is part of the PROXYv2 (TLV) protocol can be found at the `PrivateEndpointConnection` as property `linkIdentifier`, see
+[Private Link Services API](/../../../rest/api/virtualnetwork/private-link-services/get-private-endpoint-connection#privateendpointconnection) for more details.
+
 ## Limitations
 
 The following are the known limitations when using the Private Link service:
-- Supported only on Standard Load Balancer 
+- Supported only on Standard Load Balancer. Not supported on Basic Load Balancer.  
+- Supported only on Standard Load Balancer where backend pool is configured by NIC when using VM/VMSS.
 - Supports IPv4 traffic only
 - Supports TCP and UDP traffic only
+
 
 ## Next steps
 - [Create a private link service using Azure PowerShell](create-private-link-service-powershell.md)

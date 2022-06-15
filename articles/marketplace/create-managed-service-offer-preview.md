@@ -1,16 +1,16 @@
 ---
-title: How to add a preview audience for your Managed Service offer
-description: Learn how to add a preview audience for your Managed Service offer in Microsoft Partner Center.
+title: Add a preview audience for a Managed Service offer
+description: Add a preview audience for a Managed Service offer in Azure Marketplace.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/23/2020
+ms.date: 7/16/2021
 ---
 
-# How to add a preview audience for your Managed Service offer
+# Add a preview audience for a Managed Service offer
 
 This article describes how to configure a preview audience for a Managed Service offer in the commercial marketplace using Partner Center. The preview audience can review your offer before it goes live.
 
@@ -31,14 +31,15 @@ Add at least one Azure subscription ID, either individually (up to 10) or by upl
 
 ## Add email addresses using a CSV file
 
-1. On the Preview audience**Preview audience** page, select the **Export Audience (csv)** link.
+1. On the **Preview audience** page, select the **Export Audience (csv)** link.
 2. Open the CSV file. In the **Id** column, enter the Azure subscription IDs you want to add to the preview audience.
 3. In the **Description** column, you have the option to add a description for each entry.
 4. In the **Type** column, add **SubscriptionId** to each row that has an ID.
 5. Save the file as a CSV file.
 6. On the **Preview audience** page, select the **Import Audience (csv)** link.
 7. In the **Confirm** dialog box, select **Yes**, then upload the CSV file.
-8. Select **Save draft** before continuing to the next tab.
+
+Select **Save draft** before continuing to the next tab, **Plan overview**.
 
 ## Next steps
 

@@ -1,16 +1,22 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 01/27/2021
+ms.date: 03/08/2022
 ms.topic: overview
 ---
 # What is Azure Blueprints?
+
+> [!IMPORTANT]
+> Azure Blueprints is currently in PREVIEW. The
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> include additional legal terms that apply to Azure features that are in beta, preview, or
+> otherwise not yet released into general availability.
 
 Just as a blueprint allows an engineer or an architect to sketch a project's design parameters,
 Azure Blueprints enables cloud architects and central information technology groups to define a
 repeatable set of Azure resources that implements and adheres to an organization's standards,
 patterns, and requirements. Azure Blueprints makes it possible for development teams to rapidly
-build and stand up new environments with trust they're building within organizational compliance
+build and start up new environments with trust they're building within organizational compliance
 with a set of built-in components, such as networking, to speed up development and delivery.
 
 Blueprints are a declarative way to orchestrate the deployment of various resource templates and
@@ -35,8 +41,8 @@ including through a continuous integration and continuous delivery (CI/CD) pipel
 each is assigned to a subscription in a single operation that can be audited and tracked.
 
 Nearly everything that you want to include for deployment in Azure Blueprints can be accomplished
-with an ARM template. However, an ARM template is a document that doesn't exist natively in Azure –
-each is stored either locally or in source control. The template gets used for deployments of one or
+with an ARM template. However, an ARM template is a document that doesn't exist natively in Azure -
+each is stored either locally or in source control or in [Templates (preview)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). The template gets used for deployments of one or
 more Azure resources, but once those resources deploy there's no active connection or relationship
 to the template.
 
@@ -73,10 +79,13 @@ as artifacts:
 
 |Resource  | Hierarchy options| Description  |
 |---------|---------|---------|
-|Resource Groups | Subscription | Create a new resource group for use by other artifacts within the blueprint.  These placeholder resource groups enable you to organize resources exactly the way you want them structured and provides a scope limiter for included policy and role assignment artifacts and ARM templates. |
+|Resource Groups | Subscription | Create a new resource group for use by other artifacts within the blueprint. These placeholder resource groups enable you to organize resources exactly the way you want them structured and provides a scope limiter for included policy and role assignment artifacts and ARM templates. |
 |ARM template | Subscription, Resource Group | Templates, including nested and linked templates, are used to compose complex environments. Example environments: a SharePoint farm, Azure Automation State Configuration, or a Log Analytics workspace. |
 |Policy Assignment | Subscription, Resource Group | Allows assignment of a policy or initiative to the subscription the blueprint is assigned to. The policy or initiative must be within the scope of the blueprint definition location. If the policy or initiative has parameters, these parameters are assigned at creation of the blueprint or during blueprint assignment. |
 |Role Assignment | Subscription, Resource Group | Add an existing user or group to a built-in role to make sure the right people always have the right access to your resources. Role assignments can be defined for the entire subscription or nested to a specific resource group included in the blueprint. |
+
+> [!NOTE]
+> Each artifact must be 2 MB or less. If the artifact exceeds 2 MB, you'll get an HTTP 500 error (Internal Server Error).
 
 ### Blueprint definition locations
 
@@ -159,7 +168,7 @@ The following built-in roles are available:
 
 |Azure role | Description |
 |-|-|
-|[Owner](../../role-based-access-control/built-in-roles.md#owner) | In addition to other permissions, includes all Azure Blueprint related permissions. |
+|[Owner](../../role-based-access-control/built-in-roles.md#owner) | In addition to other permissions, includes all Azure Blueprints related permissions. |
 |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | In addition to other permissions, can create and delete blueprint definitions, but doesn't have blueprint assignment permissions. |
 |[Blueprint Contributor](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Can manage blueprint definitions, but not assign them. |
 |[Blueprint Operator](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Can assign existing published blueprints, but can't create new blueprint definitions. Blueprint assignment only works if the assignment is done with a user-assigned managed identity. |
@@ -182,15 +191,15 @@ The following limitations exist for certain fields:
 
 |Object|Field|Allowed Characters|Max. Length|
 |-|-|-|-|
-|Blueprint|Name|letters, numbers, hyphens, and periods|48|
+|Blueprint|Name|letters, numbers, hyphens, and underscores|48|
 |Blueprint|Version|letters, numbers, hyphens, and periods|20|
-|Blueprint assignment|Name|letters, numbers, hyphens, and periods|90|
+|Blueprint assignment|Name|letters, numbers, hyphens, and underscores|90|
 |Blueprint artifact|Name|letters, numbers, hyphens, and periods|48|
 
 ## Video overview
 
 The following overview of Azure Blueprints is from Azure Fridays. For video download, visit
-[Azure Fridays - An overview of Azure Blueprints](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints)
+[Azure Fridays - An overview of Azure Blueprints](/Shows/Azure-Friday/An-overview-of-Azure-Blueprints)
 on Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]

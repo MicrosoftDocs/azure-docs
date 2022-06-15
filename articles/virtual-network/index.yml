@@ -10,8 +10,8 @@ metadata:
   ms.service: virtual-network
   ms.topic: landing-page
   ms.collection: collection
-  author: KumudD
-  ms.author: kumud
+  author: mbender-ms
+  ms.author: mbender
   ms.date: 01/28/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -30,6 +30,10 @@ landingContent:
         links:
           - text: Virtual network FAQ
             url: virtual-networks-faq.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Virtual Networks
+            url: /learn/modules/introduction-to-azure-virtual-networks
  
   # Card (optional)
   - title: Get started
@@ -57,7 +61,9 @@ landingContent:
           - text: Virtual network service endpoints
             url: virtual-network-service-endpoints-overview.md
           - text: Virtual network security FAQ
-            url: virtual-networks-faq.md#security            
+            url: virtual-networks-faq.md#security
+          - text: Default outbound access
+            url: ./ip-services/default-outbound-access.md
       - linkListType: tutorial
         links:
           - text: Filter network traffic using network security groups
@@ -110,6 +116,10 @@ landingContent:
         links:
           - text: Route network traffic - Portal
             url: tutorial-create-route-table-portal.md
+      - linkListType: learn
+        links:
+          - text: Manage and control traffic flow in your Azure deployment with routes
+            url: /learn/modules/control-network-traffic-flow-with-routes/       
 
   # Card
   - title: Create IP addresses 
@@ -117,32 +127,30 @@ landingContent:
       - linkListType: concept
         links:
           - text: IP address types and allocation methods
-            url: ./public-ip-addresses.md
+            url: ./ip-services/public-ip-addresses.md
       - linkListType: how-to-guide
         links:
           - text: Create, change, or delete a public IP address
-            url: virtual-network-public-ip-address.md          
+            url: ./ip-services/virtual-network-public-ip-address.md
           - text: Add a public IP address to a VM
-            url: associate-public-ip-address-vm.md     
+            url: ./ip-services/associate-public-ip-address-vm.md
           - text: Create a VM with static IP address
-            url: virtual-network-deploy-static-pip-arm-portal.md
+            url: ./ip-services/virtual-network-deploy-static-pip-arm-portal.md
           - text: Configure a static private IP address for a VM
-            url: virtual-networks-static-private-ip-arm-pportal.md
+            url: ./ip-services/virtual-networks-static-private-ip-arm-pportal.md
           - text: Assign multiple IP addresses to a VM
-            url: virtual-network-multiple-ip-addresses-powershell.md
+            url: ./ip-services/virtual-network-multiple-ip-addresses-powershell.md
   # Card
   - title: Create IPv6 for virtual networks
     linkLists:
       - linkListType: concept
         links:
           - text: What is IPv6 for Azure virtual network?
-            url: ipv6-overview.md
+            url: ./ip-services/ipv6-overview.md
       - linkListType: deploy
         links:
           - text: Deploy an IPV6 dual stack application - Standard Load Balancer
-            url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md          
-          - text: Deploy an IPV6 dual stack application - Basic Load Balancer
-            url: virtual-network-ipv4-ipv6-dual-stack-powershell.md     
+            url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
 
   # Card
   - title: Monitor virtual networks
@@ -164,19 +172,19 @@ landingContent:
       - linkListType: concept
         links:
           - text: IP address types and allocation methods
-            url: ./public-ip-addresses.md
+            url: ./ip-services/public-ip-addresses.md
           - text: What is IPv6 for Azure virtual network?
-            url: ipv6-overview.md
+            url: ./ip-services/ipv6-overview.md
           - text: Public IP address prefix
-            url: public-ip-address-prefix.md        
+            url: ./ip-services/public-ip-address-prefix.md
       - linkListType: how-to-guide
         links:
           - text: Create, change, or delete a public IP address
-            url: virtual-network-public-ip-address.md      
+            url: ./ip-services/virtual-network-public-ip-address.md
           - text: Deploy an IPV6 dual stack application
-            url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+            url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
           - text: Create, change, or delete a public IP address prefix
-            url: manage-public-ip-address-prefix.md
+            url: ./ip-services/manage-public-ip-address-prefix.md
   # Card
   - title: Reference
     linkLists:
@@ -192,4 +200,3 @@ landingContent:
 
 
 
-            

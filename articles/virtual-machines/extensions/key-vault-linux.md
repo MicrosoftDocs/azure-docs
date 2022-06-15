@@ -9,8 +9,8 @@ ms.subservice: extensions
 ms.collection: linux
 ms.topic: article
 ms.date: 12/02/2019
-ms.author: mbaldwin
-
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Key Vault virtual machine extension for Linux
 
@@ -22,10 +22,14 @@ The Key Vault VM extension supports these Linux distributions:
 
 - Ubuntu-1804
 - Suse-15 
+- [CBL-Mariner](https://github.com/microsoft/CBL-Mariner)
 
 > [!NOTE]
 > To get extended security features, prepare to upgrade Ubuntu-1604 and Debian-9 systems as these versions are reaching their end of designated support period.
 > 
+
+> [!NOTE]
+> The Key Vault VM Extension downloads the certificates in the default location or to the location provided by "certStoreLocation" property in the VM Extension settings. The KeyValut VM Extension updates the folder permission to 700 (drwx------) allowing read, write and execute permission to the owner of the folder only
 
 ### Supported certificate content types
 
@@ -110,8 +114,12 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path does not. More information about certificates can be found here: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> The 'authenticationSettings' property is **required** only for VMs with **user assigned identities**.
-> It specifies identity to use for authentication to Key Vault.
+> The 'authenticationSettings' property is **required** for VMs with **user assigned identities**.
+> Set msiClientId to the identity that will authenticate to Key Vault.
+> 
+> Also **required** for **Azure Arc-enabled VMs**.
+> Set msiEndpoint to `http://localhost:40342/metadata/identity`.
+
 
 
 ### Property values
@@ -260,13 +268,8 @@ Please be aware of the following restrictions/requirements:
   - It must exist at the time of the deployment 
   - The Key Vault Access Policy must be set for VM/VMSS Identity using a Managed Identity. See [How to Authenticate to Key Vault](../../key-vault/general/authentication.md) and [Assign a Key Vault access policy](../../key-vault/general/assign-access-policy-cli.md).
 
-### Frequently Asked Questions
 
-* Is there is a limit on the number of observedCertificates you can setup?
-  No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
-
-
-### Troubleshoot
+## Troubleshoot and Support
 
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell.
 
@@ -279,13 +282,17 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```azurecli
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
-#### Logs and configuration
+### Logs and configuration
 
-```
-/var/log/waagent.log
-/var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*
-/var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/*
-```
+The Key Vault VM extension logs only exist locally on the VM and are most informative when it comes to troubleshooting.
+
+|Location|Description|
+|--|--|
+| /var/log/waagent.log	| Shows when an update to the extension occurred. |
+| /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*	| Examine the Key Vault VM Extension service logs to determine the status of the akvvm_service service and certificate download. The download location of PEM files are also found in these files with an entry called certificate file name. If certificateStoreLocation is not specified it will default to /var/lib/waagent/Microsoft.Azure.KeyVault.Store/ |
+| /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-\<most recent version\>/config/*	| The configuration and binaries for Key Vault VM Extension service. |
+|||
+  
 ### Using Symlink
 
 Symbolic links or Symlinks are basically advanced shortcuts. To avoid monitoring the folder and to get the latest certificate automatically, you can use this symlink `([VaultName].[CertificateName])` to get the latest version of certificate on Linux.
@@ -294,6 +301,7 @@ Symbolic links or Symlinks are basically advanced shortcuts. To avoid monitoring
 
 * Is there is a limit on the number of observedCertificates you can setup?
   No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
+  
 
 ### Support
 

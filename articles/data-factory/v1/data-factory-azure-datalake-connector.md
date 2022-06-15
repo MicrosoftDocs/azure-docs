@@ -1,12 +1,13 @@
 ---
 title: Copy data to and from Azure Data Lake Storage Gen1 
 description: Learn how to copy data to and from Data Lake Store by using Azure Data Factory
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: jingwang
-ms.custom: devx-track-csharp
+ms.date: 10/22/2021
+ms.author: jianleishen
+ms.custom: devx-track-csharp, subject-rbac-steps
 robots: noindex
 ---
 # Copy data to and from Data Lake Storage Gen1 by using Data Factory
@@ -22,11 +23,11 @@ This article explains how to use Copy Activity in Azure Data Factory to move dat
 ## Supported scenarios
 You can copy data **from Azure Data Lake Store** to the following data stores:
 
-[!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sinks](includes/data-factory-supported-sinks.md)]
 
 You can copy data from the following data stores **to Azure Data Lake Store**:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
 > Create a Data Lake Store account before creating a pipeline with Copy Activity. For more information, see [Get started with Azure Data Lake Store](../../data-lake-store/data-lake-store-get-started-portal.md).
@@ -195,14 +196,11 @@ For details about the Data Factory classes used in the code, see the [AzureDataL
 
 1. Make sure the `subscriptionId` and `resourceGroupName` you specify in the linked service `typeProperties` are indeed the ones that your data lake account belongs to.
 
-2. Make sure you grant at least **Reader** role to the user or service principal on the data lake account. Here is how to make it:
+1. Grant, at a minimun, the **Reader** role to the user or service principal on the data lake account.
 
-    1. Go to the Azure portal -> your Data Lake Store account
-    2. Click **Access control (IAM)** on the blade of the Data Lake Store
-    3. Click **Add role assignment**
-    4. Set **Role** as **Reader**, and select the user or the service principal you use for copy to grant access
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-3. If you don't want to grant **Reader** role to the user or service principal, alternative is to [explicitly specify an execution location](data-factory-data-movement-activities.md#global) in copy activity with the location of your Data Lake Store. Example:
+1. If you don't want to grant the **Reader** role to the user or service principal, an alternative is to [explicitly specify an execution location](data-factory-data-movement-activities.md#global) in copy activity with the location of your Data Lake Store. Example:
 
     ```json
     {

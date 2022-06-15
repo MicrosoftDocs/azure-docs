@@ -1,9 +1,10 @@
 ---
 title: 'Ingestion overview - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Learn about data ingestion into Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: deepakpalled
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
@@ -13,6 +14,8 @@ ms.custom: seodec18
 ---
 
 # Azure Time Series Insights Gen2 data ingestion overview
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 Your Azure Time Series Insights Gen2 environment contains an *ingestion engine* to collect, process, and store streaming time series data. As data arrives into your event source(s), Azure Time Series Insights Gen2 will consume and store your data in near real time.
 

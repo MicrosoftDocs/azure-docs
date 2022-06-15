@@ -1,32 +1,28 @@
 ---
- title: include file
- description: include file
- services: virtual-wan
- author: cherylmc
- ms.service: virtual-wan
- ms.topic: include
- ms.date: 11/04/2019
- ms.author: cherylmc
- ms.custom: include file
+ms.author: cherylmc
+author: cherylmc
+ms.date: 05/25/2022
+ms.service: virtual-wan
+ms.topic: include
 ---
-1. Locate the Virtual WAN that you created. On the Virtual WAN page, under the **Connectivity** section, select **Hubs**.
-2. On the Hubs page, select **+New Hub** to open the **Create virtual hub** page.
-3. On the **Create virtual hub** page **Basics** tab, complete the following fields:
+1. Go to the virtual WAN that you created. On the virtual WAN page left pane, under the **Connectivity**, select **Hubs**.
 
-   ![Basics](./media/virtual-wan-tutorial-er-hub-include/hub1.png "Basics")
+1. On the **Hubs** page, select **+New Hub** to open the **Create virtual hub** page.
 
-    **Project details**
+   :::image type="content" source="./media/virtual-wan-tutorial-er-hub/create-hub.png" alt-text="Screenshot shows the Create virtual hub pane with the Basics tab selected." lightbox="./media/virtual-wan-tutorial-er-hub/create-hub.png":::
 
-   * Region (previously referred to as Location)
-   * Name
-   * Hub private address space. The minimum address space is /24 to create a hub, which implies anything range from /25 to /32 will produce an error during creation.
-4. Select the **ExpressRoute tab**.
+1. On the **Create virtual hub** page **Basics** tab, complete the following fields:
 
-5. On the **ExpressRoute** tab, complete the following fields:
+   * **Region**: This setting was previously referred to as location. It's the region in which you want to create your virtual hub.
+   * **Name**: The name by which you want the virtual hub to be known.
+   * **Hub private address space**: The hub's address range in CIDR notation. The minimum address space is /24 to create a hub.
+   * **Virtual hub capacity**: Select from the dropdown. For more information, see [Virtual hub settings](../articles/virtual-wan/hub-settings.md).
+   * **Hub routing preference**: This field is only available as part of the virtual hub routing preference preview and can only be viewed in the [preview portal](https://portal.azure.com/?feature.customRouterAsn=true&feature.virtualWanRoutingPreference=true#home). See [Virtual hub routing preference](../articles/virtual-wan/about-virtual-hub-routing-preference.md) for more information.
+   * **Router ASN**: Set the Autonomous System Number for the virtual hub router. You can use any ASN number except numbers that are reserved by [Azure or IANA](../articles/vpn-gateway/vpn-gateway-bgp-overview.md#what-asns-autonomous-system-numbers-can-i-use).
 
-   ![ExpressRoute](./media/virtual-wan-tutorial-er-hub-include/hub2.png "ExpressRoute")
+1. Select the **ExpressRoute tab**. Click **Yes** to reveal settings and fill out the field. For information about gateway scale units, see the [FAQ](../articles/virtual-wan/virtual-wan-faq.md#what-are-virtual-wan-gateway-scale-units).
 
-   * Select **Yes** to create an **ExpressRoute** gateway.
-   * Select the **Gateway scale units** value from the dropdown.
-6. Select **Review + Create** to validate.
-7. Select **Create** to create the hub. After 30 minutes, **Refresh** to view the hub on the **Hubs** page. Select **Go to resource** to navigate to the resource.
+   :::image type="content" source="media/virtual-wan-tutorial-er-hub/expressroute.png" alt-text="Screenshot shows the ExpressRoute tab where you can enter values.":::
+
+1. Select **Review + Create** to validate.
+1. Select **Create** to create the hub with an ExpressRoute gateway. A hub can take about 30 minutes to complete. After 30 minutes, **Refresh** to view the hub on the **Hubs** page. Select **Go to resource** to navigate to the resource.

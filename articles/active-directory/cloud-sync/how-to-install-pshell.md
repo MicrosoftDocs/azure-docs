@@ -1,104 +1,105 @@
 ---
-title: 'Install the Azure AD Connect cloud provisioning agent using powershell'
-description: Learn how to install the Azure AD Connect cloud provisioning agent using powershell cmdlets.
+title: 'Install the Azure AD Connect cloud provisioning agent using a command-line interface (CLI) and PowerShell'
+description: Learn how to install the Azure AD Connect cloud provisioning agent by using PowerShell cmdlets.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/31/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
 
-# Install the Azure AD Connect provisioning agent using powershell cmdlets 
-The following document will guide show you how to install the Azure AD Connect provisioning agent using PowerShell cmdlets.
+# Install the Azure AD Connect provisioning agent by using a CLI and PowerShell
+This article shows you how to install the Azure Active Directory (Azure AD) Connect provisioning agent by using PowerShell cmdlets.
  
+>[!NOTE]
+>This article deals with installing the provisioning agent by using the command-line interface (CLI). For information on how to install the Azure AD Connect provisioning agent by using the wizard, see [Install the Azure AD Connect provisioning agent](how-to-install.md).
 
-## Prerequisite: 
+## Prerequisite
 
+The Windows server must have TLS 1.2 enabled before you install the Azure AD Connect provisioning agent by using PowerShell cmdlets. To enable TLS 1.2, follow the steps in [Prerequisites for Azure AD Connect cloud sync](how-to-prerequisites.md#tls-requirements).
 
 >[!IMPORTANT]
->The following installation instructions assume that all of the [Prerequisites](how-to-prerequisites.md) have been met.
->
-> The windows server needs to have TLS 1.2 enabled before you install the Azure AD Connect provisioning agent using powershell cmdlets. To enable TLS 1.2 you can use the steps found [here](how-to-prerequisites.md#tls-requirements).
+>The following installation instructions assume that all the [prerequisites](how-to-prerequisites.md) were met.
 
- 
+## Install the Azure AD Connect provisioning agent by using PowerShell cmdlets 
 
-## Install the Azure AD Connect provisioning agent using powershell cmdlets 
+ 1. Sign in to the server you'll use with enterprise admin permissions.
+ 2. Sign in to the Azure portal, and then go to **Azure Active Directory**.
+ 3. On the menu on the left, select **Azure AD Connect**.
+ 4. Select **Manage cloud sync**.
+     [![Screenshot that shows manage cloud sync](media/how-to-install/new-install-1.png)](media/how-to-install/new-install-1.png#lightbox)</br>
+ 5. At the top, click **Download agent**.
+    [![Screenshot that the download agent](media/how-to-install/new-install-2.png)](media/how-to-install/new-install-2.png#lightbox)</br>
+ 6. On the right, click **Accept terms and download**.
+ 7. For the purposes of these instructions, the agent was downloaded to the C:\temp folder.
+ 8. Install ProvisioningAgent in quiet mode.
+       ```
+      $installerProcess = Start-Process 'c:\temp\AADConnectProvisioningAgentSetup.exe' /quiet -NoNewWindow -PassThru 
+      $installerProcess.WaitForExit()
 
-
- 1. Sign in to the Azure portal, and then go to **Azure Active Directory**.
- 2. In the left menu, select **Azure AD Connect**.
- 3. Select **Manage provisioning (preview)** > **Review all agents**.
- 4. Download the Azure AD Connect provisioning agent from the Azure portal to a locally.  
-
-   ![Download on-premises agent](media/how-to-install/install-9.png)</br>
- 5. For purposes of these instructions, the agent was downloaded to the following folder:   “C:\ProvisioningSetup” folder. 
- 6. Install ProvisioningAgent in quiet mode
-
-   ```
-   $installerProcess = Start-Process c:\temp\AADConnectProvisioningAgent.Installer.exe /quiet -NoNewWindow -PassThru 
-   $installerProcess.WaitForExit()  
-   ```
- 7. Import Provisioning Agent PS module 
-
-   ```
-   Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Microsoft.CloudSync.Powershell.dll" 
-   ```
- 8. Connect to AzureAD using global administrator credentials, you can customize this section to fetch password from a secure store. 
-
-   ```
-   $globalAdminPassword = ConvertTo-SecureString -String "Global admin password" -AsPlainText -Force 
-
-   $globalAdminCreds = New-Object System.Management.Automation.PSCredential -ArgumentList ("GlobalAdmin@contoso.onmicrosoft.com", $globalAdminPassword) 
-   ```
-
-   Connect-AADCloudSyncAzureAD -Credential $globalAdminCreds 
-
- 9. Add the gMSA account, provide credentials of the domain admin to create default gMSA account 
- 
-   ```
-   $domainAdminPassword = ConvertTo-SecureString -String "Domain admin password" -AsPlainText -Force 
-
-   $domainAdminCreds = New-Object System.Management.Automation.PSCredential -ArgumentList ("DomainName\DomainAdminAccountName", $domainAdminPassword) 
-
-   Add-AADCloudSyncGMSA -Credential $domainAdminCreds 
-   ```
- 10. Or use the above cmdlet as below to provide a pre-created gMSA account 
-
- 
-   ```
-   Add-AADCloudSyncGMSA -CustomGMSAName preCreatedGMSAName$ 
-   ```
- 11. Add domain 
-
-   ```
-   $contosoDomainAdminPassword = ConvertTo-SecureString -String "Domain admin password" -AsPlainText -Force 
-
-   $contosoDomainAdminCreds = New-Object System.Management.Automation.PSCredential -ArgumentList ("DomainName\DomainAdminAccountName", $contosoDomainAdminPassword) 
-
-   Add-AADCloudSyncADDomain -DomainName contoso.com -Credential $contosoDomainAdminCreds 
-   ```
- 12. Or use the above cmdlet as below to configure preferred domain controllers 
-
-   ```
-   $preferredDCs = @("PreferredDC1", "PreferredDC2", "PreferredDC3") 
-
-   Add-AADCloudSyncADDomain -DomainName contoso.com -Credential $contosoDomainAdminCreds -PreferredDomainControllers $preferredDCs 
-   ```
- 13. Repeat the previous step to add more domains, please provide the account names and domain names of the respective domains 
- 14. Restart the service 
-   ```
-   Restart-Service -Name AADConnectProvisioningAgent  
-   ```
- 15.  Go to the azure portal to create the cloud sync configuration.
+       ```
+ 9. Import the Provisioning Agent PS module.
+       ```
+       Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Microsoft.CloudSync.PowerShell.dll" 
+       ```
+ 10. Connect to Azure AD by using an account with the hybrid identity role. You can customize this section to fetch a password from a secure store. 
+       ```
+       $hybridAdminPassword = ConvertTo-SecureString -String "Hybrid identity admin password" -AsPlainText -Force 
+    
+       $hybridAdminCreds = New-Object System.Management.Automation.PSCredential -ArgumentList ("HybridIDAdmin@contoso.onmicrosoft.com", $hybridAdminPassword) 
+       
+       Connect-AADCloudSyncAzureAD -Credential $hybridAdminCreds 
+       ```
+ 11. Add the gMSA account, and provide credentials of the domain admin to create the default gMSA account.
+       ```
+       $domainAdminPassword = ConvertTo-SecureString -String "Domain admin password" -AsPlainText -Force 
+    
+       $domainAdminCreds = New-Object System.Management.Automation.PSCredential -ArgumentList ("DomainName\DomainAdminAccountName", $domainAdminPassword) 
+    
+       Add-AADCloudSyncGMSA -Credential $domainAdminCreds 
+       ```
+ 12. Or use the preceding cmdlet to provide a pre-created gMSA account.
+       ```
+       Add-AADCloudSyncGMSA -CustomGMSAName preCreatedGMSAName$ 
+       ```
+ 13. Add the domain.
+       ```
+       $contosoDomainAdminPassword = ConvertTo-SecureString -String "Domain admin password" -AsPlainText -Force 
+    
+       $contosoDomainAdminCreds = New-Object System.Management.Automation.PSCredential -ArgumentList ("DomainName\DomainAdminAccountName", $contosoDomainAdminPassword) 
+    
+       Add-AADCloudSyncADDomain -DomainName contoso.com -Credential $contosoDomainAdminCreds 
+       ```
+ 14. Or use the preceding cmdlet to configure preferred domain controllers.
+       ```
+       $preferredDCs = @("PreferredDC1", "PreferredDC2", "PreferredDC3") 
+    
+       Add-AADCloudSyncADDomain -DomainName contoso.com -Credential $contosoDomainAdminCreds -PreferredDomainControllers $preferredDCs 
+       ```
+ 15. Repeat the previous step to add more domains. Provide the account names and domain names of the respective domains.
+ 16. Restart the service.
+       ```
+       Restart-Service -Name AADConnectProvisioningAgent  
+       ```
+ 17. Go to the Azure portal to create the cloud sync configuration.
 
 ## Provisioning agent gMSA PowerShell cmdlets
-Now that you have installed the agent, you can apply more granular permissions to the gMSA.  See [Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets](how-to-gmsa-cmdlets.md) for information and step-by-step instructions on configuring the permissions.
+Now that you've installed the agent, you can apply more granular permissions to the gMSA. For information and step-by-step instructions on how to configure the permissions, see [Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets](how-to-gmsa-cmdlets.md).
+
+## Installing against US govt cloud
+By default, the Azure Active Directory (Azure AD) Connect provisioning agent installs against the default Azure cloud environment.  If you are installing the agent for use in the US government cloud do the following:
+
+- In step #8 above, add **ENVIRONMENTNAME=AzureUSGovernment** to the command line like the example below.
+    ```
+    $installerProcess = Start-Process -FilePath "c:\temp\AADConnectProvisioningAgent.Installer.exe" -ArgumentList "/quiet ENVIRONMENTNAME=AzureUSGovernment" -NoNewWindow -PassThru 
+    $installerProcess.WaitForExit()
+   ```
 
 ## Next steps 
 

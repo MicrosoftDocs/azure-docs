@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid:
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -70,7 +69,7 @@ As you're analyzing test results, keep in mind the following recommendations:
 
 ### Get latte.exe onto the VMs
 
-Download the [latest version of latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
+Download the [latest version of latte.exe](https://github.com/microsoft/latte/releases/download/v0/latte.exe).
 
 Consider putting latte.exe in separate folder, such as *c:\tools*.
 
@@ -136,6 +135,7 @@ Run the following commands:
     sudo yum install ncurses-devel -y
     sudo yum install -y automake
     sudo yum install -y autoconf
+    sudo yum install -y libtool
 ```
 
 #### For Ubuntu
@@ -149,6 +149,8 @@ Run the following commands:
     sudo apt-get install -y autotools-dev
     sudo apt-get install -y automake
     sudo apt-get install -y autoconf
+    sudo apt-get install -y libtool
+    sudo yum update
 ```
 
 #### For all distros

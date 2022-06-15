@@ -1,6 +1,6 @@
 ---
 title: Deploy VMs in an availability set using Azure CLI
-description: In this tutorial, you learn how to use the Azure CLI to deploy highly available virtual machines in Availability Sets
+description: Learn how to use the Azure CLI to deploy highly available virtual machines in Availability Sets
 documentationcenter: ''
 services: virtual-machines
 author: mimckitt
@@ -13,6 +13,8 @@ ms.custom:
 ---
 
 # Create and deploy virtual machines in an availability set using Azure CLI
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 In this tutorial, you learn how to increase the availability and reliability of your Virtual Machine solutions on Azure using a capability called Availability Sets. Availability sets ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware clusters. Doing this ensures that if a hardware or software failure within Azure happens, only a subset of your VMs is impacted and that your overall solution remains available and operational.
 
@@ -98,6 +100,6 @@ Advance to the next tutorial to learn about virtual machine scale sets.
 > [!div class="nextstepaction"]
 > [Create a virtual machine scale set](tutorial-create-vmss.md)
 
-* To learn more about availability zones, visit the  [Availability Zones documentation](../../availability-zones/az-overview.md).
-* More documentation about both availability sets and availability zones is also available [here](../availability.md).
+* To learn more about availability zones, visit the [Availability Zones documentation](../../availability-zones/az-overview.md).
+* More documentation about both availability sets and availability zones is also available at [Availability options for Azure Virtual Machines](../availability.md).
 * To try out availability zones, visit [Create a Linux virtual machine in an availability zone with the Azure CLI](./create-cli-availability-zone.md)

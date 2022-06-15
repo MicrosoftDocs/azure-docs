@@ -5,9 +5,10 @@ ms.author: yexu
 author: dearandyxu
 ms.reviewer: douglasl, jburchel
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/18/2021
+ms.custom: devx-track-azurepowershell
+ms.date: 07/05/2021
 ---
 
 # Incrementally load data from multiple tables in SQL Server to Azure SQL Database using PowerShell
@@ -48,13 +49,13 @@ Here are the important steps to create this solution:
 
     b. Create two lookup activities. Use the first Lookup activity to retrieve the last watermark value. Use the second Lookup activity to retrieve the new watermark value. These watermark values are passed to the Copy activity.
 
-	c. Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to Azure Blob storage as a new file.
+	c. Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than or equal to the new watermark value. Then, it copies the delta data from the source data store to Azure Blob storage as a new file.
 
 	d. Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time. 
 
     Here is the high-level solution diagram: 
 
-    ![Incrementally load data](media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png" alt-text="Incrementally load data":::
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -62,7 +63,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## Prerequisites
 
 * **SQL Server**. You use a SQL Server database as the source data store in this tutorial. 
-* **Azure SQL Database**. You use a database in Azure SQL Database as the sink data store. If you don't have a SQL database, see [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one. 
+* **Azure SQL Database**. You use a database in Azure SQL Database as the sink data store. If you don't have a SQL database, see [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one. 
 
 ### Create source tables in your SQL Server database
 
@@ -124,7 +125,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Project varchar(255),
         Creationtime datetime
     );
-	```
+    ```
 
 ### Create another table in Azure SQL Database to store the high watermark value
 
@@ -278,7 +279,7 @@ Note the following points:
 
 * For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, SQL Database, SQL Managed Instance, and so on) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
 
-[!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
+[!INCLUDE [data-factory-create-install-integration-runtime](includes/data-factory-create-install-integration-runtime.md)]
 
 ## Create linked services
 
@@ -295,7 +296,7 @@ In this step, you link your SQL Server database to the data factory.
 
     If you use SQL authentication, copy the following JSON definition:
 
-	```json
+    ```json
     {  
         "name":"SqlServerLinkedService",
         "properties":{  
@@ -799,9 +800,9 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
     ```
 2. Run the pipeline IncrementalCopyPipeline by using the **Invoke-AzDataFactoryV2Pipeline** cmdlet. Replace placeholders with your own resource group and data factory name.
 
-	```powershell
+    ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
-	``` 
+    ```
 
 ## Monitor the pipeline
 
@@ -811,14 +812,15 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
 
 3. Search for your data factory in the list of data factories, and select it to open the **Data factory** page. 
 
-4. On the **Data factory** page, select **Author & Monitor** to launch Azure Data Factory in a separate tab.
+4. On the **Data factory** page, select **Open** on the **Open Azure Data Factory Studio** tile to launch Azure Data Factory in a separate tab.
 
-5. On the **Let's get started** page, select **Monitor** on the left side. 
-![Screenshot shows the Let's get started page for Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
+5. On the Azure Data Factory home page, select **Monitor** on the left side. 
+
+    :::image type="content" source="media/doc-common-process/get-started-page-monitor-button.png" alt-text="Screenshot shows the home page for Azure Data Factory.":::    
 
 6. You can see all the pipeline runs and their status. Notice that in the following example, the status of the pipeline run is **Succeeded**. To check parameters passed to the pipeline, select the link in the **Parameters** column. If an error occurred, you see a link in the **Error** column.
 
-    ![Screenshot shows pipeline runs for a data factory including your pipeline.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png" alt-text="Screenshot shows pipeline runs for a data factory including your pipeline.":::    
 7. When you select the link in the **Actions** column, you see all the activity runs for the pipeline. 
 
 8. To go back to the **Pipeline Runs** view, select **All Pipeline Runs**. 

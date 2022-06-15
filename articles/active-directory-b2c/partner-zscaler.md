@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Zscaler.
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -91,7 +92,7 @@ After you've configured Azure AD B2C, the rest of the IdP configuration resumes.
 >[!Note]
 >This step is required only if you haven’t already configured custom policies. If you already have one or more custom policies, you can skip this step.
 
-To configure custom policies on your Azure AD B2C tenant, see [Get started with custom policies in Azure Active Directory B2C](./custom-policy-get-started.md).
+To configure custom policies on your Azure AD B2C tenant, see [Get started with custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ### Step 3: Register ZPA as a SAML application in Azure AD B2C
 
@@ -112,11 +113,13 @@ The rest of the steps aren't relevant to this tutorial.
 
 Next, you need to obtain a SAML metadata URL in the following format:
 
-```https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/Samlp/metadata```
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/Samlp/metadata`
 
 Note that `<tenant-name>` is the name of your Azure AD B2C tenant, and `<policy-name>` is the name of the custom SAML policy that you created in the preceding step.
 
-For example, the URL might be `https://safemarch.b2clogin.com/safemarch.onmicrosoft.com/B2C_1A_signup_signin_saml//Samlp/metadata`.
+For example, the URL might be:
+
+`https://safemarch.b2clogin.com/safemarch.onmicrosoft.com/B2C_1A_signup_signin_saml/Samlp/metadata`.
 
 Open a web browser and go to the SAML metadata URL. Right-click anywhere on the page, select **Save as**, and then save the file to your computer for use in the next step.
 
@@ -144,7 +147,7 @@ Go to a ZPA user portal or a browser-access application, and test the sign-up or
 
 For more information, review the following articles:
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md)
+- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 - [Register a SAML application in Azure AD B2C](./saml-service-provider.md)
 - [Step-by-step configuration guide for ZPA](https://help.zscaler.com/zpa/step-step-configuration-guide-zpa)
 - [Configure an IdP for single sign-on](https://help.zscaler.com/zpa/configuring-idp-single-sign)

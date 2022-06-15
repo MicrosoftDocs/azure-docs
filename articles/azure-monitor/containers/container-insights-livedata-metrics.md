@@ -1,9 +1,10 @@
 ---
-title: View metrics in real-time with Container insights | Microsoft Docs
+title: View metrics in real-time with Container insights
 description: This article describes the real-time view of metrics without using kubectl with Container insights.
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 05/24/2022
 ms.custom: references_regions
+ms.reviewer: aul
 ---
 
 # How to view metrics in real-time
@@ -77,4 +78,4 @@ This performance chart maps to an equivalent of invoking `kubectl get pods –al
 
 ## Next steps
 
-View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see predefined queries and examples to create alerts, visualizations, or perform further analysis of your clusters.
+View [log query examples](container-insights-log-query.md) to see predefined queries and examples to create alerts, visualizations, or perform further analysis of your clusters.

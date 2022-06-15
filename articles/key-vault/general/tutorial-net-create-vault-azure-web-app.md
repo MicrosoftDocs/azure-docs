@@ -10,6 +10,7 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
+ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli
 
 #Customer intent: As a developer, I want to use Azure Key Vault to store secrets for my app to help keep them secure.
@@ -33,7 +34,7 @@ To complete this tutorial, you need:
 
 * An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * The [.NET Core 3.1 SDK (or later)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* A [Git](https://www.git-scm.com/downloads) installation.
+* A [Git](https://www.git-scm.com/downloads) installation of version 2.28.0 or greater.
 * The [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 * [Azure Key Vault.](./overview.md) You can create a key vault by using the [Azure portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Azure PowerShell](quick-create-powershell.md).
 * A Key Vault [secret](../secrets/about-secrets.md). You can create a secret by using the [Azure portal](../secrets/quick-create-portal.md), [PowerShell](../secrets/quick-create-powershell.md), or the [Azure CLI](../secrets/quick-create-cli.md).
@@ -77,7 +78,7 @@ In this step, you'll deploy your .NET Core application to Azure App Service by u
 In the terminal window, select **Ctrl+C** to close the web server.  Initialize a Git repository for the .NET Core project:
 
 ```bash
-git init
+git init --initial-branch=main
 git add .
 git commit -m "first commit"
 ```
@@ -166,8 +167,13 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 }
 </pre>
 
-
 The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, in the format `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Save this URL. You'll need it later.
+
+Now configure your web app to deploy from the `main` branch:
+
+```azurecli-interactive
+ az webapp config appsettings set -g MyResourceGroup --name "<your-webapp-name>" --settings deployment_branch=main
+```
 
 Go to your new app by using the following command. Replace `<your-webapp-name>` with your app name.
 
@@ -276,7 +282,7 @@ dotnet add package Azure.Security.KeyVault.Secrets
 
 #### Update the code
 
-Find and open the Startup.cs file in your akvwebapp project. 
+Find and open the Startup.cs file for .NET 5.0 or earlier, or Program.cs file for .NET 6.0 in your akvwebapp project. 
 
 Add these lines to the header:
 
@@ -286,7 +292,7 @@ using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 ```
 
-Add the following lines before the `app.UseEndpoints` call, updating the URI to reflect the `vaultUri` of your key vault. This code uses  [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Key Vault, which uses a token from managed identity to authenticate. For more information about authenticating to Key Vault, see the [Developer's Guide](./developers-guide.md#authenticate-to-key-vault-in-code). The code also uses exponential backoff for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](./overview-throttling.md).
+Add the following lines before the `app.UseEndpoints` call (.NET 5.0 or earlier) or `app.MapGet` call (.NET 6.0) , updating the URI to reflect the `vaultUri` of your key vault. This code uses  [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Key Vault, which uses a token from managed identity to authenticate. For more information about authenticating to Key Vault, see the [Developer's Guide](./developers-guide.md#authenticate-to-key-vault-in-code). The code also uses exponential backoff for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](./overview-throttling.md).
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()
@@ -306,11 +312,22 @@ KeyVaultSecret secret = client.GetSecret("<mySecret>");
 string secretValue = secret.Value;
 ```
 
+##### .NET 5.0 or earlier
+
 Update the line `await context.Response.WriteAsync("Hello World!");` to look like this line:
 
 ```csharp
 await context.Response.WriteAsync(secretValue);
 ```
+
+##### .NET 6.0
+
+Update the line `app.MapGet("/", () => "Hello World!");` to look like this line:
+
+```csharp
+app.MapGet("/", () => secretValue);
+```
+
 
 Be sure to save your changes before continuing to the next step.
 
@@ -337,4 +354,4 @@ Where before you saw "Hello World!", you should now see the value of your secret
 - [Use Azure Key Vault with applications deployed to a virtual machine in .NET](./tutorial-net-virtual-machine.md)
 - Learn more about [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
 - View the [Developer's Guide](./developers-guide.md)
-- [Secure access to a key vault](./secure-your-key-vault.md)
+- [Secure access to a key vault](./security-features.md)

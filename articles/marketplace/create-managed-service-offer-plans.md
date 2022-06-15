@@ -1,16 +1,16 @@
 ---
-title: How to create plans for your Managed Service offer on Azure Marketplace
-description: Learn how to create plans for your Managed Service offer on Azure Marketplace using Microsoft Partner Center.
+title: Create plans for a Managed Service offer on Azure Marketplace
+description: Create plans for a Managed Service offer on Azure Marketplace.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.reviewer: anbene
+ms.reviewer: brwrigh
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/23/2020
+ms.date: 03/15/2022
 ---
 
-# How to create plans for your Managed Service offer
+# Create plans for a Managed Service offer
 
 Managed Service offers sold through the Microsoft commercial marketplace must have at least one plan. You can create a variety of plans with different options within the same offer. These plans (sometimes referred to as SKUs) can differ in terms of version, monetization, or tiers of service. For detailed guidance on plans, see [Plans and pricing for commercial marketplace offers](./plans-pricing.md).
 
@@ -18,7 +18,7 @@ Managed Service offers sold through the Microsoft commercial marketplace must ha
 
 1. On the **Plan overview** tab of your offer in Partner Center, select **+ Create new plan**.
 2. In the dialog box that appears, under **Plan ID**, enter a unique plan ID. Use up to 50 lowercase alphanumeric characters, dashes, or underscores. You cannot modify the plan ID after you select **Create**. This ID will be visible to your customers.
-3. In the **Plan name** box, enter a unique name for this plan. Use a maximum of 50 characters. This name will be visible to your customers.
+3. In the **Plan name** box, enter a unique name for this plan. Use a maximum of 200 characters. This name will be visible to your customers.
 4. Select **Create**.
 
 ## Define the plan listing
@@ -74,7 +74,7 @@ To add up to 10,000 subscription IDs with a .CSV file:
 
 ## Technical configuration
 
-This section creates a manifest with authorization information for managing customer resources. This information is required in order to enable [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md).
+This section creates a manifest with authorization information for Azure Active Directory (Azure AD) user accounts. This information is required in order to enable access to the customer's resources through [Azure Lighthouse](../lighthouse/overview.md).
 
 Review [Tenants, roles, and users in Azure Lighthouse scenarios](../lighthouse/concepts/tenants-users-roles.md#best-practices-for-defining-users-and-roles) to understand which roles are supported and the best practices for defining your authorizations.
 
@@ -84,7 +84,7 @@ Review [Tenants, roles, and users in Azure Lighthouse scenarios](../lighthouse/c
 ### Manifest
 
 1. Under **Manifest**, provide a **Version** for the manifest. Use the format n.n.n (for example, 1.2.5).
-2. Enter your **Tenant ID**. This is a GUID associated with the Azure Active Directory (Azure AD) tenant ID of your organization; that is, the managing tenant from which you will access your customers' resources. If you don't have this handy, you can find it by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**.
+2. Enter your **Tenant ID**. This is a GUID associated with the Azure AD tenant ID of your organization; that is, the managing tenant from which you will access your customers' resources. If you don't have this handy, you can find it by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**.
 
 If you publish a new version of your offer and need to create an updated manifest, select **+ New manifest**. Be sure to increase the version number from the previous manifest version.
 
@@ -95,24 +95,31 @@ Authorizations define the entities in your managing tenant who can access resour
 You can create up to 20 authorizations for each plan.
 
 > [!TIP]
-> In most cases, you'll want to assign roles to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change. When assigning roles to Azure AD groups, [the group type should be Security and not Office 365](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). For additional recommendations, see [Tenants, roles, and users in Azure Lighthouse scenarios](../lighthouse/concepts/tenants-users-roles.md).
+> In most cases, you'll want to assign roles to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change. When assigning roles to Azure AD groups, the [group type](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) should be Security and not Office 365. For additional recommendations, see [Tenants, roles, and users in Azure Lighthouse scenarios](../lighthouse/concepts/tenants-users-roles.md).
 
-For each Authorization, you'll need to provide the following information. You can then select **+ Add authorization** as many times as needed to add more users and role definitions.
+Provide the following information for each **Authorization**. Select **+ Add authorization** as needed to add more users and role definitions.
 
-* **AAD Object ID**: the Azure AD identifier of a user, user group, or application that will be granted certain permissions (as defined by the Role Definition) to your customers' resources.
-* **AAD Object Display Name**: a friendly name to help the customer understand the purpose of this authorization. The customer will see this name when delegating resources.
-* **Role definition**: select one of the available Azure AD built-in roles from the list. This role will determine the permissions that the user in the **Principal ID** field will have on your customers' resources. For descriptions of these roles, see [Built-in roles](../role-based-access-control/built-in-roles.md) and [Role support for Azure Lighthouse](../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
-
-> [!NOTE]
-> As applicable new built-in roles are added to Azure, they will become available here. There may be some delay before they appear.
-
-* **Assignable Roles**: this option will appear only if you have selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these roles to managed identities, which is required in order to [deploy policies that can be remediated](../lighthouse/how-to/deploy-policy-remediation.md). No other permissions normally associated with the User Access Administrator role will apply to this user.
+- **Display Name**: A friendly name to help the customer understand the purpose of this authorization. The customer will see this name when delegating resources.
+- **Principal ID**: The Azure AD identifier of a user, user group, or service principal that will be granted certain permissions (as defined by the **Role** you specify) to your customers' resources.
+- **Access type**:
+  - **Active** authorizations have the privileges assigned to the role at all times. Each plan must have at least one Active authorization.
+  - **Eligible** authorizations are time-limited and require activation by the user.  If you select **Eligible**, you must select a maximum duration that defines the total length of time for which the user will have the eligible role after it's activated. The minimum value is 30 minutes and the maximum is 8 hours. You can also select whether to require multifactor authentication in order to activate the role. Note that eligible authorizations are currently in public preview and have specific licensing requirements. For more information, see [Create eligible authorizations](../lighthouse/how-to/create-eligible-authorizations.md).
+- **Role**: Select one of the available Azure AD built-in roles from the list. This role will determine the permissions that the user in the **Principal ID** field will have on your customers' resources. For descriptions of these roles, see [Built-in roles](../role-based-access-control/built-in-roles.md) and [Role support for Azure Lighthouse](../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
+  > [!NOTE]
+  > As applicable new built-in roles are added to Azure, they will become available here, although there may be some delay before they appear.
+- **Assignable Roles**: This option will appear only if you have selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these roles to [managed identities](../active-directory/managed-identities-azure-resources/overview.md), which is required in order to [deploy policies that can be remediated](../lighthouse/how-to/deploy-policy-remediation.md). No other permissions normally associated with the User Access Administrator role will apply to this user.
+- **Approvers**: This option will appear only if the **Access type** is set to **Eligible**. If so, you can optionally specify a list of up to ten users or user groups who can [approve or deny requests from a user to activate the eligible role](../lighthouse/how-to/create-eligible-authorizations.md#approvers). Approvers will be notified when the approval is requested and has been granted. If none are provided, the authorization will activate automatically.
 
 > [!TIP]
 > To ensure you can [remove access to a delegation](../lighthouse/how-to/remove-delegation.md) if needed, include an **Authorization** with the **Role Definition** set to [Managed Services Registration Assignment Delete Role](../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
 
-Once you've completed all sections for your plan, you can select **+ Create new plan** to create additional plans. When you’re done, select **Save draft** before continuing.
+Once you've completed all of the sections for your plan, you can select **+ Create new plan** to create additional plans. When you're done, select **Save draft**. When you're done creating plans, select **Plans** in the breadcrumb trail at the top of the window to return to the left-nav menu for the offer.
+
+## Updating an offer
+
+After your offer is published, you can [publish an updated version of your offer](update-existing-offer.md) at any time. For example, you may want to add a new role definition to a previously published offer. When you do so, customers who have already added the offer will see an icon in the [**Service providers**](../lighthouse/how-to/view-manage-service-providers.md) page in the Azure portal that lets them know an update is available. Each customer will be able to review the changes and decide whether they want to update to the new version.
 
 ## Next steps
 
-* [Review and publish](review-publish-offer.md)
+- Exit plan setup and continue with optional [Co-sell with Microsoft](/partner-center/co-sell-overview?context=/azure/marketplace/context/context), or
+- [Review and publish your offer](review-publish-offer.md)

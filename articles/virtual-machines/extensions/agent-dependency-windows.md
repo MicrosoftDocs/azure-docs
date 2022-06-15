@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Dependency virtual machine extension for Windows 
+title: Azure Monitor Dependency virtual machine extension for Windows
 description: Deploy the Azure Monitor Dependency agent on Windows virtual machine by using a virtual machine extension.
 ms.topic: article
 ms.service: virtual-machines
@@ -7,7 +7,9 @@ ms.subservice: extensions
 author: mgoedtel
 ms.author: magoedte
 ms.collection: windows
-ms.date: 03/29/2019
+ms.date: 06/01/2021
+ms.custom: devx-track-azurepowershell
+
 
 ---
 # Azure Monitor Dependency virtual machine extension for Windows
@@ -48,7 +50,7 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
       "properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5",
+        "typeHandlerVersion": "9.10",
         "autoUpgradeMinorVersion": true
       }
     }
@@ -65,7 +67,7 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | type | DependencyAgentWindows |
-| typeHandlerVersion | 9.5 |
+| typeHandlerVersion | 9.10 |
 
 ## Template deployment
 
@@ -88,7 +90,7 @@ The following example assumes the Dependency agent extension is nested inside th
 	"properties": {
 		"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5",
+        "typeHandlerVersion": "9.10",
         "autoUpgradeMinorVersion": true
 	}
 }
@@ -108,7 +110,7 @@ When you place the extension JSON at the root of the template, the resource name
 	"properties": {
 		"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5",
+        "typeHandlerVersion": "9.10",
         "autoUpgradeMinorVersion": true
 	}
 }
@@ -125,9 +127,23 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -VMName "myVM" `
     -Publisher "Microsoft.Azure.Monitoring.DependencyAgent" `
     -ExtensionType "DependencyAgentWindows" `
-    -TypeHandlerVersion 9.5 `
-    -Location WestUS 
+    -TypeHandlerVersion 9.10 `
+    -Location WestUS
 ```
+
+## Automatic extension upgrade
+A new feature to [automatically upgrade minor versions](../automatic-extension-upgrade.md) of Dependency extension is now available.
+
+To enable automatic extension upgrade for an extension, you must ensure the property `enableAutomaticUpgrade` is set to `true` and added to the extension template. This property must be enabled on every VM or VM scale set individually. Use one of the methods described in the [enablement](../automatic-extension-upgrade.md#enabling-automatic-extension-upgrade) section enable the feature for your VM or VM scale set.
+
+When automatic extension upgrade is enabled on a VM or VM scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension. The upgrade is applied safely following availability-first principles as described [here](../automatic-extension-upgrade.md#how-does-automatic-extension-upgrade-work).
+
+The `enableAutomaticUpgrade` attribute's functionality is different from that of the `autoUpgradeMinorVersion`. The  `autoUpgradeMinorVersion` attributes does not automatically trigger a minor version update when the extension publisher releases a new version. The `autoUpgradeMinorVersion` attribute indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+
+To keep your extension version updated, we recommend using `enableAutomaticUpgrade` with your extension deployment.
+
+> [!IMPORTANT]
+> If you add the `enableAutomaticUpgrade` to your template, make sure that you use at API version 2019-12-01 or higher.
 
 ## Troubleshoot and support
 

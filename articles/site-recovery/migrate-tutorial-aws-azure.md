@@ -2,18 +2,18 @@
 title: Migrate AWS VMs to Azure with Azure Migrate
 description: This article describes options for migrating AWS instances to Azure, and recommends Azure Migrate.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2019
-ms.author: raynew
 ms.custom: MVC
 
 ---
 # Migrate Amazon Web Services (AWS) VMs to Azure
 
 This article describes options for migrating Amazon Web Services (AWS) instances to Azure.
+
+> [!NOTE]
+> On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported. [Learn more](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#for-linux).
 
 ## Migrate with Azure Migrate
 
@@ -30,7 +30,7 @@ If you're already using Azure Site Recovery, and you want to continue using it f
 
 
 > [!NOTE]
-> When you run a failover for disaster recovery, as a last step you commit the failover. When you migrate AWS instances, the **Commit** option isn't relevant. Instead, you select the **Complete Migration** option. 
+> When you run a failover for disaster recovery, as a last step you commit the failover. When you migrate AWS instances, the **Commit** option isn't relevant. Instead, you select the **Complete Migration** option.
 
 ## Next steps
 

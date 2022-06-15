@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Tribeloo | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Tribeloo'
 description: Learn how to configure single sign-on between Azure Active Directory and Tribeloo.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 03/11/2021
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Tribeloo
+# Tutorial: Azure AD SSO integration with Tribeloo
 
 In this tutorial, you'll learn how to integrate Tribeloo with Azure Active Directory (Azure AD). When you integrate Tribeloo with Azure AD, you can:
 
@@ -29,11 +29,15 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Tribeloo single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Tribeloo supports **SP** initiated SSO
+* Tribeloo supports **SP** initiated SSO.
+* Tribeloo supports [Automated user provisioning](tribeloo-provisioning-tutorial.md).
 
 ## Adding Tribeloo from the gallery
 
@@ -45,7 +49,6 @@ To configure the integration of Tribeloo into Azure AD, you need to add Tribeloo
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Tribeloo** in the search box.
 1. Select **Tribeloo** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Tribeloo
 
@@ -66,7 +69,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Tribeloo** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -82,6 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Tribeloo** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -114,6 +118,8 @@ To configure single sign-on on **Tribeloo** side, you need to send the downloade
 
 In this section, you create a user called Britta Simon in Tribeloo. Work with [Tribeloo support team](mailto:support@tribeloo.com) to add the users in the Tribeloo platform. Users must be created and activated before you use single sign-on.
 
+Tribeloo also supports automatic user provisioning, you can find more details [here](./tribeloo-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -122,9 +128,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Tribeloo Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Tribeloo tile in the My Apps, this will redirect to Tribeloo Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
+* You can use Microsoft My Apps. When you click the Tribeloo tile in the My Apps, this will redirect to Tribeloo Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Tribeloo you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Tribeloo you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

@@ -2,14 +2,14 @@
 title: Manage custom policies with PowerShell
 titleSuffix: Azure AD B2C
 description: Use the Azure Active Directory (Azure AD) PowerShell cmdlet for programmatic management of your Azure AD B2C custom policies. Create, read, update, and delete custom policies with PowerShell.
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/14/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -26,7 +26,7 @@ Azure PowerShell provides several cmdlets for command line- and script-based cus
 ## Prerequisites
 
 * [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the [B2C IEF Policy Administrator](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) role
-* [Custom policies](custom-policy-get-started.md) uploaded to your tenant
+* [Custom policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy) uploaded to your tenant
 * [Azure AD PowerShell for Graph **preview module**](/powershell/azure/active-directory/install-adv2)
 
 ## Connect PowerShell session to B2C tenant

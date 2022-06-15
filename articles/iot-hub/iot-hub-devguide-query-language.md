@@ -1,12 +1,12 @@
 ---
 title: Understand the Azure IoT Hub query language | Microsoft Docs
 description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device/module twins and jobs from your IoT hub.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/29/2018
-ms.author: robinsh
+ms.date: 05/07/2021
+ms.author: kgremban
 ms.custom: devx-track-csharp
 ---
 
@@ -86,6 +86,12 @@ SELECT * FROM devices
 > [!NOTE]
 > [Azure IoT SDKs](iot-hub-devguide-sdks.md) support paging of large results.
 
+Aggregations are supported. For example, the following query gets a count of the total number of devices in an IoT hub:
+
+```sql
+SELECT COUNT() as totalNumberOfDevices FROM devices
+```
+
 IoT Hub allows you to retrieve device twins filtering with arbitrary conditions. For instance, to receive device twins where the **location.region** tag is set to **US** use the following query:
 
 ```sql
@@ -117,7 +123,7 @@ SELECT * FROM devices
 
 Refer to the [WHERE clause](iot-hub-devguide-query-language.md#where-clause) section for the full reference of the filtering capabilities.
 
-Grouping and aggregations are also supported. For instance, to find the count of devices in each telemetry configuration status, use the following query:
+Grouping is also supported. For instance, to find the count of devices in each telemetry configuration status, use the following query:
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
@@ -147,11 +153,23 @@ This grouping query would return a result similar to the following example:
 
 In this example, three devices reported successful configuration, two are still applying the configuration, and one reported an error.
 
-Projection queries allow developers to return only the properties they care about. For example, to retrieve the last activity time of all disconnected devices use the following query:
+Projection queries allow developers to return only the properties they care about. For example, to retrieve the last activity time along with the device ID of all enabled devices that are disconnected, use the following query:
 
 ```sql
-SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+SELECT DeviceId, LastActivityTime FROM devices WHERE status = 'enabled' AND connectionState = 'Disconnected'
 ```
+
+Here is an example query result of that query in **Query Explorer** for an IoT Hub:
+
+```json
+[
+  {
+    "deviceId": "AZ3166Device",
+    "lastActivityTime": "2021-05-07T00:50:38.0543092Z"
+  }
+]
+```
+
 
 ### Module twin queries
 
@@ -231,6 +249,8 @@ The query object exposes multiple **Next** values, depending on the deserializat
 > [!IMPORTANT]
 > Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the [get twin REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
+Query expressions can have a maximum length of 8192 characters.
+
 Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
 
 ## Get started with jobs queries
@@ -302,6 +322,8 @@ SELECT * FROM devices.jobs
 ```
 
 ### Limitations
+
+Query expressions can have a maximum length of 8192 characters.
 
 Currently, queries on **devices.jobs** do not support:
 

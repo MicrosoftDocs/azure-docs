@@ -4,6 +4,7 @@ description: A list of tutorials demonstrating Azure Data Factory concepts
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 03/16/2021
 ---
@@ -56,6 +57,10 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 
 [Data flows inside managed VNet](tutorial-data-flow-private.md)
 
+[Best practices for lake data in ADLS Gen2](tutorial-data-flow-write-to-lake.md)
+
+[Dynamically set column names](data-flow-tutorials.md)
+
 ## External data services
 
 [Azure Databricks notebook activity](transform-data-using-databricks-notebook.md)
@@ -78,7 +83,7 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 
 ## Data lineage
 
-[Azure Purview](turorial-push-lineage-to-purview.md)
+[Microsoft Purview](turorial-push-lineage-to-purview.md)
 
 ## Next steps
 Learn more about Data Factory [pipelines](concepts-pipelines-activities.md) and [data flows](concepts-data-flow-overview.md).

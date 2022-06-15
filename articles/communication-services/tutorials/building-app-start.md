@@ -4,15 +4,14 @@ titleSuffix: An Azure Communication Services tutorial
 description: Learn how to create a baseline web application that supports Azure Communication Services
 author: nmurav
 services: azure-communication-services
+
 ms.author: nmurav
-ms.date: 03/10/2021
-ms.topic: overview
+ms.date: 06/30/2021
+ms.topic: tutorial
 ms.service: azure-communication-services
 ---
 
 # Tutorial: Prepare a web app for Azure Communication Services (Node.js)
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 You can use Azure Communication Services to add real-time communications to your applications. In this tutorial, you'll learn how to set up a web application that supports Azure Communication Services. This is an introductory tutorial for new developers who want to get started with real-time communications.
 
@@ -233,12 +232,12 @@ Paste this code into `index.html`:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My first ACS application</title>
+    <title>My first Azure Communication Services application</title>
     <link rel="stylesheet" href="./app.css"/>
     <script src="./app.js" defer></script>
 </head>
 <body>
-    <h1>Hello from ACS!</h1>
+    <h1>Hello from Azure Communication Services!</h1>
 </body>
 </html>
 ```

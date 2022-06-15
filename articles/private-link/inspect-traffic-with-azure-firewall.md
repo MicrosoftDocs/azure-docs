@@ -12,6 +12,9 @@ ms.author: allensu
 ---
 # Use Azure Firewall to inspect traffic destined to a private endpoint
 
+> [!NOTE]
+> If you want to secure traffic to private endpoints in Azure Virtual WAN using secured virtual hub, see [Secure traffic destined to private endpoints in Azure Virtual WAN](../firewall-manager/private-link-inspection-secure-virtual-hub.md).
+
 Azure Private Endpoint is the fundamental building block for Azure Private Link. Private endpoints enable Azure resources deployed in a virtual network to communicate privately with private link resources.
 
 Private endpoints allow resources access to the private link service deployed in a virtual network. Access to the private endpoint through virtual network peering and on-premises network connections extend the connectivity.
@@ -21,7 +24,7 @@ You may need to inspect or block traffic from clients to the services exposed vi
 The following limitations apply:
 
 * Network security groups (NSG) are bypassed by traffic coming from private endpoints
-* User-defined routes (UDR) are bypassed by traffic coming from private endpoints
+* User-defined routes (UDR) are bypassed by traffic coming from private endpoints. User-defined routes can be used to override traffic destined for the private endpoint.
 * A single route table can be attached to a subnet
 * A route table supports up to 400 routes
 
@@ -34,7 +37,7 @@ Azure Firewall filters traffic using either:
 > The use of application rules over network rules is recommended when inspecting traffic destined to private endpoints in order to maintain flow symmetry. If network rules are used, or an NVA is used instead of Azure Firewall, SNAT must be configured for traffic destined to private endpoints.
 
 > [!NOTE]
-> SQL FQDN filtering is supported in [proxy-mode](../azure-sql/database/connectivity-architecture.md#connection-policy) only (port 1433). **Proxy** mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using FQDN in firewall network rules.
+> SQL FQDN filtering is supported in [proxy-mode](/azure/azure-sql/database/connectivity-architecture#connection-policy) only (port 1433). **Proxy** mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using FQDN in firewall network rules.
 
 ## Scenario 1: Hub and spoke architecture - Dedicated virtual network for private endpoints
 
@@ -112,6 +115,7 @@ Create three virtual networks and their corresponding subnets to:
 Replace the following parameters in the steps with the information below:
 
 ### Azure Firewall network
+
 | Parameter                   | Value                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -122,6 +126,7 @@ Replace the following parameters in the steps with the information below:
 | **\<subnet-address-range>** | 10.0.0.0/24          |
 
 ### Virtual machine network
+
 | Parameter                   | Value                |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -132,13 +137,14 @@ Replace the following parameters in the steps with the information below:
 | **\<subnet-address-range>** | 10.1.0.0/24          |
 
 ### Private endpoint network
+
 | Parameter                   | Value                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
 | **\<virtual-network-name>** | myPEVNet         |
 | **\<region-name>**          | South Central US      |
 | **\<IPv4-address-space>**   | 10.2.0.0/16          |
-| **\<subnet-name>**          | PrivateEndpointSubnet    |        |
+| **\<subnet-name>**          | PrivateEndpointSubnet |
 | **\<subnet-address-range>** | 10.2.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
@@ -165,7 +171,7 @@ Replace the following parameters in the steps with the information below:
     | **Administrator account** |  |
     | Authentication type | Select **Password**. |
     | Username | Enter a username of your choosing. |
-    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/linux/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/linux/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm Password | Reenter password. |
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
@@ -189,6 +195,8 @@ Replace the following parameters in the steps with the information below:
 6. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
 7. When you see the **Validation passed** message, select **Create**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Deploy the Firewall
 
@@ -559,7 +567,7 @@ In this section, you'll connect privately to the SQL Database using the private 
     Address: 10.2.0.4
     ```
 
-2. Install [SQL Server command-line tools](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
+2. Install [SQL Server command-line tools](/sql/linux/quickstart-install-connect-ubuntu#tools).
 
 3. Run the following command to connect to the SQL Server. Use the server admin and password you defined when you created the SQL Server in the previous steps.
 

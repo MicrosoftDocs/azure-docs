@@ -6,12 +6,12 @@ services: network-watcher
 documentationcenter: na
 author: damendo
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: damendo
+ms.author: damendo 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Analyze your Virtual Machine security with Security Group View using REST API
@@ -31,7 +31,7 @@ Security group view returns configured and effective network security rules that
 
 ## Before you begin
 
-In this scenario, you call the Network Watcher Rest API to get the security group view for a virtual machine. ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
+In this scenario, you call the Network Watcher REST API to get the security group view for a virtual machine. ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher. The scenario also assumes that a Resource Group with a valid virtual machine exists to be used.
 

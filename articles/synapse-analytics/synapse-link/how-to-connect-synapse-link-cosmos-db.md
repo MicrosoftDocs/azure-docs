@@ -1,15 +1,14 @@
 ---
 title: Connect to Azure Synapse Link for Azure Cosmos DB
 description: Learn how to connect an Azure Cosmos DB database to an Azure Synapse workspace with Azure Synapse Link.
-services: synapse-analytics 
-author: ArnoMicrosoft
-ms.service: synapse-analytics 
+author: Rodrigossz
+ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
 ms.date: 03/02/2021
-ms.author: acomet
-ms.reviewer: jrasnick
-ms.custom: cosmos-db
+ms.author: rosouz
+ms.reviewer: sngun
+ms.custom: cosmos-db, mode-other
 ---
 
 # Connect to Azure Synapse Link for Azure Cosmos DB
@@ -64,4 +63,5 @@ By right-clicking into a container, you have a list of gestures that will trigge
 
 * [Learn what is supported between Azure Synapse and Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
 * [Configure private endpoints for Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md)
-* [Learn how to query the analytical store with Spark](./how-to-query-analytical-store-spark.md)
+* [Learn how to query the analytical store with Spark 3](./how-to-query-analytical-store-spark-3.md)
+* [Learn how to query the analytical store with Spark 2](./how-to-query-analytical-store-spark.md)

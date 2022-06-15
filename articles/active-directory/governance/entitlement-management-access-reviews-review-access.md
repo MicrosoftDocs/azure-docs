@@ -1,19 +1,18 @@
 ---
 title: Review access of an access package in Azure AD entitlement management
-description: Learn how to complete an access review of entitlement management access packages in Azure Active Directory access reviews (Preview).
+description: Learn how to complete an access review of entitlement management access packages in Azure Active Directory access reviews.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: daveba
+author: amsliu
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
-ms.author: ajburnle
+ms.date: 09/15/2021
+ms.author: amsliu
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
@@ -27,12 +26,14 @@ Azure AD entitlement management simplifies how enterprises manage access to grou
 
 ## Prerequisites
 
-To review users' active access package assignments, you must meet the prerequisites to do an access review:
+To review users' active access package assignments, the creator of a review must satisfy these prerequisites:
 - Azure AD Premium P2
-- Global administrator
-- Designated User administrator, Catalog owner, or Access package manager
+- Global administrator, Identity Governance administrator, or User administrator
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
+
+>[!NOTE]
+>The reviewer can be anyone the creator of a review selects (group owner, manager of user, the user themselves, or any selected user or group).
 
 
 ## Open the access review
@@ -85,7 +86,7 @@ Once you open the access review, you will see the names of users for which you n
 If there are multiple reviewers, the last submitted response is recorded. Consider an example where an administrator designates two reviewers – Alice and Bob. Alice opens the review first and approves access. Before the review ends, Bob opens the review and denies access. In this case, the last deny access decision gets recorded.
 
 >[!NOTE]
->If a user is denied access, they aren't removed from the access package immediately. The user will be removed from the access package when the review ends, or an administrator ends the review.
+>If a user is denied access in the review, they aren't removed from the access package immediately. The user will be removed from the access package once the review results are applied after the review is closed. The review will close automatically at the end of the review duration or earlier if an administrator manually stops the review. 
 
 ### Approve or deny access using the system-generated recommendations
 

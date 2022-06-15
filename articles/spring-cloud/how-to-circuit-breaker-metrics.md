@@ -1,26 +1,29 @@
 ---
-title: Collect Spring Cloud Resilience4J Circuit Breaker Metrics 
-description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics. 
-author:  MikeDodaro
-ms.author: brendm
+title: Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer
+description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer in Azure Spring Apps.
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Collect Spring Cloud Resilience4J Circuit Breaker Metrics (Preview)
+# Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer (Preview)
 
-This document explains how to collect Spring Cloud Resilience4j Circuit Breaker Metrics with Application Insights java in-process agent.  With this feature you can monitor metrics of resilience4j circuit breaker from Application Insights.
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to collect Spring Cloud Resilience4j Circuit Breaker Metrics with Application Insights Java in-process agent. With this feature you can monitor metrics of resilience4j circuit breaker from Application Insights with Micrometer.
 
 We use the [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) to show how it works.
 
 ## Prerequisites
 
-* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./spring-cloud-howto-application-insights.md#enable-java-in-process-agent-for-application-insights). 
-
+* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights.md#manage-application-insights-using-the-azure-portal).
 * Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-
 * Install git, Maven, and Java, if not already in use by the development computer.
 
 ## Build and deploy apps
@@ -37,19 +40,25 @@ cd spring-cloud-circuitbreaker-demo && mvn clean package -DskipTests
 2. Create applications with endpoints
 
 ```azurecli
-az spring-cloud app create --name resilience4j --assign-endpoint \
-    -s ${asc-service-name} -g ${asc-resource-group}
-az spring-cloud app create --name reactive-resilience4j --assign-endpoint \
-    -s ${asc-service-name} -g ${asc-resource-group}
+az spring app create
+    --resource-group ${resource-group-name} \
+    --name resilience4j \
+    --service ${Azure-Spring-Apps-instance-name} \
+    --assign-endpoint
+az spring app create \
+    --resource-group ${resource-group-name} \
+    --service ${Azure-Spring-Apps-instance-name} \
+    --name reactive-resilience4j \
+    --assign-endpoint
 ```
 
 3. Deploy applications.
 
 ```azurecli
-az spring-cloud app deploy -n resilience4j \
+az spring app deploy -n resilience4j \
     --jar-path ./spring-cloud-circuitbreaker-demo-resilience4j/target/spring-cloud-circuitbreaker-demo-resilience4j-0.0.1.BUILD-SNAPSHOT.jar \
     -s ${service_name} -g ${resource_group}
-az spring-cloud app deploy -n reactive-resilience4j \
+az spring app deploy -n reactive-resilience4j \
     --jar-path ./spring-cloud-circuitbreaker-demo-reactive-resilience4j/target/spring-cloud-circuitbreaker-demo-reactive-resilience4j-0.0.1.BUILD-SNAPSHOT.jar \
     -s ${service_name} -g ${resource_group}
 ```
@@ -68,6 +77,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >       <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 >   </dependency>
 >   ```
+>
 > * The customer code must use the API of `CircuitBreakerFactory`, which is implemented as a `bean` automatically created when you include a Spring Cloud Circuit Breaker starter. For details see [Spring Cloud Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker#overview).
 >
 > * The following 2 dependencies have conflicts with resilient4j packages above.  Be sure the customer does not include them.
@@ -94,7 +104,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 ## Locate Resilence4j Metrics from Portal
 
-1. Select the **Application Insights** Blade from Azure Spring Cloud portal, and click **Application Insights**.
+1. Select the **Application Insights** Blade from Azure Spring Apps portal, and select **Application Insights**.
 
    [ ![resilience4J 0](media/spring-cloud-resilience4j/resilience4J-0.png)](media/spring-cloud-resilience4j/resilience4J-0.PNG)
 
@@ -106,11 +116,11 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
    [ ![resilience4J 2](media/spring-cloud-resilience4j/resilience4J-2.png)](media/spring-cloud-resilience4j/resilience4J-2.PNG)
 
-4. Select **resilience4j_circuitbreaker_calls**  metrics and **Average**.  Click **Add filter**, and then select name as **createNewAccount**.
+4. Select **resilience4j_circuitbreaker_calls**  metrics and **Average**. Select **Add filter**, and then select name as **createNewAccount**.
 
    [ ![resilience4J 3](media/spring-cloud-resilience4j/resilience4J-3.png)](media/spring-cloud-resilience4j/resilience4J-3.PNG)
 
-5. Select **resilience4j_circuitbreaker_calls**  metrics and **Average**.  Then click **Apply splitting**, and select **kind**.
+5. Select **resilience4j_circuitbreaker_calls**  metrics and **Average**.  Then select **Apply splitting**, and select **kind**.
 
    [ ![resilience4J 4](media/spring-cloud-resilience4j/resilience4J-4.png)](media/spring-cloud-resilience4j/resilience4J-4.PNG)
 
@@ -118,8 +128,8 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
    [ ![resilience4J 5](media/spring-cloud-resilience4j/resilience4j-5.png)](media/spring-cloud-resilience4j/resilience4j-5.PNG)
 
-## See also
+## Next steps
 
-* [Application insights](spring-cloud-howto-application-insights.md)
-* [Distributed tracing](spring-cloud-howto-distributed-tracing.md)
-* [Circuit breaker dashboard](spring-cloud-tutorial-circuit-breaker.md)
+* [Application insights](./how-to-application-insights.md)
+* [Distributed tracing](./how-to-distributed-tracing.md)
+* [Circuit breaker dashboard](./tutorial-circuit-breaker.md)

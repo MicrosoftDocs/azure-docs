@@ -4,7 +4,7 @@ description: This article describes the different management tasks that you will
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/14/2019
+ms.date: 04/06/2022
 
 ---
 
@@ -18,7 +18,7 @@ The Log Analytics agent for Windows and Linux can be upgraded to the latest rele
 
 | Environment | Installation Method | Upgrade method |
 |--------|----------|-------------|
-| Azure VM | Log Analytics agent VM extension for Windows/Linux | Agent is automatically upgraded by default unless you configured your Azure Resource Manager template to opt out by setting the property *autoUpgradeMinorVersion* to **false**. |
+| Azure VM | Log Analytics agent VM extension for Windows/Linux | Agent is automatically upgraded [after the VM model changes](../../virtual-machines/extensions/features-linux.md#how-agents-and-extensions-are-updated), unless you configured your Azure Resource Manager template to opt out by setting the property _autoUpgradeMinorVersion_ to **false**. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Major version upgrade is always manual. See [VirtualMachineExtensionInner.AutoUpgradeMinorVersion Property](https://docs.azure.cn/dotnet/api/microsoft.azure.management.compute.fluent.models.virtualmachineextensioninner.autoupgrademinorversion?view=azure-dotnet). |
 | Custom Azure VM images | Manual install of Log Analytics agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle.|
 | Non-Azure VMs | Manual install of Log Analytics agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle. |
 
@@ -34,7 +34,7 @@ You can download the latest version of the Windows agent from your Log Analytics
 
 3. In your list of Log Analytics workspaces, select the workspace.
 
-4. In your Log Analytics workspace, select **Advanced settings**, then select **Connected Sources**, and finally **Windows Servers**.
+4. In your Log Analytics workspace, select **Agents Management** tile, and then **Windows Servers**.
 
 5. From the **Windows Servers** page, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.
 
@@ -160,7 +160,7 @@ The following steps demonstrate how to reconfigure the Linux agent if you decide
 The agent service does not need to be restarted in order for the changes to take effect.
 
 ## Update proxy settings
-To configure the agent to communicate to the service through a proxy server or [Log Analytics gateway](./gateway.md) after deployment, use one of the following methods to complete this task.
+Log Analytics Agent (MMA) does not use the system proxy settings. Hence, user has to pass proxy setting while installing MMA and these settings will be stored under MMA configuration(registry) on VM. To configure the agent to communicate to the service through a proxy server or [Log Analytics gateway](./gateway.md) after deployment, use one of the following methods to complete this task.
 
 ### Windows agent
 
@@ -173,6 +173,7 @@ To configure the agent to communicate to the service through a proxy server or [
 3. Select **Microsoft Monitoring Agent** and then click the **Proxy Settings** tab.
 
 4. Click **Use a proxy server** and provide the URL and port number of the proxy server or gateway. If your proxy server or Log Analytics gateway requires authentication, type the username and password to authenticate and then click **OK**.
+
 
 #### Update settings using PowerShell
 

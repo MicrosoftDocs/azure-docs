@@ -1,47 +1,39 @@
 ---
-title: Set up a connection to Azure SQL Database using a managed identity
+title: Connect to Azure SQL
 titleSuffix: Azure Cognitive Search
 description: Learn how to set up an indexer connection to Azure SQL Database  using a managed identity
 
-manager: luisca
-author: markheff
-ms.author: maheff
-ms.devlang: rest-api
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
+ms.custom: subject-rbac-steps
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/11/2022
 ---
 
 # Set up an indexer connection to Azure SQL Database using a managed identity
 
-This page describes how to set up an indexer connection to Azure SQL Database using a managed identity instead of providing credentials in the data source object connection string.
+This article describes how to set up an Azure Cognitive Search indexer connection to Azure SQL Database using a managed identity instead of providing credentials in the connection string.
+
+You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure AD logins and require Azure role assignments to access data in Azure SQL.
 
 Before learning more about this feature, it is recommended that you have an understanding of what an indexer is and how to set up an indexer for your data source. More information can be found at the following links:
 
 * [Indexer overview](search-indexer-overview.md)
 * [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
-## Set up a connection using a managed identity
+## Prerequisites
 
-### 1 - Turn on system-assigned managed identity
+* [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used to authenticate to other Azure services within the same tenant and subscription. You can then use this identity in Azure role-based access control (Azure RBAC) assignments that allow access to data during indexing.
+* Azure AD admin role on SQL:
 
-![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Turn on system assigned managed identity")
+  To assign read permissions on the database, you must be an Azure AD admin with a server in SQL Database or SQL Managed Instance. See [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure) and follow the steps to provision an Azure AD admin.
 
-After selecting **Save** you will see an Object ID that has been assigned to your search service.
+## 1 - Assign permissions to read the database
 
-![Object ID](./media/search-managed-identities/system-assigned-identity-object-id.png "Object ID")
-
-### 2 - Provision Azure Active Directory Admin for SQL Server
-
-When connecting to the database in the next step, you will need to connect with an Azure Active Directory (Azure AD) account that has admin access to the database in order to give your search service permission to access the database.
-
-Follow the instructions [here](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database) to give your Azure AD account admin access to the database.
-
-### 3 - Assign the search service permissions
-
-Follow the below steps to assign the search service permission to read the database.
+Follow the below steps to assign the search service or user-assigned managed identity permission to read the database.
 
 1. Connect to Visual Studio
 
@@ -49,62 +41,66 @@ Follow the below steps to assign the search service permission to read the datab
 
 2. Authenticate with your Azure AD account
 
-    ![Authenticate](./media/search-managed-identities/visual-studio-authentication.png "Authenticate")
+    ![Authenticate](./media/search-managed-identities/visual-studio-authenticate.png "Authenticate")
 
 3. Execute the following commands:
 
-    Include the brackets around your search service name.
+    Include the brackets around your search service name or user-assigned managed identity name.
     
-    ```
-    CREATE USER [your search service name here] FROM EXTERNAL PROVIDER;
-    EXEC sp_addrolemember 'db_datareader', [your search service name here];
+    ```tsql
+    CREATE USER [insert your search service name here or user-assigned managed identity name] FROM EXTERNAL PROVIDER;
+    EXEC sp_addrolemember 'db_datareader', [insert your search service name here or user-assigned managed identity name];
     ```
 
     ![New query](./media/search-managed-identities/visual-studio-new-query.png "New query")
 
     ![Execute query](./media/search-managed-identities/visual-studio-execute-query.png "Execute query")
 
->[!NOTE]
-> If the search service identity from step 1 is changed after completing this step, then you must remove the role membership and remove the user in the SQL database, then add the permissions again by completing step 3 again.
-> Removing the role membership and user can be accomplished by running the following commands:
-> ```
-> sp_droprolemember 'db_datareader', [your search service name];
-> DROP USER IF EXISTS [your search service name];
-> ```
+If you later change the search service identity or user-assigned identity after assigning permissions, you must remove the role membership and remove the user in the SQL database, then repeat the permission assignment. Removing the role membership and user can be accomplished by running the following commands:
 
-### 4 - Add a role assignment
+ ```tsql
+sp_droprolemember 'db_datareader', [insert your search service name or user-assigned managed identity name];
 
-In this step you will give your Azure Cognitive Search service permission to read data from your SQL Server.
-
-1. In the Azure portal navigate to your Azure SQL Server page.
-2. Select **Access control (IAM)**
-3. Select **Add** then **Add role assignment**
-
-    ![Add role assignment](./media/search-managed-identities/add-role-assignment-sql-server.png "Add role assignment")
-
-4. Select the appropriate **Reader** role.
-5. Leave **Assign access to** as **Azure AD user, group or service principal**
-6. Search for your search service, select it, then select **Save**
-
-    ![Add reader role assignment](./media/search-managed-identities/add-role-assignment-sql-server-reader-role.png "Add reader role assignment")
-
-### 5 - Create the data source
-
-The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) support the managed identity connection string. Below is an example of how to create a data source to index data from an Azure SQL Database using the [REST API](/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
-
-When creating a data source using the [REST API](/rest/api/searchservice/create-data-source), the data source must have the following required properties:
-
-* **name** is the unique name of the data source within your search service.
-* **type** is `azuresql`
-* **credentials**
-    * When using a managed identity to authenticate, the **credentials** format is different than when not using a manged identity. Here you will provide an Initial Catalog or Database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Azure SQL Database, the resource group of SQL Database, and the name of the SQL database. 
-    * Managed identity connection string format:
-        * *Initial Catalog|Database=**database name**;ResourceId=/subscriptions/**your subscription ID**/resourceGroups/**your resource group name**/providers/Microsoft.Sql/servers/**your SQL Server name**/;Connection Timeout=**connection timeout length**;*
-* **container** specifies the name of the table or view that you would like to index.
-
-Example of how to create an Azure SQL data source object using the [REST API](/rest/api/searchservice/create-data-source):
-
+DROP USER IF EXISTS [insert your search service name or user-assigned managed identity name];
 ```
+
+## 2 - Add a role assignment
+
+In this section you'll give your Azure Cognitive Search service permission to read data from your SQL Server. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
+1. In the Azure portal, navigate to your Azure SQL Server page.
+
+1. Select **Access control (IAM)**.
+
+1. Select **Add > Add role assignment**.
+
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+
+1. On the **Role** tab, select the appropriate **Reader** role.
+
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. Select your Azure subscription.
+
+1. If you're using a system-assigned managed identity, select **System-assigned managed identity**, search for your search service, and then select it.
+
+1. Otherwise, if you're using a user-assigned managed identity, select **User-assigned managed identity**, search for the name of the user-assigned managed identity, and then select it.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+## 3 - Create the data source
+
+Create the data source and provide either a system-assigned managed identity or a user-assigned managed identity (preview). 
+
+### System-assigned managed identity
+
+The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) support system-assigned managed identity. 
+
+When you're connecting with a system-assigned managed identity, the only change to the data source definition is the format of the "credentials" property. You'll provide an Initial Catalog or Database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Azure SQL Database, the resource group of SQL Database, and the name of the SQL database.
+
+Here is an example of how to create a data source to index data from a storage account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
+
+```http
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
@@ -112,18 +108,53 @@ api-key: [admin key]
 {
     "name" : "sql-datasource",
     "type" : "azuresql",
-    "credentials" : { "connectionString" : "Database=sql-database;ResourceId=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azure-sql-resource-group/providers/Microsoft.Sql/servers/sql-server-search-demo;Connection Timeout=30;" },
-    "container" : { "name" : "my-table" }
+    "credentials" : { 
+        "connectionString" : "Database=[SQL database name];ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Sql/servers/[SQL Server name];Connection Timeout=30;"
+    },
+    "container" : { 
+        "name" : "my-table" 
+    }
 } 
 ```
 
-### 6 - Create the index
+### User-assigned managed identity (preview)
+
+The 2021-04-30-preview REST API supports connections based on a user-assigned managed identity. When you're connecting with a user-assigned managed identity, there are two changes to the data source definition:
+
+* First, the format of the "credentials" property is an Initial Catalog or Database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Azure SQL Database, the resource group of SQL Database, and the name of the SQL database. This is the same format as the system-assigned managed identity.
+
+* Second, you'll add an "identity" property that contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source. Set it to type "userAssignedIdentities".
+
+Here is an example of how to create an indexer data source object using the [preview Create or Update Data Source](/rest/api/searchservice/preview-api/create-or-update-data-source) REST API:
+
+```http
+POST https://[service name].search.windows.net/datasources?api-version=2021-04-30-preview
+Content-Type: application/json
+api-key: [admin key]
+
+{
+    "name" : "sql-datasource",
+    "type" : "azuresql",
+    "credentials" : { 
+        "connectionString" : "Database=[SQL database name];ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Sql/servers/[SQL Server name];Connection Timeout=30;"
+    },
+    "container" : { 
+        "name" : "my-table" 
+    },
+    "identity" : { 
+        "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+        "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[managed identity name]"
+    }
+}   
+```
+
+## 4 - Create the index
 
 The index specifies the fields in a document, attributes, and other constructs that shape the search experience.
 
-Here's how to create an index with a searchable `booktitle` field:   
+Here's a [Create Index](/rest/api/searchservice/create-index) REST API call with a searchable `booktitle` field:   
 
-```
+```http
 POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
@@ -131,23 +162,19 @@ api-key: [admin key]
 {
     "name" : "my-target-index",
     "fields": [
-    { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-    { "name": "booktitle", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
+        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "booktitle", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
     ]
 }
 ```
 
-For more on creating indexes, see [Create Index](/rest/api/searchservice/create-index)
+## 5 - Create the indexer
 
-### 7 - Create the indexer
+An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create the indexer.
 
-An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh.
+Here's a [Create Indexer](/rest/api/searchservice/create-indexer) REST API call with an Azure SQL indexer definition. The indexer will run when you submit the request.
 
-Once the index and data source have been created, you're ready to create the indexer.
-
-Example indexer definition for an Azure SQL indexer:
-
-```
+```http
 POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
@@ -155,22 +182,15 @@ api-key: [admin key]
 {
     "name" : "sql-indexer",
     "dataSourceName" : "sql-datasource",
-    "targetIndexName" : "my-target-index",
-    "schedule" : { "interval" : "PT2H" }
-}
+    "targetIndexName" : "my-target-index"
 ```    
-
-This indexer will run every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
-
-For more details on the Create Indexer API, check out [Create Indexer](/rest/api/searchservice/create-indexer).
-
-For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 ## Troubleshooting
 
 If you get an error when the indexer tries to connect to the data source that says that the client is not allowed to access the server, take a look at [common indexer errors](./search-indexer-troubleshooting.md).
 
+You can also rule out any firewall issues by trying the connection with and without restrictions in place.
+
 ## See also
 
-Learn more about the Azure SQL indexer:
 * [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

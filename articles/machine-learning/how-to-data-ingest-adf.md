@@ -4,22 +4,20 @@ titleSuffix: Azure Machine Learning
 description: Learn the available options for building a data ingestion pipeline with Azure Data Factory and the benefits of each.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
-ms.date: 01/26/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, data4ml
-
-# Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
-
+ms.date: 10/21/2021
+ms.topic: how-to
+ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
+#Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 ---
 
 # Data ingestion with Azure Data Factory
 
-In this article, you learn about the available options for building a data ingestion pipeline with [Azure Data Factory](../data-factory/introduction.md). This Azure Data Factory pipeline is used to ingest data for use with [Azure Machine Learning](overview-what-is-azure-ml.md). Data Factory allows you to easily extract, transform, and load (ETL) data. Once the data has been transformed and loaded into storage, it can be used to train your machine learning models in Azure Machine Learning.
+In this article, you learn about the available options for building a data ingestion pipeline with [Azure Data Factory](../data-factory/introduction.md). This Azure Data Factory pipeline is used to ingest data for use with [Azure Machine Learning](overview-what-is-azure-machine-learning.md). Data Factory allows you to easily extract, transform, and load (ETL) data. Once the data has been transformed and loaded into storage, it can be used to train your machine learning models in Azure Machine Learning.
 
 Simple data transformation can be handled with native Data Factory activities and instruments such as [data flow](../data-factory/control-flow-execute-data-flow-activity.md). When it comes to more complicated scenarios, the data can be processed with some custom code. For example, Python or R code.
 
@@ -87,7 +85,7 @@ The Data Factory pipeline saves the prepared data to your cloud storage (such as
 Consume your prepared data in Azure Machine Learning by, 
 
 * Invoking an Azure Machine Learning pipeline from your Data Factory pipeline.<br>**OR**
-* Creating an [Azure Machine Learning datastore](how-to-access-data.md#create-and-register-datastores) and [Azure Machine Learning dataset](how-to-create-register-datasets.md) for use at a later time.
+* Creating an [Azure Machine Learning datastore](how-to-access-data.md#create-and-register-datastores).
 
 ### Invoke Azure Machine Learning pipeline from Data Factory
 
@@ -114,6 +112,8 @@ If you don't want to create a ML pipeline, you can access the data directly from
 
 The following Python code demonstrates how to create a datastore that connects to Azure DataLake Generation 2 storage. [Learn more about datastores and where to find service principal permissions](how-to-access-data.md#create-and-register-datastores).
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 ws = Workspace.from_config()
 adlsgen2_datastore_name = '<ADLS gen2 storage account alias>'  #set ADLS Gen2 storage account alias in AML
@@ -137,7 +137,9 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(
 
 Next, create a dataset to reference the file(s) you want to use in your machine learning task. 
 
-The following code creates a TabularDataset from a csv file, `prepared-data.csv`. Learn more about [dataset types and accepted file formats](how-to-create-register-datasets.md#dataset-types). 
+The following code creates a TabularDataset from a csv file, `prepared-data.csv`. Learn more about [dataset types and accepted file formats](./v1/how-to-create-register-datasets.md#dataset-types). 
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace, Datastore, Dataset

@@ -1,21 +1,25 @@
 ---
-title: Copy data from and to a REST endpoint by using Azure Data Factory 
-description: Learn how to copy data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink by using a copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+title: Copy and transform data from and to a REST endpoint by using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to use Copy Activity to copy data and use Data Flow to transform data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink in Azure Data Factory or Azure Synapse Analytics pipelines. 
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.author: jingwang
+ms.date: 06/07/2022
+ms.author: makromer
 ---
-# Copy data from and to a REST endpoint by using Azure Data Factory
+
+# Copy and transform data from and to a REST endpoint by using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to a REST endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 The difference among this REST connector, [HTTP connector](connector-http.md), and the [Web table connector](connector-web-table.md) are:
 
-- **REST connector** specifically supports copying data from RESTful APIs; 
-- **HTTP connector** is generic to retrieve data from any HTTP endpoint, for example, to download file. Before this REST connector you may happen to use HTTP connector to copy data from RESTful API, which is supported but less functional comparing to REST connector.
+- **REST connector** specifically supports copying data from RESTful APIs.
+- **HTTP connector** is generic to retrieve data from any HTTP endpoint, for example, to download file. Before this REST connector you may happen to use HTTP connector to copy data from RESTful APIs, which is supported but less functional comparing to REST connector.
 - **Web table connector** extracts table content from an HTML webpage.
 
 ## Supported capabilities
@@ -25,7 +29,7 @@ You can copy data from a REST source to any supported sink data store. You also 
 Specifically, this generic REST connector supports:
 
 - Copying data from a REST endpoint by using the **GET** or **POST** methods and copying data to a REST endpoint by using the **POST**, **PUT** or **PATCH** methods.
-- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **AAD service principal**, and **managed identities for Azure resources**.
+- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **AAD service principal**, and **user-assigned managed identity**.
 - **[Pagination](#pagination-support)** in the REST APIs.
 - For REST as source, copying the REST JSON response [as-is](#export-json-response-as-is) or parse it by using [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping). Only response payload in **JSON** is supported.
 
@@ -34,11 +38,35 @@ Specifically, this generic REST connector supports:
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a REST linked service using UI
+
+Use the following steps to create a REST linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for REST and select the REST connector.
+
+    :::image type="content" source="media/connector-rest/rest-connector.png" alt-text="Select REST connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-rest/configure-rest-linked-service.png" alt-text="Configure REST linked service.":::
+
+## Connector configuration details
 
 The following sections provide details about properties you can use to define Data Factory entities that are specific to the REST connector.
 
@@ -126,13 +154,14 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 }
 ```
 
-### <a name="managed-identity"></a> Use managed identities for Azure resources authentication
-
+### Use user-assigned managed identity authentication
 Set the **authenticationType** property to **ManagedServiceIdentity**. In addition to the generic properties that are described in the preceding section, specify the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+
 
 **Example**
 
@@ -144,7 +173,11 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
         "typeProperties": {
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
-            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
+            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }    
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -372,6 +405,57 @@ REST connector as sink works with the REST APIs that accept JSON. The data will 
 ]
 ```
 
+## Mapping data flow properties
+
+REST is supported in data flows for both integration datasets and inline datasets.
+
+### Source transformation
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| requestMethod | The HTTP method. Allowed values are **GET** and **POST**. | Yes |
+| relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. The HTTP connector copies data from the combined URL: `[URL specified in linked service]/[relative URL specified in dataset]`. | No |
+| additionalHeaders | Additional HTTP request headers. | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to write the data. The default value is **00:01:40**.  | No |
+| requestInterval | The interval time between different requests in millisecond. Request interval value should be a number between [10, 60000]. |  No |
+| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter" is user-defined, which references one query parameter name in the next HTTP request URL. | No |
+
+### Sink transformation
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| additionalHeaders | Additional HTTP request headers. | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to write the data. The default value is **00:01:40**.  | No |
+| requestInterval | The interval time between different requests in millisecond. Request interval value should be a number between [10, 60000]. |  No |
+| httpCompressionType | HTTP compression type to use while sending data with Optimal Compression Level. Allowed values are **none** and **gzip**. | No |
+| writeBatchSize | Number of records to write to the REST sink per batch. The default value is 10000. | No |
+
+You can set the delete, insert, update, and upsert methods as well as the relative row data to send to the REST sink for CRUD operations.
+
+:::image type="content" source="media/data-flow/data-flow-sink.png" alt-text="Data flow REST sink":::
+
+## Sample data flow script
+
+Notice the use of an alter row transformation prior to the sink to instruct ADF what type of action to take with your REST sink. I.e. insert, update, upsert, delete.
+
+```
+AlterRow1 sink(allowSchemaDrift: true,
+	validateSchema: false,
+	deletable:true,
+	insertable:true,
+	updateable:true,
+	upsertable:true,
+	rowRelativeUrl: 'periods',
+	insertHttpMethod: 'PUT',
+	deleteHttpMethod: 'DELETE',
+	upsertHttpMethod: 'PUT',
+	updateHttpMethod: 'PATCH',
+	timeout: 30,
+	requestFormat: ['type' -> 'json'],
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> sink1
+```
+
 ## Pagination support
 
 When copying data from REST APIs, normally, the REST API limits its response payload size of a single request under a reasonable number; while to return large amount of data, it splits the result into multiple pages and requires callers to send consecutive requests to get next page of the result. Usually, the request for one page is dynamic and composed by the information returned from the response of previous page.
@@ -394,6 +478,9 @@ This generic REST connector supports the following pagination patterns:
 | AbsoluteUrl | Indicates the URL to issue the next request. It can be **either absolute URL or relative URL**. |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter" is user-defined, which references one query parameter name in the next HTTP request URL. |
 | Headers.*request_header* OR Headers['request_header'] | "request_header" is user-defined, which references one header name in the next HTTP request. |
+| EndCondition:*end_condition* | "end_condition" is user-defined, which indicates the condition that will end the pagination loop in the next HTTP request. |
+| MaxRequestNumber | Indicates the maximum pagination request number. Leave it as empty means no limit. |
+| SupportRFC5988 | By default, this is set to true if no pagination rule is defined. You can disable this rule by setting `supportRFC5988` to false or remove this property from script. |
 
 **Supported values** in pagination rules:
 
@@ -402,9 +489,236 @@ This generic REST connector supports the following pagination patterns:
 | Headers.*response_header* OR Headers['response_header'] | "response_header" is user-defined, which references one header name in the current HTTP response, the value of which will be used to issue next request. |
 | A JSONPath expression starting with "$" (representing the root of the response body) | The response body should contain only one JSON object. The JSONPath expression should return a single primitive value, which will be used to issue next request. |
 
-**Example:**
+>[!NOTE]
+> The pagination rules in mapping data flows is different from it in copy activity in the following aspects:
+>1. Range is not supported in mapping data flows.
+>2. `['']` is not supported in mapping data flows. Instead, use `{}` to escape special character. For example, `body.{@odata.nextLink}`, whose JSON node `@odata.nextLink` contains special character `.` .
+>3. The end condition is supported in mapping data flows, but the condition syntax is different from it in copy activity. `body` is used to indicate the response body instead of `$`. `header` is used to indicate the response header instead of `headers`. Here are two examples showing this difference:  
+>    - Example 1:  
+>      Copy activity: **"EndCondition:$.data": "Empty"**  
+>      Mapping data flows: **"EndCondition:body.data": "Empty"**  
+>    - Example 2:  
+>      Copy activity: **"EndCondition:headers.complete": "Exist"**  
+>      Mapping data flows: **"EndCondition:header.complete": "Exist"**  
 
-Facebook Graph API returns response in the following structure, in which case next page's URL is represented in ***paging.next***:
+### Pagination rules examples
+
+This section provides a list of examples for pagination rules settings.
+
+#### Example 1: Variables in QueryParameters
+
+This example provides the configuration steps to send multiple requests whose variables are in QueryParameters.
+
+**Multiple requests:**
+```
+baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=0,
+baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=1000,
+...... 
+baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=10000
+```
+
+*Step 1*: Input `sysparm_offset={offset}` either in **Base URL** or **Relative URL** as shown in the following screenshots:
+        
+:::image type="content" source="media/connector-rest/pagination-rule-example-1-rest-linked-service-base-url.png" alt-text="Screenshot showing one configuration to send multiple requests whose variables are in Query Parameters.":::  
+    
+or
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-1-rest-linked-service-relative-url.png" alt-text="Screenshot showing another configuration to send multiple requests whose variables are in Query Parameters."::: 
+        
+*Step 2*: Set **Pagination rules** as either option 1 or option 2：
+            
+- Option1: **"QueryParameters.{offset}" : "RANGE:0:10000:1000"**
+            
+- Option2: **"AbsoluteUrl.{offset}" : "RANGE:0:10000:1000"**
+
+
+#### Example 2：Variables in AbsoluteUrl
+
+This example provides the configuration steps to send multiple requests whose variables are in AbsoluteUrl.
+
+**Multiple requests:**
+```
+BaseUrl/api/now/table/t1
+BaseUrl/api/now/table/t2
+...... 
+BaseUrl/api/now/table/t100
+```
+
+*Step 1*: Input `{id}` either in **Base URL** in the linked service configuration page or **Relative URL** in the dataset connection pane.
+    
+:::image type="content" source="media/connector-rest/pagination-rule-example-2-rest-linked-service-base-url.png" alt-text="Screenshot showing one configuration to send multiple requests whose variables are in Absolute Url."::: 
+
+or
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-2-rest-linked-service-relative-url.png" alt-text="Screenshot showing another configuration to send multiple requests whose variables are in Absolute Url."::: 
+
+*Step 2*: Set **Pagination rules** as **"AbsoluteUrl.{id}" :"RANGE:1:100:1"**.
+
+#### Example 3：Variables in Headers
+
+This example provides the configuration steps to send multiple requests whose variables are in Headers.
+
+**Multiple requests:**<br/>
+RequestUrl: *https://example/table*<br/> 
+Request 1: `Header(id->0)`<br/>
+Request 2: `Header(id->10)`<br/>
+......<br/>
+Request 100: `Header(id->100)`<br/>
+
+*Step 1*: Input `{id}` in **Additional headers**.
+    
+*Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RARNGE:0:100:10"**.
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-3.png" alt-text="Screenshot showing the pagination rule to send multiple requests whose variables are in Headers."::: 
+
+#### Example 4：Variables are in AbsoluteUrl/QueryParameters/Headers, the end variable is not pre-defined and the end condition is based on the response
+
+This example provides configuration steps to send multiple requests whose variables are in AbsoluteUrl/QueryParameters/Headers but the end variable is not defined. For different responses, different end condition rule settings are shown in Example 4.1-4.6.
+
+**Multiple requests:**
+
+```
+Request 1: baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=0, 
+Request 2: baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=1000,
+Request 3: baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=2000,
+...... 
+```
+
+Two responses encountered in this example:<br/>
+
+Response 1：
+
+```json
+{
+    Data: [
+        {key1: val1, key2: val2
+        },
+        {key1: val3, key2: val4
+        }
+    ]
+}
+```
+
+Response 2：
+
+```json
+{
+    Data: [
+        {key1: val5, key2: val6
+        },
+        {key1: val7, key2: val8
+        }
+    ]
+}
+```
+    
+*Step 1*: Set the range of **Pagination rules** as [Example 1](#example-1-variables-in-queryparameters) and leave the end of range empty as **"AbsoluteUrl.{offset}": "RANGE:0::1000"**.
+
+*Step 2*: Set different end condition rules according to different last responses. See below examples:
+
+- **Example 4.1: The pagination ends when the value of the specific node in response is empty** 
+
+    The REST API returns the last response in the following structure:
+        
+    ```json
+    {
+        Data: []
+    }
+    ```
+    Set the end condition rule as **"EndCondition:$.data": "Empty"** to end the pagination when the value of the specific node in response is empty.
+
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-1.png" alt-text="Screenshot showing the End Condition setting for Example 4.1."::: 
+
+- **Example 4.2: The pagination ends when the value of the specific node in response dose not exist** 
+
+    The REST API returns the last response in the following structure:
+
+    ```json
+    {}
+    ```
+    Set the end condition rule as **"EndCondition:$.data": "NonExist"** to end the pagination when the value of the specific node in response dose not exist.
+        
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-2.png" alt-text="Screenshot showing the End Condition setting for Example 4.2."::: 
+
+- **Example 4.3: The pagination ends when the value of the specific node in response exists**
+    
+    The REST API returns the last response in the following structure:
+
+    ```json
+    {
+        Data: [
+            {key1: val991, key2: val992
+            },
+            {key1: val993, key2: val994
+            }
+        ],
+                Complete: true
+    }
+    ```
+    Set the end condition rule as **"EndCondition:$.Complete": "Exist"** to end the pagination when the value of the specific node in response exists.
+
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-3.png" alt-text="Screenshot showing the End Condition setting for Example 4.3."::: 
+
+- **Example 4.4: The pagination ends when the value of the specific node in response is a user-defined const value**
+
+    The REST API returns the response in the following structure:
+    ```json
+    {
+        Data: [
+            {key1: val1, key2: val2
+            },
+            {key1: val3, key2: val4
+            }
+        ],
+                Complete: false
+    }
+    ```
+    ......
+
+    And the last response is in the following structure:
+
+    ```json
+    {
+        Data: [
+            {key1: val991, key2: val992
+            },
+            {key1: val993, key2: val994
+            }
+        ],
+                Complete: true
+    }
+    ```
+    Set the end condition rule as **"EndCondition:$.Complete": "Const:true"** to end the pagination when the value of the specific node in response is a user-defined const value.
+        
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-4.png" alt-text="Screenshot showing the End Condition setting for Example 4.4."::: 
+
+- **Example 4.5: The pagination ends when the value of the header key in response equals to user-defined const value**
+
+    The header keys in REST API responses are shown in the structure below:
+
+    Response header 1: `header(Complete->0)`<br/>
+    ......<br/>
+    Last Response header: `header(Complete->1)`<br/>
+        
+    Set the end condition rule as **"EndCondition:headers.Complete": "Const:1"** to end the pagination when the value of the header key in response is equal to user-defined const value.
+        
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-5.png" alt-text="Screenshot showing the End Condition setting for Example 4.5."::: 
+
+- **Example 4.6: The pagination ends when the key exists in the response header**
+
+    The header keys in REST API responses are shown in the structure below:
+
+    Response header 1: `header()`<br/>
+    ......<br/>
+    Last Response header: `header(CompleteTime->20220920)`<br/>
+        
+    Set the end condition rule as **"EndCondition:headers.CompleteTime": "Exist"** to end the pagination when the key exists in the response header.
+
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-6.png" alt-text="Screenshot showing the End Condition setting for Example 4.6."::: 
+
+#### Example 5：Set end condition to avoid endless requests when range rule is not defined
+
+This example provides the configuration steps to send multiple requests when the range rule is not used. The end condition can be set refer to Example 4.1-4.6 to avoid endless requests. The REST API returns response in the following structure, in which case next page's URL is represented in ***paging.next***.
 
 ```json
 {
@@ -434,24 +748,85 @@ Facebook Graph API returns response in the following structure, in which case ne
         "next": "https://graph.facebook.com/me/albums?limit=25&after=MTAxNTExOTQ1MjAwNzI5NDE="
     }
 }
+...
 ```
-
-The corresponding REST copy activity source configuration especially the `paginationRules` is as follows:
+The last response is:
 
 ```json
-"typeProperties": {
-    "source": {
-        "type": "RestSource",
-        "paginationRules": {
-            "AbsoluteUrl": "$.paging.next"
+{
+    "data": [],
+    "paging": {
+        "cursors": {
+            "after": "MTAxNTExOTQ1MjAwNzI5NDE=",
+            "before": "NDMyNzQyODI3OTQw"
         },
-        ...
-    },
-    "sink": {
-        "type": "<sink type>"
+        "previous": "https://graph.facebook.com/me/albums?limit=25&before=NDMyNzQyODI3OTQw",
+        "next": "Same with Last Request URL"
     }
 }
 ```
+
+*Step 1*: Set **Pagination rules** as **"AbsoluteUrl": "$.paging.next"**.
+   
+*Step 2*: If `next` in the last response is always same with the last request URL and not empty, endless requests will be sent. The end condition can be used to avoid endless requests. Therefore, set the end condition rule refer to Example 4.1-4.6.
+
+#### Example 6：Set the max request number to avoid endless request
+
+Set **MaxRequestNumber** to avoid endless request as shown in the following screenshot:
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-6.png" alt-text="Screenshot showing the Max Request Number setting for Example 6."::: 
+
+#### Example 7：The RFC 5988 pagination rule is supported by default
+
+The backend will automatically get the next URL based on the RFC 5988 style links in the header.  
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-7-http-header.png" alt-text="Screenshot showing samples of the http header that complies with R F C 5988."::: 
+
+> [!TIP]
+> If you don't want to enable this default pagination rule, you can set `supportRFC5988` to `false` or just delete it in the script.
+>
+> :::image type="content" source="media/connector-rest/pagination-rule-example-7-disable-rfc5988.png" alt-text="Screenshot showing how to disable R F C 5988 setting for Example 7."::: 
+
+#### Example 8: The next request URL is from the response body when use pagination in mapping data flows
+
+This example states how to set the pagination rule and the end condition rule in mapping data flows when the next request URL is from the response body.
+
+The response schema is shown below:
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-8-response-schema.png" alt-text="Screenshot showing the response schema of Example 8."::: 
+
+The pagination rules should be set as the following screenshot:
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-8.png" alt-text="Screenshot showing how to set the pagination rule for Example 8."::: 
+
+By default, the pagination will stop when body **.{@odata.nextLink}** is null or empty. 
+
+But if the value of **@odata.nextLink** in the last response body is equal to the last request URL, then it will lead to the endless loop. To avoid this condition, define end condition rules.
+
+- If **Value** in the last response is **Empty**, then the end condition rule can be set as below: 
+
+    :::image type="content" source="media/connector-rest/pagination-rule-example-8-end-condition-1.png" alt-text="Screenshot showing setting the end condition rule when the last response is empty."::: 
+    
+- If the value of the complete key in the response header equals to true indicates the end of pagination, then the end condition rule can be set as below: 
+
+    :::image type="content" source="media/connector-rest/pagination-rule-example-8-end-condition-2.png" alt-text="Screenshot showing setting the end condition rule when the complete key in the response header equals to true indicates the end of pagination."::: 
+
+#### Example 9: The response format is XML and the next request URL is from the response body when use pagination in mapping data flows
+
+This example states how to set the pagination rule in mapping data flows when the response format is XML and the next request URL is from the response body. As shown in the following screenshot, the first URL is *https://\<user\>.dfs.core.windows.net/bugfix/test/movie_1.xml*
+
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-9-situation.png" alt-text="Screenshot showing the response format is X M L and the next request U R L is from the response body."::: 
+
+
+The response schema is shown below:
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-9-response-schema.png" alt-text="Screenshot showing the response schema of Example 9."::: 
+
+The pagination rule syntax is the same as in Example 8 and should be set as below in this example:
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-9.png" alt-text="Screenshot showing setting the pagination rule for Example 9."::: 
+
 
 ## Use OAuth
 This section describes how to use a solution template to copy data from REST connector into Azure Data Lake Storage in JSON format using OAuth. 
@@ -469,33 +844,33 @@ The template defines two parameters:
 ### How to use this solution template
 
 1. Go to the **Copy from REST or HTTP using OAuth** template. Create a new connection for Source Connection. 
-    ![Create new connections](media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png" alt-text="Create new connections":::
 
     Below are key steps for new linked service (REST) settings:
     
      1. Under **Base URL**, specify the url parameter for your own source REST service. 
      2. For **Authentication type**, choose *Anonymous*.
-        ![New REST connection](media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png)
+        :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png" alt-text="New REST connection":::
 
 2. Create a new connection for Destination Connection.  
-    ![New Gen2 connection](media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png" alt-text="New Gen2 connection":::
 
 3. Select **Use this template**.
-    ![Use this template](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png" alt-text="Use this template":::
 
 4. You would see the pipeline created as shown in the following example:
-    ![Screenshot shows the pipeline created from the template.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png" alt-text="Screenshot shows the pipeline created from the template.":::
 
 5. Select **Web** activity. In **Settings**, specify the corresponding **URL**, **Method**, **Headers**, and **Body** to retrieve OAuth bearer token from the login API of the service that you want to copy data from. The placeholder in the template showcases a sample of Azure Active Directory (AAD) OAuth. Note AAD authentication is natively supported by REST connector, here is just an example for OAuth flow. 
 
     | Property | Description |
     |:--- |:--- |
-    | URL |Specify the url to retrieve OAuth bearer token from. for example, in the sample here it's https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | URL |Specify the url to retrieve OAuth bearer token from. for example, in the sample here it's https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |
     | Method | The HTTP method. Allowed values are **Post** and **Get**. | 
     | Headers | Header is user-defined, which references one header name in the HTTP request. | 
     | Body | The body for the HTTP request. | 
 
-    ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png" alt-text="Pipeline":::
 
 6. In **Copy data** activity, select *Source* tab, you could see that the bearer token (access_token)  retrieved from previous step would be passed to Copy data activity as **Authorization** under Additional headers. Confirm settings for following properties before starting a pipeline run.
 
@@ -504,21 +879,21 @@ The template defines two parameters:
     | Request method | The HTTP method. Allowed values are **Get** (default) and **Post**. | 
     | Additional headers | Additional HTTP request headers.| 
 
-   ![Copy source Authentication](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png" alt-text="Copy source Authentication":::
 
 7. Select **Debug**, enter the **Parameters**, and then select **Finish**.
-   ![Pipeline run](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png" alt-text="Pipeline run"::: 
 
 8. When the pipeline run completes successfully, you would see the result similar to the following example:
-   ![Pipeline run result](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png" alt-text="Pipeline run result"::: 
 
 9. Click the "Output" icon of WebActivity in **Actions** column, you would see the access_token returned by the service.
 
-   ![Token output](media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png" alt-text="Token output"::: 
 
 10. Click the "Input" icon of CopyActivity in **Actions** column, you would see the access_token retrieved by WebActivity is passed to CopyActivity for authentication. 
 
-    ![Token input](media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png" alt-text="Token input":::
         
     >[!CAUTION] 
     >To avoid token being logged in plain text, enable "Secure output" in Web activity and "Secure input" in Copy activity.

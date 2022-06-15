@@ -3,14 +3,14 @@ title: Enable SharePoint User Profile service with Azure AD DS | Microsoft Docs
 description: Learn how to configure an Azure Active Directory Domain Services managed domain to support profile synchronization for SharePoint Server
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020 
+ms.date: 10/05/2021 
 ms.author: justinha
 
 ---
@@ -33,8 +33,7 @@ To complete this article, you need the following resources and privileges:
 * A Windows Server management VM that is joined to the Azure AD DS managed domain.
     * If needed, complete the tutorial to [create a management VM][tutorial-create-management-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
-* A SharePoint service account for the user profile synchronization service.
-    * If needed, see [Plan for administrative and service accounts in SharePoint Server][sharepoint-service-account].
+* The SharePoint service account name for the user profile synchronization service. For more information about the *Profile Synchronization account*, see [Plan for administrative and service accounts in SharePoint Server][sharepoint-service-account]. To get the *Profile Synchronization account* name from the SharePoint Central Administration website, click **Application Management** > **Manage service applications** > **User Profile service application**. For more information, see [Configure profile synchronization by using SharePoint Active Directory Import in SharePoint Server](/SharePoint/administration/configure-profile-synchronization-by-using-sharepoint-active-directory-import).
 
 ## Service accounts overview
 
@@ -65,9 +64,6 @@ From your Azure AD DS management VM, complete the following steps:
 
     ![Add the SharePoint service account to the AAD DC Service Accounts security group](./media/deploy-sp-profile-sync/add-member-to-aad-dc-service-accounts-group.png)
 
-## Next steps
-
-For more information, see [Manage user profile synchronization in SharePoint Server](/SharePoint/administration/manage-profile-synchronization).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

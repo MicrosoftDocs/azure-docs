@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Provision X.509 devices to Azure IoT Hub using a custom Hardware Security Module (HSM)
 description: This tutorial uses enrollment groups. In this tutorial, you learn how to provision X.509 devices using a custom Hardware Security Module (HSM) and the C device SDK for Azure IoT Hub Device Provisioning Service (DPS).
-author: wesmc7777
-ms.author: wesmc
-ms.date: 01/28/2021
+author: kgremban
+ms.author: kgremban
+ms.date: 05/24/2021
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps 
@@ -118,6 +118,10 @@ In this section you, will generate an X.509 certificate chain of three certifica
 
 To create the root and intermediate portions of the certificate chain:
 
+> [!IMPORTANT]
+> Only use the Bash shell approach with this article. Using PowerShell is possible but, it is not covered in this article.
+
+
 1. Open a Git Bash command prompt. Complete steps 1 and 2 using the Bash shell instructions that are located in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md#managing-test-ca-certificates-for-samples-and-tutorials).
 
     This creates a working directory for the certificate scripts, and generates the example root and intermediate certificate for the certificate chain using openssl. 
@@ -230,7 +234,7 @@ To create the device certificates signed by the intermediate certificate in the 
     >
     > However, the device must also have access to the private key for the device certificate. This is necessary because the device must perform verification using that key at runtime when attempting provisioning. The sensitivity of this key is one of the main reasons it is recommended to use hardware-based storage in a real HSM to help secure private keys.
 
-4. Repeat steps 1-3 for a second device with device ID `custom-hsm-device-02`. Use the following values for that device:
+4. Delete *./certs/new-device.cert.pem*, and repeat steps 1-3 for a second device with device ID `custom-hsm-device-02`. You must delete *./certs/new-device.cert.pem* or certificate generation will fail for the second device. Only the full chain certificate files will be used by this article. Use the following values for the second device:
 
     |   Description                 |  Value  |
     | :---------------------------- | :--------- |
@@ -240,6 +244,10 @@ To create the device certificates signed by the intermediate certificate in the 
     
 
 ## Verify ownership of the root certificate
+
+> [!NOTE]
+> As of July 1st, 2021, you can perform automatic verification of certificate via [automatic verification](how-to-verify-certificates.md#automatic-verification-of-intermediate-or-root-ca-through-self-attestation)
+>
 
 1. Using the directions from [Register the public part of an X.509 certificate and get a verification code](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`) and get a verification code from DPS.
 
@@ -287,7 +295,7 @@ To add the signing certificates to the certificate store in Windows-based device
     winpty openssl pkcs12 -inkey ../private/azure-iot-test-only.intermediate.key.pem -in ./azure-iot-test-only.intermediate.cert.pem -export -out ./intermediate.pfx
     ```
 
-2. Right-click the Windows **Start** button. Then left-click **Run**. Enter *certmgr.mcs* and click **Ok** to start certificate manager MMC snap-in.
+2. Right-click the Windows **Start** button. Then left-click **Run**. Enter *certmgr.msc* and click **Ok** to start certificate manager MMC snap-in.
 
 3. In certificate manager, under **Certificates - Current User**, click **Trusted Root Certification Authorities**. Then on the menu, click **Action** > **All Tasks** > **Import** to import `root.pfx`.
 
@@ -307,7 +315,7 @@ Your signing certificates are now trusted on the Windows-based device and the fu
 
 ## Create an enrollment group
 
-1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning service.
+1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning Service.
 
 2. Select the **Manage enrollments** tab, then select the **Add enrollment group** button at the top.
 
@@ -317,20 +325,20 @@ Your signing certificates are now trusted on the Windows-based device and the fu
 
     | Field        | Value           |
     | :----------- | :-------------- |
-    | **Group name** | For this tutorial, enter **custom-hsm-x509-devices** |
+    | **Group name** | For this tutorial, enter **custom-hsm-x509-devices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). |
     | **Attestation Type** | Select **Certificate** |
     | **IoT Edge device** | Select **False** |
     | **Certificate Type** | Select **Intermediate Certificate** |
-    | **Primary certificate .pem or .cer file** | Navigate to the intermediate you created earlier (*./certs/azure-iot-test-only.intermediate.cert.pem*) |
+    | **Primary certificate .pem or .cer file** | Navigate to the intermediate you created earlier (*./certs/azure-iot-test-only.intermediate.cert.pem*). This intermediate certificate is signed by the root certificate that you already uploaded and verified. DPS trusts that root once it is verified. DPS can verify the intermediate provided with this enrollment group is truly signed by the trusted root. DPS will trust each intermediate truly signed by that root certificate, and therefore be able to verify and trust leaf certificates signed by the intermediate.  |
 
 
 ## Configure the provisioning device code
 
 In this section, you update the sample code with your Device Provisioning Service instance information. If a device is authenticated, it will be assigned to an IoT hub linked to the Device Provisioning Service instance configured in this section.
 
-1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and note the **_ID Scope_** value.
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service and note the **_ID Scope_** value.
 
-    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/copy-id-scope.png) 
 
 2. Launch Visual Studio and open the new solution file that was created in the `cmake` directory you created in the root of the azure-iot-sdk-c git repository. The solution file is named `azure_iot_sdks.sln`.
 
@@ -500,7 +508,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 When you're finished testing and exploring this device client sample, use the following steps to delete all resources created by this tutorial.
 
 1. Close the device client sample output window on your machine.
-1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. Open **Manage Enrollments** for your service, and then select the **Enrollment Groups** tab. Select the check box next to the *Group Name* of the device group you created in this tutorial, and press the **Delete** button at the top of the pane. 
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning Service. Open **Manage Enrollments** for your service, and then select the **Enrollment Groups** tab. Select the check box next to the *Group Name* of the device group you created in this tutorial, and press the **Delete** button at the top of the pane. 
 1. Click **Certificates** in DPS. For each certificate you uploaded and verified in this tutorial, click the certificate and click the **Delete** button to remove it.
 1. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open **IoT devices** for your hub. Select the check box next to the *DEVICE ID* of the device that you registered in this tutorial. Click the **Delete** button at the top of the pane.
 

@@ -6,10 +6,9 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 
-ms.service: key-vault
+ms.service: dedicated-hsm
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.custom: "mvc, seodec18"
 ms.date: 03/25/2021
@@ -29,7 +28,7 @@ After they're provisioned, HSM devices are connected directly to a customer’s 
 
 ### FIPS 140-2 Level-3 compliance
 
-Many organizations have stringent industry regulations that dictate that cryptographic keys must be stored in [FIPS 140-2 Level-3](https://csrc.nist.gov/publications/detail/fips/140/2/final) validated HSMs. Azure Dedicated HSM and a new single-tenant offering, [Azure Key Vault Managed HSM](https://docs.microsoft.com/azure/key-vault/managed-hsm), help customers from various industry segments, such as financial services industry, government agencies, and others meet FIPS 140-2 Level-3 requirements. While Microsoft’s multi-tenant [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) service currently uses FIPS 140-2 Level-2 validated HSMs. 
+Many organizations have stringent industry regulations that dictate that cryptographic keys must be stored in [FIPS 140-2 Level-3](https://csrc.nist.gov/publications/detail/fips/140/2/final) validated HSMs. Azure Dedicated HSM and a new single-tenant offering, [Azure Key Vault Managed HSM](../key-vault/managed-hsm/index.yml), help customers from various industry segments, such as financial services industry, government agencies, and others meet FIPS 140-2 Level-3 requirements. While Microsoft’s multi-tenant [Azure Key Vault](../key-vault/index.yml) service currently uses FIPS 140-2 Level-2 validated HSMs. 
 
 ### Single-tenant devices
 
@@ -69,7 +68,7 @@ Azure Dedicated HSM is not a good fit for the following type of scenario: Micros
 
 ### It depends
 
-Whether Azure Dedicated HSM will work for you depends on a potentially complex mix of requirements and compromises that you can or cannot make. An example is the FIPS 140-2 Level 3 requirement. This requirement is common, and Azure Dedicated HSM and a new single-tenant offering, [Azure Key Vault Managed HSM](https://docs.microsoft.com/azure/key-vault/managed-hsm) are currently the only options for meeting it. If these mandated requirements aren't relevant, then often it's a choice between Azure Key Vault and Azure Dedicated HSM. Assess your requirements before making a decision.
+Whether Azure Dedicated HSM will work for you depends on a potentially complex mix of requirements and compromises that you can or cannot make. An example is the FIPS 140-2 Level 3 requirement. This requirement is common, and Azure Dedicated HSM and a new single-tenant offering, [Azure Key Vault Managed HSM](../key-vault/managed-hsm/index.yml) are currently the only options for meeting it. If these mandated requirements aren't relevant, then often it's a choice between Azure Key Vault and Azure Dedicated HSM. Assess your requirements before making a decision.
 
 Situations in which you will have to weigh your options include: 
 

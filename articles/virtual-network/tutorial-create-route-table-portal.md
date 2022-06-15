@@ -4,15 +4,15 @@ titlesuffix: Azure Virtual Network
 description: In this tutorial, learn how to route network traffic with a route table using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
-Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
+author: mbender-ms
+# Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/16/2021
-ms.author: kumud
+ms.author: mbender
 ---
 
 # Tutorial: Route network traffic with a route table using the Azure portal
@@ -29,11 +29,15 @@ Azure routes traffic between all subnets within a virtual network, by default. Y
 
 This tutorial uses the [Azure portal](https://portal.azure.com). You can also use [Azure CLI](tutorial-create-route-table-cli.md) or [Azure PowerShell](tutorial-create-route-table-powershell.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Overview
+
+This diagram shows the resources created in this tutorial along with the expected network routes.
+
+:::image type="content" source="./media/tutorial-create-route-table-portal/overview.png" alt-text="Overview Diagram showing the Public, Private and NVA Virtual Machines for this tutorial." border="true":::
 
 ## Prerequisites
 
-- An Azure subscription.
+Before you begin, you require an Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Sign in to Azure
 

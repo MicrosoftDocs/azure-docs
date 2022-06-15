@@ -1,9 +1,9 @@
 ---
 title: Web app performance monitoring - Azure Application Insights
-description: How Application Insights fits into the devOps cycle
+description: How Application Insights fits into the DevOps cycle
 ms.topic: conceptual
 ms.date: 12/21/2018
-
+ms.reviewer: cogoodson
 ---
 
 # Deep diagnostics for web apps and services with Application Insights
@@ -143,17 +143,13 @@ When an alert is raised, Application Insights can automatically create a work it
 ## But what about...?
 * [Privacy and storage](./data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
 * Performance - the impact is very low. Telemetry is batched.
-* [Pricing](./pricing.md) - You can get started for free, and that continues while you're in low volume.
+* [Pricing](../logs/cost-logs.md#application-insights-billing) - You can get started for free, and that continues while you're in low volume.
 
-
-## Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Next steps
 Getting started with Application Insights is easy. The main options are:
 
-* [IIS servers](./monitor-performance-live-website-now.md), and also for [Azure App Service](./app-insights-overview.md).
-* Instrument your project during development. You can do this for [ASP.NET](./asp-net.md) or [Java](./java-get-started.md) apps, as well as [Node.js](./nodejs.md) and a host of [other types](./platforms.md). 
+* [IIS servers](./status-monitor-v2-overview.md)
+* Instrument your project during development. You can do this for [ASP.NET](./asp-net.md) or [Java](./java-in-process-agent.md) apps, and [Node.js](./nodejs.md) and a host of [other types](./platforms.md). 
 * Instrument [any web page](./javascript.md) by adding a short code snippet.
 

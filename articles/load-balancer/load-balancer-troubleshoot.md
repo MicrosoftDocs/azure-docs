@@ -3,16 +3,15 @@ title: Troubleshoot common issues Azure Load Balancer
 description: Learn how to troubleshoot common issues with Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: greg-lindsay
 manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
-ms.author: allensu
+ms.author: greglin
 ---
 
 # Troubleshoot Azure Load Balancer
@@ -30,7 +29,7 @@ When the external clients to the backend VMs go through the load balancer, the I
 
 **Validation and resolution**
 
-Standard ILBs are **secure by default**. Basic ILBs allowed connecting to the internet via a *hidden* Public IP address. This isn't recommended for production workloads as the IP address is neither static nor locked down via NSGs that you own. If you recently moved from a Basic ILB to a Standard ILB, you should create a Public IP explicitly via [Outbound only](egress-only.md) configuration, which locks down the IP via NSGs. You can also use a [NAT Gateway](../virtual-network/nat-overview.md) on your subnet.
+Standard ILBs are **secure by default**. Basic ILBs allowed connecting to the internet via a *hidden* Public IP address called the default outbound access IP. This isn't recommended for production workloads as the IP address is neither static nor locked down via NSGs that you own. If you recently moved from a Basic ILB to a Standard ILB, you should create a Public IP explicitly via [Outbound only](egress-only.md) configuration, which locks down the IP via NSGs. You can also use a [NAT Gateway](../virtual-network/nat-gateway/nat-overview.md) on your subnet. NAT Gateway is the recommended solution for outbound.
 
 ## Can't change backend port for existing LB rule of a load balancer that has virtual machine scale set deployed in the backend pool.
 

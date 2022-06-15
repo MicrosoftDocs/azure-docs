@@ -3,12 +3,13 @@ title: Create or update Azure custom roles using an Azure Resource Manager templ
 description: Learn how to create or update Azure custom roles using an Azure Resource Manager template (ARM template) and Azure role-based access control (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 12/16/2020
-ms.author: rolyon
+ms.author: rolyon 
+ms.custom: devx-track-azurepowershell
 
 #Customer intent: As an IT admin, I want to create custom roles by using an Azure Resource Manager template so that I can start automating custom role processes.
 

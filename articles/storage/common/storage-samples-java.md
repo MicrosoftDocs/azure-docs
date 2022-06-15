@@ -1,14 +1,15 @@
 ---
 title: Azure Storage samples using Java | Microsoft Docs
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the Java storage client libraries.
-author: mhopkins-msft
+author: normesta
 
 ms.custom: devx-track-java
-ms.author: mhopkins
+ms.author: normesta
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
+ms.devlang: java
 ---
 
 # Azure Storage samples using v12 Java client libraries
@@ -107,6 +108,7 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 
 ### Troubleshooting
+
 :::row:::
    :::column span="2":::
       [Trigger a recoverable error using a container client](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/StorageErrorHandlingExample.java#L11)
@@ -116,6 +118,7 @@ The following table provides an overview of our samples repository and the scena
 ## Data Lake Storage Gen2 samples
 
 ### Data Lake service
+
 :::row:::
    :::column span="":::
       [Create a Data Lake service client](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L48)
@@ -126,6 +129,7 @@ The following table provides an overview of our samples repository and the scena
 :::row-end:::
 
 ### File system
+
 :::row:::
    :::column span="":::
       [Create a file system](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L64)
@@ -206,7 +210,6 @@ The following table provides an overview of our samples repository and the scena
       [Get access controls on a file](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/GetSetAccessControlExample.java#L104)
    :::column-end:::
 :::row-end:::
-
 
 ## Azure File samples
 
@@ -320,7 +323,6 @@ The following table provides an overview of our samples repository and the scena
    :::column-end:::
 :::row-end:::
 
-
 ## Queue samples
 
 ### Authentication
@@ -426,10 +428,10 @@ The following table provides an overview of our samples repository and the scena
 
 To view the complete Java sample libraries, go to:
 
-* [Azure blob code samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
-* [Azure Data Lake code samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
-* [Azure Files code samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share)
-* [Azure queue code samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
+- [Azure blob code samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+- [Azure Data Lake code samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
+- [Azure Files code samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share)
+- [Azure queue code samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
 
 You can browse and clone the GitHub repository for each library.
 
@@ -437,17 +439,17 @@ You can browse and clone the GitHub repository for each library.
 
 Check out the following guides if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
 
-* [Getting Started with Azure Blob Service in Java](../blobs/storage-quickstart-blobs-java.md)
-* [Getting Started with Azure Queue Service in Java](../queues/storage-quickstart-queues-java.md)
-* [Getting Started with Azure Table Service in Java](../../cosmos-db/table-storage-how-to-use-java.md)
-* [Getting Started with Azure File Service in Java](../files/storage-java-how-to-use-file-storage.md)
+- [Getting Started with Azure Blob Service in Java](../blobs/storage-quickstart-blobs-java.md)
+- [Getting Started with Azure Queue Service in Java](../queues/storage-quickstart-queues-java.md)
+- [Getting Started with Azure Table Service in Java](../../cosmos-db/table-storage-how-to-use-java.md)
+- [Getting Started with Azure File Service in Java](../files/storage-java-how-to-use-file-storage.md)
 
 ## Next steps
 
 For information on samples for other languages:
 
-* .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md)
-* Python: [Azure Storage samples using Python](storage-samples-python.md)
-* JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
-* C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
-* All other languages: [Azure Storage samples](storage-samples.md)
+- .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md)
+- Python: [Azure Storage samples using Python](storage-samples-python.md)
+- JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
+- C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
+- All other languages: [Azure Storage samples](storage-samples.md)

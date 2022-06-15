@@ -3,7 +3,7 @@ title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Ser
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
 services: container-service
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 1/9/2022
 
 ---
 
@@ -13,7 +13,7 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 ## Limitations
 * Data disk encryption support is limited to AKS clusters running Kubernetes version 1.17 and above.
-* Encryption of OS and data disk with customer-managed keys can only be enabled when creating an AKS cluster.
+* Encryption of OS disk with customer-managed keys can only be enabled when creating an AKS cluster.
 
 ## Prerequisites
 * You must enable soft delete and purge protection for *Azure Key Vault* when using Key Vault to encrypt managed disks.
@@ -121,10 +121,10 @@ Create a file called **byok-azure-disk.yaml** that contains the following inform
 kind: StorageClass
 apiVersion: storage.k8s.io/v1  
 metadata:
-  name: hdd
-provisioner: kubernetes.io/azure-disk
+  name: byok
+provisioner: disk.csi.azure.com # replace with "kubernetes.io/azure-disk" if aks version is less than 1.21
 parameters:
-  skuname: Standard_LRS
+  skuname: StandardSSD_LRS
   kind: managed
   diskEncryptionSetID: "/subscriptions/{myAzureSubscriptionId}/resourceGroups/{myResourceGroup}/providers/Microsoft.Compute/diskEncryptionSets/{myDiskEncryptionSetName}"
 ```
@@ -137,6 +137,10 @@ az aks get-credentials --name myAksCluster --resource-group myResourceGroup --ou
 kubectl apply -f byok-azure-disk.yaml
 ```
 
+## Using Azure tags
+
+For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
+
 ## Next steps
 
 Review [best practices for AKS cluster security][best-practices-security]
@@ -144,11 +148,12 @@ Review [best practices for AKS cluster security][best-practices-security]
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md
 [customer-managed-keys-windows]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [customer-managed-keys-linux]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
 [supported-regions]: ../virtual-machines/disk-encryption.md#supported-regions
+[use-tags]: use-tags.md

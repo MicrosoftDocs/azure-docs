@@ -1,12 +1,15 @@
 ---
 title: Expression builder in mapping data flow
-description: Build expressions by using Expression Builder in mapping data flows in Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Build expressions by using Expression Builder in mapping data flows in Azure Data Factory and Azure Synapse Analytics
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 09/09/2021
 ---
 
 # Build expressions in mapping data flow
@@ -15,41 +18,44 @@ ms.date: 02/04/2021
 
 In mapping data flow, many transformation properties are entered as expressions. These expressions are composed of column values, parameters, functions, operators, and literals that evaluate to a Spark data type at run time. Mapping data flows has a dedicated experience aimed to aid you in building these expressions called the **Expression Builder**. Utilizing  [IntelliSense](/visualstudio/ide/using-intellisense) code completion for highlighting, syntax checking, and autocompleting, the expression builder is designed to make building data flows easy. This article explains how to use the expression builder to effectively build your business logic.
 
-![Expression Builder](media/data-flow/expresion-builder.png "Expression Builder")
+:::image type="content" source="media/data-flow/expresion-builder.png" alt-text="Expression Builder":::
 
 ## Open Expression Builder
 
 There are multiple entry points to opening the expression builder. These are all dependent on the specific context of the data flow transformation. The most common use case is in transformations like [derived column](data-flow-derived-column.md) and [aggregate](data-flow-aggregate.md) where users create or update columns using the data flow expression language. The expression builder can be opened by selecting **Open expression builder** above the list of columns. You can also click on a column context and open the expression builder directly to that expression.
 
-![Open Expression Builder derive](media/data-flow/open-expression-builder-derive.png "Open Expression Builder derive")
+:::image type="content" source="media/data-flow/open-expression-builder-derive.png" alt-text="Open Expression Builder derive":::
 
 In some transformations like [filter](data-flow-filter.md), clicking on a blue expression text box will open the expression builder. 
 
-![Blue expression box](media/data-flow/expressionbox.png "Blue expression box")
+:::image type="content" source="media/data-flow/expressionbox.png" alt-text="Blue expression box":::
 
 When you reference columns in a matching or group-by condition, an expression can extract values from columns. To create an expression, select **Computed column**.
 
-![Computed column option](media/data-flow/computedcolumn.png "Computed column option")
+:::image type="content" source="media/data-flow/computedcolumn.png" alt-text="Computed column option":::
 
 In cases where an expression or a literal value are valid inputs, select **Add dynamic content** to build an expression that evaluates to a literal value.
 
-![Add dynamic content option](media/data-flow/add-dynamic-content.png "Add dynamic content option")
+:::image type="content" source="media/data-flow/add-dynamic-content.png" alt-text="Add dynamic content option":::
 
 ## Expression elements
 
 In mapping data flows, expressions can be composed of column values, parameters, functions, local variables, operators, and literals. These expressions must evaluate to a Spark data type such as string, boolean, or integer.
 
-![Expression elements](media/data-flow/expression-elements.png "Expression elements")
+:::image type="content" source="media/data-flow/expression-elements.png" alt-text="Expression elements":::
 
 ### Functions
 
-Mapping data flows has built-in functions and operators that can be used in expressions. For a list of available functions, see the [mapping data flow language reference](data-flow-expression-functions.md).
+Mapping data flows has built-in functions and operators that can be used in expressions. For a list of available functions, see the [mapping data flow language reference](data-transformation-functions.md).
+
+### User Defined Functions (Preview)
+Mapping data flows supports the creation and use of user defined functions. To see how to create and use user defined functions see [user defined functions](concepts-data-flow-udf.md).
 
 #### Address array indexes
 
 When dealing with columns or functions that return array types, use brackets ([]) to access a specific element. If the index doesn't exist, the expression evaluates into NULL.
 
-![Expression Builder array](media/data-flow/expression-array.png "Expression Data Preview")
+:::image type="content" source="media/data-flow/expression-array.png" alt-text="Expression Builder array":::
 
 > [!IMPORTANT]
 > In mapping data flows, arrays are one-based meaning the first element is referenced by index one. For example, myArray[1] will access the first element of an array called 'myArray'.
@@ -62,11 +68,11 @@ If your data flow uses a defined schema in any of its sources, you can reference
 
 When you have column names that include special characters or spaces, surround the name with curly braces to reference them in an expression.
 
-```{[dbo].this_is my complex name$$$}```
+`{[dbo].this_is my complex name$$$}`
 
 ### Parameters
 
-Parameters are values that are passed into a data flow at run time from a pipeline. To reference a parameter, either click on the parameter from the **Expression elements** view or reference it with a dollar sign in front of its name. For example, a parameter called parameter1 would be referenced by `$parameter1`. To learn more, see [parameterizing mapping data flows](parameters-data-flow.md).
+Parameters are values that are passed into a data flow at run time from a pipeline. To reference a parameter, either click on the parameter from the **Expression elements** view or reference it with a dollar sign in front of its name. For example, a parameter called parameter1 would be referenced by `$parameter1`. To learn more, see [parameterizing mapping data flows](parameters-data-flow.md). 
 
 ### Cached lookup
 
@@ -76,17 +82,27 @@ A cached lookup allows you to do an inline lookup of the output of a cached sink
 
 `outputs()` takes no parameters and  returns the entire cache sink as an array of complex columns. This can't be called if key columns are specified in the sink and should only be used if there is a small number of rows in the cache sink. A common use case is appending the max value of an incrementing key. If a cached single aggregated row `CacheMaxKey` contains a column `MaxKey`, you can reference the first value by calling `CacheMaxKey#outputs()[1].MaxKey`.
 
-![Cached lookup](media/data-flow/cached-lookup-example.png "Cached lookup")
+:::image type="content" source="media/data-flow/cached-lookup-example.png" alt-text="Cached lookup":::
 
 ### Locals
 
-If you are sharing logic across multiple columns or want to compartmentalize your logic, you can create a local within a derived column\. To reference a local, either click on the local from the **Expression elements** view or reference it with a colon in front of its name. For example, a local called local1 would be referenced by `:local1`. Learn more about locals in the [derived column documentation](data-flow-derived-column.md#locals).
+If you are sharing logic across multiple columns or want to compartmentalize your logic, you can create a local variable. A local is a set of logic that doesn't get propagated downstream to the following transformation. Locals can be created within the expression builder by going to **Expression elements** and selecting **Locals**. Create a new one by selecting **Create new**.
+
+:::image type="content" source="media/data-flow/create-local.png" alt-text="Create local":::
+
+Locals can reference any expression element including functions, input schema, parameters, and other locals. When referencing other locals, order does matter as the referenced local needs to be "above" the current one.
+
+:::image type="content" source="media/data-flow/create-local-2.png" alt-text="Create local 2":::
+
+To reference a local in a transformation, either click on the local from the **Expression elements** view or reference it with a colon in front of its name. For example, a local called local1 would be referenced by `:local1`. To edit a local definition, hover over it in the expression elements view and click on the pencil icon.
+
+:::image type="content" source="media/data-flow/using-locals.png" alt-text="Using locals":::
 
 ## Preview expression results
 
 If [debug mode](concepts-data-flow-debug-mode.md) is switched on, you can interactively use the debug cluster to preview what your expression evaluates to. Select **Refresh** next to data preview to update the results of the data preview. You can see the output of each row given the input columns.
 
-![In-progress preview](media/data-flow/preview-expression.png "Expression Data Preview")
+:::image type="content" source="media/data-flow/preview-expression.png" alt-text="In-progress preview":::
 
 ## String interpolation
 
@@ -118,7 +134,7 @@ The following examples are valid comments:
 
 If you put a comment at the top of your expression, it appears in the transformation text box to document your transformation expressions.
 
-![Comment in the transformation text box](media/data-flow/comment-expression.png "Comments")
+:::image type="content" source="media/data-flow/comment-expression.png" alt-text="Comment in the transformation text box":::
 
 ## Regular expressions
 
@@ -151,13 +167,13 @@ Below are a list of shortcuts available in the expression builder. Most intellis
 
 ### Convert to dates or timestamps
 
-To include string literals in your timestamp output, wrap your conversion in ```toString()```.
+To include string literals in your timestamp output, wrap your conversion in `toString()`.
 
-```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+`toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')`
 
 To convert milliseconds from epoch to a date or timestamp, use `toTimestamp(<number of milliseconds>)`. If time is coming in seconds, multiply by 1,000.
 
-```toTimestamp(1574127407*1000l)```
+`toTimestamp(1574127407*1000l)`
 
 The trailing "l" at the end of the previous expression signifies conversion to a long type as inline syntax.
 
@@ -168,6 +184,12 @@ toLong(
     toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd HH:mm:ss.SSS')
 ) * 1000l
 
+### Data flow time evaluation
+
+Dataflow processes till milliseconds. For *2018-07-31T20:00:00.2170000*, you will see *2018-07-31T20:00:00.217*  in output.
+In the portal for the service, timestamp is being shown in the **current browser setting**, which can  eliminate 217, but when you will run the data flow end to end, 217 (milliseconds part will be processed as well). You can use toString(myDateTimeColumn) as expression and see full precision data in preview. Process datetime as datetime rather than string for all practical purposes.
+ 
+
 ## Next steps
 
-[Begin building data transformation expressions](data-flow-expression-functions.md)
+[Begin building data transformation expressions](data-transformation-functions.md)

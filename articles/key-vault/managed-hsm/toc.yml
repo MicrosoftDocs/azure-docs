@@ -1,6 +1,6 @@
+items:
 - name: Managed HSM Documentation
   href: index.yml
-
 - name: Overview 
   items:
   - name: About Managed HSM
@@ -24,16 +24,26 @@
     href: role-management.md
   - name: Secure access to your Managed HSM
     href: secure-your-managed-hsm.md
+  - name: Use private endpoints
+    href: private-link.md
   - name: Set up logging for managed HSM
     href: logging.md
+  - name: Configure automated key rotation (preview)
+    href: key-rotation.md
   - name: Disaster recovery
     href: disaster-recovery-guide.md
   - name: Import HSM-protected keys to Managed HSM
     href: hsm-protected-keys-byok.md
   - name: Backup and restore
     href: backup-restore.md
+  - name: Recovery management with soft-delete and purge protection
+    href: recovery.md
+
+
 - name: Concepts 
   items:
+  - name: Control your data
+    href: mhsm-control-data.md
   - name: Security domain
     href: security-domain.md
   - name: Best practices
@@ -42,9 +52,13 @@
     href: access-control.md
   - name: Local RBAC built-in roles
     href: built-in-roles.md
+  - name: Managed HSM Soft-delete 
+    href: soft-delete-overview.md
 
 - name: Reference
   items:
+  - name: Secure key release policy grammar 
+    href: policy-grammar.md
   - name: Azure PowerShell
     href: /powershell/azure#key_vault
   - name: Azure CLI
@@ -56,7 +70,7 @@
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault-index
   - name: Python
-    href: /python/api/overview/azure/key-vault-index
+    href: /python/api/overview/azure/keyvault-keys-readme
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template
@@ -65,14 +79,16 @@
 
 - name: Resources
   items:
+  - name: Third party solutions
+    href: third-party-solutions.md
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-key-vault
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Region availability
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault&regions=all
   - name: Service Level Agreement (SLA)
-    href: https://azure.microsoft.com/support/legal/sla/key-vault/
+    href: https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/
   - name: Service limits
     href: ../general/service-limits.md
   - name: Service status
@@ -82,4 +98,4 @@
   - name: Blog
     href: /archive/blogs/kv/
   - name: Product Feedback
-    href: https://feedback.azure.com/forums/906355-azure-key-vault
+    href: https://feedback.azure.com/d365community/forum/10b76677-75b7-ec11-983f-000d3a9e3e90

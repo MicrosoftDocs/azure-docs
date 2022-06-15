@@ -1,34 +1,33 @@
 ---
 title: 'Quickstart: Create an Ubuntu Data Science Virtual Machine'
-titleSuffix: Azure Data Science Virtual Machine 
+titleSuffix: Azure Data Science Virtual Machine
 description: Configure and create a Data Science Virtual Machine for Linux (Ubuntu) to do analytics and machine learning.
 ms.service: data-science-vm
-
-author: lobrien
-ms.author: laobri
+author: jeff-shepherd
+ms.author: jeffshep
 ms.topic: quickstart
 ms.date: 03/10/2020
-
-# Customer intent: As a data scientist, I want to learn how to provision the Linux DSVM so that I can move my existing workflow to the cloud.
+ms.custom: mode-other
+#Customer intent: As a data scientist, I want to learn how to provision the Linux DSVM so that I can move my existing workflow to the cloud.
 ---
 
 # Quickstart: Set up the Data Science Virtual Machine for Linux (Ubuntu)
 
-Get up and running with the Ubuntu 18.04 Data Science Virtual Machine.
+Get up and running with the Ubuntu 18.04 and Ubuntu 20.04 Data Science Virtual Machines.
 
 ## Prerequisites
 
-To create an Ubuntu 18.04 Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
+To create an Ubuntu 18.04 or Ubuntu 20.04 Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
 
 >[!NOTE]
 >Azure free accounts don't support GPU enabled virtual machine SKUs.
 
 ## Create your Data Science Virtual Machine for Linux
 
-Here are the steps to create an instance of the Data Science Virtual Machine Ubuntu 18.04:
+Here are the steps to create an instance of the Data Science Virtual Machine from Ubuntu 18.04 or Ubuntu 20.04:
 
 1. Go to the [Azure portal](https://portal.azure.com). You might be prompted to sign in to your Azure account if you're not already signed in.
-1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine- Ubuntu 18.04"
+1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine- Ubuntu 18.04" or "Data Science Virtual Machine- Ubuntu 20.04"
 
 1. On the next window, select **Create**.
 
@@ -145,6 +144,6 @@ Here's how you can continue your learning and exploration:
 
 * The [Data science on the Data Science Virtual Machine for Linux](linux-dsvm-walkthrough.md) walkthrough shows you how to do several common data science tasks with the Linux DSVM provisioned here. 
 * Explore the various data science tools on the DSVM by trying out the tools described in this article. You can also run `dsvm-more-info` on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
-* Learn how to systematically build analytical solutions using the [Team Data Science Process](../team-data-science-process/index.yml).
+* Learn how to systematically build analytical solutions using the [Team Data Science Process](/azure/architecture/data-science-process/overview).
 * Visit the [Azure AI Gallery](https://gallery.azure.ai/) for machine learning and data analytics samples that use the Azure AI services.
 * Consult the appropriate [reference documentation](./reference-ubuntu-vm.md) for this virtual machine.

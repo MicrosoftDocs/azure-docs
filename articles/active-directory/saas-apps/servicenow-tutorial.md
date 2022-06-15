@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 04/06/2022
 ms.author: jeedes
 ---
 
@@ -29,11 +29,11 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A ServiceNow single sign-on (SSO) enabled subscription.
-* For ServiceNow, an instance or tenant of ServiceNow supports Calgary, Kingston, London, Madrid, New York, Orlando and Paris versions or later.
+* For ServiceNow, an instance or tenant of ServiceNow supports Calgary, Kingston, London, Madrid, New York, Orlando, Paris and San Diego versions or later.
 * For ServiceNow Express, an instance of ServiceNow Express, Helsinki version or later.
 * The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://old.wiki/index.php/Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled.
 * For automatic configuration, enable the multi-provider plugin for ServiceNow.
-* To install the ServiceNow Classic (Mobile) application, go to the appropriate store, and search for the ServiceNow Classic application. Then download it.
+* To install the ServiceNow Agent (Mobile) application, go to the appropriate store, and search for the ServiceNow Agent application. Then download it.
 
 > [!NOTE]
 > This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
@@ -46,7 +46,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * ServiceNow supports [Automated user provisioning](servicenow-provisioning-tutorial.md).
 
-* You can configure the ServiceNow Classic (Mobile) application with Azure AD for enabling SSO. It supports both Android and iOS users. In this tutorial, you configure and test Azure AD SSO in a test environment.
+* You can configure the ServiceNow Agent (Mobile) application with Azure AD for enabling SSO. It supports both Android and iOS users. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add ServiceNow from the gallery
 
@@ -73,7 +73,7 @@ To configure and test Azure AD SSO with ServiceNow, perform the following steps:
 	1. [Create a ServiceNow test user](#create-servicenow-test-user) to have a counterpart of B.Simon in ServiceNow, linked to the Azure AD representation of the user.
 	1. [Configure ServiceNow Express SSO](#configure-servicenow-express-sso) to configure the single sign-on settings on the application side.	
 3. [Test SSO](#test-sso) to verify whether the configuration works.
-4. [Test SSO for ServiceNow Classic (Mobile)](#test-sso-for-servicenow-classic-mobile) to verify whether the configuration works.
+4. [Test SSO for ServiceNow Agent (Mobile)](#test-sso-for-servicenow-agent-mobile) to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
@@ -88,7 +88,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. In the **Basic SAML Configuration** section, perform the following steps:
 
 	a. In **Sign on URL**, enter a URL that uses the following pattern:
-    `https://<instancename>.service-now.com/navpage.do`
+    `https://<instance-name>.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
+    
+    > [!NOTE]
+    >  Please copy the sys_id value from step 5.d.iii in **Configure ServiceNow** section.
 
     b. In **Identifier (Entity ID)**, enter a URL that uses the following pattern:
     `https://<instance-name>.service-now.com`
@@ -162,7 +165,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 4. In the **Basic SAML Configuration** section, perform the following steps:
 
 	a. For **Sign on URL**, enter a URL that uses the following pattern:
-    `https://<instancename>.service-now.com/navpage.do`
+    `https://<instance-name>.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`  please copy the sys_id value from step 5.d.iii in **Configure ServiceNow** section.
 
     b. For **Identifier (Entity ID)**, enter a URL that uses the following pattern:
     `https://<instance-name>.service-now.com`
@@ -263,18 +266,20 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 		     ![Screenshot of Identity Provider section](./media/servicenow-tutorial/automatic-config.png "Configure single sign-on")
 
-		       a. For **Name**, enter a name for your configuration (for example, **Microsoft Azure Federated single sign-on**).
+		       a. Right click on the grey bar at the top of the screen and click **Copy sys_id** and use this value to the **Sign on URL** in **Basic SAML Configuration** section.
 
-		       b. Copy the **ServiceNow Homepage** value, and paste it in **Sign-on URL** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
+			   b. For **Name**, enter a name for your configuration (for example, **Microsoft Azure Federated single sign-on**).
+
+		       c. Copy the **ServiceNow Homepage** value, and paste it in **Sign-on URL** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
 
 			    > [!NOTE]
 			    > The ServiceNow instance homepage is a concatenation of your **ServiceNow tenant URL** and **/navpage.do** (for example:`https://fabrikam.service-now.com/navpage.do`).
 
-		      c. Copy the **Entity ID / Issuer** value, and paste it in **Identifier** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
+		      d. Copy the **Entity ID / Issuer** value, and paste it in **Identifier** in the **ServiceNow Basic SAML Configuration** section of the Azure portal.
 
-		      d. Confirm that **NameID Policy** is set to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` value. 
+		      e. Confirm that **NameID Policy** is set to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` value. 
 
-			  e. Click on **Advanced** and give the **Single Sign-On Script** value as **MultiSSOv2_SAML2_custom**.
+			  f. Click on **Advanced** and give the **Single Sign-On Script** value as **MultiSSOv2_SAML2_custom**.
 
 	     1. Scroll down to the **X.509 Certificate** section, and select **Edit**.
 
@@ -325,7 +330,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	1. It reads the IdP metadata URL, and populates all the fields information.
 
-		![Screenshot of Identity Provider](./media/servicenow-tutorial/ic7694982.png "Configure single sign-on")
+		![Screenshot of Identity Provider](./media/servicenow-tutorial/identity-provider.png "Configure single sign-on")
 
 		a. For **Name**, enter a name for your configuration (for example, **Microsoft Azure Federated single sign-on**).
 
@@ -385,7 +390,7 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 
 5. In the **X.509 Certificates** dialog box, perform the following steps:
 
-	![Screenshot of X.509 Certificates dialog box](./media/servicenow-tutorial/ic7694975.png "Configure single sign-on")
+	![Screenshot of X.509 Certificates dialog box](./media/servicenow-tutorial/certificate.png "Configure single sign-on")
 
 	a. For **Name**, enter a name for your configuration (for example: **TestSAML2.0**).
 
@@ -405,7 +410,7 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 
 7. In the **Add New Identity Provider** dialog box, under **Configure Identity Provider**, perform the following steps:
 
-	![Screenshot of Add New Identity Provider dialog box](./media/servicenow-tutorial/ic7694982ex.png "Configure single sign-on")
+	![Screenshot of Add New Identity Provider dialog box](./media/servicenow-tutorial/new-identity-provider.png "Configure single sign-on")
 
 	a. For **Name**, enter a name for your configuration (for example: **SAML 2.0**).
 
@@ -419,7 +424,7 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 
 8. Select **Advanced Settings**. Under **Additional Identity Provider Properties**, perform the following steps:
 
-	![Screenshot of Add New Identity Provider dialog box, with Advanced Settings highlighted](./media/servicenow-tutorial/ic7694983ex.png "Configure single sign-on")
+	![Screenshot of Add New Identity Provider dialog box, with Advanced Settings highlighted](./media/servicenow-tutorial/advanced-settings.png "Configure single sign-on")
 
 	a. For **Protocol Binding for the IDP's SingleLogoutRequest**, enter **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
 
@@ -431,7 +436,7 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 
 9. Under **Additional Service Provider Properties**, perform the following steps:
 
-	![Screenshot of Add New Identity Provider dialog box, with various properties highlighted](./media/servicenow-tutorial/ic7694984ex.png "Configure single sign-on")
+	![Screenshot of Add New Identity Provider dialog box, with various properties highlighted](./media/servicenow-tutorial/service-provider.png "Configure single sign-on")
 
 	a. For **ServiceNow Homepage**, enter the URL of your ServiceNow instance homepage.
 
@@ -453,32 +458,28 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 
 ## Test SSO
 
-When you select the ServiceNow tile in the Access Panel, you should be automatically signed in to the ServiceNow for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you select the ServiceNow tile in the Access Panel, you should be automatically signed in to the ServiceNow for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-## Test SSO for ServiceNow Classic (Mobile)
+## Test SSO for ServiceNow Agent (Mobile)
 
-1. Open your **ServiceNow Classic (Mobile)** application, and perform the following steps:
+1. Open your **ServiceNow Agent (Mobile)** application, and perform the following steps:
 
-	a. Select the plus sign in the lower-right corner.
+	b. Enter your ServiceNow instance address, nickname and select **Save and Login**.
 
-	![Screenshot of ServiceNow Classic application, with plus sign highlighted](./media/servicenow-tutorial/test-03.png)
-
-	b. Enter your ServiceNow instance name, and select **Continue**.
-
-	![Screenshot of Add Instance page, with Continue highlighted](./media/servicenow-tutorial/test-04.png)
+	![Screenshot of Add Instance page, with Continue highlighted](./media/servicenow-tutorial/mobile-instance.png)
 
 	c. On the **Log in** page, perform the following steps:
 
-	![Screenshot of Log in page, with Use external login highlighted](./media/servicenow-tutorial/test-01.png)
+	![Screenshot of Log in page, with Use external login highlighted](./media/servicenow-tutorial/mobile-login.png)
 
 	*  Enter **Username**, like B.simon@contoso.com.
 
-	*  Select **USE EXTERNAL LOGIN**. You're redirected to the Azure AD page for sign-in.
+	*  Select **Use external login**. You're redirected to the Azure AD page for sign-in.
 
 	*  Enter your credentials. If there is any third-party authentication, or any other security feature enabled, the user must respond accordingly. The application **Home page** appears.
 
-		![Screenshot of the application home page](./media/servicenow-tutorial/test-02.png)
+		![Screenshot of the application home page](./media/servicenow-tutorial/mobile-landing-page.png)
 
 ## Next Steps
 
-Once you configure the ServiceNow you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+Once you configure the ServiceNow you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

@@ -1,11 +1,11 @@
 ---
 title: Schema reference for trigger and action types
-description: Schema reference guide for Workflow Definition Language trigger and action types in Azure Logic Apps
+description: Schema reference guide for Workflow Definition Language trigger and action types in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
-ms.topic: conceptual
-ms.date: 09/22/2020
+ms.reviewer: estfan, azla
+ms.topic: reference
+ms.date: 07/19/2021
 ms.custom: devx-track-js
 ---
 
@@ -1029,7 +1029,7 @@ This action definition merges `abcdefg ` with a trailing space and the value `12
 },
 ```
 
-Here is the output that this action creates:
+Here's the output that this action creates:
 
 `abcdefg 1234`
 
@@ -1045,7 +1045,7 @@ This action definition merges a string variable that contains `abcdefg` and an i
 },
 ```
 
-Here is the output that this action creates:
+Here's the output that this action creates:
 
 `"abcdefg1234"`
 
@@ -1053,7 +1053,7 @@ Here is the output that this action creates:
 
 ### Execute JavaScript Code action
 
-This action runs a JavaScript code snippet and returns the results through a `Result` token that later actions can reference.
+This action runs a JavaScript code snippet and returns the results through a token that subsequent actions in the workflow can reference.
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1061,7 +1061,7 @@ This action runs a JavaScript code snippet and returns the results through a `Re
    "inputs": {
       "code": "<JavaScript-code-snippet>",
       "explicitDependencies": {
-         "actions": [ <previous-actions> ],
+         "actions": [ <preceding-actions> ],
          "includeTrigger": true
       }
    },
@@ -1073,26 +1073,23 @@ This action runs a JavaScript code snippet and returns the results through a `Re
 
 | Value | Type | Description |
 |-------|------|-------------|
-| <*JavaScript-code-snippet*> | Varies | The JavaScript code that you want to run. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). <p>In the `code` attribute, your code snippet can use the read-only `workflowContext` object as input. This object has subproperties that give your code access to the results from the trigger and previous actions in your workflow. For more information about the `workflowContext` object, see [Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
+| <*JavaScript-code-snippet*> | Varies | The JavaScript code that you want to run. For code requirements and more information, see [Run code snippets in workflows](logic-apps-add-run-inline-code.md). <p>In the `code` attribute, your code snippet can use the read-only `workflowContext` object as input. This object has subproperties that give your code access to the outputs from the trigger and any preceding actions in your workflow. For more information about the `workflowContext` object, see [Reference trigger and action results using the workflowContext object](logic-apps-add-run-inline-code.md#workflowcontext). |
 ||||
 
 *Required in some cases*
 
-The `explicitDependencies` attribute specifies that you want to explicitly 
-include results from the trigger, previous actions, or both as dependencies 
-for your code snippet. For more information about adding these dependencies, see 
-[Add parameters for inline code](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters). 
+The `explicitDependencies` attribute specifies that you want to explicitly include results from the trigger, previous actions, or both as dependencies for your code snippet. For more information about adding these dependencies, see [Add dependencies as parameters to an Inline Code action](logic-apps-add-run-inline-code.md#add-parameters). 
 
 For the `includeTrigger` attribute, you can specify `true` or `false` values.
 
 | Value | Type | Description |
 |-------|------|-------------|
-| <*previous-actions*> | String array | An array with your specified action names. Use the action names that appear in your workflow definition where action names use underscores (_), not spaces (" "). |
+| <*preceding-actions*> | String array | An array with the action names in JSON format as dependencies. Make sure to use the action names that appear in your workflow definition where action names use underscores (**_**), not spaces (**" "**). |
 ||||
 
 *Example 1*
 
-This action runs code that gets your logic app's name and returns the text "Hello world from \<logic-app-name>" as the result. In this example, the code references the workflow's name by accessing the `workflowContext.workflow.name` property through the read-only `workflowContext` object. For more information about using the `workflowContext` object, see [Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
+This action runs code that gets your logic app workflow's name and returns the text "Hello world from \<logic-app-name>" as the result. In this example, the code references the workflow's name by accessing the `workflowContext.workflow.name` property through the read-only `workflowContext` object. For more information about using the `workflowContext` object, see [Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1106,26 +1103,24 @@ This action runs code that gets your logic app's name and returns the text "Hell
 
 *Example 2*
 
-This action runs code in a logic app that triggers when a new email arrives in a work or school account. The logic app also uses a send approval email action that forwards the content from the received email along with a request for approval.
+This action runs code in a logic app workflow that triggers when a new email arrives in an Outlook account. The workflow also uses the Office 365 Outlook **Send approval email** action that forwards the content from the received email along with a request for approval.
 
-The code extracts the email addresses from the trigger's `Body` property and returns the addresses along with the `SelectedOption` property value from the approval action. The action explicitly includes the send approval email action as a dependency in the `explicitDependencies` > `actions` attribute.
+The code extracts the email addresses from the email message's `Body` property, and returns the addresses along with the `SelectedOption` property value from the approval action. The action explicitly includes the **Send approval email** action as a dependency in the `actions` object inside the `explicitDependencies` object.
 
 ```json
 "Execute_JavaScript_Code": {
    "type": "JavaScriptCode",
    "inputs": {
-      "code": "var re = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email_.outputs.body.SelectedOption;\r\n\r\nreturn email.match(re) + \" - \" + reply;\r\n;",
+      "code": "var myResult = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email.outputs.body.SelectedOption;\r\n\r\nreturn email.match(myResult) + \" - \" + reply;\r\n;",
       "explicitDependencies": {
          "actions": [
-            "Send_approval_email_"
+            "Send_approval_email"
          ]
       }
    },
    "runAfter": {}
 }
 ```
-
-
 
 <a name="function-action"></a>
 
@@ -1153,7 +1148,7 @@ This action calls a previously created [Azure function](../azure-functions/funct
 
 | Value | Type | Description | 
 |-------|------|-------------|  
-| <*Azure-function-ID*> | String | The resource ID for the Azure function you want to call. Here is the format for this value:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
+| <*Azure-function-ID*> | String | The resource ID for the Azure function you want to call. Here's the format for this value:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
 | <*method-type*> | String | The HTTP method to use for calling the function: "GET", "PUT", "POST", "PATCH", or "DELETE" <p>If not specified, the default is the "POST" method. | 
 ||||
 
@@ -1569,7 +1564,7 @@ This action definition creates a JSON object array from an integer array. The ac
 },
 ```
 
-Here is the array that this action creates:
+Here's the array that this action creates:
 
 `[ { "number": 1 }, { "number": 2 }, { "number": 3 } ]`
 
@@ -1676,7 +1671,7 @@ This action definition creates a CSV table from the "myItemArray" variable. The 
 }
 ```
 
-Here is the CSV table that this action creates: 
+Here's the CSV table that this action creates: 
 
 ```
 ID,Product_Name 
@@ -1699,7 +1694,7 @@ This action definition creates an HTML table from the "myItemArray" variable. Th
 }
 ```
 
-Here is the HTML table that this action creates: 
+Here's the HTML table that this action creates: 
 
 <table><thead><tr><th>ID</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Apples</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
 
@@ -1728,7 +1723,7 @@ This action definition creates an HTML table from the "myItemArray" variable. Ho
 },
 ```
 
-Here is the HTML table that this action creates: 
+Here's the HTML table that this action creates: 
 
 <table><thead><tr><th>Stock_ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Organic Apples</td></tr><tr><td>1</td><td>Organic Oranges</td></tr></tbody></table>
 
@@ -1905,7 +1900,6 @@ The Logic Apps engine checks access to the trigger you want to call, so make sur
 | <*trigger-name*> | String | The name for the trigger in the nested logic app you want to call | 
 | <*Azure-subscription-ID*> | String | The Azure subscription ID for the nested logic app |
 | <*Azure-resource-group*> | String | The Azure resource group name for the nested logic app |
-| <*nested-logic-app-name*> | String | The name for the logic app you want to call |
 ||||
 
 *Optional*
@@ -2410,6 +2404,8 @@ You can change the default behavior for triggers and actions with the `operation
 | `IncludeAuthorizationHeadersInOutputs` | String | For logic apps that [enable Azure Active Directory Open Authentication (Azure AD OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) to authorize access for inbound calls to a request-based trigger endpoint, include the `Authorization` header from the OAuth access token in the trigger outputs. For more information, see [Include 'Authorization' header in request trigger outputs](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Triggers: <p>[Request](#request-trigger), <br>[HTTP Webhook](#http-webhook-trigger) | 
 | `Sequential` | String | Run "for each" loop iterations one at a time, rather than all at the same time in parallel. <p>This option works the same way as setting the `runtimeConfiguration.concurrency.repetitions` property to `1`. You can set either property, but not both. <p><p>To set this option, see [Run "for each" loops sequentially](#sequential-for-each).| Action: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Run the trigger for each logic app instance sequentially and wait for the previously active run to finish before triggering the next logic app instance. <p><p>This option works the same way as setting the `runtimeConfiguration.concurrency.runs` property to `1`. You can set either property, but not both. <p>To set this option, see [Trigger instances sequentially](#sequential-trigger). | All triggers | 
+| `SuppressWorkflowHeaders` | String | Don't send `x-ms-*` metadata headers in outbound requests. By default, the Azure Logic Apps service includes extra metadata headers with the `x-ms-` prefix in the header name as part of outbound requests. However, some legacy services won't accept requests with extra unknown headers, resulting in failed requests. | Actions: <p>[HTTP](#http-action), <br>[Function](#function-action), <br>APIManagement | 
+| `SuppressWorkflowHeadersOnResponse` | String | Don't send `x-ms-*` metadata headers in responses to inbound trigger requests. By default, the Azure Logic Apps service sends responses to inbound requests that include extra metadata headers with the `x-ms-` prefix in the header name. However, some legacy services won't accept requests or responses with extra unknown headers, resulting in failed requests. | Triggers: <p>[Request](#request-trigger), <br>[HTTP Webhook](#http-webhook-trigger) | 
 ||||
 
 <a name="change-trigger-concurrency"></a>
@@ -2420,11 +2416,11 @@ By default, logic app workflow instances all run at the same time (concurrently 
 
 When you turn on the trigger's concurrency control, trigger instances run in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this default concurrency limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of new workflow instances that can run in parallel.
 
-Here are some considerations for when you want to enable concurrency on a trigger:
-
-* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
+Here are some considerations to review before you enable concurrency on a trigger:
 
 * You can't disable concurrency after you enable the concurrency control.
+
+* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
 
 * When concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
 
@@ -2445,7 +2441,7 @@ Here are some considerations for when you want to enable concurrency on a trigge
 
   * To work around this possibility, add a timeout to any action that might hold up these runs. If you're working in the code editor, see [Change asynchronous duration](#asynchronous-limits). Otherwise, if you're using the designer, follow these steps:
 
-    1. In your logic app, on the action where you want to add a timeout, in the upper-right corner, select the ellipses (**...**) button, and then select **Settings**.
+    1. In your logic app workflow, select the action where you want to add a timeout. In the action's upper-right corner, select the ellipses (**...**) button, and then select **Settings**.
 
        ![Open action settings](./media/logic-apps-workflow-actions-triggers/action-settings.png)
 
@@ -2457,9 +2453,9 @@ Here are some considerations for when you want to enable concurrency on a trigge
 
 #### Edit in code view 
 
-In the underlying trigger definition, add the `runtimeConfiguration.concurrency.runs` property, which can have a value that ranges from `1` to `50`.
+In the underlying trigger definition, add the `runtimeConfiguration.concurrency.runs` property, and set the value based on the [trigger concurrency limits](logic-apps-limits-and-config.md#concurrency-debatching). To run your workflow sequentially, set the property value to `1`.
 
-Here is an example that limits concurrent runs to 10 instances:
+This example limits concurrent runs to 10 instances:
 
 ```json
 "<trigger-name>": {
@@ -2503,7 +2499,7 @@ To change the default limit, you can use either the code view editor or Logic Ap
 
 In the underlying "for each" definition, add or update the `runtimeConfiguration.concurrency.repetitions` property, which can have a value that ranges from `1` and `50`.
 
-Here is an example that limits concurrent runs to 10 iterations:
+Here's an example that limits concurrent runs to 10 iterations:
 
 ```json
 "For_each" {

@@ -2,8 +2,9 @@
 title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/10/2022
 ---
+
 # Deployment functions for ARM templates
 
 Resource Manager provides the following functions for getting values related to the current deployment of your Azure Resource Manager template (ARM template):
@@ -15,13 +16,16 @@ Resource Manager provides the following functions for getting values related to 
 
 To get values from resources, resource groups, or subscriptions, see [Resource functions](template-functions-resource.md).
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [deployment](../bicep/bicep-functions-deployment.md) functions.
 
 ## deployment
 
 `deployment()`
 
 Returns information about the current deployment operation.
+
+In Bicep, use the [deployment](../bicep/bicep-functions-deployment.md#deployment) function.
 
 ### Return value
 
@@ -126,9 +130,7 @@ When you deploy to an Azure subscription, management group, or tenant, the retur
 
 ### Remarks
 
-You can use deployment() to link to another template based on the URI of the parent template.
-
-# [JSON](#tab/json)
+You can use `deployment()` to link to another template based on the URI of the parent template.
 
 ```json
 "variables": {
@@ -136,43 +138,13 @@ You can use deployment() to link to another template based on the URI of the par
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-var sharedTemplateUrl = uri(deployment().prperties.templateLink.uri, 'shared-resources.json')
-```
-
----
-
 If you redeploy a template from the deployment history in the portal, the template is deployed as a local file. The `templateLink` property isn't returned in the deployment function. If your template relies on `templateLink` to construct a link to another template, don't use the portal to redeploy. Instead, use the commands you used to originally deploy the template.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) returns the deployment object:
+The following example returns a deployment object.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "deploymentOutput": {
-      "type": "object",
-      "value": "[deployment()]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-output deploymentOutput object = deployment()
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/deployment.json":::
 
 The preceding example returns the following object:
 
@@ -199,11 +171,17 @@ The preceding example returns the following object:
 }
 ```
 
+For a subscription deployment, the following example returns a deployment object.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/deploymentsubscription.json":::
+
 ## environment
 
 `environment()`
 
 Returns information about the Azure environment used for deployment.
+
+In Bicep, use the [environment](../bicep/bicep-functions-deployment.md#environment) function.
 
 ### Return value
 
@@ -247,29 +225,7 @@ This function returns properties for the current Azure environment. The followin
 
 The following example template returns the environment object.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "environmentOutput": {
-      "type": "object",
-      "value": "[environment()]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-output environmentOutput object = environment()
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/environment.json":::
 
 The preceding example returns the following object when deployed to global Azure:
 
@@ -287,7 +243,7 @@ The preceding example returns the following object when deployed to global Azure
   "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
   "resourceManager": "https://management.azure.com/",
   "authentication": {
-    "loginEndpoint": "https://login.windows.net/",
+    "loginEndpoint": "https://login.microsoftonline.com/",
     "audiences": [
       "https://management.core.windows.net/",
       "https://management.azure.com/"
@@ -313,6 +269,8 @@ The preceding example returns the following object when deployed to global Azure
 
 Returns a parameter value. The specified parameter name must be defined in the parameters section of the template.
 
+In Bicep, directly reference [parameters](../bicep/parameters.md) by using their symbolic names.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -326,8 +284,6 @@ The value of the specified parameter.
 ### Remarks
 
 Typically, you use parameters to set resource values. The following example sets the name of web site to the parameter value passed in during deployment.
-
-# [JSON](#tab/json)
 
 ```json
 "parameters": {
@@ -344,105 +300,11 @@ Typically, you use parameters to set resource values. The following example sets
 ]
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param siteName string
-
-resource mySite 'Microsoft.Web/Sites@2016-08-01' = {
-  name: siteName
-  ...
-}
-```
-
----
-
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) shows a simplified use of the parameters function.
+The following example shows a simplified use of the parameters function.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringParameter": {
-      "type": "string",
-      "defaultValue": "option 1"
-    },
-    "intParameter": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "objectParameter": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b"
-      }
-    },
-    "arrayParameter": {
-      "type": "array",
-      "defaultValue": [ 1, 2, 3 ]
-    },
-    "crossParameter": {
-      "type": "string",
-      "defaultValue": "[parameters('stringParameter')]"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "stringOutput": {
-      "value": "[parameters('stringParameter')]",
-      "type": "string"
-    },
-    "intOutput": {
-      "value": "[parameters('intParameter')]",
-      "type": "int"
-    },
-    "objectOutput": {
-      "value": "[parameters('objectParameter')]",
-      "type": "object"
-    },
-    "arrayOutput": {
-      "value": "[parameters('arrayParameter')]",
-      "type": "array"
-    },
-    "crossOutput": {
-      "value": "[parameters('crossParameter')]",
-      "type": "string"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-param stringParameter string = 'option 1'
-param intParameter int = 1
-param objectParameter object = {
-  'one': 'a'
-  'two': 'b'
-}
-param arrayParameter array = [
-  1
-  2
-  3
-]
-param crossParameter string = stringParameter
-
-output stringOutput string = stringParameter
-output intOutput int = intParameter
-output objectOutput object = objectParameter
-output arrayOutput array = arrayParameter
-output crossOutput string = crossParameter
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/parameters.json":::
 
 The output from the preceding example with the default values is:
 
@@ -454,13 +316,15 @@ The output from the preceding example with the default values is:
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | option 1 |
 
-For more information about using parameters, see [Parameters in ARM templates](template-parameters.md).
+For more information about using parameters, see [Parameters in ARM templates](./parameters.md).
 
 ## variables
 
 `variables(variableName)`
 
 Returns the value of variable. The specified variable name must be defined in the variables section of the template.
+
+In Bicep, directly reference [variables](../bicep/variables.md) by using their symbolic names.
 
 ### Parameters
 
@@ -475,8 +339,6 @@ The value of the specified variable.
 ### Remarks
 
 Typically, you use variables to simplify your template by constructing complex values only once. The following example constructs a unique name for a storage account.
-
-# [JSON](#tab/json)
 
 ```json
 "variables": {
@@ -499,88 +361,11 @@ Typically, you use variables to simplify your template by constructing complex v
 
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-var storageName = 'storage${uniqueString(resourceGroup().id)}'
-
-resource myStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: storageName
-  ...
-}
-
-resource myVm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
-  ...
-}
-```
-
----
-
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) returns different variable values.
+The following example returns different variable values.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {
-    "var1": "myVariable",
-    "var2": [ 1, 2, 3, 4 ],
-    "var3": "[ variables('var1') ]",
-    "var4": {
-      "property1": "value1",
-      "property2": "value2"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "exampleOutput1": {
-      "value": "[variables('var1')]",
-      "type": "string"
-    },
-    "exampleOutput2": {
-      "value": "[variables('var2')]",
-      "type": "array"
-    },
-    "exampleOutput3": {
-      "value": "[variables('var3')]",
-      "type": "string"
-    },
-    "exampleOutput4": {
-      "value": "[variables('var4')]",
-      "type": "object"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-var var1 = 'myVariable'
-var var2 = [
-  1
-  2
-  3
-  4
-]
-var var3 = var1
-var var4 = {
-  'property1': 'value1'
-  'property2': 'value2'
-}
-
-output exampleOutput1 string = var1
-output exampleOutput2 array = var2
-output exampleOutput3 string = var3
-output exampleOutput4 object = var4
-```
-
----
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/variables.json":::
 
 The output from the preceding example with the default values is:
 
@@ -591,8 +376,8 @@ The output from the preceding example with the default values is:
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-For more information about using variables, see [Variables in ARM template](template-variables.md).
+For more information about using variables, see [Variables in ARM template](./variables.md).
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).

@@ -2,15 +2,16 @@
 title: Learn about the latest Azure Guest OS Releases | Microsoft Docs
 description: The latest release news and SDK compatibility for Azure Cloud Services Guest OS.
 services: cloud-services
+ms.subservice: auto-os-updates
 documentationcenter: na
-author: gunnarcms
+author: gunnarc
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/19/2021
+ms.date: 5/26/2022
 ms.author: gunnarc
 ---
 # Azure Guest OS releases and SDK compatibility matrix
@@ -35,6 +36,51 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **May 26, 2022**
+The May Guest OS has released. 
+
+###### **April 30, 2022**
+The April Guest OS has released. 
+
+###### **March 19, 2022**
+The March Guest OS has released. 
+
+###### **March 2, 2022**
+The February Guest OS has released. 
+
+###### **February 11, 2022**
+The January Guest OS has released. 
+
+###### **January 10, 2022**
+The December Guest OS has released. 
+
+###### **November 19, 2021**
+The November Guest OS has released. 
+
+###### **November 1, 2021**
+The October Guest OS has released. 
+
+###### **October 8, 2021**
+The September Guest OS has released. 
+
+###### **August 27, 2021**
+The August Guest OS has released. 
+
+###### **August 13, 2021**
+The July Guest OS has released. 
+
+###### **July 1, 2021**
+The June Guest OS has released. 
+
+###### **May 26, 2021**
+The May Guest OS has released. 
+
+###### **April 30, 2021**
+The April Guest OS has released. 
+
+###### **March 28, 2021**
+The March Guest OS has released. 
 
 ###### **February 19, 2021**
 The February Guest OS has released. 
@@ -131,29 +177,50 @@ The September Guest OS has released.
 
 ## Releases
 
+## Family 7 releases
+**Windows Server 2022**
+
+| Configuration string | Release date | Disable date |
+| --- | --- | --- |
+|  WA-GUEST-OS-7.12_202205-01 |  May 26, 2022  |  Post 7.14  |
+|  WA-GUEST-OS-7.11_202204-01 |  April 30, 2022  |  Post 7.13  |
+|~~WA-GUEST-OS-7.10_202203-01~|  March 19, 2022  |  May 26, 2022  |
+|~~WA-GUEST-OS-7.9_202202-01~~|  March 2, 2022  |  April 30, 2022  |
+|~~WA-GUEST-OS-7.8_202201-02~~|  February 11, 2022  |  March 19, 2022  |
+|~~WA-GUEST-OS-7.6_202112-01~~|  January 10, 2022  |  March 2, 2022  |
+|~~WA-GUEST-OS-7.5_202111-01~~|  November 19, 2021  |  February 11, 2022  |
+
+
 ## Family 6 releases
 **Windows Server 2019**
 
 .NET Framework installed: 3.5, 4.7.2
 
 > [!NOTE]
-> The Windows Azure SDK for .NET - 3.0 can be downloaded [here][Windows Azure SDK].
->
->Installation steps:
->1.	Please uninstall any older versions of MicrosoftAzureAuthoringTools*.msi
->2. Install the [Azure SDK for .NET - 3.0][Windows Azure SDK]
->3. Restart your machine
->4. Create a new Cloud Service project and add a single Worker Role
->5. Change the OS Family to 6 and build a package
->6. Deploy the package to Azure using the Azure portal or Visual Studio
+> It is recommended to develop Cloud Services on Visual Studio 2019 and install the Azure Workload.
 >
 >Guest OS Family 6 release enforces TLS 1.2 by explicitly disabling TLS 1.0 and 1.1 and defining a specific set of cipher suites. Learn [more].
 
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-6.28_202102-01 |  February 19, 2021  |  Post 6.30  |  
-|  WA-GUEST-OS-6.27_202101-01 |  February 5, 2021  |  Post 6.29  |  
+|  WA-GUEST-OS-6.44_202205-01 |  May 26, 2022  |  Post 6.46  |
+|  WA-GUEST-OS-6.43_202204-01 |  April 30, 2022  |  Post 6.45  |
+|~~WA-GUEST-OS-6.42_202203-01~|  March 19, 2022  |  May 26, 2022  |
+|~~WA-GUEST-OS-6.41_202202-01~~|  March 2, 2022  |  April 30, 2022  |
+|~~WA-GUEST-OS-6.40_202201-02~~|  February 11, 2022  |  March 19, 2022  |
+|~~WA-GUEST-OS-6.38_202112-01~~|  January 10, 2022  |  March 2, 2022  |
+|~~WA-GUEST-OS-6.37_202111-01~~|  November 19, 2021  |  February 11, 2022  |
+|~~WA-GUEST-OS-6.36_202110-01~~|  November 1, 2021  |  January 10, 2022  |
+|~~WA-GUEST-OS-6.35_202109-01~~|  October 8, 2021  |  November 19, 2021  |
+|~~WA-GUEST-OS-6.34_202108-01~~|  August 27, 2021  |  November 1, 2021  |
+|~~WA-GUEST-OS-6.33_202107-01~~|  August 13, 2021  |  October 8, 2021  |
+|~~WA-GUEST-OS-6.32_202106-01~~|  July 1, 2021  |  August 27, 2021  |
+|~~WA-GUEST-OS-6.31_202105-0~~|  May 26, 2021  |  August 13, 2021  |  
+|~~WA-GUEST-OS-6.30_202104-01~~|  April 30, 2021  |  July 1, 2021  |  
+|~~WA-GUEST-OS-6.29_202103-01~~|  March 28, 2021  |  May 26, 2021  |  
+|~~WA-GUEST-OS-6.28_202102-01~~|  February 19, 2021  |  April 30, 2021  |  
+|~~WA-GUEST-OS-6.27_202101-01~~|  February 5, 2021  |  March 28, 2021  |  
 |~~WA-GUEST-OS-6.26_202012-01~~|  January 15, 2021  |  February 19, 2021  |  
 |~~WA-GUEST-OS-6.25_202011-01~~|  December 19, 2020  |  February 5, 2021  |  
 |~~WA-GUEST-OS-6.24_202010-02~~|  November 17, 2020  |  January 15, 2021  |  
@@ -193,8 +260,23 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-5.52_202102-01  |  February 19, 2021  |  Post 5.54  | 
-|  WA-GUEST-OS-5.51_202101-01  |  February 5, 2021  |  Post 5.53  | 
+|  WA-GUEST-OS-5.68_202205-01  |  May 26, 2022  |  Post 5.70  | 
+|  WA-GUEST-OS-5.67_202204-01  |  April 30, 2022  |  Post 5.69  | 
+|~~WA-GUEST-OS-5.66_202203-01~~|  March 19, 2022  |  May 26, 2022  | 
+|~~WA-GUEST-OS-5.65_202202-01~~|  March 2, 2022  |  April 30, 2022  | 
+|~~WA-GUEST-OS-5.64_202201-02~~|  February 11, 2022  |  March 19, 2022  | 
+|~~WA-GUEST-OS-5.62_202112-01~~|  January 10, 2022  |  March 2, 2022  | 
+|~~WA-GUEST-OS-5.61_202111-01~~|  November 19, 2021  |  February 11, 2022  | 
+|~~WA-GUEST-OS-5.60_202110-01~~|  November 1, 2021  |  January 10, 2022  | 
+|~~WA-GUEST-OS-5.59_202109-01~~|  October 8, 2021  |  November 19, 2021  | 
+|~~WA-GUEST-OS-5.58_202108-01~~|  August 27, 2021  |  November 1, 2021  | 
+|~~WA-GUEST-OS-5.57_202107-01~~|  August 13, 2021  |  October 8, 2021  | 
+|~~WA-GUEST-OS-5.56_202106-01~~|  July 1, 2021  |  August 27, 2021  | 
+|~~WA-GUEST-OS-5.55_202105-01~~|  May 26, 2021  |  August 13, 2021  | 
+|~~WA-GUEST-OS-5.54_202104-01~~|  April 30, 2021  |  July 1, 2021  | 
+|~~WA-GUEST-OS-5.53_202103-01~~|  March 28, 2021  |  May 26, 2021  | 
+|~~WA-GUEST-OS-5.52_202102-01~~|  February 19, 2021  |  April 30, 2021  | 
+|~~WA-GUEST-OS-5.51_202101-01~~|  February 5, 2021  |  March 28, 2021  | 
 |~~WA-GUEST-OS-5.50_202012-01~~|  January 15, 2021  |  February 19, 2021  | 
 |~~WA-GUEST-OS-5.49_202011-01~~|  December 19, 2020  |  February 5, 2021  | 
 |~~WA-GUEST-OS-5.48_202010-02~~|  November 17, 2020  |  January 15, 2021  | 
@@ -231,8 +313,23 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-4.87_202102-01  |  February 19, 2021  |  Post 4.89  | 
-|  WA-GUEST-OS-4.86_202101-01  |  February 5, 2021  |  Post 4.88  | 
+|  WA-GUEST-OS-4.103_202205-01 |  May 26, 2022  |  Post 4.105  |
+|  WA-GUEST-OS-4.102_202204-01 |  April 30, 2022  |  Post 4.104  |
+|~~WA-GUEST-OS-4.101_202203-01~|  March 19, 2022  |  May 26, 2022  |
+|~~WA-GUEST-OS-4.100_202202-01~~|  March 2, 2022  |  April 30, 2022  |
+|~~WA-GUEST-OS-4.99_202201-02~~|  February 11 , 2022  |  March 19, 2022  |
+|~~WA-GUEST-OS-4.97_202112-01~~|  January 10 , 2022  |  March 2, 2022 |
+|~~WA-GUEST-OS-4.96_202111-01~~|  November 19, 2021  |  February 11, 2022  |
+|~~WA-GUEST-OS-4.95_202110-01~~|  November 1, 2021  |  January 10, 2022  |
+|~~WA-GUEST-OS-4.94_202109-01~~|  October 8, 2021  |  November 19, 2021  |
+|~~WA-GUEST-OS-4.93_202108-01~~|  August 27, 2021  |  November 1, 2021  |
+|~~WA-GUEST-OS-4.92_202107-01~~|  August 13, 2021  |  October 8, 2021  |
+|~~WA-GUEST-OS-4.91_202106-01~~|  July 1, 2021  |  August 27, 2021  | 
+|~~WA-GUEST-OS-4.90_202105-01~~|  May 26, 2021  |  August 13, 2021  | 
+|~~WA-GUEST-OS-4.89_202104-01~~|  April 30, 2021  | July 1, 2021  | 
+|~~WA-GUEST-OS-4.88_202103-01~~|  March 28, 2021  |  May 26, 2021  | 
+|~~WA-GUEST-OS-4.87_202102-01~~|  February 19, 2021  |  April 30, 2021  | 
+|~~WA-GUEST-OS-4.86_202101-01~~|  February 5, 2021  |  March 28, 2021  | 
 |~~WA-GUEST-OS-4.85_202012-01~~|  January 15, 2021  |  February 19, 2021  | 
 |~~WA-GUEST-OS-4.84_202011-01~~|  December 19, 2020  |  February 5, 2021  | 
 |~~WA-GUEST-OS-4.83_202010-02~~|  November 17, 2020  |  January 15, 2021  | 
@@ -269,8 +366,23 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-3.94_202102-01  |  February 19, 2021  |  Post 3.96  |
-|  WA-GUEST-OS-3.93_202101-01  |  February 5, 2021  |  Post 3.95  |
+|  WA-GUEST-OS-3.110_202205-01  |  May 26, 2022  |  Post 3.112  |
+|  WA-GUEST-OS-3.109_202204-01  |  April 30, 2022  |  Post 3.111  |
+|~~WA-GUEST-OS-3.108_202203-01~~|  March 19, 2022  |  May 26, 2022  |
+|~~WA-GUEST-OS-3.107_202202-01~~|  March 2, 2022  |  April 30, 2022  |
+|~~WA-GUEST-OS-3.106_202201-02~~|  February 11, 2022  |  March 19, 2022  |
+|~~WA-GUEST-OS-3.104_202112-01~~|  January 10, 2022  |  March 2, 2022|
+|~~WA-GUEST-OS-3.103_202111-01~~|  November 19, 2021  |  February 11, 2022  |
+|~~WA-GUEST-OS-3.102_202110-01~~|  November 1, 2021  |  January 10, 2022  |
+|~~WA-GUEST-OS-3.101_202109-01~~|  October 8, 2021  |  November 19, 2021  |
+|~~WA-GUEST-OS-3.100_202108-01~~|  August 27, 2021  |  November 1, 2021  |
+|~~WA-GUEST-OS-3.99_202107-01~~|  August 13, 2021  |  October 8, 2021  |
+|~~WA-GUEST-OS-3.98_202106-01~~|  July 1, 2021  |  August 27, 2021  |
+|~~WA-GUEST-OS-3.97_202105-01~~|  May 26, 2021  |  August 13, 2021  |
+|~~WA-GUEST-OS-3.96_202104-01~~|  April 30, 2021  |  July 1, 2021  |
+|~~WA-GUEST-OS-3.95_202103-01~~|  March 28, 2021  |  May 26, 2021  |
+|~~WA-GUEST-OS-3.94_202102-01~~|  February 19, 2021  |  April 30, 2021  |
+|~~WA-GUEST-OS-3.93_202101-01~~|  February 5, 2021  |  March 28, 2021  |
 |~~WA-GUEST-OS-3.92_202012-01~~|  January 15, 2021  |  February 19, 2021  |  
 |~~WA-GUEST-OS-3.91_202011-01~~|  December 19, 2020  |  February 5, 2021  |  
 |~~WA-GUEST-OS-3.90_202010-02~~|  November 17, 2020  |  January 15, 2021  |  
@@ -307,8 +419,23 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-2.107_202102-01  |  February 19, 2021  |  Post 2.109  |  
-|  WA-GUEST-OS-2.106_202101-01  |  February 5, 2021  |  Post 2.108  |  
+|  WA-GUEST-OS-2.123_202205-01  |  May 26, 2022  |  Post 2.125  |
+|  WA-GUEST-OS-2.122_202204-01  |  April 30, 2022  |  Post 2.124  |
+|~~WA-GUEST-OS-2.121_202203-01~~|  March 19, 2022  |  May 26, 2022  |
+|~~WA-GUEST-OS-2.120_202202-01~~|  March 2, 2022  |  April 30, 2022  |
+|~~WA-GUEST-OS-2.119_202201-02~~|  February 11, 2022  |  March 19, 2022  |
+|~~WA-GUEST-OS-2.117_202112-01~~|  January 10, 2022  |  March 2, 2022  |
+|~~WA-GUEST-OS-2.116_202111-01~~|  November 19, 2021  |  February 11, 2022  |
+|~~WA-GUEST-OS-2.115_202110-01~~|  November 1, 2021  |  January 10, 2022  |
+|~~WA-GUEST-OS-2.114_202109-01~~|  October 8, 2021  |  November 19, 2021  |
+|~~WA-GUEST-OS-2.113_202108-01~~|  August 27, 2021  |  November 1, 2021  |
+|~~WA-GUEST-OS-2.112_202107-01~~|  August 13, 2021  |  October 8, 2021  |
+|~~WA-GUEST-OS-2.111_202106-01~~|  July 1, 2021  |  August 27, 2021  |
+|~~WA-GUEST-OS-2.110_202105-01~~|  May 26, 2021  |  August 13, 2021  |
+|~~WA-GUEST-OS-2.109_202104-01~~|  April 30, 2021  |  July 1, 2021  |
+|~~WA-GUEST-OS-2.108_202103-01~~|  March 28, 2021  |  May 26, 2021  |
+|~~WA-GUEST-OS-2.107_202102-01~~|  February 19, 2021  |  April 30, 2021  |  
+|~~WA-GUEST-OS-2.106_202101-01~~|  February 5, 2021  |  March 28, 2021  |  
 |~~WA-GUEST-OS-2.105_202012-01~~|  January 15, 2021  |  February 19, 2021  |  
 |~~WA-GUEST-OS-2.104_202011-01~~|  December 19, 2020  |  February 5, 2021  |  
 |~~WA-GUEST-OS-2.103_202010-02~~|  November 17, 2020  |  January 15, 2021  |  

@@ -3,43 +3,35 @@ title: Manage logic apps in the Azure portal
 description: Edit, enable, disable, or delete logic apps by using the Azure portal.
 services: logic-apps
 ms.suite: integration
-author: lauradolan
-ms.author: ladolan
-ms.reviewer: estfan, jonfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.custom: mvc
-ms.date: 07/20/2020
+ms.date: 04/01/2022
 ---
 
 # Manage logic apps in the Azure portal
 
-You can manage logic apps using the [Azure portal](https://portal.azure.com) or [Visual Studio](manage-logic-apps-with-visual-studio.md). This article shows how to edit, disable, enable, or delete logic apps in the Azure portal. If you're new to Azure Logic Apps, see [What is Azure Logic Apps](logic-apps-overview.md)?
+This article shows how to edit, disable, enable, or delete Consumption logic apps with the Azure portal. You can also [manage Consumption logic apps in Visual Studio](manage-logic-apps-with-visual-studio.md).
+
+To manage Standard logic apps, review [Create a Standard workflow with single-tenant Azure Logic Apps in the Azure portal](create-single-tenant-workflows-azure-portal.md). If you're new to Azure Logic Apps, review [What is Azure Logic Apps](logic-apps-overview.md)?
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 
-* An existing logic app. To learn how to create a logic app in the Azure portal, see [Quickstart: Create your first workflow by using Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md).
+* An existing logic app. To learn how to create a logic app in the Azure portal, review [Quickstart: Create your first workflow by using Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md).
 
 <a name="find-logic-app"></a>
 
-## Find your logic apps
-
-To find and open your logic app, follow these steps:
+## Find and open a logic app
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-1. In the Azure search bar, enter `logic apps`, and select **Logic Apps**.
+1. In the portal search box, enter **logic apps**, and select **Logic apps**.
 
-   ![Screenshot of Azure portal menu, with Logic Apps searched and selected in the search bar.](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
+1. From the logic apps list, find your logic app by either browsing or filtering the list.
 
-1. On the **Logic Apps** page, find and select the logic app that you want to manage.
-
-   After the logic app's **Overview** pane opens, you can filter the list that appears on the **Logic Apps** page in these ways:
-
-   * Search for logic apps by name
-   * Filter logic apps by subscription, resource group, location, and tags
-   * Group logic apps by resource group, type, subscription, and location
+1. To open your logic app, select the app that you want to manage.
 
 ## View logic app properties
 
@@ -61,121 +53,94 @@ To find and open your logic app, follow these steps:
    * **Access endpoint IP addresses**
    * **Connector outgoing IP addresses**
 
-## Disable or enable logic apps
+<a name="view-connections"></a>
 
-You can enable or disable a [single logic app](#disable-enable-single-logic-app) or [multiple logic apps at the same time](#disable-or-enable-multiple-logic-apps) in the Azure portal. You can also [enable or disable logic apps in Visual Studio](manage-logic-apps-with-visual-studio.md#disable-or-enable-logic-app).
+## View connections
 
-Disabling your logic app affects your workflow instances and runs in these ways:
-
-* All in-progress and pending runs continue until they finish. Depending on the number of these runs, this process might take some time.
-
-* The Logic Apps engine won't create or run new workflow instances.
-
-* The trigger won't fire the next time that its conditions are met.
-
-* The trigger state remembers the point at which the logic app was stopped. So, if you re-enable the logic app, the trigger fires for all the unprocessed items since the last run.
-
-  To stop your logic app from firing on unprocessed items since the last run, clear the trigger's state before you re-enable the logic app:
-
-  1. In the Azure portal, [find and open your logic app](#find-logic-app).
-
-  1. Edit any part of the logic app's trigger.
-
-  1. Save your changes. This step resets your trigger's current state.
-
-  1. [Re-enable your logic app](#disable-enable-single-logic-app).
-
-<a name="disable-enable-single-logic-app"></a>
-
-### Disable or enable single logic app
+When you create connections within a workflow using [managed connectors](../connectors/managed.md), these connections are actually separate Azure resources with their own resource definitions. To view and manage these connections, follow these steps:
 
 1. In the Azure portal, [find and open your logic app](#find-logic-app).
 
-1. In your logic app's menu, select **Overview**. Choose from these options:
+1. From your logic app's menu, under **Development tools**, select **API Connections**.
 
-   * On the toolbar, select **Disable**.
+1. On the **API Connections** pane, select a specific connection instance, which shows more information about that connection. To view the underlying connection resource definition, select **JSON View**.
 
-     ![Screenshot of logic app's toolbar, showing Disable button selected.](./media/manage-logic-apps-with-azure-portal/disable-single-logic-app.png)
+<a name="disable-enable-logic-apps"></a>
 
-     If your logic app is already disabled, you only see the **Enable** option.
+## Disable or enable logic apps
 
-   * On the toolbar, select **Enable**.
+To stop the trigger from firing the next time when the trigger condition is met, disable your logic app. In the Azure portal, you can enable or disable a [single logic app](#disable-enable-single-logic-app) or [multiple logic apps at the same time](#disable-or-enable-multiple-logic-apps). Disabling a logic app affects workflow instances in the following ways:
 
-     ![Screenshot of logic app's toolbar, showing Enable button selected.](./media/manage-logic-apps-with-azure-portal/enable-single-logic-app.png)
+* Azure Logic Apps continues all in-progress and pending runs until they finish. Based on the volume or backlog, this process might take time to complete.
 
-     If your logic app is already enabled, you only see the **Disable** option. 
+* Azure Logic Apps doesn't create or run new workflow instances.
 
-   The Azure portal shows a notification on the main Azure toolbar that confirms whether your operation succeeded or failed.
+* The trigger won't fire the next time that its conditions are met. However, the trigger state remembers the point at which the logic app was stopped. So, if you reactivate the logic app, the trigger fires for all the unprocessed items since the last run.
 
-   ![Screenshot of Azure portal, showing notification to confirm operation status](./media/manage-logic-apps-with-azure-portal/operation-confirmation-notification.png)
+  To stop the trigger from triggering on unprocessed items since the last run, clear the trigger's state before you reactivate the logic app:
+
+  1. In the logic app, edit any part of the workflow's trigger.
+  1. Save your changes. This step resets your trigger's current state.
+  1. [Reactivate your logic app](#disable-enable-single-logic-app).
+
+* When a workflow is disabled, you can still resubmit runs.
+
+<a name="disable-enable-single-logic-app"></a>
+
+### Disable or enable a single logic app
+
+1. In the Azure portal, [find and open your logic app](#find-logic-app).
+
+1. In your logic app's menu, select **Overview**.
+
+   * To disable your logic app, on the Overview pane toolbar, select **Disable**.
+   * To enable your logic app, on the Overview pane toolbar, select **Enable**.
+
+     > [!NOTE]
+     > If your logic app is already disabled, you only see the **Enable** option.
+     > If your logic app is already enabled, you only see the **Disable** option.
+
+1. To confirm whether your operation succeeded or failed, on the main Azure toolbar, open the **Notifications** list (bell icon).
 
 <a name="disable-or-enable-multiple-logic-apps"></a>
 
 ### Disable or enable multiple logic apps
 
-1. In the Azure portal, [find the logic apps](#find-logic-app) that you want disable or enable.
+1. In the Azure portal's main search box, enter `logic apps`, and select **Logic apps**.
 
-1. To check whether a logic app is currently enabled or disabled, on the **Logic Apps** page, review the **Status** column for that logic app. 
+1. On the **Logic apps** page, review the logic app's **Status** column.
 
-   ![Screenshot of Azure portal Logic Apps page, showing list of logic apps sorted by Status column.](./media/manage-logic-apps-with-azure-portal/view-logic-app-status.png)
+1. In the checkbox column, select the logic apps you want to stop or start.
 
-   If the **Status** column isn't visible, on the **Logic Apps** toolbar, select **Try preview**.
+   * To stop the selected running logic apps, on the Overview pane toolbar, select **Disable/Stop**. Confirm your selection.
+   * To start the selected stopped logic apps, on the Overview pane toolbar, select **Enable/Start**.
 
-   ![Screenshot of Azure portal Logic Apps page, showing Try preview button selected.](./media/manage-logic-apps-with-azure-portal/select-try-preview.png)
+1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
 
-1. In the checkbox column, select the logic apps that you want to disable or enable. On the toolbar, select **Disable** or **Enable**.
+   > [!TIP]
+   > If the correct status doesn't appear, refresh the page.
 
-   ![Screenshot of Azure portal Logic Apps page, showing enable and disable buttons for multiple logic apps.](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
-
-1. When the confirmation box appears, select **Yes** to continue.
-
-   The Azure portal shows a notification on the main Azure toolbar that confirms whether your operation succeeded or failed.
+<a name="delete-logic-apps"></a>
 
 ## Delete logic apps
 
-You can [delete a single logic app](#delete-single-logic-app) or [delete multiple logic apps at the same time](#delete-multiple-logic-apps) in the Azure portal. You can also [delete your logic app in Visual Studio](manage-logic-apps-with-visual-studio.md#delete-your-logic-app).
+You can delete a single logic app or multiple logic apps at the same time. Deleting a logic app affects workflow instances in the following ways:
 
-Deleting your logic app affects your workflow instances in these ways:
+* Azure Logic Apps makes a best effort to cancel any in-progress and pending runs.
 
-* All in-progress and pending runs continue until they finish. Depending on the number of these runs, this process might take some time.
+  Even with a large volume or backlog, most runs are canceled before they finish or start. However, the cancellation process might take time to complete. Meanwhile, some runs might get picked up for execution while the service works through the cancellation process.
 
-* The Logic Apps engine won't create or run new workflow instances.
+* Azure Logic Apps doesn't create or run new workflow instances.
 
-> [!NOTE]
-> If you delete and recreate a child logic app, you must resave the parent logic app. The recreated child app will have different metadata.
-> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This behavior applies to parent-child logic apps, for example, those that use artifacts in integration accounts or call Azure functions.
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 
-<a name="delete-single-logic-app"></a>
+1. In the Azure portal's main search box, enter `logic apps`, and select **Logic apps**.
 
-### Delete single logic app
-
-1. In the Azure portal, [find and open your logic app](#find-logic-app).
-
-1. In your logic app's menu, select **Overview**. On your logic app's toolbar, select **Delete**.
-
-   ![Screenshot of logic app's toolbar, showing Delete button selected.](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
-
-1. When the confirmation box appears, enter your logic app's name, and select **Delete**.
-
-   ![Screenshot of Logic Apps prompt to confirm deletion of single logic app.](./media/manage-logic-apps-with-azure-portal/delete-confirmation-single-logic-app.png)
-
-   The Azure portal shows a notification on the main Azure toolbar that confirms whether your operation succeeded or failed.
-
-<a name="delete-multiple-logic-apps"></a>
-
-### Delete multiple logic apps
-
-1. In the Azure portal, [find the logic apps that you want to delete](#find-logic-app).
-
-1. In the checkbox column, select the logic apps that you want to delete. On the toolbar, select **Delete**.
-
-   ![Screenshot of Logic Apps page, showing multiple logic apps in a list selected for deletion.](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
+1. From the **Logic apps** list, in the checkbox column, select a single or multiple logic apps to delete. On the toolbar, select **Delete**.
 
 1. When the confirmation box appears, enter `yes`, and select **Delete**.
 
-   ![Screenshot of Logic Apps prompt to confirm deletion of multiple logic apps.](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
-
-   The Azure portal shows a notification on the main Azure toolbar that confirms whether your operation succeeded or failed.
+1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
 
 <a name="manage-logic-app-versions"></a>
 
@@ -187,7 +152,7 @@ You can use the Azure portal for version control of your logic apps. You can fin
 
 ### Find and view previous versions
 
-1. In the Azure portal, [find the logic app that you want to manage](#find-logic-app).
+1. In the Azure portal, [find and open your logic app](#find-logic-app).
 
 1. In your logic app's menu, under **Development Tools**, select **Versions**.
 

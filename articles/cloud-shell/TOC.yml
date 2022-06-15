@@ -25,7 +25,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/cloud-shell-security-baseline?toc=/azure/cloud-shell/TOC.json
 - name: How-to guides
   items:
   - name: PowerShell Cloud Shell for Windows users
@@ -47,9 +47,9 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure
+    href: /cli/azure/
   - name: Azure PowerShell
-    href: /powershell/azure
+    href: /powershell/azure/
 - name: Resources
   items:
   - name: Azure Roadmap

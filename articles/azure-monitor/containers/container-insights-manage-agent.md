@@ -3,7 +3,7 @@ title: How to manage the Container insights agent | Microsoft Docs
 description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Container insights.
 ms.topic: conceptual
 ms.date: 07/21/2020
-
+ms.reviewer: aul
 ---
 
 # How to manage the Container insights agent
@@ -44,22 +44,19 @@ Perform the following steps to upgrade the agent on a Kubernetes cluster running
 If the Log Analytics workspace is in commercial Azure, run the following command:
 
 ```console
-$ helm upgrade --name myrelease-1 \
---set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
+$ helm upgrade --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
 ```
 
 If the Log Analytics workspace is in Azure China 21Vianet, run the following command:
 
 ```console
-$ helm upgrade --name myrelease-1 \
---set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
+$ helm upgrade --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
 
 If the Log Analytics workspace is in Azure US Government, run the following command:
 
 ```console
-$ helm upgrade --name myrelease-1 \
---set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
+$ helm upgrade --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
 
 ### Upgrade agent on Azure Red Hat OpenShift v4
@@ -75,21 +72,6 @@ curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
 export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
 bash upgrade-monitoring.sh --resource-id $ azureAroV4ClusterResourceId
 ```
-
-See **Using service principal** in [Enable monitoring of Azure Arc enabled Kubernetes cluster](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) for details on using a service principal with this command.
-
-### Upgrade agent on Azure Arc enabled Kubernetes
-
-Perform the following command to upgrade the agent on an Azure Arc enabled Kubernetes cluster.
-
-```console
-curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
-export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
-bash upgrade-monitoring.sh --resource-id $azureArcClusterResourceId
-```
-
-See **Using service principal** in [Enable monitoring of Azure Arc enabled Kubernetes cluster](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) for details on using a service principal with this command.
-
 
 ## How to disable environment variable collection on a container
 

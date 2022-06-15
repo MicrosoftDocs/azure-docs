@@ -4,7 +4,7 @@ description: This notebook demonstrates how to analyze log data using a custom l
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 12/27/2019
+ms.date: 04/05/2022
 ---
 
 # Analyze website logs using a custom Python library with Apache Spark cluster on HDInsight
@@ -29,7 +29,7 @@ Once your data is saved as an Apache Hive table, in the next section we'll conne
 
 1. A new notebook is created and opened with the name Untitled.pynb. Select the notebook name at the top, and enter a friendly name.
 
-    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png " alt-text="Provide a name for the notebook" border="true":::tebook" border="true":::
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png " alt-text="Provide a name for the notebook" border="true":::
 
 1. Because you created a notebook using the PySpark kernel, you don't need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types that are required for this scenario. Paste the following snippet in an empty cell, and then press **Shift + Enter**.
 

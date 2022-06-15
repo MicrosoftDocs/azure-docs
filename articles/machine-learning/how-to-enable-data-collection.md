@@ -4,16 +4,17 @@ titleSuffix: Azure Machine Learning
 description: Learn how to collect data from an Azure Machine Learning model deployed on an Azure Kubernetes Service (AKS) cluster.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 07/14/2020
-ms.topic: conceptual
-ms.custom: how-to, data4ml
-
+ms.date: 10/21/2021
+ms.topic: how-to
+ms.custom: data4ml, sdkv1, event-tier1-build-2022
 ---
 # Collect data from models in production
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 This article shows how to collect data from an Azure Machine Learning model deployed on an Azure Kubernetes Service (AKS) cluster. The collected data is then stored in Azure Blob storage.
 
@@ -53,11 +54,11 @@ The path to the output data in the blob follows this syntax:
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a
- [free account](https://aka.ms/AMLFree) before you begin.
+ [free account](https://azure.microsoft.com/free/) before you begin.
 
 - An Azure Machine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](how-to-configure-environment.md).
 
-- You need a trained machine-learning model to be deployed to AKS. If you don't have a model, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
+- You need a trained machine-learning model to be deployed to AKS. If you don't have a model, see the [Train image classification model](tutorial-train-deploy-notebook.md) tutorial.
 
 - You need an AKS cluster. For information on how to create one and deploy to it, see [How to deploy and where](how-to-deploy-and-where.md).
 
@@ -95,7 +96,7 @@ To enable data collection, you need to:
     data = np.array(data)
     result = model.predict(data)
     inputs_dc.collect(data) #this call is saving our input data into Azure Blob
-    prediction_dc.collect(result) #this call is saving our input data into Azure Blob
+    prediction_dc.collect(result) #this call is saving our prediction data into Azure Blob
     ```
 
 1. Data collection is *not* automatically set to **true** when you deploy a service in AKS. Update your configuration file, as in the following example:

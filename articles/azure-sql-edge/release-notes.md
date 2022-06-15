@@ -6,18 +6,45 @@ services: sql-edge
 ms.service: sql-edge
 ms.topic: conceptual
 ms.subservice:
-author: VasiyaKrishnan
-ms.author: vakrishn
-ms.reviewer: sstein
+author: kendalvandyke
+ms.author: kendalv 
+ms.reviewer: jroth
 ms.date: 11/24/2020
 ---
 # Azure SQL Edge release notes 
 
 This article describes what's new and what has changed with every new build of Azure SQL Edge.
 
+## Azure SQL Edge 1.0.5
+
+SQL engine build 15.0.2000.1562
+
+### What's new?
+
+- Security bug fixes
+
+## Azure SQL Edge 1.0.4
+
+SQL engine build 15.0.2000.1559
+
+### What's new?
+
+- PREDICT support for ONNX 
+    - Improvements in handling of null data in PREDICT for ONNX
+
+## Azure SQL Edge 1.0.3
+
+SQL engine build 15.0.2000.1557
+
+### Fixes
+
+- Upgrade ONNX runtime to 1.5.3
+- Update to Microsoft.SqlServer.DACFx version 150.5084.2
+- Miscellaneous bug fixes  
+   
 ## Azure SQL Edge 1.0.2
 
-SQL engine build 15.0.2000.1554
+SQL engine build 15.0.2000.1557
 
 ### Fixes
 
@@ -137,7 +164,7 @@ SQL engine build 15.0.2000.1401
 - Workaround: Restart SQL Server. Otherwise, the container will retry applying the DACPAC.
 
 ### Request support
-You can request support on the [support page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Select the following fields: 
+You can request support on the [support page](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Select the following fields: 
 - **Issue type**: *Technical* 
 - **Service**: *IoT Edge*
 - **Problem type**: *My problem relates to an IoT Edge module*

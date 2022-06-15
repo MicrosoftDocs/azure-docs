@@ -2,34 +2,29 @@
 title: Resource model for the Azure Cosmos DB point-in-time restore feature.
 description: This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored in Azure Cosmos DB API for SQL and MongoDB accounts.
 author: kanshiG
+ms.author: govindk
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/22/2021
-ms.author: govindk
-ms.reviewer: sngun
+ms.date: 03/02/2022
+ms.reviewer: mjbrown
 
 ---
 
-# Resource model for the Azure Cosmos DB point-in-time restore feature (Preview)
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+# Resource model for the Azure Cosmos DB point-in-time restore feature
+[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
 
-> [!IMPORTANT]
-> The point-in-time restore feature(continuous backup mode) for Azure Cosmos DB is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This article explains the resource model for the Azure Cosmos DB point-in-time restore feature(Preview). It explains the parameters that support the continuous backup and resources that can be restored in Azure Cosmos DB API for SQL and MongoDB accounts.
+This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored. This feature is supported in Azure Cosmos DB API for SQL and the Cosmos DB API for MongoDB. Currently, this feature is in preview for Azure Cosmos DB Gremlin API and Table API accounts.
 
 ## Database account's resource model
 
-The database account's resource model is updated with a few extra properties to support the new restore scenarios. These properties are **BackupPolicy, CreateMode, and RestoreParameters.**
+The database account's resource model is updated with a few extra properties to support the new restore scenarios. These properties are `BackupPolicy`, `CreateMode`, and `RestoreParameters`.
 
 ### BackupPolicy
 
-A new property in the account level backup policy named `Type` under `backuppolicy` parameter enables continuous backup and point-in-time restore functionalities. This mode is called **continuous backup**. In the public preview, you can only set this mode when creating the account. After it's enabled, all the containers and databases created within this account will have continuous backup and point-in-time restore functionalities enabled by default.
+A new property in the account level backup policy named `Type` under `backuppolicy` parameter enables continuous backup and point-in-time restore functionalities. This mode is called **continuous backup**. You can set this mode when creating the account or while [migrating an account from periodic to continuous mode](migrate-continuous-backup.md). After continuous mode is enabled, all the containers and databases created within this account will have continuous backup and point-in-time restore functionalities enabled by default.
 
 > [!NOTE]
-> Currently the point-in-time restore feature is in public preview and it's available for Azure Cosmos DB API for MongoDB, and SQL accounts. After you create an account with continuous mode you can't switch it to a periodic mode.
+> Currently the point-in-time restore feature is available for Azure Cosmos DB API for MongoDB and SQL accounts. After you create an account with continuous mode you can't switch it to a periodic mode.
 
 ### CreateMode
 
@@ -43,15 +38,10 @@ The `RestoreParameters` resource contains the restore operation details includin
 |---------|---------|
 |restoreMode  | The restore mode should be *PointInTime* |
 |restoreSource   |  The instanceId of the source account from which the restore will be initiated.       |
-|restoreTimestampInUtc  | Point in time in UTC to which the account should be restored to. |
-|databasesToRestore   | List of `DatabaseRestoreSource` objects to specify which databases and containers should be restored. If this value is empty, then the entire account is restored.   |
-
-**DatabaseRestoreResource** - Each resource represents a single database and all the collections under that database.
-
-|Property Name |Description  |
-|---------|---------|
-|databaseName | The name of the database |
-| collectionNames| The list of containers under this database |
+|restoreTimestampInUtc  | Point in time in UTC to restore the account. |
+|databasesToRestore   | List of `DatabaseRestoreResource` objects to specify which databases and containers should be restored. Each resource represents a single database and all the collections under that database, see the [restorable SQL resources](#restorable-sql-resources) section for more details. If this value is empty, then the entire account is restored.   |
+|gremlinDatabasesToRestore | List of `GremlinDatabaseRestoreResource` objects to specify which databases and graphs should be restored. Each resource represents a single database and all the graphs under that database. See the [restorable Gremlin resources](#restorable-graph-resources) section for more details. If this value is empty, then the entire account is restored. |
+|tablesToRestore  | List of `TableRestoreResource` objects to specify which tables should be restored. Each resource represents a table under that database, see the [restorable Table resources](#restorable-table-resources) section for more details. If this value is empty, then the entire account is restored. |
 
 ### Sample resource
 
@@ -64,9 +54,9 @@ The following JSON is a sample database account resource with continuous backup 
     "databaseAccountOfferType": "Standard",
     "locations": [
       {
-        "failoverPriority": 0,
+        "failoverPriority": "0",
         "locationName": "southcentralus",
-        "isZoneRedundant": false
+        "isZoneRedundant": "false"
       }
     ],
     "createMode": "Restore",
@@ -93,10 +83,11 @@ The following JSON is a sample database account resource with continuous backup 
     },
     "backupPolicy": {
       "type": "Continuous"
-    },
-}
+    }
+  }
 }
 ```
+
 
 ## Restorable resources
 
@@ -115,16 +106,16 @@ This resource contains a database account instance that can be restored. The dat
 |---------|---------|
 | ID | The unique identifier of the resource. |
 | accountName | The global database account name. |
-| creationTime | The time in UTC when the account was created.  |
+| creationTime | The time in UTC when the account was created or migrated.  |
 | deletionTime | The time in UTC when the account was deleted.  This value is empty if the account is live. |
 | apiType | The API type of the Azure Cosmos DB account. |
 | restorableLocations |	The list of locations where the account existed. |
 | restorableLocations: locationName | The region name of the regional account. |
-| restorableLocations: regionalDatabaseAccountInstanceI | The GUID of the regional account. |
-| restorableLocations: creationTime	| The time in UTC when the regional account was created.|
+| restorableLocations: regionalDatabaseAccountInstanceId | The GUID of the regional account. |
+| restorableLocations: creationTime	| The time in UTC when the regional account was created r migrated.|
 | restorableLocations: deletionTime	| The time in UTC when the regional account was deleted. This value is empty if the regional account is live.|
 
-To get a list of all restorable accounts, see [Restorable Database Accounts - list](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/list) or [Restorable Database Accounts- list by location](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/listbylocation) articles.
+To get a list of all restorable accounts, see [Restorable Database Accounts - list](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-database-accounts/list) or [Restorable Database Accounts- list by location](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-database-accounts/list-by-location) articles.
 
 ### Restorable SQL database
 
@@ -135,10 +126,10 @@ Each resource contains information of a mutation event such as creation and dele
 | eventTimestamp | The time in UTC when the database is created or deleted. |
 | ownerId | The name of the SQL database. |
 | ownerResourceId | The resource ID of the SQL database|
-| operationType | The operation type of this database event. Here are the possible values:<br/><ul><li>Create: database creation event</li><li>Delete: database deletion event</li><li>Replace: database modification event</li><li>SystemOperation: database modification event triggered by the system. This event is not initiated by the user</li></ul> |
+| operationType | The operation type of this database event. Here are the possible values:<br/><ul><li>Create: database creation event</li><li>Delete: database deletion event</li><li>Replace: database modification event</li><li>SystemOperation: database modification event triggered by the system. This event isn't initiated by the user</li></ul> |
 | database |The properties of the SQL database at the time of the event|
 
-To get a list of all database mutations, see [Restorable Sql Databases - List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqldatabases/list) article.
+To get a list of all database mutations, see [Restorable Sql Databases - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-sql-databases/list) article.
 
 ### Restorable SQL container
 
@@ -149,10 +140,10 @@ Each resource contains information of a mutation event such as creation and dele
 | eventTimestamp	| The time in UTC when this container event happened.|
 | ownerId| The name of the SQL container.|
 | ownerResourceId	| The resource ID of the SQL container.|
-| operationType	| The operation type of this container event. Here are the possible values: <br/><ul><li>Create: container creation event</li><li>Delete: container deletion event</li><li>Replace: container modification event</li><li>SystemOperation: container modification event triggered by the system. This event is not initiated by the user</li></ul> |
+| operationType	| The operation type of this container event. Here are the possible values: <br/><ul><li>Create: container creation event</li><li>Delete: container deletion event</li><li>Replace: container modification event</li><li>SystemOperation: container modification event triggered by the system. This event isn't initiated by the user</li></ul> |
 | container | The properties of the SQL container at the time of the event.|
 
-To get a list of all container mutations under the same database, see [Restorable Sql Containers - List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlcontainers/list) article.
+To get a list of all container mutations under the same database, see [Restorable Sql Containers - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-sql-containers/list) article.
 
 ### Restorable SQL resources
 
@@ -163,7 +154,7 @@ Each resource represents a single database and all the containers under that dat
 | databaseName	| The name of the SQL database.
 | collectionNames	| The list of SQL containers under this database.|
 
-To get a list of SQL database and container combo that exist on the account at the given timestamp and location, see [Restorable Sql Resources - List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlresources/list) article.
+To get a list of SQL database and container combo that exist on the account at the given timestamp and location, see [Restorable Sql Resources - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-sql-resources/list) article.
 
 ### Restorable MongoDB database
 
@@ -174,9 +165,9 @@ Each resource contains information of a mutation event such as creation and dele
 |eventTimestamp| The time in UTC when this database event happened.|
 | ownerId| The name of the MongoDB database. |
 | ownerResourceId	| The resource ID of the MongoDB database. |
-| operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
+| operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event isn't initiated by the user </li></ul> |
 
-To get a list of all database mutation, see [Restorable Mongodb Databases - List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbdatabases/list) article.
+To get a list of all database mutation, see [Restorable Mongodb Databases - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-mongodb-databases/list) article.
 
 ### Restorable MongoDB collection
 
@@ -187,9 +178,9 @@ Each resource contains information of a mutation event such as creation and dele
 | eventTimestamp |The time in UTC when this collection event happened. |
 | ownerId| The name of the MongoDB collection. |
 | ownerResourceId	| The resource ID of the MongoDB collection. |
-| operationType |The operation type of this collection event. Here are the possible values:<br/><ul><li>Create: collection creation event</li><li>Delete: collection deletion event</li><li>Replace: collection modification event</li><li>SystemOperation: collection modification event triggered by the system. This event is not initiated by the user</li></ul> |
+| operationType |The operation type of this collection event. Here are the possible values:<br/><ul><li>Create: collection creation event</li><li>Delete: collection deletion event</li><li>Replace: collection modification event</li><li>SystemOperation: collection modification event triggered by the system. This event isn't initiated by the user</li></ul> |
 
-To get a list of all container mutations under the same database, see [Restorable Mongodb Collections - List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbcollections/list) article.
+To get a list of all container mutations under the same database see [Restorable Mongodb Collections - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-mongodb-collections/list) article.
 
 ### Restorable MongoDB resources
 
@@ -200,9 +191,72 @@ Each resource represents a single database and all the collections under that da
 | databaseName	|The name of the MongoDB database. |
 | collectionNames | The list of MongoDB collections under this database. |
 
-To get a list of all MongoDB database and collection combinations that exist on the account at the given timestamp and location, see [Restorable Mongodb Resources - List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbresources/list) article.
+To get a list of all MongoDB database and collection combinations that exist on the account at the given timestamp and location, see [Restorable Mongodb Resources - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-mongodb-resources/list) article.
+
+### Restorable Graph resources
+
+Each resource represents a single database and all the graphs under that database. 
+
+|Property Name |Description  |
+|---------|---------|
+| gremlinDatabaseName	| The name of the Graph database. |
+| graphNames | The list of Graphs under this database. |
+
+To get a list of all Gremlin database and graph combinations that exist on the account at the given timestamp and location, see [Restorable Graph Resources - List](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-gremlin-resources/list) article.
+
+### Restorable Graph database 
+
+Each resource contains information about a mutation event, such as a creation and deletion, that occurred on the Graph database. This information can help in the scenario where the database was accidentally deleted and user needs to find out when that event happened. 
+
+|Property Name |Description  |
+|---------|---------|
+|eventTimestamp| The time in UTC when this database event happened.|
+| ownerId| The name of the Graph database. |
+| ownerResourceId	| The resource ID of the Graph database. |
+| operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event isn't initiated by the user. </li></ul> |
+
+To get an event feed of all mutations on the Gremlin database for the account, see the [Restorable Graph Databases - List]( /rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-gremlin-databases/list) article.
+
+### Restorable Graphs 
+
+Each resource contains information of a mutation event such as creation and deletion that occurred on the Graph. This information can help in scenarios where the graph was modified or deleted, and if you need to find out when that event happened. 
+
+|Property Name |Description  |
+|---------|---------|
+| eventTimestamp |The time in UTC when this collection event happened. |
+| ownerId| The name of the Graph collection. |
+| ownerResourceId	| The resource ID of the Graph collection. |
+| operationType |The operation type of this collection event. Here are the possible values:<br/><ul><li>Create: Graph creation event</li><li>Delete: Graph deletion event</li><li>Replace: Graph modification event</li><li>SystemOperation: collection modification event triggered by the system. This event isn't initiated by the user.</li></ul> |
+
+To get a list of all container mutations under the same database, see graph [Restorable Graphs - List](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-gremlin-graphs/list) article.
+
+### Restorable Table resources 
+
+Lists all the restorable Azure Cosmos DB Tables available for a specific database account at a given time and location. Note the Table API doesn't specify an explicit database.
+
+|Property Name |Description  |
+|---------|---------|
+| TableNames | The list of Table containers under this account. |
+
+To get a list of tables that exist on the account at the given timestamp and location, see [Restorable Table Resources - List](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-table-resources/list) article. 
+
+### Restorable Table  
+
+Each resource contains information of a mutation event such as creation and deletion that occurred on the Table. This information can help in scenarios where the table was modified or deleted, and if you need to find out when that event happened. 
+
+|Property Name |Description  |
+|---------|---------|
+|eventTimestamp| The time in UTC when this database event happened.|
+| ownerId| The name of the Table database. |
+| ownerResourceId	| The resource ID of the Table resource. |
+| operationType |	The operation type of this Table event. Here are the possible values:<br/><ul><li> Create: Table creation event</li><li> Delete: Table deletion event</li><li> Replace: Table modification event</li><li> SystemOperation: database modification event triggered by the system. This event isn't initiated by the user </li></ul> |
+
+To get a list of all table mutations under the same database, see [Restorable Table - List](/rest/api/cosmos-db-resource-provider/2021-11-15-preview/restorable-tables/list) article. 
+
 
 ## Next steps
 
-* Configure and manage continuous backup using [Azure portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
+* Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
+* Restore an account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+* [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

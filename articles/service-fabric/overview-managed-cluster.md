@@ -1,11 +1,11 @@
 ---
-title: Service Fabric managed clusters (preview)
+title: Service Fabric managed clusters
 description: Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines deployment and cluster management.
 ms.topic: overview
-ms.date: 02/15/2021
+ms.date: 10/22/2021
 ---
 
-# Service Fabric managed clusters (preview)
+# Service Fabric managed clusters
 
 Service Fabric managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines your deployment and cluster management experience.
 
@@ -28,12 +28,15 @@ In terms of size and complexity, the ARM template for a Service Fabric managed c
 | Storage account(s) | |
 | Virtual network | |
 
-Service Fabric managed clusters provide a number of advantages over traditional clusters:
+## Service Fabric managed cluster advantages
+Service Fabric managed clusters provide a number of advantages over traditional clusters including:
 
 **Simplified cluster deployment and management**
 - Deploy and manage a single Azure resource
-- Certificate management and autorotation
+- Cluster certificate management and 90 day autorotation
 - Simplified scaling operations
+- Automatic OS Image upgrade support
+- In-Place OS SKU change support
 
 **Prevent operational errors**
 - Prevent configuration mismatches with underlying resources
@@ -42,7 +45,10 @@ Service Fabric managed clusters provide a number of advantages over traditional 
 **Best practices by default**
 - Simplified reliability and durability settings
 
-There is no additional cost for Service Fabric managed clusters beyond the cost of underlying resources required for the cluster.
+There is no additional cost for Service Fabric managed clusters beyond the cost of underlying resources required for the cluster, and the same Service Fabric SLA applies for managed clusters.
+
+> [!NOTE]
+> There is no migration path from existing Service Fabric clusters to managed clusters. You will need to create a new Service Fabric managed cluster to use this new resource type.
 
 ## Service Fabric managed cluster SKUs
 
@@ -50,37 +56,26 @@ Service Fabric managed clusters are available in both Basic and Standard SKUs.
 
 | Feature | Basic | Standard |
 | ------- | ----- | -------- |
-| Network resource (SKU for [Load Balancer](../load-balancer/skus.md), [Public IP](../virtual-network/public-ip-addresses.md)) | Basic | Standard |
+| Network resource (SKU for [Load Balancer](../load-balancer/skus.md), [Public IP](../virtual-network/ip-services/public-ip-addresses.md)) | Basic | Standard |
 | Min node (VM instance) count | 3 | 5 |
-| Max node count per node type | 100 | 100 |
+| Max node count per node type | 100 | 1000 |
 | Max node type count | 1 | 20 |
 | Add/remove node types | No | Yes |
 | Zone redundancy | No | Yes |
 
-## What's new for Service Fabric managed clusters
+## Feature support
 
-The latest features for Service Fabric managed clusters preview include support for:
+The capabilities of managed clusters will continue to expand. See [managed cluster configuration options documentation](how-to-managed-cluster-configuration.md) or managedClusters [Bicep & ARM templates](/azure/templates/microsoft.servicefabric/allversions) for more information.
 
-* [Deploying applications using ARM templates](how-to-managed-cluster-app-deployment-template.md)
-* [Automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
-* [Disk encryption](how-to-enable-managed-cluster-disk-encryption.md)
-* [Applying NSG rules](how-to-managed-cluster-networking.md)
-
-Features to be added in upcoming releases include:
-
-* Deploying applications using Visual Studio
-* Managed Identities support
-* Availability Zones
-* Reverse Proxy
-* Autoscaling
 
 ## Next steps
 
 To get started with Service Fabric managed clusters, try the quickstart:
 
 > [!div class="nextstepaction"]
-> [Create a Service Fabric managed cluster (preview)](quickstart-managed-cluster-template.md)
+> [Create a Service Fabric managed cluster](quickstart-managed-cluster-template.md)
 
+And reference [how to configure your managed cluster](how-to-managed-cluster-configuration.md)
 
 [sf-composition]: ./media/overview-managed-cluster/sfrp-composition-resource.png
 [sf-encapsulation]: ./media/overview-managed-cluster/sfrp-encapsulated-resource.png

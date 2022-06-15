@@ -1,6 +1,5 @@
 ---
 title: Configure keychain 
-titleSuffix: Microsoft identity platform
 description: Learn how to configure keychain so that your app can cache tokens in the keychain.
 services: active-directory
 author: mmacy
@@ -13,7 +12,7 @@ ms.topic: how-to
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ---
 
 # Configure keychain

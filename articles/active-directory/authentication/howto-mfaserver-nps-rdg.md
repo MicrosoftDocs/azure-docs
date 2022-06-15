@@ -10,7 +10,7 @@ ms.date: 07/11/2018
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -91,4 +91,4 @@ The Azure Multi-Factor Authentication Server is configured as a RADIUS proxy bet
 
 - Integrate Azure MFA and [IIS web apps](howto-mfaserver-iis.md)
 
-- Get answers in the [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
+- Get answers in the [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.yml)

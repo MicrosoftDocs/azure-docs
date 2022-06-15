@@ -4,14 +4,13 @@ description: Learn how to determine what resources users, groups, service princi
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/30/2020
+ms.date: 06/03/2022
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -20,7 +19,7 @@ ms.reviewer: bagovind
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] This article describes how to list role assignments using Azure CLI.
 
 > [!NOTE]
-> If your organization has outsourced management functions to a service provider who uses [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md), role assignments authorized by that service provider won't be shown here.
+> If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here.
 
 ## Prerequisites
 
@@ -162,13 +161,13 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
     To get the principal ID of a user-assigned managed identity, you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) or [az identity list](/cli/azure/identity#az-identity-list).
 
     ```azurecli
-    az ad sp list --display-name "{name}" --query [].objectId --output tsv
+    az ad sp list --display-name "{name}" --query [].id --output tsv
     ```
 
     To get the principal ID of a system-assigned managed identity, you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
 
     ```azurecli
-    az ad sp list --display-name "{vmname}" --query [].objectId --output tsv
+    az ad sp list --display-name "{vmname}" --query [].id --output tsv
     ```
 
 1. To list the role assignments, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list).

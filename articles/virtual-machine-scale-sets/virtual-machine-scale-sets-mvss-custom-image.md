@@ -5,14 +5,15 @@ author: cynthn
 ms.author: cynthn
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.date: 04/26/2018
-ms.reviewer: akjosh
-ms.custom: akjosh
+ms.reviewer: mimckitt
 
 ---
 
 # Add a custom image to an Azure scale set template
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 This article shows how to modify the [basic scale set template](virtual-machine-scale-sets-mvss-start.md) to deploy from custom image.
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/18/2020
+ms.date: 08/25/2021
 ms.author: alkohli
 ---
 
@@ -91,6 +91,27 @@ To restart your Data Box, perform the following steps.
 3. When prompted for confirmation, select **OK** to continue.
 
    The device shuts down and then restarts.
+
+## Get share credentials 
+
+If you need to find out the username and password to use to connect to a share on your device, you can find the share credentials in **Connect and copy** in the local web UI.
+
+When you order your device, you can choose to use default system-generated passwords for the shares on your device or your own passwords. Either way, the share passwords are set at the factory and can't be changed. 
+
+To get the credentials for a share:
+
+1. In the local web UI, go to **Connect and copy**. Select **SMB** to get access credentials for the shares associated with your storage account.
+
+   ![Screenshot showing the Connect And Copy page in the local Web UI for a Data Box. The Connect And Copy menu item and the SMB option are highlighted.](media/data-box-local-web-ui-admin/get-share-credentials-01.png)
+
+1. In the **Access share and copy data** dialog box, use the copy icon to copy the **Username** and **Password** corresponding to the share. To close the dialog box, select **OK**.
+
+   ![Screenshot showing the Access Share And Copy Data dialog box in the local Web UI for an SMB share on the Data Box. The Copy icon for the Storage Account and Password options, and the OK button, are highlighted.](media/data-box-local-web-ui-admin/get-share-credentials-02.png)
+
+> [!NOTE]
+> After several failed share connection attempts using an incorrect password, the user account will be locked out of the share. The account lock will clear after a few minutes, and you can connect to the shares again.  
+> - Data Box 4.1 and later: The account is locked for 15 minutes after 5 failed login attempts. 
+> - Data Box 4.0 and earlier: The account is locked for 30 minutes after 3 failed login attempts.
 
 ## Download BOM or manifest files
 

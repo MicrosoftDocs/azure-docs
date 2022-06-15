@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to deploy a Windows Service Fabric 
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 # Tutorial: Deploy a Service Fabric cluster running Windows into an Azure virtual network
 
@@ -106,7 +106,7 @@ The following inbound traffic rules are enabled in the **Microsoft.Network/netwo
 If other application ports are needed, you'll need to adjust the **Microsoft.Network/loadBalancers** resource and the **Microsoft.Network/networkSecurityGroups** resource to allow the traffic in.
 
 ### Windows Defender
-By default, the [Windows Defender antivirus program](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but isn't required. For each node type/VM scale set declared in the template, the [Azure VM Antimalware extension](../virtual-machines/extensions/iaas-antimalware-windows.md) is used to exclude the Service Fabric directories and processes:
+By default, the [Windows Defender antivirus program](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) is installed and functional on Windows Server 2016. The user interface is installed by default on some SKUs, but isn't required. For each node type/VM scale set declared in the template, the [Azure VM Antimalware extension](../virtual-machines/extensions/iaas-antimalware-windows.md) is used to exclude the Service Fabric directories and processes:
 
 ```json
 {
@@ -140,8 +140,8 @@ The [azuredeploy.parameters.json][parameters] parameters file declares many valu
 
 **Parameter** | **Example value** | **Notes** 
 |---|---|---|
-|adminUserName|vmadmin| Admin username for the cluster VMs. [Username requirements for VM](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). |
-|adminPassword|Password#1234| Admin password for the cluster VMs. [Password requirements for VM](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUserName|vmadmin| Admin username for the cluster VMs. [Username requirements for VM](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-). |
+|adminPassword|Password#1234| Admin password for the cluster VMs. [Password requirements for VM](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).|
 |clusterName|mysfcluster123| Name of the cluster. Can contain letters and numbers only. Length can be between 3 and 23 characters.|
 |location|southcentralus| Location of the cluster. |
 |certificateThumbprint|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate SHA1 thumbprint value. For example, "6190390162C988701DB5676EB81083EA608DCCF3".</p> |

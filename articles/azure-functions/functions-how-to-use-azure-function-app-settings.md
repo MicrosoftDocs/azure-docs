@@ -3,8 +3,8 @@ title: Configure function app settings in Azure Functions
 description: Learn how to configure function app settings in Azure Functions.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 04/13/2020
-ms.custom: cc996988-fb4f-47, devx-track-azurecli
+ms.date: 01/21/2021
+ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage your function app 
@@ -27,9 +27,11 @@ You can navigate to everything you need to manage your function app from the ove
 
 ## <a name="settings"></a>Work with application settings
 
-Application settings can be managed from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). You can also manage application settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings). 
+You can create any number of application settings required by your function code. There are also predefined application settings used by Functions. To learn more, see the [App settings reference for Azure Functions](functions-app-settings.md).
 
 These settings are stored encrypted. To learn more, see [Application settings security](security-concepts.md#application-settings).
+
+Application settings can be managed from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). You can also manage application settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings). 
 
 # [Portal](#tab/portal)
 
@@ -40,7 +42,7 @@ To add a setting in the portal, select **New application setting** and add the n
 
 ![Function app settings in the Azure portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-# [Azure CLI](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 The [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) command returns the existing application settings, as in the following example:
 
@@ -58,7 +60,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 --settings CUSTOM_FUNCTION_APP_SETTING=12345
 ```
 
-# [Azure PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 The [`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionappsetting) cmdlet returns the existing application settings, as in the following example: 
 
@@ -78,7 +80,7 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-When you develop a function app locally, you must maintain local copies of these values in the local.settings.json project file. To learn more, see [Local settings file](functions-run-local.md#local-settings-file).
+When you develop a function app locally, you must maintain local copies of these values in the local.settings.json project file. To learn more, see [Local settings file](functions-develop-local.md#local-settings-file).
 
 ## Hosting plan type
 
@@ -100,7 +102,7 @@ To determine the type of plan used by your function app, see **App Service plan*
 
 ![View scaling plan in the portal](./media/functions-scale/function-app-overview-portal.png)
 
-# [Azure CLI](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 Run the following Azure CLI command to get your hosting plan type:
 
@@ -114,7 +116,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` with the resource group and function app names, respective. 
 
-# [Azure PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Run the following Azure PowerShell command to get your hosting plan type:
 
@@ -139,19 +141,19 @@ This migration isn't supported on Linux.
 
 Use the following procedure to migrate from a Consumption plan to a Premium plan on Windows:
 
-1. Run the following command to create a new App Service plan (Elastic Premium) in the same region and resource group as your existing function app.  
+1. Run the [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) command as follows to create a new App Service plan (Elastic Premium) in the same region and resource group as your existing function app: 
 
     ```azurecli-interactive
     az functionapp plan create --name <NEW_PREMIUM_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP> --location <REGION> --sku EP1
     ```
 
-1. Run the following command to migrate the existing function app to the new Premium plan
+1. Run the [az functionapp update](/cli/azure/functionapp#az-functionapp-update) command as follows to migrate the existing function app to the new Premium plan:
 
     ```azurecli-interactive
     az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_PREMIUM_PLAN>
     ```
 
-1. If you no longer need your previous Consumption function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Run the following command to get a list of all Consumption plans in your resource group.
+1. If you no longer need your previous Consumption function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Run the [az functionapp plan list](/cli/azure/functionapp/plan#az-functionapp-plan-list) command as follows to get a list of all Consumption plans in your resource group:
 
     ```azurecli-interactive
     az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='Y'].{PlanName:name,Sites:numberOfSites}" -o table
@@ -159,7 +161,7 @@ Use the following procedure to migrate from a Consumption plan to a Premium plan
 
     You can safely delete the plan with zero sites, which is the one you migrated from.
 
-1. Run the following command to delete the Consumption plan you migrated from.
+1. Run the [az functionapp plan delete](/cli/azure/functionapp/plan#az-functionapp-plan-delete) command as follows to delete the Consumption plan you migrated from.
 
     ```azurecli-interactive
     az functionapp plan delete --name <CONSUMPTION_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP>
@@ -169,44 +171,125 @@ Use the following procedure to migrate from a Consumption plan to a Premium plan
 
 Use the following procedure to migrate from a Premium plan to a Consumption plan on Windows:
 
-1. Run the following command to create a new function app (Consumption) in the same region and resource group as your existing function app. This command also creates a new Consumption plan in which the function app runs.
+1. Run the [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) command as follows to create a new function app (Consumption) in the same region and resource group as your existing function app. This command also creates a new Consumption plan in which the function app runs.
 
     ```azurecli-interactive
     az functionapp create --resource-group <MY_RESOURCE_GROUP> --name <NEW_CONSUMPTION_APP_NAME> --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --storage-account <STORAGE_NAME>
     ```
 
-1. Run the following command to migrate the existing function app to the new Consumption plan.
+1. Run the [az functionapp update](/cli/azure/functionapp#az-functionapp-update) command as follows to migrate the existing function app to the new Consumption plan.
 
     ```azurecli-interactive
-    az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_CONSUMPTION_PLAN>
+    az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_CONSUMPTION_PLAN> --force
     ```
 
-1. Delete the function app you created in step 1, since you only need the plan that was created to run the existing function app.
+1. Run the [az functionapp delete](/cli/azure/functionapp#az-functionapp-delete) command as follows to delete the function app you created in step 1, since you only need the plan that was created to run the existing function app.
 
     ```azurecli-interactive
     az functionapp delete --name <NEW_CONSUMPTION_APP_NAME> --resource-group <MY_RESOURCE_GROUP>
     ```
 
-1. If you no longer need your previous Premium function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Please note that if the plan is not deleted, you will still be charged for the Premium plan. Run the following command to get a list of all Premium plans in your resource group.
+1. If you no longer need your previous Premium function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Please note that if the plan is not deleted, you will still be charged for the Premium plan. Run the [az functionapp plan list](/cli/azure/functionapp/plan#az-functionapp-plan-list) command as follows to get a list of all Premium plans in your resource group.
 
     ```azurecli-interactive
     az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='EP'].{PlanName:name,Sites:numberOfSites}" -o table
     ```
 
-1. Run the following command to delete the Premium plan you migrated from.
+1. Run the [az functionapp plan delete](/cli/azure/functionapp/plan#az-functionapp-plan-delete) command as follows  to delete the Premium plan you migrated from.
 
     ```azurecli-interactive
     az functionapp plan delete --name <PREMIUM_PLAN> --resource-group <MY_RESOURCE_GROUP>
     ```
 
+## Get your function access keys
+
+HTTP triggered functions can generally be called by using a URL in the format: `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. When the authorization to your function is set a value other than `anonymous`, you must also provide an access key in your request. The access key can either be provided in the URL using the `?code=` query string or in the request header. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). There are several ways to get your  access keys. 
+
+# [Portal](#tab/portal)
+
+1. Sign in to the Azure portal, then search for and select **Function App**.
+
+1. Select the function you want to verify.
+
+1. In the left navigation under **Functions**, select **App keys**.
+
+    This returns the host keys, which can be used to access any function in the app. It also returns the system key, which gives anyone administrator-level access to the all function app APIs.   
+
+You can also practice least privilege by using the key just for the specific function key by selecting **Function keys** under **Developer** in your HTTP triggered function. 
+
+# [Azure CLI](#tab/azure-cli)
+
+Run the following script in Azure Cloud Shell, the output of which is the [default (host) key](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level) that can be used to access any HTTP triggered function in the function app.
+
+```azurecli-interactive
+subName='<SUBSCRIPTION_ID>'
+resGroup=AzureFunctionsContainers-rg
+appName=glengagtestdocker
+path=/subscriptions/$subName/resourceGroups/$resGroup/providers/Microsoft.Web/sites/$appName/host/default/listKeys?api-version=2018-11-01
+az rest --method POST --uri $path --query functionKeys.default --output tsv
+```
+
+In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your subscription and your function app name, respective. This script runs on Bash in Cloud Shell. It must be modified to run in a Windows command prompt.  
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+Run the following script, the output of which is the [default (host) key](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level) that can be used to access any HTTP triggered function in the function app. 
+
+```powershell-interactive
+$subName = '<SUBSCRIPTION_ID>'
+$rGroup = 'AzureFunctionsContainers-rg'
+$appName = '<APP_NAME>'
+$path = "/subscriptions/$subName/resourceGroups/$rGroup/providers/Microsoft.Web/sites/$appName/host/default/listKeys?api-version=2018-11-01"
+((Invoke-AzRestMethod -Path $path -Method POST).Content | ConvertFrom-JSON).functionKeys.default
+```
+
+In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your subscription and your function app name, respective. 
+
+---
+
+## Manually install extensions
+
+C# class library functions can include the NuGet packages for [binding extensions](functions-bindings-register.md) directly in the class library project. For other non-.NET languages and C# script, the recommended way to install extensions is either by [using extension bundles](functions-bindings-register.md#extension-bundles) or by [using Azure Functions Core Tools](functions-run-local.md#install-extensions) locally.  If you can't use extension bundles and are only able to work in the portal, you need to use [Advanced Tools (Kudu)](#kudu) to manually create the extensions.csproj file directly in the site. Make sure to first remove the `extensionBundle` element from the host.json file.
+
+This same process works for any other file you need to add to your app. 
+
+> [!IMPORTANT]
+> When possible, you shouldn't edit files directly in your function app in Azure. We recommend [downloading your app files locally](deployment-zip-push.md#download-your-function-app-files), using [Core Tools to install extensions](functions-run-local.md#install-extensions) and other packages, validating your changes, and then [republishing your app using Core Tools](functions-run-local.md#publish) or one of the other [supported deployment methods](functions-deployment-technologies.md#deployment-methods). 
+
+The Functions editor built into the Azure portal lets you update your function code and configuration (function.json) files directly in the portal. 
+
+1. Select your function app, then under **Functions** select **Functions**.
+1. Choose your function and select **Code + test** under **Developer**.
+1. Choose your file to edit and select **Save** when you're done.
+
+Files in the root of the app, such as function.proj or extensions.csproj need to be created and edited by using the [Advanced Tools (Kudu)](#kudu).
+
+1. Select your function app, then under **Development tools** select **Advanced tools** > **Go**.
+1. If promoted, sign-in to the SCM site with your Azure credentials.
+1. From the **Debug console** menu, choose **CMD**.
+1. Navigate to `.\site\wwwroot`, select the plus (**+**) button at the top, and select **New file**.
+1. Name the file, such as `extensions.csproj` and press Enter.
+1. Select the edit button next to the new file, add or update code in the file, and select **Save**. 
+1. For a project file like extensions.csproj, run the following command to rebuild the extensions project:
+
+    ```bash
+    dotnet build extensions.csproj
+    ```
+
 ## Platform features
 
-Function apps run in, and are maintained by, the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. The left pane is where you access the many features of the App Service platform that you can use in your function apps. 
+Function apps run in, and are maintained by, the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. When working in the [Azure portal](https://portal.azure.com), the left pane is where you access the many features of the App Service platform that you can use in your function apps. 
 
-> [!NOTE]
-> Not all App Service features are available when a function app runs on the Consumption hosting plan.
+The following matrix indicates portal feature support by hosting plan and operating system:
 
-The rest of this article focuses on the following App Service features in the Azure portal that are useful for Functions:
+| Feature | Consumption plan | Premium plan  | Dedicated plan | 
+| --- | --- | --- | --- |
+| [Advanced tools (Kudu)](#kudu) | Windows: ✔ <br/>Linux: **X** | ✔ | ✔|
+| [App Service editor](#editor) | Windows: ✔ <br/>Linux: **X**   | Windows: ✔ <br/>Linux: **X** | Windows: ✔ <br/>Linux: **X**|
+| [Backups](../app-service/manage-backup.md) |**X** |**X** | ✔|
+| [Console](#console) | Windows: command-line <br/>Linux: **X** | Windows: command-line <br/>Linux: SSH | Windows: command-line <br/>Linux: SSH |
+
+The rest of this article focuses on the following features in the portal that are useful for your function apps:
 
 + [App Service editor](#editor)
 + [Console](#console)

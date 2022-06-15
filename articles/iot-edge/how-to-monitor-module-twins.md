@@ -1,9 +1,9 @@
 ---
 title: Monitor module twins - Azure IoT Edge
 description: How to interpret device twins and module twins to determine connectivity and health.
-author: kgremban
-manager: philmea
-ms.author: kgremban
+author: PatAltimore
+
+ms.author: patricka
 ms.date: 05/29/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
@@ -209,11 +209,24 @@ If you make changes, select **Update Module Twin** above the code in the editor 
 
 To see if IoT Edge is running, use the [az iot hub invoke-module-method](how-to-edgeagent-direct-method.md#ping) to ping the IoT Edge agent.
 
-The [az iot hub module-twin](/cli/azure/ext/azure-iot/iot/hub/module-twin) structure provides these commands:
+The [az iot hub module-twin](/cli/azure/iot/hub/module-twin) structure provides these commands:
 
 * **az iot hub module-twin show** - Show a module twin definition.
 * **az iot hub module-twin update** - Update a module twin definition.
 * **az iot hub module-twin replace** - Replace a module twin definition with a target JSON.
+
+>[!TIP]
+>To target the runtime modules with CLI commands, you may need to escape the `$` character in the module ID. For example:
+>
+>```azurecli
+>az iot hub module-twin show -m '$edgeAgent' -n <hub name> -d <device name>
+>```
+>
+>Or:
+>
+>```azurecli
+>az iot hub module-twin show -m \$edgeAgent -n <hub name> -d <device name>
+>```
 
 ## Next steps
 

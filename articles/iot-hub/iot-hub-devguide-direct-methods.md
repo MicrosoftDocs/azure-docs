@@ -1,12 +1,12 @@
 ﻿---
 title: Understand Azure IoT Hub direct methods | Microsoft Docs
 description: Developer guide - use direct methods to invoke code on your devices from a service app.
-author: philmea
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.author: philmea
+ms.author: kgremban
 ms.custom: [amqp, mqtt,'Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -30,7 +30,7 @@ Direct methods are implemented on the device and may require zero or more inputs
 
 > [!NOTE]
 > When you invoke a direct method on a device, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
-> 
+>
 
 Direct methods are synchronous and either succeed or fail after the timeout period (default: 30 seconds, settable between 5 and 300 seconds). Direct methods are useful in interactive scenarios where you want a device to act if and only if the device is online and receiving commands. For example, turning on a light from a phone. In these scenarios, you want to see an immediate success or failure so the cloud service can act on the result as soon as possible. The device may return some message body as a result of the method, but it isn't required for the method to do so. There is no guarantee on ordering or any concurrency semantics on method calls.
 
@@ -49,7 +49,7 @@ Direct method invocations on a device are HTTPS calls that are made up of the fo
 * The *request URI* specific to the device along with the [API version](/rest/api/iothub/service/devices/invokemethod):
 
     ```http
-    https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
+    https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2021-04-12
     ```
 
 * The POST *method*
@@ -79,15 +79,15 @@ This example will allow you to securely initiate a request to invoke a Direct Me
 
 To begin, use the [Microsoft Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to create a SharedAccessSignature.
 
-```bash
-az iot hub generate-sas-token -n <iothubName> -du <duration>
+```azurecli
+az iot hub generate-sas-token -n <iothubName> --du <duration>
 ```
 
-Next, replace the Authorization header with your newly generated SharedAccessSignature, then modify the `iothubName`, `deviceId`, `methodName` and `payload` parameters to match your implementation in the example `curl` command below.  
+Next, replace the Authorization header with your newly generated SharedAccessSignature, then modify the `iothubName`, `deviceId`, `methodName` and `payload` parameters to match your implementation in the example `curl` command below.
 
 ```bash
 curl -X POST \
-  https://<iothubName>.azure-devices.net/twins/<deviceId>/methods?api-version=2018-06-30 \
+  https://<iothubName>.azure-devices.net/twins/<deviceId>/methods?api-version=2021-04-12\
   -H 'Authorization: SharedAccessSignature sr=iothubname.azure-devices.net&sig=x&se=x&skn=iothubowner' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -106,7 +106,7 @@ Execute the modified command to invoke the specified Direct Method. Successful r
 > The above example demonstrates invoking a Direct Method on a device.  If you wish to invoke a Direct Method in an IoT Edge Module, you would need to modify the url request as shown below:
 
 ```bash
-https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06-30
+https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2021-04-12
 ```
 ### Response
 
@@ -219,5 +219,5 @@ Now you have learned how to use direct methods, you may be interested in the fol
 
 If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
 
-* [Use direct methods](quickstart-control-device-node.md)
+* [Use direct methods](quickstart-control-device.md)
 * [Device management with Azure IoT Tools for VS Code](iot-hub-device-management-iot-toolkit.md)

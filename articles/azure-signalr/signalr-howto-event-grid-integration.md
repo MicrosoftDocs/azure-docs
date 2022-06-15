@@ -2,12 +2,11 @@
 title: How to send Azure SignalR Service events to Event Grid
 description: A guide to show you how to enable Event Grid events for your SignalR Service, then send client connection connected/disconnected events to a sample application.
 services: signalr
-author: chenyl
-
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.author: chenyl
+ms.author: lianwei
 ---
 
 # How to send events from Azure SignalR Service to Event Grid
@@ -165,5 +164,5 @@ You have now connected a client to the SignalR Service. Navigate to your Event G
 [sample-app]: https://github.com/dbarkol/azure-event-grid-viewer
 
 <!-- LINKS - Internal -->
-[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create
-[az-group-create]: /cli/azure/group#az-group-create
+[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create
+[az-group-create]: /cli/azure/group#az_group_create

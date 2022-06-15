@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 05/31/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with DigiCert
@@ -32,6 +32,9 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * DigiCert supports **IDP** initiated SSO.
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Add DigiCert from the gallery
 
@@ -69,8 +72,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    In the **Identifier** text box, type the URL:
-    `https://www.digicert.com/sso`
+    a. In the **Identifier** text box, type the URL:
+    `https://www.digicert.com/account/sso/metadata`
+
+    b. In the **Reply URL** text box, type the URL:
+    `https://www.digicert.com/account/sso/`
+
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://www.digicert.com/account/sso/<FEDERATION_NAME>/login`
+
+	> [!NOTE]
+    > The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [DigiCert support team](mailto:support@digicert.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. DigiCert application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
@@ -151,8 +163,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the DigiCert for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the DigiCert tile in the My Apps, you should be automatically signed in to the DigiCert for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the DigiCert tile in the My Apps, you should be automatically signed in to the DigiCert for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure DigiCert you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure DigiCert you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

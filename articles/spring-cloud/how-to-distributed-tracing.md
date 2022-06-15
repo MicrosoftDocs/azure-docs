@@ -1,25 +1,30 @@
 ---
-title: "Use Distributed Tracing with Azure Spring Cloud"
-description: Learn how to use Spring Cloud's distributed tracing through Azure Application Insights
-author: bmitchell287
+title: "Use Distributed Tracing with Azure Spring Apps"
+description: Learn how to use Azure Spring Apps distributed tracing through Azure Application Insights
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/06/2019
-ms.author: brendm
-ms.custom: devx-track-java
+ms.author: karler
+ms.custom: devx-track-java, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Use distributed tracing with Azure Spring Cloud
+# Use distributed tracing with Azure Spring Apps (deprecated)
 
-With the distributed tracing tools in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../azure-monitor/app/app-insights-overview.md). This integration provides powerful distributed tracing capability from the Azure portal.
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+> [!NOTE]
+> Distributed Tracing is deprecated. For more information, see [Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md).
+
+With the distributed tracing tools in Azure Spring Apps, you can easily debug and monitor complex issues. Azure Spring Apps integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../azure-monitor/app/app-insights-overview.md). This integration provides powerful distributed tracing capability from the Azure portal.
 
 ::: zone pivot="programming-language-csharp"
 In this article, you learn how to enable a .NET Core Steeltoe app to use distributed tracing.
 
 ## Prerequisites
 
-To follow these procedures, you need a Steeltoe app that is already [prepared for deployment to Azure Spring Cloud](how-to-prepare-app-deployment.md).
+To follow these procedures, you need a Steeltoe app that is already [prepared for deployment to Azure Spring Apps](how-to-prepare-app-deployment.md).
 
 ## Dependencies
 
@@ -70,14 +75,14 @@ For Steeltoe 3.0.0, add the following NuGet package:
 
 ## Update configuration
 
-Add the following settings to the configuration source that will be used when the app runs in Azure Spring Cloud:
+Add the following settings to the configuration source that will be used when the app runs in Azure Spring Apps:
 
 1. Set `management.tracing.alwaysSample` to true.
 
 2. If you want to see tracing spans sent between the Eureka server, the Configuration server, and user apps: set `management.tracing.egressIgnorePattern` to "/api/v2/spans|/v2/apps/.*/permissions|/eureka/.*|/oauth/.*".
 
 For example, *appsettings.json* would include the following properties:
- 
+
 ```json
 "management": {
     "tracing": {
@@ -87,7 +92,7 @@ For example, *appsettings.json* would include the following properties:
   }
 ```
 
-For more information about distributed tracing in .NET Core Steeltoe apps, see [Distributed tracing](https://steeltoe.io/docs/3/tracing/distributed-tracing) in the Steeltoe documentation.
+For more information about distributed tracing in .NET Core Steeltoe apps, see [Distributed tracing](https://docs.steeltoe.io/api/v3/tracing/) in the Steeltoe documentation.
 ::: zone-end
 ::: zone pivot="programming-language-java"
 In this article, you learn how to:
@@ -95,12 +100,12 @@ In this article, you learn how to:
 > [!div class="checklist"]
 > * Enable distributed tracing in the Azure portal.
 > * Add Spring Cloud Sleuth to your application.
-> * View dependency maps for your microservice applications.
+> * View dependency maps for your Spring applications.
 > * Search tracing data with different filters.
 
 ## Prerequisites
 
-To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md) quickstart to provision and run an Azure Spring Cloud service.
+To follow these procedures, you need an Azure Spring Apps service that is already provisioned and running. Complete the [Deploy your first Spring Boot app in Azure Spring Apps](./quickstart.md) quickstart to provision and run an Azure Spring Apps service.
 
 ## Add dependencies
 
@@ -112,29 +117,61 @@ To follow these procedures, you need an Azure Spring Cloud service that is alrea
 
    After this change, the Zipkin sender can send to the web.
 
-1. Skip this step if you followed our [guide to preparing an Azure Spring Cloud application](how-to-prepare-app-deployment.md). Otherwise, go to your local development environment and edit your pom.xml file to include the following Spring Cloud Sleuth dependency:
+1. Skip this step if you followed our [guide to preparing an application in Azure Spring Apps](how-to-prepare-app-deployment.md). Otherwise, go to your local development environment and edit your pom.xml file to include the following Spring Cloud Sleuth dependency:
 
-    ```xml
-    <dependencyManagement>
-        <dependencies>
+    * Spring boot version < 2.4.x.
+
+      ```xml
+      <dependencyManagement>
+          <dependencies>
+              <dependency>
+                  <groupId>org.springframework.cloud</groupId>
+                  <artifactId>spring-cloud-sleuth</artifactId>
+                  <version>${spring-cloud-sleuth.version}</version>
+                  <type>pom</type>
+                  <scope>import</scope>
+              </dependency>
+          </dependencies>
+      </dependencyManagement>
+      <dependencies>
+          <dependency>
+              <groupId>org.springframework.cloud</groupId>
+              <artifactId>spring-cloud-starter-sleuth</artifactId>
+          </dependency>
+          <dependency>
+              <groupId>org.springframework.cloud</groupId>
+              <artifactId>spring-cloud-starter-zipkin</artifactId>
+          </dependency>
+      </dependencies>
+      ```
+
+    * Spring boot version >= 2.4.x.
+
+      ```xml
+      <dependencyManagement>
+          <dependencies>
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-sleuth</artifactId>
-                <version>${spring-cloud-sleuth.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
-        </dependency>
-    </dependencies>
-    ```
+                  <groupId>org.springframework.cloud</groupId>
+                  <artifactId>spring-cloud-sleuth</artifactId>
+                  <version>${spring-cloud-sleuth.version}</version>
+                  <type>pom</type>
+                  <scope>import</scope>
+              </dependency>
+          </dependencies>
+      </dependencyManagement>
+      <dependencies>
+          <dependency>
+              <groupId>org.springframework.cloud</groupId>
+              <artifactId>spring-cloud-starter-sleuth</artifactId>
+          </dependency>
+          <dependency>
+              <groupId>org.springframework.cloud</groupId>
+              <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+           </dependency>
+      </dependencies>
+      ```
 
-1. Build and deploy again for your Azure Spring Cloud service to reflect these changes.
+1. Build and deploy again for your Azure Spring Apps service to reflect these changes.
 
 ## Modify the sample rate
 
@@ -149,7 +186,7 @@ If you have already built and deployed an application, you can modify the sample
 
 ## Enable Application Insights
 
-1. Go to your Azure Spring Cloud service page in the Azure portal.
+1. Go to your Azure Spring Apps service page in the Azure portal.
 1. On the **Monitoring** page, select **Distributed Tracing**.
 1. Select **Edit setting** to edit or add a new setting.
 1. Create a new Application Insights query, or select an existing one.
@@ -170,10 +207,10 @@ Application Insights provides monitoring capabilities in addition to the applica
 
 ## Disable Application Insights
 
-1. Go to your Azure Spring Cloud service page in the Azure portal.
+1. Go to your Azure Spring Apps service page in the Azure portal.
 1. On **Monitoring**, select **Distributed Tracing**.
 1. Select **Disable** to disable Application Insights.
 
 ## Next steps
 
-In this article, you learned how to enable and understand distributed tracing in Azure Spring Cloud. To learn about binding services to an application, see [Bind an Azure Cosmos DB database to an Azure Spring Cloud application](spring-cloud-howto-bind-cosmos.md).
+In this article, you learned how to enable and understand distributed tracing in Azure Spring Apps. To learn about binding services to an application, see [Bind an Azure Cosmos DB database to an application in Azure Spring Apps](./how-to-bind-cosmos.md).

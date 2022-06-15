@@ -4,17 +4,13 @@
   items:
   - name: What are ARM templates?
     href: overview.md
-  - name: Bicep overview
-    href: bicep-overview.md
 - name: Quickstarts
   items:
-  - name: Create templates - portal
-    href: quickstart-create-templates-use-the-portal.md
-  - name: Create templates - VS Code
+  - name: Create JSON templates - VS Code
     href: quickstart-create-templates-use-visual-studio-code.md
-  - name: Create Bicep - VS Code
-    href: quickstart-create-bicep-use-visual-studio-code.md
-  - name: Create & deploy template specs
+  - name: Create JSON templates - portal
+    href: quickstart-create-templates-use-the-portal.md
+  - name: Create template specs
     href: quickstart-create-template-specs.md
 - name: Tutorials
   items:
@@ -40,28 +36,6 @@
       href: template-tutorial-add-tags.md
     - name: 10 - Use parameter file
       href: template-tutorial-use-parameter-file.md
-  - name: Beginner Bicep
-    items:
-    - name: 1 - Create first template
-      href: bicep-tutorial-create-first-bicep.md
-    - name: 2 - Add parameters
-      href: bicep-tutorial-add-parameters.md
-    - name: 3 - Add template functions
-      href: bicep-tutorial-add-functions.md
-    - name: 4 - Add variables
-      href: bicep-tutorial-add-variables.md
-    - name: 5 - Add outputs
-      href: bicep-tutorial-add-outputs.md
-    - name: 6 - Use exported template
-      href: bicep-tutorial-export-template.md
-    - name: 7 - Use Quickstart template
-      href: bicep-tutorial-quickstart-template.md
-    - name: 8 - Add tags
-      href: bicep-tutorial-add-tags.md
-    - name: 9 - Use parameter file
-      href: bicep-tutorial-use-parameter-file.md
-    - name: 10 - Add modules
-      href: bicep-tutorial-add-modules.md
   - name: Deployment
     items:
     - name: 1 - Deploy a local template
@@ -79,12 +53,15 @@
     - name: Deploy as linked template
       displayName: template specs
       href: template-specs-deploy-linked-template.md
+    - name: Create portal form
+      href: template-specs-create-portal-forms.md
+      displayName: UI,form,blade
   - name: Advanced templates
     items:
     - name: Use template reference
       href: template-tutorial-use-template-reference.md
     - name: Create multiple instances
-      displayName: iteration,copy
+      displayName: iteration,copy,loop
       href: template-tutorial-create-multiple-instances.md
     - name: Set resource deployment order
       displayName: dependent resources, dependency
@@ -102,16 +79,6 @@
       href: template-tutorial-deploy-vm-extensions.md
     - name: Deploy SQL extensions
       href: template-tutorial-deploy-sql-extensions-bacpac.md
-    - name: Troubleshoot template deployment
-      href: template-tutorial-troubleshoot.md
-  - name: Deployment manager
-    items:
-    - name: Use safe deployment practices
-      displayName: adm
-      href: deployment-manager-tutorial.md
-    - name: Use health check in Deployment Manager
-      displayName: adm
-      href: deployment-manager-tutorial-health-check.md
   - name: Microsoft Learn path about templates
     href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Samples - Azure services
@@ -144,8 +111,6 @@
       href: ../../hdinsight/interactive-query/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: HDInsight - Kafka
       href: ../../hdinsight/kafka/apache-kafka-quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: HDInsight - ML Services
-      href: ../../hdinsight/r-server/quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: HDInsight - Spark
       href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Stream Analytics
@@ -155,7 +120,7 @@
   - name: Blockchain
     items:
     - name: Blockchain
-      href: ../../blockchain/service/create-member-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: https://azure.microsoft.com/solutions/blockchain/?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
   - name: Compute
     items:
     - name: Batch
@@ -173,7 +138,7 @@
   - name: Containers
     items:
     - name: AKS
-      href: ../../aks/kubernetes-walkthrough-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../aks/learn/quick-kubernetes-deploy-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Instances
       href: ../../container-instances/container-instances-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Registry
@@ -185,7 +150,7 @@
     - name: Cache for Redis
       href: ../../azure-cache-for-redis/cache-redis-cache-arm-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Cosmos DB
-      href: ../../cosmos-db/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../cosmos-db/sql/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for MariaDB
       href: ../../mariadb/quickstart-create-mariadb-server-database-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for MySQL
@@ -199,11 +164,11 @@
     - name: Database Migration Service
       href: ../../dms/create-dms-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SQL Database
-      href: ../../azure-sql/database/single-database-create-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/azure-sql/database/single-database-create-arm-template-quickstart?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SQL Managed Instance
-      href: ../../azure-sql/managed-instance/create-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/azure-sql/managed-instance/create-template-quickstart?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SQL Server on Virtual Machines
-      href: ../../azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template?toc=/azure/azure-resource-manager/templates/toc.json
   - name: DevOps
     items:
     - name: App Configuration
@@ -215,7 +180,7 @@
   - name: Integration
     items:
     - name: API for FHIR
-      href: ../../healthcare-apis/fhir/fhir-paas-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../healthcare-apis/fhir/fhir-service-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Event Grid
       href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Logic Apps
@@ -243,7 +208,7 @@
     - name: Managed Applications
       href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Monitor
-      href: ../../azure-monitor/essentials/quick-collect-activity-log-arm.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
+      href: ../../azure-monitor/essentials/resource-manager-diagnostic-settings.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
     - name: Policy
       href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Portal
@@ -285,7 +250,7 @@
     - name: Load Balancer - public
       href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: NAT gateway
-      href: ../../virtual-network/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Private Endpoint
       href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Private Link service
@@ -302,8 +267,8 @@
       href: ../../key-vault/keys/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Key Vault - secret
       href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Security Center
-      href: ../../security-center/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Defender for Cloud
+      href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Storage
     items:
     - name: Data Share
@@ -323,50 +288,34 @@
 - name: Concepts
   items:
   - name: Template best practices
-    href: template-best-practices.md
-  - name: Bicep
-    items:
-    - name: Install Bicep
-      href: bicep-install.md
-    - name: Convert between JSON and Bicep
-      href: bicep-decompile.md
-    - name: Compare JSON and Bicep
-      href: compare-template-syntax.md
+    href: best-practices.md
   - name: Data types
     href: data-types.md
   - name: Frequently asked questions
-    href: frequently-asked-questions.md
+    href: frequently-asked-questions.yml
   - name: Templates for cloud consistency
-    href: templates-cloud-consistency.md
+    href: template-cloud-consistency.md
   - name: Deployment modes
     href: deployment-modes.md
   - name: Deployment history deletions
     href: deployment-history-deletions.md
-  - name: Complete mode deletion
-    href: complete-mode-deletion.md
-  - name: Deployment Manager
-    items:
-    - name: Overview
-      displayName: adm, deployment manager
-      href: deployment-manager-overview.md
-    - name: Health check
-      displayName: adm, deployment manager
-      href: deployment-manager-health-check.md
+  - name: Deployment complete mode deletion
+    href: deployment-complete-mode-deletion.md
 - name: How to
   items:
   - name: Create templates
     items:
-    - name: Template file structure
+    - name: JSON structure
       displayName: parameters,variables,resources,outputs,condition
-      href: template-syntax.md
+      href: syntax.md
     - name: Write template expressions
       href: template-expressions.md
     - name: Parameters
-      href: template-parameters.md
+      href: parameters.md
     - name: Variables
-      href: template-variables.md
+      href: variables.md
     - name: User-defined functions
-      href: template-user-defined-functions.md
+      href: user-defined-functions.md
     - name: Resources
       items:
       - name: Resource declaration
@@ -376,13 +325,13 @@
       - name: Conditional deployment
         href: conditional-resource-deployment.md
       - name: Set resource dependencies
-        href: define-resource-dependency.md
+        href: resource-dependency.md
       - name: Set resource location
         href: resource-location.md
       - name: Use template extensions
-        href: add-resource-extensions.md
+        href: resource-extensions.md
     - name: Outputs
-      href: template-outputs.md
+      href: outputs.md
     - name: Deployment script
       displayName: custom script
       href: deployment-script-template.md
@@ -393,21 +342,19 @@
       - name: Modularize templates
         displayName: linked templates, nested templates
         href: linked-templates.md
-      - name: Bicep modules
-        href: bicep-modules.md
     - name: Create multiple instances
       items:
       - name: Resources
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy,loop
         href: copy-resources.md
       - name: Properties
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy,loop
         href: copy-properties.md
       - name: Variables
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy,loop
         href: copy-variables.md
       - name: Outputs
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy,loop
         href: copy-outputs.md
   - name: Deploy templates
     items:
@@ -425,10 +372,10 @@
       - name: Deploy - REST API
         displayName: deployment
         href: deploy-rest.md
-      - name: Deploy - GitHub
-        href: deploy-to-azure-button.md
       - name: Deploy - Cloud Shell
         href: deploy-cloud-shell.md
+      - name: Deploy-to-Azure button
+        href: deploy-to-azure-button.md
     - name: Scopes
       items:
       - name: Resource group
@@ -444,7 +391,7 @@
       - name: Functions across scopes
         href: scope-functions.md
     - name: What-if deployment
-      href: template-deploy-what-if.md
+      href: deploy-what-if.md
     - name: Redeploy on error
       displayName: rollback
       href: rollback-on-error.md
@@ -459,30 +406,40 @@
     - name: Pass sensitive values
       displayname: key vault
       href: key-vault-parameter.md
+  - name: Export templates
+    items:
+    - name: Portal
+      href: export-template-portal.md
+    - name: Azure CLI
+      href: export-template-cli.md
+    - name: PowerShell
+      href: export-template-powershell.md
   - name: Test templates
     items:
     - name: Test toolkit
       href: test-toolkit.md
-    - name: Test cases
-      href: test-cases.md
+    - name: Template test cases
+      href: template-test-cases.md
+    - name: Parameter file test cases
+      href: parameter-file-test-cases.md
+    - name: CreateUiDefinition test cases
+      href: createuidefinition-test-cases.md
+    - name: All files test cases
+      href: all-files-test-cases.md
   - name: Template specs
     items:
     - name: Create & deploy template specs
       href: template-specs.md
     - name: Convert portal template gallery
-      href: convert-to-template-spec.md
+      href: template-spec-convert.md
   - name: CI/CD
     items:
     - name: ARM templates with pipelines
+      displayName: continuous,ci,cd, CI/CD
       href: add-template-to-azure-pipelines.md
     - name: Deploy - GitHub Actions
+      displayName: continuous,ci,cd,CI/CD
       href: deploy-github-actions.md
-  - name: Discover template properties
-    items:
-    - name: Export template
-      href: export-template-portal.md
-    - name: Discover resources
-      href: view-resources.md
   - name: Use authoring tools
     items:
     - name: Visual Studio
@@ -491,40 +448,6 @@
       href: update-visual-studio-deployment-script.md
     - name: IntelliJ IDEA
       href: create-templates-use-intellij.md
-  - name: Troubleshoot deployments
-    items:
-    - name: Troubleshoot deployment errors
-      href: common-deployment-errors.md
-    - name: AccountNameInvalid
-      href: error-storage-account-name.md
-    - name: DeploymentQuotaExceeded
-      href: deployment-quota-exceeded.md
-    - name: InvalidTemplate
-      href: error-invalid-template.md
-    - name: JobSizeExceeded
-      href: error-job-size-exceeded.md
-    - name: Linux deployment issues
-      href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-linux
-    - name: NoRegisteredProviderFound
-      href: error-register-resource-provider.md
-    - name: NotFound
-      href: error-not-found.md
-    - name: ParentResourceNotFound
-      href: error-parent-resource.md
-    - name: Provisioning and allocation issues for Linux
-      href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux
-    - name: Provisioning and allocation issues for Windows
-      href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows
-    - name: RequestDisallowedByPolicy
-      href: error-policy-requestdisallowedbypolicy.md
-    - name: ReservedResourceName
-      href: error-reserved-resource-name.md
-    - name: ResourceQuotaExceeded
-      href: error-resource-quota.md
-    - name: SkuNotAvailable
-      href: error-sku-not-available.md
-    - name: Windows deployment issues
-      href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-windows
 - name: Reference
   items:
   - name: Template reference
@@ -533,8 +456,6 @@
     items:
     - name: All functions
       href: template-functions.md
-    - name: Any function (Bicep)
-      href: template-functions-any.md
     - name: Array functions
       href: template-functions-array.md
     - name: Comparison functions
@@ -551,12 +472,14 @@
       href: template-functions-object.md
     - name: Resource functions
       href: template-functions-resource.md
+    - name: Scope functions
+      href: template-functions-scope.md
     - name: String functions
       href: template-functions-string.md
   - name: REST
     href: /rest/api/resources/
   - name: Azure PowerShell
-    href: /powershell/module/az.resources
+    href: /powershell/module/az.resources/
   - name: Azure CLI
     href: /cli/azure/resource
   - name: .NET

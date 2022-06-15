@@ -1,50 +1,56 @@
 ---
 title: Manage users and roles in Azure IoT Central application | Microsoft Docs
 description: As an administrator, how to manage users and roles in your Azure IoT Central application
-author: lmasieri
-ms.author: lmasieri
-ms.date: 12/05/2019
+author: dominicbetts
+ms.author: dobett
+ms.date: 12/22/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: corywink
+
+# Administrator
 ---
 
 # Manage users and roles in your IoT Central application
 
-This article describes how, as an administrator, you can add, edit, and delete users in your Azure IoT Central application. The article also describes how to manage roles in your Azure IoT Central application.
+This article describes how you can add, edit, and delete users in your Azure IoT Central application. The article also describes how to manage roles in your application.
 
-To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically added to the **Administrator** role for that application.
+To access and use the **Permissions** section, you must be in the **App Administrator** role for an Azure IoT Central application or in a custom role that includes administration permissions. If you create an Azure IoT Central application, you're automatically added to the **App Administrator** role for that application.
 
 ## Add users
 
-Every user must have a user account before they can sign in and access an Azure IoT Central application. Microsoft Accounts and Azure Active Directory accounts are supported in Azure IoT Central. Azure Active Directory groups aren't currently supported in Azure IoT Central.
+Every user must have a user account before they can sign in and access an application. IoT Central currently supports Microsoft accounts and Azure Active Directory accounts, but not Azure Active Directory groups.
 
 For more information, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-1. To add a user to an IoT Central application, go to the **Users** page in the **Administration** section.
-    
-    > [!div class="mx-imgBorder"]
-    >![Manage users](media/howto-manage-users-roles/manage-users-pnp.png)
+1. To add a user to an IoT Central application, go to the **Users** page in the **Permissions** section.
 
-1. To add a user, on the **Users** page, choose **+ Add user**.
+    :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Screenshot of Manage users.":::
+
+1. To add a user, on the **Users** page, choose **+ Assign user**.
+
+1. If your application uses [organizations](howto-create-organizations.md), choose an organization to assign to the user from the **Organization** drop-down menu.
 
 1. Choose a role for the user from the **Role** drop-down menu. Learn more about roles in the [Manage roles](#manage-roles) section of this article.
 
-    > [!div class="mx-imgBorder"]
-    >![Add user and select a role](media/howto-manage-users-roles/add-user-pnp.png)
+    :::image type="content" source="media/howto-manage-users-roles/add-user-pnp.png" alt-text="Screenshot to add a user and select a role.":::
+
+    The available roles depend on the organization the user is associated with. You can assign **App** roles to users associated with the root organization, and **Org** roles to users associated with any other organization in the hierarchy.
 
     > [!NOTE]
     > A user who is in a custom role that grants them the permission to add other users, can only add users to a role with same or fewer permissions than their own role.
 
-If an IoT Central user ID is deleted from Azure Active Directory and then readded, the user won't be able to sign in the IoT Central application. To re-enable access, the IoT Central administrator should delete and readd the user in the application.
+    When you invite a new user, you need to share the application URL with them and ask them to sign in. After the user has signed in for the first time, the application appears on the user's [My apps](https://apps.azureiotcentral.com/myapps) page.
 
-### Edit the roles that are assigned to users
+    > [!NOTE]
+    > If a user is deleted from Azure Active Directory and then added back, they won't be able to sign into the IoT Central application. To re-enable access, the application's administrator should delete and re-add the user in the application as well.
 
-Roles can't be changed after they're assigned. To change the role that's assigned to a user, delete the user, and then add the user again with a different role.
+### Edit the roles and organizations that are assigned to users
+
+Roles and organizations can't be changed after they're assigned. To change the role or organization that's assigned to a user, delete the user, and then add the user again with a different role or organization.
 
 > [!NOTE]
-> The roles assigned are specific to IoT Central application and cannot be managed from the Azure Portal.
+> The roles assigned are specific to the IoT Central application and cannot be managed from the Azure Portal.
 
 ## Delete users
 
@@ -54,35 +60,62 @@ To delete users, select one or more check boxes on the **Users** page. Then sele
 
 Roles enable you to control who within your organization is allowed to do various tasks in IoT Central. There are three built-in roles you can assign to users of your application. You can also [create custom roles](#create-a-custom-role) if you require finer-grained control.
 
-> [!div class="mx-imgBorder"]
-> ![Manage roles selection](media/howto-manage-users-roles/manage-roles-pnp.png)
+:::image type="content" source="media/howto-manage-users-roles/manage-roles-pnp.png" alt-text="Screenshot to Manage roles selection.":::
 
-### Administrator
+### App Administrator
 
-Users in the **Administrator** role can manage and control every part of the application, including billing.
+Users in the **App Administrator** role can manage and control every part of the application, including billing.
 
-The user who creates an application is automatically assigned to the **Administrator** role. There must always be at least one user in the **Administrator** role.
+The user who creates an application is automatically assigned to the **App Administrator** role. There must always be at least one user in the **App Administrator** role.
 
-### Builder
+### App Builder
 
-Users in the **Builder** role can manage every part of the app, but can't make changes on the Administration or Continuous Data Export tabs.
+Users in the **App Builder** role can manage every part of the app, but can't make changes on the **Application** or **Data Export** tabs.
 
-### Operator
+### App Operator
 
-Users in the **Operator** role can monitor device health and status. They aren't allowed to make changes to device templates or to administer the application. Operators can add and delete devices, manage device sets, and run analytics and jobs. 
+Users in the **App Operator** role can monitor device health and status. They aren't allowed to make changes to device templates or to administer the application. Operators can add and delete devices, manage device sets, and run analytics and jobs.
+
+### Org Administrator
+
+IoT Central adds this role automatically when you add an organization to your application. This role restricts organization administrators from accessing some application-wide capabilities such as billing, branding, colors, API tokens, and enrollment group information.
+
+Users in the **Org Administrator** role can invite users to the application, create sub-organizations within their organization hierarchy, and manage the devices within their organization.
+
+### Org Operator
+
+IoT Central adds this role automatically when you add an organization to your application. This role restricts organization operators from accessing some application-wide capabilities.
+
+Users in the **Org Operator** role can complete tasks such as adding devices, running commands, viewing device data, creating dashboards, and creating device groups.
+
+### Org Viewer
+
+IoT Central adds this role automatically when you add an organization to your application.
+
+Users in the **Org Viewer** role can view items such as devices and their data, organization dashboards, device groups, and device templates.
 
 ## Create a custom role
 
-If your solution requires finer-grained access controls, you can create custom roles with custom sets of permissions. To create a custom role, navigate to the **Roles** page in the **Administration** section of your application. Then select **+ New role**, and add a name and description for your role. Select the permissions your role requires and then select **Save**.
+If your solution requires finer-grained access controls, you can create roles with custom sets of permissions. To create a custom role, navigate to the **Roles** page in the **Permissions** section of your application, and choose one of these options:
 
-You can add users to your custom role in the same way that you add users to a built-in role.
+- Select **+ New**, add a name and description for your role, and select **Application** or **Organization** as the role type. This option lets you create a role definition from scratch.
+- Navigate to an existing role and select **Copy**. This option lets you start with an existing role definition that you can customize.
 
-> [!div class="mx-imgBorder"]
-> ![Build a custom role](media/howto-manage-users-roles/create-custom-role-pnp.png)
+:::image type="content" source="media/howto-manage-users-roles/create-custom-role-pnp.png" alt-text="Screenshot to build a custom role.":::
+
+> [!WARNING]
+> You can't change the role type after you create a role.
+
+When you invite a user to your application, if you associate the user with:
+
+- The root organization, then only **Application** roles are available.
+- Any other organization, then only **Organization** roles are available.
+
+You can add users to your custom role in the same way that you add users to a built-in role
 
 ### Custom role options
 
-When you define a custom role, you choose the set of permissions that a user is granted if they're a member of the role. Some permissions are dependent on others. For example, if you add the **Update application dashboards** permission to a role, the **View application dashboards** permission is automatically added. The following tables summarize the available permissions, and their dependencies, you can use when creating custom roles.
+When you define a custom role, you choose the set of permissions that a user is granted if they're a member of the role. Some permissions are dependent on others. For example, if you add the **Update personal dashboards** permission to a role, the **View personal dashboards** permission is added automatically. The following tables summarize the available permissions, and their dependencies, you can use when creating custom roles.
 
 #### Managing devices
 
@@ -102,8 +135,9 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Update | View <br/> Other dependencies: View device templates and device groups  |
 | Create | View <br/> Other dependencies:  View device templates and device groups  |
 | Delete | View <br/> Other dependencies: View device templates and device groups  |
-| Execute Commands | Update, View <br/> Other dependencies: View device templates and device groups  |
-| Full Control | View, Update, Create, Delete, Execute Commands <br/> Other dependencies: View device templates and device groups  |
+| Execute commands | Update, View <br/> Other dependencies: View device templates and device groups  |
+| View raw data | View <br/> Other dependencies: View device templates and device groups  |
+| Full Control | View, Update, Create, Delete, Execute commands, View raw data <br/> Other dependencies: View device templates and device groups  |
 
 **Device groups permissions**
 
@@ -112,7 +146,7 @@ When you define a custom role, you choose the set of permissions that a user is 
 | View | None <br/> Other dependencies: View device templates and device instances |
 | Update | View <br/> Other dependencies: View device templates and device instances   |
 | Create | View, Update <br/> Other dependencies:  View device templates and device instances   |
-| Delete | View <br/> Other dependencies:  View device templates and device instances   |
+| Delete | View <br/> Other dependencies:  View device templates and device instances  |
 | Full Control | View, Update, Create, Delete <br/> Other dependencies: View device templates and device instances |
 
 **Device connectivity management permissions**
@@ -120,10 +154,10 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Name | Dependencies |
 | ---- | -------- |
 | Read instance | None <br/> Other dependencies: View device templates, device groups, device instances |
-| Manage instance | None |
+| Manage instance | Read instance <br /> Other dependencies: View device templates, device groups, device instances |
 | Read global | None   |
-| Manage global | Read Global |
-| Full Control | Read instance, Manage instance, Read global, Manage global. <br/> Other dependencies: View device templates, device groups, device instances |
+| Manage global | Read global |
+| Full Control | Read instance, Manage instance, Read global, Manage global <br/> Other dependencies: View device templates, device groups, device instances |
 
 **Jobs permissions**
 
@@ -166,6 +200,14 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Export | View <br/> Other dependencies:  View device templates, device instances, device groups, dashboards, data export, branding, help links, custom roles, rules |
 | Full Control | View, Export <br/> Other dependencies:  View device templates, device groups, application dashboards, data export, branding, help links, custom roles, rules |
 
+**Device file upload permissions**
+
+| Name | Dependencies |
+| ---- | -------- |
+| View | None     |
+| Manage | View   |
+| Full Control | View, Manage |
+
 **Billing permissions**
 
 | Name | Dependencies |
@@ -193,6 +235,16 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Add | View <br/> Other dependencies:  View custom roles |
 | Delete | View <br/> Other dependencies:  View custom roles |
 | Full Control | View, Add, Delete <br/> Other dependencies:  View custom roles |
+
+**Organization management permissions**
+
+| Name | Dependencies |
+| ---- | -------- |
+| View | None |
+| Update | View |
+| Create | View, Update |
+| Delete | View |
+| Full Control | View, Update, Create, Delete |
 
 > [!NOTE]
 > A user who is in a custom role that grants them the permission to add other users, can only add users to a role with same or fewer permissions than their own role.
@@ -251,11 +303,11 @@ When you define a custom role, you choose the set of permissions that a user is 
 
 | Name | Dependencies |
 | ---- | -------- |
-| View | None     |
-| Create | View   |
-| Delete | View   |
-| Full Control | View, Create, Delete |
+| View | None  <br/> Other dependencies: View custom roles |
+| Create | View <br/> Other dependencies: View custom roles |
+| Delete | View <br/> Other dependencies: View custom roles |
+| Full Control | View, Create, Delete <br/> Other dependencies: View custom roles |
 
 ## Next steps
 
-Now that you've learned about how to manage users and roles in your Azure IoT Central application, the suggested next step is to learn how to [Manage your bill](howto-view-bill.md).
+Now that you've learned how to manage users and roles in your IoT Central application, the suggested next step is to learn how to [Manage IoT Central organizations](howto-create-organizations.md).

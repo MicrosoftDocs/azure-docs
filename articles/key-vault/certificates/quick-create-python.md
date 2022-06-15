@@ -3,12 +3,12 @@ title: Quickstart – Azure Key Vault Python client library – manage certifica
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the Python client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 09/03/2020
+ms.date: 01/22/2022
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
-
+ms.devlang: python
+ms.custom: devx-track-python, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Azure Key Vault certificate client library for Python
@@ -65,30 +65,16 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-python-qs-rg-kv-creation.md)]
 
+### Set the KEY_VAULT_NAME environmental variable
+
+[!INCLUDE [Set the KEY_VAULT_NAME environmental variable](../../../includes/key-vault-set-environmental-variables.md)]
+
 ### Grant access to your key vault
 
 Create an access policy for your key vault that grants certificate permission to your user account
 
-```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --certificate-permissions delete get list create
-```
-
-#### Set environment variables
-
-This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
-
-Windows
-```cmd
-set KEY_VAULT_NAME=<your-key-vault-name>
-````
-Windows PowerShell
-```powershell
-$Env:KEY_VAULT_NAME="<your-key-vault-name>"
-```
-
-macOS or Linux
-```cmd
-export KEY_VAULT_NAME=<your-key-vault-name>
+```azurecli
+az keyvault set-policy --name <your-unique-keyvault-name> --upn user@domain.com --certificate-permissions delete get list create
 ```
 
 ## Create the sample code
@@ -140,15 +126,15 @@ python kv_certificates.py
 ```
 
 - If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` command](#grant-access-to-your-key-vault).
-- Re-running the code with the same key name may produce the error, "(Conflict) Certificate <name> is currently in a deleted but recoverable state." Use a different key name.
+- Re-running the code with the same key name may produce the error, "(Conflict) Certificate \<name\> is currently in a deleted but recoverable state." Use a different key name.
 
 ## Code details
 
 ### Authenticate and create a client
 
-In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using  ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](https://docs.microsoft.com/python/api/overview/azure/identity-readme). 
+In below example, the name of your key vault is expanded to the key vault URI, in the format `https://\<your-key-vault-name\>.vault.azure.net`. This example is using  ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/python/api/overview/azure/identity-readme). 
 
 ```python
 credential = DefaultAzureCredential()
@@ -204,13 +190,13 @@ If you want to also experiment with [secrets](../secrets/quick-create-python.md)
 Otherwise, when you're finished with the resources created in this article, use the following command to delete the resource group and all its contained resources:
 
 ```azurecli
-az group delete --resource-group KeyVault-PythonQS-rg
+az group delete --resource-group myResourceGroup
 ```
 
 ## Next steps
 
 - [Overview of Azure Key Vault](../general/overview.md)
-- [Secure access to a key vault](../general/secure-your-key-vault.md)
+- [Secure access to a key vault](../general/security-features.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
-- [Key Vault security overview](../general/security-overview.md)
+- [Key Vault security overview](../general/security-features.md)
 - [Authenticate with Key Vault](../general/authentication.md)

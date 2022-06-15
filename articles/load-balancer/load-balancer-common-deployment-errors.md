@@ -8,7 +8,7 @@ tags: top-support-issue
 author: anavinahar
 ms.service: load-balancer
 ms.topic: troubleshooting
-ms.date: 04/27/2020
+ms.date: 11/22/2021
 ms.author: anavin
 ---
 
@@ -30,9 +30,12 @@ This article describes some common Azure Load Balancer deployment errors and pro
 |CannotUseInactiveHealthProbe| You cannot have a probe that's not used by any rule configured for virtual machine scale set health. Ensure that the probe that is set up is being actively used. |
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| You cannot have multiple Load Balancers of the same type (internal, public). You can have a maximum of one internal and one public Load Balancer. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Basic Load Balancer is not supported for multiple-placement group virtual machine scale sets or cross-availability zone virtual machine scale set. Use Standard Load Balancer instead. |
-|MarketplacePurchaseEligibilityFailed | Switch to the correct Administrative account to enable purchases due to subscription being an EA Subscription. You can read more [here](../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase). |
+|MarketplacePurchaseEligibilityFailed | Switch to the correct Administrative account to enable purchases due to subscription being an EA Subscription. You can read more [here](../marketplace/marketplace-faq-publisher-guide.yml#what-could-block-a-customer-from-completing-a-purchase-). |
 |ResourceDeploymentFailure| If your load balancer is in a failed state, follow these steps to bring it back from the failed state:<ol><li>Go to https://resources.azure.com, and sign in with your Azure portal credentials.</li><li>Select **Read/Write**.</li><li>On the left, expand **Subscriptions**, and then expand the Subscription with the Load Balancer to update.</li><li>Expand **ResourceGroups**, and then expand the resource group with the Load Balancer to update.</li><li>Select **Microsoft.Network** > **LoadBalancers**, and then select the Load Balancer to update, **LoadBalancer_1**.</li><li>On the display page for **LoadBalancer_1**, select **GET** > **Edit**.</li><li>Update the **ProvisioningState** value from **Failed** to **Succeeded**.</li><li>Select **PUT**.</li></ol>|
-|  |  |
+|LoadBalancerWithoutFrontendIPCantHaveChildResources | A Load Balancer resource that has no frontend IP configurations, cannot have associated child resources or components associated to it. In order to mitigate this error, add a frontend IP configuration and then add the resources you are trying to add. |
+| LoadBalancerRuleCountLimitReachedForNic | A backend pool member's network interface (virtual machine, virtual machine scale set) cannot be associated to more than 300 rules. Reduce the number of rules or leverage another Load Balancer. This limit is documented on the [Load Balancer limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
+| LoadBalancerInUseByVirtualMachineScaleSet | The Load Balancer resource is in use by a virtual machine scale set and cannot be deleted. Use the ARM ID provided in the error message to search for the virtual machine scale set in order to delete it. | 
+
 
 ## Next steps
 

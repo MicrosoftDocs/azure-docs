@@ -1,0 +1,29 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/troubleshoot-dual-protocol-volumes.md",
+            "redirect_url": "/azure/azure-netapp-files/troubleshoot-volumes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/troubleshoot-nfsv41-kerberos-volumes.md",
+            "redirect_url": "/azure/azure-netapp-files/troubleshoot-volumes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/troubleshoot-ldap-volumes.md",
+            "redirect_url": "/azure/azure-netapp-files/troubleshoot-volumes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/manual-qos-capacity-pool-introduction.md",
+            "redirect_url": "/azure/azure-netapp-files/azure-netapp-files-understand-storage-hierarchy#manual-qos-type",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/azure-netapp-files-faqs.md",
+            "redirect_url": "/azure/azure-netapp-files/faq-nfs",
+            "redirect_document_id": false
+        }
+    ]
+}

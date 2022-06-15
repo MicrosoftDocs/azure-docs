@@ -17,7 +17,7 @@ The steps in this document use [Apache Maven](https://maven.apache.org/) to crea
 
 * An Apache HBase cluster on HDInsight. See [Get started with Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
 
-* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-support-on-azure).
 
 * [Apache Maven](https://maven.apache.org/download.cgi) properly [installed](https://maven.apache.org/install.html) according to Apache.  Maven is a project build system for Java projects.
 
@@ -177,7 +177,7 @@ Enter the command below to create and open a new file `CreateTable.java`. Select
 notepad src\main\java\com\microsoft\examples\CreateTable.java
 ```
 
-Then copy and paste the java code below into the new file. Then close the file.
+Then copy and paste the Java code below into the new file. Then close the file.
 
 ```java
 package com.microsoft.examples;
@@ -259,7 +259,7 @@ Enter the command below to create and open a new file `SearchByEmail.java`. Sele
 notepad src\main\java\com\microsoft\examples\SearchByEmail.java
 ```
 
-Then copy and paste the java code below into the new file. Then close the file.
+Then copy and paste the Java code below into the new file. Then close the file.
 
 ```java
 package com.microsoft.examples;
@@ -344,7 +344,7 @@ Enter the command below to create and open a new file `DeleteTable.java`. Select
 notepad src\main\java\com\microsoft\examples\DeleteTable.java
 ```
 
-Then copy and paste the java code below into the new file. Then close the file.
+Then copy and paste the Java code below into the new file. Then close the file.
 
 ```java
 package com.microsoft.examples;

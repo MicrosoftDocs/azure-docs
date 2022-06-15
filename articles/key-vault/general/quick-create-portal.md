@@ -3,16 +3,14 @@ title: Quickstart - Create an Azure Key Vault with the Azure portal
 description: Quickstart showing how to create an Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-ui
 ms.date: 12/08/2020
 ms.author: mbaldwin
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Create a key vault using the Azure portal
 
@@ -45,11 +43,11 @@ Sign in to the Azure portal at https://portal.azure.com.
 Take note of the two properties listed below:
 
 * **Vault Name**: In the example, this is **Contoso-Vault2**. You will use this name for other steps.
-* **Vault URI**: In the example, this is https://contoso-vault2.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+* **Vault URI**: In the example, this is `https://contoso-vault2.vault.azure.net/`. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform operations on this new vault.
 
-![Output after Key Vault creation completes](../media/quick-create-portal/vault-properties.png)
+:::image type="content" source="../media/quick-create-portal/vault-properties.png" alt-text="Output after Key Vault creation completes":::
 
 ## Clean up resources
 
@@ -66,5 +64,5 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 In this quickstart, you created a Key Vault using the Azure portal. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](overview.md)
-- Review the [Azure Key Vault security overview](security-overview.md)
+- Review the [Azure Key Vault security overview](security-features.md)
 - See the [Azure Key Vault developer's guide](developers-guide.md)

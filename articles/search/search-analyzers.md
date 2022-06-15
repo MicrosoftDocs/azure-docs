@@ -8,22 +8,22 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 05/11/2022
 ms.custom: devx-track-csharp
 ---
 
 # Analyzers for text processing in Azure Cognitive Search
 
-An *analyzer* is a component of [full text search](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Text processing (also known as lexical analysis) is transformative, modifying a query string through actions such as these:
+An *analyzer* is a component of the [full text search engine](search-lucene-query-architecture.md) that's responsible for processing strings during indexing and query execution. Text processing (also known as lexical analysis) is transformative, modifying a string through actions such as these:
 
-+ Remove non-essential words (stopwords) and punctuation
++ Remove non-essential words ([stopwords](reference-stopwords.md)) and punctuation
 + Split up phrases and hyphenated words into component parts
 + Lower-case any upper-case words
 + Reduce words into primitive root forms for storage efficiency and so that matches can be found regardless of tense
 
 Analysis applies to `Edm.String` fields that are marked as "searchable", which indicates full text search. 
 
-For fields with this configuration, analysis occurs during indexing when tokens are created, and then again during query execution when queries are parsed and the engine scans for matching tokens. A match is more likely to occur when the same analyzer is used for both indexing and queries, but you can set the analyzer for each workload independently, depending on your requirements.
+For fields of this configuration, analysis occurs during indexing when tokens are created, and then again during query execution when queries are parsed and the engine scans for matching tokens. A match is more likely to occur when the same analyzer is used for both indexing and queries, but you can set the analyzer for each workload independently, depending on your requirements.
 
 Query types that are *not* full text search, such as filters or fuzzy search, do not go through the analysis phase on the query side. Instead, the parser sends those strings directly to the search engine, using the pattern that you provide as the basis for the match. Typically, these query forms require whole-string tokens to make pattern matching work. To ensure  whole terms tokens during indexing, you might need [custom analyzers](index-add-custom-analyzers.md). For more information about when and why query terms are analyzed, see [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md).
 
@@ -33,9 +33,9 @@ For more background on lexical analysis, listen to the following video clip for 
 
 ## Default analyzer  
 
-In Azure Cognitive Search queries, an analyzer is automatically invoked on all string fields marked as searchable. 
+In Azure Cognitive Search, an analyzer is automatically invoked on all string fields marked as searchable. 
 
-By default, Azure Cognitive Search uses the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. Additionally, the standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
+By default, Azure Cognitive Search uses the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. The standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
 
 You can override the default on a field-by-field basis. Alternative analyzers can be a [language analyzer](index-add-language-analyzers.md) for linguistic processing, a [custom analyzer](index-add-custom-analyzers.md), or a built-in analyzer from the [list of available analyzers](index-add-custom-analyzers.md#built-in-analyzers).
 
@@ -95,13 +95,13 @@ The best time to add and assign analyzers is during active development, when dro
 
 Because analyzers are used to tokenize terms, you should assign an analyzer when the field is created. In fact, assigning an analyzer or indexAnalyzer to a field that has already been physically created is not allowed (although you can change the searchAnalyzer property at any time with no impact to the index).
 
-To change the analyzer of an existing field, you'll have to [rebuild the index entirely](search-howto-reindex.md) (you cannot rebuild individual fields). For indexes in production, you can defer a rebuild by creating a new field with the new analyzer assignment, and start using it in place of the old one. Use [Update Index](/rest/api/searchservice/update-index) to incorporate the new field and [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) to populate it. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields.
+To change the analyzer of an existing field, you'll have to drop and recreate the entire index (you cannot rebuild individual fields). For indexes in production, you can defer a rebuild by creating a new field with the new analyzer assignment, and start using it in place of the old one. Use [Update Index](/rest/api/searchservice/update-index) to incorporate the new field and [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) to populate it. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields.
 
 To add a new field to an existing index, call [Update Index](/rest/api/searchservice/update-index) to add the field, and [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) to populate it.
 
 To add a custom analyzer to an existing index, pass the "allowIndexDowntime" flag in [Update Index](/rest/api/searchservice/update-index) if you want to avoid this error:
 
-*"Index update not allowed because it would cause downtime. In order to add new analyzers, tokenizers, token filters, or character filters to an existing index, set the 'allowIndexDowntime' query parameter to 'true' in the index update request. Note that this operation will put your index offline for at least a few seconds, causing your indexing and query requests to fail. Performance and write availability of the index can be impaired for several minutes after the index is updated, or longer for very large indexes."*
+`"Index update not allowed because it would cause downtime. In order to add new analyzers, tokenizers, token filters, or character filters to an existing index, set the 'allowIndexDowntime' query parameter to 'true' in the index update request. Note that this operation will put your index offline for at least a few seconds, causing your indexing and query requests to fail. Performance and write availability of the index can be impaired for several minutes after the index is updated, or longer for very large indexes."`
 
 ## Recommendations for working with analyzers
 
@@ -109,7 +109,7 @@ This section offers advice on how to work with analyzers.
 
 ### One analyzer for read-write unless you have specific requirements
 
-Azure Cognitive Search lets you specify different analyzers for indexing and search via additional indexAnalyzer and searchAnalyzer field properties. If unspecified, the analyzer set with the analyzer property is used for both indexing and searching. If the analyzer is unspecified, the default Standard Lucene analyzer is used.
+Azure Cognitive Search lets you specify different analyzers for indexing and search through the "indexAnalyzer" and "searchAnalyzer" field properties. If unspecified, the analyzer set with the analyzer property is used for both indexing and searching. If the analyzer is unspecified, the default Standard Lucene analyzer is used.
 
 A general rule is to use the same analyzer for both indexing and querying, unless specific requirements dictate otherwise. Be sure to test thoroughly. When text processing differs at search and indexing time, you run the risk of mismatch between query terms and indexed terms when the search and indexing analyzer configurations are not aligned.
 
@@ -136,7 +136,7 @@ The examples below show analyzer definitions for a few key scenarios.
 
 ### Custom analyzer example
 
-This example illustrates an analyzer definition with custom options. Custom options for char filters, tokenizers, and token filters are specified separately as named constructs, and then referenced in the analyzer definition. Predefined elements are used as-is and simply referenced by name.
+This example illustrates an analyzer definition with custom options. Custom options for char filters, tokenizers, and token filters are specified separately as named constructs, and then referenced in the analyzer definition. Predefined elements are used as-is and referenced by name.
 
 Walking through this example:
 
@@ -246,7 +246,7 @@ The "analyzer" element overrides the Standard analyzer on a field-by-field basis
 
 ### Mixing analyzers for indexing and search operations
 
-The APIs include additional index attributes for specifying different analyzers for indexing and search. The searchAnalyzer and indexAnalyzer attributes must be specified as a pair, replacing the single analyzer attribute.
+The APIs include index attributes for specifying different analyzers for indexing and search. The searchAnalyzer and indexAnalyzer attributes must be specified as a pair, replacing the single analyzer attribute.
 
 
 ```json
@@ -378,7 +378,7 @@ A detailed description of query execution can be found in [Full text search in A
 
 To learn more about analyzers, see the following articles:
 
-+ [Language analyzers](index-add-language-analyzers.md)
-+ [Custom analyzers](index-add-custom-analyzers.md)
++ [Add a language analyzer](index-add-language-analyzers.md)
++ [Add a custom analyzer](index-add-custom-analyzers.md)
 + [Create a search index](search-what-is-an-index.md)
 + [Create a multi-language index](search-language-support.md)

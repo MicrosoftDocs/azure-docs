@@ -3,14 +3,13 @@ title: Performance considerations for Azure Traffic Manager | Microsoft Docs
 description: Understand performance on Traffic Manager and how to test performance of your website when using Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: duongau
+author: asudbring
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: duau
+ms.author: allensu
 ---
 
 # Performance considerations for Traffic Manager
@@ -36,10 +35,6 @@ There are several websites you can use to understand the performance and behavio
 The tools on these sites measure DNS latencies and display the resolved IP addresses for client locations around the world. Most of these tools do not cache the DNS results. Therefore, the tools show the full DNS lookup each time a test is run. When you test from your own client, you only experience the full DNS lookup performance once during the TTL duration.
 
 ## Sample tools to measure DNS performance
-
-* [SolveDNS](https://www.solvedns.com/dns-comparison/)
-
-    SolveDNS offers many performance tools. The DNS Comparison tool can show you how long it takes to resolve your DNS name and how that compares to other DNS service providers.
 
 * [WebSitePulse](https://www.websitepulse.com/help/tools.php)
 

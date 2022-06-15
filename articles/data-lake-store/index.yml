@@ -8,8 +8,8 @@ metadata:
   description: Learn how to set up, manage, and access a hyper-scale, Hadoop-compatible data lake repository for analytics on data of any size, type, and ingestion speed.
   ms.service: data-lake-store
   ms.topic: landing-page
-  author: twooley 
-  ms.author: twooley
+  author: normesta 
+  ms.author: normesta
   ms.date: 03/11/2020 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new

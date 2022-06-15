@@ -5,7 +5,8 @@ author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/31/2019
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Move Azure network security group (NSG) to another region using Azure PowerShell

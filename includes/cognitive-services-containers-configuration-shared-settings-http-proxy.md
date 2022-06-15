@@ -10,8 +10,8 @@ If you need to configure an HTTP proxy for making outbound requests, use these t
 
 | Name | Data type | Description |
 |--|--|--|
-|HTTPS_PROXY|string|The proxy to use, for example, `https://proxy:8888`<br>`<proxy-url>`|
-|HTTPS_PROXY_CREDS|string|Any credentials needed to authenticate against the proxy, for example, username:password.|
+|HTTP_PROXY|string|The proxy to use, for example, `http://proxy:8888`<br>`<proxy-url>`|
+|HTTP_PROXY_CREDS|string|Any credentials needed to authenticate against the proxy, for example, `username:password`. This value **must be in lower-case**. |
 |`<proxy-user>`|string|The user for the proxy.|
 |`<proxy-password>`|string|The password associated with `<proxy-user>` for the proxy.|
 ||||
@@ -25,6 +25,6 @@ docker run --rm -it -p 5000:5000 \
 Eula=accept \
 Billing=<endpoint> \
 ApiKey=<api-key> \
-HTTPS_PROXY=<proxy-url> \
-HTTPS_PROXY_CREDS=<proxy-user>:<proxy-password> \
+HTTP_PROXY=<proxy-url> \
+HTTP_PROXY_CREDS=<proxy-user>:<proxy-password> \
 ```

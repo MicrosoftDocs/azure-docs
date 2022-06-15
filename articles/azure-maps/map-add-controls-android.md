@@ -1,13 +1,12 @@
 ---
 title: Add controls to an Android map | Microsoft Azure Maps
 description: How to add zoom control, pitch control, rotate control and a style picker to a map in Microsoft Azure Maps Android SDK.
-author: rbrundritt
-ms.author: richbrun
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -119,9 +118,9 @@ The screenshot below is of a traffic control loaded on a map.
 
 ![Traffic control added to map](media/map-add-controls-android/android-traffic-control.jpg)
 
-## A Map with all controls
+## A map with all controls
 
-Multiple controls can be put into an array and added to the map all at once and positioned in the same area of the map to simplify development. The following adds the standard navigation controls to the map using this approach.
+Multiple controls can be put into an array and added to the map all at once and positioned in the same area of the map to simplify development. The following code adds the standard navigation controls to the map using this approach.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -153,7 +152,7 @@ map.controls.add(
 
 ::: zone-end
 
-The screenshot below shows all controls loaded on a map. Note that the order they are added to the map, is the order they will appear.
+The screenshot below shows all controls loaded on a map. The order they are added to the map, is the order they will appear.
 
 ![All controls added to map](media/map-add-controls-android/android-all-controls.jpg)
 

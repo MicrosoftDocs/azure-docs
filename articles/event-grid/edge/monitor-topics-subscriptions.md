@@ -1,13 +1,19 @@
 ---
 title: Monitor topics and event subscriptions - Azure Event Grid IoT Edge | Microsoft Docs 
 description: Monitor topics and event subscriptions 
-ms.date: 07/08/2020
+ms.date: 05/10/2021
 ms.topic: article
+ms.subservice: iot-edge
 ---
 
 # Monitor topics and event subscriptions
 
 Event Grid on Edge exposes a number of metrics for topics and event subscriptions in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). This article describes the available metrics and how to enable them.
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
+
 
 ## Enable metrics
 

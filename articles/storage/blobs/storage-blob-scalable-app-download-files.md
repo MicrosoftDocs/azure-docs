@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -17,9 +18,9 @@ This tutorial is part three of a series. This tutorial shows you how to download
 In part three of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Update the application
-> * Run the application
-> * Validate the number of connections
+> - Update the application
+> - Run the application
+> - Validate the number of connections
 
 ## Prerequisites
 
@@ -98,13 +99,13 @@ dotnet run
 
 The `DownloadFilesAsync` task is shown in the following example:
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 The application reads the containers located in the storage account specified in the **storageconnectionstring**. It iterates through the blobs using the [GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs) method and downloads them to the local machine using the [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) method.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Scalable.cs" id="Snippet_DownloadFilesAsync":::
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 The application reads the containers located in the storage account specified in the **storageconnectionstring**. It iterates through the blobs 10 at a time using the [ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmentedasync) method in the containers and downloads them to the local machine using the [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method.
 
@@ -218,8 +219,8 @@ C:\>
 In part three of the series, you learned about downloading large amounts of data from a storage account, including how to:
 
 > [!div class="checklist"]
-> * Run the application
-> * Validate the number of connections
+> - Run the application
+> - Validate the number of connections
 
 Go to part four of the series to verify throughput and latency metrics in the portal.
 

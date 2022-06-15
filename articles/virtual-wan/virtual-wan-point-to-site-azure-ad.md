@@ -1,186 +1,172 @@
 ---
-title: 'Configure Azure AD authentication for User VPN connection: Virtual WAN'
-description: Learn how to configure Azure Active Directory authentication for User VPN.
+title: 'Create a P2S User VPN connection - Azure AD authentication'
+titleSuffix: Azure Virtual WAN
+description: Learn how to configure Azure Active Directory authentication for Virtual WAN User VPN (point-to-site).
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 10/14/2020
-ms.author: alzam
+ms.date: 04/11/2022
+ms.author: cherylmc 
 
 ---
-# Configure Azure Active Directory authentication for User VPN
+# Create a P2S User VPN connection using Azure Virtual WAN - Azure AD authentication
 
-This article shows you how to configure Azure AD authentication for User VPN in Virtual WAN to connect to your resources in Azure over an OpenVPN VPN connection. Azure Active Directory authentication is only available for gateways using OpenVPN protocol and clients running Windows.
+This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection to Virtual WAN that uses Azure Active Directory (Azure AD) authentication. Azure AD authentication is only available for gateways that use the OpenVPN protocol.
 
-This type of connection requires a client to be configured on the client computer. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 In this article, you learn how to:
 
-* Create a Virtual WAN
-* Create a Virtual Hub
+* Create a virtual WAN
 * Create a User VPN configuration
-* Download a Virtual WAN User VPN profile
-* Apply User VPN configuration to a Virtual Hub
-* Connect a VNet to a Virtual Hub
+* Download a virtual WAN User VPN profile
+* Create a virtual hub
+* Edit a hub to add P2S gateway
+* Connect a VNet to a virtual hub
 * Download and apply the User VPN client configuration
-* View your Virtual WAN
+* View your virtual WAN
 
-![Virtual WAN diagram](./media/virtual-wan-about/virtualwanp2s.png)
+:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Virtual WAN diagram.":::
 
 ## Before you begin
 
-Verify that you have met the following criteria before beginning your configuration:
+Verify that you've met the following criteria before beginning your configuration:
 
 * You have a virtual network that you want to connect to. Verify that none of the subnets of your on-premises networks overlap with the virtual networks that you want to connect to. To create a virtual network in the Azure portal, see the [Quickstart](../virtual-network/quick-create-portal.md).
 
-* Your virtual network does not have any virtual network gateways. If your virtual network has a gateway (either VPN or ExpressRoute), you must remove all gateways. This configuration requires that virtual networks are connected instead, to the Virtual WAN hub gateway.
+* Your virtual network doesn't have any virtual network gateways. If your virtual network has a gateway (either VPN or ExpressRoute), you must remove all gateways. This configuration requires that virtual networks are connected instead, to the Virtual WAN hub gateway.
 
-* Obtain an IP address range for your hub region. The hub is a virtual network that is created and used by Virtual WAN. The address range that you specify for the hub cannot overlap with any of your existing virtual networks that you connect to. It also cannot overlap with your address ranges that you connect to on premises. If you are unfamiliar with the IP address ranges located in your on-premises network configuration, coordinate with someone who can provide those details for you.
+* Obtain an IP address range for your hub region. The hub is a virtual network that is created and used by Virtual WAN. The address range that you specify for the hub can't overlap with any of your existing virtual networks that you connect to. It also can't overlap with your address ranges that you connect to on premises. If you're unfamiliar with the IP address ranges located in your on-premises network configuration, coordinate with someone who can provide those details for you.
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="wan"></a>Create a Virtual WAN
+## <a name="wan"></a>Create a virtual WAN
 
 From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
-1. Navigate to the Virtual WAN page. In the portal, click **+Create a resource**. Type **Virtual WAN** into the search box and select Enter.
-2. Select **Virtual WAN** from the results. On the Virtual WAN page, click **Create** to open the Create WAN page.
-3. On the **Create WAN** page, on the **Basics** tab, fill in the following fields:
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
-   ![Virtual WAN](./media/virtual-wan-point-to-site-azure-ad/vwan.png)
+## <a name="user-config"></a>Create a User VPN configuration
 
-   * **Subscription** - Select the subscription that you want to use.
-   * **Resource group** - Create new or use existing.
-   * **Resource group location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
-   * **Name** - Type the Name that you want to call your WAN.
-   * **Type:** Standard. If you create a Basic WAN, you can create only a Basic hub. Basic hubs are capable of VPN site-to-site connectivity only.
-4. After you finish filling out the fields, select **Review +Create**.
-5. After validation passes, select **Create** to create the virtual WAN.
+A User VPN configuration defines the parameters for connecting remote clients. It's important to create the User VPN configuration before configuring your virtual hub with P2S settings, as you must specify the User VPN configuration you want to use.
 
-## <a name="site"></a>Create an empty Virtual hub
+1. Navigate to your **Virtual WAN ->User VPN configurations** page and click **+Create user VPN config**.
 
-1. Under your Virtual WAN, select Hubs and click **+New Hub**.
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/user-vpn.png" alt-text="Screenshot of the Create User V P N configuration.":::
+1. On the **Basics** page, specify the parameters.
 
-   ![Screenshot shows the Hubs configuration dialog box with New Hub selected.](media/virtual-wan-point-to-site-azure-ad/hub1.jpg)
-2. On the create virtual hub page, fill in the following fields.
-
-   **Region** - Select the region that you want to deploy the virtual hub in.
-
-   **Name** - Enter the name that you want to call your virtual hub.
-
-   **Hub private address space** - The hub's address range in CIDR notation.
-
-   ![Screenshot shows the Create virtual hub pane where you can enter values.](media/virtual-wan-point-to-site-azure-ad/hub2.jpg)  
-3. Click **Review + create**.
-4. On the **validation passed** page, click **create**.
-
-## <a name="site"></a>Create a new User VPN configuration
-
-A User VPN configuration defines the parameters for connecting remote clients.
-
-1. Under your virtual WAN, select **User VPN configurations**.
-
-   ![Screenshot shows the User V P N configurations menu item selected.](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
-
-2. click **+Create user VPN config**.
-
-   ![Screenshot shows the Create user V P N config link.](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
-
-3. Enter the information and click **Create**.
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/basics.png" alt-text="Screenshot of the Basics page.":::
 
    * **Configuration name** - Enter the name you want to call your User VPN Configuration.
-   * **Tunnel type** - Select OpenVPN.
+    * **Tunnel type** - Select OpenVPN from the dropdown menu.
+1. Click **Azure Active Directory** to open the page.
+
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/values.png" alt-text="Screenshot of the Azure Active Directory page.":::
+
+    Toggle **Azure Active Directory** to **Yes** and supply the following values based on your tenant details. You can view the necessary values on the Azure Active Directory page for Enterprise applications in the portal.
    * **Authentication method** - Select Azure Active Directory.
-   * **Audience** - Type in the Application ID of the [Azure VPN](openvpn-azure-ad-tenant.md) Enterprise Application registered in your Azure AD tenant. 
+   * **Audience** - Type in the Application ID of the [Azure VPN](openvpn-azure-ad-tenant.md) Enterprise Application registered in your Azure AD tenant.
    * **Issuer** - `https://sts.windows.net/<your Directory ID>/`
    * **AAD Tenant** - `https://login.microsoftonline.com/<your Directory ID>`
-  
-   ![Screenshot shows the Create new User V P N configuration pane where you can enter the values.](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
+1. Click **Create** to create the User VPN configuration. You'll select this configuration later in the exercise.
 
-## <a name="hub"></a>Edit hub assignment
+## <a name="site"></a>Create an empty hub
 
-1. Navigate to the **Hubs** blade under the virtual WAN.
-2. Select the hub that you want to associate the vpn server configuration to and click the ellipsis (...).
+For this exercise, we create an empty virtual hub. In the next section, you add a gateway to an already existing hub. However, it's also possible to combine these steps and create the hub with the P2S gateway settings all at once.
 
-   ![Screenshot shows Edit virtual hub selected from the menu.](media/virtual-wan-point-to-site-azure-ad/p2s4.jpg)
-3. Click **Edit virtual hub**.
-4. Check the **Include point-to-site gateway** check box and pick the **Gateway scale unit** that you want.
+[!INCLUDE [Create an empty hub](../../includes/virtual-wan-empty-hub-include.md)]
 
-   ![Screenshot shows the Edit virtual hub dialog box where you can select your Gateway scale unit.](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
-5. Enter the **Address pool** from which the VPN clients will be assigned IP addresses.
-6. Click **Confirm**.
-7. The operation will can take up to 30 minutes to complete.
+## <a name="hub"></a>Add a P2S gateway to a hub
 
-## <a name="device"></a>Download User VPN profile
+This section shows you how to add a gateway to an already existing virtual hub. This step can take up to 30 minutes for the hub to complete updating.
 
-Use the VPN profile to configure your clients.
+1. Navigate to the **Hubs** page under the virtual WAN.
+1. Select the hub to which you want to associate the VPN server configuration and click the ellipsis (**...**) to show the menu. Then, click **Edit virtual hub**.
 
-1. On the page for your Virtual WAN, click **User VPN configurations**.
-2. At the top of the  page, click **Download user VPN config**.
-3. Once the file has finished creating, you can click the link to download it.
-4. Use the profile file to configure the VPN clients.
+   :::image type="content" source="media/virtual-wan-point-to-site-azure-ad/select-hub.png" alt-text="Screenshot shows Edit virtual hub selected from the menu." lightbox="media/virtual-wan-point-to-site-azure-ad/select-hub.png":::
 
-## Configure user VPN clients
+1. On the **Edit virtual hub** page, check the checkboxes for **Include vpn gateway for vpn sites** and **Include point-to-site gateway** to reveal the settings. Then configure the values.
 
-To connect, you need to download the Azure VPN Client and import the VPN client profile that was downloaded in the previous steps on every computer that wants to connect to the VNet.
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/edit-virtual-hub.png" alt-text="Screenshot shows the Edit virtual hub page.":::
 
-> [!NOTE]
-> Azure AD authentication is supported only for OpenVPN&reg; protocol connections.
->
+   * **Gateway scale units**: Select the Gateway scale units. Scale units represent the aggregate capacity of the User VPN gateway. If you select 40 or more gateway scale units, plan your client address pool accordingly. For information about how this setting impacts the client address pool, see [About client address pools](about-client-address-pools.md). For information about gateway scale units, see the [FAQ](virtual-wan-faq.md#for-user-vpn-point-to-site--how-many-clients-are-supported).
+   * **User VPN configuration**: Select the configuration that you created earlier.
+   * **Client address pool**: Specify the client address pool from which the VPN clients will be assigned IP addresses. This setting corresponds to the gateway scale units that you 
+1. Click **Confirm**. It can take up to 30 minutes to update the hub.
 
-#### To download the Azure VPN client
+## <a name="connect-vnet"></a>Connect VNet to hub
 
-Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) to download the Azure VPN Client.
+In this section, you create a connection between your virtual hub and your VNet.
 
-#### <a name="import"></a>To import a client profile
+[!INCLUDE [Connect virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+
+## <a name="download-profile"></a>Download User VPN profile
+
+All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients. The VPN client configuration files that you generate are specific to the User VPN configuration for your gateway. In this section, you generate and download the files used to configure your VPN clients.
+
+[!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
+
+##  <a name="configure-client"></a>Configure User VPN clients
+
+Each computer that connects must have a client installed. You configure each client by using the VPN User client profile files that you downloaded in the previous steps. Use the article that pertains to the operating system that you want to connect.
+
+### To configure macOS VPN clients (Preview)
+
+For **macOS** client instructions, see [Configure a VPN client - macOS (Preview)](openvpn-azure-ad-client-mac.md).
+
+### To configure Windows VPN clients
+
+[!INCLUDE [Download Azure VPN client](../../includes/vpn-gateway-download-vpn-client.md)]
+
+#### <a name="import"></a>To import a VPN client profile (Windows)
 
 1. On the page, select **Import**.
 
-    ![Screenshot shows Import selected from the plus menu.](./media/virtual-wan-point-to-site-azure-ad/import/import1.jpg)
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/import/import-1.png" alt-text="Screenshot shows import page.":::
 
-2. Browse to the profile xml file and select it. With the file selected, select **Open**.
+1. Browse to the profile xml file and select it. With the file selected, select **Open**.
 
     ![Screenshot shows an Open dialog box where you can select a file.](./media/virtual-wan-point-to-site-azure-ad/import/import2.jpg)
 
-3. Specify the name of the profile and select **Save**.
+1. Specify the name of the profile and select **Save**.
 
     ![Screenshot shows the Connection Name added and the Save button selected.](./media/virtual-wan-point-to-site-azure-ad/import/import3.jpg)
 
-4. Select **Connect** to connect to the VPN.
+1. Select **Connect** to connect to the VPN.
 
     ![Screenshot shows the Connect button for the for the connection you just created.](./media/virtual-wan-point-to-site-azure-ad/import/import4.jpg)
 
-5. Once connected, the icon will turn green and say **Connected**.
+1. Once connected, the icon will turn green and say **Connected**.
 
     ![Screenshot shows the connection in a Connected status with the option to disconnect.](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
 
-#### <a name="delete"></a>To delete a client profile
+#### <a name="delete"></a>To delete a client profile - Windows
 
 1. Select the ellipsis (...) next to the client profile that you want to delete. Then, select **Remove**.
 
     ![Screenshot shows Remove selected from the menu.](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
-2. Select **Remove** to delete.
+1. Select **Remove** to delete.
 
     ![Screenshot shows a confirmation dialog box with the option to Remove or Cancel.](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
-#### <a name="diagnose"></a>Diagnose connection issues
+#### <a name="diagnose"></a>Diagnose connection issues - Windows
 
 1. To diagnose connection issues, you can use the **Diagnose** tool. Select the ellipsis (...) next to the VPN connection that you want to diagnose to reveal the menu. Then select **Diagnose**.
 
     ![Screenshot shows Diagnose selected from the menu.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose1.jpg)
 
-2. On the **Connection Properties** page, select **Run Diagnosis**.
+1. On the **Connection Properties** page, select **Run Diagnosis**.
 
     ![Screenshot shows the Run Diagnosis button for a connection.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose2.jpg)
 
-3. Sign in with your credentials.
+1. Sign in with your credentials.
 
     ![Screenshot shows the Sign in dialog box for this action.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose3.jpg)
 
-4. View the diagnosis results.
+1. View the diagnosis results.
 
     ![Screenshot shows the results of the diagnosis.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose4.jpg)
 
@@ -192,11 +178,9 @@ Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sq
 
 ## <a name="cleanup"></a>Clean up resources
 
-When you no longer need these resources, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
+When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
+[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
 
 ## Next steps
 

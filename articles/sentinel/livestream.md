@@ -1,24 +1,21 @@
 ---
-title: Use hunting Livestream in Azure Sentinel to detect threats | Microsoft Docs
-description: This article describes how to use hunting Livestream in Azure Sentinel to keep track of data.
-services: sentinel
-documentationcenter: na
+title: Use hunting Livestream in Microsoft Sentinel to detect threats | Microsoft Docs
+description: This article describes how to use hunting Livestream in Microsoft Sentinel to keep track of data.
 author: yelevin
-manager: rkarlin
-editor: ''
-
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/14/2020
+ms.custom: mvc, ignite-fall-2021
+ms.date: 11/09/2021
 ms.author: yelevin
 ---
 
-# Use hunting livestream in Azure Sentinel to detect threats
+# Use hunting livestream in Microsoft Sentinel to detect threats
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+> [!IMPORTANT]
+>
+> - The cross-resource query experience (see marked items below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 Use hunting livestream to create interactive sessions that let you test newly created queries as events occur, get notifications from the sessions when a match is found, and launch investigations if necessary. You can quickly create a livestream session using any Log Analytics query.
 
@@ -47,7 +44,7 @@ You can create a livestream session from an existing hunting query, or create yo
     1. Right-click the query and select **Add to livestream**. For example:
     
     > [!div class="mx-imgBorder"]
-    > ![create Livestream session from Azure Sentinel hunting query](./media/livestream/livestream-from-query.png)
+    > ![create Livestream session from Microsoft Sentinel hunting query](./media/livestream/livestream-from-query.png)
 
 1. To create a livestream session from scratch: 
     
@@ -57,14 +54,17 @@ You can create a livestream session from an existing hunting query, or create yo
 1. On the **Livestream** pane:
     
     - If you started livestream from a query, review the query and make any changes you want to make.
-    - If you started livestream from scratch, create your query. 
+    - If you started livestream from scratch, create your query.
+
+    > [!NOTE]
+    > Livestream supports **cross-resource queries** (in preview) of data in Azure Data Explorer. [**Learn more about cross-resource queries**](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md#cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer).
 
 1. Select **Play** from the command bar.
     
     The status bar under the command bar indicates whether your livestream session is running or paused. In the following example, the session is running:
     
     > [!div class="mx-imgBorder"]
-    > ![create livestream session from Azure Sentinel hunting](./media/livestream/livestream-session.png)
+    > ![create livestream session from Microsoft Sentinel hunting](./media/livestream/livestream-session.png)
 
 1. Select **Save** from the command bar.
     
@@ -77,7 +77,7 @@ You can create a livestream session from an existing hunting query, or create yo
 1. Select the livestream session you want to view or edit. For example:
     
     > [!div class="mx-imgBorder"]
-    > ![create livestream session from Azure Sentinel hunting query](./media/livestream/livestream-tab.png)
+    > ![create livestream session from Microsoft Sentinel hunting query](./media/livestream/livestream-tab.png)
     
     Your selected livestream session opens for you to play, pause, edit, and so on.
 
@@ -100,7 +100,7 @@ This action opens the rule creation wizard, which is prepopulated with the query
 
 ## Next steps
 
-In this article, you learned how to use hunting livestream in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this article, you learned how to use hunting livestream in Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 
 - [Proactively hunt for threats](hunting.md)
 - [Use notebooks to run automated hunting campaigns](notebooks.md)

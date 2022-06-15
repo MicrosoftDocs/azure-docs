@@ -35,7 +35,7 @@ These articles provide a good overview of using SAP HANA in Azure:
 
 - [Manual installation of single-instance SAP HANA on Azure VMs](./hana-get-started.md)
 - [Set up SAP HANA system replication in Azure VMs](sap-hana-high-availability.md)
-- [Back up SAP HANA on Azure VMs](./sap-hana-backup-guide.md)
+- [Back up SAP HANA on Azure VMs](../../../backup/sap-hana-db-about.md)
 
 It's also a good idea to be familiar with these articles about SAP HANA:
 
@@ -65,19 +65,4 @@ Measure your availability requirement against the SLAs that Azure components can
 ## Next steps
 
 - Learn about [SAP HANA availability within one Azure region](./sap-hana-availability-one-region.md).
-- Learn about [SAP HANA availability across Azure regions](./sap-hana-availability-across-regions.md). 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Learn about [SAP HANA availability across Azure regions](./sap-hana-availability-across-regions.md).

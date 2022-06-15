@@ -1,26 +1,25 @@
 ---
-title: Train and deploy a reinforcement learning model (preview).
+title: Train and deploy a reinforcement learning model (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to use Azure Machine Learning Reinforcement Learning (preview) to train an RL agent to play Pong.
+description: Learn how to use Azure Machine Learning reinforcement learning (preview) to train an RL agent to play Pong.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: peterlu
-author: peterclu
-ms.date: 05/05/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q2
-
+ms.author: larryfr
+author: Blackmist
+ms.date: 10/21/2021
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q2, sdkv1, event-tier1-build-2022
 ---
 
 # Reinforcement learning (preview) with Azure Machine Learning
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
+> [!WARNING]
+> Azure Machine Learning reinforcement learning via the [`azureml.contrib.train.rl`](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl) package will no longer be supported after June 2022. We recommend customers use the [Ray on Azure Machine Learning library](https://github.com/microsoft/ray-on-aml) for reinforcement learning experiments with Azure Machine Learning. For an example, see the notebook [Reinforcement Learning in Azure Machine Learning - Pong problem](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb).
 
-> [!NOTE]
-> Azure Machine Learning Reinforcement Learning is currently a preview feature. Only Ray and RLlib frameworks are supported at this time.
-
-In this article, you learn how to train a reinforcement learning (RL) agent to play the video game Pong. You use the open-source Python library [Ray RLlib](https://ray.readthedocs.io/en/master/rllib.html) with Azure Machine Learning to manage the complexity of distributed RL.
+In this article, you learn how to train a reinforcement learning (RL) agent to play the video game Pong. You use the open-source Python library [Ray RLlib](https://docs.ray.io/en/master/rllib/) with Azure Machine Learning to manage the complexity of distributed RL.
 
 In this article you learn how to:
 > [!div class="checklist"]
@@ -38,7 +37,7 @@ Run this code in either of these environments. We recommend you try Azure Machin
 
  - Azure Machine Learning compute instance
 
-     - Learn how to clone sample notebooks in [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+     - Learn how to clone sample notebooks in [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md).
          - Clone the **how-to-use-azureml** folder instead of **tutorials**
      - Run the virtual network setup notebook located at `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb` to open network ports used for distributed reinforcement learning.
      - Run the sample notebook `/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`
@@ -210,6 +209,7 @@ else:
 ```
 
 ## Create a reinforcement learning estimator
+
 Use the [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator) to submit a training job to Azure Machine Learning.
 
 Azure Machine Learning uses estimator classes to encapsulate run configuration information. This lets you specify how to configure a script execution. 
@@ -428,7 +428,7 @@ The **episode_reward_mean** plot shows the mean number of points scored per trai
 
 If you browse logs of the child run, you can see the evaluation results recorded in driver_log.txt file. You may need to wait several minutes before these metrics become available on the Run page.
 
-In short work, you have learned to configure multiple compute resources to train a reinforcement learning agent to play Pong very well against a computer oppponent.
+In short work, you have learned to configure multiple compute resources to train a reinforcement learning agent to play Pong very well against a computer opponent.
 
 ## Next steps
 

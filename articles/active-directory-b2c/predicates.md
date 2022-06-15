@@ -3,14 +3,14 @@ title: Predicates and PredicateValidations
 titleSuffix: Azure AD B2C
 description: Prevent malformed data from being added to your Azure AD B2C tenant by using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/30/2020
-ms.author: mimart
+ms.date: 03/13/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -67,13 +67,12 @@ The **Parameter** element contains the following attributes:
 
 #### IsLengthRange
 
-The IsLengthRange method checks whether the length of a string claim value is within the range of minimum and maximum parameters specified. The predicate element supports the following parameters:
+The IsLengthRange method checks whether the length of a string claim value is within the range of minimum and maximum parameters specified. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/predicates#islengthrange-method) of this predicate method. The predicate element supports the following parameters:
 
 | Parameter | Required | Description |
 | ------- | ----------- | ----------- |
 | Maximum | Yes | The maximum number of characters that can be entered. |
 | Minimum | Yes | The minimum number of characters that must be entered. |
-
 
 The following example shows a IsLengthRange method with the parameters `Minimum` and `Maximum` that specify the length range of the string:
 
@@ -88,7 +87,7 @@ The following example shows a IsLengthRange method with the parameters `Minimum`
 
 #### MatchesRegex
 
-The MatchesRegex method checks whether a string claim value matches a regular expression. The predicate element supports the following parameters:
+The MatchesRegex method checks whether a string claim value matches a regular expression. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/predicates#matchesregex-method) of this predicate method. The predicate element supports the following parameters:
 
 | Parameter | Required | Description |
 | ------- | ----------- | ----------- |
@@ -106,7 +105,7 @@ The following example shows a `MatchesRegex` method with the parameter `RegularE
 
 #### IncludesCharacters
 
-The IncludesCharacters method checks whether a string claim value contains a character set. The predicate element supports the following parameters:
+The IncludesCharacters method checks whether a string claim value contains a character set. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/predicates#includescharacters-method) of this predicate method. The predicate element supports the following parameters:
 
 | Parameter | Required | Description |
 | ------- | ----------- | ----------- |
@@ -124,7 +123,7 @@ The following example shows a `IncludesCharacters` method with the parameter `Ch
 
 #### IsDateRange
 
-The IsDateRange method checks whether a date claim value is between a range of minimum and maximum parameters specified. The predicate element supports the following parameters:
+The IsDateRange method checks whether a date claim value is between a range of minimum and maximum parameters specified. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/predicates#isdaterange-method) of this predicate method. The predicate element supports the following parameters:
 
 | Parameter | Required | Description |
 | ------- | ----------- | ----------- |
@@ -220,7 +219,6 @@ The **PredicateReference** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier that's used for the predicate validation.  |
-
 
 ## Configure password complexity
 
@@ -420,7 +418,7 @@ In your claim type, add **PredicateValidationReference** element and specify the
   <UserInputType>DateTimeDropdown</UserInputType>
   <PredicateValidationReference Id="CustomDateRange" />
 </ClaimType>
- ```
+```
 
 ## Next steps
 

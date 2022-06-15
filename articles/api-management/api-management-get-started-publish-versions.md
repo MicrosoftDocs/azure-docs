@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Publish versions of your API using Azure API Management 
 description: Follow the steps of this tutorial to learn how to publish multiple API versions in API Management.
-author: vladvino
+author: dlepow
 
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/10/2021
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Tutorial: Publish multiple versions of your API 
@@ -92,19 +92,19 @@ You can interact directly with version sets by using the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-To see all your version sets, run the [az apim api versionset list](/cli/azure/apim/api/versionset#az_apim_api_versionset_list) command:
+To see all your version sets, run the [az apim api versionset list](/cli/azure/apim/api/versionset#az-apim-api-versionset-list) command:
 
 ```azurecli
-az apim api versionset list --resource-group apim-hello-word-resource-group \
+az apim api versionset list --resource-group apim-hello-world-resource-group \
     --service-name apim-hello-world --output table
 ```
 
 When the Azure portal creates a version set for you, it assigns an alphanumeric name, which appears in the **Name** column of the list. Use this name in other Azure CLI commands.
 
-To see details about a version set, run the [az apim api versionset show](/cli/azure/apim/api/versionset#az_apim_api_versionset_show) command:
+To see details about a version set, run the [az apim api versionset show](/cli/azure/apim/api/versionset#az-apim-api-versionset-show) command:
 
 ```azurecli
-az apim api versionset show --resource-group apim-hello-word-resource-group \
+az apim api versionset show --resource-group apim-hello-world-resource-group \
     --service-name apim-hello-world --version-set-id 00000000000000000000000
 ```
 

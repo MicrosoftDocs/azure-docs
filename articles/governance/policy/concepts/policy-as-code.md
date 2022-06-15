@@ -1,7 +1,7 @@
 ---
 title: Design Azure Policy as Code workflows
 description: Learn to design workflows to deploy your Azure Policy definitions as code and automatically validate resources.
-ms.date: 10/20/2020
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 # Design Azure Policy as Code workflows
@@ -52,7 +52,7 @@ Examples of these file formats are available in the
 The recommended general workflow of Azure Policy as Code looks like this diagram:
 
 :::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagram showing Azure Policy as Code workflow boxes from Create to Test to Deploy." border="false":::
-   The diagram showing the Azure Policy as Code workflow boxes. Create covers creation of the policy and initiative definitions. Test covers assignment with enforcement mode disabled. A gateway check for the compliance status is followed by granting the assignments M S I permissions and remediating resources.  Deploy covers updating the assignment with enforcement mode enabled.
+   The diagram showing the Azure Policy as Code workflow boxes. Create covers creation of the policy and initiative definitions. Test covers assignment with enforcement mode disabled. A gateway check for the compliance status is followed by granting the assignments M S I permissions and remediating resources. Deploy covers updating the assignment with enforcement mode enabled.
 :::image-end:::
 
 ### Create and update policy definitions
@@ -119,6 +119,12 @@ definitions in source control:
 Like policy definitions, when adding or updating an existing initiative, the workflow should
 automatically update the initiative definition in Azure. Testing of the new or updated initiative
 definition comes in a later step.
+
+> [!NOTE]
+> It's recommended to use a centralized deployment mechanism like GitHub workflows or Azure
+> Pipelines to deploy policies. This helps to ensure only reviewed policy resources are deployed
+> to your environment and that a central deployment mechanism is used. _Write_ permissions
+> to policy resources can be restricted to the identity used in the deployment.
 
 ### Test and validate the updated definition
 
@@ -211,4 +217,6 @@ GitHub, see
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
+- Review what a management group is with
+  [Organize your resources with Azure management groups](../../management-groups/overview.md).
+  

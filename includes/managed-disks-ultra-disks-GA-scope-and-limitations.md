@@ -5,65 +5,35 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 06/06/2022
 ms.author: rogarana
 ms.custom: include file
 ---
-For now, ultra disks have additional limitations, they are as follows:
+
+Ultra disks can't be used as OS disks, they can only be created as empty data disks. Ultra disks also can't be used with some features and functionality, including disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption. Azure Backup and Azure Site Recovery do not support ultra disks. In addition, only un-cached reads and un-cached writes are supported.
+
+Ultra disks support a 4k physical sector size by default. A 512E sector size is available as a generally available offering with no sign-up required. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
 
 The only infrastructure redundancy options currently available to ultra disks are availability zones. VMs using any other redundancy options cannot attach an ultra disk.
 
-The following table outlines the regions ultra disks are available in, as well as their corresponding availability options:
+The following table outlines the regions ultra disks are available in, as well as their corresponding availability options.
 
 > [!NOTE]
-> If a region in the following list has no ultra disk capable availability zones, then VMs in that region must be deployed without any infrastructure redundancy options in order to attach an ultra disk.
+> If a region in the following list lacks availability zones that support ultra disks, then a VM in that region must be deployed without infrastructure redundancy in order to attach an ultra disk.
 
-|Regions  |Redundancy options  |
-|---------|---------|
-|Brazil South     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
-|Central India     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
-|East Asia     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
-|Germany West Central     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
-|Korea Central     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
-|South Central US    |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
-|US Gov Arizona     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
-|US Gov Virginia     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
-|US Gov Texas     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
-|West US     |Single VMs only (Availability sets and virtual machine scale sets are not supported)        |
-|Australia Central    |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
-|Australia East     |Three availability zones         |
-|Southeast Asia    |Three availability zones        |
-|Canada Central     |Three availability zones          |
-|Central US     |Three availability zones          |
-|East US     |Three availability zones          |
-|East US 2     |Three availability zones         |
-|France Central    |Two availability zones        |
-|Japan East    |Three availability zones        |
-|North Europe    |Three availability zones        |
-|UK South    |Three availability zones        |
-|West Europe    | Three availability zones|
-|West US 2    |Three availability zones|
+| Redundancy options | Regions |
+|--------------------|---------|
+| **Single VMs** | Australia Central<br/>Brazil South<br/>Central India<br/>East Asia<br/>Germany West Central<br/>Korea Central<br/>North Central US, South Central US, West US<br/>US Gov Arizona, US Gov Texas, US Gov Virginia |
+| **Two availability zones** | France Central |
+| **Three availability zones** | Australia East<br/>Canada Central<br/>North Europe, West Europe<br/>Japan East<br/>Southeast Asia<br/>Sweden Central<br/>UK South<br/>Central US, East US, East US 2, West US 2, West US 3 |
 
-- Are only supported on the following VM series:
-    - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
-    - [Easv4](../articles/virtual-machines/eav4-easv4-series.md#easv4-series)
-    - [Edsv4](../articles/virtual-machines/edv4-edsv4-series.md#edsv4-series)
-    - [Esv4](../articles/virtual-machines/ev4-esv4-series.md#esv4-series)
-    - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
-    - [Dasv4](../articles/virtual-machines/dav4-dasv4-series.md#dasv4-series)
-    - [Ddsv4](../articles/virtual-machines/ddv4-ddsv4-series.md#ddsv4-series)
-    - [Dsv4](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series)
-    - [FSv2](../articles/virtual-machines/fsv2-series.md)
-    - [LSv2](../articles/virtual-machines/lsv2-series.md)
-    - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-    - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-- Not every VM size is available in every supported region with ultra disks.
-- Are only available as data disks. 
-- Support 4k physical sector size by default. 512E sector size is available as a generally available offering (no signup required). Most applications are compatible with 4k sector sizes but, some require 512 byte sector sizes. One example would be Oracle Database, which requires release 12.2 or later in order to support the 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
-- Can only be created as empty disks.
-- Doesn't currently support disk snapshots, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption.
-- Doesn't currently support integration with Azure Backup or Azure Site Recovery.
-- Only supports un-cached reads and un-cached writes.
-- The current maximum limit for IOPS on GA VMs is 80,000.
+Not every VM size is available in every supported region with ultra disks. The following table lists VM series which are compatible with ultra disks.
 
-Azure ultra disks offer up to 32 TiB per region per subscription by default, but ultra disks support higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
+|VM Type     |Sizes    |Description  |
+|------------|---------|-------------|
+| General purpose|[DSv3-series](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series), [Ddsv4-series](../articles/virtual-machines/ddv4-ddsv4-series.md#ddsv4-series), [Dsv4-series](../articles/virtual-machines/dv4-dsv4-series.md#dsv4-series), [Dasv4-series](../articles/virtual-machines/dav4-dasv4-series.md#dasv4-series), [Dsv5-series](../articles/virtual-machines/dv5-dsv5-series.md#dsv5-series), [Ddsv5-series](../articles/virtual-machines/ddv5-ddsv5-series.md#ddsv5-series), [Dasv5-series](../articles/virtual-machines/dasv5-dadsv5-series.md#dasv5-series)| Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers.|
+| Compute optimized|[FSv2-series](../articles/virtual-machines/fsv2-series.md)| High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.|
+| Memory optimized|[ESv3-series](../articles/virtual-machines/ev3-esv3-series.md#esv3-series), [Easv4-series](../articles/virtual-machines/eav4-easv4-series.md#easv4-series), [Edsv4-series](../articles/virtual-machines/edv4-edsv4-series.md#edsv4-series), [Esv4-series](../articles/virtual-machines/ev4-esv4-series.md#esv4-series), [Esv5-series](../articles/virtual-machines/ev5-esv5-series.md#esv5-series), [Edsv5-series](../articles/virtual-machines/edv5-edsv5-series.md#edsv5-series), [Easv5-series](../articles/virtual-machines/easv5-eadsv5-series.md#easv5-series), [Ebsv5 series](../articles/virtual-machines/ebdsv5-ebsv5-series.md#ebsv5-series), [Ebdsv5 series](../articles/virtual-machines/ebdsv5-ebsv5-series.md#ebdsv5-series), [M-series](../articles/virtual-machines/m-series.md), [Mv2-series](../articles/virtual-machines/mv2-series.md), [Msv2/Mdsv2-series](../articles/virtual-machines/msv2-mdsv2-series.md)|High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.
+| Storage optimized|[LSv2-series](../articles/virtual-machines/lsv2-series.md)|High disk throughput and IO ideal for Big Data, SQL, NoSQL databases, data warehousing and large transactional databases.|
+| GPU optimized|[NCv2-series](../articles/virtual-machines/ncv2-series.md), [NCv3-series](../articles/virtual-machines/ncv3-series.md), [NCasT4_v3-series](../articles/virtual-machines/nct4-v3-series.md), [ND-series](../articles/virtual-machines/nd-series.md), [NDv2-series](../articles/virtual-machines/ndv2-series.md), [NVv3-series](../articles/virtual-machines/nvv3-series.md), [NVv4-series](../articles/virtual-machines/nvv4-series.md)| Specialized virtual machines targeted for heavy graphic rendering and video editing, as well as model training and inferencing (ND) with deep learning. Available with single or multiple GPUs.|
+| <nobr>Performance optimized</nobr> |[HB-series](../articles/virtual-machines/hb-series.md), [HC-series](../articles/virtual-machines/hc-series.md), [HBv2-series](../articles/virtual-machines/hbv2-series.md)|The fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA).|

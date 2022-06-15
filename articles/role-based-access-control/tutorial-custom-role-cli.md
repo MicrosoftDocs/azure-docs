@@ -4,11 +4,10 @@ description: Get started creating an Azure custom role using Azure CLI and Azure
 services: active-directory
 documentationCenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.service: role-based-access-control
-ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
@@ -21,7 +20,7 @@ ms.custom: devx-track-azurecli
 ---
 # Tutorial: Create an Azure custom role using Azure CLI
 
-If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure CLI. The custom role allows the user to view everything in the management plane of a subscription and also open support tickets.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure CLI. The custom role allows the user to view everything in the control plane of a subscription and also open support tickets.
 
 In this tutorial, you learn how to:
 
@@ -48,9 +47,9 @@ Sign in to [Azure CLI](/cli/azure/authenticate-azure-cli).
 
 The easiest way to create a custom role is to start with a JSON template, add your changes, and then create a new role.
 
-1. Review the list of operations for the [Microsoft.Support resource provider](resource-provider-operations.md#microsoftsupport). It's helpful to know the operations that are available to create your permissions.
+1. Review the list of actions for the [Microsoft.Support resource provider](resource-provider-operations.md#microsoftsupport). It's helpful to know the actions that are available to create your permissions.
 
-    | Operation | Description |
+    | Action | Description |
     | --- | --- |
     | Microsoft.Support/register/action | Registers to Support Resource Provider |
     | Microsoft.Support/supportTickets/read | Gets Support Ticket details (including status, severity, contact details and communications) or gets the list of Support Tickets across subscriptions. |
@@ -77,7 +76,7 @@ The easiest way to create a custom role is to start with a JSON template, add yo
     }
     ```
     
-1. Add the following operations to the `Actions` property. These actions allow the user to view everything in the subscription and create support tickets.
+1. Add the following actions to the `Actions` property. These actions allow the user to view everything in the subscription and create support tickets.
 
     ```
     "*/read",
@@ -200,7 +199,7 @@ To update the custom role, update the JSON file and then update the custom role.
 
 1. Open the ReaderSupportRole.json file.
 
-1. In `Actions`, add the operation to create and manage resource group deployments `"Microsoft.Resources/deployments/*"`. Be sure to include a comma after the previous operation.
+1. In `Actions`, add the action to create and manage resource group deployments `"Microsoft.Resources/deployments/*"`. Be sure to include a comma after the previous action.
 
     Your updated JSON file should look like the following:
 

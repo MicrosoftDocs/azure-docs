@@ -5,8 +5,8 @@ author: ConnorMcMahon
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.author: azfuncdf
-#Customer intent: As a developer, I want to understand what data is persisted to durable storage, how that data is serialized, and how
-#I can customize it when it doesn't work the way my app needs it to.
+ms.devlang: csharp, javascript, python
+#Customer intent: As a developer, I want to understand what data is persisted to durable storage, how that data is serialized, and how I can customize it when it doesn't work the way my app needs it to.
 ---
 
 # Data persistence and serialization in Durable Functions (Azure Functions)

@@ -3,15 +3,20 @@ title: Best practices for Azure Kubernetes Service (AKS)
 description: Collection of the cluster operator and developer best practices to build and manage applications in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/09/2021
 
 ---
 
 # Cluster operator and developer best practices to build and manage applications on Azure Kubernetes Service (AKS)
 
-To build and run applications successfully in Azure Kubernetes Service (AKS), there are some key considerations to understand and implement. These areas include multi-tenancy and scheduler features, cluster and pod security, or business continuity and disaster recovery. The following best practices are grouped to help cluster operators and developers understand the considerations for each of these areas, and implement the appropriate features.
+Building and running applications successfully in Azure Kubernetes Service (AKS) require understanding and implementation of some key considerations, including:
+* Multi-tenancy and scheduler features.
+* Cluster and pod security.
+* Business continuity and disaster recovery. 
 
-These best practices and conceptual articles have been written in conjunction with the AKS product group, engineering teams, and field teams including global black belts (GBBs).
+
+The AKS product group, engineering teams, and field teams (including global black belts [GBBs]) contributed to, wrote, and grouped the following best practices and conceptual articles. Their purpose is to help cluster operators and developers understand the considerations above and implement the appropriate features.
+
 
 ## Cluster operator best practices
 
@@ -71,4 +76,9 @@ To help understand some of the features and components of these best practices, 
 
 ## Next steps
 
-If you need to get started with AKS, follow one of the quickstarts to deploy an Azure Kubernetes Service (AKS) cluster using the [Azure CLI](kubernetes-walkthrough.md) or [Azure portal](kubernetes-walkthrough-portal.md).
+If you need to get started with AKS, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+
+<!-- LINKS - internal -->
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md

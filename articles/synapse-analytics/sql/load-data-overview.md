@@ -1,22 +1,21 @@
 ---
 title: Design a PolyBase data loading strategy for dedicated SQL pool
 description: Instead of ETL, design an Extract, Load, and Transform (ELT) process for loading data with dedicated SQL.
-services: synapse-analytics
-author: gaursa
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: gaursa
-ms.reviewer: igorstan
+ms.author: joanpo
+ms.reviewer: wiassaf
 ---
 
 # Design a PolyBase data loading strategy for dedicated SQL pool in Azure Synapse Analytics
 
-Traditional SMP data warehouses use an Extract, Transform, and Load (ETL) process for loading data. Azure SQL pool is a massively parallel processing (MPP) architecture that takes advantage of the scalability and flexibility of compute and storage resources. Using an Extract, Load, and Transform (ELT) process can take advantage of built-in distributed query processing capabilities and eliminate resources needed to transform the data prior to loading.
+Traditional SMP data warehouses use an Extract, Transform, and Load (ETL) process for loading data. Azure SQL pool is a massively parallel processing (MPP) architecture that takes advantage of the scalability and flexibility of compute and storage resources. An Extract, Load, and Transform (ELT) process can take advantage of built-in distributed query processing capabilities and eliminate resources needed to transform the data before loading.
 
-While SQL pool supports many loading methods including non-Polybase options such as BCP and SQL BulkCopy API, the fastest and most scalable way to load date is through PolyBase.  PolyBase is a technology that accesses external data stored in Azure Blob storage or Azure Data Lake Store via the T-SQL language.
+While SQL pool supports many loading methods including non-Polybase options such as BCP and SQL BulkCopy API, the fastest and most scalable way to load data is through PolyBase.  PolyBase is a technology that accesses external data stored in Azure Blob storage or Azure Data Lake Store via the T-SQL language.
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
@@ -43,9 +42,9 @@ Getting data out of your source system depends on the storage location.  The goa
 
 ### PolyBase external file formats
 
-PolyBase loads data from UTF-8 and UTF-16 encoded delimited text files. In addition to the delimited text files, it loads from the Hadoop file formats RC File, ORC, and Parquet. PolyBase can also load data from Gzip and Snappy compressed files. PolyBase currently does not support extended ASCII, fixed-width format, and nested formats such as WinZip, JSON, and XML.
+PolyBase loads data from UTF-8 and UTF-16 encoded delimited text files. PolyBase also loads from the Hadoop file formats RC File, ORC, and Parquet. PolyBase can also load data from Gzip and Snappy compressed files. PolyBase currently does not support extended ASCII, fixed-width format, and nested formats such as WinZip, JSON, and XML.
 
-If you are exporting from SQL Server, you can use [bcp command-line tool](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) to export the data into delimited text files. The Parquet to Azure Synapse Analytics data type mapping is as follows:
+If you're exporting from SQL Server, you can use [bcp command-line tool](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) to export the data into delimited text files. The Parquet to Azure Synapse Analytics data type mapping is as follows:
 
 | **Parquet Data Type** |                      **SQL Data Type**                       |
 | :-------------------: | :----------------------------------------------------------: |
@@ -79,8 +78,8 @@ To land the data in Azure storage, you can move it to [Azure Blob storage](../..
 Tools and services you can use to move data to Azure Storage:
 
 - [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) service enhances network throughput, performance, and predictability. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. ExpressRoute connections do not route data through the public internet. The connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the public internet.
-- [AZCopy utility](../../storage/common/storage-use-azcopy-v10.md) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AZCopy, test the network speed to see if it is acceptable.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with dedicated SQL pool, see [Load data into dedicated SQL pool](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- [AzCopy utility](../../storage/common/storage-use-azcopy-v10.md) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AzCopy, test the network speed to see if it is acceptable.
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with dedicated SQL pool, see [Load data into dedicated SQL pool](../../data-factory/load-azure-sql-data-warehouse.md).
 
 ## 3. Prepare the data for loading
 
@@ -115,12 +114,12 @@ To load data with PolyBase, you can use any of these loading options:
 
 - [PolyBase with T-SQL](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) works well when your data is in Azure Blob storage or Azure Data Lake Store. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use Azure Data Factory, SSIS, or Azure functions.
 - [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) works well when your source data is in SQL Server. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination.
-- [PolyBase with Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) is another orchestration tool.  It defines a pipeline and schedules jobs.
+- [PolyBase with Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md) is another orchestration tool.  It defines a pipeline and schedules jobs.
 - [PolyBase with Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) transfers data from an Azure Synapse Analytics table to a Databricks dataframe and/or writes data from a Databricks dataframe to an Azure Synapse Analytics table using PolyBase.
 
 ### Non-PolyBase loading options
 
-If your data is not compatible with PolyBase, you can use [bcp](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) or the [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy). bcp loads directly to dedicated SQL pool without going through Azure Blob storage, and is intended only for small loads. Note, the load performance of these options is significantly slower than PolyBase.
+If your data is not compatible with PolyBase, you can use [bcp](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) or the [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy). BCP loads directly to dedicated SQL pool without going through Azure Blob storage, and is intended only for small loads. Note, the load performance of these options is slower than PolyBase.
 
 ## 5. Transform the data
 
@@ -134,7 +133,7 @@ As you design an ETL process, try running the process on a small test sample. Tr
 
 ## Partner loading solutions
 
-Many of our partners have loading solutions. To find out more, see a list of our [solution partners](../sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Many of our partners have loading solutions. To find out more, see a list of our [solution partners](../sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?context=/azure/synapse-analytics/context/context).
 
 ## Next steps
 

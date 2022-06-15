@@ -3,24 +3,26 @@ title: 'Quickstart: Create an Azure DB for MySQL - Flexible Server - ARM templat
 description: In this Quickstart, learn how to create an Azure Database for MySQL - Flexible Server using ARM template.
 author: mksuni
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: sumuth
 ms.date: 10/23/2020
 ---
 
-# Quickstart: Use an ARM template to create an Azure Database for MySQL - Flexible Server (Preview)
+# Quickstart: Use an ARM template to create an Azure Database for MySQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
+[!INCLUDE [applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Azure Database for MySQL - Flexible Server (Preview) is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. You can use an Azure Resource Manager template (ARM template) to provision a flexible server to deploy multiple servers or multiple databases on a server.
+[!INCLUDE [About Azure Database for MySQL - Flexible Server](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+An Azure account with an active subscription. 
+
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
 ## Review the template
 
@@ -78,7 +80,7 @@ Create a _mysql-flexible-server-template.json_ file and copy this JSON script in
     }
   },
   "variables": {
-    "api": "2020-07-01-preview",
+    "api": "2021-05-01",
     "firewallRules": "[parameters('firewallRules').rules]",
     "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
     "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",

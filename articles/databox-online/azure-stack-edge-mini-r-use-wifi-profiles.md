@@ -2,12 +2,12 @@
 title: Use Wi-Fi profiles with Azure Stack Edge Mini R devices
 description: Describes how to create Wi-Fi profiles for Azure Stack Edge Mini R devices on high-security enterprise networks and personal networks.
 services: databox
-author: v-dalc@microsoft.com
+author: v-dalc
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/24/2021
+ms.date: 10/07/2021
 ms.author: alkohli
 #Customer intent: As an IT pro or network administrator, I need to give users secure wireless access to their Azure Stack Edge Mini R devices.    
 ---
@@ -94,6 +94,8 @@ In a high-security enterprise environment, you may be able to use an existing wi
 
 To export a profile for the Wi-Fi interface on your computer, do these steps:
 
+1. Make sure the computer you'll use to export the wireless profile can connect to the Wi-Fi network that your device will use.
+
 1. To see the wireless profiles on your computer, on the **Start** menu, open **Command prompt** (cmd.exe), and enter this command:
 
    `netsh wlan show profiles`
@@ -117,14 +119,14 @@ To export a profile for the Wi-Fi interface on your computer, do these steps:
        All User Profile     : Boat
    ```
 
-2. To export a profile, enter the following command:
+1. To export a profile, enter the following command:
 
-   `netsh wlan export profile name=”<profileName>” folder=”<path>\<profileName>"`
+   `netsh wlan export profile name=”<profileName>” folder=”<path>\<profileName>" key=clear`
 
    For example, the following command saves the ContosoFTINET profile in XML format to the Downloads folder for the user named `gusp`.
 
    ```dos
-   C:\Users\gusp>netsh wlan export profile name="ContosoFTINET" folder=c:Downloads
+   C:\Users\gusp>netsh wlan export profile name="ContosoFTINET" folder=c:Downloads key=clear
 
    Interface profile "ContosoFTINET" is saved in file "c:Downloads\ContosoFTINET.xml" successfully.
    ```

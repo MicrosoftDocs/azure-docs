@@ -4,11 +4,11 @@ description: Learn about Azure role definitions in Azure role-based access contr
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/22/2021
+ms.date: 01/06/2022
 ms.author: rolyon
 ms.custom:
 ---
@@ -18,9 +18,9 @@ If you are trying to understand how an Azure role works or if you are creating y
 
 ## Role definition
 
-A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete. It can also list the operations that are excluded from allowed operations or operations related to underlying data.
+A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the actions that can be performed, such as read, write, and delete. It can also list the actions that are excluded from allowed actions or actions related to underlying data.
 
-The following shows an example of the properties in a role definition when displayed using Azure PowerShell:
+The following shows an example of the properties in a role definition when displayed using [Azure PowerShell](role-definitions-list.md#azure-powershell):
 
 ```
 Name
@@ -34,7 +34,7 @@ NotDataActions []
 AssignableScopes []
 ```
 
-The following shows an example of the properties in a role definition when displayed using the Azure portal, Azure CLI, or the REST API:
+The following shows an example of the properties in a role definition when displayed using the [Azure portal](role-definitions-list.md#azure-portal), [Azure CLI](role-definitions-list.md#azure-cli), or the [REST API](role-definitions-list.md#rest-api):
 
 ```
 roleName
@@ -56,33 +56,33 @@ The following table describes what the role properties mean.
 | `Id`</br>`name` | The unique ID of the role. Built-in roles have the same role ID across clouds. |
 | `IsCustom`</br>`roleType` | Indicates whether this is a custom role. Set to `true` or `CustomRole` for custom roles. Set to `false` or `BuiltInRole` for built-in roles. |
 | `Description`</br>`description` | The description of the role. |
-| `Actions`</br>`actions` | An array of strings that specifies the management operations that the role allows to be performed. |
-| `NotActions`</br>`notActions` | An array of strings that specifies the management operations that are excluded from the allowed `Actions`. |
-| `DataActions`</br>`dataActions` | An array of strings that specifies the data operations that the role allows to be performed to your data within that object. |
-| `NotDataActions`</br>`notDataActions` | An array of strings that specifies the data operations that are excluded from the allowed `DataActions`. |
+| `Actions`</br>`actions` | An array of strings that specifies the control plane actions that the role allows to be performed. |
+| `NotActions`</br>`notActions` | An array of strings that specifies the control plane actions that are excluded from the allowed `Actions`. |
+| `DataActions`</br>`dataActions` | An array of strings that specifies the data plane actions that the role allows to be performed to your data within that object. |
+| `NotDataActions`</br>`notDataActions` | An array of strings that specifies the data plane actions that are excluded from the allowed `DataActions`. |
 | `AssignableScopes`</br>`assignableScopes` | An array of strings that specifies the scopes that the role is available for assignment. |
 
-### Operations format
+### Actions format
 
-Operations are specified with strings that have the following format:
+Actions are specified with strings that have the following format:
 
 - `{Company}.{ProviderName}/{resourceType}/{action}`
 
-The `{action}` portion of an operation string specifies the type of operations you can perform on a resource type. For example, you will see the following substrings in `{action}`:
+The `{action}` portion of an action string specifies the type of actions you can perform on a resource type. For example, you will see the following substrings in `{action}`:
 
 | Action substring    | Description         |
 | ------------------- | ------------------- |
-| `*` | The wildcard character grants access to all operations that match the string. |
-| `read` | Enables read operations (GET). |
-| `write` | Enables write operations (PUT or PATCH). |
-| `action` | Enables custom operations like restart virtual machines (POST). |
-| `delete` | Enables delete operations (DELETE). |
+| `*` | The wildcard character grants access to all actions that match the string. |
+| `read` | Enables read actions (GET). |
+| `write` | Enables write actions (PUT or PATCH). |
+| `action` | Enables custom actions like restart virtual machines (POST). |
+| `delete` | Enables delete actions (DELETE). |
 
 ### Role definition example
 
-Here's the [Contributor](built-in-roles.md#contributor) role definition as displayed in Azure PowerShell and Azure CLI. The wildcard (`*`) operation under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The operations under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also manage Azure Blueprint assignments.
+Here's the [Contributor](built-in-roles.md#contributor) role definition as displayed in Azure PowerShell and Azure CLI. The wildcard (`*`) actions under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The actions under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also manage Azure Blueprints assignments.
 
-Contributor role as displayed in Azure PowerShell:
+Contributor role as displayed in [Azure PowerShell](role-definitions-list.md#azure-powershell):
 
 ```json
 {
@@ -108,7 +108,7 @@ Contributor role as displayed in Azure PowerShell:
 }
 ```
 
-Contributor role as displayed in Azure CLI:
+Contributor role as displayed in [Azure CLI](role-definitions-list.md#azure-cli):
 
 ```json
 {
@@ -140,25 +140,25 @@ Contributor role as displayed in Azure CLI:
 }
 ```
 
-## Management and data operations
+## Control and data actions
 
-Role-based access control for management operations is specified in the `Actions` and `NotActions` properties of a role definition. Here are some examples of management operations in Azure:
+Role-based access control for control plane actions is specified in the `Actions` and `NotActions` properties of a role definition. Here are some examples of control plane actions in Azure:
 
 - Manage access to a storage account
 - Create, update, or delete a blob container
 - Delete a resource group and all of its resources
 
-Management access is not inherited to your data provided that the container authentication method is set to "Azure AD User Account" and not "Access Key". This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
+Control plane access is not inherited to your data plane provided that the container authentication method is set to "Azure AD User Account" and not "Access Key". This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
 
-Previously, role-based access control was not used for data operations. Authorization for data operations varied across resource providers. The same role-based access control authorization model used for management operations has been extended to data operations.
+Previously, role-based access control was not used for data actions. Authorization for data actions varied across resource providers. The same role-based access control authorization model used for control plane actions has been extended to data plane actions.
 
-To support data operations, new data properties have been added to the role definition. Data operations are specified in the `DataActions` and `NotDataActions` properties. By adding these data properties, the separation between management and data is maintained. This prevents current role assignments with wildcards (`*`) from suddenly having accessing to data. Here are some data operations that can be specified in `DataActions` and `NotDataActions`:
+To support data plane actions, new data properties have been added to the role definition. Data plane actions are specified in the `DataActions` and `NotDataActions` properties. By adding these data properties, the separation between control plane and data plane is maintained. This prevents current role assignments with wildcards (`*`) from suddenly having accessing to data. Here are some data plane actions that can be specified in `DataActions` and `NotDataActions`:
 
 - Read a list of blobs in a container
 - Write a storage blob in a container
 - Delete a message in a queue
 
-Here's the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role definition, which includes operations in both the `Actions` and `DataActions` properties. This role allows you to read the blob container and also the underlying blob data.
+Here's the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role definition, which includes actions in both the `Actions` and `DataActions` properties. This role allows you to read the blob container and also the underlying blob data.
 
 Storage Blob Data Reader role as displayed in Azure PowerShell:
 
@@ -212,15 +212,15 @@ Storage Blob Data Reader role as displayed in Azure CLI:
 }
 ```
 
-Only data operations can be added to the `DataActions` and `NotDataActions` properties. Resource providers identify which operations are data operations, by setting the `isDataAction` property to `true`. To see a list of the operations where `isDataAction` is `true`, see [Resource provider operations](resource-provider-operations.md). Roles that do not have data operations are not required to have `DataActions` and `NotDataActions` properties within the role definition.
+Only data plane actions can be added to the `DataActions` and `NotDataActions` properties. Resource providers identify which actions are data actions, by setting the `isDataAction` property to `true`. To see a list of the actions where `isDataAction` is `true`, see [Resource provider operations](resource-provider-operations.md). Roles that do not have data actions are not required to have `DataActions` and `NotDataActions` properties within the role definition.
 
-Authorization for all management operation API calls is handled by Azure Resource Manager. Authorization for data operation API calls is handled by either a resource provider or Azure Resource Manager.
+Authorization for all control plane API calls is handled by Azure Resource Manager. Authorization for data plane API calls is handled by either a resource provider or Azure Resource Manager.
 
-### Data operations example
+### Data actions example
 
-To better understand how management and data operations work, let's consider a specific example. Alice has been assigned the [Owner](built-in-roles.md#owner) role at the subscription scope. Bob has been assigned the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role at a storage account scope. The following diagram shows this example.
+To better understand how control plane and data plane actions work, let's consider a specific example. Alice has been assigned the [Owner](built-in-roles.md#owner) role at the subscription scope. Bob has been assigned the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role at a storage account scope. The following diagram shows this example.
 
-![Role-based access control has been extended to support both management and data operations](./media/role-definitions/rbac-management-data.png)
+![Role-based access control has been extended to support both control plane and data plane actions](./media/role-definitions/rbac-data-plane.png)
 
 The [Owner](built-in-roles.md#owner) role for Alice and the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role for  Bob have the following actions:
 
@@ -242,15 +242,15 @@ Storage Blob Data Contributor
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Since Alice has a wildcard (`*`) action at a subscription scope, their permissions inherit down to enable them to perform all management actions. Alice can read, write, and delete containers. However, Alice cannot perform data operations without taking additional steps. For example, by default, Alice cannot read the blobs inside a container. To read the blobs, Alice would have to retrieve the storage access keys and use them to access the blobs.
+Since Alice has a wildcard (`*`) action at a subscription scope, their permissions inherit down to enable them to perform all control plane actions. Alice can read, write, and delete containers. However, Alice cannot perform data plane actions without taking additional steps. For example, by default, Alice cannot read the blobs inside a container. To read the blobs, Alice would have to retrieve the storage access keys and use them to access the blobs.
 
-Bob's permissions are restricted to just the `Actions` and `DataActions` specified in the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role. Based on the role, Bob can perform both management and data operations. For example, Bob can read, write, and delete containers in the specified storage account and can also read, write, and delete the blobs.
+Bob's permissions are restricted to just the `Actions` and `DataActions` specified in the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role. Based on the role, Bob can perform both control plane and data plane actions. For example, Bob can read, write, and delete containers in the specified storage account and can also read, write, and delete the blobs.
 
-For more information about management and data plane security for storage, see the [Azure Storage security guide](../storage/blobs/security-recommendations.md).
+For more information about control and data plane security for storage, see the [Azure Storage security guide](../storage/blobs/security-recommendations.md).
 
-### What tools support using Azure roles for data operations?
+### What tools support using Azure roles for data actions?
 
-To view and work with data operations, you must have the correct versions of the tools or SDKs:
+To view and work with data actions, you must have the correct versions of the tools or SDKs:
 
 | Tool  | Version  |
 |---------|---------|
@@ -262,53 +262,53 @@ To view and work with data operations, you must have the correct versions of the
 | [Azure for Python](/azure/python/) | 0.40.0 or later |
 | [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 or later |
 
-To view and use the data operations in the REST API, you must set the **api-version** parameter to the following version or later:
+To view and use the data actions in the REST API, you must set the **api-version** parameter to the following version or later:
 
 - 2018-07-01
 
 ## Actions
 
-The `Actions` permission specifies the management operations that the role allows to be performed. It is a collection of operation strings that identify securable operations of Azure resource providers. Here are some examples of management  operations that can be used in `Actions`.
+The `Actions` permission specifies the control plane actions that the role allows to be performed. It is a collection of strings that identify securable actions of Azure resource providers. Here are some examples of control plane actions that can be used in `Actions`.
 
 > [!div class="mx-tableFixed"]
-> | Operation string    | Description         |
+> | Action string    | Description         |
 > | ------------------- | ------------------- |
-> | `*/read` | Grants access to read operations for all resource types of all Azure resource providers.|
-> | `Microsoft.Compute/*` | Grants access to all operations for all resource types in the Microsoft.Compute resource provider.|
-> | `Microsoft.Network/*/read` | Grants access to read operations for all resource types in the Microsoft.Network resource provider.|
-> | `Microsoft.Compute/virtualMachines/*` | Grants access to all operations of virtual machines and its child resource types.|
+> | `*/read` | Grants access to read actions for all resource types of all Azure resource providers.|
+> | `Microsoft.Compute/*` | Grants access to all actions for all resource types in the Microsoft.Compute resource provider.|
+> | `Microsoft.Network/*/read` | Grants access to read actions for all resource types in the Microsoft.Network resource provider.|
+> | `Microsoft.Compute/virtualMachines/*` | Grants access to all actions of virtual machines and its child resource types.|
 > | `microsoft.web/sites/restart/Action` | Grants access to restart a web app.|
 
 ## NotActions
 
-The `NotActions` permission specifies the management operations that are subtracted or excluded from the allowed `Actions` that have a wildcard (`*`). Use the `NotActions` permission if the set of operations that you want to allow is more easily defined by subtracting from `Actions` that have a wildcard (`*`). The access granted by a role (effective permissions) is computed by subtracting the `NotActions` operations from the `Actions` operations.
+The `NotActions` permission specifies the control plane actions that are subtracted or excluded from the allowed `Actions` that have a wildcard (`*`). Use the `NotActions` permission if the set of actions that you want to allow is more easily defined by subtracting from `Actions` that have a wildcard (`*`). The access granted by a role (effective permissions) is computed by subtracting the `NotActions` actions from the `Actions` actions.
 
-`Actions - NotActions = Effective management permissions`
+`Actions - NotActions = Effective control plane permissions`
 
-The following table shows two examples of the effective permissions for a [Microsoft.CostManagement](resource-provider-operations.md#microsoftcostmanagement) wildcard operation:
+The following table shows two examples of the effective control plane permissions for a [Microsoft.CostManagement](resource-provider-operations.md#microsoftcostmanagement) wildcard action:
 
 > [!div class="mx-tableFixed"]
-> | Actions | NotActions | Effective management permissions |
+> | Actions | NotActions | Effective control plane permissions |
 > | --- | --- | --- |
 > | `Microsoft.CostManagement/exports/*` | *none* | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/delete`</br>`Microsoft.CostManagement/exports/run/action` |
 > | `Microsoft.CostManagement/exports/*` | `Microsoft.CostManagement/exports/delete` | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/run/action` |
 
 > [!NOTE]
-> If a user is assigned a role that excludes an operation in `NotActions`, and is assigned a second role that grants access to the same operation, the user is allowed to perform that operation. `NotActions` is not a deny rule – it is simply a convenient way to create a set of allowed operations when specific operations need to be excluded.
+> If a user is assigned a role that excludes an action in `NotActions`, and is assigned a second role that grants access to the same action, the user is allowed to perform that action. `NotActions` is not a deny rule – it is simply a convenient way to create a set of allowed actions when specific actions need to be excluded.
 >
 
 ### Differences between NotActions and deny assignments
 
-`NotActions` and deny assignments are not the same and serve different purposes. `NotActions` are a convenient way to subtract specific actions from a wildcard (`*`) operation.
+`NotActions` and deny assignments are not the same and serve different purposes. `NotActions` are a convenient way to subtract specific actions from a wildcard (`*`) action.
 
 Deny assignments block users from performing specific actions even if a role assignment grants them access. For more information, see [Understand Azure deny assignments](deny-assignments.md).
 
 ## DataActions
 
-The `DataActions` permission specifies the data operations that the role allows to be performed to your data within that object. For example, if a user has read blob data access to a storage account, then they can read the blobs within that storage account. Here are some examples of data operations that can be used in `DataActions`.
+The `DataActions` permission specifies the data plane actions that the role allows to be performed to your data within that object. For example, if a user has read blob data access to a storage account, then they can read the blobs within that storage account. Here are some examples of data actions that can be used in `DataActions`.
 
 > [!div class="mx-tableFixed"]
-> | Operation string    | Description         |
+> | Data action string    | Description         |
 > | ------------------- | ------------------- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | Returns a blob or a list of blobs. |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | Returns the result of writing a blob. |
@@ -317,25 +317,25 @@ The `DataActions` permission specifies the data operations that the role allows 
 
 ## NotDataActions
 
-The `NotDataActions` permission specifies the data operations that are subtracted or excluded from the allowed `DataActions` that have a wildcard (`*`). Use the `NotDataActions` permission if the set of operations that you want to allow is more easily defined by subtracting from `DataActions` that have a wildcard (`*`). The access granted by a role (effective permissions) is computed by subtracting the `NotDataActions` operations from the `DataActions` operations. Each resource provider provides its respective set of APIs to fulfill data operations.
+The `NotDataActions` permission specifies the data plane actions that are subtracted or excluded from the allowed `DataActions` that have a wildcard (`*`). Use the `NotDataActions` permission if the set of actions that you want to allow is more easily defined by subtracting from `DataActions` that have a wildcard (`*`). The access granted by a role (effective permissions) is computed by subtracting the `NotDataActions` actions from the `DataActions` actions. Each resource provider provides its respective set of APIs to fulfill data actions.
 
-`DataActions - NotDataActions = Effective data permissions`
+`DataActions - NotDataActions = Effective data plane permissions`
 
-The following table shows two examples of the effective permissions for a [Microsoft.Storage](resource-provider-operations.md#microsoftstorage) wildcard operation:
+The following table shows two examples of the effective date plane permissions for a [Microsoft.Storage](resource-provider-operations.md#microsoftstorage) wildcard action:
 
 > [!div class="mx-tableFixed"]
-> | DataActions | NotDataActions | Effective data permissions |
+> | DataActions | NotDataActions | Effective data plane permissions |
 > | --- | --- | --- |
 > | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | *none* | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
 > | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
 
 > [!NOTE]
-> If a user is assigned a role that excludes a data operation in `NotDataActions`, and is assigned a second role that grants access to the same data operation, the user is allowed to perform that data operation. `NotDataActions` is not a deny rule – it is simply a convenient way to create a set of allowed data operations when specific data operations need to be excluded.
+> If a user is assigned a role that excludes a data action in `NotDataActions`, and is assigned a second role that grants access to the same data action, the user is allowed to perform that data action. `NotDataActions` is not a deny rule – it is simply a convenient way to create a set of allowed data actions when specific data actions need to be excluded.
 >
 
 ## AssignableScopes
 
-The `AssignableScopes` property specifies the scopes (management groups, subscriptions, or resource groups) that have this role definition available. You can make the role available for assignment in only the management groups, subscriptions, or resource groups that require it. You must use at least one management group, subscription, or resource group.
+The `AssignableScopes` property specifies the scopes (management groups, subscriptions, or resource groups) where this role definition can be assigned. You can make the role available for assignment in only the management groups, subscriptions, or resource groups that require it. You must use at least one management group, subscription, or resource group.
 
 Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root scope indicates that the role is available for assignment in all scopes. Examples of valid assignable scopes include:
 
@@ -346,7 +346,7 @@ Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root s
 > | Two subscriptions | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
 > | Network resource group | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
 > | One management group | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
-> | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
+> | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", "/subscriptions/{subscriptionId1}",` |
 > | All scopes (applies only to built-in roles) | `"/"` |
 
 For information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).

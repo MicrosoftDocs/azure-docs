@@ -12,7 +12,7 @@ keywords: Kinect, sensor, viewer, external sync, phase delay, depth, RGB, camera
 
 # Use Azure Kinect recorder with external synchronized devices
 
-This article provides guidance on how the [Azure Kinect Recorder](azure-kinect-recorder.md) can record data external synchronization configured devices.
+This article provides guidance on how the [Azure Kinect Recorder](azure-kinect-recorder.md) can record data from external-synchronization configured devices.
 
 ## Prerequisites
 

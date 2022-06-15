@@ -1,9 +1,8 @@
 ---
-title: Creating and merging a CSR in Azure Key Vault 
+title: Creating and merging a certificate signing request in Azure Key Vault 
 description: Learn how to create and merge a CSR in Azure Key Vault. 
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -13,9 +12,9 @@ ms.date: 06/17/2020
 ms.author: sebansal
 ---
 
-# Create and merge a CSR in Key Vault
+# Create and merge a certificate signing request in Key Vault
 
-Azure Key Vault supports storing digital certificates issued by any certificate authority (CA). It supports creating a certificate signing request (CSR) with a private/public key pair. The CSR can be signed by any CA (an internal enterprise CA or an external public CA). A CSR is a message that you send to a CA in order to request a digital certificate.
+Azure Key Vault supports storing digital certificates issued by any certificate authority (CA). It supports creating a certificate signing request (CSR) with a private/public key pair. The CSR can be signed by any CA (an internal enterprise CA or an external public CA). A certificate signing request (CSR) is a message that you send to a CA in order to request a digital certificate.
 
 For more general information about certificates, see [Azure Key Vault certificates](./about-certificates.md).
 
@@ -137,6 +136,8 @@ Example
 
      This error might occur if **SubjectName** includes any special characters. See notes in the Azure portal and PowerShell instructions.
 
+- Error type **The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR.**
+     Go to 'Advanced Policy' section of the certificate and check if 'reuse key on renewal' option is turned off.
 ---
 
 ## Next steps
@@ -144,5 +145,5 @@ Example
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)
 - [Azure Key Vault REST API reference](/rest/api/keyvault)
-- [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate)
-- [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy)
+- [Vaults - Create or Update](/rest/api/keyvault/keyvault/vaults/create-or-update)
+- [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy)

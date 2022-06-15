@@ -1,11 +1,10 @@
 ---
 title: Apache Kafka on Confluent Cloud overview - Azure partner solutions
 description: Learn about using Apache Kafka on Confluent Cloud in the Azure Marketplace.
-author: tfitzmac
 ms.topic: conceptual
-ms.service: partner-services
-ms.date: 01/15/2021
-ms.author: tomfitz
+ms.date: 02/22/2022
+author: davidsmatlak
+ms.author: davidsmatlak
 ---
 
 # What is Apache Kafka for Confluent Cloud?
@@ -16,13 +15,13 @@ To reduce the burden of cross-platform management, Microsoft partnered with Conf
 
 Previously, you had to purchase the Confluent Cloud offering in the Marketplace and separately set up the account in Confluent Cloud. To manage configurations and resources, you had to navigate between the portals for Azure and Confluent Cloud.
 
-Now, you provision the Confluent Cloud resources through a resource provider named **Microsoft.Confluent**. You create and manage Confluent Cloud organization resources through the [Azure portal](https://portal.azure.com/), [Azure CLI](/cli/azure/), or [Azure SDKs](/azure/#languages-and-tools). Confluent Cloud owns and runs the software as a service (SaaS) application, including the environments, clusters, topics, API keys, and managed connectors.
+Now, you provision the Confluent Cloud resources through a resource provider named **Microsoft.Confluent**. You create and manage Confluent Cloud organization resources through the [Azure portal](https://portal.azure.com/), [Azure CLI](/cli/azure/), or [Azure SDKs](/azure#languages-and-tools). Confluent Cloud owns and runs the software as a service (SaaS) application, including the environments, clusters, topics, API keys, and managed connectors.
 
 ## Capabilities
 
 The deep integration between Confluent Cloud and Azure enables the following capabilities:
 
-- Provision a new Confluent Cloud organization resource from the Azure portal with fully managed infrastructure.
+- Provision a new Confluent Cloud organization resource from the Azure portal with fully managed infrastructure or link to an existing Confluent Cloud organization.
 - Streamline single sign-on (SSO) from Azure to Confluent Cloud with Azure Active Directory (Azure AD). No separate authentication is needed from the Confluent Cloud portal.
 - Get unified billing of Confluent Cloud consumption through Azure subscription invoicing.
 - Manage Confluent Cloud resources from the Azure portal, and track them in the **All resources** page with your other Azure resources.
@@ -54,7 +53,7 @@ You decide which billing option to use when you create the service.
 
 ## Confluent links
 
-For additional help with using Apache Kafka for Confluent Cloud, see the following links to the [Confluent site](https://docs.confluent.io/home/overview.html).
+For more help with using Apache Kafka for Confluent Cloud, see the following links to the [Confluent site](https://docs.confluent.io/home/overview.html).
 
 To learn about billing options, see:
 
@@ -70,7 +69,14 @@ To learn about managing the solutions, see:
 For support and terms, see:
 
 * [Confluent support](https://support.confluent.io)
-* [Terms of Service](https://www.confluent.io/confluent-cloud-tos).
+* [Terms of Service](https://www.confluent.io/confluent-cloud-tos)
+
+To learn more, see Confluent blog articles about Azure services that integrate with Confluent Cloud:
+
+* [Use Azure Cosmos DB sink connector](https://www.confluent.io/blog/announcing-confluent-cloud-azure-cosmos-db-connector)
+* [Set up secure networking with Azure Private Link](https://www.confluent.io/blog/how-to-set-up-secure-networking-in-confluent-with-azure-private-link)
+* [Search using Azure Cache for Redis and Azure Spring Cloud](https://www.confluent.io/blog/real-time-search-and-analytics-with-confluent-cloud-azure-redis-spring-cloud)
+* [Consume data with Confluent and Azure Databricks](https://www.confluent.io/blog/consume-avro-data-from-kafka-topics-and-secured-schema-registry-with-databricks-confluent-cloud-on-azure)
 
 ## Next steps
 

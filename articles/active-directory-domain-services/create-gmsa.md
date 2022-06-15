@@ -3,7 +3,7 @@ title: Group managed service accounts for Azure AD Domain Services | Microsoft D
 description: Learn how to create a group managed service account (gMSA) for use with Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.assetid: e6faeddd-ef9e-4e23-84d6-c9b3f7d16567
 ms.service: active-directory
@@ -103,7 +103,7 @@ For more information about gMSAs, see [Getting started with group managed servic
 [create-custom-ou]: create-ou.md
 
 <!-- EXTERNAL LINKS -->
-[New-ADOrganizationalUnit]: /powershell/module/addsadministration/New-AdOrganizationalUnit
-[New-ADServiceAccount]: /powershell/module/addsadministration/New-AdServiceAccount
+[New-ADOrganizationalUnit]: /powershell/module/activedirectory/new-adorganizationalunit
+[New-ADServiceAccount]: /powershell/module/activedirectory/New-AdServiceAccount
 [gmsa-overview]: /windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview
 [gmsa-start]: /windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts

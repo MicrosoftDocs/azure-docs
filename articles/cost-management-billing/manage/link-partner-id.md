@@ -4,17 +4,18 @@ description: Track engagements with Azure customers by linking a partner ID to t
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 10/05/2020
+ms.date: 11/04/2021
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Link a partner ID to your Azure accounts
 
 Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link (PAL), partners can associate their partner network ID with the credentials used for service delivery.
 
-PAL enables Microsoft to identify and recognize partners who drive Azure customer success. Microsoft can attribute influence and Azure consumed revenue to your organization based on the account's permissions (Azure role) and scope (subscription, resource group, resource ).
+PAL enables Microsoft to identify and recognize partners who drive Azure customer success. Microsoft can attribute influence and Azure consumed revenue to your organization based on the account's permissions (Azure role) and scope (subscription, resource group, resource ). If a group has Azure RBAC access, then PAL is recognized for all the users in the group.
 
 ## Get access from your customer
 
@@ -26,7 +27,7 @@ Before you link your partner ID, your customer must give you access to their Azu
 
 - **Service principal**: Your customer can add an app or script from your organization in their directory and assign any Azure role. The identity of the app or script is known as a service principal.
 
-- **Azure Lighthouse**: Your customer can delegate a subscription (or resource group) so that your users can work on it from within your tenant. For more information, see [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
+- **Azure Lighthouse**: Your customer can delegate a subscription (or resource group) so that your users can work on it from within your tenant. For more information, see [Azure Lighthouse](../../lighthouse/overview.md).
 
 ## Link to a partner ID
 
@@ -60,12 +61,12 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 
 
     ```azurepowershell-interactive
-    C:\> new-AzManagementPartner -PartnerId 12345
+    C:\> New-AzManagementPartner -PartnerId 12345
     ```
 
 #### Get the linked partner ID
 ```azurepowershell-interactive
-C:\> get-AzManagementPartner
+C:\> Get-AzManagementPartner
 ```
 
 #### Update the linked partner ID
@@ -74,7 +75,7 @@ C:\> Update-AzManagementPartner -PartnerId 12345
 ```
 #### Delete the linked partner ID
 ```azurepowershell-interactive
-C:\> remove-AzManagementPartner -PartnerId 12345
+C:\> Remove-AzManagementPartner -PartnerId 12345
 ```
 
 ### Use the Azure CLI to link to a new partner ID

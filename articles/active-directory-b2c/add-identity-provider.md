@@ -1,12 +1,12 @@
 ---
-title: Add an identity provider - Azure Active Directory B2C | Microsoft Docs
+title: Add an identity provider - Azure Active Directory B2C  
 description: Learn how to add an identity provider to your Active Directory B2C tenant.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
-ms.author: mimart
-ms.date: 03/03/2021
+ms.author: kengaderdus
+ms.date: 04/08/2022
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
@@ -23,7 +23,7 @@ On the sign-up or sign-in page, Azure AD B2C presents a list of external identit
 
 ![Mobile sign-in example with a social account (Facebook)](media/add-identity-provider/external-idp.png)
 
-You can add identity providers that are supported by Azure Active Directory B2C (Azure AD B2C) to your [user flows](user-flow-overview.md) using the Azure portal. You can also add identity providers to your [custom policies](custom-policy-get-started.md).
+You can add identity providers that are supported by Azure Active Directory B2C (Azure AD B2C) to your [user flows](user-flow-overview.md) using the Azure portal. You can also add identity providers to your [custom policies](user-flow-overview.md).
 
 ## Select an identity provider
 
@@ -35,6 +35,7 @@ You typically use only one identity provider in your applications, but you have 
 * [Azure AD (Single-tenant)](identity-provider-azure-ad-single-tenant.md)
 * [Azure AD (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md)
 * [Azure AD B2C](identity-provider-azure-ad-b2c.md)
+* [eBay](identity-provider-ebay.md)
 * [Facebook](identity-provider-facebook.md)
 * [Generic identity provider](identity-provider-generic-openid-connect.md)
 * [GitHub](identity-provider-github.md)
@@ -42,9 +43,12 @@ You typically use only one identity provider in your applications, but you have 
 * [Google](identity-provider-google.md)
 * [LinkedIn](identity-provider-linkedin.md)
 * [Microsoft Account](identity-provider-microsoft-account.md)
+* [Mobile ID](identity-provider-mobile-id.md)
+* [PingOne](identity-provider-ping-one.md) (PingIdentity)
 * [QQ](identity-provider-qq.md)
 * [Salesforce](identity-provider-salesforce.md)
 * [Salesforce (SAML protocol)](identity-provider-salesforce-saml.md)
+* [SwissID]( identity-provider-swissid.md)
 * [Twitter](identity-provider-twitter.md)
 * [WeChat](identity-provider-wechat.md)
 * [Weibo](identity-provider-weibo.md)

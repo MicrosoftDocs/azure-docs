@@ -3,13 +3,13 @@ title: Add or delete users - Azure Active Directory | Microsoft Docs
 description: Instructions about how to add new users or delete existing users using Azure Active Directory.
 services: active-directory
 author: ajburnle
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 02/16/2022
 ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"
@@ -20,13 +20,18 @@ ms.collection: M365-identity-device-management
 
 Add new users or delete existing users from your Azure Active Directory (Azure AD) organization. To add or delete users you must be a User administrator or Global administrator.
 
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
+
 ## Add a new user
 
 You can create a new user using the Azure Active Directory portal.
 
+>[!Note]
+>The user name and email address properties can't contain accent characters.
+
 To add a new user, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a User administrator for the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
 
 1. Search for and select *Azure Active Directory* from any page.
 

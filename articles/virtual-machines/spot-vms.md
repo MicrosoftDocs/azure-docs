@@ -14,9 +14,11 @@ ms.reviewer: cynthn
 
 # Use Azure Spot Virtual Machines 
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Using Azure Spot Virtual Machines allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines. Therefore, Azure Spot Virtual Machines are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
-The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Spot Virtual Machines, Azure will allocate the VMs if there is capacity available, but there is no SLA for these VMs. A Azure Spot Virtual Machine offers no high availability guarantees. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines with 30 seconds notice. 
+The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Spot Virtual Machines, Azure will allocate the VMs if there is capacity available, but there is no SLA for these VMs. An Azure Spot Virtual Machine offers no high availability guarantees. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines with 30 seconds notice. 
 
 
 ## Eviction policy
@@ -34,8 +36,8 @@ You can opt-in to receive in-VM notifications through [Azure Scheduled Events](.
 |--------|---------|
 | Max price is set to >= the current price. | VM is deployed if capacity and quota are available. |
 | Max price is set to < the current price. | The VM is not deployed. You will get an error message that the max price needs to be >= current price. |
-| Restarting a stop/deallocate VM if the max price is >= the current price | If there is capacity and quota, then the VM is deployed. |
-| Restarting a stop/deallocate VM if the max price is < the current price | You will get an error message that the max price needs to be >= current price. | 
+| Restarting a stopped/deallocated VM if the max price is >= the current price | If there is capacity and quota, then the VM is deployed. |
+| Restarting a stopped/deallocated VM if the max price is < the current price | You will get an error message that the max price needs to be >= current price. | 
 | Price for the VM has gone up and is now > the max price. | The VM gets evicted. You get a 30s notification before actual eviction. | 
 | After eviction the price for the VM goes back to being < the max price. | The VM will not be automatically re-started. You can restart the VM yourself, and it will be charged at the current price. |
 | If the max price is set to `-1` | The VM will not be evicted for pricing reasons. The max price will be the current price, up to the price for standard VMs. You will never be charged above the standard price.| 
@@ -57,7 +59,7 @@ The following [offer types](https://azure.microsoft.com/support/legal/offer-deta
 -	Enterprise Agreement 
 -	Pay-as-you-go offer code (003P)
 -	Sponsored (0036P and 0136P)
-- For Cloud Service Provider (CSP), contact your partner
+- For Cloud Service Provider (CSP), see the [Partner Center](/partner-center/azure-plan-get-started) or contact your partner directly.
 
 
 ## Pricing
@@ -84,7 +86,7 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 ##  Frequently asked questions
 
-**Q:** Once created, is a Azure Spot Virtual Machine the same as regular standard VM?
+**Q:** Once created, is an Azure Spot Virtual Machine the same as regular standard VM?
 
 **A:** Yes, except there is no SLA for Azure Spot Virtual Machines and they can be evicted at any time.
 

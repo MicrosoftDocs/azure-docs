@@ -6,7 +6,7 @@ ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.topic: article
 ms.date: 02/26/2021
 ms.reviewer: dariac
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 
@@ -42,7 +42,7 @@ In the same management page for your app where you copied the deployment credent
 
 # [Azure CLI](#tab/cli)
 
-Run the [az webapp deployment list-publishing-profiles](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles) command. The following example uses a [JMES path](https://jmespath.org/) to extract the FTP/S endpoints from the output.
+Run the [az webapp deployment list-publishing-profiles](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) command. The following example uses a [JMES path](https://jmespath.org/) to extract the FTP/S endpoints from the output.
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app-name> --resource-group <group-name> --query "[?ends_with(profileName, 'FTP')].{profileName: profileName, publishUrl: publishUrl}"
@@ -91,7 +91,7 @@ For enhanced security, you should allow FTP over TLS/SSL only. You can also disa
 
 # [Azure CLI](#tab/cli)
 
-Run the [az webapp config set](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles) command with the `--ftps-state` argument.
+Run the [az webapp config set](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) command with the `--ftps-state` argument.
 
 ```azurecli-interactive
 az webapp config set --name <app-name> --resource-group <group-name> --ftps-state FtpsOnly

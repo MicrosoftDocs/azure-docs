@@ -2,19 +2,17 @@
 title: Voice and video concepts in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services call types.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
-ms.date: 03/25/2021
-ms.topic: overview
+ms.author: rifox
+ms.date: 06/30/2021
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: calling
 ---
 # Voice and video concepts
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 
 You can use Azure Communication Services to make and receive one to one or group voice and video calls. Your calls can be made to other Internet-connected devices and to plain-old telephones. You can use the Communication Services JavaScript, Android, or iOS SDKs to build applications that allow your users to speak to one another in private conversations or in group discussions. Azure Communication Services supports calls to and from services or Bots.
 
@@ -51,5 +49,5 @@ We support up to Full HD 1080p on the native (iOS, Android) SDKs. For Web (JS) S
 
 For more information, see the following articles:
 - Familiarize yourself with general [call flows](../call-flows.md)
-- [Phone number types](../telephony-sms/plan-solution.md)
+- [Phone number types](../telephony/plan-solution.md)
 - Learn about the [Calling SDK capabilities](../voice-video-calling/calling-sdk-features.md)

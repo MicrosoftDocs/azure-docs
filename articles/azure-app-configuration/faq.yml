@@ -5,10 +5,10 @@ metadata:
   services: azure-app-configuration
   author: AlexandraKemperMS
   ms.service: azure-app-configuration
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 02/19/2020
   ms.author: alkemper
-    
+  ms.custom: references_regions
 title: Azure App Configuration FAQ
 summary: This article answers frequently asked questions about Azure App Configuration.
 
@@ -40,10 +40,6 @@ sections:
       - question: Does App Configuration encrypt my data?
         answer: Yes. App Configuration encrypts all key values it holds, and it encrypts network communication. Key names and labels are used as indexes for retrieving configuration data and aren't encrypted.
 
-      - question: Where does data stored in App Configuration reside? 
-        answer: |
-          Customer data stored in App Configuration resides in the region where the customer's App Configuration store was created. This applies to all available regions. Customers and end users may move, copy, or access their customer data from any location globally.
-
       - question: How is App Configuration different from Azure App Service settings?
         answer: |
           Azure App Service allows you to define app settings for each App Service instance. These settings are passed as environment variables to the application code. You can associate a setting with a specific deployment slot, if you want. For more information, see [Configure app settings](../app-service/configure-common.md#configure-app-settings).
@@ -53,7 +49,10 @@ sections:
           You can also import and export settings between App Service and App Configuration. This capability allows you to quickly set up a new App Configuration store based on existing App Service settings. You can also share configuration with an existing app that relies on App Service settings.
           
       - question: Are there any size limitations on keys and values stored in App Configuration?
-        answer: There's a limit of 10 KB for a single key-value item.
+        answer: |
+          There's a limit of 10 KB for a single key-value, including attributes such as label, content-type, tags, and other metadata.
+
+          This limit should be sufficient for a single setting in most applications. If you find that your setting is larger than this limit, you may consider storing your data elsewhere and [add a reference of that data](./howto-best-practices.md#references-to-external-data) in App Configuration.
 
       - question: How should I store configurations for multiple environments (test, staging, production, and so on)?
         answer: |
@@ -70,7 +69,7 @@ sections:
           There are two pricing tiers:
           
           - Free tier
-          - Standard tier.
+          - Standard tier
           
           If you created a store prior to the introduction of the Standard tier, it automatically moved to the Free tier upon general availability. You can choose to upgrade to the Standard tier or remain on the Free tier.
           
@@ -87,7 +86,7 @@ sections:
           - **Revision history**: App Configuration stores a history of all changes made to keys. In the free tier, this history is stored for seven days. In the standard tier, this history is stored for 30 days.
           - **Requests quota**: Free tier stores are limited to 1,000 requests per day. When a store reaches 1,000 requests, it returns HTTP status code 429 for all requests until midnight UTC.
           
-              Standard tier stores are limited to 20,000 requests per hour. When the quota is exhausted, HTTP status code 429 is returned for all requests until the end of the hour.
+              Standard tier stores are limited to 30,000 requests per hour. When the hourly quota is exhausted, requests may return HTTP status code 429 indicating too many requests until end of the hour. As more requests are sent which are above quota, a higher percentage of them may return status code 429. 
           
           - **Service level agreement**: The standard tier has an SLA of 99.9% availability. The free tier doesn't have an SLA.
           - **Security features**: Both tiers include basic security functionality, including encryption with Microsoft-managed keys, authentication via HMAC or Azure Active Directory, Azure RBAC support, managed identity, and service tags. The Standard tier offers more advanced security functionality, including Private Link support and encryption with customer-managed keys.
@@ -99,11 +98,30 @@ sections:
           
           You can't downgrade a store from the Standard tier to the Free tier. You can create a new store in the Free tier and then [import configuration data into that store](howto-import-export-data.md).
           
+      - question: Where does data stored in App Configuration reside? 
+        answer: |
+          Customer data stored in App Configuration resides in the region where the customer's App Configuration store was created. This applies to all available regions. Customers and end users may move, copy, or access their customer data from any location globally.
+
+      - question: How does App Configuration ensure high data availability? 
+        answer: |
+          Azure App Configuration supports Azure Availability Zones to protect your application and data from single datacenter failures. All Availability Zone enabled regions consist of a minimum of 3 availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Following are regions that App Configuration has enabled Availability Zone support. For more information, see [Regions and Availability Zones in Azure.](../availability-zones/az-overview.md)
+          
+          | Americas | Europe | Africa | Asia Pacific |
+          |--------------------|----------------------|---------------------|----------------|
+          | Brazil South | France Central | | Australia East |
+          | Canada Central | Germany West Central | | Central India |
+          | Central US | North Europe | | Japan East |
+          | East US | Norway East | | Korea Central |
+          | East US 2 | UK South | | Southeast Asia |
+          | South Central US | West Europe | | East Asia |
+          | West US 2 | Sweden Central | | |
+          | West US 3 | | | |
+          
       - question: Are there any limits on the number of requests made to App Configuration?
         answer: |
-          Configuration stores in the Free tier are limited to 1,000 requests per day. Configuration stores in the Standard tier may experience temporary throttling when the request rate exceeds 20,000 requests per hour.
+          Configuration stores in the Free tier are limited to 1,000 requests per day. Configuration stores in the Standard tier may experience temporary throttling when the request rate exceeds 30,000 requests per hour.
           
-          When a store reaches its limit, it will return HTTP status code 429 for all requests made until the time period expires. The `retry-after-ms` header in the response gives a suggested wait time (in milliseconds) before retrying the request.
+          When a store reaches its limit in the standard tier, it may return HTTP status code 429 for some requests made until the end of the hour. The `retry-after-ms` header in the response gives a suggested wait time (in milliseconds) before retrying the request.
           
           If your application regularly experiences HTTP status code 429 responses, consider redesigning it to reduce the number of requests made. For more information, see [Reduce requests made to App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
           
@@ -112,12 +130,28 @@ sections:
           You'll receive an HTTP status code 429 response under these circumstances:
           
           * Exceeding the daily request limit for a store in the Free tier.
-          * Temporary throttling due to a high request rate for a store in the Standard tier.
+          * Exceeding the hourly request limit for a store in the standard tier.
+          * Momentary throttling due to a large burst of requests†.
           * Excessive bandwidth usage.
-          * Attempting to create or modify a key when the storage quote is exceeded.
+          * Attempting to create or modify a key when the storage quota is exceeded.
           
           Check the body of the 429 response for the specific reason why the request failed.
           
+          †A configuration store may experience momentary throttling if it receives a large burst of requests. App Configuration clients, such as the Azure SDK, configuration provider libraries, and Azure Pipeline tasks, automatically retry on throttled requests. For any applications using one of these clients, or a custom client that retries on throttled requests, this momentary throttling should go unnoticed, should it occur.
+
+      - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
+        answer: |
+          All App Configuration stores in the standard tier have automatically enabled the [soft-delete](concept-soft-delete.md) feature. When a standard tier App Configuration store is deleted, its name is reserved for the retention period. To recreate a store with the same name before the retention period expires, you need to [purge the soft-deleted store](howto-recover-deleted-stores-in-azure-app-configuration.md#list-recover-or-purge-a-soft-deleted-app-configuration-store) first, provided the store doesn't have purge protection enabled. If the purge protection is enabled, you must wait for the retention period to elapse.
+
+          App Configuration previously offered an option to overwrite a soft-deleted store as instructed below. This option will be retired on April 30, 2022. Migrate to use the purge function or set a shorter retention period if you often need to recreate a store with the same name.
+          * It is possible to recreate a store with the same name before the retention period has elapsed, but it must be in the same subscription, resource group, and region as the original store. If the resource group that contained the store was deleted it will need to be recreated in the same subscription first before recreating the store inside of it.
+          * The App Configuration store cannot be created in a different subscription/resource group until the retention period has elapsed. However, the resource can be recreated in the original subscription/resource group and then moved to a new subscription/resource group by following [these instructions](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal).
+          * Recreating an App Configuration store during the retention period is currently only supported by the Azure CLI using the `az appconfig create` [command](/cli/azure/appconfig#az_appconfig_create).
+
+      - question: How can I restore an App Configuration store that I deleted mistakenly?
+        answer: |
+          All App Configuration stores in the standard tier support the [soft-delete](concept-soft-delete.md) feature, which cannot be disabled. You can recover a deleted store within its retention period. Follow these [instructions](howto-recover-deleted-stores-in-azure-app-configuration.md) to recover a mistakenly deleted App Configuration store.
+
       - question: How can I receive announcements on new releases and other information related to App Configuration?
         answer: |
           Subscribe to our [GitHub announcements repo](https://github.com/Azure/AppConfiguration-Announcements).
@@ -129,4 +163,3 @@ sections:
       - question: Next steps
         answer: |
           * [About Azure App Configuration](./overview.md)
-          

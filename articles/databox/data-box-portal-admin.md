@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/18/2020
+ms.date: 08/23/2021
 ms.author: alkohli
 ---
 
@@ -251,8 +251,18 @@ If you're using self-managed shipping, after the copy is complete and before you
 |Ready to receive at Azure datacenter     |The device is ready to be received at the Azure datacenter.        |
 |Received     |The device has been received at the Azure datacenter.      |
 
+## Get device password
 
+When you order your device, you can choose to use the default system-generated device password or your own password. Either way, the device password is set at the factory and can't be changed. 
 
+You can find out the device password by viewing your order in the Azure portal.
+
+[!INCLUDE [data-box-get-device-password](../../includes/data-box-get-device-password.md)]
+
+> [!NOTE]
+> After several failed login attempts using an incorrect password, your admin account will be locked out of the device. The account lock will clear after a few minutes, and you can connect again.  
+> - Data Box 4.1 and later: The account is locked for 15 minutes after 5 failed login attempts. 
+> - Data Box 4.0 and earlier: The account is locked for 30 minutes after 3 failed login attempts.
 
 
 ## Next steps

@@ -1,13 +1,11 @@
 ---
 title: Granular role-based access Azure HDInsight cluster configurations
 description: Learn about the changes required as part of the migration to granular role-based access for HDInsight cluster configurations.
-author: tylerfox
-ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
 ---
-    
+
 # Migrate to granular role-based access for cluster configurations
 
 We are introducing some important changes to support more fine-grained role-based access to obtain sensitive information. As part of these changes, some action may be required **by September 3, 2019** if you are using one of the [affected entities/scenarios](#am-i-affected-by-these-changes).

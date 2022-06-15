@@ -1,11 +1,12 @@
 ---
 title: Deploy STIG-compliant Windows Virtual Machines (Preview)
-description: This quickstart shows you how to deploy a STIG-compliant Windows VM (Preview) from Azure Marketplace
+description: This quickstart shows you how to deploy a STIG-compliant Windows VM (Preview) from the Azure portal or Azure Government portal.
 author: stevevi
 ms.author: stevevi
 ms.service: azure-government
 ms.topic: quickstart
-ms.date: 03/16/2021
+ms.date: 06/14/2021
+ms.custom: mode-other, kr2b-contr-experiment
 ---
 
 # Deploy STIG-compliant Windows Virtual Machines (Preview)
@@ -24,7 +25,7 @@ This quickstart shows how to deploy a STIG-compliant Windows virtual machine (Pr
 
 ## Sign in to Azure
 
-Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government portal](https://portal.azure.us/) depending on your subscription.
+Sign in at the [Azure portal](https://portal.azure.com/) or [Azure Government portal](https://portal.azure.us/) depending on your subscription.
 
 ## Create a STIG-compliant virtual machine
 
@@ -48,15 +49,19 @@ Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government
 
     a. Enter the *VM name*.
 
-    b. Select the *Windows OS version*.
+    b. Select the *Availability options*. To learn about availability sets, see [Availability sets overview](../virtual-machines/availability-set-overview.md).
 
-    c. Select the instance *Size*.
+    c. Select the *Windows OS version*.
 
-    d. Enter the administrator account *Username*.
+    d. Select the instance *Size*.
 
-    e. Enter the administrator account *Password*.
+    e. Enter the administrator account *Username*.
 
-    f. Confirm *Password*.
+    f. Enter the administrator account *Password*.
+
+    g. Confirm *Password*.
+
+    h. Check if using an existing Windows Server license.
 
     :::image type="content" source="./media/stig-windows-instance-details.png" alt-text="Instance details section where you provide a name for the virtual machine and select its region, image, and size" border="false":::
 
@@ -103,11 +108,38 @@ Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government
 
 1. The deployed virtual machine can be found in the resource group used for the deployment. Since inbound RDP is disallowed, Azure Bastion must be used to connect to the VM.
 
+## High availability and resiliency
+ 
+Our solution template creates a single instance virtual machine using premium or standard operating system disk, which supports [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
+ 
+We recommend you deploy multiple instances of virtual machines configured behind Azure Load Balancer and/or Azure Traffic Manager for higher availability and resiliency.
+ 
+## Business continuity and disaster recovery (BCDR)
+ 
+As an organization you need to adopt a business continuity and disaster recovery (BCDR) strategy that keeps your data safe, and your apps and workloads online, when planned and unplanned outages occur.
+ 
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery replicates workloads running on physical and virtual machines from a primary site to a secondary location. When an outage occurs at your primary site, you fail over to secondary location, and access apps from there. After the primary location is running again, you can fail back to it.
+ 
+Site Recovery can manage replication for:
+ 
+- Azure VMs replicating between Azure regions.
+- On-premises VMs, Azure Stack VMs, and physical servers.
+ 
+To learn more about backup and restore options for virtual machines in Azure, continue to [Overview of backup options for VMs](../virtual-machines/backup-recovery.md).
+
 ## Clean up resources
 
 When no longer needed, you can delete the resource group, virtual machine, and all related resources.
 
 Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
+
+## Support
+
+Contact Azure support to get assistance with issues related to STIG solution templates. You can create and manage support requests in the Azure portal. For more information see, [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md). Use the following support paths when creating a ticket:
+
+Azure -> Virtual Machine running Windows -> Cannot create a VM -> Troubleshoot my ARM template error
+
+:::image type="content" source="./media/stig-windows-support.png" alt-text="New support request for Windows STIG solution template":::
 
 ## Next steps
 

@@ -4,9 +4,10 @@ description: Lists Azure Policy built-in policy definitions for Data Factory. Th
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: [seo-lt-2019, references_regions]
-ms.date: 03/24/2021
+ms.custom: seo-lt-2019, references_regions
+ms.date: 05/11/2022
 ---
 
 # Azure Policy built-in definitions for Data Factory (Preview)

@@ -3,7 +3,7 @@ title: Kerberos constrained delegation for Azure AD Domain Services | Microsoft 
 description: Learn how to enable resource-based Kerberos constrained delegation (KCD) in an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -105,8 +105,8 @@ To learn more about how delegation works in Active Directory Domain Services, se
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
-[Set-ADComputer]: /powershell/module/addsadministration/set-adcomputer
-[Set-ADUser]: /powershell/module/addsadministration/set-aduser
+[Set-ADComputer]: /powershell/module/activedirectory/set-adcomputer
+[Set-ADUser]: /powershell/module/activedirectory/set-aduser
 
 <!-- EXTERNAL LINKS -->
 [kcd-technet]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)

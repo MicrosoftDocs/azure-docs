@@ -2,14 +2,14 @@
  title: include file
  description: include file
  services: storage
- author: roygara
+ author: khdownie
  ms.service: storage
  ms.topic: include
- ms.date: 5/11/2020
- ms.author: rogarana
+ ms.date: 04/15/2021
+ ms.author: kendownie
  ms.custom: include file
 ---
-Navigate to the storage account for which you would like to create a private endpoint. In the table of contents for the storage account, select **Private endpoint connections**, and then **+ Private endpoint** to create a new private endpoint. 
+Navigate to the storage account for which you would like to create a private endpoint. In the table of contents for the storage account, select **Networking**, **Private endpoint connections**, and then **+ Private endpoint** to create a new private endpoint. 
 
 [![A screenshot of the private endpoint connections item in the storage account table of contents](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png)](media/storage-files-networking-endpoints-private-portal/create-private-endpoint-0.png#lightbox)
 

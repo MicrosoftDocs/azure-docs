@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Replicate an Azure VM to another region
+  - name: Set up disaster recovery to a secondary Azure region
     href: azure-to-azure-quickstart.md
   - name: Create a vault - ARM template
     displayName: Resource Manager
@@ -18,7 +18,7 @@
   items:
   - name: Azure VM disaster recovery to Azure
     items:
-    - name: Enable replication
+    - name: Set up disaster recovery for Azure VMs
       href: azure-to-azure-tutorial-enable-replication.md
     - name: Run a disaster recovery drill
       href: azure-to-azure-tutorial-dr-drill.md
@@ -28,8 +28,8 @@
       href: azure-to-azure-tutorial-failback.md
   - name: Move
     items:
-    - name: Move Azure VMs to another region
-      href: azure-to-azure-tutorial-migrate.md
+    - name: Move Azure VMs to another region (Resource Mover)
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md
     - name: Move Azure VMs to Availability Zones
       href: move-Azure-VMs-AVset-Azone.md
     - name: Move Azure VMs between Government & Public regions
@@ -42,12 +42,20 @@
       href: tutorial-prepare-azure.md
     - name: Prepare on-premises VMware
       href: vmware-azure-tutorial-prepare-on-premises.md
-    - name: Set up replication
+  - name: Set up replication
+    items:
+    - name: Classic
       href: vmware-azure-tutorial.md
+    - name: Preview
+      href: vmware-azure-set-up-replication-tutorial-preview.md
     - name: Run a disaster recovery drill
       href: tutorial-dr-drill-azure.md
-    - name: Fail over to Azure
+  - name: Run VMware VMs failover to Azure
+    items:
+    - name: Classic
       href: vmware-azure-tutorial-failover-failback.md
+    - name: Preview
+      href: vmware-azure-tutorial-failover-failback-preview.md
   - name: Azure VMware Solution disaster recovery to Azure
     items:
     - name: Prepare Azure
@@ -93,17 +101,19 @@
 - name: Concepts
   items:
   - name: Common questions about Site Recovery
-    href: site-recovery-faq.md
+    href: site-recovery-faq.yml
   - name: About Azure VM disaster recovery
     items:
-    - name: Azure to Azure architecture
+    - name: Azure to Azure disaster recovery architecture
       href: azure-to-azure-architecture.md
-    - name: Common questions
+    - name: Common questions about Azure to Azure disaster recovery
       href: azure-to-azure-common-questions.md
     - name: Azure to Azure support matrix
       href: azure-to-azure-support-matrix.md
     - name: Using Site Recovery with Azure Backup
       href: site-recovery-backup-interoperability.md
+    - name: Configure Failover for Multiple IP addresses
+      href: concepts-multiple-ip-address-failover.md
     - name: Accelerated networking for Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute with Azure VM disaster recovery
@@ -122,14 +132,22 @@
       href: vmware-physical-azure-config-process-server-overview.md
     - name: Support requirements for configuration and process servers
       href: vmware-azure-configuration-server-requirements.md
-    - name: VMware to Azure architecture
+    - name: Deploy Azure Site Recovery replication appliance (preview)
+      href: deploy-vmware-azure-replication-appliance-preview.md
+    - name: Switch replication appliance (preview)
+      href: switch-replication-appliance-preview.md
+  - name: VMware to Azure architecture
+    items:
+    - name: Classic
       href: vmware-azure-architecture.md
-    - name: About excluding disks from replication
-      href: exclude-disks-replication.md
-    - name: Failback location options from Azure to VMware
-      href: concepts-types-of-failback.md
-    - name: Multi-tenant support for VMware disaster recovery
-      href: vmware-azure-multi-tenant-overview.md
+    - name: Preview
+      href: vmware-azure-architecture-preview.md
+  - name: About excluding disks from replication
+    href: exclude-disks-replication.md
+  - name: Failback location options from Azure to VMware
+    href: concepts-types-of-failback.md
+  - name: Multi-tenant support for VMware disaster recovery
+    href: vmware-azure-multi-tenant-overview.md
   - name: About Hyper-V VM disaster recovery
     items:
     - name: Common questions
@@ -159,7 +177,11 @@
     - name: Using public IP addresses with Site Recovery
       href: concepts-public-ip-address-with-site-recovery.md
   - name: About failover and failback
-    href: failover-failback-overview.md
+    items:
+    - name: Classic
+      href: failover-failback-overview.md
+    - name: Preview
+      href: failover-failback-overview-preview.md
   - name: About recovery plans
     href: recovery-plan-overview.md
   - name: About migration to Azure
@@ -179,7 +201,9 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/site-recovery-security-baseline?toc=/azure/site-recovery/toc.json
+    - name: Transport Layer Security
+      href: transport-layer-security.md
 - name: How-to Guides
   items:
   - name: Azure to Azure disaster recovery
@@ -200,6 +224,10 @@
       items:
       - name: Enable Azure to Azure replication
         href: azure-to-azure-how-to-enable-replication.md
+      - name: Enable global disaster recovery
+        href: azure-to-azure-enable-global-disaster-recovery.md
+      - name: Enable Azure to Azure replication using Policy
+        href: azure-to-azure-how-to-enable-policy.md
       - name: Enable Azure to Azure replication for encrypted VMs
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Enable Azure to Azure replication for VMs with CMK enabled disks
@@ -230,6 +258,8 @@
         href: site-recovery-manage-registration-and-protection.md
       - name: Delete a vault
         href: delete-vault.md
+      - name: Cleanup script on a VMM server
+        href: unregister-vmm-server-script.md
   - name: VMware to Azure disaster recovery
     items:
     - name: Set up disaster recovery at scale
@@ -272,7 +302,7 @@
         href: ./hybrid-how-to-enable-replication-private-endpoints.md
       - name: Deploy the Mobility service
         items:
-        - name: Mobility service overview and installation
+        - name: About Mobility service for VMware VMs and physical servers
           href: vmware-physical-mobility-service-overview.md
         - name: Prepare for push installation
           href: vmware-azure-install-mobility-service.md
@@ -282,7 +312,7 @@
         href: vmware-azure-enable-replication.md
       - name: Exclude disks from replication
         href: vmware-azure-exclude-disk.md
-      - name: Walkthrough-Set up replication with multi-tenancy and CSP for VMWare VMs
+      - name: Walkthrough-Set up replication with multi-tenancy and CSP for VMware VMs
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
     - name: Run failover and failback
       items:
@@ -306,6 +336,8 @@
       items:
       - name: Manage the Mobility agent
         href: vmware-physical-manage-mobility-service.md
+      - name: Upgrade the Mobility agent (Preview)
+        href: upgrade-mobility-service-preview.md
       - name: Manage the configuration server for VMware
         href: vmware-azure-manage-configuration-server.md
       - name: Manage process servers
@@ -419,7 +451,7 @@
       - name: Delete a vault
         href: delete-vault.md
   - name: Site Recovery for Proximity Placement Groups
-    href: how-to-enable-replication-proximity-placement-groups.md 
+    href: how-to-enable-replication-proximity-placement-groups.md
   - name: Disaster recovery for apps
     items:
     - name: About disaster recovery for on-premises apps
@@ -482,6 +514,8 @@
     href: site-recovery-runbook-automation.md
   - name: ARM Templates
     href: asr-arm-templates.md
+  - name: Deprecation of parameters - New-AzRecoveryServicesAsrVMNicConfig cmdlet
+    href: site-recovery-ipconfig-cmdlet-parameter-deprecation.md
 - name: Monitoring
   items:
   - name: Common questions about monitoring

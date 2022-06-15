@@ -10,7 +10,7 @@ ms.date: 07/11/2018
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -54,7 +54,7 @@ To secure an IIS web application that uses form-based authentication, install th
 13. Click **OK**.
 14. Once the URL and page variables have been detected or entered, the website data displays in the Form-Based panel.
 
-## Using Integrated Windows Authentication with Azure Multi-Factor Authentication Server
+## Using integrated Windows authentication with Azure Multi-Factor Authentication Server
 
 To secure an IIS web application that uses Integrated Windows HTTP authentication, install the Azure MFA Server on the IIS web server, then configure the Server with the following steps:
 

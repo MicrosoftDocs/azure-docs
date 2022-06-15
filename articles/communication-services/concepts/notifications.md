@@ -2,19 +2,16 @@
 title: Notifications in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Send notifications to users of apps built on Azure Communication Services.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
-ms.date: 03/10/2021
-ms.topic: overview
+ms.author: rifox
+ms.date: 06/30/2021
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 # Communication Services notifications
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 
 The Azure Communication Services chat and calling SDKs create a real-time messaging channel that allows signaling messages to be pushed to connected clients in an efficient, reliable manner. This enables you to build rich, real-time communication functionality into your applications without the need to implement complicated HTTP polling logic. However, on mobile applications, this signaling channel only remains connected when your application is active in the foreground. If you want your users to receive incoming calls or chat messages while your application is in the background, you should use push notifications.
 
@@ -26,18 +23,18 @@ Azure Communication Services integrates with [Azure Event Grid](https://azure.mi
 
 :::image type="content" source="./media/notifications/acs-events-int.png" alt-text="Diagram showing how Communication Services integrates with Event Grid.":::
 
-Learn more about [event handling in Azure Communication Services](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
+Learn more about [event handling in Azure Communication Services](../../event-grid/event-schema-communication-services.md).
 
 ## Deliver push notifications via Azure Notification Hubs
 
-You can connect an Azure Notification Hub to your Communication Services resource in order to automatically send push notifications to a user's mobile device when they receive an incoming call. You should use these push notifications to wake up your application from the background and display UI that lets the user accept or decline the call.
+You can connect an Azure Notification Hub to your Communication Services resource in order to automatically send push notifications to a user's mobile device when they receive an incoming call or to notify them about missed chat activity. You should use these push notifications to wake up your application from the background and display UI that lets the user accept or decline the call or read the newly received chat message. 
 
 :::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram showing how communication services integrates with Azure Notification Hubs.":::
 
-Communication Services uses Azure Notification Hub as a pass-through service to communicate with the various platform-specific push notification services using the [Direct Send](/rest/api/notificationhubs/direct-send) API. This allows you to reuse your existing Azure Notification Hub resources and configurations to deliver low latency, reliable calling notifications to your applications.
+Communication Services uses Azure Notification Hub as a pass-through service to communicate with the various platform-specific push notification services using the [Direct Send](/rest/api/notificationhubs/direct-send) API. This allows you to reuse your existing Azure Notification Hub resources and configurations to deliver low latency, reliable notifications to your applications.
 
 > [!NOTE]
-> Currently only calling push notifications are supported.
+> Currently calling push notifications are supported for both Android and iOS. Chat push notifications are only supported for Android SDK in version 1.1.0-beta.4.
 
 ### Notification Hub provisioning
 
@@ -65,17 +62,28 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 #### Using the Azure portal to link your Notification Hub
 
-In the portal, navigate to your Azure Communication Services resource. Inside the Communication Services resource, select Push Notifications from the left menu of the Communication Services page and connect the Notification Hub that you provisioned earlier. You'll need to provide your connection string and resourceId here:
+1. In the portal, go to your Azure Communication Services resource.
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot showing the Push Notifications settings within the Azure portal.":::
+1. Inside the Communication Services resource, select **Push Notifications** from the left menu of the Communication Services page, and connect the Notification Hub that you provisioned earlier.
+
+1. Select **Connect notification hub**. You'll see a list of notification hubs available to connect.
+ 
+1. Select the notification hub that you'd like to use for this resource.
+ 
+   - If you need to create a new hub, select **Create new notification hub** to get a new hub provisioned for this resource.
+
+   :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot showing the Push Notifications settings within the Azure portal.":::
+
+Now you'll see the notification hub that you linked with the connected state.
+
+If you'd like to use a different hub for the resource, select **Disconnect**, and then repeat the steps to link the different notification hub.
 
 > [!NOTE]
-> If the Azure Notification Hub connection string is updated the Communication Services resource has to be updated as well.
-Any change on how the hub is linked will be reflected in data plane (i.e., when sending a notification) within a maximum period of ``10`` minutes. This is applicable also when the hub is linked for the first time **if** there were notifications sent before.
+> Any change on how the hub is linked is reflected in the data plane (that is, when sending a notification) within a maximum period of 10 minutes. This same behavior applies when the hub is linked for the first time, **if** notifications were sent before the change.
 
 ### Device registration
 
-Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getting-started-with-calling.md) to learn how to register your device handle with Communication Services.
+Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getting-started-with-calling.md) and [chat quickstart](../quickstarts/chat/get-started.md) to learn how to register your device handle with Communication Services.
 
 ### Troubleshooting guide for push notifications
 

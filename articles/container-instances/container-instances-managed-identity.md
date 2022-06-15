@@ -38,7 +38,6 @@ To use a managed identity, the identity must be granted access to one or more Az
 ### Limitations
 
 * Currently you can't use a managed identity in a container group deployed to a virtual network.
-* You can't use a managed identity to pull an image from Azure Container Registry when creating a container group. The identity is only available within a running container.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -169,7 +168,8 @@ az container exec \
 Run the following commands in the bash shell in the container. To get an access token to use Azure Active Directory to authenticate to key vault, run the following command:
 
 ```bash
-curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true -s
+client_id="CLIENT ID (xxxxxxxx-5523-45fc-9f49-xxxxxxxxxxxx)"
+curl "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net&client_id=$client_id" -H Metadata:true -s
 ```
 
 Output:
@@ -273,13 +273,13 @@ az container exec \
 
 Run the following commands in the bash shell in the container. First log in to the Azure CLI using the managed identity:
 
-```bash
+```azurecli
 az login --identity
 ```
 
 From the running container, retrieve the secret from the key vault:
 
-```bash
+```azurecli
 az keyvault secret show \
   --name SampleSecret \
   --vault-name mykeyvault --query value
@@ -287,7 +287,7 @@ az keyvault secret show \
 
 The value of the secret is retrieved:
 
-```bash
+```output
 "Hello Container Instances"
 ```
 
@@ -353,7 +353,7 @@ A user-assigned identity is a resource ID of the form
 
 You can enable one or more user-assigned identities.
 
-```YAML
+```yaml
 identity:
   type: UserAssigned
   userAssignedIdentities:
@@ -362,7 +362,7 @@ identity:
 
 ### System-assigned identity
 
-```YAML
+```yaml
 identity:
   type: SystemAssigned
 ```
@@ -371,7 +371,7 @@ identity:
 
 On a container group, you can enable both a system-assigned identity and one or more user-assigned identities.
 
-```YAML
+```yml
 identity:
   type: SystemAssigned, UserAssigned
   userAssignedIdentities:

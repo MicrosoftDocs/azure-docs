@@ -3,16 +3,16 @@ title: Tutorial for using Azure App Configuration Key Vault references in a Java
 description: In this tutorial, you learn how to use Azure App Configuration's Key Vault references from a Java Spring Boot app
 services: azure-app-configuration
 documentationcenter: ''
-author: AlexandraKemperMS
+author: mrm9084
 editor: ''
 
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.workload: tbd
-ms.devlang: csharp
+ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/11/2020
-ms.author: alkemper
+ms.date: 05/02/2022
+ms.author: mametcal
 ms.custom: mvc, devx-track-java, devx-track-azurecli
 
 #Customer intent: I want to update my Spring Boot application to reference values stored in Key Vault through App Configuration.
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 8.
+* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 * [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 ## Create a vault
@@ -93,7 +93,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command:
 
     ```azurecli
-    az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+    az ad sp create-for-rbac -n "http://mySP" --role Contributor --scopes /subscriptions/{subscription-id} --sdk-auth
     ```
 
     This operation returns a series of key/value pairs:
@@ -122,7 +122,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
     ```azurecli
     az ad sp show --id <clientId-of-your-service-principal>
-    az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
+    az role assignment create --role "App Configuration Data Reader" --scope /subscriptions/<subscriptionId>/resourceGroups/<group-name> --assignee-principal-type --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
 1. Create the environment variables **AZURE_CLIENT_ID**, **AZURE_CLIENT_SECRET**, and **AZURE_TENANT_ID**. Use the values for the service principal that were displayed in the previous steps. At the command line, run the following commands and restart the command prompt to allow the change to take effect:
@@ -149,16 +149,14 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     export AZURE_TENANT_ID ='tenantId'
     ```
 
-
 > [!NOTE]
 > These Key Vault credentials are only used within your application.  Your application authenticates directly with Key Vault using these credentials without involving the App Configuration service.  The Key Vault provides authentication for both your application and your App Configuration service without sharing or exposing keys.
 
 ## Update your code to use a Key Vault reference
 
-1. Create an environment variable called **APP_CONFIGURATION_ENDPOINT**. Set its value to the endpoint of your App Configuration store. You can find the endpoint on the **Access Keys** blade in the Azure portal. Restart the command prompt to allow the change to take effect. 
+1. Create an environment variable called **APP_CONFIGURATION_ENDPOINT**. Set its value to the endpoint of your App Configuration store. You can find the endpoint on the **Access Keys** blade in the Azure portal. Restart the command prompt to allow the change to take effect.
 
-
-1. Open *bootstrap.properties* in the *resources* folder. Update this file to use the **APP_CONFIGURATION_ENDPOINT** value. Remove any references to a connection string in this file. 
+1. Open *bootstrap.properties* in the *resources* folder. Update this file to use the **APP_CONFIGURATION_ENDPOINT** value. Remove any references to a connection string in this file.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
@@ -194,8 +192,8 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
     import com.azure.core.credential.TokenCredential;
     import com.azure.identity.EnvironmentCredentialBuilder;
-    import com.microsoft.azure.spring.cloud.config.AppConfigurationCredentialProvider;
-    import com.microsoft.azure.spring.cloud.config.KeyVaultCredentialProvider;
+    import com.azure.spring.cloud.config.AppConfigurationCredentialProvider;
+    import com.azure.spring.cloud.config.KeyVaultCredentialProvider;
 
     public class AzureCredentials implements AppConfigurationCredentialProvider, KeyVaultCredentialProvider{
 
@@ -262,7 +260,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Next steps
 
-In this tutorial, you created an App Configuration key that references a value stored in Key Vault. To learn how to use feature flags in your Java Spring application, continue to the next tutorial.
+In this tutorial, you created an App Configuration key that references a value stored in Key Vault. For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917), it has all of the details on how the Spring Cloud Azure App Configuration library works. To learn how to use feature flags in your Java Spring application, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./quickstart-feature-flag-spring-boot.md)

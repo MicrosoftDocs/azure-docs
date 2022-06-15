@@ -3,21 +3,24 @@ title: Understanding cloud-init
 description: Deep dive for understanding provisioning an Azure VM using cloud-init.
 author: danielsollondon 
 ms.service: virtual-machines
-ms.subservice: imaging
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
+ms.subservice: cloud-init
 ---
 
 # Diving deeper into cloud-init
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 To learn more about [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) or troubleshoot it at a deeper level, you need to understand how it works. This document highlights the important parts, and explains the Azure specifics.
 
 When cloud-init is included in a generalized image, and a VM is created from that image, it will process configurations and run through 5 stages during the initial boot. These stages matter, as it shows you at what point cloud-init will apply configurations. 
 
 
 ## Understand Cloud-Init configuration
-Configuring a VM to run on a platform, means cloud-init needs to apply multiple configurations, as an image consumer, the main configurations you will be interacting with is `User data` (customData), which supports multiple formats, these are documented [here](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). You also have the ability to add and run scripts (/var/lib/cloud/scripts) for additional configuration, below discusses this in more detail.
+Configuring a VM to run on a platform, means cloud-init needs to apply multiple configurations, as an image consumer, the main configurations you will be interacting with is `User data` (customData), which supports multiple formats. For more information, see [User-Data Formats & cloud-init 21.2 documentation](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). You also have the ability to add and run scripts (/var/lib/cloud/scripts) for additional configuration, below discusses this in more detail.
 
 Some configurations are already baked into Azure Marketplace images that come with cloud-init, such as:
 

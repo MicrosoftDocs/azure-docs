@@ -4,23 +4,29 @@ description: Describes how to enable VM insights guest health in your subscripti
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/16/2020
-ms.custom: references_regions
+ms.date: 05/03/2022
+ms.custom: references_regions, devx-track-azurepowershell
 
 ---
 
 # Enable VM insights guest health (preview)
 VM insights guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how to enable this feature in your subscription and how to enable guest monitoring for each virtual machine.
 
+[!INCLUDE [guest-health-deprecate](../../../includes/azure-monitor-guest-health-deprecation.md)]
+
+
 ## Current limitations
 VM insights guest health has the following limitations in public preview:
 
 - Only Azure virtual machines are currently supported. Azure Arc for servers is not currently supported.
+- Network proxies aren't currently supported.
 
 
 ## Supported operating systems
 Virtual Machine must run one of the following operating systems: 
 
+  - CentOS 7.5, 7.6, 7.7, 7.8, 7.9
+  - RedHat 7.5, 7.6, 7.7, 7.8, 7.9
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 or later
 
@@ -31,6 +37,7 @@ Virtual machine must be located in one of the following regions:
 - Australia Central
 - Australia East
 - Australia Southeast
+- Brazil South
 - Canada Central
 - Central India
 - Central US
@@ -41,13 +48,16 @@ Virtual machine must be located in one of the following regions:
 - France Central
 - Germany West Central
 - Japan East
+- Japan West
 - Korea Central
 - North Central US
 - North Europe
+- Norway East
 - South Central US
 - South Africa North
 - Southeast Asia
 - Switzerland North
+- UAE North
 - UK South
 - UK West
 - West Central US
@@ -61,6 +71,8 @@ Log Analytics workspace must be located in one of the following regions:
 - Australia Central
 - Australia East
 - Australia Southeast
+- Brazil South
+- Brazil Southeast
 - Canada Central
 - Canada India
 - Central US
@@ -70,12 +82,17 @@ Log Analytics workspace must be located in one of the following regions:
 - East US 2 EUAP
 - France Central
 - Japan East
+- Japan West
 - North Central US
 - North Europe
+- Norway East
 - South Central US
 - Southeast Asia
 - Switzerland North
+- Switzerland West
+- UAE North
 - UK South
+- UK West
 - West Europe region
 - West US
 - West US 2
@@ -120,7 +137,7 @@ There are three steps required to enable virtual machines using Azure Resource M
 > [!NOTE]
 > If you enable a virtual machine using the Azure portal, then the data collection rule described here is created for you. In this case, you do not need to perform this step.
 
-Configuration for the monitors in VM insights guest health is stored in [data Collection Rules (DCR)](../agents/data-collection-rule-overview.md). Each virtual machine with the guest health extension will need an association with this rule.
+Configuration for the monitors in VM insights guest health is stored in [data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md). Each virtual machine with the guest health extension will need an association with this rule.
 
 > [!NOTE]
 > You can create additional data collection rules to modify the default configuration of monitors as described in [Configure monitoring in VM insights guest health (preview)](vminsights-health-configure.md).
@@ -348,13 +365,13 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorWindowsAgent", 
         "typeHandlerVersion": "1.0", 
-        "autoUpgradeMinorVersion": false 
+        "autoUpgradeMinorVersion": true 
       },
       "linux": {
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorLinuxAgent", 
-        "typeHandlerVersion": "1.5", 
-        "autoUpgradeMinorVersion": false 
+        "typeHandlerVersion": "1.0", 
+        "autoUpgradeMinorVersion": true 
       }
     }
   },

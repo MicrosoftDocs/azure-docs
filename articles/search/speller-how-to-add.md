@@ -8,30 +8,37 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.custom: references_regions
+ms.date: 09/29/2021
+
 ---
 # Add spell check to queries in Cognitive Search
 
 > [!IMPORTANT]
-> Spell correction is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During the initial preview launch, there is no charge for speller. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Spell correction is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal and preview REST API only.
 
-You can improve recall by spell-correcting individual search query terms before they reach the search engine. The **speller** parameter is supported for all query types: [simple](query-simple-syntax.md), [full](query-lucene-syntax.md), and the new [semantic](semantic-how-to-query-request.md) option currently in public preview.
+You can improve recall by spell-correcting individual search query terms before they reach the search engine. The **speller** parameter is supported for all query types: [simple](query-simple-syntax.md), [full](query-lucene-syntax.md), and the [semantic](semantic-how-to-query-request.md) option currently in public preview.
+
+Speller was released in tandem with the [semantic search preview](semantic-search-overview.md) and shares the queryLanguage parameter, but is otherwise an independent feature with it's own prerequisites. There is no sign-up or additional charges for using this feature.
 
 ## Prerequisites
 
-+ An existing search index, containing English content
+To use spell check, you will need the following:
 
-+ A search client for sending queries
++ A search service at Basic tier or above, in any region.
 
-  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs.
++ An existing search index with content in a [supported language](#supported-languages).
 
-+ [A query request](/rest/api/searchservice/preview-api/search-documents) that uses spell correction has "api-version=2020-06-30-Preview", "speller=lexicon", and "queryLanguage=en-us".
++ [A query request](/rest/api/searchservice/preview-api/search-documents) that has "speller=lexicon", and "queryLanguage" set to a [supported language](#supported-languages). Spell check works on strings passed in the "search" parameter. It's not supported for filters.
 
-  The queryLanguage is required for speller, and currently "en-us" is the only valid value.
+Use a search client that supports preview APIs on the query request. For REST, you can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use beta releases of the Azure SDKs.
 
-> [!Note]
-> The speller parameter is available on all tiers, in the same regions that provide semantic search. You do not need to sign up for access to this preview feature. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+| Client library | Versions |
+|----------|----------|
+| REST API | [2021-04-30-Preview](/rest/api/searchservice/index-preview) or 2020-06-30-Preview |
+| Azure SDK for .NET | [version 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2) | 
+| Azure SDK for Java |  [version 11.4.0-beta.2](https://search.maven.org/artifact/com.azure/azure-search-documents/11.4.0-beta.2/jar) |
+| Azure SDK for JavaScript | [version 11.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/11.2.0-beta.2) |
+| Azure SDK for Python | [version 11.2.0b3](https://pypi.org/project/azure-search-documents/11.2.0b3/) |
 
 ## Spell correction with simple search
 
@@ -51,7 +58,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Spell correction with full Lucene
 
-Spelling correction occurs on individual query terms that undergo analysis, which is why you can use the speller parameter with some Lucene queries, but not others.
+Spelling correction occurs on individual query terms that undergo text analysis, which is why you can use the speller parameter with some Lucene queries, but not others.
 
 + Incompatible query forms that bypass text analysis include: wildcard, regex, fuzzy
 + Compatible query forms include: fielded search, proximity, term boosting
@@ -87,26 +94,44 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 }
 ```
 
-## Language considerations
+## Supported languages
 
-The queryLanguage parameter required for speller must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. 
+Valid values for queryLanguage can be found in the following table, copied from the list of [supported languages (REST API reference)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
-+ queryLanguage determines which lexicons are used for spell check, and is also used as an input to the [semantic ranking algorithm](semantic-answers.md) if you are using "queryType=semantic".
+| Language | queryLanguage |
+|----------|---------------|
+| English [EN] | EN, EN-US (default) |
+| Spanish [ES] | ES, ES-ES (default)|
+| French [FR] | FR, FR-FR (default) |
+| German [DE] | DE, DE-DE (default) |
+| Dutch [NL] | NL, NL-BE, NL-NL (default) |
 
-+ Language analyzers are used during indexing and query execution to find matching documents in the search index. An example of a field definition that uses a language analyzer is `"name": "Description", "type": "Edm.String", "analyzer": "en.microsoft"`.
+### queryLanguage considerations
 
-For best results when using speller, if queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene").
+As noted elsewhere, a query request can only have one queryLanguage parameter, but that parameter is shared by multiple features, each of which supports a different cohort of languages. If you are just using spell check, the list of supported languages in the above table is the complete list. 
+
+### Language analyzer considerations
+
+Indexes that contain non-English content often use [language analyzers](index-add-language-analyzers.md) on non-English fields to apply the linguistic rules of the native language.
+
+If you are now adding spell check to content that also undergoes language analysis, you will achieve better results if you use the same language at every step of indexing and query processing. For example, if a field's content was indexed using the "fr.microsoft" language analyzer, then queries, spell check, semantic captions, and semantic answers should all use a French lexicon or language library of some form.
+
+To recap how language libraries are used in Cognitive Search:
+
++ Language analyzers can be invoked during indexing and query execution, and are either Apache Lucene (for example, "de.lucene") or Microsoft ("de.microsoft).
+
++ Language lexicons invoked during spell check are specified using one of the language codes in the table above.
+
+In a query request, the value assigned to queryLanguage applies equally to speller, [answers](semantic-answers.md), and captions. 
 
 > [!NOTE]
-> Language-agnostic analyzers (such as keyword, simple, standard, stop, whitespace, or `standardasciifolding.lucene`) do not conflict with queryLanguage settings.
-
-In a query request, the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts.
+> Language consistency across various property values is only a concern if you are using language analyzers. If you are using language-agnostic analyzers (such as keyword, simple, standard, stop, whitespace, or `standardasciifolding.lucene`), then the queryLanguage value can be whatever you want.
 
 While content in a search index can be composed in multiple languages, the query input is most likely in one. The search engine doesn't check for compatibility of queryLanguage, language analyzer, and the language in which content is composed, so be sure to scope queries accordingly to avoid producing incorrect results.
 
 ## Next steps
 
-+ [Create a semantic query](semantic-how-to-query-request.md)
++ [Invoke semantic ranking and captions](semantic-how-to-query-request.md)
 + [Create a basic query](search-query-create.md)
 + [Use full Lucene query syntax](query-Lucene-syntax.md)
 + [Use simple query syntax](query-simple-syntax.md)

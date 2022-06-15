@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with whoIam for user verification 
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -44,7 +45,7 @@ Strata's Maverics integration includes the following components:
 
 - **Azure AD B2C**: The authorization server that's responsible for verifying the user's credentials. Authenticated users may access on-premises apps using a local account stored in the Azure AD B2C directory.
 
-- **An external social or enterprise IdP**: Could be any OpenID Connect provider, Facebook, Google, or GitHub. See information on using [external IdPs](./technical-overview.md#external-identity-providers) with Azure AD B2C.  
+- **An external social or enterprise IdP**: Could be any OpenID Connect provider, Facebook, Google, or GitHub. For more information, see [Add an identity provider](./add-identity-provider.md).  
 
 - **Strata's Maverics Identity Orchestrator**: The service that orchestrates user sign-on and transparently passes identity to apps through HTTP headers.
 
@@ -319,7 +320,7 @@ appgateways:
 
 ## Test the flow
 
-1. Navigate to the on-premises application url, `https://example.com/sonar/dashboard`.
+1. Navigate to the on-premises application URL, `https://example.com/sonar/dashboard`.
 
 2. The Orchestrator should redirect to the page you configured in your user flow.
 
@@ -339,4 +340,4 @@ For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

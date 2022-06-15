@@ -4,9 +4,9 @@ description: In this tutorial, you create an Azure Data Factory with a pipeline 
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-dt-2019
-ms.date: 02/18/2021
+ms.date: 07/05/2021
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob storage using the Azure portal
@@ -35,7 +35,7 @@ You perform the following steps in this tutorial:
 ## Overview
 Here is the high-level solution diagram:
 
-![Incrementally load data](media/tutorial-Incremental-copy-portal/incrementally-load.png)
+:::image type="content" source="media/tutorial-Incremental-copy-portal/incrementally-load.png" alt-text="Incrementally load data":::
 
 Here are the important steps to create this solution:
 
@@ -56,7 +56,7 @@ Here are the important steps to create this solution:
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-* **Azure SQL Database**. You use the database as the source data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one.
+* **Azure SQL Database**. You use the database as the source data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one.
 * **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-account-create.md) for steps to create one. Create a container named adftutorial. 
 
 ### Create a data source table in your SQL database
@@ -65,33 +65,34 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 2. Run the following SQL command against your SQL database to create a table named `data_source_table` as the data source store:
 
     ```sql
-	create table data_source_table
-	(
-		PersonID int,
-		Name varchar(255),
-		LastModifytime datetime
-	);
+    create table data_source_table
+    (
+        PersonID int,
+        Name varchar(255),
+        LastModifytime datetime
+    );
 
-	INSERT INTO data_source_table
-	(PersonID, Name, LastModifytime)
-	VALUES
-	(1, 'aaaa','9/1/2017 12:56:00 AM'),
-	(2, 'bbbb','9/2/2017 5:23:00 AM'),
-	(3, 'cccc','9/3/2017 2:36:00 AM'),
-	(4, 'dddd','9/4/2017 3:21:00 AM'),
-	(5, 'eeee','9/5/2017 8:06:00 AM');
+    INSERT INTO data_source_table
+        (PersonID, Name, LastModifytime)
+    VALUES
+        (1, 'aaaa','9/1/2017 12:56:00 AM'),
+        (2, 'bbbb','9/2/2017 5:23:00 AM'),
+        (3, 'cccc','9/3/2017 2:36:00 AM'),
+        (4, 'dddd','9/4/2017 3:21:00 AM'),
+        (5, 'eeee','9/5/2017 8:06:00 AM');
     ```
-	In this tutorial, you use LastModifytime as the watermark column. The data in the data source store is shown in the following table:
 
-	```
-	PersonID | Name | LastModifytime
-	-------- | ---- | --------------
-	1 | aaaa | 2017-09-01 00:56:00.000
-	2 | bbbb | 2017-09-02 05:23:00.000
-	3 | cccc | 2017-09-03 02:36:00.000
-	4 | dddd | 2017-09-04 03:21:00.000
-	5 | eeee | 2017-09-05 08:06:00.000
-	```
+    In this tutorial, you use LastModifytime as the watermark column. The data in the data source store is shown in the following table:
+
+    ```
+    PersonID | Name | LastModifytime
+    -------- | ---- | --------------
+    1        | aaaa | 2017-09-01 00:56:00.000
+    2        | bbbb | 2017-09-02 05:23:00.000
+    3        | cccc | 2017-09-03 02:36:00.000
+    4        | dddd | 2017-09-04 03:21:00.000
+    5        | eeee | 2017-09-05 08:06:00.000
+    ```
 
 ### Create another table in your SQL database to store the high watermark value
 
@@ -146,7 +147,7 @@ END
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
 
-   ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 
 3. In the **New data factory** page, enter **ADFIncCopyTutorialDF** for the **name**.
 
@@ -165,20 +166,21 @@ END
 8. Click **Create**.      
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
 
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
-10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+
+10. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 
 ## Create a pipeline
 In this tutorial, you create a pipeline with two Lookup activities, one Copy activity, and one StoredProcedure activity chained in one pipeline.
 
-1. In the **get started** page of Data Factory UI, click the **Create pipeline** tile.
+1. On the home page of Data Factory UI, click the **Orchestrate** tile.
 
-   ![Get started page of Data Factory UI](./media/doc-common-process/get-started-page.png)    
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the home page of Data Factory UI.":::    
 3. In the General panel under **Properties**, specify **IncrementalCopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 4. Let's add the first lookup activity to get the old watermark value. In the **Activities** toolbox, expand **General**, and drag-drop the **Lookup** activity to the pipeline designer surface. Change the name of the activity to **LookupOldWaterMarkActivity**.
 
-   ![First lookup activity - name](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-portal/first-lookup-name.png" alt-text="First lookup activity - name":::
 5. Switch to the **Settings** tab, and click **+ New** for **Source Dataset**. In this step, you create a dataset to represent data in the **watermarktable**. This table contains the old watermark that was used in the previous copy operation.
 
 6. In the **New Dataset** window, select **Azure SQL Database**, and click **Continue**. You see a new window opened for the dataset.
@@ -195,11 +197,11 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     6. Click **Finish**.
     7. Confirm that **AzureSqlDatabaseLinkedService** is selected for **Linked service**.
 
-        ![New linked service window](./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png" alt-text="New linked service window":::
     8. Select **Finish**.
 9. In the **Connection** tab, select **[dbo].[watermarktable]** for **Table**. If you want to preview data in the table, click **Preview data**.
 
-	![Watermark dataset - connection settings](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
+	:::image type="content" source="./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png" alt-text="Watermark dataset - connection settings":::
 10. Switch to the pipeline editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the tree view on the left. In the properties window for the **Lookup** activity, confirm that **WatermarkDataset** is selected for the **Source Dataset** field.
 
 11. In the **Activities** toolbox, expand **General**, and drag-drop another **Lookup** activity to the pipeline designer surface, and set the name to **LookupNewWaterMarkActivity** in the **General** tab of the properties window. This Lookup activity gets the new watermark value from the table with the source data to be copied to the destination.
@@ -217,12 +219,12 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table
     ```
 
-    ![Second lookup activity - query](./media/tutorial-incremental-copy-portal/query-for-new-watermark.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/query-for-new-watermark.png" alt-text="Second lookup activity - query":::
 19. In the **Activities** toolbox, expand **Move & Transform**, and drag-drop the **Copy** activity from the Activities toolbox, and set the name to **IncrementalCopyActivity**.
 
 20. **Connect both Lookup activities to the Copy activity** by dragging the **green button** attached to the Lookup activities to the Copy activity. Release the mouse button when you see the border color of the Copy activity changes to blue.
 
-    ![Connection Lookup activities to Copy activity](./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png" alt-text="Connection Lookup activities to Copy activity":::
 21. Select the **Copy activity** and confirm that you see the properties for the activity in the **Properties** window.
 
 22. Switch to the **Source** tab in the **Properties** window, and do the following steps:
@@ -235,7 +237,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
         select * from data_source_table where LastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'
         ```
 
-        ![Copy activity - source](./media/tutorial-incremental-copy-portal/copy-activity-source.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-portal/copy-activity-source.png" alt-text="Copy activity - source":::
 23. Switch to the **Sink** tab, and click **+ New** for the **Sink Dataset** field.
 
 24. In this tutorial sink data store is of type Azure Blob Storage. Therefore, select **Azure Blob Storage**, and click **Continue** in the **New Dataset** window.
@@ -269,7 +271,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
-        ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png" alt-text="Stored Procedure Activity - stored procedure settings":::
 27. To validate the pipeline settings, click **Validate** on the toolbar. Confirm that there are no validation errors. To close the **Pipeline Validation Report** window, click >>.   
 
 28. Publish entities (linked services, datasets, and pipelines) to the Azure Data Factory service by selecting the **Publish All** button. Wait until you see a message that the publishing succeeded.
@@ -290,7 +292,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 ## Review the results
 1. Connect to your Azure Storage Account by using tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Verify that an output file is created in the **incrementalcopy** folder of the **adftutorial** container.
 
-    ![First output file](./media/tutorial-incremental-copy-portal/first-output-file.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/first-output-file.png" alt-text="First output file":::
 2. Open the output file and notice that all the data is copied from the **data_source_table** to the blob file.
 
     ```
@@ -302,15 +304,17 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     ```
 3. Check the latest value from `watermarktable`. You see that the watermark value was updated.
 
-	```sql
-	Select * from watermarktable
-	```
+    ```sql
+    Select * from watermarktable
+    ```
 
-	Here is the output:
+    Here is the output:
 
-	| TableName | WatermarkValue |
-	| --------- | -------------- |
-	| data_source_table | 2017-09-05	8:06:00.000 |
+    ```output
+    | TableName | WatermarkValue |
+    | --------- | -------------- |
+    | data_source_table | 2017-09-05	8:06:00.000 |
+    ```
 
 ## Add more data to source
 
@@ -362,18 +366,20 @@ PersonID | Name | LastModifytime
     ```
 2. Check the latest value from `watermarktable`. You see that the watermark value was updated again.
 
-	```sql
-	Select * from watermarktable
-	```
-	sample output:
+    ```sql
+    Select * from watermarktable
+    ```
 
-	| TableName | WatermarkValue |
-	| --------- | --------------- |
-	| data_source_table | 2017-09-07 09:01:00.000 |
+    Sample output:
 
-
+    ```output
+    | TableName | WatermarkValue |
+    | --------- | -------------- |
+    | data_source_table | 2017-09-07 09:01:00.000 |
+    ```
 
 ## Next steps
+
 You performed the following steps in this tutorial:
 
 > [!div class="checklist"]

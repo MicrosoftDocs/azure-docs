@@ -1,11 +1,12 @@
 ---
 title: Move data from SFTP server using Azure Data Factory 
 description: Learn about how to move data from an on-premises or a cloud SFTP server using Azure Data Factory.
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 10/22/2021
 robots: noindex
 ---
 # Move data from an SFTP server using Azure Data Factory
@@ -208,7 +209,7 @@ For a full list of sections & properties available for defining activities, see 
 
 Whereas, the properties available in the typeProperties section of the activity vary with each activity type. For Copy activity, the type properties vary depending on the types of sources and sinks.
 
-[!INCLUDE [data-factory-file-system-source](../../../includes/data-factory-file-system-source.md)]
+[!INCLUDE [data-factory-file-system-source](includes/data-factory-file-system-source.md)]
 
 ## Supported file and compression formats
 See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article on details.
@@ -400,7 +401,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
 
-## Next Steps
+## Next steps
 See the following articles:
 
 * [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions for creating a pipeline with a Copy Activity.

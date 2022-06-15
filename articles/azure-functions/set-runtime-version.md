@@ -3,12 +3,13 @@ title: How to target Azure Functions runtime versions
 description: Azure Functions supports multiple versions of the runtime. Learn how to specify the runtime version of a function app hosted in Azure.
 
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 07/22/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to target Azure Functions runtime versions
 
-A function app runs on a specific version of the Azure Functions runtime. There are three major versions: [3.x, 2.x, and 1.x](functions-versions.md). By default, function apps are created in version 3.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
+A function app runs on a specific version of the Azure Functions runtime. There are four major versions: [4.x, 3.x, 2.x, and 1.x](functions-versions.md). By default, function apps are created in version 4.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
 
 The way that you manually target a specific version depends on whether you're running Windows or Linux.
 
@@ -27,11 +28,12 @@ When a new version is publicly available, a prompt in the portal gives you the c
 
 The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each major version to enable automatic updates:
 
-| Major version | `FUNCTIONS_EXTENSION_VERSION` value |
-| ------------- | ----------------------------------- |
-| 3.x  | `~3` |
-| 2.x  | `~2` |
-| 1.x  | `~1` |
+| Major version | `FUNCTIONS_EXTENSION_VERSION` value | Additional configuration  |
+| ------------- | ----------------------------------- | ------------------------- |
+| 4.x           | `~4`                                | [On Windows, enable .NET 6](./functions-versions.md#migrating-from-3x-to-4x) |
+| 3.x           | `~3`                                |                           |
+| 2.x           | `~2`                                |                           |
+| 1.x           | `~1`                                |                           |
 
 A change to the runtime version causes a function app to restart.
 
@@ -51,14 +53,12 @@ You can change the runtime version used by your function app. Because of the pot
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-> [!NOTE]
-> Using the Azure portal, you can't change the runtime version for a function app that already contains functions.
 
 # [Azure CLI](#tab/azurecli)
 
 You can also view and set the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI.  
 
-Using the Azure CLI, view the current runtime version with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) command.
+Using the Azure CLI, view the current runtime version with the [az functionapp config appsettings list](/cli/azure/functionapp/config/appsettings) command.
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <function_app> \
@@ -100,7 +100,7 @@ az functionapp config appsettings set --name <FUNCTION_APP> \
 --settings FUNCTIONS_EXTENSION_VERSION=<VERSION>
 ```
 
-Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<VERSION>` with either a specific version, or `~3`, `~2`, or `~1`.
+Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<VERSION>` with either a specific version, or `~4`, `~3`, `~2`, or `~1`.
 
 Choose **Try it** in the previous code example to run the command in [Azure Cloud Shell](../cloud-shell/overview.md). You can also run the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command. When running locally, you must first run [az login](/cli/azure/reference-index#az-login) to sign in.
 

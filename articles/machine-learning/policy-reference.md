@@ -1,11 +1,12 @@
 ---
 title: Built-in policy definitions for Azure Machine Learning
 description: Lists Azure Policy built-in policy definitions for Azure Machine Learning. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 03/24/2021
+ms.date: 05/11/2022
 ms.author: larryfr
 author: BlackMist
 ms.topic: reference
 ms.service: machine-learning
+ms.subservice: enterprise-readiness
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in policy definitions for Azure Machine Learning

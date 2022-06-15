@@ -3,19 +3,17 @@ title: Using API Management service to generate HTTP requests
 description: Learn to use request and response policies in API Management to call external services from your API
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: adrianhall
 manager: erikre
 editor: ''
 
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: api-management
-ms.devlang: dotnet
-ms.custom: devx-track-csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
-ms.author: apimpm
+ms.date: 04/14/2022
+ms.author: adhal
 
 ---
 # Using external services from the Azure API Management service
@@ -31,26 +29,26 @@ The following example demonstrates how to send a message to a Slack chat room if
 
 ```xml
 <choose>
-    <when condition="@(context.Response.StatusCode >= 500)">
-      <send-one-way-request mode="new">
-        <set-url>https://hooks.slack.com/services/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</set-url>
-        <set-method>POST</set-method>
-        <set-body>@{
-                return new JObject(
-                        new JProperty("username","APIM Alert"),
-                        new JProperty("icon_emoji", ":ghost:"),
-                        new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",
-                                                context.Request.Method,
-                                                context.Request.Url.Path + context.Request.Url.QueryString,
-                                                context.Request.Url.Host,
-                                                context.Response.StatusCode,
-                                                context.Response.StatusReason,
-                                                context.User.Email
-                                                ))
-                        ).ToString();
-            }</set-body>
-      </send-one-way-request>
-    </when>
+  <when condition="@(context.Response.StatusCode >= 500)">
+    <send-one-way-request mode="new">
+      <set-url>https://hooks.slack.com/services/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</set-url>
+      <set-method>POST</set-method>
+      <set-body>@{
+        return new JObject(
+          new JProperty("username","APIM Alert"),
+          new JProperty("icon_emoji", ":ghost:"),
+          new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",
+            context.Request.Method,
+            context.Request.Url.Path + context.Request.Url.QueryString,
+            context.Request.Url.Host,
+            context.Response.StatusCode,
+            context.Response.StatusReason,
+            context.User.Email
+          ))
+        ).ToString();
+      }</set-body>
+    </send-one-way-request>
+  </when>
 </choose>
 ```
 
@@ -65,7 +63,7 @@ There are certain tradeoffs when using a fire-and-forget style of request. If fo
 The `send-request` policy enables using an external service to perform complex processing functions and return data to the API management service that can be used for further policy processing.
 
 ### Authorizing reference tokens
-A major function of API Management is protecting backend resources. If the authorization server used by your API creates [JWT tokens](https://jwt.io/) as part of its OAuth2 flow, as [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) does, then you can use the `validate-jwt` policy to verify the validity of the token. Some authorization servers create what are called [reference tokens](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) that cannot be verified without making a callback to the authorization server.
+A major function of API Management is protecting backend resources. If the authorization server used by your API creates [JWT tokens](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) as part of its OAuth2 flow, as [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) does, then you can use the `validate-jwt` policy to verify the validity of the token. Some authorization servers create what are called [reference tokens](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) that cannot be verified without making a callback to the authorization server.
 
 ### Standardized introspection
 In the past, there has been no standardized way of verifying a reference token with an authorization server. However a recently proposed standard [RFC 7662](https://tools.ietf.org/html/rfc7662) was published by the IETF that defines how a resource server can verify the validity of a token.
@@ -101,7 +99,10 @@ From the response object, you can retrieve the body and RFC 7622 tells API Manag
 
 Alternatively, if the authorization server doesn't include the "active" field to indicate whether the token is valid, use a tool like Postman to determine what properties are set in a valid token. For example, if a valid token response contains a property called "expires_in", check whether this property name exists in the authorization server response this way:
 
+```xml
 <when condition="@(((IResponse)context.Variables["tokenstate"]).Body.As<JObject>().Property("expires_in") == null)">
+```
+
 
 ### Reporting failure
 You can use a `<choose>` policy to detect if the token is invalid and if so, return a 401 response.
@@ -143,17 +144,17 @@ At the end, you get the following policy:
   </send-request>
 
   <choose>
-          <!-- Check active property in response -->
-          <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
-              <!-- Return 401 Unauthorized with http-problem payload -->
-              <return-response response-variable-name="existing response variable">
-                  <set-status code="401" reason="Unauthorized" />
-                  <set-header name="WWW-Authenticate" exists-action="override">
-                      <value>Bearer error="invalid_token"</value>
-                  </set-header>
-              </return-response>
-          </when>
-      </choose>
+    <!-- Check active property in response -->
+    <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
+      <!-- Return 401 Unauthorized with http-problem payload -->
+      <return-response response-variable-name="existing response variable">
+        <set-status code="401" reason="Unauthorized" />
+        <set-header name="WWW-Authenticate" exists-action="override">
+          <value>Bearer error="invalid_token"</value>
+        </set-header>
+      </return-response>
+    </when>
+  </choose>
   <base />
 </inbound>
 ```
@@ -187,29 +188,30 @@ Once you have this information, you can make requests to all the backend systems
 
 ```xml
 <send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
-  <set-url>@($"https://accounting.acme.com/salesdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+  <set-url>@($"https://accounting.acme.com/salesdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")</set-url>
   <set-method>GET</set-method>
 </send-request>
 
 <send-request mode="new" response-variable-name="materialdata" timeout="20" ignore-error="true">
-  <set-url>@($"https://inventory.acme.com/materiallevels?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+  <set-url>@($"https://inventory.acme.com/materiallevels?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")</set-url>
   <set-method>GET</set-method>
 </send-request>
 
 <send-request mode="new" response-variable-name="throughputdata" timeout="20" ignore-error="true">
-<set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+  <set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")</set-url>
   <set-method>GET</set-method>
 </send-request>
 
 <send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
-<set-url>@($"https://production.acme.com/accidentdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+  <set-url>@($"https://production.acme.com/accidentdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")</set-url>
   <set-method>GET</set-method>
 </send-request>
 ```
 
-These requests execute in sequence, which is not ideal. 
+API Management will send these requests sequentially.
 
 ### Responding
+
 To construct the composite response, you can use the [return-response](./api-management-advanced-policies.md#ReturnResponse) policy. The `set-body` element can use an expression to construct a new `JObject` with all the component representations embedded as properties.
 
 ```xml
@@ -232,10 +234,9 @@ The complete policy looks as follows:
 
 ```xml
 <policies>
-    <inbound>
-
-  <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
-  <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
+  <inbound>
+    <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
+    <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
 
     <send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
       <set-url>@($"https://accounting.acme.com/salesdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
@@ -248,12 +249,12 @@ The complete policy looks as follows:
     </send-request>
 
     <send-request mode="new" response-variable-name="throughputdata" timeout="20" ignore-error="true">
-    <set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+      <set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
       <set-method>GET</set-method>
     </send-request>
 
     <send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
-    <set-url>@($"https://production.acme.com/accidentdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+      <set-url>@($"https://production.acme.com/accidentdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
       <set-method>GET</set-method>
     </send-request>
 
@@ -267,20 +268,18 @@ The complete policy looks as follows:
                       new JProperty("materialdata",((IResponse)context.Variables["materialdata"]).Body.As<JObject>()),
                       new JProperty("throughputdata",((IResponse)context.Variables["throughputdata"]).Body.As<JObject>()),
                       new JProperty("accidentdata",((IResponse)context.Variables["accidentdata"]).Body.As<JObject>())
-                      ).ToString())
+        ).ToString())
       </set-body>
     </return-response>
-    </inbound>
-    <backend>
-        <base />
-    </backend>
-    <outbound>
-        <base />
-    </outbound>
+  </inbound>
+  <backend>
+    <base />
+  </backend>
+  <outbound>
+    <base />
+  </outbound>
 </policies>
 ```
-
-In the configuration of the placeholder operation, you can configure the dashboard resource to be cached for at least an hour. 
 
 ## Summary
 Azure API Management service provides flexible policies that can be selectively applied to HTTP traffic and enables composition of backend services. Whether you want to enhance your API gateway with alerting functions, verification, validation capabilities or create new composite resources based on multiple backend services, the `send-request` and related policies open a world of possibilities.

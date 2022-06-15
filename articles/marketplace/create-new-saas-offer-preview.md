@@ -1,21 +1,24 @@
 ---
-title: How to add a preview audience for your SaaS offer in the Microsoft commercial marketplace
-description: How to add a preview audience for your software as a service (SaaS) offer in Microsoft Partner Center. 
+title: Add a preview audience for a SaaS offer in Azure Marketplace
+description: Add a preview audience for a software as a service (SaaS) offer in Azure Marketplace. 
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 03/08/2022
 ---
 
-# How to add a preview audience for your SaaS offer
+# Add a preview audience for a SaaS offer
 
 As you create your software as a service (SaaS) offer in Partner Center, you need to define a preview audience who can review your offer listing before it goes live. This article explains how to configure a preview audience.
 
 > [!NOTE]
 > If you choose to process transactions independently, you will not see this option. Instead, skip to [How to sell your SaaS offer](create-new-saas-offer-marketing.md).
+
+> [!TIP]
+> Previews are not supported by offers configured to be available to the [Cloud Solution Provider (CSP) program](cloud-solution-providers.md).
 
 ## Define a preview audience
 
@@ -46,4 +49,4 @@ On the **Preview audience** tab, you can define a limited audience who can revie
 
 ## Next steps
 
-- [How to add technical details for your SaaS offer](create-new-saas-offer-technical.md)
+- [Add technical details for a SaaS offer](create-new-saas-offer-technical.md)

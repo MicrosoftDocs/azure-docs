@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
-ms.date: 01/26/2021
+ms.date: 09/01/2021
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors with using Azure Policy
@@ -79,7 +79,7 @@ operate as intended.
 To troubleshoot your policy definition, do the following:
 
 1. First, wait the appropriate amount of time for an evaluation to finish and compliance results
-   to become available in Azure portal or SDK. 
+   to become available in the Azure portal or SDK.
 
 1. To start a new evaluation scan with Azure PowerShell or the REST API, see
    [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
@@ -98,7 +98,13 @@ To troubleshoot your policy definition, do the following:
    of the definition to the evaluated property value indicates why a resource was noncompliant.
    - If the **target value** is wrong, revise the policy definition.
    - If the **current value** is wrong, validate the resource payload through `resources.azure.com`.
-1. For other common issues and solutions, see [Troubleshoot: Enforcement not as expected](#scenario-enforcement-not-as-expected).
+1. For a [Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes)
+   definition that supports a RegEx string parameter (such as `Microsoft.Kubernetes.Data` and the
+   built-in definition "Container images should be deployed from trusted registries only"), validate
+   that the [RegEx string](/dotnet/standard/base-types/regular-expression-language-quick-reference)
+   parameter is correct.
+1. For other common issues and solutions, see
+   [Troubleshoot: Enforcement not as expected](#scenario-enforcement-not-as-expected).
 
 If you still have an issue with your duplicated and customized built-in policy definition or custom
 definition, create a support ticket under **Authoring a policy** to route the issue correctly.
@@ -121,12 +127,11 @@ Activity log.
 
 Troubleshoot your policy assignment's enforcement by doing the following:
 
-1. First, wait the appropriate amount of time for an evaluation to finish and compliance results
-to become available in the Azure portal or the SDK. 
+1. First, wait the appropriate amount of time for an evaluation to finish and compliance results to
+   become available in the Azure portal or the SDK.
 
-1. To start a new evaluation scan with Azure PowerShell
-or the REST API, see
-[On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. To start a new evaluation scan with Azure PowerShell or the REST API, see
+   [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 1. Ensure that the assignment parameters and assignment scope are set correctly and that
    **enforcementMode** is _Enabled_.
 1. Check the [policy definition mode](../concepts/definition-structure.md#mode):
@@ -138,7 +143,8 @@ or the REST API, see
 1. Verify that the resource payload matches the policy logic. This can be done by
    [capturing an HTTP Archive (HAR) trace](../../../azure-portal/capture-browser-trace.md) or
    reviewing the Azure Resource Manager template (ARM template) properties.
-1. For other common issues and solutions, see [Troubleshoot: Compliance not as expected](#scenario-compliance-isnt-as-expected).
+1. For other common issues and solutions, see
+   [Troubleshoot: Compliance not as expected](#scenario-compliance-isnt-as-expected).
 
 If you still have an issue with your duplicated and customized built-in policy definition or custom
 definition, create a support ticket under **Authoring a policy** to route the issue correctly.
@@ -162,6 +168,44 @@ IDs. If the error information in the message is missed, it's also available in t
 [Activity log](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). Use this
 information to get more details to understand the resource restrictions and adjust the resource
 properties in your request to match allowed values.
+
+### Scenario: Definition targets multiple resource types
+
+#### Issue
+
+A policy definition that includes multiple resource types fails validation during creation or update
+with the following error:
+
+```error
+The policy definition '{0}' targets multiple resource types, but the policy rule is authored in a way that makes the policy not applicable to the target resource types '{1}'.
+```
+
+#### Cause
+
+The policy definition rule has one or more conditions that don't get evaluated by the target
+resource types.
+
+#### Resolution
+
+If an alias is used, make sure that the alias gets evaluated against only the resource type it
+belongs to by adding a type condition before it. An alternative is to split the policy definition
+into multiple definitions to avoid targeting multiple resource types.
+
+### Scenario: Subscription limit exceeded
+
+#### Issue
+
+An error message on the compliance page in Azure portal is shown when retrieving compliance for
+policy assignments.
+
+#### Cause
+
+The number of subscriptions under the selected scopes in the request has exceeded the limit of 5000
+subscriptions. The compliance results may be partially displayed.
+
+#### Resolution
+
+Select a more granular scope with fewer child subscriptions to see the complete results.
 
 ## Template errors
 
@@ -280,7 +324,7 @@ Ensure that the domains and ports mentioned in the following articles are open:
 The add-on can't reach the Azure Policy service endpoint, and it returns one of the following
 errors:
 
-- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
+- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
 - `adal: Refresh request failed. Status Code = '404'. Response body: getting assigned identities for pod kube-system/azure-policy-8c785548f-r882p in CREATED state failed after 16 attempts, retry duration [5]s, error: <nil>`
 
 #### Cause
@@ -367,6 +411,47 @@ This error means that the subscription was determined to be problematic, and the
 #### Resolution
 
 To investigate and resolve this issue, [contact the feature team](mailto:azuredg@microsoft.com).
+
+### Scenario: Definitions in category "Guest Configuration" cannot be duplicated from Azure portal
+
+#### Issue
+
+When attempting to create a custom policy definition from the Azure portal page for policy
+definitions, you select the "Duplicate definition" button. After assigning the policy, you
+find machines are _NonCompliant_ because no guest configuration assignment resource exists.
+
+#### Cause
+
+Guest configuration relies on custom metadata added to policy definitions when
+creating guest configuration assignment resources. The "Duplicate definition" activity in
+the Azure portal does not copy custom metadata.
+
+#### Resolution
+
+Instead of using the portal, duplicate the policy definition using the Policy
+Insights API. The following PowerShell sample provides an option.
+
+```powershell
+# duplicates the built-in policy which audits Windows machines for pending reboots
+$def = Get-AzPolicyDefinition -id '/providers/Microsoft.Authorization/policyDefinitions/4221adbc-5c0f-474f-88b7-037a99e6114c' | % Properties
+New-AzPolicyDefinition -name (new-guid).guid -DisplayName "$($def.DisplayName) (Copy)" -Description $def.Description -Metadata ($def.Metadata | convertto-json) -Parameter ($def.Parameters | convertto-json) -Policy ($def.PolicyRule | convertto-json -depth 15)
+```
+
+### Scenario: Kubernetes resource gets created during connectivity failure despite deny policy being assigned
+
+#### Issue
+
+In the event of a Kubernetes cluster connectivity failure, evaluation for newly created or updated resources may be bypassed due to Gatekeeper's fail-open behavior.
+ 
+#### Cause
+
+The GK fail-open model is by design and based on community feedback. Gatekeeper documentation expands on these reasons here: https://open-policy-agent.github.io/gatekeeper/website/docs/failing-closed#considerations.
+
+#### Resolution
+
+In the above event, the error case can be monitored from the [admission webhook metrics](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#admission-webhook-metrics) provided by the kube-apiserver. And even if evaluation is bypassed at creation time and an object is created, it will still be reported on Azure Policy compliance as non-compliant as a flag to customers.
+
+Regardless of the above, in such a scenario, Azure policy will still retain the last known policy on the cluster and keep the guardrails in place. 
 
 ## Next steps
 

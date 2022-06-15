@@ -1,14 +1,14 @@
 ---
-title: Scale cluster sizes - Azure HDInsight
-description: Scale an Apache Hadoop cluster elastically to match your workload in Azure HDInsight
+title: Manually scale a cluster - Azure HDInsight
+description: Manually scale an Apache Hadoop cluster elastically to match your workload in Azure HDInsight
 ms.author: ashish
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/29/2020
+ms.date: 06/09/2022
 ---
 
-# Scale Azure HDInsight clusters
+# Manually scale Azure HDInsight clusters
 
 HDInsight provides elasticity with options to scale up and scale down the number of worker nodes in your clusters. This elasticity allows you to shrink a cluster after hours or on weekends. And expand it during peak business demands.
 

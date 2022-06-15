@@ -1,9 +1,10 @@
 ---
 title: Stream execution logs in Azure Functions
-description: 115-145 characters including spaces. This abstract displays in the search result.
+description: Learn how you can stream logs for functions in near real time.
 ms.date: 9/1/2020
 ms.topic: how-to
-ms.custom: "contperf-fy21q2, devx-track-azurecli"
+ms.custom: "contperf-fy21q2, devx-track-azurepowershell, devx-track-azurecli" 
+ms.devlang: azurecli
 # Customer intent: As a developer, I want to be able to configure streaming logs so that I can see what's happening in my functions in near real time.
 ---
 
@@ -35,7 +36,7 @@ This connects your app to the log streaming service and application logs are dis
 
 ### Live Metrics Stream
 
-To view the Live Metrics Stream for your app, select the **Overview** tab of your function app. When you have Application Insights enables, you see an **Application Insights** link under **Configured features**. This link takes you to the Application Insights page for your app.
+To view the Live Metrics Stream for your app, select the **Overview** tab of your function app. When you have Application Insights enabled, you see an **Application Insights** link under **Configured features**. This link takes you to the Application Insights page for your app.
 
 In Application Insights, select **Live Metrics Stream**. [Sampled log entries](configure-monitoring.md#configure-sampling) are displayed under **Sample Telemetry**.
 

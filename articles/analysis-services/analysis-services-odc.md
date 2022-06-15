@@ -4,7 +4,7 @@ description: Learn how to create an Office Data Connection file to connect to an
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/01/2019
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
 

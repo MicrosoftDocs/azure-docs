@@ -2,14 +2,15 @@
 title: Azure Communication Services - Web calling sample
 titleSuffix: An Azure Communication Services sample
 description: Learn about the Communication Services web calling sample
-author: chriswhilar
+author: mariusu-msft
 manager: mariusu-msft
 services: azure-communication-services
 
 ms.author: mariusu
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
+ms.subservice: calling
 ---
 
 # Get started with the web calling sample
@@ -20,11 +21,8 @@ This sample was built for developers and makes it very easy for you to get start
 
 ## Get started with the web calling sample
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
 > [!IMPORTANT]
-> [This sample is available on Github.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
+> [This sample is available **on GitHub**.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
 Follow the /Project/readme.md to set up the project and run it locally on your machine.
 Once the [web calling sample](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) is running on your machine, you'll see the following landing page:
@@ -82,7 +80,7 @@ This sample also provides code snippets for the following capabilities:
 
 For more information, see the following articles:
 
-- Familiarize yourself with [using the Calling SDK](../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize yourself with [using the Calling SDK](../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - Learn more about [how calling works](../concepts/voice-video-calling/about-call-types.md)
 - Review the [API Reference docs](/javascript/api/azure-communication-services/@azure/communication-calling/)
 - Review the [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app) sample

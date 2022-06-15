@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
+ms.date: 06/24/2021
 ---
 
 # Measured boot and host attestation
@@ -15,7 +15,7 @@ This article describes how Microsoft ensures integrity and security of hosts thr
 
 ## Measured boot
 
-The [Trusted Platform Module](/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) is a tamper-proof, cryptographically secure auditing component with firmware supplied by a trusted third party. The boot configuration log contains hash-chained measurements recorded in it's Platform Configuration Registers (PCR) when the host last underwent the bootstrapping sequence. The following figure shows this recording process. Incrementally adding a previously hashed measurement to the next measurement’s hash and running the hashing algorithm on the union accomplishes hash-chaining.
+The [Trusted Platform Module](/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) is a tamper-proof, cryptographically secure auditing component with firmware supplied by a trusted third party. The boot configuration log contains hash-chained measurements recorded in its Platform Configuration Registers (PCR) when the host last underwent the bootstrapping sequence. The following figure shows this recording process. Incrementally adding a previously hashed measurement to the next measurement’s hash and running the hashing algorithm on the union accomplishes hash-chaining.
 
 ![Diagram that shows Host Attestation Service hash-chaining.](./media/measured-boot-host-attestation/hash-chaining.png)
 
@@ -50,6 +50,7 @@ UEFI [Secure Boot](secure-boot.md) ensures that only trusted low-level software 
 To learn more about what we do to drive platform integrity and security, see:
 
 - [Firmware security](firmware.md)
+- [Platform code integrity](code-integrity.md)
 - [Secure boot](secure-boot.md)
 - [Project Cerberus](project-cerberus.md)
 - [Encryption at rest](encryption-atrest.md)

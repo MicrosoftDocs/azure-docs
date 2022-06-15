@@ -4,7 +4,7 @@ description: Create Alerts with machine learning based Dynamic Thresholds
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 2/23/2022
 ---
 
 # Metric Alerts with Dynamic Thresholds in Azure Monitor
@@ -17,7 +17,7 @@ We would love to hear your feedback, keep it coming at <azurealertsfeedback@micr
 
 ## Why and when is using dynamic condition type recommended?
 
-1. **Scalable Alerting** – Dynamic threshold alert rules can create tailored thresholds for hundreds of metric series at a time, yet providing the same ease of defining an alert rule on a single metric. They give you fewer alert to create and  manage. You can use either Azure portal or the Azure Resource Manager API to create them. The scalable approach is especially useful when dealing with metric dimensions or when applying to multiple resources, such as to all subscription resources.  [Learn more about how to configure Metric Alerts with Dynamic Thresholds using templates](./alerts-metric-create-templates.md).
+1. **Scalable Alerting** – Dynamic threshold alert rules can create tailored thresholds for hundreds of metric series at a time, yet providing the same ease of defining an alert rule on a single metric. They give you fewer alerts to create and manage. You can use either Azure portal or the Azure Resource Manager API to create them. The scalable approach is especially useful when dealing with metric dimensions or when applying to multiple resources, such as to all subscription resources. [Learn more about how to configure Metric Alerts with Dynamic Thresholds using templates](./alerts-metric-create-templates.md).
 
 1. **Smart Metric Pattern Recognition** – Using our ML technology, we’re able to automatically detect metric patterns and adapt to metric changes over time, which may often include seasonality (hourly / daily / weekly). Adapting to the metrics’ behavior over time and alerting based on deviations from its pattern relieves the burden of knowing the "right" threshold for each metric. The ML algorithm used in Dynamic Thresholds is designed to prevent noisy (low precision) or wide (low recall) thresholds that don’t have an expected pattern.
 
@@ -68,9 +68,12 @@ To trigger an alert when there was a violation from a Dynamic Thresholds in 20 m
 
 **Ignore data before** - Users may also optionally define a start date from which the system should begin calculating the thresholds from. A typical use case may occur when a resource was a running in a testing mode and is now promoted to serve a production workload, and therefore the behavior of any metric during the testing phase should be disregarded.
 
+> [!NOTE]
+> An alert fires when the rule is evaluated and the result shows an anomaly. The alert is resolved if the rule is evaluated and does not show an anomaly three times in a row.
+
 ## How do you find out why a Dynamic Thresholds alert was triggered?
 
-You can explore triggered alert instances in the alerts view either by clicking on the link in the email or text message, or browser to see the alerts view in the Azure portal. [Learn more about the alerts view](./alerts-overview.md#alerts-experience).
+You can explore triggered alert instances by clicking on the link in the email or text message, or browse to see the alerts in the Azure portal. [Learn more about the alerts view](./alerts-page.md).
 
 The alert view displays:
 

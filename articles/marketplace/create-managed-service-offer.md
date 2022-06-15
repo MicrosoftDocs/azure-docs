@@ -1,16 +1,16 @@
 ---
-title: How to create a Managed Service offer in the Microsoft commercial marketplace 
-description: Learn how to create a new Managed Service offer for Azure Marketplace using the commercial marketplace program in Microsoft Partner Center. 
+title: Create a Managed Service offer for the commercial marketplace
+description: Create a new Managed Service offer for Azure Marketplace. 
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/23/2020
+ms.date: 03/28/2022
 ---
 
-# How to create a Managed Service offer for the commercial marketplace
+# Create a Managed Service offer for the commercial marketplace
 
 This article explains how to create a Managed Service offer for the Microsoft commercial marketplace using Partner Center.
 
@@ -18,22 +18,36 @@ To publish a Managed Service offer, you must have earned a Gold or Silver Micros
 
 ## Create a new offer
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
-3. On the Overview tab, select **+ New offer** > **Managed Service**.
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 
-:::image type="content" source="./media/new-offer-managed-service.png" alt-text="Illustrates the left-navigation menu.":::
+1. On the Home page, select the **Marketplace offers** tile.
 
-4. In the **New offer** dialog box, enter an **Offer ID**. This is a unique identifier for each offer in your account. This ID is visible in the URL of the commercial marketplace listing and Azure Resource Manager templates, if applicable. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-    * Each offer in your account must have a unique offer ID.
-    * Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters.
-    * The Offer ID can't be changed after you select **Create**.
+1. On the Marketplace offers page, select **+ New offer** > **Managed service**.
 
-5. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
-6. To generate the offer and continue, select **Create**.
+    [ ![Illustrates the Managed Service offer type option.](./media/new-offer-managed-service-workspaces.png) ](./media/new-offer-managed-service-workspaces.png#lightbox)
 
-## Configure lead management
+1. In the **New Managed service** dialog box, enter an **Offer ID**. This is a unique identifier for each offer in your account. This ID is visible in the URL of the commercial marketplace listing and Azure Resource Manager templates, if applicable. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+
+    - Each offer in your account must have a unique offer ID.
+    - Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters.
+    - The Offer ID can't be changed after you select **Create**.
+
+1. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
+
+1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
+
+    > [!NOTE]
+    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
+
+1. To generate the offer and continue, select **Create**.
+
+## Setup details
+
+This section does not apply for this offer type.
+
+## Customer leads
 
 Connect your customer relationship management (CRM) system with your commercial marketplace offer so you can receive customer contact information when a customer expresses interest in your consulting service. You can modify this connection at any time during or after you create the offer. For detailed guidance, see [Customer leads from your commercial marketplace offer](./partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -44,11 +58,11 @@ To configure the lead management in Partner Center:
 3. In the **Connection details** dialog box, select a lead destination from the list.
 4. Complete the fields that appear. For detailed steps, see the following articles:
 
-    * [Configure your offer to send leads to the Azure table](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
-    * [Configure your offer to send leads to Dynamics 365 Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (formerly Dynamics CRM Online)
-    * [Configure your offer to send leads to HTTPS endpoint](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
-    * [Configure your offer to send leads to Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
-    * [Configure your offer to send leads to Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
+    - [Configure your offer to send leads to the Azure table](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
+    - [Configure your offer to send leads to Dynamics 365 Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (formerly Dynamics CRM Online)
+    - [Configure your offer to send leads to HTTPS endpoint](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
+    - [Configure your offer to send leads to Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
+    - [Configure your offer to send leads to Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
 5. To validate the configuration you provided, select the **Validate link**.
 6. When you’ve configured the connection details, select **Connect**.
@@ -59,20 +73,8 @@ After you submit your offer for publication in Partner Center, we'll validate th
 > [!TIP]
 > Make sure the connection to the lead destination stays updated so you don't lose any leads.
 
-## Configure offer properties
-
-On the Properties page of your offer in Partner Center, you’ll define the categories applicable to your offer, and legal contracts. This information ensures your Managed Service is displayed correctly on the online store and offered to the right set of customers.
-
-### Select a category
-
-Under **Categories**, select at least one and up to five categories for grouping your offer into the appropriate commercial marketplace search areas.
-
-### Provide terms and conditions
-
-Under **Legal**, provide your terms and conditions for this offer. Customers will be required to accept them before using the offer. You can also provide the URL where your terms and conditions can be found.
-
-Select **Save draft** before continuing.
+Select **Save draft** before continuing to the next tab, **Properties**.
 
 ## Next step
 
-* [Configure your Managed Service offer listing](./create-managed-service-offer-listing.md)
+- Configure offer [Properties](create-managed-service-offer-properties.md)

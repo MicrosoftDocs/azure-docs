@@ -3,12 +3,13 @@ title: 'Quickstart - Create an Azure Private Link service using Azure CLI'
 description: In this quickstart, learn how to create an Azure Private Link service using Azure CLI
 services: private-link
 author: asudbring
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service using Azure CLI
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: allensu
-
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
+#Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service using Azure CLI
 ---
 # Quickstart: Create a Private Link service using Azure CLI
 
@@ -24,7 +25,7 @@ Get started creating a Private Link service that refers to your service.  Give P
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create):
+Create a resource group with [az group create](/cli/azure/group#az-group-create):
 
 * Named **CreatePrivLinkService-rg**. 
 * In the **eastus** location.
@@ -222,9 +223,9 @@ az network vnet subnet update \
 
 ### Create endpoint and connection
 
-* Use [az network private-link-service show](/cli/azure/network/private-link-service#az_network_private_link_service_show) to get the resource ID of the private link service. The command places the resource ID into a variable for later use.
+* Use [az network private-link-service show](/cli/azure/network/private-link-service#az-network-private-link-service-show) to get the resource ID of the private link service. The command places the resource ID into a variable for later use.
 
-* Use [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) to create the private endpoint in the virtual network you created previously.
+* Use [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create the private endpoint in the virtual network you created previously.
 
 * Named **MyPrivateEndpoint**.
 * In the **CreatePrivLinkService-rg** resource group.

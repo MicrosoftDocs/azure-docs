@@ -3,14 +3,14 @@ title: Track user behavior by using Application Insights
 titleSuffix: Azure AD B2C
 description: Learn how to enable event logs in Application Insights from Azure AD B2C user journeys.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/29/2021
-ms.author: mimart
+ms.date: 08/24/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -54,7 +54,8 @@ When you use Application Insights, consider the following:
 When you use Application Insights with Azure AD B2C, all you need to do is create a resource and get the instrumentation key. For information, see [Create an Application Insights resource](../azure-monitor/app/create-new-resource.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that has your Azure subscription. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure subscription. This tenant isn't your Azure AD B2C tenant.
+1. Make sure you're using the directory that has your Azure AD subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find the Azure AD directory that has your subscription in the **Directory name** list, and then select **Switch**
 1. Choose **Create a resource** in the upper-left corner of the Azure portal, and then search for and select **Application Insights**.
 1. Select **Create**.
 1. For **Name**, enter a name for the resource.
@@ -248,7 +249,7 @@ To fit your business needs, you might want to record more claims. To add a claim
 
 ### Manipulate claims
 
-You can use [input claims transformations](custom-policy-trust-frameworks.md#manipulating-your-claims) to modify the input claims or generate new ones before sending them to Application Insights. In the following example, the technical profile includes the `CheckIsAdmin` input claims transformation.
+You can use [input claims transformations](custom-policy-overview.md#manipulating-your-claims) to modify the input claims or generate new ones before sending them to Application Insights. In the following example, the technical profile includes the `CheckIsAdmin` input claims transformation.
 
 ```xml
 <TechnicalProfile Id="AppInsights-SignInComplete">
@@ -265,7 +266,7 @@ You can use [input claims transformations](custom-policy-trust-frameworks.md#man
 
 ### Add events
 
-To add an event, create a new technical profile that includes the `AppInsights-Common` technical profile. Then add the new technical profile as an orchestration step to the [user journey](custom-policy-trust-frameworks.md#orchestration-steps). Use the [Precondition](userjourneys.md#preconditions) element to trigger the event when you're ready. For example, report the event only when users run through multifactor authentication.
+To add an event, create a new technical profile that includes the `AppInsights-Common` technical profile. Then add the new technical profile as an orchestration step to the [user journey](custom-policy-overview.md#orchestration-steps). Use the [Precondition](userjourneys.md#preconditions) element to trigger the event when you're ready. For example, report the event only when users run through multifactor authentication.
 
 ```xml
 <TechnicalProfile Id="AppInsights-MFA-Completed">

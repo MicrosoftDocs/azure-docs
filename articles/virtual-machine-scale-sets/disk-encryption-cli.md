@@ -13,6 +13,8 @@ ms.custom: mimckitt, devx-track-azurecli
 ---
 # Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI
 
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to create and encrypt a virtual machine scale set. For more information on applying Azure Disk encryption to a virtual machine scale set, see [Azure Disk Encryption for Virtual Machine Scale Sets](disk-encryption-overview.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
@@ -56,7 +58,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 Azure Key Vault can store keys, secrets, or passwords that allow you to securely implement them in your applications and services. Cryptographic keys are stored in Azure Key Vault using software-protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. These cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. You retain control of these cryptographic keys and can audit their use.
 
-Define your own unique *keyvault_name*. Then, create a KeyVault with [az keyvault create](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-create) in the same subscription and region as the scale set, and set the *--enabled-for-disk-encryption* access policy.
+Define your own unique *keyvault_name*. Then, create a KeyVault with [az keyvault create](/cli/azure/keyvault#az-keyvault-create) in the same subscription and region as the scale set, and set the *--enabled-for-disk-encryption* access policy.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -70,7 +72,7 @@ az keyvault create --resource-group myResourceGroup --name $keyvault_name --enab
 
 This step is only required if you have an existing Key Vault that you wish to use with disk encryption. Skip this step if you created a Key Vault in the previous section.
 
-Define your own unique *keyvault_name*. Then, updated your KeyVault with [az keyvault update](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-update) and set the *--enabled-for-disk-encryption* access policy.
+Define your own unique *keyvault_name*. Then, updated your KeyVault with [az keyvault update](/cli/azure/keyvault#az-keyvault-update) and set the *--enabled-for-disk-encryption* access policy.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -82,7 +84,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## Enable encryption
 
-To encrypt VM instances in a scale set, first get some information on the Key Vault resource ID with [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). These variables are used to then start the encryption process with [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
+To encrypt VM instances in a scale set, first get some information on the Key Vault resource ID with [az keyvault show](/cli/azure/keyvault#az-keyvault-show). These variables are used to then start the encryption process with [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault

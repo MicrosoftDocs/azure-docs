@@ -2,18 +2,19 @@
 title: 'QuickStart: Create a static HTML web app'
 description: Deploy your first HTML Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
 author: msangapu-msft
-
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
+ms.custom: mvc, cli-validate, seodec18, mode-other
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
 # Create a static HTML web app in Azure
 
 This quickstart shows how to deploy a basic HTML+CSS site to <abbr title="An HTTP-based service for hosting web applications, REST APIs, and mobile back-end applications.">Azure App Service</abbr>. You'll complete this quickstart in [Cloud Shell](../cloud-shell/overview.md), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## 1. Prepare your environment
 
@@ -36,9 +37,9 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 ## 2. Create a web app
 
-Change to the directory that contains the sample code and run the `az webapp up` command. **Replace** `<app-name>` with a globally unique name.
+Change to the directory that contains the sample code and run the [az webapp up](/cli/azure/webapp#az-webapp-up) command. **Replace** `<app-name>` with a globally unique name.
 
-```bash
+```azurecli
 cd html-docs-hello-world
 
 az webapp up --location westeurope --name <app_name> --html
@@ -114,7 +115,7 @@ In the `<h1>` heading tag, change "Azure App Service - Sample Static HTML Site" 
 
 Redeploy the app with `az webapp up` command.
 
-```bash
+```azurecli
 az webapp up --html
 ```
 
@@ -150,7 +151,7 @@ The left menu provides different pages for configuring your app.
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#2-create-a-web-app) step.
 
-```bash
+```azurecli
 az group delete --name appsvc_rg_Windows_westeurope
 ```
 
@@ -161,4 +162,4 @@ This command may take a minute to run.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Map custom domain](app-service-web-tutorial-custom-domain-uiex.md)
+> Map custom domain

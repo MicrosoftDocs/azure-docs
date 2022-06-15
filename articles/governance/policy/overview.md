@@ -1,8 +1,10 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 01/14/2021
+ms.date: 05/13/2022
 ms.topic: overview
+ms.author: timwarner
+author: timwarner-msft
 ---
 # What is Azure Policy?
 
@@ -11,6 +13,10 @@ its compliance dashboard, it provides an aggregated view to evaluate the overall
 environment, with the ability to drill down to the per-resource, per-policy granularity. It also
 helps to bring your resources to compliance through bulk remediation for existing resources and
 automatic remediation for new resources.
+
+> [!NOTE]
+> For more information on remediation, see
+> [Remediate non-compliant resources with Azure Policy](./how-to/remediate-resources.md).
 
 Common use cases for Azure Policy include implementing governance for resource consistency,
 regulatory compliance, security, cost, and management. Policy definitions for these common use cases
@@ -35,9 +41,9 @@ that assignment. Subscopes can be excluded, if necessary. For more information, 
 [Scope in Azure Policy](./concepts/scope.md).
 
 Azure Policy uses a [JSON format](./concepts/definition-structure.md) to form the logic the
-evaluation uses to determine if a resource is compliant or not. Definitions include metadata and the
-policy rule. The defined rule can use functions, parameters, logical operators, conditions, and
-property [aliases](./concepts/definition-structure.md#aliases) to match exactly the scenario you
+evaluation uses to determine whether a resource is compliant or not. Definitions include metadata
+and the policy rule. The defined rule can use functions, parameters, logical operators, conditions,
+and property [aliases](./concepts/definition-structure.md#aliases) to match exactly the scenario you
 want. The policy rule determines which resources in the scope of the assignment get evaluated.
 
 ### Understand evaluation outcomes
@@ -46,7 +52,7 @@ Resources are evaluated at specific times during the resource lifecycle, the pol
 lifecycle, and for regular ongoing compliance evaluation. The following are the times or events that
 cause a resource to be evaluated:
 
-- A resource is created, updated, or deleted in a scope with a policy assignment.
+- A resource is created or updated in a scope with a policy assignment.
 - A policy or initiative is newly assigned to a scope.
 - A policy or initiative already assigned to a scope is updated.
 - During the standard compliance evaluation cycle, which occurs once every 24 hours.
@@ -79,7 +85,7 @@ resource. For more information about making existing resources compliant, see
 ### Video overview
 
 The following overview of Azure Policy is from Build 2018. For slides or video download, visit
-[Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030)
+[Govern your Azure environment through Azure Policy](/events/Build/2018/THR2030)
 on Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]
@@ -92,7 +98,11 @@ There are a few key differences between Azure Policy and Azure role-based access
 RBAC). Azure Policy evaluates state by examining properties on resources that are represented in
 Resource Manager and properties of some Resource Providers. Azure Policy doesn't restrict actions
 (also called _operations_). Azure Policy ensures that resource state is compliant to your business
-rules without concern for who made the change or who has permission to make a change.
+rules without concern for who made the change or who has permission to make a change. Some Azure
+Policy resources, such as [policy definitions](#policy-definition),
+[initiative definitions](#initiative-definition), and [assignments](#assignments), are visible to
+all users. This design enables transparency to all users and services for what policy rules are set
+in their environment.
 
 Azure RBAC focuses on managing user
 [actions](../../role-based-access-control/resource-provider-operations.md) at different scopes. If
@@ -109,15 +119,26 @@ Azure Policy has several permissions, known as operations, in two Resource Provi
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Many Built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor**
+Many built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor**
 role includes most Azure Policy operations. **Owner** has full rights. Both **Contributor** and
-**Reader** have access to all _read_ Azure Policy operations. **Contributor** may trigger resource
-remediation, but can't _create_ definitions or assignments. **User Access Administrator** is
+**Reader** have access to all _read_ Azure Policy operations.
+
+**Contributor** may trigger resource
+remediation, but can't _create_ or _update_ definitions and assignments. **User Access Administrator** is
 necessary to grant the managed identity on **deployIfNotExists** or **modify** assignments necessary
 permissions.
 
-If none of the Built-in roles have the permissions required, create a
+> [!NOTE]
+> All Policy objects, including definitions, initiatives, and assignments, will be readable to all
+> roles over its scope. For example, a Policy assignment scoped to an Azure subscription will be readable
+> by all role holders at the subscription scope and below.
+
+If none of the built-in roles have the permissions required, create a
 [custom role](../../role-based-access-control/custom-roles.md).
+
+Azure Policy operations can have a significant impact on your Azure environment. Only the minimum set of
+permissions necessary to perform a task should be assigned and these permissions should not be granted
+to users who do not need them.
 
 > [!NOTE]
 > The managed identity of a **deployIfNotExists** or **modify** policy assignment needs enough
@@ -128,7 +149,7 @@ If none of the Built-in roles have the permissions required, create a
 
 Azure Policy evaluates all Azure resources at or below subscription-level, including Arc enabled
 resources. For certain resource providers such as
-[Guest Configuration](./concepts/guest-configuration.md),
+[guest configuration](./concepts/guest-configuration.md),
 [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and
 [Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing
 settings and objects. To find out more, see
@@ -153,11 +174,15 @@ Here are a few pointers and tips to keep in mind:
   _initiativeDefC_. If you create another policy definition later for _policyDefB_ with goals
   similar to _policyDefA_, you can add it under _initiativeDefC_ and track them together.
 
-- Once you've created an initiative assignment, policy definitions added to the initiative also
+    - Once you've created an initiative assignment, policy definitions added to the initiative also
   become part of that initiative's assignments.
 
-- When an initiative assignment is evaluated, all policies within the initiative are also evaluated.
+  - When an initiative assignment is evaluated, all policies within the initiative are also evaluated.
   If you need to evaluate a policy individually, it's better to not include it in an initiative.
+
+- Manage Azure Policy resources as code with manual reviews on changes to policy definitions,
+  initiatives, and assignments. To learn more about suggested patterns and tooling, see
+  [Design Azure Policy as Code Workflows](./concepts/policy-as-code.md).
 
 ## Azure Policy objects
 
@@ -208,11 +233,11 @@ For more information about policy parameters, see
 
 ### Initiative definition
 
-An initiative definition is a collection of policy definitions that are tailored towards achieving
+An initiative definition is a collection of policy definitions that are tailored toward achieving
 a singular overarching goal. Initiative definitions simplify managing and assigning policy
 definitions. They simplify by grouping a set of policies as one single item. For example, you could
-create an initiative titled **Enable Monitoring in Azure Security Center**, with a goal to monitor
-all the available security recommendations in your Azure Security Center.
+create an initiative titled **Enable Monitoring in Microsoft Defender for Cloud**, with a goal to monitor
+all the available security recommendations in your Microsoft Defender for Cloud instance.
 
 > [!NOTE]
 > The SDK, such as Azure CLI and Azure PowerShell, use properties and parameters named **PolicySet**
@@ -220,11 +245,11 @@ all the available security recommendations in your Azure Security Center.
 
 Under this initiative, you would have policy definitions such as:
 
-- **Monitor unencrypted SQL Database in Security Center** – For monitoring unencrypted SQL databases
+- **Monitor unencrypted SQL Database in Microsoft Defender for Cloud** - For monitoring unencrypted SQL databases
   and servers.
-- **Monitor OS vulnerabilities in Security Center** – For monitoring servers that don't satisfy the
+- **Monitor OS vulnerabilities in Microsoft Defender for Cloud** - For monitoring servers that don't satisfy the
   configured baseline.
-- **Monitor missing Endpoint Protection in Security Center** – For monitoring servers without an
+- **Monitor missing Endpoint Protection in Microsoft Defender for Cloud** - For monitoring servers without an
   installed endpoint protection agent.
 
 Like policy parameters, initiative parameters help simplify initiative management by reducing
@@ -245,8 +270,8 @@ options:
 - Use the parameters of the policy definitions within this initiative: In this example,
   _allowedLocations_ and _allowedSingleLocation_ become initiative parameters for **initiativeC**.
 - Provide values to the parameters of the policy definitions within this initiative definition. In
-  this example, you can provide a list of locations to **policyA**'s parameter –
-  **allowedLocations** and **policyB**'s parameter – **allowedSingleLocation**. You can also provide
+  this example, you can provide a list of locations to **policyA**'s parameter -
+  **allowedLocations** and **policyB**'s parameter - **allowedSingleLocation**. You can also provide
   values when assigning this initiative.
 - Provide a list of _value_ options that can be used when assigning this initiative. When you assign
   this initiative, the inherited parameters from the policy definitions within the initiative, can
@@ -260,7 +285,7 @@ To learn more about the structures of initiative definitions, review
 
 ### Assignments
 
-An assignment is a policy definition or initiative that has been assigned to take place within a
+An assignment is a policy definition or initiative that has been assigned to a
 specific scope. This scope could range from a [management group](../management-groups/overview.md)
 to an individual resource. The term _scope_ refers to all the resources, resource groups,
 subscriptions, or management groups that the definition is assigned to. Assignments are inherited by
@@ -272,13 +297,17 @@ networking resources. You could exclude a resource group in that subscription th
 networking infrastructure. You then grant access to this networking resource group to users that you
 trust with creating networking resources.
 
-In another example, you might want to assign a resource type allow list definition at the management
+In another example, you might want to assign a resource type allowlist definition at the management
 group level. Then you assign a more permissive policy (allowing more resource types) on a child
 management group or even directly on subscriptions. However, this example wouldn't work because
 Azure Policy is an explicit deny system. Instead, you need to exclude the child management group or
 subscription from the management group-level assignment. Then, assign the more permissive definition
 on the child management group or subscription level. If any assignment results in a resource getting
 denied, then the only way to allow the resource is to modify the denying assignment.
+
+Policy assignments always use the latest state of their assigned definition or initiative when
+evaluating resources. If a policy definition that is already assigned is changed all existing
+assignments of that definition will use the updated logic when evaluating.
 
 For more information on setting assignments through the portal, see [Create a policy assignment to
 identify non-compliant resources in your Azure environment](./assign-policy-portal.md). Steps for

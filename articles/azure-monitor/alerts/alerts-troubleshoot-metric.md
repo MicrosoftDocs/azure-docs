@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 03/15/2021
+ms.date: 5/25/2022
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
 
@@ -56,7 +56,10 @@ If you believe your metric alert shouldn't have fired but it did, the following 
     - The selected **Aggregation** in the metric chart is the same as **Aggregation type** in your alert rule
     - The selected **Time granularity** is the same as the **Aggregation granularity (period)** in your alert rule (and not set to 'Automatic')
 
-5. If the alert fired while there are already fired alerts that monitor the same criteria (that aren’t resolved), check if the alert rule has been configured with the *autoMitigate* property set to **false** (this property can only be configured via REST/PowerShell/CLI, so check the script used to deploy the alert rule). In such case, the alert rule does not autoresolve fired alerts, and does not require a fired alert to be resolved before firing again.
+5. If the alert fired while there are already fired alerts that monitor the same criteria (that aren’t resolved), check if the alert rule has been configured not to automatically resolve alerts. Such configuration causes the alert rule to become stateless, meaning that the alert rule does not auto-resolve fired alerts, and does not require a fired alert to be resolved before firing again on the same time-series.
+    You can check if the alert rule is configured not to auto-resolve in one of the following ways:
+    - By editing the alert rule in the Azure portal, and reviewing if the 'Automatically resolve alerts' checkbox is unchecked (available under the 'Alert rule details' section).
+    - By reviewing the script used to deploy the alert rule, or by retrieving the alert rule definition, and checking if the *autoMitigate* property is set to **false**.
 
 
 ## Can't find the metric to alert on - virtual machines guest metrics
@@ -85,9 +88,10 @@ If you’re looking to alert on a specific metric but can’t see it when creati
 If you're looking to alert on [specific dimension values of a metric](./alerts-metric-overview.md#using-dimensions), but cannot find these values, note the following:
 
 1. It might take a few minutes for the dimension values to appear under the **Dimension values** list
-1. The displayed dimension values are based on metric data collected in the last day
-1. If the dimension value isn’t yet emitted or isn't shown, you can use the 'Add custom value' option to add a custom dimension value
-1. If you’d like to alert on all possible values of a dimension (including future values), choose the 'Select all current and future values' option
+2. The displayed dimension values are based on metric data collected in the last day
+3. If the dimension value isn’t yet emitted or isn't shown, you can use the 'Add custom value' option to add a custom dimension value
+4. If you’d like to alert on all possible values of a dimension (including future values), choose the 'Select all current and future values' option
+5. Custom metrics dimensions of Application Insights resources are turned off by default. To turn on the collection of dimensions for these custom metrics, see [here](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 ## Metric alert rules still defined on a deleted resource 
 
@@ -100,7 +104,11 @@ When deleting an Azure resource, associated metric alert rules aren't deleted au
 
 ## Make metric alerts occur every time my condition is met
 
-Metric alerts are stateful by default, and therefore additional alerts are not fired if there’s already a fired alert on a given time series. If you wish to make a specific metric alert rule stateless, and get alerted on every evaluation in which the alert condition is met, create the alert rule programmatically (for example, via [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert)), and set the *autoMitigate* property to 'False'.
+Metric alerts are stateful by default, and therefore additional alerts are not fired if there’s already a fired alert on a given time series. If you wish to make a specific metric alert rule stateless, and get alerted on every evaluation<sup>1</sup> in which the alert condition is met, follow one of these options:
+- If you're creating the alert rule programmatically (for example, via [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert)), set the *autoMitigate* property to 'False'.
+- If you're creating the alert rule via the Azure portal, uncheck the 'Automatically resolve alerts' option (available under the 'Alert rule details' section).
+
+<sup>1</sup> For stateless metric alert rules, an alert will trigger once every 5 minutes at a minimum, even if the frequency of evaluation is equal or less than 5 minutes and the condition is still being met.
 
 > [!NOTE] 
 > Making a metric alert rule stateless prevents fired alerts from becoming resolved, so even after the condition isn’t met anymore, the fired alerts will remain in a fired state until the 30 days retention period.
@@ -128,6 +136,8 @@ To avoid having the deployment fail when trying to validate the custom metric’
         ]
     }
 ```
+> [!NOTE] 
+> Using the *skipMetricValidation* parameter might also be required when defining an alert rule on an existing custom metric that hasn't been emitted in several days.
 
 ## Export the Azure Resource Manager template of a metric alert rule via the Azure portal
 
@@ -170,9 +180,9 @@ To check the current usage of metric alert rules, follow the steps below.
 - REST API - [List by subscription](/rest/api/monitor/metricalerts/listbysubscription)
 - Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-list)
 
-## Managing alert rules using Resource Manager templates, REST API, PowerShell, or Azure CLI
+## Managing alert rules using Resource Manager templates, REST API, Azure PowerShell, or the Azure CLI
 
-If you're running into issues creating, updating, retrieving, or deleting metric alerts using Resource Manager templates, REST API, PowerShell, or the Azure command-line interface (CLI), the following steps may help resolve the issue.
+If you're running into issues creating, updating, retrieving, or deleting metric alerts using Resource Manager templates, REST API, PowerShell, or the Azure CLI, the following steps may help resolve the issue.
 
 ### Resource Manager templates
 
@@ -223,6 +233,16 @@ To create a metric alert rule, you’ll need to have the following permissions:
 - Write permission on the resource group in which the alert rule is created (if you’re creating the alert rule from the Azure portal, the alert rule is created by default in the same resource group in which the target resource resides)
 - Read permission on any action group associated to the alert rule (if applicable)
 
+## Subscription registration to the Microsoft.Insights resource provider
+
+Metric alerts can only access resources in subscriptions registered to the Microsoft.Insights resource provider.
+Therefore, to create a metric alert rule, all involved subscriptions must be registered to this resource provider:
+
+- The subscription containing the alert rule's target resource (scope)
+- The subscription containing the action groups associated with the alert rule (if defined)
+- The subscription in which the alert rule is saved
+
+Learn more about [registering resource providers](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## Naming restrictions for metric alert rules
 
@@ -232,6 +252,7 @@ Consider the following restrictions for metric alert rule names:
 - Metric alert rule names must be unique within a resource group
 - Metric alert rule names can’t contain the following characters: * # & + : < > ? @ % { } \ / 
 - Metric alert rule names can’t end with a space or a period
+- The combined resource group name and alert rule name can’t exceed 252 characters
 
 > [!NOTE] 
 > If the alert rule name contains characters that aren't alphabetic or numeric (for example: spaces, punctuation marks or symbols), these characters may be URL-encoded when retrieved by certain clients.
@@ -273,7 +294,102 @@ When a metric exhibits large fluctuation, Dynamic Thresholds will build a wider 
 2. The median values are close to zero
 3. The metric exhibits an irregular behavior with high variance (there are spikes or dips in the data)
 
-When the lower bound has a negative value, this means that it's plausible for the metric to reach a zero value given the metric's irregular behavior. You may consider choosing a higher sensitivity or a larger *Aggregation granularity (Period)* to make the model less sensitive, or using the *Ignore data before* option to exclude a recent irregulaity from the historical data used to build the model.
+When the lower bound has a negative value, this means that it's plausible for the metric to reach a zero value given the metric's irregular behavior. You may consider choosing a higher sensitivity or a larger *Aggregation granularity (Period)* to make the model less sensitive, or using the *Ignore data before* option to exclude a recent irregularity from the historical data used to build the model.
+
+## The Dynamic Thresholds alert rule is too noisy (fires too much)
+To reduce the sensitivity of your Dynamic Thresholds alert rule, use one of the following options:
+1. Threshold sensitivity - Set the sensitivity to *Low* in order to be more tolerant for deviations.
+2. Number of violations (under *Advanced settings*) - Configure the alert rule to trigger only if a number of deviations occur within a certain period of time. This will make the rule less susceptible to transient deviations.
+
+
+## The Dynamic Thresholds alert rule is too insensitive (doesn't fire)
+Sometimes, an alert rule won't trigger even when a high sensitivity is configured. This usually happens when the metric's distribution is highly irregular.
+Consider one of the following options:
+* Move to monitoring a complementary metric that's suitable for your scenario (if applicable). For example, check for changes in success rate, rather than failure rate.
+* Try selecting a different aggregation granularity (period). 
+* Check if there was a drastic change in the metric behavior in the last 10 days (an outage). An abrupt change can impact the upper and lower thresholds calculated for the metric and make them broader. Wait for a few days until the outage is no longer taken into the thresholds calculation, or use the *Ignore data before* option (under *Advanced settings*).
+* If your data has weekly seasonality, but not enough history is available for the metric, the calculated thresholds can result in having broad upper and lower bounds. For example, the calculation can treat weekdays and weekends in the same way, and build wide borders that don't always fit the data. This should resolve itself once enough metric history is available, at which point the correct seasonality will be detected and the calculated thresholds will update accordingly.
+
+
+## When configuring an alert rule's condition, why is Dynamic threshold disabled?
+While dynamic thresholds are supported for the vast majority of metrics, there are some metrics that can't use dynamic thresholds.
+
+The table below lists the metrics that aren't supported by dynamic thresholds.
+
+| Resource Type | Metric Name |
+| --- | --- |
+| Microsoft.ClassicStorage/storageAccounts | UsedCapacity |
+| Microsoft.ClassicStorage/storageAccounts/blobServices | BlobCapacity |
+| Microsoft.ClassicStorage/storageAccounts/blobServices | BlobCount |
+| Microsoft.ClassicStorage/storageAccounts/blobServices | IndexCapacity |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileCapacity |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileCount |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileShareCount |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileShareSnapshotCount |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileShareSnapshotSize |
+| Microsoft.ClassicStorage/storageAccounts/fileServices | FileShareQuota |
+| Microsoft.Compute/disks | Composite Disk Read Bytes/sec |
+| Microsoft.Compute/disks | Composite Disk Read Operations/sec |
+| Microsoft.Compute/disks | Composite Disk Write Bytes/sec |
+| Microsoft.Compute/disks | Composite Disk Write Operations/sec |
+| Microsoft.ContainerService/managedClusters | NodesCount |
+| Microsoft.ContainerService/managedClusters | PodCount |
+| Microsoft.ContainerService/managedClusters | CompletedJobsCount |
+| Microsoft.ContainerService/managedClusters | RestartingContainerCount |
+| Microsoft.ContainerService/managedClusters | OomKilledContainerCount |
+| Microsoft.Devices/IotHubs | TotalDeviceCount |
+| Microsoft.Devices/IotHubs | ConnectedDeviceCount |
+| Microsoft.Devices/IotHubs | TotalDeviceCount |
+| Microsoft.Devices/IotHubs | ConnectedDeviceCount |
+| Microsoft.DocumentDB/databaseAccounts | CassandraConnectionClosures |
+| Microsoft.EventHub/clusters | Size |
+| Microsoft.EventHub/namespaces | Size |
+| Microsoft.IoTCentral/IoTApps | connectedDeviceCount |
+| Microsoft.IoTCentral/IoTApps | provisionedDeviceCount |
+| Microsoft.Kubernetes/connectedClusters | NodesCount |
+| Microsoft.Kubernetes/connectedClusters | PodCount |
+| Microsoft.Kubernetes/connectedClusters | CompletedJobsCount |
+| Microsoft.Kubernetes/connectedClusters | RestartingContainerCount |
+| Microsoft.Kubernetes/connectedClusters | OomKilledContainerCount |
+| Microsoft.MachineLearningServices/workspaces/onlineEndpoints | RequestsPerMinute |
+| Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments | DeploymentCapacity |
+| Microsoft.Maps/accounts | CreatorUsage |
+| Microsoft.Media/mediaservices/streamingEndpoints | EgressBandwidth |
+| Microsoft.Network/applicationGateways | Throughput |
+| Microsoft.Network/azureFirewalls | Throughput |
+| Microsoft.Network/expressRouteGateways | ExpressRouteGatewayPacketsPerSecond |
+| Microsoft.Network/expressRouteGateways | ExpressRouteGatewayNumberOfVmInVnet |
+| Microsoft.Network/expressRouteGateways | ExpressRouteGatewayFrequencyOfRoutesChanged |
+| Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayPacketsPerSecond |
+| Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayNumberOfVmInVnet |
+| Microsoft.Network/virtualNetworkGateways | ExpressRouteGatewayFrequencyOfRoutesChanged |
+| Microsoft.ServiceBus/namespaces | Size |
+| Microsoft.ServiceBus/namespaces | Messages |
+| Microsoft.ServiceBus/namespaces | ActiveMessages |
+| Microsoft.ServiceBus/namespaces | DeadletteredMessages |
+| Microsoft.ServiceBus/namespaces | ScheduledMessages |
+| Microsoft.ServiceFabricMesh/applications | AllocatedCpu |
+| Microsoft.ServiceFabricMesh/applications | AllocatedMemory |
+| Microsoft.ServiceFabricMesh/applications | ActualCpu |
+| Microsoft.ServiceFabricMesh/applications | ActualMemory |
+| Microsoft.ServiceFabricMesh/applications | ApplicationStatus |
+| Microsoft.ServiceFabricMesh/applications | ServiceStatus |
+| Microsoft.ServiceFabricMesh/applications | ServiceReplicaStatus |
+| Microsoft.ServiceFabricMesh/applications | ContainerStatus |
+| Microsoft.ServiceFabricMesh/applications | RestartCount |
+| Microsoft.Storage/storageAccounts | UsedCapacity |
+| Microsoft.Storage/storageAccounts/blobServices | BlobCapacity |
+| Microsoft.Storage/storageAccounts/blobServices | BlobCount |
+| Microsoft.Storage/storageAccounts/blobServices | BlobProvisionedSize |
+| Microsoft.Storage/storageAccounts/blobServices | IndexCapacity |
+| Microsoft.Storage/storageAccounts/fileServices | FileCapacity |
+| Microsoft.Storage/storageAccounts/fileServices | FileCount |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareCount |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareSnapshotCount |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareSnapshotSize |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareCapacityQuota |
+| Microsoft.Storage/storageAccounts/fileServices | FileShareProvisionedIOPS |
+
 
 ## Next steps
 

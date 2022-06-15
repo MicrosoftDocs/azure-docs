@@ -1,6 +1,5 @@
 ---
-title: Move web app that signs in users to production | Azure
-titleSuffix: Microsoft identity platform
+title: Move web app that signs in users to production
 description: Learn how to build a web app that signs in users (move to production)
 services: active-directory
 author: jmprieur
@@ -52,7 +51,7 @@ This progressive tutorial has production-ready code for a web app, including how
 
 Learn more about the Node.js web in this tutorial:
 
-[Tutorial: Sign-in users in a Node.js & Express web app](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal)
+[Tutorial: Sign-in users in a Node.js & Express web app](./tutorial-v2-nodejs-webapp-msal.md)
 
 ## Sample code: Java web app
 

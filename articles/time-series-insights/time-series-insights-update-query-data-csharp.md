@@ -3,9 +3,10 @@ title: 'Query data from a Gen2 environment using C# - Azure Time Series Insights
 description: Learn how to query data from an Azure Time Series Insights Gen2 environment by using an app written in C#.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: shreyasharmamsft
+ms.author: shresha
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
@@ -14,6 +15,8 @@ ms.custom: seodec18
 ---
 
 # Query data from the Azure Time Series Insights Gen2 environment using C Sharp
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 This C# example demonstrates how to query data from the [Gen2 Data Access APIs](/rest/api/time-series-insights/reference-data-access-overview) in Azure Time Series Insights Gen2 environments.
 

@@ -2,19 +2,15 @@
 title: List Azure role definitions - Azure RBAC
 description: Learn how to list Azure built-in and custom roles using Azure portal, Azure PowerShell, Azure CLI, or REST API.
 services: active-directory
-documentationcenter: ''
 author: rolyon
-manager: mtillman
-
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
+manager: karenhoran
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
-ms.author: rolyon
-ms.reviewer: bagovind
+ms.date: 10/15/2021
+ms.author: rolyon 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # List Azure role definitions
@@ -37,9 +33,15 @@ Follow these steps to list all roles in the Azure portal.
 
 1. Click the **Roles** tab to see a list of all the built-in and custom roles.
 
-   You can see the number of users and groups that are assigned to each role at the current scope.
+   ![Screenshot showing Roles list using new experience.](./media/shared/roles-list.png)
+  
+1. To see the permissions for a particular role, in the **Details** column, click the **View** link.
 
-   ![Roles list](./media/role-definitions-list/roles-list.png)
+    A permissions pane appears.
+
+1. Click the **Permissions** tab to view and search the permissions for the selected role.
+
+   ![Screenshot showing role permissions using new experience.](./media/role-definitions-list/role-permissions.png)
 
 ## Azure PowerShell
 

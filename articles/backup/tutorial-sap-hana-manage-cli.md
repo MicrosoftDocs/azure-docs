@@ -75,7 +75,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 
 ## Create incremental backup policy
 
-To create an incremental backup policy, execute the [az backup policy create](/cli/azure/backup/policy#az_backup_policy_create) command with the following parameters:
+To create an incremental backup policy, execute the [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) command with the following parameters:
 
 * **--backup-management-type** – Azure Workload
 * **--workload-type** - SAPHana

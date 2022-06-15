@@ -2,16 +2,16 @@
 title: Configure Node.js apps
 description: Learn how to configure a Node.js app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
 ms.custom: devx-track-js, devx-track-azurecli
-ms.devlang: nodejs
+ms.devlang: javascript, devx-track-azurecli
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 01/21/2022
 zone_pivot_groups: app-service-platform-windows-linux
 
 ---
 
 # Configure a Node.js app for Azure App Service
 
-Node.js apps must be deployed with all the required NPM dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) with build automation enabled. If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually.
+Node.js apps must be deployed with all the required NPM dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually.
 
 This guide provides key concepts and instructions for Node.js developers who deploy to App Service. If you've never used Azure App Service, follow the [Node.js quickstart](quickstart-nodejs.md) and [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
 
@@ -25,10 +25,10 @@ To show the current Node.js version, run the following command in the [Cloud She
 az webapp config appsettings list --name <app-name> --resource-group <resource-group-name> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION'].value"
 ```
 
-To show all supported Node.js versions, run the following command in the [Cloud Shell](https://shell.azure.com):
+To show all supported Node.js versions, navigate to `https://<sitename>.scm.azurewebsites.net/api/diagnostics/runtime` or run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp list-runtimes | grep node
+az webapp list-runtimes --os windows | grep NODE
 ```
 
 ::: zone-end
@@ -44,7 +44,7 @@ az webapp config show --resource-group <resource-group-name> --name <app-name> -
 To show all supported Node.js versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp list-runtimes --linux | grep NODE
+az webapp list-runtimes --os linux | grep NODE
 ```
 
 ::: zone-end
@@ -56,10 +56,13 @@ az webapp list-runtimes --linux | grep NODE
 To set your app to a [supported Node.js version](#show-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com) to set `WEBSITE_NODE_DEFAULT_VERSION` to a supported version:
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_NODE_DEFAULT_VERSION="10.15"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_NODE_DEFAULT_VERSION="~16"
 ```
 
-This setting specifies the Node.js version to use, both at runtime and during automated package restore during App Service build automation.
+> [!NOTE]
+> This example uses the recommended "tilde syntax" to target the latest available version of Node.js 16 runtime on App Service.
+>
+>Since the runtime is regularly patched and updated by the platform it's not recommended to target a specific minor version/patch as these are not guaranteed to be available due to potential security risks.
 
 > [!NOTE]
 > You should set the Node.js version in your project's `package.json`. The deployment engine runs in a separate process that contains all the supported Node.js versions.
@@ -71,7 +74,7 @@ This setting specifies the Node.js version to use, both at runtime and during au
 To set your app to a [supported Node.js version](#show-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "NODE|10.14"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "NODE|14-lts"
 ```
 
 This setting specifies the Node.js version to use, both at runtime and during automated package restore in Kudu.
@@ -115,7 +118,7 @@ app.listen(port, () => {
 
 ## Customize build automation
 
-If you deploy your app using Git or zip packages with build automation turned on, the App Service build automation steps through the following sequence:
+If you deploy your app using Git, or zip packages [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service build automation steps through the following sequence:
 
 1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
 1. Run `npm install` without any flags, which includes npm `preinstall` and `postinstall` scripts and also installs `devDependencies`.
@@ -143,9 +146,36 @@ For more information on how App Service runs and builds Node.js apps in Linux, s
 
 The Node.js containers come with [PM2](https://pm2.keymetrics.io/), a production process manager. You can configure your app to start with PM2, or with NPM, or with a custom command.
 
-- [Run custom command](#run-custom-command)
-- [Run npm start](#run-npm-start)
-- [Run with PM2](#run-with-pm2)
+|Tool|Purpose|
+|--|--|
+|[Run with PM2](#run-with-pm2)|**Recommended** -  Production or staging use. PM2 provides a full-service app management platform.|
+|[Run npm start](#run-npm-start)|Development use only.|
+|[Run custom command](#run-custom-command)|Either development or staging.|
+
+### Run with PM2
+
+The container automatically starts your app with PM2 when one of the common Node.js files is found in your project:
+
+- *bin/www*
+- *server.js*
+- *app.js*
+- *index.js*
+- *hostingstart.js*
+- One of the following [PM2 files](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* and *ecosystem.config.js*
+
+You can also configure a custom start file with the following extensions:
+
+- A *.js* file
+- A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
+
+> [!NOTE]
+> Starting from **Node 14 LTS**, the container doesn't automatically start your app with PM2. To start your app with PM2, set the startup command to `pm2 start <.js-file-or-PM2-file> --no-daemon`. Be sure to use the `--no-daemon` argument because PM2 needs to run in the foreground for the container to work properly.
+
+To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
+```
 
 ### Run custom command
 
@@ -176,34 +206,12 @@ To use a custom *package.json* in your project, run the following command in the
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename>.json"
 ```
 
-### Run with PM2
-
-The container automatically starts your app with PM2 when one of the common Node.js files is found in your project:
-
-- *bin/www*
-- *server.js*
-- *app.js*
-- *index.js*
-- *hostingstart.js*
-- One of the following [PM2 files](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* and *ecosystem.config.js*
-
-You can also configure a custom start file with the following extensions:
-
-- A *.js* file
-- A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
-
-To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
-
-```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
-```
-
 ## Debug remotely
 
 > [!NOTE]
 > Remote debugging is currently in Preview.
 
-You can debug your Node.js app remotely in [Visual Studio Code](https://code.visualstudio.com/) if you configure it to [run with PM2](#run-with-pm2), except when you run it using a *.config.js, *.yml, or *.yaml*.
+You can debug your Node.js app remotely in [Visual Studio Code](https://code.visualstudio.com/) if you configure it to [run with PM2](#run-with-pm2), except when you run it using a *.config.js,*.yml, or *.yaml*.
 
 In most cases, no extra configuration is required for your app. If your app is run with a *process.json* file (default or custom), it must have a `script` property in the JSON root. For example:
 
@@ -233,7 +241,7 @@ process.env.NODE_ENV
 
 ## Run Grunt/Bower/Gulp
 
-By default, App Service build automation runs `npm install --production` when it recognizes a Node.js app is deployed through Git or Zip deployment with build automation enabled. If your app requires any of the popular automation tools, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) to run it.
+By default, App Service build automation runs `npm install --production` when it recognizes a Node.js app is deployed through Git, or through Zip deployment [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). If your app requires any of the popular automation tools, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) to run it.
 
 To enable your repository to run these tools, you need to add them to the dependencies in *package.json.* For example:
 
@@ -312,7 +320,7 @@ fi
 
 ## Detect HTTPS session
 
-In App Service, [SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
+In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
 
 Popular web frameworks let you access the `X-Forwarded-*` information in your standard app pattern. In [Express](https://expressjs.com/), you can use [trust proxies](https://expressjs.com/guide/behind-proxies.html). For example:
 
@@ -338,14 +346,13 @@ if (req.secure) {
 
 ::: zone-end
 
-
 ::: zone pivot="platform-linux"
 
 ## Monitor with Application Insights
 
-Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the App Insights agent, go to your web app in the Portal and select **Application Insights** under **Settings**, then select **Turn on Application Insights**. Next, select an existing App Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app using PowerShell, please see [these instructions](../azure-monitor/app/azure-web-apps.md?tabs=netcore#enabling-through-powershell)
+Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the App Insights agent, go to your web app in the Portal and select **Application Insights** under **Settings**, then select **Turn on Application Insights**. Next, select an existing App Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app using PowerShell, please see [these instructions](../azure-monitor/app/azure-web-apps-nodejs.md#enable-through-powershell)
 
-This agent will monitor your server-side Node.js application. To monitor your client-side JavaScript, [add the JavaScript SDK to your project](../azure-monitor/app/javascript.md). 
+This agent will monitor your server-side Node.js application. To monitor your client-side JavaScript, [add the JavaScript SDK to your project](../azure-monitor/app/javascript.md).
 
 For more information, see the [Application Insights extension release notes](../azure-monitor/app/web-app-extension-release-notes.md).
 
@@ -357,10 +364,27 @@ When a working Node.js app behaves differently in App Service or has errors, try
 
 - [Access the log stream](#access-diagnostic-logs).
 - Test the app locally in production mode. App Service runs your Node.js apps in production mode, so you need to make sure that your project works as expected in production mode locally. For example:
-    - Depending on your *package.json*, different packages may be installed for production mode (`dependencies` vs. `devDependencies`).
-    - Certain web frameworks may deploy static files differently in production mode.
-    - Certain web frameworks may use custom startup scripts when running in production mode.
+  - Depending on your *package.json*, different packages may be installed for production mode (`dependencies` vs. `devDependencies`).
+  - Certain web frameworks may deploy static files differently in production mode.
+  - Certain web frameworks may use custom startup scripts when running in production mode.
 - Run your app in App Service in development mode. For example, in [MEAN.js](https://meanjs.org/), you can set your app to development mode in runtime by [setting the `NODE_ENV` app setting](configure-common.md).
+
+::: zone pivot="platform-windows"
+
+#### You do not have permission to view this directory or page
+
+After deploying your Node.js code to a native Windows app in App Service, you may see the message `You do not have permission to view this directory or page.` in the browser when navigating to your app's URL. This is most likely because you don't have a *web.config* file (see the [template](https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Scripts/iisnode.config.template) and an [example](https://github.com/Azure-Samples/nodejs-docs-hello-world/blob/master/web.config)).
+
+If you deploy your files by using Git, or by using ZIP deployment [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the deployment engine generates a *web.config* in the web root of your app (`%HOME%\site\wwwroot`) automatically if one of the following conditions is true:
+
+- Your project root has a *package.json* that defines a `start` script that contains the path of a JavaScript file.
+- Your project root has either a *server.js* or an *app.js*.
+
+The generated *web.config* is tailored to the detected start script. For other deployment methods, add this *web.config* manually. Make sure the file is formatted properly.
+
+If you use [ZIP deployment](deploy-zip.md) (through Visual Studio Code, for example), be sure to [enable build automation](deploy-zip.md#enable-build-automation-for-zip-deploy) because it's not enabled by default. [`az webapp up`](/cli/azure/webapp#az-webapp-up) uses ZIP deployment with build automation enabled.
+
+::: zone-end
 
 ::: zone pivot="platform-linux"
 
@@ -376,6 +400,10 @@ When a working Node.js app behaves differently in App Service or has errors, try
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+> [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
+
+Or, see additional resources:
+
+[Environment variables and app settings reference](reference-app-settings.md)

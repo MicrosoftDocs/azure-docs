@@ -1,0 +1,273 @@
+### YamlMime:FAQ
+metadata:
+  title: "Azure Front Door - Frequently asked questions"
+  description: This page provides answers to frequently asked questions about Azure Front Door
+  author: duongau
+  ms.author: duau
+  ms.service: frontdoor
+  ms.topic: faq
+  ms.workload: infrastructure-services
+  ms.date: 09/14/2021
+title: Frequently asked questions for Azure Front Door
+summary: |
+  This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
+  
+  1. The comments section of this article.
+
+  2. [Azure Front Door Feedback](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=d47b0f41-8326-ec11-b6e6-000d3a4f0789).
+
+  3. **Microsoft Support:** To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
+  
+
+sections:
+  - name: General
+    questions:
+      - question: |
+          What is Azure Front Door?
+        answer:  |
+          Azure Front Door is an Application Delivery Network (ADN) as a service, offering various layer 7 load-balancing capabilities for your applications. It provides dynamic site acceleration (DSA) along with global load balancing with near real-time failover. It is a highly available and scalable service, which is fully managed by Azure.
+
+      - question: |
+          What features does Azure Front Door support?
+        answer: |
+          Azure Front Door supports dynamic site acceleration (DSA), TLS/SSL offloading and end to end TLS, Web Application Firewall, cookie-based session affinity, url path-based routing, free certificates and multiple domain management, and others. For a full list of supported features, see [Overview of Azure Front Door](front-door-overview.md).
+          
+      - question: |
+          What is the difference between Azure Front Door and Azure Application Gateway?
+        answer:  |
+          While both Front Door and Application Gateway are layer 7 (HTTP/HTTPS) load balancers, the primary difference is that Front Door is a non-regional service whereas Application Gateway is a regional service. While Front Door can load balance between your different scale units/clusters/stamp units across regions, Application Gateway allows you to load balance between your VMs/containers etc. that is within the scale unit.
+
+      - question: |
+          When should we deploy an Application Gateway behind Front Door?
+        answer: |
+          The key scenarios why one should use Application Gateway behind Front Door are:
+          
+          - Front Door can perform path-based load balancing only at the global level but if one wants to load balance traffic even further within their virtual network (VNET) then they should use Application Gateway.
+          - Since Front Door doesn't work at a VM/container level, so it cannot do Connection Draining. However, Application Gateway allows you to do Connection Draining. 
+          - With an Application Gateway behind Front Door, one can achieve 100% TLS/SSL offload and route only HTTP requests within their virtual network (VNET).
+          - Front Door and Application Gateway both support session affinity. While Front Door can direct subsequent traffic from a user session to the same cluster or backend in a given region, Application Gateway can direct affinitize the traffic to the same server within the cluster.  
+          
+      - question: |
+          Can we deploy Azure Load Balancer behind Front Door?
+        answer:  |
+          Azure Front Door needs a public VIP or a publicly available DNS name to route the traffic to. Deploying an Azure Load Balancer behind Front Door is a common use case.
+
+      - question: |
+          What protocols does Azure Front Door support?
+        answer:  |
+          Azure Front Door supports HTTP, HTTPS and HTTP/2.
+
+      - question: |
+          How does Azure Front Door support HTTP/2?
+        answer:  |
+          HTTP/2 protocol support is available to clients connecting to Azure Front Door only. The communication to backends in the backend pool is over HTTP/1.1. HTTP/2 support is enabled by default.
+
+      - question: |
+          What resources are supported today as part of backend pool?
+        answer:  |
+          Backend pools can be composed of Storage, Web App, Kubernetes instances, or any other custom hostname that has public connectivity. Azure Front Door requires that the backends are defined either via a public IP or a publicly resolvable DNS hostname. Members of backend pools can be across zones, regions, or even outside of Azure as long as they have public connectivity.
+
+      - question: |
+          What regions is the service available in?
+        answer:  |
+          Azure Front Door is a global service and is not tied to any specific Azure region. The only location you need to specify while creating a Front Door is the resource group location, which is basically specifying where the metadata for the resource group will be stored. Front Door resource itself is created as a global resource and the configuration is deployed globally to all edge locations. 
+
+      - question: |
+          Where are the edge locations for Azure Front Door?
+        answer: |
+          For the complete list of Azure Front Door edge locations, see [Azure Front Door edge locations](edge-locations-by-region.md).
+          
+      - question: |
+          Is Azure Front Door a dedicated deployment for my application or is it shared across customers?
+        answer:  |
+          Azure Front Door is a globally distributed multi-tenant service. So, the infrastructure for Front Door is shared across all its customers. However, by creating a Front Door profile, you define the specific configuration required for your application and no changes made to your Front Door impact other Front Door configurations.
+
+      - question: |
+          Is HTTP->HTTPS redirection supported?
+        answer: |
+          Yes. In fact, Azure Front Door supports host, path, and query string redirection as well as part of URL redirection. Learn more about [URL redirection](front-door-url-redirect.md). 
+          
+      - question: |
+          In what order are routing rules processed?
+        answer: |
+          Routes for your Front Door are not ordered and a specific route is selected based on the best match. Learn more about [How Front Door matches requests to a routing rule](front-door-route-matching.md).
+          
+      - question: |
+          How do I lock down the access to my backend to only Azure Front Door?
+        answer: |
+          > [!NOTE]
+          > New SKU Front Door Premium provides a more recommended way to lock down your application via Private Endpoint. [Learn more about Private Endpoint](private-link.md)
+          
+          To lock down your application to accept traffic only from your specific Front Door, you can set up IP ACLs for your backend or restrict the traffic on your backend to the specific value of the header 'X-Azure-FDID' sent by Front Door. These steps are detailed out as below:
+          
+          - Configure IP ACLing for your backends to accept traffic from Azure Front Door's backend IP address space and Azure's infrastructure services only. Refer the IP details below for ACLing your backend:
+           
+              - Refer *AzureFrontDoor.Backend* section in [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for Front Door's backend IP address range or you can also use the service tag *AzureFrontDoor.Backend* in your [network security groups](../virtual-network/network-security-groups-overview.md#security-rules).
+              - Azure's [basic infrastructure services](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) through virtualized host IP addresses: `168.63.129.16` and `169.254.169.254`
+          
+              > [!WARNING]
+              > Front Door's backend IP space may change later, however, we will ensure that before that happens, that we would have integrated with [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). We recommend that you subscribe to [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for any changes or updates.
+          
+          - Look for the `Front Door ID` value under the Overview section from Front Door portal page. You can then filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with that value to ensure only your own specific Front Door instance is allowed (because the IP ranges above are shared with other Front Door instances of other customers).
+          
+          - Apply rule filtering in your backend web server to restrict traffic based on the resulting 'X-Azure-FDID' header value. Note that some services like Azure App Service provide this [header based filtering](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) capability without needing to change your application or host.
+          
+            Here's an example for [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
+          
+            ```xml
+            <?xml version="1.0" encoding="UTF-8"?>
+            <configuration>
+                <system.webServer>
+                    <rewrite>
+                        <rules>
+                            <rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
+                                <match url="*" />
+                                <conditions>
+                                    <add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
+                                </conditions>
+                                <action type="AbortRequest" />
+                            </rule>
+                        </rules>
+                    </rewrite>
+                </system.webServer>
+            </configuration>
+            ```
+              
+            Here's an example for [AKS NGINX ingress controller](../aks/ingress-basic.md):
+            
+            ```yaml
+            apiVersion: networking.k8s.io/v1
+            kind: Ingress
+            metadata:
+              name: frontdoor-ingress
+              annotations:
+                kubernetes.io/ingress.class: nginx
+                nginx.ingress.kubernetes.io/enable-modsecurity: "true"
+                nginx.ingress.kubernetes.io/modsecurity-snippet: |
+                  SecRuleEngine On
+                  SecAuditLog /var/log/modsec_audit.log
+                  SecRule REQUEST_HEADERS:X-Azure-FDID "!@eq xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" "log,deny,id:107,status:403,msg:\'Traffic incoming from a different Frontdoor\'"
+            spec:
+              #section omitted on purpose
+            ```
+            
+          - Azure Front Door also supports the *AzureFrontDoor.Frontend* service tag, which provides the list of IP addresses that clients use when connecting to Front Door. You can use the *AzureFrontDoor.Frontend* service tag when you’re controlling the outbound traffic that should be allowed to connect to services deployed behind Azure Front Door. Azure Front Door also supports an additional service tag, *AzureFrontDoor.FirstParty*, to integrate internally with other Azure services. See [available service tags](../virtual-network/service-tags-overview.md#available-service-tags) for more details on Azure Front Door service tags use cases.
+          
+            If using Application Gateway as a backend to Azure Front Door, then the check on the `X-Azure-FDID` header can be done in a custom WAF rule.  For more information, see [Create and use Web Application Firewall v2 custom rules on Application Gateway](../web-application-firewall/ag/create-custom-waf-rules.md#example-7).
+
+      - question: |
+          Can the anycast IP change over the lifetime of my Front Door?
+        answer:  |
+          The frontend anycast IP for your Front Door should typically not change and may remain static for the lifetime of the Front Door. However, there are **no guarantees** for the same. Kindly do not take any direct dependencies on the IP.
+
+      - question: |
+          Does Azure Front Door support static or dedicated IPs?
+        answer:  |
+          No, Azure Front Door currently doesn't support static or dedicated frontend anycast IPs. 
+
+      - question: |
+          Does Azure Front Door support x-forwarded-for headers?
+        answer: |
+          Yes, Azure Front Door supports the X-Forwarded-For, X-Forwarded-Host, and X-Forwarded-Proto headers. For X-Forwarded-For if the header was already present then Front Door appends the client socket IP to it. Else, it adds the header with the client socket IP as the value. For X-Forwarded-Host and X-Forwarded-Proto, the value is overridden.
+          
+          Learn more about the [Front Door supported HTTP headers](front-door-http-headers-protocol.md).  
+          
+      - question: |
+          How long does it take to deploy an Azure Front Door? Does my Front Door still work when being updated?
+        answer: |
+          Most new Front Door creates and updates take about 3 to 20 minutes to deploy across all our edge location globally. 
+          
+          > [!Note]  
+          > Most custom TLS/SSL certificate updates take from several minutes to an hour to be deployed globally.
+          
+          Any updates to routes or backend pools etc. are seamless and will cause zero downtime (if the new configuration is correct). Certificate updates are also atomic and will not cause any outage, unless switching from 'AFD Managed' to 'Use your own cert' or vice versa.
+          
+          
+  - name: Configuration
+    questions:
+      - question: |
+          Can Azure Front Door load balance or route traffic within a virtual network?
+        answer:  |
+          Azure Front Door (AFD) requires a public IP or publicly resolvable DNS name to route traffic. So, the answer is no AFD directly cannot route within a virtual network, but using an Application Gateway or Azure Load Balancer in between will solve this scenario.
+
+      - question: |
+          What are the various timeouts and limits for Azure Front Door?
+        answer: |
+          Learn about all the documented [timeouts and limits for Azure Front Door](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-classic-limits).
+          
+      - question: |
+          How long does it take for a rule to take effect after being added to the Front Door Rules Engine?
+        answer:  |
+          Most rules engine configuration updates complete under 20 minutes. You can expect the rule to take effect as soon as the update is completed. 
+
+      - question: |
+          Can I configure Azure CDN behind my Front Door profile or vice versa?
+        answer:  |
+          Azure Front Door and Azure CDN can't be configured together because both services utilizes the same Azure edge sites when responding to requests. 
+
+  - name: Performance
+    questions:
+      - question: |
+          How does Azure Front Door support high availability and scalability?
+        answer:  |
+          Azure Front Door is a globally distributed multi-tenant platform with huge volumes of capacity to cater to your application's scalability needs. Delivered from the edge of Microsoft's global network, Front Door provides global load-balancing capability that allows you to fail over your entire application or even individual microservices across regions or different clouds.
+
+  - name: TLS configuration
+    questions:
+  
+      - question: | 
+          How does Front Door handle ‘domain fronting’ behavior? 
+        answer: |
+          As of April 29, 2022, Microsoft has made a change to the behavior of Azure Front Door Standard/Premium/(classic) and Azure CDN from Microsoft (classic) in alignment with its commitment to stop allowing domain fronting behavior on its platform.  Once blocking domain fronting is enabled, AFD and CDN resources will block any HTTP request that exhibit this behavior.
+          If this behavior is enabled for your resource, requests where Host header in HTTP/HTTPS requests doesn't match the original TLS SNI extension used during the TLS negotiation, will be blocked.
+          
+          If you wish to block domain fronting for any existing Azure Front Door Standard and Premium, Azure Front Door (classic) and Azure CDN Standard from Microsoft (classic) resources or for new Azure Front Door Standard and Premium, Azure Front Door (classic) and Azure CDN Standard from Microsoft (classic) resources, please create a support request and provide your subscription and 
+          resource information. Upon enabling of blocking domain fronting behavior, Azure Front Door and Azure CDN Standard from Microsoft (classic) resources will block any HTTP request that exhibit this behavior.
+         
+          When Front Door blocks a request due to this mismatch: 
+          The client will receive a HTTP “421 Misdirected Request” error code response 
+          Front Door will log the block in its diagnostic logs under the “Error Info” property with the value “SSLMismatchedSNI” 
+ 
+      - question: |
+          What TLS versions are supported by Azure Front Door?
+        answer: |
+          All Front Door profiles created after September 2019 use TLS 1.2 as the default minimum.
+          
+          Front Door supports TLS versions 1.0, 1.1 and 1.2. TLS 1.3 is not yet supported. Refer to [Azure Front Door end-to-end TLS](concept-end-to-end-tls.md) for more details.
+                  
+  - name: Billing
+    questions:
+      - question: |
+          Will I be billed for the Azure Front Door resources that are disabled?
+        answer: |
+          Azure Front Door resources, like Front Door profiles, routing rules are not billed in disabled. WAF policies and rules are billed even if disabled.
+          
+  - name: Diagnostics and logging
+    questions:
+      - question: |
+          What types of metrics and logs are available with Azure Front Door?
+        answer: |
+          For information on logs and other diagnostic capabilities, see [Monitoring metrics and logs for Front Door](front-door-diagnostics.md).
+          
+      - question: |
+          What is the retention policy on the diagnostics logs?
+        answer: |
+          Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Azure Monitor logs. For more information, see [Azure Front Door Diagnostics](front-door-diagnostics.md).
+          
+      - question: |
+          How do I get audit logs for Azure Front Door?
+        answer:  |
+          Audit logs are available for Azure Front Door. In the portal, click **Activity Log** in the menu blade of your Front Door to access the audit log. 
+
+      - question: |
+          Can I set alerts with Azure Front Door?
+        answer:  |
+          Yes, Azure Front Door does support alerts. Alerts are configured on metrics. 
+      
+additionalContent: |
+
+  ## Next steps
+  
+  - Learn how to [create a Front Door](quickstart-create-front-door.md).
+  - Learn [how Front Door works](front-door-routing-architecture.md).
+          

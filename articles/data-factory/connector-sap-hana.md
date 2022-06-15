@@ -1,24 +1,26 @@
 ---
 title: Copy data from SAP HANA
-description: Learn how to copy data from SAP HANA to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-ms.author: jingwang
-author: linda33wj
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from SAP HANA to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+author: jianleishen
+ms.author: ulrichchrist
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 04/22/2020
+ms.custom: synapse
+ms.date: 09/09/2021
 ---
 
-# Copy data from SAP HANA using Azure Data Factory
+# Copy data from SAP HANA using Azure Data Factory or Synapse Analytics
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-sap-hana-connector.md)
 > * [Current version](connector-sap-hana.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP HANA database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from an SAP HANA database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!TIP]
->To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparsion and guidance.
+>To learn about overall support for the SAP data integration scenario, see [SAP data integration whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparison and guidance.
 
 ## Supported capabilities
 
@@ -48,7 +50,32 @@ To use this SAP HANA connector, you need to:
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to SAP HANA using UI
+
+Use the following steps to create a linked service to SAP HANA in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for SAP and select the SAP HANA connector.
+
+    :::image type="content" source="media/connector-sap-hana/sap-hana-connector.png" alt-text="Screenshot of the SAP HANA connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-sap-hana/configure-sap-hana-linked-service.png" alt-text="Screenshot of linked service configuration for SAP HANA.":::
+
+## Connector configuration details
+
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SAP HANA connector.
 
@@ -59,9 +86,9 @@ The following properties are supported for SAP HANA linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SapHana** | Yes |
-| connectionString | Specify information that's needed to connect to the SAP HANA by using either **basic authentication** or **Windows authentication**. Refer to the following samples.<br>In connection string, server/port is mandatory (default port is 30015), and username and password is mandatory when using basic authentication. For additional advanced settings, refer to [SAP HANA ODBC Connection Properties](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>You can also put password in Azure Key Vault and pull the password configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
+| connectionString | Specify information that's needed to connect to the SAP HANA by using either **basic authentication** or **Windows authentication**. Refer to the following samples.<br>In connection string, server/port is mandatory (default port is 30015), and username and password is mandatory when using basic authentication. For additional advanced settings, refer to [SAP HANA ODBC Connection Properties](https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html)<br/>You can also put password in Azure Key Vault and pull the password configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
 | userName | Specify user name when using Windows authentication. Example: `user@domain.com` | No |
-| password | Specify password for the user account. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | Specify password for the user account. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example: use basic authentication**
@@ -221,18 +248,18 @@ If you were using `RelationalSource` typed copy source, it is still supported as
 
 ## Parallel copy from SAP HANA
 
-The Data Factory SAP HANA connector provides built-in data partitioning to copy data from SAP HANA in parallel. You can find data partitioning options on the **Source** table of the copy activity.
+The SAP HANA connector provides built-in data partitioning to copy data from SAP HANA in parallel. You can find data partitioning options on the **Source** table of the copy activity.
 
-![Screenshot of partition options](./media/connector-sap-hana/connector-sap-hana-partition-options.png)
+:::image type="content" source="./media/connector-sap-hana/connector-sap-hana-partition-options.png" alt-text="Screenshot of partition options":::
 
-When you enable partitioned copy, Data Factory runs parallel queries against your SAP HANA source to retrieve data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your SAP HANA.
+When you enable partitioned copy, the service runs parallel queries against your SAP HANA source to retrieve data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your SAP HANA.
 
 You are suggested to enable parallel copy with data partitioning especially when you ingest large amount of data from your SAP HANA. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommended to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
 | Scenario                                           | Suggested settings                                           |
 | -------------------------------------------------- | ------------------------------------------------------------ |
-| Full load from large table.                        | **Partition option**: Physical partitions of table. <br><br/>During execution, Data Factory automatically detects the physical partition type of the specified SAP HANA table, and choose the corresponding partition strategy:<br>- **Range Partitioning**: Get the partition column and partition ranges defined for the table, then copy the data by range. <br>- **Hash Partitioning**: Use hash partition key as partition column, then partition and copy the data based on ADF calculated ranges. <br>- **Round-Robin Partitioning** or **No Partition**: Use primary key as partition column, then partition and copy the data based on ADF calculated ranges. |
-| Load large amount of data by using a custom query. | **Partition option**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfHanaDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to apply dynamic range partition. <br><br>During execution, Data Factory firstly calculates the value ranges of the specified partition column, by evenly distributes the rows in a number of buckets according to the number of distinct partition column values and ADF parallel copy setting, then replaces `?AdfHanaDynamicRangePartitionCondition` with filtering the partition column value range for each partition, and sends to SAP HANA.<br><br>If you want to use multiple columns as partition column, you can concatenate the values of each column as one column in the query and specify it as partition column in ADF, like `SELECT * FROM (SELECT *, CONCAT(<KeyColumn1>, <KeyColumn2>) AS PARTITIONCOLUMN FROM <TABLENAME>) WHERE ?AdfHanaDynamicRangePartitionCondition`. |
+| Full load from large table.                        | **Partition option**: Physical partitions of table. <br><br/>During execution, the service automatically detects the physical partition type of the specified SAP HANA table, and choose the corresponding partition strategy:<br>- **Range Partitioning**: Get the partition column and partition ranges defined for the table, then copy the data by range. <br>- **Hash Partitioning**: Use hash partition key as partition column, then partition and copy the data based on ranges calculated by the service. <br>- **Round-Robin Partitioning** or **No Partition**: Use primary key as partition column, then partition and copy the data based on ranges calculated by the service. |
+| Load large amount of data by using a custom query. | **Partition option**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfHanaDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to apply dynamic range partition. <br><br>During execution, the service first calculates the value ranges of the specified partition column, by evenly distributes the rows in a number of buckets according to the number of distinct partition column values the parallel copy setting, then replaces `?AdfHanaDynamicRangePartitionCondition` with filtering the partition column value range for each partition, and sends to SAP HANA.<br><br>If you want to use multiple columns as partition column, you can concatenate the values of each column as one column in the query and specify it as the partition column, like `SELECT * FROM (SELECT *, CONCAT(<KeyColumn1>, <KeyColumn2>) AS PARTITIONCOLUMN FROM <TABLENAME>) WHERE ?AdfHanaDynamicRangePartitionCondition`. |
 
 **Example: query with physical partitions of a table**
 
@@ -258,9 +285,9 @@ You are suggested to enable parallel copy with data partitioning especially when
 
 ## Data type mapping for SAP HANA
 
-When copying data from SAP HANA, the following mappings are used from SAP HANA data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from SAP HANA, the following mappings are used from SAP HANA data types to interim data types used internally within the service. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-| SAP HANA data type | Data factory interim data type |
+| SAP HANA data type | Interim service data type |
 | ------------------ | ------------------------------ |
 | ALPHANUM           | String                         |
 | BIGINT             | Int64                          |
@@ -323,4 +350,4 @@ Follow the [Prerequisites](#prerequisites) to set up Self-hosted Integration Run
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

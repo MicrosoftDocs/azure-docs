@@ -1,20 +1,32 @@
 ---
 title: Manage your Azure Maps account in the Azure portal | Microsoft Azure Maps 
 description: Learn how to use the Azure portal to manage an Azure Maps account. See how to create a new account and how to delete an existing account.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 01/27/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
 ---
 
 # Manage your Azure Maps account
 
 You can manage your Azure Maps account through the Azure portal. After you have an account, you can implement the APIs in your website or mobile application.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
+
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you continue.
+- For picking account location and you're unfamiliar with managed identities for Azure resources, check out the [overview section](../active-directory/managed-identities-azure-resources/overview.md).
+
+## Account location
+
+Picking a location for your Azure Maps account that aligns with other resources in your subscription, like managed identities, may help to improve the level of service for [control-plane](../azure-resource-manager/management/control-plane-and-data-plane.md) operations. 
+
+As an example, the managed identity infrastructure will communicate and notify the Azure Maps management services for changes to the identity resource such as credential renewal or deletion. Sharing the same Azure location enables a consistent infrastructure provisioning for all resources.
+
+Any Azure Maps REST API on endpoint `atlas.microsoft.com`, `*.atlas.microsoft.com`, or other endpoints belonging to the Azure data-plane are not affected by the choice of the Azure Maps account location. 
+
+Read more about data-plane service coverage for Azure Maps services on [geographic coverage](./geographic-coverage.md).
 
 ## Create a new account
 
@@ -26,7 +38,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 4. Enter the information for your new account.
 
-[![Enter Azure Maps account information in the Azure portal](./media/how-to-manage-account-keys/new-account-portal.png)](./media/how-to-manage-account-keys/new-account-portal.png#lightbox)
+:::image type="content" source="./media/how-to-manage-account-keys/create-account.png" border="true" alt-text="Enter Azure Maps account information in the Azure portal.":::
 
 ## Delete an account
 

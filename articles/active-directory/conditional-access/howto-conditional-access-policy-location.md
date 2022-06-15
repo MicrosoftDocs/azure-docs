@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 11/05/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb, rogoya
 
 ms.collection: M365-identity-device-management
@@ -18,6 +18,9 @@ ms.collection: M365-identity-device-management
 # Conditional Access: Block access by location
 
 With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. The location condition is commonly used to block access from countries/regions where your organization knows traffic should not come from.
+
+> [!NOTE]
+> Conditional Access policies are enforced after first-factor authentication is completed. Conditional Access isn't intended to be an organization's first line of defense for scenarios like denial-of-service (DoS) attacks, but it can use signals from these events to determine access.
 
 ## Define locations
 
@@ -49,9 +52,11 @@ More information about the location condition in Conditional Access can be found
    1. Under **Include**, select **Selected locations**
    1. Select the blocked location you created for your organization.
    1. Click **Select**.
-1. Under **Access controls** > select **Block Access**, and select **Select**.
-1. Confirm your settings and set **Enable policy** to **On**.
-1. Select **Create** to create Conditional Access Policy.
+1. Under **Access controls** > select **Block Access**, and click **Select**.
+1. Confirm your settings and set **Enable policy** to **Report-only**.
+1. Select **Create** to create to enable your policy.
+
+After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## Next steps
 

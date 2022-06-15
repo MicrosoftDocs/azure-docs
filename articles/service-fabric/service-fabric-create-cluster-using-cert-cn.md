@@ -3,7 +3,8 @@ title: Create a cluster using certificate common name
 description: Learn how to create a Service Fabric cluster using certificate common name from a template.
 
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/06/2019 
+ms.custom: devx-track-azurepowershell
 ---
 # Deploy a Service Fabric cluster that uses certificate common name instead of thumbprint
 No two certificates can have the same thumbprint, which makes cluster certificate rollover or management difficult. Multiple certificates, however, can have the same common name or subject.  A cluster using certificate common names makes certificate management much simpler. This article describes how to deploy a Service Fabric cluster to use the certificate common name instead of the certificate thumbprint.

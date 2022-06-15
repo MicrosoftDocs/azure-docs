@@ -1,11 +1,11 @@
 ---
-title: Overview - Automate deployment for Azure Logic Apps
+title: Azure Resource Manager templates for Azure Logic Apps
 description: Learn about Azure Resource Manager templates to automate deployment for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: article
-ms.date: 11/06/2020
+ms.reviewer: estfan, azla
+ms.topic: conceptual
+ms.date: 12/08/2021
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
@@ -25,16 +25,16 @@ The example logic app in this topic uses an [Office 365 Outlook trigger](/connec
 
 For more information about Resource Manager templates, see these topics:
 
-* [Azure Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md)
-* [Azure Resource Manager template best practices](../azure-resource-manager/templates/template-best-practices.md)
-* [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates/templates-cloud-consistency.md)
+* [Azure Resource Manager template structure and syntax](../azure-resource-manager/templates/syntax.md)
+* [Azure Resource Manager template best practices](../azure-resource-manager/templates/best-practices.md)
+* [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates/template-cloud-consistency.md)
 
 For template resource information specific to logic apps, integration accounts, integration account artifacts, and integration service environments, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
 
 For sample logic app templates, see these examples:
 
 * [Full template](#full-example-template) that's used for this topic's examples
-* [Sample quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) in GitHub
+* [Sample quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) in GitHub
 
 For the Logic Apps REST API, start with the [Azure Logic Apps REST API overview](/rest/api/logic).
 
@@ -42,7 +42,7 @@ For the Logic Apps REST API, start with the [Azure Logic Apps REST API overview]
 
 ## Template structure
 
-At the top level, a Resource Manager template follows this structure, which is fully described in the [Azure Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md) topic:
+At the top level, a Resource Manager template follows this structure, which is fully described in the [Azure Resource Manager template structure and syntax](../azure-resource-manager/templates/syntax.md) topic:
 
 ```json
 {
@@ -60,9 +60,9 @@ For a logic app template, you primarily work with these template objects:
 
 | Attribute | Description |
 |-----------|-------------|
-| `parameters` | Declares the [template parameters](../azure-resource-manager/templates/template-syntax.md#parameters) for accepting the values to use when creating and customizing resources for deployment in Azure. For example, these parameters accept the values for your logic app's name and location, connections, and other resources necessary for deployment. You can store these parameter values in a [parameters file](#template-parameter-files), which is described later in this topic. For general details, see [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#parameters). |
-| `resources` | Defines the [resources](../azure-resource-manager/templates/template-syntax.md#resources) to create or update and deploy to an Azure resource group, such as your logic app, connections, Azure storage accounts, and so on. For general details, see [Resources - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#resources). |
-||||
+| `parameters` | Declares the [template parameters](../azure-resource-manager/templates/syntax.md#parameters) for accepting the values to use when creating and customizing resources for deployment in Azure. For example, these parameters accept the values for your logic app's name and location, connections, and other resources necessary for deployment. You can store these parameter values in a [parameters file](#template-parameter-files), which is described later in this topic. For general details, see [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/templates/syntax.md#parameters). |
+| `resources` | Defines the [resources](../azure-resource-manager/templates/syntax.md#resources) to create or update and deploy to an Azure resource group, such as your logic app, connections, Azure storage accounts, and so on. For general details, see [Resources - Resource Manager template structure and syntax](../azure-resource-manager/templates/syntax.md#resources). |
+|||
 
 Your logic app template uses this file name format:
 
@@ -75,15 +75,15 @@ Your logic app template uses this file name format:
 
 ## Template parameters
 
-A logic app template has multiple `parameters` objects that exist at different levels and perform different functions. For example, at the top level, you can declare [template parameters](../azure-resource-manager/templates/template-syntax.md#parameters) for the values to accept and use at deployment when creating and deploying resources in Azure, for example:
+A logic app template has multiple `parameters` objects that exist at different levels and perform different functions. For example, at the top level, you can declare [template parameters](../azure-resource-manager/templates/syntax.md#parameters) for the values to accept and use at deployment when creating and deploying resources in Azure, for example:
 
 * Your logic app
-* Connections that your logic uses to access other services and systems through [managed connectors](../connectors/apis-list.md)
+* Connections that your logic app uses to access other services and systems through [managed connectors](../connectors/apis-list.md)
 * Other resources that your logic app needs for deployment
 
   For example, if your logic app uses an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for business-to-business (B2B) scenarios, the template's top level `parameters` object declares the parameter that accepts the resource ID for that integration account.
 
-Here is the general structure and syntax for a parameter definition, which is fully described by [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#parameters):
+Here is the general structure and syntax for a parameter definition, which is fully described by [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/templates/syntax.md#parameters):
 
 ```json
 "<parameter-name>": {
@@ -144,7 +144,7 @@ Except for parameters that handle values that are sensitive or must be secured, 
 
 For more information about securing template parameters, see these topics:
 
-* [Security recommendations for template parameters](../azure-resource-manager/templates/template-best-practices.md#parameters)
+* [Security recommendations for template parameters](../azure-resource-manager/templates/best-practices.md#parameters)
 * [Improve security for template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 * [Pass secured parameter values with Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
@@ -166,7 +166,7 @@ Here are some best practices for defining parameters:
 
 * Include the `defaultValue` attribute, which can specify empty values, for all parameters except for values that are sensitive or must be secured. Always use secured parameters for user names, passwords, and secrets. To hide or protect sensitive parameter values, follow the guidance in these topics:
 
-  * [Security recommendations for template parameters](../azure-resource-manager/templates/template-best-practices.md#parameters)
+  * [Security recommendations for template parameters](../azure-resource-manager/templates/best-practices.md#parameters)
 
   * [Improve security for template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
@@ -174,7 +174,7 @@ Here are some best practices for defining parameters:
 
 * To differentiate template parameter names from workflow definition parameter names, you can use descriptive template parameter names, for example: `TemplateFabrikamPassword`
 
-For more template best practices, see [Best practices for template parameters](../azure-resource-manager/templates/template-best-practices.md#parameters).
+For more template best practices, see [Best practices for template parameters](../azure-resource-manager/templates/best-practices.md#parameters).
 
 <a name="template-parameter-files"></a>
 
@@ -270,8 +270,8 @@ To review the resource definitions for all the resources in an Azure resource gr
 
 For general information about template resources and their attributes, see these topics:
 
-* [Resources - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#resources)
-* [Best practices for template resources](../azure-resource-manager/templates/template-best-practices.md#resources)
+* [Resources - Resource Manager template structure and syntax](../azure-resource-manager/templates/syntax.md#resources)
+* [Best practices for template resources](../azure-resource-manager/templates/best-practices.md#resources)
 
 <a name="logic-app-resource-definition"></a>
 
@@ -311,7 +311,7 @@ Your logic app's [workflow resource definition in a template](/azure/templates/m
          "tags": {
            "displayName": "LogicApp"
          },
-         "apiVersion": "2016-06-01",
+         "apiVersion": "2019-05-01",
          "dependsOn": [
          ]
       }
@@ -532,9 +532,15 @@ This example template shows how you can complete these tasks by defining secured
             // End workflow definition
             // Start workflow definition parameter values
             "parameters": {
-               "authenticationType": "[parameters('TemplateAuthenticationType')]", // Template parameter reference
-               "fabrikamPassword": "[parameters('TemplateFabrikamPassword')]", // Template parameter reference
-               "fabrikamUserName": "[parameters('TemplateFabrikamUserName')]" // Template parameter reference
+               "authenticationType": {
+                  "value": "[parameters('TemplateAuthenticationType')]" // Template parameter reference
+               },
+               "fabrikamPassword": {                  
+                  "value": "[parameters('TemplateFabrikamPassword')]" // Template parameter reference
+               },
+               "fabrikamUserName": {
+                  "value": "[parameters('TemplateFabrikamUserName')]" // Template parameter reference
+               }
             },
             "accessControl": {}
          },
@@ -660,7 +666,7 @@ Here is an example resource definition for an Office 365 Outlook connection and 
       },
       // Office 365 Outlook API connection resource definition
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          // Template parameter reference for connection name
          "name": "[parameters('office365_1_Connection_Name')]",
@@ -754,7 +760,7 @@ This example shows the interactions between your logic app's resource definition
       },
       // Office 365 Outlook API connection resource definition
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          // Template parameter reference for connection name
          "name": "[parameters('office365_1_Connection_Name')]",
@@ -908,7 +914,7 @@ Here is an example that provides the account name and access key for an Azure Bl
             "tags": {
                "displayName": "LogicApp"
             },
-            "apiVersion": "2016-06-01",
+            "apiVersion": "2019-05-01",
             // Template parameter reference for value to use at deployment
             "dependsOn": [
                "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]"
@@ -917,7 +923,7 @@ Here is an example that provides the account name and access key for an Azure Bl
       },
       // Azure Blob Storage API connection resource definition
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          "name": "[parameters('azureblob_1_Connection_Name')]",
          "location": "[parameters('LogicAppLocation')]",
@@ -951,7 +957,7 @@ Some connections support using an Azure Active Directory (Azure AD) [service pri
 ```json
 {
    <other-template-objects>
-   "type": "MICROSOFT.WEB/CONNECTIONS",
+   "type": "Microsoft.Web/connections",
    "apiVersion": "2016-06-01",
    "name": "[parameters('azuredatalake_1_Connection_Name')]",
    "location": "[parameters('LogicAppLocation')]",
@@ -1119,7 +1125,7 @@ Here is the parameterized sample template that's used by this topic's examples:
          "defaultValue": "",
          "metadata": {
             "description": "Name of the storage account the connector should use."
-         },
+         }
 
       },
       "azureblob_1_accountName": {
@@ -1162,7 +1168,7 @@ Here is the parameterized sample template that's used by this topic's examples:
                            "connection": {
                               "name": "@parameters('$connections')['azureblob']['connectionId']"
                            }
-                        },
+                        }
                      },
                      "method": "post",
                      "body": "@triggerBody()?['Body']",
@@ -1238,14 +1244,14 @@ Here is the parameterized sample template that's used by this topic's examples:
          "tags": {
             "displayName": "LogicApp"
          },
-         "apiVersion": "2016-06-01",
+         "apiVersion": "2019-05-01",
          "dependsOn": [
             "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]",
             "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
          ]
       },
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          "name": "[parameters('office365_1_Connection_Name')]",
          "location": "[parameters('LogicAppLocation')]",
@@ -1257,7 +1263,7 @@ Here is the parameterized sample template that's used by this topic's examples:
          }
       },
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          "name": "[parameters('azureblob_1_Connection_Name')]",
          "location": "[parameters('LogicAppLocation')]",

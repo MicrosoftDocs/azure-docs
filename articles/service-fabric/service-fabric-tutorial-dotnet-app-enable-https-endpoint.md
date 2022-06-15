@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to add an HTTPS endpoint to an ASP.
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: "mvc, devx-track-csharp"
+ms.custom: "mvc, devx-track-csharp, devx-track-azurepowershell"
 ---
 # Tutorial: Add an HTTPS endpoint to an ASP.NET Core Web API front-end service using Kestrel
 
@@ -265,6 +265,13 @@ if ($cert -eq $null)
     $keyName=$cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName
 
     $keyPath = "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\"
+
+    if ($keyName -eq $null){
+      $privateKey = [System.Security.Cryptography.X509Certificates.RSACertificateExtensions]::GetRSAPrivateKey($cert)      
+      $keyName = $privateKey.Key.UniqueName
+      $keyPath = "C:\ProgramData\Microsoft\Crypto\Keys"
+    }
+
     $fullPath=$keyPath+$keyName
     $acl=(Get-Item $fullPath).GetAccessControl('Access')
 
@@ -361,7 +368,7 @@ First, export the certificate to a PFX file. Open the certlm.msc application and
 
 In the export wizard, choose **Yes, export the private key** and choose the Personal Information Exchange (PFX) format.  Export the file to *C:\Users\sfuser\votingappcert.pfx*.
 
-Next, install the certificate on the remote cluster using [these provided Powershell scripts](./scripts/service-fabric-powershell-add-application-certificate.md).
+Next, install the certificate on the remote cluster using [these provided PowerShell scripts](./scripts/service-fabric-powershell-add-application-certificate.md).
 
 > [!Warning]
 > A self-signed certificate is sufficient for development and testing applications. For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority) instead of a self-signed certificate.

@@ -3,12 +3,13 @@ title: Deploy a .NET app in a container to Azure Service Fabric
 description: Learn how to containerize an existing .NET application using Visual Studio and debug containers in Service Fabric locally. The containerized application is pushed to an Azure container registry and deployed to a Service Fabric cluster. When deployed to Azure, the application uses Azure SQL DB to persist data.
 
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 07/08/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Deploy a .NET application in a Windows container to Azure Service Fabric
 
-This tutorial shows you how to containerize an existing ASP.NET application and package it as a Service Fabric application.  Run the containers locally on the Service Fabric development cluster and then deploy the application to Azure.  The application persists data in [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md).
+This tutorial shows you how to containerize an existing ASP.NET application and package it as a Service Fabric application.  Run the containers locally on the Service Fabric development cluster and then deploy the application to Azure.  The application persists data in [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 
 In this tutorial, you learn how to:
 
@@ -27,14 +28,14 @@ In this tutorial, you learn how to:
 2. Enable Windows features **Hyper-V** and **Containers**.
 3. Install [Docker Desktop for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) so that you can run containers on Windows 10.
 4. Install [Service Fabric runtime version 6.2 or later](service-fabric-get-started.md) and the [Service Fabric SDK version 3.1](service-fabric-get-started.md) or later.
-5. Install [Visual Studio 2019 Version 16.1](https://www.visualstudio.com/) or later with the **Azure development** and **ASP.NET and web development** workloads.
+5. Install [Visual Studio](https://www.visualstudio.com/) and enable **Azure development** and **ASP.NET and web development** workloads.
 6. Install [Azure PowerShell][link-azure-powershell-install]
 
 ## Download and run Fabrikam Fiber CallCenter
 
-1. Download the [Fabrikam Fiber CallCenter][link-fabrikam-github] sample application.  Click the **download archive** link.  From the *sourceCode* directory in the *fabrikam.zip* file, extract the *sourceCode.zip* file and then extract the *VS2015* directory to your computer.
+1. Download the [Fabrikam Fiber CallCenter][link-fabrikam-github] sample application from GitHub.
 
-2. Verify that the Fabrikam Fiber CallCenter application builds and runs without error.  Launch Visual Studio as an **administrator** and open the [FabrikamFiber.CallCenter.sln][link-fabrikam-github] file.  Press F5 to debug and run the application.
+2. Verify that the Fabrikam Fiber CallCenter application builds and runs without error.  Launch Visual Studio as **administrator** and open the [VS2015\FabrikamFiber.CallCenter.sln][link-fabrikam-github] file. Press F5 to run and debug the application.
 
    ![Screenshot of the Fabrikam Fiber CallCenter application home page running on the local host. The page shows a dashboard with a list of support calls.][fabrikam-web-page]
 
@@ -42,7 +43,7 @@ In this tutorial, you learn how to:
 
 When running the Fabrikam Fiber CallCenter application in production, the data needs to be persisted in a database. There is currently no way to guarantee persistent data in a container, therefore you cannot store production data in SQL Server in a container.
 
-We recommend [Azure SQL Database](../azure-sql/database/powershell-script-content-guide.md). To set up and run a managed SQL Server DB in Azure, run the following script.  Modify the script variables as necessary. *clientIP* is the IP address of your development computer. Take note of the name of the server outputted by the script.
+We recommend [Azure SQL Database](/azure/azure-sql/database/powershell-script-content-guide). To set up and run a managed SQL Server DB in Azure, run the following script.  Modify the script variables as necessary. *clientIP* is the IP address of your development computer. Take note of the name of the server outputted by the script.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -208,7 +209,7 @@ You can confirm the installation by opening **Manage User Certificates** from th
 
 ## Allow your application running in Azure to access SQL Database
 
-Previously, you created a SQL firewall rule to give access to your application running locally.  Next, you need to enable the application running in Azure to access the SQL DB.  Create a [virtual network service endpoint](../azure-sql/database/vnet-service-endpoint-rule-overview.md) for the Service Fabric cluster and then create a rule to allow that endpoint to access the SQL DB. Be sure to specify the cluster resource group variable that you took note of when creating the cluster.
+Previously, you created a SQL firewall rule to give access to your application running locally.  Next, you need to enable the application running in Azure to access the SQL DB.  Create a [virtual network service endpoint](/azure/azure-sql/database/vnet-service-endpoint-rule-overview) for the Service Fabric cluster and then create a rule to allow that endpoint to access the SQL DB. Be sure to specify the cluster resource group variable that you took note of when creating the cluster.
 
 ```powershell
 # Create a virtual network service endpoint
@@ -305,7 +306,7 @@ In this tutorial, you learned how to:
 
 In the next part of the tutorial, learn how to [Deploy a container application with CI/CD to a Service Fabric cluster](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).
 
-[link-fabrikam-github]: https://aka.ms/fabrikamcontainer
+[link-fabrikam-github]: https://github.com/Azure-Samples/service-fabric-dotnet-containerize
 [link-azure-powershell-install]: /powershell/azure/install-Az-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs

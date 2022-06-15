@@ -1,14 +1,14 @@
 ---
-title: Azure Percept firewall configuration and security recommendations
+title: Azure Percept security recommendations
 description: Learn more about Azure Percept firewall configuration and security recommendations
-author: mimcco
-ms.author: mimcco
+author: nkhuyent
+ms.author: ngt
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/25/2021
 ---
 
-# Azure Percept firewall configuration and security recommendations
+# Azure Percept security recommendations
 
 Review the guidelines below for information on configuring firewalls and general security best practices with Azure Percept.
 
@@ -23,7 +23,7 @@ This checklist is a starting point for firewall rules:
 |*.auth.azureperceptdk.azure.net|443|Azure DK SOM Authentication and Authorization|
 |*.auth.projectsantacruz.azure.net|443|Azure DK SOM Authentication and Authorization|
 
-Additionally, review the list of [connections used by Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/production-checklist#allow-connections-from-iot-edge-devices).
+Additionally, review the list of [connections used by Azure IoT Edge](../iot-edge/production-checklist.md#allow-connections-from-iot-edge-devices).
 
 ## Additional recommendations for deployment to production
 
@@ -33,3 +33,8 @@ Azure Percept DK offers a great variety of security capabilities out of the box.
 - Ensure data-at-rest encryption is enabled
 - Continuously monitor the device posture and quickly respond to alerts
 - Limit the number of administrators who have access to the device
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn more about Azure Percept security](./overview-percept-security.md)

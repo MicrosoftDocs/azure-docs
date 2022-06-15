@@ -3,9 +3,10 @@ title: 'Send events to an environment - Azure Time Series Insights | Microsoft D
 description: Learn how to configure an event hub, run a sample application, and send events to your Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
@@ -14,6 +15,8 @@ ms.custom: seodec18
 ---
 
 # Send events to an Azure Time Series Insights Gen1 environment by using an event hub
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 > [!CAUTION]
 > This is a Gen1 article.

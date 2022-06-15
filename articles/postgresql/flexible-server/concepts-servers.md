@@ -1,17 +1,17 @@
 ---
-title: Servers in Azure Database for PostgreSQL - Flexible Server (Preview)
+title: Servers in Azure Database for PostgreSQL - Flexible Server
 description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL - Flexible Server.
-author: sunilagarwal
 ms.author: sunila
+author: sunilagarwal
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ---
 
 # Servers - Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides considerations and guidelines for working with Azure Database for PostgreSQL - Flexible Server.
 
@@ -37,8 +37,8 @@ Within an Azure Database for PostgreSQL server, you can create one or multiple d
 
 The following elements help ensure safe access to your database:
 
-|||
-|:--|:--|
+| Security concept | Description |
+| :-- | :-- |
 | **Authentication and authorization** | Azure Database for PostgreSQL server supports native PostgreSQL authentication. You can connect and authenticate to server with the server's admin login. |
 | **Protocol** | The service supports a message-based protocol used by PostgreSQL. |
 | **TCP/IP** | The protocol is supported over TCP/IP, and over Unix-domain sockets. |

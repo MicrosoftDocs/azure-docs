@@ -2,8 +2,6 @@
 title: Managed apps with notifications
 description: Configure managed applications with webhook endpoints to receive notifications about creates, updates, deletes, and errors on the managed application instances.
 ms.topic: conceptual
-ms.author: ilahat
-author: ilahat
 ms.date: 11/01/2019
 ---
 # Azure managed applications with notifications
@@ -55,7 +53,7 @@ To get started, see [Publish a service catalog application through Azure portal]
 
 ```
 ## Add Azure Marketplace managed application notifications
-For more information, see [Create an Azure application offer](../../marketplace/create-new-azure-apps-offer.md).
+For more information, see [Create an Azure application offer](../../marketplace/azure-app-offer-setup.md).
 
 ![Azure Marketplace managed application notifications in the Azure portal](./media/publish-notifications/marketplace-notifications.png)
 ## Event triggers

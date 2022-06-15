@@ -39,7 +39,7 @@ For local server storage, you can list and download slow query logs using the Az
 Azure Monitor Diagnostic Logs allows you to pipe slow query logs to Azure Monitor Logs (Log Analytics), Azure Storage, or Event Hubs. See [below](concepts-server-logs.md#diagnostic-logs) for more information.
 
 ## Local server storage log retention
-When logging to the server's local storage, logs are available for up to seven days from their creation. If the total size of the available logs exceeds 7 GB, then the oldest files are deleted until space is available.
+When logging to the server's local storage, logs are available for up to seven days from their creation. If the total size of the available logs exceeds 7 GB, then the oldest files are deleted until space is available. The 7 GB storage limit for the server logs is available free of cost and cannot be extended. 
 
 Logs are rotated every 24 hours or 7 GB, whichever comes first.
 

@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 09/08/2021
 ms.author: banders
 
 ---
@@ -37,7 +37,7 @@ This section doesn't apply to Azure customers in Australia, Japan, or Singapore.
 You receive an Azure invoice when any of the following events occur during your billing cycle:
 
 - **Service overage**: Your organization's usage charges exceed your credit balance.
-- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services despite your credit balance:
+- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services despite your credit balance. The services shown are examples of charges billed separately. You can get a full list of the services where charges are billed separately by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -70,7 +70,7 @@ This section only applies to Azure customers in Australia, Japan, or Singapore.
 You receive one or more Azure invoices when any of the following events occur:
 
 - **Service overage**: Your organization's usage charges exceed your credit balance.
-- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services:
+- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services. The services shown are examples of charges billed separately. You can get a full list of the services where charges are billed separately by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -363,7 +363,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
 ### To access Microsoft Azure Consumption Insights:
 
-1. Go to [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+1. Go to Microsoft Azure Consumption Insights.
 1. Select **Get It Now**.
 1. Provide an enrollment number and the number of months, and then select **Next**.
 1. Provide your API access key to connect. You can find the key for your enrollment in the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
@@ -391,51 +391,6 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
     You can get the API key in the Azure Enterprise portal under the **Download Usage** tab. Select **API Access Key**, and then paste the key into the **Account Key** box.
 1. Data takes approximately 5-30 minutes to load in Power BI, depending on the size of the data sets.
-
-## Reports FAQ
-
-This section addresses common questions about reports.
-
-### Why is my cost showing as $0?
-
-For **direct enrollment** customers, enterprise administrators can provide account owners and department administrators with access to cost/pricing information on the usage reports. Follow these steps:
-
-1. In the Azure Enterprise portal, select **Manage** on the left navigation.
-1. Select the blue pencil next to DA (department administrator) view charges.
-1. Select **Enabled** and save.
-1. Select the blue pencil next to AO (account owner) view charges.
-1. Select **Enabled** and save.
-
-> [!NOTE]
-> If you're an account owner or department administrator, contact your enterprise administrator to enable the pricing feature.
-
-For **indirect enrollment** customers, contact your partner to check that they've enabled the pricing feature for you. This can only be done by the partner. After you're enabled, you can view the cost and pricing on your enrollment as an enterprise administrator.
-
-Partners, if you want to enable the view charges feature for an account owner or a department administrator, follow the steps under **direct enrollment**.
-
-### Why is there no SKU information on my usage detail report?
-
-The usage detail report doesn't contain SKU information. The report does, however, contain usage information so you can download the price sheet report to obtain the SKU information.
-
-### Why doesn't the total amount on Azure Marketplace match the reports for usage summary and detail?
-
-The Azure Marketplace charges report shows only the usage-based charges. One-time fees aren't shown. See the usage summary page for the most up-to-date usage-based charges and one-time fees.
-
-### Why is there no information on my API report?
-
-API keys expire every six months. If you're having an issue, an enterprise administrator should generate a new API key. Remember to follow the steps on the API Report FAQ.
-
-### Why isn't my Power BI report working?
-
-For issues with Power BI, log a ticket with the [Power BI support team](https://support.powerbi.com).
-
-### Why don't my resource tags show on my reports
-
-Resource tags are managed on the Azure portal. You can contact the Azure subscription team in the [Azure portal](https://portal.azure.com). Follow the steps in the [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) article.
-
-### Why does my resource rate change every day?
-
-The resource rate shown in the detailed usage report is a calculated value. It represents the average monthly rate that was charged for the service. The resource rate is calculated from the average of your monthly commitment and your monthly overage charges for a unit of service. The portion of usage charged against your commitment and overage rates change to the day the month closes. Thus, the listed resource rate also changes during the month. The resource rate locks on the fifth day following the end of the month.
 
 ### Glossary of processes for calculating the resource rate
 

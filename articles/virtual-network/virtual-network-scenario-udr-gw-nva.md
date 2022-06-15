@@ -3,18 +3,17 @@ title: Hybrid connection with 2-tier application | Microsoft Docs
 description: Learn how to deploy virtual appliances and UDR to create a multi-tier application environment in Azure
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: mbender-ms
 manager: carmonm
 
 
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
-ms.author: kumud
+ms.author: mbender
 
 ---
 # Virtual appliance scenario
@@ -141,8 +140,12 @@ AZF1 represents an Azure virtual appliance containing the following rules:
 ### AZF2
 AZF2 represents an Azure virtual appliance containing the following rules:
 
-* **Route**: All traffic to 10.0.0.0/16 (**onpremvnet**) must be sent to the Azure gateway IP address (i.e. 10.0.0.1) through **port1**.
 * **Policy**: Allow all bidirectional traffic between **port1** and **port2**.
+
+### AZF3
+AZF3 represents an Azure virtual appliance containing the following rules:
+
+* **Route**: All traffic to 192.168.0.0/16 (**onpremvnet**) must be sent to the Azure gateway IP address (i.e., 10.0.0.1) through **port1**.
 
 ## Network Security Groups (NSGs)
 In this scenario, NSGs are not being used. However, you could apply NSGs to each subnet to restrict incoming and outgoing traffic. For instance, you could apply the following NSG rules to the external FW subnet.
@@ -164,4 +167,3 @@ To deploy this scenario, follow the high level steps below.
 3. Provision the resources that are part of **AZURERG**.
 4. Provision the tunnel from **onpremvnet** to **azurevnet**.
 5. Once all resources are provisioned, sign in to **onpremvm2** and ping 10.0.3.101 to test connectivity between **onpremsn2** and **azsn3**.
-

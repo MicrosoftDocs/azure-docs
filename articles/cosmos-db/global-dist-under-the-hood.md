@@ -1,21 +1,28 @@
 ---
 title: Global distribution with Azure Cosmos DB- under the hood 
 description: This article provides technical details relating to global distribution of Azure Cosmos DB
-author: SnehaGunda
+author: seesharprun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/02/2020
-ms.author: sngun
-ms.reviewer: sngun
-
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Global data distribution with Azure Cosmos DB - under the hood
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB is a foundational service in Azure, so it's deployed across all Azure regions worldwide including the public, sovereign, Department of Defense (DoD) and government clouds. Within a data center, we deploy and manage the Azure Cosmos DB on massive stamps of machines, each with dedicated local storage. Within a data center, Azure Cosmos DB is deployed across many clusters, each potentially running multiple generations of hardware. Machines within a cluster are typically spread across 10-20 fault domains for high availability within a region. The following image shows the Cosmos DB global distribution system topology:
+Azure Cosmos DB is a foundational service in Azure, so it's deployed across all Azure regions worldwide including the public, sovereign, Department of Defense (DoD) and government clouds.
+
+At a high level, Azure Cosmos DB container data is [horizontally partitioned](partitioning-overview.md) into many replica-sets, which replicate writes, in each region. Replica-sets durably commit writes using a majority quorum.
+
+Each region contains all the data partitions of an Azure Cosmos container and can serve reads as well as serve writes when multi-region writes is enabled. If your Azure Cosmos account is distributed across *N* Azure regions, there will be at least *N* x 4 copies of all your data.
+
+Within a data center, we deploy and manage the Azure Cosmos DB on massive stamps of machines, each with dedicated local storage. Within a data center, Azure Cosmos DB is deployed across many clusters, each potentially running multiple generations of hardware. Machines within a cluster are typically spread across 10-20 fault domains for high availability within a region. The following image shows the Cosmos DB global distribution system topology:
 
 :::image type="content" source="./media/global-dist-under-the-hood/distributed-system-topology.png" alt-text="System Topology" border="false":::
+
+
 
 **Global distribution in Azure Cosmos DB is turnkey:** At any time, with a few clicks or programmatically with a single API call, you can add or remove the geographical regions associated with your Cosmos database. A Cosmos database, in turn, consists of a set of Cosmos containers. In Cosmos DB, containers serve as the logical units of distribution and scalability. The collections, tables, and graphs you create are (internally) just Cosmos containers. Containers are completely schema-agnostic and provide a scope for a query. Data in a Cosmos container is automatically indexed upon ingestion. Automatic indexing enables users to query the data without the hassles of schema or index management, especially in a globally distributed setup.  
 
@@ -57,7 +64,7 @@ The service allows you to configure your Cosmos databases with either a single w
 
 ## Conflict resolution
 
-Our design for the update propagation, conflict resolution, and causality tracking is inspired from the prior work on [epidemic algorithms](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) and the [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) system. While the kernels of the ideas have survived and provide a convenient frame of reference for communicating the Cosmos DB’s system design, they have also undergone significant transformation as we applied them to the Cosmos DB system. This was needed, because the previous systems were designed neither with the resource governance nor with the scale at which Cosmos DB needs to operate, nor to provide the capabilities (for example, bounded staleness consistency) and the stringent and comprehensive SLAs that Cosmos DB delivers to its customers.  
+Our design for the update propagation, conflict resolution, and causality tracking is inspired from the prior work on [epidemic algorithms](https://www.kth.se/social/upload/51647982f276546170461c46/4-gossip.pdf) and the [Bayou](https://people.cs.umass.edu/~mcorner/courses/691M/papers/terry.pdf) system. While the kernels of the ideas have survived and provide a convenient frame of reference for communicating the Cosmos DB’s system design, they have also undergone significant transformation as we applied them to the Cosmos DB system. This was needed, because the previous systems were designed neither with the resource governance nor with the scale at which Cosmos DB needs to operate, nor to provide the capabilities (for example, bounded staleness consistency) and the stringent and comprehensive SLAs that Cosmos DB delivers to its customers.  
 
 Recall that a partition-set is distributed across multiple regions and follows Cosmos DBs (multi-region writes) replication protocol to replicate the data among the physical partitions comprising a given partition-set. Each physical partition (of a partition-set) accepts writes and serves reads typically to the clients that are local to that region. Writes accepted by a physical partition within a region are durably committed and made highly available within the physical partition before they are acknowledged to the client. These are tentative writes and are propagated to other physical partitions within the partition-set using an anti-entropy channel. Clients can request either tentative or committed writes by passing a request header. The anti-entropy propagation (including the frequency of propagation) is dynamic, based on the topology of the partition-set, regional proximity of the physical partitions, and the consistency level configured. Within a partition-set, Cosmos DB follows a primary commit scheme with a dynamically selected arbiter partition. The arbiter selection is dynamic and is an integral part of the reconfiguration of the partition-set based on the topology of the overlay. The committed writes (including multi-row/batched updates) are guaranteed to be ordered. 
 
@@ -82,3 +89,6 @@ Next learn how to configure global distribution by using the following articles:
 
 * [Add/remove regions from your database account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [How to create a custom conflict resolution policy](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

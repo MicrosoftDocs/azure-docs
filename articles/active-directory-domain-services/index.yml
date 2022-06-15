@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: justinha
   ms.author: justinha
-  manager: daveba
+  manager: karenhoran
   ms.date: 08/01/2019
 
 landingContent:
@@ -30,7 +30,7 @@ landingContent:
           - text: How does synchronization work?
             url: synchronization.md
           - text: FAQs
-            url: faqs.md
+            url: faqs.yml
   - title: Get started
     linkLists:
       - linkListType: deploy

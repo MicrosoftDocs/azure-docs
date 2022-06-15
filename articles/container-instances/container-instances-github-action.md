@@ -40,7 +40,7 @@ This article shows two ways to set up the workflow:
 
   ![Screenshot of the Fork button (highlighted) in GitHub](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
 
-* Ensure Actions is enabled for your repository. Navigate to your forked repository and select **Settings** > **Actions**. In **Actions permissions**, ensure that **Enable local and third party Actions for this repository** is selected.
+* Ensure Actions is enabled for your repository. Navigate to your forked repository and select **Settings** > **Actions**. In **Actions permissions**, ensure that **Allow all actions** is selected.
 
 ## Configure GitHub workflow
 
@@ -107,9 +107,9 @@ az role assignment create \
 
 ### Save credentials to GitHub repo
 
-1. In the GitHub UI, navigate to your forked repository and select **Settings** > **Secrets**. 
+1. In the GitHub UI, navigate to your forked repository and select **Settings** > **Secrets** > **Actions**. 
 
-1. Select **Add a new secret** to add the following secrets:
+1. Select **New repository secret** to add the following secrets:
 
 |Secret  |Value  |
 |---------|---------|
@@ -121,8 +121,8 @@ az role assignment create \
 
 ### Create workflow file
 
-1. In the GitHub UI, select **Actions** > **New workflow**.
-1. Select **Set up a workflow yourself**.
+1. In the GitHub UI, select **Actions**.
+1. Select **set up a workflow yourself**.
 1. In **Edit new file**, paste the following YAML contents to overwrite the sample code. Accept the default filename `main.yml`, or provide a filename you choose.
 1. Select **Start commit**, optionally provide short and extended descriptions of your commit, and select **Commit new file**.
 
@@ -245,7 +245,7 @@ Output is similar to:
 
 ```console
 [...]
-Checking in file github/workflows/main.yml in the Github repository myid/acr-build-helloworld-node
+Checking in file github/workflows/main.yml in the GitHub repository myid/acr-build-helloworld-node
 Creating workflow...
 GitHub Action Workflow has been created - https://github.com/myid/acr-build-helloworld-node/runs/515192398
 GitHub workflow completed.
@@ -305,13 +305,13 @@ Browse the [GitHub Marketplace](https://github.com/marketplace?type=actions) for
 <!-- LINKS - internal -->
 
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-group-show]: /cli/azure/group#az-group-show
-[az-group-delete]: /cli/azure/group#az-group-delete
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-container-create]: /cli/azure/container#az-container-create
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-container-show]: /cli/azure/container#az-container-show
-[az-container-delete]: /cli/azure/container#az-container-delete
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-container-app-up]: /cli/azure/ext/deploy-to-azure/container/app#ext-deploy-to-azure-az-container-app-up
+[az-group-show]: /cli/azure/group#az_group_show
+[az-group-delete]: /cli/azure/group#az_group_delete
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-container-show]: /cli/azure/container#az_container_show
+[az-container-delete]: /cli/azure/container#az_container_delete
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-container-app-up]: /cli/azure/container/app#az_container_app_up

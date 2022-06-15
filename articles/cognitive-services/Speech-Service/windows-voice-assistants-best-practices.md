@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
+ms.custom: cogserv-non-critical-speech
 ---
 # Design assistant experiences for Windows 10
 
@@ -147,7 +148,7 @@ The Contoso assistant has a home on the taskbar: their swirling, circular icon.
 
 ![Screenshot of voice assistant on Windows listening in compact view](media/voice-assistants/windows_voice_assistant/compact_view_listening.png)
 
-**Quick answers** may be shown in the voice activation preview. A TryResizeView will allow assistants to request different sizes.
+**Quick answers** may appear in the voice activation preview. A TryResizeView will allow assistants to request different sizes.
 
 ![Screenshot of voice assistant on Windows replying in compact view](media/voice-assistants/windows_voice_assistant/compact_view_response.png)
 

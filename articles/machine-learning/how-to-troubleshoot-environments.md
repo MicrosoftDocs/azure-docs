@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot issues with environment image builds and package installations.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: saachigopal
 ms.author:  sagopal
-ms.date: 12/3/2020
+ms.date: 03/01/2022
 ms.topic: troubleshooting
-ms.custom: devx-track-python
+ms.custom: devx-track-python, event-tier1-build-2022
 ---
 # Troubleshoot environment image builds
 
@@ -17,10 +17,10 @@ Learn how to troubleshoot issues with Docker environment image builds and packag
 
 ## Prerequisites
 
-* An Azure subscription. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An Azure subscription. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-* The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* The [CLI extension for Azure Machine Learning](v1/reference-azure-machine-learning-cli.md).
 * To debug locally, you must have a working Docker installation on your local system.
 
 ## Docker image build failures
@@ -141,6 +141,33 @@ Pip installation can be stuck in an infinite loop if there are unresolvable conf
 If you're working locally, downgrade the pip version to < 20.3. 
 In a conda environment created from a YAML file, you'll see this issue only if conda-forge is the highest-priority channel. To mitigate the issue, explicitly specify pip < 20.3 (!=20.3 or =20.2.4 pin to other version) as a conda dependency in the conda specification file.
 
+### ModuleNotFoundError: No module named 'distutils.dir_util'
+
+When setting up your environment, sometimes you'll run into the issue **ModuleNotFoundError: No module named 'distutils.dir_util'**. To fix it, run the following command:
+
+```bash
+apt-get install -y --no-install-recommends python3 python3-distutils && \
+ln -sf /usr/bin/python3 /usr/bin/python
+```
+
+When working with a Dockerfile, run it as part of a RUN command.
+
+```dockerfile
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends python3 python3-distutils && \
+  ln -sf /usr/bin/python3 /usr/bin/python
+```
+
+Running this command installs the correct module dependencies to configure your environment. 
+
+### Build failure when using Spark packages
+
+Configure the environment to not precache the packages. 
+
+```python
+env.spark.precache_packages = False
+```
+
 ## Service-side failures
 
 See the following scenarios to troubleshoot possible service-side failures.
@@ -184,9 +211,15 @@ If you're using default Docker images and enabling user-managed dependencies, us
 
  For more information, see [Enabling virtual networks](./how-to-network-security-overview.md).
 
-### You need to create an ICM
+### Error response from daemon: get "https://viennaglobal.azurecr.io": context deadline exceeded
 
-When you're creating/assigning an ICM to Metastore, include the CSS support ticket so that we can better understand the issue.
+This error happens when you have configured the workspace to build images using a compute cluster, and the compute cluster is configured for no public IP address. Using a compute cluster to build images is required if your Azure Container Registry is behind a virtual network. For more information, see [Enable Azure Container Registry](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+
+To resolve this error, use the following steps:
+
+1. [Create a new compute cluster that has a public IP address](how-to-create-attach-compute-cluster.md).
+1. [Configure the workspace to build images using the compute cluster created in step 1](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+
 
 ## Next steps
 

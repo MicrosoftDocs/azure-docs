@@ -1,34 +1,55 @@
 ---
-title: Data locations for Windows Virtual Desktop - Azure
-description: A brief overview of which locations Windows Virtual Desktop's data and metadata are stored in.
+title: Data locations for Azure Virtual Desktop - Azure
+description: A brief overview of which locations Azure Virtual Desktop's data and metadata are stored in.
 author: Heidilohr
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 02/17/2021
+ms.date: 06/07/2022
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Data and metadata locations for Windows Virtual Desktop
+# Data locations for Azure Virtual Desktop
 
->[!IMPORTANT]
->This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/data-locations-2019.md).
+Azure Virtual Desktop is available in many Azure regions, which are grouped by geography. When Azure Virtual Desktop resources are deployed, you have to specify the Azure region they'll be created in. The location of the resource determines where its information will be stored and the geography where related information will be stored. Azure Virtual Desktop itself is a non-regional service where there's no dependency on a specific Azure region. Learn more about [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/#overview) and [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
-Windows Virtual Desktop is currently available for all geographical locations. Administrators can choose the location to store user data when they create the host pool virtual machines and associated services, such as file servers. Learn more about Azure geographies at the [Azure datacenter map](https://azuredatacentermap.azurewebsites.net/).
+Azure Virtual Desktop stores various information for service objects, such as host pool names, application group names, workspace names, and user principal names. Data is categorized into different types, such as customer input, customer data, diagnostic data, and service-generated data. For more information about data category definitions, see [How Microsoft categorizes data for online services](https://www.microsoft.com/trust-center/privacy/customer-data-definitions).
 
->[!NOTE]
->Microsoft doesn't control or limit the regions where you or your users can access your user and app-specific data.
+> [!NOTE]
+> Microsoft doesn't control or limit the regions where you or your users can access your user and app-specific data.
 
->[!IMPORTANT]
->Windows Virtual Desktop stores global metadata information like tenant names, host pool names, app group names, and user principal names in a datacenter. Whenever a customer creates a service object, they must enter a location for the service object. The location they enter determines where the metadata for the object will be stored. The customer will choose an Azure region and the metadata will be stored in the related geography. For a list of all Azure regions and related geographies, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
+## Customer input
 
-We currently support storing metadata in the following geographies:
+To set up Azure Virtual Desktop, you must create host pools and other service objects. During configuration, you must enter information such as the host pool name, application group name, and so on. This information is considered "customer input." Customer input is stored in the geography associated with the Azure region the resource is created in. The stored data includes all data that you input into the host pool deployment process and any data you add after deployment while making configuration changes to Azure Virtual Desktop objects. Basically, stored data is the same data you can access using the Azure Virtual Desktop portal, PowerShell, or Azure command-line interface (CLI). For example, you can review the [available PowerShell commands](/powershell/module/az.desktopvirtualization/?view=azps-8.0.0&preserve-view=true) to get an idea of what customer input data the Azure Virtual Desktop service stores.
 
-- United States (US) (Generally available)
-- Europe (EU) (Public preview) 
+Azure Resource Manager paths to service objects are considered organizational information, so data residency doesn't apply to them. Data about Azure Resource Manager paths is stored outside of the chosen geography.
 
->[!NOTE]
-> When you're selecting a region to create Windows Virtual Desktop service objects in, you'll see regions under both US and EU geographies. To make sure you understand which region would work best for your deployment, take a look at [our Azure global infrastructure map](https://azure.microsoft.com/global-infrastructure/geographies/#geographies).
+## Customer data
 
-The stored metadata is encrypted at rest, and geo-redundant mirrors are maintained within the geography. All customer data, such as app settings and user data, resides in the location the customer chooses and isn't managed by the service. More geographies will become available as the service grows.
+The Azure Virtual Desktop service doesn't directly store any user-created or app-related information, but it does store customer data, such as application names and user principal names, because they're part of the resource deployment process. This information is stored in the geography associated with the region you created the resource in. 
 
-Service metadata is replicated within the Azure geography for disaster recovery purposes.
+## Diagnostic data
+
+Diagnostic data is generated by the Azure Virtual Desktop service and is gathered whenever administrators or users interact with the service. This data is only used for troubleshooting, support, and checking the health of the service in aggregate form. For example, when a session host VM is registered to a host pool, information is generated that includes the virtual machine (VM) name, which host pool the VM belongs to, and so on. This information is stored in the geography associated with the Azure region the host pool is created in. Also, when a user connects to the service and launches a session, diagnostic information is generated that includes the user principal name, client location, client IP address, which host pool the user is connecting to, and so on. This information is sent to two different locations:
+
+- The location closest to the user where the service infrastructure (client traces, user traces, and diagnostic data) is present.
+- The location where the host pool is located.
+
+## Service-generated data
+
+To keep Azure Virtual Desktop reliable and scalable, traffic patterns and usage are aggregated to check the health and performance of the infrastructure control plane. For example, to help us understand how to ramp up regional infrastructure capacity as service usage increases, we process service usage log data. We then review the logs for peak times and decide where to increase capacity. 
+
+Storing service-generated data is currently supported in the following geographies:
+
+- United States (US)
+- Europe (EU)
+- United Kingdom (UK)
+- Canada (CA)
+- Japan (JP) \**in Public Preview*
+
+In addition, service-generated data is aggregated from all locations where the service infrastructure is, and sent to the US geography. The data sent to the US includes scrubbed data, but not customer data.
+
+## Data storage
+
+Stored information is encrypted at rest, and geo-redundant mirrors are maintained within the geography. Data generated by the Azure Virtual Desktop service is replicated within the Azure geography for disaster recovery purposes. 
+
+User-created or app-related information, such as app settings and user data, resides in the Azure region you choose and isn't managed by the Azure Virtual Desktop service.

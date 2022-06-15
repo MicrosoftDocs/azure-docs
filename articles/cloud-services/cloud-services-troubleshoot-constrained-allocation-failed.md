@@ -2,8 +2,8 @@
 title: Troubleshoot ConstrainedAllocationFailed when deploying a Cloud service (classic) to Azure | Microsoft Docs
 description: This article shows how to resolve a ConstrainedAllocationFailed exception when deploying a Cloud service (classic) to Azure.
 services: cloud-services
-author: mibufo
-ms.author: v-mibufo
+author: hirenshah1
+ms.author: hirshah
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
@@ -11,6 +11,8 @@ ms.date: 02/22/2021
 
 
 # Troubleshoot ConstrainedAllocationFailed when deploying a Cloud service (classic) to Azure
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 In this article, you'll troubleshoot allocation failures where Azure Cloud services (classic) can't deploy because of allocation constraints.
 

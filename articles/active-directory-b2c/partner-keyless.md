@@ -4,12 +4,13 @@ titleSuffix: Azure AD B2C
 description: Tutorial for configuring Keyless with Azure Active Directory B2C for passwordless authentication 
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 1/17/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -61,23 +62,19 @@ The following architecture diagram shows the implementation.
 To add a new Identity provider, follow these steps:
 
 1. Sign in to the **[Azure portal](https://portal.azure.com/#home)** as the global administrator of your Azure AD B2C tenant.
-
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter on the top menu and choosing the directory that contains your tenant.
-
-3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
-
-4. Navigate to **Dashboard** > **Azure Active Directory B2C** >  **Identity providers**
-
-5. Select **Identity providers**.
-
-6. Select **Add**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+1. Navigate to **Dashboard** > **Azure Active Directory B2C** >  **Identity providers**
+1. Select **Identity providers**.
+1. Select **Add**.
 
 ### Configure an Identity provider
 
 To configure an identity provider, follow these steps:
 
 1. Select **Identity provider type** > **OpenID Connect (Preview)**
-2. Fill out the form to set up the Identity provider:
+1. Fill out the form to set up the Identity provider:
 
    |Property | Value |
    |:-----| :-----------|
@@ -89,11 +86,11 @@ To configure an identity provider, follow these steps:
    | Response type | id_token |
    | Response mode | form_post|
 
-3. Select **OK**.
+1. Select **OK**.
 
-4. Select **Map this identity provider’s claims**.
+1. Select **Map this identity provider’s claims**.
 
-5. Fill out the form to map the Identity provider:
+1. Fill out the form to map the Identity provider:
 
    |Property | Value |
    |:-----| :-----------|
@@ -101,7 +98,7 @@ To configure an identity provider, follow these steps:
    | Display name | From subscription |
    | Response mode | From subscription |
 
-6. Select **Save** to complete the setup for your new Open ID Connect (OIDC) Identity provider.
+1. Select **Save** to complete the setup for your new Open ID Connect (OIDC) Identity provider.
 
 ### Create a user flow policy
 
@@ -155,4 +152,4 @@ For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

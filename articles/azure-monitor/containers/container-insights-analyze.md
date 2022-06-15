@@ -3,6 +3,7 @@ title: Kubernetes monitoring with Container insights | Microsoft Docs
 description: This article describes how you can view and analyze the performance of a Kubernetes cluster with Container insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
+ms.reviewer: aul
 ---
 
 # Monitor your Kubernetes cluster performance with Container insights
@@ -15,11 +16,8 @@ For information about how to enable Container insights, see [Onboard Container i
 
 Azure Monitor provides a multi-cluster view that shows the health status of all monitored Kubernetes clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions. It shows clusters discovered across all environments that aren't monitored by the solution. You can immediately understand cluster health, and from here, you can drill down to the node and controller performance page or navigate to see performance charts for the cluster. For AKS clusters that were discovered and identified as unmonitored, you can enable monitoring for them at any time.
 
-The main differences in monitoring a Windows Server cluster with Container insights compared to a Linux cluster are described [here](container-insights-overview.md#what-does-container-insights-provide) in the overview article.
+The main differences in monitoring a Windows Server cluster with Container insights compared to a Linux cluster are described in [Feature of Container insights](container-insights-overview.md#features-of-container-insights) in the overview article.
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Multi-cluster view from Azure Monitor
 
@@ -136,7 +134,7 @@ You can [split](../essentials/metrics-charts.md#apply-splitting) a metric to vie
 
 When you switch to the **Nodes**, **Controllers**, and **Containers** tabs, a property pane automatically displays on the right side of the page. It shows the properties of the item selected, which includes the labels you defined to organize Kubernetes objects. When a Linux node is selected, the **Local Disk Capacity** section also shows the available disk space and the percentage used for each disk presented to the node. Select the **>>** link in the pane to view or hide the pane.
 
-As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you also can view Kubernetes container logs (stdout/stderror), events, and pod metrics by selecting the **View live data (preview)** link at the top of the pane. For more information about the configuration required to grant and control access to view this data, see [Setup the Live Data (preview)](container-insights-livedata-setup.md). While you review cluster resources, you can see this data from the container in real-time. For more information about this feature, see [How to view Kubernetes logs, events, and pod metrics in real time](container-insights-livedata-overview.md). To view Kubernetes log data stored in your workspace based on pre-defined log searches, select **View container logs** from the **View in analytics** drop-down list. For additional information about this topic, see [Search logs to analyze data](container-insights-log-search.md#search-logs-to-analyze-data).
+As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you also can view Kubernetes container logs (stdout/stderror), events, and pod metrics by selecting the **View live data (preview)** link at the top of the pane. For more information about the configuration required to grant and control access to view this data, see [Setup the Live Data (preview)](container-insights-livedata-setup.md). While you review cluster resources, you can see this data from the container in real-time. For more information about this feature, see [How to view Kubernetes logs, events, and pod metrics in real time](container-insights-livedata-overview.md). To view Kubernetes log data stored in your workspace based on pre-defined log searches, select **View container logs** from the **View in analytics** drop-down list. For additional information about this topic, see [How to query logs from Container insights](container-insights-log-query.md).
 
 Use the **+ Add Filter** option at the top of the page to filter the results for the view by **Service**, **Node**, **Namespace**, or **Node Pool**. After you select the filter scope, select one of the values shown in the **Select value(s)** field. After the filter is configured, it's applied globally while viewing any perspective of the AKS cluster. The formula only supports the equal sign. You can add additional filters on top of the first one to further narrow your results. For example, if you specify a filter by **Node**, you can only select **Service** or **Namespace** for the second filter.
 
@@ -292,13 +290,13 @@ Azure Network Policy Manager includes informative Prometheus metrics that allow 
 
 ## Workbooks
 
-Workbooks combine text, log queries, metrics, and parameters into rich interactive reports that allow you to analyze cluster performance. See [Workbooks in Container insights](../insights/container-insights-reports.md) for a description of the workbooks available for Container insights.
+Workbooks combine text, log queries, metrics, and parameters into rich interactive reports that allow you to analyze cluster performance. See [Workbooks in Container insights](container-insights-reports.md) for a description of the workbooks available for Container insights.
 
 
 ## Next steps
 
 - Review [Create performance alerts with Container insights](./container-insights-log-alerts.md) to learn how to create alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
 
-- View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see predefined queries and examples to evaluate or customize to alert, visualize, or analyze your clusters.
+- View [log query examples](container-insights-log-query.md) to see predefined queries and examples to evaluate or customize to alert, visualize, or analyze your clusters.
 
 - View [monitor cluster health](./container-insights-overview.md) to learn about viewing the health status your Kubernetes cluster.

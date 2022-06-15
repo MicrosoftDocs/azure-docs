@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 10/19/2021
 ms.author: banders
 ms.custom: seodec18
 ---
@@ -23,11 +23,14 @@ Depending on the policies set for your organization by the Enterprise Admin, onl
 1. As an Enterprise Admin, sign-in to the [Azure portal](https://portal.azure.com/).
 1. Search for *Cost Management + Billing*.  
    ![Screenshot that shows Azure portal search.](./media/ea-pricing/portal-cm-billing-search.png)
-1. Under the billing account, select **Usage + charges**.  
+1. Select a billing profile. Depending on your access, you might need to select a billing account first.
+1. Select **Usage + Charges** from the navigation menu.  
    ![Screenshot that shows usage and charges under Billing](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
 1. Select ![Download icon.](./media/ea-pricing/download-icon.png) **Download** for the month.
-1. Under **Price Sheet**, select **Download csv**.  
+1. On the Download Usage + Charges page, under Price Sheet, select **Prepare document**. It could take a while to prepare your file.  
     :::image type="content" source="./media/ea-pricing/download-enterprise-agreement-price-sheet-01.png" alt-text="Screenshot shows the Download Usage + Charges options." :::
+1. When the file is ready to download, select **Download csv**.
+
 
 ## Download pricing for an MCA or MPA account
 
@@ -40,7 +43,7 @@ If you have an MCA, you must be the billing profile owner, contributor, reader, 
 1. Select a billing profile. Depending on your access, you might need to select a billing account first.
 1. Select **Invoices**.
 1. In the invoice grid, find the row of the invoice corresponding to the price sheet you want to download.
-1. Click the ellipsis (`...`) at the end of the row.  
+1. Select the ellipsis (`...`) at the end of the row.  
     ![Screenshot that shows the ellipsis selected](./media/ea-pricing/billingprofile-invoicegrid-new.png)
 1. If you want to see prices for the services in the selected invoice, select **Invoice price sheet**.
 1. If you want to see prices for all Azure services for the given billing period, select **Azure price sheet**.  

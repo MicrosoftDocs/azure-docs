@@ -10,7 +10,7 @@ ms.date: 06/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -37,14 +37,12 @@ For more information on Azure AD Multi-Factor Authentication, see [What is Azure
    1. Under **Assignments**
       1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
          1. Optionally you can choose to exclude users from the policy.
-   1. Under **Controls**
-      1. Ensure the checkbox **Require Azure AD MFA registration** is checked and choose **Select**.
    1. **Enforce Policy** - **On**
    1. **Save**
 
 ## User experience
 
-Azure Active Directory Identity Protection will prompt your users to register the next time they sign in interactively and they will have 14 days to complete registration. During this 14-day period, they can bypass registration but at the end of the period they will be required to register before they can complete the sign-in process.
+Azure Active Directory Identity Protection will prompt your users to register the next time they sign in interactively and they will have 14 days to complete registration. During this 14-day period, they can bypass registration if MFA is not required as a condition, but at the end of the period they will be required to register before they can complete the sign-in process.
 
 For an overview of the related user experience, see:
 

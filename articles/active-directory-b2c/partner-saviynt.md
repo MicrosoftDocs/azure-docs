@@ -4,12 +4,13 @@ titleSuffix: Azure AD B2C
 description: Tutorial to configure Azure Active Directory B2C with Saviynt for cross application integration to streamline IT modernization and promote better security, governance, and compliance. 
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -72,37 +73,22 @@ The following architecture diagram shows the implementation.
 ### Create an Azure AD Application for Saviynt
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search and select **Azure AD B2C**.
+1. Select **App registrations** > **New registration**.
+1. Enter a Name for the application. For example, Saviynt and select **Create**.
+1. Go to **API Permissions** and select **+ Add a permission.**
+1. The Request API permissions page appears. Select **Microsoft APIs** tab and select **Microsoft Graph** as commonly used Microsoft APIs.
+1. Go to the next page, and select **Application permissions**.
+1. Select **Directory**, and select **Directory.Read.All** and **Directory.ReadWrite.All** checkboxes.
+1. Select **Add Permissions**. Review the permissions added.
+1. Select **Grant admin consent for Default Directory** > **Save**.
+1. Go to **Certificates and Secrets** and select **+ Add Client Secret**. Enter the client secret description, select the expiry option, and select **Add**.
+1. The Secret key is generated and displayed in the Client secret section. You'll need to use it later.
 
-2. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
-
-3. In the Azure portal, search and select **Azure AD B2C**.
-
-4. Select **App registrations** > **New registration**.
-
-5. Enter a Name for the application. For example, Saviynt and select **Create**.
-
-6. Go to **API Permissions** and select **+ Add a permission.**
-
-7. The Request API permissions page appears. Select **Microsoft APIs** tab and select **Microsoft Graph** as commonly used Microsoft APIs.
-
-8. Go to the next page, and select **Application permissions**.
-
-9. Select **Directory**, and select **Directory.Read.All** and **Directory.ReadWrite.All** checkboxes.
-
-10. Select **Add Permissions**. Review the permissions added.
-
-11. Select **Grant admin consent for Default Directory** > **Save**.
-
-12. Go to **Certificates and Secrets** and select **+ Add Client Secret**. Enter the client secret description, select the expiry option, and select **Add**.
-
-13. The Secret key is generated and displayed in the Client secret section.
-
-    >[!NOTE]
-    > You'll need the client secret later.
-
-14. Go to **Overview** and get the **Client ID** and **Tenant ID**.
-
-15. Tenant ID, client ID, and client secret will be needed to  complete the setup in Saviynt.
+1. Go to **Overview** and get the **Client ID** and **Tenant ID**.
+1. Tenant ID, client ID, and client secret will be needed to  complete the setup in Saviynt.
 
 ### Enable Saviynt to Delete users
 
@@ -131,6 +117,6 @@ For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 
 - [Create a web API application](./add-web-api-application.md)

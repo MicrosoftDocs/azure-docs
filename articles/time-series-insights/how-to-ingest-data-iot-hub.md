@@ -3,10 +3,10 @@ title: 'How to add an IoT hub event source - Azure Time Series Insights | Micros
 description: Learn how to add an IoT hub event source to your Azure Time Series Insight environment.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
-ms.reviewer: v-mamcge, jasonh, kfile
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/21/2021
@@ -14,6 +14,8 @@ ms.custom: seodec18
 ---
 
 # Add an IoT hub event source to your Azure Time Series Insight environment
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 This article describes how to use the Azure portal to add an event source that reads data from Azure IoT Hub to your Azure Time Series Insights environment.
 

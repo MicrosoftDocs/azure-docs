@@ -2,17 +2,17 @@
 title: TLS termination using CLI - Azure Application Gateway
 description: Learn how to create an application gateway and add a certificate for TLS termination using the Azure CLI.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
-ms.author: victorh
+ms.author: greglin
 ms.custom: mvc, devx-track-azurecli
 ---
 
 # Create an application gateway with TLS termination using the Azure CLI
 
-You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for [TLS termination](ssl-overview.md). For backend servers, you can use a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) . In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
+You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for [TLS termination](ssl-overview.md). For backend servers, you can use a [virtual machine scale set](../virtual-machine-scale-sets/overview.md). In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
 In this article, you learn how to:
 
@@ -79,7 +79,8 @@ az network public-ip create \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
   --allocation-method Static \
-  --sku Standard
+  --sku Standard \
+  --location eastus
 ```
 
 ## Create the application gateway
@@ -101,6 +102,7 @@ az network application-gateway create \
   --frontend-port 443 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
+  --priority "1" \
   --public-ip-address myAGPublicIPAddress \
   --cert-file appgwcert.pfx \
   --cert-password "Azure123456!"

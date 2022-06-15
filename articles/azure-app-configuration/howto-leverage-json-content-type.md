@@ -168,7 +168,7 @@ az appconfig kv export -d file --format json --path "~/Export.json" --separator 
 ```
 
 > [!NOTE]
-> If your App Configuration store has some key-values without JSON content-type, they will also be exported to the same file in string format. If you want to export only the JSON key-values, assign a unique label or prefix to your JSON key-values and use label or prefix filtering during export.
+> If your App Configuration store has some key-values without JSON content-type, they will also be exported to the same file in string format.
 
 
 ## Consuming JSON key-values in applications

@@ -1,16 +1,16 @@
 ---
-title: How to configure your SaaS offer listing details in Microsoft Partner Center
-description: Learn how to configure your software as a service (SaaS) offer listing details in Microsoft commercial marketplace. 
+title: Configure SaaS offer listing details in Azure Marketplace
+description: Configure software as a service (SaaS) offer listing details in Azure Marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 03/16/2022
 ---
 
-# How to configure your SaaS offer listing details
+# Configure SaaS offer listing details
 
 The information you provide on the **Offer listing** page for your software as a service (SaaS) offer will be displayed in the Microsoft commercial marketplace online stores. This includes the descriptions of your offer, screenshots, and your marketing assets.
 
@@ -23,7 +23,7 @@ On the **Offer listing** page, under **Marketplace details**, complete the follo
 
 1. The **Name** box is prefilled with the name you entered earlier in the  **New offer** dialog box. You can change the name at any time.
 1. In the **Search results summary** box, enter up to 50 characters of text. This summary is used in the marketplace listing search results.
-1. In the **Description** box, enter a description for your offer. This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 3,000 characters of text in this box, which includes HTML markup and spaces. For information about HTML formatting, see [HTML tags supported in the commercial marketplace offer descriptions](supported-html-tags.md).
+1. In the **Description** box, enter a description for your offer. This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 5,000 characters of text in this box, which includes HTML markup and spaces. For information about HTML formatting, see [HTML tags supported in the commercial marketplace offer descriptions](supported-html-tags.md).
 1. In the **Getting started instructions** box, provide instructions to help customers connect to your SaaS offer. You can add up to 3,000 characters of text and links to more detailed online documentation.
 1. (Optional) In the **Search keywords** boxes, enter up to three search keywords that customers can use to find your offer in the commercial marketplace. You don't need to include the offer **Name** and **Description**: that text is automatically included in search.
 1. In the **Privacy policy link** box, enter a link (starting with https) to your organization's privacy policy. You're responsible to ensure your app complies with privacy laws and regulations, and for providing a valid privacy policy.
@@ -62,7 +62,10 @@ You must add at least one and a maximum of three marketing documents for your of
 1. In the **Name** box that appears, enter a name for this document. Customers will see this name on your offer's details tab.
 1. Repeat these steps to add an additional supporting document.
 
-## Add your marketplace media
+## Add marketplace media
+
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
 
 ### Add logos
 
@@ -99,5 +102,5 @@ Select **Save draft** before continuing to the next tab: Preview audience.
 
 ## Next steps
 
-- If you’re selling your offer through Microsoft, go to [How to add a preview audience for your SaaS offer](create-new-saas-offer-preview.md). 
-- Otherwise, go to [How to sell your SaaS offer](create-new-saas-offer-marketing.md).
+- If you’re selling your offer through Microsoft, go to [Add a preview audience](create-new-saas-offer-preview.md). 
+- Otherwise, go to [Sell a SaaS offer](create-new-saas-offer-marketing.md).

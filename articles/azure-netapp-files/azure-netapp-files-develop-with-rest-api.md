@@ -3,7 +3,7 @@ title: Develop for Azure NetApp Files with REST API | Microsoft Docs
 description: The REST API for the Azure NetApp Files service defines HTTP operations for resources such as the NetApp account, the capacity pool, the volumes, and snapshots.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 06/02/2020
-ms.author: b-juche
+ms.date: 06/15/2022
+ms.author: anfdocs
 ---
 # Develop for Azure NetApp Files with REST API 
 
@@ -22,10 +21,17 @@ The REST API for the Azure NetApp Files service defines HTTP operations against 
 
 ## Azure NetApp Files REST API specification
 
-The REST API specification for Azure NetApp Files is published through [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager):
+The REST API specification for Azure NetApp Files is published through [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager):
 
-`https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
+`https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager`
 
+## Considerations
+
+* When the API limit has been exceeded, the HTTP response code is **429**.  For example:
+
+   `"Microsoft.Azure.ResourceProvider.Common.Exceptions.ResourceProviderException: Error getting Pool. Rate limit exceeded for this endpoint - try again later ---> CloudVolumes.Service.Client.Client.ApiException: Error calling V2DescribePool: {\"code\":429,\"message\":\"Rate limit exceeded for this endpoint - try again later\"}`
+   
+   This response code can come from throttling or a temporary condition. See [Azure Resource Manager HTTP 429 response code](../azure-resource-manager/management/request-limits-and-throttling.md#error-code) for more information.
 
 ## Access the Azure NetApp Files REST API  
 
@@ -36,7 +42,7 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
    2. Enter the following command in the Azure CLI: 
     
         ```azurecli
-        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE
+        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE --role Contributor --scopes /subscriptions/{subscription-id}
         ```
 
       The command output is similar to the following example:  

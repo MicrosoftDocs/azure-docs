@@ -21,10 +21,10 @@ Microsoft Connected Cache Azure IoT Edge Module Environment Variables are used t
 
 | Variable Name                 | Value Format                           | Required/Optional | Functionality                                    |
 | ----------------------------- | ---------------------------------------| ----------------- | ------------------------------------------------ |
-| CUSTOMER_ID                   | Azure Subscription ID GUID             | Required          | This is the customer's key, which provides secure<br>authentication of the cache node to Delivery Optimization<br>Services. Required in order  for module to function. |
-| CACHE_NODE_ID                 | Cache Node ID GUID                     | Required          | Uniquely identifies the Microsoft Connected Cache<br>node to Delivery Optimization Services. Required in order<br> for module to function. |
+| CUSTOMER_ID                   | Azure Subscription ID GUID             | Required          | This is the customer's key, which provides secure<br>authentication of the cache node to Delivery Optimization<br>Services.<br>Required in order  for module to function. |
+| CACHE_NODE_ID                 | Cache Node ID GUID                     | Required          | Uniquely identifies the Microsoft Connected Cache<br>node to Delivery Optimization Services.<br>Required in order<br> for module to function. |
 | CUSTOMER_KEY                  | Customer Key  GUID                     | Required          | This is the customer's key, which provides secure<br>authentication of the cache node to Delivery Optimization Services.<br>Required in order for module to function.|
-| STORAGE_*N*_SIZE_GB           | Where N is the number of GB Required   | Required          | Specify up to nine drives to cache content and specify<br>the maximum space in Gigabytes to allocate for content on each cache drive. Examples:<br>STORAGE_1_SIZE_GB = 150<br>STORAGE_2_SIZE_GB = 50<br>The number of the drive must match the cache drive binding values specified<br>in the Container Create Option MicrosoftConnectedCache*N* value|
+| STORAGE_*N*_SIZE_GB           | Where N is the cache drive   | Required          | Specify up to 9 drives to cache content and specify the maximum space in<br>Gigabytes to allocate for content on each cache drive. Examples:<br>STORAGE_1_SIZE_GB = 150<br>STORAGE_2_SIZE_GB = 50<br>The number of the drive must match the cache drive binding values specified<br>in the Container Create Option MicrosoftConnectedCache*N* value<br>Minimum size of the cache is 10GB.|
 | UPSTREAM_HOST                 | FQDN/IP                                | Optional          | This value can specify an upstream Microsoft Connected<br>Cache node that acts as a proxy if the Connected Cache node<br> is disconnected from the internet. This setting is used to support<br> the Nested IoT scenario.<br>**Note:** Microsoft Connected Cache listens on http default port 80.|
 | UPSTREAM_PROXY                | FQDN/IP:PORT                           | Optional          | The outbound internet proxy.<br>This could also be the OT DMZ proxy if an ISA 95 network. |
 | CACHEABLE_CUSTOM_*N*_HOST     | HOST/IP<br>FQDN                        | Optional          | Required to support custom package repositories.<br>Repositories could be hosted locally or on the internet.<br>There is no limit to the number of custom hosts that can be configured.<br><br>Examples:<br>Name = CACHEABLE_CUSTOM_1_HOST Value = packages.foo.com<br> Name = CACHEABLE_CUSTOM_2_HOST Value = packages.bar.com    |
@@ -47,14 +47,6 @@ Required to map the container storage location to the storage location on the di
 
 This option specifies the external machine http port that MCC listens on for content requests. The default HostPort is port 80 and other ports are not supported at this time as the ADU client makes requests on port 80 today. TCP port 8081 is the internal container port that the MCC listens on and cannot be changed.
 
-```markdown
-8081/tcp": [
-   {
-	   "HostPort": "80"
-   }
-]
-```
-
 ### Container service TCP port mappings
 
 The Microsoft Connected Cache module has a .NET Core service, which is used by the caching engine for various functions.
@@ -62,12 +54,29 @@ The Microsoft Connected Cache module has a .NET Core service, which is used by t
 >[!Note]
 >To support Azure IoT Nested Edge the HostPort must not be set to 5000 because the Registry proxy module is already listening on host port 5000.
 
-```markdown
-5000/tcp": [
-   {
-	   "HostPort": "5001"
-   }
-]
+
+Sample Container Create Options
+
+```json
+{
+    "HostConfig": {
+        "Binds": [
+            "/microsoftConnectedCache1/:/nginx/cache1/"
+        ],
+        "PortBindings": {
+            "8081/tcp": [
+                {
+                    "HostPort": "80"
+                }
+            ],
+            "5000/tcp": [
+                {
+                    "HostPort": "5100"
+                }
+            ]
+        }
+    }
+}
 ```
 
 ## Microsoft Connected Cache summary report
@@ -79,4 +88,5 @@ The summary report is currently the only way for a customer to view caching data
 * **eggressBytes** - This is the sum of hitBytes and missBytes and is the total bytes delivered to clients.
 * **hitRatioBytes** - This is the ratio of hitBytes to egressBytes.  If 100% of eggressBytes delivered in a period were equal to the hitBytes this would be 1 for example.
 
-The summary report is available at `http://<FQDN/IP of Azure IoT Edge Gateway hosting MCC>:5001/summary` (see environment variable details below for information on visibility of this report).
+
+The summary report is available at `http://<FQDN/IP of Azure IoT Edge Gateway hosting MCC>:5001/summary` Replace \<Azure IoT Edge Gateway IP\> with the IP address or hostname of your IoT Edge gateway. (see environment variable details for information on visibility of this report).

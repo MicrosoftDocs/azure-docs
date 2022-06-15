@@ -6,7 +6,7 @@ manager: soricos
 services: azure-communication-services
 
 ms.author: apistrak
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -23,14 +23,14 @@ Before you get started, make sure to:
 Access key authentication uses a shared secret key to generate an HMAC signature for each HTTP request. This signature is generated with the SHA256 algorithm and is sent in the `Authorization` header by using the `HMAC-SHA256` scheme. For example:
 
 ```
-Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
+Authorization: "HMAC-SHA256 SignedHeaders=x-ms-date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
 ```
 
 The `hmac-sha256-signature` consists of:
 
 - HTTP verb (for example, `GET` or `PUT`)
 - HTTP request path
-- Date
+- x-ms-date
 - Host
 - x-ms-content-sha256
 
@@ -93,9 +93,9 @@ Add the following code to the `Main` method.
 
 ```csharp
 string resourceEndpoint = "resourceEndpoint";
-//Create a uri you are going to call.
+// Create a uri you are going to call.
 var requestUri = new Uri($"{resourceEndpoint}/identities?api-version=2021-03-07");
-//Endpoint identities?api-version=2021-03-07 accepts list of scopes as a body
+// Endpoint identities?api-version=2021-03-07 accepts list of scopes as a body
 var body = new[] { "chat" }; 
 var serializedBody = JsonConvert.SerializeObject(body);
 var requestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
@@ -144,8 +144,10 @@ Replace `resourceAccessKey` with an access key of your real Communication Servic
 
 We'll now construct the string that we'll add to our authorization header.
 
-1. Compute a content hash.
-1. Specify the Coordinated Universal Time (UTC) timestamp.
+1. Prepare values for the headers to be signed.
+   1. Specify the current timestamp using the Coordinated Universal Time (UTC) timezone.
+   1. Get the request authority (DNS host name or IP address and the port number).
+   1. Compute a content hash.
 1. Prepare a string to sign.
 1. Compute the signature.
 1. Concatenate the string, which will be used in the authorization header.
@@ -153,16 +155,19 @@ We'll now construct the string that we'll add to our authorization header.
 Add the following code to the `Main` method.
 
 ```csharp
-// Compute a content hash.
-var contentHash = ComputeContentHash(serializedBody);
-//Specify the Coordinated Universal Time (UTC) timestamp.
+// Specify the 'x-ms-date' header as the current UTC timestamp according to the RFC1123 standard
 var date = DateTimeOffset.UtcNow.ToString("r", CultureInfo.InvariantCulture);
-//Prepare a string to sign.
-var stringToSign = $"POST\n{requestUri.PathAndQuery}\n{date};{requestUri.Authority};{contentHash}";
-//Compute the signature.
+// Get the host name corresponding with the 'host' header.
+var host = requestUri.Authority;
+// Compute a content hash for the 'x-ms-content-sha256' header.
+var contentHash = ComputeContentHash(serializedBody);
+
+// Prepare a string to sign.
+var stringToSign = $"POST\n{requestUri.PathAndQuery}\n{date};{host};{contentHash}";
+// Compute the signature.
 var signature = ComputeSignature(stringToSign);
-//Concatenate the string, which will be used in the authorization header.
-var authorizationHeader = $"HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature={signature}";
+// Concatenate the string, which will be used in the authorization header.
+var authorizationHeader = $"HMAC-SHA256 SignedHeaders=x-ms-date;host;x-ms-content-sha256&Signature={signature}";
 ```
 
 ## Add headers to requestMessage
@@ -170,11 +175,16 @@ var authorizationHeader = $"HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha
 Use the following code to add the required headers to your `requestMessage`.
 
 ```csharp
-//Add a content hash header.
+// Add a date header.
+requestMessage.Headers.Add("x-ms-date", date);
+
+// Add a host header.
+// In C#, the 'host' header is added automatically by the 'HttpClient'. However, this step may be required on other platforms such as Node.js.
+
+// Add a content hash header.
 requestMessage.Headers.Add("x-ms-content-sha256", contentHash);
-//Add a date header.
-requestMessage.Headers.Add("Date", date);
-//Add an authorization header.
+
+// Add an authorization header.
 requestMessage.Headers.Add("Authorization", authorizationHeader);
 ```
 

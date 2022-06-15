@@ -19,23 +19,23 @@ This tutorial shows you how to connect your Azure Databricks cluster to data sto
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Create a Databricks cluster
-> * Ingest unstructured data into a storage account
-> * Run analytics on your data in Blob storage
+> - Create a Databricks cluster
+> - Ingest unstructured data into a storage account
+> - Run analytics on your data in Blob storage
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-* Create an Azure Data Lake Storage Gen2 account.
+- Create an Azure Data Lake Storage Gen2 account.
 
   See [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
-* Make sure that your user account has the [Storage Blob Data Contributor role](../common/storage-auth-aad-rbac-portal.md) assigned to it.
+- Make sure that your user account has the [Storage Blob Data Contributor role](assign-azure-role-data-access.md) assigned to it.
 
-* Install AzCopy v10. See [Transfer data with AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- Install AzCopy v10. See [Transfer data with AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-* Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
+- Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
   There's a couple of specific things that you'll have to do as you perform the steps in that article.
 
@@ -50,13 +50,9 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 This tutorial uses flight data from the Bureau of Transportation Statistics to demonstrate how to perform an ETL operation. You must download this data to complete the tutorial.
 
-1. Go to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?gnoyr_VQ=FGJ).
+1. Download the [On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/tutorials/On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip) file. This file contains the flight data.
 
-2. Select the **Prezipped File** check box to select all data fields.
-
-3. Select the **Download** button and save the results to your computer. 
-
-4. Unzip the contents of the zipped file and make a note of the file name and the path of the file. You need this information in a later step.
+2. Unzip the contents of the zipped file and make a note of the file name and the path of the file. You need this information in a later step.
 
 ## Create an Azure Databricks service
 
@@ -97,7 +93,7 @@ In this section, you create an Azure Databricks service by using the Azure porta
     Fill in values for the following fields, and accept the default values for the other fields:
 
     - Enter a name for the cluster.
-     
+
     - Make sure you select the **Terminate after 120 minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
 4. Select **Create cluster**. After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
@@ -122,11 +118,11 @@ Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 a
    azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
    ```
 
-   * Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
+   - Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
 
-   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+   - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-   * Replace the `<container-name>` placeholder with the name of a container in your storage account.
+   - Replace the `<container-name>` placeholder with the name of a container in your storage account.
 
 ## Create a container and mount it
 
@@ -144,7 +140,7 @@ In this section, you'll create a container and a folder in your storage account.
 
 5. Copy and paste the following code block into the first cell, but don't run this code yet.
 
-    ```Python
+    ```python
     configs = {"fs.azure.account.auth.type": "OAuth",
            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
            "fs.azure.account.oauth2.client.id": "<appId>",
@@ -166,7 +162,7 @@ In this section, you'll create a container and a folder in your storage account.
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
-In the notebook that you previously created, add a new cell, and paste the following code into that cell. 
+In the notebook that you previously created, add a new cell, and paste the following code into that cell.
 
 ```python
 # Use the previously established DBFS mount point to read the data.
@@ -206,7 +202,7 @@ Next, you can begin to query the data you uploaded into your storage account. En
 
 To create data frames for your data sources, run the following script:
 
-* Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
+- Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
 
 ```python
 # Copy this into a Cmd cell in your notebook.
@@ -273,5 +269,5 @@ When they're no longer needed, delete the resource group and all related resourc
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Extract, transform, and load data using Apache Hive on Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)

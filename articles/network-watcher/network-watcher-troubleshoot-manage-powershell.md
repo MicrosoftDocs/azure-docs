@@ -6,12 +6,12 @@ services: network-watcher
 documentationcenter: na
 author: damendo
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/07/2021
-ms.author: damendo
+ms.author: damendo 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Virtual Network Gateway and Connections using Azure Network Watcher PowerShell

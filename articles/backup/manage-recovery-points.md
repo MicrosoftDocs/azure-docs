@@ -2,7 +2,7 @@
 title: Manage recovery points
 description: Learn how the Azure Backup service manages recovery points for virtual machines
 ms.topic: conceptual
-ms.date: 11/08/2020
+ms.date: 06/17/2021
 ---
 
 # Manage recovery points
@@ -116,6 +116,12 @@ To understand how churn impacts the backup performance, look at this scenario:
 |Backup data churn    |   A1- 4 TB      | B1-1 TB; B2-1 TB <br> B3-1 TB; B4-1 TB  |   C1-2 TB; C4-2 TB      |
 
 The backup performance will be in the order VM2>VM3>VM1. The reason for this is the churned data is spread across the various disks. Since the backup of disks happens in parallel, VM2 will show the best performance.
+
+## Frequently asked question
+
+### How can I find the retention period of an on-demand backup?
+
+The **Recovery Point Expiry Time in UTC** field in the backup jobs of on-demand backups displays the retention period of the recovery point. To learn more, see [Run an on-demand backup](backup-azure-manage-vms.md#run-an-on-demand-backup). 
 
 ## Next steps
 

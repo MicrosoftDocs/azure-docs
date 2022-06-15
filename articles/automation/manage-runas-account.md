@@ -1,17 +1,24 @@
 ---
 title: Manage an Azure Automation Run As account
-description: This article tells how to manage your Run As account with PowerShell or from the Azure portal.
+description: This article tells how to manage your Azure Automation Run As account with PowerShell or from the Azure portal.
 services: automation
 ms.subservice:
-ms.date: 01/19/2021
-ms.topic: conceptual
+ms.date: 08/02/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage an Azure Automation Run As account
 
-Run As accounts in Azure Automation provide authentication for managing resources on the Azure Resource Manager or Azure Classic deployment model using Automation runbooks and other Automation features. This article provides guidance on how to manage a Run As or Classic Run As account.
+Run As accounts in Azure Automation provide authentication for managing resources on the Azure Resource Manager or Azure Classic deployment model using Automation runbooks and other Automation features. 
 
-To learn more about Azure Automation account authentication and guidance related to process automation scenarios, see [Automation Account authentication overview](automation-security-overview.md).
+In this article we cover how to manage a Run as or Classic Run As account, including:
+
+   * How to renew a self-signed certificate
+   * How to renew a certificate from an enterprise or third-party certificate authority (CA)
+   * Manage permissions for the Run As account
+
+To learn more about Azure Automation account authentication, permissions required to manage the Run as account, and guidance related to process automation scenarios, see [Automation Account authentication overview](automation-security-overview.md).
 
 ## <a name="cert-renewal"></a>Renew a self-signed certificate
 
@@ -23,7 +30,7 @@ When you renew the self-signed certificate, the current valid certificate is ret
 >If you think that the Run As account has been compromised, you can delete and re-create the self-signed certificate.
 
 >[!NOTE]
->If you have configured your Run As account to use a certificate issued by your enterprise certificate authority and you use the option to renew a self-signed certificate option, the enterprise certificate is replaced by a self-signed certificate.
+>If you have configured your Run As account to use a certificate issued by your enterprise or third-party CA and you use the option to renew a self-signed certificate option, the enterprise certificate is replaced by a self-signed certificate. To renew your certificate in this case, see [Renew an enterprise or third-party certificate](#renew-an-enterprise-or-third-party-certificate).
 
 Use the following steps to renew the self-signed certificate.
 
@@ -40,6 +47,31 @@ Use the following steps to renew the self-signed certificate.
     :::image type="content" source="media/manage-runas-account/automation-account-renew-runas-certificate.png" alt-text="Renew certificate for Run As account.":::
 
 1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
+
+## Renew an enterprise or third-party certificate
+
+Every certificate has a built-in expiration date. If the certificate you assigned to the Run As account was issued by a certification authority (CA), you need to perform a different set of steps to configure the Run As account with the new certificate before it expires. You can renew it any time before it expires.
+
+1. Import the renewed certificate following the steps for [Create a new certificate](./shared-resources/certificates.md#create-a-new-certificate). Automation requires the certificate to have the following configuration:
+
+   * Specify the provider **Microsoft Enhanced RSA and AES Cryptographic Provider**
+   * Marked as exportable
+   * Configured to use the SHA256 algorithm
+   * Saved in the `*.pfx` or `*.cer` format. 
+
+   After you import the certificate, note or copy the certificate **Thumbprint** value. This value is used to update the Run As connection properties with the new certificate. 
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for and select **Automation Accounts**.
+
+1. On the Automation Accounts page, select your Automation account from the list.
+
+1. In the left pane, select **Connections**.
+
+1. On the **Connections** page, select **AzureRunAsConnection** and update the **Certificate Thumbprint** with the new certificate thumbprint.
+
+1. Select **Save** to commit your changes.
 
 ## Grant Run As account permissions in other subscriptions
 

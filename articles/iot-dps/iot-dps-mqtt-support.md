@@ -1,11 +1,11 @@
-﻿---
+---
 title: Understand Azure IoT Device Provisioning Service MQTT support | Microsoft Docs
 description: Developer guide - support for devices connecting to the Azure IoT Device Provisioning Service (DPS) device-facing endpoint using the MQTT protocol.
 author: rajeevmv
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 02/25/2022
 ms.author: ravokkar
 ms.custom:  [amqp, mqtt]
 ---
@@ -20,12 +20,12 @@ DPS is not a full-featured MQTT broker and does not support all the behaviors sp
 
 All device communication with DPS must be secured using TLS/SSL. Therefore, DPS doesn't support non-secure connections over port 1883.
 
- > [!NOTE] 
+ > [!NOTE]
  > DPS does not currently support devices using TPM [attestation mechanism](./concepts-service.md#attestation-mechanism) over the MQTT protocol.
 
 ## Connecting to DPS
 
-A device can use the MQTT protocol to connect to a DPS using any of the following options.
+A device can use the MQTT protocol to connect to a DPS instance using any of the following options.
 
 * Libraries in the [Azure IoT Provisioning SDKs](../iot-hub/iot-hub-devguide-sdks.md#microsoft-azure-provisioning-sdks).
 * The MQTT protocol directly.
@@ -36,12 +36,15 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
 * For the **ClientId** field, use **registrationId**.
 
-* For the **Username** field, use `{idScope}/registrations/{registration_id}/api-version=2019-03-31`, where `{idScope}` is the [idScope](./concepts-service.md#id-scope) of the DPS.
+* For the **Username** field, use `{idScope}/registrations/{registration_id}/api-version=2019-03-31`, where `{idScope}` is the [ID scope](./concepts-service.md#id-scope) of the DPS and `{registration_id}` is the [Registration ID](./concepts-service.md#registration-id) for your device.
+
+  > [!NOTE]
+  > If you use X.509 certificate authentication, the registration ID is provided by the subject common name (CN) of your device leaf (end-entity) certificate. `{registration_id}` in the **Username** field must match the common name.
 
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:
 
   `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration`
-  The resourceURI should be in the format `{idScope}/registrations/{registration_id}`. The policy name should be `registration`.
+  The resourceURI should be in the format `{idScope}/registrations/{registration_id}`. The policy name (`skn`) should be set to `registration`.
 
   > [!NOTE]
   > If you use X.509 certificate authentication, SAS token passwords are not required.
@@ -50,7 +53,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
 The following is a list of DPS implementation-specific behaviors:
 
- * DPS does not support the functionality of **CleanSession** flag being set to **0**.
+ * DPS doesn't support persistent sessions. It treats every session as non-persistent, regardless of the value of the **CleanSession** flag. We recommend setting **CleanSession** to true.
 
  * When a device app subscribes to a topic with **QoS 2**, DPS grants maximum QoS level 1 in the **SUBACK** packet. After that, DPS delivers messages to the device using QoS 1.
 
@@ -63,8 +66,8 @@ To use the MQTT protocol directly, your client *must* connect over TLS 1.2. Atte
 
 To register a device through DPS, a device should subscribe using `$dps/registrations/res/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive additional properties in the topic name. DPS does not allow the usage of the `#` or `?` wildcards for filtering of subtopics. Since DPS is not a general-purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
 
-The device should publish a register message to DPS using `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` as a **Topic Name**. The payload should contain the [Device Registration](/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) object in JSON format.
-In a successful scenario, the device will receive a response on the `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` topic name where x is the retry-after value in seconds. The payload of the response will contain the [RegistrationOperationStatus](/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) object in JSON format.
+The device should publish a register message to DPS using `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` as a **Topic Name**. The payload should contain the [Device Registration](/rest/api/iot-dps/device/runtime-registration/register-device) object in JSON format.
+In a successful scenario, the device will receive a response on the `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` topic name where x is the retry-after value in seconds. The payload of the response will contain the [RegistrationOperationStatus](/rest/api/iot-dps/device/runtime-registration/register-device#registrationoperationstatus) object in JSON format.
 
 ## Polling for registration operation status
 

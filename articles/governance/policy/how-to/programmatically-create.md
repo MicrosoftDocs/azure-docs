@@ -1,14 +1,14 @@
 ---
 title: Programmatically create policies
 description: This article walks you through programmatically creating and managing policies for Azure Policy with Azure CLI, Azure PowerShell, and REST API.
-ms.date: 03/16/2021
+ms.date: 08/17/2021
 ms.topic: how-to
 ---
 # Programmatically create policies
 
 This article walks you through programmatically creating and managing policies. Azure Policy
 definitions enforce different rules and effects over your resources. Enforcement makes sure that
-resources stay compliant with your corporate standards and service level agreements.
+resources stay compliant with your corporate standards and service-level agreements.
 
 For information about compliance, see [getting compliance data](get-compliance-data.md).
 
@@ -153,18 +153,19 @@ Use the following procedure to create a policy definition.
 
    ```console
    # For defining a policy in a subscription
-   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
+   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2021-09-01" @<path to policy definition JSON file>
 
    # For defining a policy in a management group
-   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
+   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2021-09-01" @<path to policy definition JSON file>
    ```
 
    Replace the preceding {subscriptionId} with the ID of your subscription or {managementGroupId}
    with the ID of your [management group](../../management-groups/overview.md).
 
-   For more information about the structure of the query, see [Azure Policy Definitions – Create or Update](/rest/api/resources/policydefinitions/createorupdate)
+   For more information about the structure of the query, see
+   [Azure Policy Definitions - Create or Update](/rest/api/policy/policydefinitions/createorupdate)
    and
-   [Policy Definitions – Create or Update At Management Group](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   [Policy Definitions - Create or Update At Management Group](/rest/api/policy/policydefinitions/createorupdateatmanagementgroup).
 
 Use the following procedure to create a policy assignment and assign the policy definition at the
 resource group level.
@@ -187,7 +188,7 @@ resource group level.
 1. Create the policy assignment using the following call:
 
    ```console
-   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2019-09-01" @<path to Assignment JSON file>
+   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2021-09-01" @<path to Assignment JSON file>
    ```
 
    Replace example information in &lt;&gt; symbols with your own values.
@@ -231,7 +232,7 @@ To create a policy definition, use the following procedure:
 
    The command creates a policy definition named _Audit Storage Accounts Open to Public Networks_.
    For more information about other parameters that you can use, see
-   [az policy definition create](/cli/azure/policy/definition#az_policy_definition_create).
+   [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create).
 
    When called without location parameters, `az policy definition creation` defaults to saving the
    policy definition in the selected subscription of the sessions context. To save the definition to

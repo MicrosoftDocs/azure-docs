@@ -9,6 +9,8 @@ ms.topic: article
 ms.date: 01/16/2019
 ---
 # Azure Service Fabric security best practices
+In addition to this article, please also review [Service Fabric security checklist](../../service-fabric/service-fabric-best-practices-security.md) for more information.
+
 Deploying an application on Azure is fast, easy, and cost-effective. Before you deploy your cloud application into production, review our list of essential and recommended best practices for implementing secure clusters in your application.
 
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric also addresses the significant challenges in developing and managing cloud applications. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable.
@@ -30,6 +32,7 @@ We recommend the following Azure Service Fabric security best practices:
 -	Use network isolation and security with Azure Service Fabric.
 -	Configure Azure Key Vault for security.
 -	Assign users to roles.
+-	Things to consider if hosting untrusted applications in a Service Fabric cluster.
 
 
 ## Best practices for securing your clusters
@@ -140,7 +143,7 @@ The HTTP protocol is unsecure and subject to eavesdropping attacks. Data that is
 To learn more about using SSL/TLS certificates, see [Configuring TLS for an application in Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## Use network isolation and security with Azure Service Fabric
-Set up a 3 nodetype secure cluster by using the [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) as a sample. Control the inbound and outbound network traffic by using the template and Network Security Groups.
+Set up a 3 nodetype secure cluster by using the [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) as a sample. Control the inbound and outbound network traffic by using the template and Network Security Groups.
 
 The template has an NSG for each of the virtual machine scale sets and is used to control the traffic in and out of the set. The rules are configured by default to allow all traffic necessary for the system services and the application ports specified in the template. Review these rules and make any changes to fit your needs, including adding new rules for your applications.
 
@@ -151,7 +154,7 @@ Service Fabric uses certificates to provide authentication and encryption for se
 
 Service Fabric uses X.509 certificates to secure a cluster and to provide application security features. You use Azure Key Vault to [manage certificates](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md) for Service Fabric clusters in Azure. The Azure resource provider that creates the clusters pulls the certificates from a key vault. The provider then installs the certificates on the VMs when the cluster is deployed on Azure.
 
-A certificate relationship exists between [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md), the Service Fabric cluster, and the resource provider that uses the certificates. When the cluster is created, information about the certificate relationship is stored in a key vault.
+A certificate relationship exists between [Azure Key Vault](../../key-vault/general/security-features.md), the Service Fabric cluster, and the resource provider that uses the certificates. When the cluster is created, information about the certificate relationship is stored in a key vault.
 
 There are two basic steps to set up a key vault:
 1. Create a resource group specifically for your key vault.
@@ -171,6 +174,9 @@ After you've created the applications to represent your cluster, assign your use
 > For more information about using roles in Service Fabric, see [Service Fabric role-based access control for Service Fabric clients](../../service-fabric/service-fabric-cluster-security-roles.md).
 
 Azure Service Fabric supports two access control types for clients that are connected to a [Service Fabric cluster](../../service-fabric/service-fabric-cluster-creation-via-arm.md): administrator and user. The cluster administrator can use access control to limit access to certain cluster operations for different groups of users. Access control makes the cluster more secure.
+
+## Things to consider if hosting untrusted applications in a Service Fabric cluster
+Please see [Hosting untrusted applications in a Service Fabric cluster](../../service-fabric/service-fabric-best-practices-security.md#hosting-untrusted-applications-in-a-service-fabric-cluster).
 
 ## Next steps
 

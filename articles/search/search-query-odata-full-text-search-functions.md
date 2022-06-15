@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Search
 description: OData full-text search functions, search.ismatch and search.ismatchscoring, in Azure Cognitive Search queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 11/04/2019
+ms.topic: reference
+ms.date: 09/16/2021
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -121,6 +121,12 @@ Find documents where the terms "hotel" and "airport" are within 5 words from eac
 
 ```odata-filter-expr
     search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and Rooms/any(room: not room/SmokingAllowed)
+```
+
+Find documents that have a word that starts with the letters "lux" in the Description field. This query uses [prefix search](query-simple-syntax.md#prefix-queries) in combination with `search.ismatch`.
+
+```odata-filter-expr
+    search.ismatch('lux*', 'Description')
 ```
 
 ## Next steps  

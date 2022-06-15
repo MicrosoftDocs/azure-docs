@@ -1,18 +1,18 @@
 ---
-title: Prepare and customize a master VHD image - Azure
-description: How to prepare, customize and upload a Windows Virtual Desktop master image to Azure.
+title: Prepare and customize a VHD image of Azure Virtual Desktop - Azure
+description: How to prepare, customize and upload a Azure Virtual Desktop image to Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 06/01/2022
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Prepare and customize a master VHD image
+# Prepare and customize a VHD image for Azure Virtual Desktop
 
-This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
+This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Azure Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
 >[!IMPORTANT]
->We recommend you use an image from the Azure Image Gallery. However, if you do need to use a customized image, make sure you don't already have the Windows Virtual Desktop Agent installed on your VM. Using a customized image with the Windows Virtual Desktop Agent can cause problems with the image, such as blocking registration and preventing user session connections.  
+>We recommend you use an image from the Azure Image Gallery. However, if you do need to use a customized image, make sure you don't already have the Azure Virtual Desktop Agent installed on your VM. Using a customized image with the Azure Virtual Desktop Agent can cause problems with the image, such as blocking registration and preventing user session connections.  
 
 ## Create a VM
 
@@ -24,7 +24,7 @@ The second option is to create the image locally by downloading the image, provi
 
 ### Local image creation
 
-Once you've downloaded the image to a local location, open **Hyper-V Manager** to create a VM with the VHD you copied. The following instructions are a simple version, but you can find more detailed instructions in [Create a virtual machine in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v/).
+You can download an image following the instructions in [Export an image version to a managed disk](../virtual-machines/managed-disk-from-image-version.md) and then [Download a Windows VHD from Azure](../virtual-machines/windows/download-vhd.md). Once you've downloaded the image to a local location, open **Hyper-V Manager** to create a VM with the VHD you copied. The following instructions are a simple version, but you can find more detailed instructions in [Create a virtual machine in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v/).
 
 To create a VM with the copied VHD:
 
@@ -53,7 +53,7 @@ If you create a VM from an existing VHD, it creates a dynamic disk by default. I
 > [!div class="mx-imgBorder"]
 > ![A screenshot of the Edit Disk option.](media/35772414b5a0f81f06f54065561d1414.png)
 
-You can also run the following PowerShell cmdlet to change the disk to a fixed disk.
+You can also run the following PowerShell command to change the disk to a fixed disk.
 
 ```powershell
 Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
@@ -88,18 +88,18 @@ To disable Automatic Updates via local Group Policy:
 1. Open **Local Group Policy Editor\\Administrative Templates\\Windows Components\\Windows Update**.
 2. Right-click **Configure Automatic Update** and set it to **Disabled**.
 
-You can also run the following command on a command prompt to disable Automatic Updates.
+You can also run the following command from an elevated PowerShell prompt to disable Automatic Updates.
 
-```cmd
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
+```powershell
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name NoAutoUpdate -PropertyType DWORD -Value 1 -Force
 ```
 
 ### Specify Start layout for Windows 10 PCs (optional)
 
-Run this command to specify a Start layout for Windows 10 PCs.
+Run the following command from an elevated PowerShell prompt to specify a Start layout for Windows 10 PCs.
 
-```cmd
-reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
+```powershell
+New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name SpecialRoamingOverrideAllowed -PropertyType DWORD -Value 1 -Force
 ```
 
 ### Set up time zone redirection
@@ -114,23 +114,23 @@ To redirect time zones:
 4. In the **Group Policy Management Editor**, navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Device and Resource Redirection**.
 5. Enable the **Allow time zone redirection** setting.
 
-You can also run this command on the master image to redirect time zones:
+You can also run the following command from an elevated PowerShell prompt to redirect time zones:
 
-```cmd
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableTimeZoneRedirection /t REG_DWORD /d 1 /f
+```powershell
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name fEnableTimeZoneRedirection -PropertyType DWORD -Value 1 -Force
 ```
 
 ### Disable Storage Sense
 
-For Windows Virtual Desktop session host that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. You can disable Storage Sense in the Settings menu under **Storage**, as shown in the following screenshot:
+For Azure Virtual Desktop session hosts that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. Disks where the operating system is installed are typically small in size and user data is stored remotely through profile roaming. This scenario results in Storage Sense believing that the disk is critically low on free space. You can disable Storage Sense in the Settings menu under **Storage**, as shown in the following screenshot:
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot of the Storage menu under Settings. The "Storage sense" option is turned off.](media/storagesense.png)
 
-You can also change the setting with the registry by running the following command:
+You can also run the following command from an elevated PowerShell prompt to disable Storage Sense:
 
-```cmd
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v 01 /t REG_DWORD /d 0 /f
+```powershell
+New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" -Name 01 -PropertyType DWORD -Value 0 -Force
 ```
 
 ### Include additional language support
@@ -143,33 +143,29 @@ This article doesn't cover how to configure language and regional support. For m
 
 ### Other applications and registry configuration
 
-This section covers application and operating system configuration. All configuration in this section is done through registry entries that can be executed by command-line and regedit tools.
+This section covers application and operating system configuration. All configuration in this section is done through adding, changing, or removing registry entries.
 
->[!NOTE]
->You can implement best practices in configuration with either Group Policy Objects (GPOs) or registry imports. The administrator can choose either option based on their organization's requirements.
+For feedback hub collection of telemetry data on Windows 10 Enterprise multi-session, run the following command from an elevated PowerShell prompt:
 
-For feedback hub collection of telemetry data on Windows 10 Enterprise multi-session, run this command:
-
-```cmd
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 3 /f
+```powershell
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" -Name AllowTelemetry -PropertyType DWORD -Value 3 -Force
 ```
 
-Run the following command to fix Watson crashes:
+To prevent Watson crashes, run the following command from an elevated PowerShell prompt:
 
-```cmd
-remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting
+```powershell
+Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting" -Name Corporate* -Force -Verbose
 ```
 
-Enter the following commands into the registry editor to fix 5k resolution support. You must run the commands before you can enable the side-by-side stack.
+To enable 5k resolution support, run the following commands from an elevated PowerShell prompt. You must run the commands before you can enable the side-by-side stack.
 
-```cmd
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxMonitors /t REG_DWORD /d 4 /f
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxXResolution /t REG_DWORD /d 5120 /f
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxYResolution /t REG_DWORD /d 2880 /f
-
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" /v MaxMonitors /t REG_DWORD /d 4 /f
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" /v MaxXResolution /t REG_DWORD /d 5120 /f
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" /v MaxYResolution /t REG_DWORD /d 2880 /f
+```powershell
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name MaxMonitors -PropertyType DWORD -Value 4 -Force
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name MaxXResolution -PropertyType DWORD -Value 5120 -Force
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name MaxYResolution -PropertyType DWORD -Value 2880 -Force
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" -Name MaxMonitors -PropertyType DWORD -Value 4 -Force
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" -Name MaxXResolution -PropertyType DWORD -Value 5120 -Force
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" -Name MaxYResolution -PropertyType DWORD -Value 2880 -Force
 ```
 
 ## Prepare the image for upload to Azure
@@ -182,7 +178,7 @@ After preparing the image for upload, make sure the VM remains in the off or dea
 
 This section only applies when the master image was created locally.
 
-The following instructions will tell you how to upload your master image into an Azure storage account. If you don't already have an Azure storage account, follow the instructions in [this article](/azure/developer/javascript/tutorial-vscode-static-website-node-03) to create one.
+The following instructions will tell you how to upload your master image into an Azure storage account. If you don't already have an Azure storage account, follow the instructions in [this article](../storage/common/storage-account-create.md) to create one.
 
 1. Convert the VM image (VHD) to Fixed if you haven't already. If you don't convert the image to Fixed, you can't successfully create the image.
 
@@ -209,6 +205,6 @@ Now that you have an image, you can create or update host pools. To learn more a
 - [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Create a host pool with PowerShell](create-host-pools-powershell.md)
 - [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md)
-- [Configure the Windows Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)
+- [Configure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)
 
 If you encountered a connectivity problem after preparing or customizing your VHD image, check out the [troubleshooting guide](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) for help.

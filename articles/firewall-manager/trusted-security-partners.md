@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 08/03/2021
 ms.author: victorh
 ---
 
@@ -21,21 +21,31 @@ The supported security partners are **Zscaler**, **[Check Point](check-point-ove
 
 ![Security partner providers](media/trusted-security-partners/trusted-security-partners.png)
 
+See the following video by Jack Tracey for a Zscaler overview:
+
+ > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWI4n8]
+
 ## Key scenarios
 
 You can use the security partners to filter Internet traffic in following scenarios:
 
-- Virtual Network (VNet) to Internet
+- Virtual Network (VNet)-to-Internet
 
-   Leverage advanced user-aware Internet protection for your cloud workloads running on Azure.
+   Use advanced user-aware Internet protection for your cloud workloads running on Azure.
 
-- Branch to Internet
+- Branch-to-Internet
 
-   Leverage your Azure connectivity and global distribution to easily add third-party NSaaS filtering for branch to Internet scenarios. You can build your global transit network and security edge using Azure Virtual WAN.
+   Use your Azure connectivity and global distribution to easily add third-party NSaaS filtering for branch to Internet scenarios. You can build your global transit network and security edge using Azure Virtual WAN.
 
 The following scenarios are supported:
-- VNet/Branch to Internet via a security partner provider and the other traffic (spoke to spoke, spoke to branch, branch to spoke) via Azure Firewall.
-- VNet/Branch to Internet via security partner provider
+- Two security providers in the hub
+
+   VNet/Branch-to-Internet via a security partner provider and the other traffic (spoke-to-spoke, spoke-to-branch, branch-to-spoke) via Azure Firewall.
+- Single provider in the hub
+
+   - All traffic (spoke-to-spoke, spoke-to-branch, branch-to-spoke, VNet/Branch-to-Internet) secured by Azure Firewall<br>
+      or
+   - VNet/Branch-to-Internet via security partner provider
 
 ## Best practices for Internet traffic filtering in secured virtual hubs
 

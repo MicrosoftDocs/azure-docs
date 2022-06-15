@@ -8,10 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
-ms.custom: avverma
+ms.custom: avverma, devx-track-azurepowershell
 
 ---
 # Vertical autoscale with virtual machine scale sets
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 This article describes how to vertically scale Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) with or without reprovisioning. 
 

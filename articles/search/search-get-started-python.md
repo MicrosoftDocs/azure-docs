@@ -2,14 +2,14 @@
 title: 'Quickstart: Create a search index in Python'
 titleSuffix: Azure Cognitive Search
 description: Learn how to create a search index, load data, and run queries using Python, Jupyter Notebook, and the Azure.Documents.Search client library for Python.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.devlang: python
 ms.topic: quickstart
-ms.date: 03/12/2021
-ms.custom: devx-track-python
+ms.date: 06/11/2021
+ms.custom: devx-track-python, mode-api
 ---
 
 # Quickstart: Create an Azure Cognitive Search index in Python using Jupyter Notebook
@@ -34,7 +34,7 @@ The following services and tools are required for this quickstart.
 
 * [azure-search-documents package](https://pypi.org/project/azure-search-documents/)
 
-* [Create a search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use the Free tier for this quickstart. 
+* [Create a search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use the Free tier for this quickstart. 
 
 ## Copy a key and URL
 
@@ -352,7 +352,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-As a simplification, this quickstart uses an abbreviated version of the Hotels index. You can create the full version to try out more interesting queries. To get the full version and all 50 documents, run the **Import data** wizard, selecting *hotels-sample* from the built-in sample data sources.
+In this JavaScript quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. To continue learning, try the following tutorial.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create an index in the Azure portal](search-get-started-portal.md)
+> [Tutorial: Add search to web apps](tutorial-python-overview.md)

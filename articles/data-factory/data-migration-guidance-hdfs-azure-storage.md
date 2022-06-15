@@ -4,9 +4,10 @@ description: Learn how to use Azure Data Factory to migrate data from on-premise
 ms.author: yexu
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 8/30/2019
+ms.date: 01/27/2022
 ---
 
 # Use Azure Data Factory to migrate data from an on-premises Hadoop cluster to Azure Storage 
@@ -60,7 +61,7 @@ Alternatively, if you don't want data to be transferred over the public internet
 
 This image depicts migrating data over the public internet:
 
-![Diagram that shows the solution architecture for migrating data over a public network](media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-public-network.png)
+:::image type="content" source="media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-public-network.png" alt-text="Diagram that shows the solution architecture for migrating data over a public network":::
 
 - In this architecture, data is transferred securely by using HTTPS over the public internet. 
 - We recommend using Data Factory DistCp mode in a public network environment. You can take advantage of a powerful existing cluster to achieve the best copy throughput. You also get the benefit of flexible scheduling and unified monitoring experience from Data Factory.
@@ -69,7 +70,7 @@ This image depicts migrating data over the public internet:
 
 This image depicts migrating data over a private link: 
 
-![Diagram that shows the solution architecture for migrating data over a private network](media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-private-network.png)
+:::image type="content" source="media/data-migration-guidance-hdfs-to-azure-storage/solution-architecture-private-network.png" alt-text="Diagram that shows the solution architecture for migrating data over a private network":::
 
 - In this architecture, data is migrated over a private peering link via Azure ExpressRoute. Data never traverses over the public internet.
 - The DistCp tool doesn't support ExpressRoute private peering with an Azure Storage virtual network endpoint. We recommend that you use Data Factory's native capability via the integration runtime to migrate the data.
@@ -87,7 +88,7 @@ We recommend that you follow these best practices when you implement your data m
 - To authenticate to HDFS, you can use [either Windows (Kerberos) or Anonymous](./connector-hdfs.md#linked-service-properties). 
 - Multiple authentication types are supported for connecting to Azure Blob storage.  We highly recommend using [managed identities for Azure resources](./connector-azure-blob-storage.md#managed-identity). Built on top of an automatically managed Data Factory identity in Azure Active Directory (Azure AD), managed identities allow you to configure pipelines without supplying credentials in the linked service definition. Alternatively, you can authenticate to Blob storage by using a [service principal](./connector-azure-blob-storage.md#service-principal-authentication), a [shared access signature](./connector-azure-blob-storage.md#shared-access-signature-authentication), or a [storage account key](./connector-azure-blob-storage.md#account-key-authentication). 
 - Multiple authentication types also are supported for connecting to Data Lake Storage Gen2.  We highly recommend using [managed identities for Azure resources](./connector-azure-data-lake-storage.md#managed-identity), but you also can use a [service principal](./connector-azure-data-lake-storage.md#service-principal-authentication) or a [storage account key](./connector-azure-data-lake-storage.md#account-key-authentication). 
-- When you're not using managed identities for Azure resources, we highly recommend [storing the credentials in Azure Key Vault](./store-credentials-in-key-vault.md) to make it easier to centrally manage and rotate keys without modifying Data Factory linked services. This is also a [best practice for CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
+- When you're not using managed identities for Azure resources, we highly recommend [storing the credentials in Azure Key Vault](./store-credentials-in-key-vault.md) to make it easier to centrally manage and rotate keys without modifying Data Factory linked services. This is also a [best practice for CI/CD](./continuous-integration-delivery.md#best-practices-for-cicd). 
 
 ### Initial snapshot data migration 
 
@@ -111,7 +112,7 @@ If you have a large number of files in HDFS, the initial file scanning might tak
 
 Consider the following pipeline for migrating data from HDFS to Azure Blob storage: 
 
-![Diagram that shows the pricing pipeline](media/data-migration-guidance-hdfs-to-azure-storage/pricing-pipeline.png)
+:::image type="content" source="media/data-migration-guidance-hdfs-to-azure-storage/pricing-pipeline.png" alt-text="Diagram that shows the pricing pipeline":::
 
 Let's assume the following information: 
 
@@ -124,7 +125,7 @@ Let's assume the following information:
 
 Here's the estimated price based on our assumptions: 
 
-![Table that shows pricing calculations](media/data-migration-guidance-hdfs-to-azure-storage/pricing-table.png)
+:::image type="content" source="media/data-migration-guidance-hdfs-to-azure-storage/pricing-table.png" alt-text="Table that shows pricing calculations":::
 
 > [!NOTE]
 > This is a hypothetical pricing example. Your actual pricing depends on the actual throughput in your environment.

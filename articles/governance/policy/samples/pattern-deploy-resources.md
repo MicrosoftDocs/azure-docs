@@ -1,8 +1,10 @@
 ---
 title: "Pattern: Deploy resources with a policy definition"
 description: This Azure Policy pattern provides an example of how to deploy resources with a deployIfNotExists policy definition.
-ms.date: 08/17/2020
+ms.date: 05/16/2022
 ms.topic: sample
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Azure Policy pattern: deploy resources
 
@@ -18,6 +20,10 @@ This policy definition uses the **field** operator to evaluate the `type` of res
 updated. When that resource is a _Microsoft.Network/virtualNetworks_, the policy looks for a network
 watcher in the location of the new or updated resource. If a matching network watcher isn't located,
 the ARM template is deployed to create the missing resource.
+
+> [!NOTE]
+> This policy requires you have a resource group named **NetworkWatcherRG** in your subscription. Azure
+> creates the **NetworkWatcherRG** resource group when you enable Network Watcher in a region.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 
@@ -56,7 +62,7 @@ three core components:
   template parameter sets the location of the new network watcher resource.
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="30-44":::
-  
+
 - **parameters** - This property defines parameters that are provided to the **template**. The
   parameter names must match what are defined in **template**. In this example, the parameter is
   named **location** to match. The value of **location** uses the `field()` function again to get

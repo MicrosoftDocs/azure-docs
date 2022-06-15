@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
+ms.reviewer: Xema Pathak
 
 ---
 
@@ -141,5 +142,5 @@ For official Azure documentation about creating a service principal, see:
 
 ### Suggestions
 
-Do you have any feedback for us about integration with VM insights Map feature or this documentation? Visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote on existing suggestions.
+Do you have any feedback for us about integration with VM insights Map feature or this documentation? Visit our [User Voice page](https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0?c=ad4304e4-1925-ec11-b6e6-000d3a4f09d0), where you can suggest features or vote on existing suggestions.
 

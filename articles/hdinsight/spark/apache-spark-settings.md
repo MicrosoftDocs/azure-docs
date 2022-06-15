@@ -4,7 +4,7 @@ description: How to view and configure Apache Spark settings for an Azure HDInsi
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/24/2020
+ms.date: 05/30/2022
 ---
 
 # Configure Apache Spark settings
@@ -42,7 +42,7 @@ spark.sql.files.maxPartitionBytes 1099511627776
 spark.sql.files.openCostInBytes 1099511627776
 ```
 
-The example shown above overrides several default values for five Spark configuration parameters.  These values are the compression codec, Apache Hadoop MapReduce split minimum size and parquet block sizes. Also, the Spar SQL partition and open file sizes default values.  These configuration changes are chosen because the associated data and jobs (in this example, genomic data) have particular characteristics. These characteristics will do better using these custom configuration settings.
+The example shown above overrides several default values for five Spark configuration parameters.  These values are the compression codec, Apache Hadoop MapReduce split minimum size and parquet block sizes. Also, the Spark SQL partition and open file sizes default values.  These configuration changes are chosen because the associated data and jobs (in this example, genomic data) have particular characteristics. These characteristics will do better using these custom configuration settings.
 
 ---
 
@@ -120,7 +120,7 @@ Spark clusters in HDInsight include a number of components by default. Each of t
 |Component |Description|
 |---|---|
 |Spark Core|Spark Core, Spark SQL, Spark streaming APIs, GraphX, and Apache Spark MLlib.|
-|Anaconda|A python package manager.|
+|Anaconda|A Python package manager.|
 |Apache Livy|The Apache Spark REST API, used to submit remote jobs to an HDInsight Spark cluster.|
 |Jupyter Notebooks and Apache Zeppelin Notebooks|Interactive browser-based UI for interacting with your Spark cluster.|
 |ODBC driver|Connects Spark clusters in HDInsight to business intelligence (BI) tools such as Microsoft Power BI and Tableau.|

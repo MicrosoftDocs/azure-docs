@@ -1,10 +1,10 @@
 ---
 title: Wait and respond to events
-description: Automate workflows that trigger, pause, and resume based on events at a service endpoint by using Azure Logic Apps
+description: Automate workflows that trigger, pause, and resume based on events at a service endpoint by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 08/27/2020
 tags: connectors
 ---
@@ -41,7 +41,7 @@ For information about encryption, security, and authorization for inbound calls 
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * The URL for an already deployed endpoint or API that supports the webhook subscribe and unsubscribe pattern for [webhook triggers in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) or [webhook actions in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-actions) as appropriate
 
@@ -140,9 +140,9 @@ Here is more information about the outputs from an HTTP Webhook trigger or actio
 | Property name | Type | Description |
 |---------------|------|-------------|
 | headers | object | The headers from the request |
-| body | object | JSON object | The object with the body content from the request |
+| body | object | The object with the body content from the request |
 | status code | int | The status code from the request |
-|||
+||||
 
 | Status code | Description |
 |-------------|-------------|

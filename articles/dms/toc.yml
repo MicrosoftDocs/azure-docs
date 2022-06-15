@@ -13,6 +13,9 @@
     items: 
     - name: Portal
       href: quickstart-create-data-migration-service-portal.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: create-dms-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: create-dms-resource-manager-template.md
@@ -21,6 +24,12 @@
 
 - name: Concepts
   items:
+  - name: Migration using Azure Data Studio
+    href: migration-using-azure-data-studio.md
+  - name: Get Azure recommendation for migration using Azure Data Studio
+    href: ads-sku-recommend.md  
+  - name: Migrate databases at scale using automation
+    href: migration-dms-powershell-cli.md  
   - name: Prerequisites
     href: pre-reqs.md  
   - name: Database migration scenario status
@@ -31,10 +40,18 @@
       href: resource-network-topologies.md
     - name: Custom roles 
       href: resource-custom-roles-sql-db-managed-instance.md
+    - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with SQL Managed Instance as a target 
+      href: resource-custom-roles-sql-db-managed-instance-ads.md
+    - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with Virtual Machines as a target 
+      href: resource-custom-roles-sql-db-virtual-machine-ads.md
+  - name: Migration to Azure Database for MySQL
+    items: 
+    - name: MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup 
+      href: migrate-azure-mysql-consistent-backup.md
   - name: Security
     items: 
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/database-migration-security-baseline?toc=/azure/dms/toc.json
 - name: Tutorials
   expanded: true
   items:
@@ -42,18 +59,26 @@
     items: 
     - name: to Azure SQL Database
       href: tutorial-sql-server-to-azure-sql.md
+    - name: to Azure SQL Managed Instance (online) using Azure Data Studio
+      href: tutorial-sql-server-managed-instance-online-ads.md
+    - name: to Azure SQL Managed Instance (offline) using Azure Data Studio
+      href: tutorial-sql-server-managed-instance-offline-ads.md
+    - name: to Azure SQL VM (online) using Azure Data Studio
+      href: tutorial-sql-server-to-virtual-machine-online-ads.md
+    - name: to Azure SQL VM (offline) using Azure Data Studio
+      href: tutorial-sql-server-to-virtual-machine-offline-ads.md
     - name: to Azure SQL Managed Instance (offline)
       href: tutorial-sql-server-to-managed-instance.md
     - name: to Azure SQL Managed Instance (online)
       href: tutorial-sql-server-managed-instance-online.md
   - name: Migrate MySQL
     items: 
-    - name: to Azure Database for MySQL
-      href: tutorial-mysql-azure-mysql-online.md
+    - name: to Azure Database for MySQL (offline)
+      href: tutorial-mysql-azure-mysql-offline-portal.md        
   - name: Migrate RDS MySQL
     items: 
     - name: to Azure Database for MySQL
-      href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
+      href: tutorial-mysql-azure-mysql-offline-portal.md
   - name: Migrate PostgreSQL
     items: 
     - name: to Azure DB for PostgreSQL (Portal)
@@ -73,11 +98,7 @@
     - name: to Azure Cosmos DB Mongo API (offline)
       href: tutorial-mongodb-cosmos-db.md
     - name: to Azure Cosmos DB Mongo API (online)
-      href: tutorial-mongodb-cosmos-db-online.md
-  - name: Migrate Oracle
-    items: 
-    - name: to Azure DB for PostgreSQL–Single server online
-      href: tutorial-oracle-azure-postgresql-online.md  
+      href: tutorial-mongodb-cosmos-db-online.md  
 
 
 
@@ -93,6 +114,8 @@
       href: howto-sql-server-to-azure-sql-managed-instance-powershell-online.md
     - name: SQL Server to SQL MI (offline)
       href: howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md
+    - name: MySQL to Azure Database for MySQL (offline)
+      href: migrate-mysql-to-azure-mysql-powershell.md
   - name: Redeploy SSIS package to
     items: 
     - name: Azure SQL Database
@@ -100,12 +123,17 @@
     - name: Azure SQL Managed Instance 
       href: how-to-migrate-ssis-packages-managed-instance.md
 
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/dms
+
 - name: Resources
   items: 
   - name: Frequently asked questions
-    href: faq.md
+    href: faq.yml
   - name: Feedback
-    href: https://feedback.azure.com/forums/906100-azure-database-migration-service
+    href: https://feedback.azure.com/d365community/forum/2dd7eb75-ef24-ec11-b6e6-000d3a4f0da0
   - name: Pricing
     href: https://aka.ms/dms-pricing
   - name: Service updates
@@ -117,7 +145,7 @@
     - name: Services and tools available for data migration scenarios
       href: dms-tools-matrix.md
     - name: Azure Database Migration Guide
-      href: https://aka.ms/datamigration
+      href: /data-migration/
     - name: Data Migration Assistant
       href: /sql/dma/dma-overview
     - name: SQL Server Migration Assistant
@@ -142,12 +170,8 @@
       items:     
       - name: SQL Managed Instance
         href: known-issues-azure-sql-db-managed-instance-online.md
-      - name: Azure DB for MySQL
-        href: known-issues-azure-mysql-online.md
       - name: PostgreSQL to Azure DB for PostgreSQL
         href: known-issues-azure-postgresql-online.md
-      - name: Oracle to Azure DB for PostgreSQL
-        href: known-issues-oracle-azure-postgresql-online.md
       - name: MongoDB to Azure Cosmos DB API for MongoDB
         href: known-issues-mongo-cosmos-db.md
 
@@ -166,6 +190,6 @@
     - name: Monitor an online migration and perform cutover
       href: https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/
     - name: Migrate Oracle to Azure SQL DB
-      href: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
+      href: ../postgresql/howto-migrate-from-oracle.md
     - name: Migrate MongoDB to Azure Cosmos DB
       href: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/

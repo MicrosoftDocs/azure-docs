@@ -1,12 +1,13 @@
 ---
 title: Security considerations
 description: Describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data.  
-ms.author: abnarain
-author: nabhishek
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: security
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/26/2020
+ms.date: 10/22/2021
 ---
 
 # Security considerations for data movement in Azure Data Factory
@@ -16,7 +17,7 @@ ms.date: 05/26/2020
 > * [Version 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Current version](data-movement-security-considerations.md)
 
- [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+ [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data. Data Factory management resources are built on Azure security infrastructure and use all possible security measures offered by Azure.
 
@@ -107,7 +108,7 @@ Salesforce supports Shield Platform Encryption that allows encryption of all fil
 
 Hybrid scenarios require self-hosted integration runtime to be installed in an on-premises network, inside a virtual network (Azure), or inside a virtual private cloud (Amazon). The self-hosted integration runtime must be able to access the local data stores. For more information about self-hosted integration runtime, see [How to create and configure self-hosted integration runtime](./create-self-hosted-integration-runtime.md). 
 
-![self-hosted integration runtime channels](media/data-movement-security-considerations/data-management-gateway-channels.png)
+:::image type="content" source="media/data-movement-security-considerations/data-management-gateway-channels.png" alt-text="self-hosted integration runtime channels":::
 
 The command channel allows communication between data movement services in Data Factory and self-hosted integration runtime. The communication contains information related to the activity. The data channel is used for transferring data between on-premises data stores and cloud data stores.    
 
@@ -125,10 +126,11 @@ The credentials can be stored within data factory or be [referenced by data fact
 
 #### Ports used when encrypting linked service on self-hosted integration runtime
 
-By default, PowerShell uses port 8060 on the machine with self-hosted integration runtime for secure communication. If necessary, this port can be changed.  
+By default, when remote access from intranet is enabled, PowerShell uses port 8060 on the machine with self-hosted integration runtime for secure communication. If necessary, this port can be changed from the Integration Runtime Configuration Manager on the Settings tab:
 
-![HTTPS port for the gateway](media/data-movement-security-considerations/https-port-for-gateway.png)
+:::image type="content" source="media/data-movement-security-considerations/integration-runtime-configuration-manager-settings.png" alt-text="Integration Runtime Configuration Manager's Settings tab":::
 
+:::image type="content" source="media/data-movement-security-considerations/https-port-for-gateway.png" alt-text="HTTPS port for the gateway":::
 
 ### Encryption in transit
 
@@ -150,11 +152,11 @@ The following images show the use of self-hosted integration runtime for moving 
 
 #### Express Route
 
-![Use ExpressRoute with gateway](media/data-movement-security-considerations/express-route-for-gateway.png) 
+:::image type="content" source="media/data-movement-security-considerations/express-route-for-gateway.png" alt-text="Use ExpressRoute with gateway"::: 
 
 #### IPSec VPN
 
-![IPSec VPN with gateway](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
+:::image type="content" source="media/data-movement-security-considerations/ipsec-vpn-for-gateway.png" alt-text="IPSec VPN with gateway":::
 
 ### Firewall configurations and allow list setting up for IP addresses
 
@@ -170,7 +172,7 @@ In an enterprise, a corporate firewall runs on the central router of the organiz
 
 The following table provides outbound port and domain requirements for corporate firewalls:
 
-[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
+[!INCLUDE [domain-and-outbound-port-requirements](includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE]
 > You might have to manage ports or set up allow list for domains at the corporate firewall level as required by the respective data sources. This table only uses Azure SQL Database, Azure Synapse Analytics, and Azure Data Lake Store as examples.   
@@ -181,7 +183,7 @@ The following table provides inbound port requirements for Windows Firewall:
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | Required by the PowerShell encryption cmdlet as described in [Encrypt credentials for on-premises data stores in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), and by the credential manager application to securely set credentials for on-premises data stores on the self-hosted integration runtime. |
 
-![Gateway port requirements](media/data-movement-security-considerations/gateway-port-requirements.png) 
+:::image type="content" source="media/data-movement-security-considerations/gateway-port-requirements.png" alt-text="Gateway port requirements"::: 
 
 #### IP configurations and allow list setting up in data stores
 
@@ -189,7 +191,7 @@ Some data stores in the cloud also require that you allow the IP address of the 
 
 The following cloud data stores require that you allow the IP address of the self-hosted integration runtime machine. Some of these data stores, by default, might not require allow list.
 
-* [Azure SQL Database](../azure-sql/database/firewall-configure.md)
+* [Azure SQL Database](/azure/azure-sql/database/firewall-configure)
 * [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 * [Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md)

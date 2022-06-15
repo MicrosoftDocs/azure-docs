@@ -1,32 +1,38 @@
 ---
-title: Create a custom classification and classification rule (preview)
-description: Learn how to create custom classifications to define data types in your data estate that are unique to your organization in Azure Purview.
-author: animukherjee
-ms.author: anmuk
+title: Create a custom classification and classification rule
+description: Learn how to create custom classifications to define data types in your data estate that are unique to your organization in Microsoft Purview.
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 2/5/2021
+ms.date: 09/27/2021
 ---
-# Custom classifications in Azure Purview
+# Custom classifications in Microsoft Purview
 
 This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization. It also describes the creation of custom classification rules that let you find specified data throughout your data estate.
 
-## Default classifications
+## Default system classifications
 
-The Azure Purview Data Catalog provides a large set of default classifications that represent typical personal data types that you might have in your data estate.
+The Microsoft Purview Data Catalog provides a large set of default system classifications that represent typical personal data types that you might have in your data estate. For the entire list of available system classifications, see [Supported classifications in Microsoft Purview](supported-classifications.md).
 
 :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification.png" alt-text="select classification" border="true":::
 
 You also have the ability to create custom classifications, if any of the default classifications don't meet your needs.
 
+> [!Note]
+> Our [data sampling rules](sources-and-scans.md#sampling-within-a-file) are applied to both system and custom classifications.  
+
+> [!NOTE]
+> Microsoft Purview custom classifications are applied only to structured data sources like SQL and CosmosDB, and to structured file types like CSV, JSON, and Parquet. Custom classification isn't applied to unstructured data file types like DOC, PDF, and XLSX.
+
 ## Steps to create a custom classification
 
-To create a custom classification, do the following:
+To create a custom classification, follow these steps:
 
-1. From your catalog, select **Management Center** from the left menu.
+1. From your catalog, select **Data Map** from the left menu.
 
-2. Select **Classifications** under **Metadata management**.
+2. Select **Classifications** under **Annotation management**.
 
 3. Select **+ New**
 
@@ -44,13 +50,11 @@ the following logic:
 
 - All but the last two segments of the namespace are trimmed.
 
-- The casing is adjusted so that the first letter of each word is
-    capitalized. All other letters are converted to lowercase.
+- The casing is adjusted so that the first letter of each word is capitalized.
 
 - All underscores (\_) are replaced with spaces.
 
-As an example, if you named your
-classification **CONTOSO.HR.EMPLOYEE\_ID**, the friendly name is stored
+As an example, if you named your classification **CONTOSO.HR.EMPLOYEE\_ID**, the friendly name is stored
 in the system as **Hr.Employee ID**.
 
 :::image type="content" source="media/create-a-custom-classification-and-classification-rule/contoso-hr-employee-id.png" alt-text="Contoso.hr.employee_id" border="true":::
@@ -69,7 +73,7 @@ These details include the count of how many instances there are, the formal name
 
 ## Custom classification rules
 
-The catalog service provides a set of default classification rules, which are used by the scanner to automatically detect certain data types. You can also add your own custom classification rules to detect other types of data that you might be interested in finding across your data estate. This capability can be very powerful when you\'re trying to find data within your data estate.
+The catalog service provides a set of default classification rules, which are used by the scanner to automatically detect certain data types. You can also add your own custom classification rules to detect other types of data that you might be interested in finding across your data estate. This capability can be powerful when you're trying to find data within your data estate.
 
 As an example, let\'s say that a company named Contoso has employee IDs that are standardized throughout the company with the word \"Employee\" followed by a GUID to create EMPLOYEE{GUID}. For example, one instance of an employee ID looks like `EMPLOYEE9c55c474-9996-420c-a285-0d0fc23f1f55`.
 
@@ -85,15 +89,15 @@ To create a custom classification rule:
 
 1. Create a custom classification by following the instructions in the previous section. You will add this custom classification in the classification rule configuration so that the system applies it when it finds a match in the column.
 
-2. Select the **Management Center** icon.
+2. Select the **Data Map** icon.
 
 3. Select the **Classifications rules** section.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classificationrules.png" alt-text="Classification rules tile" border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification-rules.png" alt-text="Classification rules tile" border="true":::
 
 4. Select **New**.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/newclassificationrule.png" alt-text="Add new classification rule" border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification-rule.png" alt-text="Add new classification rule" border="true":::
 
 5. The **New classification rule** dialog box opens. Fill in the fields and decide whether to create a **regular expression rule** or a **dictionary rule**.
 
@@ -112,7 +116,7 @@ To create a custom classification rule:
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Create new regex rule" border="true":::
 
-1. If you decide to generate a suggested regex pattern, after uploading a file, select one of the suggested patterns and click **Add to Patterns** to use the suggested data and column patterns. You can tweak the suggested patterns or you may also type your own patterns without uploading a file.
+1. If you decide to generate a suggested regex pattern, after uploading a file, select one of the suggested patterns and select **Add to Patterns** to use the suggested data and column patterns. You can tweak the suggested patterns or you may also type your own patterns without uploading a file.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/suggested-regex.png" alt-text="Generate suggested regex" border="true":::
 
@@ -121,15 +125,19 @@ To create a custom classification rule:
    |Data Pattern    |Optional. A regular expression that represents the data that's stored in the data field. The limit is very large. In the previous example, the data patterns test for an employee ID that's literally the word `Employee{GUID}`.  |
    |Column Pattern    |Optional. A regular expression that represents the column names that you want to match. The limit is very large. |
 
-1. Under **Data Pattern**, there are two thresholds you can set:
+1. Under **Data Pattern** you can use the **Minimum match threshold** to set the minimum percentage of the distinct data value matches in a column that must be found by the scanner for the classification to be applied. The suggested value is 60%. If you specify multiple data patterns, this setting is disabled and the value is fixed at 60%.
 
-   - **Distinct match threshold**: The total number of distinct data values that need to be found in a column before the scanner runs the data pattern on it. The suggested value is 8. This value can be manually adjusted in a range from 2 to 32. The system requires this value to make sure that the column contains enough data for the scanner to accurately classify it. For example, a column that contains multiple rows that all contain the value 1 won't be classified. Columns that contain one row with a value and the rest of the rows have null values also won't get classified. If you specify multiple patterns, this value applies to each of them.
-
-   - **Minimum match threshold**: You can use this setting to set the minimum percentage of the distinct data value matches in a column that must be found by the scanner for the classification to be applied. The suggested value is 60%. You need to be careful with this setting. If you reduce the level below 60%, you might introduce false-positive classifications into your catalog. If you specify multiple data patterns, this setting is disabled and the value is fixed at 60%.
+   > [!Note]
+   > The Minimum match threshold must be at least 1%.
 
 1. You can now verify your rule and **create** it.
+1. Test the classification rule before completing the creation process to validate that it will apply tags to your assets. The classifications in the rule will be applied to the sample data uploaded just as it would in a scan. This means all of the system classifications and your custom classification will be matched to the data in your file.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Verify rule before creating" border="true":::
+   Input files may include delimited files (CSV, PSV, SSV, TSV), JSON, or XML content. The content will be parsed based on the file extension of the input file. Delimited data may have a file extension that matches any of the mentioned types. For example, TSV data can exist in a file named MySampleData.csv. Delimited content must also have a minimum of 3 columns.
+
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-screen.png" alt-text="Test rule before creating" border="true":::
+
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-uploaded-file-result-screen.png" alt-text="View applied classifications after uploading a test file" border="true":::
 
 ### Creating a Dictionary Rule
 
@@ -137,11 +145,9 @@ To create a custom classification rule:
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="Create dictionary rule" border="true":::
 
-1. After the dictionary is generated, you can adjust the distinct match and minimum match thresholds and submit the rule.
+1. After the dictionary is generated, you can adjust the minimum match threshold and submit the rule.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Purview dictionary rule - adjust distinct match threshold and minimum match threshold" border="true":::
-
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Create dictionary rule, with Dictionary Generated checkmark." border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Create dictionary rule, with Dictionary-Generated checkmark." border="true":::
 
 ## Next steps
 

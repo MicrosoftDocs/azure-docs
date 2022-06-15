@@ -2,11 +2,11 @@
 title: Rewrite HTTP request and response headers in portal - Azure Application Gateway
 description: Learn how to use the Azure portal to configure an Azure Application Gateway to rewrite the HTTP headers in the requests and responses passing through the gateway
 services: application-gateway
-author: abshamsft
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: absha
+ms.author: greglin
 ms.custom: mvc
 ---
 # Rewrite HTTP request and response headers with Azure Application Gateway - Azure portal
@@ -93,7 +93,7 @@ In this example, we'll modify a redirection URL by rewriting the location header
 
    - In the **Operator** list, select **equal (=)**.
 
-   - Enter a regular expression pattern. In this example, we'll use the pattern `(https?)://.*azurewebsites.net(.*)$`.
+   - Enter a regular expression pattern. In this example, we'll use the pattern `(https?):\/\/.*azurewebsites.net(.*)$`.
 
    - Select **OK**.
 
@@ -125,4 +125,4 @@ In this example, we'll modify a redirection URL by rewriting the location header
 
 ## Next steps
 
-To learn more about how to set up some common use cases, see [common header rewrite scenarios](./rewrite-http-headers.md).
+To learn more about how to set up some common use cases, see [common header rewrite scenarios](./rewrite-http-headers-url.md).

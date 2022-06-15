@@ -5,8 +5,9 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/14/2020
-ms.author: victorh
+ms.date: 04/20/2022
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Custom rules for Web Application Firewall v2 on Azure Application Gateway
@@ -15,9 +16,9 @@ The Azure Application Gateway Web Application Firewall (WAF) v2 comes with a pre
 
 Custom rules allow you to create your own rules that are evaluated for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules contain a rule name, rule priority, and an array of matching conditions. If these conditions are met, an action is taken (to allow or block).
 
-For example, you can block all requests from an IP address in the range 192.168.5.4/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.4/24), and the action is to block the traffic. You also set the rule's name and priority.
+For example, you can block all requests from an IP address in the range 192.168.5.0/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.0/24), and the action is to block the traffic. You also set the rule's name and priority.
 
-Custom rules support using compounding logic to make more advanced rules that address your security needs. For example, (Condition 1 **and** Condition 2) **or** Condition 3). This means that if Condition 1 **and** Condition 2 are met, **or** if Condition 3 is met, the WAF should take the action specified in the custom rule.
+Custom rules support using compounding logic to make more advanced rules that address your security needs. For example, ((Condition 1 **and** Condition 2) **or** Condition 3). This means that if Condition 1 **and** Condition 2 are met, **or** if Condition 3 is met, the WAF should take the action specified in the custom rule.
 
 Different matching conditions within the same rule are always compounded using **and**. For example, block traffic from a specific IP address, and only if they're using a certain browser.
 
@@ -102,13 +103,13 @@ Currently, must be **MatchRule**.
 
 Must be one of the variables:
 
-- RemoteAddr – IP Address/hostname of the remote computer connection
+- RemoteAddr – IP Address/Range of the remote computer connection
 - RequestMethod – HTTP Request method (GET, POST, PUT, DELETE, and so on.)
 - QueryString – Variable in the URI
-- PostArgs – Arguments sent in the POST body. Custom Rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded' and 'multipart/form-data'.
+- PostArgs – Arguments sent in the POST body. Custom Rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded' and 'multipart/form-data'. Additional content type of  `application/json` is supported with CRS version 3.2 or greater, bot protection rule set, and geo-match custom rules. 
 - RequestUri – URI of the request
 - RequestHeaders – Headers of the request
-- RequestBody – This contains the entire request body as a whole. Custom rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded'. 
+- RequestBody – This contains the entire request body as a whole. Custom rules using this match variable are only applied if the 'Content-Type' header is set to `application/x-www-form-urlencoded` media type. Additional content types of  `application/soap+xml, application/xml, text/xml` are supported with CRS version 3.2 or greater, bot protection rule set, and geo-match custom rules.
 - RequestCookies – Cookies of the request
 
 ### Selector [optional]
@@ -129,7 +130,7 @@ Must be one of the following operators:
 - BeginsWith
 - EndsWith
 - Regex
-- Geomatch (preview)
+- Geomatch
 
 ### Negate condition [optional]
 
@@ -156,9 +157,9 @@ List of values to match against, which can be thought of as being *OR*'ed. For e
 - Block – Blocks the transaction based on *SecDefaultAction* (detection/prevention mode). Just like the Allow action, once the request is evaluated and added to the block list, evaluation is stopped and the request is blocked. Any request after that meets the same conditions won't be evaluated and will just be blocked. 
 - Log – Lets the rule write to the log, but lets the rest of the rules run for evaluation. The other custom rules are evaluated in order of priority, followed by the managed rules.
 
-## Geomatch custom rules (preview)
+## Geomatch custom rules
 
-Custom rules let you create tailored rules to suit the exact needs of your applications and security policies. You can restrict access to your web applications by country/region. For more information, see [Geomatch custom rules (preview)](geomatch-custom-rules.md).
+Custom rules let you create tailored rules to suit the exact needs of your applications and security policies. You can restrict access to your web applications by country/region. For more information, see [Geomatch custom rules](geomatch-custom-rules.md).
 
 ## Next steps
 

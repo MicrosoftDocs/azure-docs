@@ -3,7 +3,8 @@ title: Manage certificates in an Azure Service Fabric cluster
 description: Describes how to add new certificates, rollover certificate, and remove certificate to or from a Service Fabric cluster.
 
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 11/13/2018 
+ms.custom: devx-track-azurepowershell
 ---
 # Add or remove certificates for a Service Fabric cluster in Azure
 It is recommended that you familiarize yourself with how Service Fabric uses X.509 certificates and be familiar with the [Cluster security scenarios](service-fabric-cluster-security.md). You must understand what a cluster certificate is and what is used for, before you proceed further.
@@ -21,7 +22,7 @@ Service fabric lets you specify two cluster certificates, a primary and a second
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Add a secondary cluster certificate using the portal
-Secondary cluster certificate cannot be added through the Azure portal; use Azure PowerShell. The process is outlined later in this document.
+Secondary cluster certificate cannot be added through the Azure portal; use [Azure Resource Manager](#add-a-secondary-certificate-using-azure-resource-manager).
 
 ## Remove a cluster certificate using the portal
 For a secure cluster, you will always need at least one valid (not revoked and not expired) certificate. The certificate deployed with the furthest into the future expiring date will be in use, and removing it will make your cluster stop functioning; ensure to only remove the certificate that is expired, or an unused certificate that expires the soonest.
@@ -45,7 +46,7 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
 
 **Make sure to follow all the steps**
 
-1. Open up the Resource Manager template you used to deploy you Cluster. (If you have downloaded the sample from the preceding repo, then use 5-VM-1-NodeTypes-Secure_Step1.JSON to deploy a secure cluster and then open up that template).
+1. Open up the Resource Manager template you used to deploy your Cluster. (If you have downloaded the sample from the preceding repo, then use 5-VM-1-NodeTypes-Secure_Step1.JSON to deploy a secure cluster and then open up that template).
 
 2. Add **two new parameters** "secCertificateThumbprint" and "secCertificateUrlValue" of type "string" to the parameter section of your template. You can copy the following code snippet and add it to the template. Depending on the source of your template, you may already have these defined, if so move to the next step. 
  
@@ -176,8 +177,8 @@ Edit your Resource Manager Template parameter File, add the two new parameters f
 
 ### Deploy the template to Azure
 
-- You are now ready to deploy your template to Azure. Open an Azure PS version 1+ command prompt.
-- Sign in to your Azure Account and select the specific azure subscription. This is an important step for folks who have access to more than one azure subscription.
+- You are now ready to deploy your template to Azure. Open an Azure PowerShell version 1+ command prompt.
+- Sign in to your Azure Account and select the specific Azure subscription. This is an important step for folks who have access to more than one Azure subscription.
 
 ```powershell
 Connect-AzAccount
@@ -276,6 +277,8 @@ To deploy a certificate you use for your applications to your cluster, see [this
 
 ## Next steps
 Read these articles for more information on cluster management:
+
+* [Certificate management in Service Fabric clusters](cluster-security-certificate-management.md)
 
 * [Service Fabric Cluster upgrade process and expectations from you](service-fabric-cluster-upgrade.md)
 * [Setup role-based access for clients](service-fabric-cluster-security-roles.md)

@@ -4,16 +4,14 @@ description: This article provides an overview of data encryption models In Micr
 services: security
 documentationcenter: na
 author: msmbaldwin
-manager: rkarlin
 
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
+ms.date: 06/08/2022
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -86,7 +84,7 @@ When Server-side encryption with service-managed keys is used, the key creation,
 
 For scenarios where the requirement is to encrypt the data at rest and control the encryption keys customers can use server-side encryption using customer-managed Keys in Key Vault. Some services may store only the root Key Encryption Key in Azure Key Vault and store the encrypted Data Encryption Key in an internal location closer to the data. In that scenario customers can bring their own keys to Key Vault (BYOK – Bring Your Own Key), or generate new ones, and use them to encrypt the desired resources. While the Resource Provider performs the encryption and decryption operations, it uses the configured key encryption key as the root key for all encryption operations.
 
-Loss of key encryption keys means loss of data. For this reason, keys should not be deleted. Keys should be backed up whenever created or rotated. [Soft-Delete](../../key-vault/general/soft-delete-overview.md) should be enabled on any vault storing key encryption keys. Instead of deleting a key, set enabled to false or set the expiry date.
+Loss of key encryption keys means loss of data. For this reason, keys should not be deleted. Keys should be backed up whenever created or rotated. [Soft-Delete and purge protection](../../key-vault/general/soft-delete-overview.md) must be enabled on any vault storing key encryption keys to protect against accidental or malicious cryptographic erasure. Instead of deleting a key, it is recommended to set enabled to false on the key encryption key. Use access controls to revoke access to individual users or services in [Azure Key Vault](../../key-vault/general/security-features.md#access-model-overview) or [Managed HSM](../../key-vault/managed-hsm/secure-your-managed-hsm.md).
 
 ### Key Access
 
@@ -97,7 +95,7 @@ For operations using encryption keys, a service identity can be granted access t
 To obtain a key for use in encrypting or decrypting data at rest the service identity that the Resource Manager service instance will run as must have UnwrapKey (to get the key for decryption) and WrapKey (to insert a key into key vault when creating a new key).
 
 >[!NOTE]
->For more detail on Key Vault authorization see the secure your key vault page in the [Azure Key Vault documentation](../../key-vault/general/secure-your-key-vault.md).
+>For more detail on Key Vault authorization see the secure your key vault page in the [Azure Key Vault documentation](../../key-vault/general/security-features.md).
 
 **Advantages**
 
@@ -144,7 +142,6 @@ The Azure services that support each encryption model:
 | Azure Cognitive Search           | Yes                | Yes                | -                  |
 | Azure Cognitive Services         | Yes                | Yes                | -                  |
 | Azure Machine Learning           | Yes                | Yes                | -                  |
-| Azure Machine Learning Studio (classic) | Yes         | Preview, RSA 2048-bit | -               |
 | Content Moderator                | Yes                | Yes                | -                  |
 | Face                             | Yes                | Yes                | -                  |
 | Language Understanding           | Yes                | Yes                | -                  |
@@ -154,7 +151,7 @@ The Azure services that support each encryption model:
 | Translator Text                  | Yes                | Yes                | -                  |
 | Power BI                         | Yes                | Yes, RSA 4096-bit  | -                  |
 | **Analytics**                    |                    |                    |                    |
-| Azure Stream Analytics           | Yes                | Yes\*\*            | -                  |
+| Azure Stream Analytics           | Yes                | Yes\*\*, including Managed HSM | -                  |
 | Event Hubs                       | Yes                | Yes                | -                  |
 | Functions                        | Yes                | Yes                | -                  |
 | Azure Analysis Services          | Yes                | -                  | -                  |
@@ -163,39 +160,37 @@ The Azure services that support each encryption model:
 | Azure Monitor Application Insights | Yes                | Yes                | -                  |
 | Azure Monitor Log Analytics      | Yes                | Yes                | -                  |
 | Azure Data Explorer              | Yes                | Yes                | -                  |
-| Azure Data Factory               | Yes                | Yes                | -                  |
+| Azure Data Factory               | Yes                | Yes, including Managed HSM | -                  |
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
 | **Containers**                   |                    |                    |                    |
-| Azure Kubernetes Service         | Yes                | Yes                | -                  |
+| Azure Kubernetes Service         | Yes                | Yes, including Managed HSM | -                  |
 | Container Instances              | Yes                | Yes                | -                  |
 | Container Registry               | Yes                | Yes                | -                  |
 | **Compute**                      |                    |                    |                    |
-| Virtual Machines                 | Yes                | Yes                | -                  |
-| Virtual Machine Scale Set        | Yes                | Yes                | -                  |
+| Virtual Machines                 | Yes                | Yes, including Managed HSM | -                  |
+| Virtual Machine Scale Set        | Yes                | Yes, including Managed HSM | -                  |
 | SAP HANA                         | Yes                | Yes                | -                  |
-| App Service                      | Yes                | Yes\*\*            | -                  |
-| Automation                       | Yes                | Yes\*\*            | -                  |
-| Azure Functions                  | Yes                | Yes\*\*            | -                  |
-| Azure portal                     | Yes                | Yes\*\*            | -                  |
+| App Service                      | Yes                | Yes\*\*, including Managed HSM | -                  |
+| Automation                       | Yes                | Yes                | -                  |
+| Azure Functions                  | Yes                | Yes\*\*, including Managed HSM | -                  |
+| Azure portal                     | Yes                | Yes\*\*, including Managed HSM | -                  |
 | Logic Apps                       | Yes                | Yes                | -                  |
-| Azure-managed applications       | Yes                | Yes\*\*            | -                  |
+| Azure-managed applications       | Yes                | Yes\*\*, including Managed HSM | -                  |
 | Service Bus                      | Yes                | Yes                | -                  |
 | Site Recovery                    | Yes                | Yes                | -                  |
 | **Databases**                    |                    |                    |                    |
 | SQL Server on Virtual Machines   | Yes                | Yes                | Yes                |
-| Azure SQL Database               | Yes                | Yes, RSA 3072-bit  | Yes                |
+| Azure SQL Database               | Yes                | Yes, RSA 3072-bit, including Managed HSM | Yes                |
+| Azure SQL Managed Instance       | Yes                | Yes, RSA 3072-bit, including Managed HSM | Yes                |
 | Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
 | Azure SQL Database for MySQL     | Yes                | Yes                | -                  |
 | Azure SQL Database for PostgreSQL | Yes               | Yes                | -                  |
-| Azure Synapse Analytics          | Yes                | Yes, RSA 3072-bit  | -                  |
+| Azure Synapse Analytics          | Yes                | Yes, RSA 3072-bit, including Managed HSM | -                  |
 | SQL Server Stretch Database      | Yes                | Yes, RSA 3072-bit  | Yes                |
 | Table Storage                    | Yes                | Yes                | Yes                |
-| Azure Cosmos DB                  | Yes                | Yes                | -                  |
+| Azure Cosmos DB                  | Yes  ([learn more](../../cosmos-db/database-security.md?tabs=sql-api))              | Yes ([learn more](../../cosmos-db/how-to-setup-cmk.md))                | -                  |
 | Azure Databricks                 | Yes                | Yes                | -                  |
 | Azure Database Migration Service | Yes                | N/A\*              | -                  |
-| **DevOps**                       |                    |                    |                    |
-| Azure DevOps Services            | Yes                | -                  | -                  |
-| Azure Repos                      | Yes                | -                  | -                  |
 | **Identity**                     |                    |                    |                    |
 | Azure Active Directory           | Yes                | -                  | -                  |
 | Azure Active Directory Domain Services | Yes          | Yes                | -                  |
@@ -207,23 +202,25 @@ The Azure services that support each encryption model:
 | IoT Hub                          | Yes                | Yes                | Yes                |
 | IoT Hub Device Provisioning      | Yes                | Yes                | -                  |
 | **Management and Governance**    |                    |                    |                    |
+| Azure Managed Grafana            | Yes                | -                  | N/A                |
 | Azure Site Recovery              | Yes                | -                  | -                  |
 | Azure Migrate                    | Yes                | Yes                | -                  |
 | **Media**                        |                    |                    |                    |
 | Media Services                   | Yes                | Yes                | Yes                |
 | **Security**                     |                    |                    |                    |
-| Azure Security Center for IoT    | Yes                | Yes                | -                  |
-| Azure Sentinel                   | Yes                | Yes                | -                  |
+| Microsoft Defender for IoT    | Yes                | Yes                | -                  |
+| Microsoft Sentinel                   | Yes                | Yes                | -                  |
 | **Storage**                      |                    |                    |                    |
-| Blob Storage                     | Yes                | Yes                | Yes                |
-| Premium Blob Storage             | Yes                | Yes                | Yes                |
-| Disk Storage                     | Yes                | Yes                | -                  |
-| Ultra Disk Storage               | Yes                | Yes                | -                  |
-| Managed Disk Storage             | Yes                | Yes                | -                  |
-| File Storage                     | Yes                | Yes                | -                  |
-| File Premium Storage             | Yes                | Yes                | -                  |
-| File Sync                        | Yes                | Yes                | -                  |
-| Queue Storage                    | Yes                | Yes                | Yes                |
+| Blob Storage                     | Yes                | Yes, including Managed HSM | Yes                |
+| Premium Blob Storage             | Yes                | Yes, including Managed HSM | Yes                |
+| Disk Storage                     | Yes                | Yes, including Managed HSM | -                  |
+| Ultra Disk Storage               | Yes                | Yes, including Managed HSM | -                  |
+| Managed Disk Storage             | Yes                | Yes, including Managed HSM | -                  |
+| File Storage                     | Yes                | Yes, including Managed HSM | -                  |
+| File Premium Storage             | Yes                | Yes, including Managed HSM | -                  |
+| File Sync                        | Yes                | Yes, including Managed HSM | -                  |
+| Queue Storage                    | Yes                | Yes, including Managed HSM | Yes                |
+| Data Lake Storage Gen2           | Yes                | Yes, including Managed HSM | Yes                |
 | Avere vFXT                       | Yes                | -                  | -                  |
 | Azure Cache for Redis            | Yes                | N/A\*              | -                  |
 | Azure NetApp Files               | Yes                | Yes                | -                  |

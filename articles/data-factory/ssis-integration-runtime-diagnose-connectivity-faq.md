@@ -2,24 +2,25 @@
 title: Use the diagnose connectivity feature in the SSIS integration runtime
 description: Troubleshoot connection issues in the SSIS integration runtime by using the diagnose connectivity feature. 
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.author: meiyl
 author: meiyl
 ms.reviewer: sawinark
-ms.date: 06/07/2020
+ms.date: 02/15/2022
 ---
 
 # Use the diagnose connectivity feature in the SSIS integration runtime
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
 You might find connectivity problems while executing SQL Server Integration Services (SSIS) packages in the SSIS integration runtime. These problems occur especially if your SSIS integration runtime joins the Azure virtual network.
 
 Troubleshoot connectivity problems by using the *diagnose connectivity* feature to test connections. The feature is located on the monitoring SSIS integration runtime page of the Azure Data Factory portal.
 
- ![Monitor page - diagnose connectivity](media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-diagnose-connectivity.png)
+ :::image type="content" source="media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-diagnose-connectivity.png" alt-text="Monitor page - diagnose connectivity":::
 
- ![Monitor page - test connection](media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-test-connection.png)
+ :::image type="content" source="media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-test-connection.png" alt-text="Monitor page - test connection":::
 
 Use the following sections to learn about the most common errors that occur when you're testing connections. Each section describes the:
 
@@ -96,6 +97,6 @@ Use the following sections to learn about the most common errors that occur when
 
 ## Next steps
 
-- [Deploy an SSIS project to Azure with SSMS](/sql/integration-services/ssis-quickstart-deploy-ssms)
-- [Run SSIS packages in Azure with SSMS](/sql/integration-services/ssis-quickstart-run-ssms)
-- [Schedule SSIS packages in Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)
+- [Migrate SSIS jobs with SSMS](how-to-migrate-ssis-job-ssms.md)
+- [Run SSIS packages in Azure with SSDT](how-to-invoke-ssis-package-ssdt.md)
+- [Schedule SSIS packages in Azure](how-to-schedule-azure-ssis-integration-runtime.md)

@@ -4,12 +4,12 @@ description: Learn how to create and manage Azure HDInsight clusters using the A
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/24/2020
+ms.date: 04/01/2022
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using the Azure portal
 
-[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-portal-management-selector.md)]
 
 Using the [Azure portal](https://portal.azure.com), you can manage [Apache Hadoop](https://hadoop.apache.org/) clusters in Azure HDInsight. Use the tab selector above for information on managing Hadoop clusters in HDInsight using other tools.
 

@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure IoT message routing
-description: How to perform troubleshooting for Azure IoT message routing
+description: How to perform troubleshooting for Azure IoT Hub message routing
 author: ash2017
 ms.service: iot-hub
 services: iot-hub
@@ -32,7 +32,7 @@ To troubleshoot this issue, analyze the following.
 
 #### The routing metrics for this endpoint
 
-All the [IoT Hub metrics related to routing](monitor-iot-hub-reference.md#routing-metrics) are prefixed with *Routing*. You can combine information from multiple metrics to identify root cause for issues. For example, use metric **Routing Delivery Attempts** to identify the number of messages that were delivered to an endpoint or dropped when they didn't match queries on any of the routes and fallback route was disabled. Check the **Routing Latency** metric to observe whether latency for message delivery is steady or increasing. A growing latency can indicate a problem with a specific endpoint and we recommend checking [the health of the endpoint](#the-health-of-the-endpoint). These routing metrics also have [dimensions](monitor-iot-hub-reference.md#metric-dimensions) that provide details on the metric like the endpoint type, specific endpoint name and a reason why the message was not delivered.
+All the [IoT Hub metrics related to routing](monitor-iot-hub-reference.md#routing-metrics) are prefixed with *Routing*. You can combine information from multiple metrics to identify root cause for issues. For example, use metric **Routing Deliveries** to identify the number of messages that were delivered to an endpoint or dropped when they didn't match queries on any of the routes and fallback route was disabled. Check the **Routing Latency** metric to observe whether latency for message delivery is steady or increasing. A growing latency can indicate a problem with a specific endpoint and we recommend checking [the health of the endpoint](#the-health-of-the-endpoint). These routing metrics also have [dimensions](monitor-iot-hub-reference.md#metric-dimensions) that provide details on the metric like the endpoint type, specific endpoint name and a reason why the message was not delivered.
 
 #### The resource logs for any operational issues
 
@@ -54,11 +54,13 @@ Once a route is created, data stops flowing to the built-in-endpoint, unless a r
 
 The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the [built-in-Event Hubs](iot-hub-devguide-messages-read-builtin.md) (messages/events), that is compatible with [Event Hubs](../event-hubs/index.yml). If message routing is turned on, you can enable the fallback route capability. If there are no routes to the built-in-endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in-endpoint. Also, if all existing routes are deleted, fallback route must be enabled to receive all data at the built-in-endpoint.
 
-You can enable/disable the fallback route in the Azure portal->Message Routing blade. You can also use Azure Resource Manager for [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for fallback route.
+The fallback route sends all the messages that don't satisfy any of the query conditions on any of the existing routes to the [built-in-Event Hubs](iot-hub-devguide-messages-read-builtin.md) (messages/events), that is compatible with [Event Hubs](../event-hubs/index.yml). If message routing is turned on, you can enable the fallback route capability. If there are no routes to the built-in endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in-endpoint. Also, if all existing routes are deleted, the fallback route must be enabled to receive all data at the built-in-endpoint.
+
+You can enable or disable the fallback route in the Azure portal by using the Message Routing blade for the IoT hub. You can also use the Azure Resource Manager for [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for a fallback route.
 
 ## Last known errors for IoT Hub routing endpoints
 
-<a id="last-known-errors"></a>
+<a id="last-known-errors"></a>  <!-- why are we using anchors? robin -->
 [!INCLUDE [iot-hub-include-last-known-errors](../../includes/iot-hub-include-last-known-errors.md)]
 
 ## Routes resource logs

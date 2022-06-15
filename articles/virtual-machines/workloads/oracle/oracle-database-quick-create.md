@@ -8,10 +8,13 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
-
+ms.custom: mode-other, devx-track-azurecli, devx-track-java, devx-track-javaee
+ms.devlang: azurecli
 ---
 
 # Create an Oracle Database in an Azure VM
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 This guide details using the Azure CLI to deploy an Azure virtual machine from the [Oracle marketplace gallery image](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) in order to create an Oracle 19c database. Once the server is deployed, you will connect via SSH in order to configure the Oracle database. 
 
@@ -64,15 +67,15 @@ After you create the VM, Azure CLI displays information similar to the following
 ```
 ## Create and attach a new disk for Oracle datafiles and FRA
 
-```bash
-az vm disk attach --name oradata01 --new --resource-group rg-oracle --size-gb 128 --sku StandardSSD_LRS --vm-name vmoracle19c
+```azurecli
+az vm disk attach --name oradata01 --new --resource-group rg-oracle --size-gb 64 --sku StandardSSD_LRS --vm-name vmoracle19c
 ```
 
 ## Open ports for connectivity
-In this task you must configure some external endpoints for the database listener and EM Express to use by setting up the Azure Network Security Group that protects the VM. 
+In this task you must configure some external endpoints for the database listener to use by setting up the Azure Network Security Group that protects the VM. 
 
 1. To open the endpoint that you use to access the Oracle database remotely, create a Network Security Group rule as follows:
-   ```bash
+   ```azurecli
    az network nsg rule create ^
        --resource-group rg-oracle ^
        --nsg-name vmoracle19cNSG ^
@@ -81,8 +84,8 @@ In this task you must configure some external endpoints for the database listene
        --priority 1001 ^
        --destination-port-range 1521
    ```
-2. To open the endpoint that you use to access Oracle EM Express remotely, create a Network Security Group rule with az network nsg rule create as follows:
-   ```bash
+2. To open the endpoint that you use to access Oracle remotely, create a Network Security Group rule with az network nsg rule create as follows:
+   ```azurecli
    az network nsg rule create ^
        --resource-group rg-oracle ^
        --nsg-name vmoracle19cNSG ^
@@ -93,7 +96,7 @@ In this task you must configure some external endpoints for the database listene
    ```
 3. If needed, obtain the public IP address of your VM again with az network public-ip show as follows:
 
-   ```bash
+   ```azurecli
    az network public-ip show ^
        --resource-group rg-oracle ^
        --name vmoracle19cPublicIP ^
@@ -266,8 +269,8 @@ The Oracle software is already installed on the Marketplace image. Create a samp
     dbca -silent \
        -createDatabase \
        -templateName General_Purpose.dbc \
-       -gdbname test \
-       -sid test \
+       -gdbname oratest1 \
+       -sid oratest1 \
        -responseFile NO_VALUE \
        -characterSet AL32UTF8 \
        -sysPassword OraPasswd1 \
@@ -301,11 +304,11 @@ The Oracle software is already installed on the Marketplace image. Create a samp
        70% complete
        Executing Post Configuration Actions
        100% complete
-       Database creation complete. For details check the logfiles at: /u01/app/oracle/cfgtoollogs/dbca/test.
+       Database creation complete. For details check the logfiles at: /u01/app/oracle/cfgtoollogs/dbca/oratest1.
        Database Information:
-       Global Database Name:test
-       System Identifier(SID):test
-       Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/test/test.log" for further details.
+       Global Database Name:oratest1
+       System Identifier(SID):oratest1
+       Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/oratest1/oratest1.log" for further details.
     ```
 
 4. Set Oracle variables
@@ -313,40 +316,14 @@ The Oracle software is already installed on the Marketplace image. Create a samp
     Before you connect, you need to set the environment variable *ORACLE_SID*:
 
     ```bash
-        export ORACLE_SID=test
+        export ORACLE_SID=oratest1
     ```
 
     You should also add the ORACLE_SID variable to the `oracle` users `.bashrc` file for future sign-ins using the following command:
 
     ```bash
-    echo "export ORACLE_SID=test" >> ~oracle/.bashrc
+    echo "export ORACLE_SID=oratest1" >> ~oracle/.bashrc
     ```
-
-## Oracle EM Express connectivity
-
-For a GUI management tool that you can use to explore the database, set up Oracle EM Express. To connect to Oracle EM Express, you must first set up the port in Oracle. 
-
-1. Connect to your database using sqlplus:
-
-    ```bash
-    sqlplus sys as sysdba
-    ```
-
-2. Once connected, set the port 5502 for EM Express
-
-    ```bash
-    exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
-    ```
-
-3.  Connect EM Express from your browser. Make sure your browser is compatible with EM Express (Flash install is required): 
-
-    ```https
-    https://<VM ip address or hostname>:5502/em
-    ```
-
-    You can log in by using the **SYS** account, and check the **as sysdba** checkbox. Use the password **OraPasswd1** that you set during installation. 
-
-    ![Screenshot of the Oracle OEM Express login page](./media/oracle-quick-start/oracle_oem_express_login.png)
 
 ## Automate database startup and shutdown
 

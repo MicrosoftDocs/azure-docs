@@ -1,10 +1,10 @@
 ---
 title: Connect to FTP server
-description: Automate tasks and workflows that create, monitor, and manage files on an FTP server by using Azure Logic Apps
+description: Automate tasks and workflows that create, monitor, and manage files on an FTP server by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 12/15/2019
 tags: connectors
 ---
@@ -48,7 +48,7 @@ When a trigger finds a new file, the trigger checks that the new file is complet
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Your FTP host server address and account credentials
 

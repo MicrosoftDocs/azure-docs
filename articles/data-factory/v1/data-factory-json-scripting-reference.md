@@ -5,14 +5,17 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Data Factory - JSON Scripting Reference
 > [!NOTE]
 > This article applies to version 1 of Data Factory.
 
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
 
 This article provides JSON schemas and examples for defining Azure Data Factory entities (pipeline, activity, dataset, and linked service).
 
@@ -81,7 +84,7 @@ Following table describe the properties within the activity JSON definition:
 | type |Specifies the type of the activity. See the [DATA STORES](#data-stores) and [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) sections for different types of activities. |Yes |
 | inputs |Input tables used by the activity<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |No for HDInsightStreaming and SqlServerStoredProcedure activities <br/> <br/> Yes for all others |
 | outputs |Output tables used by the activity.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Yes |
-| linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight activities, Azure Machine Learning Studio (classic) activities, and Stored Procedure Activity. <br/><br/>No for all others |
+| linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight activities, ML Studio (classic) activities, and Stored Procedure Activity. <br/><br/>No for all others |
 | typeProperties |Properties in the typeProperties section depend on type of the activity. |No |
 | policy |Policies that affect the run-time behavior of the activity. If it is not specified, default policies are used. |No |
 | scheduler |“scheduler” property is used to define desired scheduling for the activity. Its subproperties are the same as the ones in the [availability property in a dataset](data-factory-create-datasets.md#dataset-availability). |No |
@@ -4816,7 +4819,7 @@ The following table lists the compute environments supported by Data Factory and
 | --- | --- |
 | [On-demand HDInsight cluster](#on-demand-azure-hdinsight-cluster) or [your own HDInsight cluster](#existing-azure-hdinsight-cluster) |[.NET custom activity](#net-custom-activity), [Hive activity](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity), [MapReduce activity](#hdinsight-mapreduce-activity), Hadoop streaming activity, [Spark activity](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[.NET custom activity](#net-custom-activity) |
-| [Azure Machine Learning Studio (classic)](#azure-machine-learning-studio-classic) | [Azure Machine Learning Studio (classic) Batch Execution Activity](#azure-machine-learning-studio-classic-batch-execution-activity), [Azure Machine Learning Studio (classic) Update Resource Activity](#azure-machine-learning-studio-classic-update-resource-activity) |
+| [Machine Learning Studio (classic)](#ml-studio-classic) | [ML Studio (classic) Batch Execution Activity](#ml-studio-classic-batch-execution-activity), [ML Studio (classic) Update Resource Activity](#ml-studio-classic-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
 | [Azure SQL Database](#azure-sql-database), [Azure Synapse Analytics](#azure-synapse-analytics), [SQL Server](#sql-server-stored-procedure) |[Stored Procedure](#stored-procedure-activity) |
 
@@ -4923,8 +4926,11 @@ The following table provides descriptions for the properties used in the Azure J
 }
 ```
 
-## Azure Machine Learning Studio (classic)
-You create an Azure Machine Learning Studio (classic) linked service to register a Studio (classic) batch scoring endpoint with a data factory. Two data transformation activities that can run on this linked service: [Azure Machine Learning Studio (classic) Batch Execution Activity](#azure-machine-learning-studio-classic-batch-execution-activity), [Azure Machine Learning Studio (classic) Update Resource Activity](#azure-machine-learning-studio-classic-update-resource-activity).
+## ML Studio (classic) 
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
+
+You create an ML Studio (classic) linked service to register a Studio (classic) batch scoring endpoint with a data factory. Two data transformation activities that can run on this linked service: [ML Studio (classic) Batch Execution Activity](#ml-studio-classic-batch-execution-activity), [ML Studio (classic) Update Resource Activity](#ml-studio-classic-update-resource-activity).
 
 ### Linked service
 The following table provides descriptions for the properties used in the Azure JSON definition of a Studio (classic) linked service.
@@ -5056,8 +5062,8 @@ Activity | Description
 [HDInsight MapReduce Activity](#hdinsight-mapreduce-activity) | The HDInsight MapReduce activity in a Data Factory pipeline executes MapReduce programs on your own or on-demand Windows/Linux-based HDInsight cluster.
 [HDInsight Streaming Activity](#hdinsight-streaming-activity) | The HDInsight Streaming Activity in a Data Factory pipeline executes Hadoop Streaming programs on your own or on-demand Windows/Linux-based HDInsight cluster.
 [HDInsight Spark Activity](#hdinsight-spark-activity) | The HDInsight Spark activity in a Data Factory pipeline executes Spark programs on your own HDInsight cluster.
-[Azure Machine Learning Studio (classic) Batch Execution Activity](#azure-machine-learning-studio-classic-batch-execution-activity) | Azure Data Factory enables you to easily create pipelines that use a published Studio (classic) web service for predictive analytics. Using the Batch Execution Activity in an Azure Data Factory pipeline, you can invoke a Studio (classic) web service to make predictions on the data in batch.
-[Azure Machine Learning Studio (classic) Update Resource Activity](#azure-machine-learning-studio-classic-update-resource-activity) | Over time, the predictive models in the Azure Machine Learning Studio (classic) scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained machine learning model. You can use the Update Resource Activity to update the web service with the newly trained model.
+[ML Studio (classic) Batch Execution Activity](#ml-studio-classic-batch-execution-activity) | Azure Data Factory enables you to easily create pipelines that use a published Studio (classic) web service for predictive analytics. Using the Batch Execution Activity in an Azure Data Factory pipeline, you can invoke a Studio (classic) web service to make predictions on the data in batch.
+[ML Studio (classic) Update Resource Activity](#ml-studio-classic-update-resource-activity) | Over time, the predictive models in the ML Studio (classic) scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained machine learning model. You can use the Update Resource Activity to update the web service with the newly trained model.
 [Stored Procedure Activity](#stored-procedure-activity) | You can use the Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics, SQL Server Database in your enterprise or an Azure VM.
 [Data Lake Analytics U-SQL activity](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL Activity runs a U-SQL script on an Azure Data Lake Analytics cluster.
 [.NET custom activity](#net-custom-activity) | If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster.
@@ -5329,7 +5335,7 @@ Note the following points:
 
 - The **type** property is set to **HDInsightSpark**.
 - The **rootPath** is set to **adfspark\\pyFiles** where adfspark is the Azure Blob container and pyFiles is fine folder in that container. In this example, the Azure Blob Storage is the one that is associated with the Spark cluster. You can upload the file to a different Azure Storage. If you do so, create an Azure Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the **sparkJobLinkedService** property. See Spark Activity properties for details about this property and other properties supported by the Spark Activity.
-- The **entryFilePath** is set to the **test.py**, which is the python file.
+- The **entryFilePath** is set to the **test.py**, which is the Python file.
 - The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).
 
 	> [!IMPORTANT]
@@ -5338,8 +5344,11 @@ Note the following points:
 
 For more information about the activity, see [Spark Activity](data-factory-spark.md) article.
 
-## Azure Machine Learning Studio (classic) Batch Execution Activity
-You can specify the following properties in an Azure Machine Learning Studio (classic) Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create a Studio (classic) linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
+## ML Studio (classic) Batch Execution Activity
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
+You can specify the following properties in an ML Studio (classic) Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create a Studio (classic) linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
 
 Property | Description | Required
 -------- | ----------- | --------
@@ -5394,8 +5403,8 @@ In the JSON example, the deployed Studio (classic) Web service uses a reader and
 > [!NOTE]
 > Only inputs and outputs of the AzureMLBatchExecution activity can be passed as parameters to the Web service. For example, in the above JSON snippet, MLSqlInput is an input to the AzureMLBatchExecution activity, which is passed as an input to the Web service via webServiceInput parameter.
 
-## Azure Machine Learning Studio (classic) Update Resource Activity
-You can specify the following properties in an Azure Machine Learning Studio (classic) Update Resource Activity JSON definition. The type property for the activity must be: **AzureMLUpdateResource**. You must create a Studio (classic) linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLUpdateResource:
+## ML Studio (classic) Update Resource Activity
+You can specify the following properties in an ML Studio (classic) Update Resource Activity JSON definition. The type property for the activity must be: **AzureMLUpdateResource**. You must create a Studio (classic) linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLUpdateResource:
 
 Property | Description | Required
 -------- | ----------- | --------
@@ -5634,7 +5643,7 @@ You can specify the following properties in a .NET custom activity JSON definiti
 
 For detailed information, see [Use custom activities in Data Factory](data-factory-use-custom-activities.md) article.
 
-## Next Steps
+## Next steps
 See the following tutorials:
 
 - [Tutorial: create a pipeline with a copy activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

@@ -1,18 +1,39 @@
 ---
-title: Get Metadata activity in Azure Data Factory 
-description: Learn how to use the Get Metadata activity in a Data Factory pipeline.
-author: linda33wj
+title: Get Metadata activity
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to use the Get Metadata activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
+author: jianleishen
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/25/2021
-ms.author: jingwang
+ms.date: 09/22/2021
+ms.author: jianleishen
 ---
 
-# Get Metadata activity in Azure Data Factory
+# Get Metadata activity in Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-You can use the Get Metadata activity to retrieve the metadata of any data in Azure Data Factory. You can use the output from the Get Metadata activity in conditional expressions to perform validation, or consume the metadata in subsequent activities.
+You can use the Get Metadata activity to retrieve the metadata of any data in Azure Data Factory or a Synapse pipeline. You can use the output from the Get Metadata activity in conditional expressions to perform validation, or consume the metadata in subsequent activities.
+
+## Create a Get Metadata activity with UI
+
+To use a Get Metadata activity in a pipeline, complete the following steps:
+
+1. Search for _Get Metadata_ in the pipeline Activities pane, and drag a Fail activity to the pipeline canvas.
+1. Select the new Get Metadata activity on the canvas if it is not already selected, and its  **Dataset** tab, to edit its details.
+1. Choose a dataset, or create a new one with the New button.  Then you can specify filter options and add columns from the available metadata for the dataset.
+
+   :::image type="content" source="media/control-flow-get-metadata-activity/get-metadata-activity.png" alt-text="Shows the UI for a Get Metadata activity.":::
+
+1. Use the output of the activity as an input to another activity, like a Switch activity in this example.  You can reference the output of the Metadata Activity anywhere dynamic content is supported in the other activity.
+
+   :::image type="content" source="media/control-flow-get-metadata-activity/using-metadata-in-another-activity.png" alt-text="Shows the pipeline with a Switch activity added to handle the output of the Get Metadata activity.":::
+
+1. In the dynamic content editor, select the Get Metadata activity output to reference it in the other activity.
+
+   :::image type="content" source="media/control-flow-get-metadata-activity/dynamic-content-editor-using-metadata.png" alt-text="Shows the dynamic content editor with the output of the Get Metadata activity as the dynamic content.":::
 
 ## Supported capabilities
 
@@ -25,7 +46,9 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 | Connector/Metadata | itemName<br>(file/folder) | itemType<br>(file/folder) | size<br>(file) | created<br>(file/folder) | lastModified<sup>1</sup><br>(file/folder) |childItems<br>(folder) |contentMD5<br>(file) | structure<sup>2</sup><br/>(file) | columnCount<sup>2</sup><br>(file) | exists<sup>3</sup><br>(file/folder) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Oracle Cloud Storage](connector-oracle-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Blob storage](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
@@ -35,12 +58,12 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| x/x | √ | x | √ | √ | √/√ |
 
 <sup>1</sup> Metadata `lastModified`:
-- For Amazon S3 and Google Cloud Storage, `lastModified` applies to the bucket and the key but not to the virtual folder, and `exists` applies to the bucket and the key but not to the prefix or virtual folder. 
+- For Amazon S3, Amazon S3 Compatible Storage, Google Cloud Storage and Oracle Cloud Storage, `lastModified` applies to the bucket and the key but not to the virtual folder, and `exists` applies to the bucket and the key but not to the prefix or virtual folder. 
 - For Azure Blob storage, `lastModified` applies to the container and the blob but not to the virtual folder.
 
 <sup>2</sup> Metadata `structure` and `columnCount` are not supported when getting metadata from Binary, JSON, or XML files.
 
-<sup>3</sup> Metadata `exists`: For Amazon S3 and Google Cloud Storage, `exists` applies to the bucket and the key but not to the prefix or virtual folder.
+<sup>3</sup> Metadata `exists`: For Amazon S3, Amazon S3 Compatible Storage, Google Cloud Storage and Oracle Cloud Storage, `exists` applies to the bucket and the key but not to the prefix or virtual folder.
 
 Note the following:
 
@@ -56,8 +79,9 @@ Note the following:
 
 | Connector/Metadata | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
+| [Amazon RDS for SQL Server](connector-amazon-rds-for-sql-server.md) | √ | √ | √ |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
-| [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) | √ | √ | √ |
+| [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) | √ | √ | √ |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
@@ -217,7 +241,7 @@ The Get Metadata results are shown in the activity output. Following are two sam
 ```
 
 ## Next steps
-Learn about other control flow activities supported by Data Factory:
+Learn about other supported control flow activities:
 
 - [Execute Pipeline activity](control-flow-execute-pipeline-activity.md)
 - [ForEach activity](control-flow-for-each-activity.md)

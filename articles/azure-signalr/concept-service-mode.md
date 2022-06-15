@@ -1,11 +1,11 @@
 ---
 title: Service mode in Azure SignalR Service
 description: An overview of different service modes in Azure SignalR Service, explain their differences and applicable user scenarios
-author: chenkennt
+author: vicancy
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.author: kenchen
+ms.author: lianwei
 ---
 # Service mode in Azure SignalR Service
 

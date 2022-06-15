@@ -4,7 +4,7 @@ description: Learn how to use Python User Defined Functions (UDF) from Apache Hi
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
+ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python, devx-track-azurepowershell
 ---
 
 # Use Python User Defined Functions (UDF) with Apache Hive and Apache Pig in HDInsight
@@ -113,7 +113,7 @@ In the commands below, replace `sshuser` with the actual username if different. 
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-3. From the SSH session, add the python files uploaded previously to the storage for the cluster.
+3. From the SSH session, add the Python files uploaded previously to the storage for the cluster.
 
     ```bash
     hdfs dfs -put hiveudf.py /hiveudf.py
@@ -369,7 +369,7 @@ In the commands below, replace `sshuser` with the actual username if different. 
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-3. From the SSH session, add the python files uploaded previously to the storage for the cluster.
+3. From the SSH session, add the Python files uploaded previously to the storage for the cluster.
 
     ```bash
     hdfs dfs -put pigudf.py /pigudf.py

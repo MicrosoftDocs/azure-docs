@@ -3,9 +3,8 @@ title: 'Scale and manage custom skill'
 titleSuffix: Azure Cognitive Search
 description: Learn the tools and techniques for efficiently scaling out a custom skill for maximum throughput. Custom skills invoke custom AI models or logic that you can add to an AI-enriched indexing pipeline in Azure Cognitive Search.
 
-manager: luisca
-author: vkurpad
-ms.author: vikurpad
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
@@ -22,7 +21,7 @@ Custom skills are web APIs that implement a specific interface. A custom skill c
 
 + Review the [custom skill interface](cognitive-search-custom-skill-interface.md) for an introduction into the input/output interface that a custom skill should implement.
 
-+ Set up your environment. You could start with [this tutorial end-to-end](/python/tutorial-vs-code-serverless-python-01) to set up serverless Azure Function using Visual Studio Code and Python extensions.
++ Set up your environment. You could start with [this tutorial end-to-end](../azure-functions/create-first-function-vs-code-python.md) to set up serverless Azure Function using Visual Studio Code and Python extensions.
 
 ## Skillset configuration
 

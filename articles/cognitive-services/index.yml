@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure Cognitive Services documentation
-summary: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs.
+summary: Learn how to use ready-made AI services to build intelligent apps, websites, and bots. Develop software that can see, hear, speak, and interpret your user's needs.
 brand: azure
 
 metadata:
@@ -12,34 +12,33 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.custom: custom-portals-hub
-  ms.date: 08/28/2020
-
+  ms.custom: custom-portals-hub, event-tier1-build-2022
+  ms.date: 01/05/2022
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
     - title: What are Cognitive Services?
       itemType: overview # controls the icon image and super-title text
       url: ./what-are-cognitive-services.md
-    - title: What's new in docs?
-      itemType: whats-new
-      url: whats-new-docs.md
+    - title: Cognitive Services on-premises containers
+      itemType: concept
+      url: ./containers/index.yml
+    - title: Responsible use of AI
+      itemType: concept
+      url: responsible-use-of-ai-overview.md
     - title: Development options
       itemType: concept
       url: ./cognitive-services-development-options.md
     - title: Cognitive Services and machine learning
       itemType: concept
       url: ./cognitive-services-and-machine-learning.md
-    - title: Cognitive Services on-prem containers
-      itemType: concept
-      url: ./containers/index.yml
     - title: Cognitive Services with databases
       itemType: concept
       url: ./big-data/cognitive-services-for-big-data.md
     - title: Language support
       itemType: reference
       url: ./language-support.md
-    - title: Support & help options
+    - title: Support and help options
       itemType: reference
       url: ./cognitive-services-support-options.md
 
@@ -56,30 +55,21 @@ conceptualContent:
         - url: ./custom-vision-service/index.yml
           itemType: overview
           text: Custom Vision
-        - url: ./face/index.yml
+        - url: ./computer-vision/index-identity.yml
           itemType: overview
-          text: Face
-        - url: ./form-recognizer/index.yml
-          itemType: overview
-          text: Form Recognizer
-        - url: ../media-services/video-indexer/index.yml
-          itemType: overview
-          text: Video Indexer
+          text: Identity
     - title: Language
       summary: Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.
       links:
-        - url: ./immersive-reader/index.yml
+        - url: ./language-service/index.yml
           itemType: overview
-          text: Immersive Reader
+          text: Azure Cognitive Service for Language
         - url: ./luis/index.yml
           itemType: overview
           text: Language Understanding (LUIS)
         - url: ./qnamaker/index.yml
           itemType: overview
           text: QnA Maker
-        - url: ./text-analytics/index.yml
-          itemType: overview
-          text: Text Analytics
         - url: ./translator/index.yml
           itemType: overview
           text: Translator
@@ -108,18 +98,18 @@ conceptualContent:
         - url: ./content-moderator/index.yml
           itemType: overview
           text: Content Moderator
-        - url: ./metrics-advisor/index.yml
-          itemType: overview
-          text: Metrics Advisor (preview)
         - url: ./personalizer/index.yml
           itemType: overview
           text: Personalizer
-    - title: Search
-      summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
+    - title: Azure OpenAI
+      summary: Apply advanced language models to variety of use cases with the Azure OpenAI service 
       links:
-        - url: ./Bing-web-search/index.yml
+        - url: ./openai/overview.md
           itemType: overview
-          text: Bing Search APIs hub page
+          text:  Azure OpenAI 
+        - url: ./openai/concepts/engines.md
+          itemType: overview
+          text: Azure OpenAI Engines
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:
@@ -129,18 +119,15 @@ conceptualContent:
         - url: ./cognitive-services-container-support.md
           itemType: overview
           text: What are Cognitive Service containers?
-        - url: ./containers/container-reuse-recipe.md
-          itemType: learn
-          text: Create containers for reuse
         - url: ./containers/azure-container-instance-recipe.md
           itemType: how-to-guide
           text: Deploy and run container on Azure Container Instance
-        - url: ./containers/azure-kubernetes-recipe.md
-          itemType: deploy
-          text: Deploy to Azure Kubernetes Service
         - url: ./containers/docker-compose-recipe.md
           itemType: get-started
           text: Use Docker Compose to deploy multiple containers
+        - url: ./containers/disconnected-containers.md
+          itemType: get-started
+          text: Use Docker containers disconnected from the internet
         - url: ./containers/container-faq.yml
           itemType: reference
           text: Cognitive Services containers FAQ
@@ -155,7 +142,7 @@ conceptualContent:
           text: Use Cognitive Services within Azure Databricks and Azure Synapse Analytics
         - url: ./big-data/samples-python.md
           itemType: reference
-          text: Python Samples   
+          text: Python Samples
 additionalContent:
   sections:
     - title: Additional resources
@@ -193,6 +180,12 @@ additionalContent:
               url: ./big-data/cognitive-services-for-big-data.md
             - text: Cognitive Services Management REST API
               url: /rest/api/cognitiveservices/
+        - title: Explore other Azure AI Services
+          links:
+            - text: Azure Applied AI Services
+              url: ../applied-ai-services/index.yml
+            - text: Azure Machine Learning
+              url: ../machine-learning/index.yml
         - title: Tools
           links:
             - text: Azure CLI

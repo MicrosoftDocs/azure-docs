@@ -1,6 +1,5 @@
 ---
-title: Use MSAL in a national cloud app | Azure
-titleSuffix: Microsoft identity platform
+title: Use MSAL in a national cloud app
 description: The Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, partner web APIs, or your own web API. MSAL supports multiple application architectures and platforms.
 services: active-directory
 author: negoe
@@ -10,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/22/2019
+ms.date: 09/21/2021
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
@@ -23,13 +22,20 @@ ms.custom: aaddev
 
 In addition to the Microsoft worldwide cloud, the Microsoft Authentication Library (MSAL) enables application developers in national clouds to acquire tokens in order to authenticate and call secured web APIs. These web APIs can be Microsoft Graph or other Microsoft APIs.
 
-Including the global cloud, Azure Active Directory (Azure AD) is deployed in the following national clouds:  
+Including the global Azure cloud, Azure Active Directory (Azure AD) is deployed in the following national clouds: 
 
 - Azure Government
 - Azure China 21Vianet
-- Azure Germany
+- Azure Germany ([Closing on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions))
 
 This guide demonstrates how to sign in to work and school accounts, get an access token, and call the Microsoft Graph API in the [Azure Government cloud](https://azure.microsoft.com/global-infrastructure/government/) environment.
+
+## Azure Germany (Microsoft Cloud Deutschland)
+
+> [!WARNING]
+> Azure Germany (Microsoft Cloud Deutschland) will be [closed on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions). Services and applications you choose _not_ to migrate to a region in global Azure before that date will become inaccessible.
+
+If you haven't migrated your application from Azure Germany, follow [Azure Active Directory information for the migration from Azure Germany](/microsoft-365/enterprise/ms-cloud-germany-transition-azure-ad) to get started.
 
 ## Prerequisites
 
@@ -65,75 +71,59 @@ The following tutorials demonstrate how to build a .NET Core 2.2 MVC Web app. Th
 
 To enable your MSAL.js application for sovereign clouds:
 
-### Step 1: Register your application
+- Register your application in a specific portal, depending on the cloud. For more information on how to choose the portal refer [App registration endpoints](authentication-national-cloud.md#app-registration-endpoints)
+- Use any of the [samples](https://github.com/Azure-Samples/ms-identity-javascript-tutorial) from the repo with a few changes to the configuration, depending on the cloud, which is mentioned next.
+- Use a specific authority, depending on the cloud you registered the application in. For more information on authorities for different clouds, refer to [Azure AD Authentication endpoints](authentication-national-cloud.md#azure-ad-authentication-endpoints).
+- Calling the Microsoft Graph API requires an endpoint URL specific to the cloud you are using. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-1. Sign in to the <a href="https://portal.azure.us/" target="_blank">Azure portal</a>.
+Here's an example authority:
 
-   To find Azure portal endpoints for other national clouds, see [App registration endpoints](authentication-national-cloud.md#app-registration-endpoints).
+```json
+"authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
+```
 
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
-1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
-1. Under **Supported account types**, select **Accounts in any organizational directory**.
-1. In the **Redirect URI** section, select the **Web** platform and set the value to the application's URL based on your web server. See the next sections for instructions on how to set and obtain the redirect URL in Visual Studio and Node.
-1. Select **Register**.
-1. On the **Overview** page, note down the **Application (client) ID** value for later use.
-    This tutorial requires you to enable the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). 
-1. Under **Manage**, select **Authentication**.
-1. Under **Implicit grant and hybrid flows**, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app needs to sign in users and call an API.
-1. Select **Save**.
+Here's an example of a Microsoft Graph endpoint, with scope:
 
-### Step 2:  Set up your web server or project
+```json
+"endpoint" : "https://graph.microsoft.us/v1.0/me"
+"scope": "User.Read"
+```
 
-- [Download the project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) for a local web server, such as Node.
-
-  or
-
-- [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip).
-
-Then skip to [Configure your JavaScript SPA](#step-4-configure-your-javascript-spa) to configure the code sample before running it.
-
-### Step 3: Use the Microsoft Authentication Library to sign in the user
-
-Follow steps in the [JavaScript tutorial](tutorial-v2-javascript-spa.md#create-your-project) to create your project and integrate with MSAL to sign in the user.
-
-### Step 4: Configure your JavaScript SPA
-
-In the `index.html` file created during project setup, add the application registration information. Add the following code at the top within the `<script></script>` tags in the body of your `index.html` file:
+Here's the minimal code for authenticating a user with a sovereign cloud and calling Microsoft Graph:
 
 ```javascript
 const msalConfig = {
-    auth:{
-        clientId: "Enter_the_Application_Id_here",
+    auth: {
+        clientId: "Enter_the_Application_Id_Here",
         authority: "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here",
-        }
+        redirectUri: "/",
+    }
+};
+
+// Initialize MSAL
+const msalObj = new PublicClientApplication(msalConfig);
+
+// Get token using popup experience
+try {
+    const graphToken = await msalObj.acquireTokenPopup({
+        scopes: ["User.Read"]
+    });
+} catch(error) {
+    console.log(error)
 }
 
-const graphConfig = {
-        graphEndpoint: "https://graph.microsoft.us",
-        graphScopes: ["user.read"],
-}
+// Call the Graph API
+const headers = new Headers();
+const bearer = `Bearer ${graphToken}`;
 
-// create UserAgentApplication instance
-const myMSALObj = new UserAgentApplication(msalConfig);
+headers.append("Authorization", bearer);
+
+fetch("https://graph.microsoft.us/v1.0/me", {
+    method: "GET",
+    headers: headers
+})
 ```
 
-In that code:
-
-- `Enter_the_Application_Id_here` is the **Application (client) ID** value for the application that you registered.
-- `Enter_the_Tenant_Info_Here` is set to one of the following options:
-    - If your application supports **Accounts in this organizational directory**, replace this value with the tenant ID or tenant name (for example, contoso.microsoft.com).
-    - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`.
-
-    To find authentication endpoints for all the national clouds, see [Azure AD authentication endpoints](./authentication-national-cloud.md#azure-ad-authentication-endpoints).
-
-    > [!NOTE]
-    > Personal Microsoft accounts are not supported in national clouds.
-
-- `graphEndpoint` is the Microsoft Graph endpoint for the Microsoft cloud for US government.
-
-   To find Microsoft Graph endpoints for all the national clouds, see [Microsoft Graph endpoints in national clouds](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 ## [Python](#tab/python)
 
@@ -227,4 +217,4 @@ National cloud documentation:
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
-- [Azure Germany](../../germany/index.yml)
+- [Azure Germany (closes on October 29, 2021)](../../germany/index.yml)

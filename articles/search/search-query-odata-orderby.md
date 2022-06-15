@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Search
 description: Syntax and language reference documentation for using order-by in Azure Cognitive Search queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 08/05/2020
+ms.topic: reference
+ms.date: 09/16/2021
 translation.priority.mt:
   - "de-de"
   - "es-es"

@@ -1,67 +1,70 @@
 ---
-author: trevorbye
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: trbye
+ms.author: eur
 ---
 
 :::row:::
     :::column span="3":::
-        The Speech SDK only supports **Ubuntu 16.04/18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
+        The Speech SDK only supports **Ubuntu 18.04/20.04/22.04**, **Debian 9/10/11**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Linux" src="https://docs.microsoft.com/media/logos/logo_linux-color.svg" width="60px">
+            <img alt="Linux" src="/media/logos/logo_linux.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
 
-- x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for C++ development
-- x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for Java
-- x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for .NET Core
-- x64 for Python
+- x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for **C++** development
+- x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for **Java**
+- x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for **.NET Core**
+- x64 (not RHEL/CentOS 7) for **Python**
 
-> [!IMPORTANT]
-> For C# on Linux ARM64, the .NET Core 3.x (dotnet-sdk-3.x package) is required.
-
-> [!NOTE]
-> To use the Speech SDK in Alpine Linux, create a Debian chroot environment as documented in the Alpine Linux Wiki on [running glibc programs](https://wiki.alpinelinux.org/wiki/Running_glibc_programs), and then follow Debian instructions here.
+To use the Speech SDK in Alpine Linux, create a Debian chroot environment as documented in the Alpine Linux Wiki on [running glibc programs](https://wiki.alpinelinux.org/wiki/Running_glibc_programs). Then follow the Debian instructions here.
 
 ### System requirements
 
-For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, additional dependencies may be required.
+> [!IMPORTANT]
+> Use the latest point release of the Linux distribution. For example, CentOS 7.9.2009 (or newer if available) for CentOS 7; Ubuntu 18.04.6 (or newer if available) for Ubuntu 18.04 LTS.
 
-- The shared libraries of the GNU C library (including the POSIX Threads Programming library, `libpthreads`)
-- The OpenSSL library (`libssl.so.1.0.0` or `libssl.so.1.0.2`)
-- The shared library for ALSA applications (`libasound.so.2`)
+For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, more dependencies might be required:
 
-# [Ubuntu 16.04/18.04/20.04](#tab/ubuntu)
+- The shared libraries of the GNU C library, including the POSIX Threads Programming library, `libpthreads`
+- The OpenSSL library (`libssl`) version 1.x
+- The shared library for ALSA applications (`libasound`)
 
-```Bash
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2
-```
-
-> [!NOTE]
-> If libssl1.0.x is not available, install libssl1.1 instead.
-
-# [Debian 9/10](#tab/debian)
+# [Ubuntu 18.04/20.04/22.04](#tab/ubuntu)
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.2 libasound2
+sudo apt-get install build-essential libssl-dev libasound2 wget
 ```
 
-> [!NOTE]
-> If libssl1.0.x is not available, install libssl1.1 instead.
+> [!IMPORTANT]
+> On Ubuntu 22.04, install `libssl1.1` either as a binary package from http://security.ubuntu.com/ubuntu/pool/main/o/openssl/ (e.g. `libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb` or newer for x64) or by compiling it from sources. The Speech SDK does not support OpenSSL 3.0 (the default in Ubuntu 22.04) at the moment.
+
+Example of installing `libssl1.1` on Ubuntu 22.04:
+```Bash
+wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb
+sudo dpkg -i libssl1.1_1.1.1l-1ubuntu1.3_amd64.deb
+```
+
+# [Debian 9/10/11](#tab/debian)
+
+```Bash
+sudo apt-get update
+sudo apt-get install build-essential libssl-dev libasound2 wget
+```
 
 # [RHEL 7/8 and CentOS 7/8](#tab/rhel-centos)
 
 ```Bash
 sudo yum update
-sudo yum install alsa-lib openssl
+sudo yum groupinstall "Development tools"
+sudo yum install alsa-lib openssl wget
 ```
 
 > [!IMPORTANT]

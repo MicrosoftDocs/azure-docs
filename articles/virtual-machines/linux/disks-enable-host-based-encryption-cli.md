@@ -2,15 +2,17 @@
 title: Enable end-to-end encryption using encryption at host - Azure CLI - managed disks
 description: Use encryption at host to enable end-to-end encryption on your Azure managed disks.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 03/15/2022
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Use the Azure CLI to enable end-to-end encryption using encryption at host
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, as well as other managed disk encryption types, see [Encryption at host - End-to-end encryption for your VM data](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
@@ -20,30 +22,29 @@ When you enable encryption at host, data stored on the VM host is encrypted at r
 
 ### Supported VM sizes
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
-
-You may also find the VM sizes programmatically. To learn how to retrieve them programmatically, refer to the [Finding supported VM sizes](#finding-supported-vm-sizes) section.
+The complete list of supported VM sizes can be pulled programmatically. To learn how to retrieve them programmatically, see the [Finding supported VM sizes](#finding-supported-vm-sizes) section.
+Upgrading the VM size will result in validation to check if the new VM size supports the EncryptionAtHost feature.
 
 ## Prerequisites
 
-You must enable the feature for your subscription before you use the EncryptionAtHost property for your VM/VMSS. Please follow the steps below to enable the feature for your subscription:
+You must enable the feature for your subscription before you use the EncryptionAtHost property for your VM/VMSS. Use the following steps to enable the feature for your subscription:
 
-1.	Execute the following command to register the feature for your subscription
+- Execute the following command to register the feature for your subscription
 
-    ```azurecli
-    az feature register --namespace Microsoft.Compute --name EncryptionAtHost
-    ```
+```azurecli
+az feature register --namespace Microsoft.Compute --name EncryptionAtHost
+```
  
-2.	Please check that the registration state is Registered (takes a few minutes) using the command below before trying out the feature.
+- Check that the registration state is **Registered** (takes a few minutes) using the command below before trying out the feature.
 
-    ```azurecli
-    az feature show --namespace Microsoft.Compute --name EncryptionAtHost
-    ```
+```azurecli
+az feature show --namespace Microsoft.Compute --name EncryptionAtHost
+```
 
 
-### Create an Azure Key Vault and DiskEncryptionSet
+### Create resources
 
-Once the feature is enabled, you'll need to set up an Azure Key Vault and a DiskEncryptionSet, if you haven't already.
+Once the feature is enabled, you'll need to set up a DiskEncryptionSet and either an [Azure Key Vault](../../key-vault/general/overview.md) or an [Azure Key Vault Managed HSM](../../key-vault/managed-hsm/overview.md).
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
@@ -118,6 +119,20 @@ az vm show -n $vmName \
 --query [securityProfile.encryptionAtHost] -o tsv
 ```
 
+
+### Update a VM to disable encryption at host. 
+
+You must deallocate your VM before you can disable encryption at host.
+
+```azurecli
+rgName=yourRGName
+vmName=yourVMName
+
+az vm update -n $vmName \
+-g $rgName \
+--set securityProfile.encryptionAtHost=false
+```
+
 ### Create a virtual machine scale set with encryption at host enabled with customer-managed keys. 
 
 Create a virtual machine scale set with managed disks using the resource URI of the DiskEncryptionSet created earlier to encrypt cache of OS and data disks with customer-managed keys. The temp disks are encrypted with platform-managed keys. 
@@ -185,6 +200,19 @@ vmssName=yourVMName
 az vmss show -n $vmssName \
 -g $rgName \
 --query [virtualMachineProfile.securityProfile.encryptionAtHost] -o tsv
+```
+
+### Update a virtual machine scale set to disable encryption at host. 
+
+You can disable encryption at host on your virtual machine scale set but, this will only affect VMs created after you disable encryption at host. For existing VMs, you must deallocate the VM, [disable encryption at host on that individual VM](#update-a-vm-to-disable-encryption-at-host), then reallocate the VM.
+
+```azurecli
+rgName=yourRGName
+vmssName=yourVMName
+
+az vmss update -n $vmssName \
+-g $rgName \
+--set virtualMachineProfile.securityProfile.encryptionAtHost=false
 ```
 
 ## Finding supported VM sizes

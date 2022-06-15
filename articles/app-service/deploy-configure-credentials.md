@@ -5,7 +5,7 @@ description: Learn what types of deployment credentials are in Azure App Service
 ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
@@ -73,13 +73,13 @@ Since user-scope credentials are linked to the user and not a specific resource,
 
 # [Azure CLI](#tab/cli)
 
-Get the application-scope credentials using the [az webapp deployment list-publishing-profiles](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles) command. For example:
+Get the application-scope credentials using the [az webapp deployment list-publishing-profiles](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) command. For example:
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --resource-group <group-name> --name <app-name>
 ```
 
-For [local Git deployment](deploy-local-git.md), you can also use the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_credentials) command to get a Git remote URI for your app, with the application-scope credentials already embedded. For example:
+For [local Git deployment](deploy-local-git.md), you can also use the [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command to get a Git remote URI for your app, with the application-scope credentials already embedded. For example:
 
 ```azurecli-interactive
 az webapp deployment list-publishing-credentials --resource-group <group-name> --name <app-name> --query scmUri
@@ -107,7 +107,7 @@ Get-AzWebAppPublishingProfile -ResourceGroupName <group-name> -Name <app-name>
 
 # [Azure CLI](#tab/cli)
 
-Reset the application-scope credentials using the [az resource invoke-action](/cli/azure/resource#az_resource_invoke_action) command:
+Reset the application-scope credentials using the [az resource invoke-action](/cli/azure/resource#az-resource-invoke-action) command:
 
 ```azurecli-interactive
 az resource invoke-action --action newpassword --resource-group <group-name> --name <app-name> --resource-type Microsoft.Web/sites

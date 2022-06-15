@@ -3,7 +3,7 @@ title: Securing managed identities in Azure Active Directory
 description: Explanation of how to find, assess, and increase the security of managed identities.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -51,8 +51,6 @@ For more information about control and data planes, see [Control plane and data 
 
 All Azure services will eventually support managed identities. For more information, see [Services that support managed identities for Azure resources](../managed-identities-azure-resources/services-support-managed-identities.md).
 
-##  
-
 ## Types of managed identities
 
 There are two types of managed identities—system-assigned and user-assigned.
@@ -95,7 +93,7 @@ You can get a list of all managed identities in your tenant with the following G
 
 `https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity') `
 
-You can filter these requests. For more information, see the Graph documentation for [GET servicePrincipal](/graph/api/serviceprincipal-get?view=).
+You can filter these requests. For more information, see the Graph documentation for [GET servicePrincipal](/graph/api/serviceprincipal-get).
 
 ## Assess the security of managed identities 
 

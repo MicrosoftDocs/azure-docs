@@ -2,12 +2,12 @@
 title: CI/CD for Azure API Management using ARM templates
 description: Introduction to API DevOps with Azure API Management, using Azure Resource Manager templates to manage API deployments in a CI/CD pipeline
 services: api-management
-author: miaojiang
+author: dlepow
 ms.service: api-management
 
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # CI/CD for API Management using Azure Resource Manager templates
@@ -15,6 +15,10 @@ ms.author: apimpm
 This article shows you how to use API DevOps with Azure API Management, through Azure Resource Manager templates. With the strategic value of APIs, a continuous integration and continuous deployment (CI/CD) pipeline has become an important aspect of API development. It allows organizations to automate deployment of API changes without error-prone manual steps, detect issues earlier, and ultimately deliver value to users faster. 
 
 For details, tools, and code samples to implement the DevOps approach described in this article, see the open-source [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit) in GitHub. Because customers bring a wide range of engineering cultures and existing automation solutions, the approach isn't a one-size-fits-all solution.
+
+For architectural guidance, see:
+
+* **API Management landing zone accelerator**: [Reference architecture](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json) and [design guidance](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
 ## The problem
 
@@ -37,7 +41,7 @@ In this example, there are two deployment environments: *Development* and *Produ
 * API developers have access to the Development instance and can use it for developing and testing their APIs. 
 * A designated team called the *API publishers* manages the Production instance.
 
-The key in this proposed approach is to keep all API Management configurations in [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md). The organization should keep these templates in a source control system such as Git. As illustrated in the image, a Publisher repository contains all configurations of the Production API Management instance in a collection of templates:
+The key in this proposed approach is to keep all API Management configurations in [Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). The organization should keep these templates in a source control system such as Git. As illustrated in the image, a Publisher repository contains all configurations of the Production API Management instance in a collection of templates:
 
 |Template  |Description  |
 |---------|---------|
@@ -53,9 +57,9 @@ API developers face challenges when working with Resource Manager templates:
 
 * API developers often work with the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) and might not be familiar with Resource Manager schemas. Authoring templates manually might be error-prone. 
 
-   A tool called [Creator](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#Creator) in the resource kit can help automate the creation of API templates based on an Open API Specification file. Additionally, developers can supply API Management policies for an API in XML format. 
+   A tool called [Creator](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/main/src/README.md#creator) in the resource kit can help automate the creation of API templates based on an Open API Specification file. Additionally, developers can supply API Management policies for an API in XML format. 
 
-* For customers who are already using API Management, another challenge is to extract existing configurations into Resource Manager templates. For those customers, a tool called [Extractor](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#extractor) in the resource kit can help generate templates by extracting configurations from their API Management instances.  
+* For customers who are already using API Management, another challenge is to extract existing configurations into Resource Manager templates. For those customers, a tool called [Extractor](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/main/src/README.md#Extractor) in the resource kit can help generate templates by extracting configurations from their API Management instances.  
 
 ## Workflow
 
@@ -63,7 +67,7 @@ API developers face challenges when working with Resource Manager templates:
 
 * API publishers can validate the pull request and make sure the changes are safe and compliant. For example, they can check if only HTTPS is allowed to communicate with the API. Most validations can be automated as a step in the CI/CD pipeline.
 
-* Once the changes are approved and merged successfully, API publishers can choose to deploy them to the Production instance either on schedule or on demand. The deployment of the templates can be automated using [GitHub Actions](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), or other tools.
+* Once the changes are approved and merged successfully, API publishers can choose to deploy them to the Production instance either on schedule or on demand. The deployment of the templates can be automated using [GitHub Actions](https://docs.github.com/en/actions), [Azure Pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), or other tools.
 
 
 With this approach, an organization can automate the deployment of API changes into API Management instances, and it's easy to promote changes from one environment to another. Because different API development teams will be working on different sets of API templates and files, it prevents interference between different teams.

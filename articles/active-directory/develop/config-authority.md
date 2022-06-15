@@ -1,6 +1,5 @@
 ---
-title: Configure identity providers (MSAL iOS/macOS) | Azure
-titleSuffix: Microsoft identity platform
+title: Configure identity providers (MSAL iOS/macOS)
 description: Learn how to use different authorities such as B2C, sovereign clouds, and guest users, with MSAL for iOS and macOS.
 services: active-directory
 author: mmacy
@@ -16,7 +15,7 @@ ms.reviewer: oldalton
 ms.custom: aaddev
 ---
 
-# How to: Configure MSAL for iOS and macOS to use different identity providers
+# Configure MSAL for iOS and macOS to use different identity providers
 
 This article will show you how to configure your Microsoft authentication library app for iOS and macOS (MSAL) for different authorities such as Azure Active Directory (Azure AD), Business-to-Consumer (B2C), sovereign clouds, and guest users.  Throughout this article, you can generally think of an authority as an identity provider.
 
@@ -236,11 +235,11 @@ The following are subclasses of `MSALAuthority` that you can instantiate dependi
 
 ### MSALAADAuthority
 
-`MSALAADAuthority` represents an AAD authority. The authority url should be in the following format, where `<port>` is optional: `https://<host>:<port>/<tenant>`
+`MSALAADAuthority` represents an AAD authority. The authority URL should be in the following format, where `<port>` is optional: `https://<host>:<port>/<tenant>`
 
 ### MSALB2CAuthority
 
-`MSALB2CAuthority` represents a B2C authority. By default, the B2C authority url should be in the following format, where `<port>` is optional: `https://<host>:<port>/tfp/<tenant>/<policy>`. However, MSAL also supports other arbitrary B2C authority formats.
+`MSALB2CAuthority` represents a B2C authority. By default, the B2C authority URL should be in the following format, where `<port>` is optional: `https://<host>:<port>/tfp/<tenant>/<policy>`. However, MSAL also supports other arbitrary B2C authority formats.
 
 ## Next steps
 

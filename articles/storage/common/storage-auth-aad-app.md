@@ -1,5 +1,5 @@
 ---
-title: Acquire a token from Azure AD for authorizing requests from a client application
+title: Authorize access to blob or queue data from a native or web application
 titleSuffix: Azure Storage
 description: Use Azure Active Directory to authenticate from within a client application, acquire an OAuth 2.0 token, and authorize requests to Azure Blob storage and Queue storage.
 services: storage
@@ -7,13 +7,13 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 10/11/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: "devx-track-csharp"
 ---
 
-# Acquire a token from Azure AD for authorizing requests from a client application
+# Authorize access to blob or queue data from a native or web application
 
 A key advantage of using Azure Active Directory (Azure AD) with Azure Blob storage or Queue storage is that your credentials no longer need to be stored in your code. Instead, you can request an OAuth 2.0 access token from the Microsoft identity platform. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Blob storage or Queue storage.
 
@@ -27,11 +27,11 @@ The sample application provides an end-to-end experience that shows how to confi
 
 ## Assign a role to an Azure AD security principal
 
-To authenticate a security principal from your Azure Storage application, first configure Azure role-based access control (Azure RBAC) settings for that security principal. Azure Storage defines built-in roles that encompass permissions for containers and queues. When the Azure role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Manage access rights to Azure Blob and Queue data with Azure RBAC](./storage-auth-aad-rbac-portal.md).
+To authenticate a security principal from your Azure Storage application, first configure Azure role-based access control (Azure RBAC) settings for that security principal. Azure Storage defines built-in roles that encompass permissions for containers and queues. When the Azure role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
 
 ## Register your application with an Azure AD tenant
 
-The first step in using Azure AD to authorize access to storage resources is registering your client application with an Azure AD tenant from the [Azure portal](https://portal.azure.com). When you register your client application, you supply information about the application to Azure AD. Azure AD then provides a client ID (also called an *application ID*) that you use to associate your application with Azure AD at runtime. To learn more about the client ID, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). To register your Azure Storage application, follow the steps shown in [Quickstart: Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
+The first step in using Azure AD to authorize access to storage resources is registering your client application with an Azure AD tenant from the [Azure portal](https://portal.azure.com). When you register your client application, you supply information about the application to Azure AD. Azure AD then provides a client ID (also called an *application ID*) that you use to associate your application with Azure AD at runtime. To learn more about the client ID, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). To register your Azure Storage application, follow the steps shown in [Quickstart: Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-configure-app-access-web-apis.md).
 
 The following image shows common settings for registering a web application. Note that in this example, the redirect URI is set to `http://localhost:5000/signin-oidc` for testing the sample application in the development environment. You can modify this setting later under the **Authentication** setting for your registered application in the Azure portal:
 
@@ -65,7 +65,7 @@ The **API permissions** pane now shows that your registered Azure AD application
 
 ### Create a client secret
 
-The application needs a client secret to prove its identity when requesting a token. To add the client secret, follow these steps:
+The application needs a client secret to prove its identity when requesting a token. For security reasons, Microsoft limits creation of client secrets longer than 24 months and strongly recommends that you set this to a value less than 12 months. To add the client secret, follow these steps:
 
 1. Navigate to your app registration in the Azure portal.
 1. Select the **Certificates & secrets** setting.
@@ -123,7 +123,7 @@ To request the token, you will need the following values from your app's registr
 
 To run the code sample, create a storage account within the same subscription as your Azure Active Directory. Then create a container within that storage account. The sample code will create a block blob in this container.
 
-Next, explicitly assign the **Storage Blob Data Contributor** role to the user account under which you will run the sample code. For instructions on how to assign this role in the Azure portal, see [Use the Azure portal to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-portal.md).
+Next, explicitly assign the **Storage Blob Data Contributor** role to the user account under which you will run the sample code. To learn how to assign this role in the Azure portal, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
 
 > [!NOTE]
 > When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container or queue.
@@ -136,7 +136,7 @@ When your application accesses Azure Storage, it does so on the user's behalf, m
 
 A completed sample web application that acquires a token and uses it to create a blob in Azure Storage is available on [GitHub](https://aka.ms/aadstorage). Reviewing and running the completed sample may be helpful for understanding the code examples. For instructions about how to run the completed sample, see the section titled [View and run the completed sample](#view-and-run-the-completed-sample).
 
-#### Add references and using statements  
+#### Add references and using statements
 
 From Visual Studio, install the Azure Storage client library. From the **Tools** menu, select **NuGet Package Manager**, then **Package Manager Console**. Type the following commands into the console window to install the necessary packages from the Azure Storage client library for .NET:
 
@@ -289,5 +289,5 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ## Next steps
 
 - [Microsoft identity platform](../../active-directory/develop/index.yml)
-- [Manage access rights to storage data with Azure RBAC](./storage-auth-aad-rbac-portal.md)
-- [Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md)
+- [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md)
+- [Authorize access to blob data with managed identities for Azure resources](../blobs/authorize-managed-identity.md)

@@ -9,12 +9,13 @@ ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn about monitoring so that I can review the health status and perform troubleshooting on Windows virtual machines.
 ---
 
 # Tutorial: Monitor a Windows virtual machine in Azure
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 Azure monitoring uses agents to collect boot and performance data from Azure VMs, store this data in Azure storage, and make it accessible through portal, the Azure PowerShell module, and Azure CLI. Advanced monitoring is delivered with Azure Monitor for VMs by collecting performance metrics, discover application components installed on the VM, and includes performance charts and dependency map.
 
@@ -139,7 +140,7 @@ In this tutorial, you configured and viewed performance of your VM. You learned 
 > * View VM metrics
 > * Create an alert
 
-Advance to the next tutorial to learn about Azure Security Center.
+Advance to the next tutorial to learn about Microsoft Defender for Cloud.
 
 > [!div class="nextstepaction"]
 > [Manage VM security](../../security/fundamentals/overview.md)

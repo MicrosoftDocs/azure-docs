@@ -5,8 +5,8 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 08/21/2020
-ms.author: victorh
+ms.date: 06/03/2021
+ms.author: greglin
 
 ---
 # Overview of TLS termination and end to end TLS with Application Gateway
@@ -22,7 +22,7 @@ Application Gateway supports TLS termination at the gateway, after which traffic
 - **Intelligent routing** – By decrypting the traffic, the application gateway has access to the request content, such as headers, URI, and so on, and can use this data to route requests.
 - **Certificate management** – Certificates only need to be purchased and installed on the application gateway and not all backend servers. This saves both time and money.
 
-To configure TLS termination, a TLS/SSL certificate is required to be added to the listener to enable the Application Gateway to derive a symmetric key as per TLS/SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. The TLS/SSL certificate needs to be in Personal Information Exchange (PFX) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic.
+To configure TLS termination, a TLS/SSL certificate must be added to the listener. This allows the Application Gateway to decrypt incoming traffic and encrypt response traffic to the client. The certificate provided to the Application Gateway must be in Personal Information Exchange (PFX) format, which contains both the private and public keys.
 
 > [!IMPORTANT] 
 > The certificate on the listener requires the entire certificate chain to be uploaded (the root certificate from the CA, the intermediates and the leaf certificate) to establish the chain of trust. 
@@ -77,7 +77,7 @@ In this example, requests using TLS1.2 are routed to backend servers in Pool1 us
 
 ## End to end TLS and allow listing of certificates
 
-Application Gateway only communicates with known backend instances that have allow listed their certificate with the application gateway. There are some differences in the end-to-end TLS setup process with respect to the version of Application Gateway used. The following section explains them individually.
+Application Gateway only communicates with those backend servers that have either allow listed their certificate with the Application Gateway or whose certificates are signed by well-known CA authorities and the certificate's CN matches the host name in the HTTP backend settings. There are some differences in the end-to-end TLS setup process with respect to the version of Application Gateway used. The following section explains them individually.
 
 ## End-to-end TLS with the v1 SKU
 
@@ -102,7 +102,7 @@ Authentication Certificates have been deprecated and replaced by Trusted Root Ce
 >
 > In order for a TLS/SSL certificate to be trusted, that certificate of the backend server must have been issued by a CA that is well-known. If the certificate was not issued by a trusted CA, the application gateway will then check to see if the certificate of the issuing CA was issued by a trusted CA, and so on until either a trusted CA is found (at which point a trusted, secure connection will be established) or no trusted CA can be found (at which point the application gateway will mark the backend unhealthy). Therefore, it is recommended the backend server certificate contain both the root and intermediate CAs.
 
-- If the certificate is self-signed, or signed by unknown intermediaries, then to enable end-to-end TLS in the v2 SKU a trusted root certificate must be defined. Application Gateway only communicates with backends whose server certificate’s root certificate matches one of the list of trusted root certificates in the backend http setting associated with the pool.
+- If the backend server certificate is self-signed, or signed by unknown CA/intermediaries, then to enable end to end TLS in Application Gateway v2 a trusted root certificate must be uploaded. Application Gateway will only communicate with backends whose server certificate’s root certificate matches one of the list of trusted root certificates in the backend http setting associated with the pool.
 
 - In addition to the root certificate match, Application Gateway v2 also validates if the Host setting specified in the backend http setting matches that of the common name (CN) presented by the backend server’s TLS/SSL certificate. When trying to establish a TLS connection to the backend, Application Gateway v2 sets the Server Name Indication (SNI) extension to the Host specified in the backend http setting.
 
@@ -121,9 +121,9 @@ The following tables outline the differences in SNI between the v1 and v2 SKU in
 ---
 Scenario | v1 | v2 |
 | --- | --- | --- |
-| If the client specifies SNI header and all the multi-site listeners are enabled with "Require SNI" flag | Return the appropriate certificate and if the site doesn't exist (according to the server_name), then the connection is reset. | Returns appropriate certificate if available, otherwise, returns the certificate of the first HTTPS listener configured (in the order)|
-| If the client doesn't specify a SNI header and if all the multi-site headers are enabled with "Require SNI" | Resets the connection | Returns the certificate of the first HTTPS listener configured (in the order)
-| If the client doesn't specify SNI header and if there's a basic listener configured with a certificate | Returns the certificate configured in the basic listener to the client (default or fallback certificate) | Returns the certificate of the first HTTPS listener configured (in the order) |
+| If the client specifies SNI header and all the multi-site listeners are enabled with "Require SNI" flag | Returns the appropriate certificate and if the site doesn't exist (according to the server_name), then the connection is reset. | Returns appropriate certificate if available, otherwise, returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners|
+| If the client doesn't specify a SNI header and if all the multi-site headers are enabled with "Require SNI" | Resets the connection | Returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners
+| If the client doesn't specify SNI header and if there's a basic listener configured with a certificate | Returns the certificate configured in the basic listener to the client (default or fallback certificate) | Returns the certificate configured in the basic listener |
 
 ### Backend TLS connection (application gateway to the backend server)
 
@@ -145,6 +145,7 @@ Scenario | v1 | v2 |
 | --- | --- | --- |
 | SNI (server_name) header during the TLS handshake as FQDN | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses are not permitted in SNI hostname. <br> **Note:** FQDN in the backend pool should DNS resolve to backend server’s IP address (public or private) | SNI header (server_name) is set as the hostname from the HTTP settings, otherwise, if *PickHostnameFromBackendAddress* option is chosen or if no hostname is mentioned, then it'll be set as the FQDN in the backend pool configuration
 | If the backend pool address is an IP address or hostname is not set in HTTP settings | SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066) if the backend pool entry is not an FQDN | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname.
+| Hostname is not provided in HTTP Settings, but a FQDN is specified as the Target for a backend pool member | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname. | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname.
 
 ## Next steps
 

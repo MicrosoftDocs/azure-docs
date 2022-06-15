@@ -1,0 +1,242 @@
+- name: Microsoft Defender for IoT for end-user organizations
+  href: index.yml
+  items:
+- name: Overview
+  items:
+  - name: About Defender for IoT
+    href: overview.md
+  - name: What's new?
+    href: release-notes.md
+- name: Quickstarts
+  expanded: false
+  items:
+  - name: Get started with Defender for IoT
+    href: getting-started.md
+- name: Tutorials
+  expanded: false
+  items:
+  - name: Set up OT network security
+    href: tutorial-onboarding.md
+  - name: Set up Enterprise IoT network security
+    href: tutorial-getting-started-eiot-sensor.md
+  - name: Detect threats with Microsoft Sentinel
+    href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
+- name: Concepts
+  items:
+    - name: System architecture
+      href: architecture.md
+    - name: OT network monitoring best practices
+      href: plan-network-monitoring.md
+    - name: OT threat monitoring in enterprise SOCs
+      href: concept-sentinel-integration.md
+    - name: OT security system architecture
+      items:
+      - name: OT sensor cloud connection methods
+        href: architecture-connections.md
+      - name: OT monitoring appliance catalog
+        items:
+        - name: Which appliances do I need?
+          href: ot-appliance-sizing.md
+        - name: Pre-configured appliances
+          href: ot-pre-configured-appliances.md
+        - name: OT monitoring with virtual appliances
+          href: ot-virtual-appliances.md
+      - name: Supported OT protocols
+        href: concept-supported-protocols.md
+- name: How-to guides
+  items:
+  - name: Visualize network assets
+    items:
+    - name: View assets from the Azure portal
+      href: how-to-manage-device-inventory-for-organizations.md
+    - name: View OT assets from a sensor console
+      href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+    - name: View OT assets on a sensor device map
+      href: how-to-work-with-the-sensor-device-map.md
+    - name: View OT assets on a sensor per zone
+      href: how-to-view-information-per-zone.md
+    - name: View OT assets from an on-premises management console
+      href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+  - name: Manage alerts
+    items:
+    - name: Manage alerts from the Azure portal
+      href: how-to-manage-cloud-alerts.md
+    - name: Manage OT alerts from a sensor console
+      items:
+      - name: View alerts from a sensor console
+        href: how-to-view-alerts.md
+      - name: Manage alerts from a sensor console
+        href: how-to-manage-the-alert-event.md
+      - name: Manage alert workflows from a sensor console
+        href: how-to-accelerate-alert-incident-response.md
+      - name: Forward alert data from a sensor console
+        href: how-to-forward-alert-information-to-partners.md
+    - name: Manage OT alerts from an on-premises management console
+      href: how-to-work-with-alerts-on-premises-management-console.md
+  - name: Monitor vulnerabilities and threats
+    items:
+    - name: View and create Azure Monitor workbooks
+      href: workbooks.md
+    - name: Create OT sensor reports
+      items:
+      - name: Create risk assessment reports
+        href: how-to-create-risk-assessment-reports.md
+      - name: Create attack vector reports
+        href: how-to-create-attack-vector-reports.md
+      - name: Create data mining reports
+        href: how-to-create-data-mining-queries.md
+      - name: Create trends and statistics reports
+        href: how-to-create-trends-and-statistics-reports.md
+    - name: View OT threats by location from an OT sensor
+      href: how-to-gain-insight-into-global-regional-and-local-threats.md
+    - name: Analyze OT programming details and changes
+      href: how-to-analyze-programming-details-changes.md
+  - name: Integrate with OT security partners
+    items:
+    - name: Integrate ClearPass
+      href: tutorial-clearpass.md
+    - name: Integrate CyberArk
+      href: tutorial-cyberark.md
+    - name: Integrate Forescout
+      href: tutorial-forescout.md
+    - name: Integrate Fortinet
+      href: tutorial-fortinet.md
+    - name: Integrate Palo Alto
+      href: tutorial-palo-alto.md
+    - name: Integrate Qradar
+      href: tutorial-qradar.md
+    - name: Integrate Splunk
+      href: tutorial-splunk.md
+    - name: Integrate ServiceNow
+      href: tutorial-servicenow.md
+  - name: System deployment
+    items:
+    - name: Manage an Azure subscription
+      href: how-to-manage-subscriptions.md
+    - name: Onboard sensors in the Azure portal
+      href: how-to-manage-sensors-on-the-cloud.md
+    - name: Activate and set up your sensor
+      href: how-to-activate-and-set-up-your-sensor.md
+    - name: OT system setup
+      items:
+      - name: Set up OT network monitoring
+        href: how-to-set-up-your-network.md
+      - name: Deploy OT certificates
+        href: how-to-deploy-certificates.md
+      - name: Install OT system software
+        href: how-to-install-software.md
+      - name: Connect OT sensors to the cloud
+        items:
+        - name: Connect OT sensors to Defender for IoT
+          href: connect-sensors.md
+        - name: Connect OT sensors with a proxy (legacy)
+          href: how-to-connect-sensor-by-proxy.md
+      - name: Activate and set up your on-premises management console
+        href: how-to-activate-and-set-up-your-on-premises-management-console.md
+  - name: System maintenance
+    items:
+    - name: Maintain threat intelligence packages
+      href: how-to-work-with-threat-intelligence-packages.md
+    - name: OT system maintenance
+      items:
+      - name: Manage OT sensors
+        items:
+        - name: Manage individual sensors
+          href: how-to-manage-individual-sensors.md
+        - name: Control OT traffic monitoring
+          href: how-to-control-what-traffic-is-monitored.md
+        - name: Manage sensors from the on-premises management console
+          href: how-to-manage-sensors-from-the-on-premises-management-console.md
+      - name: Manage OT sensor users
+        items:
+        - name: Create and manage users
+          href: how-to-create-and-manage-users.md
+        - name: Integrate with active directory
+          href: integrate-with-active-directory.md
+        - name: Define global user access control
+          href: how-to-define-global-user-access-control.md
+      - name: Enrich device information
+        items:
+        - name: Work with device notifications
+          href: how-to-work-with-device-notifications.md
+        - name: Enhance port and VLAN name resolution
+          href: how-to-enhance-port-and-vlan-name-resolution.md
+        - name: Import device information
+          href: how-to-import-device-information.md
+      - name: Track sensor activity
+        href: how-to-track-sensor-activity.md
+      - name: Set up SNMP MIB monitoring
+        href: how-to-set-up-snmp-mib-monitoring.md
+      - name: Manage an OT on-premises management console
+        items:
+        - name: Set up high availability
+          href: how-to-set-up-high-availability.md
+        - name: Manage the on-premises management console
+          href: how-to-manage-the-on-premises-management-console.md
+      - name: Troubleshoot the sensor and on-premises management console
+        href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
+- name: Reference
+  items:
+  - name: OT monitoring appliances
+    items:
+    - name: Corporate appliances
+      items:
+      - name: HPE ProLiant DL360
+        href: appliance-catalog/hpe-proliant-dl360.md
+    - name: Enterprise appliances
+      items:
+      - name: HPE ProLiant DL20/DL20 Plus
+        href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
+    - name: SMB appliances
+      items:
+      - name: HPE ProLiant DL20 Plus
+        href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
+    - name: Rugged appliances
+      items:
+      - name: Dell Edge 5200
+        href: appliance-catalog/dell-edge-5200.md
+      - name: YS-techsystems YS-FIT2
+        href: appliance-catalog/ys-techsystems-ys-fit2.md
+    - name: Virtual appliances
+      items:
+      - name: OT sensor (VMWare ESXi)
+        href: appliance-catalog/virtual-sensor-vmware.md
+      - name: OT sensor (Hyper-V)
+        href: appliance-catalog/virtual-sensor-hyper-v.md
+      - name: On-premises management console (VMWare ESXi)
+        href: appliance-catalog/virtual-management-vmware.md
+      - name: On-premises management console (Microsoft Hyper-V)
+        href: appliance-catalog/virtual-management-hyper-v.md
+    - name: Legacy appliances
+      items:
+      - name: Dell PowerEdge R340 XL (enterprise)
+        href: appliance-catalog/dell-poweredge-r340-xl-legacy.md
+      - name: HPE Edgeline EL300 (SMB rugged)
+        href: appliance-catalog/hpe-edgeline-el300.md
+      - name: Neousys Nuvo-500LP (SMB rugged)
+        href: appliance-catalog/neousys-nuvo-5006lp.md
+  - name: Alert reference
+    href: alert-engine-messages.md
+  - name: Work with Defender for IoT APIs
+    href: references-work-with-defender-for-iot-apis.md
+  - name: Work with Defender for IoT CLI commands
+    href: references-work-with-defender-for-iot-cli-commands.md
+  - name: Frequently asked questions - service
+    displayName: FAQ, regulation, internet, connection, hardware, appliances, ports, logs 
+    href: resources-frequently-asked-questions.md
+  - name: Defender for IoT glossary
+    href: references-defender-for-iot-glossary.md
+- name: Resources
+  items:
+  - name: OT network pre-deployment checklist
+    href: pre-deployment-checklist.md
+  - name: Microsoft Defender for IoT ninja training
+    href: resources-training-sessions.md
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/azure-defender/
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
+  - name: Release notes archive
+    href: release-notes-archive.md

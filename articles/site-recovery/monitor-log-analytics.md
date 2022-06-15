@@ -1,12 +1,10 @@
 ---
 title: Monitor Azure Site Recovery with Azure Monitor Logs 
 description: Learn how to monitor Azure Site Recovery with Azure Monitor Logs (Log Analytics)
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
-ms.author: raynew
+
 
 ---
 # Monitor Site Recovery with Azure Monitor Logs
@@ -57,7 +55,7 @@ You can capture the data churn rate information and source data upload rate info
 1. Go to the Log Analytics workspace and click on **Advanced Settings**.
 2. Click on **Connected Sources** page and further select **Windows Servers**.
 3. Download the Windows Agent (64 bit) on the Process Server. 
-4. [Obtain the workspace ID and key](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key)
+4. [Obtain the workspace ID and key](../azure-monitor/agents/agent-windows.md#workspace-id-and-key)
 5. [Configure agent to use TLS 1.2](../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12)
 6. [Complete the agent installation](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard) by providing the obtained workspace ID and key.
 7. Once the installation is complete, go to Log Analytics workspace and click on **Advanced Settings**. Go to the **Data** page and further click on **Windows Performance Counters**. 
@@ -247,7 +245,7 @@ AzureDiagnostics 
 
 ## Set up alerts - examples
 
-You can set up Site Recovery alerts based on Azure Monitor data. [Learn more](../azure-monitor/alerts/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) about setting up log alerts. 
+You can set up Site Recovery alerts based on Azure Monitor data. [Learn more](../azure-monitor/alerts/alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal) about setting up log alerts. 
 
 > [!NOTE]
 > Some of the examples use **replicationProviderName_s** set to **A2A**. This sets alerts for Azure VMs that are replicated to a secondary Azure region. In these examples, you can replace **A2A** with **InMageAzureV2** if you want to set alerts for on-premises VMware VMs or physical servers replicated to Azure.

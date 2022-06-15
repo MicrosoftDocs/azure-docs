@@ -4,11 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning integrates with a local Git repository to track repository, branch, and current commit information as part of a training run.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
-ms.author: jordane
-author: jpe316
-ms.date: 11/16/2020
+ms.author: larryfr
+author: blackmist
+ms.date: 04/05/2022
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 # Git integration for Azure Machine Learning
 
@@ -20,12 +21,20 @@ When submitting a job to Azure Machine Learning, if source files are stored in a
 
 Since Azure Machine Learning tracks information from a local git repo, it isn't tied to any specific central repository. Your repository can be cloned from GitHub, GitLab, Bitbucket, Azure DevOps, or any other git-compatible service.
 
+> [!TIP]
+> Use Visual Studio Code to interact with Git through a graphical user interface. To connect to an Azure Machine Learning remote compute instance using Visual Studio Code, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code (preview)](how-to-set-up-vs-code-remote.md)
+>
+> For more information on Visual Studio Code version control features, see [Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol) and [Working with GitHub in VS Code](https://code.visualstudio.com/docs/editor/github).
+
 ## Clone Git repositories into your workspace file system
 Azure Machine Learning provides a shared file system for all users in the workspace.
 To clone a Git repository into this file share, we recommend that you create a compute instance & [open a terminal](how-to-access-terminal.md).
 Once the terminal is opened, you have access to a full Git client and can clone and work with Git via the Git CLI experience.
 
 We recommend that you clone the repository into your users directory so that others will not make collisions directly on your working branch.
+
+> [!TIP]
+> There is a performance difference between cloning to the local file system of the compute instance or cloning to the mounted filesystem (mounted as  the `~/cloudfiles/code` directory). In general, cloning to the local filesystem will have better performance than to the mounted filesystem. However, the local filesystem is lost if you delete and recreate the compute instance. The mounted filesystem is kept if you delete and recreate the compute instance.
 
 You can clone any Git repository you can authenticate to (GitHub, Azure Repos, BitBucket, etc.)
 
@@ -142,7 +151,7 @@ If your training files are not located in a git repository on your development e
 
 ## View the logged information
 
-The git information is stored in the properties for a training run. You can view this information using the Azure portal, Python SDK, and CLI. 
+The git information is stored in the properties for a training run. You can view this information using the Azure portal or Python SDK.
 
 ### Azure portal
 
@@ -174,19 +183,12 @@ The logged information contains text similar to the following JSON:
 
 After submitting a training run, a [Run](/python/api/azureml-core/azureml.core.run%28class%29) object is returned. The `properties` attribute of this object contains the logged git information. For example, the following code retrieves the commit hash:
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 run.properties['azureml.git.commit']
 ```
 
-### CLI
-
-The `az ml run` CLI command can be used to retrieve the properties from a run. For example, the following command returns the properties for the last run in the experiment named `train-on-amlcompute`:
-
-```azurecli-interactive
-az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
-```
-
-For more information, see the [az ml run](/cli/azure/ext/azure-cli-ml/ml/run) reference documentation.
 
 ## Next steps
 

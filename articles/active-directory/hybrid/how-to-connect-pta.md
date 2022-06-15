@@ -5,14 +5,13 @@ services: active-directory
 keywords: what is Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 10/21/2018
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -70,8 +69,8 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](h
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md) - Configure Smart Lockout capability on your tenant to protect user accounts.
 - [Current limitations](how-to-connect-pta-current-limitations.md) - Learn which scenarios are supported and which ones are not.
 - [Technical Deep Dive](how-to-connect-pta-how-it-works.md) - Understand how this feature works.
-- [Frequently Asked Questions](how-to-connect-pta-faq.md) - Answers to frequently asked questions.
+- [Frequently Asked Questions](how-to-connect-pta-faq.yml) - Answers to frequently asked questions.
 - [Troubleshoot](tshoot-connect-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
 - [Security Deep Dive](how-to-connect-pta-security-deep-dive.md) - Additional deep technical information on the feature.
 - [Azure AD Seamless SSO](how-to-connect-sso.md) - Learn more about this complementary feature.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
+- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) - For filing new feature requests.

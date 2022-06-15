@@ -1,155 +1,331 @@
 ---
-title: "Preview: Deploy a trusted launch VM"
-description: Deploy a VM that uses trusted launch. 
-author: khyewei
-ms.author: khwei
+title: Deploy a trusted launch VM
+description: Deploy a VM that uses trusted launch.
+author: lakmeedee
+ms.author: dejv
 ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: trusted-launch
-ms.topic: how-to 
-ms.date: 03/03/2021
-ms.custom: template-how-to 
+ms.topic: how-to
+ms.date: 03/22/2022
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Deploy a VM with trusted launch enabled (preview)
+# Deploy a VM with trusted launch enabled
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 [Trusted launch](trusted-launch.md) is a way to improve the security of [generation 2](generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques by combining infrastructure technologies like vTPM and secure boot.
 
-> [!IMPORTANT]
-> Trusted launch is currently in public preview.
-> 
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
->
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## Prerequisites 
 
-## Deploy using the portal
+- You need to [onboard your subscription to Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/?&ef_id=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&gclid=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE#overview) if it isn't already. Microsoft Defender for Cloud has a free tier, which offers very useful insights for various Azure and Hybrid resources. Trusted launch leverages Defender for Cloud to surface multiple recommendations regarding VM health. 
 
-Create a virtual machine with trusted launch enabled.
+- Assign Azure policies initiatives to your subscription. These policy initiatives  need to be assigned  only once per subscription. This will  automatically install all required extensions on all supported VMs. 
+    - Configure prerequisites to enable Guest Attestation on Trusted Launch enabled VMs 
 
-1. Sign in to the Azure [portal](https://aka.ms/TL_preview).
-1. Search for **Virtual Machines**.
-1. Under **Services**, select **Virtual machines**.
-1. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
-1. Under **Project details**, make sure the correct subscription is selected.
-1. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
-1. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#public-preview-limitations).
-1. Under **Image**, select an [image that supports trusted launch](trusted-launch.md#public-preview-limitations). You might only see the Gen 1 version of the image, that is okay, go on to the next step.
-1. Switch over to the **Advanced** tab by selecting it at the top of the page.
-1. Scroll down to the **VM generation** section, and then select **Gen 2**.
-1. While still on the **Advanced** tab, scroll down to **Trusted launch**, and then select the **Trusted launch** checkbox. This will make two more options appear - Secure boot and vTPM. Select the appropriate options for your deployment.
+    - Configure machines to automatically install the Azure Monitor and Azure Security agents on virtual machines 
 
-    :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot showing the options for trusted launch.":::
+ 
+## Deploy a trusted launch VM
+Create a virtual machine with trusted launch enabled. Choose an option below:
 
-1. Go back to the **Basics** tab, under **Image**, and make sure you see the following message: **This image supports trusted launch preview. Configure in the Advanced tab**. The gen 2 image should now be selected.
+### [Portal](#tab/portal)
 
-    :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot showing the message confirming that this is a gen2 image that supports trusted launch.":::
-
-1.	Select a VM size that supports trusted launch. See the list of [supported sizes](trusted-launch.md#public-preview-limitations).
-1.	Fill in the **Administrator account** information and then **Inbound port rules**.
-1.	At the bottom of the page, select **Review + Create**
-1.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. When you are ready, select **Create**.
+1. Sign in to the Azure [portal](https://portal.azure.com).
+2. Search for **Virtual Machines**.
+3. Under **Services**, select **Virtual machines**.
+4. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
+5. Under **Project details**, make sure the correct subscription is selected.
+6. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
+7. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#limitations).
+1. For **Security type** select **Trusted launch virtual machines**. This will make two more options appear - **Secure boot** and **vTPM**. Select the appropriate options for your deployment.
+    :::image type="content" source="media/trusted-launch/security.png" alt-text="Screenshot showing the options for Trusted Launch.":::
+3. Under **Image**, select an image from the **Recommended Gen 2 images compatible with Trusted launch**. For a list, see [images that supports trusted launch](trusted-launch.md#limitations). 
+   > [!TIP]
+   > If you don't see the Gen 2 version of the image you want in the drop-down, select **See all images** and then change the **Security type** filter to **Trusted Launch**.
+13.	Select a VM size that supports trusted launch. See the list of [supported sizes](trusted-launch.md#limitations).
+14.	Fill in the **Administrator account** information and then **Inbound port rules**.
+15.	At the bottom of the page, select **Review + Create**
+16.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. Once validation shows as passed, select **Create**.
 
     :::image type="content" source="media/trusted-launch/validation.png" alt-text="Sceenshot of the validation page, showing the trusted launch options are included.":::
 
 
-It will take a few minutes for your VM to be deployed. 
+It will take a few minutes for your VM to be deployed.
 
-## Deploy using a template
+### [CLI](#tab/cli)
+
+Make sure you are running the latest version of Azure CLI 
+
+Sign in to Azure using `az login`.  
+
+```azurecli-interactive
+az login 
+```
+
+Create a virtual machine with Trusted Launch. 
+
+```azurecli-interactive
+az group create -n myresourceGroup -l eastus 
+az vm create \
+   --resource-group myResourceGroup \
+   --name myVM \
+   --image Canonical:UbuntuServer:18_04-lts-gen2:latest \
+   --admin-username azureuser \
+   --generate-ssh-keys \
+   --security-type TrustedLaunch \
+   --enable-secure-boot true \ 
+   --enable-vtpm true 
+```
+ 
+For existing VMs, you can enable or disable secure boot and vTPM settings. Updating the virtual machine with secure boot and vTPM settings will trigger auto-reboot.
+
+```azurecli-interactive
+az vm update \
+   --resource-group myResourceGroup \
+   --name myVM \
+   --enable-secure-boot true \
+   --enable-vtpm true 
+```  
+
+### [PowerShell](#tab/powershell)
+
+
+In order to provision a VM with Trusted Launch, it first needs to be enabled with the `TrustedLaunch` using the `Set-AzVmSecurityProfile` cmdlet. Then you can use the Set-AzVmUefi cmdlet to set the vTPM and SecureBoot configuration. Use the below snippet as a quick start, remember to replace the values in this example with your own. 
+
+```azurepowershell-interactive
+$resourceGroup = "myResourceGroup"
+$location = "West US"
+$vmName = "myTrustedVM"
+$vmSize = Standard_B2s
+$publisher = "MicrosoftWindowsServer"
+$offer = "WindowsServer"
+$sku = "2019-datacenter-gensecond"
+$version = latest
+$cred = Get-Credential `
+   -Message "Enter a username and password for the virtual machine."
+
+$vm = New-AzVMConfig -VMName $vmName -VMSize $vmSize 
+
+$vm = Set-AzVMOperatingSystem `
+   -VM $vm -Windows `
+   -ComputerName $vmName `
+   -Credential $cred `
+   -ProvisionVMAgent `
+   -EnableAutoUpdate 
+
+$vm = Add-AzVMNetworkInterface -VM $vm `
+   -Id $NIC.Id 
+
+$vm = Set-AzVMSourceImage -VM $vm `
+   -PublisherName $publisher `
+   -Offer $offer `
+   -Skus $sku `
+   -Version $version 
+
+$vm = Set-AzVMOSDisk -VM $vm `
+   -StorageAccountType "StandardSSD_LRS" `
+   -CreateOption "FromImage" 
+
+$vm = Set-AzVmSecurityProfile -VM $vm `
+   -SecurityType "TrustedLaunch" 
+
+$vm = Set-AzVmUefi -VM $vm `
+   -EnableVtpm $true `
+   -EnableSecureBoot $true 
+
+New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vm 
+```
+ 
+
+
+### [Template](#tab/template)
 
 You can deploy trusted launch VMs using a quickstart template:
 
-**Linux**:    
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
+**Linux**
 
-**Windows**:    
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2FcreateUiDefinition.json)
 
-## View and update
+**Windows**
 
-You can view the trusted launch configuration for an existing VM by visiting the **Overview** page for the VM in the portal.
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
-To change the trusted launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the **Trusted Launch** section. Select **Save** at the top of the page when you are done. 
+---
 
-:::image type="content" source="media/trusted-launch/configuration.png" alt-text="Screenshot of how to change the trusted launch configuration.":::
+## Deploy a trusted launch VM from an Azure Compute Gallery image
 
-If the VM is running, you will receive a message  that the VM will be restarted to apply the modified trusted launch configuration. Select **Yes** then wait for the VM to restart for changes to take effect.
+### [Portal](#tab/portal2)
 
+1. Sign in to the Azure [portal](https://portal.azure.com).
+2. To create an Azure Compute Gallery Image from a VM, open an existing Trusted launch VM and select **Capture**.
+3. In the Create an Image page that follows, allow the image to be shared to the gallery as a VM image version as Managed Images are not supported for Trusted Launch.
+4. Create a new target Azure Compute Gallery or select an existing gallery.
+5. Select the **Operating system state** as either **Generalized** or **Specialized**.
+6. Create a new image definition by providing a name, publisher, offer and SKU details. The Security Type of the image definition is already set to 'Trusted launch'.
+7. Provide a version number for the image version.
+8. Modify replication options if required.
+9. At the bottom of the **Create an Image** page, select **Review + Create** and when validation shows as passed, select **Create**.
+10. Once the image version is created, go the image version directly. Alternatively, you can navigate to the required image version through the image definition.
+11. On the **VM image version** page, select the **+ Create VM** to land on the Create a virtual machine page.
+12. In the Create a virtual machine page, under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
+13. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#limitations).
+14. The image and the security type are already populated based on the selected image version. The **Secure Boot** and **vTPM** checkboxes are enabled by default.
+15. Fill in the **Administrator account** information and then **Inbound port rules**.
+16. At the bottom of the page, select **Review + Create**
+17. On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. Once validation shows as passed, select **Create**.
 
-## Verify secure boot and vTPM
+### [CLI](#tab/cli2)
 
-You can validate that secure boot and vTPM are enabled on the virtual machine.
-	
-### Linux: validate if secure boot is running
+Make sure you are running the latest version of Azure CLI 
 
-SSH to the VM and then run the following command: 
+Sign in to Azure using `az login`.  
 
-```bash
-mokutil --sb-state
+```azurecli-interactive
+az login 
 ```
 
-If secure boot is enable, the command will return:
- 
-```bash
-SecureBoot enabled 
+Create an image definition with TrustedLaunch security type 
+
+```azurecli-interactive
+az sig image-definition create --resource-group MyResourceGroup --location eastus \ 
+--gallery-name MyGallery --gallery-image-definition MyImageDef \ 
+--publisher TrustedLaunchPublisher --offer TrustedLaunchOffer --sku TrustedLaunchSku \ 
+--os-type Linux --os-state Generalized \ 
+--hyper-v-generation V2 \ 
+--features SecurityType=TrustedLaunch
 ```
 
-### Linux: validate if vTPM is enabled
+Generalize the VM using waagagent command and create an image version with an existing Trusted Launch VM as image source
 
-SSH into your VM. Check if tpm0 device is present: 
+```azurecli-interactive
+az sig image-version create --resource-group MyResourceGroup \
+--gallery-name MyGallery --gallery-image-definition MyImageDef \
+--gallery-image-version 1.0.0 \
+--managed-image /subscriptions/00000000-0000-0000-0000-00000000xxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
+```
+Create a Trusted Launch VM from the above image version
 
-```bash
-ls /dev/tpm0
+```azurecli-interactive
+adminUsername=linuxvm
+az vm create --resource-group MyResourceGroup \
+    --name myTrustedLaunchVM \
+    --image "/subscriptions/00000000-0000-0000-0000-00000000xxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/MyGallery/images/MyImageDef" \
+    --security-type TrustedLaunch \
+    --enable-secure-boot true \ 
+    --enable-vtpm true \
+    --admin-username $adminUsername \
+    --generate-ssh-keys
 ```
 
-If vTPM is enabled, the command will return:
+### [PowerShell](#tab/powershell2)
 
-```output
-/dev/tpm0
+Create an image definition with `TrustedLaunch` security type
+
+```azurepowershell-interactive
+$rgName = "MyResourceGroup"
+$galleryName = "MyGallery"
+$galleryImageDefinitionName = "MyImageDef"
+$location = "eastus"
+$publisherName = "TrustedlaunchPublisher"
+$offerName = "TrustedlaunchOffer"
+$skuName = "TrustedlaunchSku"
+$description = "My gallery"
+$SecurityType = @{Name='SecurityType';Value='TrustedLaunch'}
+$features = @($SecurityType)
+New-AzGalleryImageDefinition -ResourceGroupName $rgName -GalleryName $galleryName -Name $galleryImageDefinitionName -Location $location -Publisher $publisherName -Offer $offerName -Sku $skuName -HyperVGeneration "V2" -OsState "Generalized" -OsType "Windows" -Description $description -Feature $features
 ```
 
-If vTPM is disabled, the command will return:
+Generalize the VM using sysprep tool and create an image version with an existing Trusted Launch VM as image source
 
-```output
-ls: cannot access '/dev/tpm0': No such file or directory
+```azurepowershell-interactive
+$rgName = "MyResourceGroup"
+$galleryName = "MyGallery"
+$galleryImageDefinitionName = "MyImageDef"
+$location = "eastus"
+$galleryImageVersionName = "1.0.0"
+$sourceImageId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myVMRG/providers/Microsoft.Compute/virtualMachines/myVM"
+New-AzGalleryImageVersion -ResourceGroupName $rgName -GalleryName $galleryName -GalleryImageDefinitionName $galleryImageDefinitionName -Name $galleryImageVersionName -Location $location -SourceImageId $sourceImageId
 ```
+Create a Trusted Launch VM from the above image version
 
-### Windows: validate that secure boot is running
+```azurepowershell-interactive
+$rgName = "MyResourceGroup"
+$galleryName = "MyGallery"
+$galleryImageDefinitionName = "MyImageDef"
+$location = "eastus"
+$vmName = "myVMfromImage"
+$vmSize = "Standard_D2s_v3"
+$imageDefinition = Get-AzGalleryImageDefinition `
+   -GalleryName $galleryName `
+   -ResourceGroupName $rgName `
+   -Name $galleryImageDefinitionName
+$cred = Get-Credential `
+   -Message "Enter a username and password for the virtual machine"
+# Network pieces
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
+   -Name mySubnet `
+   -AddressPrefix 192.168.1.0/24
+$vnet = New-AzVirtualNetwork `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+   -Name MYvNET `
+   -AddressPrefix 192.168.0.0/16 `
+   -Subnet $subnetConfig
+$pip = New-AzPublicIpAddress `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+  -Name "mypublicdns$(Get-Random)" `
+  -AllocationMethod Static `
+  -IdleTimeoutInMinutes 4
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
+   -Name myNetworkSecurityGroupRuleRDP  `
+   -Protocol Tcp `
+  -Direction Inbound `
+   -Priority 1000 `
+   -SourceAddressPrefix * `
+   -SourcePortRange * `
+   -DestinationAddressPrefix * `
+   -DestinationPortRange 3389 `
+   -Access Deny
+$nsg = New-AzNetworkSecurityGroup `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+  -Name myNetworkSecurityGroup `
+  -SecurityRules $nsgRuleRDP
+$nic = New-AzNetworkInterface `
+   -Name myNic `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+  -SubnetId $vnet.Subnets[0].Id `
+  -PublicIpAddressId $pip.Id `
+  -NetworkSecurityGroupId $nsg.Id
+$vm = New-AzVMConfig -vmName $vmName -vmSize $vmSize | `
+      Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
+      Set-AzVMSourceImage -Id $imageDefinition.Id | `
+      Add-AzVMNetworkInterface -Id $nic.Id
+$vm = Set-AzVMSecurityProfile -SecurityType "TrustedLaunch" -VM $vm
+$vm = Set-AzVmUefi -VM $vm `
+   -EnableVtpm $true `
+   -EnableSecureBoot $true 
+New-AzVM `
+   -ResourceGroupName $rgName `
+   -Location $location `
+   -VM $vm
+```
+---
+## Verify or update your settings
 
-Connect to the VM using remote desktop and then run `msinfo32.exe`.
+For VMs created with trusted launch enabled, you can view the trusted launch configuration by visiting the **Overview** page for the VM in the portal. The **Properties** tab will show the status of Trusted Launch features:
 
-In the right pane, check that the Secure Boot State is **ON**.
+:::image type="content" source="media/trusted-launch/overview-properties.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
 
-## Enable the Azure Security Center experience
+To change the trusted launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the Trusted LaunchSecurity type section. Select Save at the top of the page when you are done. 
 
-To enable Azure Security Center to display information about your trusted launch VMs, you need to enable several policies. The easiest way to enable the policies is by deploying this [Resource Manager template](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) to your subscription. 
+:::image type="content" source="media/trusted-launch/update.png" alt-text="Screenshot showing check boxes to change the Trusted Launch settings.":::
 
-Select the button below to deploy the policies to your subscription:
-
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-asc-trustedlaunch-policies%2Fazuredeploy.json)
-
-The template needs to be deployed only once per subscription. It automatically installs `GuestAttestation` and `AzureSecurity` extensions on all supported VMs. If you get errors, try redeploying the template again.
-
-To get vTPM and secure boot recommendations for trusted launch VMs, see [Add a custom initiative to your subscription](../security-center/custom-security-policies.md#to-add-a-custom-initiative-to-your-subscription).
- 
-## Sign things for Secure Boot on Linux
-
-In some cases, you might need to sign things for UEFI Secure Boot.  For example, you might need to go through [How to sign things for Secure Boot](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) for Ubuntu. In these cases, you need to enter the MOK utility enroll keys for your VM. To do this, you need to use the Azure Serial Console to access the MOK utility.
-
-1. Enable Azure Serial Console for Linux. For more information, see [Serial Console for Linux](/troubleshoot/azure/virtual-machines/serial-console-linux).
-1. Log in to the [Azure portal](https://portal.azure.com).
-1. Search for **Virtual machines** and select your VM from the list.
-1. In the left menu, under **Support + troubleshooting**, select **Serial console**. A page will open to the right, with the serial console.
-1. Log on to the VM using Azure Serial Console. For **login**, enter the username you used when you created the VM. For example, *azureuser*. When prompted, enter the password associated with the username.
-1. Once you are logged in, use `mokutil` to import the public key `.der` file.
-
-    ```bash
-    sudo mokutil –import <path to public key.der> 
-    ```
-1. Reboot the machine from Azure Serial Console by typing `sudo reboot`. A 10 second countdown will begin.
-1. Press up or down key to interrupt the countdown and wait in UEFI console mode. If the timer is not interrupted, the boot process continues and all of the MOK changes are lost.
-1. Select the appropriate action from the MOK utility menu.
-
-    :::image type="content" source="media/trusted-launch/mok-mangement.png" alt-text="Screenshot showing the available options on the MOK management menu in the serial console.":::
+If the VM is running, you will receive a message that the VM will be restarted. Select **Yes** then wait for the VM to restart for changes to take effect. 
 
 
 ## Next steps

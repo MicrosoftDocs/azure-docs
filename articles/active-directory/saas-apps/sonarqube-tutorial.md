@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Sonarqube | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Sonarqube'
 description: Learn how to configure single sign-on between Azure Active Directory and Sonarqube.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 06/25/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Sonarqube
+# Tutorial: Azure AD SSO integration with Sonarqube
 
 In this tutorial, you'll learn how to integrate Sonarqube with Azure Active Directory (Azure AD). When you integrate Sonarqube with Azure AD, you can:
 
@@ -32,12 +32,12 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Sonarqube supports **SP** initiated SSO
+* Sonarqube supports **SP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Adding Sonarqube from the gallery
+## Add Sonarqube from the gallery
 
 To configure the integration of Sonarqube into Azure AD, you need to add Sonarqube from the gallery to your list of managed SaaS apps.
 
@@ -67,13 +67,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Sonarqube** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    In the **Sign-on URL** text box, type a URL:
+	a. In the **Reply URL** text box, type a URL using the following pattern:
+	` https://sonar.<companyspecificurl>.io/oauth2/callback/saml`
+
+    b. In the **Sign-on URL** text box, type one of the following URLs:
 
 	* **For Production Environment**
 
@@ -82,6 +85,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	* **For Dev Environment**
 
 		`https://servicescode-dev.westus.cloudapp.azure.com`
+
+	> [!NOTE]
+	> This value is not real. Update the value with actual Reply URL which are explained later in the tutorial.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -113,7 +119,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Sonarqube SSO
@@ -126,12 +131,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	1. IdP Entity ID
 	2. Login URL
 	3. X.509 Certificate 
+
 1. Save all the details.
-	![saml plugin IDP](./media/sonarqube-tutorial/sso-idp-metadata.png)
+
+	![saml plugin IDP](./media/sonarqube-tutorial/metadata.png)
 
 1. On the **SAML** page, perform the following steps:
 
-	![Sonarqube configuration](./media/sonarqube-tutorial/config01.png)
+	![Sonarqube configuration](./media/sonarqube-tutorial/configuration.png)
 
 	a. Toggle the **Enabled** option to **yes**.
 
@@ -155,18 +162,18 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Sonarqube test user
 
-In this section, you create a user called B.Simon in Sonarqube. Work with [Sonarqube Client support team](https://www.sonarsource.com/support/) to add the users in the Sonarqube platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called B.Simon in Sonarqube. Work with [Sonarqube Client support team](https://sonarsource.com/company/contact/) to add the users in the Sonarqube platform. Users must be created and activated before you use single sign-on. 
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to Sonarqube Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Sonarqube Sign-on URL where you can initiate the login flow. 
 
-2. Go to Sonarqube Sign-on URL directly and initiate the login flow from there.
+* Go to Sonarqube Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the Sonarqube tile in the Access Panel, this will redirect to Sonarqube Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Sonarqube tile in the My Apps, this will redirect to Sonarqube Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-* Once you configure the Sonarqube you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Once you configure the Sonarqube you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

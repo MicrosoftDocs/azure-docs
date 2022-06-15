@@ -3,20 +3,21 @@ title: Use a managed image to create a custom image pool
 description: Create a Batch custom image pool from a managed image to provision compute nodes with the software and data for your application.
 ms.topic: conceptual
 ms.date: 11/18/2020
+ms.devlang: csharp
 ---
 
 # Use a managed image to create a custom image pool
 
-To create a custom image pool for your Batch pool's virtual machines (VMs), you can use a managed image to create a [Shared Image Gallery image](batch-sig-images.md). Using just a managed image is also supported, but only for API versions up to and including 2019-08-01.
+To create a custom image pool for your Batch pool's virtual machines (VMs), you can use a managed image to create an [Azure Compute Gallery image](batch-sig-images.md). Using just a managed image is also supported, but only for API versions up to and including 2019-08-01.
 
 > [!IMPORTANT]
-> In most cases, you should create custom images using the Shared Image Gallery. By using the Shared Image Gallery, you can provision pools faster, scale larger quantities of VMs, and have improved reliability when provisioning VMs. To learn more, see [Use the Shared Image Gallery to create a custom pool](batch-sig-images.md).
+> In most cases, you should create custom images using the Azure Compute Gallery. By using the Azure Compute Gallery, you can provision pools faster, scale larger quantities of VMs, and have improved reliability when provisioning VMs. To learn more, see [Use the Azure Compute Gallery to create a custom pool](batch-sig-images.md).
 
 This topic explains how to create a custom image pool using only a managed image.
 
 ## Prerequisites
 
-- **A managed image resource**. To create a pool of virtual machines using a custom image, you need to have or create a managed image resource in the same Azure subscription and region as the Batch account. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks.
+- **A managed image resource**. To create a pool of virtual machines using a custom image, you need to have or create a managed image resource in the same Azure subscription and region as the Batch account. The image should be created from snapshots of the VM's operating system's (OS) disk and optionally its attached data disks.
   - Use a unique custom image for each pool you create.
   - To create a pool with the image using the Batch APIs, specify the **resource ID** of the image, which is of the form `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`.
   - The managed image resource should exist for the lifetime of the pool to allow scale-up and can be removed after the pool is deleted.
@@ -49,7 +50,7 @@ If you are creating a new VM for the image, use a first party Azure Marketplace 
 
 ### Create a VM snapshot
 
-A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VM's OS or data disks, you can use the Azure portal or command-line tools. For steps and options to create a snapshot, see the guidance for [Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md) or [Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md) VMs.
+A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VMs OS or data disks, you can use the Azure portal or command-line tools. For steps and options to create a snapshot, see the guidance for [VMs](../virtual-machines/snapshot-copy-managed-disk.md).
 
 ### Create an image from one or more snapshots
 
@@ -126,7 +127,7 @@ If you plan to create a pool with hundreds of VMs or more using a custom image, 
 
 Also note the following considerations:
 
-- **Size limits** - Batch limits the pool size to 2500 dedicated compute nodes, or 1000 low-priority nodes, when you use a custom image.
+- **Size limits** - Batch limits the pool size to 2500 dedicated compute nodes, or 1000 [Spot nodes](batch-spot-vms.md), when you use a custom image.
 
   If you use the same image (or multiple images based on the same underlying snapshot) to create multiple pools, the total compute nodes in the pools can't exceed the preceding limits. We don't recommend using an image or its underlying snapshot for more than a single pool.
 
@@ -136,7 +137,7 @@ Also note the following considerations:
 
   If you plan a pool with more than 300 compute nodes, you might need to resize the pool multiple times to reach the target size.
   
-By using the [Shared Image Gallery](batch-sig-images.md), you can create larger pools with your customized images along with more Shared Image replicas. Using Shared Images, the time it takes for the pool to reach the steady state is up to 25% faster, and the VM idle latency is up to 30% shorter.
+By using the [Azure Compute Gallery](batch-sig-images.md), you can create larger pools with your customized images along with more Shared Image replicas. Using Shared Images, the time it takes for the pool to reach the steady state is up to 25% faster, and the VM idle latency is up to 30% shorter.
 
 ## Considerations for using Packer
 
@@ -150,5 +151,5 @@ For more information on using Packer to create a VM, see [Build a Linux image wi
 
 ## Next steps
 
-- Learn how to use the [Shared Image Gallery](batch-sig-images.md) to create a custom pool.
+- Learn how to use the [Azure Compute Gallery](batch-sig-images.md) to create a custom pool.
 - For an in-depth overview of Batch, see [Batch service workflow and resources](batch-service-workflow-features.md).

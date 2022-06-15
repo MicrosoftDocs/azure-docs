@@ -181,14 +181,15 @@ In rare cases, a physical datacenter can become temporarily unavailable from los
 
 For clusters running in Azure, you can view updates on outages on the [Azure status page][azure-status-dashboard]. In the highly unlikely event that a physical datacenter is partially or fully destroyed, any Service Fabric clusters hosted there, or the services inside them, might be lost. This loss includes any state not backed up outside that datacenter or region.
 
-There are two different strategies for surviving the permanent or sustained failure of a single datacenter or region: 
+There are several different strategies for surviving the permanent or sustained failure of a single datacenter or region: 
 
 - Run separate Service Fabric clusters in multiple such regions, and use some mechanism for failover and failback between these environments. This sort of multiple-cluster active/active or active/passive model requires additional management and operations code. This model also requires coordination of backups from the services in one datacenter or region so that they're available in other datacenters or regions when one fails. 
-- Run a single Service Fabric cluster that spans multiple datacenters or regions. The minimum supported configuration for this strategy is three datacenters or regions. The recommended number of regions or datacenters is five. 
+- Run a single Service Fabric cluster that spans multiple datacenters. The minimum supported configuration for this strategy is three datacenters. For more, see [Deploy a Service Fabric cluster across Availability Zones](service-fabric-cross-availability-zones.md).
   
-  This model requires a more complex cluster topology. However, the benefit is that failure of one datacenter or region is converted from a disaster into a normal failure. These failures can be handled by the mechanisms that work for clusters within a single region. Fault domains, upgrade domains, and Service Fabric placement rules ensure that workloads are distributed so that they tolerate normal failures. 
+  This model requires additional setup. However, the benefit is that failure of one datacenter is converted from a disaster into a normal failure. These failures can be handled by the mechanisms that work for clusters within a single region. Fault domains, upgrade domains, and Service Fabric placement rules ensure that workloads are distributed so that they tolerate normal failures.
   
   For more information on policies that can help operate services in this type of cluster, see [Placement policies for Service Fabric services](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md).
+- Run a single Service Fabric cluster that spans multiple regions using the Standalone model. The recommended number of regions is three. See [Create a standalone cluster](service-fabric-cluster-creation-for-windows-server.md) for details on standalone Service Fabric setup.
 
 ### Random failures that lead to cluster failures
 Service Fabric has the concept of *seed nodes*. These are nodes that maintain the availability of the underlying cluster. 
@@ -203,7 +204,7 @@ In both standalone Service Fabric clusters and Azure, the primary node type is t
 - Learn how to simulate various failures by using the [testability framework](service-fabric-testability-overview.md).
 - Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. Although some of these resources refer to specific techniques for use in other products, they contain many general best practices that you can apply in the Service Fabric context:
   - [Availability checklist](/azure/architecture/checklist/resiliency-per-service)
-  - [Performing a disaster recovery drill](../azure-sql/database/disaster-recovery-drills.md)
+  - [Performing a disaster recovery drill](/azure/azure-sql/database/disaster-recovery-drills)
   - [Disaster recovery and high availability for Azure applications][dr-ha-guide]
 - Learn about [Service Fabric support options](service-fabric-support.md).
 

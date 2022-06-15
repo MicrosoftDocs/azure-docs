@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 04/05/2021
 ms.author: duau
 ---
 
@@ -13,19 +13,27 @@ ms.author: duau
 
 This article explains how Network Insights can help you view  your ExpressRoute metrics and configurations all in one place. Through Network Insights, you can view topological maps and health dashboards containing important ExpressRoute information without needing to complete any extra setup.
 
-:::image type="content" source="./media/expressroute-network-insights/monitor-landing-page.png" alt-text="Screenshot of ExpressRoute monitor landing page." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png":::
+:::image type="content" source="./media/expressroute-network-insights/network-monitor-page.png" alt-text="Screenshot of Networks monitor landing page." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png":::
 
 ## Visualize functional dependencies
 
-To view this solution, navigate to the *Azure Monitor* page, select *Networks*, and then select the *ExpressRoute Circuits* card. Then, select the topology button for the circuit you would like to view.
+1. Navigate to the *Azure Monitor* page, then select *Networks*.
 
-The functional dependency view provides a clear picture of your ExpressRoute setup, outlining the relationship between different ExpressRoute components (peerings, connections, gateways).
+    :::image type="content" source="./media/expressroute-network-insights/monitor-page.png" alt-text="Screenshot of the Monitor landing page.":::
 
-:::image type="content" source="./media/expressroute-network-insights/topology-view.png" alt-text="Screenshot of topology view for network insights." lightbox="./media/expressroute-network-insights/topology-view-expanded.png":::
+1. Select the *ExpressRoute Circuits* card. 
 
-Hover over any component in the topology map to view configuration information. For example, hover over an ExpressRoute peering component to view details such as circuit bandwidth and Global Reach enablement.
+1. Then, select the topology button for the circuit you would like to view.
 
-:::image type="content" source="./media/expressroute-network-insights/topology-hovered.png" alt-text="Screenshot of hovering over topology view resources." lightbox="./media/expressroute-network-insights/topology-hovered-expanded.png":::
+   :::image type="content" source="./media/expressroute-network-insights/monitor-landing-page.png" alt-text="Screenshot of ExpressRoute monitor landing page." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png"::: 
+
+1. The functional dependency view provides a clear picture of your ExpressRoute setup, outlining the relationship between different ExpressRoute components (peerings, connections, gateways).
+
+    :::image type="content" source="./media/expressroute-network-insights/topology-view.png" alt-text="Screenshot of topology view for network insights." lightbox="./media/expressroute-network-insights/topology-view-expanded.png":::
+
+1. Hover over any component in the topology map to view configuration information. For example, hover over an ExpressRoute peering component to view details such as circuit bandwidth and Global Reach enablement.
+
+    :::image type="content" source="./media/expressroute-network-insights/topology-hovered.png" alt-text="Screenshot of hovering over topology view resources." lightbox="./media/expressroute-network-insights/topology-hovered-expanded.png":::
 
 ## View a detailed and pre-loaded metrics dashboard
 
@@ -43,6 +51,10 @@ The **ExpressRoute Metrics** section includes charts of important circuit metric
 The *Availability* tab tracks ARP and BGP availability, plotting the data for both the circuit as a whole and individual connection (primary and secondary). 
 
 :::image type="content" source="./media/expressroute-network-insights/arp-bgp-availability.png" alt-text="Screenshot of availability metric graphs." lightbox="./media/expressroute-network-insights/arp-bgp-availability-expanded.png":::
+
+>[!NOTE]
+>During maintenance between the Microsoft edge and core network, BGP availability will appear down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to have your [maintenance alerts turned on and configured](./maintenance-alerts.md).
+>
 
 ### Throughput
 

@@ -1,13 +1,13 @@
 ---
 title: 'Connect to a VNet using P2S VPN & multiple authentication types: portal'
 titleSuffix: Azure VPN Gateway
-description: Connect to a VNet via P2S using multiple authentication types in the Azure portal.
+description: Learn how to connect to a VNet via P2S using multiple authentication types.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 07/21/2021
 ms.author: cherylmc
 
 ---
@@ -37,7 +37,8 @@ You can use the following values to create a test environment, or refer to these
 * **Resource Group:** TestRG1
 * **Location:** East US
 * **GatewaySubnet:** 10.1.255.0/27<br>
-* **Virtual network gateway name:** VNet1GW
+* **SKU:** VpnGw2
+* **Generation:** Generation 2
 * **Gateway type:** VPN
 * **VPN type:** Route-based
 * **Public IP address name:** VNet1GWpip
@@ -62,7 +63,12 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
-[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+You can see the deployment status on the Overview page for your gateway. A gateway can often take 45 minutes or more to fully create and deploy. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
+
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="addresspool"></a>Client address pool
 
@@ -109,8 +115,7 @@ VPN clients must be configured with client configuration settings. The VPN clien
 
 For instructions to generate and install VPN client configuration files, use the article that pertains to your configuration:
 
-* [Create and install VPN client configuration files for native Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md).
-* [Azure Active Directory authentication: Configure a VPN client for P2S OpenVPN protocol connections](openvpn-azure-ad-client.md).
+[!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
 ## <a name="faq"></a>Point-to-Site FAQ
 
@@ -120,6 +125,6 @@ This section contains FAQ information that pertains to Point-to-Site configurati
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/network-overview.md).
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-network/network-overview.md).
 
 For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

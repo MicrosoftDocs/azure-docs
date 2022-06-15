@@ -3,15 +3,15 @@ title: Use workflows to integrate your Azure IoT Central application with other 
 description: This how-to article shows you, as a builder, how to configure rules and actions that integrate your IoT Central application with other cloud services. To create an advanced rule, you use an IoT Central connector in either Power Automate or Azure Logic Apps. 
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/12/2020
+ms.date: 12/21/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
+
+# This article applies to solution builders.
 ---
 
 # Use workflows to integrate your Azure IoT Central application with other cloud services
-
-*This article applies to solution builders.*
 
 You can create rules in IoT Central that trigger actions, such as sending an email, in response to telemetry-based conditions, such as device temperature exceeding a threshold.
 
@@ -19,32 +19,29 @@ The Azure IoT Central V3 connector for Power Automate and Azure Logic Apps lets 
 
 - When a rule fires in your Azure IoT Central app, it can trigger a workflow in Power Automate or Azure Logic Apps. These workflows can run actions in other cloud services, such as Microsoft 365 or a third-party service.
 - An event in another cloud service, such as Microsoft 365, can trigger a workflow in Power Automate or Azure Logic Apps. These workflows can run actions or retrieve data from your IoT Central application.
+- Azure IoT Central V3 connector aligns with the generally available [1.0 REST API](/rest/api/iotcentral/) surface. All of the connector actions support the [DTDLv2 format](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) and support for DTDLv1 based models is being deprecated. For the latest information and details of recent updates, see the [Release notes](/connectors/azureiotcentral/#release-notes) for the current connector version.
 
 ## Prerequisites
 
-To complete the steps in this how-to guide, you need an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To complete the steps in this how-to guide, you need:
 
-Setting up the solution requires a version 3 IoT Central application. To learn how to check your application version, see [About your application](./howto-get-app-info.md). To learn how to create an IoT Central application, see [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
-
-> [!NOTE]
-> If you're using a version 2 IoT Central application, see [Build workflows with the IoT Central connector in Azure Logic Apps](/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) on the previous versions documentation site and use the Azure IoT Central V2 connector
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 ## Trigger a workflow from a rule
 
 Before you can trigger a workflow in Power Automate or Azure Logic Apps, you need a rule in your IoT Central application. To learn more, see [Configure rules and actions in Azure IoT Central](./howto-configure-rules.md).
 
-To add the **Azure IoT Central V3 - preview** connector as a trigger in Power Automate:
+To add the **Azure IoT Central V3** connector as a trigger in Power Automate:
 
 1. In Power Automate, select **+ Create**, select the **Custom** tab.
-1. Search for *IoT Central*, and select the **Azure IoT Central V3 - preview** connector.
+1. Search for *IoT Central*, and select the **Azure IoT Central V3** connector.
 1. In the list of triggers, select **When a rule is fired (preview)**.
 1. In the **When a rule is fired** step, select your IoT Central application and the rule you're using.
 
-To add the **Azure IoT Central V3 - preview** connector as a trigger in Azure Logic Apps:
+To add the **Azure IoT Central V3** connector as a trigger in Azure Logic Apps:
 
 1. In **Logic Apps Designer**, select the **Blank Logic App** template.
-1. In the designer, select the **Custom** tab.
-1. Search for *IoT Central*, and select the **Azure IoT Central V3 - preview** connector.
+1. In the designer, search for *IoT Central*, and select the **Azure IoT Central V3** connector.
 1. In the list of triggers, select **When a rule is fired (preview)**.
 1. In the **When a rule is fired** step, select your IoT Central application and the rule you're using.
 
@@ -54,12 +51,12 @@ You can now add more steps to your workflow to build out your integration scenar
 
 ## Run an action
 
-You can run actions in an IoT Central application from Power Automate and Azure Logic Apps workflows. First, create your workflow and use a connector to define a trigger to start the workflow. Then use the **Azure IoT Central V3 - preview** connector as an action.
+You can run actions in an IoT Central application from Power Automate and Azure Logic Apps workflows. First, create your workflow and use a connector to define a trigger to start the workflow. Then use the **Azure IoT Central V3** connector as an action.
 
-To add the **Azure IoT Central V3 - preview** connector as an action in Power Automate:
+To add the **Azure IoT Central V3** connector as an action in Power Automate:
 
 1. In Power Automate, in the **Choose an action** panel, select the **Custom** tab.
-1. Search for *IoT Central* and select the **Azure IoT Central V3 - preview** connector.
+1. Search for *IoT Central* and select the **Azure IoT Central V3** connector.
 1. In the list of actions, select the IoT Central action you want to use.
 1. In the action step, complete the configuration for the action you chose. Then select **Save**.
 
@@ -74,7 +71,8 @@ To add the **Azure IoT Central V3- preview** connector as an action in Azure Log
 
 ## List of actions
 
-The following list shows all the available IoT Central actions in the **Azure IoT Central V3 - preview** connector and their configuration options. Many of the fields can have dynamically generated content. For example, a previous step could determine the device ID that the current step acts on.
+For a complete list of actions supported by the connector, see [Actions](/connectors/azureiotcentral/#actions).
+
 
 ### Create or update a device
 
@@ -106,7 +104,7 @@ Use this action to execute a command defined in one of the device's interfaces.
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
-| Device | The unique ID of the device to delete. |
+| Device | The unique ID of the device to execute a command. |
 | Device Component | The interface in the device template that contains the command. |
 | Device Command | Choose one of the commands on the selected interface. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
@@ -122,7 +120,7 @@ Use this action to retrieve the device's details.
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
-| Device | The unique ID of the device to delete. |
+| Device | The unique ID of the device to get the details. |
 
 You can use the returned details in the dynamic expressions in other actions. The device details returned include: **Approved**, **body**, **Device Description**, **Device Name**, **Device Template**, **Provisioned**, and **Simulated**.
 
@@ -133,7 +131,7 @@ Use this action to retrieve the cloud property values for a specific device.
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
-| Device | The unique ID of the device to delete. |
+| Device | The unique ID of the device to get the cloud properties. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
 
 You can use the returned cloud property values in the dynamic expressions in other actions.
@@ -145,7 +143,7 @@ Use this action to retrieve the property values for a specific device.
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
-| Device | The unique ID of the device to delete. |
+| Device | The unique ID of the device to get the properties. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
 
 You can use the returned property values in the dynamic expressions in other actions.
@@ -157,7 +155,7 @@ Use this action to retrieve the telemetry values for a specific device.
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
-| Device | The unique ID of the device to delete. |
+| Device | The unique ID of the device to get the telemetry values. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
 
 You can use the returned telemetry values in the dynamic expressions in other actions.
@@ -169,20 +167,20 @@ Use this action to update cloud property values for a specific device.
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
-| Device | The unique ID of the device to delete. |
+| Device | The unique ID of the device to update. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
 | Cloud properties | After you choose a device template, a field is added for each cloud property defined in the template. |
 
 ### Update device properties
 
-Use this action to update writeable property values for a specific device.
+Use this action to update writable property values for a specific device.
 
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
-| Device | The unique ID of the device to delete. |
+| Device | The unique ID of the device to update. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
-| Writeable properties | After you choose a device template, a field is added for each writeable property defined in the template. |
+| Writable properties | After you choose a device template, a field is added for each writable property defined in the template. |
 
 ## Next steps
 

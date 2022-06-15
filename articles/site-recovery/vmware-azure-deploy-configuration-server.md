@@ -2,12 +2,12 @@
 title: Deploy the configuration server in Azure Site Recovery 
 description: This article describes how to deploy a configuration server for VMware disaster recovery with Azure Site Recovery
 services: site-recovery
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/15/2019
-ms.author: ramamill
+ms.topic: conceptual
+ms.author: sharrai
+ms.date: 05/27/2021
 ---
 
 # Deploy a configuration server
@@ -104,6 +104,16 @@ If you want to add an additional NIC to the configuration server, add it before 
 7. The tool performs some configuration tasks, and then reboots.
 8. Sign in to the machine again. The configuration server management wizard starts automatically in a few seconds.
 
+### Verify connectivity
+Make sure the machine can access these URLs based on your environment:
+
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
+
+IP address-based firewall rules should allow communication to all of the Azure URLs that are listed above over HTTPS (443) port. To simplify and limit the IP Ranges, it is recommended that URL filtering be done.
+
+- **Commercial IPs** - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port. Allow IP address ranges for the Azure region of your subscription to support the AAD, Backup, Replication, and Storage URLs.  
+- **Government IPs** - Allow the [Azure Government Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=57063), and the HTTPS (443) port for all USGov Regions (Virginia, Texas, Arizona, and Iowa) to support AAD, Backup, Replication, and Storage URLs.  
+
 ### Configure settings
 
 1. In the configuration server management wizard, select **Setup connectivity**. From the drop-down boxes, first select the NIC that the in-built process server uses for discovery and push installation of mobility service on source machines. Then select the NIC that the configuration server uses for connectivity with Azure. Select **Save**. You can't change this setting after it's configured. Don't change the IP address of a configuration server. Ensure that the IP assigned to the configuration server is a static IP and not a DHCP IP.
@@ -180,7 +190,7 @@ Refer to our [troubleshooting article](vmware-azure-troubleshoot-configuration-s
     No. Don't change the IP address of a configuration server. Ensure that all IPs assigned to the configuration server are static IPs and not DHCP IPs.
 * Can I set up a configuration server on Azure?
 
-    Set up a configuration server in an on-premises environment with a direct line-of-sight with v-Center and to minimize data transfer latencies. You can take scheduled backups of configuration server for [failback purposes](vmware-azure-manage-configuration-server.md#failback-requirements).
+    Set up a configuration server in an on-premises environment with a direct line-of-sight with vCenter and to minimize data transfer latencies. You can take scheduled backups of configuration server for [failback purposes](vmware-azure-manage-configuration-server.md#failback-requirements).
 
 * Can I change cache driver on a configuration server or scale-out process server?
 

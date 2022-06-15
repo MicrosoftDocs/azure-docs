@@ -1,15 +1,16 @@
 ---
 title: Create an Azure Files file share with a domain controller - Azure
-description: Set up an FSLogix profile container on an Azure file share in an existing Windows Virtual Desktop host pool with your Active Directory domain.
+description: Set up an FSLogix profile container on an Azure file share in an existing Azure Virtual Desktop host pool with your Active Directory domain.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 12/08/2021
 ms.author: helohr
-manager: lizross
+manager: femila
+ms.custom: subject-rbac-steps
 ---
 # Create a profile container with Azure Files and AD DS
 
-In this article, you'll learn how to create an Azure file share authenticated by a domain controller on an existing Windows Virtual Desktop host pool. You can use this file share to store storage profiles.
+In this article, you'll learn how to create an Azure file share authenticated by a domain controller on an existing Azure Virtual Desktop host pool. You can use this file share to store storage profiles.
 
 This process uses Active Directory Domain Services (AD DS), which is an on-prem directory service. If you're looking for information about how to create an FSLogix profile container with Azure AD DS, see [Create an FSLogix profile container with Azure Files](create-profile-container-adds.md).
 
@@ -32,9 +33,9 @@ To set up a storage account:
 4. Enter the following information into the  **Create storage account** page:
 
     - Create a new resource group.
-    - Enter a unique name for your storage account.
-    - For **Location**, we recommend you choose the same location as the Windows Virtual Desktop host pool.
-    - For **Performance**, select **Standard**. (Depending on your IOPS requirements. For more information, see [Storage options for FSLogix profile containers in Windows Virtual Desktop](store-fslogix-profile.md).)
+    - Enter a unique name for your storage account. This storage account name currently has a limit of 15 characters.
+    - For **Location**, we recommend you choose the same location as the Azure Virtual Desktop host pool.
+    - For **Performance**, select **Standard**. (Depending on your IOPS requirements. For more information, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).)
     - For **Account type**, select **StorageV2** or **FileStorage** (only available if Performance tier is Premium).
     - For **Replication**, select **Locally-redundant storage (LRS)**.
 
@@ -69,11 +70,11 @@ Next, you'll need to enable Active Directory (AD) authentication. To enable this
      > [!div class="mx-imgBorder"]
      > ![A screenshot of the Configuration page with Azure Active Directory (AD) enabled.](media/active-directory-enabled.png)
 
-## Assign Azure RBAC permissions to Windows Virtual Desktop users
+## Assign Azure RBAC permissions to Azure Virtual Desktop users
 
 All users that need to have FSLogix profiles stored on the storage account must be assigned the Storage File Data SMB Share Contributor role.
 
-Users signing in to the Windows Virtual Desktop session hosts need access permissions to access your file share. Granting access to an Azure File share involves configuring permissions both at the share level as well as on the NTFS level, similar to a traditional Windows share.
+Users signing in to the Azure Virtual Desktop session hosts need access permissions to access your file share. Granting access to an Azure File share involves configuring permissions both at the share level as well as on the NTFS level, similar to a traditional Windows share.
 
 To configure share level permissions, assign each user a role with the appropriate access permissions. Permissions can be assigned to either individual users or an Azure AD group. To learn more, see [Assign access permissions to an identity](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
 
@@ -84,19 +85,25 @@ To assign Azure role-based access control (Azure RBAC) permissions:
 
 1. Open the Azure portal.
 
-2. Open the storage account you created in [Set up a storage account](#set-up-a-storage-account).
+1. Open the storage account you created in [Set up a storage account](#set-up-a-storage-account).
 
-3. Select **File shares**, then select the name of the file share you plan to use.
+1. Select **File shares**, then select the name of the file share you plan to use.
 
-4. Select **Access Control (IAM)**.
+1. Select **Access control (IAM)**.
 
-5. Select **Add a role assignment**.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-6. In the **Add role assignment** tab, select **Storage File Data SMB Share Elevated Contributor** for the administrator account.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-     To assign users permissions for their FSLogix profiles, follow these same instructions. However, when you get to step 5, select **Storage File Data SMB Share Contributor** instead.
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage File Data SMB Share Elevated Contributor |
+    | Assign access to | User, group, or service principal |
+    | Members | \<Name of the administrator account> |
 
-7. Select **Save**.
+    To assign users permissions for their FSLogix profiles, select the **Storage File Data SMB Share Contributor** role instead.
+
+    ![Screenshot showing Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## Assign users permissions on the Azure file share
 
@@ -161,7 +168,7 @@ To configure your NTFS permissions:
 
     Both *NT Authority\Authenticated Users* and *BUILTIN\Users* have certain permissions by default. These default permissions let these users read other users' profile containers. However, the permissions described in [Configure storage permissions for use with Profile Containers and Office Containers](/fslogix/fslogix-storage-config-ht) don't let users read each others' profile containers.
 
-4. Run the following commands to allow your Windows Virtual Desktop users to create their own profile container while blocking access to their profile containers from other users.
+4. Run the following commands to allow your Azure Virtual Desktop users to create their own profile container while blocking access to their profile containers from other users.
 
      ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
@@ -170,8 +177,8 @@ To configure your NTFS permissions:
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-     - Replace <mounted-drive-letter> with the letter of the drive you used to map the drive.
-     - Replace <user-email> with the UPN of the user or Active Directory group that contains the users that will require access to the share.
+     - Replace \<mounted-drive-letter\> with the letter of the drive you used to map the drive.
+     - Replace \<user-email\> with the UPN of the user or Active Directory group that contains the users that will require access to the share.
 
      For example:
 
@@ -188,11 +195,11 @@ This section will show you how to configure a VM with FSLogix. You'll need to fo
 
 To configure FSLogix on your session host VM:
 
-1. RDP to the session host VM of the Windows Virtual Desktop host pool.
+1. RDP to the session host VM of the Azure Virtual Desktop host pool.
 
 2. [Download and install FSLogix](/fslogix/install-ht).
 
-5. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
+3. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
 
     - Navigate to **Computer** > **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **FSLogix**.
 
@@ -204,7 +211,7 @@ To configure FSLogix on your session host VM:
 
     - Set the value of **VHDLocations** to the UNC path you generated in [Get the UNC path](#get-the-unc-path).
 
-6. Restart the VM.
+4. Restart the VM.
 
 ## Testing
 
@@ -214,7 +221,7 @@ If the user has signed in before, they'll have an existing local profile that wi
 
 To check your permissions on your session:
 
-1. Start a session on Windows Virtual Desktop.
+1. Start a session on Azure Virtual Desktop.
 
 2. Open the Azure portal.
 

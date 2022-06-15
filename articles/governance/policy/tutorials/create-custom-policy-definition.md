@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a custom policy definition"
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 10/05/2020
+ms.date: 08/17/2021
 ms.topic: tutorial
 ---
 # Tutorial: Create a custom policy definition
@@ -16,8 +16,8 @@ often enforce:
 Whatever the business driver for creating a custom policy, the steps are the same for defining the
 new custom policy.
 
-Before creating a custom policy, check the [policy samples](../samples/index.md) to see if a policy
-that matches your needs already exists.
+Before creating a custom policy, check the [policy samples](../samples/index.md) to see whether a
+policy that matches your needs already exists.
 
 The approach to creating a custom policy follows these steps:
 
@@ -45,8 +45,8 @@ steps involved:
 Your requirements should clearly identify both the "to be" and the "not to be" resource states.
 
 While we've defined the expected state of the resource, we've not yet defined what we want done with
-non-compliant resources. Azure Policy supports a number of [effects](../concepts/effects.md). For
-this tutorial, we'll define the business requirement as preventing the creation of resources if they
+non-compliant resources. Azure Policy supports many [effects](../concepts/effects.md). For this
+tutorial, we'll define the business requirement as preventing the creation of resources if they
 aren't compliant with the business rules. To meet this goal, we'll use the
 [Deny](../concepts/effects.md#deny) effect. We also want the option to suspend the policy for
 specific assignments. As such, we'll use the [Disabled](../concepts/effects.md#disabled) effect and
@@ -79,7 +79,7 @@ to browse resources in your environment and see the Resource Manager properties 
 ### ARM templates
 
 There are several ways to look at an
-[ARM](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) that
+[ARM template](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) that
 includes the property you're looking to manage.
 
 #### Existing resource in the portal
@@ -337,8 +337,8 @@ parameters block looks like this example:
 Composing the [policy rule](../concepts/definition-structure.md#policy-rule) is the final step in
 building our custom policy definition. We've identified two statements to test for:
 
-- That the storage account **type** is **Microsoft.Storage/storageAccounts**
-- That the storage account **supportsHttpsTrafficOnly** isn't **true**
+- The storage account **type** is **Microsoft.Storage/storageAccounts**
+- The storage account **supportsHttpsTrafficOnly** isn't **true**
 
 Since we need both of these statements to be true, we'll use the **allOf** [logical
 operator](../concepts/definition-structure.md#logical-operators). We'll pass the **effectType**

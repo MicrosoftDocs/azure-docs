@@ -5,17 +5,15 @@ description: This quickstart shows you how to add Communication Services chat to
 author: fanche
 manager: phans
 services: azure-communication-services
-
-ms.author: mikben
-ms.date: 03/10/2021
+ms.author: rifox
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: chat
 zone_pivot_groups: acs-js-csharp-java-python-swift-android
+ms.custom: mode-other
 ---
 # Quickstart: Add Chat to your App
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 
 Get started with Azure Communication Services by using the Communication Services Chat SDK to add real-time chat to your application. In this quickstart, we'll use the Chat SDK to create chat threads that allow users to have conversations with one another. To learn more about Chat concepts, visit the [chat conceptual documentation](../../concepts/chat/concepts.md).
 
@@ -63,5 +61,8 @@ In this quickstart you learned how to:
 
 You may also want to:
 
+ - Get started with the [UI Library](https://aka.ms/acsstorybook)
  - Learn about [chat concepts](../../concepts/chat/concepts.md)
  - Familiarize yourself with [Chat SDK](../../concepts/chat/sdk-features.md)
+ - Using [Chat SDK in your React Native](./react-native.md) application.
+

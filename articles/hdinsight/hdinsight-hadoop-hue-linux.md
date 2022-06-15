@@ -121,4 +121,4 @@ You can only have one user account with Hue on regular clusters. For multi-user 
 
 ## Next steps
 
-[Install R on HDInsight clusters](./r-server/r-server-overview.md). Use cluster customization to install R on HDInsight Hadoop clusters. R is an open-source language and environment for statistical computing. It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.
+[Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md) 

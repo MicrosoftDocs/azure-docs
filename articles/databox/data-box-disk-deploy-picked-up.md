@@ -7,9 +7,8 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/02/2021
+ms.date: 01/25/2022
 ms.author: alkohli
-ms.localizationpriority: high
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -46,9 +45,13 @@ Before you begin, make sure you've completed the [Tutorial: Copy data to Azure D
     - We recommend that you pack disks using a well-secured bubbled wrap.
     - Make sure the fit is snug to reduce any movements within the box.
 
-The next steps are determined by where you are returning the device. The instructions are different for US/Canada, European Union (EU), Australia, or countries/regions in Asia.
+The next steps are determined by where you are returning the device. In many countries/regions, you can use [Microsoft managed shipping](#microsoft-managed-shipping) or [self-managed shipping](#self-managed-shipping).
 
-### [US or Canada](#tab/in-us-or-canada)
+### Microsoft managed shipping
+
+Follow the guidelines for the region you're shipping from if you're using Microsoft managed shipping.
+
+### [US & Canada](#tab/in-us-canada)
 
 Take the following steps if returning the device in US or Canada.
 
@@ -64,8 +67,7 @@ Take the following steps if returning the device in US or Canada.
     - If the tracking number isn't quoted, UPS will require you to pay an additional charge during pickup.
     - Instead of scheduling the pickup, you can also drop off the Data Box Disk at the nearest drop-off location.
 
-
-### [Europe or UK](#tab/in-europe-or-uk)
+### [EU & UK](#tab/in-europe-uk)
 
 Take the following steps if returning the device in Europe or the UK.
 
@@ -91,7 +93,7 @@ Azure datacenters in Australia have an additional security notification. All the
 2. Email Quantium solution using the following email template.
 
     ```
-    To: Customerservice.JP@quantiumsolutions.com
+    To: azure.qsjp@quantiumsolutions.com
     Subject: Pickup request for Microsoft Azure Data Box Disk｜Job Name： 
     Body: 
     - Japan Post Yu-Pack tracking number (reference number)：
@@ -109,7 +111,7 @@ Azure datacenters in Australia have an additional security notification. All the
 
 If needed, you can contact Quantium Solution Support (Japanese language) at the following information: 
 
-- Email：[Customerservice.JP@quantiumsolutions.com](mailto:Customerservice.JP@quantiumsolutions.com)
+- Email：[azure.qsjp@quantiumsolutions.com](mailto:azure.qsjp@quantiumsolutions.com)
 - Telephone：03-5755-0150 
 
 ### [Korea](#tab/in-korea)
@@ -135,7 +137,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 2. To request pickup, email SingPost Customer Service by using the following template with the tracking number (the tracking number can be found on the return label provided in the delivered package).
 
     ```
-    To: kadcustcare@singpost.com
+    To: g-corpsgcs@singpost.com
     Subject: Microsoft Azure Pickup - XZ00001234567
     Body:
      a.    Requestor name
@@ -154,9 +156,50 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
 3. Hand over to the courier.
 
-### [South Africa](#tab/in-sa)
+### [China](#tab/in-china)
 
-Take the following steps if returning the device in South Africa.
+Take the following steps if returning the device in China.
+
+1. Attach the shipping label provided and paste it on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > Download shipping label**.
+
+2. Email FedEx Premier Customer Care and provide them with tracking number (shipment reference number) to organize pickup using the following email template:  
+
+   ```output
+   To: ying.bao@fedex.com;739951@fedex.com
+   Subject: Pickup request for Microsoft Azure : Order Name
+   Body: Need pick up for the below shipment
+   * FedEx tracking number (reference number)
+   * Requested pickup date：yyyy/mm/dd; time: HH MM
+   ```
+
+3. Receive an email confirmation from FedEx after completion of booking pickup.  
+
+4. If you come across any issues, email [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) with details of the issue(s), and put the order name in the Subject: line.
+
+#### Premier Customer Care contact information
+
+<ins>Primary</ins>
+
+| Contact information | Details |
+|---|---|
+|Name:       | `Bao Ying`|
+|Designation | Senior OneCall Representative |
+|Phone:      | 400.889.6066 ext. 3693 |
+|E-mail:     | [ying.bao@fedex.com](mailto:ying.bao@fedex.com) |
+
+<ins>Backup</ins>
+
+| Contact information | Details |
+|---|---|
+|Name:       | `He Xun`|
+|Designation | OneCall Representative |
+|Phone:      | 400.889.6066 ext. 3603 |
+|E-mail:     | [739951@fedex.com](mailto:739951@fedex.com) |
+
+
+### [S Africa](#tab/in-sa)
+
+Take the following steps if returning the device in South Africa. 
 
 1. Attach the provided shipping label on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > Download shipping label**.
 
@@ -185,61 +228,29 @@ Take the following steps if returning the device in South Africa.
 
 5. If you come across any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s), and put the waybill number in the Subject: line. You can also call +27(0)119213902.
 
-### [China](#tab/in-china)
+---
 
-Take the following steps if returning the device in China.
+### Self-managed shipping
 
-1. Attach the shipping label provided and paste it on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > Download shipping label**.
-
-2. Email FedEx Premier Customer Care and provide them with tracking number (shipment reference number) to organize pickup using the following email template:  
-
-   ```output
-   To: ying.bao@fedex.com;739951@fedex.com
-   Subject: Pickup request for Microsoft Azure : Order Name
-   Body: Need pick up for the below shipment
-   * FedEx tracking number (reference number)
-   * Requested pickup date：yyyy/mm/dd; time: HH MM
-   ```
-
-3. Receive an email confirmation from FedEx after completion of booking pickup.  
-
-4. If you come across any issues, email [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) with details of the issue(s), and put the order name in the Subject: line.
-
-#### Premier Customer Care contact information
-
-<ins>Primary</ins>
-
-| Contact information | Details |
-|---|---|
-|Name:       | Bao Ying|
-|Designation | Senior OneCall Representative |
-|Phone:      | 400.889.6066 ext. 3693 |
-|E-mail:     | [ying.bao@fedex.com](mailto:ying.bao@fedex.com) |
-
-<ins>Backup</ins>
-
-| Contact information | Details |
-|---|---|
-|Name:       | He Xun|
-|Designation | OneCall Representative |
-|Phone:      | 400.889.6066 ext. 3603 |
-|E-mail:     | [739951@fedex.com](mailto:739951@fedex.com) |
-
-### [Self-Managed](#tab/in-selfmanaged)
-
-If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United Kingdom, West Europe, Australia, South Africa, or India and have selected the self-managed shipping option during order creation, follow these instructions.
+If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United Kingdom, West Europe, Australia, South Africa, India, or Brazil, and have selected the self-managed shipping option during order creation, follow these instructions. For detailed steps, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
 
 1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
 
 2. Send an email to the Azure Data Box Operations team using the following template when you're ready to return the device.
 
-    ```
-    To: adbops@microsoft.com
-    Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
-    Body:
-     a. Order name
-     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop-off.
-    ```
+   ```
+   To: adbops@microsoft.com
+   Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
+   Body:
+   1. Order name
+   2. Contact name of the person dropping off. You will need to display a government-approved ID during the drop-off.
+   ```
+
+   > [!NOTE]
+   > - Required information for return may vary by region. 
+   > - If you're returning a Data Box Disk in Brazil, see [Use self-managed shipping for Azure Data Box Disk](data-box-disk-portal-customer-managed-shipping.md) for detailed instructions.
+  
+
 3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure datacenter.
 
 ---

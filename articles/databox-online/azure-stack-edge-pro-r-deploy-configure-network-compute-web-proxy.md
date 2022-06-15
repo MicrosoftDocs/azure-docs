@@ -7,9 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 02/23/2022
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
+# Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Configure network for Azure Stack Edge Pro R
 
@@ -70,15 +70,17 @@ Follow these steps to configure the network for your device.
    * Network Interface Card (NIC) Teaming or link aggregation is not supported with Azure Stack Edge.
    * Serial number for any port corresponds to the node serial number.
     <!--* On the 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability is not a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.-->
+
+    > [!NOTE]
+    > If you need to connect to your device from an outside network, see [Enable device access from outside network](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#enable-device-access-from-outside-network) for additional network settings.
+
     Once the device network is configured, the page updates as shown below.
 
     ![Local web UI "Network settings" page 2](./media/azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy/network-2a.png)<!--change-->
 
 
      >[!NOTE]
-     >
-     > * We recommend that you do not switch the local IP address of the network interface from static to DCHP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has activated with the service, and then change. You can then view the IPs of all the adapters in the **Device properties** in the Azure portal for your service.
-
+     > We recommend that you do not switch the local IP address of the network interface from static to DCHP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has activated with the service, and then change. You can then view the IPs of all the adapters in the **Device properties** in the Azure portal for your service.
 
     After you have configured and applied the network settings, select **Next: Compute** to configure compute network.
 
@@ -121,21 +123,16 @@ Follow these steps to enable compute and configure compute network.
 This is an optional configuration.
 
 > [!IMPORTANT]
-> * If you enable compute and use IoT Edge module on your Azure Stack Edge Pro R device, we recommend you set web proxy authentication as **None**. NTLM is not supported.
->* Proxy-auto config (PAC) files are not supported. A PAC file defines how web browsers and other user agents can automatically choose the appropriate proxy server (access method) for fetching a given URL. Proxies that try to intercept and read all the traffic (then re-sign everything with their own certification) aren't compatible since the proxy's certificate is not trusted. Typically transparent proxies work well with Azure Stack Edge Pro R. Non-transparent web proxies are not supported.
+> Proxy-auto config (PAC) files are not supported. A PAC file defines how web browsers and other user agents can automatically choose the appropriate proxy server (access method) for fetching a given URL. Proxies that try to intercept and read all the traffic (then re-sign everything with their own certification) aren't compatible since the proxy's certificate is not trusted. Typically transparent proxies work well with Azure Stack Edge Pro R. Non-transparent web proxies are not supported.
 
 
 1. On the **Web proxy settings** page, take the following steps:
 
-    1. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs are not supported.
+   1. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs are not supported.
 
-    2. Under **Authentication**, select **None** or **NTLM**. If you enable compute and use IoT Edge module on your Azure Stack Edge Pro R device, we recommend you set web proxy authentication to **None**. **NTLM** is not supported.
-
-    3. If you're using authentication, enter a username and password.
-
-    4. To validate and apply the configured web proxy settings, select **Apply**.
+   2. To validate and apply the configured web proxy settings, select **Apply**.
     
-   ![Local web UI "Web proxy settings" page 2](./media/azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy/web-proxy-2.png)
+   ![Local web UI "Web proxy settings" page 2](./media/azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy/web-proxy-2.png)<!--UI text update for instruction text is needed.-->
 
 2. After the settings are applied, select **Next: Device**.
 

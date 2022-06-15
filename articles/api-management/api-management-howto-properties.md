@@ -3,12 +3,12 @@ title: How to use named values in Azure API Management policies
 description: Learn how to use named values in Azure API Management policies. Named values can contain literal strings, policy expressions, and secrets stored in Azure Key Vault.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 
 ms.service: api-management
 ms.topic: article
 ms.date: 02/09/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Use named values in Azure API Management policies
@@ -29,7 +29,7 @@ ms.author: apimpm
 
 Plain values or secrets can contain [policy expressions](./api-management-policy-expressions.md). For example, the expression `@(DateTime.Now.ToString())` returns a string containing the current date and time.
 
-For details about the named value attributes, see the API Management [REST API reference](/rest/api/apimanagement/2020-06-01-preview/namedvalue/createorupdate).
+For details about the named value attributes, see the API Management [REST API reference](/rest/api/apimanagement/current-ga/named-value/create-or-update).
 
 ## Key vault secrets
 
@@ -38,7 +38,7 @@ Secret values can be stored either as encrypted strings in API Management (custo
 Using key vault secrets is recommended because it helps improve API Management security:
 
 * Secrets stored in key vaults can be reused across services
-* Granular [access policies](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) can be applied to secrets
+* Granular [access policies](../key-vault/general/security-features.md#privileged-access) can be applied to secrets
 * Secrets updated in the key vault are automatically rotated in API Management. After update in the key vault, a named value in API Management is updated within 4 hours. You can also manually refresh the secret using the Azure portal or via the management REST API.
 
 ### Prerequisites for key vault integration
@@ -100,7 +100,7 @@ To begin using Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-To add a named value, use the [az apim nv create](/cli/azure/apim/nv#az_apim_nv_create) command:
+To add a named value, use the [az apim nv create](/cli/azure/apim/nv#az-apim-nv-create) command:
 
 ```azurecli
 az apim nv create --resource-group apim-hello-word-resource-group \
@@ -108,28 +108,28 @@ az apim nv create --resource-group apim-hello-word-resource-group \
     --secret true --service-name apim-hello-world --value test
 ```
 
-After you create a named value, you can update it by using the [az apim nv update](/cli/azure/apim/nv#az_apim_nv_update) command. To see all your named values, run the [az apim nv list](/cli/azure/apim/nv#az_apim_nv_list) command:
+After you create a named value, you can update it by using the [az apim nv update](/cli/azure/apim/nv#az-apim-nv-update) command. To see all your named values, run the [az apim nv list](/cli/azure/apim/nv#az-apim-nv-list) command:
 
 ```azurecli
 az apim nv list --resource-group apim-hello-word-resource-group \
     --service-name apim-hello-world --output table
 ```
 
-To see the details of the named value you created for this example, run the [az apim nv show](/cli/azure/apim/nv#az_apim_nv_show) command:
+To see the details of the named value you created for this example, run the [az apim nv show](/cli/azure/apim/nv#az-apim-nv-show) command:
 
 ```azurecli
 az apim nv show --resource-group apim-hello-word-resource-group \
     --service-name apim-hello-world --named-value-id named_value_01
 ```
 
-This example is a secret value. The previous command does not return the value. To see the value, run the [az apim nv show-secret](/cli/azure/apim/nv#az_apim_nv_show_secret) command:
+This example is a secret value. The previous command does not return the value. To see the value, run the [az apim nv show-secret](/cli/azure/apim/nv#az-apim-nv-show-secret) command:
 
 ```azurecli
 az apim nv show-secret --resource-group apim-hello-word-resource-group \
     --service-name apim-hello-world --named-value-id named_value_01
 ```
 
-To delete a named value, use the [az apim nv delete](/cli/azure/apim/nv#az_apim_nv_delete) command:
+To delete a named value, use the [az apim nv delete](/cli/azure/apim/nv#az-apim-nv-delete) command:
 
 ```azurecli
 az apim nv delete --resource-group apim-hello-word-resource-group \
@@ -143,10 +143,11 @@ az apim nv delete --resource-group apim-hello-word-resource-group \
 The examples in this section use the named values shown in the following table.
 
 | Name               | Value                      | Secret | 
-|--------------------|----------------------------|--------|---------|
+|--------------------|----------------------------|--------| 
 | ContosoHeader      | `TrackingId`                 | False  | 
 | ContosoHeaderValue | ••••••••••••••••••••••     | True   | 
 | ExpressionProperty | `@(DateTime.Now.ToString())` | False  | 
+| ContosoHeaderValue2 | `This is a header value.` | False | 
 
 To use a named value in a policy, place its display name inside a double pair of braces like `{{ContosoHeader}}`, as shown in the following example:
 
@@ -182,6 +183,16 @@ If you look at the outbound [API trace](api-management-howto-api-inspector.md) f
 
 :::image type="content" source="media/api-management-howto-properties/api-management-api-inspector-trace.png" alt-text="API Inspector trace":::
 
+String interpolation can also be used with named values.
+
+```xml
+<set-header name="CustomHeader" exists-action="override">
+    <value>@($"The URL encoded value is {System.Net.WebUtility.UrlEncode("{{ContosoHeaderValue2}}")}")</value>
+</set-header>
+```
+
+The value for `CustomHeader` will be `The URL encoded value is This+is+a+header+value.`.
+
 > [!CAUTION]
 > If a policy references a secret in Azure Key Vault, the value from the key vault will be visible to users who have access to subscriptions enabled for [API request tracing](api-management-howto-api-inspector.md).
 
@@ -202,4 +213,3 @@ To delete a named value, select the name and then select **Delete** from the con
     -   [Policy expressions](./api-management-policy-expressions.md)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
-

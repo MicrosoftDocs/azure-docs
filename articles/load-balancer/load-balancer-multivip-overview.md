@@ -3,15 +3,14 @@ title: Multiple frontends - Azure Load Balancer
 description: With this learning path, get started with an overview of multiple frontends on Azure Load Balancer
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.custom: seodec18
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
-ms.author: allensu
+ms.date: 01/26/2022
+ms.author: greglin
 ---
 
 # Multiple frontends for Azure Load Balancer
@@ -20,7 +19,7 @@ Azure Load Balancer allows you to load balance services on multiple ports, multi
 
 This article describes the fundamentals of this ability, important concepts, and constraints. If you only intend to expose services on one IP address, you can find simplified instructions for [public](./quickstart-load-balancer-standard-public-portal.md) or [internal](./quickstart-load-balancer-standard-internal-portal.md) load balancer configurations. Adding multiple frontends is incremental to a single frontend configuration. Using the concepts in this article, you can expand a simplified configuration at any time.
 
-When you define an Azure Load Balancer, a frontend and a backend pool configuration are connected with rules. The health probe referenced by the rule is used to determine how new flows are sent to a node in the backend pool. The frontend (aka VIP) is defined by a 3-tuple comprised of an IP address (public or internal), a transport protocol (UDP or TCP), and a port number from the load balancing rule. The backend pool is a collection of Virtual Machine IP configurations (part of the NIC resource) which reference the Load Balancer backend pool.
+When you define an Azure Load Balancer, a frontend and a backend pool configuration are connected with rules. The health probe referenced by the rule is used to determine how new flows are sent to a node in the backend pool. The frontend (also known as VIP) is defined by a 3-tuple comprised of an IP address (public or internal), a transport protocol (UDP or TCP), and a port number from the load balancing rule. The backend pool is a collection of Virtual Machine IP configurations (part of the NIC resource) which reference the Load Balancer backend pool.
 
 The following table contains some example frontend configurations:
 
@@ -71,7 +70,7 @@ The complete mapping in Azure Load Balancer is now as follows:
 
 Each rule must produce a flow with a unique combination of destination IP address and destination port. By varying the destination port of the flow, multiple rules can deliver flows to the same DIP on different ports.
 
-Health probes are always directed to the DIP of a VM. You must ensure you that your probe reflects the health of the VM.
+Health probes are always directed to the DIP of a VM. You must ensure that your probe reflects the health of the VM.
 
 ## Rule type #2: backend port reuse by using Floating IP
 
@@ -152,13 +151,13 @@ The destination of the inbound flow is the frontend IP address on the loopback i
 
 Notice that this example does not change the destination port. Even though this is a Floating IP scenario, Azure Load Balancer also supports defining a rule to rewrite the backend destination port and to make it different from the frontend destination port.
 
-The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) configuration. Over time, we will document more of these scenarios.
+The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [Configure one or more Always On availability group listeners](/azure/azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure) configuration. Over time, we will document more of these scenarios.
 
 ## Limitations
 
-* Multiple frontend configurations are only supported with IaaS VMs.
+* Multiple frontend configurations are only supported with IaaS VMs and virtual machine scale sets.
 * With the Floating IP rule, your application must use the primary IP configuration for outbound SNAT flows. If your application binds to the frontend IP address configured on the loopback interface in the guest OS, Azure's outbound SNAT is not available to rewrite the outbound flow and the flow fails.  Review [outbound scenarios](load-balancer-outbound-connections.md).
-* Floating IP is not currently supported on secondary IP configurations for Internal Load Balancing scenarios.
+* Floating IP is not currently supported on secondary IP configurations.
 * Public IP addresses have an effect on billing. For more information, see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Subscription limits apply. For more information, see [Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) for details.
 

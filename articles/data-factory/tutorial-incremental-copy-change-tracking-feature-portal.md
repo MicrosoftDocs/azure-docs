@@ -4,9 +4,9 @@ description: In this tutorial, you create an Azure Data Factory with a pipeline 
 ms.author: yexu
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/18/2021
+ms.date: 07/05/2021
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information using the Azure portal
@@ -49,19 +49,19 @@ In this tutorial, you create two pipelines that perform the following two operat
 
 1. **Initial load:** you create a pipeline with a copy activity that copies the entire data from the source data store (Azure SQL Database) to the destination data store (Azure Blob Storage).
 
-    ![Full loading of data](media/tutorial-incremental-copy-change-tracking-feature-portal/full-load-flow-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-portal/full-load-flow-diagram.png" alt-text="Full loading of data":::
 1.  **Incremental load:** you create a pipeline with the following activities, and run it periodically.
     1. Create **two lookup activities** to get the old and new SYS_CHANGE_VERSION from Azure SQL Database and pass it to copy activity.
     2. Create **one copy activity** to copy the inserted/updated/deleted data between the two SYS_CHANGE_VERSION values from Azure SQL Database to Azure Blob Storage.
     3. Create **one stored procedure activity** to update the value of SYS_CHANGE_VERSION for the next pipeline run.
 
-    ![Increment load flow diagram](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-load-flow-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-load-flow-diagram.png" alt-text="Increment load flow diagram":::
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-* **Azure SQL Database**. You use the database as the **source** data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article for steps to create one.
+* **Azure SQL Database**. You use the database as the **source** data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) article for steps to create one.
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one. Create a container named **adftutorial**. 
 
 ### Create a data source table in Azure SQL Database
@@ -149,11 +149,11 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
 
-   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 
 2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**.
 
-     ![New data factory page](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
+     :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png" alt-text="New data factory page":::
 
    The name of the Azure Data Factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
 
@@ -171,14 +171,15 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 7. Click **Create**.      
 8. On the dashboard, you see the following tile with status: **Deploying data factory**.
 
-	![deploying data factory tile](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
+	:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png" alt-text="deploying data factory tile":::
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
 
-   ![Data factory home page](./media/tutorial-incremental-copy-change-tracking-feature-portal/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
-11. In the **get started** page, switch to the **Edit** tab in the left panel as shown in the following image:
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
-    ![Create pipeline button](./media/tutorial-incremental-copy-change-tracking-feature-portal/get-started-page.png)
+10. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
+11. In the home page, switch to the **Manage** tab in the left panel as shown in the following image:
+
+    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="Screenshot that shows the Manage button.":::
 
 ## Create linked services
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and your database in Azure SQL Database.
@@ -188,17 +189,17 @@ In this step, you link your Azure Storage Account to the data factory.
 
 1. Click **Connections**, and click **+ New**.
 
-   ![New connection button](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-connection-button-storage.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-connection-button-storage.png" alt-text="New connection button":::
 2. In the **New Linked Service** window, select **Azure Blob Storage**, and click **Continue**.
 
-   ![Select Azure Blob Storage](./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-storage.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-storage.png" alt-text="Select Azure Blob Storage":::
 3. In the **New Linked Service** window, do the following steps:
 
     1. Enter **AzureStorageLinkedService** for **Name**.
     2. Select your Azure Storage account for **Storage account name**.
     3. Click **Save**.
 
-   ![Azure Storage Account settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png" alt-text="Azure Storage Account settings":::
 
 
 ### Create Azure SQL Database linked service.
@@ -216,7 +217,7 @@ In this step, you link your database to the data factory.
     6. Click **Test connection** to test the connection.
     7. Click **Save** to save the linked service.
 
-       ![Azure SQL Database linked service settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-sql-database-linked-service-settings.png)
+       :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-sql-database-linked-service-settings.png" alt-text="Azure SQL Database linked service settings":::
 
 ## Create datasets
 In this step, you create datasets to represent data source, data destination. and the place to store the SYS_CHANGE_VERSION.
@@ -226,39 +227,39 @@ In this step, you create a dataset to represent the source data.
 
 1. In the treeview, click **+ (plus)**, and click **Dataset**.
 
-   ![New Dataset menu](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png" alt-text="New Dataset menu":::
 2. Select **Azure SQL Database**, and click **Finish**.
 
-   ![Source dataset type - Azure SQL Database](./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-sql-database.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-sql-database.png" alt-text="Source dataset type - Azure SQL Database":::
 3. You see a new tab for configuring the dataset. You also see the dataset in the treeview. In the **Properties** window, change the name of the dataset to **SourceDataset**.
 
-   ![Source dataset name](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-name.png)    
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-name.png" alt-text="Source dataset name":::    
 4. Switch to the **Connection** tab, and do the following steps:
 
     1. Select **AzureSqlDatabaseLinkedService** for **Linked service**.
     2. Select **[dbo].[data_source_table]** for **Table**.
 
-   ![Source connection](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-connection.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-connection.png" alt-text="Source connection":::
 
 ### Create a dataset to represent data copied to sink data store.
 In this step, you create a dataset to represent the data that is copied from the source data store. You created the adftutorial container in your Azure Blob Storage as part of the prerequisites. Create the container if it does not exist (or) set it to the name of an existing one. In this tutorial, the output file name is dynamically generated by using the expression: `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
 1. In the treeview, click **+ (plus)**, and click **Dataset**.
 
-   ![New Dataset menu](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png" alt-text="New Dataset menu":::
 2. Select **Azure Blob Storage**, and click **Finish**.
 
-   ![Sink dataset type - Azure Blob Storage](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-type.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-type.png" alt-text="Sink dataset type - Azure Blob Storage":::
 3. You see a new tab for configuring the dataset. You also see the dataset in the treeview. In the **Properties** window, change the name of the dataset to **SinkDataset**.
 
-   ![Sink dataset - name](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-name.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-name.png" alt-text="Sink dataset - name":::
 4. Switch to the **Connection** tab in the Properties window, and do the following steps:
 
     1. Select **AzureStorageLinkedService** for **Linked service**.
     2. Enter **adftutorial/incchgtracking** for **folder** part of the **filePath**.
     3. Enter **\@CONCAT('Incremental-', pipeline().RunId, '.txt')** for **file** part of the **filePath**.  
 
-       ![Sink dataset - connection](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
+       :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png" alt-text="Sink dataset - connection":::
 
 ### Create a dataset to represent change tracking data
 In this step, you create a dataset for storing the change tracking version.  You created the table table_store_ChangeTracking_version as part of the prerequisites.
@@ -276,51 +277,51 @@ In this step, you create a pipeline with a copy activity that copies the entire 
 
 1. Click **+ (plus)** in the left pane, and click **Pipeline**.
 
-    ![Screenshot shows the Pipeline option for a data factory.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png" alt-text="Screenshot shows the Pipeline option for a data factory.":::
 2. You see a new tab for configuring the pipeline. You also see the pipeline in the treeview. In the **Properties** window, change the name of the pipeline to **FullCopyPipeline**.
 
-    ![Screenshot shows a pipeline with a name entered.](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png" alt-text="Screenshot shows a pipeline with a name entered.":::
 3. In the **Activities** toolbox, expand **Data Flow**, and drag-drop the **Copy** activity to the pipeline designer surface, and set the name **FullCopyActivity**.
 
-    ![Full copy activity-name](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png" alt-text="Full copy activity-name":::
 4. Switch to the **Source** tab, and select **SourceDataset** for the **Source Dataset** field.
 
-    ![Copy activity - source](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-source.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-source.png" alt-text="Copy activity - source":::
 5. Switch to the **Sink** tab, and select **SinkDataset** for the **Sink Dataset** field.
 
-    ![Copy activity - sink](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-sink.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-sink.png" alt-text="Copy activity - sink":::
 6. To validate the pipeline definition, click **Validate** on the toolbar. Confirm that there is no validation error. Close the **Pipeline Validation Report** by clicking **>>**.
 
-    ![Validate the pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png" alt-text="Validate the pipeline":::
 7. To publish entities (linked services, datasets, and pipelines), click **Publish**. Wait until the publishing succeeds.
 
-    ![Screenshot shows data factory with the Publish All button called out.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png" alt-text="Screenshot shows data factory with the Publish All button called out.":::
 8. Wait until you see the **Successfully published** message.
 
-    ![Publishing succeeded](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png" alt-text="Publishing succeeded":::
 9. You can also see notifications by clicking the **Show Notifications** button on the left. To close the notifications window, click **X**.
 
-    ![Show notifications](./media/tutorial-incremental-copy-change-tracking-feature-portal/show-notifications.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/show-notifications.png" alt-text="Show notifications":::
 
 
 ### Run the full copy pipeline
 Click **Trigger** on the toolbar for the pipeline, and click **Trigger Now**.
 
-![Screenshot shows the Trigger Now option selected from the Trigger menu.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
+:::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png" alt-text="Screenshot shows the Trigger Now option selected from the Trigger menu.":::
 
 ### Monitor the full copy pipeline
 
 1. Click the **Monitor** tab on the left. You see the pipeline run in the list and its status. To refresh the list, click **Refresh**. The links in the Actions column let you view activity runs associated with the pipeline run and to rerun the pipeline.
 
-    ![Screenshot shows pipeline runs for a data factory.](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png" alt-text="Screenshot shows pipeline runs for a data factory.":::
 2. To view activity runs associated with the pipeline run, click the **View Activity Runs** link in the **Actions** column. There is only one activity in the pipeline, so you see only one entry in the list. To switch back to the pipeline runs view, click **Pipelines** link at the top.
 
-    ![Screenshot shows activity runs for a data factory with the Pipelines link called out.](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png" alt-text="Screenshot shows activity runs for a data factory with the Pipelines link called out.":::
 
 ### Review the results
 You see a file named `incremental-<GUID>.txt` in the `incchgtracking` folder of the `adftutorial` container.
 
-![Output file from full copy](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
+:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png" alt-text="Output file from full copy":::
 
 The file should have the data from your database:
 
@@ -353,19 +354,19 @@ In this step, you create a pipeline with the following activities, and run it pe
 
 1. In the Data Factory UI, switch to the **Edit** tab. Click **+ (plus)** in the left pane, and click **Pipeline**.
 
-    ![Screenshot shows how to create a pipeline in a data factory.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png" alt-text="Screenshot shows how to create a pipeline in a data factory.":::
 2. You see a new tab for configuring the pipeline. You also see the pipeline in the treeview. In the **Properties** window, change the name of the pipeline to **IncrementalCopyPipeline**.
 
-    ![Pipeline name](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png" alt-text="Pipeline name":::
 3. Expand **General** in the **Activities** toolbox, and drag-drop the **Lookup** activity to the pipeline designer surface. Set the name of the activity to **LookupLastChangeTrackingVersionActivity**. This activity gets the change tracking version used in the last copy operation that is stored in the table **table_store_ChangeTracking_version**.
 
-    ![Screenshot shows a pipeline with a lookup activity.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png" alt-text="Screenshot shows a pipeline with a lookup activity.":::
 4. Switch to the **Settings** in the **Properties** window, and select **ChangeTrackingDataset** for the **Source Dataset** field.
 
-    ![Screenshot shows the Settings tab in the Properties window.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png" alt-text="Screenshot shows the Settings tab in the Properties window.":::
 5. Drag-and-drop the **Lookup** activity from the **Activities** toolbox to the pipeline designer surface. Set the name of the activity to **LookupCurrentChangeTrackingVersionActivity**. This activity gets the current change tracking version.
 
-    ![Screenshot shows a pipeline with two lookup activities.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png" alt-text="Screenshot shows a pipeline with two lookup activities.":::
 6. Switch to the **Settings** in the **Properties** window, and do the following steps:
 
    1. Select **SourceDataset** for the **Source Dataset** field.
@@ -376,10 +377,10 @@ In this step, you create a pipeline with the following activities, and run it pe
        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
        ```
 
-      ![Screenshot shows a query added to the Settings tab in the Properties window.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png" alt-text="Screenshot shows a query added to the Settings tab in the Properties window.":::
 7. In the **Activities** toolbox, expand **Data Flow**, and drag-drop the **Copy** activity to the pipeline designer surface. Set the name of the activity to **IncrementalCopyActivity**. This activity copies the data between last change tracking version and the current change tracking version to the destination data store.
 
-    ![Copy Activity - name](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png" alt-text="Copy Activity - name":::
 8. Switch to the **Source** tab in the **Properties** window, and do the following steps:
 
    1. Select **SourceDataset** for **Source Dataset**.
@@ -390,19 +391,19 @@ In this step, you create a pipeline with the following activities, and run it pe
        select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
        ```
 
-      ![Copy Activity - source settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
+      :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png" alt-text="Copy Activity - source settings":::
 9. Switch to the **Sink** tab, and select **SinkDataset** for the **Sink Dataset** field.
 
-    ![Copy Activity - sink settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png" alt-text="Copy Activity - sink settings":::
 10. **Connect both Lookup activities to the Copy activity** one by one. Drag the **green** button attached to the **Lookup** activity to the **Copy** activity.
 
-    ![Connect Lookup and Copy activities](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-lookup-and-copy.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-lookup-and-copy.png" alt-text="Connect Lookup and Copy activities":::
 11. Drag-and-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. Set the name of the activity to **StoredProceduretoUpdateChangeTrackingActivity**. This activity updates the change tracking version in the **table_store_ChangeTracking_version** table.
 
-    ![Stored Procedure Activity - name](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-activity-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-activity-name.png" alt-text="Stored Procedure Activity - name":::
 12. Switch to the *SQL Account** tab, and select **AzureSqlDatabaseLinkedService** for **Linked service**.
 
-    ![Stored Procedure Activity - SQL Account](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png" alt-text="Stored Procedure Activity - SQL Account":::
 13. Switch to the **Stored Procedure** tab, and do the following steps:
 
     1. For **Stored procedure name**, select **Update_ChangeTracking_Version**.  
@@ -414,36 +415,36 @@ In this step, you create a pipeline with the following activities, and run it pe
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} |
         | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
 
-        ![Stored Procedure Activity - Parameters](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png" alt-text="Stored Procedure Activity - Parameters":::
 14. **Connect the Copy activity to the Stored Procedure Activity**. Drag-and-drop the **green** button attached to the Copy activity to the Stored Procedure activity.
 
-    ![Connect Copy and Stored Procedure activities](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png" alt-text="Connect Copy and Stored Procedure activities":::
 15. Click **Validate** on the toolbar. Confirm that there are no validation errors. Close the **Pipeline Validation Report** window by clicking **>>**.
 
-    ![Validate button](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png" alt-text="Validate button":::
 16. Publish entities (linked services, datasets, and pipelines) to the Data Factory service by clicking the **Publish All** button. Wait until you see the **Publishing succeeded** message.
 
-       ![Screenshot shows the Publish All button for a data factory.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png" alt-text="Screenshot shows the Publish All button for a data factory.":::    
 
 ### Run the incremental copy pipeline
 1. Click **Trigger** on the toolbar for the pipeline, and click **Trigger Now**.
 
-    ![Screenshot shows a pipeline with activities and the Trigger Now option selected from the Trigger menu.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png" alt-text="Screenshot shows a pipeline with activities and the Trigger Now option selected from the Trigger menu.":::
 2. In the **Pipeline Run** window, select **Finish**.
 
 ### Monitor the incremental copy pipeline
 1. Click the **Monitor** tab on the left. You see the pipeline run in the list and its status. To refresh the list, click **Refresh**. The links in the **Actions** column let you view activity runs associated with the pipeline run and to rerun the pipeline.
 
-    ![Screenshot shows pipeline runs for a data factory including your pipeline.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png" alt-text="Screenshot shows pipeline runs for a data factory including your pipeline.":::
 2. To view activity runs associated with the pipeline run, click the **View Activity Runs** link in the **Actions** column. There is only one activity in the pipeline, so you see only one entry in the list. To switch back to the pipeline runs view, click **Pipelines** link at the top.
 
-    ![Screenshot shows pipeline runs for a data factory with several marked as succeeded.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png" alt-text="Screenshot shows pipeline runs for a data factory with several marked as succeeded.":::
 
 
 ### Review the results
 You see the second file in the `incchgtracking` folder of the `adftutorial` container.
 
-![Output file from incremental copy](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
+:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png" alt-text="Output file from incremental copy":::
 
 The file should have only the delta data from your database. The record with `U` is the updated row in the database and `I` is the one added row.
 

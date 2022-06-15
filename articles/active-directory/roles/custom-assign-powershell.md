@@ -3,12 +3,12 @@ title: Assign custom roles using Azure AD PowerShell - Azure AD | Microsoft Docs
 description: Manage members of an Azure AD administrator custom role with Azure AD PowerShell.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 05/10/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -18,30 +18,15 @@ ms.collection: M365-identity-device-management
 
 This article describes how to create a role assignment at organization-wide scope in Azure Active Directory (Azure AD). Assigning a role at organization-wide scope grants access across the Azure AD organization. To create a role assignment with a scope of a single Azure AD resource, see [How to create a custom role and assign it at resource scope](custom-create.md). This article uses the [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/#directory_roles) module.
 
-For more information about Azure AD admin roles, see [Assigning administrator roles in Azure Active Directory](permissions-reference.md).
+For more information about Azure AD roles, see [Azure AD built-in roles](permissions-reference.md).
 
-## Required permissions
+## Prerequisites
 
-Connect to your Azure AD organization using a global administrator account to assign or remove roles.
+- Azure AD Premium P1 or P2 license
+- Privileged Role Administrator or Global Administrator
+- AzureADPreview module when using PowerShell
 
-## Prepare PowerShell
-
-Install the Azure AD PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview). Then import the Azure AD PowerShell preview module, using the following command:
-
-``` PowerShell
-Import-Module -Name AzureADPreview
-```
-
-To verify that the module is ready to use, match the version returned by the following command to the one listed here:
-
-``` PowerShell
-Get-Module -Name AzureADPreview
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    AzureADPreview               {Add-AzureADMSAdministrati...}
-```
-
-Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, see the online reference documentation for [Azure AD preview module](https://www.powershellgallery.com/packages/AzureADPreview).
+For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
 ## Assign a directory role to a user or service principal with resource scope
 
@@ -57,17 +42,17 @@ $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Applicati
 
 # Get app registration and construct resource scope for assignment.
 $appRegistration = Get-AzureADApplication -Filter "displayName eq 'f/128 Filter Photos'"
-$resourceScope = '/' + $appRegistration.objectId
+$directoryScope = '/' + $appRegistration.objectId
 
 # Create a scoped role assignment
-$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
+$roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $directoryScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
 To assign the role to a service principal instead of a user, use the [Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet.
 
 ## Role definitions
 
-Role definition objects contain the definition of the built-in or custom role, along with the permissions that are granted by that role assignment. This resource displays both custom role definitions and built-in directory roles (which are displayed in roleDefinition equivalent form). Today, an Azure AD organization can have a maximum of 30 unique custom role definitions defined.
+Role definition objects contain the definition of the built-in or custom role, along with the permissions that are granted by that role assignment. This resource displays both custom role definitions and built-in directory roles (which are displayed in roleDefinition equivalent form). For information about the maximum number of custom roles that can be created in an Azure AD organization, see [Azure AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
 
 ### Create a role definition
 
@@ -131,10 +116,10 @@ $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Applicati
 
 # Get app registration and construct resource scope for assignment.
 $appRegistration = Get-AzureADApplication -Filter "displayName eq 'f/128 Filter Photos'"
-$resourceScope = '/' + $appRegistration.objectId
+$directoryScope = '/' + $appRegistration.objectId
 
 # Create a scoped role assignment
-$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
+$roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $directoryScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
 ### Read and list role assignments
@@ -147,15 +132,15 @@ Get-AzureADMSRoleAssignment -Filter "principalId eq '27c8ca78-ab1c-40ae-bd1b-eae
 Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '355aed8a-864b-4e2b-b225-ea95482e7570'"
 ```
 
-### Delete a role assignment
+### Remove a role assignment
 
 ``` PowerShell
-# Delete role assignment
+# Remove role assignment
 Remove-AzureADMSRoleAssignment -Id 'qiho4WOb9UKKgng_LbPV7tvKaKRCD61PkJeKMh7Y458-1'
 ```
 
 ## Next steps
 
-- Share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+- Share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 - For more about roles and Azure AD administrator role assignments, see [Assign administrator roles](permissions-reference.md)
 - For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md)

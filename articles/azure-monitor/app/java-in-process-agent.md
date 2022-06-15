@@ -2,77 +2,102 @@
 title: Azure Monitor Application Insights Java
 description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
 ms.topic: conceptual
-ms.date: 03/29/2020
-author: MS-jgol
+ms.date: 05/02/2022
+ms.devlang: java
 ms.custom: devx-track-java
-ms.author: jgol
 ---
 
-# Java codeless application monitoring Azure Monitor Application Insights
+# Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications
 
-Java codeless application monitoring is all about simplicity - there are no code changes, the Java agent can be enabled through just a couple of configuration changes.
+This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Java offering. After you finish the instructions in this article, you'll be able to use Azure Monitor Application Insights to monitor your application.
 
- The Java agent works in any environment, and allows you to monitor all of your Java applications. In other words, whether you are running your Java apps on VMs, on-premises, in AKS, on Windows, Linux - you name it, the Java 3.0 agent will monitor your app.
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-Adding the Application Insights Java SDK to your application is no longer required, as the 3.0 agent auto-collects requests, dependencies and logs all on its own.
+## Get started
 
-You can still send custom telemetry from your application. The 3.0 agent will track and correlate it along with all of the auto-collected telemetry.
+Java auto-instrumentation can be enabled without any code changes.
 
-The 3.0 agent supports Java 8 and above.
+### Prerequisites
 
-## Quickstart
+- Java application using Java 8+
+- Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
+- Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
 
-**1. Download the agent**
+### Enable Azure Monitor Application Insights
+
+This section shows you how to download the auto-instrumentation jar file.
+
+#### Download the jar file
+
+Download the [applicationinsights-agent-3.2.11.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.11/applicationinsights-agent-3.2.11.jar) file.
 
 > [!WARNING]
-> **If you are upgrading from 3.0 Preview**
+> 
+> If you're upgrading from 3.2.x to 3.3.0-BETA:
+> 
+>    -  Starting from 3.3.0-BETA, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
 >
-> Please review all the [configuration options](./java-standalone-config.md) carefully,
-> as the json structure has completely changed, in addition to the file name itself which went all lowercase.
+> If you're upgrading from 3.1.x:
+> 
+>    -  Starting from 3.2.0, controller "InProc" dependencies are not captured by default. For details on how to enable this, please see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
+>    - Database dependency names are now more concise with the full (sanitized) query still present in the `data` field. HTTP dependency names are now more descriptive.
+>    This change can affect custom dashboards or alerts if they relied on the previous values.
+>    For details, see the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0).
+> 
+> If you're upgrading from 3.0.x:
+> 
+>    - The operation names and request telemetry names are now prefixed by the HTTP method, such as `GET` and `POST`.
+>    This change can affect custom dashboards or alerts if they relied on the previous values.
+>    For details, see the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0).
+>
 
-Download [applicationinsights-agent-3.0.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.2/applicationinsights-agent-3.0.2.jar)
 
-**2. Point the JVM to the agent**
+#### Point the JVM to the jar file
 
-Add `-javaagent:path/to/applicationinsights-agent-3.0.2.jar` to your application's JVM args
+Add `-javaagent:path/to/applicationinsights-agent-3.2.11.jar` to your application's JVM args.
 
-Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
+> [!TIP]
+> For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
 
-For additional help with configuring your application's JVM args, please see [Tips for updating your JVM args](./java-standalone-arguments.md).
+#### Set the Application Insights connection string
 
-**3. Point the agent to your Application Insights resource**
+1. There are two ways you can point the jar file to your Application Insights resource:
 
-If you do not already have an Application Insights resource, you can create a new one by following the steps in the [resource creation guide](./create-new-resource.md).
+   - You can set an environment variable:
+    
+        ```console
+        APPLICATIONINSIGHTS_CONNECTION_STRING = <Copy connection string from Application Insights Resource Overview>
+        ```
 
-Point the agent to your Application Insights resource, either by setting an environment variable:
+   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.2.11.jar` with the following content:
 
-```
-APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
-```
+        ```json
+        {
+          "connectionString": "Copy connection string from Application Insights Resource Overview"
+        }
+        ```
 
-Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.2.jar`, with the following content:
+1. Find the connection string on your Application Insights resource.
 
-```json
-{
-  "connectionString": "InstrumentationKey=..."
-}
-```
+    :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot displaying Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
+    
+#### Confirm data is flowing
 
-You can find your connection string in your Application Insights resource:
-
-:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String":::
-
-**4. That's it!**
-
-Now start up your application and go to your Application Insights resource in the Azure portal to see your monitoring data.
+Run your application and open your **Application Insights Resource** tab in the Azure portal. It can take a few minutes for data to show up in the portal.
 
 > [!NOTE]
-> It may take a couple of minutes for your monitoring data to show up in the portal.
+> If you can't run the application or you aren't getting data as expected, see the [Troubleshooting](#troubleshooting) section.
 
+:::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot that shows the Application Insights Overview tab with server requests and server response time highlighted.":::
+
+> [!IMPORTANT]
+> If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set cloud role names](java-standalone-config.md#cloud-role-name) to represent them properly on the application map.
+
+As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You can disable nonessential data collection. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
 ## Configuration options
 
-In the `applicationinsights.json` file, you can additionally configure:
+In the `applicationinsights.json` file, you can also configure these settings:
 
 * Cloud role name
 * Cloud role instance
@@ -80,275 +105,442 @@ In the `applicationinsights.json` file, you can additionally configure:
 * JMX metrics
 * Custom dimensions
 * Telemetry processors (preview)
-* Auto-collected logging
-* Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
+* Autocollected logging
+* Autocollected Micrometer metrics, which include Spring Boot Actuator metrics
 * Heartbeat
-* HTTP Proxy
+* HTTP proxy
 * Self-diagnostics
 
-See [configuration options](./java-standalone-config.md) for full details.
+For more information, see [Configuration options](./java-standalone-config.md).
 
-## Auto-collected requests, dependencies, logs, and metrics
+## Instrumentation libraries
 
-### Requests
+Java 3.x includes the following instrumentation libraries.
 
-* JMS Consumers
-* Kafka Consumers
+### Autocollected requests
+
+* JMS consumers
+* Kafka consumers
 * Netty/WebFlux
 * Servlets
-* Spring Scheduling
+* Spring scheduling
 
-### Dependencies with distributed trace propagation
+### Autocollected dependencies
 
-* Apache HttpClient and HttpAsyncClient
+Autocollected dependencies plus downstream distributed trace propagation:
+
+* Apache HttpClient
+* Apache HttpAsyncClient
+* AsyncHttpClient
+* Google HttpClient
 * gRPC
 * java.net.HttpURLConnection
+* Java 11 HttpClient
+* JAX-RS client
+* Jetty HttpClient
 * JMS
 * Kafka
 * Netty client
 * OkHttp
 
-### Other dependencies
+Autocollected dependencies without downstream distributed trace propagation:
 
 * Cassandra
 * JDBC
 * MongoDB (async and sync)
 * Redis (Lettuce and Jedis)
 
-### Logs
+### Autocollected logs
 
 * java.util.logging
-* Log4j (including MDC properties)
-* SLF4J/Logback (including MDC properties)
+* Log4j, which includes MDC properties
+* SLF4J/Logback, which includes MDC properties
 
-### Metrics
+### Autocollected metrics
 
-* Micrometer (including Spring Boot Actuator metrics)
+* Micrometer, which includes Spring Boot Actuator metrics
 * JMX Metrics
 
-## Send custom telemetry from your application
+### Azure SDKs
 
-Our goal in 3.0+ is to allow you to send your custom telemetry using standard APIs.
+Telemetry emitted by these Azure SDKs is automatically collected by default:
 
-We support Micrometer, popular logging frameworks, and the Application Insights Java 2.x SDK so far.
-Application Insights Java 3.0 automatically captures the telemetry sent through these APIs,
-and correlates it with auto-collected telemetry.
+* [Azure App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
+* [Azure Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
+* [Azure Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
+* [Azure Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
+* [Azure Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
+* [Azure Communication Phone Numbers](/java/api/overview/azure/communication-phonenumbers-readme) 1.0.0+
+* [Azure Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0+
+* [Azure Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
+* [Azure Digital Twins - Core](/java/api/overview/azure/digitaltwins-core-readme) 1.1.0+
+* [Azure Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
+* [Azure Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
+* [Azure Event Hubs - Azure Blob Storage Checkpoint Store](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
+* [Azure Form Recognizer](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
+* [Azure Identity](/java/api/overview/azure/identity-readme) 1.2.4+
+* [Azure Key Vault - Certificates](/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
+* [Azure Key Vault - Keys](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
+* [Azure Key Vault - Secrets](/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
+* [Azure Service Bus](/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
+* [Azure Storage - Blobs](/java/api/overview/azure/storage-blob-readme) 12.11.0+
+* [Azure Storage - Blobs Batch](/java/api/overview/azure/storage-blob-batch-readme) 12.9.0+
+* [Azure Storage - Blobs Cryptography](/java/api/overview/azure/storage-blob-cryptography-readme) 12.11.0+
+* [Azure Storage - Common](/java/api/overview/azure/storage-common-readme) 12.11.0+
+* [Azure Storage - Files Data Lake](/java/api/overview/azure/storage-file-datalake-readme) 12.5.0+
+* [Azure Storage - Files Shares](/java/api/overview/azure/storage-file-share-readme) 12.9.0+
+* [Azure Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0+
+* [Azure Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
+
+[//]: # "the above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
+[//]: # "and version synched manually against the oldest version in maven central built on azure-core 1.14.0"
+[//]: # ""
+[//]: # "var table = document.querySelector('#tg-sb-content > div > table')"
+[//]: # "var str = ''"
+[//]: # "for (var i = 1, row; row = table.rows[i]; i++) {"
+[//]: # "  var name = row.cells[0].getElementsByTagName('div')[0].textContent.trim()"
+[//]: # "  var stableRow = row.cells[1]"
+[//]: # "  var versionBadge = stableRow.querySelector('.badge')"
+[//]: # "  if (!versionBadge) {"
+[//]: # "    continue"
+[//]: # "  }"
+[//]: # "  var version = versionBadge.textContent.trim()"
+[//]: # "  var link = stableRow.querySelectorAll('a')[2].href"
+[//]: # "  str += '* [' + name + '](' + link + ') ' + version + '\n'"
+[//]: # "}"
+[//]: # "console.log(str)"
+
+## Modify telemetry
+
+This section explains how to modify telemetry.
+
+### Add spans
+
+You can use `opentelemetry-api` to create [tracers](https://opentelemetry.io/docs/instrumentation/java/manual/#tracing) and spans. Spans populate the dependencies table in Application Insights. The string passed in for the span's name is saved to the _target_ field within the dependency.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.6.0.jar` to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.6.0</version>
+   </dependency>
+   ```
+
+1. Add spans in your code:
+
+   ```java
+    import io.opentelemetry.api.trace.Span;
+
+    Span span = tracer.spanBuilder("mySpan").startSpan();
+   ```
+
+### Add span events
+
+You can use `opentelemetry-api` to create span events, which populate the traces table in Application Insights. The string passed in to `addEvent()` is saved to the _message_ field within the trace.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.6.0.jar` to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.6.0</version>
+   </dependency>
+   ```
+
+1. Add span events in your code:
+
+   ```java
+    import io.opentelemetry.api.trace.Span;
+
+    span.addEvent("eventName");
+   ```
+
+### Add span attributes
+
+You can use `opentelemetry-api` to add attributes to spans. These attributes can include adding a custom business dimension to your telemetry. You can also use attributes to set optional fields in the Application Insights schema, such as User ID or Client IP.
+
+#### Add a custom dimension
+
+Adding one or more custom dimensions populates the _customDimensions_ field in the requests, dependencies, traces, or exceptions table.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.6.0.jar` to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.6.0</version>
+   </dependency>
+   ```
+
+1. Add custom dimensions in your code:
+
+   ```java
+    import io.opentelemetry.api.trace.Span;
+    import io.opentelemetry.api.common.AttributeKey;
+    import io.opentelemetry.api.common.Attributes;
+
+    Attributes attributes = Attributes.of(AttributeKey.stringKey("mycustomdimension"), "myvalue1");
+    span.setAllAttributes(attributes);
+    span.addEvent("eventName", attributes);
+   ```
+
+### Update span status and record exceptions
+
+You can use `opentelemetry-api` to update the status of a span and record exceptions.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.6.0.jar` to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.6.0</version>
+   </dependency>
+   ```
+
+1. Set status to error and record an exception in your code:
+
+   ```java
+    import io.opentelemetry.api.trace.Span;
+    import io.opentelemetry.api.trace.StatusCode;
+
+    span.setStatus(StatusCode.ERROR, "errorMessage");
+    span.recordException(e);
+   ```
+
+#### Set the user ID
+
+Populate the _user ID_ field in the requests, dependencies, or exceptions table.
+
+> [!IMPORTANT]
+> Consult applicable privacy laws before you set Authenticated User ID.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.6.0.jar` to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.6.0</version>
+   </dependency>
+   ```
+
+1. Set `user_Id` in your code:
+
+   ```java
+   import io.opentelemetry.api.trace.Span;
+
+   Span.current().setAttribute("enduser.id", "myuser");
+   ```
+
+### Get the trace ID or span ID
+
+You can use `opentelemetry-api` to get the trace ID or span ID. This action can be done to add these identifiers to existing logging telemetry to improve correlation when you debug and diagnose issues.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.6.0.jar` to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.6.0</version>
+   </dependency>
+   ```
+
+1. Get the request trace ID and the span ID in your code:
+
+   ```java
+   import io.opentelemetry.api.trace.Span;
+
+   String traceId = Span.current().getSpanContext().getTraceId();
+   String spanId = Span.current().getSpanContext().getSpanId();
+   ```
+
+## Custom telemetry
+
+Our goal in Application Insights Java 3.x is to allow you to send your custom telemetry by using standard APIs.
+
+We currently support Micrometer, popular logging frameworks, and the Application Insights Java 2.x SDK. Application Insights Java 3.x automatically captures the telemetry sent through these APIs and correlates it with autocollected telemetry.
 
 ### Supported custom telemetry
 
-The table below represents currently supported custom telemetry types that you can enable to supplement the Java 3.0 agent. To summarize, custom metrics are supported through micrometer, custom exceptions and traces can be enabled through logging frameworks, and any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-using-the-2x-sdk).
+The following table represents currently supported custom telemetry types that you can enable to supplement the Java 3.x agent. To summarize:
 
-|                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
-|---------------------|------------|---------------------|---------|
-| **Custom Events**   |            |                     |  Yes    |
-| **Custom Metrics**  |  Yes       |                     |  Yes    |
-| **Dependencies**    |            |                     |  Yes    |
-| **Exceptions**      |            |  Yes                |  Yes    |
-| **Page Views**      |            |                     |  Yes    |
-| **Requests**        |            |                     |  Yes    |
-| **Traces**          |            |  Yes                |  Yes    |
+- Custom metrics are supported through micrometer.
+- Custom exceptions and traces are supported through logging frameworks.
+- Custom requests, dependencies, and exceptions are supported through `opentelemetry-api`.
+- Any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-by-using-the-2x-sdk).
 
-We're not planning to release an SDK with Application Insights 3.0 at this time.
+| Custom telemetry type            | Micrometer | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
+|---------------------|------------|---------------------|---------|-------------------|
+| Custom events       |            |                     |  Yes    |                   |
+| Custom metrics      |  Yes       |                     |  Yes    |                   |
+| Dependencies        |            |                     |  Yes    |  Yes              |
+| Exceptions          |            |  Yes                |  Yes    |  Yes              |
+| Page views          |            |                     |  Yes    |                   |
+| Requests            |            |                     |  Yes    |  Yes              |
+| Traces              |            |  Yes                |  Yes    |  Yes              |
 
-Application Insights Java 3.0 is already listening for telemetry that is sent to the Application Insights Java 2.x SDK. This functionality is an important part of the upgrade story for existing 2.x users, and it fills an important gap in our custom telemetry support until the OpenTelemetry API is GA.
+Currently, we're not planning to release an SDK with Application Insights 3.x.
 
-### Send custom metrics using Micrometer
+Application Insights Java 3.x is already listening for telemetry that's sent to the Application Insights Java 2.x SDK. This functionality is an important part of the upgrade story for existing 2.x users. And it fills an important gap in our custom telemetry support until the OpenTelemetry API is generally available.
 
-Add Micrometer to your application:
+### Send custom metrics by using Micrometer
 
-```xml
-<dependency>
-  <groupId>io.micrometer</groupId>
-  <artifactId>micrometer-core</artifactId>
-  <version>1.6.1</version>
-</dependency>
-```
+1. Add Micrometer to your application:
+    
+    ```xml
+    <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-core</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+    ```
 
-Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
+2. Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
 
-```java
-static final Counter counter = Metrics.counter("test_counter");
-```
+    ```java
+    static final Counter counter = Metrics.counter("test.counter");
+    ```
 
-and use that to record metrics:
+3. Use the counter to record metrics:
 
-```java
-counter.increment();
-```
+    ```java
+    counter.increment();
+    ```
 
-### Send custom traces and exceptions using your favorite logging framework
+4. The metrics will be ingested into the
+   [customMetrics](/azure/azure-monitor/reference/tables/custommetrics) table, with tags captured in the
+   `customDimensions` column. You can also view the metrics in the
+   [Metrics explorer](../essentials/metrics-getting-started.md) under the "Log-based metrics" metric namespace.
 
-Log4j, Logback, and java.util.logging are auto-instrumented,
-and logging performed via these logging frameworks is auto-collected as trace and exception telemetry.
+    > [!NOTE]
+    > Application Insights Java replaces all non-alphanumeric characters (except dashes) in the Micrometer metric name
+    > with underscores, so the `test.counter` metric above will show up as `test_counter`.
+
+### Send custom traces and exceptions by using your favorite logging framework
+
+Log4j, Logback, and java.util.logging are auto-instrumented. Logging performed via these logging frameworks is autocollected as trace and exception telemetry.
 
 By default, logging is only collected when that logging is performed at the INFO level or above.
-See the [configuration options](./java-standalone-config.md#auto-collected-logging) for how to change this level.
+To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
 
-If you want to attach custom dimensions to your logs, you can use
-[Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html),
-[Log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html),
-or [Logback MDC](http://logback.qos.ch/manual/mdc.html),
-and Application Insights Java 3.0 will automatically capture those MDC properties as custom dimensions
-on your trace and exception telemetry.
+If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html), or [Logback MDC](http://logback.qos.ch/manual/mdc.html). Application Insights Java 3.x automatically captures those MDC properties as custom dimensions on your trace and exception telemetry.
 
-### Send custom telemetry using the 2.x SDK
+### Send custom telemetry by using the 2.x SDK
 
-Add `applicationinsights-core-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+1. Add `applicationinsights-core-2.6.4.jar` to your application. All 2.x versions are supported by Application Insights Java 3.x. If you have a choice, it's worth using the latest version:
 
-```xml
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>applicationinsights-core</artifactId>
-  <version>2.6.2</version>
-</dependency>
-```
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>applicationinsights-core</artifactId>
+      <version>2.6.4</version>
+    </dependency>
+    ```
 
-Create a TelemetryClient:
+1. Create a TelemetryClient:
+    
+    ```java
+    static final TelemetryClient telemetryClient = new TelemetryClient();
+    ```
 
-  ```java
-static final TelemetryClient telemetryClient = new TelemetryClient();
-```
+1. Use the client to send custom telemetry:
 
-and use that to send custom telemetry:
+    ##### Events
+    
+    ```java
+    telemetryClient.trackEvent("WinGame");
+    ```
+    
+    ##### Metrics
+    
+    ```java
+    telemetryClient.trackMetric("queueLength", 42.0);
+    ```
+    
+    ##### Dependencies
+    
+    ```java
+    boolean success = false;
+    long startTime = System.currentTimeMillis();
+    try {
+        success = dependency.call();
+    } finally {
+        long endTime = System.currentTimeMillis();
+        RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+        telemetry.setSuccess(success);
+        telemetry.setTimestamp(new Date(startTime));
+        telemetry.setDuration(new Duration(endTime - startTime));
+        telemetryClient.trackDependency(telemetry);
+    }
+    ```
+    
+    ##### Logs
+    
+    ```java
+    telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
+    ```
+    
+    ##### Exceptions
+    
+    ```java
+    try {
+        ...
+    } catch (Exception e) {
+        telemetryClient.trackException(e);
+    }
+    ```
 
-##### Events
+## Troubleshooting
 
-```java
-telemetryClient.trackEvent("WinGame");
-```
+For help with troubleshooting, see [Troubleshooting](java-standalone-troubleshoot.md).
 
-##### Metrics
+## Release notes
 
-```java
-telemetryClient.trackMetric("queueLength", 42.0);
-```
+See the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.
 
-##### Dependencies
+## Support
 
-```java
-boolean success = false;
-long startTime = System.currentTimeMillis();
-try {
-    success = dependency.call();
-} finally {
-    long endTime = System.currentTimeMillis();
-    RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
-    telemetry.setSuccess(success);
-    telemetry.setTimestamp(new Date(startTime));
-    telemetry.setDuration(new Duration(endTime - startTime));
-    telemetryClient.trackDependency(telemetry);
-}
-```
+To get support:
 
-##### Logs
+- For help with troubleshooting, review the [troubleshooting steps](java-standalone-troubleshoot.md).
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
+- For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
 
-```java
-telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
-```
+## OpenTelemetry feedback
 
-##### Exceptions
+To provide feedback:
 
-```java
-try {
-    ...
-} catch (Exception e) {
-    telemetryClient.trackException(e);
-}
-```
+- Fill out the OpenTelemetry community's [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
+- Tell Microsoft about yourself by joining our [OpenTelemetry Early Adopter Community](https://aka.ms/AzMonOTel/).
+- Engage with other Azure Monitor users in the  [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor).
+- Make a feature request at the [Azure Feedback Forum](https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0).
 
-### Add request custom dimensions using the 2.x SDK
+## Next steps
 
-> [!NOTE]
-> This feature is only in 3.0.2 and later
-
-Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
-
-```xml
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.2</version>
-</dependency>
-```
-
-and add custom dimensions in your code:
-
-```java
-import com.microsoft.applicationinsights.web.internal.ThreadContext;
-
-RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
-requestTelemetry.getProperties().put("mydimension", "myvalue");
-```
-
-### Set the request telemetry user_Id using the 2.x SDK
-
-> [!NOTE]
-> This feature is only in 3.0.2 and later
-
-Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
-
-```xml
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.2</version>
-</dependency>
-```
-
-and set the `user_Id` in your code:
-
-```java
-import com.microsoft.applicationinsights.web.internal.ThreadContext;
-
-RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
-requestTelemetry.getContext().getUser().setId("myuser");
-```
-
-### Override the request telemetry name using the 2.x SDK
-
-> [!NOTE]
-> This feature is only in 3.0.2 and later
-
-Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
-
-```xml
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.2</version>
-</dependency>
-```
-
-and set the name in your code:
-
-```java
-import com.microsoft.applicationinsights.web.internal.ThreadContext;
-
-RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
-requestTelemetry.setName("myname");
-```
-
-### Get the request telemetry id and the operation id using the 2.x SDK
-
-> [!NOTE]
-> This feature is only in 3.0.3-BETA and later
-
-Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
-
-```xml
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.2</version>
-</dependency>
-```
-
-and get the request telemetry id and the operation id in your code:
-
-```java
-import com.microsoft.applicationinsights.web.internal.ThreadContext;
-
-RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
-String requestId = requestTelemetry.getId();
-String operationId = requestTelemetry.getContext().getOperation().getId();
-```
+- To review the source code, see the [Azure Monitor Java auto-instrumentation GitHub repository](https://github.com/Microsoft/ApplicationInsights-Java).
+- To learn more about OpenTelemetry and its community, see the [OpenTelemetry Java GitHub repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
+- To enable usage experiences, see [Enable web or browser user monitoring](javascript.md).

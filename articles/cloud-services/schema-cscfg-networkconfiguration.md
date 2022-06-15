@@ -3,9 +3,10 @@ title: Azure Cloud Services (classic) NetworkConfiguration Schema | Microsoft Do
 description: Learn about the child elements of the NetworkConfiguration element of the service configuration file, which specifies Virtual Network and DNS values.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: 
 ---thor: tagore
@@ -13,8 +14,7 @@ ms.custom:
 
 # Azure Cloud Services (classic) Config NetworkConfiguration Schema
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 The `NetworkConfiguration` element of the service configuration file specifies Virtual Network and DNS values. These settings are optional for cloud services.
 
@@ -51,7 +51,7 @@ The following example shows the `NetworkConfiguration` element and its child ele
         </Subnets>
       </InstanceAddress>
       <ReservedIPs>
-        <ReservedIP name="<reserved-ip-name>"/>
+        <ReservedIP name="GROUP <ResourceGroupNameOfReservedIP> <reserved-ip-name>"/>
       </ReservedIPs>
     </AddressAssignments>
   </NetworkConfiguration>

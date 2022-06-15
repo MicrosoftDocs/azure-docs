@@ -1,8 +1,9 @@
 ---
-title: Configure GPU monitoring with Container insights | Microsoft Docs
+title: Configure GPU monitoring with Container insights
 description: This article describes how you can configure monitoring Kubernetes clusters with NVIDIA and AMD GPU enabled nodes with Container insights.
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 05/24/2022
+ms.reviewer: aul
 ---
 
 # Configure GPU monitoring with Container insights
@@ -34,7 +35,7 @@ Container insights automatically starts monitoring GPU usage on nodes, and GPU r
 
 ## GPU performance charts 
 
-Container insights includes pre-configured charts for the metrics listed earlier in the table as a GPU workbook for every cluster. See [Workbooks in Container insights](../insights/container-insights-reports.md) for a description of the workbooks available for Container insights.
+Container insights includes pre-configured charts for the metrics listed earlier in the table as a GPU workbook for every cluster. See [Workbooks in Container insights](container-insights-reports.md) for a description of the workbooks available for Container insights.
 
 ## Next steps
 

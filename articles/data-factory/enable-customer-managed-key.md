@@ -1,12 +1,14 @@
 ---
 title: Encrypt Azure Data Factory with customer-managed key
 description: Enhance Data Factory security with Bring Your Own Key (BYOK)
-author: chez-charlie
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
+ms.subservice: security
 ms.topic: quickstart
-ms.date: 05/08/2020
-ms.author: chez
+ms.date: 10/22/2021
 ms.reviewer: mariozi
+ms.custom: mode-other
 ---
 # Encrypt Azure Data Factory with customer-managed keys
 
@@ -80,12 +82,12 @@ This section walks through the process to add customer managed key encryption in
 
 1. Launch Azure Data Factory portal, and using the navigation bar on the left, jump to Data Factory Management Portal
 
-1. Click on the __Customer manged key__ icon
+1. Click on the __Customer managed key__ icon
   :::image type="content" source="media/enable-customer-managed-key/05-customer-managed-key-configuration.png" alt-text="Screenshot how to enable Customer-managed Key in Data Factory UI.":::
 
 1. Enter the URI for customer-managed key that you copied before
 
-1. Click __Save__ and customer-manged key encryption is enabled for Data Factory
+1. Click __Save__ and customer-managed key encryption is enabled for Data Factory
 
 ### During factory creation in Azure portal
 
@@ -124,7 +126,7 @@ To change key used for Data Factory encryption, you have to manually update the 
 
 1. Locate the URI for the new key through Azure Key Vault Portal
 
-1. Navigate to __Customer manged key__ setting
+1. Navigate to __Customer managed key__ setting
 
 1. Replace and paste in the URI for the new key
 
@@ -133,6 +135,23 @@ To change key used for Data Factory encryption, you have to manually update the 
 ## Disable Customer-managed Keys
 
 By design, once the customer-managed key feature is enabled, you can't remove the extra security step. We will always expect a customer provided key to encrypt factory and data.
+
+## Customer managed key and continuous integration and continuous deployment
+
+By default, CMK configuration is not included in the factory Azure Resource Manager (ARM) template. To include the customer managed key encryption settings in ARM template for continuous integration (CI/CD):
+
+1. Ensure the factory is in Git mode
+1. Navigate to management portal - customer managed key section
+1. Check _Include in ARM template_ option
+
+  :::image type="content" source="media/enable-customer-managed-key/07-include-in-template.png" alt-text="Screenshot of including customer managed key setting in ARM template.":::
+
+The following settings will be added in ARM template. These properties can be parameterized in Continuous Integration and Delivery pipelines by editing the [Azure Resource Manager parameters configuration](continuous-integration-delivery-resource-manager-custom-parameters.md)
+
+  :::image type="content" source="media/enable-customer-managed-key/08-template-with-customer-managed-key.png" alt-text="Screenshot of including customer managed key setting in Azure Resource Manager template.":::
+
+> [!NOTE]
+> Adding the encryption setting to the ARM templates adds a factory-level setting that will override other factory level settings, such as git configurations, in other environments. If you have these settings enabled in an elevated environment such as UAT or PROD, please refer to [Global Parameters in CI/CD](author-global-parameters.md#cicd).
 
 ## Next steps
 

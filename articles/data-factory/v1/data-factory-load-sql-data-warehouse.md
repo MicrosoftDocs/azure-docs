@@ -1,11 +1,12 @@
 ---
 title: Load terabytes of data into Azure Synapse Analytics
 description: Demonstrates how 1 TB of data can be loaded into Azure Synapse Analytics under 15 minutes with Azure Data Factory
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.author: jingwang
+ms.date: 10/22/2021
+ms.author: jianleishen
 robots: noindex
 ---
 # Load 1 TB into Azure Synapse Analytics under 15 minutes with Data Factory
@@ -58,15 +59,15 @@ This article provides step-by-step instructions for moving data into Azure Synap
 
     To create a dedicated SQL pool with 6,000 DWUs, move the Performance slider all the way to the right:
 
-    ![Performance slider](media/data-factory-load-sql-data-warehouse/performance-slider.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/performance-slider.png" alt-text="Performance slider":::
 
     For an existing database that is not configured with 6,000 DWUs, you can scale it up using Azure portal.  Navigate to the database in Azure portal, and there is a **Scale** button in the **Overview** panel shown in the following image:
 
-    ![Scale button](media/data-factory-load-sql-data-warehouse/scale-button.png)    
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/scale-button.png" alt-text="Scale button":::    
 
     Click the **Scale** button to open the following panel, move the slider to the maximum value, and click **Save** button.
 
-    ![Scale dialog](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/scale-dialog.png" alt-text="Scale dialog":::
 
     This experiment loads data into Azure Synapse Analytics using `xlargerc` resource class.
 
@@ -117,7 +118,7 @@ This article provides step-by-step instructions for moving data into Azure Synap
    6. Click **Create**.
 4. After the creation is complete, you see the **Data Factory** blade as shown in the following image:
 
-   ![Data factory home page](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
+   :::image type="content" source="media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png" alt-text="Data factory home page":::
 5. On the Data Factory home page, click the **Copy data** tile to launch **Copy Wizard**.
 
    > [!NOTE]
@@ -134,41 +135,41 @@ In the **Properties** page:
 2. Select **Run once now** option.   
 3. Click **Next**.  
 
-    ![Copy Wizard - Properties page](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png" alt-text="Copy Wizard - Properties page":::
 
 ## Step 2: Configure source
 This section shows you the steps to configure the source: Azure Blob containing the 1-TB TPC-H line item files.
 
 1. Select the **Azure Blob Storage** as the data store and click **Next**.
 
-    ![Copy Wizard - Select source page](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/select-source-connection.png" alt-text="Copy Wizard - Select source page":::
 
 2. Fill in the connection information for the Azure Blob storage account, and click **Next**.
 
-    ![Copy Wizard - Source connection information](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/source-connection-info.png" alt-text="Copy Wizard - Source connection information":::
 
 3. Choose the **folder** containing the TPC-H line item files and click **Next**.
 
-    ![Copy Wizard - select input folder](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/select-input-folder.png" alt-text="Copy Wizard - select input folder":::
 
 4. Upon clicking **Next**, the file format settings are detected automatically.  Check to make sure that column delimiter is '|' instead of the default comma ','.  Click **Next** after you have previewed the data.
 
-    ![Copy Wizard - file format settings](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/file-format-settings.png" alt-text="Copy Wizard - file format settings":::
 
 ## Step 3: Configure destination
 This section shows you how to configure the destination: `lineitem` table in the Azure Synapse Analytics database.
 
 1. Choose **Azure Synapse Analytics** as the destination store and click **Next**.
 
-    ![Copy Wizard - select destination data store](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/select-destination-data-store.png" alt-text="Copy Wizard - select destination data store":::
 
 2. Fill in the connection information for Azure Synapse Analytics.  Make sure you specify the user that is a member of the role `xlargerc` (see the **prerequisites** section for detailed instructions), and click **Next**.
 
-    ![Copy Wizard - destination connection info](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/destination-connection-info.png" alt-text="Copy Wizard - destination connection info":::
 
 3. Choose the destination table and click **Next**.
 
-    ![Copy Wizard - table mapping page](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/table-mapping-page.png" alt-text="Copy Wizard - table mapping page":::
 
 4. In Schema mapping page, leave "Apply column mapping" option unchecked and click **Next**.
 
@@ -176,22 +177,22 @@ This section shows you how to configure the destination: `lineitem` table in the
 
 **Allow polybase** is checked by default.  Click **Next**.
 
-![Copy Wizard - schema mapping page](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
+:::image type="content" source="media/data-factory-load-sql-data-warehouse/performance-settings-page.png" alt-text="Copy Wizard - schema mapping page":::
 
 ## Step 5: Deploy and monitor load results
 1. Click **Finish** button to deploy.
 
-    ![Copy Wizard - summary page 1](media/data-factory-load-sql-data-warehouse/summary-page.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/summary-page.png" alt-text="Copy Wizard - summary page 1":::
 
 2. After the deployment is complete, click `Click here to monitor copy pipeline` to monitor the copy run progress. Select the copy pipeline you created in the **Activity Windows** list.
 
-    ![Copy Wizard - summary page 2](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png" alt-text="Copy Wizard - summary page 2":::
 
     You can view the copy run details in the **Activity Window Explorer** in the right panel, including the data volume read from source and written into destination, duration, and the average throughput for the run.
 
     As you can see from the following screenshot, copying 1 TB from Azure Blob Storage into Azure Synapse Analytics took 14 minutes, effectively achieving 1.22 GBps throughput!
 
-    ![Copy Wizard - succeeded dialog](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
+    :::image type="content" source="media/data-factory-load-sql-data-warehouse/succeeded-info.png" alt-text="Copy Wizard - succeeded dialog":::
 
 ## Best practices
 Here are a few best practices for running your Azure Synapse Analytics database:
@@ -201,7 +202,7 @@ Here are a few best practices for running your Azure Synapse Analytics database:
 * For faster load speeds, consider using heap for transient data.
 * Create statistics after you finish loading to Azure Synapse Analytics.
 
-See [Best practices for Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md) for details.
+See [Best practices for Azure Synapse Analytics](../../synapse-analytics/sql/best-practices-dedicated-sql-pool.md) for details.
 
 ## Next steps
 * [Data Factory Copy Wizard](data-factory-copy-wizard.md) - This article provides details about the Copy Wizard.

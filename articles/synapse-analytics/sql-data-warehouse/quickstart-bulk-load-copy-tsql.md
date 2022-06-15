@@ -1,16 +1,15 @@
 ---
 title: 'Quickstart: Bulk load data using a single T-SQL statement'
 description: Bulk load data using the COPY statement
-services: synapse-analytics
-author: gaursa
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: sql-dw 
+ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: gaursa
-ms.reviewer: jrasnick
-ms.custom: azure-synapse
+ms.author: wiassaf
+ms.reviewer: sngun
+ms.custom: azure-synapse, mode-other
 ---
 
 # Quickstart: Bulk load data using the COPY statement
@@ -133,5 +132,5 @@ GROUP BY r.[request_id]
 
 ## Next steps
 
-- For best practices on data loading, see [Best Practices for Loading Data](./guidance-for-loading-data.md).
+- For best practices on data loading, see [Best Practices for Loading Data](../sql/data-loading-best-practices.md).
 - For information on how to manage the resources for your data loads, see [Workload Isolation](./quickstart-configure-workload-isolation-tsql.md).

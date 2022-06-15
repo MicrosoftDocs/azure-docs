@@ -12,7 +12,7 @@ ms.custom: seodec18
 # Azure App Service Local Cache overview
 
 > [!NOTE]
-> Local cache is not supported in Function apps or containerized App Service apps, such as in [Windows Containers](quickstart-custom-container.md?pivots=container-windows) or on [App Service on Linux](overview.md#app-service-on-linux).
+> Local cache is not supported in function apps or containerized App Service apps, such as in [Windows Containers](quickstart-custom-container.md?pivots=container-windows) or in [App Service on Linux](overview.md#app-service-on-linux). A version of local cache that is available for these app types is [App Cache](https://github.com/Azure-App-Service/KuduLite/wiki/App-Cache).
 
 
 Azure App Service content is stored on Azure Storage and is surfaced in a durable manner as a content share. This design is intended to work with a variety of apps and has the following attributes:  
@@ -120,3 +120,10 @@ As part of the step that copies the storage content, any folder that is named re
 
 ### How to flush the local cache logs after a site management operation?
 To flush the local cache logs, stop and restart the app. This action clears the old cache. 
+
+### Why does App Service starts showing previously deployed files after a restart when Local Cache is enabled?
+In case App Service starts showing previously deployed files on a restart, check for the precense of the App Setting - '[WEBSITE_DISABLE_SCM_SEPARATION=true](https://github.com/projectkudu/kudu/wiki/Configurable-settings#use-the-same-process-for-the-user-site-and-the-scm-site)'.  After adding this setting any deployments via KUDU start writing to the local VM instead of the persistent storage. Best practices mentioned above in this article should be leveraged, wherein the deployments should always be done to the staging slot which does not have Local Cache enabled.
+
+## More resources
+
+[Environment variables and app settings reference](reference-app-settings.md)

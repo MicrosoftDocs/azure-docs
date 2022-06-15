@@ -1,88 +1,144 @@
 ---
 title: App Service Environment overview
-description: Overview on the App Service Environment
-author: ccompy
-ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
-ms.topic: article
-ms.date: 03/02/2021
-ms.author: ccompy
-ms.custom: seodec18
+description: This article discusses the Azure App Service Environment feature of Azure App Service.
+author: madsd
+ms.topic: overview
+ms.date: 03/29/2022
+ms.author: madsd
+ms.custom: references_regions
 ---
 
-# App Service Environment overview 
+# App Service Environment overview
+
+An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale.
 
 > [!NOTE]
-> This article is about the App Service Environment v3 (preview)
+> This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
 > 
 
-The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your:
+An App Service Environment can host your:
 
 - Windows web apps
 - Linux web apps
-- Docker containers
+- Docker containers (Windows and Linux)
 - Functions
+- Logic apps (Standard)
 
-App Service environments (ASEs) are appropriate for application workloads that require:
+App Service Environments are appropriate for application workloads that require:
 
 - High scale.
 - Isolation and secure network access.
 - High memory utilization.
-- High requests per second (RPS). You can make multiple ASEs in a single Azure region or across multiple Azure regions. This flexibility makes ASEs ideal for horizontally scaling stateless applications with a high RPS requirement.
+- High requests per second (RPS). You can create multiple App Service Environments in a single Azure region or across multiple Azure regions. This flexibility makes an App Service Environment ideal for horizontally scaling stateless applications with a high RPS requirement.
 
-ASE's host applications from only one customer and do so in one of their VNets. Customers have fine-grained control over inbound and outbound application network traffic. Applications can establish high-speed secure connections over VPNs to on-premises corporate resources.
-
-ASEv3 comes with its own pricing tier, Isolated V2.
-App Service Environments v3 provide a surrounding to safeguard your apps in a subnet of your network and provides your own private deployment of Azure App Service.
-Multiple ASEs can be used to scale horizontally. 
-Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAFs). For more information, see Web application firewall (WAF).
+An App Service Environment can host applications from only one customer, and they do so on one of their virtual networks. Customers have fine-grained control over inbound and outbound application network traffic. Applications can establish high-speed secure connections over VPNs to on-premises corporate resources.
 
 ## Usage scenarios
 
-The App Service Environment has many use cases including:
+App Service Environments have many use cases, including:
 
-- Internal line-of-business applications
-- Applications that need more than 30 ASP instances
-- Single tenant system to satisfy internal compliance or security requirements
-- Network isolated application hosting
-- Multi-tier applications
+- Internal line-of-business applications.
+- Applications that need more than 30 App Service plan instances.
+- Single-tenant systems to satisfy internal compliance or security requirements.
+- Network-isolated application hosting.
+- Multi-tier applications.
 
-There are a number of networking features that enable apps in the multi-tenant App Service to reach network isolated resources or become network isolated themselves. These features are enabled at the application level.  With an ASE, there's no additional configuration on the apps for them to be in the VNet. The apps are deployed into a network isolated environment that is already in a VNet. On top of the ASE hosting network isolated apps, it's also a single-tenant system. There are no other customers using the ASE. If you really need a complete isolation story, you can also get your ASE deployed onto dedicated hardware. Between network isolated application hosting, single tenancy, and the ability 
+There are many networking features that enable apps in a multi-tenant App Service to reach network-isolated resources or become network-isolated themselves. These features are enabled at the application level. With an App Service Environment, no added configuration is required for the apps to be on a virtual network. The apps are deployed into a network-isolated environment that's already on a virtual network. If you really need a complete isolation story, you can also deploy your App Service Environment onto dedicated hardware.
 
 ## Dedicated environment
-An ASE is dedicated exclusively to a single subscription and can host 200 total App Service Plan instances across multiple App Service plans. The word "instance" refers to App Service plan horizontal scaling. Each instances is the equivalent to a worker role. While an ASE can have 200 total instances, a single Isolated v2 App Service plan can hold 100 instances. The ASE can hold two App Service plans with 100 instances in each, 200 single-instance App Service plans, or everything in between.
 
-An ASE is composed of front ends and workers. Front ends are responsible for HTTP/HTTPS termination and automatic load balancing of app requests within an ASE. Front ends are automatically added as the App Service plans in the ASE are scaled out.
+An App Service Environment is a single-tenant deployment of Azure App Service that runs on your virtual network. 
 
-Workers are roles that host customer apps. Workers are available in three fixed sizes:
+Applications are hosted in App Service plans, which are created in an App Service Environment. An App Service plan is essentially a provisioning profile for an application host. As you scale out your App Service plan, you create more application hosts with all the apps in that App Service plan on each host. A single App Service Environment v3 can have up to 200 total App Service plan instances across all the App Service plans combined. A single App Service Isolated v2 (Iv2) plan can have up to 100 instances by itself.
 
-- Two vCPU/8 GB RAM
-- Four vCPU/16 GB RAM
-- Eight vCPU/32 GB RAM
-
-Customers don't need to manage front ends and workers. All infrastructure is automatically. As App Service plans are created or scaled in an ASE, the required infrastructure is added or removed as appropriate.
-
-There's a charge for Isolated V2 App Service plan instances. If you have no App Service plans at all in your ASE, you are charged as though you had one App Service plan with one instance of the two core workers.
+When you're deploying onto dedicated hardware (hosts), you're limited in scaling across all App Service plans to the number of cores in this type of environment. An App Service Environment that's deployed on dedicated hosts has 132 vCores available. I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores per instance.
 
 ## Virtual network support
-The ASE feature is a deployment of the Azure App Service directly into a customer's Azure Resource Manager virtual network. An ASE always exists in a subnet of a virtual network. You can use the security features of virtual networks to control inbound and outbound network communications for your apps.
 
-Network Security Groups restrict inbound network communications to the subnet where an ASE resides. You can use NSGs to run apps behind upstream devices and services such as WAFs and network SaaS providers.
+The App Service Environment feature is a deployment of Azure App Service into a single subnet on a virtual network. When you deploy an app into an App Service Environment, the app is exposed on the inbound address that's assigned to the App Service Environment. If your App Service Environment is deployed with an internal virtual IP (VIP) address, the inbound address for all the apps will be an address in the App Service Environment subnet. If your App Service Environment is deployed with an external VIP address, the inbound address will be an internet-addressable address, and your apps will be in a public Domain Name System.
 
-Apps also frequently need to access corporate resources such as internal databases and web services. If you deploy the ASE in a virtual network that has a VPN connection to the on-premises network, the apps in the ASE can access the on-premises resources. This capability is true regardless of whether the VPN is a site-to-site or Azure ExpressRoute VPN.
+The number of addresses that are used by an App Service Environment v3 in its subnet will vary, depending on the number of instances and the amount of traffic. Some infrastructure roles are automatically scaled, depending on the number of App Service plans and the load. The recommended size for your App Service Environment v3 subnet is a `/24` Classless Inter-Domain Routing (CIDR) block with 256 addresses in it, because that size can host an App Service Environment v3 that's scaled out to its limit.
 
-## Preview
-The App Service Environment v3 is in public preview.  Some features are being added during the preview progression. The current limitations of ASEv3 include:
+The apps in an App Service Environment don't need any features enabled to access resources on the same virtual network that the App Service Environment is in. If the App Service Environment virtual network is connected to another network, the apps in the App Service Environment can access resources in those extended networks. Traffic can be blocked by user configuration on the network.
 
-- Inability to scale an App Service plan beyond 50 instances
-- Inability to get a container from a private registry
-- Inability for currently unsupported App Service features to go through customer VNet
-- No external deployment model with an internet accessible endpoint
-- No command line support (AZ CLI and PowerShell)
-- No upgrade capability from ASEv2 to ASEv3
-- No FTP support
-- No support for some App Service features going through the customer VNet. Backup/restore, Key Vault references in app settings, using a private container registry, and Diagnostic logging to storage won't function with service endpoints or private endpoints
-	
-### ASEv3 preview architecture
-In ASEv3 preview, the ASE will use private endpoints to support inbound traffic. The private endpoint will be replaced with load balancers by GA. While in preview, the ASE won't have built in support for an internet accessible endpoint. You could add an Application Gateway for such a purpose. The ASE needs resources in two subnets.  Inbound traffic will flow through a private endpoint. The private endpoint can be placed in any subnet so long as it has an available address that can be used by private endpoints.  The outbound subnet must be empty and delegated to Microsoft.Web/hostingEnvironments. While used by the ASE, the outbound subnet can't be used for anything else.
+The multi-tenant version of Azure App Service contains numerous features to enable your apps to connect to your various networks. With those networking features, your apps can act as though they're deployed on a virtual network. The apps in an App Service Environment v3 don't need any added configuration to be on the virtual network. 
 
-With ASEv3, there are no inbound or outbound networking requirements on the ASE subnet. You can control the traffic with Network Security Groups and Route Tables and it only will affect your application traffic. Don't delete the private endpoint associated with your ASE as that action can't be undone. The private endpoint used for the ASE is used for all of the apps in the ASE. 
+A benefit of using an App Service Environment instead of a multi-tenant service is that any network access controls for the App Service Environment-hosted apps are external to the application configuration. With the apps in the multi-tenant service, you must enable the features on an app-by-app basis and use role-based access control or a policy to prevent any configuration changes.
+
+## Feature differences
+
+App Service Environment v3 differs from earlier versions in the following ways:
+
+- There are no networking dependencies on the customer's virtual network. You can secure all inbound and outbound traffic and route outbound traffic as you want. 
+- You can deploy an App Service Environment v3 that's enabled for zone redundancy. You set zone redundancy only during creation and only in regions where all App Service Environment v3 dependencies are zone redundant. 
+- You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant. 
+- Scaling is much faster than with an App Service Environment v2. Although scaling still isn't immediate, as in the multi-tenant service, it's a lot faster.
+- Front-end scaling adjustments are no longer required. App Service Environment v3 front ends automatically scale to meet your needs and are deployed on better hosts.
+- Scaling no longer blocks other scale operations within the App Service Environment v3. Only one scale operation can be in effect for a combination of OS and size. For example, while your Windows small App Service plan is scaling, you could kick off a scale operation to run at the same time on a Windows medium or anything else other than Windows small. 
+- You can reach apps in an internal-VIP App Service Environment v3 across global peering. Such access wasn't possible in earlier versions.
+
+A few features that were available in earlier versions of App Service Environment aren't available in App Service Environment v3. For example, you can no longer do the following:
+
+- Send SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25.
+- Monitor your traffic with Network Watcher or network security group (NSG) flow logs.
+- Configure an IP-based Transport Layer Security (TLS) or Secure Sockets Layer (SSL) binding with your apps.
+- Configure a custom domain suffix.
+- Perform a backup and restore operation on a storage account behind a firewall.
+
+## Pricing
+
+With App Service Environment v3, the pricing model varies depending on the type of App Service Environment deployment you have. The three pricing models are:
+
+- **App Service Environment v3**: If the App Service Environment is empty, there's a charge as though you have one instance of Windows I1v2. The one instance charge isn't an additive charge but is applied only if the App Service Environment is empty.
+- **Zone redundant App Service Environment v3**: There's a minimum charge of nine instances. There's no added charge for availability zone support if you have nine or more App Service plan instances. If you have fewer than nine instances (of any size) across App Service plans in the zone redundant App Service Environment, the difference between nine and the running instance count is charged as additional Windows I1v2 instances.
+- **Dedicated host App Service Environment v3**: With a dedicated host deployment, you're charged for two dedicated hosts per our pricing when you create the App Service Environment v3 and then, as you scale, you're charged a small percentage of the Isolated v2 rate per core.
+
+Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service](../../cost-management-billing/reservations/reservation-discount-app-service.md). The pricing, along with Reserved Instance pricing, is available at [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) under the Isolated v2 plan.
+
+## Regions
+
+App Service Environment v3 is available in the following regions:
+
+| Normal and dedicated host regions | Availability zone regions |
+|---|---|
+| Australia East | Australia East |
+| Australia Southeast | Brazil South |
+| Brazil South | Canada Central |
+| Canada Central | Central India |
+| Canada East | Central US |
+| Central India | East Asia |
+| Central US | East US |
+| East Asia | East US 2 |
+| East US | France Central |
+| East US 2 | Germany West Central |
+| France Central | Japan East |
+| Germany West Central | Korea Central |
+| Japan East | North Europe |
+| Korea Central | Norway East |
+| North Central US | South Africa North |
+| North Europe | South Central US |
+| Norway East | Southeast Asia |
+| South Africa North | UK South |
+| South Central US | West Europe |
+| Southeast Asia | West US 2 |
+| Switzerland North | West US 3 |
+| UAE North |  |
+| UK South |  |
+| UK West |  |
+| West Central US |  |
+| West Europe |  |
+| West US |  |
+| West US 2 |  |
+| West US 3 |  |
+| US Gov Texas |  |
+| US Gov Arizona |  |
+| US Gov Virginia |  |
+
+## App Service Environment v2
+
+App Service Environment has three versions: App Service Environment v1, App Service Environment v2, and App Service Environment v3. The information in this article is based on App Service Environment v3. To learn more about App Service Environment v2, see [App Service Environment v2 introduction](./intro.md).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Whitepaper on Using App Service Environment v3 in Compliance-Oriented Industries](https://azure.microsoft.com/resources/using-app-service-environment-v3-in-compliance-oriented-industries/)

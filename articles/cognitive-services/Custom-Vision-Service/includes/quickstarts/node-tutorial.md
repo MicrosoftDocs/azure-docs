@@ -72,9 +72,9 @@ Create variables for your resource's Azure endpoint and keys.
 > [!IMPORTANT]
 > Go to the Azure portal. If the Custom Vision Training resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page. 
 >
->You can find the prediction resource ID value on the resource's **Properties** tab, listed as **Subscription ID**.
+>You can find the prediction resource ID on the resource's **Properties** tab in the Azure portal, listed as **Resource ID**.
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Cognitive Services [security](../../../cognitive-services-security.md) article.
 
 Also add fields for your project name and a timeout parameter for asynchronous calls.
 
@@ -110,7 +110,7 @@ Instantiate client objects with your endpoint and key. Create an **ApiKeyCredent
 
 ## Create a new Custom Vision project
 
-Start a new function to contain all of your Custom Vision function calls. Add the following code to to create a new Custom Vision service project.
+Start a new function to contain all of your Custom Vision function calls. Add the following code to create a new Custom Vision service project.
 
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js?name=snippet_create)]
@@ -126,9 +126,6 @@ To create classification tags to your project, add the following code to your fu
 ## Upload and tag images
 
 First, download the sample images for this project. Save the contents of the [sample Images folder](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) to your local device.
-
-> [!NOTE]
-> Do you need a broader set of images to complete your training? Trove, a Microsoft Garage project, allows you to collect and purchase sets of images for training purposes. Once you've collected your images, you can download them and then import them into your Custom Vision project in the usual way. Visit the [Trove page](https://www.microsoft.com/ai/trove?activetab=pivot1:primaryr3) to learn more.
 
 To add the sample images to the project, insert the following code after the tag creation. This code uploads each image with its corresponding tag.
 
@@ -185,7 +182,7 @@ Results:
          Japanese Cherry: 0.01%
 ```
 
-You can then verify that the test image (found in **<sampleDataRoot>/Test/**) is tagged appropriately. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
+You can then verify that the test image (found in **\<sampleDataRoot\>/Test/**) is tagged appropriately. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 

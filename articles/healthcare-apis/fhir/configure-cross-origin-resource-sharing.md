@@ -1,22 +1,27 @@
 ---
-title: Configure cross-origin resource sharing in Azure API for FHIR
-description: This article describes how to configure cross-origin resource sharing in Azure API for FHIR.
-author: matjazl
-ms.author: matjazl 
-ms.date: 3/11/2019
+title: Configure cross-origin resource sharing in FHIR service
+description: This article describes how to configure cross-origin resource sharing in FHIR service
+author: mikaelweave
+ms.author: mikaelw
+ms.date: 06/06/2022
 ms.topic: reference
 ms.service: healthcare-apis
 ms.subservice: fhir
 ---
-# Configure cross-origin resource sharing in Azure API for FHIR
 
-Azure API for Fast Healthcare Interoperability Resources (FHIR) supports [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request.
+# Configure cross-origin resource sharing in FHIR service
+
+##  What is cross-origin resource sharing in FHIR service?
+
+FHIR service in Azure Health Data Services (hereby called FHIR service) supports [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request.
 
 CORS is often used in a single-page app that must call a RESTful API to a different domain.
 
-To configure a CORS setting in the Azure API for FHIR, specify the following settings:
+## Cross-origin resource sharing configuration settings
 
-- **Origins (Access-Control-Allow-Origin)**. A list of domains allowed to make cross-origin requests to the Azure API for FHIR. Each domain (origin) must be entered in a separate line. You can enter an asterisk (*) to allow calls from any domain, but we don't recommend it because it's a security risk.
+To configure a CORS setting in the FHIR service, specify the following settings:
+
+- **Origins (Access-Control-Allow-Origin)**. A list of domains allowed to make cross-origin requests to the FHIR service. Each domain (origin) must be entered in a separate line. You can enter an asterisk (*) to allow calls from any domain, but we don't recommend it because it's a security risk.
 
 - **Headers (Access-Control-Allow-Headers)**. A list of headers that the origin request will contain. To allow all headers, enter an asterisk (*).
 
@@ -29,11 +34,13 @@ To configure a CORS setting in the Azure API for FHIR, specify the following set
 ![Cross-origin resource sharing (CORS) settings](media/cors/cors.png)
 
 >[!NOTE]
->You can't specify different settings for different domain origins. All settings (**Headers**, **Methods**, **Max age**, and **Allow credentials**) apply to all origins specified in the Origins setting.
+> You can't specify different settings for different domain origins. All settings (**Headers**, **Methods**, **Max age**, and **Allow credentials**) apply to all origins specified in the Origins setting.
 
 ## Next steps
 
-In this article, you learned how to configure cross-origin sharing in Azure API for FHIR. Next deploy a fully managed Azure API for FHIR:
- 
+In this tutorial, we walked through how to configure a CORS setting in the FHIR service. Next, you can review how to pass the CARIN IG for Blue Button tests in Touchstone.
+
 >[!div class="nextstepaction"]
->[Deploy Azure API for FHIR](fhir-paas-portal-quickstart.md)
+>[CARIN Implementation Guide for Blue Button&#174;](carin-implementation-guide-blue-button-tutorial.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

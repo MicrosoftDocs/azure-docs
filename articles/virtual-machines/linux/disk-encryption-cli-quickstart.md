@@ -7,11 +7,13 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.subservice: disks
 ms.topic: quickstart
-ms.date: 05/17/2019 
-ms.custom: devx-track-azurecli
+ms.date: 05/17/2019
+ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Create and encrypt a Linux VM with the Azure CLI
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to create and encrypt a Linux virtual machine (VM).
 
@@ -29,7 +31,7 @@ az group create --name "myResourceGroup" --location "eastus"
 
 ## Create a virtual machine
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM*.
+Create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a VM named *myVM*.
 
 ```azurecli-interactive
 az vm create \
@@ -57,10 +59,10 @@ It takes a few minutes to create the VM and supporting resources. The following 
 
 ## Create a Key Vault configured for encryption keys
 
-Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [az keyvault create](/cli/azure/keyvault#az_keyvault_create). To enable the Key Vault to store encryption keys, use the --enabled-for-disk-encryption parameter.
+Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [az keyvault create](/cli/azure/keyvault#az-keyvault-create). To enable the Key Vault to store encryption keys, use the --enabled-for-disk-encryption parameter.
 
 > [!Important]
-> Every key vault must have a name that is unique across Azure. In the examples below, replace <your-unique-keyvault-name> with the  name you choose.
+> Every key vault must have a name that is unique across Azure. In the examples below, replace \<your-unique-keyvault-name\> with the  name you choose.
 
 ```azurecli-interactive
 az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myResourceGroup" --location "eastus" --enabled-for-disk-encryption

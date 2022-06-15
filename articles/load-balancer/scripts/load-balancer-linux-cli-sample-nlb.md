@@ -3,38 +3,42 @@ title: Load balance traffic to VMs for HA - Azure CLI - Azure Load Balancer
 description: This Azure CLI script example shows how to load balance traffic to VMs for high availability
 services: load-balancer
 documentationcenter: load-balancer
-author: asudbring
+author: greg-lindsay
 manager: kumudD
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: sample
 ms.workload: infrastructure
-ms.date: 04/20/2018
-ms.author: allensu 
+ms.date: 03/04/2022
+ms.author: greglin 
 ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI script example: Load balance traffic to VMs for high availability
 
-This Azure CLI script example creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration. After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer. 
-
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+This Azure CLI script example creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration. After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "Quick Create VM")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-## Clean up deployment 
+### Run the script
 
-Run the following command to remove the resource group, VM, and all related resources.
+:::code language="azurecli" source="~/azure_cli_scripts/load-balancer/create-vm-nlb/create-vm-nlb.sh" id="FullScript":::
+
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands to create a resource group, virtual machine, availability set, load balancer, and all related resources. Each command in the table links to command specific documentation.
 

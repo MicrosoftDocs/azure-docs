@@ -1,21 +1,23 @@
 ---
 title: Pause, resume, scale with REST APIs for dedicated SQL pool (formerly SQL DW)
 description: Manage compute power for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics through REST APIs.
-services: synapse-analytics
-author: antvgski
+author: kedodd
+ms.author: kedodd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 03/29/2019
-ms.author: anvang
-ms.reviewer: igorstan
+ms.date: 03/09/2022
+ms.reviewer: wiassaf
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # REST APIs for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
 REST APIs for managing compute for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
+
+> [!NOTE]
+> The REST APIs that are described in this article are not applicable to a dedicated SQL pool that's created in an Azure Synapse Analytics workspace. For information about REST APIs to use specifically for an Azure Synapse Analytics workspace, see [Azure Synapse Analytics workspace REST API](/rest/api/synapse/).
 
 ## Scale compute
 

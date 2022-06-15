@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn about how to create a GitHub Actions workflow to train a model on Azure Machine Learning 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: juliakm
 ms.author: jukullam
-ms.date: 10/19/2020
-ms.topic: conceptual
+ms.date: 10/21/2021
+ms.topic: how-to
 ms.custom: github-actions-azure
 ---
 
@@ -78,7 +78,7 @@ In the example above, replace the placeholders with your subscription ID, resour
 
 ## Connect to the workspace
 
-Use the [Azure Machine Learning Workspace action](https://github.com/marketplace/actions/azure-machine-learning-workspace) to connect to your Azure Machine Learning workspace. 
+Use the **Azure Machine Learning Workspace action** to connect to your Azure Machine Learning workspace. 
 
 ```yaml
     - name: Connect/Create Azure Machine Learning Workspace

@@ -2,12 +2,12 @@
 title: Use the extended Spark history server to debug apps 
 description: Use the extended Spark history server to debug and diagnose Spark applications in Azure Synapse Analytics.
 services: synapse-analytics 
-author: euangMS 
+author: juluczni
+ms.author: juluczni
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 10/15/2020 
-ms.author: euang 
+ms.date: 02/15/2022
 ms.reviewer: euang
 ---
 
@@ -39,7 +39,7 @@ Apache Spark history server is the web user interface for completed and running 
 
 ### Open the Spark History Server web UI from Data node
 
-1. From your Azure Synapse Studio notebook, select **Spark history server** from the job execution output cell or from the status panel at the bottom of the notebook document. Select **Session details**.
+1. From your Synapse Studio notebook, select **Spark history server** from the job execution output cell or from the status panel at the bottom of the notebook document. Select **Session details**.
 
    ![Launch Spark history server 1](./media/apache-spark-history-server/launch-history-server2.png "Launch Spark history server")
 

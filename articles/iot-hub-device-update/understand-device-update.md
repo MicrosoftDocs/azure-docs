@@ -19,7 +19,7 @@ To realize the full benefits of IoT-enabled digital transformation, customers ne
 ## Support for a wide range of IoT devices
 
 
-Device Update for IoT Hub is designed to offer optimized update deployment and streamlined operations through integration with [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). This integration makes it easy to adopt Device Update on any existing solution. It provides a cloud-hosted solution to connect virtually any device. Device Update supports a broad range of IoT operating systems—including Linux and [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (real-time operating system)—and is extensible via open source. We are codeveloping Device Update for IoT Hub offerings with our semiconductor partners, including STMicroelectronics, NXP, Renesas, and Microchip. See the [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that includes the get started guides to learn how to configure, build, and deploy the over-the-air (OTA) updates to MCU class devices. 
+Device Update for IoT Hub is designed to offer optimized update deployment and streamlined operations through integration with [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). This integration makes it easy to adopt Device Update on any existing solution. It provides a cloud-hosted solution to connect virtually any device. Device Update supports a broad range of IoT operating systems—including Linux and [Azure RTOS](https://azure.microsoft.com/services/rtos/) (real-time operating system)—and is extensible via open source. We are codeveloping Device Update for IoT Hub offerings with our semiconductor partners, including STMicroelectronics, NXP, Renesas, and Microchip. See the [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that includes the get started guides to learn how to configure, build, and deploy the over-the-air (OTA) updates to MCU class devices. 
 
 Both a Device Update Agent Simulator binary and Raspberry Pi reference Yocto images are provided.
 Device Update for IoT Hub also supports updating Azure IoT Edge devices. A Device Update Agent is provided for Ubuntu Server 18.04 amd64
@@ -27,8 +27,8 @@ platform. Device Update for IoT Hub also provides open-source code if you are no
 running one of the above platforms. You can port the agent to the distribution you
 are running.
 
-Device Update works with IoT Plug and Play (PnP) and can manage any device that supports
-the required PnP interfaces. For more information, see [Device Update for IoT Hub and
+Device Update works with IoT Plug and Play and can manage any device that supports
+the required IoT Plug and Play interfaces. For more information, see [Device Update for IoT Hub and
 IoT Plug and Play](device-update-plug-and-play.md).
 
 ## Support for a wide range of update artifacts
@@ -63,7 +63,7 @@ Device Update for IoT Hub features provide a powerful and flexible experience, i
 * At-a-glance update compliance and status views across heterogenous device fleets
 * Support for resilient device updates (A/B) to deliver seamless rollback
 * Subscription and role-based access controls available through the Azure.com portal
-* On-premise content cache and Nested Edge support to enable updating cloud disconnected devices
+* On-premises content cache and Nested Edge support to enable updating cloud disconnected devices
 * Detailed update management and reporting tools 
 
 With Device Update for IoT Hub management and deployment controls, users can maximize productivity and save valuable time. Device Update for IoT Hub includes the ability to group devices and specify
@@ -97,11 +97,11 @@ deployment. If there are no updates in progress, the status is returned as “Id
 ### Importing
 
 Importing is how your updates are ingested into Device Update so they can be deployed to devices. Device Update supports rolling out a single update per device. This makes it ideal for
-full-image updates that update an entire OS partition at once, or an apt Manifest that describes all the packages you want to update
-on your device. To import updates into Device Update, you first create an import manifest 
+full-image updates that update an entire OS partition at once, or an [APT manifest](device-update-apt-manifest.md)] that describes all the packages you want to update
+on your device from a designated repository. To import updates into Device Update, you first create an import manifest 
 describing the update, then upload the update file(s) and the import 
-manifest to an Internet-accessible location. After that, you can use the Azure portal or the [Device Update Import
-REST API](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) to initiate the asynchronous process of update import. Device Update uploads the files, processes
+manifest to an Internet-accessible location. After that, you can use the Azure portal or the [Device Update
+REST API](/rest/api/deviceupdate/) to initiate the asynchronous process of update import. Device Update uploads the files, processes
 them, and makes them available for distribution to IoT devices.
 
 For sensitive content, protect the download using a shared access signature (SAS), such as an ad-hoc SAS for Azure Blob Storage. [Learn more about

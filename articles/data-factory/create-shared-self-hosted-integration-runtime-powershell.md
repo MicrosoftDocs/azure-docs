@@ -2,11 +2,12 @@
 title: Create a shared self-hosted integration runtime with PowerShell
 description: Learn how to create a shared self-hosted integration runtime in Azure Data Factory, so multiple data factories can access the integration runtime.
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.author: abnarain
-author: nabhishek
-ms.custom: seo-lt-2019
-ms.date: 06/10/2020
+ms.author: lle
+author: lrtoyou1223
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.date: 01/26/2022
 ---
 
 # Create a shared self-hosted integration runtime in Azure Data Factory
@@ -21,7 +22,7 @@ You can reuse an existing self-hosted integration runtime infrastructure that yo
 
 To see an introduction and demonstration of this feature, watch the following 12-minute video:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
 
 ### Terminology
 
@@ -34,17 +35,17 @@ To create a shared self-hosted IR using Azure Data Factory UI, you can take foll
 
 1. In the self-hosted IR to be shared, select **Grant permission to another Data factory** and in the "Integration runtime setup" page, select the Data factory in which you want to create the linked IR.
       
-    ![Button for granting permission on the Sharing tab](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)  
+    :::image type="content" source="media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png" alt-text="Button for granting permission on the Sharing tab":::  
     
 2. Note and copy the above "Resource ID" of the self-hosted IR to be shared.
          
 3. In the data factory to which the permissions were granted, create a new self-hosted IR (linked) and enter the resource ID.
       
-    ![Button for creating a self-hosted integration runtime](media/create-self-hosted-integration-runtime/create-linkedir-1.png)
+    :::image type="content" source="media/create-self-hosted-integration-runtime/create-linkedir-1.png" alt-text="Button for creating a self-hosted integration runtime":::
    
-    ![Button for creating a linked self-hosted integration runtime](media/create-self-hosted-integration-runtime/create-linkedir-2.png) 
+    :::image type="content" source="media/create-self-hosted-integration-runtime/create-linkedir-2.png" alt-text="Button for creating a linked self-hosted integration runtime"::: 
 
-    ![Boxes for name and resource ID](media/create-self-hosted-integration-runtime/create-linkedir-3.png)
+    :::image type="content" source="media/create-self-hosted-integration-runtime/create-linkedir-3.png" alt-text="Boxes for name and resource ID":::
 
 ## Create a shared self-hosted IR using Azure PowerShell
 
@@ -214,7 +215,6 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName `
-    -Links `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
 
@@ -222,15 +222,15 @@ Remove-AzDataFactoryV2IntegrationRuntime `
 
 #### Shared IR
 
-![Selections to find a shared integration runtime](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/Contoso-shared-IR.png" alt-text="Selections to find a shared integration runtime":::
 
-![Monitor a shared integration runtime](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png" alt-text="Monitor a shared integration runtime":::
 
 #### Linked IR
 
-![Selections to find a linked integration runtime](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/Contoso-linked-ir.png" alt-text="Selections to find a linked integration runtime":::
 
-![Monitor a linked integration runtime](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png" alt-text="Monitor a linked integration runtime":::
 
 
 ### Known limitations of self-hosted IR sharing

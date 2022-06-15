@@ -9,7 +9,7 @@ ms.date: 12/12/2019
 
 # Run the MapReduce examples included in HDInsight
 
-[!INCLUDE [samples-selector](../../../includes/hdinsight-run-samples-selector.md)]
+[!INCLUDE [samples-selector](../includes/hdinsight-run-samples-selector.md)]
 
 Learn how to run the MapReduce examples included with Apache Hadoop on HDInsight.
 

@@ -2,40 +2,27 @@
 title: Calculate blob count and size using Azure Storage inventory
 description: Learn how to calculate the count and total size of blobs per container.
 services: storage
-author: mhopkins-msft
+author: normesta
 
-ms.author: mhopkins
-ms.date: 03/10/2021
+ms.author: normesta
+ms.date: 08/16/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
+ms.custom: subject-rbac-steps
 ---
 
 # Calculate blob count and total size per container using Azure Storage inventory
 
 This article uses the Azure Blob Storage inventory feature and Azure Synapse to calculate the blob count and total size of blobs per container. These values are useful when optimizing blob usage per container.
 
-Blob metadata is not included in this method. The Azure Blob Storage inventory feature uses the [List Blobs](/rest/api/storageservices/list-blobs) REST API with default parameters. So, the example doesn’t support snapshots, '$' containers, and so on.
-
-> [!IMPORTANT]
-> Blob inventory is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+Blob metadata is not included in this method. The Azure Blob Storage inventory feature uses the [List Blobs](/rest/api/storageservices/list-blobs) REST API with default parameters. So, the example doesn't support snapshots, '$' containers, and so on.
 
 ## Enable inventory reports
 
-The first step in this method is to [enable inventory reports](blob-inventory.md#enable-inventory-reports) on your storage account. You may have to wait up to 24 hours after enabling inventory reports for your first report to be generated.
+The first step in this method is to [enable inventory reports](blob-inventory.md#enabling-inventory-reports) on your storage account. You may have to wait up to 24 hours after enabling inventory reports for your first report to be generated.
 
-When you have an inventory report to analyze, grant yourself blob read access to the container where the report CSV file resides.
-
-1. Navigate to the container with the inventory CSV report file.
-1. Select **Access Control (IAM)**, then **Add role assignments**
-
-    :::image type="content" source="media/calculate-blob-count-size/access.png" alt-text="Select add role assignments":::
-
-1. Select **Storage Blob Data Reader** from the **Role** dropdown list.
-
-    :::image type="content" source="media/calculate-blob-count-size/add-role-assignment.png" alt-text="Add the Storage Blob Data Reader role from the dropdown":::
-
-1. Enter the email address of the account you're using to run the report in the **Select** field.
+When you have an inventory report to analyze, grant yourself read access to the container where the report CSV file resides by assigning yourself the **Storage Blob Data Reader** role. Be sure to use the email address of the account you're using to run the report. To learn how to assign an Azure role to a user with Azure role-based access control (Azure RBAC), follow the instructions provided in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Create an Azure Synapse workspace
 
@@ -59,7 +46,7 @@ After you create your Azure Synapse workspace, do the following steps.
     For the `bulk` parameter, use the URL of the inventory report CSV file that you want to analyze.
 
     ```sql
-    SELECT LEFT([Name], CHARINDEX('/', [Name]) - 1) AS Container, 
+    SELECT LEFT([Name], CHARINDEX('/', [Name]) - 1) AS Container,
             COUNT(*) As TotalBlobCount,
             SUM([Content-Length]) As TotalBlobSize
     FROM OPENROWSET(

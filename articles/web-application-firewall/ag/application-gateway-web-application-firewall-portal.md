@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/25/2021
+ms.date: 05/23/2022
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway with Web Application Firewall so I can protect my applications.
 ---
@@ -49,8 +49,10 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
    - **Tier**: select **WAF V2**.
+   - **WAF Policy**: Select **Create new**, type a name for the new policy, and then select **OK**.
+     This creates a basic WAF policy with a managed Core Rule Set (CRS).
 
-     ![Create new application gateway: Basics](../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png)
+     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png" alt-text="Screenshot of Create new application gateway: Basics tab." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png":::
 
 2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
 
@@ -62,7 +64,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
     - **Subnet name** (backend server subnet): In the second row of the **Subnets** grid, enter *myBackendSubnet* in the **Subnet name** column.
 
-    - **Address range** (backend server subnet): In the second row of the **Subnets** Grid, enter an address range that doesn't overlap with the address range of *myAGSubnet*. For example, if the address range of *myAGSubnet* is 10.0.0.0/24, enter *10.0.1.0/24* for the address range of *myBackendSubnet*.
+    - **Address range** (backend server subnet): In the second row of the **Subnets** Grid, enter an address range that doesn't overlap with the address range of *myAGSubnet*. For example, if the address range of *myAGSubnet* is 10.21.0.0/24, enter *10.21.1.0/24* for the address range of *myBackendSubnet*.
 
     Select **OK** to close the **Create virtual network** window and save the virtual network settings.
 
@@ -106,6 +108,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 1. Select **Add a routing rule** in the **Routing rules** column.
 
 2. In the **Add a routing rule** window that opens, enter *myRoutingRule* for the **Rule name**.
+1. For **Priority**, type a priority number.
 
 3. A routing rule requires a listener. On the **Listener** tab within the **Add a routing rule** window, enter the following values for the listener:
 
@@ -114,17 +117,17 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
   
       Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
-   ![Create new application gateway: listener](../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-listener.png)
+     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-listener.png" alt-text="Screenshot showing Create new application gateway: listener." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-listener.png":::
 
 4. On the **Backend targets** tab, select **myBackendPool** for the **Backend target**.
 
-5. For the **HTTP setting**, select **Add new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. In the **Add an HTTP setting** window that opens, enter *myHTTPSetting* for the **HTTP setting name**. Accept the default values for the other settings in the **Add an HTTP setting** window, then select **Add** to return to the **Add a routing rule** window. 
+5. For the **Backend settings**, select **Add new** to create a new Backend setting. This setting determines the behavior of the routing rule. In the **Add Backend setting** window that opens, enter *myBackendSetting* for the **Backend settings name**. Accept the default values for the other settings in the window, then select **Add** to return to the **Add a routing rule** window. 
 
-     ![Create new application gateway: HTTP setting](../media/application-gateway-web-application-firewall-portal/application-gateway-create-httpsetting.png)
+     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-backend-setting.png" alt-text="Screenshot showing Create new application gateway, Backend setting." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-backend-setting.png":::
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 
-     ![Create new application gateway: routing rule](../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-backends.png)
+     :::image type="content" source="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-backends.png" alt-text="Screenshot showing Create new application gateway: routing rule." lightbox="../media/application-gateway-web-application-firewall-portal/application-gateway-create-rule-backends.png":::
 
 7. Select **Next: Tags** and then **Next: Review + create**.
 
@@ -147,19 +150,22 @@ To do this, you'll:
 ### Create a virtual machine
 
 1. On the Azure portal, select **Create a resource**. The **New** window appears.
-2. Select **Windows Server 2016 Datacenter** in the **Popular** list. The **Create a virtual machine** page appears.<br>Application Gateway can route traffic to any type of virtual machine used in its backend pool. In this example, you use a Windows Server 2016 Datacenter.
+2. Select **Windows Server 2019 Datacenter** in the **Popular** list. The **Create a virtual machine** page appears.<br>Application Gateway can route traffic to any type of virtual machine used in its backend pool. In this example, you use a Windows Server 2019 Datacenter.
 3. Enter these values in the **Basics** tab for the following virtual machine settings:
 
     - **Resource group**: Select **myResourceGroupAG** for the resource group name.
     - **Virtual machine name**: Enter *myVM* for the name of the virtual machine.
     - **Username**: Enter a name for the administrator user name.
     - **Password**: Enter a password for the administrator password.
+    - **Public inbound ports**: Select **None**.
 4. Accept the other defaults and then select **Next: Disks**.  
 5. Accept the **Disks** tab defaults and then select **Next: Networking**.
-6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
-7. On the **Management** tab, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
-8. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
-9. Wait for the virtual machine creation to complete before continuing.
+6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**.
+1. For **Public IP**, select **None**.
+1. Accept the other defaults and then select **Next: Management**.
+1. On the **Management** tab, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
+1. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
+1. Wait for the virtual machine creation to complete before continuing.
 
 ### Install IIS for testing
 
@@ -169,9 +175,11 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
     ![Install custom extension](../media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 
-2. Set the location parameter for you environment, and then run the following command to install IIS on the virtual machine: 
+2. Set the location parameter for your environment, and then run the following command to install IIS on the virtual machine: 
 
     ```azurepowershell-interactive
+    $location = 'east us'
+
     Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
@@ -180,7 +188,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
       -ExtensionType CustomScriptExtension `
       -TypeHandlerVersion 1.4 `
       -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-      -Location EastUS
+      -Location $location
     ```
 
 3. Create a second virtual machine and install IIS by using the steps that you previously completed. Use *myVM2* for the virtual machine name and for the **VMName** setting of the **Set-AzVMExtension** cmdlet.
@@ -204,38 +212,6 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 6. Select **Save**.
 
 7. Wait for the deployment to complete before proceeding to the next step.
-
-   
-## Create and link a Web Application Firewall policy
-
-All of the WAF customizations and settings are in a separate object, called a WAF Policy. The policy must be associated with your Application Gateway. 
-
-Create a basic WAF policy with a managed Default Rule Set (DRS).
-
-1. On the upper left side of the portal, select **Create a resource**. Search for **WAF**, select **Web Application Firewall**, then select **Create**.
-2. On **Create a WAF policy** page, **Basics** tab, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
-
-   |Setting  |Value  |
-   |---------|---------|
-   |Policy for     |Regional WAF (Application Gateway)|
-   |Subscription     |Select your subscription name|
-   |Resource group     |Select **myResourceGroupAG**|
-   |Policy name     |Type a unique name for your WAF policy.|
-1. Select **Next : Policy settings**.
-1. Accept the defaults and then select **Next : Managed rules**.
-1. Accept the default, and then select **Next : Custom rules**.
-1. Select **Next : Association**.
-1. Select **Add association** and then select **Application Gateway**.
-1. Select the checkbox for **Apply the Web Application Firewall policy configuration even if it is different from the current configuration**.
-1. Select **Add**.
-1. On the **Association** tab, select **Add association**, and select **Application Gateway**.
-
-   > [!NOTE]
-   > If you assign a policy to your Application Gateway (or listener) that already has a policy in place, the original policy is overwritten and replaced by the new policy.
-4. Select **Review + create**, then select **Create**.
-1. Select **Next : Tags**.
-1. Select **Review + create**.
-1. Select **Create**.
 
 ## Test the application gateway
 

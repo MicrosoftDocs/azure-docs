@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/02/2021
+ms.date: 06/18/2021
 ms.author: jeedes
 ---
 
@@ -73,14 +73,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type the URL:
-    `https://www.expensify.com/authentication/saml/login`
-
-    b. In the **Identifier (Entity ID)** text box, type the URL:
+	a. In the **Identifier (Entity ID)** text box, type the URL:
     `https://www.expensify.com`
 
-    c. b. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://www.expensify.com/authentication/saml/loginCallback?domain=<yourdomain>`
+    
+    c. In the **Sign on URL** text box, type the URL:
+    `https://www.expensify.com/authentication/saml/login`
 
 	> [!NOTE]
 	> The Reply URL value is not real. Update this value with the actual Reply URL. Contact [Expensify Client support team](mailto:help@expensify.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -125,7 +125,7 @@ To enable SSO in Expensify, you first need to enable **Domain Control** in the a
 
 1. Sign on to your Expensify application.
 
-2. In the left panel, click **Settings** and navigate to **SAML**.
+2. In the left panel, hover over Settings, then click Domains and navigate to **SAML**.
 
 3. Toggle the **SAML Login** option as **Enabled**.
 
@@ -133,7 +133,7 @@ To enable SSO in Expensify, you first need to enable **Domain Control** in the a
 
 ### Create Expensify test user
 
-In this section, you create a user called B.Simon in Expensify. Work with [Expensify Client support team](mailto:help@expensify.com) to add the users in the Expensify platform.
+In this section, you create the same user called B.Simon (For example, B.Simon@contoso.com) in Expensify. Check their guide [here](https://community.expensify.com/discussion/4869/how-to-manage-domain-members) for inviting members, or work with the [Expensify Client support team](mailto:help@expensify.com) to add the users in the Expensify platform.
 
 ## Test SSO
 
@@ -143,8 +143,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Expensify Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Expensify tile in the My Apps, this will redirect to Expensify Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Expensify tile in the My Apps, this will redirect to Expensify Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Expensify you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Expensify you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

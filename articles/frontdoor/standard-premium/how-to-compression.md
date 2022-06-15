@@ -1,29 +1,25 @@
 ---
-title: Improve performance by compressing files in Azure Front Door Standard/Premium (Preview)
+title: Improve performance by compressing files in Azure Front Door
 description: Learn how to improve file transfer speed and increase page-load performance by compressing your files in Azure Front Door.
 services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: article
-ms.date: 02/18/2021
+ms.date: 03/20/2022
 ms.author: yuajia
 ---
 
-# Improve performance by compressing files in Azure Front Door Standard/Premium (Preview)
-
-> [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
+# Improve performance by compressing files in Azure Front Door
 
 File compression is an effective method to improve file transfer speed and increase page-load performance. The compression reduces the size of the file before it's sent by the server. File compression can reduce bandwidth costs and provide a better experience for your users.
 
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 There are two ways to enable file compression:
 
 - Enabling compression on your origin server. Azure Front Door passes along the compressed files and delivers them to clients that request them.
 - Enabling compression directly on the Azure Front Door POP servers (*compression on the fly*). In this case, Azure Front Door compresses the files and sends them to the end users.
+
+> [!NOTE]
+> Range requests may be compressed into different sizes. Azure Front Door requires the content-length values to be the same for any GET HTTP request. If clients send byte range requests with the `accept-encoding` header that leads to the Origin responding with different content lengths, then Azure Front Door will return a 503 error. You can either disable compression on Origin/Azure Front Door or create a Rules Set rule to remove `accept-encoding` from the request for byte range requests.
 
 > [!IMPORTANT]
 > Azure Front Door configuration changes takes up to 10 mins to propagate throughout the network. If you're setting up compression for the first time for your CDN endpoint, consider waiting 1-2 hours before you troubleshoot to ensure the compression settings have propagated to all the POPs.
@@ -132,4 +128,4 @@ If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to th
 
 - Learn how to configure your first [Rules Set](how-to-configure-rule-set.md)
 - Learn more about [Rule Set Match Conditions](concept-rule-set-match-conditions.md)
-- Learn more about [Azure Front Door Rule Set](concept-rule-set.md)
+- Learn more about [Azure Front Door Rule Set](../front-door-rules-engine.md)

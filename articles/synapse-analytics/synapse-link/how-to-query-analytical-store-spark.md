@@ -1,21 +1,22 @@
 ---
-
-title: Interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
+title: Interact with Azure Cosmos DB using Apache Spark 2 in Azure Synapse Link
 description: How to interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
-services: synapse-analytics 
-author: ArnoMicrosoft
-ms.service: synapse-analytics 
+author: Rodrigossz
+ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 09/15/2020
-ms.author: acomet
-ms.reviewer: jrasnick
-ms.custom: cosmos-db
+ms.date: 11/02/2021
+ms.author: rosouz
+ms.reviewer: sngun
+ms.custom: cosmos-db, mode-other
 ---
 
-# Interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
+# Interact with Azure Cosmos DB using Apache Spark 2 in Azure Synapse Link
 
-In this article, you'll learn how to interact with Azure Cosmos DB using Synapse Apache Spark. With its full support for Scala, Python, SparkSQL, and C#, Synapse Apache Spark is central to analytics, data engineering, data science, and data exploration scenarios in [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md).
+> [!NOTE]
+> For Synapse Link for Cosmos DB using Spark 3, refer to this article [Azure Synapse Link for Azure Cosmos DB on Spark 3](how-to-query-analytical-store-spark-3.md)
+
+In this article, you'll learn how to interact with Azure Cosmos DB using Synapse Apache Spark 2. With its full support for Scala, Python, SparkSQL, and C#, Synapse Apache Spark is central to analytics, data engineering, data science, and data exploration scenarios in [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md).
 
 The following capabilities are supported while interacting with Azure Cosmos DB:
 * Synapse Apache Spark allows you to analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link in near real-time without impacting the performance of your transactional workloads. The following two options are available to query the Azure Cosmos DB [analytical store](../../cosmos-db/analytical-store-introduction.md) from Spark:
@@ -24,7 +25,7 @@ The following capabilities are supported while interacting with Azure Cosmos DB:
 * Synapse Apache Spark also allows you to ingest data into Azure Cosmos DB. It is important to note that data is always ingested into Azure Cosmos DB containers through the transactional store. When Synapse Link is enabled, any new inserts, updates, and deletes are then automatically synced to the analytical store.
 * Synapse Apache Spark also supports Spark structured streaming with Azure Cosmos DB as a source as well as a sink. 
 
-The following sections walk you through the syntax of above capabilities. Gestures in Azure Synapse Analytics workspace are designed to provide an easy out-of-the-box experience to get started. Gestures are visible when you right-click on an Azure Cosmos DB container in the **Data** tab of the Synapse workspace. With gestures, you can quickly generate code and tailor it to your needs. Gestures are also perfect for discovering data with a single click.
+The following sections walk you through the syntax of above capabilities. You can also checkout the learn module on how to [Query Azure Cosmos DB with Apache Spark for Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/). Gestures in Azure Synapse Analytics workspace are designed to provide an easy out-of-the-box experience to get started. Gestures are visible when you right-click on an Azure Cosmos DB container in the **Data** tab of the Synapse workspace. With gestures, you can quickly generate code and tailor it to your needs. Gestures are also perfect for discovering data with a single click.
 
 > [!IMPORTANT]
 > You should be aware of some constraints in the analytical schema that could lead to the unexpected behavior in data loading operations.
@@ -42,8 +43,13 @@ On the other hand, in the case of **creating a Spark table**, the metadata of th
 
 Thus, you can choose between loading to Spark DataFrame and creating a Spark table based on whether you want your Spark analysis to be evaluated against a fixed snapshot of the analytical store or against the latest snapshot of the analytical store respectively.
 
+If your analytical queries have frequently used filters, you have the option to partition based on these fields for better query performance. You can periodically execute partitioning job from an Azure Synapse Spark notebook, to trigger partitioning on analytical store. This partitioned store points to the ADLS Gen2 primary storage account that is linked to your Azure Synapse workspace. To learn more, see the [introduction to custom partitioning](../../cosmos-db/custom-partitioning-analytical-store.md) and [how to configure custom partitioning](../../cosmos-db/configure-custom-partitioning.md) articles.
+
 > [!NOTE]
 > To query the Azure Cosmos DB API of Mongo DB accounts, learn more about the [full fidelity schema representation](../../cosmos-db/analytical-store-introduction.md#analytical-schema) in the analytical store and the extended property names to be used.
+
+> [!NOTE]
+> Please note that all `options` in the commands below are case sensitive. For example, you must use `Gateway` while `gateway` will return an error.
 
 ### Load to Spark DataFrame
 
@@ -124,7 +130,7 @@ df.write.format("cosmos.oltp").
 ## Load streaming DataFrame from container
 In this gesture, you'll use Spark Streaming capability to load data from a container into a dataframe. The data will be stored in the primary data lake account (and file system) you connected to the workspace. 
 > [!NOTE]
-> If you are looking to reference external libraries in Synapse Apache Spark, learn more [here](#external-library-management). For instance, if you are looking to ingest a Spark DataFrame to a container of Cosmos DB API for Mongo DB, you can leverage the Mongo DB connector for Spark [here](https://docs.mongodb.com/spark-connector/master/).
+> If you are looking to reference external libraries in Synapse Apache Spark, learn more [here](../spark/apache-spark-azure-portal-add-libraries.md). For instance, if you are looking to ingest a Spark DataFrame to a container of Cosmos DB API for Mongo DB, you can leverage the Mongo DB connector for Spark [here](https://docs.mongodb.com/spark-connector/master/).
 
 ## Load streaming DataFrame from Azure Cosmos DB container
 In this example, you'll use Spark's structured streaming capability to load data from an Azure Cosmos DB container into a Spark streaming DataFrame using the change feed functionality in Azure Cosmos DB. The checkpoint data used by Spark will be stored in the primary data lake account (and file system) that you connected to the workspace.
@@ -171,14 +177,22 @@ The syntax in **Python** would be the following:
 
 # If you are using managed private endpoints for Azure Cosmos DB analytical store and using batch writes/reads and/or streaming writes/reads to transactional store you should set connectionMode to Gateway. 
 
+def writeBatchToCosmos(batchDF, batchId):
+  batchDF.persist()
+  print("--> BatchId: {}, Document count: {} : {}".format(batchId, batchDF.count(), datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S.%f")))
+  batchDF.write.format("cosmos.oltp")\
+    .option("spark.synapse.linkedService", "<enter linked service name>")\
+    .option("spark.cosmos.container", "<enter container name>")\
+    .option("spark.cosmos.write.upsertEnabled", "true")\
+    .mode('append')\
+    .save()
+  print("<-- BatchId: {}, Document count: {} : {}".format(batchId, batchDF.count(), datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S.%f")))
+  batchDF.unpersist()
+
 streamQuery = dfStream\
         .writeStream\
-        .format("cosmos.oltp")\
-        .outputMode("append")\
+        .foreachBatch(writeBatchToCosmos) \
         .option("checkpointLocation", "/localWriteCheckpointFolder")\
-        .option("spark.synapse.linkedService", "<enter linked service name>")\
-        .option("spark.cosmos.container", "<enter container name>")\
-        .option("spark.cosmos.connection.mode", "gateway")\
         .start()
 
 streamQuery.awaitTermination()
@@ -192,33 +206,28 @@ The equivalent syntax in **Scala** would be the following:
 
 val query = dfStream.
             writeStream.
-            format("cosmos.oltp").
-            outputMode("append").
+            foreachBatch { (batchDF: DataFrame, batchId: Long) =>
+              batchDF.persist()
+              batchDF.write.format("cosmos.oltp").
+                option("spark.synapse.linkedService", "<enter linked service name>").
+                option("spark.cosmos.container", "<enter container name>"). 
+                option("spark.cosmos.write.upsertEnabled", "true").
+                mode(SaveMode.Overwrite).
+                save()
+              println(s"BatchId: $batchId, Document count: ${batchDF.count()}")
+              batchDF.unpersist()
+              ()
+            }.        
             option("checkpointLocation", "/localWriteCheckpointFolder").
-            option("spark.synapse.linkedService", "<enter linked service name>").
-            option("spark.cosmos.container", "<enter container name>").
-            option("spark.cosmos.connection.mode", "gateway").
             start()
 
 query.awaitTermination()
 ```
 
-## External library management
-
-In this example, you'll learn how to reference external libraries from JAR files when using Spark notebooks in Synpase Apache Spark workspaces. You can place the JAR files in a container in the primary data lake account that you connected to the workspace and then add the following `%configure` statement in your Spark notebook:
-
-```cmd
-%%configure -f
-{
-    "jars": [
-        "abfss://<storage container name>@<data lake account name>.dfs.core.windows.net/<path to jar>"
-    ]
-}
-```
-If you are looking to submit remote Spark job definitions to a serverless Apache Spark pool, you can learn how to reference external libraries by following this [tutorial](../spark/apache-spark-job-definitions.md).
 
 ## Next steps
 
 * [Samples to get started with Azure Synapse Link on GitHub](https://aka.ms/cosmosdb-synapselink-samples)
 * [Learn what is supported in Azure Synapse Link for Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
 * [Connect to Synapse Link for Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
+* Checkout the learn module on how to [Query Azure Cosmos DB with Apache Spark for Azure Synapse Analytics](/learn/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/).

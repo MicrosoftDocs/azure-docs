@@ -2,13 +2,13 @@
 title: Ingest data into a dedicated SQL pool 
 description: Learn how to ingest data into a dedicated SQL pool in Azure Synapse Analytics
 services: synapse-analytics 
-author: djpmsft
+author: VasiyaKrishnan
+ms.author: vakrishn
 ms.service: synapse-analytics 
 ms.topic: conceptual
-ms.subservice: sql
-ms.date: 11/03/2020
-ms.author: daperlov
-ms.reviewer: jrasnick
+ms.subservice: pipeline
+ms.date: 02/15/2022
+ms.reviewer: sngun
 ---
 
 # Ingest data into a dedicated SQL pool
@@ -17,9 +17,11 @@ In this article, you'll learn how to ingest data from an Azure Data Lake Gen 2 s
 
 ## Prerequisites
 
-* **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure storage account**: You use Azure Data Lake Storage Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure Storage account](../../storage/common/storage-account-create.md) for steps to create one.
-* **Azure Synapse Analytics**: You use a dedicated SQL pool as a *sink* data store. If you don't have an Azure Synapse Analytics instance, see [Create a dedicated SQL pool](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) for steps to create one.
+- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+- **Azure storage account**: You use Azure Data Lake Storage Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure Storage account](../../storage/common/storage-account-create.md) for steps to create one.
+- **Azure Synapse Analytics**: You use a dedicated SQL pool as a *sink* data store. 
+    - If you don't have an existing Synapse workspace, see [Creating a Synapse workspace](../get-started-create-workspace.md)
+    - If you don't have an existing dedicated SQL pool. see [Create a dedicated SQL pool](../get-started-analyze-sql-pool.md#create-a-dedicated-sql-pool).
 
 ## Create linked services
 

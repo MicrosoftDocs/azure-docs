@@ -1,15 +1,18 @@
 ---
-title: Create a Windows VM with Azure Image Builder (preview)
+title: Create a Windows VM with Azure Image Builder 
 description: Create a Windows VM with the Azure Image Builder.
-author: cynthn
-ms.author: cynthn
-ms.date: 03/02/2020
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
+ms.date: 04/23/2021
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subervice: image-builder
-ms.colletion: windows
+ms.subservice: image-builder
+ms.collection: windows
 ---
-# Preview: Create a Windows VM with Azure Image Builder
+# Create a Windows VM with Azure Image Builder
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 This article is to show you how you can create a customized Windows image using the Azure VM Image Builder. The example in this article uses [customizers](../linux/image-builder-json.md#properties-customize) for customizing the image:
 - PowerShell (ScriptUri) - download and run a [PowerShell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
@@ -22,30 +25,19 @@ This article is to show you how you can create a customized Windows image using 
 - identity - providing an identity for Azure Image Builder to use during the build
 
 
-You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and you can increase a build time to allow for longer running builds.
+You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and you can increase a build time to allow for longer running builds. The minimum allowed value is 6 minutes; shorter values will cause errors.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!NOTE]
+> For Windows users, the Azure CLI examples below can be run on [Azure Cloud Shell](https://shell.azure.com) using Bash.
 
 
 ## Register the features
 
-To use Azure Image Builder during the preview, you need to register the new feature.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Check the status of the feature registration.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
+To use Azure Image Builder, you need to register the feature.
 
 Check your registration.
 
@@ -75,21 +67,19 @@ We will be using some pieces of information repeatedly, so we will create some v
 
 ```azurecli-interactive
 # Resource group name - we are using myImageBuilderRG in this example
-imageResourceGroup=myWinImgBuilderRG
+imageResourceGroup='myWinImgBuilderRG'
 # Region location 
-location=WestUS2
-# Name for the image 
-imageName=myWinBuilderImage
+location='WestUS2'
 # Run output name
-runOutputName=aibWindows
+runOutputName='aibWindows'
 # name of the image to be created
-imageName=aibWinImage
+imageName='aibWinImage'
 ```
 
-Create a variable for your subscription ID. You can get this using `az account show | grep id`.
+Create a variable for your subscription ID.
 
 ```azurecli-interactive
-subscriptionID=<Your subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 ## Create a resource group
 This resource group is used to store the image configuration template artifact and the image.
@@ -105,14 +95,14 @@ Image Builder will use the [user-identity](../../active-directory/managed-identi
 ## Create user-assigned managed identity and grant permissions 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
-idenityName=aibBuiUserId$(date +'%s')
-az identity create -g $imageResourceGroup -n $idenityName
+identityName=aibBuiUserId$(date +'%s')
+az identity create -g $imageResourceGroup -n $identityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
-imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
+imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName
 
 # download preconfigured role definition example
 curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
@@ -130,7 +120,7 @@ az role definition create --role-definition ./aibRoleImageCreation.json
 # grant role definition to the user assigned identity
 az role assignment create \
     --assignee $imgBuilderCliId \
-    --role $imageRoleDefName \
+    --role "$imageRoleDefName" \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
@@ -160,7 +150,7 @@ vi helloImageTemplateWin.json
 
 > [!NOTE]
 > For the source image, you must always [specify a version](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version), you cannot use `latest`.
-> If you add or change the resource group where the image is distributed to, you must make the [permissions are set](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) on the resource group.
+> If you add or change the resource group where the image is distributed to, you must make sure the [permissions are set](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) on the resource group.
  
 ## Create the image
 
@@ -190,7 +180,7 @@ If the service reports a failure during the image configuration template submiss
 az resource delete \
     --resource-group $imageResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    -n helloImageTemplateLinux01
+    -n helloImageTemplateWin01
 ```
 
 ## Start the image build
@@ -204,7 +194,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-Wait until the build is complete. This can take about 15 minutes.
+Wait until the build is complete.
 
 If you encounter any errors, please review these [troubleshooting](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) steps.
 

@@ -1,18 +1,21 @@
 ---
-title: Copy data from Office 365 using Azure Data Factory 
-description: Learn how to copy data from Office 365 to supported sink data stores by using copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+title: Copy data from Office 365
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from Office 365 to supported sink data stores by using copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2019
-ms.author: jingwang
+ms.date: 03/04/2022
+ms.author: jianleishen
 ---
-# Copy data from Office 365 into Azure using Azure Data Factory
+# Copy data from Office 365 into Azure using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory integrates with [Microsoft Graph data connect](/graph/data-connect-concept-overview), allowing you to bring the rich organizational data in your Office 365 tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Office 365.  Please refer to [this link](/graph/data-connect-concept-overview) for an overview on Microsoft Graph data connect and refer to [this link](/graph/data-connect-policies#licensing) for licensing information.
+Azure Data Factory and Synapse Analytics pipelines integrate with [Microsoft Graph data connect](/graph/data-connect-concept-overview), allowing you to bring the rich organizational data in your Office 365 tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Office 365.  Please refer to [this link](/graph/data-connect-concept-overview) for an overview on Microsoft Graph data connect and refer to [this link](/graph/data-connect-policies#licensing) for licensing information.
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Office 365. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity to copy data from Office 365. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 ADF Office 365 connector and Microsoft Graph data connect enables at scale ingestion of different types of datasets from Exchange Email enabled mailboxes, including address book contacts, calendar events, email messages, user information, mailbox settings, and so on.  Refer [here](/graph/data-connect-datasets) to see the complete list of datasets available.
@@ -20,15 +23,18 @@ ADF Office 365 connector and Microsoft Graph data connect enables at scale inges
 For now, within a single copy activity you can only **copy data from Office 365 into [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) in JSON format** (type setOfObjects). If you want to load Office 365 into other types of data stores or in other formats, you can chain the first copy activity with a subsequent copy activity to further load data into any of the [supported ADF destination stores](copy-activity-overview.md#supported-data-stores-and-formats) (refer to "supported as a sink" column in the "Supported data stores and formats" table).
 
 >[!IMPORTANT]
->- The Azure subscription containing the data factory and the sink data store must be under the same Azure Active Directory (Azure AD) tenant as Office 365 tenant.
+>- The Azure subscription containing the data factory or Synapse workspace and the sink data store must be under the same Azure Active Directory (Azure AD) tenant as Office 365 tenant.
 >- Ensure the Azure Integration Runtime region used for copy activity as well as the destination is in the same region where the Office 365 tenant users' mailbox is located. Refer [here](concepts-integration-runtime.md#integration-runtime-location) to understand how the Azure IR location is determined. Refer to [table here](/graph/data-connect-datasets#regions) for the list of supported Office regions and corresponding Azure regions.
 >- Service Principal authentication is the only authentication mechanism supported for Azure Blob Storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2 as destination stores.
+
+> [!Note]
+> Please use Azure integration runtime in both source and sink linked services. The self-hosted integration runtime and the managed virtual network integration runtime are not supported. 
 
 ## Prerequisites
 
 To copy data from Office 365 into Azure, you need to complete the following prerequisite steps:
 
-- Your Office 365 tenant admin must complete on-boarding actions as described [here](/graph/data-connect-get-started).
+- Your Office 365 tenant admin must complete on-boarding actions as described [here](/events/build-may-2021/microsoft-365-teams/breakouts/od483/).
 - Create and configure an Azure AD web application in Azure Active Directory.  For instructions, see [Create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 - Make note of the following values, which you will use to define the linked service for Office 365:
     - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
@@ -40,11 +46,8 @@ To copy data from Office 365 into Azure, you need to complete the following prer
 
 If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as "In Progress", and only when you click into ["Details" link under Actions](copy-activity-overview.md#monitoring) will you see the status as "RequestingConsent".  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
 
-Refer [here](/graph/data-connect-tips#approve-pam-requests-via-office-365-admin-portal) on how the approver can approve the data access request, and refer [here](/graph/data-connect-pam) for an explanation on the overall integration with Privileged Access Management, including how to set up the data access approver group.
+Refer [here](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal) on how the approver can approve the data access request, and refer [here](/graph/data-connect-pam) for an explanation on the overall integration with Privileged Access Management, including how to set up the data access approver group.
 
-## Policy validation
-
-If ADF is created as part of a managed app and Azure policies assignments are made on resources within the management resource group, then for every copy activity run, ADF will check to make sure the policy assignments are enforced. Refer [here](/graph/data-connect-policies#policies) for a list of supported policies.
 
 ## Getting started
 
@@ -60,6 +63,30 @@ You can create a pipeline with the copy activity by using one of the following t
 - [REST API](quickstart-create-data-factory-rest-api.md)
 - [Azure Resource Manager template](quickstart-create-data-factory-resource-manager-template.md). 
 
+## Create a linked service to Office 365 using UI
+
+Use the following steps to create a linked service to Office 365 in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Office and select the Office 365 connector.
+
+    :::image type="content" source="media/connector-office-365/office-365-connector.png" alt-text="Screenshot of the Office 365 connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-office-365/configure-office-365-linked-service.png" alt-text="Screenshot of linked service configuration for Office 365.":::
+
+## Connector configuration details
+
 The following sections provide details about properties that are used to define Data Factory entities specific to Office 365 connector.
 
 ## Linked service properties
@@ -72,7 +99,7 @@ The following properties are supported for Office 365 linked service:
 | office365TenantId | Azure tenant ID to which the Office 365 account belongs. | Yes |
 | servicePrincipalTenantId | Specify the tenant information under which your Azure AD web application resides. | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes |
-| servicePrincipalKey | Specify the application's key. Mark this field as a SecureString to store it securely in Data Factory. | Yes |
+| servicePrincipalKey | Specify the application's key. Mark this field as a SecureString to store it securely. | Yes |
 | connectVia | The Integration Runtime to be used to connect to the data store.  If not specified, it uses the default Azure Integration Runtime. | No |
 
 >[!NOTE]
@@ -293,4 +320,4 @@ To copy data from Office 365, the following properties are supported in the copy
 ```
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

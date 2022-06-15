@@ -4,19 +4,18 @@ description: Learn how to analyze Azure Active Directory activity logs using Azu
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 08/19/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
@@ -33,9 +32,9 @@ In this article, you learn how to analyze the Azure AD activity logs in your Log
 
 To follow along, you need:
 
-* A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
+* A [Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md) in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 * First, complete the steps to [route the Azure AD activity logs to your Log Analytics workspace](howto-integrate-activity-logs-with-log-analytics.md).
-*  [Access](../../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions) to the log analytics workspace
+*  [Access](../../azure-monitor/logs/manage-access.md#azure-rbac) to the log analytics workspace
 * The following roles in Azure Active Directory (if you are accessing Log Analytics through Azure Active Directory portal)
     - Security Admin
     - Security Reader
@@ -58,8 +57,6 @@ The logs are pushed to the **AuditLogs** and **SigninLogs** tables in the worksp
 1. From the default query view in the previous section, select **Schema** and expand the workspace. 
 
 2. Expand the **Log Management** section and then expand either **AuditLogs** or **SigninLogs** to view the log schema.
-    ![Audit logs](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png)
-    ![Signin logs](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 
 ## Query the Azure AD activity logs
 

@@ -48,37 +48,37 @@ To see the current attributes of a tag, run the following [az acr repository sho
 
 ```azurecli
 az acr repository show \
-    --name myregistry --image image:tag \
+    --name myregistry --image myimage:tag \
     --output jsonc
 ```
 
 ### Lock an image by tag
 
-To lock the *myrepo/myimage:tag* image in *myregistry*, run the following [az acr repository update][az-acr-repository-update] command:
+To lock the *myimage:tag* image in *myregistry*, run the following [az acr repository update][az-acr-repository-update] command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --write-enabled false
 ```
 
 ### Lock an image by manifest digest
 
-To lock a *myrepo/myimage* image identified by manifest digest (SHA-256 hash, represented as `sha256:...`), run the following command. (To find the manifest digest associated with one or more image tags, run the [az acr repository show-manifests][az-acr-repository-show-manifests] command.)
+To lock a *myimage* image identified by manifest digest (SHA-256 hash, represented as `sha256:...`), run the following command. (To find the manifest digest associated with one or more image tags, run the [az acr repository show-manifests][az-acr-repository-show-manifests] command.)
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage@sha256:123456abcdefg \
+    --name myregistry --image myimage@sha256:123456abcdefg \
     --write-enabled false
 ```
 
 ### Lock a repository
 
-To lock the *myrepo/myimage* repository and all images in it, run the following command:
+To lock the *myrepo* repository and all images in it, run the following command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --write-enabled false
 ```
 
@@ -86,57 +86,57 @@ az acr repository update \
 
 ### Protect an image from deletion
 
-To allow the *myrepo/myimage:tag* image to be updated but not deleted, run the following command:
+To allow the *myimage:tag* image to be updated but not deleted, run the following command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --delete-enabled false --write-enabled true
 ```
 
 ### Protect a repository from deletion
 
-The following command sets the *myrepo/myimage* repository so it can't be deleted. Individual images can still be updated or deleted.
+The following command sets the *myrepo* repository so it can't be deleted. Individual images can still be updated or deleted.
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --delete-enabled false --write-enabled true
 ```
 
 ## Prevent read operations on an image or repository
 
-To prevent read (pull) operations on the *myrepo/myimage:tag* image, run the following command:
+To prevent read (pull) operations on the *myimage:tag* image, run the following command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --read-enabled false
 ```
 
-To prevent read operations on all images in the *myrepo/myimage* repository, run the following command:
+To prevent read operations on all images in the *myrepo* repository, run the following command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --read-enabled false
 ```
 
 ## Unlock an image or repository
 
-To restore the default behavior of the *myrepo/myimage:tag* image so that it can be deleted and updated, run the following command:
+To restore the default behavior of the *myimage:tag* image so that it can be deleted and updated, run the following command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --image myrepo/myimage:tag \
+    --name myregistry --image myimage:tag \
     --delete-enabled true --write-enabled true
 ```
 
-To restore the default behavior of the *myrepo/myimage* repository and all images so that they can be deleted and updated, run the following command:
+To restore the default behavior of the *myrepo* repository and all images so that they can be deleted and updated, run the following command:
 
 ```azurecli
 az acr repository update \
-    --name myregistry --repository myrepo/myimage \
+    --name myregistry --repository myrepo \
     --delete-enabled true --write-enabled true
 ```
 
@@ -149,9 +149,8 @@ To see the attributes set for an image version or repository, use the [az acr re
 For details about delete operations, see [Delete container images in Azure Container Registry][container-registry-delete].
 
 <!-- LINKS - Internal -->
-[az-acr-repository-update]: /cli/azure/acr/repository#az-acr-repository-update
-[az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
+[az-acr-repository-update]: /cli/azure/acr/repository#az_acr_repository_update
+[az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-delete]: container-registry-delete.md
-

@@ -1,15 +1,30 @@
 ---
 title: Add regions, change failover priority, trigger failover for an Azure Cosmos account
 description: Add regions, change failover priority, trigger failover for an Azure Cosmos account
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/29/2020
+ms.date: 02/21/2022
 ---
 
 # Add regions, change failover priority, trigger failover for an Azure Cosmos account using Azure CLI
+
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
+
+The script in this article demonstrates three operations.
+
+- Add a region to an existing Azure Cosmos account.
+- Change regional failover priority (applies to accounts using service-managed failover)
+- Trigger a manual failover from primary to secondary regions (applies to accounts with manual failover)
+
+This script uses a SQL (Core) API account, but these operations are identical across all database APIs in Cosmos DB.
+
+> [!IMPORTANT]
+> Add and remove region operations on a Cosmos account cannot be done while changing other properties.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -17,29 +32,21 @@ ms.date: 07/29/2020
 
 ## Sample script
 
-This script demonstrates three operations.
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-- Add a region to an existing Azure Cosmos account.
-- Change regional failover priority (applies to accounts using automatic failover)
-- Trigger a manual failover from primary to secondary regions (applies to accounts with manual failover)
+### Run the script
 
-> [!NOTE]
-> Add and remove region operations on a Cosmos account cannot be done while changing other properties.
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/regions.sh" id="FullScript":::
 
-> [!NOTE]
-> This sample demonstrates using a SQL (Core) API account but these operations are identical across all database APIs in Cosmos DB.
+## Clean up resources
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/regions.sh "Regional operations for Cosmos DB.")]
+[!INCLUDE [cli-clean-up-resources.md](../../../../../includes/cli-clean-up-resources.md)]
 
-## Clean up deployment
-
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
-
-```azurecli-interactive
-az group delete --name $resourceGroupName
+```azurecli
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
@@ -55,4 +62,10 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure Cosmos DB CLI, see [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
 
-All Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+For Azure CLI samples for specific APIs see:
+
+- [CLI Samples for Cassandra](../../../cassandra/cli-samples.md)
+- [CLI Samples for Gremlin](../../../graph/cli-samples.md)
+- [CLI Samples for MongoDB API](../../../mongodb/cli-samples.md)
+- [CLI Samples for SQL](../../../sql/cli-samples.md)
+- [CLI Samples for Table](../../../table/cli-samples.md)

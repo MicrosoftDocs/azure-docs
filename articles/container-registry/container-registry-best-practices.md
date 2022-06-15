@@ -2,7 +2,7 @@
 title: Registry best practices
 description: Learn how to use your Azure container registry effectively by following these best practices.
 ms.topic: article
-ms.date: 01/07/2021
+ms.date: 08/13/2021
 ---
 
 # Best practices for Azure Container Registry
@@ -69,28 +69,37 @@ Azure Container Registry supports security practices in your organization to dis
 
 The storage constraints of each [container registry service tier][container-registry-skus] are intended to align with a typical scenario: **Basic** for getting started, **Standard** for most production applications, and **Premium** for hyper-scale performance and [geo-replication][container-registry-geo-replication]. Throughout the life of your registry, you should manage its size by periodically deleting unused content.
 
-Use the Azure CLI command [az acr show-usage][az-acr-show-usage] to display the current size of your registry:
+Use the Azure CLI command [az acr show-usage][az-acr-show-usage] to display the current consumption of storage and other resources in your registry:
 
 ```azurecli
 az acr show-usage --resource-group myResourceGroup --name myregistry --output table
 ```
 
-```output
-NAME      LIMIT         CURRENT VALUE    UNIT
---------  ------------  ---------------  ------
-Size      536870912000  185444288        Bytes
-Webhooks  100                            Count
+Sample output:
+
+```
+NAME                        LIMIT         CURRENT VALUE    UNIT
+--------------------------  ------------  ---------------  ------
+Size                        536870912000  215629144        Bytes
+Webhooks                    500           1                Count
+Geo-replications            -1            3                Count
+IPRules                     100           1                Count
+VNetRules                   100           0                Count
+PrivateEndpointConnections  10            0                Count
 ```
 
-You can also find the current storage used in the **Overview** of your registry in the Azure portal:
+You can also find the current storage usage in the **Overview** of your registry in the Azure portal:
 
 ![Registry usage information in the Azure portal][registry-overview-quotas]
+
+> [!NOTE]
+> In a [geo-replicated](container-registry-geo-replication.md) registry, storage usage is shown for the home region. Multiply by the number of replications for total registry storage consumed.
 
 ### Delete image data
 
 Azure Container Registry supports several methods for deleting image data from your container registry. You can delete images by tag or manifest digest, or delete a whole repository.
 
-For details on deleting image data from your registry, including untagged (sometimes called "dangling" or "orphaned") images, see [Delete container images in Azure Container Registry](container-registry-delete.md).
+For details on deleting image data from your registry, including untagged (sometimes called "dangling" or "orphaned") images, see [Delete container images in Azure Container Registry](container-registry-delete.md). You can also set a [retention policy](container-registry-retention-policy.md) for untagged manifests.
 
 ## Next steps
 
@@ -103,8 +112,8 @@ For recommendations to improve the security posture of your container registries
 [registry-overview-quotas]: ./media/container-registry-best-practices/registry-overview-quotas.png
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-acr-show-usage]: /cli/azure/acr#az-acr-show-usage
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-show-usage]: /cli/azure/acr#az_acr_show_usage
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md

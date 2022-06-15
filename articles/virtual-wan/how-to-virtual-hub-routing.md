@@ -1,13 +1,13 @@
 ---
 title: 'How to configure virtual hub routing'
 titleSuffix: Azure Virtual WAN
-description: This article describes how to configure virtual hub routing
+description: Learn how to configure Virtual WAN virtual hub routing.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
 
 ---

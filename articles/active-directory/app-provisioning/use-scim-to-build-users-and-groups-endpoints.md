@@ -1,19 +1,19 @@
 ---
 title: Build a SCIM endpoint for user provisioning to apps from Azure Active Directory
-description: Learn to develop a SCIM endpoint, integrate your SCIM API with Azure AD, and automatically provision users and groups into your cloud applications with Azure Active Directory. 
+description: Learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and automatically provision users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
-manager: daveba
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Tutorial: Develop a sample SCIM endpoint
+# Tutorial: Develop a sample SCIM endpoint in Azure Active Directory
 
 No one wants to build a new endpoint from scratch, so we created some [reference code](https://aka.ms/scimreferencecode) for you to get started with [System for Cross-domain Identity Management (SCIM)](https://aka.ms/scimoverview). You can get your SCIM endpoint up and running with no code in just five minutes.
 
@@ -59,7 +59,7 @@ The steps here deploy the SCIM endpoint to a service by using [Visual Studio 201
 
    ![Screenshot that shows the Application settings window.](media/use-scim-to-build-users-and-groups-endpoints/app-service-settings.png)
 
-   When you test your endpoint with an enterprise application in the [Azure portal](use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-aad-scim-client), you have two options. You can keep the environment in `Development` and provide the testing token from the `/scim/token` endpoint, or you can change the environment to `Production` and leave the token field empty.
+   When you test your endpoint with an enterprise application in the [Azure portal](use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-azure-ad-scim-client), you have two options. You can keep the environment in `Development` and provide the testing token from the `/scim/token` endpoint, or you can change the environment to `Production` and leave the token field empty.
 
 That's it! Your SCIM endpoint is now published, and you can use the Azure App Service URL to test the SCIM endpoint.
 

@@ -4,7 +4,7 @@ description: Learn how to add a spot node pool to an Azure Kubernetes Service (A
 services: container-service
 ms.service: container-service
 ms.topic: article
-ms.date: 10/19/2020
+ms.date: 01/21/2022
 
 #Customer intent: As a cluster operator or developer, I want to learn how to add a spot node pool to an AKS Cluster.
 ---
@@ -40,7 +40,7 @@ The following limitations apply when you create and manage AKS clusters with a s
 * You cannot change ScaleSetPriority or SpotMaxPrice after creation.
 * When setting SpotMaxPrice, the value must be -1 or a positive value with up to five decimal places.
 * A spot node pool will have the label *kubernetes.azure.com/scalesetpriority:spot*, the taint *kubernetes.azure.com/scalesetpriority=spot:NoSchedule*, and system pods will have anti-affinity.
-* You must add a [corresponding toleration][spot-toleration] to schedule workloads on a spot node pool.
+* You must add a [corresponding toleration][spot-toleration] and affinity to schedule workloads on a spot node pool.
 
 ## Add a spot node pool to an AKS cluster
 
@@ -66,7 +66,7 @@ By default, you create a node pool with a *priority* of *Regular* in your AKS cl
 The command also enables the [cluster autoscaler][cluster-autoscaler], which is recommended to use with spot node pools. Based on the workloads running in your cluster, the cluster autoscaler scales up and scales down the number of nodes in the node pool. For spot node pools, the cluster autoscaler will scale up the number of nodes after an eviction if additional nodes are still needed. If you change the maximum number of nodes a node pool can have, you also need to adjust the `maxCount` value associated with the cluster autoscaler. If you do not use a cluster autoscaler, upon eviction, the spot pool will eventually decrease to zero and require a manual operation to receive any additional spot nodes.
 
 > [!Important]
-> Only schedule workloads on spot node pools that can handle interruptions, such as batch processing jobs and testing environments. It is recommended that you set up [taints and tolerations][taints-tolerations] on your spot node pool to ensure that only workloads that can handle node evictions are scheduled on a spot node pool. For example, the above command ny default adds a taint of *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* so only pods with a corresponding toleration are scheduled on this node.
+> Only schedule workloads on spot node pools that can handle interruptions, such as batch processing jobs and testing environments. It is recommended that you set up [taints and tolerations][taints-tolerations] on your spot node pool to ensure that only workloads that can handle node evictions are scheduled on a spot node pool. For example, the above command by default adds a taint of *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* so only pods with a corresponding toleration are scheduled on this node.
 
 ## Verify the spot node pool
 
@@ -78,7 +78,7 @@ az aks nodepool show --resource-group myResourceGroup --cluster-name myAKSCluste
 
 Confirm *scaleSetPriority* is *Spot*.
 
-To schedule a pod to run on a spot node, add a toleration that corresponds to the taint applied to your spot node. The following example shows a portion of a yaml file that defines a toleration that corresponds to a *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* taint used in the previous step.
+To schedule a pod to run on a spot node, add a toleration and node affinity that corresponds to the taint applied to your spot node. The following example shows a portion of a yaml file that defines a toleration that corresponds to the *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* taint and a node affinity that corresponds to the *kubernetes.azure.com/scalesetpriority=spot* label used in the previous step.
 
 ```yaml
 spec:
@@ -89,10 +89,19 @@ spec:
     operator: "Equal"
     value: "spot"
     effect: "NoSchedule"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: "kubernetes.azure.com/scalesetpriority"
+            operator: In
+            values:
+            - "spot"
    ...
 ```
 
-When a pod with this toleration is deployed, Kubernetes can successfully schedule the pod on the nodes with the taint applied.
+When a pod with this toleration and node affinity is deployed, Kubernetes will successfully schedule the pod on the nodes with the taint and label applied.
 
 ## Max price for a spot pool
 [Pricing for spot instances is variable][pricing-spot], based on region and SKU. For more information, see pricing for [Linux][pricing-linux] and [Windows][pricing-windows].

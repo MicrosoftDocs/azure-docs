@@ -4,16 +4,15 @@ description: This topic describes the built-in scheduler feature in Azure AD Con
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2019
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -37,7 +36,7 @@ The scheduler is responsible for two tasks:
 The scheduler itself is always running, but it can be configured to only run one or none of these tasks. For example, if you need to have your own synchronization cycle process, you can disable this task in the scheduler but still run the maintenance task.
 
 >[!IMPORTANT]
->By default every 30 minutes a synchronization cycle is run. If you have modified the synchronization cycley you will need to make sure that a synchronization cycle is run at least once every 7 days. 
+>By default every 30 minutes a synchronization cycle is run. If you have modified the synchronization cycle you will need to make sure that a synchronization cycle is run at least once every 7 days. 
 >
 >* A delta sync needs to happen within 7 days from the last delta sync.
 >* A delta sync (following a full sync) needs to happen within 7 days from the time the last full sync completed.

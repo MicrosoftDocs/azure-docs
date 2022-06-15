@@ -1,103 +1,425 @@
 ---
-title: Inspect data quality for Custom Speech - Speech service
+title: Test recognition quality of a Custom Speech model - Speech service
 titleSuffix: Azure Cognitive Services
-description: Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result. You can play back uploaded audio and determine if the provided recognition result is correct.
+description: Custom Speech lets you qualitatively inspect the recognition quality of a model. You can play back uploaded audio and determine if the provided recognition result is correct.
 services: cognitive-services
-author: erhopf
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 02/12/2021
-ms.author: erhopf
+ms.topic: how-to
+ms.date: 05/08/2022
+ms.author: eur
+zone_pivot_groups: speech-studio-cli-rest
 ---
 
-# Inspect Custom Speech data
+# Test recognition quality of a Custom Speech model
 
-> [!NOTE]
-> This page assumes you've read [Prepare test data for Custom Speech](./how-to-custom-speech-test-and-train.md) and have uploaded a dataset for inspection.
+You can inspect the recognition quality of a Custom Speech model in the [Speech Studio](https://aka.ms/speechstudio/customspeech). You can play back uploaded audio and determine if the provided recognition result is correct. After a test has been successfully created, you can see how a model transcribed the audio dataset, or compare results from two models side by side.
 
-Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result. From the [Speech Studio](https://speech.microsoft.com/customspeech), you can play back uploaded audio and determine if the provided recognition result is correct. This tool helps you inspect quality of Microsoft's baseline speech-to-text model, inspect a trained custom model, or compare transcription by two models.
-
-In this document, you learn how to visually inspect the quality of Microsoft's baseline speech-to-text model, and/or custom models that you've trained . You also learn how to use the online transcription editor to create and refine labeled audio datasets.
-
-## Create a test
-
-Follow these instructions to create a test:
-
-1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech).
-2. Navigate to **Speech-to-text > Custom Speech > [name of project] > Testing**.
-3. Click **Add Test**.
-4. Select **Inspect quality (Audio-only data)**. Give the test a name, description, and select your audio dataset.
-5. Select up to two models that you'd like to test.
-6. Click **Create**.
-
-After a test has been successfully created, you can see how a model
-transcribes the audio dataset you specified, or compare results from two models side by side.
+Side-by-side model testing is useful to validate which speech recognition model is best for an application. For an objective measure of accuracy, which requires transcription datasets input, see [Test model quantitatively](how-to-custom-speech-evaluate-data.md).
 
 [!INCLUDE [service-pricing-advisory](includes/service-pricing-advisory.md)]
 
-## Side-by-side model comparisons
+## Create a test
 
-When the test status is _Succeeded_, click in the test item name to see details of the test. This detail page lists all the utterances in your dataset, and shows the recognition results of the two models you are comparing.
+::: zone pivot="speech-studio"
 
-To help inspect the side-by-side comparison, you can toggle various error types including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column (showing human-labeled transcription and the results of two speech-to-text models), you can decide which model meets your needs and where improvements are needed.
+Follow these instructions to create a test:
 
-Side-by-side model testing is useful to validate which speech recognition model is best for an application. For an objective measure of accuracy, requiring transcribed audio, follow the instructions found in [Evaluate Accuracy](how-to-custom-speech-evaluate-data.md).
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
+1. Navigate to **Speech Studio** > **Custom Speech** and select your project name from the list.
+1. Select **Test models** > **Create new test**.
+1. Select **Inspect quality (Audio-only data)** > **Next**. 
+1. Choose an audio dataset that you'd like to use for testing, and then select **Next**. If there aren't any datasets available, cancel the setup, and then go to the **Speech datasets** menu to [upload datasets](how-to-custom-speech-upload-data.md).
 
-## Online transcription editor
+    :::image type="content" source="media/custom-speech/custom-speech-choose-test-data.png" alt-text="Screenshot of choosing a dataset dialog":::
 
-The online transcription editor allows you to easily work with audio transcriptions in Custom Speech. The main use cases of the editor are as follows: 
+1. Choose one or two models to evaluate and compare accuracy.
+1. Enter the test name and description, and then select **Next**.
+1. Review your settings, and then select **Save and close**.
 
-* You only have audio data, but want to build accurate audio + human-labeled datasets from scratch to use in model training.
-* You already have audio + human-labeled datasets, but there are errors or defects in the transcription. The editor allows you to quickly modify the transcriptions to get best training accuracy.
+::: zone-end
 
-The only requirement to use the transcription editor is to have audio data uploaded (either audio-only, or audio + transcription).
+::: zone pivot="speech-cli"
 
-### Import datasets to Editor
+To create a test, use the `spx csr evaluation create` command. Construct the request parameters according to the following instructions:
 
-To import data into the Editor, first navigate to **Custom Speech > [Your project] > Editor**.
+- Set the `project` parameter to the ID of an existing project. This is recommended so that you can also view the test in Speech Studio. You can run the `spx csr project list` command to get available projects.
+- Set the required `model1` parameter to the ID of a model that you want to test.
+- Set the required `model2` parameter to the ID of another model that you want to test. If you don't want to compare two models, use the same model for both `model1` and `model2`.
+- Set the required `dataset` parameter to the ID of a dataset that you want to use for the test.
+- Set the `language` parameter, otherwise the Speech CLI will set "en-US" by default. This should be the locale of the dataset contents. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
+- Set the required `name` parameter. This is the name that will be displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
 
-![Editor tab](media/custom-speech/custom-speech-editor-detail.png)
+Here's an example Speech CLI command that creates a test:
 
-Next, use the following steps to import data.
+```azurecli-interactive
+spx csr evaluation create --project 9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226 --dataset be378d9d-a9d7-4d4a-820a-e0432e8678c7 --model1 ff43e922-e3e6-4bf0-8473-55c08fd68048 --model2 1aae1070-7972-47e9-a977-87e3b05c457d --name "My Inspection" --description "My Inspection Description"
+```
 
-1. Click **Import data**
-1. Create a new dataset(s) and give it a description
-1. Select datasets. Multiple selections is supported, and you can select audio data only, as well as audio + human-labeled data.
-1. For audio-only data, you can optionally use the default models to automatically generate machine transcription after importing to the Editor
-1. Click **Import**
+You should receive a response body in the following format:
 
-After data has been successfully imported, you can click into the datasets and start editing.
+```json
+{
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
+  "model1": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+  },
+  "model2": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+  },
+  "dataset": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+  },
+  "transcription2": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
+  },
+  "transcription1": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
+  },
+  "project": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+  },
+  "links": {
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
+  },
+  "properties": {
+    "wordErrorRate2": -1.0,
+    "wordErrorRate1": -1.0,
+    "sentenceErrorRate2": -1.0,
+    "sentenceCount2": -1,
+    "wordCount2": -1,
+    "correctWordCount2": -1,
+    "wordSubstitutionCount2": -1,
+    "wordDeletionCount2": -1,
+    "wordInsertionCount2": -1,
+    "sentenceErrorRate1": -1.0,
+    "sentenceCount1": -1,
+    "wordCount1": -1,
+    "correctWordCount1": -1,
+    "wordSubstitutionCount1": -1,
+    "wordDeletionCount1": -1,
+    "wordInsertionCount1": -1
+  },
+  "lastActionDateTime": "2022-05-20T16:42:43Z",
+  "status": "NotStarted",
+  "createdDateTime": "2022-05-20T16:42:43Z",
+  "locale": "en-US",
+  "displayName": "My Inspection",
+  "description": "My Inspection Description"
+}
+```
 
-> [!TIP]
-> You can also import datasets into the Editor directly by selecting datasets and clicking **Export to Editor**
+The top-level `self` property in the response body is the evaluation's URI. Use this URI to get details about the project and test results. You also use this URI to update or delete the evaluation.
 
-### Edit transcription by listening to audio
+For Speech CLI help with evaluations, run the following command:
 
-After the data upload has succeeded, click on each item name to see details of the data. You can also use **Previous** and **Next** to move between each file.
+```azurecli-interactive
+spx help csr evaluation
+```
 
-The detail page lists all the segments in each audio file, and you can click into the desired utterance. For each utterance, you can play back the audio and examine the transcripts, and edit the transcriptions if you find any insertion, deletion, or substitution errors. See the [data evaluation how-to](how-to-custom-speech-evaluate-data.md) for more detail on error types.
+::: zone-end
 
-![Editor page](media/custom-speech/custom-speech-editor.png)
+::: zone pivot="rest-api"
 
-After you've made edits, click the **Save** button.
+To create a test, use the [CreateEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateEvaluation) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-### Export datasets from the Editor
+- Set the `project` property to the URI of an existing project. This is recommended so that you can also view the test in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
+- Set the required `model1` property to the URI of a model that you want to test.
+- Set the required `model2` property to the URI of another model that you want to test. If you don't want to compare two models, use the same model for both `model1` and `model2`.
+- Set the required `dataset` property to the URI of a dataset that you want to use for the test.
+- Set the required `locale` property. This should be the locale of the dataset contents. The locale can't be changed later.
+- Set the required `displayName` property. This is the name that will be displayed in the Speech Studio.
 
-To export datasets back to the **Data** tab, navigate to the data detail page and click the **Export** button to export all the files as a new dataset. You can also filter the files by last edited time, audio durations, etc. to partially select the desired files. 
+Make an HTTP POST request using the URI as shown in the following example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
-![Export data](media/custom-speech/custom-speech-editor-export.png)
+```azurecli-interactive
+curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
+  "model1": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+  },
+  "model2": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+  },
+  "dataset": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+  },
+  "project": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+  },
+  "displayName": "My Inspection",
+  "description": "My Inspection Description",
+  "locale": "en-US"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations"
+```
 
-The files exported to Data will be used as a brand-new dataset and will not affect any of the existing data/training/testing entities.
+You should receive a response body in the following format:
+
+```json
+{
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
+  "model1": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+  },
+  "model2": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+  },
+  "dataset": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+  },
+  "transcription2": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
+  },
+  "transcription1": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
+  },
+  "project": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+  },
+  "links": {
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
+  },
+  "properties": {
+    "wordErrorRate2": -1.0,
+    "wordErrorRate1": -1.0,
+    "sentenceErrorRate2": -1.0,
+    "sentenceCount2": -1,
+    "wordCount2": -1,
+    "correctWordCount2": -1,
+    "wordSubstitutionCount2": -1,
+    "wordDeletionCount2": -1,
+    "wordInsertionCount2": -1,
+    "sentenceErrorRate1": -1.0,
+    "sentenceCount1": -1,
+    "wordCount1": -1,
+    "correctWordCount1": -1,
+    "wordSubstitutionCount1": -1,
+    "wordDeletionCount1": -1,
+    "wordInsertionCount1": -1
+  },
+  "lastActionDateTime": "2022-05-20T16:42:43Z",
+  "status": "NotStarted",
+  "createdDateTime": "2022-05-20T16:42:43Z",
+  "locale": "en-US",
+  "displayName": "My Inspection",
+  "description": "My Inspection Description"
+}
+```
+
+The top-level `self` property in the response body is the evaluation's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluation) details about the evaluation's project and test results. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateEvaluation) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteEvaluation) the evaluation.
+
+::: zone-end
+
+
+## Get test results
+
+You should get the test results and [inspect](#compare-transcription-with-audio) the audio datasets compared to transcription results for each model.
+
+::: zone pivot="speech-studio"
+
+Follow these steps to get test results:
+
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
+1. Select **Custom Speech** > Your project name > **Test models**.
+1. Select the link by test name.
+1. After the test is complete, as indicated by the status set to *Succeeded*, you should see results that include the WER number for each tested model.
+
+This page lists all the utterances in your dataset and the recognition results, alongside the transcription from the submitted dataset. You can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, you can decide which model meets your needs and determine where additional training and improvements are required.
+
+::: zone-end
+
+::: zone pivot="speech-cli"
+
+To get test results, use the `spx csr evaluation status` command. Construct the request parameters according to the following instructions:
+
+- Set the required `evaluation` parameter to the ID of the evaluation that you want to get test results.
+
+Here's an example Speech CLI command that gets test results:
+
+```azurecli-interactive
+spx csr evaluation status --evaluation 8bfe6b05-f093-4ab4-be7d-180374b751ca
+```
+
+The models, audio dataset, transcriptions, and more details are returned in the response body.
+
+You should receive a response body in the following format:
+
+```json
+{
+	"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
+	"model1": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+	},
+	"model2": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+	},
+	"dataset": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+	},
+	"transcription2": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
+	},
+	"transcription1": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
+	},
+	"project": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+	},
+	"links": {
+		"files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
+	},
+	"properties": {
+		"wordErrorRate2": 4.62,
+		"wordErrorRate1": 4.6,
+		"sentenceErrorRate2": 66.7,
+		"sentenceCount2": 3,
+		"wordCount2": 173,
+		"correctWordCount2": 166,
+		"wordSubstitutionCount2": 7,
+		"wordDeletionCount2": 0,
+		"wordInsertionCount2": 1,
+		"sentenceErrorRate1": 66.7,
+		"sentenceCount1": 3,
+		"wordCount1": 174,
+		"correctWordCount1": 166,
+		"wordSubstitutionCount1": 7,
+		"wordDeletionCount1": 1,
+		"wordInsertionCount1": 0
+	},
+	"lastActionDateTime": "2022-05-20T16:42:56Z",
+	"status": "Succeeded",
+	"createdDateTime": "2022-05-20T16:42:43Z",
+	"locale": "en-US",
+	"displayName": "My Inspection",
+	"description": "My Inspection Description"
+}
+```
+
+For Speech CLI help with evaluations, run the following command:
+
+```azurecli-interactive
+spx help csr evaluation
+```
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
+To get test results, start by using the [GetEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluation) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md).
+
+Make an HTTP GET request using the URI as shown in the following example. Replace `YourEvaluationId` with your evaluation ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+
+```azurecli-interactive
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/YourEvaluationId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+```
+
+The models, audio dataset, transcriptions, and more details are returned in the response body.
+
+You should receive a response body in the following format:
+
+```json
+{
+	"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
+	"model1": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+	},
+	"model2": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+	},
+	"dataset": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+	},
+	"transcription2": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
+	},
+	"transcription1": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
+	},
+	"project": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+	},
+	"links": {
+		"files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
+	},
+	"properties": {
+		"wordErrorRate2": 4.62,
+		"wordErrorRate1": 4.6,
+		"sentenceErrorRate2": 66.7,
+		"sentenceCount2": 3,
+		"wordCount2": 173,
+		"correctWordCount2": 166,
+		"wordSubstitutionCount2": 7,
+		"wordDeletionCount2": 0,
+		"wordInsertionCount2": 1,
+		"sentenceErrorRate1": 66.7,
+		"sentenceCount1": 3,
+		"wordCount1": 174,
+		"correctWordCount1": 166,
+		"wordSubstitutionCount1": 7,
+		"wordDeletionCount1": 1,
+		"wordInsertionCount1": 0
+	},
+	"lastActionDateTime": "2022-05-20T16:42:56Z",
+	"status": "Succeeded",
+	"createdDateTime": "2022-05-20T16:42:43Z",
+	"locale": "en-US",
+	"displayName": "My Inspection",
+	"description": "My Inspection Description"
+}
+```
+
+::: zone-end
+
+## Compare transcription with audio
+
+You can inspect the transcription output by each model tested, against the audio input dataset. If you included two models in the test, you can compare their transcription quality side by side. 
+
+::: zone pivot="speech-studio"
+
+To review the quality of transcriptions:
+
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
+1. Select **Custom Speech** > Your project name > **Test models**.
+1. Select the link by test name.
+1. Play an audio file while the reading the corresponding transcription by a model. 
+
+If the test dataset included multiple audio files, you'll see multiple rows in the table. If you included two models in the test,  transcriptions are shown in side-by-side columns. Transcription differences between models are shown in blue text font. 
+
+:::image type="content" source="media/custom-speech/custom-speech-inspect-compare.png" alt-text="Screenshot of comparing transcriptions by two models":::
+
+::: zone-end
+
+::: zone pivot="speech-cli"
+
+The audio test dataset, transcriptions, and models tested are returned in the [test results](#get-test-results). If only one model was tested, the `model1` value will match `model2`, and the `transcription1` value will match `transcription2`. 
+
+To review the quality of transcriptions:
+1. Download the audio test dataset, unless you already have a copy.
+1. Download the output transcriptions.
+1. Play an audio file while the reading the corresponding transcription by a model. 
+
+If you're comparing quality between two models, pay particular attention to differences between each model's transcriptions. 
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
+
+The audio test dataset, transcriptions, and models tested are returned in the [test results](#get-test-results). If only one model was tested, the `model1` value will match `model2`, and the `transcription1` value will match `transcription2`. 
+
+To review the quality of transcriptions:
+1. Download the audio test dataset, unless you already have a copy.
+1. Download the output transcriptions.
+1. Play an audio file while the reading the corresponding transcription by a model. 
+
+If you're comparing quality between two models, pay particular attention to differences between each model's transcriptions. 
+
+::: zone-end
 
 ## Next steps
 
-- [Evaluate your data](how-to-custom-speech-evaluate-data.md)
+- [Test model quantitatively](how-to-custom-speech-evaluate-data.md)
 - [Train your model](how-to-custom-speech-train-model.md)
-- [Improve your model](./how-to-custom-speech-evaluate-data.md)
 - [Deploy your model](./how-to-custom-speech-train-model.md)
 
-## Additional resources
-
-- [Prepare test data for Custom Speech](./how-to-custom-speech-test-and-train.md)

@@ -15,7 +15,7 @@ In a transparent gateway scenario, one or more devices can pass their messages t
 
 ## How does Microsoft Connected Cache preview for Device Update for Azure IoT Hub work?
 
-Microsoft Connected Cache is an intelligent, transparent cache for content published for Device Update for Azure IoT Hub content and can be customized to cache content from other sources like package repositories as well. Microsoft Connected Cache is a cold cache that is warmed by client requests for the exact file ranges requested by the Delivery Optimization client and does not pre-seed content. The diagram and step-by-step description below explains how Microsoft Connected Cache works within the Device Update for Azure IoT Hub infrastructure.
+Microsoft Connected Cache Preview is an intelligent, transparent cache for content published for Device Update for Azure IoT Hub content and can be customized to cache content from other sources like package repositories as well. Microsoft Connected Cache is a cold cache that is warmed by client requests for the exact file ranges requested by the Delivery Optimization client and does not pre-seed content. The diagram and step-by-step description below explains how Microsoft Connected Cache works within the Device Update for Azure IoT Hub infrastructure.
 
 >[!Note]
 >In defining this flow, it has been assumed that the IoT Edge gateway has internet connectivity. For the downstream IoT Edge gateway (Nested Edge) scenario the "Content Delivery Network" (CDN) can be considered the MCC hosted on the parent IoT Edge gateway.

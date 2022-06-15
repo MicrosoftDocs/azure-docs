@@ -4,7 +4,7 @@ description: Use the HTTP application routing add-on to access applications depl
 services: container-service
 author: lachie83
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 04/23/2021
 ms.author: laevenso
 ---
 
@@ -16,6 +16,11 @@ When the add-on is enabled, it creates a DNS Zone in your subscription. For more
 
 > [!CAUTION]
 > The HTTP application routing add-on is designed to let you quickly create an ingress controller and access your applications. This add-on is not currently designed for use in a production environment and is not recommended for production use. For production-ready ingress deployments that include multiple replicas and TLS support, see [Create an HTTPS ingress controller](./ingress-tls.md).
+
+
+## Limitations
+
+* HTTP application routing doesn't currently work with AKS versions 1.22.6+
 
 ## HTTP routing solution overview
 
@@ -125,7 +130,7 @@ spec:
   selector:
     app: aks-helloworld
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: aks-helloworld
@@ -136,10 +141,13 @@ spec:
   - host: aks-helloworld.<CLUSTER_SPECIFIC_DNS_ZONE>
     http:
       paths:
-      - backend:
-          serviceName: aks-helloworld
-          servicePort: 80
-        path: /
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: aks-helloworld
+            port: 
+              number: 80
 ```
 
 Use the [kubectl apply][kubectl-apply] command to create the resources.

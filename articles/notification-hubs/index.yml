@@ -32,11 +32,6 @@ landingContent:
             url: notification-hubs-enterprise-push-notification-architecture.md
           - text: Registration management
             url: notification-hubs-push-notification-registration-management.md
-      - linkListType: video
-        links:
-          - text: Send push notifications to Android applications
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Notification-Hubs-in-an-Android-Application
-
   # Card (optional)
   - title: Get started
     linkLists:
@@ -83,7 +78,7 @@ landingContent:
           - text: PowerShell
             url: /powershell/module/az.notificationhubs/
           - text: CLI
-            url: /cli/azure/ext/notification-hub/notification-hub
+            url: /cli/azure/notification-hub
 
   # Card
   - title: Resources
@@ -91,7 +86,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: FAQ
-            url: notification-hubs-push-notification-faq.md
+            url: notification-hubs-push-notification-faq.yml
           - text: Support options
             url: https://azure.microsoft.com/support/options/
           - text: Microsoft Q&A question page

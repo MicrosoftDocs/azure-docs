@@ -68,6 +68,9 @@ Changes to these properties require container group deletion prior to redeployme
 * CPU, memory, or GPU resources
 * Restart policy
 * Network profile
+* Availability zone
+
+[!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
 When you delete a container group and recreate it, it's not "redeployed," but created new. All image layers are pulled fresh from the registry, not from those cached by a previous deployment. The IP address of the container might also change due to being deployed to a different underlying host.
 
@@ -84,6 +87,6 @@ Mentioned several times in this article is the **container group**. Every contai
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
+[az-container-create]: /cli/azure/container#az_container_create
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-container-export]: /cli/azure/container#az-container-export
+[az-container-export]: /cli/azure/container#az_container_export

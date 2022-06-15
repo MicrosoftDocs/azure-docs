@@ -1,9 +1,10 @@
 ---
 title: 'Streaming ingestion event sources - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Learn about streaming data into Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: deepakpalled
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,6 +13,8 @@ ms.date: 03/18/2021
 ---
 
 # Azure Time Series Insights Gen2 event sources
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 Your Azure Time Series Insights Gen2 environment can have up to two streaming event sources. Two types of Azure resources are supported as inputs:
 
@@ -24,11 +27,14 @@ Events must be sent as UTF-8 encoded JSON.
 
 The event source is the link between your hub and your Azure Time Series Insights Gen2 environment, and a separate resource of type `Time Series Insights event source` is created in your resource group. The IoT Hub or Event Hub resource(s) can live in the same Azure subscription as your Azure Time Series Insights Gen2 environment or a different subscription. However, it is a best practice to house your Azure Time Series Insights environment and the IoT Hub or Event Hub within the same Azure region.
 
-You can use the [Azure portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/event-source), [Azure Resource Manager templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md), and the [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) to create, edit, or remove your environment's event sources.
+You can use the [Azure portal](./tutorial-set-up-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](/cli/azure/tsi/event-source), [Azure Resource Manager templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md), and the [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) to create, edit, or remove your environment's event sources.
+
+> [!WARNING]
+> Do not restrict Public Internet access to a hub or event source used by Time Series Insights or the necessary connection will be broken.
 
 ## Start options
 
-When creating an event source, you have the option to specify what pre-existing data should be collected. This setting is optional. The following options are available:
+When creating an event source, you can specify what pre-existing data should be collected. This setting is optional. The following options are available:
 
 | Name   |  Description  |  Azure Resource Manager template example |
 |----------|-------------|------|
@@ -41,18 +47,17 @@ When creating an event source, you have the option to specify what pre-existing 
 > - If you select EarliestAvailable and have a lot of pre-existing data, you may experience high initial latency as your Azure Time Series Insights Gen2 environment processes all of your data.
 > - This high latency should eventually subside as data is indexed. Submit a support ticket through the Azure portal if you experience ongoing high latency.
 
-* EarliestAvailable
+- EarliestAvailable
 
 ![EarliestAvailable Diagram](media/concepts-streaming-event-sources/event-source-earliest-available.png)
 
-* EventSourceCreationTime
+- EventSourceCreationTime
 
 ![EventSourceCreationTime Diagram](media/concepts-streaming-event-sources/event-source-creation-time.png)
 
-* CustomEnqueuedTime
+- CustomEnqueuedTime
 
 ![CustomEnqueuedTime Diagram](media/concepts-streaming-event-sources/event-source-custom-enqueued-time.png)
-
 
 ## Streaming ingestion best practices
 
@@ -70,7 +75,7 @@ When creating an event source, you have the option to specify what pre-existing 
 
 - Follow the principle of least privilege when providing event source connection strings. For Event Hubs, configure a shared access policy with the *send* claim only, and for IoT Hub use the *service connect* permission only.
 
-> [!CAUTION] 
+> [!CAUTION]
 > If you delete your IoT Hub or Event Hub and re-create a new resource with the same name, you need to create a new event source and attach the new IoT Hub or Event Hub. Data will not be ingested until you complete this step.
 
 ## Production workloads
@@ -100,17 +105,17 @@ When configuring an event source, you'll be asked to provide a timestamp ID prop
 
 In general, users will opt to customize the timestamp property and use the time when the sensor or tag generated the reading rather than using the default hub enqueued time. This is particularly necessary when devices have intermittent connectivity loss and a batch of delayed messages are forwarded to Azure Time Series Insights Gen2.
 
-If your custom timestamp is within a nested JSON object or an array you'll need to provide the correct property name following our [flattening and escaping naming conventions](concepts-json-flattening-escaping-rules.md). For example, the event source timestamp for the JSON payload shown [here](concepts-json-flattening-escaping-rules.md#example-a) should be entered as `"values.time"`.
+If your custom timestamp is within a nested JSON object or an array, you'll need to provide the correct property name following our [flattening and escaping naming conventions](concepts-json-flattening-escaping-rules.md). For example, the event source timestamp for the JSON payload shown [here](concepts-json-flattening-escaping-rules.md#example-a) should be entered as `"values.time"`.
 
 ### Time zone offsets
 
-Timestamps must be sent in ISO 8601 format and will be stored in UTC. If a time zone offset is provided, the offset will be applied and then the time stored and returned in UTC format. If the offset is improperly formatted it will be ignored. In situations where your solution might not have context of the original offset, you can send the offset data in an additional separate event property to ensure that it's preserved and that your application can reference in a query response.
+Timestamps must be sent in ISO 8601 format and will be stored in UTC. If a time zone offset is provided, the offset will be applied and then the time stored and returned in UTC format. If the offset is improperly formatted, it will be ignored. In situations where your solution might not have context of the original offset, you can send the offset data in an additional separate event property to ensure that it's preserved and that your application can reference in a query response.
 
 The time zone offset should be formatted as one of the following:
 
-±HHMMZ</br>
-±HH:MM</br>
-±HH:MMZ</br>
+±HHMMZ<br />
+±HH:MM<br />
+±HH:MMZ
 
 ## Next steps
 

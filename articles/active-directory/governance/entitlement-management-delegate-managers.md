@@ -4,12 +4,11 @@ description: Learn how to delegate access governance from IT administrators to a
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 06/18/2020
@@ -35,11 +34,13 @@ This video provides an overview of how to delegate access governance from catalo
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3Lq08]
 
+In addition to the catalog owner and access package manager roles, you can also add users to the catalog reader role, which provides view-only access to the catalog, or to the access package assignment manager role, which enables the users to change assignments but not access packages or policies.
+
 ## As a catalog owner, delegate to an access package manager
 
 Follow these steps to assign a user to the access package manager role:
 
-**Prerequisite role:** Global administrator, User administrator, or Catalog owner
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, or Catalog owner
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 

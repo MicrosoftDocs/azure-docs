@@ -1,17 +1,17 @@
 ---
 title: Manage zone redundant high availability - Azure portal - Azure Database for PostgreSQL - Flexible Server
 description: This article describes how to enable or disable zone redundant high availability in Azure Database for PostgreSQL - Flexible Server through the Azure portal.
-author: sr-msft
 ms.author: srranga
+author: sr-msft
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ---
 
 # Manage zone redundant high availability in Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article describes how you can enable or disable zone redundant high availability configuration in your flexible server.
 
@@ -95,6 +95,46 @@ that is already configured with zone redundancy.
 5.  Click **Disable HA** button to disable the high availability.
 
 6.  A notification will show up decommissioning of the high availability deployment is in progress.
+
+## Forced failover
+
+Follow these steps to force failover your primary to the standby flexible server. This will immediately bring the primary down and triggers a failover to the standby server. This is useful for cases like testing the unplanned outage failover time for your workload.
+
+1.	In the [Azure portal](https://portal.azure.com/), select your existing flexible server that has high availability feature already enabled.
+2.	On the flexible server page, click High Availability from the front panel to open high availability page.
+3.	Check the Primary availability zone and the Standby availability zone
+4.	Click on Forced Failover to initiate the manual failover procedure. A pop up will inform you on the potential downtime until the failover is complete. Read the message and click Ok.
+5.	A notification will show up mentioning that failover is in progress.
+6.	Once failover to the standby server is complete, a notification will pop up.
+7.	Check the new Primary availability zone and the Standby availability zone.
+    
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/ha-forced-failover.png" alt-text="On-demand forced failover"::: 
+
+>[!IMPORTANT] 
+> * Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will also allow the new standby server to be fully established.
+>
+> * The overall end-to-end operation time as reported on the portal may be longer than the actual downtime experienced by the application. Please measure the downtime from the application perspective. 
+
+## Planned failover
+
+Follow these steps to perform a planned failover from your primary to the standby flexible server. This will first prepare the standby server and performs the failover. This provides the least downtime as this performs a graceful failover to the standby server for situations like after a failover event, you want to bring the primary back to the preferred availability zone.
+1.	In the [Azure portal](https://portal.azure.com/), select your existing flexible server that has high availability feature already enabled.
+2.	On the flexible server page, click High Availability from the front panel to open high availability page.
+3.	Check the Primary availability zone and the Standby availability zone
+4.	Click on Planned Failover to initiate the manual failover procedure. A pop up will inform you the process. Read the message and click Ok.
+5.	A notification will show up mentioning that failover is in progress.
+6.	Once failover to the standby server is complete, a notification will pop up.
+7.	Check the new Primary availability zone and the Standby availability zone.
+        :::image type="content" source="./media/how-to-manage-high-availability-portal/ha-planned-failover.png" alt-text="On-demand planned failover"::: 
+
+>[!IMPORTANT] 
+>
+> * Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will also allow the new standby server to be fully established.
+>
+> * It is recommended to perform planned failover during low activity period.
+>
+> * The overall end-to-end operation time may be longer than the actual downtime experienced by the application. Please measure the downtime from the application perspective.
+
 
 ## Next steps
 

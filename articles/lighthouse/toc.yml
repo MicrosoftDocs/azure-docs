@@ -12,9 +12,9 @@
     href: ./samples/index.md
 - name: Concepts
   items:
-  - name: Azure delegated resource management
-    displayName: delegation, projection
-    href: ./concepts/azure-delegated-resource-management.md
+  - name: Architecture
+    displayName: delegation, projection, resource, registration
+    href: ./concepts/architecture.md
   - name: Cross-tenant management experiences
     displayName: scenarios, supported, enhanced, services, limitations, current
     href: ./concepts/cross-tenant-management-experience.md
@@ -42,7 +42,7 @@
       displayName: mfa, authentication, secure, group
       href: ./concepts/recommended-security-practices.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/lighthouse-security-baseline?toc=/azure/lighthouse/toc.json
 - name: How-to guides
   items:
   - name: Customer actions
@@ -50,7 +50,7 @@
     - name: View and manage service providers 
       displayName: customer, update, visibility, control
       href: ./how-to/view-manage-service-providers.md
-    - name: View service provider activity
+    - name: Monitor service provider activity
       displayName: monitor, log, customer, visibility, transparency, control
       href: ./how-to/view-service-provider-activity.md
   - name: Onboarding and delegation management
@@ -59,8 +59,11 @@
       displayName: ARM, template, delegation, authorization, resource management
       href: ./how-to/onboard-customer.md
     - name: Publish Managed Service offers to Azure Marketplace 
-      displayName: managed services offer, azure marketplace, publish, marketplace
+      displayName: managed services, azure marketplace, publish, marketplace
       href: ./how-to/publish-managed-services-offers.md
+    - name: Create eligible authorizations
+      displayName: jit, pim, elevate, elevation, just-in-time
+      href: ./how-to/create-eligible-authorizations.md
     - name: Update delegations
       displayName: upgrade
       href: ./how-to/update-delegation.md
@@ -70,6 +73,9 @@
     - name: Monitor delegation changes
       displayName: activity log
       href: ./how-to/monitor-delegation-changes.md
+    - name: Onboard subscriptions in a management group
+      displayName: mg, policy, logic app
+      href: ./how-to/onboard-management-group.md
   - name: View and manage customers 
     displayName: my customers
     href: ./how-to/view-manage-customers.md
@@ -95,7 +101,7 @@
       - name: Deploy a policy that can be remediated
         displayName: deployIfNotExists, modify, managed identities, managed identity
         href: ./how-to/deploy-policy-remediation.md
-    - name: Azure Sentinel integration
+    - name: Microsoft Sentinel integration
       href: ./how-to/manage-sentinel-workspaces.md
 - name: Reference
   items:
@@ -112,23 +118,23 @@
   - name: REST
     href: /rest/api/managedservices/
   - name: OpenAPI
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-09-01
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./samples/policy-reference.md
   - name: Terraform
-    href: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
+    href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lighthouse_assignment
   - name: Ansible
     href: https://docs.ansible.com/ansible/latest/collections/azure/azcollection/index.html#plugins-in-azure-azcollection
 - name: Resources
   items:
   - name: Microsoft Q&A for Azure Lighthouse
     href: /answers/topics/azure-lighthouse.html
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=all
   - name: Product feedback
-    href: https://feedback.azure.com/forums/922753
+    href: https://feedback.azure.com/d365community/forum/cd8dfdcb-f824-ec11-b6e6-000d3a4f0da0

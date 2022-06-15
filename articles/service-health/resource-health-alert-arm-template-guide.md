@@ -2,7 +2,8 @@
 title: Template to create Resource Health alerts
 description: Create alerts programmatically that notify you when your Azure resources become unavailable.
 ms.topic: conceptual
-ms.date: 9/4/2018
+ms.date: 9/4/2018 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -309,7 +310,7 @@ It's easy to configure your alert to filter for only these kinds of events:
     ]
 }
 ```
-Note that it is possible for the cause field to be null in some events. That is, a health transition takes place (e.g. available to unavailable) and the event is logged immediately to prevent notification delays. Therefore, using the clause above may result in an alert not being triggered, because the properties.clause property value will be set to null.
+Note that it is possible for the cause field to be null in some events. That is, a health transition takes place (e.g. available to unavailable) and the event is logged immediately to prevent notification delays. Therefore, using the clause above may result in an alert not being triggered, because the properties.cause property value will be set to null.
 
 ## Complete Resource Health alert template
 

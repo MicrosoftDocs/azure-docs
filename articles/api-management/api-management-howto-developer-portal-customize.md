@@ -2,12 +2,12 @@
 title: Tutorial - Access and customize the developer portal - Azure API Management | Microsoft Docs
 description: Follow this to tutorial to learn how to customize the API Management developer portal, an automatically generated, fully customizable website with the documentation of your APIs. 
 services: api-management
-author: mikebudzynski
+author: dlepow
 
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 11/16/2020
-ms.author: apimpm
+ms.date: 08/31/2021
+ms.author: danlep
 ---
 
 # Tutorial: Access and customize the developer portal
@@ -41,6 +41,35 @@ Follow the steps below to access the managed version of the portal.
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Select the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
 
+
+## Developer portal architectural concepts
+
+The portal components can be logically divided into two categories: *code* and *content*.
+
+### Code
+
+Code is maintained in the API Management developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal) and includes:
+
+- **Widgets** - represent visual elements and combine HTML, JavaScript, styling ability, settings, and content mapping. Examples are an image, a text paragraph, a form, a list of APIs etc.
+- **Styling definitions** - specify how widgets can be styled
+- **Engine** - which generates static webpages from portal content and is written in JavaScript
+- **Visual editor** - allows for in-browser customization and authoring experience
+
+### Content
+
+Content is divided into two subcategories: *portal content* and *API Management content*.
+
+*Portal content* is specific to the portal and includes:
+
+- **Pages** - for example, landing page, API tutorials, blog posts
+- **Media** - images, animations, and other file-based content
+- **Layouts** - templates, which are matched against a URL and define how pages are displayed
+- **Styles** - values for styling definitions, such as fonts, colors, borders
+- **Settings** - configurations such as favicon, website metadata
+
+    Portal content, except for media, is expressed as JSON documents.
+
+*API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
 ## Understand the portal's administrative interface
 
 ### Default content 
@@ -89,15 +118,49 @@ Before you make your portal available to the visitors, you should personalize th
 
 ### Home page
 
-The default **Home** page is filled with placeholder content. You can either remove entire sections containing this content or keep the structure and adjust the elements one by one. Replace the generated text and images with your own and make sure the links point to desired locations.
+The default **Home** page is filled with placeholder content. You can either remove entire sections containing this content or keep the structure and adjust the elements one by one. Replace the generated text and images with your own and make sure the links point to desired locations. You can edit the structure and content of the home page by:
+* Dragging and dropping page elements to the desired placement on the site.
+* Selecting text and heading elements to edit and format content. 
+* Verifying your buttons point to the right locations.
 
 ### Layouts
 
 Replace the automatically generated logo in the navigation bar with your own image.
 
+1. In the developer portal, select the default **Contoso** logo in the top left of the navigation bar. 
+1. Select the **Edit** icon. 
+1. Under the **Main** section, select **Source**.
+1. In the **Media** pop-up, either select:
+    * An image already uploaded in your library, or
+    * **Upload file** to upload a new image file to use, or
+    * Select **None** to forego using a logo.
+1. The logo updates in real-time.
+1. Select outside the pop-up windows to exit the media library.
+1. Click **Save**.
+
 ### Styling
 
-Although you don't need to adjust any styles, you may consider adjusting particular elements. For example, change the primary color to match your brand's color.
+Although you don't need to adjust any styles, you may consider adjusting particular elements. For example, change the primary color to match your brand's color. You can do this in two ways:
+
+#### Overall site style
+
+1. In the developer portal, select the **Styles** icon from the left tool bar.
+1. Under the **Colors** section, select the color style item you want to edit.
+1. Click the **Edit** icon for that style item.
+1. Select the color from the color-picker, or enter the hex color code.
+1. Add and name another color item by clicking **Add color**.  
+1. Click **Save**.
+
+#### Container style
+
+1. On the main page of the developer portal, select the container background.
+1. Click the **Edit** icon.
+1. In the pop-up, set:
+    * The background to clear, an image, a specific color, or a gradient.
+    * The container size, margin, and padding.
+    * Container position and height.
+1. Select outside the pop-up windows to exit the container settings.
+1. Click **Save**.
 
 ### Customization example
 
@@ -112,7 +175,7 @@ To make your portal and its latest changes available to visitors, you need to *p
 ### Publish from the administrative interface
 
 1. Make sure you saved your changes by selecting the **Save** icon.
-1. In the **Operations** section of the menu, select **Publish website** . This operation may take a few minutes.  
+1. In the **Operations** section of the menu, select **Publish website**. This operation may take a few minutes.  
 
     :::image type="content" source="media/api-management-howto-developer-portal-customize/publish-portal.png" alt-text="Publish portal" border="false":::
 
@@ -134,7 +197,7 @@ After you publish the portal, you can access it at the same URL as the administr
 
 ## Apply the CORS policy on APIs
 
-To let the visitors of your portal test the APIs through the built-in interactive console, enable CORS (cross-origin resource sharing) on your APIs. For details, see the [Azure API Management developer portal overview](api-management-howto-developer-portal.md#cors).
+To let the visitors of your portal test the APIs through the built-in interactive console, enable CORS (cross-origin resource sharing) on your APIs. For details, see the [Azure API Management developer portal FAQ](developer-portal-faq.md#cors).
 
 ## Next steps
 

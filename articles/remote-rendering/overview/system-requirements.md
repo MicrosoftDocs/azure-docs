@@ -14,7 +14,7 @@ This chapter lists the minimum system requirements to work with *Azure Remote Re
 
 ## Development PC
 
-* Windows 10 version 1903 or higher.
+* Windows 10 version 1903 or higher or Windows 11.
 * Up-to-date graphics drivers.
 * Optional: [H265 hardware video decoder](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7), if you want to use local preview of remotely rendered content (for example in Unity).
 
@@ -39,14 +39,17 @@ Even though the correct H265 codec might be installed, security properties on th
 
 Azure Remote Rendering currently only supports **HoloLens 2** and Windows desktop as a target device. See the [platform limitations](../reference/limits.md#platform-limitations) section.
 
+On desktop, it is required to install the latest [Microsoft Visual C++ Redistributable package](https://aka.ms/vs/17/release/vc_redist.x64.exe) to be able to run any Azure Remote Rendering application.
+
 It's important to use the latest HEVC codec, as newer versions have significant improvements in latency. To check which version is installed on your device:
 
 1. Start the **Microsoft Store**.
-1. Click the **"..."** button in the top right.
-1. Select **Downloads and Updates**.
-1. Search the list for **HEVC Video Extensions from Device Manufacturer**. If this item is not listed under updates, the most recent version is already installed.
+1. Click the **"Library"** button in the bottom left.
+1. Find **HEVC Video Extensions from Device Manufacturer** in the list. If it is not listed under updates, the most recent version is already installed. Otherwise click the **Get Updates** button and wait for it to install.
 1. Make sure the listed codec has at least version **1.0.21821.0**.
-1. Click the **Get Updates** button and wait for it to install.
+    1. Select the **HEVC Video Extensions from Device Manufacturer** entry from the list.
+    1. Scroll down to the **Additional Information** section.
+    1. Check the **Installed version** entry.
 
 ## Network
 
@@ -91,7 +94,6 @@ Make sure that your firewalls (on device, inside routers, etc.) don't block the 
 | 8266              | UDP      | Outgoing | Data transfer |
 | 5000, 5433, 8443  | TCP      | Outgoing | Required for [ArrInspector tool](../resources/tools/arr-inspector.md)|
 
-
 ## Software
 
 The following software must be installed:
@@ -106,10 +108,31 @@ The following software must be installed:
 
 ## Unity
 
-For development with Unity, install a current version of Unity 2019.3 or 2019.4 LTS [(download)](https://unity3d.com/get-unity/download). We recommend using Unity Hub for managing installations.
+For development with Unity, install a supported version of Unity [(download)](https://unity3d.com/get-unity/download). We recommend using Unity Hub for managing installations.
+
+> [!IMPORTANT]
+> In addition to the supported versions mentioned below, make sure to check out the [Unity known issues page](/windows/mixed-reality/develop/unity/known-issues).
+
 Make sure to include the following modules in your Unity installation:
 * **UWP** - Universal Windows Platform Build Support
 * **IL2CPP** - Windows Build Support (IL2CPP)
+
+### Unity 2019
+
+For Unity 2019, version 2019.3 or 2019.4 LTS is supported. However to work with the OpenXR version of the plugin, a 2020-based version is required.
+
+ARR for Unity 2019 supports both the legacy **built-in XR** integration for Windows Mixed Reality and the new **XR SDK** plug-in framework.
+
+### Unity 2020
+
+For Unity 2020, use latest version of Unity 2020.3.
+
+> [!IMPORTANT]
+> When working with the OpenXR version of the plugin, it has to be verified that the *Universal Render Pipeline* (URP) has version 10.5.1 or higher. To check that, open the *Package Manager* from the Unity *Windows* menu and refer to the *Universal RP* section:
+> ![Version of the Universal RP](./media/unity-universal-rp-version-10-5-1.png)
+
+> [!IMPORTANT]
+> The **WMR (Windows Mixed Reality) plugin for Unity 2020.3** currently has a performance degradation with ARR. For a better experience, we suggest to either stay on Unity 2019.X or switch to the OpenXR version.
 
 ## Next steps
 

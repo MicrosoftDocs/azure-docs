@@ -5,6 +5,7 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
+ms.devlang: java
 ms.custom: devx-track-java, devx-track-azurecli
 
 #Customer intent: As a Java developer, I want to write Java functions that process data continually (for example, from IoT sensors), and store the processing results in Azure Cosmos DB.
@@ -27,7 +28,7 @@ In this tutorial, you'll:
 
 To complete this tutorial, you must have the following installed:
 
-- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) version 2.6.666 or above
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
@@ -213,7 +214,7 @@ az functionapp create \
     --storage-account $STORAGE_ACCOUNT \
     --consumption-plan-location $LOCATION \
     --runtime java \
-    --functions-version 2
+    --functions-version 3
 ```
 
 # [Cmd](#tab/cmd)
@@ -229,7 +230,7 @@ az functionapp create ^
     --storage-account %STORAGE_ACCOUNT% ^
     --consumption-plan-location %LOCATION% ^
     --runtime java ^
-    --functions-version 2
+    --functions-version 3
 ```
 
 ---

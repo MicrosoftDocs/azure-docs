@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to delete an Azure-hosted Service F
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurepowershell
 ---
 # Tutorial: Remove a Service Fabric cluster running in Azure
 
@@ -32,7 +32,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Install [Azure Powershell](/powershell/azure//install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+* Install [Azure PowerShell](/powershell/azure//install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) on Azure
 
 ## Delete the resource group containing the Service Fabric cluster
@@ -103,5 +103,5 @@ In this tutorial, you learned how to:
 
 Now that you've completed this tutorial, try the following:
 * Learn how to inspect and manage a Service Fabric cluster using [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-* Learn how to [patch the Windows operating system](service-fabric-patch-orchestration-application.md) of the cluster nodes.
+* Learn how to [patch cluster nodes running on Windows](how-to-patch-cluster-nodes-windows.md).
 * Learn how to aggregate and collect events for [Windows clusters](service-fabric-diagnostics-event-aggregation-wad.md) and [setup Log Analytics](service-fabric-diagnostics-oms-setup.md) to monitor cluster events.

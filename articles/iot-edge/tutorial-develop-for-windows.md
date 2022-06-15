@@ -1,14 +1,15 @@
 ---
 title: 'Tutorial - Develop module for Windows devices using Azure IoT Edge'
 description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules using Windows containers for Windows devices
-author: kgremban
-manager: philmea
-ms.author: kgremban
+author: PatAltimore
+
+ms.author: patricka
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
+monikerRange: "=iotedge-2018-06"
 ---
 
 # Tutorial: Develop IoT Edge modules using Windows containers
@@ -18,7 +19,7 @@ ms.custom: mvc
 Use Visual Studio to develop and deploy code to Windows devices running IoT Edge.
 
 >[!NOTE]
->IoT Edge 1.1 LTS is the last release channel that will support Windows containers. Starting with version 1.2, Windows containers are not supported. Consider using or moving to [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) to run IoT Edge on Windows devices.
+>IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers are not supported. Consider using or moving to [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) to run IoT Edge on Windows devices.
 
 This tutorial walks through what it takes to develop and deploy your own code to an IoT Edge device. This tutorial is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
 
@@ -44,7 +45,7 @@ A development machine:
 
 An Azure IoT Edge device on Windows:
 
-* [Install and manage Azure IoT Edge with Windows containers](how-to-install-iot-edge-windows-on-windows.md).
+* [Install and manage Azure IoT Edge with Windows containers](how-to-provision-single-device-windows-symmetric.md).
 * We recommend that you don't run IoT Edge on your development machine, but instead use a separate device if possible. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
 
 Cloud resources:
@@ -151,6 +152,20 @@ Once your new project loads in the Visual Studio window, take a moment to famili
   * The **program.cs** file contains the default C# module code that comes with the project template. The default module takes input from a source and passes it along to IoT Hub.
   * The **module.json** file hold details about the module, including the full image repository, image version, and which Dockerfile to use for each supported platform.
 
+### Set IoT Edge runtime version
+
+The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. Currently, the latest stable version is version 1.2. 
+
+Windows containers are only supported in the 1.1 long-term support version or the earlier 1.0 version. To develop modules for devices using Windows containers, update the IoT Edge runtime version in Visual Studio to match the IoT Edge version on those devices.
+
+1. In the Solution Explorer, right-click the name of your project and select **Set IoT Edge runtime version**.
+
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/set-iot-edge-runtime-version.png" alt-text="Right-click your project name and select set IoT Edge runtime version.":::
+
+1. Use the drop-down menu to choose the runtime version that your IoT Edge devices are running, then select **OK** to save your changes.
+
+1. Re-generate your deployment manifest with the new runtime version. Right-click the name of your project and select **Generate deployment for IoT Edge**.
+
 ### Provide your registry credentials to the IoT Edge agent
 
 The IoT Edge runtime needs your registry credentials to pull your container images onto the IoT Edge device. The IoT Edge extension tries to pull your container registry information from Azure and populate it in the deployment template.
@@ -174,6 +189,9 @@ The IoT Edge runtime needs your registry credentials to pull your container imag
 1. Add the **Username** and **Password** values that you copied from your Azure container registry.
 
 1. Save your changes to the .env file.
+
+>[!NOTE]
+>This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
 ### Review the sample code
 

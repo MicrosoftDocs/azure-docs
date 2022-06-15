@@ -25,6 +25,9 @@
       href: tutorial-net-virtual-machine.md
     - name: Use Azure Key Vault with a virtual machine in Python
       href: tutorial-python-virtual-machine.md
+    - name: Use Azure Key Vault with a virtual machine in JavaScript
+      href: tutorial-javascript-virtual-machine.md 
+      displayName: az keyvault create, az keyvault secret set, az vm create, az vm identity assign, az keyvault set-policy
   - name: Azure App Service
     items:
     - name: Use Azure Key Vault with a Web App in .NET
@@ -32,7 +35,7 @@
   - name: Azure Kubernetes Service
     items: 
     - name: Integrate Azure Key Vault with Kubernetes
-      href: key-vault-integrate-kubernetes.md
+      href: ../../aks/csi-secrets-store-driver.md
   - name: Azure Databricks
     items: 
     - name: Access Azure Blob Storage using Azure Databricks and Azure Key Vault
@@ -43,6 +46,8 @@
   items:
   - name: Key Vault Code Samples
     href: /samples/browse/?expanded=azure&products=azure-key-vault
+  - name: Azure Resource Graph queries
+    href: ../resource-graph-samples.md
 
 - name: Concepts 
   items:
@@ -52,21 +57,19 @@
     href: best-practices.md
   - name: Security
     items:
-    - name: Overview
-      href: security-overview.md
-    - name: Secure access to a key vault
-      href: secure-your-key-vault.md
-    - name: Key Vault authentication fundamentals
-      href: authentication-fundamentals.md
-    - name: Security worlds and geographic boundaries
+    - name: Security features
+      href: security-features.md
+    - name: Key Vault authentication
+      href: authentication.md
+    - name: Security worlds and geographies
       href: overview-security-worlds.md
     - name: Network Security
       href: network-security.md
-    - name: Azure Security Baseline for Key Vault
-      href: security-baseline.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/key-vault-security-baseline?context=/azure/key-vault/general/context/context
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
-      href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+      href: ../security-controls-policy.md?context=/azure/key-vault/general/context/context
   - name: Azure Key Vault logging
     href: logging.md
   - name: Notifications
@@ -90,18 +93,10 @@
 
 - name: How-to guides
   items:
-  - name: Authenticate & Authorize
+  - name: Authorize access
     items:
-    - name: Authenticate to Key Vault
-      href: authentication.md
     - name: Assign an access policy
-      items:
-      - name: CLI
-        href: assign-access-policy-cli.md
-      - name: PowerShell
-        href: assign-access-policy-powershell.md
-      - name: Portal
-        href: assign-access-policy-portal.md
+      href: assign-access-policy.md
     - name: Azure RBAC permission model
       items:
       - name: Use an Azure RBAC for managing access to keys, secrets, and certificates
@@ -120,6 +115,8 @@
       href: vs-key-vault-add-connected-service.md
   - name: Monitor and govern
     items:
+    - name: Monitoring Key Vault
+      href: monitor-key-vault.md
     - name: Event Grid Notifications
       items:
       - name: Receive notifications via Logic Apps 
@@ -128,24 +125,30 @@
         href: event-grid-tutorial.md
     - name: Enable logging
       href: howto-logging.md
-    - name: Configure monitoring and alerting for Azure Key Vault with Azure Monitor
+    - name: Monitoring Azure Key Vault
+      href: monitor-key-vault.md
+    - name: Configure alerts for Azure Key Vault
       href: alert.md
     - name: Recovery management with soft-delete and purge protection
       href: key-vault-recovery.md
     - name: Integrate Azure Key Vault with Azure Policy
       href: azure-policy.md
-    - name: Back up Individual Key Vault Objects
+    - name: Troubleshoot issues with implementing Azure Key Vault with Azure Policy
+      href: troubleshoot-azure-policy-for-key-vault.md
+    - name: Back up and restore objects
       href: backup.md
   - name: Secure
     items:
+    - name: Configure key vault networking settings 
+      href: how-to-azure-key-vault-network-security.md
+    - name: Access Key Vault behind a firewall
+      href: access-behind-firewall.md
     - name: Azure Private Link
       items:
       - name: Integrate with Azure Private Link Service
         href: private-link-service.md
       - name: Diagnose Private Links Configuration Issues
         href: private-link-diagnostics.md
-    - name: Access Key Vault behind a firewall
-      href: access-behind-firewall.md
   - name: Move Key Vault
     items: 
     - name: Move Key Vault to Another Resource Group
@@ -158,6 +161,8 @@
   items:
   - name: What's new
     href: whats-new.md
+  - name: Monitoring Key Vault data reference
+    href: monitor-key-vault-reference.md
   - name: Client libraries
     href: client-libraries.md
   - name: REST API error codes
@@ -179,7 +184,7 @@
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault-index
   - name: Python
-    href: /python/api/overview/azure/key-vault-index
+    href: /python/api/overview/azure/keyvault-keys-readme
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template
@@ -187,7 +192,7 @@
     displayName: ARM
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
-    href: ../policy-reference.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+    href: ../policy-reference.md?context=/azure/key-vault/general/context/context
 
 - name: Resources
   items:
@@ -208,4 +213,4 @@
   - name: Blog
     href: /archive/blogs/kv/
   - name: Product Feedback
-    href: https://feedback.azure.com/forums/906355-azure-key-vault
+    href: https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0

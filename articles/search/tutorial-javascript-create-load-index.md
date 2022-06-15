@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 05/21/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
 ---
@@ -56,14 +56,14 @@ The script uses the Azure SDK for Cognitive Search:
 * [npm package @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
 * [Reference Documentation](/javascript/api/overview/azure/search-documents-readme)
 
-1. In Visual Studio Code, open the `bulk_insert_books.js` file in the subdirectory,  `search-web/bulk-insert`, replace the following variables with your own values to authenticate with the Azure Search SDK:
+1. In Visual Studio Code, open the `bulk_insert_books.js` file in the subdirectory,  `search-website/bulk-insert`, replace the following variables with your own values to authenticate with the Azure Search SDK:
 
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
     :::code language="javascript" source="~/azure-search-javascript-samples/search-website/bulk-insert/bulk_insert_books.js" highlight="16,17" :::
 
-1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-web/bulk-insert`, and run the following command to install the dependencies. 
+1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-insert`, and run the following command to install the dependencies. 
 
     ```bash
     npm install 
@@ -71,7 +71,7 @@ The script uses the Azure SDK for Cognitive Search:
 
 ## Run the bulk import script for Search
 
-1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-web/bulk-insert`, to run the following bash command to run the `bulk_insert_books.js` script:
+1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-insert`, to run the following bash command to run the `bulk_insert_books.js` script:
 
     ```javascript
     npm start
@@ -91,6 +91,14 @@ Once the upload completes, the Search Index is ready to use. Review your new Ind
 1. Expand Indexes, then Documents, then `good-books`, then select a doc to see all the document-specific data.
  
     :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" lightbox="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" alt-text="Expand Indexes, then `good-books`, then select a doc.":::
+
+## Rollback bulk import file changes
+
+Use the following git command in the VS Code integrated terminal at the `bulk-insert` directory, to rollback the changes. They are not needed to continue the tutorial and you shouldn't save or push these secrets to your repo. 
+
+```git
+git checkout .
+```
 
 ## Copy your Search resource name
 

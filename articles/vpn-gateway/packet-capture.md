@@ -1,13 +1,15 @@
 ---
-title: 'Azure VPN Gateway: Configure packet capture'
+title: 'Configure packet capture for VPN Gateway'
+titleSuffix: Azure VPN Gateway
 description: Learn about packet capture functionality that you can use on VPN gateways to help narrow down the cause of a problem.  
 services: vpn-gateway
 author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/22/2021
-ms.author: alzam
+ms.date: 01/31/2022
+ms.author: alzam 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure packet capture for VPN gateways
@@ -29,6 +31,9 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 - You can't run multiple packet captures on a single connection at the same time. You can run multiple packet captures on different connections at the same time.
 - A maximum of five packet captures can be run in parallel per gateway. These packet captures can be a combination of gateway-wide packet captures and per-connection packet captures.
 - The unit for MaxPacketBufferSize is bytes and MaxFileSize is megabytes
+
+> [!NOTE]  
+> Set the **CaptureSingleDirectionTrafficOnly** option to **false** if you want to capture both inner and outer packets.
 
 ### Example JSON
 ```JSON-interactive
@@ -314,15 +319,40 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 }
 ```
 
-## Packet capture - portal
+## Start packet capture - portal
 
-You can set up packet capture in the Azure portal.
+You can set up packet capture in the Azure portal by navigating to the VPN Gateway Packet Capture blade in the Azure portal and clicking the **Start Packet Capture button**
 
-:::image type="content" source="./media/packet-capture/portal.jpg" alt-text="Screenshot of packet capture in the portal." lightbox="./media/packet-capture/portal.jpg":::
+> [!NOTE]  
+> Do not select the **Capture Single Direction Traffic Only** option if you want to capture both inner and outer packets.
+
+:::image type="content" source="./media/packet-capture/portal.jpg" alt-text="Screenshot of start packet capture in the portal." lightbox="./media/packet-capture/portal.jpg":::
+
+## Stop packet capture - portal
+
+A valid SAS (or Shared Access Signature) Uri with read/write access is required to complete a packet capture. When a packet capture is stopped, the output of the packet capture is written to the container that is referenced by the SAS Uri. To get the SAS Uri, navigate to the required storage account and generate a SAS token and URL with the correct permissions.
+
+:::image type="content" source="./media/packet-capture/sastoken.jpg" alt-text="Screenshot of SAS Uri Token." lightbox="./media/packet-capture/sastoken.jpg":::
+
+* Copy the Blob SAS URL as it will be needed in the next step.
+
+* Navigate to the VPN Gateway Packet Capture blade in the Azure portal and clicking the **Stop Packet Capture** button
+
+* Paste the SAS URL (from the previous step) in the **Output Sas Uri** text box and click **Stop Packet Capture**.
+
+:::image type="content" source="./media/packet-capture/stopcapture.jpg" alt-text="Screenshot of stop packet capture in the portal." lightbox="./media/packet-capture/stopcapture.jpg":::
+
+* The packet capture (pcap) file will be stored in the specified account
 
 ## Packet capture - PowerShell
 
 The following examples show PowerShell commands that start and stop packet captures. For more information on parameter options, see [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
+
+>
+### Prerequisite
+
+* Packet capture data will need to be logged into a storage account on your subscription. See [create storage account](../storage/common/storage-account-create.md).
+* To stop the packet capture, you will need to generate the `SASUrl` for your storage account. See [create a user delegation SAS](../storage/blobs/storage-blob-user-delegation-sas-create-powershell.md).
 
 ### Start packet capture for a VPN gateway
 
@@ -338,6 +368,8 @@ You can use the optional parameter `-FilterData` to apply a filter.
 Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName" -SasUrl "YourSASURL"
 ```
 
+For more information on parameter options, see [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
+
 ### Start packet capture for a VPN gateway connection
 
 ```azurepowershell-interactive
@@ -351,6 +383,8 @@ You can use the optional parameter `-FilterData` to apply a filter.
 ```azurepowershell-interactive
 Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName" -SasUrl "YourSASURL"
 ```
+
+For more information on parameter options, see [Stop-AzVirtualNetworkGatewayConnectionPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewayconnectionpacketcapture).
 
 ## Key considerations
 

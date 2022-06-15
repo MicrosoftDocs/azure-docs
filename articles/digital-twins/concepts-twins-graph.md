@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Digital twins and the twin graph
 titleSuffix: Azure Digital Twins
-description: Understand the concept of a digital twin, and how their relationships make a graph.
+description: Learn about digital twins, and how their relationships form a digital twin graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/12/2020
+ms.date: 03/01/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -15,18 +15,18 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Understand digital twins and their twin graph
+# Digital twins and their twin graph
 
-In an Azure Digital Twins solution, the entities in your environment are represented by **digital twins**. A digital twin is an instance of one of your custom-defined [models](concepts-models.md). It can be connected to other digital twins via **relationships** to form a **twin graph**: this twin graph is the representation of your entire environment.
+This article describes what digital twins are in the context of Azure Digital Twins, and how relationships between them can form a twin graph. In an Azure Digital Twins solution, the entities in your environment are represented by *digital twins*. A digital twin is an instance of one of your custom-defined [models](concepts-models.md). It can be connected to other digital twins via *relationships* to form a *twin graph*: this twin graph is the representation of your entire environment.
 
 > [!TIP]
 > "Azure Digital Twins" refers to this Azure service as a whole. "Digital twin(s)" or just "twin(s)" refers to individual twin nodes inside your instance of the service.
 
 ## Digital twins
 
-Before you can create a digital twin in your Azure Digital Twins instance, you need to have a *model* uploaded to the service. A model describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other things. For the types of information that are defined in a model, see [*Concepts: Custom models*](concepts-models.md).
+Before you can create a digital twin in your Azure Digital Twins instance, you need to have a *model* uploaded to the service. A model describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other things. For the types of information that are defined in a model, see [Custom models](concepts-models.md).
 
-After creating and uploading a model, your client app can create an instance of the type; this is a digital twin. For example, after creating a model of *Floor*, you may create one or several digital twins that use this type (like a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.).
+After creating and uploading a model, your client app can create an instance of the type. This instance is a digital twin. For example, after creating a model of Floor, you may create one or several digital twins that use this type (like a Floor-type twin called GroundFloor, another called Floor2, and so on).
 
 [!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
@@ -34,38 +34,40 @@ After creating and uploading a model, your client app can create an instance of 
 
 Twins are connected into a twin graph by their relationships. The relationships that a twin can have are defined as part of its model.  
 
-For example, the model *Floor* might define a *contains* relationship that targets twins of type *room*. With this definition, Azure Digital Twins will allow you to create *contains* relationships from any *Floor* twin to any *Room* twin (including twins that are of *Room* subtypes). 
+For example, the model Floor might define a `contains` relationship that targets twins of type Room. With this definition, Azure Digital Twins will allow you to create `contains` relationships from any Floor twin to any Room twin (including twins that are of Room subtypes). 
 
 The result of this process is a set of nodes (the digital twins) connected via edges (their relationships) in a graph.
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
+
 ## Create with the APIs
 
-This section shows what it looks like to create digital twins and relationships from a client application. It contains .NET code examples that utilize the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), to provide additional context on what goes on inside each of these concepts.
+This section shows what it looks like to create digital twins and relationships from a client application. It contains .NET code examples that use the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), to provide more context on what goes on inside each of these concepts.
 
 ### Create digital twins
 
-Below is a snippet of client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to instantiate a twin of type *Room*.
+Below is a snippet of client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to instantiate a twin of type Room with a `twinId` that's defined during the instantiation.
 
-You can initialize the properties of a twin when it is created, or set them later. To create a twin with initialized properties, create a JSON document that provides the necessary initialization values.
+You can initialize the properties of a twin when it's created, or set them later. To create a twin with initialized properties, create a JSON document that provides the necessary initialization values.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
-You can also use a helper class called `BasicDigitalTwin` to store property fields in a "twin" object more directly, as an alternative to using a dictionary. For more information about the helper class and examples of its use, see the [*Create a digital twin*](how-to-manage-twin.md#create-a-digital-twin) section of *How-to: Manage digital twins*.
+You can also use a helper class called `BasicDigitalTwin` to store property fields in a "twin" object more directly, as an alternative to using a dictionary. For more information about the helper class and examples of its use, see [Create a digital twin](how-to-manage-twin.md#create-a-digital-twin).
 
 >[!NOTE]
->While twin properties are treated as optional and thus don't have to be initialized, any [components](concepts-models.md#elements-of-a-model) on the twin **do** need to be set when the twin is created. They can be empty objects, but the components themselves must exist.
+>While twin properties are treated as optional and thus don't have to be initialized, any [components](concepts-models.md#elements-of-a-model) on the twin need to be set when the twin is created. They can be empty objects, but the components themselves must exist.
 
 ### Create relationships
 
-Here is some example client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to build a relationship from one digital twin (the "source" twin) to another digital twin (the "target" twin).
+Here's some example client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to build a relationship from one digital twin (the "source" twin) to another digital twin (the "target" twin).
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
 ## JSON representations of graph elements
 
-Digital twin data and relationship data are both stored in JSON format. This means that when you [query the twin graph](how-to-query-graph.md) in your Azure Digital Twins instance, the result will be a JSON representation of digital twins and relationships you have created.
+Digital twin data and relationship data are both stored in JSON format, which means that when you [query the twin graph](how-to-query-graph.md) in your Azure Digital Twins instance, the result will be a JSON representation of digital twins and relationships you've created.
 
 ### Digital twin JSON format
 
@@ -75,63 +77,36 @@ When represented as a JSON object, a digital twin will display the following fie
 | --- | --- |
 | `$dtId` | A user-provided string representing the ID of the digital twin |
 | `$etag` | Standard HTTP field assigned by the web server |
-| `$conformance` | An enum containing the conformance status of this digital twin (*conformant*, *non-conformant*, *unknown*) |
-| `{propertyName}` | The value of a property in JSON (`string`, number type, or object) |
+| `$metadata.$model` | The ID of the model interface that characterizes this digital twin |
+| `$metadata.<property-name>` | Other metadata information about properties of the digital twin |
+| `$metadata.<property-name>.lastUpdateTime` | The date/time the property update message was processed by Azure Digital Twins |
+| `$metadata.<property-name>.sourceTime` | An optional, writable property representing the timestamp when the property update was observed in the real world. This property can only be written using the **2021-06-30-preview** version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md) and the value must comply to ISO 8601 date and time format. For more information about how to update this property, see [Update a property's sourceTime](how-to-manage-twin.md#update-a-propertys-sourcetime). |
+| `<property-name>` | The value of a property in JSON (`string`, number type, or object) |
 | `$relationships` | The URL of the path to the relationships collection. This field is absent if the digital twin has no outgoing relationship edges. |
-| `$metadata.$model` | [Optional] The ID of the model interface that characterizes this digital twin |
-| `$metadata.{propertyName}.desiredValue` | [Only for writable properties] The desired value of the specified property |
-| `$metadata.{propertyName}.desiredVersion` | [Only for writable properties] The version of the desired value |
-| `$metadata.{propertyName}.ackVersion` | The version acknowledged by the device app implementing the digital twin |
-| `$metadata.{propertyName}.ackCode` | [Only for writable properties] The `ack` code returned by the device app implementing the digital twin |
-| `$metadata.{propertyName}.ackDescription` | [Only for writable properties] The `ack` description returned by the device app implementing the digital twin |
-| `{componentName}` | A JSON object containing the component's property values and metadata, similar to those of the root object. This object exists even if the component has no properties. |
-| `{componentName}.{propertyName}` | The value of the component's property in JSON (`string`, number type, or object) |
-| `{componentName}.$metadata` | The metadata information for the component, similar to the root-level `$metadata` |
+| `<component-name>` | A JSON object containing the component's property values and metadata, similar to those of the root object. This object exists even if the component has no properties. |
+| `<component-name>.$metadata` | The metadata information for the component, similar to the root-level `$metadata` |
+| `<component-name>.<property-name>` | The value of the component's property in JSON (`string`, number type, or object) |
 
-Here is an example of a digital twin formatted as a JSON object:
+Here's an example of a digital twin formatted as a JSON object. This twin has two properties, Humidity and Temperature, and a component called Thermostat.
 
 ```json
 {
-  "$dtId": "Cafe",
-  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
-  "Temperature": 72,
-  "Location": {
-    "x": 101,
-    "y": 33
-  },
-  "component": {
-    "TableOccupancy": 1,
+    "$dtId": "myRoomID",
+    "$etag": "W/\"8e6d3e89-1166-4a1d-9a99-8accd8fef43f\"",
     "$metadata": {
-      "TableOccupancy": {
-        "desiredValue": 1,
-        "desiredVersion": 3,
-        "ackVersion": 2,
-        "ackCode": 200,
-        "ackDescription": "OK"
-      }
-    }
-  },
-  "$metadata": {
-    "$model": "dtmi:com:contoso:Room;1",
-    "Temperature": {
-      "desiredValue": 72,
-      "desiredVersion": 5,
-      "ackVersion": 4,
-      "ackCode": 200,
-      "ackDescription": "OK"
+        "$model": "dtmi:example:Room23;1",
+        "Humidity": {
+          "lastUpdateTime": "2021-11-30T18:47:53.7648958Z"
+        },
+        "Temperature": {
+          "lastUpdateTime": "2021-11-30T18:47:53.7648958Z"
+        }
     },
-    "Location": {
-      "desiredValue": {
-        "x": 101,
-        "y": 33,
-      },
-      "desiredVersion": 8,
-      "ackVersion": 8,
-      "ackCode": 200,
-      "ackDescription": "OK"
+    "Humidity": 55,
+    "Temperature": 35,
+    "Thermostat": {
+        "$metadata": {}
     }
-  }
-}
 ```
 
 ### Relationship JSON format
@@ -145,9 +120,9 @@ When represented as a JSON object, a relationship from a digital twin will displ
 | `$sourceId` | The ID of the source digital twin |
 | `$targetId` | The ID of the target digital twin |
 | `$relationshipName` | The name of the relationship |
-| `{propertyName}` | [Optional] The value of a property of this relationship, in JSON (`string`, number type, or object) |
+| `<property-name>` | [Optional] The value of a property of this relationship, in JSON (`string`, number type, or object) |
 
-Here is an example of a relationship formatted as a JSON object:
+Here's an example of a relationship formatted as a JSON object:
 
 ```json
 {
@@ -163,8 +138,8 @@ Here is an example of a relationship formatted as a JSON object:
 ## Next steps
 
 See how to manage graph elements with Azure Digital Twin APIs:
-* [*How-to: Manage digital twins*](how-to-manage-twin.md)
-* [*How-to: Manage the twin graph with relationships*](how-to-manage-graph.md)
+* [Manage digital twins](how-to-manage-twin.md)
+* [Manage the twin graph and relationships](how-to-manage-graph.md)
 
 Or, learn about querying the Azure Digital Twins twin graph for information:
-* [*Concepts: Query language*](concepts-query-language.md)
+* [Query language](concepts-query-language.md)

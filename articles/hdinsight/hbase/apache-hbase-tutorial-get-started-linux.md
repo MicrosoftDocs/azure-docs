@@ -4,7 +4,7 @@ description: Follow this Apache HBase tutorial to start using hadoop on HDInsigh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 01/22/2021
+ms.date: 03/31/2022
 ---
 
 # Tutorial: Use Apache HBase in Azure HDInsight
@@ -32,7 +32,7 @@ The following procedure uses an Azure Resource Manager template to create an HBa
 
 1. Select the following image to open the template in the Azure portal. The template is located in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. From the **Custom deployment** dialog, enter the following values:
 
@@ -204,7 +204,7 @@ You can query data in HBase tables by using [Apache Hive](https://hive.apache.or
 The Hive query to access HBase data need not be executed from the HBase cluster. Any cluster that comes with Hive (including Spark, Hadoop, HBase, or Interactive Query) can be used to query HBase data, provided the following steps are completed:
 
 1. Both clusters must be attached to the same Virtual Network and Subnet
-2. Copy `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` from the HBase cluster headnodes to the Hive cluster headnodes
+2. Copy `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` from the HBase cluster headnodes to the Hive cluster headnodes and workernodes.
 
 ### Secure Clusters
 
@@ -212,15 +212,15 @@ HBase data can also be queried from Hive using ESP-enabled HBase:
 
 1. When following a multi-cluster pattern, both clusters must be ESP-enabled. 
 2. To allow Hive to query HBase data, make sure that the `hive` user is granted permissions to access the HBase data via the Hbase Apache Ranger plugin
-3. When using separate, ESP-enabled clusters, the contents of `/etc/hosts` from the HBase cluster headnodes must be appended to `/etc/hosts` of the Hive cluster headnodes. 
+3. When using separate, ESP-enabled clusters, the contents of `/etc/hosts` from the HBase cluster headnodes must be appended to `/etc/hosts` of the Hive cluster headnodes and workernodes. 
 > [!NOTE]
 > After scaling either clusters, `/etc/hosts` must be appended again
 
-## Use HBase REST APIs using Curl
+## Use the HBase REST API via Curl
 
-The REST API is secured via [basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You shall always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
+The HBase REST API is secured via [basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You shall always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
 
-1. To enable HBase REST APIs in the HDInsight cluster, add the following custom startup script to the **Script Action** section. You can add the startup script when you create the cluster or after the cluster has been created. For **Node Type**, select **Region Servers** to ensure that the script executes only in HBase Region Servers.
+1. To enable the HBase REST API in the HDInsight cluster, add the following custom startup script to the **Script Action** section. You can add the startup script when you create the cluster or after the cluster has been created. For **Node Type**, select **Region Servers** to ensure that the script executes only in HBase Region Servers.
 
 
 	```bash
@@ -240,7 +240,7 @@ The REST API is secured via [basic authentication](https://en.wikipedia.org/wiki
 		echo "Applying mitigation; starting REST Server"
 		sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
 	else
-		echo "Rest server already running"
+		echo "REST server already running"
 		exit 0
 	fi
 	```
@@ -354,7 +354,7 @@ If you're not going to continue to use this application, delete the HBase cluste
 
 ## Next steps
 
-In this tutorial, you learned how to create an Apache HBase cluster. And how to create tables and view the data in those tables from the HBase shell. You also learned how to use a Hive query on data in HBase tables. And how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table. To learn more, see:
+In this tutorial, you learned how to create an Apache HBase cluster. And how to create tables and view the data in those tables from the HBase shell. You also learned how to use a Hive query on data in HBase tables. And how to use the HBase C# REST API to create an HBase table and retrieve data from the table. To learn more, see:
 
 > [!div class="nextstepaction"]
 > [HDInsight HBase overview](./apache-hbase-overview.md)

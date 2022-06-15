@@ -4,12 +4,14 @@ description: Describes how to modify default monitoring in VM insights guest hea
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2020
+ms.date: 05/03/2022
 
 ---
 
 # Configure monitoring in VM insights guest health using data collection rules (preview)
 [VM insights guest health](vminsights-health-overview.md) allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how you can modify default monitoring across multiple virtual machines using data collection rules.
+
+[!INCLUDE [guest-health-deprecate](../../../includes/azure-monitor-guest-health-deprecation.md)]
 
 
 ## Monitors
@@ -52,7 +54,7 @@ The following table lists the default configuration for each monitor. This defau
 ## Overrides
 An *override* changes one ore more properties of a monitor. For example, an override could disable a monitor that's enabled by default, define warning criteria for the monitor, or modify the monitor's critical threshold. 
 
-Overrides are defined in a [Data Collection Rule (DCR)](../agents/data-collection-rule-overview.md). You can create multiple DCRs with different sets of overrides and apply them to multiple virtual machines. You apply a DCR to a virtual machine by creating an association as described in [Configure data collection for the Azure Monitor agent (preview)](../agents/data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations).
+Overrides are defined in a [Data Collection Rule (DCR)](../essentials/data-collection-rule-overview.md). You can create multiple DCRs with different sets of overrides and apply them to multiple virtual machines. You apply a DCR to a virtual machine by creating an association as described in [Configure data collection for the Azure Monitor agent (preview)](../agents/data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations).
 
 
 ## Multiple overrides
@@ -171,17 +173,17 @@ List of one or more strings that define which monitors in health hierarchy will 
 The following table lists the current available monitor names.
 
 | Type name | Name | Description |
-|:---|:---|:---|
-| root | root | Top level monitor representing virtual machine health. | |
-| cpu-utilization | cpu-utilization | CPU utilization monitor. | |
-| logical-disks | logical-disks | Aggregate monitor for health state of all monitored disks on Windows virtual machine. | |
-| logical-disks\|* | logical-disks\|C:<br>logical-disks\|D: | Aggregate monitor tracking health of a given disk on Windows virtual machine. | 
-| logical-disks\|*\|free-space | logical-disks\|C:\|free-space<br>logical-disks\|D:\|free-space | Disk free space monitor on Windows virtual machine. |
+|:----------|:-----|:------------|
+| root | root | Top level monitor representing virtual machine health. |
+| cpu-utilization | cpu-utilization | CPU utilization monitor. |
+| logical-disks | logical-disks | Aggregate monitor for health state of all monitored disks on Windows virtual machine. |
+| logical-disks\|\* | logical-disks\|C:<br>logical-disks\|D: | Aggregate monitor tracking health of a given disk on Windows virtual machine. |
+| logical-disks\|\*\|free-space | logical-disks\|C:\|free-space<br>logical-disks\|D:\|free-space | Disk free space monitor on Windows virtual machine. |
 | filesystems | filesystems | Aggregate monitor for health of all filesystems on Linux virtual machine. |
-| filesystems\|* | filesystems\|/<br>filesystems\|/mnt | Aggregate monitor tracking health of a filesystem of Linux virtual machine. | filesystems|/var/log |
-| filesystems\|*\|free-space | filesystems\|/\|free-space<br>filesystems\|/mnt\|free-space | Disk free space monitor on Linux virtual machine filesystem. | 
-| memory | memory | Aggregate monitor for health of virtual machine memory. | |
-| memory\|available| memory\|available | Monitor tracking available memory on the virtual machine. | |
+| filesystems\|\* | filesystems\|/<br>filesystems\|/mnt | Aggregate monitor tracking health of a filesystem of Linux virtual machine. |
+| filesystems\|\*\|free-space | filesystems\|/\|free-space<br>filesystems\|/mnt\|free-space | Disk free space monitor on Linux virtual machine filesystem. |
+| memory | memory | Aggregate monitor for health of virtual machine memory. |
+| memory\|available | memory\|available | Monitor tracking available memory on the virtual machine. |
 
 
 ## alertConfiguration element
@@ -271,4 +273,4 @@ For a sample data collection rule enabling guest monitoring, see [Enable a virtu
 
 ## Next steps
 
-- Read more about [data collection rules](../agents/data-collection-rule-overview.md).
+- Read more about [data collection rules](../essentials/data-collection-rule-overview.md).

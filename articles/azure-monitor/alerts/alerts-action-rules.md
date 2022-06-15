@@ -1,332 +1,263 @@
 ---
-title: Action rules for Azure Monitor alerts
-description: Understanding what action rules in Azure Monitor are and how to configure and manage them.
+title: Alert processing rules for Azure Monitor alerts
+description: Understanding what alert processing rules in Azure Monitor are and how to configure and manage them.
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 2/23/2022
 
 ---
 
-# Action rules (preview)
+# Alert processing rules
 
-Action rules let you add or suppress the action groups on your fired alerts. A single rule can cover different scopes of target resources, for example - any alert on a specific resource (like a specific virtual machine) or any alert fired on any resource in a subscription. You can optionally add various filters to control which alerts are covered by a rule and define a schedule for it, for example for it to be in effect only outside business hours or during a planned maintenance window.
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
-
-## Why and when should you use action rules?
-
-### Suppression of alerts
-
-There are many scenarios where it's useful to suppress the notifications that alerts generate. These scenarios range from suppression during a planned maintenance window to suppression during non-business hours. For example, the team responsible for  **ContosoVM** wants to suppress alert notifications for the upcoming weekend, because **ContosoVM** is undergoing planned maintenance.
-
-Although the team can disable each alert rule that's configured on **ContosoVM** manually (and enable it again after maintenance), it's not a simple process. Action rules help you define alert suppression at scale with the ability to flexibly configure the period of suppression. In the previous example, the team can define one action rule on **ContosoVM** that suppresses all alert notifications for the weekend.
-
-### Actions at scale
-
-Although alert rules help you define the action group that triggers when the alert is generated, customers often have a common action group across their scope of operations. For example, a team responsible for the resource group **ContosoRG** will probably define the same action group for all alert rules defined within **ContosoRG**.
-
-Action rules help you simplify this process. By defining actions at scale, an action group can be triggered for any alert that's generated on the configured scope. In the previous example, the team can define one action rule on **ContosoRG** that will trigger the same action group for all alerts generated within it.
+<a name="configuring-an-action-rule"></a>
+<a name="suppression-of-alerts"></a>
 
 > [!NOTE]
-> Action rules do not apply to Azure Service Health alerts.
+> The previous name for alert processing rules was **action rules**. The Azure resource type of these rules remains **Microsoft.AlertsManagement/actionRules** for backward compatibility.
 
-## Configuring an action rule
+Alert processing rules allow you to apply processing on **fired alerts**. You may be familiar with Azure Monitor alert rules, which are rules that generate new alerts. Alert processing rules are different; they are rules that modify the fired alerts themselves as they are being fired. You can use alert processing rules to add [action groups](./action-groups.md) or remove (suppress) action groups from your fired alerts. Alert processing rules can be applied to different resource scopes, from a single resource to an entire subscription. They can also allow you to apply various filters or have the rule work on a pre-defined schedule.
+
+## What are alert processing rules useful for?
+
+Some common use cases for alert processing rules include:
+
+### Notification suppression during planned maintenance
+
+Many customers set up a planned maintenance time for their resources, either on a one-off basis or on a regular schedule. The planned maintenance may cover a single resource like a virtual machine, or multiple resources like all virtual machines in a resource group. Those customers may choose to stop receiving alert notifications for those resources during the maintenance window. 
+  
+Other customers do not need to receive alert notifications at all outside of their business hours.
+
+You could suppress alert notifications by disabling the alert rules themselves, but this approach has several limitations:
+   * You could disable the relevant alert rule at the beginning of the maintenance window. Once the maintenance is over, you can then re-enable the alert rule. However, this  approach is only practical if the scope of the alert rule is exactly the scope of the resources under maintenance. For example, a single alert rule might cover multiple resources, but only one of those resources is going through maintenance. So, if you disable the alert rule, you will miss valid alerts on the remaining resources covered by that rule.
+   * You may have many alert rules that cover the resource. Updating all of them is time consuming and error prone.
+   * You might have some alerts that are not created by an alert rule at all.
+In all these cases, an alert processing rule provides an easy way to achieve the notification suppression goal.
+
+### Management at scale
+
+Most customers tend to define a few action groups that are used repeatedly in their alert rules. For example, they may want to call a specific action group whenever any high severity alert is fired. As their number of alert rule grows, manually making sure that each alert rule has the right set of action groups is becoming harder. 
+
+Alert processing rules allow you to specify that logic in a single rule, instead of having to set it consistently in all your  alert rules. They also cover alert types that are not generated by an alert rule.
+
+### Add action groups to all alert types
+
+Azure Monitor alert rules let you select which action groups will be triggered when their alerts are fired. However, not all Azure alert sources let you specify action groups. Some examples of such alerts include [Azure Backup alerts](../../backup/backup-azure-monitoring-built-in-monitor.md), [VM Insights guest health alerts](../vm/vminsights-health-alerts.md), [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-manage-device-event-alert-notifications.md), and Azure Stack Hub.
+
+For those alert types, you can use alert processing rules to add action groups.
+
+> [!NOTE]
+> Alert processing rules do not affect [Azure Service Health](../../service-health/service-health-overview.md) alerts.
+
+## Alert processing rule properties
+<a name="filter-criteria"></a>
+
+An alert processing rule definition covers several aspects:
+
+### Which fired alerts are affected by this rule? 
+
+**SCOPE**  
+Each alert processing rule has a scope. A scope is a list of one or more specific Azure resources, or specific resource group, or an entire subscription. **The alert processing rule will apply to alerts that fired on resources within that scope**.  
+
+**FILTERS**  
+You can also define filters to narrow down which specific subset of alerts are affected within the scope. The available filters are:  
+
+* **Alert Context (payload)** - the rule will apply only to alerts that contain any of the filter's strings within the [alert context](./alerts-common-schema-definitions.md#alert-context) section of the alert. This section includes fields specific to each alert type.
+* **Alert rule id** - the rule will apply only to alerts from a specific alert rule. The value should be the full resource ID, for example `/subscriptions/SUB1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/MY-API-LATENCY`.  
+You can locate the alert rule ID by opening a specific alert rule in the portal, clicking "Properties", and copying the "Resource ID" value. You can also locate it by listing your alert rules from PowerShell or CLI.
+* **Alert rule name** - the rule will apply only to alerts with this alert rule name. Can also be useful with a "Contains" operator.
+* **Description** - the rule will apply only to alerts that contain the specified string within the alert rule description field.
+* **Monitor condition** - the rule will apply only to alerts with the specified monitor condition, either "Fired" or "Resolved".
+*  **Monitor service** - the rule will apply only to alerts from any of the specified monitor services.  
+For example, use "Platform" to have the rule apply only to metric alerts.
+* **Resource** - the rule will apply only to alerts from the specified Azure resource.  
+For example, you can use this filter with "Does not equal" to exclude one or more resources when the rule's scope is a subscription.  
+* **Resource group** - the rule will apply only to alerts from the specified resource groups.  
+For example, you can use this filter with "Does not equal" to exclude one or more resource groups when the rule's scope is a subscription.  
+* **Resource type** - the rule will apply only to alerts on resource from the specified resource types, such as virtual machines. You can use "Equals" to match one or more specific resources, or you can use contains to match a resource type and all its child resources.  
+For example, use `resource type contains "MICROSOFT.SQL/SERVERS"` to match both SQL servers and all their child resources, like databases.
+* **Severity** - the rule will apply only to alerts with the selected severities.  
+
+**FILTERS BEHAVIOR**  
+* If you define multiple filters in a rule, all of them apply - there is a logical AND between all filters.  
+  For example, if you set both `resource type = "Virtual Machines"` and `severity = "Sev0"`, then the rule will apply only for Sev0 alerts on virtual machines in the scope.
+* Each filter may include up to five values, and there is a logical OR between the values.  
+  For example, if you set `description contains ["this", "that"]`, then the rule will apply only to alerts whose description contains either "this" or "that".
+
+### What should this rule do?
+
+Choose one of the following actions:
+
+* **Suppression**  
+This action removes all the action groups from the affected fired alerts. So, the fired alerts will not invoke any of their action groups (not even at the end of the maintenance window). Those fired alerts will still be visible when you list your alerts in the portal, Azure Resource Graph, API, PowerShell etc.
+The suppression action has a higher priority over the "apply action groups" action - if a single fired alert is affected by different alert processing rules of both types, the action groups of that alert will be suppressed.
+
+* **Apply action groups**  
+This action adds one or more action groups to the affected fired alerts.
+
+### When should this rule apply?
+
+You may optionally control when will the rule apply. By default, the rule is applied unconditionally as long as it is enabled. However, you can select a one-off window for this rule to apply, or have a recurring window such as a weekly recurrence. 
+
+## Configuring an alert processing rule
 
 ### [Portal](#tab/portal)
 
-You can access the feature by selecting **Manage actions** from the **Alerts** landing page in Azure Monitor. Then, select **Action rules (preview)**. You can access the rules by selecting **Action rules (preview)** from the dashboard of the landing page for alerts.
+You can access alert processing rules by navigating to the **Alerts** home page in Azure Monitor.  
+Once there, you can click **Alert processing rules** to see and manage your existing rules, or click **Create** --> **Alert processing rules** to open the new alert processing rule wizard.
 
-![Action rules from the Azure Monitor landing page](media/alerts-action-rules/action-rules-landing-page.png)
+![Accessing alert processing rules from the Azure Monitor landing page.](media/alerts-action-rules/action-rules-alerts-landing-page.png)
 
-Select **+ New Action Rule**.
+Lets review the new alert processing rule wizard.  
+In the first tab (**Scope**), you select which fired alerts are covered by this rule. Pick the **scope** of resources whose alerts will be covered - you may choose multiple resources and resource groups, or an entire subscription. You may also optionally add **filters**, as documented above.
 
-![Screenshot shows the Manage Actions page with the New Action Rule button highlighted.](media/alerts-action-rules/action-rules-new-rule.png)
+![Alert processing rules wizard - scope tab.](media/alerts-action-rules/action-rules-wizard-scope-tab.png)
 
-Alternatively, you can create an action rule while you're configuring an alert rule.
+In the second tab (**Rule settings**), you select which action to apply on the affected alerts. Choose between **Suppression** or **Apply action group**. If you choose the apply action group, you can either select existing action groups by clicking **Add action groups**, or create a new action group.
 
-![Screenshot shows the Create rule page with the Create action rule button highlighted.](media/alerts-action-rules/action-rules-alert-rule.png)
+![Alert processing rules wizard - rule settings tab.](media/alerts-action-rules/action-rules-wizard-rule-settings-tab.png)
 
-You should now see the flow page for creating action rules. Configure the following elements:
+In the third tab (**Scheduling**), you select an optional schedule for the rule. By default the rule works all the time, as long as it is not disabled. However, you can set it to work **on a specific time**, or **set up a recurring schedule**.  
+Let's see an example of a schedule for a one-off, overnight, planned maintenance. It starts in the evening until the next morning, in a specific timezone:
 
-![New action rule creation flow](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
+![Alert processing rules wizard - scheduling tab - one-off schedule.](media/alerts-action-rules/action-rules-wizard-scheduling-tab-once.png)
 
-### Scope
+Let's see an example of a more complex schedule, covering an "outside of business hours" case. It has a recurring schedule with two recurrences - a daily one from the afternoon until the morning, and a weekly one covering Saturday and Sunday (full days).
 
-First choose the scope (Azure subscription, resource group, or target resource). You can also multiple-select a combination of scopes within a single subscription.
+![Alert processing rules wizard - scheduling tab - recurring schedule.](media/alerts-action-rules/action-rules-wizard-scheduling-tab-recurring.png)
 
-![Action rule scope](media/alerts-action-rules/action-rules-new-rule-creation-flow-scope.png)
-
-### Filter criteria
-
-You can optionally define filters so the rule will apply to a specific subset of the alerts, or to specific events on each alert (for example, only "Fired" or only "Resolved").
-
-The available filters are:
-
-* **Severity**  
-This rule will apply only to alerts with the selected severities.  
-For example, **severity = Sev1** means that the rule will apply only to alerts with Sev1 severity.
-* **Monitor service**  
-This rule will apply only to alerts coming from the selected monitoring services.  
-For example, **monitor service = “Azure Backup”** means that the rule will apply only to backup alerts (coming from  Azure Backup).
-* **Resource type**  
-This rule will apply only to alerts on the selected resource types.  
-For example, **resource type = “Virtual Machines”** means that the rule will apply only to alerts on virtual machines.
-* **Alert rule ID**  
-This rule will apply only to alerts coming from a specific alert rule. The value should be the Resource Manager ID of the alert rule.  
-For example, **alert rule ID = "/subscriptions/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** means this rule will apply only to alerts coming from "API-Latency" metric alert rule.  
-_NOTE - you can get the proper alert rule ID by listing your alert rules from the CLI, or by opening a specific alert rule in the portal, clicking "Properties", and copying the "Resource ID" value._
-* **Monitor condition**  
-This rule will apply only to alert events with the specified monitor condition - either **Fired** or **Resolved**.
-* **Description**  
-This rule will apply only to alerts that contains a specific string in the alert description field. That field contains the alert rule description.  
-For example, **description contains 'prod'** means that the rule will only match alerts that contain the string "prod" in their description.
-* **Alert context (payload)**  
-This rule will apply only to alerts that contain any of one or more specific values in the alert context fields.  
-For example, **alert context (payload) contains 'Computer-01'** means that the rule will only apply to alerts whose payload contain the string "Computer-01".
-
-If you set multiple filters in a rule, all of them apply. For example, if you set **resource type' = Virtual Machines** and **severity' = Sev0**, then the rule will apply only for Sev0 alerts on virtual machines.
-
-![Action rule filters](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
-
-### Suppression or action group configuration
-
-Next, configure the action rule for either alert suppression or action group support. You can't choose both. The configuration acts on all alert instances that match the previously defined scope and filters.
-
-#### Suppression
-
-If you select **suppression**, configure the duration for the suppression of actions and notifications. Choose one of the following options:
-* **From now (Always)**: Suppresses all notifications indefinitely.
-* **At a scheduled time**: Suppresses notifications within a bounded duration.
-* **With a recurrence**: Suppresses notifications on a recurring daily, weekly, or monthly schedule.
-
-![Action rule suppression](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
-
-#### Action group
-
-If you select **Action group** in the toggle, either add an existing action group or create a new one.
-
-> [!NOTE]
-> You can associate only one action group with an action rule.
-
-![Add or create new action rule by selecting Action group](media/alerts-action-rules/action-rules-new-rule-creation-flow-action-group.png)
-
-### Action rule details
-
-Last, configure the following details for the action rule:
-* Name
-* Resource group in which it's saved
-* Description
+In the fourth tab (**Details**), you give this rule a name, pick where it will be stored, and optionally add a description for your reference. In the fifth tab (**Tags**), you optionally add tags to the rule, and finally in the last tab you can review and create the alert processing rule.
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can create action rules with the Azure CLI using the [az monitor action-rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) command.  The `az monitor action-rule` reference is just one of many [Azure CLI references for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
+You can use the Azure CLI to work with alert processing rules. See the `az monitor alert-processing-rules` [page in the Azure CLI docs](/cli/azure/monitor/alert-processing-rule)  for detailed documentation and examples.
 
 ### Prepare your environment
 
-1. [Install the Azure CLI](/cli/azure/install-azure-cli)
+1. **Install the Auzre CLI**
 
-   If you prefer, you can also use Azure Cloud Shell to complete the steps in this article.  Azure Cloud Shell is an interactive shell environment that you use through your browser.  Start Cloud Shell by using one of these methods:
+   Follow the [Installation instructions for the Azure CLI](/cli/azure/install-azure-cli).
+
+   Alternatively, you can use Azure Cloud Shell, which is an interactive shell environment that you use through your browser. To start a Cloud Shell:
 
    - Open Cloud Shell by going to [https://shell.azure.com](https://shell.azure.com)
 
    - Select the **Cloud Shell** button on the menu bar at the upper right corner in the [Azure portal](https://portal.azure.com)
 
-1. Sign in.
+1. **Sign in**
 
-   If you're using a local install of the CLI, sign in using the [az login](/cli/azure/reference-index#az-login) command.  Follow the steps displayed in your terminal to complete the authentication process.
+   If you're using a local installation of the CLI, sign in using the `az login` [command](/cli/azure/reference-index#az-login). Follow the steps displayed in your terminal to complete the authentication process.
 
     ```azurecli
     az login
     ```
 
-1. Install the `alertsmanagement` extension
+1. **Install the `alertsmanagement` extension**
 
-   The `az monitor action-rule` command is an experimental extension of the core Azure CLI. Learn more about extension references in [Use extension with Azure CLI](/cli/azure/azure-cli-extensions-overview?).
+   In order to use the `az monitor alert-processing-rule` commands, install the `alertsmanagement` preview extension.
 
    ```azurecli
    az extension add --name alertsmanagement
    ```
 
-   The following warning is expected.
+   The following output is expected.
 
    ```output
-   The installed extension `alertsmanagement` is experimental and not covered by customer support.  Please use with discretion.
+   The installed extension 'alertsmanagement' is in preview.
    ```
+   
+   To learn more about Azure CLI extensions, check [Use extension with Azure CLI](/cli/azure/azure-cli-extensions-overview?).
 
-### Create action rules with the Azure CLI
+### Create an alert processing rule with the Azure CLI
 
-See the Azure CLI reference content for [az monitor action-rule create](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create) to learn about required and optional parameters.
-
-Create an action rule to suppress notifications in a resource group.
-
-```azurecli
-az monitor action-rule create --resource-group MyResourceGroupName \
-                              --name MyNewActionRuleName \
-                              --location Global \
-                              --status Enabled \
-                              --rule-type Suppression \
-                              --scope-type ResourceGroup \
-                              --scope /subscriptions/0b1f6471-1bf0-4dda-aec3-cb9272f09590/resourceGroups/MyResourceGroupName \
-                              --suppression-recurrence-type Always \
-                              --alert-context Contains Computer-01 \
-                               --monitor-service Equals "Log Analytics"
-```
-
-Create an action rule to suppress notifications for all Sev4 alerts on all VMs within the subscription every weekend.
+Use the `az monitor alert-processing-rule create` command to create alert processing rules.  
+For example, to create a rule that adds an action group to all alerts in a subscription, run:
 
 ```azurecli
-az monitor action-rule create --resource-group MyResourceGroupName \
-                              --name MyNewActionRuleName \
-                              --location Global \
-                              --status Enabled \
-                              --rule-type Suppression \
-                              --severity Equals Sev4 \
-                              --target-resource-type Equals Microsoft.Compute/VirtualMachines \
-                              --suppression-recurrence-type Weekly \
-                              --suppression-recurrence 0 6 \
-                              --suppression-start-date 12/09/2018 \
-                              --suppression-end-date 12/18/2018 \
-                              --suppression-start-time 06:00:00 \
-                              --suppression-end-time 14:00:00
-
+az monitor alert-processing-rule create \
+  --name 'AddActionGroupToSubscription' \
+  --rule-type AddActionGroups \
+  --scopes "/subscriptions/SUB1" \
+  --action-groups "/subscriptions/SUB1/resourcegroups/RG1/providers/microsoft.insights/actiongroups/AG1" \
+  --resource-group RG1 \
+  --description "Add action group AG1 to all alerts in the subscription"
 ```
+
+The [CLI documentation](/cli/azure/monitor/alert-processing-rule#az-monitor-alert-processing-rule-create) include more examples and an explanation of each parameter.
+
+### [PowerShell](#tab/powershell)
+
+You can use PowerShell to work with alert processing rules. See the `*-AzAlertProcessingRule` commands [in the PowerShell docs](/powershell/module/az.alertsmanagement) for detailed documentation and examples.
+
+
+### Create an alert processing rule using PowerShell
+
+Use the `Set-AzAlertProcessingRule` command to create alert processing rules.  
+For example, to create a rule that adds an action group to all alerts in a subscription, run:
+
+```powershell
+Set-AzAlertProcessingRule `
+  -Name AddActionGroupToSubscription `
+  -AlertProcessingRuleType AddActionGroups `
+  -Scope /subscriptions/SUB1 `
+  -ActionGroupId /subscriptions/SUB1/resourcegroups/RG1/providers/microsoft.insights/actiongroups/AG1 `
+  -ResourceGroupName RG1 `
+  -Description "Add action group AG1 to all alerts in the subscription"
+```
+
+The [PowerShell documentation](/cli/azure/monitor/alert-processing-rule#az-monitor-alert-processing-rule-create) include more examples and an explanation of each parameter.
 
 * * *
 
-## Example scenarios
-
-### Scenario 1: Suppression of alerts based on severity
-
-Contoso wants to suppress notifications for all Sev4 alerts on all VMs within the subscription **ContosoSub** every weekend.
-
-**Solution:** Create an action rule with:
-* Scope = **ContosoSub**
-* Filters
-    * Severity = **Sev4**
-    * Resource Type = **Virtual Machines**
-* Suppression with recurrence set to weekly, and **Saturday** and **Sunday** checked
-
-### Scenario 2: Suppression of alerts based on alert context (payload)
-
-Contoso wants to suppress notifications for all log alerts generated for **Computer-01** in **ContosoSub** indefinitely as it's going through maintenance.
-
-**Solution:** Create an action rule with:
-* Scope = **ContosoSub**
-* Filters
-    * Monitor Service = **Log Analytics**
-    * Alert Context (payload) contains **Computer-01**
-* Suppression set to **From now (Always)**
-
-### Scenario 3: Action group defined at a resource group
-
-Contoso has defined [a metric alert at a subscription level](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). But it wants to define the actions that trigger specifically for alerts generated from the resource group **ContosoRG**.
-
-**Solution:** Create an action rule with:
-* Scope = **ContosoRG**
-* No filters
-* Action group set to **ContosoActionGroup**
-
-> [!NOTE]
-> *Action groups defined within action rules and alert rules operate independently, with no deduplication.* In the scenario described earlier, if an action group is defined for the alert rule, it triggers in conjunction with the action group defined in the action rule.
-
-## Managing your action rules
+## Managing alert processing rules
 
 ### [Portal](#tab/portal)
 
-You can view and manage your action rules from the list view:
+You can view and manage your alert processing rules from the list view:
 
-![Action rules list view](media/alerts-action-rules/action-rules-list-view.png)
+![List of alert processing rules in the portal.](media/alerts-action-rules/action-rules-new-list-view.png)
 
-From here, you can enable, disable, or delete action rules at scale by selecting the check box next to them. When you select an action rule, its configuration page opens. The page helps you update the action rule's definition and enable or disable it.
+From here, you can enable, disable, or delete alert processing rules at scale by selecting the check box next to them. Clicking on an alert processing rule will open it for editing - you can enable or disable the rule in the fourth tab (**Details**).
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can view and manage your action rules using the [az monitor action-rule](/cli/azure/ext/alertsmanagement/monitor) command from the Azure CLI.
+You can view and manage your alert processing rules using the [az monitor alert-processing-rules](/cli/azure/monitor/alert-processing-rule) commands from Azure CLI.
 
-Before you manage action rules with the Azure CLI, prepare your environment using the instructions provided in [Configuring an action rule](#configuring-an-action-rule).
+Before you manage alert processing rules with the Azure CLI, prepare your environment using the instructions provided in [Configuring an alert processing rule](#configuring-an-alert-processing-rule).
 
 ```azurecli
-# List all action rules for a subscription
-az monitor action-rule list
+# List all alert processing rules for a subscription
+az monitor alert-processing-rules list
 
-# Get details of an action rule
-az monitor action-rule show --resource-group MyResourceGroupName --name MyActionRuleName
+# Get details of an alert processing rule
+az monitor alert-processing-rules show --resource-group RG1 --name MyRule
 
-# Update an action rule.
-az monitor action-rule update --resource-group MyResourceGroupName --name MyActionRuleName --status Disabled
+# Update an alert processing rule
+az monitor alert-processing-rules update --resource-group RG1 --name MyRule --status Disabled
 
-# Delete an action rule.
-az monitor action-rule delete --resource-group MyResourceGroupName --name MyActionRuleName
+# Delete an alert processing rule
+az monitor alert-processing-rules delete --resource-group RG1 --name MyRule
+```
+
+### [PowerShell](#tab/powershell)
+
+You can view and manage your alert processing rules using the [\*-AzAlertProcessingRule](/powershell/module/az.alertsmanagement) commands from Azure CLI.
+
+Before you manage alert processing rules with the Azure CLI, prepare your environment using the instructions provided in [Configuring an alert processing rule](#configuring-an-alert-processing-rule).
+
+```powershell
+# List all alert processing rules for a subscription
+Get-AzAlertProcessingRule
+
+# Get details of an alert processing rule
+Get-AzAlertProcessingRule -ResourceGroupName RG1 -Name MyRule | Format-List
+
+# Update an alert processing rule
+Update-AzAlertProcessingRule -ResourceGroupName RG1 -Name MyRule -Enabled False
+
+# Delete an alert processing rule
+Remove-AzAlertProcessingRule -ResourceGroupName RG1 -Name MyRule
 ```
 
 * * *
-
-## Best practices
-
-Log alerts that you create with the [number of results](./alerts-unified-log.md) option generate a single alert instance by using the whole search result (which might span across multiple computers). In this scenario, if an action rule uses the **Alert Context (payload)** filter, it acts on the alert instance as long as there's a match. In Scenario 2, described previously, if the search results for the generated log alert contain both **Computer-01** and **Computer-02**, the entire notification is suppressed. There's no notification generated for **Computer-02** at all.
-
-![Diagram shows the action rules and log alerts with a single Alert instance highlighted.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
-
-To best use log alerts with action rules, create log alerts with the [metric measurement](./alerts-unified-log.md) option. Separate alert instances are generated by this option, based on its defined group field. Then, in Scenario 2, separate alert instances are generated for **Computer-01** and **Computer-02**. Due to the action rule described in the scenario, only the notification for **Computer-01** is suppressed. The notification for **Computer-02** continues to fire as normal.
-
-![Action rules and log alerts (number of results)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
-
-## FAQ
-
-### While I'm configuring an action rule, I'd like to see all the possible overlapping action rules, so that I avoid duplicate notifications. Is it possible to do that?
-
-After you define a scope as you configure an action rule, you can see a list of action rules that overlap on the same scope (if any). This overlap can be one of the following options:
-
-* An exact match: For example, the action rule you're defining and the overlapping action rule are on the same subscription.
-* A subset: For example, the action rule you're defining is on a subscription, and the overlapping action rule is on a resource group within the subscription.
-* A superset: For example, the action rule you're defining is on a resource group, and the overlapping action rule is on the subscription that contains the resource group.
-* An intersection: For example, the action rule you're defining is on **VM1** and **VM2**, and the overlapping action rule is on **VM2** and **VM3**.
-
-![Screenshot shows the New Action Rule page with the overlapping action rules displayed in the Action rules defined on the same scope window.](media/alerts-action-rules/action-rules-overlapping.png)
-
-### While I'm configuring an alert rule, is it possible to know if there are already action rules defined that might act on the alert rule I'm defining?
-
-After you define the target resource for your alert rule, you can see the list of action rules that act on the same scope (if any) by selecting **View configured actions** under the **Actions** section. This list is populated based on the following scenarios for the scope:
-
-* An exact match: For example, the alert rule you're defining and the action rule are on the same subscription.
-* A subset: For example, the alert rule you're defining is on a subscription, and the action rule is on a resource group within the subscription.
-* A superset: For example, the alert rule you're defining is on a resource group, and the action rule is on the subscription that contains the resource group.
-* An intersection: For example, the alert rule you're defining is on **VM1** and **VM2**, and the action rule is on **VM2** and **VM3**.
-
-![Overlapping action rules](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
-
-### Can I see the alerts that have been suppressed by an action rule?
-
-In the [alerts list page](./alerts-managing-alert-instances.md), you can choose an additional column called **Suppression Status**. If the notification for an alert instance was suppressed, it would show that status in the list.
-
-![Suppressed alert instances](media/alerts-action-rules/action-rules-suppressed-alerts.png)
-
-### If there's an action rule with an action group and another with suppression active on the same scope, what happens?
-
-Suppression always takes precedence on the same scope.
-
-### What happens if I have a resource that is covered by two action rules? Do I get one or two notifications? For example, **VM2** in the following scenario:
-
-   `action rule AR1 defined for VM1 and VM2 with action group AG1`
-
-   `action rule AR2 defined for VM2 and VM3 with action group AG1`
-
-For every alert on VM1 and VM3, action group AG1 would be triggered once. For every alert on **VM2**, action group AG1 would be triggered twice, because action rules don't deduplicate actions.
-
-### What happens if I have a resource monitored in two separate action rules and one calls for action while another for suppression? For example, **VM2** in the following scenario:
-
-   `action rule AR1 defined for VM1 and VM2 with action group AG1`
-
-   `action rule AR2 defined for VM2 and VM3 with suppression`
-
-For every alert on VM1, action group AG1 would be triggered once. Actions and notifications for every alert on VM2 and VM3 will be suppressed.
-
-### What happens if I have an alert rule and an action rule defined for the same resource calling different action groups? For example, **VM1** in the following scenario:
-
-   `alert rule rule1 on VM1 with action group AG2`
-
-   `action rule AR1 defined for VM1 with action group AG1`
-
-For every alert on VM1, action group AG1 would be triggered once. Whenever alert rule "rule1" is triggered, it will also trigger AG2 additionally. Action groups defined within action rules and alert rules operate independently, with no deduplication.
 
 ## Next steps
 

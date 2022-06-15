@@ -58,7 +58,7 @@ To create an automation module for the StorSimple 8000 series device management,
         wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1 -Out Monitor-Backups.ps1
     ```
 
-5. Create an Azure Automation Runbook Module for StorSimple 8000 Series device management. On the Windows Powershell window, type the following commands:
+5. Create an Azure Automation Runbook Module for StorSimple 8000 Series device management. On the Windows PowerShell window, type the following commands:
 
     ```powershell
         # set path variables
@@ -202,7 +202,7 @@ To create an automation module for the StorSimple 8000 series device management,
 
     ![click-new-runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-8. Edit the runbook and click **Test pane**. Provide the parameters such as name of your StorSimple Device Manager service, name of the StorSimple device and the subscription. **Start** the test. The report is generated when the run is complete. For more information, go to [how to test a runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook).
+8. Edit the runbook and click **Test pane**. Provide the parameters such as name of your StorSimple Device Manager service, name of the StorSimple device and the subscription. **Start** the test. The report is generated when the run is complete. For more information, go to [how to test a runbook](../automation/learn/powershell-runbook-managed-identity.md).
 
     ![Screenshot shows the Test pan where you canenter parameter values and start a test](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 

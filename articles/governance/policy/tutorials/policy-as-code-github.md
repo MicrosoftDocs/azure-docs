@@ -1,8 +1,10 @@
 ---
 title: "Tutorial: Implement Azure Policy as Code with GitHub"
 description: In this tutorial, you implement an Azure Policy as Code workflow with export, GitHub actions, and GitHub workflows
-ms.date: 10/20/2020
+ms.date: 06/07/2022
 ms.topic: tutorial
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Tutorial: Implement Azure Policy as Code with GitHub
 
@@ -25,6 +27,7 @@ resources, the quickstart articles explain how to do so.
   [free account](https://azure.microsoft.com/free/) before you begin.
 - Review [Design an Azure Policy as Code workflow](../concepts/policy-as-code.md) to have an
   understanding of the design patterns used in this tutorial.
+- Your account must be assigned the **Owner** role at the management group or subscription scope. For more information on Azure RBAC permissions in Azure Policy, see [Overview of Azure Policy](../overview.md).
 
 ### Export Azure Policy objects from the Azure portal
 
@@ -48,7 +51,7 @@ To export a policy definition from Azure portal, follow these steps:
    Policies** button at the bottom of the page.
 
    - **Repository filter**: Set to _My repositories_ to see only repositories you own or _All
-     repositories_ to see all you granted the GitHub Action access to.
+     repositories_ to see all you granted the GitHub Actions access to.
    - **Repository**: Set to the repository that you want to export the Azure Policy resources to.
    - **Branch**: Set the branch in the repository. Using a branch other than the default is a good
      way to validate your updates before merging further into your source code.
@@ -57,7 +60,7 @@ To export a policy definition from Azure portal, follow these steps:
 
 1. On the **Policies** tab, set the scope to search by selecting the ellipsis and picking a
    combination of management groups, subscriptions, or resource groups.
-   
+
 1. Use the **Add policy definition(s)** button to search the scope for which objects to export. In
    the side window that opens, select each object to export. Filter the selection by the search box
    or the type. Once you've selected all objects to export, use the **Add** button at the bottom of
@@ -137,32 +140,30 @@ you can trigger an on-demand compliance evaluation scan from your
 on one or multiple resources, resource groups, or subscriptions, and alter the workflow path based
 on the compliance state of those resources. You can also configure the workflow to run at a
 scheduled time to get the latest compliance status at a convenient time. Optionally, this
-GitHub action can also generate a report on the compliance state of scanned resources for further
+GitHub Actions can also generate a report on the compliance state of scanned resources for further
 analysis or for archiving.
 
-The following example runs a compliance scan for a subscription. 
+The following example runs a compliance scan for a subscription.
 
 ```yaml
 
 on:
-  schedule:    
+  schedule:
     - cron:  '0 8 * * *'  # runs every morning 8am
 jobs:
-  assess-policy-compliance:    
+  assess-policy-compliance:
     runs-on: ubuntu-latest
-    steps:         
+    steps:
     - name: Login to Azure
       uses: azure/login@v1
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}} 
+        creds: ${{secrets.AZURE_CREDENTIALS}}
 
-    
     - name: Check for resource compliance
       uses: azure/policy-compliance-scan@v0
       with:
         scopes: |
           /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-
 ```
 
 ## Review

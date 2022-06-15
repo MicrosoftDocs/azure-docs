@@ -5,9 +5,11 @@ services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: quickstart
-ms.date: 07/06/2020
+ms.topic: how-to
+ms.date: 10/28/2021
 ms.author: marhamil
+ms.devlang: python
+ms.custom: mode-other
 ---
 
 # Getting started
@@ -22,11 +24,11 @@ In this article, we'll perform these steps to get you started:
 
 ## Create a Cognitive Services resource
 
-To use the Big Data Cognitive Services, we must first create a Cognitive Service for our workflow. There are two main types of Cognitive Services: cloud services hosted in Azure and containerized services managed by users. We recommend starting with the simpler cloud-based Cognitive Services.
+To use the Big Data Cognitive Services, you must first create a Cognitive Service for your workflow. There are two main types of Cognitive Services: cloud services hosted in Azure and containerized services managed by users. We recommend starting with the simpler cloud-based Cognitive Services.
 
 ### Cloud services
 
-Cloud-based Cognitive Services is intelligent algorithms hosted in Azure. These services are ready for use without training, you just need an internet connection. You can [create a Cognitive Service in the Azure portal](../cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows) or with the [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows).
+Cloud-based Cognitive Services are intelligent algorithms hosted in Azure. These services are ready for use without training, you just need an internet connection. You can [create a Cognitive Service in the Azure portal](../cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows) or with the [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows).
 
 ### Containerized services (optional)
 
@@ -44,7 +46,7 @@ Follow [this guide](../cognitive-services-container-support.md?tabs=luis) to cre
 
 ## Create an Apache Spark cluster
 
-[Apache Spark&trade;](http://spark.apache.org/) is a distributed computing framework designed for big-data data processing. Users can work with Apache Spark in Azure with services like Azure Databricks, Azure Synapse Analytics, HDInsight, and Azure Kubernetes Services. To use the Big Data Cognitive Services, we must first create a cluster. If you already have a Spark cluster, feel free to try an example.
+[Apache Spark&trade;](http://spark.apache.org/) is a distributed computing framework designed for big-data data processing. Users can work with Apache Spark in Azure with services like Azure Databricks, Azure Synapse Analytics, HDInsight, and Azure Kubernetes Services. To use the Big Data Cognitive Services, you must first create a cluster. If you already have a Spark cluster, feel free to try an example.
 
 ### Azure Databricks
 
@@ -77,17 +79,17 @@ If you're using containerized Cognitive Services, one popular option for deployi
 
 To get started on Azure Kubernetes Service, follow these steps:
 
-1. [Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](../../aks/kubernetes-walkthrough-portal.md)
+1. [Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](../../aks/learn/quick-kubernetes-deploy-portal.md)
 1. [Install the Apache Spark 2.4.0 helm chart](https://hub.helm.sh/charts/microsoft/spark)
 1. [Install a cognitive service container using Helm](../computer-vision/deploy-computer-vision-on-premises.md)
 
 ## Try a sample
 
-After you set up your Spark cluster and environment, we can run a short sample. This section demonstrates how to use the Big Data for Cognitive Services in Azure Databricks.
+After you set up your Spark cluster and environment, you can run a short sample. This section demonstrates how to use the Big Data for Cognitive Services in Azure Databricks.
 
-First, we can create a notebook in Azure Databricks. For other Spark cluster providers, use their notebooks or Spark Submit.
+First, you can create a notebook in Azure Databricks. For other Spark cluster providers, use their notebooks or Spark Submit.
 
-1. Create a new Databricks notebook, by choosing **New notebook** from the **Azure Databricks** menu.
+1. Create a new Databricks notebook, by choosing **New Notebook** from the **Azure Databricks** menu.
 
     <img src="media/new-notebook.png" alt="Create a new notebook" width="50%"/>
 
@@ -103,7 +105,7 @@ First, we can create a notebook in Azure Databricks. For other Spark cluster pro
 from mmlspark.cognitive import *
 from pyspark.sql.functions import col
 
-# Add your subscription key from Text Analytics (or a general Cognitive Service key)
+# Add your subscription key from the Language service (or a general Cognitive Service key)
 service_key = "ADD-SUBSCRIPTION-KEY-HERE"
 
 df = spark.createDataFrame([
@@ -127,7 +129,7 @@ display(results.select("text", col("sentiment")[0].getItem("score").alias("senti
 
 ```
 
-1. Get your subscription key from the **Keys and Endpoint** menu from your Text Analytics dashboard in the Azure portal.
+1. Get your subscription key from the **Keys and Endpoint** menu from your Language resource in the Azure portal.
 1. Replace the subscription key placeholder in your Databricks notebook code with your subscription key.
 1. Select the play, or triangle, symbol in the upper right of your notebook cell to run the sample. Optionally, select **Run All** at the top of your notebook to run all cells. The answers will display below the cell in a table.
 

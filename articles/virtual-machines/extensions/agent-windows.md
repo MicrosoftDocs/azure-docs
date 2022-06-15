@@ -4,10 +4,11 @@ description: Azure Virtual Machine Agent Overview
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.author: amjads
-author: amjads1
+ms.author: gabsta
+author: MsGabsta
 ms.collection: windows
-ms.date: 07/20/2019
+ms.date: 07/20/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Virtual Machine Agent overview
@@ -29,19 +30,24 @@ The Windows Guest Agent Package is broken into two parts:
 To boot a VM you must have the PA installed on the VM, however the WinGA does not need to be installed. At VM deploy time, you can select not to install the WinGA. The following example shows how to select the *provisionVmAgent* option with an Azure Resource Manager template:
 
 ```json
-"resources": [{
-"name": "[parameters('virtualMachineName')]",
-"type": "Microsoft.Compute/virtualMachines",
-"apiVersion": "2016-04-30-preview",
-"location": "[parameters('location')]",
-"dependsOn": ["[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"],
-"properties": {
-    "osProfile": {
-    "computerName": "[parameters('virtualMachineName')]",
-    "adminUsername": "[parameters('adminUsername')]",
-    "adminPassword": "[parameters('adminPassword')]",
-    "windowsConfiguration": {
-        "provisionVmAgent": "false"
+{
+	"resources": [{
+		"name": ["parameters('virtualMachineName')"],
+		"type": "Microsoft.Compute/virtualMachines",
+		"apiVersion": "2016-04-30-preview",
+		"location": ["parameters('location')"],
+		"dependsOn": ["[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"],
+		"properties": {
+			"osProfile": {
+				"computerName": ["parameters('virtualMachineName')"],
+				"adminUsername": ["parameters('adminUsername')"],
+				"adminPassword": ["parameters('adminPassword')"],
+				"windowsConfiguration": {
+					"provisionVmAgent": "false"
+				}
+			}
+		}
+	}]
 }
 ```
 
@@ -64,7 +70,7 @@ $vm | Update-AzVM
 
 - Ensure your VM has access to IP address 168.63.129.16. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
-- Ensure that DHCP is enabled inside the guest VM. This is required to get the host or fabric address from DHCP for the IaaS VM Agent and extensions to work. If you need a static private IP, you should configure it through the Azure portal or PowerShell, and make sure the DHCP option inside the VM is enabled. [Learn more](../../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) about setting up a static IP address with PowerShell.
+- Ensure that DHCP is enabled inside the guest VM. This is required to get the host or fabric address from DHCP for the IaaS VM Agent and extensions to work. If you need a static private IP, you should configure it through the Azure portal or PowerShell, and make sure the DHCP option inside the VM is enabled. [Learn more](../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md) about setting up a static IP address with PowerShell.
 
 
 ## Detect the VM Agent
@@ -88,7 +94,7 @@ OSProfile                  :
     EnableAutomaticUpdates : True
 ```
 
-The following script can be used to return a concise list of VM names and the state of the VM Agent:
+The following script can be used to return a concise list of VM names (running Windows OS) and the state of the VM Agent:
 
 ```powershell
 $vms = Get-AzVM
@@ -99,13 +105,24 @@ foreach ($vm in $vms) {
 }
 ```
 
+The following script can be used to return a concise list of VM names (running Linux OS) and the state of the VM Agent:
+
+```powershell
+$vms = Get-AzVM
+
+foreach ($vm in $vms) {
+    $agent = $vm | Select -ExpandProperty OSProfile | Select -ExpandProperty Linuxconfiguration | Select ProvisionVMAgent
+    Write-Host $vm.Name $agent.ProvisionVMAgent
+}
+```
+
 ### Manual Detection
 
 When logged in to a Windows VM, Task Manager can be used to examine running processes. To check for the Azure VM Agent, open Task Manager, click the *Details* tab, and look for a process name **WindowsAzureGuestAgent.exe**. The presence of this process indicates that the VM agent is installed.
 
 
 ## Upgrade the VM Agent
-The Azure VM Agent for Windows is automatically upgraded on images deployed from the Azure Marketplace. As new VMs are deployed to Azure, they receive the latest VM agent at VM provision time. If you have installed the agent manually or are deploying custom VM images you will need to manually update to include the new VM agent at image creation time.
+The Azure VM Agent for Windows is automatically upgraded on images deployed from the Azure Marketplace. The new versions are stored in Azure Storage, so please ensure you don't have firewalls blocking access. As new VMs are deployed to Azure, they receive the latest VM agent at VM provision time. If you have installed the agent manually or are deploying custom VM images you will need to manually update to include the new VM agent at image creation time.
 
 ## Windows Guest Agent Automatic Logs Collection
 Windows Guest Agent has a feature to automatically collect some logs. This feature is controller by the CollectGuestLogs.exe process. 
@@ -119,7 +136,7 @@ To permanently remove a certificate, you will have to remove it from the `OSProf
 
 For a Virtual Machine, use the [Remove-AzVMSecret]() to remove certificates from the `OSProfile`.
 
-For more information on Virtual Machine Scale Set certificates, see [Virtual Machine Scale Sets - How do I remove deprecated certificates?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-remove-deprecated-certificates)
+For more information on Virtual Machine Scale Set certificates, see [Virtual Machine Scale Sets - How do I remove deprecated certificates?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#how-do-i-remove-deprecated-certificates-)
 
 
 ## Next steps

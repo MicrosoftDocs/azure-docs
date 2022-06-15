@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: storage
- author: roygara
+ author: khdownie
  ms.service: storage
  ms.topic: include
- ms.date: 08/28/2020
- ms.author: rogarana
+ ms.date: 06/02/2022
+ ms.author: kendownie
  ms.custom: include file
 ---
 Azure Files offers four different tiers of storage, premium, transaction optimized, hot, and cool to allow you to tailor your shares to the performance and price requirements of your scenario:
@@ -16,12 +16,12 @@ Azure Files offers four different tiers of storage, premium, transaction optimiz
 - **Hot**: Hot file shares offer storage optimized for general purpose file sharing scenarios such as team shares. Hot file shares are offered on the standard storage hardware backed by HDDs.
 - **Cool**: Cool file shares offer cost-efficient storage optimized for online archive storage scenarios. Cool file shares are offered on the standard storage hardware backed by HDDs.
 
-Premium file shares are deployed in the **FileStorage storage account** kind and are only available in a provisioned billing model. For more information on the provisioned billing model for premium file shares, see [Understanding provisioning for premium file shares](../articles/storage/files/understanding-billing.md#provisioned-model). Standard file shares, including transaction optimized, hot, and cool file shares, are deployed in the **general purpose version 2 (GPv2) storage account** kind, and are available through pay as you go billing. Hot and cool file shares are available in all Azure Public and Azure Government regions. Transaction optimized file shares are available in all Azure regions, including Azure China and Azure Germany regions.
+Premium file shares are deployed in the **FileStorage storage account** kind and are only available in a provisioned billing model. For more information on the provisioned billing model for premium file shares, see [Understanding provisioning for premium file shares](../articles/storage/files/understanding-billing.md#provisioned-model). Standard file shares, including transaction optimized, hot, and cool file shares, are deployed in the **general purpose version 2 (GPv2) storage account** kind, and are available through pay as you go billing. 
 
 When selecting a storage tier for your workload, consider your performance and usage requirements. If your workload requires single-digit latency, or you are using SSD storage media on-premises, the premium tier is probably the best fit. If low latency isn't as much of a concern, for example with team shares mounted on-premises from Azure or cached on-premises using Azure File Sync, standard storage may be a better fit from a cost perspective.
 
 Once you've created a file share in a storage account, you cannot move it to tiers exclusive to different storage account kinds. For example, to move a transaction optimized file share to the premium tier, you must create a new file share in a FileStorage storage account and copy the data from your original share to a new file share in the FileStorage account. We recommend using AzCopy to copy data between Azure file shares, but you may also use tools like `robocopy` on Windows or `rsync` for macOS and Linux. 
 
-File shares deployed within GPv2 storage accounts can be moved between the standard tiers (transaction optimized, hot, and cool) without creating a new storage account and migrating data, but you will incur transaction costs when you change your tier. When you move a share from a hotter tier to a cooler tier, you will incur the cooler tier's write transaction charge for each file in the share. Moving a file share from a cooler tier to a hotter tier will incur the cool tier's read transaction charge for each file in the share.
+File shares deployed within GPv2 storage accounts can be moved between the standard tiers (transaction optimized, hot, and cool) without creating a new storage account and migrating data, but you will incur transaction costs when you change your tier. When you move a share from a hotter tier to a cooler tier, you will incur the cooler tier's write transaction charge for each file in the share. Moving a file share from a cooler tier to a hotter tier will incur the cool tier's read transaction charge for each file in the share. In addition to the per file transaction charge, when you move from cool to hot or transaction optimized, you will incur a data retrieval charge based on the size of data moved. Only the cool tier has a data retrieval charge.
 
 See [Understanding Azure Files billing](../articles/storage/files/understanding-billing.md) for more information.

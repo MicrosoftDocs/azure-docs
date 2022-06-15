@@ -2,13 +2,13 @@
 title: Load balance multiple websites - Azure CLI - Azure Load Balancer
 description: This Azure CLI script example shows how to load balance multiple websites to the same virtual machine
 documentationcenter: load-balancer
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: sample
 ms.workload: infrastructure
-ms.date: 04/20/2018
-ms.author: allensu 
+ms.date: 03/04/2022
+ms.author: greglin 
 ms.custom: devx-track-azurecli
 ---
 
@@ -16,24 +16,27 @@ ms.custom: devx-track-azurecli
 
 This Azure CLI script sample creates a virtual network with two virtual machines (VM) that are members of an availability set. A load balancer directs traffic for two separate IP addresses to the two VMs. After running the script, you could deploy web server software to the VMs and host multiple web sites, each with its own IP address.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!code-azurecli-interactive[main](../../../cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh  "Load balance multiple web sites")]
+### Run the script
 
-## Clean up deployment 
+:::code language="azurecli" source="~/azure_cli_scripts/load-balancer/load-balance-multiple-web-sites-vm/load-balance-multiple-web-sites-vm.sh" id="FullScript":::
 
-Run the following command to remove the resource group, VM, and all related resources.
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
-az group delete --name myResourceGroup --yes
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands to create a resource group, virtual network, load balancer, and all related resources. Each command in the table links to command specific documentation.
 

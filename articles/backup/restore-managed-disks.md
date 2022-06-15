@@ -123,4 +123,4 @@ After you trigger the restore operation, the backup service creates a job for tr
 
 ## Next steps
 
-- [Azure Disk Backup FAQ](disk-backup-faq.md)
+- [Azure Disk Backup FAQ](disk-backup-faq.yml)

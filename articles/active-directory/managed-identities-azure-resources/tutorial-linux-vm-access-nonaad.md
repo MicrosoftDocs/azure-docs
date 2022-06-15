@@ -1,19 +1,18 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Key Vault - Linux - Azure AD 
+title: "Tutorial: Use a managed identity to access Azure Key Vault - Linux"
 description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: daveba
 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/10/2020
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 #Customer intent: As a developer or administrator I want to configure a Linux virtual machine to retrieve a secret from key vault using a managed identity and have a simple way to validate my configuration before using it for development
@@ -44,7 +43,7 @@ You learn how to:
 
 This section shows how to grant your VM access to a secret stored in a Key Vault. Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication.  However, not all Azure services support Azure AD authentication. To use managed identities for Azure resources with those services, store the service credentials in Azure Key Vault, and use the VM's managed identity to access Key Vault to retrieve the credentials.
 
-First, we need to create a Key Vault and grant our VM’s system-assigned managed identity access to the Key Vault.
+First, we need to create a Key Vault and grant our VM's system-assigned managed identity access to the Key Vault.
 
 1. Open the Azure [portal](https://portal.azure.com/)
 1. At the top of the left navigation bar, select **Create a resource**  
@@ -61,7 +60,7 @@ First, we need to create a Key Vault and grant our VM’s system-assigned manage
 
 ### Create a secret
 
-Next, add a secret to the Key Vault, so you can retrieve it later using code running in your VM. For the purpose of this tutorial, we are using PowerShell but the same concepts apply to any code executing in this virtual machine.
+Next, add a secret to the Key Vault, so you can retrieve it later using code running in your VM. In this tutorial, we are using PowerShell but the same concepts apply to any code executing in this virtual machine.
 
 1. Navigate to your newly created Key Vault.
 1. Select **Secrets**, and click **Add**.
@@ -91,10 +90,18 @@ The managed identity used by the virtual machine needs to be granted access to r
 ## Access data
 
 To complete these steps, you need an SSH client.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
- 
+
+>[!IMPORTANT]
+> All Azure SDKs support the Azure.Identity library that makes it easy to acquire Azure AD tokens to access target services. Learn more about [Azure SDKs](https://azure.microsoft.com/downloads/) and leverage the Azure.Identity library.
+> - [.NET](/dotnet/api/overview/azure/identity-readme)
+> - [Java](/java/api/overview/azure/identity-readme)
+> - [JavaScript](/javascript/api/overview/azure/identity-readme)
+> - [Python](/python/api/overview/azure/identity-readme)
+
+
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**. 
 2. **Connect** to the VM with the SSH client of your choice. 
-3. In the terminal window, using CURL, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Key Vault.  
+3. In the terminal window, use CURL to make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Key Vault.  
  
     The CURL request for the access token is below.  
     
@@ -115,7 +122,7 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
     "token_type":"Bearer"} 
     ```
     
-    You can use this access token to authenticate to Azure Key Vault.  The next CURL request shows how to read a secret from Key Vault using CURL and the Key Vault REST API.  You’ll need the URL of your Key Vault, which is in the **Essentials** section of the **Overview** page of the Key Vault.  You will also need the access token you obtained on the previous call. 
+    You can use this access token to authenticate to Azure Key Vault.  The next CURL request shows how to read a secret from Key Vault using CURL and the Key Vault REST API.  You'll need the URL of your Key Vault, which is in the **Essentials** section of the **Overview** page of the Key Vault.  You will also need the access token you obtained on the previous call. 
         
     ```bash
     curl 'https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
@@ -127,7 +134,7 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
     {"value":"p@ssw0rd!","id":"https://mytestkeyvault.vault.azure.net/secrets/MyTestSecret/7c2204c6093c4d859bc5b9eff8f29050","attributes":{"enabled":true,"created":1505088747,"updated":1505088747,"recoveryLevel":"Purgeable"}} 
     ```
     
-Once you’ve retrieved the secret from the Key Vault, you can use it to authenticate to a service that requires a name and password.
+Once you've retrieved the secret from the Key Vault, you can use it to authenticate to a service that requires a name and password.
 
 ## Clean up resources
 

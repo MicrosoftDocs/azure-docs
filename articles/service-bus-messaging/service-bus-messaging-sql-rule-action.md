@@ -2,12 +2,12 @@
 title: Azure Service Bus Subscription Rule SQL Action syntax  | Microsoft Docs
 description: This article provides a reference for SQL rule action syntax. The actions are written in SQL-language-based syntax that is performed against a message.
 ms.topic: article
-ms.date: 11/24/2020
+ms.date: 09/28/2021
 ---
 
 # Subscription Rule SQL Action Syntax
 
-A *SQL action* is used to manipulate message metadata after a message has been selected by a filter of a subscription rule. It's a text expression that leans on a subset of the SQL-92 standard. Action expressions are used with the `sqlExpression` element of the 'action' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) argument, and several SDK functions that allow managing subscription rules.
+A *SQL action* is used to manipulate message metadata after a message has been selected by a filter of a subscription rule. It's a text expression that leans on a subset of the SQL-92 standard. Action expressions are used with the `sqlExpression` element of the 'action' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az-servicebus-topic-subscription-rule-create) argument, and several SDK functions that allow managing subscription rules.
   
   
 ```  
@@ -48,7 +48,10 @@ A *SQL action* is used to manipulate message metadata after a message has been s
   
 ## Arguments  
   
--   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` isn't specified.  
+-   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. 
+    - The `sys` value indicates system scope where `<property_name>` is any of the properties on the Service Bus message as described in [Messages, payloads, and serialization](service-bus-messages-payloads.md).
+    - The `user` value indicates user scope where `<property_name>` is a key of the custom properties that you can set on the message when sending to Service  Bus.
+    - The `user` scope is the default scope if `<scope>` isn't specified.  
   
 ### Remarks  
 

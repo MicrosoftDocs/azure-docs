@@ -9,13 +9,13 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Azure Kubernetes Service (AKS) Uptime SLA
 
-Uptime SLA is an optional feature to enable a financially backed, higher SLA for a cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use [Availability Zones][availability-zones] and 99.9% of availability for clusters that don't use Availability Zones. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
+Uptime SLA is a tier to enable a financially backed, higher SLA for an AKS cluster. Clusters with Uptime SLA, also regarded as Paid tier in AKS REST APIs, come with greater amount of control plane resources and automatically scale to meet the load of your cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use [Availability Zones][availability-zones] and 99.9% of availability for clusters that don't use Availability Zones. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
 
-Customers needing an SLA to meet compliance requirements or require extending an SLA to their end users should enable this feature. Customers with critical workloads that will benefit from a higher uptime SLA may also benefit. Using the Uptime SLA feature with Availability Zones enables a higher availability for the uptime of the Kubernetes API server.  
+AKS recommends use of Uptime SLA in production workloads to ensure availability of control plane components. Clusters on free tier by contrast come with fewer replicas and limited resources for the control plane and are not suitable for production workloads.
 
-Customers can still create unlimited free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO or SLA Uptime as needed.
+Customers can still create unlimited number of free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO. 
 
-> [!Important]
+> [!IMPORTANT]
 > For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports.
 
 ## Region availability
@@ -25,7 +25,7 @@ Customers can still create unlimited free clusters with a service level objectiv
 
 ## SLA terms and conditions
 
-Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
+Uptime SLA is a paid feature and is enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
 
 ## Before you begin
 
@@ -41,12 +41,14 @@ The following example creates a resource group named *myResourceGroup* in the *e
 # Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
+
 Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This operation takes several minutes to complete:
 
 ```azurecli-interactive
 # Create an AKS cluster with uptime SLA
 az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
+
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. The following JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA:
 
 ```output
@@ -79,25 +81,25 @@ Create a new cluster, and don't use Uptime SLA:
 
 ```azurecli-interactive
 # Create a new cluster without uptime SLA
-az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1
 ```
 
 Use the [`az aks update`][az-aks-update] command to update the existing cluster:
 
 ```azurecli-interactive
 # Update an existing cluster to use Uptime SLA
- az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
- ```
+az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
+```
 
- The following JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA:
+The following JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA:
 
- ```output
+```output
   },
   "sku": {
     "name": "Basic",
     "tier": "Paid"
   },
-  ```
+```
 
 ## Opt out of Uptime SLA
 
@@ -106,7 +108,7 @@ You can update your cluster to change to the free tier and opt out of Uptime SLA
 ```azurecli-interactive
 # Update an existing cluster to opt out of Uptime SLA
  az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
- ```
+```
 
 ## Clean up
 
@@ -116,7 +118,6 @@ To avoid charges, clean up any resources you created. To delete the cluster, use
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-
 ## Next steps
 
 Use [Availability Zones][availability-zones] to increase high availability with your AKS cluster workloads.
@@ -124,7 +125,7 @@ Use [Availability Zones][availability-zones] to increase high availability with 
 Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
-[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 [region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 
 <!-- LINKS - Internal -->
@@ -132,10 +133,10 @@ Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?#az-aks-create
+[az-aks-create]: /cli/azure/aks?#az_aks_create
 [limit-egress-traffic]: ./limit-egress-traffic.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [az-aks-update]: /cli/azure/aks#az_aks_update
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-group-delete]: /cli/azure/group#az_group_delete
 [private-clusters]: private-clusters.md

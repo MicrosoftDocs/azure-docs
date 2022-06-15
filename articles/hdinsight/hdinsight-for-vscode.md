@@ -3,7 +3,7 @@ title: Azure HDInsight for Visual Studio Code
 description: Learn how to use the Spark & Hive Tools (Azure HDInsight) for Visual Studio Code. Use the tools to create and submit queries and scripts.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 05/27/2022
 ms.custom: devx-track-python
 ---
 
@@ -164,9 +164,13 @@ With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive 
 
    - **MESSAGES** panel: When you select a **Line** number, it jumps to the first line of the running script.
 
-## Submit interactive PySpark queries
+## Submit interactive PySpark queries 
 
-Users can perform PySpark interactive in the following ways:
+### Prerequisite for Pyspark interactive
+
+Note here that Jupyter Extension version (ms-jupyter): v2022.1.1001614873 and Python Extension version (ms-python): v2021.12.1559732655, python 3.6.x and 3.7.x are required for HDInsight interactive PySpark queries.
+
+Users can perform PySpark interactive in the following ways.
 
 ### Using the PySpark interactive command in PY file
 Using the PySpark interactive command to submit the queries, follow these steps:
@@ -208,7 +212,7 @@ Using the PySpark interactive command to submit the queries, follow these steps:
 
    :::image type="content" source="./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png" alt-text="select interpreter to start jupyter server":::
 
-8. Select the python option below.
+8. Select the Python option below.
 
    :::image type="content" source="./media/hdinsight-for-vscode/choose-the-below-option.png" alt-text="choose the below option":::
     
@@ -260,7 +264,8 @@ The tool also supports the **Spark SQL** query:
 
 > [!NOTE]
 >
-> ["Ms-python >=2020.5.78807 version is not supported on this extension"](#issues-changed) has been resolved. Please update the **ms-python** to the **latest version** now.
+> [For Synapse PySpark installation error](#known-issues), since its dependency will not be maintained anymore by other team, this will not be maintained anymore as well. If you trying to use Synapse Pyspark interactive, please switch to use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/en-us/) instead. And it's a long term change.
+>
 
 ## Submit PySpark batch job
 
@@ -311,7 +316,7 @@ You can follow the normal steps to sign in to Azure subscription to connect to y
 
 For run a hive job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit interactive Hive queries and Hive batch scripts](#submit-interactive-hive-queries-and-hive-batch-scripts) for more instructions.
 
-For run a interactive PySpark job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit interactive PySpark queries](#submit-interactive-pyspark-queries) for more instructions.
+For run an interactive PySpark job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to Submit interactive PySpark queries.
 
 For run a PySpark batch job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit PySpark batch job](#submit-pyspark-batch-job) for more instructions.
 
@@ -481,9 +486,13 @@ Submit a job to an HDInsight cluster using Data Lake Storage Gen2. You're prompt
 
 From the menu bar, go to **View** > **Command Palette**, and then enter **Azure: Sign Out**.
 
-## Issues Changed
+## Known Issues 
 
-For this issue "ms-python >=2020.5.78807 version is not supported on this extension" has been resolved, please update the **ms-python** to the **latest version** now.
+### Synapse PySpark installation error.
+
+ For Synapse PySpark installation error, since its dependency will not be maintained anymore by other team, it will not be maintained anymore. If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead. And it's a long term change.
+
+   ![synapse pyspark installation error](./media/hdinsight-for-vscode/known-issue.png)
 
 
 ## Next steps

@@ -2,6 +2,7 @@
 title: Migration solutions for Azure VMware Solution virtual machines
 description: Learn about leading migration solutions for your Azure VMware Solution virtual machines.
 ms.topic: reference
+ms.service: azure-vmware
 ms.date: 03/22/2021
 ---
 
@@ -13,4 +14,5 @@ Our migration partners have industry-leading migration solutions in VMware-based
 
 You aren't required to use VMware HCX as a migration tool, which means you can also migrate physical workloads into Azure VMware Solution. Additionally, migrations to your Azure VMware Solution environment don't need an ExpressRoute connection if it's not available within your source environment.  Migrations can be done to multiple locations if you decide to host those workloads in multiple Azure regions.
 
-For more information on these solutions, see [RiverMeadow](https://www.rivermeadow.com/migrating-to-vmware-on-azure).
+You can find more information on these migration solutions here:
+- [RiverMeadow](https://www.rivermeadow.com/migrating-to-vmware-on-azure).

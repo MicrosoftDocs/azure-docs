@@ -1,17 +1,15 @@
 ---
-title: Create certificates using Microsoft Azure Stack Hub Readiness Checker tool | Microsoft Docs
+title: Create certificates for Azure Stack Edge Pro GPU via Azure Stack Hub Readiness Checker tool
 description: Describes how to create certificate requests and then get and install certificates on your Azure Stack Edge Pro GPU device using the Azure Stack Hub Readiness Checker tool.
-services: Azure Stack Edge Pro
 author: alkohli
-
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 10/01/2021
 ms.author: alkohli
 ---
 
-# Create certificates for your Azure Stack Edge Pro using Azure Stack Hub Readiness Checker tool 
+# Create certificates for your Azure Stack Edge Pro GPU using Azure Stack Hub Readiness Checker tool 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -72,9 +70,9 @@ Use these steps to prepare the Azure Stack Edge Pro device certificates:
     |Input |Description  |
     |---------|---------|
     |`OutputRequestPath`|The file path on your local client where you want the certificate requests to be created.        |
-    |`DeviceName`|The name of your device in the **Devices** page in the local web UI of your device. <br> This field isn't required for a VPN certificate.         |
-    |`NodeSerialNumber`|The serial number of the device node in the **Network** page in the local web UI of your device. <br> This field isn't required for a VPN certificate.       |
-    |`ExternalFQDN`|The DNSDomain value in the **Devices** page in the local web UI of your device.         |
+    |`DeviceName`|The name of your device in the **Device** page in the local web UI of your device. <br> This field isn't required for a VPN certificate.         |
+    |`NodeSerialNumber`|The `Node serial number` of the device node shown on the **Overview** page in the local web UI of your device. <br> This field isn't required for a VPN certificate.       |
+    |`ExternalFQDN`|The `DNS domain` value in the **Device** page in the local web UI of your device.         |
     |`RequestType`|The request type can be for `MultipleCSR` - different certificates for the various endpoints, or `SingleCSR` - a single certificate for all the endpoints. <br> This field isn't required for a VPN certificate.     |
 
     For all the certificates except the VPN certificate, type: 
@@ -114,10 +112,10 @@ Use these steps to prepare the Azure Stack Edge Pro device certificates:
     |Starting with `wildcard`     |Blob storage certificate request. It contains a wildcard because it covers all the storage accounts that you may create on the device.          |
     |Starting with `AzureStackEdgeVPNCertificate`     |VPN client certificate request.         |
 
-    You'll also see an INF folder. This contains a management.<edge-devicename> information file in clear text explaining the certificate details.  
+    You'll also see an INF folder. This contains a management.\<edge-devicename\> information file in clear text explaining the certificate details.  
 
 
-6. Submit these files to your certificate authority (either internal or public). Be sure that your CA generates certificates, using your generated request, that meet the Azure Stack Edge Pro certificate requirements for [node certificates](azure-stack-edge-gpu-manage-certificates.md#node-certificates), [endpoint certificates](azure-stack-edge-gpu-manage-certificates.md#endpoint-certificates), and [local UI certificates](azure-stack-edge-gpu-manage-certificates.md#local-ui-certificates).
+6. Submit these files to your certificate authority (either internal or public). Be sure that your CA generates certificates, using your generated request, that meet the Azure Stack Edge Pro certificate requirements for [node certificates](azure-stack-edge-gpu-certificates-overview.md#node-certificates), [endpoint certificates](azure-stack-edge-gpu-certificates-overview.md#endpoint-certificates), and [local UI certificates](azure-stack-edge-gpu-certificates-overview.md#local-ui-certificates).
 
 ## Prepare certificates for deployment
 
@@ -125,7 +123,7 @@ The certificate files that you get from your certificate authority (CA) must be 
 
 - To import the certificates, follow the steps in [Import certificates on the clients accessing your Azure Stack Edge Pro device](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
-- To export the certificates, follow the steps in [Export certificates from the client accessing the Azure Stack Edge Pro device](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- To export the certificates, follow the steps in [Export certificates from the client accessing the Azure Stack Edge Pro device](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key).
 
 
 ## Validate certificates
@@ -136,7 +134,7 @@ First, you'll generate a proper folder structure and place the certificates in t
 
 2. To generate the appropriate folder structure, at the prompt type:
 
-    `New-AzsCertificateFolder -CertificateType AzureStackEdge -OutputPath "$ENV:USERPROFILE\Documents\AzureStackCSR"`
+    `New-AzsCertificateFolder -CertificateType AzureStackEdgeDevice -OutputPath "$ENV:USERPROFILE\Documents\AzureStackCSR"`
 
 3. Convert the PFX password into a secure string. Type:       
 
@@ -144,8 +142,8 @@ First, you'll generate a proper folder structure and place the certificates in t
 
 4. Next, validate the certificates. Type:
 
-    `Invoke-AzsCertificateValidation -CertificateType AzureStackEdge -DeviceName mytea1 -NodeSerialNumber VM1500-00025 -externalFQDN azurestackedge.contoso.com -CertificatePath $ENV:USERPROFILE\Documents\AzureStackCSR\AzureStackEdge -pfxPassword $pfxPassword`
+    `Invoke-AzsCertificateValidation -CertificateType AzureStackEdgeDevice -DeviceName mytea1 -NodeSerialNumber VM1500-00025 -externalFQDN azurestackedge.contoso.com -CertificatePath $ENV:USERPROFILE\Documents\AzureStackCSR\AzureStackEdge -pfxPassword $pfxPassword`
 
 ## Next steps
 
-[Deploy your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-prep.md)
+[Upload certificates on your device](azure-stack-edge-gpu-manage-certificates.md).

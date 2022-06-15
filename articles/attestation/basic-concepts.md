@@ -16,7 +16,7 @@ Below are some basic concepts related to Microsoft Azure Attestation.
 
 ## JSON Web Token (JWT)
 
-[JSON Web Token](https://jwt.io/) (JWT) is an open standard [RFC7519](https://tools.ietf.org/html/rfc7519) method for securely transmitting information between parties as a JavaScript Object Notation (JSON) object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret or a public/private key pair.
+[JSON Web Token](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) (JWT) is an open standard [RFC7519](https://tools.ietf.org/html/rfc7519) method for securely transmitting information between parties as a JavaScript Object Notation (JSON) object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret or a public/private key pair.
 
 ## JSON Web Key (JWK)
 
@@ -41,7 +41,14 @@ Azure Attestation provides a regional shared provider in every available region.
 | North Europe | `https://sharedneu.neu.attest.azure.net` | 
 | West Europe| `https://sharedweu.weu.attest.azure.net` | 
 | US East 2 | `https://sharedeus2.eus2.attest.azure.net` | 
-| Central US | `https://sharedcus.cus.attest.azure.net` | 
+| Central US | `https://sharedcus.cus.attest.azure.net` |
+| South East Asia | `https://sharedsasia.sasia.attest.azure.net` | 
+| North Central US | `https://sharedncus.ncus.attest.azure.net` | 
+| South Central US | `https://sharedscus.scus.attest.azure.net` | 
+| Australia East | `https://sharedeau.eau.attest.azure.net` | 
+| Australia SouthEast | `https://sharedsau.sau.attest.azure.net` | 
+| US Gov Virginia | `https://sharedugv.ugv.attest.azure.us` | 
+| US Gov Arizona | `https://shareduga.uga.attest.azure.us` | 
 
 ## Attestation request
 
@@ -58,7 +65,7 @@ Attestation policy is used to process the attestation evidence and is configurab
 
 If the default policy in the attestation provider doesn’t meet the needs, customers will be able to create custom policies in any of the regions supported by Azure Attestation. Policy management is a key feature provided to customers by Azure Attestation. Policies will be attestation type specific and can be used to identify enclaves or add claims to the output token or modify claims in an output token. 
 
-See [examples of an attestation policy](policy-examples.md) for policy samples.
+See [examples of an attestation policy](policy-examples.md) 
 
 ## Benefits of policy signing
 
@@ -76,59 +83,7 @@ Azure Attestation response will be a JSON string whose value contains JWT. Azure
 
 The Get OpenID Metadata API returns an OpenID Configuration response as specified by the [OpenID Connect Discovery protocol](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig). The API retrieves metadata about the signing certificates in use by Azure Attestation.
 
-Example of JWT generated for an SGX enclave:
-
-```
-{
-  "alg": "RS256",
-  "jku": "https://tradewinds.us.attest.azure.net/certs",
-  "kid": <self signed certificate reference to perform signature verification of attestation token,
-  "typ": "JWT"
-}.{
-  "aas-ehd": <input enclave held data>,
-  "exp": 1568187398,
-  "iat": 1568158598,
-  "is-debuggable": false,
-  "iss": "https://tradewinds.us.attest.azure.net",
-  "maa-attestationcollateral": 
-    {
-      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
-      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
-      "qeidhash": <SHA256 value of the QE Identity collateral>,
-      "quotehash": <SHA256 value of the evaluated quote>, 
-      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
-      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
-      "tcbinfohash": <SHA256 value of the TCB Info collateral>
-     },
-  "maa-ehd": <input enclave held data>,
-  "nbf": 1568158598,
-  "product-id": 4639,
-  "sgx-mrenclave": <SGX enclave mrenclave value>,
-  "sgx-mrsigner": <SGX enclave msrigner value>,
-  "svn": 0,
-  "tee": "sgx"
-  "x-ms-attestation-type": "sgx", 
-  "x-ms-policy-hash": <>,
-  "x-ms-sgx-collateral": 
-    {
-      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
-      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
-      "qeidhash": <SHA256 value of the QE Identity collateral>,
-      "quotehash": <SHA256 value of the evaluated quote>, 
-      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
-      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
-      "tcbinfohash": <SHA256 value of the TCB Info collateral>
-     },
-  "x-ms-sgx-ehd": <>, 
-  "x-ms-sgx-is-debuggable": true,
-  "x-ms-sgx-mrenclave": <SGX enclave mrenclave value>,
-  "x-ms-sgx-mrsigner": <SGX enclave msrigner value>, 
-  "x-ms-sgx-product-id": 1, 
-  "x-ms-sgx-svn": 1,
-  "x-ms-ver": "1.0"
-}.[Signature]
-```
-Some of the claims used above are considered deprecated but are fully supported.  It is recommended that all future code and tooling use the non-deprecated claim names. See [claims issued by Azure Attestation](claim-sets.md) for more information.
+See [examples of attestation token](attestation-token-examples.md).
 
 ## Encryption of data at rest
 

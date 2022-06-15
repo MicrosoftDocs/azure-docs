@@ -30,7 +30,7 @@ A typical, high availability, multi-region deployment architecture may look as f
 
 ![multi region deployment](media/tutorial-deploy-hsm-cli/high-availability-architecture.png)
 
-This tutorial focuses on a pair of HSMs and required [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) (see Subnet 1 above) being integrated into an existing virtual network (see VNET 1 above).  All other resources are standard Azure resources. The same integration process can be used for HSMs in subnet 4 on VNET 3 above.
+This tutorial focuses on a pair of HSMs and required [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) (see Subnet 1 above) being integrated into an existing virtual network (see VNET 1 above).  All other resources are standard Azure resources. The same integration process can be used for HSMs in subnet 4 on VNET 3 above.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ All instructions below assume that you have already navigated to the Azure porta
 
 ## Provisioning a Dedicated HSM
 
-Provisioning HSMs and integrating them into an existing virtual network via [ExpressRoute gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) will be validated using ssh. This validation helps ensure reachability and basic availability of the HSM device for any further configuration activities.
+Provisioning HSMs and integrating them into an existing virtual network via [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) will be validated using ssh. This validation helps ensure reachability and basic availability of the HSM device for any further configuration activities.
 
 ### Validating Feature Registration
 
@@ -98,7 +98,7 @@ az network vnet subnet create \
 
 After you configure your network, use these Azure CLI commands to provision your HSMs.
 
-1. Use the [az dedicated-hsm create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) command to provision the first HSM. The HSM is named hsm1. Substitute your subscription:
+1. Use the [az dedicated-hsm create](/cli/azure/dedicated-hsm#az-dedicated-hsm-create) command to provision the first HSM. The HSM is named hsm1. Substitute your subscription:
 
    ```azurecli
    az dedicated-hsm create --location westus --name hsm1 --resource-group myRG --network-profile-network-interfaces \
@@ -107,7 +107,7 @@ After you configure your network, use these Azure CLI commands to provision your
 
    This deployment should take approximately 25 to 30 minutes to complete with the bulk of that time being the HSM devices.
 
-1. To see a current HSM, run the [az dedicated-hsm show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show) command:
+1. To see a current HSM, run the [az dedicated-hsm show](/cli/azure/dedicated-hsm#az-dedicated-hsm-show) command:
 
    ```azurecli
    az dedicated-hsm show --resource group myRG --name hsm1
@@ -120,19 +120,19 @@ After you configure your network, use these Azure CLI commands to provision your
         /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
    ```
 
-1. Run the [az dedicated-hsm list](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) command to view details about your current HSMs:
+1. Run the [az dedicated-hsm list](/cli/azure/dedicated-hsm#az-dedicated-hsm-list) command to view details about your current HSMs:
 
    ```azurecli
    az dedicated-hsm list --resource-group myRG
    ```
 
-There are some other commands that might be useful. Use the [az dedicated-hsm update](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) command to update an HSM:
+There are some other commands that might be useful. Use the [az dedicated-hsm update](/cli/azure/dedicated-hsm#az-dedicated-hsm-update) command to update an HSM:
 
 ```azurecli
 az dedicated-hsm update --resource-group myRG –name hsm1
 ```
 
-To delete an HSM, use the [az dedicated-hsm delete](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete) command:
+To delete an HSM, use the [az dedicated-hsm delete](/cli/azure/dedicated-hsm#az-dedicated-hsm-delete) command:
 
 ```azurecli
 az dedicated-hsm delete --resource-group myRG –name hsm1

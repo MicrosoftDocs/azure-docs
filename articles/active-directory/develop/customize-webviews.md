@@ -1,6 +1,5 @@
 ---
-title: Customize browsers & WebViews (MSAL iOS/macOS) | Azure
-titleSuffix: Microsoft identity platform
+title: Customize browsers & WebViews (MSAL iOS/macOS)
 description: Learn how to customize the MSAL iOS/macOS browser experience to sign in users.
 services: active-directory
 author: mmacy
@@ -13,10 +12,10 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ---
 
-# How to: Customize browsers and WebViews for iOS/macOS
+# Customize browsers and WebViews for iOS/macOS
 
 A web browser is required for interactive authentication. On iOS and macOS 10.15+, the Microsoft Authentication Library (MSAL) uses the system web browser by default (which might appear on top of your app) to do interactive authentication to sign in users. Using the system browser has the advantage of sharing the Single Sign On (SSO) state with other applications and with web applications.
 

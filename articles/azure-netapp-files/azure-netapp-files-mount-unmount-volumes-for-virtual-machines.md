@@ -1,16 +1,16 @@
 ---
-title: Mount Azure NetApp Files volumes for virtual machines
-description: Learn how to mount or unmount a volume for Windows virtual machines or Linux virtual machines in Azure.
-author: b-juche
-ms.author: b-juche
+title: Mount Azure NetApp Files volumes for virtual machines | Microsoft Docs
+description: Learn how to mount an Azure NetApp Files volume for Windows or Linux virtual machines.
+author: b-hchen
+ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 01/07/2022
 ---
-# Mount or unmount a volume for Windows or Linux virtual machines 
+# Mount a volume for Windows or Linux VMs 
 
-You can mount or unmount a volume for Windows or Linux virtual machines as necessary.  The mount instructions for Linux virtual machines are available on Azure NetApp Files.  
+You can mount an Azure NetApp Files file for Windows or Linux virtual machines (VMs).  The mount instructions for Linux virtual machines are available on Azure NetApp Files.  
 
 ## Requirements 
 
@@ -33,7 +33,7 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
     * If you are mounting an NFS volume, ensure that you use the `vers` option in the `mount` command to specify the NFS protocol version that corresponds to the volume you want to mount. 
     * If you are using NFSv4.1, use the following command to mount your file system:  `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
         > [!NOTE]
-        > If you use NFSv4.1, ensure that all VMs mounting the export use unique hostnames.
+        > If you use NFSv4.1 and your use case involves leveraging VMs with the same hostnames (for example, in a DR test), see [Configure two VMs with the same hostname to access NFSv4.1 volumes](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes).
 
 3. If you want to have an NFS volume automatically mounted when an Azure VM is started or rebooted, add an entry to the `/etc/fstab` file on the host. 
 
@@ -54,6 +54,7 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
 ## Next steps
 
 * [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
-* [NFS FAQs](./azure-netapp-files-faqs.md#nfs-faqs)
+* [NFS FAQs](faq-nfs.md)
 * [Network File System overview](/windows-server/storage/nfs/nfs-overview)
 * [Mount an NFS Kerberos volume](configure-kerberos-encryption.md#kerberos_mount)
+* [Configure two VMs with the same hostname to access NFSv4.1 volumes](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes) 
