@@ -295,7 +295,7 @@ chatAsyncClient.addEventHandler(ChatEventType.CHAT_MESSAGE_RECEIVED, (ChatEvent 
 ### Push notifications
 
 > [!NOTE]
-> Currently chat push notifications are only supported for Android SDK in version 1.1.0-beta.4.
+> Chat push notifications are supported for Android SDK in version starting from 1.1.0-beta.4 and 1.1.0. There is known issue regarding to renew registration before version 1.2.0. Please use version with the fix if possible. Steps 8 to 13 are only needed for versions with the fix.
 
 Push notifications let clients to be notified for incoming messages and other operations occurring in a chat thread in situations where the mobile app is not running in the foreground. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#push-notifications).
 
@@ -440,6 +440,99 @@ Push notifications let clients to be notified for incoming messages and other op
        ChatMessageReceivedEvent event = (ChatMessageReceivedEvent) payload;
        // You code to handle ChatMessageReceived event
    });
+```
+
+8. Create a class which contains all the constant string to be used in your application(MainActivity class and MyAppConfiguration class):
+
+```java
+    public class ApplicationConstants {
+        // Replace FIRST_USER_ID and SECOND_USER_ID with valid communication user identifiers from your ACS instance.
+        public final static String FIRST_USER_ID = "";
+        public final static String SECOND_USER_ID = "";
+        // Replace userAccessToken with a valid communication service token for your ACS instance.
+        public static final String FIRST_USER_ACCESS_TOKEN = "";
+        public static final String ENDPOINT = "";
+        public static final String SDK_VERSION = "1.2.0-beta.1";
+        public final static String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
+        public final static String APPLICATION_ID = "Chat_Test_App";
+        public final static String TAG = "[Chat Test App]";
+        public final static CommunicationTokenCredential COMMUNICATION_TOKEN_CREDENTIAL = new CommunicationTokenCredential(FIRST_USER_ACCESS_TOKEN);
+    }
+```
+
+9. Adding xmlns:tools field in AndroidManifest.xml:
+
+```
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.azure.android.communication.chat.sampleapp">
+```
+
+10. Disable worker manager default initializer in AndroidManifest.xml:
+
+```
+    <!-- Disable the default initializer of  WorkManager so that we could override it in MyAppConfiguration  -->
+    <provider
+        android:name="androidx.startup.InitializationProvider"
+        android:authorities="${applicationId}.androidx-startup"
+        android:exported="false"
+        tools:node="merge">
+      <!-- If you are using androidx.startup to initialize other components -->
+      <meta-data
+          android:name="androidx.work.WorkManagerInitializer"
+          android:value="androidx.startup"
+          tools:node="remove" />
+    </provider>
+    <!--  End of Disabling  default initializer of  WorkManager -->
+```
+
+11. Adding worker manager dependency in build.gradle:
+
+```
+    def work_version = "2.7.1"
+    implementation "androidx.work:work-runtime:$work_version"
+```
+
+12. Adding a custom worker manager inilizer by creating a class implementing Configuration.Provider:
+
+```java
+public class MyAppConfiguration extends Application implements Configuration.Provider {
+    private ClientLogger logger = new ClientLogger(MyAppConfiguration.class);
+
+    Consumer<Throwable> exceptionHandler = new Consumer<Throwable>() {
+        @Override
+        public void accept(Throwable throwable) {
+            logger.warning("Registration failed for push notifications!", throwable);
+        }
+    };
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        WorkManager.initialize(getApplicationContext(), getWorkManagerConfiguration());
+    }
+
+    @NonNull
+    @Override
+    public Configuration getWorkManagerConfiguration() {
+        return new Configuration.Builder().
+            setWorkerFactory(new RegistrationRenewalWorkerFactory(COMMUNICATION_TOKEN_CREDENTIAL, exceptionHandler)).build();
+    }
+}
+```
+
+13. Adding android:name field, which is the class name of step 11, into AndroidManifest.xml:
+
+```
+<application
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:theme="@style/Theme.AppCompat"
+      android:supportsRtl="true"
+      android:name=".MyAppConfiguration"
+>
 ```
 
 ## Add a user as a participant to the chat thread
