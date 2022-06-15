@@ -193,7 +193,7 @@ The storage account name uses the pattern IT_\<ImageResourceGroupName\>_\<Templa
 To view the *customization.log* file in the resource group,  select **Storage Account** > **Blobs** > `packerlogs`, select **directory**, and then select the *customization.log* file.
 
 
-### Understanding the customization log
+### Understand the customization log
 
 The log is verbose. It covers the image build, including any issues with the image distribution, such as Azure Compute Gallery replication. These errors are surfaced in the error message of the image template status.
 
@@ -364,7 +364,7 @@ Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in dis
 
 #### Cause
 
-VM Image Builder timed out waiting for the image to be added and replicated to Azure Compute Gallery. If the image is being injected into the gallery, you can assume that the image build was successful. However, the overall process failed because the image builder was waiting on Azure Compute Gallery to complete the replication. Even though the build has failed, the replication continues. You can get the properties of the image version by checking the distribution *runOutput*.
+VM Image Builder timed out waiting for the image to be added and replicated to Azure Compute Gallery. If the image is being injected into the gallery, you can assume that the image build was successful. However, the overall process failed because VM Image Builder was waiting on Azure Compute Gallery to complete the replication. Even though the build has failed, the replication continues. You can get the properties of the image version by checking the distribution *runOutput*.
 
 ```azurecli
 $runOutputName=<distributionRunOutput>
@@ -453,7 +453,7 @@ Done exporting Packer logs to Azure for Packer prefix: [a170b40d-2d77-4ac3-8719-
 ```
 #### Cause
 
-The build timed out waiting for required Azure resources to be created.
+The build timed out while it was waiting for the required Azure resources to be created.
 
 #### Solution
 
@@ -546,7 +546,7 @@ The cause might be a timing issue because of the D1_V2 VM size. If customization
 
 To avoid the timing issue, you can increase the VM size or you can add a 60-second PowerShell sleep customization.
 
-### Canceling the build after the context cancelation context is canceled
+### The build is canceled after the context cancelation context is canceled
 
 #### Error
 ```text
@@ -635,8 +635,8 @@ template name:  t_1556938436xxx
 You might occasionally need to investigate successful builds and  review their logs. As mentioned earlier, if the image build is successful, the staging resource group that contains the logs will be deleted as part of the cleanup. To prevent an automatic cleanup, though, you can introduce a `sleep` after the inline command, and then view the logs as the build is paused. To do so, do the following:
  
 1. Update the inline command by adding **Write-Host / Echo “Sleep”**. This gives you time to search in the log.
-1. Add a `sleep` value of at least 10 minutes, by using a [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) or `Sleep` Linux command.
-1. Use this method to identify the log location, and then keep downloading or checking the log until it gets to the sleep.
+1. Add a `sleep` value of at least 10 minutes by using a [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) or `Sleep` Linux command.
+1. Use this method to identify the log location, and then keep downloading or checking the log until it gets to `sleep`.
 
 
 ### Operation was canceled
@@ -679,7 +679,7 @@ For more information about Azure DevOps capabilities and limitations, see [Micro
 
 You can host your own DevOps agents or look to reduce the time of your build. For example, if you're distributing to Azure Compute Gallery, replicate to one region. If you want to replicate asynchronously. 
 
-### Slow Windows logon: "Please wait for the Windows Modules Installer"
+### Slow Windows logon
 
 #### Error
 When you create a Windows 10 image by using VM Image Builder, create a VM from the image, and use Remote Desktop Protocol (RDP), you then have to wait minutes at the first logon, which displays a blue screen with the message:
@@ -702,7 +702,7 @@ Please wait for the Windows Modules Installer
 
 By default, VM Image Builder runs *deprovision* code at the end of each image customization phase to *generalize* the image. To generalize an image is to set it up to reuse to create multiple VMs. As part of the process, you can pass in VM settings, such as hostname, username, and so on. In Windows, VM Image Builder runs `Sysprep`, and in Linux, VM Image Builder runs `waagent -deprovision`. 
 
-In Windows, VM Image Builder uses a generic `Sysprep` command. However, this might not be suitable for every successful Windows generalization. With VM Image Builder, you can customize the `Sysprep` command. Note VM Image Builder is an image automation tool. It's responsible for running `Sysprep` command successfully. But you might need different `Sysprep` commands to make your image reusable. In Linux, VM Image Builder uses a generic `waagent -deprovision+user` command. For more information, see [Microsoft Azure Linux Agent documentation](https://github.com/Azure/WALinuxAgent#command-line-options).
+In Windows, VM Image Builder uses a generic `Sysprep` command. However, this command might not be suitable for every successful Windows generalization. With VM Image Builder, you can customize the `Sysprep` command. Note that VM Image Builder is an image automation tool that's responsible for running `Sysprep` command successfully. But you might need different `Sysprep` commands to make your image reusable. In Linux, VM Image Builder uses a generic `waagent -deprovision+user` command. For more information, see [Microsoft Azure Linux Agent documentation](https://github.com/Azure/WALinuxAgent#command-line-options).
 
 If you're migrating an existing customization and you're using various `Sysprep` or `waagent` commands, you can try the VM Image Builder generic commands. If the VM creation fails, use your previous `Sysprep` or `waagent` commands.
 
