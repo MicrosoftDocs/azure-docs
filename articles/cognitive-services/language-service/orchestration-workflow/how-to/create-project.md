@@ -121,4 +121,4 @@ When you don't need your project anymore, you can delete your project using the 
 
 ## Next Steps
 
-[Build schema](./train-model.md)
+[Build schema](./build-schema.md)
