@@ -636,6 +636,8 @@
     - name: VS Code interactive debugging
       displayName: vscode,remote,debug,pipelines,deployments,ssh
       href: how-to-debug-visual-studio-code.md
+    - name: Troubleshoot SerializationError
+      href: how-to-troubleshoot-serialization-error.md
 - name: Reference
   items: 
     - name: Python SDK
