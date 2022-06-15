@@ -2607,7 +2607,7 @@ isFloat('<string>', '<locale>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*value*> | Yes | String | The string to examine |
-| <*culture*> | No | String | RFC 4646 culture code |
+| <*locale*> | No | String | The RFC 4646 locale code to use |
 |||||
 
 | Return value | Type | Description |
