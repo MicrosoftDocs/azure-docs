@@ -27,7 +27,7 @@ Group writeback is a valuable tool for administrators of Azure Active Directory 
 
 ## Show writeback columns
 
-From the **All groups** overview page, you can add the group writeback columns **Target writeback type** and **Writeback enabled** to the view.  The **Target writeback type** and **Writeback enabled** columns will be there whether or not the customers have writeback enabled in Azure AD Connect.
+From the **All groups** overview page, you can add the group writeback columns **Target writeback type** and **Writeback enabled** to the view.  The **Target writeback type** and **Writeback enabled** columns are available for the view whether or not you have writeback enabled in Azure AD Connect.
 
 ​:::image type="content" source="./media/groups-write-back-portal/all-groups-columns.png" alt-text="Selecting columns for writeback in the All groups list.":::
 
@@ -44,7 +44,7 @@ You can also configure writeback settings for a group on the property page for t
 - Have enabled the group for writeback
 - Are targeting the writeback type as a security group
 
-:::image type="content" source="./media/groups-write-back-portal/group-properties-view.png" alt-text="Changing writeback settings in the group properties.":::
+:::image type="content" source="./media/groups-write-back-portal/groups-properties-view.png" alt-text="Changing writeback settings in the group properties.":::
  
 ## Next steps
 
