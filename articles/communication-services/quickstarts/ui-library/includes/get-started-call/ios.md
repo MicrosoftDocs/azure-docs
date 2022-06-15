@@ -183,7 +183,7 @@ let remoteOptions = RemoteOptions(for: .groupCall(groupId: uuid),
 Initialize a `RemoteOptions` instance for `.teamsMeeting` locator inside the `startCallComposite` function. Replace `<TEAMS_MEETING_LINK>` with your Teams meeting link for your call and `<DISPLAY_NAME>` with your name.
 
 ```swift
-let remoteOptions = RemoteOptions(for: .teamsMeeting(meetingLink: "<TEAMS_MEETING_LINK>"),
+let remoteOptions = RemoteOptions(for: .teamsMeeting(teamsLink: "<TEAMS_MEETING_LINK>"),
                                   credential: communicationTokenCredential,
                                   displayName: "<DISPLAY_NAME>")
 ```

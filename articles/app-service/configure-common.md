@@ -11,7 +11,7 @@ ms.devlang: azurecli
 ---
 # Configure an App Service app
 
-This article explains how to configure common settings for web apps, mobile back end, or API app.
+This article explains how to configure common settings for web apps, mobile back end, or API app. For Azure Functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md).
 
 ## Configure app settings
 
