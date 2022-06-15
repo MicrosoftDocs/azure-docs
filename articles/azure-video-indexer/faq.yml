@@ -196,7 +196,7 @@ sections:
     questions:
       - question: How much does Azure Video Indexer cost?
         answer: |
-          Azure Video Indexer uses a simple pay-as-you-go pricing model based on the duration of the content input that you index. Additional charges may apply for encoding, streaming, storage, network usage, and media reserved units. For more information, see the [pricing](/azure/azure-video-indexer/) page.
+          Azure Video Indexer uses a simple pay-as-you-go pricing model based on the duration of the content input that you index. Additional charges may apply for encoding, streaming, storage, network usage, and media reserved units. For more information, see the [pricing](./index.yml) page.
 
       - question: When am I billed for using Azure Video Indexer?
         answer: When sending a video to be indexed, the user will define the indexing to be video analysis, audio analysis or both. This will determine which SKUs will be charged. If there is a critical level error during processing, an error code will be returned as a response. In such a case, no billing occurs.  A critical error can be caused by a bug in our code or a critical failure in an internal dependency the service has. Errors such as wrong identification or insight extraction are not considered as critical and a response is returned. In any case where a valid (non-error code) response is returned, billing occurs.
