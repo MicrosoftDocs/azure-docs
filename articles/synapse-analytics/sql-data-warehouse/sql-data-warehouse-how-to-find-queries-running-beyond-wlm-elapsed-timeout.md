@@ -16,7 +16,7 @@ ms.reviewer: wiassaf
 
 This article covers guidance on how to identify queries that are running beyond the query_execution_timeout_sec value configured for the workload group. 
 
-Azure Synapse Analytics provides the ability to [create workload groups for isolating resources](sql-data-warehouse-workload-isolation.md) and [classify workloads to the appropriate workload group](sql-data-warehouse-workload-classification.md). As part of the workload group definition, query_execution_timeout_sec can be configured to set the maximum execution time, in seconds, allowed before the query is cancelled. However, to prevent the return of partial results, queries will not be canceled once they have reached the return phase of execution.
+Azure Synapse Analytics provides the ability to [create workload groups for isolating resources](sql-data-warehouse-workload-isolation.md) and [classify workloads to the appropriate workload group](sql-data-warehouse-workload-classification.md). As part of the workload group definition, query_execution_timeout_sec can be configured to set the maximum execution time, in seconds, allowed before the query is canceled. However, to prevent the return of partial results, queries will not be canceled once they have reached the return phase of execution.
 
 If these queries should be stopped, you can manually kill the session, associated with the query. This article covers guidance on identifying these queries.
 
@@ -81,7 +81,7 @@ For more information, see [sys.dm_pdw_exec_requests](/sql/relational-databases/s
 
 ### Check query execution step
 
-To check if the query is in the return operation step using the request id from the prior step, issue the following query:
+To check if the query is in the return operation step using the request ID from the prior step, issue the following query:
 
 ```sql
 DECLARE @REQUEST_ID varchar(20);
