@@ -17,12 +17,12 @@ This page provides an overview on how to register or license your spacecraft wit
 
 To initiate the spacecraft licensing process, you'll need:
 
-1. A spacecraft object that corresponds to the spacecraft in orbit or slated for launch. The links in this object must match all current and planned filings.
-1. List of ground stations that you wish to use 
+- A spacecraft object that corresponds to the spacecraft in orbit or slated for launch. The links in this object must match all current and planned filings.
+- List of ground stations that you wish to use 
 
 ## Step 1 - Initiate the request
 
-The process starts by initiating the licensing request via the Azure Portal.
+The process starts by initiating the licensing request via the Azure portal.
 
 1. Navigate to the spacecraft object and click on New Support Request under the Support + troubleshooting category to the left.
 1. Choose the following fields:
@@ -40,15 +40,15 @@ The process starts by initiating the licensing request via the Azure Portal.
 1. Click next to Review + Create
 1. Click Create.
 
-## Step 2 - Provide additional details
+## Step 2 - Provide more details
 
-After the request is generated our regulatory team will investigate the request and determine if additional detail is required. If so, a customer support representative will reach out to you with a regulatory intake form. You'll need to input information regarding relevant filings, call signs, orbital parameters, link details, antenna details, point of contacts, etc.
+When the request is generated, our regulatory team will investigate the request and determine if more detail is required. If so, a customer support representative will reach out to you with a regulatory intake form. You'll need to input information regarding relevant filings, call signs, orbital parameters, link details, antenna details, point of contacts, etc.
 
-Please aim to fill out all relevant fields in this form as this helps speeds up the process. When you are done entering information, email this form back to the customer support representative.
+Fill out all relevant fields in this form as it helps speeds up the process. When you're done entering information, email this form back to the customer support representative.
 
 ## Step 3 - Await feedback from our regulatory team
 
-Based on the details provided in the steps above our regulatory team will make an assessment on time and cost to onboard your spacecraft to all requested groundstations. This step will take a few weeks to execute.
+Based on the details provided in the steps above our regulatory team will make an assessment on time and cost to onboard your spacecraft to all requested ground stations. This step will take a few weeks to execute.
 
 Once the determination is made, we'll confirm the cost with you and ask you to authorize proceeding.
 
@@ -58,11 +58,11 @@ Upon authorization, you'll be billed amounts determined in Step 3 and our regula
 
 ## Step 5 - Spacecraft is authorized
 
-Once the licenses are in place, the spacecraft object will be updated by Orbital to represent the licenses held at the specified groundstations. Refer to (to add link to spacecraft concept) to understand how the authorizations are applied.
+Once the licenses are in place, the spacecraft object will be updated by Orbital to represent the licenses held at the specified ground stations. Refer to (to add link to spacecraft concept) to understand how the authorizations are applied.
 
 ## FAQ
 
-Q. Are third party ground stations such as KSAT included in this process
-A. No, the process on this page applies to Microsoft sites only. Refer to (to add link to third party page) for more details on licensing with partner sites.
+Q. Are third party ground stations such as KSAT included in this process?
+A. No, the process on this page applies to Microsoft sites only. For more information, see (to add link to third party page).
 
 ## Next steps
