@@ -92,11 +92,11 @@ You can add or remove resources from a resource group at any time.
     >[!IMPORTANT]
     >If you receive the message `selected <resource-name> is not Cloud Backup for Virtual Machines compatible` then a selected resource is not compatible with Cloud Backup for Virtual Machines. 
 1. On the **Spanning disks** page, select an option for VMs with multiple VMDKs across multiple datastores:
-* Always exclude all spanning datastores 
-    (This is the default option for datastores)
-* Always include all spanning datastores
-    (This is the default for VMs)
-* Manually select the spanning datastores to be included
+    * Always exclude all spanning datastores 
+        (This is the default option for datastores)
+    * Always include all spanning datastores
+        (This is the default for VMs)
+    * Manually select the spanning datastores to be included
 1. On the **Policies** page, select or create one or more backup policies.
     * To use **an existing policy**, select one or more policies from the list.
     * To **create a new policy**:
