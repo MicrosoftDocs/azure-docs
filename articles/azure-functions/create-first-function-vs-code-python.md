@@ -2,7 +2,7 @@
 title: Create a Python function using Visual Studio Code - Azure Functions
 description: Learn how to create a Python function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 05/19/2022
+ms.date: 06/11/2022
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, devdivchpfy22
 adobe-target: true
@@ -45,23 +45,20 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
 
-1. Select the directory location for your project workspace and select **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't select a project folder that is already part of a workspace.
+1. Select the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't select a project folder that is already part of a workspace.
 
 1. Provide the following information at the prompts:
 
-    + **Select a language**: Choose `Python`.
+    |Prompt|Selection|
+    |--|--|
+    |**Select a language**| Choose `Python`.|
+    |**Select a Python interpreter to create a virtual environment**| Choose your preferred Python interpreter. If an option isn't shown, type in the full path to your Python binary.|
+    |**Select a template for your project's first function**| Select `HTTP trigger`.|
+    |**Provide a function name**| Enter `HttpExample`.|
+    |**Authorization level**| Select `Anonymous`, which lets anyone call your function endpoint. For more information about the authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
+    |**Select how you would like to open your project**| Select `Add to workspace`.|
 
-    + **Select a Python interpreter to create a virtual environment**: Choose your preferred Python interpreter. If an option isn't shown, type in the full path to your Python binary.
-
-    + **Select a template for your project's first function**: Select `HTTP trigger`.
-
-    + **Provide a function name**: Enter `HttpExample`.
-
-    + **Authorization level**: Select `Anonymous`, which lets anyone call your function endpoint. For more information about the authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
-
-    + **Select how you would like to open your project**: Select `Add to workspace`.
-
-1. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files).
+1. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. For more information about the files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=python#generated-project-files).
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
@@ -75,19 +72,17 @@ In this section, you create a function app and related resources in your Azure s
 
 1. Choose the Azure icon in the Activity bar, then in the **Resources** area, select the **+** icon and choose the **Create Function App in Azure** option.
 
-    ![Create a resource in Azure subscription](../../includes/media/functions-publish-project-vscode/function-app-create-resource.png)
+    ![Create a resource in your Azure subscription](../../includes/media/functions-publish-project-vscode/function-app-create-resource.png)
 
 1. Provide the following information at the prompts:
 
-    + **Select folder**: Choose a folder from your workspace or browse to one that contains your function app. You won't see this if you already have a valid function app opened.
-
-    + **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
-
-    + **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.
-
-    + **Select a runtime stack**: Choose the version of Python you've been running on locally. You can use the `python3 --version` command to check your version.
-
-    + **Select a location for new resources**: For better performance, select a [region](https://azure.microsoft.com/regions/) near you.
+    |Prompt|Selection|
+    |--|--|
+    |**Select folder**| Choose a folder from your workspace or browse to one that contains your function app. You won't see this if you already have a valid function app opened.|
+    |**Select subscription**| Choose the subscription to use. You won't see this if you only have one subscription.|
+    |**Enter a globally unique name for the function app**| Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.|
+    |**Select a runtime stack**| Choose the version of Python you've been running on locally. You can use the `python3 --version` command to check your version.|
+    |**Select a location for new resources**| For better performance, select a [region](https://azure.microsoft.com/regions/) near you.|
 
     The extension shows the status of individual resources as they are being created in Azure in the **Azure: Activity Log** panel.
 
