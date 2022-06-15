@@ -1,6 +1,6 @@
 ---
 title: Restore VM using Cloud Backup for Virtual Machines
-description: Learn how to restore virtual machines from the cloud backup to the vCenter. 
+description: Learn how to restore virtual machines from a cloud backup to the vCenter. 
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 06/27/2022
@@ -30,8 +30,8 @@ You must have created a backup of the VM using the Cloud Backup for Virtual Mach
 >Restore operations cannot finish successfully if there are snapshots of the VM that were performed by software other than the Cloud Backup for Virtual Machines.
 * The VM must not be in transit.
 The VM that you want to restore must not be in a state of vMotion or Storage vMotion.
-* HA configuration errors
-Ensure there are no high-availability (HA) configuration errors displayed on the vCenter ESXi Host Summary screen before restoring backups to a different location.
+* High Availability (HA) configuration errors
+Ensure there are no HA configuration errors displayed on the vCenter ESXi Host Summary screen before restoring backups to a different location.
 * Restoring to a different location
 
 ### Considerations for restoring VMs from backups

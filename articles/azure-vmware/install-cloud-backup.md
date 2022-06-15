@@ -27,11 +27,11 @@ You'll need to install Cloud Backup for Virtual Machines through the Azure porta
 1. Sign in to your Azure VMware Solution private cloud. 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Install-NetAppCBSA**.
  
-    :::image type="content" source="./media/cloud-backup/run-command.png" alt-text="Screenshot of the Azure interface that shows the configure signal logic step with a backdrop of the Create alert rule page." lightbox="./media/cloud-backup/run-command.png":::
+    :::image type="content" source="./media/cloud-backup/run-command.jpg" alt-text="Screenshot of the Azure interface that shows the configure signal logic step with a backdrop of the Create alert rule page." lightbox="./media/cloud-backup/run-command.jpg":::
 
 1. Provide the required values, then select **Run**. 
 
-    :::image type="content" source="./media/cloud-backup/run-commands-fields.png" alt-text="Image of the Run Command fields which are described in the table below." lightbox="./media/cloud-backup/run-commands-fields.png":::
+    :::image type="content" source="./media/cloud-backup/run-commands-fields.jpg" alt-text="Image of the Run Command fields which are described in the table below." lightbox="./media/cloud-backup/run-commands-fields.jpg":::
 
     | Field      | Value |
     | ------ | ----- |

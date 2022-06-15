@@ -77,7 +77,7 @@ You can add or remove resources from a resource group at any time.
 
 1.  In the left navigation of the vCenter web client page, select **Cloud Backup** for **Virtual Machines** > **Resource Groups**. Then select **+ Create** to start the wizard
 
-    :::image type="content" source="./media/cloud-backup/vSphere-create-resource-group.png" alt-text="The vSphere Client Resource Group interface. At the top left, a red box highlights a button with a green plus sign that reads Create, instructing you to select this button." lightbox="./media/cloud-backup/vSphere-create-resource-group.png":::
+    :::image type="content" source="./media/cloud-backup/vSphere-create-resource-group.jpg" alt-text="The vSphere Client Resource Group interface. At the top left, a red box highlights a button with a green plus sign that reads Create, instructing you to select this button." lightbox="./media/cloud-backup/vSphere-create-resource-group.jpg":::
     
 1. On the **General Info & Notification** page in the wizard, enter the required values.
 1. On the **Resources** page, do the following:
@@ -105,7 +105,7 @@ You can add or remove resources from a resource group at any time.
 1. On the **Schedules** page, configure the backup schedule for each selected policy.
     In the **Starting** field, enter a date and time other than zero. The date must be in the format day/month/year. You must fill in each field. The Cloud Backup for Virtual Machines creates schedules in the time zone in which the Cloud Backup for Virtual Machines is deployed. You can modify the time zone by using the Cloud Backup for Virtual Machines GUI.
 
-    :::image type="content" source="./media/cloud-backup/backup-schedules.png" alt-text="Backup schedules interface showing an hourly backup beginning at 10:22 a.m. on April 26, 2022." lightbox="./media/cloud-backup/backup-schedules.png":::
+    :::image type="content" source="./media/cloud-backup/backup-schedules.jpg" alt-text="Backup schedules interface showing an hourly backup beginning at 10:22 a.m. on April 26, 2022." lightbox="./media/cloud-backup/backup-schedules.jpg":::
 1. Review the summary. If you need to change any information, you can return to any page in the wizard to do so. Select **Finish** to save your settings. 
 
     After you select **Finish**, the new resource group will be added to the resource group list.
@@ -135,7 +135,7 @@ Backup operations are performed on all the resources defined in a resource group
 
 1. In the left navigation of the vCenter web client page, select **Cloud Backup for Virtual Machines** > **Resource Groups**, then select a resource group. Select **Run Now** to start the backup.
 
-    :::image type="content" source="./media/cloud-backup/resource-groups-run-now.png" alt-text="Image of the vSphere Client Resource Group interface. At the top left, a red box highlights a green circular button with a white arrow inside next to text reading Run Now, instructing you to select this button." lightbox="./media/cloud-backup/resource-groups-run-now.png":::
+    :::image type="content" source="./media/cloud-backup/resource-groups-run-now.jpg" alt-text="Image of the vSphere Client Resource Group interface. At the top left, a red box highlights a green circular button with a white arrow inside next to text reading Run Now, instructing you to select this button." lightbox="./media/cloud-backup/resource-groups-run-now.jpg":::
  
     1.1 If the resource group has multiple policies configured, then in the **Backup Now** dialog box, select the policy you want to use for this backup operation.
 1. Select **OK** to initiate the backup.
