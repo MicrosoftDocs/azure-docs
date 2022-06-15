@@ -156,7 +156,7 @@ You've now created your share. The recipients of your share will receive an invi
 
     :::image type="content" source="./media/how-to-receive-share/receive-share-asset-mapped.png" alt-text="Screenshot showing received shares in the Microsoft Purview governance portal, with the share selected, the Assets menu opened, and the status showing as Mapped." border="true"::: 
 
-You can now access the data in the target storage account. 
+1. You can access shared data from the target storage account through Azure portal, Azure Storage Explorer, Azure Storage SDK, PowerShell or CLI. You can also analyze the shared data by connecting your storage account to Azure Synapse Analytics Spark or Databricks.
 
 ## Clean up resources
 

@@ -103,7 +103,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 
     :::image type="content" source="./media/how-to-receive-share/receive-share-asset-mapped.png" alt-text="Screenshot showing received shares in the Microsoft Purview governance portal, with the share selected, the Assets menu opened, and the status showing as Mapped." border="true"::: 
 
-You can now access the data in the target storage account. 
+1. You can access shared data from the target storage account through Azure portal, Azure Storage Explorer, Azure Storage SDK, PowerShell or CLI. You can also analyze the shared data by connecting your storage account to Azure Synapse Analytics Spark or Databricks.
 
 ## Update received share
 
@@ -175,7 +175,7 @@ If you failed to map an asset, it's likely due to the following reasons:
 If you can't access shared data, it's likely due to the following reasons:
 * After asset mapping is successful, it may take some time for the data to appear in the target data store. Try again in a few minutes. Likewise, after you delete asset mapping, it may take a few minutes for the data to disappear in the target data store.
 * You're accessing shared data using a storage API version prior to February 2020. Only storage API version February 2020 and later are supported for accessing shared data. Ensure you're using the latest version of the storage SDK, PowerShell, CLI and Azure Storage Explorer.
-
+* You're accessing shared data using an analytics tool which uses a storage API version prior to February 2020. You can access shared data from Azure Synapse Analytics Spark and Databricks. You won't be able to access shared data using Azure Data Factory, Power BI or AzCopy. 
 
 ## Next steps
 

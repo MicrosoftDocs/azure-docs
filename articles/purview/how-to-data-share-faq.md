@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: purview
 ms.topic: how-to
-ms.date: 05/20/2022
+ms.date: 06/15/2022
 ---
 # FAQ: Azure Storage in-place data share with Microsoft Purview Data Sharing (preview)
 
@@ -51,7 +51,7 @@ To share data back to the data provider, data consumer can create a share and sh
 
 ## Can I access shared data from analytics tools like Azure Synapse?
 
-Yes, you can access shared data from storage clients and Azure analytics tools such as Azure Synapse Analytics Spark and Databricks. You won't be able to access shared data using Azure Data Factory. 
+You can access shared data from storage clients, Azure Synapse Analytics Spark and Databricks. You won't be able to access shared data using Azure Data Factory, Power BI or AzCopy. 
 
 ## Does the recipient of the share need to be a user's email address or can I share data with an application?
 
