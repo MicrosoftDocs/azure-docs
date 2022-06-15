@@ -39,7 +39,7 @@ Front Door (classic) works at Layer 7 (HTTP/HTTPS layer) using anycast protocol 
 With Front Door (classic) you can build, operate, and scale out your dynamic web application and static content. Front Door (classic) enables you to define, manage, and monitor the global routing for your web traffic by optimizing for top-tier end-user performance and reliability through quick global failover.
 Key features included with Front Door (classic):
 
-* Accelerated application performance by using **[split TCP](front-door-traffic-acceleration.md?pivots=front-door-classic##connect-to-the-front-door-edge-location-split-tcp)**-based **[anycast protocol](front-door-traffic-acceleration.md?pivots=front-door-classic#select-the-front-door-edge-location-for-the-request-anycast)**.
+* Accelerated application performance by using **[split TCP](front-door-traffic-acceleration.md?pivots=front-door-classic#connect-to-the-front-door-edge-location-split-tcp)**-based **[anycast protocol](front-door-traffic-acceleration.md?pivots=front-door-classic#select-the-front-door-edge-location-for-the-request-anycast)**.
 
 * Intelligent **[health probe](front-door-health-probes.md)** monitoring for backend resources.
 
