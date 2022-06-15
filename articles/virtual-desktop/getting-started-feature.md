@@ -316,7 +316,9 @@ If you change your mind and want to remove Azure Virtual Desktop resources from 
 
 - *your-prefix*-deployment
 - *your-prefix*-avd
-- *your-prefix*-prerequisite (only if you deployed Azure AD DS with the getting started feature)
+- *your-prefix*-prerequisite (only if you deployed the getting started feature with a new Azure AD DS domain)
+
+To delete the resource groups:
 
 1. Sign in to [the Azure portal](https://portal.azure.com).
 
