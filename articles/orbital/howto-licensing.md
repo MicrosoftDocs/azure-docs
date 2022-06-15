@@ -15,10 +15,10 @@ This page provides an overview on how to register or license your spacecraft wit
 
 ## Prerequisites 
 
-To initiate the spacecraft licensing process you will need:
+To initiate the spacecraft licensing process, you'll need:
 
 1. A spacecraft object that corresponds to the spacecraft in orbit or slated for launch. The links in this object must match all current and planned filings.
-1. List of groundstations that you wish to use 
+1. List of ground stations that you wish to use 
 
 ## Step 1 - Initiate the request
 
@@ -42,7 +42,7 @@ The process starts by initiating the licensing request via the Azure Portal.
 
 ## Step 2 - Provide additional details
 
-After the request is generated our regulatory team will investigate the request and determine if additional detail is required. If so, a customer support representative will reach out to you with a regulatory intake form. You will need to input information regarding relevant filings, callsigns, orbital parameters, link details, antenna details, point of contacts, etc.
+After the request is generated our regulatory team will investigate the request and determine if additional detail is required. If so, a customer support representative will reach out to you with a regulatory intake form. You'll need to input information regarding relevant filings, call signs, orbital parameters, link details, antenna details, point of contacts, etc.
 
 Please aim to fill out all relevant fields in this form as this helps speeds up the process. When you are done entering information, email this form back to the customer support representative.
 
@@ -50,19 +50,19 @@ Please aim to fill out all relevant fields in this form as this helps speeds up 
 
 Based on the details provided in the steps above our regulatory team will make an assessment on time and cost to onboard your spacecraft to all requested groundstations. This step will take a few weeks to execute.
 
-Once the determination is made, we will confirm the cost with you and ask you to authorize proceeding.
+Once the determination is made, we'll confirm the cost with you and ask you to authorize proceeding.
 
 ## Step 4 - Orbital requests the relevant licensing
 
-Upon authorization you will be billed amounts determined in Step 3 and our regulatory team will seek the relevant licenses to enable your spacecraft with the desired groundstations. This step will take 2 to 6 months to execute.
+Upon authorization, you'll be billed amounts determined in Step 3 and our regulatory team will seek the relevant licenses to enable your spacecraft with the desired ground stations. This step will take 2 to 6 months to execute.
 
 ## Step 5 - Spacecraft is authorized
 
-Once the licenses are in place, the spacecraft object will be updated by Orbital to represent the licenses held at the specified groundstations. Please refer to [Spacecraft](concepts-spacecraft.md) to understand how the authorizations are applied.
+Once the licenses are in place, the spacecraft object will be updated by Orbital to represent the licenses held at the specified groundstations. Refer to [Spacecraft](concepts-spacecraft.md) to understand how the authorizations are applied.
 
 ## FAQ
 
 Q. Are third party ground stations such as KSAT included in this process
-A. No, the process on this page applies to Microsoft sites only. Please refer to [Integrate with third party](howto-thirdpary.md) for more details on licensing with partner sites.
+A. No, the process on this page applies to Microsoft sites only. Refer to [Integrate with third party](howto-thirdpary.md) for more details on licensing with partner sites.
 
 ## Next steps

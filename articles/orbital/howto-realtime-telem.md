@@ -1,6 +1,6 @@
 ---
 title: Receive realtime telemetry
-description: Learn how to receive realtime telemetry during contacts.
+description: Learn how to receive real-time telemetry during contacts.
 author: hrshelar
 ms.service: orbital
 ms.topic: how-to
@@ -26,7 +26,7 @@ An Azure Orbital Ground station emits telemetry events can be used to analyze th
 1. To confirm the newly added role assignment, go back to the Access Control (IAM) page and select View access to this resource.
 Congrats! Orbital can now communicate with your hub.
 
-## Enable telemetry for a contact profile in the Azure Portal
+## Enable telemetry for a contact profile in the Azure portal
 
 Ensure the contact profile is configured as follows:
 
@@ -61,11 +61,11 @@ Event Hub documentation provides lots of guidance on how to write simple consume
 - [Java](/azure/event-hubs/event-hubs-java-get-started-send)
 - [JavaScript](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-node-get-started-send)
 
-We have provided [sample code](consume-telemetry.py) based on the Python guide that includes code specific to have to access the expected metadata that Azure Orbital will send with each event and the format of our messages. Please see the Orbital Telemetry Schema section that documents the format of our event messages.
+We have provided [sample code](consume-telemetry.py) based on the Python guide that includes code specific to have to access the expected metadata that Azure Orbital will send with each event and the format of our messages. See the Orbital Telemetry Schema section that documents the format of our event messages.
 
 ## Understanding telemetry points
 
-The groundstation provides telemetry using Avro as a schema. The file is located here (to add): 
+The ground station provides telemetry using Avro as a schema. The file is located here (to add): 
 
 
 ## Next steps
