@@ -27,7 +27,7 @@ The UI Library now gives developers the ability to provide a more customized exp
 #### Usage
 
 ```swift
-// LocalOptions (data not send to server)
+// LocalOptions (data not sent to server)
 let localParticipantViewData = ParticipantViewData(avatar: <Some UIImage>,
                                                    displayName: "<DISPLAY_NAME>")
 let localOptions = LocalOptions(participantViewData: localParticipantViewData)
