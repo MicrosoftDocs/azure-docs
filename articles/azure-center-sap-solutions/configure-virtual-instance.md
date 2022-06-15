@@ -12,7 +12,7 @@ ms.author: ladolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-Every time that you create a new SAP system using *Azure Center for SAP Solutions (ACSS)*, or register an existing SAP system to ACSS, the process creates a *Virtual Instance for SAP (VIS)*. A VIS is a logical representation of an SAP system in Azure. For more information, see the [explanation of a VIS](overview.md#virtual-instance-for-sap).
+Every time that you create a new SAP system using *Azure Center for SAP Solutions (ACSS)*, or register an existing SAP system to ACSS, the process creates a *Virtual Instance for SAP (VIS)*. A VIS is a logical representation of an SAP system in Azure. For more information, see the [explanation of a VIS](overview.md).
 
 This article explains how to view the VIS resource through the Azure portal. You can use these steps to find your SAP system's properties and connect parts of the VIS to other resources like databases.
 
@@ -30,6 +30,8 @@ To configure your VIS in the Azure portal:
 1. In the search field in the navigation menu, enter and select **Azure Center for SAP solutions**.
 1. On the **Azure Center for SAP solutions** overview page, search for and select **Virtual Instances for SAP solutions** in the sidebar menu.
 1. On the **Virtual Instances for SAP solutions** page, select the VIS that you want to view.
+
+    :::image type="content" source="media/configure-virtual-instance/select-vis.png" lightbox="media/configure-virtual-instance/select-vis.png" alt-text="Screenshot of Azure portal, showing the V I S page in the A C S S service with a table of available V I S resources.":::
 
 ## Monitor VIS
 
@@ -49,11 +51,11 @@ In the sidebar menu, look under the section **SAP resources**:
 - To see properties of application server instances, select **App server instances**.
 - To see properties of database instances, select **Databases**.
 
+:::image type="content" source="media/configure-virtual-instance/sap-resources.png" lightbox="media/configure-virtual-instance/sap-resources.png" alt-text="Screenshot of V I S resource in Azure portal, showing S A P resources pages in the sidebar menu for A S C S, App server, and Database instances.":::
+
 ## Connect to HANA database
 
 If you've registered an SAP system and are connecting to a HANA database, you need an SAP username and password.
-
-### Find SAP username
 
 The SAP username is either `system` or `SYSTEM` for:
 
@@ -67,7 +69,13 @@ To retrieve the SAP password:
 
 1. [Open the VIS in the Azure portal](#open-vis-in-portal).
 1. On the overview page, select the **Managed resource group**.
+
+    :::image type="content" source="media/configure-virtual-instance/select-managed-resource-group.png" lightbox="media/configure-virtual-instance/select-managed-resource-group.png" alt-text="Screenshot of V I S resource in the Azure portal, showing selection of managed resource group on the overview page.":::
+
 1. On the resource group's page, select the **Key vault** resource in the table.
+
+    :::image type="content" source="media/configure-virtual-instance/select-key-vault.png" lightbox="media/configure-virtual-instance/select-key-vault.png" alt-text="Screenshot of managed resource group in the Azure portal, showing the selection of the key vault on the overview page.":::
+
 1. On the key vault's page, select **Secrets** in the navigation menu under **Settings**.
 1. Make sure that you have access to all the secrets. If you have correct permissions, you can see the SAP password file listed in the table, which hosts the global password for your SAP system.
 1. Select the SAP password file name to open the secret's page.
@@ -101,7 +109,13 @@ To delete a VIS:
 
 1. [Open the VIS in the Azure portal](#open-vis-in-portal).
 1. On the overview page's menu, select **Delete**.
+
+    :::image type="content" source="media/configure-virtual-instance/delete-vis-button.png" lightbox="media/configure-virtual-instance/delete-vis-button.png" alt-text="Screenshot of V I S resource in the Azure portal, showing delete button in the overview page's menu..":::
+
 1. In the deletion pane, make sure that you want to delete this VIS and related resources. You can see a count for each type of resource to be deleted.
+    
+    :::image type="content" source="media/configure-virtual-instance/delete-vis-prompt.png" lightbox="media/configure-virtual-instance/delete-vis-prompt.png" alt-text="Screenshot of deletion prompt pane for a V I S resource in the Azure portal, showing list of related resources and confirmation field to enable the delete button.":::
+
 1. Enter **YES** in the confirmation field.
 1. Select **Delete** to delete the VIS.
 1. Wait for the deletion operation to complete for the VIS and related resources.
