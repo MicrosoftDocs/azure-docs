@@ -12,7 +12,7 @@ ms.date: 06/15/2022
 ---
 
 
-# Troubleshoot "cannot import name 'SerializationError"
+# Troubleshoot "cannot import name 'SerializationError'"
 
 When using Azure Machine Learning, you may receive the error "Cannot import name 'SerializationError'". This error may occur when using an Azure Machine Learning environment. For example, when submitting a training job.
 
