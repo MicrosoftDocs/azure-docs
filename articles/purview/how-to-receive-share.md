@@ -97,7 +97,7 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 
     You can select "Close" after you've configured the asset mapping. You don't need to wait for the mapping to complete.
 
-    :::image type="content" source="./media/how-to-receive-share/receive-share-map-inprogress.png" alt-text="Screenshot showing the map assets window with a mapping in progress and the close button highlighted at the bottom of the window." border="true":::  
+    :::image type="content" source="./media/how-to-receive-share/receive-share-map-in-progress.png" alt-text="Screenshot showing the map assets window with a mapping in progress and the close button highlighted at the bottom of the window." border="true":::  
 
 1. Select **Assets** tab to monitor mapping status. Once mapping is completed, you'll get a notification in the screen. The status will change from *Mapping* to *Mapped*. 
 
