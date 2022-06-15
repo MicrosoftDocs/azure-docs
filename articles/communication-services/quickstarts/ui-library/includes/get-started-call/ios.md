@@ -233,7 +233,7 @@ class CustomThemeOptions: ThemeOptions {
 let callCompositeOptions = CallCompositeOptions(theme: CustomThemeOptions())
 ```
 
-For more on how theming works, checkout the [Theming guide](../../../../how-tos/ui-library-sdk/theming.md).
+For more on how theming works, check out the [Theming guide](../../../../how-tos/ui-library-sdk/theming.md).
 
 ### Apply localization options
 
@@ -251,7 +251,7 @@ let localizationOptions = LocalizationOptions(locale: Locale(identifier: "fr-FR"
 let callCompositeOptions = CallCompositeOptions(localization: localizationOptions) 
 ```
 
-For more on localization and list of supported langauges, checkout the [Localization guide](../../../../how-tos/ui-library-sdk/localization.md).
+For more on localization and list of supported languages, check out the [Localization guide](../../../../how-tos/ui-library-sdk/localization.md).
 
 ## Add notifications into your mobile app
 
