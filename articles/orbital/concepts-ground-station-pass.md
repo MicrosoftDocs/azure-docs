@@ -1,22 +1,22 @@
 ---
-title: Ground Station Pass 
-description: This page desicribes the Ground Station Pass or Contact object
+title: Ground station pass - Azure Orbital
+description: Learn how to schedule a ground station pass, and create a contact object.
 author: hrshelar
 ms.service: orbital
-ms.topic: tutorial
+ms.topic: conceptual
 ms.custom: ga
-ms.date: 22/05/2022
+ms.date: 06/15/2022
 ms.author: hrshelar
 
 ---
 
-# Ground Station Pass
+# Ground station pass
 
 A ground station pass occurs when the spacecraft is over a specified ground station. Azure Orbital lets the user find available passes on the system and schedule them for use. Ground station pass and contact are used interchangably.
 
 When you schedule a ground station pass a contact object is created under your spacecraft object in your resource group.
 
-## Contact Object
+## Contact object
 
 The contact object is a child resource of the spacecraft object that was used at time of pass scheduling. The contact that is booked on the service is only associated with this spacecraft and cannot be transferred to another spacecraft, resource group, or region.
 
@@ -38,7 +38,7 @@ This object contains the start time and end time of the pass as well as other pa
 
 The RX and TX start/end times may differ depending on the individual station masks. Billing meters are engaged between the Reservation Start Time and Reservation End Time.
 
-## Creating a Contact
+## Creating a contact
 
 In order to create a contact you must have the following pre-requisites:
 
