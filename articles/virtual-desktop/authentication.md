@@ -17,7 +17,7 @@ In this article, we'll give you a brief overview of what kinds of identities and
 
 Azure Virtual desktop supports different types of identities depending on which configuration you choose. This section explains which identities you can use for each configuration.
 
-### On-premise identity
+### On-premises identity
 
 Since users must be discoverable through Azure Active Directory (Azure AD) to access the Azure Virtual Desktop, user identities that exist only in Active Directory Domain Services (AD DS) are not supported. This includes standalone Active Directory deployments with Active Directory Federation Services (AD FS).
 

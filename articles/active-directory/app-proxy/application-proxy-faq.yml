@@ -240,7 +240,7 @@ sections:
               Internal URL: https://app1.contoso.com:/test/
               ```
               
-              Making the external and internal URLs identical is not possible. Different ports or using http and https must be used in the internal and external URLs.
+              Making the external and internal URLs identical is not possible at all, if the internal URL contains a non-standard port (other than TCP 80 / 443).
               
               In some scenarios changes must be done in the configuration of the web app.
 
