@@ -11,6 +11,8 @@ ms.date: 5/6/2019
 
 # Handling transient connectivity errors for Azure Database for PostgreSQL - Single Server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 This article describes how to handle transient errors connecting to Azure Database for PostgreSQL.
 
 ## Transient errors
