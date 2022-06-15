@@ -148,7 +148,7 @@
     href: deploy-arc-for-azure-vmware-solution.md
   - name: Deploy disaster recovery
     items:
-    - name: Deploy JetStream DR
+    - name: Deploy disaster recovery using JetStream DR software
       href: deploy-disaster-recovery-using-jetstream.md
     - name: Deploy VMware HCX for disaster recovery
       href: deploy-disaster-recovery-using-vmware-hcx.md

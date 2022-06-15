@@ -8,7 +8,7 @@ ms.date: 06/14/2022
 
 # Enable SQL Azure hybrid benefit for Azure VMware Solution (Preview)
 
-In this article, you’ll learn how to apply SQL Azure hybrid benefits to your Azure VMware Solution private cloud by configuring a placement policy. The placement policy defines the number of hosts that is running SQL. 
+In this article, you’ll learn how to apply SQL Azure hybrid benefits to your Azure VMware Solution private cloud by configuring a placement policy. The placement policy defines the number of hosts that are running SQL. 
 >[!IMPORTANT]
 > It is important to note that SQL benefits are applied at the host level. 
 
@@ -36,6 +36,6 @@ For example, if each host in AVS has 36 cores and you signal that two hosts run 
 
 After the placement policy is created, you can review, manage, edit the policy by going to the Placement policies menu available in the Azure VMWare Solution private cloud. 
 
-You can also enable existing host-VM policies with the SQL Azure hybrid benefit by checking the Azure hybrid benefit checkbox in the configuration setting for that policy.
+You can also enable existing host-VM affinity policies with the SQL Azure hybrid benefit by checking the Azure hybrid benefit checkbox in the configuration setting for that policy.
 
 :::image type="content" source="media/Sql-azure-hybrid-benefit/placement-policies.png" alt-text="Diagram that shows how to configure virtual machine placement policies":::
