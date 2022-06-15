@@ -93,9 +93,8 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 | --- | --- |
 | Maximum RU/s per container | 5,000 |
 | Maximum storage across all items per (logical) partition | 20 GB |
-| Maximum number of distinct (logical) partition keys | Unlimited |
-| Maximum storage per container (SQL API, Mongo API, Table API, Gremlin API)| 1 TB  |
-| Maximum storage per container (Cassandra API)| 1 TB  |
+| Maximum storage per container | 1 TB  |
+
 
 <sup>1</sup> Serverless containers up to 1 TB are currently in preview with Azure Cosmos DB. To try the new feature, register the *"Azure Cosmos DB Serverless 1 TB Container Preview"* [preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md).
 
