@@ -5,8 +5,8 @@ keywords:
 author: curtand
 manager: karenhoran
 ms.author: curtand
-ms.reviewer: krbain
-ms.date: 06/09/2022
+ms.reviewer: jordan.dahl
+ms.date: 06/18/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -22,9 +22,12 @@ ms.collection: M365-identity-device-management
 
 Group writeback is a valuable tool for administrators of Azure Active Directory (Azure AD) tenants being synced with on-premises Active Directory groups. Microsoft is now previewing new capabilities for group writeback. In this preview, you can specify in the Azure AD admin center which groups you want to write back and what you’d like each group to write back as. You can write Microsoft 365 groups back to on-premises Active Directory as Distribution, Mail-enabled Security, or Security groups, and write Security groups back as Security groups. Groups are written back with a scope of universal​.
 
+>[!NOTE]
+> If you were previously writing Microsoft 365 groups back to on-premises Active Directory as universal distribution groups, they will appear in the Azure portal as not enabled for writeback in both the **Groups** page and in the properties page for a group. This is to ensure backward compatibility with the legacy version of group writeback and to avoid breaking setups that customers currently have.
+
 ## Show writeback columns
 
-From the **All groups** overview page, you can add the group writeback columns **Target writeback type** and **Writeback enabled**.
+From the **All groups** overview page, you can add the group writeback columns **Target writeback type** and **Writeback enabled** to the view.  The **Target writeback type** and **Writeback enabled** columns will be there whether or not the customers have writeback enabled in Azure AD Connect.
 
 ​:::image type="content" source="./media/groups-write-back-portal/all-groups-columns.png" alt-text="Selecting columns for writeback in the All groups list.":::
 
