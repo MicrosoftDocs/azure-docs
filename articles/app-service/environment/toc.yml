@@ -23,7 +23,7 @@
     items:
     - name: Zone redundancy
       href: overview-zone-redundancy.md
-    - name: Migrate to availability zones
+    - name: Migrate to availability zone support
       href: migrate-app-service-env.md
   - name: Certificates
     href: overview-certificates.md
