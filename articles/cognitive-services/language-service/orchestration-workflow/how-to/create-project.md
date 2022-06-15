@@ -101,7 +101,7 @@ You can export an orchestration workflow project as a JSON file at any time.
 
 ---
 
-## Delete resources 
+## Delete project 
 
 ### [Language Studio](#tab/language-studio)
 
