@@ -143,15 +143,49 @@ Unresolved errors listed in the next table affect the quality of training, but d
 | Mismatch | Low signal-noise ratio | Audio SNR level is lower than 20 dB. At least 35 dB is recommended.|
 | Mismatch | No score available |Failed to recognize speech content in this audio. Check the audio and the script content to make sure the audio is valid, and matches the script.|
 
+### Fix data issues online
+
+You can fix the utterances with issues individually on **Data details** page. 
+
+1. On the **Data details** page, select individual utterances you want to edit, then click **Edit**.
+
+   :::image type="content" source="media/custom-voice/cnv-edit-trainingset.png" alt-text="Screenshot of selecting edit button on the Data details page.":::
+
+1. Edit window will be displayed.
+
+   :::image type="content" source="media/custom-voice/cnv-edit-trainingset-editscript.png" alt-text="Screenshot of displaying Edit transcript and recording file window.":::
+
+1. Update transcript or recording file according to issue description on the edit window.
+
+   You can edit transcript in the text box, then click **Done**
+
+   :::image type="content" source="media/custom-voice/cnv-edit-trainingset-scriptedit-done.png" alt-text="Screenshot of selecting Done button on the Edit transcript and recording file window.":::
+
+   If you need to update recording file, select **Update recording file**, then upload the fixed recording file (.wav).
+ 
+   :::image type="content" source="media/custom-voice/cnv-edit-trainingset-upload-recording.png" alt-text="Screenshot that shows how to upload recording file on the Edit transcript and recording file window.":::
+
+1. After the data in a training set are updated, you need to check the data quality by clicking **Analyze data** before using this training set for training. 
+
+   You can't select this training set for training model before the analysis is complete. 
+
+   :::image type="content" source="media/custom-voice/cnv-edit-trainingset-analyze.png" alt-text="Screenshot of selecting Analyze data on Data details page.":::
+
+   You can also delete utterances with issues by selecting them and clicking **Delete**.
+
 ## Train your Custom Neural Voice model
 
 After you validate your data files, you can use them to build your Custom Neural Voice model.
 
 1. On the **Train model** tab, select **Train a new model** to create a voice model with the data you've uploaded.
 
-1. Select the neural training method for your model and target language. 
+1. Select the training method for your model.
 
-    By default, your voice model is trained in the same language of your training data. You can also select to create a secondary language for your voice model. For more information, see [language support for Custom Neural Voice](language-support.md#custom-neural-voice). Also see information about [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for neural training.
+    If you want to create a voice in the same language of your training data, select **Neural** method. For the **Neural** method, you can select different versions of the training recipe for your model. The versions vary according to the features supported and model training time. Normally new versions are enhanced ones with bugs fixed and new features supported. The latest version is selected by default.
+
+    You can also select **Neural - cross lingual** and **Target language** to create a secondary language for your voice model. Only one target language can be selected for a voice model. You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. For the languages supported by cross lingual feature, see [supported languages](language-support.md#custom-neural-voice).
+
+    The same unit price applies to both **Neural** and **Neural - cross lingual**. Check [the pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for training.
 
 1. Choose the data you want to use for training, and specify a speaker file.
 
@@ -239,7 +273,35 @@ On **Add test scripts** window, click **Browse for a file** to select your own s
 
 :::image type="content" source="media/custom-voice/cnv-model-upload-testscripts.png" alt-text="Screenshot of uploading model test scripts.":::
 
-For more information, [learn more about the capabilities and limits of this feature, and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
+### Update engine version for your voice model
+
+Azure Text-to-Speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version.
+
+When a new engine is available, you're prompted to update your neural voice model.
+
+:::image type="content" source="media/custom-voice/cnv-engine-update-prompt.png" alt-text="Screenshot of displaying engine update message." lightbox="media/custom-voice/cnv-engine-update-prompt.png":::
+
+Go to the model details page, click **Update** at the top to display **Update** window.
+
+:::image type="content" source="media/custom-voice/cnv-engine-update.png" alt-text="Screenshot of selecting Update menu at the top of page." lightbox="media/custom-voice/cnv-engine-update.png":::
+
+Then click **Update** to update your model to the latest engine version.
+
+:::image type="content" source="media/custom-voice/cnv-engine-update-done.png" alt-text="Screenshot of selecting Update button to update engine.":::
+
+You're not charged for engine update. The previous versions are still kept. You can check all engine versions for this model from **Engine version** drop-down list, or remove one if you don't need it anymore. 
+
+:::image type="content" source="media/custom-voice/cnv-engine-version.png" alt-text="Screenshot of displaying Engine version drop-down list.":::
+
+The updated version is automatically set as default. But you can change the default version by selecting a version from the drop-down list and clicking **Set as default**.
+
+:::image type="content" source="media/custom-voice/cnv-engine-set-default.png" alt-text="Screenshot that shows how to set a version as default.":::
+
+If you want to test each engine version of your voice model, you can select a version from the drop-down list, then select **DefaultTests** under **Testing** to listen to the sample audios. If you want to upload your own test scripts to further test your current engine version, first make sure the version is set as default, then follow the [testing steps above](#test-your-voice-model).
+
+After you've updated the engine version for your voice model, you need to redeploy this new version. You can only deploy the default version. 
+
+For more information, [learn more about the capabilities and limits of this feature, and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 > [!NOTE]
 > Custom Neural Voice training is only available in some regions. But you can easily copy a neural voice model from these regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#text-to-speech).

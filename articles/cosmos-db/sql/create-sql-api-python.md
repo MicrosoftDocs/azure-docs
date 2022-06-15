@@ -34,7 +34,7 @@ In this quickstart, you create and manage an Azure Cosmos DB SQL API account fro
         * [Visual Studio Monthly Credits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
         * [Azure Cosmos DB Free Tier](../optimize-dev-test.md#azure-cosmos-db-free-tier)
     * Without an Azure active subscription:
-        * [Try Azure Cosmos DB for free](/azure/cosmos-db/try-free), a tests environment that lasts for 30 days.
+        * [Try Azure Cosmos DB for free](../try-free.md), a tests environment that lasts for 30 days.
         * [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) 
 - [Python 2.7 or 3.6+](https://www.python.org/downloads/), with the `python` executable in your `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).
