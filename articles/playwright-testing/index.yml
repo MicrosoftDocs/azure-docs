@@ -1,0 +1,38 @@
+### YamlMime:Landing
+
+title: Microsoft Playwright Testing documentation
+summary: Learn how to run end-to-end tests for your web apps at scale with Microsoft Playwright Testing. Run tests cross-platform and cross-browser and gain actionable insights for troubleshooting. Tutorials, code examples, GitHub Actions, Azure Pipelines, and more.
+
+metadata:
+  title: Microsoft Playwright Testing documentation
+  description: Learn how to run end-to-end tests for your web apps at scale with Microsoft Playwright Testing. Run tests cross-platform and cross-browser and gain actionable insights for troubleshooting. Tutorials, code examples, GitHub Actions, Azure Pipelines, and more.
+  services: playwright-testing
+  ms.service: playwright-testing
+  ms.topic: landing-page
+  ms.collection: collection
+  ms.author: nicktrog
+  author: ntrogh
+  ms.date: 06/13/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Microsoft Playwright Testing
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Microsoft Playwright Testing?
+            url: overview-what-is-microsoft-playwright-testing.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Run end-to-end web tests at scale
+            url: quickstart-run-end-to-end-tests.md
+      - linkListType: tutorial
+        links:
+          - text: Identify issues with end-to-end web tests
+            url: tutorial-identify-issues-with-end-to-end-web-tests.md

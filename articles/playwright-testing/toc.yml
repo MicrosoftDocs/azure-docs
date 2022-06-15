@@ -1,0 +1,19 @@
+items:
+- name: Microsoft Playwright Testing docs
+  href: index.yml
+- name: Overview
+  expanded: true
+  items: 
+    - name: What is Microsoft Playwright Testing?
+      displayName: Playwright, MPT
+      href: overview-what-is-microsoft-playwright-testing.md
+- name: Quickstarts
+  expanded: true
+  items: 
+    - name: Run end-to-end web tests at scale
+      href: quickstart-run-end-to-end-tests.md
+- name: Tutorials
+  expanded: true
+  items: 
+    - name: Identify issues with end-to-end web tests
+      href: tutorial-identify-issues-with-end-to-end-web-tests.md
