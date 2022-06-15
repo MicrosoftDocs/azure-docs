@@ -2651,7 +2651,7 @@ isInt('<string>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*boolean-result*> | Boolean | A boolean indicating whether the string is an integer |
+| <*boolean-result*> | Boolean | A boolean that indicates whether the string is an integer |
 
 *Example*
 
