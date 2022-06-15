@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/06/2022
+ms.date: 06/15/2022
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
 ---
@@ -57,7 +57,11 @@ The core operation of the Translator service is translating text. In this quicks
 
 ### Set up
 
-1. Make sure you have the current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
+1. Make sure you have the current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/).
+
+> [!TIP]
+>
+> If you're new to Visual Studio, try the [**Introduction to Visual Studio**](/learn/modules/go-get-started/) Microsoft Learn module.
 
 1. Open Visual Studio.
 
@@ -102,7 +106,7 @@ The core operation of the Translator service is translating text. In this quicks
 
 1. Open the **Program.cs** file.
 
-1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`. Copy and paste the code sample into your application's Program.cs file. Make sure you update the key and endpoint variables with values from your Translator instance in the Azure portal:
+1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`. Copy and paste the code sample into your application's Program.cs file. Make sure you update the key and endpoint variables with values from your Azure portal Translator instance:
 
 ```csharp
 using System.Text;
@@ -116,8 +120,8 @@ class Program
     static async Task Main(string[] args)
     {
         // Input and output languages are defined as parameters.
-        string route = "/translate?api-version=3.0&from=en&to=de&to=zu";
-        string textToTranslate = "I would really like to drive your car around the block a few times.";
+        string route = "/translate?api-version=3.0&from=en&to=fr&to=zu";
+        string textToTranslate = "I would really like to drive your car around the block a few times!";
         object[] body = new object[] { new { Text = textToTranslate } };
         var requestBody = JsonConvert.SerializeObject(body);
 
@@ -155,11 +159,11 @@ Once you've added a code sample to your application, choose the green Start butt
 
 > [!TIP]
 >
-> If you're new to Go, try the [**Get started with Go**](/learn/modules/go-get-started/) learning module.
+> If you're new to Go, try the [**Get started with Go**](/learn/modules/go-get-started/) Microsoft Learn module.
 
 1. Install Go
 
-* In your favorite web browser, go to the Go [download and install page](https://go.dev/doc/install])
+* In your favorite web browser, go to the Go [download and install page](https://go.dev/doc/install]).
 * Download the version for your operating system.
 * Once the download is complete, run the installer.
 * Open a command prompt and enter the following to confirm Go was installed:
@@ -170,11 +174,11 @@ Once you've added a code sample to your application, choose the green Start butt
 
 1. [Set-up your Go development environment](https://go.dev/doc/editors) with your preferred IDE.
 
-1. Create a new folder and Go file:
+1. In console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **translator-app**, and navigate to it.
 
-* Create a new folder named **translator-app**.
- *Create a new file named **translation.go** inside the **translator-app** folder
-* Copy and paste the code sample into your **translation.go** file. Make sure you update the key and endpoint variables with values from your Translator instance in the Azure portal:
+1. Create a new GO file named **translation.go** from the **translator-app** directory.
+
+1. Copy and paste the provided code sample into your **translation.go** file. Make sure you update the key and endpoint variables with values from your Azure portal Translator instance:
 
 ```go
 package main
@@ -189,12 +193,12 @@ import (
 func main() {
 
     key := "<your-translator-key>"
-    
+
     endpoint :="<your translator-endpoint>"
 
-    url := endpoint + "translate?api-version=3.0&from=en&to=zu"
+    url := endpoint + "translate?api-version=3.0&from=en&to=fr&to=zu"
 
-    payload := strings.NewReader("[\r\n    {\"Text\":\"I would really like to drive your car around the block a few times.\"}\r\n]")
+    payload := strings.NewReader("[\r\n    {\"Text\":\"I would really like to drive your car around the block a few times!\"}\r\n]")
 
     req, _ := http.NewRequest("POST", url, payload)
 
@@ -216,7 +220,7 @@ func main() {
 Once you've added a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **translator-app** folder and use the following command:
 
 ```console
- go run trnslation.go
+ go run translation.go
 ```
 
 ### [Java](#tab/java)
@@ -244,7 +248,11 @@ Once you've added a code sample to your application, your Go program can be exec
     mkdir translator-text-app && translator-text-app
     ```
 
-1. Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+   ```powershell
+    mkdir translator-text-app; cd translator-text-app
+   ```
+
+1. Run the `gradle init` command from the translator-text-app directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
 
     ```console
     gradle init --type basic
@@ -252,7 +260,7 @@ Once you've added a code sample to your application, your Go program can be exec
 
 1. When prompted to choose a **DSL**, select **Kotlin**.
 
-1. Accept the default project name (translator-text-app)
+1. Accept the default project name (translator-text-app) by selecting **Return** or **Enter**.
 
 1. Update `build.gradle.kts` with the following code:
 
@@ -268,17 +276,14 @@ Once you've added a code sample to your application, your Go program can be exec
     mavenCentral()
   }
   dependencies {
-    compile("com.squareup.okhttp:okhttp:2.5.0")
-    compile("com.google.code.gson:gson:2.8.5")
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation("com.google.code.gson:gson:2.9.0")
   }
   ```
 
 ### Create a Java Application
 
-* Create a Java file and copy in the code from the provided sample. Don't forget to add your key.
-* Run the sample: `gradle run`.
-
-1. From the form-recognizer-app directory, run the following command:
+1. From the translator-text-app directory, run the following command:
 
     ```console
     mkdir -p src/main/java
@@ -295,172 +300,24 @@ Once you've added a code sample to your application, your Go program can be exec
     > * You can create a new file using PowerShell.
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item TranslatorText.java**.
+    >
+    > * You can also create a new file in your IDE named `TranslatorText.java`  and save it to the `java` directory.
 
-1. Open the `TranslatorText.java` file and copy in the code from the provided sample.
-
-### [Node.js](#tab/nodejs)
-
-* Create a new project in your favorite IDE or editor.
-* Copy the code from one of the samples into your project.
-* Set your key.
-* Run the program. For example: `node Translate.js`.
-
-
-
-### [Python](#tab/python)
-
-* Create a new project in your favorite IDE or editor.
-* Copy the code from one of the samples into your project.
-* Set your key.
-* Run the program. For example: `python translate.py`.
-
-
-
----
-
-
-
-# [C#](#tab/csharp)
-
-```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
-
-[TODO]Newtonsoft.Json latest stable
-
-class Program
-{
-    private static readonly string key = "YOUR-KEY";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
-
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";
-
-    static async Task Main(string[] args)
-    {
-        // Input and output languages are defined as parameters.
-        string route = "/translate?api-version=3.0&from=en&to=de&to=it";
-        string textToTranslate = "Hello, world!";
-        object[] body = new object[] { new { Text = textToTranslate } };
-        var requestBody = JsonConvert.SerializeObject(body);
-
-        using (var client = new HttpClient())
-        using (var request = new HttpRequestMessage())
-        {
-            // Build the request.
-            request.Method = HttpMethod.Post;
-            request.RequestUri = new Uri(endpoint + route);
-            request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-            request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-            request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-
-            // Send the request and get response.
-            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
-            // Read response as a string.
-            string result = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(result);
-        }
-    }
-}
-```
-
-
-# [Go](#tab/go)
-
-```go
-package main
-
-import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "log"
-    "net/http"
-    "net/url"
-)
-
-func main() {
-    key := "YOUR-KEY"
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
-    endpoint := "https://api.cognitive.microsofttranslator.com/"
-    uri := endpoint + "/translate?api-version=3.0"
-
-    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
-    u, _ := url.Parse(uri)
-    q := u.Query()
-    q.Add("from", "en")
-    q.Add("to", "de")
-    q.Add("to", "it")
-    u.RawQuery = q.Encode()
-
-    // Create an anonymous struct for your request body and encode it to JSON
-    body := []struct {
-        Text string
-    }{
-        {Text: "Hello, world!"},
-    }
-    b, _ := json.Marshal(body)
-
-    // Build the HTTP POST request
-    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
-    if err != nil {
-        log.Fatal(err)
-    }
-    // Add required headers to the request
-    req.Header.Add("Ocp-Apim-Subscription-Key", key)
-    req.Header.Add("Ocp-Apim-Subscription-Region", region)
-    req.Header.Add("Content-Type", "application/json")
-
-    // Call the Translator API
-    res, err := http.DefaultClient.Do(req)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Decode the JSON response
-    var result interface{}
-    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
-        log.Fatal(err)
-    }
-    // Format and print the response to terminal
-    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
-    fmt.Printf("%s\n", prettyJSON)
-}
-```
-
-
-
-# [Java](#tab/java)
+1. Open the `TranslatorText.java` file in your IDE and copy then paste the following code sample into your application. **Make sure you update the key with one of the key values from your Azure portal Translator instance:**
 
 ```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
+import java.io.IOException;
+
 import com.google.gson.*;
-import com.squareup.okhttp.*;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
-public class Translate {
-    private static String key = "YOUR_KEY";
+public class TranslatorText {
+    private static String key = "<your-translator-key";
 
-    // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/translate")
-        .addQueryParameter("api-version", "3.0")
-        .addQueryParameter("from", "en")
-        .addQueryParameter("to", "de")
-        .addQueryParameter("to", "it")
-        .build();
 
     // Instantiates the OkHttpClient.
     OkHttpClient client = new OkHttpClient();
@@ -469,10 +326,11 @@ public class Translate {
     public String Post() throws IOException {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Hello World!\"}]");
-        Request request = new Request.Builder().url(url).post(body)
+                "[{\"Text\": \"I would really like to drive your car around the block a few times!\"}]");
+        Request request = new Request.Builder()
+                .url("https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&to=zu")
+                .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
-                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -489,7 +347,7 @@ public class Translate {
 
     public static void main(String[] args) {
         try {
-            Translate translateRequest = new Translate();
+            TranslatorText translateRequest = new TranslatorText();
             String response = translateRequest.Post();
             System.out.println(prettify(response));
         } catch (Exception e) {
@@ -499,53 +357,144 @@ public class Translate {
 }
 ```
 
+### Build and run your application
 
-# [Node.js](#tab/nodejs)
+Once you've added a code sample to your application, navigate back to your main project directory—**translator-text-app**, open a console window, and enter the following commands:
 
-```Javascript
-const axios = require('axios').default;
-const { v4: uuidv4 } = require('uuid');
+1. Build your application with the `build` command:
 
-var key = "YOUR_KEY";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+    ```console
+    gradle build
+    ```
 
-// Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
+1. Run your application with the `run` command:
 
-axios({
-    baseURL: endpoint,
-    url: '/translate',
-    method: 'post',
-    headers: {
-        'Ocp-Apim-Subscription-Key': key,
-        'Ocp-Apim-Subscription-Region': location,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': uuidv4().toString()
-    },
-    params: {
-        'api-version': '3.0',
-        'from': 'en',
-        'to': ['de', 'it']
-    },
-    data: [{
-        'text': 'Hello World!'
-    }],
-    responseType: 'json'
-}).then(function(response){
-    console.log(JSON.stringify(response.data, null, 4));
-})
+    ```console
+    gradle run
+    ```
+
+### [Node.js](#tab/nodejs)
+
+### Create a Node.js Express application
+
+1. If you haven't done so already, install the latest version of [Node.js](https://nodejs.org/en/download/). Node Package Manager (npm) is included with the Node.js installation.
+
+> [!TIP]
+>
+> If you're new to Node.js, try the [**Introduction to Node.js**](/learn/modules/intro-to-nodejs/) Microsoft Learn module.
+
+1. In a console window (such as cmd, PowerShell, or Bash), create and navigate to a new directory for your app named `translator-app`.
+
+    ```console
+        mkdir translator-app && cd translator-app
+    ```
+
+   ```powershell
+     mkdir translator-app; cd translator-app
+   ```
+
+1. Run the npm init command to initialize the application and scaffold your project.
+
+    ```console
+       npm init
+    ```
+
+1. Specify your project's attributes using the prompts presented in the terminal.
+
+    * The most important attributes are name, version number, and entry point.
+    * We recommend keeping `index.js` for the entry point name. The description, test command, GitHub repository, keywords, author, and license information are optional attributes—they can be skipped for this project.
+    * Accept the suggestions in parentheses by selecting **Return** or **Enter**.
+    * After you've completed the prompts, a `package.json` file will be created in your translator-app directory.
+
+1. Open a console window and use npm to install the `axios` HTTP library and `uuid` package:
+
+    ```console
+       npm install axios uuid
+    ```
+
+1. Create the `index.js` file in the application directory.
+
+     > [!TIP]
+    >
+    > * You can create a new file using PowerShell.
+    > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
+    > * Type the following command **New-Item index.js**.
+    >
+    > * You can also create a new file named `index.js` in your IDE and save it to the `translator-app` directory.
+
+1. Add the following code sample to your `index.js` file. Make sure you update the key and endpoint variables with values from your Azure portal Translator instance:
+
+```javascript
+    const axios = require('axios').default;
+    const { v4: uuidv4 } = require('uuid');
+
+    let key = "<your-translator-key>";
+    let endpoint = "https://api.cognitive.microsofttranslator.com";
+
+    axios({
+        baseURL: endpoint,
+        url: '/translate?api-version=3.0',
+        method: 'post',
+        headers: {
+            'Ocp-Apim-Subscription-Key': key,
+            'Content-type': 'application/json',
+            'X-ClientTraceId': uuidv4().toString()
+        },
+        params: {
+            'api-version': '3.0',
+            'from': 'en',
+            'to': ['fr', 'zu']
+        },
+        data: [{
+            'text': 'I would really like to drive your car around the block a few times!'
+        }],
+        responseType: 'json'
+    }).then(function(response){
+        console.log(JSON.stringify(response.data, null, 4));
+    })
+
 ```
 
+### Run your application
 
+Once you've added the code sample to your application, run your program:
 
+1. Navigate to your application directory (translator-app).
 
-# [Python](#tab/python)
+1. Type the following command in your terminal:
+
+    ```console
+    node index.js
+    ```
+
+### [Python](#tab/python)
+
+### Create a Python application
+
+1. If you haven't done so already, install the latest version of [Python 3.x](https://www.python.org/downloads/). The Python installer package (pip) is included with the Python installation.
+
+> [!TIP]
+>
+> If you're new to Python, try the [**Introduction to Python**](https://docs.microsoft.com/learn/paths/beginner-python/) Microsoft Learn module.
+
+1. Open a terminal window and use pip to install the Requests library and uuid0 package:
+
+    ```console
+       pip install requests uuid0
+    ```
+
+> [!NOTE]
+> Python has a built-in package called json, that is used to work with JSON data.
+
+1. Create a new Python file called **translator-app.py** in your preferred editor or IDE.
+
+1. Add the following code sample to your `translator-app.py` file. Make sure you update the key with one of the values from your Azure portal Translator instance:
+
 ```python
 import requests, uuid, json
 
 # Add your key and endpoint
-key = "YOUR_KEY"
+key = "ba6c4278a6c0412da1d8015ef9930d44"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
@@ -557,51 +506,71 @@ constructed_url = endpoint + path
 
 params = {
     'api-version': '3.0',
-    'from': 'en',
-    'to': ['de', 'it']
+    'to': ['fr', 'zu']
 }
 
 headers = {
     'Ocp-Apim-Subscription-Key': key,
-    'Ocp-Apim-Subscription-Region': location,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }
 
 # You can pass more than one object in body.
 body = [{
-    'text': 'Hello World!'
+    'text': 'I would really like to drive your car around the block a few times!'
 }]
 
 request = requests.post(constructed_url, params=params, headers=headers, json=body)
 response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
+
 ```
+
+### Run your python application
+
+Once you've added a code sample to your application, build and run your program:
+
+1. Navigate to your **translator-app.py** file.
+
+1. Type the following command in your console:
+
+    ```console
+    python translator-app.py
+    ```
 
 ---
 
-After a successful call, you should see the following response:
+### Translation output
+
+After a successful call, you should see the following response: 
 
 ```json
 [
-   {
-      "translations":[
-         {
-            "text":"Ich würde wirklich gerne ein paar Mal mit Ihrem Auto um den Block fahren.",
-            "to":"de"
-         },
-         {
-            "text":"Ngingathanda ngempela ukushayela imoto yakho izikhathi ezimbalwa.",
-            "to":"zu"
-         }
-      ]
-   }
+    {
+        "detectedLanguage": {
+            "language": "en",
+            "score": 1.0
+        },
+        "translations": [
+            {
+                "text": "J'aimerais vraiment conduire votre voiture autour du pâté de maisons plusieurs fois!",
+                "to": "fr"
+            },
+            {
+                "text": "Ngingathanda ngempela ukushayela imoto yakho endaweni evimbelayo izikhathi ezimbalwa!",
+                "to": "zu"
+            }
+        ]
+    }
 ]
 
-```
 
-## Next steps
+That's it, congratulations!
+
+## Next step
+
+In this quickstart, you used the Translator service to translate text. Next, explore the how-to documentation to learn about more Translation txt capabilities: 
 
 > [!div class="nextstepaction"]
-> [How to use Text Translation APIs](use-text-translation-apis.md)
+> [Use Text Translation APIs](use-text-translation-apis.md)
