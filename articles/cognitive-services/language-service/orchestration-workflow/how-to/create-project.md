@@ -33,6 +33,7 @@ Before you start using orchestration workflow, you will need an Azure Language r
 
 > [!NOTE]
 >  * You need to have an **owner** role assigned on the resource group to create a Language resource.
+>  * If you are planning to use question answering, you have to enable question answering in resource creation
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
