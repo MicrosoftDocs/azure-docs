@@ -440,7 +440,7 @@ The `ph` element is used for phonetic pronunciation in SSML documents. The `ph` 
 Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter might represent multiple spoken sounds. Consider the different pronunciations of the letter "c" in the words "candy" and "cease" or the different pronunciations of the letter combination "th" in the words "thing" and "those."
 
 > [!NOTE]
-> At this time, the phonemes tag isn't supported for five voices: et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural, and mt-MT-GarceNeural.
+> Phonemes tag may not work on all locales.
 
 **Syntax**
 
