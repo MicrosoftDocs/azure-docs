@@ -38,7 +38,7 @@ To configure a CORS setting in the DICOM service, specify the following settings
 
 ## Next steps
 
-For more information about DICOM services, see
+For more information about DICOM service, see
 
 > [!div class="nextstepaction"]
 > [Overview of the DICOM service](./dicom-services-overview.md)
