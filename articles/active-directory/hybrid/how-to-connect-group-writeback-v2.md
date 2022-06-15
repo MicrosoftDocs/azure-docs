@@ -47,7 +47,7 @@ The latest version of Group Writeback is enabled tenant-wide and not per Azure A
 ## Deployment guidance
 You will need to deploy [Azure AD Connect version from 2021 December or later (2.0.89.0)](https://www.microsoft.com/download/details.aspx?id=47594) to use the latest version of the group writeback feature. Older builds of Azure AD Connect don't support the new version of Group Writeback and will write back Microsoft 365 groups and Security groups only as Distribution lists, when Group Writeback is enabled.      
 
-It's recommended that you follow the [swing migration](how-to-upgrade-previous-version.md#swing-migration) method for rolling out the new group writeback feature in your environment. This method will provide a clear contingency plan in the event, that a major roll back is necessary. 
+It's recommended that you follow the [swing migration](how-to-upgrade-previous-version.md#swing-migration) method for rolling out the new group writeback feature in your environment. This method will provide a clear contingency plan in the event, that a major rollback is necessary. 
 
 ## Enable group writeback using Azure AD Connect
 
