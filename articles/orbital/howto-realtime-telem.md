@@ -3,17 +3,17 @@ title: Receive realtime telemetry during contacts
 description: Learn how to receive realtime telemetry during contacts.
 author: hrshelar
 ms.service: orbital
-ms.topic: howto
+ms.topic: how-to
 ms.custom: ga
 ms.date: 06/13/2022
-ms.author: hrshelar, mikailasmith
+ms.author: mikailasmith
 ---
 
 # Receive realtime telemetry during contacts
 
 An Azure Orbital Ground station emits telemetry events can be used to analyze the ground station operation for the duration of the contact. You can configure your contact profile to send such telemetry events to Azure Event Hubs. The steps below describe how to create an event hub and grant Azure Orbital access to send events to it.
 
-## Configure Event Hubs
+## Configure event hubs
 
 1. In your subscription, go to Resource Provider settings and register Microsoft.Orbital as a provider
 1. Create an Azure Event Hub  in your subscription.
@@ -26,20 +26,20 @@ An Azure Orbital Ground station emits telemetry events can be used to analyze th
 1. To confirm the newly added role assignment, go back to the Access Control (IAM) page and select View access to this resource.
 Congrats! Orbital can now communicate with your hub.
 
-## Enable Telemetry for a Contact Profile in the Azure Portal
+## Enable telemetry for a contact profile in the Azure Portal
 
 Ensure the contact profile is configured as follows:
 
 Choose a namespace using the Event Hub Namespace dropdown
 Choose an instance using the Event Hub Instance dropdown that appears after namespace selection.
 
-## Schedule a Contact
+## Schedule a contact
 
 Schedule a contact using the Contact Profile that you previously configured for Telemetry.
 
 Once the contact begins, you should begin seeing data in your Event Hub soon after.
 
-## Verifying Telemetry Data
+## Verifying telemetry data
 You can verify both the presence and content of incoming telemetry data multiple ways.
 
 *Portal: Event Hub Capture*
@@ -56,19 +56,20 @@ Once enabled, you can check your container and view/download the data.
 
 Code: Event Hub Consumer 
 Event Hub documentation provides lots of guidance on how to write simple consumer apps to receive events from your Event Hubs:
-•	Python: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-python-get-started-send
-•	.NET: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send
-•	Java: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-java-get-started-send
-•	JavaScript: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-node-get-started-send
-We have provided sample code (consume-telemetry.py) based on the Python guide that includes code  specific to have to access the expected metadata that Azure Orbital will send with each event and the format of our messages. Please see the Orbital Telemetry Schema section below that documents the format of our event messages.
+- [Python](/azure/event-hubs/event-hubs-python-get-started-send)
+- [.NET](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
+- [Java](/azure/event-hubs/event-hubs-java-get-started-send)
+- [JavaScript](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-node-get-started-send)
+
+We have provided [sample code](consume-telemetry.py) based on the Python guide that includes code specific to have to access the expected metadata that Azure Orbital will send with each event and the format of our messages. Please see the Orbital Telemetry Schema section that documents the format of our event messages.
 
 ## Understanding telemetry points
 
 The groundstation provides telemetry using Avro as a schema. The file is located here (to add): 
 
 
-## Helpful links
+## Next steps
 
-•	Event Hubs using Python Getting Started: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-python-get-started-send
-•	Azure Event Hubs client library for Python code samples: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub/azure-eventhub/samples/async_samples
+- [Event Hubs using Python Getting Started](/azure/event-hubs/event-hubs-python-get-started-send)
+- [Azure Event Hubs client library for Python code samples](/azure-sdk-for-python/tree/main/sdk/eventhub/azure-eventhub/samples/async_samples)
 

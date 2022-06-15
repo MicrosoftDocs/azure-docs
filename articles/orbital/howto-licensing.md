@@ -3,13 +3,13 @@ title: Spacecraft Licensing and Regulatory
 description: Learn how to license your spacecraft with Orbital.
 author: hrshelar
 ms.service: orbital
-ms.topic: concepts
+ms.topic: how-to
 ms.custom: ga
 ms.date: 06/13/2022
 ms.author: hrshelar
 ---
 
-# Spacecraft Licensing and Regulatory
+# License your spacecraft
 
 This page provides an overview on how to properly register or license your spacecraft with Azure Orbital.
 
@@ -65,4 +65,4 @@ Once the licenses are in place, the spacecraft object will be updated by Orbital
 Q. Are third party ground stations such as KSAT included in this process
 A. No, the process on this page applies to Microsoft sites only. Please refer to [Integrate with third party](howto-thirdpary.md) for more details on licensing with partner sites.
 
-
+## Next steps
