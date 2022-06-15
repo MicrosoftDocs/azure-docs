@@ -1,6 +1,6 @@
 ---
-title: Upgrade a directly connected Azure Arc-enabled Managed Instance using the CLI
-description: Article describes how to upgrade a directly connected Azure Arc-enabled Managed Instance using the CLI
+title: Upgrade a directly connected Azure SQL Managed Instance for Azure Arc using the CLI
+description: Article describes how to upgrade a directly connected Azure SQL Managed Instance for Azure Arc using the CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -12,7 +12,7 @@ ms.date: 05/27/2022
 ms.topic: how-to
 ---
 
-# Upgrade a directly connected Azure Arc-enabled Managed Instance using the CLI
+# Upgrade an Azure SQL Managed Instance directly connected to Azure Arc using the CLI
 
 This article describes how to upgrade an Azure SQL Managed Instance deployed on a directly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
@@ -20,7 +20,7 @@ This article describes how to upgrade an Azure SQL Managed Instance deployed on 
 
 ### Install tools
 
-Before you can proceed with the tasks in this article you need to install:
+Before you can proceed with the tasks in this article, install:
 
 - The [Azure CLI (az)](/cli/azure/install-azure-cli)
 - The [`arcdata` extension for Azure CLI](install-arcdata-extension.md)
@@ -33,11 +33,11 @@ The Azure Arc data controller must be upgraded to the new version before the man
 
 The managed instance must be at the same version as the data controller before a data controller is upgraded.
 
-There is no batch upgrade process available at this time.
+There's no batch upgrade process available at this time.
 
 ## Upgrade the managed instance
 
-A dry run can be performed first. This will validate the version schema and list which instance(s) will be upgraded.
+You can perform a dry run first. The dry run validates the version schema and list which instance(s) will be upgraded. Use `--dry-run`. For example:
 
 ````cli
 az sql mi-arc upgrade --resource-group <resource group> --name <instance name> --dry-run 
